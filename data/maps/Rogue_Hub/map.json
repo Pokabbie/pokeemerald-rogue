@@ -1,0 +1,67 @@
+{
+  "id": "MAP_ROGUE_HUB",
+  "name": "Rogue_Hub",
+  "layout": "LAYOUT_ROGUE_HUB",
+  "music": "MUS_EVER_GRANDE",
+  "region_map_section": "MAPSEC_ALTERING_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TRUCK",
+      "x": 21,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 21,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_NONE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "RogueHub_EventScript_ExitSign"
+    }
+  ]
+}

@@ -22,6 +22,7 @@
 	.include "src/overworld.o"
 	.include "src/field_camera.o"
 	.include "src/script.o"
+	.include "src/rogue_controller.o"
 	.include "src/scrcmd.o"
 	.include "src/tileset_anims.o"
 	.include "src/palette.o"

@@ -45,6 +45,8 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 
+#include "rogue_controller.h"
+
 extern const u8 EventScript_ResetAllMapFlags[];
 
 static void ClearFrontierRecord(void);
@@ -125,6 +127,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+    // HMM
     SetWarpDestination(MAP_GROUP(INSIDE_OF_TRUCK), MAP_NUM(INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
     WarpIntoMap();
 }
@@ -203,6 +206,7 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    Rogue_OnNewGame();
 }
 
 static void ResetMiniGamesRecords(void)

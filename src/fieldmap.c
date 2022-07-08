@@ -17,6 +17,8 @@
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 
+#include "rogue_controller.h"
+
 struct ConnectionFlags
 {
     u8 south:1;
@@ -73,6 +75,7 @@ void InitMap(void)
     InitMapLayoutData(&gMapHeader);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     RunOnLoadMapScript();
+    Rogue_OnLoadMap();
 }
 
 void InitMapFromSavedGame(void)
@@ -82,6 +85,7 @@ void InitMapFromSavedGame(void)
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     LoadSavedMapView();
     RunOnLoadMapScript();
+    Rogue_OnLoadMap();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
 }
 

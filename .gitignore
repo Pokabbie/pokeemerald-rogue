@@ -38,3 +38,4 @@ porymap.project.cfg
 *.diff
 *.sym
 *.js
+tools/poryscript/*

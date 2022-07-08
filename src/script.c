@@ -6,6 +6,8 @@
 #include "constants/event_objects.h"
 #include "constants/map_scripts.h"
 
+//#include "rogue_controller.h"
+
 #define RAM_SCRIPT_MAGIC 51
 
 enum {
@@ -307,6 +309,7 @@ u8 *MapHeaderCheckScriptTable(u8 tag)
 void RunOnLoadMapScript(void)
 {
     MapHeaderRunScriptType(MAP_SCRIPT_ON_LOAD);
+    //Rogue_OnLoadMap();
 }
 
 void RunOnTransitionMapScript(void)

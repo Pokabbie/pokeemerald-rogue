@@ -2401,6 +2401,8 @@ void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
 
 void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
 {
+    // HMMMMM
+
     s32 i;
     u8 nickname[30];
     u8 language;

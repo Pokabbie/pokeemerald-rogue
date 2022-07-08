@@ -4410,6 +4410,26 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB",
+      "name": "Rogue_Hub_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/Rogue_Hub/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_TRANSITION",
+      "name": "Rogue_HubTransition_Layout",
+      "width": 21,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Rogue_HubTransition/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_HubTransition/map.bin"
     }
   ]
 }

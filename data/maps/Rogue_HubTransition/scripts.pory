@@ -1,0 +1,11 @@
+mapscripts Rogue_HubTransition_MapScripts
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE {
+        applymovement(OBJ_EVENT_ID_PLAYER, LookNorth)
+        waitmovement(0)
+    }
+}
+
+movement LookNorth {
+    face_up
+}

@@ -190,6 +190,8 @@ static void Task_HandleTruckSequence(u8 taskId)
 {
    s16 *data = gTasks[taskId].data;
 
+    // Edit truck sequence?
+
     switch (tState)
     {
     case 0:

@@ -1442,6 +1442,8 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
 
 static u8 TrySpawnObjectEventTemplate(struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
+    // TODO - Hook up some callback here?
+
     u8 objectEventId;
     struct SpriteTemplate spriteTemplate;
     struct SpriteFrameImage spriteFrameImage;

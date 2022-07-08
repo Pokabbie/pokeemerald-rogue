@@ -123,6 +123,7 @@ SECTIONS {
         src/event_object_lock.o(.text);
         src/text_window.o(.text);
         src/script.o(.text);
+        src/rogue_controller.o(.text);
         src/scrcmd.o(.text);
         src/field_control_avatar.o(.text);
         src/event_data.o(.text);
