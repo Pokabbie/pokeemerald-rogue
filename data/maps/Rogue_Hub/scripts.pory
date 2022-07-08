@@ -9,12 +9,19 @@ mapscripts Rogue_Hub_MapScripts
 //	msgbox(format("The journey begins beyond this point.."), MSGBOX_SIGN)
 //}
 
+script RogueHub_TrainerBattle
+{
+	trainerbattle_single(TRAINER_WALLACE, "a", "o")
+	//trainerbattle_single(TRAINER_WALLACE, "a", "o")
+}
+
 script RogueHub_ResetRun
 {
     removemoney(100000000000000)
-    addmoney(100000)
+    addmoney(1000)
     
     givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
+    givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
     //giveitem(ITEM_ULTRA_BALL, 20)
 }
 

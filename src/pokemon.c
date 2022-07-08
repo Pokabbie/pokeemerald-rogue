@@ -4613,6 +4613,8 @@ void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex)
 
 void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
 {
+    // RogueNote: copy team to battlemons
+
     u16* hpSwitchout;
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH * 2];

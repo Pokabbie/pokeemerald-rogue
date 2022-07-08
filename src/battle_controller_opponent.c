@@ -561,6 +561,8 @@ static void OpponentHandleGetMonData(void)
 
 static u32 GetOpponentMonData(u8 monId, u8 *dst)
 {
+    // RogueNote: enemy
+
     struct BattlePokemon battleMon;
     struct MovePpInfo moveData;
     u8 nickname[20];
@@ -903,6 +905,8 @@ static void OpponentHandleSetMonData(void)
 
 static void SetOpponentMonData(u8 monId)
 {
+    // RogueNote: set enemy team
+
     struct BattlePokemon *battlePokemon = (struct BattlePokemon *)&gBattleBufferA[gActiveBattler][3];
     struct MovePpInfo *moveData = (struct MovePpInfo *)&gBattleBufferA[gActiveBattler][3];
     s32 i;

@@ -302,6 +302,8 @@ static void SetPerformedRentalSwap(void)
 
 static void GenerateOpponentMons(void)
 {
+    // RogueNote: generate team
+
     int i, j, k;
     u16 species[FRONTIER_PARTY_SIZE];
     u16 heldItems[FRONTIER_PARTY_SIZE];

@@ -2983,6 +2983,8 @@ static void Cmd_tryfaintmon(void)
                 if (gBattleResults.playerFaintCounter < 255)
                     gBattleResults.playerFaintCounter++;
                 AdjustFriendshipOnBattleFaint(gActiveBattler);
+
+                // RogueNote: kill mon
             }
             else
             {
@@ -9875,6 +9877,8 @@ static void Cmd_handleballthrow(void)
             }
         }
 
+        // RogueNote: catching odds
+
         if (odds > 254) // mon caught
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
@@ -9923,6 +9927,8 @@ static void Cmd_handleballthrow(void)
 
 static void Cmd_givecaughtmon(void)
 {
+    // RogueNote: Don't allow PC captures
+
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())

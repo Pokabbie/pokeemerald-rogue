@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/layouts.h"
+#include "battle_setup.h"
 #include "event_data.h"
 
 #include "rogue_controller.h"
@@ -29,6 +30,8 @@ void Rogue_OnNewGame(void)
 
 void Rogue_OnLoadMap(void)
 {
+    // TODO - Remove this
+
     // Seems to be working? Need to track against flag here though, as this gets called for started maps
     //FlagSet(FLAG_SYS_POKEMON_GET);
     
@@ -65,6 +68,16 @@ void Rogue_OnWarpIntoMap(void)
     {
         FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     }
+
+    if(Rogue_IsRunActive())
+    {
+        // Reset trainer encounters
+        s16 i;
+        for(i = 0; i < TRAINERS_COUNT; ++i)
+        {
+            ClearTrainerFlag(TRAINER_FLAGS_START + i);
+        }
+    }
 }
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
@@ -77,6 +90,25 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         warp->x = -1;
         warp->y = -1;
     }
+}
+
+void Rogue_Battle_StartTrainerBattle(void)
+{
+    //extern u16 gTrainerBattleOpponent_A;
+    //extern u16 gTrainerBattleOpponent_B;
+
+    if(gTrainerBattleOpponent_A != 0)
+    {
+        gTrainerBattleOpponent_A = TRAINER_DRAKE;
+    }
+}
+
+void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+{
+    //gTrainers[trainerNum]
+
+    level = 69;
+    CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
 }
 
 //struct WarpEvent

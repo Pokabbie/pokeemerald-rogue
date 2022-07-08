@@ -47,6 +47,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
+
 enum {
     TRANSITION_TYPE_NORMAL,
     TRANSITION_TYPE_CAVE,
@@ -1101,6 +1103,8 @@ void SetMapVarsToTrainer(void)
 
 const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
+    // RogueNote: mons
+
     InitTrainerBattleVariables();
     sTrainerBattleMode = TrainerBattleLoadArg8(data);
 
@@ -1270,6 +1274,10 @@ void ClearTrainerFlag(u16 trainerId)
 
 void BattleSetup_StartTrainerBattle(void)
 {
+    // RogueNote: battle
+    Rogue_Battle_StartTrainerBattle();
+
+
     if (gNoOfApproachingTrainers == 2)
         gBattleTypeFlags = (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TRAINER);
     else
