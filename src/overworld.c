@@ -67,6 +67,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
+
 struct CableClubPlayer
 {
     u8 playerId;
@@ -561,6 +563,8 @@ static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId
     warp->warpId = warpId;
     warp->x = x;
     warp->y = y;
+
+    //Rogue_OnSetWarpData(warp);
 }
 
 static bool32 IsDummyWarp(struct WarpData *warp)
@@ -631,11 +635,14 @@ void WarpIntoMap(void)
     ApplyCurrentWarp();
     LoadCurrentMapData();
     SetPlayerCoordsFromWarp();
+
+    Rogue_OnWarpIntoMap();
 }
 
 void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
+    Rogue_OnSetWarpData(&sWarpDestination);
 }
 
 void SetWarpDestinationToMapWarp(s8 mapGroup, s8 mapNum, s8 warpId)
