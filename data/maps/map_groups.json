@@ -586,7 +586,8 @@
     "NavelRock_Bottom",
     "TrainerHill_Elevator",
     "Rogue_Hub",
-    "Rogue_HubTransition"
+    "Rogue_HubTransition",
+    "Rogue_Route_Field0"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

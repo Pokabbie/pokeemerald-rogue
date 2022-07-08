@@ -1059,3 +1059,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Hub/scripts.inc"
 
 	.include "data/maps/Rogue_HubTransition/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Field0/scripts.inc"

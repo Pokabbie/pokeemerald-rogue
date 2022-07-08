@@ -1,0 +1,21 @@
+
+const MY_ID = 3
+
+mapscripts Rogue_Route_Field0_MapScripts
+{
+    //MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: Rogue_FaceWest
+}
+
+//script Rogue_FaceWest
+//{
+//    setvar(VAR_TEMP_1, 1)
+//    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+//    end
+//}
+
+script Rogue_Battle_Event_Obj_1
+{
+    trainerbattle_single(TRAINER_CINDY_1, format("Let's battle!"), format("Oh shoot.."))
+    msgbox(format("..."), MSGBOX_AUTOCLOSE)
+}
+

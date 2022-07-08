@@ -556,6 +556,7 @@
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
 #define MAP_ROGUE_HUB                                       (89 | (26 << 8))
 #define MAP_ROGUE_HUB_TRANSITION                            (90 | (26 << 8))
+#define MAP_ROGUE_ROUTE_FIELD0                              (91 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

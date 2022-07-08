@@ -23,7 +23,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     FlagSet(FLAG_SYS_B_DASH);
-    FlagSet(FLAG_SYS_POKEDEX_GET);
+    //FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
     EnableNationalPokedex();
 }
@@ -63,10 +63,12 @@ void Rogue_OnWarpIntoMap(void)
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
         FlagSet(FLAG_ROGUE_RUN_ACTIVE);
+        FlagClear(FLAG_SYS_POKEDEX_GET);
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB)
     {
         FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+        FlagSet(FLAG_SYS_POKEDEX_GET);
     }
 
     if(Rogue_IsRunActive())
@@ -75,7 +77,7 @@ void Rogue_OnWarpIntoMap(void)
         s16 i;
         for(i = 0; i < TRAINERS_COUNT; ++i)
         {
-            ClearTrainerFlag(TRAINER_FLAGS_START + i);
+            ClearTrainerFlag(i);
         }
     }
 }
@@ -84,8 +86,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 {
     if(Rogue_IsRunActive())
     {
-        warp->mapGroup = MAP_GROUP(ROUTE101);
-        warp->mapNum = MAP_NUM(ROUTE101);
+        warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
+        warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
         warp->warpId = 0;
         warp->x = -1;
         warp->y = -1;
@@ -98,17 +100,18 @@ void Rogue_Battle_StartTrainerBattle(void)
     //extern u16 gTrainerBattleOpponent_B;
 
     // TODO - this doesn't really work as it messes up the trainer encounter flag..
-    if(gTrainerBattleOpponent_A != 0)
-    {
-        gTrainerBattleOpponent_A = TRAINER_DRAKE;
-    }
+    //if(gTrainerBattleOpponent_A != 0)
+    //
+    //   gTrainerBattleOpponent_A = TRAINER_DRAKE;
+    //
 }
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     //gTrainers[trainerNum]
 
-    level = 69;
+    species = SPECIES_YANMA;
+    level = 5;
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
 }
 
