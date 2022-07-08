@@ -22,6 +22,8 @@
 #include "constants/layouts.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
+
 extern const u8 EventScript_RepelWoreOff[];
 
 #define MAX_ENCOUNTER_RATE 2880
@@ -374,6 +376,8 @@ static u8 PickWildMonNature(void)
 
 static void CreateWildMon(u16 species, u8 level)
 {
+    // RogueNote: Modify wild mons
+
     bool32 checkCuteCharm;
 
     ZeroEnemyPartyMons();
@@ -412,8 +416,9 @@ static void CreateWildMon(u16 species, u8 level)
 
 static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 area, u8 flags)
 {
+    u16 species = 0;
+    u8 level = 0;
     u8 wildMonIndex = 0;
-    u8 level;
 
     switch (area)
     {
@@ -436,23 +441,32 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         break;
     }
 
+    species = wildMonInfo->wildPokemon[wildMonIndex].species;
     level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
+
+    // Allow Rogue to re-choose the wildmon
+    Rogue_CreateWildMon(area, &species, &level);
+
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    CreateWildMon(species, level);
     return TRUE;
 }
 
 static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 rod)
 {
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
+    u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
     u8 level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
-    return wildMonInfo->wildPokemon[wildMonIndex].species;
+    // Allow Rogue to re-choose the wildmon
+    Rogue_CreateWildMon(WILD_AREA_WATER, &species, &level);
+
+    CreateWildMon(species, level);
+    return species;
 }
 
 static bool8 SetUpMassOutbreakEncounter(u8 flags)

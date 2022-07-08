@@ -97,6 +97,7 @@ void Rogue_Battle_StartTrainerBattle(void)
     //extern u16 gTrainerBattleOpponent_A;
     //extern u16 gTrainerBattleOpponent_B;
 
+    // TODO - this doesn't really work as it messes up the trainer encounter flag..
     if(gTrainerBattleOpponent_A != 0)
     {
         gTrainerBattleOpponent_A = TRAINER_DRAKE;
@@ -109,6 +110,15 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8
 
     level = 69;
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+}
+
+void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
+{
+    if(Rogue_IsRunActive())
+    {
+        *species = 120;
+        *level = 69;
+    }
 }
 
 //struct WarpEvent
