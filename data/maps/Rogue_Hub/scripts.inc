@@ -3,24 +3,19 @@ Rogue_Hub_MapScripts::
 	.byte 0
 
 
-RogueHub_EventScript_ExitSign::
-	msgbox RogueHub_EventScript_ExitSign_Text_0, MSGBOX_SIGN
-	return
-
-
 RogueHub_ResetRun::
 	removemoney 100000000000000
-	addmoney 1000
+	addmoney 100000
 	givemon SPECIES_EEVEE, 5, ITEM_ORAN_BERRY
 	return
 
 
-ScriptWithPokemart::
+RogueHub_EventScript_ExitSign::
 	lock
-	message ScriptWithPokemart_Text_0
+	message RogueHub_EventScript_ExitSign_Text_0
 	waitmessage
 	pokemart MyMartItems
-	msgbox ScriptWithPokemart_Text_1
+	msgbox RogueHub_EventScript_ExitSign_Text_1
 	release
 	return
 
@@ -32,13 +27,11 @@ MyMartItems:
 	.2byte ITEM_RARE_CANDY
 	.2byte ITEM_LEMONADE
 	.2byte ITEM_BERRY_JUICE
+	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_NONE
 
 RogueHub_EventScript_ExitSign_Text_0:
-	.string "The journey begins beyond this point..$"
-
-ScriptWithPokemart_Text_0:
 	.string "Welcome to my store.$"
 
-ScriptWithPokemart_Text_1:
+RogueHub_EventScript_ExitSign_Text_1:
 	.string "Come again soon.$"

@@ -4,20 +4,21 @@ mapscripts Rogue_Hub_MapScripts
     MAP_SCRIPT_ON_LOAD: RogueHub_ResetRun
 }
 
-script RogueHub_EventScript_ExitSign
-{
-    msgbox(format("The journey begins beyond this point.."), MSGBOX_SIGN)
-}
+//script RogueHub_EventScript_ExitSign
+//{
+//	msgbox(format("The journey begins beyond this point.."), MSGBOX_SIGN)
+//}
 
 script RogueHub_ResetRun
 {
     removemoney(100000000000000)
-    addmoney(1000)
+    addmoney(100000)
     
     givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
+    //giveitem(ITEM_ULTRA_BALL, 20)
 }
 
-script ScriptWithPokemart {
+script RogueHub_EventScript_ExitSign { //ScriptWithPokemart {
 	lock
 	message("Welcome to my store.")
 	waitmessage
@@ -32,4 +33,5 @@ mart MyMartItems {
 	ITEM_RARE_CANDY
 	ITEM_LEMONADE
 	ITEM_BERRY_JUICE
+	ITEM_ULTRA_BALL
 }

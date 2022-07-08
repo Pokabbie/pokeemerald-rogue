@@ -2736,6 +2736,8 @@ static void PlayerHandleExpUpdate(void)
         s16 expPointsToGive;
         u8 taskId;
 
+        // RogueNote: exp
+
         LoadBattleBarGfx(1);
         GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);  // Unused return value.
         expPointsToGive = T1_READ_16(&gBattleBufferA[gActiveBattler][2]);

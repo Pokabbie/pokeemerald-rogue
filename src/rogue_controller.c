@@ -12,10 +12,13 @@ bool8 Rogue_IsRunActive(void)
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
 }
 
+bool8 Rogue_ForceExpAll(void)
+{
+    return TRUE;
+}
+
 void Rogue_OnNewGame(void)
 {
-//u8 FlagClear(u16 id);
-//bool8 FlagGet(u16 id);
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     FlagSet(FLAG_SYS_B_DASH);
