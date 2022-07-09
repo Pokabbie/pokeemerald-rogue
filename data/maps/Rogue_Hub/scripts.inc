@@ -39,6 +39,7 @@ MyMartItems:
 	.2byte ITEM_SUN_STONE
 	.2byte ITEM_MOON_STONE
 	.2byte ITEM_SOOTHE_BELL
+	.2byte ITEM_EXP_SHARE
 	.2byte ITEM_NONE
 
 RogueHub_TrainerBattle_Text_0:
