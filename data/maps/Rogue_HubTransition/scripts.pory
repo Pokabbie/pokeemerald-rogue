@@ -10,22 +10,113 @@ movement LookNorth {
     face_up
 }
 
-script Rogue_Battle_Trainer0
+// Re-used scripts
+//
+
+// Trainer Blocks
+//
+script Rogue_Battle_BreederF
 {
-    trainerbattle_single(TRAINER_CINDY_1, format("Let's battle 0!"), format("Oh shoot.."))
-    //removeobject(1)
-    //setflag(FLAG_ROGUE_TRAINER0)
-    msgbox(format("... 0"), MSGBOX_AUTOCLOSE)
+    trainerbattle_single(TRAINER_ROGUE_BREEDER_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_BreederM
+{
+    trainerbattle_single(TRAINER_ROGUE_BREEDER_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
 }
 
-script Rogue_Battle_Trainer1
+script Rogue_Battle_RichF
 {
-    trainerbattle_single(TRAINER_DAPHNE, format("Let's battle 1!"), format("Oh shoot.."))
-    //removeobject(1)
-    //setflag(FLAG_ROGUE_TRAINER0)
-    msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
+    trainerbattle_single(TRAINER_ROGUE_RICH_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_RichM
+{
+    trainerbattle_single(TRAINER_ROGUE_RICH_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
 }
 
+script Rogue_Battle_CooltrainerF
+{
+    trainerbattle_single(TRAINER_ROGUE_COOLTRAINER_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_CooltrainerM
+{
+    trainerbattle_single(TRAINER_ROGUE_COOLTRAINER_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_PokefanF
+{
+    trainerbattle_single(TRAINER_ROGUE_POKEFAN_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_PokefanM
+{
+    trainerbattle_single(TRAINER_ROGUE_POKEFAN_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_SchoolkidF
+{
+    trainerbattle_single(TRAINER_ROGUE_SCHOOL_KID_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_SchoolkidM
+{
+    trainerbattle_single(TRAINER_ROGUE_SCHOOL_KID_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_TuberF
+{
+    trainerbattle_single(TRAINER_ROGUE_TUBER_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_TuberM
+{
+    trainerbattle_single(TRAINER_ROGUE_TUBER_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_PoshF
+{
+    trainerbattle_single(TRAINER_ROGUE_POSH_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_PoshM
+{
+    trainerbattle_single(TRAINER_ROGUE_POSH_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_MagmaF
+{
+    trainerbattle_single(TRAINER_ROGUE_MAGMA_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_MagmaM
+{
+    trainerbattle_single(TRAINER_ROGUE_MAGMA_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_AquaF
+{
+    trainerbattle_single(TRAINER_ROGUE_AQUA_F, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+script Rogue_Battle_AquaM
+{
+    trainerbattle_single(TRAINER_ROGUE_AQUA_M, format("Let's battle 0!"), format("Oh shoot.."))
+    msgbox(format("Good luck!"), MSGBOX_AUTOCLOSE)
+}
+
+
+// Item Blocks
+//
 script Rogue_Give_Item0
 {
     finditem(VAR_ROGUE_ITEM0, 3)

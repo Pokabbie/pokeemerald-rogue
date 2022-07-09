@@ -12434,3 +12434,36 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_RoguePlaceholder[] = {
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_BRELOOM,
+    },
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_AZUMARILL,
+    },
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_ROSELIA,
+    },
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_DELCATTY,
+    },
+    {
+    .iv = 40,
+    .lvl = 31,
+    .species = SPECIES_SEAKING,
+    }
+};

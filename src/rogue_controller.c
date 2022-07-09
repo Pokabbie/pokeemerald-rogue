@@ -182,17 +182,16 @@ static void RandomiseEnabledItems(void)
     s32 i;
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
+        if((Random() % 2) == 0)
+        {
+            // Clear flag to show
             FlagClear(FLAG_ROGUE_ITEM_START + i);
-        //if((Random() % 2) == 0)
-        //{
-        //    // Clear flag to show
-        //    FlagClear(FLAG_ROGUE_ITEM_START + i);
-        //}
-        //else
-        //{
-        //    // Set flag to hide
-        //    FlagSet(FLAG_ROGUE_ITEM_START + i);
-        //}
+        }
+        else
+        {
+            // Set flag to hide
+            FlagSet(FLAG_ROGUE_ITEM_START + i);
+        }
     }
 
     VarSet(VAR_ROGUE_ITEM0, ITEM_POKE_BALL);

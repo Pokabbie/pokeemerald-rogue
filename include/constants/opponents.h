@@ -101,8 +101,30 @@
 #define TRAINER_SHANNON                      97
 #define TRAINER_MICHELLE                     98
 #define TRAINER_CAROLINE                     99
+
 #define TRAINER_JULIE                       100
 #define TRAINER_BROOKE_2                    101
+
+// RogueNote: Overwrite from this range TRAINER_CLASS_PKMN_RANGER
+#define TRAINER_ROGUE_BREEDER_F             100
+#define TRAINER_ROGUE_BREEDER_M             101
+#define TRAINER_ROGUE_RICH_F                102
+#define TRAINER_ROGUE_RICH_M                103
+#define TRAINER_ROGUE_COOLTRAINER_F         104
+#define TRAINER_ROGUE_COOLTRAINER_M         105
+#define TRAINER_ROGUE_POKEFAN_F             106
+#define TRAINER_ROGUE_POKEFAN_M             107
+#define TRAINER_ROGUE_SCHOOL_KID_F          108
+#define TRAINER_ROGUE_SCHOOL_KID_M          109
+#define TRAINER_ROGUE_TUBER_F               110
+#define TRAINER_ROGUE_TUBER_M               111
+#define TRAINER_ROGUE_POSH_F                112
+#define TRAINER_ROGUE_POSH_M                113
+#define TRAINER_ROGUE_MAGMA_F               114
+#define TRAINER_ROGUE_MAGMA_M               115
+#define TRAINER_ROGUE_AQUA_F                116
+#define TRAINER_ROGUE_AQUA_M                117
+
 #define TRAINER_BROOKE_3                    102
 #define TRAINER_BROOKE_4                    103
 #define TRAINER_BROOKE_5                    104
@@ -119,6 +141,8 @@
 #define TRAINER_DAPHNE                      115
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
 #define TRAINER_CINDY_2                     117
+
+
 #define TRAINER_BRIANNA                     118
 #define TRAINER_NAOMI                       119
 #define TRAINER_CINDY_3                     120
