@@ -10,8 +10,10 @@ RogueHub_TrainerBattle::
 
 RogueHub_ResetRun::
 	removemoney 100000000000000
-	addmoney 1000
+	addmoney 10000000
 	givemon SPECIES_EEVEE, 5, ITEM_ORAN_BERRY
+	givemon SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY
+	givemon SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY
 	givemon SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY
 	return
 
@@ -34,6 +36,9 @@ MyMartItems:
 	.2byte ITEM_LEMONADE
 	.2byte ITEM_BERRY_JUICE
 	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SOOTHE_BELL
 	.2byte ITEM_NONE
 
 RogueHub_TrainerBattle_Text_0:
