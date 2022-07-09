@@ -5529,6 +5529,19 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+
+            // Evolve trades based on item
+            case EVO_TRADE:
+                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_TRADE_ITEM:
+                if (gEvolutionTable[species][i].param == heldItem)
+                {
+                    heldItem = ITEM_NONE;
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                break;
             }
         }
         break;

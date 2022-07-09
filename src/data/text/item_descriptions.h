@@ -739,9 +739,9 @@ static const u8 sQuickClawDesc[] = _(
     "the first strike.");
 
 static const u8 sSootheBellDesc[] = _(
-    "A hold item that\n"
-    "calms spirits and\n"
-    "fosters friendship.");
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve.");
 
 static const u8 sMentalHerbDesc[] = _(
     "A hold item that\n"
