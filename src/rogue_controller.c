@@ -1,11 +1,14 @@
 #include "global.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
+#include "constants/rogue.h"
+#include "data.h"
 #include "battle_setup.h"
 #include "event_data.h"
 #include "random.h"
 
 #include "rogue_controller.h"
+
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -119,7 +122,10 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8
 {
     //gTrainers[trainerNum]
 
-    species = SPECIES_YANMA;
+    u16 count = gRogueSpeciesTable[0].trainerSpeciesCount;
+    u16 randIdx = Random() % count;
+
+    species = gRogueSpeciesTable[0].trainerSpecies[randIdx];
     level = 5;
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
 }
@@ -128,8 +134,11 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     if(Rogue_IsRunActive())
     {
-        *species = 120;
-        *level = 69;
+        u16 count = gRogueSpeciesTable[0].wildSpeciesCount;
+        u16 randIdx = Random() % count;
+
+        *species = gRogueSpeciesTable[0].wildSpecies[randIdx];
+        *level = 5;
     }
 }
 
