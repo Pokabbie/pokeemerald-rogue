@@ -2,10 +2,13 @@
 #include "constants/layouts.h"
 #include "battle_setup.h"
 #include "event_data.h"
+#include "random.h"
 
 #include "rogue_controller.h"
 
-#define FLAG_ROGUE_RUN_ACTIVE FLAG_UNUSED_0x264
+#define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
+
+static void RandomiseEnabledTrainers(void);
 
 
 bool8 Rogue_IsRunActive(void)
@@ -79,6 +82,8 @@ void Rogue_OnWarpIntoMap(void)
         {
             ClearTrainerFlag(i);
         }
+
+        RandomiseEnabledTrainers();
     }
 }
 
@@ -149,3 +154,22 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //    }
 //    return WARP_ID_NONE;
 //}
+
+static void RandomiseEnabledTrainers(void)
+{
+
+    s32 i;
+    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    {
+        if((Random() % 2) == 0)
+        {
+            // Clear flag to show
+            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+        }
+        else
+        {
+            // Set flag to hide
+            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+        }
+    }
+}

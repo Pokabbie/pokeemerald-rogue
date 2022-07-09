@@ -731,7 +731,7 @@ static const u8 sMachoBraceDesc[] = _(
 static const u8 sExpShareDesc[] = _(
     "Makes certain\n"
     "species of POKéMON\n"
-    "evolve.");
+    "evolve when held.");
 
 static const u8 sQuickClawDesc[] = _(
     "A hold item that\n"

@@ -9,3 +9,27 @@ mapscripts Rogue_HubTransition_MapScripts
 movement LookNorth {
     face_up
 }
+
+script Rogue_Battle_Trainer0
+{
+    trainerbattle_single(TRAINER_CINDY_1, format("Let's battle 0!"), format("Oh shoot.."))
+    //removeobject(1)
+    //setflag(FLAG_ROGUE_TRAINER0)
+    msgbox(format("... 0"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_Trainer1
+{
+    trainerbattle_single(TRAINER_DAPHNE, format("Let's battle 1!"), format("Oh shoot.."))
+    //removeobject(1)
+    //setflag(FLAG_ROGUE_TRAINER0)
+    msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Give_Item0
+{
+    //trainerbattle_single(TRAINER_DAPHNE, format("Let's battle 1!"), format("Oh shoot.."))
+    //removeobject(1)
+    //setflag(FLAG_ROGUE_TRAINER0)
+    msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
+}

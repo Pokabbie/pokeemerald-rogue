@@ -41,7 +41,8 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
+// RogueNote: Flag block 1
+#define FLAG_ROGUE_RUN_ACTIVE    0x20
 #define FLAG_UNUSED_0x021    0x21 // Unused Flag
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
@@ -51,44 +52,52 @@
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+
+#define FLAG_ROGUE_TRAINER0    0x2A // Unused Flag
+#define FLAG_ROGUE_TRAINER1    0x2B // Unused Flag
+#define FLAG_ROGUE_TRAINER2    0x2C // Unused Flag
+#define FLAG_ROGUE_TRAINER3    0x2D // Unused Flag
+#define FLAG_ROGUE_TRAINER4    0x2E // Unused Flag
+#define FLAG_ROGUE_TRAINER5    0x2F // Unused Flag
+#define FLAG_ROGUE_TRAINER6    0x30 // Unused Flag
+#define FLAG_ROGUE_TRAINER7    0x31 // Unused Flag
+#define FLAG_ROGUE_TRAINER8    0x32 // Unused Flag
+#define FLAG_ROGUE_TRAINER9    0x33 // Unused Flag
+#define FLAG_ROGUE_TRAINER10    0x34 // Unused Flag
+#define FLAG_ROGUE_TRAINER11    0x35 // Unused Flag
+#define FLAG_ROGUE_TRAINER12    0x36 // Unused Flag
+#define FLAG_ROGUE_TRAINER13    0x37 // Unused Flag
+#define FLAG_ROGUE_TRAINER14    0x38 // Unused Flag
+#define FLAG_ROGUE_TRAINER15    0x39 // Unused Flag
+#define FLAG_ROGUE_TRAINER16    0x3A // Unused Flag
+#define FLAG_ROGUE_TRAINER17    0x3B // Unused Flag
+#define FLAG_ROGUE_TRAINER18    0x3C // Unused Flag
+
+#define FLAG_ROGUE_TRAINER_START FLAG_ROGUE_TRAINER0
+#define FLAG_ROGUE_TRAINER_END FLAG_ROGUE_TRAINER18
+
+#define FLAG_ROGUE_ITEM0    0x3D // Unused Flag
+#define FLAG_ROGUE_ITEM1    0x3E // Unused Flag
+#define FLAG_ROGUE_ITEM2    0x3F // Unused Flag
+#define FLAG_ROGUE_ITEM3    0x40 // Unused Flag
+#define FLAG_ROGUE_ITEM4    0x41 // Unused Flag
+#define FLAG_ROGUE_ITEM5    0x42 // Unused Flag
+#define FLAG_ROGUE_ITEM6    0x43 // Unused Flag
+#define FLAG_ROGUE_ITEM7    0x44 // Unused Flag
+#define FLAG_ROGUE_ITEM8    0x45 // Unused Flag
+#define FLAG_ROGUE_ITEM9    0x46 // Unused Flag
+#define FLAG_ROGUE_ITEM10    0x47 // Unused Flag
+#define FLAG_ROGUE_ITEM11    0x48 // Unused Flag
+#define FLAG_ROGUE_ITEM12    0x49 // Unused Flag
+#define FLAG_ROGUE_ITEM13    0x4A // Unused Flag
+#define FLAG_ROGUE_ITEM14    0x4B // Unused Flag
+#define FLAG_ROGUE_ITEM15    0x4C // Unused Flag
+#define FLAG_ROGUE_ITEM16    0x4D // Unused Flag
+#define FLAG_ROGUE_ITEM17    0x4E // Unused Flag
+#define FLAG_ROGUE_ITEM18    0x4F // Unused Flag
+
+#define FLAG_ROGUE_ITEM_START FLAG_ROGUE_TRAINER0
+#define FLAG_ROGUE_ITEM_END FLAG_ROGUE_TRAINER18
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50

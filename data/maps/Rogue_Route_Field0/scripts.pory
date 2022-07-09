@@ -13,9 +13,3 @@ mapscripts Rogue_Route_Field0_MapScripts
 //    end
 //}
 
-script Rogue_Battle_Event_Obj_1
-{
-    trainerbattle_single(TRAINER_CINDY_1, format("Let's battle!"), format("Oh shoot.."))
-    msgbox(format("..."), MSGBOX_AUTOCLOSE)
-}
-
