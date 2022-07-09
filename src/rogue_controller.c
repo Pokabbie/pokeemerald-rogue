@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/items.h"
 #include "constants/layouts.h"
 #include "battle_setup.h"
 #include "event_data.h"
@@ -7,8 +8,10 @@
 #include "rogue_controller.h"
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
+#define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
 static void RandomiseEnabledTrainers(void);
+static void RandomiseEnabledItems(void);
 
 
 bool8 Rogue_IsRunActive(void)
@@ -84,6 +87,7 @@ void Rogue_OnWarpIntoMap(void)
         }
 
         RandomiseEnabledTrainers();
+        RandomiseEnabledItems();
     }
 }
 
@@ -157,7 +161,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 
 static void RandomiseEnabledTrainers(void)
 {
-
     s32 i;
     for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
     {
@@ -172,4 +175,45 @@ static void RandomiseEnabledTrainers(void)
             FlagSet(FLAG_ROGUE_TRAINER_START + i);
         }
     }
+}
+
+static void RandomiseEnabledItems(void)
+{
+    s32 i;
+    for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
+    {
+            FlagClear(FLAG_ROGUE_ITEM_START + i);
+        //if((Random() % 2) == 0)
+        //{
+        //    // Clear flag to show
+        //    FlagClear(FLAG_ROGUE_ITEM_START + i);
+        //}
+        //else
+        //{
+        //    // Set flag to hide
+        //    FlagSet(FLAG_ROGUE_ITEM_START + i);
+        //}
+    }
+
+    VarSet(VAR_ROGUE_ITEM0, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM1, ITEM_BERRY_JUICE);
+    VarSet(VAR_ROGUE_ITEM2, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM3, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM4, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM5, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM6, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM7, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM8, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM9, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM10, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM11, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM12, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM13, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM14, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM15, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM16, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM17, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM18, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM19, ITEM_POKE_BALL);
+    VarSet(VAR_ROGUE_ITEM20, ITEM_POKE_BALL);
 }

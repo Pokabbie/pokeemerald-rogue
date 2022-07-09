@@ -25,7 +25,12 @@ Rogue_Battle_Trainer1::
 
 
 Rogue_Give_Item0::
-	msgbox Rogue_Battle_Trainer1_Text_1, MSGBOX_AUTOCLOSE
+	finditem VAR_ROGUE_ITEM0, 3
+	return
+
+
+Rogue_Give_Item1::
+	finditem VAR_ROGUE_ITEM1, 3
 	return
 
 

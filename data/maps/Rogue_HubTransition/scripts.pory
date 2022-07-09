@@ -28,8 +28,24 @@ script Rogue_Battle_Trainer1
 
 script Rogue_Give_Item0
 {
+    finditem(VAR_ROGUE_ITEM0, 3)
+    //setflag(FLAG_ROGUE_ITEM0)
+    //removeobject()
+
     //trainerbattle_single(TRAINER_DAPHNE, format("Let's battle 1!"), format("Oh shoot.."))
     //removeobject(1)
     //setflag(FLAG_ROGUE_TRAINER0)
-    msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
+    //msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Give_Item1
+{
+    finditem(VAR_ROGUE_ITEM1, 3)
+    //setflag(FLAG_ROGUE_ITEM0)
+    //removeobject()
+
+    //trainerbattle_single(TRAINER_DAPHNE, format("Let's battle 1!"), format("Oh shoot.."))
+    //removeobject(1)
+    //setflag(FLAG_ROGUE_TRAINER0)
+    //msgbox(format("... 1"), MSGBOX_AUTOCLOSE)
 }
