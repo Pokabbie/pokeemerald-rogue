@@ -47,6 +47,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "constants/rogue.h"
 #include "rogue_controller.h"
 
 // Menu actions
@@ -82,6 +83,7 @@ bool8 (*gMenuCallback)(void);
 // EWRAM
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;
 EWRAM_DATA static u8 sBattlePyramidFloorWindowId = 0;
+EWRAM_DATA static u8 sRogueRunWindowId = 0;
 EWRAM_DATA static u8 sStartMenuCursorPos = 0;
 EWRAM_DATA static u8 sNumStartMenuActions = 0;
 EWRAM_DATA static u8 sCurrentStartMenuActions[9] = {0};
@@ -140,6 +142,7 @@ static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
+static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
 
 static const u8* const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {
@@ -413,7 +416,7 @@ static void BuildMultiPartnerRoomStartMenu(void)
 
 static void ShowSafariBallsWindow(void)
 {
-    sSafariBallsWindowId = AddWindow(&sSafariBallsWindowTemplate);
+    sRogueRunWindowId = AddWindow(&sSafariBallsWindowTemplate);
     PutWindowTilemap(sSafariBallsWindowId);
     DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
     ConvertIntToDecimalStringN(gStringVar1, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
@@ -437,6 +440,17 @@ static void ShowPyramidFloorWindow(void)
     CopyWindowToVram(sBattlePyramidFloorWindowId, COPYWIN_GFX);
 }
 
+static void ShowRogueRunWindow(void)
+{
+    sRogueRunWindowId = AddWindow(&sRogueRunWindowTemplate);
+    PutWindowTilemap(sRogueRunWindowId);
+    DrawStdWindowFrame(sRogueRunWindowId, FALSE);
+    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+    AddTextPrinterParameterized(sRogueRunWindowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(sRogueRunWindowId, COPYWIN_GFX);
+}
+
 static void RemoveExtraStartMenuWindows(void)
 {
     if (GetSafariZoneFlag())
@@ -449,6 +463,11 @@ static void RemoveExtraStartMenuWindows(void)
     {
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
+    }
+    if (Rogue_IsRunActive())
+    {
+        ClearStdWindowAndFrameToTransparent(sRogueRunWindowId, FALSE);
+        RemoveWindow(sRogueRunWindowId);
     }
 }
 
@@ -507,6 +526,8 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         if (InBattlePyramid())
             ShowPyramidFloorWindow();
+        if (Rogue_IsRunActive())
+            ShowRogueRunWindow();
         sInitStartMenuData[0]++;
         break;
     case 4:

@@ -1,6 +1,10 @@
 #ifndef ROGUE_CONTROLLER_H
 #define ROGUE_CONTROLLER_H
 
+#define ROGUE_DEBUG
+
+extern struct RogueRunData gRogueRun;
+
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
 

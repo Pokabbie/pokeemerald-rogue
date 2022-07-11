@@ -13,9 +13,11 @@
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
+static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 
+EWRAM_DATA struct RogueRunData gRogueRun = {};
 
 bool8 Rogue_IsRunActive(void)
 {
@@ -29,11 +31,10 @@ bool8 Rogue_ForceExpAll(void)
 
 void Rogue_OnNewGame(void)
 {
-
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     FlagSet(FLAG_SYS_B_DASH);
-    //FlagSet(FLAG_SYS_POKEDEX_GET);
+    FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
     EnableNationalPokedex();
 }
@@ -78,32 +79,38 @@ void Rogue_OnLoadMap(void)
     // TODO - Do something
 }
 
+static void BeginRogueRun(void)
+{
+    FlagSet(FLAG_ROGUE_RUN_ACTIVE);
+    gRogueRun.currentRoomIdx = 0;
+}
+
+static void EndRogueRun(void)
+{
+    FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    //gRogueRun.currentRoomIdx = 0;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
-        FlagSet(FLAG_ROGUE_RUN_ACTIVE);
-        FlagClear(FLAG_SYS_POKEDEX_GET);
+        BeginRogueRun();
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB)
     {
-        FlagClear(FLAG_ROGUE_RUN_ACTIVE);
-        FlagSet(FLAG_SYS_POKEDEX_GET);
+        EndRogueRun();
     }
-
-    if(Rogue_IsRunActive())
+    else if(Rogue_IsRunActive())
     {
-        // Reset trainer encounters
-        s16 i;
-        for(i = 0; i < TRAINERS_COUNT; ++i)
-        {
-            ClearTrainerFlag(i);
-        }
+        ++gRogueRun.currentRoomIdx;
 
+        ResetTrainerBattles();
         RandomiseEnabledTrainers();
         RandomiseEnabledItems();
     }
 }
+
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
@@ -178,6 +185,16 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //    }
 //    return WARP_ID_NONE;
 //}
+
+static void ResetTrainerBattles(void)
+{
+    // Reset trainer encounters
+    s16 i;
+    for(i = 0; i < TRAINERS_COUNT; ++i)
+    {
+        ClearTrainerFlag(i);
+    }
+}
 
 static void RandomiseEnabledTrainers(void)
 {

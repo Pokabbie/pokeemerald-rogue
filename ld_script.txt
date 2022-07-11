@@ -114,6 +114,7 @@ SECTIONS {
         src/new_game.o(.text);
         src/overworld.o(.text);
         src/fieldmap.o(.text);
+        src/rogue_controller.o(.text);
         src/metatile_behavior.o(.text);
         src/field_camera.o(.text);
         src/field_door.o(.text);
@@ -123,7 +124,6 @@ SECTIONS {
         src/event_object_lock.o(.text);
         src/text_window.o(.text);
         src/script.o(.text);
-        src/rogue_controller.o(.text);
         src/scrcmd.o(.text);
         src/field_control_avatar.o(.text);
         src/event_data.o(.text);
@@ -501,6 +501,7 @@ SECTIONS {
         data/tilesets.o(.rodata);
         data/maps.o(.rodata);
         src/fieldmap.o(.rodata);
+        src/rogue_controller.o(.rodata);
         src/metatile_behavior.o(.rodata);
         src/field_door.o(.rodata);
         src/field_player_avatar.o(.rodata);

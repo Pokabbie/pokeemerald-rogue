@@ -1,6 +1,11 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
+struct RogueRunData
+{
+    u16 currentRoomIdx;
+};
+
 struct SpeciesTable
 {
     u8 wildSpeciesCount;
