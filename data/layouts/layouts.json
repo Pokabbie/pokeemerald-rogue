@@ -4435,7 +4435,7 @@
       "id": "LAYOUT_ROGUE_ROUTE_FIELD0",
       "name": "Rogue_Route_Field0_Layout",
       "width": 46,
-      "height": 106,
+      "height": 78,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Field0/border.bin",
