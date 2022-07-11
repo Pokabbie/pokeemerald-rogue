@@ -8,6 +8,7 @@ extern struct RogueHubData gRogueSaveData;
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
+void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 
 void Rogue_OnNewGame(void);
 void Rogue_SetDefaultOptions(void);

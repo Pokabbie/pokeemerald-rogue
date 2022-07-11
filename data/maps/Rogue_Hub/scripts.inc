@@ -49,7 +49,6 @@ BasicItemMart:
 
 	.align 2
 RareItemMart:
-	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_SUPER_ROD
 	.2byte ITEM_MACH_BIKE
 	.2byte ITEM_ACRO_BIKE

@@ -36,6 +36,21 @@ bool8 Rogue_ForceExpAll(void)
     return TRUE;
 }
 
+void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
+{
+    if(Rogue_IsRunActive())
+    {
+        u8 level = GetMonData(mon, MON_DATA_LEVEL);
+
+        // TODO: if level is below desired buff
+        *expGain *= 4;
+    }
+    else
+    {
+        *expGain = 0;
+    }
+}
+
 void Rogue_OnNewGame(void)
 {
     struct Pokemon starterMon;
@@ -49,7 +64,8 @@ void Rogue_OnNewGame(void)
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
-    SetMoney(&gSaveBlock1Ptr->money, 100);
+    //SetMoney(&gSaveBlock1Ptr->money, 100);
+    SetMoney(&gSaveBlock1Ptr->money, 60000);
 
     // TEMP - Should do this by script
     CreateMon(&starterMon, SPECIES_RATTATA, 10, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);

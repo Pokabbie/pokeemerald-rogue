@@ -3257,6 +3257,7 @@ static void Cmd_getexp(void)
         {
             u16 calculatedExp;
             s32 viaSentIn;
+            u16 expYield;
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
             {
@@ -3276,6 +3277,7 @@ static void Cmd_getexp(void)
                     viaExpShare++;
             }
 
+            // RogueNote: Exp yeild from mon killed
             calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
             if (viaExpShare) // at least one mon is getting exp via exp share
@@ -3364,6 +3366,8 @@ static void Cmd_getexp(void)
                     {
                         i = STRINGID_EMPTYSTRING4;
                     }
+
+                    Rogue_ModifyExpGained(&gPlayerParty[gBattleStruct->expGetterMonId], &gBattleMoveDamage);
 
                     // get exp getter battlerId
                     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
