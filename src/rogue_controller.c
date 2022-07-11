@@ -116,8 +116,17 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 {
     if(Rogue_IsRunActive())
     {
-        warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
-        warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
+        if((gRogueRun.currentRoomIdx % 2) == 0)
+        {
+            warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
+            warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
+        }
+        else
+        {
+            warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
+            warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
+        }
+
         warp->warpId = 0;
         warp->x = -1;
         warp->y = -1;

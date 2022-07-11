@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Field0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Field0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_FIELD1",
+      "name": "Rogue_Route_Field1_Layout",
+      "width": 22,
+      "height": 76,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Route_Field1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Field1/map.bin"
     }
   ]
 }
