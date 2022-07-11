@@ -29,12 +29,23 @@ bool8 Rogue_ForceExpAll(void)
 
 void Rogue_OnNewGame(void)
 {
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     FlagSet(FLAG_SYS_B_DASH);
     //FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
     EnableNationalPokedex();
+}
+
+void Rogue_SetDefaultOptions(void)
+{
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_SLOW;
+    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+    //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+    //gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
+    //gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
+    //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
 void Rogue_OnLoadMap(void)

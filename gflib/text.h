@@ -7,6 +7,7 @@
 
 // Given as a text speed when all the text should be
 // loaded at once but not copied to vram yet.
+#define TEXT_INSTANT_DRAW 0xFE
 #define TEXT_SKIP_DRAW 0xFF
 
 enum {
