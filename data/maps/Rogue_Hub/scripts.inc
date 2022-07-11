@@ -9,12 +9,6 @@ RogueHub_TrainerBattle::
 
 
 RogueHub_ResetRun::
-	removemoney 100000000000000
-	addmoney 10000000
-	givemon SPECIES_EEVEE, 5, ITEM_ORAN_BERRY
-	givemon SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY
-	givemon SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY
-	givemon SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY
 	return
 
 

@@ -6,6 +6,19 @@ struct RogueRunData
     u16 currentRoomIdx;
 };
 
+struct RogueHubData
+{
+    u8 playerPartyCount;
+    struct Pokemon playerParty[PARTY_SIZE];
+    u32 money;
+    u16 registeredItem;
+    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+};
+
 struct SpeciesTable
 {
     u8 wildSpeciesCount;

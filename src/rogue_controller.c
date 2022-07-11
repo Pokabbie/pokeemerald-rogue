@@ -1,10 +1,16 @@
 #include "global.h"
+#include "constants/heal_locations.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
 #include "data.h"
+
 #include "battle_setup.h"
 #include "event_data.h"
+#include "item.h"
+#include "money.h"
+#include "overworld.h"
+#include "pokemon.h"
 #include "random.h"
 
 #include "rogue_controller.h"
@@ -18,6 +24,7 @@ static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
+EWRAM_DATA struct RogueHubData gRogueSaveData = {};
 
 bool8 Rogue_IsRunActive(void)
 {
@@ -31,12 +38,22 @@ bool8 Rogue_ForceExpAll(void)
 
 void Rogue_OnNewGame(void)
 {
+    struct Pokemon starterMon;
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
     EnableNationalPokedex();
+
+    SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
+
+    SetMoney(&gSaveBlock1Ptr->money, 100);
+
+    // TEMP - Should do this by script
+    CreateMon(&starterMon, SPECIES_RATTATA, 10, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
 }
 
 void Rogue_SetDefaultOptions(void)
@@ -83,21 +100,47 @@ static void BeginRogueRun(void)
 {
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     gRogueRun.currentRoomIdx = 0;
+
+    // Store current states
+    gRogueSaveData.playerPartyCount = gPlayerPartyCount;
+    memcpy(gRogueSaveData.playerParty, gPlayerParty, sizeof(gRogueSaveData.playerParty));
+
+    gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
+    gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
+
+    memcpy(gRogueSaveData.bagPocket_Items, gBagPockets[ITEMS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_Items));
+    memcpy(gRogueSaveData.bagPocket_KeyItems, gBagPockets[KEYITEMS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_KeyItems));
+    memcpy(gRogueSaveData.bagPocket_PokeBalls, gBagPockets[BALLS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_PokeBalls));
+    memcpy(gRogueSaveData.bagPocket_TMHM, gBagPockets[TMHM_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_TMHM));
+    memcpy(gRogueSaveData.bagPocket_Berries, gBagPockets[BERRIES_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_Berries));
 }
 
 static void EndRogueRun(void)
 {
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     //gRogueRun.currentRoomIdx = 0;
+
+    // Restore current states
+    gPlayerPartyCount = gRogueSaveData.playerPartyCount;
+    memcpy(gPlayerParty, gRogueSaveData.playerParty, sizeof(gRogueSaveData.playerParty));
+
+    SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
+    gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
+
+    memcpy(gBagPockets[ITEMS_POCKET].itemSlots, gRogueSaveData.bagPocket_Items, sizeof(gRogueSaveData.bagPocket_Items));
+    memcpy(gBagPockets[KEYITEMS_POCKET].itemSlots, gRogueSaveData.bagPocket_KeyItems, sizeof(gRogueSaveData.bagPocket_KeyItems));
+    memcpy(gBagPockets[BALLS_POCKET].itemSlots, gRogueSaveData.bagPocket_PokeBalls, sizeof(gRogueSaveData.bagPocket_PokeBalls));
+    memcpy(gBagPockets[TMHM_POCKET].itemSlots, gRogueSaveData.bagPocket_TMHM, sizeof(gRogueSaveData.bagPocket_TMHM));
+    memcpy(gBagPockets[BERRIES_POCKET].itemSlots, gRogueSaveData.bagPocket_Berries, sizeof(gRogueSaveData.bagPocket_Berries));
 }
 
 void Rogue_OnWarpIntoMap(void)
 {
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION && !Rogue_IsRunActive())
     {
         BeginRogueRun();
     }
-    else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB)
+    else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())
     {
         EndRogueRun();
     }

@@ -4,6 +4,7 @@
 #define ROGUE_DEBUG
 
 extern struct RogueRunData gRogueRun;
+extern struct RogueHubData gRogueSaveData;
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);

@@ -17,14 +17,15 @@ script RogueHub_TrainerBattle
 
 script RogueHub_ResetRun
 {
-    removemoney(100000000000000)
+    //removemoney(100000000000000)
     //addmoney(1000)
-    addmoney(10000000)
+    //addmoney(10000000)
     
-    givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
-    givemon(SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY)
-    givemon(SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY)
-    givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
+    //givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
+    //givemon(SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY)
+    //givemon(SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY)
+    //givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
+
     //giveitem(ITEM_ULTRA_BALL, 20)
 }
 
