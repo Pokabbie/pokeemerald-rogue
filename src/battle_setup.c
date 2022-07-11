@@ -794,16 +794,17 @@ static u8 GetWildBattleTransition(void)
     u8 enemyLevel = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
     u8 playerLevel = GetSumOfPlayerPartyLevel(1);
 
+    // RogueNote: Force wild battle transition
     if (enemyLevel < playerLevel)
     {
-        if (InBattlePyramid())
+        if (InBattlePyramid() || Rogue_IsRunActive())
             return B_TRANSITION_BLUR;
         else
             return sBattleTransitionTable_Wild[transitionType][0];
     }
     else
     {
-        if (InBattlePyramid())
+        if (InBattlePyramid() || Rogue_IsRunActive())
             return B_TRANSITION_GRID_SQUARES;
         else
             return sBattleTransitionTable_Wild[transitionType][1];
@@ -845,6 +846,14 @@ static u8 GetTrainerBattleTransition(void)
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_LEADER
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_ADMIN)
         return B_TRANSITION_AQUA;
+
+    if(Rogue_IsRunActive())
+    {
+        if(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER)
+            return B_TRANSITION_BIG_POKEBALL;
+        else
+            return B_TRANSITION_POKEBALLS_TRAIL;
+    }
 
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)
         minPartyCount = 2; // double battles always at least have 2 pokemon.
