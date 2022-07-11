@@ -141,8 +141,8 @@
 #define VAR_ROGUE_ITEM17                     0x407A // Unused Var
 #define VAR_ROUTE128_STATE                   0x407B
 #define VAR_ROGUE_ITEM18                     0x407C // Unused Var
-#define VAR_ROGUE_ITEM19                     0x407D // Unused Var
-#define VAR_ROGUE_ITEM20                     0x407E // Unused Var
+#define VAR_UNUSED_0x407D                     0x407D // Unused Var
+#define VAR_UNUSED_0x407E                     0x407E // Unused Var
 #define VAR_ROUTE132_STATE                   0x407F // Unused Var
 #define VAR_ROUTE133_STATE                   0x4080 // Unused Var
 #define VAR_ROUTE134_STATE                   0x4081 // Unused Var

@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Route_Field1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Field1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_MANAGER",
+      "name": "Rogue_Manager_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Manager/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Manager/map.bin"
     }
   ]
 }

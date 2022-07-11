@@ -939,7 +939,7 @@ gText_ThankYouForAccessingMysteryGift::
 	.string "MYSTERY GIFT System.$"
 
 gText_PlayerFoundOneTMHM::
-	.string "{PLAYER} found one {STR_VAR_1}\n"
+	.string "{PLAYER} found {STR_VAR_1}\n"
 	.string "{STR_VAR_2}!$"
 
 gText_Sudowoodo_Attacked::
@@ -1063,3 +1063,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Field0/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Field1/scripts.inc"
+
+	.include "data/maps/Rogue_Manager/scripts.inc"
