@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 21,
-      "y": 6,
+      "x": 26,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -26,21 +26,40 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+      "x": 5,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RogueHub_Shop_Utilty",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+      "x": 8,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RogueHub_Shop_Rare",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 21,
-      "y": 7,
+      "x": 26,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_NONE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 15,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
       "dest_warp_id": 0
     },
     {
@@ -49,18 +68,17 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_TRANSITION",
       "dest_warp_id": 0
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "RogueHub_TrainerBattle"
-    }
+
   ],
   "bg_events": [
     {
