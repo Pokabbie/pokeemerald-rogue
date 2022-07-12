@@ -43,7 +43,23 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     {
         //gBattleTypeFlags & BATTLE_TYPE_TRAINER
 
+        u8 targetLevel = 20;
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
+
+        if(level < targetLevel)
+        {
+            u8 delta = targetLevel - level;
+            if(delta > 3)
+            {
+                delta = 3;
+            }
+
+            *expGain *= delta * 2;
+        }
+        else
+        {
+            *expGain = 0;
+        }
 
         // TODO: if level is below desired buff
         *expGain *= 4;
@@ -188,6 +204,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
             warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
         }
+
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
 
         warp->warpId = 0;
         warp->x = -1;

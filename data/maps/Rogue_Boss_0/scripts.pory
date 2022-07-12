@@ -1,0 +1,57 @@
+const BOSS_NPC = 5
+
+mapscripts Rogue_Boss_0_MapScripts
+{
+}
+
+script Rogue_Battle_Boss0
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleField)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleField)
+    waitmovement(0)
+
+    msgbox(format("ROXANNE: A new challenger!"))
+
+    applymovement(BOSS_NPC, BossToFight)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFight)
+    waitmovement(0)
+
+    trainerbattle_single(TRAINER_ROXANNE_1, format("Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss0)
+}
+
+script Rogue_BattleDefeated_Boss0
+{
+    message(format("{PLAYER} received the STONE BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+    setflag(FLAG_BADGE01_GET)
+    setflag(FLAG_DEFEATED_RUSTBORO_GYM)
+    msgbox(format("Good luck in your future battles!"))
+    waitmessage()
+
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)//10, 19)
+}
+
+movement PlayerToBattleField {
+    walk_up * 8
+    walk_up * 2
+    walk_right
+}
+
+movement CameraToBattleField {
+    walk_right * 4
+}
+
+movement PlayerToFight {
+    walk_right
+    face_right
+}
+
+movement BossToFight {
+    walk_left
+}

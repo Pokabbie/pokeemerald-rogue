@@ -1235,6 +1235,7 @@ bool32 GetTrainerFlagFromScriptPointer(const u8 *data)
 //       For trainers who spot the player this is handled by PlayerFaceApproachingTrainer
 void SetTrainerFacingDirection(void)
 {
+    // RogueNote: Fix facing direction
     struct ObjectEvent *objectEvent = &gObjectEvents[gSelectedObjectEvent];
     SetTrainerMovementType(objectEvent, GetTrainerFacingDirectionMovementType(objectEvent->facingDirection));
 }
