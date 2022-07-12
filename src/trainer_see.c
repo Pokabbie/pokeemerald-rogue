@@ -508,27 +508,27 @@ static bool8 TrainerMoveToPlayer(u8 taskId, struct Task *task, struct ObjectEven
 // TRSEE_PLAYER_FACE
 static bool8 PlayerFaceApproachingTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
 {
-    // RogueNote: Fix facing direction
-    return FALSE;
-
-    //struct ObjectEvent *playerObj;
-//
-    //if (ObjectEventIsMovementOverridden(trainerObj) && !ObjectEventClearHeldMovementIfFinished(trainerObj))
-    //    return FALSE;
-//
-    //// Set trainer's movement type so they stop and remain facing that direction
-    //SetTrainerMovementType(trainerObj, GetTrainerFacingDirectionMovementType(trainerObj->facingDirection));
-    //TryOverrideTemplateCoordsForObjectEvent(trainerObj, GetTrainerFacingDirectionMovementType(trainerObj->facingDirection));
-    //OverrideTemplateCoordsForObjectEvent(trainerObj);
-//
-    //playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
-    //if (ObjectEventIsMovementOverridden(playerObj) && !ObjectEventClearHeldMovementIfFinished(playerObj))
-    //    return FALSE;
-//
-    //CancelPlayerForcedMovement();
-    //ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], GetFaceDirectionMovementAction(GetOppositeDirection(trainerObj->facingDirection)));
-    //task->tFuncId++; // TRSEE_PLAYER_FACE_WAIT
+    // RogueNote: Fix facing direction (This causes soft locks)
     //return FALSE;
+
+    struct ObjectEvent *playerObj;
+
+    if (ObjectEventIsMovementOverridden(trainerObj) && !ObjectEventClearHeldMovementIfFinished(trainerObj))
+        return FALSE;
+
+    // Set trainer's movement type so they stop and remain facing that direction
+    SetTrainerMovementType(trainerObj, GetTrainerFacingDirectionMovementType(trainerObj->facingDirection));
+    TryOverrideTemplateCoordsForObjectEvent(trainerObj, GetTrainerFacingDirectionMovementType(trainerObj->facingDirection));
+    OverrideTemplateCoordsForObjectEvent(trainerObj);
+
+    playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if (ObjectEventIsMovementOverridden(playerObj) && !ObjectEventClearHeldMovementIfFinished(playerObj))
+        return FALSE;
+
+    CancelPlayerForcedMovement();
+    ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], GetFaceDirectionMovementAction(GetOppositeDirection(trainerObj->facingDirection)));
+    task->tFuncId++; // TRSEE_PLAYER_FACE_WAIT
+    return FALSE;
 }
 
 // TRSEE_PLAYER_FACE_WAIT
