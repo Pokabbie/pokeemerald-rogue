@@ -602,6 +602,8 @@ void StartRegiBattle(void)
 
 static void CB2_EndWildBattle(void)
 {
+    Rogue_Battle_EndWildBattle();
+
     CpuFill16(0, (void*)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
@@ -618,6 +620,8 @@ static void CB2_EndWildBattle(void)
 
 static void CB2_EndScriptedWildBattle(void)
 {
+    Rogue_Battle_EndWildBattle();
+    
     CpuFill16(0, (void*)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
@@ -1343,6 +1347,8 @@ void BattleSetup_StartTrainerBattle(void)
 
 static void CB2_EndTrainerBattle(void)
 {
+    Rogue_Battle_EndTrainerBattle();
+    
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);

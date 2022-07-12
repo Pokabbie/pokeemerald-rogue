@@ -70,7 +70,7 @@ Rogue_Battle_Boss0_Text_2:
 	.string "Well fought trainer!$"
 
 Rogue_BattleDefeated_Boss0_Text_0:
-	.string "Received the STONE BADGE!$"
+	.string "{PLAYER} received the STONE BADGE!$"
 
 Rogue_BattleDefeated_Boss0_Text_1:
 	.string "Good luck in your future battles!$"

@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -28,8 +28,8 @@
       "x": 10,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY",
-      "dest_warp_id": 0
+      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_warp_id": 1
     }
   ],
   "coord_events": [

@@ -34,12 +34,11 @@ script Rogue_BattleDefeated_Boss0
     waitmessage()
 
     special(RemoveCameraObject)
-    warp(MAP_ROGUE_HUB_TRANSITION, 0)//10, 19)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
 }
 
 movement PlayerToBattleField {
-    walk_up * 8
-    walk_up * 2
+    walk_up * 10
     walk_right
 }
 

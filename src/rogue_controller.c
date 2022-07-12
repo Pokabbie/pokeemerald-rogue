@@ -6,6 +6,7 @@
 #include "constants/rogue.h"
 #include "data.h"
 
+#include "battle.h"
 #include "battle_setup.h"
 #include "event_data.h"
 #include "item.h"
@@ -60,9 +61,6 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
         {
             *expGain = 0;
         }
-
-        // TODO: if level is below desired buff
-        *expGain *= 4;
     }
     else
     {
@@ -88,6 +86,9 @@ void Rogue_OnNewGame(void)
 
     // TEMP - Should do this by script
     CreateMon(&starterMon, SPECIES_RATTATA, 10, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_MEW, 1, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
 }
 
@@ -192,6 +193,9 @@ void Rogue_OnWarpIntoMap(void)
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
+    // Configure random warp
+    //if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_TRANSITION) && warp->mapNum == MAP_NUM(ROGUE_HUB_TRANSITION) && warp->warpId == 1)
+
     if(Rogue_IsRunActive())
     {
         if((gRogueRun.currentRoomIdx % 2) == 0)
@@ -205,13 +209,47 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
         }
 
-        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
-        warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+        if(gRogueRun.currentRoomIdx != 0)
+        {
+            if((gRogueRun.currentRoomIdx % 3) == 0)
+            {
+                warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+                warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+            }
+        }
 
         warp->warpId = 0;
         warp->x = -1;
         warp->y = -1;
     }
+}
+
+static void RemoveAnyFaintedMons(void)
+{
+    u8 read;
+    u8 write = 0;
+    u8 alivePartyCount = 0;
+
+    for(read = 0; read < gPlayerPartyCount; ++read)
+    {
+        if(GetMonData(&gPlayerParty[read], MON_DATA_HP) != 0)
+        {
+            if(write != read)
+                CopyMon(&gPlayerParty[write], &gPlayerParty[read], sizeof(gPlayerParty[read]));
+
+            ++write;
+            ++alivePartyCount;
+        }
+        else
+        {
+            // TODO - Put item back in bag
+        }
+    }
+
+    gPlayerPartyCount = alivePartyCount;
+
+    for(read = gPlayerPartyCount; read < PARTY_SIZE; ++read)
+        ZeroMonData(&gPlayerParty[read]);
 }
 
 void Rogue_Battle_StartTrainerBattle(void)
@@ -224,6 +262,46 @@ void Rogue_Battle_StartTrainerBattle(void)
     //
     //   gTrainerBattleOpponent_A = TRAINER_DRAKE;
     //
+}
+
+static bool32 IsPlayerDefeated(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_LOST:
+    case B_OUTCOME_DREW:
+        return TRUE;
+    case B_OUTCOME_WON:
+    case B_OUTCOME_RAN:
+    case B_OUTCOME_PLAYER_TELEPORTED:
+    case B_OUTCOME_MON_FLED:
+    case B_OUTCOME_CAUGHT:
+        return FALSE;
+    default:
+        return FALSE;
+    }
+}
+
+void Rogue_Battle_EndTrainerBattle(void)
+{
+    if(Rogue_IsRunActive())
+    {
+        if (IsPlayerDefeated(gBattleOutcome) != TRUE)
+        {
+            RemoveAnyFaintedMons();
+        }
+    }
+}
+
+void Rogue_Battle_EndWildBattle(void)
+{
+    if(Rogue_IsRunActive())
+    {
+        if (IsPlayerDefeated(gBattleOutcome) != TRUE)
+        {
+            RemoveAnyFaintedMons();
+        }
+    }
 }
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
