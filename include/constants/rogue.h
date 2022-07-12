@@ -37,4 +37,17 @@ struct SpeciesTable
     ///*0x24*/ union TrainerMonPtr party;
 };
 
+struct RogueMonPreset
+{
+    u16 heldItem;
+    u16 abilityNum;
+    u16 moves[MAX_MON_MOVES];
+};
+
+struct RogueMonPresetCollection
+{
+    u16 presetCount;
+    const struct RogueMonPreset* presets;
+};
+
 #endif  // GUARD_ROGUE_H

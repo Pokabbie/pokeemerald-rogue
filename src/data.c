@@ -3,6 +3,7 @@
 #include "battle.h"
 #include "data.h"
 #include "graphics.h"
+#include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/trainers.h"
@@ -329,3 +330,4 @@ const union AnimCmd *const gAnims_MonPic[] =
 #include "data/text/move_names.h"
 
 #include "data/rogue_species.h"
+#include "data/rogue_presetmons.h"

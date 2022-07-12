@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 26,
-      "y": 12,
+      "x": 22,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -56,8 +56,8 @@
   ],
   "warp_events": [
     {
-      "x": 26,
-      "y": 13,
+      "x": 22,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_NONE",
       "dest_warp_id": 0

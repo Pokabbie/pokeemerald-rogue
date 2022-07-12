@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/abilities.h"
 #include "constants/heal_locations.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
@@ -40,6 +41,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     if(Rogue_IsRunActive())
     {
+        //gBattleTypeFlags & BATTLE_TYPE_TRAINER
+
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
 
         // TODO: if level is below desired buff
@@ -214,6 +217,32 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8
     species = gRogueSpeciesTable[0].trainerSpecies[randIdx];
     level = 5;
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+
+    if(gPresetMonTable[species].presetCount != 0)
+    {
+        s32 i;
+        u8 presetIdx = Random() % gPresetMonTable[species].presetCount;
+        const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
+
+        if(preset->abilityNum != ABILITY_NONE)
+        {
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+        }
+
+        if(preset->heldItem != ITEM_NONE)
+        {
+            SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+        }
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if(preset->moves[i] != MOVE_NONE)
+            {
+                SetMonData(mon, MON_DATA_MOVE1 + i, &preset->moves[i]);
+                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[preset->moves[i]].pp);
+            }
+        }
+    }
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)

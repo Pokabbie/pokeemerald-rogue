@@ -4955,6 +4955,8 @@ static void HandleEndTurn_BattleWon(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_ELITE_FOUR:
+            PlayBGM(MUS_VICTORY_GYM_LEADER);
+            break;
         case TRAINER_CLASS_CHAMPION:
             PlayBGM(MUS_VICTORY_LEAGUE);
             break;
@@ -5133,6 +5135,8 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
         {
             gBattleMainFunc = TryEvolvePokemon;
         }
+
+        // RogueNote: Release pokemon here
     }
 
     FreeAllWindowBuffers();
