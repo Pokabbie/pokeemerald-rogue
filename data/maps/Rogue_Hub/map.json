@@ -75,6 +75,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_TRANSITION",
       "dest_warp_id": 0
+    },
+    {
+      "x": 25,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_POKEMON_CENTRE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

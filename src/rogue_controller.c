@@ -16,6 +16,7 @@
 #include "random.h"
 #include "strings.h"
 #include "string_util.h"
+#include "text.h"
 
 #include "rogue_controller.h"
 
@@ -81,14 +82,15 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 {
     // TODO -
-    *ballMultiplier = 50;
+    //*ballMultiplier = 50;
+    *ballMultiplier = 255; // Masterball equiv
 
     if(*catchRate < 50)
         *catchRate = 50;
 }
 
 #ifdef ROGUE_DEBUG
-const u8 gText_RogueDebugText[] = _("ROGUE DEBUG\nROOM {STR_VAR_1}\nParty Count {STR_VAR_2}");
+const u8 gText_RogueDebugText00[] = _("ROGUE DEBUG\nROOM ");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -97,9 +99,16 @@ bool8 Rogue_ShouldShowMiniMenu(void)
 
 u8* Rogue_GetMiniMenuContent(void)
 {
-    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar4, gText_RogueDebugText);
+    u8* strPointer = &gStringVar4[0];
+    *strPointer = EOS;
+
+    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
+    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
+    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
+
+    //ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    //ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    //StringExpandPlaceholders(gStringVar4, gText_RogueDebugText);
     return gStringVar4;
 }
 #else
