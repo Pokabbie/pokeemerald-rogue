@@ -327,6 +327,7 @@ static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
+static void Cmd_rogue_partyhasroom(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -578,7 +579,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
-    Cmd_trainerslideout                          //0xF8
+    Cmd_trainerslideout,                         //0xF8
+    Cmd_rogue_partyhasroom                       //0xF9
 };
 
 struct StatFractions
@@ -5060,7 +5062,10 @@ static void Cmd_openpartyscreen(void)
     }
     else
     {
-        if (gBattlescriptCurrInstr[1] & PARTY_SCREEN_OPTIONAL)
+        // RogueNote: Special case to open release mode
+        if(gBattlescriptCurrInstr[1] == (BS_PLAYER1 | PARTY_SCREEN_OPTIONAL))
+            hitmarkerFaintBits = PARTY_ACTION_CHOOSE_RELEASE;
+        else if (gBattlescriptCurrInstr[1] & PARTY_SCREEN_OPTIONAL)
             hitmarkerFaintBits = PARTY_ACTION_CHOOSE_MON; // Used here as the caseId for the EmitChoose function.
         else
             hitmarkerFaintBits = PARTY_ACTION_SEND_OUT;
@@ -9931,45 +9936,45 @@ static void Cmd_handleballthrow(void)
     }
 }
 
-static void Cmd_givecaughtmon(void)
+static void Cmd_rogue_partyhasroom(void)
 {
-    // RogueNote: Don't allow PC captures
-
-    // AHH
-    bool8 continueCapture = TRUE;
-
-    if(gPlayerPartyCount == PARTY_SIZE)
+    if(Rogue_IsRunActive())
     {
-        //StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
-        GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
-        //StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
-
-        continueCapture = FALSE;
+        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+        {
+            // Continue
+            gBattlescriptCurrInstr += 5;
+            return;
+        }
     }
 
-    if(continueCapture)
-    {
+    // Jump to location
+    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    return;
+}
+
+static void Cmd_givecaughtmon(void)
+{
+    // RogueNote: Whether we're allow to capture this is handled further up
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
     {
-            if (!ShouldShowBoxWasFullMessage())
-            {
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
-                StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-                GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
-            }
-            else
-            {
-                StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
-                GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
-                StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
-            }
-
-            // Change to B_MSG_SENT_LANETTES_PC or B_MSG_LANETTES_BOX_FULL
-            if (FlagGet(FLAG_SYS_PC_LANETTE))
-                gBattleCommunication[MULTISTRING_CHOOSER]++;
+        if (!ShouldShowBoxWasFullMessage())
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
+            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
+            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
         }
+        else
+        {
+            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
+            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
+        }
+
+        // Change to B_MSG_SENT_LANETTES_PC or B_MSG_LANETTES_BOX_FULL
+        if (FlagGet(FLAG_SYS_PC_LANETTE))
+            gBattleCommunication[MULTISTRING_CHOOSER]++;
     }
 
     gBattleResults.caughtMonSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES, NULL);

@@ -284,7 +284,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 }
 
-static void RemoveAnyFaintedMons(void)
+void RemoveAnyFaintedMons(void)
 {
     u8 read;
     u8 write = 0;

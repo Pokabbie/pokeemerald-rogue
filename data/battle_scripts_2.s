@@ -66,11 +66,17 @@ BattleScript_SuccessBallThrow::
 	incrementgamestat GAME_STAT_POKEMON_CAPTURES
 BattleScript_PrintCaughtMonInfo::
 	printstring STRINGID_GOTCHAPKMNCAUGHT
-	trysetcaughtmondexflags BattleScript_TryNicknameCaughtMon
+	trysetcaughtmondexflags BattleScript_TryAddCaughtMon
 	printstring STRINGID_PKMNDATAADDEDTODEX
 	waitstate
 	setbyte gBattleCommunication, 0
 	displaydexinfo
+BattleScript_TryAddCaughtMon::
+	rogue_partyhasroom BattleScript_TryNicknameCaughtMon
+	openpartyscreen BS_PLAYER1 | PARTY_SCREEN_OPTIONAL, BattleScript_GiveMonPartySizeContinue
+BattleScript_GiveMonPartySizeContinue::
+	rogue_partyhasroom BattleScript_TryNicknameCaughtMon
+	goto BattleScript_SuccessBallThrowEnd
 BattleScript_TryNicknameCaughtMon::
 	printstring STRINGID_GIVENICKNAMECAPTURED
 	waitstate

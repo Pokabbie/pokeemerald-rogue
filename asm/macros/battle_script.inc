@@ -1252,6 +1252,11 @@
 	.byte 0xf8
 	.byte \position
 	.endm
+
+	.macro rogue_partyhasroom ptr:req
+	.byte 0xf9
+	.4byte \ptr
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

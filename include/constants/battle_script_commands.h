@@ -63,6 +63,7 @@
 #define BS_OPPONENT1                12
 #define BS_PLAYER2                  13
 #define BS_OPPONENT2                14
+//#define BS_RELEASE                  BS_SCRIPTING
 
 // Cmd_accuracycheck
 #define NO_ACC_CALC 0xFFFE

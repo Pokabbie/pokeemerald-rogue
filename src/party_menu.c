@@ -73,6 +73,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
 #define PARTY_PAL_TO_SWITCH    (1 << 2)
@@ -232,6 +234,7 @@ static void TryTutorSelectedMon(u8);
 static void TryGiveMailToSelectedMon(u8);
 static void TryGiveItemOrMailToSelectedMon(u8);
 static void SwitchSelectedMons(u8);
+static void ReleaseSelectedMon();
 static void TryEnterMonForMinigame(u8, u8);
 static void Task_TryCreateSelectionWindow(u8);
 static void FinishTwoMonAction(u8);
@@ -397,6 +400,7 @@ static void CursorCb_Register(u8);
 static void CursorCb_Trade1(u8);
 static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
+static void CursorCb_Release(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
@@ -1144,6 +1148,17 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     Free(temp);
 }
 
+static void ReleasePartyPokemon(u8 slot)
+{
+    // RogueNote: Kill pokemon and then do a party cleanup
+    if(slot < gPlayerPartyCount)
+    {
+        u32 hp = 0;
+        SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
+        RemoveAnyFaintedMons();
+    }
+}
+
 static void Task_ClosePartyMenu(u8 taskId)
 {
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -1283,6 +1298,11 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             PlaySE(SE_SELECT);
             Task_TryCreateSelectionWindow(taskId);
             break;
+        //case PARTY_ACTION_CHOOSE_RELEASE:
+        //    PlaySE(SE_SELECT);
+        //    ReleaseSelectedMon();
+        //    Task_ClosePartyMenu(taskId);
+        //    break;
         }
     }
 }
@@ -2412,6 +2432,11 @@ void DisplayPartyMenuStdMessage(u32 stringId)
 
         if (stringId == PARTY_MSG_CHOOSE_MON)
         {
+            //if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
+            //{
+            //    RogueNote: TODO - Swap out choose text?
+            //}
+
             if (sPartyMenuInternal->chooseHalf)
                 stringId = PARTY_MSG_CHOOSE_MON_AND_CONFIRM;
             else if (!ShouldUseChooseMonText())
@@ -2785,6 +2810,12 @@ static void SwitchSelectedMons(u8 taskId)
         SlidePartyMenuBoxOneStep(taskId);
         gTasks[taskId].func = Task_SlideSelectedSlotsOffscreen;
     }
+}
+
+static void ReleaseSelectedMon()
+{
+    u8 slot = GetCursorSelectionMonId();
+    ReleasePartyPokemon(slot);
 }
 
 // returns FALSE if the slot has slid fully offscreen / back onscreen
@@ -3241,6 +3272,17 @@ static void CursorCb_Toss(u8 taskId)
         DisplayPartyMenuMessage(gStringVar4, TRUE);
         gTasks[taskId].func = Task_TossHeldItemYesNo;
     }
+}
+
+static void CursorCb_Release(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+
+    ReleaseSelectedMon();
+
+    gTasks[taskId].func = Task_ClosePartyMenu;
 }
 
 static void Task_TossHeldItemYesNo(u8 taskId)
@@ -5711,6 +5753,8 @@ static u8 GetPartyMenuActionsTypeInBattle(struct Pokemon *mon)
     {
         if (gPartyMenu.action == PARTY_ACTION_SEND_OUT)
             return ACTIONS_SEND_OUT;
+        if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
+            return ACTIONS_RELEASE;
         if (!(gBattleTypeFlags & BATTLE_TYPE_ARENA))
             return ACTIONS_SHIFT;
     }
@@ -6213,6 +6257,13 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
         InitPartyMenu(PARTY_MENU_TYPE_MOVE_RELEARNER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForMoveRelearner);
         DestroyTask(taskId);
     }
+}
+
+void ChooseMonForRelease(void)
+{
+    ScriptContext2_Enable();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_ChoosePartyMon, 10);
 }
 
 static void CB2_ChooseMonForMoveRelearner(void)
