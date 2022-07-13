@@ -14,6 +14,8 @@
 #include "overworld.h"
 #include "pokemon.h"
 #include "random.h"
+#include "strings.h"
+#include "string_util.h"
 
 #include "rogue_controller.h"
 
@@ -42,31 +44,79 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     if(Rogue_IsRunActive())
     {
-        //gBattleTypeFlags & BATTLE_TYPE_TRAINER
-
-        u8 targetLevel = 20;
-        u8 level = GetMonData(mon, MON_DATA_LEVEL);
-
-        if(level < targetLevel)
+        if(TRUE)//if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            u8 delta = targetLevel - level;
-            if(delta > 3)
-            {
-                delta = 3;
-            }
+            u8 targetLevel = 10 + gRogueRun.currentRoomIdx;
+            u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
-            *expGain *= delta * 2;
+            if(currentLevel < targetLevel)
+            {
+                u8 delta = targetLevel - currentLevel;
+                if(delta > 3)
+                {
+                    delta = 3;
+                }
+
+                *expGain *= delta * 2;
+            }
+            else
+            {
+                // No EXP once at target level
+                *expGain = 0;
+            }
         }
         else
         {
+            // No EXP for wild battles
             *expGain = 0;
         }
     }
     else
     {
+        // No EXP outside of runs
         *expGain = 0;
     }
 }
+
+void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
+{
+    // TODO -
+    *ballMultiplier = 50;
+
+    if(*catchRate < 50)
+        *catchRate = 50;
+}
+
+#ifdef ROGUE_DEBUG
+const u8 gText_RogueDebugText[] = _("ROGUE DEBUG\nROOM {STR_VAR_1}\nParty Count {STR_VAR_2}");
+
+bool8 Rogue_ShouldShowMiniMenu(void)
+{
+    return TRUE;
+}
+
+u8* Rogue_GetMiniMenuContent(void)
+{
+    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_RogueDebugText);
+    return gStringVar4;
+}
+#else
+
+bool8 Rogue_ShouldShowMiniMenu(void)
+{
+    return Rogue_IsRunActive();
+}
+
+u8* Rogue_GetMiniMenuContent(void)
+{
+    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+    return gStringVar4;
+}
+#endif
 
 void Rogue_OnNewGame(void)
 {
@@ -88,8 +138,9 @@ void Rogue_OnNewGame(void)
     CreateMon(&starterMon, SPECIES_RATTATA, 10, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
 
-    CreateMon(&starterMon, SPECIES_MEW, 1, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
+//void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
+    //CreateMon(&starterMon, SPECIES_MEW, 1, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
 }
 
 void Rogue_SetDefaultOptions(void)
@@ -242,7 +293,10 @@ static void RemoveAnyFaintedMons(void)
         }
         else
         {
-            // TODO - Put item back in bag
+            // Dead so give back held item
+            u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
+            if(heldItem != ITEM_NONE)
+                AddBagItem(heldItem, 1);
         }
     }
 
@@ -254,6 +308,18 @@ static void RemoveAnyFaintedMons(void)
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
+    // TODO - Check if double battle mode is active
+    //if(gPlayerPartyCount >= 2)
+    //{
+    //    // Force double?
+    //    gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
+    //}
+
+    //if (gNoOfApproachingTrainers == 2)
+    //    gBattleTypeFlags = (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TRAINER);
+    //else
+    //    gBattleTypeFlags = (BATTLE_TYPE_TRAINER);
+
     //extern u16 gTrainerBattleOpponent_A;
     //extern u16 gTrainerBattleOpponent_B;
 
@@ -312,7 +378,10 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8
     u16 randIdx = Random() % count;
 
     species = gRogueSpeciesTable[0].trainerSpecies[randIdx];
-    level = 5;
+    level = 5 + gRogueRun.currentRoomIdx;
+
+    // TODO - Modify scale based on room
+
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
 
     if(gPresetMonTable[species].presetCount != 0)
@@ -350,7 +419,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         u16 randIdx = Random() % count;
 
         *species = gRogueSpeciesTable[0].wildSpecies[randIdx];
-        *level = 5;
+        *level = 1 + gRogueRun.currentRoomIdx + (Random() % 4);
     }
 }
 

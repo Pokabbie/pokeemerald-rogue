@@ -1288,10 +1288,6 @@ void ClearTrainerFlag(u16 trainerId)
 
 void BattleSetup_StartTrainerBattle(void)
 {
-    // RogueNote: battle
-    Rogue_Battle_StartTrainerBattle();
-
-
     if (gNoOfApproachingTrainers == 2)
         gBattleTypeFlags = (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TRAINER);
     else
@@ -1337,6 +1333,9 @@ void BattleSetup_StartTrainerBattle(void)
     gWhichTrainerToFaceAfterBattle = 0;
     gMain.savedCallback = CB2_EndTrainerBattle;
 
+    // RogueNote: battle
+    Rogue_Battle_StartTrainerBattle();
+    
     if (InBattlePyramid() || InTrainerHillChallenge())
         DoBattlePyramidTrainerHillBattle();
     else

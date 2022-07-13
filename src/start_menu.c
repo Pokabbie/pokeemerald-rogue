@@ -142,7 +142,11 @@ static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
-static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
+#ifdef ROGUE_DEBUG
+static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 20, 0xF, 8};
+#else
+static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 2, 0xF, 8};
+#endif
 
 static const u8* const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {
@@ -445,9 +449,7 @@ static void ShowRogueRunWindow(void)
     sRogueRunWindowId = AddWindow(&sRogueRunWindowTemplate);
     PutWindowTilemap(sRogueRunWindowId);
     DrawStdWindowFrame(sRogueRunWindowId, FALSE);
-    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
-    AddTextPrinterParameterized(sRogueRunWindowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(sRogueRunWindowId, FONT_NORMAL, Rogue_GetMiniMenuContent(), 0, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(sRogueRunWindowId, COPYWIN_GFX);
 }
 
@@ -464,7 +466,7 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    if (Rogue_IsRunActive())
+    if (Rogue_ShouldShowMiniMenu())
     {
         ClearStdWindowAndFrameToTransparent(sRogueRunWindowId, FALSE);
         RemoveWindow(sRogueRunWindowId);
@@ -526,7 +528,7 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         if (InBattlePyramid())
             ShowPyramidFloorWindow();
-        if (Rogue_IsRunActive())
+        if (Rogue_ShouldShowMiniMenu())
             ShowRogueRunWindow();
         sInitStartMenuData[0]++;
         break;

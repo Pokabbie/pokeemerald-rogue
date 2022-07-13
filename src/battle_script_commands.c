@@ -9859,6 +9859,8 @@ static void Cmd_handleballthrow(void)
         else
             ballMultiplier = sBallCatchBonuses[gLastUsedItem - ITEM_ULTRA_BALL];
 
+        Rogue_ModifyCatchRate(&catchRate, &ballMultiplier);
+
         odds = (catchRate * ballMultiplier / 10)
             * (gBattleMons[gBattlerTarget].maxHP * 3 - gBattleMons[gBattlerTarget].hp * 2)
             / (3 * gBattleMons[gBattlerTarget].maxHP);
