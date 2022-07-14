@@ -36,6 +36,7 @@
 	.include "src/overworld.o"
 	.include "src/fieldmap.o"
 	.include "src/rogue_controller.o"
+	.include "src/rogue_query.o"
 	.include "src/field_camera.o"
 	.include "src/field_player_avatar.o"
 	.include "src/event_object_movement.o"

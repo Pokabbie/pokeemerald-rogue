@@ -19,6 +19,7 @@
 #include "text.h"
 
 #include "rogue_controller.h"
+#include "rogue_query.h"
 
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
@@ -244,6 +245,12 @@ void Rogue_OnWarpIntoMap(void)
     {
         ++gRogueRun.currentRoomIdx;
 
+        // Setup encouters?
+        RogueQuery_Clear();
+        RogueQuery_SpeciesOfType(TYPE_DRAGON);
+        RogueQuery_EggSpeciesOnly();
+        RogueQuery_CollapseBuffer();
+
         ResetTrainerBattles();
         RandomiseEnabledTrainers();
         RandomiseEnabledItems();
@@ -424,10 +431,15 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     if(Rogue_IsRunActive())
     {
-        u16 count = gRogueSpeciesTable[0].wildSpeciesCount;
+        
+//extern u16 gRogueQueryBufferSize;
+//extern bool8 gRogueQuerySpeciesState[];
+//extern u16 gRogueQueryBuffer[];
+
+        u16 count = RogueQuery_BufferSize();
         u16 randIdx = Random() % count;
 
-        *species = gRogueSpeciesTable[0].wildSpecies[randIdx];
+        *species = RogueQuery_BufferPtr()[randIdx];
         *level = 1 + gRogueRun.currentRoomIdx + (Random() % 4);
     }
 }
