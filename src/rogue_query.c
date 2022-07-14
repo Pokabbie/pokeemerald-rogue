@@ -174,6 +174,42 @@ static u16 GetEggSpecies(u16 species)
     return species;
 }
 
+static bool8 IsSpeciesType(u16 species, u8 type)
+{
+    return gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
+}
+
+static bool8 IsSpeciesIsLegendary(u16 species)
+{
+    switch(species)
+    {
+        case SPECIES_ARTICUNO:
+        case SPECIES_ZAPDOS:
+        case SPECIES_MOLTRES:
+        case SPECIES_MEWTWO:
+        case SPECIES_MEW:
+        case SPECIES_RAIKOU:
+        case SPECIES_ENTEI:
+        case SPECIES_SUICUNE:
+        case SPECIES_LUGIA:
+        case SPECIES_HO_OH:
+        case SPECIES_CELEBI:
+        case SPECIES_REGIROCK:
+        case SPECIES_REGICE:
+        case SPECIES_REGISTEEL:
+        case SPECIES_KYOGRE:
+        case SPECIES_GROUDON:
+        case SPECIES_RAYQUAZA:
+        case SPECIES_LATIAS:
+        case SPECIES_LATIOS:
+        case SPECIES_JIRACHI:
+        case SPECIES_DEOXYS:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
 void RogueQuery_SpeciesOfType(u8 type)
 {
     u16 species;
@@ -182,7 +218,7 @@ void RogueQuery_SpeciesOfType(u8 type)
     {
         if(GetSpeciesState(species))
         {
-            if(gBaseStats[species].type1 != type && gBaseStats[species].type2 != type)
+            if(!IsSpeciesType(species, type))
             {
                 SetSpeciesState(species, FALSE);
             }
@@ -190,15 +226,27 @@ void RogueQuery_SpeciesOfType(u8 type)
     }
 }
 
-void RogueQuery_SpeciesOfTypes(u8 type1, u8 type2)
+void RogueQuery_SpeciesOfTypes(u8* type, u8 count)
 {
+    u8 t;
+    bool8 isValid;
     u16 species;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
         if(GetSpeciesState(species))
         {
-            if(gBaseStats[species].type1 != type1 && gBaseStats[species].type2 != type1 && gBaseStats[species].type1 != type2 && gBaseStats[species].type2 != type2)
+            isValid = FALSE;
+            for(t = 0; t < count; ++t)
+            {
+                if(IsSpeciesType(species, type[t]))
+                {
+                    isValid = TRUE;
+                    break;
+                }
+            }
+
+            if(!isValid)
             {
                 SetSpeciesState(species, FALSE);
             }
@@ -215,6 +263,104 @@ void RogueQuery_EggSpeciesOnly(void)
         if(GetSpeciesState(species))
         {
             if(GetEggSpecies(species) != species)
+            {
+                SetSpeciesState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_EvolveSpeciesToLevel(u8 level)
+{
+    u8 evo;
+    u16 species;
+    bool8 removeChild = TRUE;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetSpeciesState(species))
+        {
+            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            {
+                    switch(gEvolutionTable[species][evo].method)
+                    {
+                    case EVO_LEVEL:
+                    case EVO_LEVEL_ATK_GT_DEF:
+                    case EVO_LEVEL_ATK_EQ_DEF:
+                    case EVO_LEVEL_ATK_LT_DEF:
+                    case EVO_LEVEL_SILCOON:
+                    case EVO_LEVEL_CASCOON:
+                    case EVO_LEVEL_NINJASK:
+                    if (gEvolutionTable[species][evo].param <= level)
+                    {
+                        SetSpeciesState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                        if(removeChild)
+                        {
+                            SetSpeciesState(species, FALSE);
+                        }
+                    }
+                    break;
+                    };
+            }
+        }
+    }
+}
+
+void RogueQuery_EvolveSpeciesByItem()
+{
+    u8 evo;
+    u16 species;
+    bool8 removeChild = TRUE;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetSpeciesState(species))
+        {
+            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            {
+                    switch(gEvolutionTable[species][evo].method)
+                    {
+                    case EVO_ITEM:
+                    case EVO_TRADE_ITEM:
+                    {
+                        SetSpeciesState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                        if(removeChild)
+                        {
+                            SetSpeciesState(species, FALSE);
+                        }
+                    }
+                    break;
+                    };
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesIsLegendary(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetSpeciesState(species))
+        {
+            if(!IsSpeciesIsLegendary(species))
+            {
+                SetSpeciesState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesIsNotLegendary(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetSpeciesState(species))
+        {
+            if(IsSpeciesIsLegendary(species))
             {
                 SetSpeciesState(species, FALSE);
             }

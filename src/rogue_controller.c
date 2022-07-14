@@ -245,10 +245,13 @@ void Rogue_OnWarpIntoMap(void)
     {
         ++gRogueRun.currentRoomIdx;
 
-        // Setup encouters?
+        // TODO - lookup type table
         RogueQuery_Clear();
-        RogueQuery_SpeciesOfType(TYPE_DRAGON);
         RogueQuery_EggSpeciesOnly();
+        RogueQuery_SpeciesIsNotLegendary();
+        RogueQuery_EvolveSpeciesToLevel(100);
+        RogueQuery_EvolveSpeciesByItem();
+        RogueQuery_SpeciesOfType(TYPE_GHOST);
         RogueQuery_CollapseBuffer();
 
         ResetTrainerBattles();
