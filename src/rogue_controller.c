@@ -247,11 +247,14 @@ void Rogue_OnWarpIntoMap(void)
 
         // TODO - lookup type table
         RogueQuery_Clear();
-        RogueQuery_EggSpeciesOnly();
+
+        // Base of final evolution typing
+        RogueQuery_SpeciesIsFinalEvolution();
         RogueQuery_SpeciesIsNotLegendary();
-        RogueQuery_EvolveSpeciesToLevel(100);
-        RogueQuery_EvolveSpeciesByItem();
-        RogueQuery_SpeciesOfType(TYPE_GHOST);
+        RogueQuery_SpeciesOfType(TYPE_DRAGON);
+        RogueQuery_TransformToEggSpecies();
+        RogueQuery_EvolveSpeciesToLevel(35);
+
         RogueQuery_CollapseBuffer();
 
         ResetTrainerBattles();

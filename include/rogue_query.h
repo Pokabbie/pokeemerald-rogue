@@ -16,7 +16,8 @@ u16 RogueQuery_BufferSize(void);
 
 void RogueQuery_SpeciesOfType(u8 type);
 void RogueQuery_SpeciesOfTypes(u8* type, u8 count);
-void RogueQuery_EggSpeciesOnly(void);
+void RogueQuery_SpeciesIsFinalEvolution(void);
+void RogueQuery_TransformToEggSpecies(void);
 void RogueQuery_EvolveSpeciesToLevel(u8 level);
 void RogueQuery_EvolveSpeciesByItem();
 void RogueQuery_SpeciesIsLegendary(void);
