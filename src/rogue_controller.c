@@ -231,6 +231,29 @@ static void EndRogueRun(void)
     memcpy(gBagPockets[BERRIES_POCKET].itemSlots, gRogueSaveData.bagPocket_Berries, sizeof(gRogueSaveData.bagPocket_Berries));
 }
 
+// TODO - Implement these route types
+
+// Fishing
+//      TYPE_WATER
+
+// Field
+//      TYPE_GRASS, TYPE_NORMAL
+
+// Forest
+//      TYPE_BUG, TYPE_GHOST, TYPE_POISON
+        
+// Cave
+//      TYPE_ROCK, TYPE_ICE, TYPE_DRAGON
+
+// Mountain
+//      TYPE_GROUND, TYPE_FIRE, TYPE_FIGHTING
+
+// Lake/Coast
+//      TYPE_WATER, TYPE_FLYING
+
+// City/Urban
+//      TYPE_STEEL, TYPE_ELECTRIC, TYPE_PSYCHIC
+
 void Rogue_OnWarpIntoMap(void)
 {
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION && !Rogue_IsRunActive())
@@ -251,9 +274,9 @@ void Rogue_OnWarpIntoMap(void)
         // Base of final evolution typing
         RogueQuery_SpeciesIsFinalEvolution();
         RogueQuery_SpeciesIsNotLegendary();
-        RogueQuery_SpeciesOfType(TYPE_DRAGON);
+        RogueQuery_SpeciesOfType(TYPE_STEEL);
         RogueQuery_TransformToEggSpecies();
-        RogueQuery_EvolveSpeciesToLevel(35);
+        RogueQuery_EvolveSpeciesToLevel(10);
 
         RogueQuery_CollapseBuffer();
 
