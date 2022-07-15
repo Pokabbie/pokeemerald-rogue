@@ -4480,6 +4480,76 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Rogue_Hub_PokemonCentre/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_PokemonCentre/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_1",
+      "name": "Rogue_Boss_1_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_2",
+      "name": "Rogue_Boss_2_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_2/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_3",
+      "name": "Rogue_Boss_3_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_3/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_4",
+      "name": "Rogue_Boss_4_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_4/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_4/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_5",
+      "name": "Rogue_Boss_5_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_5/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_5/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_6",
+      "name": "Rogue_Boss_6_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_6/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_6/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_7",
+      "name": "Rogue_Boss_7_Layout",
+      "width": 24,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Boss_7/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_7/map.bin"
     }
   ]
 }

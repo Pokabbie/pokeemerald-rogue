@@ -10,6 +10,8 @@ Rogue_Battle_Boss0::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleField
 	waitmovement 0
 	msgbox Rogue_Battle_Boss0_Text_0
+	setweather WEATHER_SANDSTORM
+	doweather
 	applymovement 5, BossToFight
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFight
 	waitmovement 0
@@ -22,7 +24,7 @@ Rogue_BattleDefeated_Boss0::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_BADGE01_GET
-	setflag FLAG_DEFEATED_RUSTBORO_GYM
+	setflag FLAG_ROGUE_DEFEATED_ROXANNE
 	msgbox Rogue_BattleDefeated_Boss0_Text_1
 	waitmessage
 	special RemoveCameraObject

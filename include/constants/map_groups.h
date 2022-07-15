@@ -561,6 +561,13 @@
 #define MAP_ROGUE_MANAGER                                   (93 | (26 << 8))
 #define MAP_ROGUE_BOSS_0                                    (94 | (26 << 8))
 #define MAP_ROGUE_HUB_POKEMON_CENTRE                        (95 | (26 << 8))
+#define MAP_ROGUE_BOSS_1                                    (96 | (26 << 8))
+#define MAP_ROGUE_BOSS_2                                    (97 | (26 << 8))
+#define MAP_ROGUE_BOSS_3                                    (98 | (26 << 8))
+#define MAP_ROGUE_BOSS_4                                    (99 | (26 << 8))
+#define MAP_ROGUE_BOSS_5                                    (100 | (26 << 8))
+#define MAP_ROGUE_BOSS_6                                    (101 | (26 << 8))
+#define MAP_ROGUE_BOSS_7                                    (102 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

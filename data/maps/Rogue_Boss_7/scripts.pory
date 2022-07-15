@@ -1,0 +1,59 @@
+const BOSS_NPC = 5
+
+mapscripts Rogue_Boss_7_MapScripts
+{
+}
+
+script Rogue_Battle_Boss7
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss7)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss7)
+    waitmovement(0)
+
+    msgbox(format("JUAN: A new challenger!"))
+
+    setweather(WEATHER_RAIN)
+    doweather
+
+    applymovement(BOSS_NPC, BossToFightBoss7)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss7)
+    waitmovement(0)
+
+    trainerbattle_single(TRAINER_JUAN_1, format("Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss7)
+}
+
+script Rogue_BattleDefeated_Boss7
+{
+    message(format("{PLAYER} received the ?? BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+    setflag(FLAG_BADGE02_GET)
+    setflag(FLAG_ROGUE_DEFEATED_JUAN)
+    msgbox(format("Good luck in your future battles!"))
+    waitmessage()
+
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+}
+
+movement PlayerToBattleFieldBoss7 {
+    walk_up * 10
+    walk_right
+}
+
+movement CameraToBattleFieldBoss7 {
+    walk_right * 4
+}
+
+movement PlayerToFightBoss7 {
+    walk_right
+    face_right
+}
+
+movement BossToFightBoss7 {
+    walk_left
+}

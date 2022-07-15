@@ -591,7 +591,14 @@
     "Rogue_Route_Field1",
     "Rogue_Manager",
     "Rogue_Boss_0",
-    "Rogue_Hub_PokemonCentre"
+    "Rogue_Hub_PokemonCentre",
+    "Rogue_Boss_1",
+    "Rogue_Boss_2",
+    "Rogue_Boss_3",
+    "Rogue_Boss_4",
+    "Rogue_Boss_5",
+    "Rogue_Boss_6",
+    "Rogue_Boss_7"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",
