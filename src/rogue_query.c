@@ -93,21 +93,28 @@ static bool8 IsSpeciesType(u16 species, u8 type)
 // Taken straight from daycare
 static u16 GetEggSpecies(u16 species)
 {
-    int i, j, k;
+    u16 e, s, evo, spe;
     bool8 found;
 
     // Working backwards up to 5 times seems arbitrary, since the maximum number
     // of times would only be 3 for 3-stage evolutions.
-    for (i = 0; i < 3; ++i)//EVOS_PER_MON; i++)
+    for (e = 0; e < 2; ++e)//EVOS_PER_MON; i++)
     {
         found = FALSE;
-        for (j = 1; j < NUM_SPECIES; j++)
+        for (s = 1; s < NUM_SPECIES; s++)
         {
-            for (k = 0; k < EVOS_PER_MON; k++)
+            if(s < species)
+                // Work downwards, as the evolution is most likely just before this
+                spe = species - s;
+            else
+                // Start counting upwards now, as we've exhausted all of the before species
+                spe = s;
+
+            for (evo = 0; evo < EVOS_PER_MON; evo++)
             {
-                if (gEvolutionTable[j][k].targetSpecies == species)
+                if (gEvolutionTable[spe][evo].targetSpecies == species)
                 {
-                    species = j;
+                    species = spe;
                     found = TRUE;
                     break;
                 }
@@ -117,7 +124,7 @@ static u16 GetEggSpecies(u16 species)
                 break;
         }
 
-        if (j == NUM_SPECIES)
+        if (s == NUM_SPECIES)
             break;
     }
 
