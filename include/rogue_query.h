@@ -13,9 +13,9 @@ void RogueQuery_CollapseBuffer(void);
 u16* RogueQuery_BufferPtr(void);
 u16 RogueQuery_BufferSize(void);
 
-
+void RogueQuery_SpeciesIsValid(void);
 void RogueQuery_SpeciesOfType(u8 type);
-void RogueQuery_SpeciesOfTypes(u8* type, u8 count);
+void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);
 void RogueQuery_SpeciesIsFinalEvolution(void);
 void RogueQuery_TransformToEggSpecies(void);
 void RogueQuery_EvolveSpeciesToLevel(u8 level);

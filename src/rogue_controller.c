@@ -268,15 +268,24 @@ void Rogue_OnWarpIntoMap(void)
     {
         ++gRogueRun.currentRoomIdx;
 
+        //const struct RogueRouteData* routeData = &gRogueRouteTable[ROGUE_ROUTE_FIELD];
+
         // TODO - lookup type table
         RogueQuery_Clear();
 
-        // Base of final evolution typing
-        RogueQuery_SpeciesIsFinalEvolution();
+        RogueQuery_SpeciesIsValid();
         RogueQuery_SpeciesIsNotLegendary();
-        RogueQuery_SpeciesOfType(TYPE_STEEL);
+        RogueQuery_SpeciesOfTypes(gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTable, gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTableCount);
         RogueQuery_TransformToEggSpecies();
+
+        // Evolve again
         RogueQuery_EvolveSpeciesToLevel(10);
+        RogueQuery_SpeciesOfTypes(gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTable, gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTableCount);
+
+        //RogueQuery_SpeciesIsFinalEvolution();
+        //RogueQuery_SpeciesOfType(TYPE_STEEL);
+        //RogueQuery_TransformToEggSpecies();
+        //RogueQuery_EvolveSpeciesToLevel(10);
 
         RogueQuery_CollapseBuffer();
 

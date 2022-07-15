@@ -1,5 +1,5 @@
 #include "global.h"
-//#include "constants/abilities.h"
+#include "constants/abilities.h"
 //#include "constants/heal_locations.h"
 //#include "constants/items.h"
 //#include "constants/layouts.h"
@@ -168,6 +168,24 @@ static bool8 IsSpeciesIsLegendary(u16 species)
     return FALSE;
 }
 
+void RogueQuery_SpeciesIsValid(void)
+{
+    // Handle for ?? species mainly
+    // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetSpeciesState(species))
+        {
+            if(gBaseStats[species].abilities[0] == ABILITY_NONE)
+            {
+                SetSpeciesState(species, FALSE);
+            }
+        }
+    }
+}
+
 void RogueQuery_SpeciesOfType(u8 type)
 {
     u16 species;
@@ -184,7 +202,7 @@ void RogueQuery_SpeciesOfType(u8 type)
     }
 }
 
-void RogueQuery_SpeciesOfTypes(u8* type, u8 count)
+void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
 {
     u8 t;
     bool8 isValid;
@@ -197,7 +215,7 @@ void RogueQuery_SpeciesOfTypes(u8* type, u8 count)
             isValid = FALSE;
             for(t = 0; t < count; ++t)
             {
-                if(IsSpeciesType(species, type[t]))
+                if(IsSpeciesType(species, types[t]))
                 {
                     isValid = TRUE;
                     break;

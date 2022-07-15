@@ -1,6 +1,18 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
+
+#define ROGUE_ROUTE_FIELD           0
+#define ROGUE_ROUTE_FOREST          1
+#define ROGUE_ROUTE_CAVE            2
+#define ROGUE_ROUTE_MOUNTAIN        3
+#define ROGUE_ROUTE_WATERFRONT      4
+#define ROGUE_ROUTE_URBAN           5
+
+#define ROGUE_ROUTE_START   ROGUE_ROUTE_FIELD
+#define ROGUE_ROUTE_END     ROGUE_ROUTE_URBAN
+#define ROGUE_ROUTE_COUNT (ROGUE_ROUTE_END - ROGUE_ROUTE_START + 1)
+
 struct RogueRunData
 {
     u16 currentRoomIdx;
@@ -17,6 +29,12 @@ struct RogueHubData
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+};
+
+struct RogueRouteData
+{
+    u8 wildTypeTableCount;
+    const u8* wildTypeTable;
 };
 
 struct SpeciesTable
@@ -49,5 +67,9 @@ struct RogueMonPresetCollection
     u16 presetCount;
     const struct RogueMonPreset* presets;
 };
+
+extern const struct SpeciesTable gRogueSpeciesTable[];
+const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
+extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H
