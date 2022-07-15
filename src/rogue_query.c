@@ -22,6 +22,8 @@
 
 #define QUERY_BUFFER_COUNT 64
 
+// TODO - support item queries with ITEMS_COUNT
+
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQuerySpeciesBits[1 + NUM_SPECIES / 8];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];

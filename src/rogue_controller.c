@@ -25,6 +25,7 @@
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
+static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
@@ -267,28 +268,9 @@ void Rogue_OnWarpIntoMap(void)
     else if(Rogue_IsRunActive())
     {
         ++gRogueRun.currentRoomIdx;
+        gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
 
-        //const struct RogueRouteData* routeData = &gRogueRouteTable[ROGUE_ROUTE_FIELD];
-
-        // TODO - lookup type table
-        RogueQuery_Clear();
-
-        RogueQuery_SpeciesIsValid();
-        RogueQuery_SpeciesIsNotLegendary();
-        RogueQuery_SpeciesOfTypes(gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTable, gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTableCount);
-        RogueQuery_TransformToEggSpecies();
-
-        // Evolve again
-        RogueQuery_EvolveSpeciesToLevel(10);
-        RogueQuery_SpeciesOfTypes(gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTable, gRogueRouteTable[ROGUE_ROUTE_FIELD].wildTypeTableCount);
-
-        //RogueQuery_SpeciesIsFinalEvolution();
-        //RogueQuery_SpeciesOfType(TYPE_STEEL);
-        //RogueQuery_TransformToEggSpecies();
-        //RogueQuery_EvolveSpeciesToLevel(10);
-
-        RogueQuery_CollapseBuffer();
-
+        RandomiseWildEncounters();
         ResetTrainerBattles();
         RandomiseEnabledTrainers();
         RandomiseEnabledItems();
@@ -474,10 +456,10 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //extern bool8 gRogueQuerySpeciesState[];
 //extern u16 gRogueQueryBuffer[];
 
-        u16 count = RogueQuery_BufferSize();
+        const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
         u16 randIdx = Random() % count;
 
-        *species = RogueQuery_BufferPtr()[randIdx];
+        *species = gRogueRun.wildEncounters[randIdx];
         *level = 1 + gRogueRun.currentRoomIdx + (Random() % 4);
     }
 }
@@ -507,6 +489,40 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //    }
 //    return WARP_ID_NONE;
 //}
+
+static void RandomiseWildEncounters(void)
+{
+//EWRAM_DATA struct RogueRunData gRogueRun = {};
+//    u16 wildEncounters[5];
+//    u16 fishingEncounters[2];
+
+
+    // Query for the current route type
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsNotLegendary();
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_TransformToEggSpecies();
+
+    // Evolve the species to just below the wild encounter level
+    RogueQuery_EvolveSpeciesToLevel(1 + gRogueRun.currentRoomIdx);
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+
+    RogueQuery_CollapseBuffer();
+
+    {
+        u8 i;
+        u16 randIdx;
+        u16 queryCount = RogueQuery_BufferSize();
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+        {
+            randIdx = Random() % queryCount;
+            gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+        }
+    }
+}
 
 static void ResetTrainerBattles(void)
 {
