@@ -19,14 +19,6 @@ BerryTree_EventScript_Sparkling::
 	end
 
 BerryTree_EventScript_CheckSoil::
-	lock
-	faceplayer
-	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, TRUE, BerryTree_EventScript_WantToPlant
-	message BerryTree_Text_ItsSoftLoamySoil
-	waitmessage
-	waitbuttonpress
-	release
 	end
 
 BerryTree_EventScript_WantToPlant::
@@ -103,16 +95,14 @@ BerryTree_EventScript_CheckBerryFullyGrown::
 	lock
 	faceplayer
 	special ObjectEventInteractionGetBerryCountString
-	msgbox BerryTree_Text_WantToPick, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryTree_EventScript_PickBerry
-	goto_if_eq VAR_RESULT, NO, BerryTree_EventScript_CancelPickingBerry
+	goto BerryTree_EventScript_PickBerry
 
 BerryTree_EventScript_PickBerry::
 	special ObjectEventInteractionPickBerryTree
 	goto_if_eq VAR_0x8004, 0, BerryTree_EventScript_BerryPocketFull
 	special IncrementDailyPickedBerries
 	special ObjectEventInteractionRemoveBerryTree
-	message BerryTree_Text_PickedTheBerry
+	msgbox BerryTree_Text_PickedTheBerry, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
 	waitbuttonpress
@@ -224,9 +214,7 @@ BerryTree_Text_PickedTheBerry:
 
 BerryTree_Text_PutAwayBerry:
 	.string "{PLAYER} put away the {STR_VAR_1}\n"
-	.string "in the BAG's BERRIES POCKET.\p"
-	.string "The soil returned to its soft and\n"
-	.string "loamy state.$"
+	.string "in the BAG's BERRIES POCKET.$"
 
 BerryTree_Text_BerryPocketFull:
 	.string "The BAG's BERRIES POCKET is full.\p"
