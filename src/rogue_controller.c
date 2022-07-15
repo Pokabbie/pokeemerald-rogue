@@ -208,6 +208,11 @@ static void BeginRogueRun(void)
     gRogueRun.trainerMonLevel = 5;
     gRogueRun.playerMonLevel = 15;
 
+    // (1 / N) chance of appearing
+    //gRogueRun.trainerSpawnChance = 15;
+    //gRogueRun.itemSpawnChance = 75;
+    //gRogueRun.berrySpawnChance = 100;
+
     // Store current states
     gRogueSaveData.playerPartyCount = gPlayerPartyCount;
     memcpy(gRogueSaveData.playerParty, gPlayerParty, sizeof(gRogueSaveData.playerParty));
@@ -535,12 +540,40 @@ static void ResetTrainerBattles(void)
     }
 }
 
+static bool8 RandomChance(u8 chance)
+{
+    if(chance == 0)
+        return FALSE;
+    else if(chance >= 100)
+        return TRUE;
+
+    return ((Random() % 100) + 1) <= chance;
+}
+
+static bool8 RandomChanceTrainer()
+{
+    u8 chance = 10;
+    return RandomChance(chance);
+}
+
+static bool8 RandomChanceItem()
+{
+    u8 chance = 75;
+    return RandomChance(chance);
+}
+
+static bool8 RandomChanceBerry()
+{
+    u8 chance = 100;
+    return RandomChance(chance);
+}
+
 static void RandomiseEnabledTrainers(void)
 {
     s32 i;
     for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
     {
-        if((Random() % 2) == 0)
+        if(RandomChanceTrainer())
         {
             // Clear flag to show
             FlagClear(FLAG_ROGUE_TRAINER_START + i);
@@ -558,7 +591,7 @@ static void RandomiseEnabledItems(void)
     s32 i;
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
-        if((Random() % 2) == 0)
+        if(RandomChanceItem())
         {
             // Clear flag to show
             FlagClear(FLAG_ROGUE_ITEM_START + i);
@@ -600,9 +633,7 @@ static void RandomiseBerryTrees(void)
 
     for (i = 0; i < BERRY_TREES_COUNT; i++)
     {
-        RemoveBerryTree(i);
-
-        if((Random() % 2) == 0)
+        if(RandomChanceBerry())
         {
             u8 berryItem = FIRST_BERRY_INDEX + (Random() % BERRY_COUNT);
             u8 berry = ItemIdToBerryType(berryItem);
