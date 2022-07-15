@@ -89,17 +89,13 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             if(currentLevel < targetLevel)
             {
                 u8 delta = targetLevel - currentLevel;
-                if(delta == 1)
+                if(delta <= 2)
                 {
                     *expGain = (*expGain) * 2;
                 }
-                else if(delta == 2)
+                else //if(delta <= 4)
                 {
                     *expGain *= (*expGain) * 3;
-                }
-                else //if(delta == 3)
-                {
-                    *expGain *= (*expGain) * 4;
                 }
             }
             else
@@ -182,14 +178,15 @@ void Rogue_OnNewGame(void)
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
-    //SetMoney(&gSaveBlock1Ptr->money, 100);
-    SetMoney(&gSaveBlock1Ptr->money, 60000);
+    SetMoney(&gSaveBlock1Ptr->money, 100);
 
     // TEMP - Should do this by script
-    CreateMon(&starterMon, SPECIES_RATTATA, 10, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
 
 #ifdef ROGUE_DEBUG
+    SetMoney(&gSaveBlock1Ptr->money, 60000);
+
     //CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     //GiveMonToPlayer(&starterMon);
 //
@@ -346,6 +343,7 @@ static u8 GetDifficultyLevel(u16 roomIdx)
         return 6;
     if(roomIdx <= ROOM_IDX_BOSS7)
         return 7;
+
     if(roomIdx <= ROOM_IDX_BOSS8)
         return 8;
     if(roomIdx <= ROOM_IDX_BOSS9)
@@ -354,9 +352,9 @@ static u8 GetDifficultyLevel(u16 roomIdx)
         return 10;
     if(roomIdx <= ROOM_IDX_BOSS11)
         return 11;
+
     if(roomIdx <= ROOM_IDX_BOSS12)
         return 12;
-
     return 13;
 }
 
@@ -433,13 +431,22 @@ void Rogue_OnWarpIntoMap(void)
     else if(Rogue_IsRunActive())
     {
         ++gRogueRun.currentRoomIdx;
-        gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
+        
+        if(IsBossRoom(gRogueRun.currentRoomIdx))
+        {
+            ResetTrainerBattles();
+            RandomiseEnabledItems();
+        }
+        else
+        {
+            gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
 
-        RandomiseWildEncounters();
-        ResetTrainerBattles();
-        RandomiseEnabledTrainers();
-        RandomiseEnabledItems();
-        RandomiseBerryTrees();
+            RandomiseWildEncounters();
+            ResetTrainerBattles();
+            RandomiseEnabledTrainers();
+            RandomiseEnabledItems();
+            RandomiseBerryTrees();
+        }
     }
 }
 
@@ -856,23 +863,49 @@ static void ResetTrainerBattles(void)
 
 static u8 CalculateWildLevel(void)
 {
-    return 5 + gRogueRun.currentRoomIdx;
+    return 3 + gRogueRun.currentRoomIdx;
+}
+
+static u8 CalculateBossLevel(u8 difficulty)
+{
+    // Gym leaders lvs 10 -> 80
+    if(difficulty <= 7)
+    {
+        return 10 + 10 * difficulty * 70;
+    }
+    else 
+    {
+        // Both champions are lvl 100
+        difficulty -= 7;
+        return 80 + 4 * difficulty;
+    }
 }
 
 static u8 CalculatePlayerLevel(void)
 {
-    return 14 + gRogueRun.currentRoomIdx;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    return CalculateBossLevel(difficultyLevel);
 }
 
 static u8 CalculateTrainerLevel(u16 trainerNum)
 {
     if(IsBossTrainer(trainerNum))
     {
-        return CalculatePlayerLevel() + 1;
+        return CalculatePlayerLevel();
     }
     else
     {
-        return 10 + gRogueRun.currentRoomIdx;
+        u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+        if(difficultyLevel == 0)
+        {
+            return 2 + gRogueRun.currentRoomIdx;
+        }
+        else
+        {
+            // Trainers will lag behind to make grinding easier
+            return CalculateBossLevel(difficultyLevel - 1);
+        }
     }
 }
 
@@ -888,17 +921,24 @@ static bool8 RandomChance(u8 chance)
 
 static bool8 RandomChanceTrainer()
 {
-    u8 chance = 10;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    u8 chance = 10 + 5 * difficultyLevel;
+
     return RandomChance(chance);
 }
 
 static bool8 RandomChanceItem()
 {
-    u8 chance = 75;
+    u8 chance;
 
     if(IsBossRoom(gRogueRun.currentRoomIdx))
     {
         chance = 75;
+    }
+    else
+    {
+        u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+        chance = 75 - 5 * difficultyLevel;
     }
 
     return RandomChance(chance);
@@ -906,7 +946,9 @@ static bool8 RandomChanceItem()
 
 static bool8 RandomChanceBerry()
 {
-    u8 chance = 100;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    u8 chance = 95 - 7 * difficultyLevel;
+
     return RandomChance(chance);
 }
 
@@ -945,6 +987,7 @@ static void RandomiseEnabledItems(void)
         }
     }
 
+    // TODO - Randomise items
     VarSet(VAR_ROGUE_ITEM0, ITEM_POKE_BALL);
     VarSet(VAR_ROGUE_ITEM1, ITEM_BERRY_JUICE);
     VarSet(VAR_ROGUE_ITEM2, ITEM_POKE_BALL);
