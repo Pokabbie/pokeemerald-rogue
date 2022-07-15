@@ -428,26 +428,73 @@ void Rogue_Battle_EndWildBattle(void)
     }
 }
 
+static bool8 IsBossTrainer(u16 trainerNum)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_ROXANNE_1:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
+static bool8 UseCompetitiveMoveset(u16 trainerNum)
+{
+    return IsBossTrainer(trainerNum);
+}
+
+static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, u8* monsCount)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_ROXANNE_1:
+            *forceType = TYPE_ROCK;
+            break;
+    };
+
+    if(IsBossTrainer(trainerNum))
+    {
+        *monsCount = 3;
+        *allowItemEvos = TRUE;
+    }
+    else
+    {
+        *monsCount = 2;
+        *forceType = TYPE_NORMAL;
+        *allowItemEvos = FALSE;
+    }
+}
+
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
     if(Rogue_IsRunActive())
     {
+        u8 allowedType = TYPE_NONE;
+        bool8 allowItemEvos = FALSE;
+        ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, monsCount);
+
         // Query for the current trainer team
         RogueQuery_Clear();
 
         RogueQuery_SpeciesIsValid();
         RogueQuery_SpeciesIsNotLegendary();
-        //RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+
+        if(allowedType != TYPE_NONE)
+            RogueQuery_SpeciesOfType(allowedType);
+
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
         RogueQuery_EvolveSpeciesToLevel(gRogueRun.trainerMonLevel);
-        //RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+        
+        RogueQuery_EvolveSpeciesByItem();
+
+        if(allowedType != TYPE_NONE)
+            RogueQuery_SpeciesOfType(allowedType);
 
         RogueQuery_CollapseBuffer();
 
-        // Release
-        *monsCount = 2;
         *useRogueCreateMon = TRUE;
         return;
     }
@@ -459,12 +506,14 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
 {
     u16 species;
     u8 level;
+    u8 fixedIV;
 
     u16 queryCount = RogueQuery_BufferSize();
     u16 randIdx = Random() % queryCount;
 
     species = RogueQuery_BufferPtr()[randIdx];
     level = gRogueRun.trainerMonLevel - 1;
+    fixedIV = IsBossTrainer(trainerNum) ? MAX_PER_STAT_IVS : 0;
 
     if(monIdx == 0)
         level--;
@@ -472,11 +521,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
     if(monIdx == totalMonCount - 1)
         level++;
 
-    // TODO - Scale IVs based on room/badge
-    CreateMon(mon, species, level, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+    CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
-    // TODO - Don' always check this preset table
-    if(gPresetMonTable[species].presetCount != 0)
+    if(UseCompetitiveMoveset(trainerNum) && gPresetMonTable[species].presetCount != 0)
     {
         s32 i;
         u8 presetIdx = Random() % gPresetMonTable[species].presetCount;

@@ -3,9 +3,6 @@
 
 #define ROGUE_DEBUG
 
-extern struct RogueRunData gRogueRun;
-extern struct RogueHubData gRogueSaveData;
-
 void RemoveAnyFaintedMons(void);
 
 bool8 Rogue_IsRunActive(void);
