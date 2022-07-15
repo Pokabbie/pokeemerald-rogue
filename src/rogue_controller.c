@@ -26,6 +26,10 @@
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
+static u8 CalculatePlayerLevel(void);
+static u8 CalculateWildLevel(void);
+static u8 CalculateTrainerLevel(u16 trainerNum);
+
 static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
@@ -34,6 +38,8 @@ static void RandomiseBerryTrees(void);
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueSaveData = {};
+
+//#define ROOM_IDX_BOSS0 
 
 bool8 Rogue_IsRunActive(void)
 {
@@ -51,7 +57,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     {
         if(TRUE)//if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            u8 targetLevel = gRogueRun.playerMonLevel;
+            u8 targetLevel = CalculatePlayerLevel();
             u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
             if(currentLevel < targetLevel)
@@ -62,7 +68,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                     delta = 3;
                 }
 
-                *expGain *= delta * 2;
+                *expGain *= delta * 3;
             }
             else
             {
@@ -204,10 +210,6 @@ static void BeginRogueRun(void)
 
     gRogueRun.currentRoomIdx = 0;
     
-    gRogueRun.wildMonLevel = 5;
-    gRogueRun.trainerMonLevel = 5;
-    gRogueRun.playerMonLevel = 15;
-
     // (1 / N) chance of appearing
     //gRogueRun.trainerSpawnChance = 15;
     //gRogueRun.itemSpawnChance = 75;
@@ -283,13 +285,6 @@ void Rogue_OnWarpIntoMap(void)
     {
         ++gRogueRun.currentRoomIdx;
         gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
-
-        // Wild/Trainer mons level at a flat rate
-        ++gRogueRun.wildMonLevel;
-        ++gRogueRun.playerMonLevel;
-
-        // Trainer mons level faster, but never exceed player level
-        gRogueRun.trainerMonLevel = min(gRogueRun.trainerMonLevel + 2, gRogueRun.playerMonLevel);
 
         RandomiseWildEncounters();
         ResetTrainerBattles();
@@ -486,7 +481,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(gRogueRun.trainerMonLevel);
+        RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
         
         RogueQuery_EvolveSpeciesByItem();
 
@@ -512,7 +507,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
     u16 randIdx = Random() % queryCount;
 
     species = RogueQuery_BufferPtr()[randIdx];
-    level = gRogueRun.trainerMonLevel - 1;
+    level = CalculateTrainerLevel(trainerNum) - 1;
     fixedIV = IsBossTrainer(trainerNum) ? MAX_PER_STAT_IVS : 0;
 
     if(monIdx == 0)
@@ -554,17 +549,20 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     if(Rogue_IsRunActive())
     {
-        u8 levelVariation = min(6, gRogueRun.wildMonLevel - 1);
+        u8 maxlevel = CalculateWildLevel();
+        u8 levelVariation = min(6,maxlevel - 1);
         const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
         u16 randIdx = Random() % count;
 
         *species = gRogueRun.wildEncounters[randIdx];
-        *level = gRogueRun.wildMonLevel - (Random() % levelVariation);
+        *level = maxlevel - (Random() % levelVariation);
     }
 }
 
 static void RandomiseWildEncounters(void)
 {
+    u8 maxlevel = CalculateWildLevel();
+
     // Query for the current route type
     RogueQuery_Clear();
 
@@ -574,7 +572,7 @@ static void RandomiseWildEncounters(void)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(gRogueRun.wildMonLevel - min(6, gRogueRun.wildMonLevel - 1));
+    RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
 
     RogueQuery_CollapseBuffer();
@@ -599,6 +597,28 @@ static void ResetTrainerBattles(void)
     for(i = 0; i < TRAINERS_COUNT; ++i)
     {
         ClearTrainerFlag(i);
+    }
+}
+
+static u8 CalculateWildLevel(void)
+{
+    return 5 + gRogueRun.currentRoomIdx;
+}
+
+static u8 CalculatePlayerLevel(void)
+{
+    return 14 + gRogueRun.currentRoomIdx;
+}
+
+static u8 CalculateTrainerLevel(u16 trainerNum)
+{
+    if(IsBossTrainer(trainerNum))
+    {
+        return CalculatePlayerLevel() + 1;
+    }
+    else
+    {
+        return 10 + gRogueRun.currentRoomIdx;
     }
 }
 
