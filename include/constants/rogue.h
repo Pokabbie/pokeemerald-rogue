@@ -17,6 +17,9 @@ struct RogueRunData
 {
     u16 currentRoomIdx;
     u8 currentRouteType;
+    u8 wildMonLevel;
+    u8 playerMonLevel;
+    u8 trainerMonLevel;
     u16 wildEncounters[5];
     u16 fishingEncounters[2];
 };

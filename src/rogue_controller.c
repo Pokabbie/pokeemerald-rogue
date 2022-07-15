@@ -8,6 +8,7 @@
 
 #include "battle.h"
 #include "battle_setup.h"
+#include "berry.h"
 #include "event_data.h"
 #include "item.h"
 #include "money.h"
@@ -29,6 +30,7 @@ static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
+static void RandomiseBerryTrees(void);
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueSaveData = {};
@@ -49,7 +51,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     {
         if(TRUE)//if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            u8 targetLevel = 10 + gRogueRun.currentRoomIdx;
+            u8 targetLevel = gRogueRun.playerMonLevel;
             u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
             if(currentLevel < targetLevel)
@@ -197,7 +199,14 @@ void Rogue_OnLoadMap(void)
 static void BeginRogueRun(void)
 {
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
+
+    ClearBerryTrees();
+
     gRogueRun.currentRoomIdx = 0;
+    
+    gRogueRun.wildMonLevel = 5;
+    gRogueRun.trainerMonLevel = 5;
+    gRogueRun.playerMonLevel = 15;
 
     // Store current states
     gRogueSaveData.playerPartyCount = gPlayerPartyCount;
@@ -270,10 +279,18 @@ void Rogue_OnWarpIntoMap(void)
         ++gRogueRun.currentRoomIdx;
         gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
 
+        // Wild/Trainer mons level at a flat rate
+        ++gRogueRun.wildMonLevel;
+        ++gRogueRun.playerMonLevel;
+
+        // Trainer mons level faster, but never exceed player level
+        gRogueRun.trainerMonLevel = min(gRogueRun.trainerMonLevel + 2, gRogueRun.playerMonLevel);
+
         RandomiseWildEncounters();
         ResetTrainerBattles();
         RandomiseEnabledTrainers();
         RandomiseEnabledItems();
+        RandomiseBerryTrees();
     }
 }
 
@@ -414,7 +431,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8
     u16 randIdx = Random() % count;
 
     species = gRogueSpeciesTable[0].trainerSpecies[randIdx];
-    level = 5 + gRogueRun.currentRoomIdx;
+    level = gRogueRun.trainerMonLevel;
 
     // TODO - Modify scale based on room
 
@@ -456,11 +473,12 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //extern bool8 gRogueQuerySpeciesState[];
 //extern u16 gRogueQueryBuffer[];
 
+        u8 levelVariation = min(6, gRogueRun.wildMonLevel - 1);
         const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
         u16 randIdx = Random() % count;
 
         *species = gRogueRun.wildEncounters[randIdx];
-        *level = 1 + gRogueRun.currentRoomIdx + (Random() % 4);
+        *level = gRogueRun.wildMonLevel - (Random() % levelVariation);
     }
 }
 
@@ -472,23 +490,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 //    u8 mapNum;
 //    u8 mapGroup;
 //};
-
-//static s8 GetWarpEventAtPosition(struct MapHeader *mapHeader, u16 x, u16 y, u8 elevation)
-//{
-//    s32 i;
-//    struct WarpEvent *warpEvent = mapHeader->events->warps;
-//    u8 warpCount = mapHeader->events->warpCount;
-//
-//    for (i = 0; i < warpCount; i++, warpEvent++)
-//    {
-//        if ((u16)warpEvent->x == x && (u16)warpEvent->y == y)
-//        {
-//            if (warpEvent->elevation == elevation || warpEvent->elevation == 0)
-//                return i;
-//        }
-//    }
-//    return WARP_ID_NONE;
-//}
 
 static void RandomiseWildEncounters(void)
 {
@@ -588,4 +589,28 @@ static void RandomiseEnabledItems(void)
     VarSet(VAR_ROGUE_ITEM16, ITEM_POKE_BALL);
     VarSet(VAR_ROGUE_ITEM17, ITEM_POKE_BALL);
     VarSet(VAR_ROGUE_ITEM18, ITEM_POKE_BALL);
+}
+
+// Only take up to Iappa berry, as past that is just misc non-battle related berries
+#define BERRY_COUNT (ITEM_IAPAPA_BERRY - FIRST_BERRY_INDEX + 1)
+
+static void RandomiseBerryTrees(void)
+{
+    s32 i;
+
+    for (i = 0; i < BERRY_TREES_COUNT; i++)
+    {
+        RemoveBerryTree(i);
+
+        if((Random() % 2) == 0)
+        {
+            u8 berryItem = FIRST_BERRY_INDEX + (Random() % BERRY_COUNT);
+            u8 berry = ItemIdToBerryType(berryItem);
+            PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
+        }
+        else
+        {
+            RemoveBerryTree(i);
+        }
+    }
 }
