@@ -5559,6 +5559,8 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     }
     else
     {
+        // RogueNote: calculate money reward from trainer battles
+
         switch (gTrainers[trainerId].partyFlags)
         {
         case 0:

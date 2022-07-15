@@ -428,20 +428,54 @@ void Rogue_Battle_EndWildBattle(void)
     }
 }
 
-void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
-    //gTrainers[trainerNum]
+    if(Rogue_IsRunActive())
+    {
+        // Query for the current trainer team
+        RogueQuery_Clear();
 
-    u16 count = gRogueSpeciesTable[0].trainerSpeciesCount;
-    u16 randIdx = Random() % count;
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsNotLegendary();
+        //RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+        RogueQuery_TransformToEggSpecies();
 
-    species = gRogueSpeciesTable[0].trainerSpecies[randIdx];
-    level = gRogueRun.trainerMonLevel;
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpeciesToLevel(gRogueRun.trainerMonLevel);
+        //RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
 
-    // TODO - Modify scale based on room
+        RogueQuery_CollapseBuffer();
 
-    CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+        // Release
+        *monsCount = 2;
+        *useRogueCreateMon = TRUE;
+        return;
+    }
 
+    *useRogueCreateMon = FALSE;
+}
+
+void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct Pokemon *mon)
+{
+    u16 species;
+    u8 level;
+
+    u16 queryCount = RogueQuery_BufferSize();
+    u16 randIdx = Random() % queryCount;
+
+    species = RogueQuery_BufferPtr()[randIdx];
+    level = gRogueRun.trainerMonLevel - 1;
+
+    if(monIdx == 0)
+        level--;
+
+    if(monIdx == totalMonCount - 1)
+        level++;
+
+    // TODO - Scale IVs based on room/badge
+    CreateMon(mon, species, level, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+
+    // TODO - Don' always check this preset table
     if(gPresetMonTable[species].presetCount != 0)
     {
         s32 i;
@@ -473,11 +507,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     if(Rogue_IsRunActive())
     {
-        
-//extern u16 gRogueQueryBufferSize;
-//extern bool8 gRogueQuerySpeciesState[];
-//extern u16 gRogueQueryBuffer[];
-
         u8 levelVariation = min(6, gRogueRun.wildMonLevel - 1);
         const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
         u16 randIdx = Random() % count;
@@ -487,22 +516,8 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
     }
 }
 
-//struct WarpEvent
-//{
-//    s16 x, y;
-//    u8 elevation;
-//    u8 warpId;
-//    u8 mapNum;
-//    u8 mapGroup;
-//};
-
 static void RandomiseWildEncounters(void)
 {
-//EWRAM_DATA struct RogueRunData gRogueRun = {};
-//    u16 wildEncounters[5];
-//    u16 fishingEncounters[2];
-
-
     // Query for the current route type
     RogueQuery_Clear();
 
@@ -512,7 +527,7 @@ static void RandomiseWildEncounters(void)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(1 + gRogueRun.currentRoomIdx);
+    RogueQuery_EvolveSpeciesToLevel(gRogueRun.wildMonLevel - min(6, gRogueRun.wildMonLevel - 1));
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
 
     RogueQuery_CollapseBuffer();

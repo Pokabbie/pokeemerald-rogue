@@ -27,7 +27,8 @@ void Rogue_Battle_EndTrainerBattle(void);
 //void Rogue_Battle_StartWildBattle(void);
 void Rogue_Battle_EndWildBattle(void);
 
-void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
+void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount);
+void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct Pokemon *mon);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level);
 
 #endif
