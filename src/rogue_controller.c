@@ -84,49 +84,39 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     if(Rogue_IsRunActive())
     {
-        if(TRUE)//if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        u8 targetLevel = CalculatePlayerLevel();
+        u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
+
+        if(currentLevel != 100)
         {
-            u8 targetLevel = CalculatePlayerLevel();
-            u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
-            //u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            // Could base of gBaseStats[species].growthRate?
+            u32 currLvlExp = gExperienceTables[GROWTH_FAST][currentLevel];
+            u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
+            u32 lvlExp = (nextLvlExp - currLvlExp);
 
-            if(currentLevel != 100)
+            if(currentLevel < targetLevel)
             {
-                // Could base of gBaseStats[species].growthRate?
-                u32 currLvlExp = gExperienceTables[GROWTH_FAST][currentLevel];
-                u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
-                u32 lvlExp = (nextLvlExp - currLvlExp);
-
-                if(currentLevel < targetLevel)
+                u8 delta = targetLevel - currentLevel;
+                s32 desiredExpGain = 0;
+                if(delta <= 3)
                 {
-                    u8 delta = targetLevel - currentLevel;
-                    s32 desiredExpGain = 0;
-                    if(delta <= 3)
-                    {
-                        // Give 25% of level always
-                        desiredExpGain = (nextLvlExp * 25) / 100;
-                    }
-                    else
-                    {
-                        // Give full levels to catch up
-                        desiredExpGain = (nextLvlExp * (delta - 3));
-                    }
-
-                    *expGain = max(*expGain, desiredExpGain);
+                    // Give 25% of level always
+                    desiredExpGain = (nextLvlExp * 25) / 100;
                 }
                 else
                 {
-                    // TODO - scale
-
-                    // No EXP once at target level
-                    *expGain = 0;
+                    // Give faster levels to catch up
+                    delta = (delta - 3);
+                    desiredExpGain = (nextLvlExp * 75 * delta) / 100;
                 }
+
+                *expGain = max(*expGain, desiredExpGain);
             }
-        }
-        else
-        {
-            // No EXP for wild battles
-            *expGain = 0;
+            else
+            {
+                // No EXP once at target level
+                *expGain = 0;
+            }
         }
     }
     else
