@@ -114,8 +114,6 @@ SECTIONS {
         src/new_game.o(.text);
         src/overworld.o(.text);
         src/fieldmap.o(.text);
-        src/rogue_controller.o(.text);
-        src/rogue_query.o(.text);
         src/metatile_behavior.o(.text);
         src/field_camera.o(.text);
         src/field_door.o(.text);
@@ -339,6 +337,8 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
+        src/rogue_controller.o(.text);
+        src/rogue_query.o(.text);
     } =0
 
     script_data :
@@ -502,8 +502,6 @@ SECTIONS {
         data/tilesets.o(.rodata);
         data/maps.o(.rodata);
         src/fieldmap.o(.rodata);
-        src/rogue_controller.o(.rodata);
-        src/rogue_query.o(.rodata);
         src/metatile_behavior.o(.rodata);
         src/field_door.o(.rodata);
         src/field_player_avatar.o(.rodata);
@@ -702,6 +700,8 @@ SECTIONS {
         data/mystery_gift.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
+        src/rogue_controller.o(.rodata);
+        src/rogue_query.o(.rodata);
     } =0
 
     song_data :

@@ -1,4 +1,5 @@
-const ITEM_ID = VAR_0x8000
+const VAR_ITEM_INDEX = VAR_0x8000
+const VAR_ITEM_ID_VAL = VAR_0x8001
 
 mapscripts Rogue_Manager_MapScripts
 {
@@ -20,7 +21,12 @@ script Rogue_PostBattle_Internal
 
 script Rogue_GiveItem_Internal
 {
-    finditem(ITEM_ID, 3)
+    // Debug
+    //buffernumberstring(STR_VAR_1, VAR_ITEM_INDEX)
+    //bufferitemname(STR_VAR_2, VAR_ITEM_ID_VAL)
+    //msgbox(format("idx {STR_VAR_1}\nitem {STR_VAR_2}"), MSGBOX_DEFAULT)
+
+    finditem(VAR_ITEM_ID_VAL, 3)
 }
 
 // Trainer Blocks
@@ -147,114 +153,133 @@ script Rogue_Battle_AquaM
 //
 script Rogue_Give_Item0
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM0)
+    setvar(VAR_ITEM_INDEX, 0)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item1
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM1)
+    setvar(VAR_ITEM_INDEX, 1)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM1)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item2
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM2)
+    setvar(VAR_ITEM_INDEX, 2)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM2)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item3
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM3)
+    setvar(VAR_ITEM_INDEX, 3)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM3)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item4
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM4)
+    setvar(VAR_ITEM_INDEX, 4)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM4)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item5
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM5)
+    setvar(VAR_ITEM_INDEX, 5)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM5)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item6
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM6)
+    setvar(VAR_ITEM_INDEX, 6)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM6)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item7
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM7)
+    setvar(VAR_ITEM_INDEX, 7)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM7)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item8
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM8)
+    setvar(VAR_ITEM_INDEX, 8)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM8)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item9
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM9)
+    setvar(VAR_ITEM_INDEX, 9)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM9)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item10
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM10)
+    setvar(VAR_ITEM_INDEX, 10)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM10)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item11
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM11)
+    setvar(VAR_ITEM_INDEX, 11)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM11)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item12
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM12)
+    setvar(VAR_ITEM_INDEX, 12)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM12)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item13
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM13)
+    setvar(VAR_ITEM_INDEX, 13)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM13)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item14
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM14)
+    setvar(VAR_ITEM_INDEX, 14)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM14)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item15
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM15)
+    setvar(VAR_ITEM_INDEX, 15)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM15)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item16
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM16)
+    setvar(VAR_ITEM_INDEX, 16)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM16)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item17
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM17)
+    setvar(VAR_ITEM_INDEX, 17)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM17)
     call(Rogue_GiveItem_Internal)
 }
 
 script Rogue_Give_Item18
 {
-    copyvar(ITEM_ID, VAR_ROGUE_ITEM18)
+    setvar(VAR_ITEM_INDEX, 18)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM18)
     call(Rogue_GiveItem_Internal)
 }

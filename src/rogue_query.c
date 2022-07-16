@@ -1,7 +1,8 @@
 #include "global.h"
 #include "constants/abilities.h"
 //#include "constants/heal_locations.h"
-//#include "constants/items.h"
+#include "constants/hold_effects.h"
+#include "constants/items.h"
 //#include "constants/layouts.h"
 //#include "constants/rogue.h"
 #include "data.h"
@@ -9,7 +10,7 @@
 //#include "battle.h"
 //#include "battle_setup.h"
 //#include "event_data.h"
-//#include "item.h"
+#include "item.h"
 //#include "money.h"
 //#include "overworld.h"
 #include "pokemon.h"
@@ -21,56 +22,69 @@
 #include "rogue_query.h"
 
 #define QUERY_BUFFER_COUNT 64
-
-// TODO - support item queries with ITEMS_COUNT
+#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
 
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
-EWRAM_DATA u8 gRogueQuerySpeciesBits[1 + NUM_SPECIES / 8];
+EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
-static void SetSpeciesState(u16 species, bool8 state)
+static void SetQueryState(u16 elem, bool8 state)
 {
-    u16 idx = species / 8;
-    u16 bit = species % 8;
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
 
     u8 bitMask = 1 << bit;
     if(state)
     {
-        gRogueQuerySpeciesBits[idx] |= bitMask;
+        gRogueQueryBits[idx] |= bitMask;
     }
     else
     {
-        gRogueQuerySpeciesBits[idx] &= ~bitMask;
+        gRogueQueryBits[idx] &= ~bitMask;
     }
 }
 
-static bool8 GetSpeciesState(u16 species)
+static bool8 GetQueryState(u16 elem)
 {
-    u16 idx = species / 8;
-    u16 bit = species % 8;
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
 
     u8 bitMask = 1 << bit;
-    return gRogueQuerySpeciesBits[idx] & bitMask;
+    return gRogueQueryBits[idx] & bitMask;
 }
 
 void RogueQuery_Clear(void)
 {
     gRogueQueryBufferSize = 0;
-    memset(&gRogueQuerySpeciesBits[0], 255, sizeof(bool8) * ARRAY_COUNT(gRogueQuerySpeciesBits));
+    memset(&gRogueQueryBits[0], 255, sizeof(bool8) * ARRAY_COUNT(gRogueQueryBits));
 }
 
-void RogueQuery_CollapseBuffer(void)
+void RogueQuery_CollapseSpeciesBuffer(void)
 {
     u16 species;
     gRogueQueryBufferSize = 0;
     
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             gRogueQueryBuffer[gRogueQueryBufferSize++] = species;
+        }
+    }
+}
+
+void RogueQuery_CollapseItemBuffer(void)
+{
+    u16 item;
+    gRogueQueryBufferSize = 0;
+    
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++item)
+    {
+        if(GetQueryState(item))
+        {
+            gRogueQueryBuffer[gRogueQueryBufferSize++] = item;
         }
     }
 }
@@ -84,6 +98,14 @@ u16 RogueQuery_BufferSize(void)
 {
     return gRogueQueryBufferSize;
 }
+
+void RogueQuery_Exclude(u16 idx)
+{
+    SetQueryState(idx, FALSE);
+}
+
+// Species
+//
 
 static bool8 IsSpeciesType(u16 species, u8 type)
 {
@@ -185,11 +207,11 @@ void RogueQuery_SpeciesIsValid(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             if(gBaseStats[species].abilities[0] == ABILITY_NONE)
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -201,11 +223,11 @@ void RogueQuery_SpeciesOfType(u8 type)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             if(!IsSpeciesType(species, type))
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -219,7 +241,7 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             isValid = FALSE;
             for(t = 0; t < count; ++t)
@@ -233,7 +255,7 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
 
             if(!isValid)
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -245,11 +267,11 @@ void RogueQuery_SpeciesIsFinalEvolution(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             if(!IsFinalEvolution(species))
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -262,13 +284,13 @@ void RogueQuery_TransformToEggSpecies(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             eggSpecies = GetEggSpecies(species);
             if(eggSpecies != species)
             {
-                SetSpeciesState(eggSpecies, TRUE);
-                SetSpeciesState(species, FALSE);
+                SetQueryState(eggSpecies, TRUE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -282,7 +304,7 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             for(evo = 0; evo < EVOS_PER_MON; ++evo)
             {
@@ -297,10 +319,10 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                     case EVO_LEVEL_NINJASK:
                     if (gEvolutionTable[species][evo].param <= level)
                     {
-                        SetSpeciesState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                        SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
                         if(removeChild)
                         {
-                            SetSpeciesState(species, FALSE);
+                            SetQueryState(species, FALSE);
                         }
                     }
                     break;
@@ -318,7 +340,7 @@ void RogueQuery_EvolveSpeciesByItem()
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             for(evo = 0; evo < EVOS_PER_MON; ++evo)
             {
@@ -327,10 +349,10 @@ void RogueQuery_EvolveSpeciesByItem()
                     case EVO_ITEM:
                     case EVO_TRADE_ITEM:
                     {
-                        SetSpeciesState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                        SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
                         if(removeChild)
                         {
-                            SetSpeciesState(species, FALSE);
+                            SetQueryState(species, FALSE);
                         }
                     }
                     break;
@@ -346,11 +368,11 @@ void RogueQuery_SpeciesIsLegendary(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             if(!IsSpeciesIsLegendary(species))
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
             }
         }
     }
@@ -362,11 +384,126 @@ void RogueQuery_SpeciesIsNotLegendary(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        if(GetSpeciesState(species))
+        if(GetQueryState(species))
         {
             if(IsSpeciesIsLegendary(species))
             {
-                SetSpeciesState(species, FALSE);
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+// Items
+//
+
+void RogueQuery_ItemsIsValid(void)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].itemId != item)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsInPocket(u8 pocket)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].pocket != pocket)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsNotInPocket(u8 pocket)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].pocket == pocket)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].price < minPrice || gItems[item].price > maxPrice)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsHeldItem(void)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].holdEffect == HOLD_EFFECT_NONE)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsNotHeldItem(void)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(gItems[item].holdEffect != HOLD_EFFECT_NONE)
+            {
+                SetQueryState(item, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsExcludeRange(u16 fromId, u16 toId)
+{
+    u16 item;
+
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            if(item >= fromId && item <= toId)
+            {
+                SetQueryState(item, FALSE);
             }
         }
     }

@@ -8,7 +8,7 @@ Rogue_PostBattle_Internal::
 
 
 Rogue_GiveItem_Internal::
-	finditem VAR_0x8000, 3
+	finditem VAR_0x8001, 3
 	return
 
 
@@ -121,115 +121,134 @@ Rogue_Battle_AquaM::
 
 
 Rogue_Give_Item0::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM0
+	setvar VAR_0x8000, 0
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item1::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM1
+	setvar VAR_0x8000, 1
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM1
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item2::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM2
+	setvar VAR_0x8000, 2
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM2
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item3::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM3
+	setvar VAR_0x8000, 3
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM3
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item4::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM4
+	setvar VAR_0x8000, 4
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM4
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item5::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM5
+	setvar VAR_0x8000, 5
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM5
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item6::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM6
+	setvar VAR_0x8000, 6
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM6
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item7::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM7
+	setvar VAR_0x8000, 7
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM7
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item8::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM8
+	setvar VAR_0x8000, 8
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM8
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item9::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM9
+	setvar VAR_0x8000, 9
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM9
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item10::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM10
+	setvar VAR_0x8000, 10
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM10
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item11::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM11
+	setvar VAR_0x8000, 11
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM11
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item12::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM12
+	setvar VAR_0x8000, 12
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM12
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item13::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM13
+	setvar VAR_0x8000, 13
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM13
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item14::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM14
+	setvar VAR_0x8000, 14
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM14
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item15::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM15
+	setvar VAR_0x8000, 15
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM15
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item16::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM16
+	setvar VAR_0x8000, 16
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM16
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item17::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM17
+	setvar VAR_0x8000, 17
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM17
 	call Rogue_GiveItem_Internal
 	return
 
 
 Rogue_Give_Item18::
-	copyvar VAR_0x8000, VAR_ROGUE_ITEM18
+	setvar VAR_0x8000, 18
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM18
 	call Rogue_GiveItem_Internal
 	return
 

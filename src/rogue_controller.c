@@ -137,11 +137,16 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 }
 
 #ifdef ROGUE_DEBUG
+EWRAM_DATA u16 gDebug_WildOptionCount = 0;
+EWRAM_DATA u16 gDebug_ItemOptionCount = 0;
+
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
 const u8 gText_RogueDebug_Difficulty[] = _("\nDifficulty: ");
 const u8 gText_RogueDebug_PlayerLvl[] = _("\nPlayer lvl: ");
 const u8 gText_RogueDebug_WildLvl[] = _("\nWild lvl: ");
+const u8 gText_RogueDebug_WildCount[] = _("\nWild Opt: ");
+const u8 gText_RogueDebug_ItemCount[] = _("\nItem Opt: ");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -169,7 +174,8 @@ u8* Rogue_GetMiniMenuContent(void)
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
 
     return gStringVar4;
 }
@@ -429,9 +435,16 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 
 void Rogue_OnWarpIntoMap(void)
 {
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION && !Rogue_IsRunActive())
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
-        BeginRogueRun();
+        if(!Rogue_IsRunActive())
+        {
+            BeginRogueRun();
+        }
+        else
+        {
+
+        }
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())
     {
@@ -774,7 +787,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         if(allowedType != TYPE_NONE)
             RogueQuery_SpeciesOfType(allowedType);
 
-        RogueQuery_CollapseBuffer();
+        RogueQuery_CollapseSpeciesBuffer();
 
         *useRogueCreateMon = TRUE;
         return;
@@ -861,12 +874,16 @@ static void RandomiseWildEncounters(void)
     RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
 
-    RogueQuery_CollapseBuffer();
+    RogueQuery_CollapseSpeciesBuffer();
 
     {
         u8 i;
         u16 randIdx;
         u16 queryCount = RogueQuery_BufferSize();
+
+#ifdef ROGUE_DEBUG
+        gDebug_WildOptionCount = queryCount;
+#endif
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
@@ -1015,9 +1032,74 @@ static void RandomiseEnabledTrainers(void)
     }
 }
 
+static void RandomiseItemContent(u8 difficultyLevel)
+{
+    u16 queryCount;
+
+    // Queue up random items
+    RogueQuery_Clear();
+    RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 100 * difficultyLevel);
+
+    RogueQuery_ItemsIsValid();
+    RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
+    RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+
+    RogueQuery_Exclude(ITEM_SACRED_ASH);
+    RogueQuery_Exclude(ITEM_REVIVAL_HERB);
+    RogueQuery_Exclude(ITEM_REVIVE);
+    RogueQuery_Exclude(ITEM_MAX_REVIVE);
+
+    RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
+    RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
+    RogueQuery_ItemsExcludeRange(ITEM_RED_SHARD, ITEM_GREEN_SHARD);
+    RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
+
+    //ITEM_SACRED_ASH
+
+    if(difficultyLevel <= 1)
+    {
+        RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
+    }
+
+    if(difficultyLevel <= 3)
+    {
+        RogueQuery_ItemsNotHeldItem();
+    }
+
+    RogueQuery_CollapseItemBuffer();
+    queryCount = RogueQuery_BufferSize();
+
+#ifdef ROGUE_DEBUG
+    gDebug_ItemOptionCount = queryCount;
+#endif
+
+    // These VARs aren't sequential
+    VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[Random() % queryCount]);
+}
+
 static void RandomiseEnabledItems(void)
 {
     s32 i;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
         if(RandomChanceItem())
@@ -1032,26 +1114,7 @@ static void RandomiseEnabledItems(void)
         }
     }
 
-    // TODO - Randomise items
-    VarSet(VAR_ROGUE_ITEM0, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM1, ITEM_BERRY_JUICE);
-    VarSet(VAR_ROGUE_ITEM2, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM3, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM4, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM5, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM6, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM7, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM8, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM9, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM10, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM11, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM12, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM13, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM14, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM15, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM16, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM17, ITEM_POKE_BALL);
-    VarSet(VAR_ROGUE_ITEM18, ITEM_POKE_BALL);
+    RandomiseItemContent(difficultyLevel);
 }
 
 // Only take up to Iappa berry, as past that is just misc non-battle related berries
