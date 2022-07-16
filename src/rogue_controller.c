@@ -54,6 +54,8 @@
 #define ROOM_BOSS_CHAMPION_END          ROOM_IDX_BOSS13
 
 
+static u8 GetDifficultyLevel(u16 roomIdx);
+
 static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
 static u8 CalculateTrainerLevel(u16 trainerNum);
@@ -128,25 +130,40 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 }
 
 #ifdef ROGUE_DEBUG
-const u8 gText_RogueDebugText00[] = _("ROGUE DEBUG\nROOM ");
+const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
+const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
+const u8 gText_RogueDebug_Difficulty[] = _("\nDifficulty: ");
+const u8 gText_RogueDebug_PlayerLvl[] = _("\nPlayer lvl: ");
+const u8 gText_RogueDebug_WildLvl[] = _("\nWild lvl: ");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
     return TRUE;
 }
 
+static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
+{
+    ConvertIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, 2);
+
+    strPointer = StringAppend(strPointer, field);
+    return StringAppend(strPointer, gStringVar1);
+}
+
 u8* Rogue_GetMiniMenuContent(void)
 {
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    u8 playerLevel = CalculatePlayerLevel();
+    u8 wildLevel = CalculateWildLevel();
+
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
 
-    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
-    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
-    strPointer = StringAppend(strPointer, gText_RogueDebugText00);
+    strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
 
-    //ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    //ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    //StringExpandPlaceholders(gStringVar4, gText_RogueDebugText);
     return gStringVar4;
 }
 #else
@@ -178,23 +195,26 @@ void Rogue_OnNewGame(void)
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
-    SetMoney(&gSaveBlock1Ptr->money, 100);
-
-    // TEMP - Should do this by script
-    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
 #ifdef ROGUE_DEBUG
+    //AddBagItem(ITEM_RARE_CANDY, 99);
+    //AddBagItem(ITEM_RARE_CANDY, 99);
+    //AddBagItem(ITEM_RARE_CANDY, 99);
     SetMoney(&gSaveBlock1Ptr->money, 60000);
 
-    //CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    //GiveMonToPlayer(&starterMon);
+    CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
 //
     //CreateMon(&starterMon, SPECIES_KYOGRE, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     //GiveMonToPlayer(&starterMon);
 //
     //CreateMon(&starterMon, SPECIES_GROUDON, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     //GiveMonToPlayer(&starterMon);
+#else
+    SetMoney(&gSaveBlock1Ptr->money, 100);
+
+    // TEMP - Should do this by script
+    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
 #endif
 }
 

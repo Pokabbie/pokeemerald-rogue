@@ -1,7 +1,7 @@
 #ifndef ROGUE_CONTROLLER_H
 #define ROGUE_CONTROLLER_H
 
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
 
 void RemoveAnyFaintedMons(void);
 
