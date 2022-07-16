@@ -15,6 +15,8 @@
 #include "constants/battle_move_effects.h"
 #include "constants/moves.h"
 
+#include "rogue_controller.h"
+
 #define AI_ACTION_DONE          0x0001
 #define AI_ACTION_FLEE          0x0002
 #define AI_ACTION_WATCH         0x0004
@@ -289,6 +291,9 @@ void BattleAI_HandleItemUseBeforeAISetup(u8 defaultScoreMoves)
     s32 i;
     u8 *data = (u8 *)BATTLE_HISTORY;
 
+    bool8 shouldOverrideItems = FALSE;
+    u16 overrideItems[MAX_TRAINER_ITEMS] = {0};
+
     for (i = 0; i < sizeof(struct BattleHistory); i++)
         data[i] = 0;
 
@@ -300,12 +305,25 @@ void BattleAI_HandleItemUseBeforeAISetup(u8 defaultScoreMoves)
             )
        )
     {
+        shouldOverrideItems = Rogue_OverrideTrainerItems(&overrideItems[0]);
+
         for (i = 0; i < MAX_TRAINER_ITEMS; i++)
         {
-            if (gTrainers[gTrainerBattleOpponent_A].items[i] != 0)
+            if(shouldOverrideItems)
             {
-                BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = gTrainers[gTrainerBattleOpponent_A].items[i];
-                BATTLE_HISTORY->itemsNo++;
+                if(overrideItems[i] != 0)
+                {
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = overrideItems[i];
+                    BATTLE_HISTORY->itemsNo++;
+                }
+            }
+            else
+            {
+                if (gTrainers[gTrainerBattleOpponent_A].items[i] != 0)
+                {
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = gTrainers[gTrainerBattleOpponent_A].items[i];
+                    BATTLE_HISTORY->itemsNo++;
+                }
             }
         }
     }

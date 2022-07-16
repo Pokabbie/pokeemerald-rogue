@@ -89,6 +89,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             u8 targetLevel = CalculatePlayerLevel();
             u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
+            //u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+
             if(currentLevel < targetLevel)
             {
                 u8 delta = targetLevel - currentLevel;
@@ -202,11 +204,8 @@ void Rogue_OnNewGame(void)
     //AddBagItem(ITEM_RARE_CANDY, 99);
     SetMoney(&gSaveBlock1Ptr->money, 60000);
 
-    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
-
-    //CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    //GiveMonToPlayer(&starterMon);
 #else
     SetMoney(&gSaveBlock1Ptr->money, 100);
 
@@ -728,6 +727,21 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
     }
 }
 
+bool8 Rogue_OverrideTrainerItems(u16* items)
+{
+    if(Rogue_IsRunActive())
+    {
+        //for (i = 0; i < MAX_TRAINER_ITEMS; i++)
+        //{
+        //    items[i] = ITEM_NONE;
+        //}
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
     if(Rogue_IsRunActive())
@@ -750,7 +764,8 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         // Evolve the species to just below the wild encounter level
         RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
         
-        RogueQuery_EvolveSpeciesByItem();
+        if(GetDifficultyLevel(gRogueRun.currentRoomIdx) >= 5)
+            RogueQuery_EvolveSpeciesByItem();
 
         if(allowedType != TYPE_NONE)
             RogueQuery_SpeciesOfType(allowedType);
