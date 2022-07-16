@@ -574,6 +574,7 @@
 #define MAP_ROGUE_BOSS_11                                   (106 | (26 << 8))
 #define MAP_ROGUE_BOSS_12                                   (107 | (26 << 8))
 #define MAP_ROGUE_BOSS_13                                   (108 | (26 << 8))
+#define MAP_ROGUE_ROUTE_FOREST0                             (109 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

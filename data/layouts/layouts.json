@@ -4610,6 +4610,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Boss_13/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Boss_13/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_FOREST0",
+      "name": "Rogue_Route_Forest0_Layout",
+      "width": 48,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Rogue_Route_Forest0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Forest0/map.bin"
     }
   ]
 }

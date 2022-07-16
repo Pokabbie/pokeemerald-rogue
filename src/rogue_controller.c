@@ -461,7 +461,7 @@ void Rogue_OnWarpIntoMap(void)
         }
         else
         {
-            gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
+            gRogueRun.currentRouteType = ROGUE_ROUTE_FOREST;
 
             RandomiseWildEncounters();
             ResetTrainerBattles();
@@ -488,6 +488,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
         else
         {
+            //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FOREST0);
+            //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FOREST0);
+
             // Normal room
             if((nextRoomIdx % 2) == 0)
             {
@@ -496,8 +499,10 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             }
             else
             {
-                warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
-                warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
+                warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FOREST0);
+                warp->mapNum = MAP_NUM(ROGUE_ROUTE_FOREST0);
+                //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
+                //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
             }
         }
 
