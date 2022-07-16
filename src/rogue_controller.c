@@ -11,6 +11,7 @@
 #include "berry.h"
 #include "event_data.h"
 #include "item.h"
+#include "load_save.h"
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
@@ -201,13 +202,10 @@ void Rogue_OnNewGame(void)
     //AddBagItem(ITEM_RARE_CANDY, 99);
     SetMoney(&gSaveBlock1Ptr->money, 60000);
 
-    CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
-//
-    //CreateMon(&starterMon, SPECIES_KYOGRE, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    //GiveMonToPlayer(&starterMon);
-//
-    //CreateMon(&starterMon, SPECIES_GROUDON, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+
+    //CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     //GiveMonToPlayer(&starterMon);
 #else
     SetMoney(&gSaveBlock1Ptr->money, 100);
@@ -272,17 +270,11 @@ static void BeginRogueRun(void)
     //gRogueRun.berrySpawnChance = 100;
 
     // Store current states
-    gRogueSaveData.playerPartyCount = gPlayerPartyCount;
-    memcpy(gRogueSaveData.playerParty, gPlayerParty, sizeof(gRogueSaveData.playerParty));
+    SavePlayerParty();
+    LoadPlayerBag(); // Bag funcs named in opposite
 
     gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
-
-    memcpy(gRogueSaveData.bagPocket_Items, gBagPockets[ITEMS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_Items));
-    memcpy(gRogueSaveData.bagPocket_KeyItems, gBagPockets[KEYITEMS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_KeyItems));
-    memcpy(gRogueSaveData.bagPocket_PokeBalls, gBagPockets[BALLS_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_PokeBalls));
-    memcpy(gRogueSaveData.bagPocket_TMHM, gBagPockets[TMHM_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_TMHM));
-    memcpy(gRogueSaveData.bagPocket_Berries, gBagPockets[BERRIES_POCKET].itemSlots, sizeof(gRogueSaveData.bagPocket_Berries));
 
     FlagClear(FLAG_ROGUE_DEFEATED_ROXANNE);
     FlagClear(FLAG_ROGUE_DEFEATED_BRAWLY);
@@ -308,17 +300,11 @@ static void EndRogueRun(void)
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore current states
-    gPlayerPartyCount = gRogueSaveData.playerPartyCount;
-    memcpy(gPlayerParty, gRogueSaveData.playerParty, sizeof(gRogueSaveData.playerParty));
+    LoadPlayerParty();
+    SavePlayerBag(); // Bag funcs named in opposite
 
     SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
     gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
-
-    memcpy(gBagPockets[ITEMS_POCKET].itemSlots, gRogueSaveData.bagPocket_Items, sizeof(gRogueSaveData.bagPocket_Items));
-    memcpy(gBagPockets[KEYITEMS_POCKET].itemSlots, gRogueSaveData.bagPocket_KeyItems, sizeof(gRogueSaveData.bagPocket_KeyItems));
-    memcpy(gBagPockets[BALLS_POCKET].itemSlots, gRogueSaveData.bagPocket_PokeBalls, sizeof(gRogueSaveData.bagPocket_PokeBalls));
-    memcpy(gBagPockets[TMHM_POCKET].itemSlots, gRogueSaveData.bagPocket_TMHM, sizeof(gRogueSaveData.bagPocket_TMHM));
-    memcpy(gBagPockets[BERRIES_POCKET].itemSlots, gRogueSaveData.bagPocket_Berries, sizeof(gRogueSaveData.bagPocket_Berries));
 }
 
 static bool8 IsBossRoom(u16 roomIdx)
@@ -903,8 +889,28 @@ static u8 CalculateBossLevel(u8 difficulty)
 
 static u8 CalculatePlayerLevel(void)
 {
-    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    return CalculateBossLevel(difficultyLevel);
+    u8 prevLevel;
+    u8 currLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+    if(currLevel == 0)
+    {
+        // Cannot do blending
+        return CalculateBossLevel(currLevel);
+    }
+    else
+    {
+        prevLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx - 1);
+    }
+
+    if(currLevel == prevLevel)
+    {
+        return CalculateBossLevel(currLevel);
+    }
+    else
+    {
+        // We've just transitioned so use midpoint
+        return (CalculateBossLevel(prevLevel) + CalculateBossLevel(currLevel)) / 2;
+    }
 }
 
 static u8 CalculateTrainerLevel(u16 trainerNum)
