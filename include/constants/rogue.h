@@ -72,7 +72,7 @@ struct RogueMonPresetCollection
 };
 
 extern const struct SpeciesTable gRogueSpeciesTable[];
-const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
+extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H

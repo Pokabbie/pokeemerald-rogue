@@ -891,9 +891,9 @@ static u8 CalculateBossLevel(u8 difficulty)
     // Gym leaders lvs 10 -> 80
     if(difficulty <= 7)
     {
-        return 10 + 10 * difficulty * 70;
+        return 10 + 10 * difficulty;
     }
-    else 
+    else
     {
         // Both champions are lvl 100
         difficulty -= 7;
