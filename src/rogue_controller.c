@@ -1038,7 +1038,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     // Queue up random items
     RogueQuery_Clear();
-    RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 100 * difficultyLevel);
+    RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 800 * difficultyLevel);
 
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
