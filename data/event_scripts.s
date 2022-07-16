@@ -1083,3 +1083,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Boss_6/scripts.inc"
 
 	.include "data/maps/Rogue_Boss_7/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_8/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_9/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_10/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_11/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_12/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_13/scripts.inc"
