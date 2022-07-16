@@ -3231,6 +3231,7 @@ static void Cmd_getexp(void)
     s32 sentIn;
     s32 viaExpShare = 0;
     u16 *exp = &gBattleStruct->expValue;
+    bool8 firstExpGained = TRUE;
 
     gBattlerFainted = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     sentIn = gSentPokesToOpponent[(gBattlerFainted & 2) >> 1];
@@ -3389,12 +3390,24 @@ static void Cmd_getexp(void)
                         gBattleStruct->expGetterBattlerId = 0;
                     }
 
-                    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
-                    // buffer 'gained' or 'gained a boosted'
-                    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+                    // RogueNote: Just print team gained exp?
+                    if(firstExpGained)
+                    {
+                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        firstExpGained = FALSE;
+                    }
 
-                    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                    //if(gBattleMoveDamage != 0)
+                    //{
+                    //    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
+                    //    // buffer 'gained' or 'gained a boosted'
+                    //    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                    //    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+//
+                    //    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                    //}
+
+                    // RogueNote: Remove EVs?
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
                 }
                 gBattleStruct->sentInPokes >>= 1;
@@ -3405,19 +3418,22 @@ static void Cmd_getexp(void)
     case 3: // Set stats and give exp
         if (gBattleControllerExecFlags == 0)
         {
-            gBattleBufferB[gBattleStruct->expGetterBattlerId][0] = 0;
-            if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP) && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) != MAX_LEVEL)
+            if(gBattleMoveDamage != 0) // If we have any exp
             {
-                gBattleResources->beforeLvlUp->stats[STAT_HP]    = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MAX_HP);
-                gBattleResources->beforeLvlUp->stats[STAT_ATK]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_ATK);
-                gBattleResources->beforeLvlUp->stats[STAT_DEF]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_DEF);
-                gBattleResources->beforeLvlUp->stats[STAT_SPEED] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPEED);
-                gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPATK);
-                gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPDEF);
+                gBattleBufferB[gBattleStruct->expGetterBattlerId][0] = 0;
+                if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP) && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) != MAX_LEVEL)
+                {
+                    gBattleResources->beforeLvlUp->stats[STAT_HP]    = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MAX_HP);
+                    gBattleResources->beforeLvlUp->stats[STAT_ATK]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_ATK);
+                    gBattleResources->beforeLvlUp->stats[STAT_DEF]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_DEF);
+                    gBattleResources->beforeLvlUp->stats[STAT_SPEED] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPEED);
+                    gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPATK);
+                    gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPDEF);
 
-                gActiveBattler = gBattleStruct->expGetterBattlerId;
-                BtlController_EmitExpUpdate(BUFFER_A, gBattleStruct->expGetterMonId, gBattleMoveDamage);
-                MarkBattlerForControllerExec(gActiveBattler);
+                    gActiveBattler = gBattleStruct->expGetterBattlerId;
+                    BtlController_EmitExpUpdate(BUFFER_A, gBattleStruct->expGetterMonId, gBattleMoveDamage);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
             gBattleScripting.getexpState++;
         }

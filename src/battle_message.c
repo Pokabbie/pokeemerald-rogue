@@ -53,7 +53,8 @@ EWRAM_DATA struct BattleMsgData *gBattleMsgDataPtr = NULL;
 // todo: make some of those names less vague: attacker/target vs pkmn, etc.
 
 static const u8 sText_Trainer1LoseText[] = _("{B_TRAINER1_LOSE_TEXT}");
-static const u8 sText_PkmnGainedEXP[] = _("{B_BUFF1} gained{B_BUFF2}\n{B_BUFF3} EXP. Points!\p");
+static const u8 sText_PkmnGainedEXP[] = _("Team gained EXP. Points!\p");
+//static const u8 sText_PkmnGainedEXP[] = _("{B_BUFF1} gained{B_BUFF2}\n{B_BUFF3} EXP. Points!\p");
 static const u8 sText_EmptyString4[] = _("");
 static const u8 sText_ABoosted[] = _(" a boosted");
 static const u8 sText_PkmnGrewToLv[] = _("{B_BUFF1} grew to\nLV. {B_BUFF2}!{WAIT_SE}\p");

@@ -88,25 +88,39 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
         {
             u8 targetLevel = CalculatePlayerLevel();
             u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
+            //u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
-            //u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+            if(currentLevel != 100)
+            {
+                // Could base of gBaseStats[species].growthRate?
+                u32 currLvlExp = gExperienceTables[GROWTH_FAST][currentLevel];
+                u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
+                u32 lvlExp = (nextLvlExp - currLvlExp);
 
-            if(currentLevel < targetLevel)
-            {
-                u8 delta = targetLevel - currentLevel;
-                if(delta <= 2)
+                if(currentLevel < targetLevel)
                 {
-                    *expGain = (*expGain) * 2;
+                    u8 delta = targetLevel - currentLevel;
+                    s32 desiredExpGain = 0;
+                    if(delta <= 3)
+                    {
+                        // Give 25% of level always
+                        desiredExpGain = (nextLvlExp * 25) / 100;
+                    }
+                    else
+                    {
+                        // Give full levels to catch up
+                        desiredExpGain = (nextLvlExp * (delta - 3));
+                    }
+
+                    *expGain = max(*expGain, desiredExpGain);
                 }
-                else //if(delta <= 4)
+                else
                 {
-                    *expGain *= (*expGain) * 3;
+                    // TODO - scale
+
+                    // No EXP once at target level
+                    *expGain = 0;
                 }
-            }
-            else
-            {
-                // No EXP once at target level
-                *expGain = 0;
             }
         }
         else
@@ -884,7 +898,7 @@ static void ResetTrainerBattles(void)
 
 static u8 CalculateWildLevel(void)
 {
-    return 3 + gRogueRun.currentRoomIdx;
+    return CalculatePlayerLevel() - 7;
 }
 
 static u8 CalculateBossLevel(u8 difficulty)
