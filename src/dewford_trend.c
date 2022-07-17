@@ -156,12 +156,12 @@ bool8 TrySetTrendyPhrase(u16 *phrase)
     // RogueNote: allow resetting same PHRASE as this used for seeds
     //if (!IsPhraseInSavedTrends(phrase))
     {
-        if (!FlagGet(FLAG_SYS_CHANGED_DEWFORD_TREND))
+        //if (!FlagGet(FLAG_SYS_CHANGED_DEWFORD_TREND))
         {
-            FlagSet(FLAG_SYS_CHANGED_DEWFORD_TREND);
+            //FlagSet(FLAG_SYS_CHANGED_DEWFORD_TREND);
 
             // Make sure player couldn't have received this phrase by mixing records
-            if (!FlagGet(FLAG_SYS_MIX_RECORD))
+            //if (!FlagGet(FLAG_SYS_MIX_RECORD))
             {
                 // This is the first time submitting a phrase
                 // No need to check saved phrases or reset rng, just set the new words

@@ -164,11 +164,9 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         *catchRate = 50;
 }
 
-#undef ROGUE_DEBUG
-
 #ifdef ROGUE_DEBUG
-EWRAM_DATA u16 gDebug_WildOptionCount = 0;
-EWRAM_DATA u16 gDebug_ItemOptionCount = 0;
+EWRAM_DATA u8 gDebug_WildOptionCount = 0;
+EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
 
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
@@ -185,9 +183,16 @@ bool8 Rogue_ShouldShowMiniMenu(void)
     return TRUE;
 }
 
-static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num, u8 units)
+static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
 {
-    ConvertUIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, units);
+    u8 pow = 2;
+
+    if(num >= 100)
+    {
+        pow = 9;
+    }
+
+    ConvertUIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, pow);
 
     strPointer = StringAppend(strPointer, field);
     return StringAppend(strPointer, gStringVar1);
@@ -206,18 +211,18 @@ u8* Rogue_GetMiniMenuContent(void)
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed(), 9);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
     }
     else
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_SeedNone);
     }
 
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx, 2);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel, 2);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel, 2);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount, 2);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount, 2);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
 
     return gStringVar4;
 }

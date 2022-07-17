@@ -10,8 +10,9 @@ Rogue_Battle_Boss6::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss6
 	waitmovement 0
 	msgbox Rogue_Battle_Boss6_Text_0
-	applymovement 5, BossToFightBoss6
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss6
+	applymovement 6, BossLizaToFightBoss6
+	applymovement 5, BossTateToFightBoss6
 	waitmovement 0
 	trainerbattle_single TRAINER_TATE_AND_LIZA_1, Rogue_Battle_Boss6_Text_1, Rogue_Battle_Boss6_Text_2, Rogue_BattleDefeated_Boss6
 	return
@@ -56,15 +57,24 @@ PlayerToFightBoss6:
 	face_right
 	step_end
 
-BossToFightBoss6:
+BossTateToFightBoss6:
 	walk_left
+	walk_down
+	face_left
+	step_end
+
+BossLizaToFightBoss6:
+	walk_left
+	walk_up
+	face_left
 	step_end
 
 Rogue_Battle_Boss6_Text_0:
-	.string "LIZA: A new challenger!$"
+	.string "LIZA: Look TATE!\n"
+	.string "A new challenger!$"
 
 Rogue_Battle_Boss6_Text_1:
-	.string "Don't hold back now!$"
+	.string "TATE: Don't hold back now!$"
 
 Rogue_Battle_Boss6_Text_2:
 	.string "Well fought trainer!$"
