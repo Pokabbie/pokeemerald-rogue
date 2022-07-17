@@ -2326,7 +2326,15 @@ static bool32 GetEasyChatCompleted(void)
     }
     else
     {
-        return DidPhraseChange();
+        if(sEasyChatScreen->type == EASY_CHAT_TYPE_TRENDY_PHRASE)
+        {
+            // RogueNote: Always accept phrase change, can be used to reset SEED quickly
+            return TRUE;
+        }
+        else
+        {
+            return DidPhraseChange();
+        }
     }
 }
 

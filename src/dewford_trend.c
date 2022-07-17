@@ -153,7 +153,8 @@ bool8 TrySetTrendyPhrase(u16 *phrase)
     struct DewfordTrend trend = {0};
     u16 i;
 
-    if (!IsPhraseInSavedTrends(phrase))
+    // RogueNote: allow resetting same PHRASE as this used for seeds
+    //if (!IsPhraseInSavedTrends(phrase))
     {
         if (!FlagGet(FLAG_SYS_CHANGED_DEWFORD_TREND))
         {
