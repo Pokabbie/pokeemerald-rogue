@@ -138,8 +138,12 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             }
             else
             {
-                // No EXP once at target level
-                *expGain = 0;
+                // If flag not set, just use normal EXP calculations (For now)
+                if(!FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+                {
+                    // No EXP once at target level
+                    *expGain = 0;
+                }
             }
         }
     }
@@ -239,13 +243,18 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
+    // Seed settings
     FlagClear(FLAG_SET_SEED_ENABLED);
     FlagSet(FLAG_SET_SEED_ITEMS);
     FlagSet(FLAG_SET_SEED_TRAINERS);
     FlagSet(FLAG_SET_SEED_BOSSES);
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
+    // Run settings
+    FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagSet(FLAG_ROGUE_EXP_ALL);
+    FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
+    FlagClear(FLAG_ROGUE_CAN_OVERLVL);
 
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_SYS_POKEDEX_GET);
@@ -273,7 +282,11 @@ void Rogue_OnNewGame(void)
 
 void Rogue_SetDefaultOptions(void)
 {
+#ifdef ROGUE_DEBUG
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+#else
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_SLOW;
+#endif
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
     //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
     //gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
@@ -603,12 +616,14 @@ void RemoveAnyFaintedMons(void)
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
-    // TODO - Check if double battle mode is active
-    //if(gNoOfApproachingTrainers != 2 && gPlayerPartyCount >= 2)
-    //{
-    //    // Force double?
-    //    gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
-    //}
+    if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) //NoOfApproachingTrainers != 2 
+    {
+        if(gPlayerPartyCount >= 2)
+        {
+            // Force double?
+            gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
+        }
+    }
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)

@@ -179,6 +179,24 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(1,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        setmetatile(3,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(3,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    {
+        setmetatile(5,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     // SEED settings
     //
     if(flag(FLAG_SET_SEED_ITEMS))
@@ -247,6 +265,62 @@ script Rogue_ConfigRoom_Button_ExpAll
         else
         {
             setflag(FLAG_ROGUE_EXP_ALL)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_DoubleBattle
+{
+    bufferstring(STR_VAR_1, format("DOUBLE BATTLE MODE"))
+
+    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+        {
+            clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_CanOverLvl
+{
+    bufferstring(STR_VAR_1, format("ALLOW OVERLEVLING"))
+
+    if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_CAN_OVERLVL))
+        {
+            clearflag(FLAG_ROGUE_CAN_OVERLVL)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_CAN_OVERLVL)
         }
     }
     call(Rogue_ConfigRoom_PostButtonInternal)

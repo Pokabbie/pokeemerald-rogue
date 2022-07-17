@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 12,
+      "x": 11,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -69,7 +69,7 @@
     },
     {
       "type": "trigger",
-      "x": 12,
+      "x": 11,
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -78,7 +78,7 @@
     },
     {
       "type": "trigger",
-      "x": 12,
+      "x": 11,
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -87,7 +87,7 @@
     },
     {
       "type": "trigger",
-      "x": 12,
+      "x": 11,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -96,7 +96,7 @@
     },
     {
       "type": "trigger",
-      "x": 12,
+      "x": 11,
       "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -138,6 +138,24 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Rogue_ConfigRoom_Button_SeedBosses"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_DoubleBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_CanOverLvl"
     }
   ],
   "bg_events": [
