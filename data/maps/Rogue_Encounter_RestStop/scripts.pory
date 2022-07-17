@@ -17,7 +17,7 @@ script Rogue_Encounter_RestStop_MoveRelearn
 {
     lock
     faceplayer
-    msgbox(format("I'm the MOVE TUTOR.\p I can teach POKéMON those moves if you'd like.\pFor a cost of course."), MSGBOX_DEFAULT)
+    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach POKéMON moves if you'd like.\pFor a cost of course."), MSGBOX_DEFAULT)
 
     showmoneybox(0, 0)
     msgbox(format("Would you like me to teach your POKéMON a move for ¥1000?"), MSGBOX_YESNO)
@@ -59,6 +59,55 @@ script Rogue_Encounter_RestStop_MoveRelearn
     }
 
     removemoney(1000)
+    release
+}
+
+script Rogue_Encounter_RestStop_EggMoveLearn
+{
+    lock
+    faceplayer
+    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach POKéMON moves if you'd like.\pFor a cost of course."), MSGBOX_DEFAULT)
+
+    showmoneybox(0, 0)
+    msgbox(format("Would you like me to teach your POKéMON a move for ¥2000?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    checkmoney(2000)
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Encounter_RestStop_NotEnoughMoney)
+    }
+
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    // Teach move
+    special(TeachMoveEggMove)
+    waitstate
+
+    if(var(VAR_0x8004) == 0)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    removemoney(2000)
     release
 }
 

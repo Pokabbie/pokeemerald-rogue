@@ -65,6 +65,59 @@ Rogue_Encounter_RestStop_MoveRelearn_14:
 	goto Rogue_Encounter_RestStop_MoveRelearn_13
 
 
+Rogue_Encounter_RestStop_EggMoveLearn::
+	lock
+	faceplayer
+	msgbox Rogue_Encounter_RestStop_EggMoveLearn_Text_0, MSGBOX_DEFAULT
+	showmoneybox 0, 0
+	msgbox Rogue_Encounter_RestStop_EggMoveLearn_Text_1, MSGBOX_YESNO
+	hidemoneybox
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Encounter_RestStop_EggMoveLearn_2
+Rogue_Encounter_RestStop_EggMoveLearn_1:
+	checkmoney 2000
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Encounter_RestStop_EggMoveLearn_5
+Rogue_Encounter_RestStop_EggMoveLearn_4:
+	special ChooseMonForMoveRelearner
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_Encounter_RestStop_EggMoveLearn_8
+Rogue_Encounter_RestStop_EggMoveLearn_7:
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Encounter_RestStop_EggMoveLearn_11
+Rogue_Encounter_RestStop_EggMoveLearn_10:
+	special TeachMoveEggMove
+	waitstate
+	compare VAR_0x8004, 0
+	goto_if_eq Rogue_Encounter_RestStop_EggMoveLearn_14
+Rogue_Encounter_RestStop_EggMoveLearn_13:
+	removemoney 2000
+	release
+	return
+
+Rogue_Encounter_RestStop_EggMoveLearn_2:
+	goto Rogue_Encounter_RestStop_MoveRelearnCancel
+	goto Rogue_Encounter_RestStop_EggMoveLearn_1
+
+Rogue_Encounter_RestStop_EggMoveLearn_5:
+	goto Rogue_Encounter_RestStop_NotEnoughMoney
+	goto Rogue_Encounter_RestStop_EggMoveLearn_4
+
+Rogue_Encounter_RestStop_EggMoveLearn_8:
+	goto Rogue_Encounter_RestStop_MoveRelearnCancel
+	goto Rogue_Encounter_RestStop_EggMoveLearn_7
+
+Rogue_Encounter_RestStop_EggMoveLearn_11:
+	goto Rogue_Encounter_RestStop_MoveRelearnCancel
+	goto Rogue_Encounter_RestStop_EggMoveLearn_10
+
+Rogue_Encounter_RestStop_EggMoveLearn_14:
+	goto Rogue_Encounter_RestStop_MoveRelearnCancel
+	goto Rogue_Encounter_RestStop_EggMoveLearn_13
+
+
 Rogue_Encounter_RestStop_NotEnoughMoney::
 	msgbox Rogue_Encounter_RestStop_NotEnoughMoney_Text_0, MSGBOX_DEFAULT
 	release
@@ -156,14 +209,22 @@ Rogue_Encounter_RestStop_Heal_Text_1:
 	.string "Take care!$"
 
 Rogue_Encounter_RestStop_MoveRelearn_Text_0:
-	.string "I'm the MOVE TUTOR.\p"
-	.string "I can teach POKéMON those moves if\n"
-	.string "you'd like.\p"
+	.string "I'm the LVL MOVE TUTOR.\p"
+	.string "I can teach POKéMON moves if you'd like.\p"
 	.string "For a cost of course.$"
 
 Rogue_Encounter_RestStop_MoveRelearn_Text_1:
 	.string "Would you like me to teach your POKéMON\n"
 	.string "a move for ¥1000?$"
+
+Rogue_Encounter_RestStop_EggMoveLearn_Text_0:
+	.string "I'm the EGG MOVE TUTOR.\p"
+	.string "I can teach POKéMON moves if you'd like.\p"
+	.string "For a cost of course.$"
+
+Rogue_Encounter_RestStop_EggMoveLearn_Text_1:
+	.string "Would you like me to teach your POKéMON\n"
+	.string "a move for ¥2000?$"
 
 Rogue_Encounter_RestStop_NotEnoughMoney_Text_0:
 	.string "You don't have enough money!\p"

@@ -25,6 +25,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "daycare.h"
+
 /*
  * Move relearner state machine
  * ------------------------
@@ -172,6 +174,7 @@ static EWRAM_DATA struct {
     u16 listOffset;
     u16 listRow;
     bool8 showContestInfo;
+    bool8 viewEggMoves;
 } sMoveRelearnerMenuSate = {0};
 
 static const u16 sMoveRelearnerPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -365,6 +368,18 @@ static void VBlankCB_MoveRelearner(void)
 // Script arguments: The pokemon to teach is in VAR_0x8004
 void TeachMoveRelearnerMove(void)
 {
+    sMoveRelearnerMenuSate.viewEggMoves = FALSE;
+
+    ScriptContext2_Enable();
+    CreateTask(Task_WaitForFadeOut, 10);
+    // Fade to black
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
+void TeachMoveEggMove(void)
+{
+    sMoveRelearnerMenuSate.viewEggMoves = TRUE;
+
     ScriptContext2_Enable();
     CreateTask(Task_WaitForFadeOut, 10);
     // Fade to black
@@ -903,7 +918,14 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+    if(sMoveRelearnerMenuSate.viewEggMoves)
+    {
+        sMoveRelearnerStruct->numMenuChoices = GetEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+    }
+    else
+    {
+        sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+    }
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {
