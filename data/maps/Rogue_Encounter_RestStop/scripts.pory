@@ -1,0 +1,139 @@
+mapscripts Rogue_Encounter_RestStop_MapScripts 
+{
+
+}
+
+script Rogue_Encounter_RestStop_Heal
+{
+    lock
+    faceplayer
+    msgbox(format("You look tired.\nLet me patch you up!"), MSGBOX_DEFAULT)
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    msgbox(format("Take care!"), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveRelearn
+{
+    lock
+    faceplayer
+    msgbox(format("I'm the MOVE TUTOR.\p I can teach POKéMON those moves if you'd like.\pFor a cost of course."), MSGBOX_DEFAULT)
+
+    showmoneybox(0, 0)
+    msgbox(format("Would you like me to teach your POKéMON a move for ¥1000?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    checkmoney(1000)
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Encounter_RestStop_NotEnoughMoney)
+    }
+
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    // Teach move
+    special(TeachMoveRelearnerMove)
+    waitstate
+
+    if(var(VAR_0x8004) == 0)
+    {
+        goto(Rogue_Encounter_RestStop_MoveRelearnCancel)
+    }
+
+    removemoney(1000)
+    release
+}
+
+script Rogue_Encounter_RestStop_NotEnoughMoney
+{
+    msgbox(format("You don't have enough money!\pCome back once you've got enough."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveRelearnCancel
+{
+    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveDelete
+{
+    lock
+    faceplayer
+    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make POKéMON forget their moves, if you'd like?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Encounter_RestStop_MoveDeleteCancel)
+    }
+
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Encounter_RestStop_MoveDeleteCancel)
+    }
+
+    special(IsSelectedMonEgg)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Encounter_RestStop_MoveDeleteEgg)
+    }
+
+    special(GetNumMovesSelectedMonHas)
+    if(var(VAR_RESULT) <= 1)
+    {
+        goto(Rogue_Encounter_RestStop_MoveDeleteNoMoves)
+    }
+
+    fadescreen(FADE_TO_BLACK)
+    special(MoveDeleterChooseMoveToForget)
+    fadescreen(FADE_FROM_BLACK)
+
+    if(var(VAR_0x8005) == MAX_MON_MOVES)
+    {
+        goto(Rogue_Encounter_RestStop_MoveDeleteCancel)
+    }
+
+    special(MoveDeleterForgetMove)
+    playfanfare(MUS_MOVE_DELETED)
+    waitfanfare
+
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveDeleteNoMoves
+{
+    msgbox(format("This POKéMON needs move moves before I can make it forget any."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveDeleteEgg
+{
+    msgbox(format("As much as wish I could..\nI can't unteach an EGG."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_RestStop_MoveDeleteCancel
+{
+    msgbox(format("Oh.. OK then."), MSGBOX_DEFAULT)
+    release
+}

@@ -4630,6 +4630,16 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_REST_STOP",
+      "name": "Rogue_Encounter_RestStop_Layout",
+      "width": 48,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Encounter_RestStop/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_RestStop/map.bin"
     }
   ]
 }

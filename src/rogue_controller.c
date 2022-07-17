@@ -587,6 +587,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
                 //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
             }
+
+            if(nextRoomIdx == ROOM_IDX_BOSS0 - 1)
+            {
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_REST_STOP);
+            }
         }
 
         warp->warpId = 0;
@@ -1156,6 +1162,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     RogueQuery_Exclude(ITEM_REVIVAL_HERB);
     RogueQuery_Exclude(ITEM_REVIVE);
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
+    RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
@@ -1225,8 +1232,8 @@ static void RandomiseEnabledItems(void)
     RandomiseItemContent(difficultyLevel);
 }
 
-// Only take up to Iappa berry, as past that is just misc non-battle related berries
-#define BERRY_COUNT (ITEM_IAPAPA_BERRY - FIRST_BERRY_INDEX + 1)
+// Only take up to Sitrus berry, as past that is just misc non-battle related berries or reskins
+#define BERRY_COUNT (ITEM_SITRUS_BERRY - FIRST_BERRY_INDEX + 1)
 
 static void RandomiseBerryTrees(void)
 {

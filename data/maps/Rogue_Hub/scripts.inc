@@ -68,8 +68,8 @@ RareItemMart:
 	.2byte ITEM_NONE
 
 RogueHub_EventScript_ExitSign_Text_0:
-	.string "The journey begins beyond this point..\n"
-	.string "Furthest Progress defeated\l"
+	.string "The journey begins beyond this point..\p"
+	.string "Furthest Progress defeated\n"
 	.string "{STR_VAR_1} bosses..$"
 
 RogueHub_Shop_Utilty_Text_0:
