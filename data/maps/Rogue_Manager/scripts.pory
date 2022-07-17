@@ -1,5 +1,6 @@
 const VAR_ITEM_INDEX = VAR_0x8000
 const VAR_ITEM_ID_VAL = VAR_0x8001
+const VAR_SHOP_DIFFICULTY = VAR_0x8000
 
 mapscripts Rogue_Manager_MapScripts
 {
@@ -28,6 +29,187 @@ script Rogue_GiveItem_Internal
 
     finditem(VAR_ITEM_ID_VAL, 3)
 }
+
+// Shops
+//
+
+
+script Rogue_Shop_Utilty
+{    
+    lock
+    faceplayer
+    message("Welcome to the Utility Shop!")
+    waitmessage
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_DIFFICULTY)
+    }
+    else
+    {
+        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_FURTHEST_DIFFICULTY)
+    }
+
+    switch(var(VAR_SHOP_DIFFICULTY))
+    {
+        case 0:
+            pokemart(Rogue_Shop_Utility0)
+        case 1:
+            pokemart(Rogue_Shop_Utility1)
+        case 2:
+            pokemart(Rogue_Shop_Utility2)
+        case 3:
+            pokemart(Rogue_Shop_Utility3)
+        case 4:
+            pokemart(Rogue_Shop_Utility4)
+        case 5:
+            pokemart(Rogue_Shop_Utility5)
+        default:
+            pokemart(Rogue_Shop_Utility6)
+    }
+
+    msgbox("Come again soon!")
+    release
+}
+
+mart Rogue_Shop_Utility0 {
+    ITEM_POTION
+    ITEM_POKE_BALL
+    ITEM_ANTIDOTE
+}
+
+mart Rogue_Shop_Utility1 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_REPEL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+mart Rogue_Shop_Utility2 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+mart Rogue_Shop_Utility3 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+mart Rogue_Shop_Utility4 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+mart Rogue_Shop_Utility5 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_NET_BALL
+    ITEM_DIVE_BALL
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_TIMER_BALL
+    ITEM_LUXURY_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+mart Rogue_Shop_Utility6 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_MASTER_BALL
+    ITEM_NET_BALL
+    ITEM_DIVE_BALL
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_TIMER_BALL
+    ITEM_LUXURY_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+// TMs / Evo items (TODO - Split these into separate shops?)
+script Rogue_Shop_Specials
+{
+    //call(Rogue_Shop_PreSetup)
+}
+
+script Rogue_Shop_KeyItems
+{
+    //call(Rogue_Shop_PreSetup)
+}
+
 
 // Trainer Blocks
 //

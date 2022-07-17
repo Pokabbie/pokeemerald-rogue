@@ -12,6 +12,198 @@ Rogue_GiveItem_Internal::
 	return
 
 
+Rogue_Shop_Utilty::
+	lock
+	faceplayer
+	message Rogue_Shop_Utilty_Text_0
+	waitmessage
+	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_Utilty_2
+	copyvar VAR_0x8000, VAR_ROGUE_FURTHEST_DIFFICULTY
+Rogue_Shop_Utilty_1:
+	switch VAR_0x8000
+	case 0, Rogue_Shop_Utilty_7
+	case 1, Rogue_Shop_Utilty_8
+	case 2, Rogue_Shop_Utilty_9
+	case 3, Rogue_Shop_Utilty_10
+	case 4, Rogue_Shop_Utilty_11
+	case 5, Rogue_Shop_Utilty_12
+	pokemart Rogue_Shop_Utility6
+Rogue_Shop_Utilty_5:
+	msgbox Rogue_Shop_Utilty_Text_1
+	release
+	return
+
+Rogue_Shop_Utilty_2:
+	copyvar VAR_0x8000, VAR_ROGUE_DIFFICULTY
+	goto Rogue_Shop_Utilty_1
+
+Rogue_Shop_Utilty_7:
+	pokemart Rogue_Shop_Utility0
+	goto Rogue_Shop_Utilty_5
+
+Rogue_Shop_Utilty_8:
+	pokemart Rogue_Shop_Utility1
+	goto Rogue_Shop_Utilty_5
+
+Rogue_Shop_Utilty_9:
+	pokemart Rogue_Shop_Utility2
+	goto Rogue_Shop_Utilty_5
+
+Rogue_Shop_Utilty_10:
+	pokemart Rogue_Shop_Utility3
+	goto Rogue_Shop_Utilty_5
+
+Rogue_Shop_Utilty_11:
+	pokemart Rogue_Shop_Utility4
+	goto Rogue_Shop_Utilty_5
+
+Rogue_Shop_Utilty_12:
+	pokemart Rogue_Shop_Utility5
+	goto Rogue_Shop_Utilty_5
+
+
+	.align 2
+Rogue_Shop_Utility0:
+	.2byte ITEM_POTION
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility1:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility2:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility3:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility4:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility5:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility6:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+Rogue_Shop_Specials::
+	return
+
+
+Rogue_Shop_KeyItems::
+	return
+
+
 Rogue_Battle_BreederF::
 	trainerbattle_single TRAINER_ROGUE_BREEDER_F, Rogue_Battle_BreederF_Text_0, Rogue_Battle_BreederF_Text_1
 	call Rogue_PostBattle_Internal
@@ -255,6 +447,12 @@ Rogue_Give_Item18::
 
 Rogue_PostBattle_Internal_Text_0:
 	.string "Good luck with your next battle!$"
+
+Rogue_Shop_Utilty_Text_0:
+	.string "Welcome to the Utility Shop!$"
+
+Rogue_Shop_Utilty_Text_1:
+	.string "Come again soon!$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"

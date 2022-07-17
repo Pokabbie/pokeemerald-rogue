@@ -24,16 +24,6 @@ script RogueHub_ResetRun
     //giveitem(ITEM_ULTRA_BALL, 20)
 }
 
-script RogueHub_Shop_Utilty 
-{
-	lock
-	message("Welcome to the Utility Shop!")
-	waitmessage
-	pokemart(BasicItemMart)
-	msgbox("Come again soon.")
-	release
-}
-
 script RogueHub_Shop_Rare
 {
 	lock
@@ -42,20 +32,6 @@ script RogueHub_Shop_Rare
 	pokemart(RareItemMart)
 	msgbox("Come again soon.")
 	release
-}
-
-mart BasicItemMart {
-	ITEM_POTION
-	ITEM_SUPER_POTION
-	ITEM_REPEL
-	ITEM_SUPER_REPEL
-	ITEM_MAX_ELIXIR
-	ITEM_MAX_ETHER
-	ITEM_POKE_BALL
-	ITEM_REPEAT_BALL
-	ITEM_LUXURY_BALL
-	ITEM_NET_BALL
-	ITEM_DIVE_BALL
 }
 
 mart RareItemMart {

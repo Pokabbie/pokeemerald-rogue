@@ -13,40 +13,15 @@ RogueHub_ResetRun::
 	return
 
 
-RogueHub_Shop_Utilty::
-	lock
-	message RogueHub_Shop_Utilty_Text_0
-	waitmessage
-	pokemart BasicItemMart
-	msgbox RogueHub_Shop_Utilty_Text_1
-	release
-	return
-
-
 RogueHub_Shop_Rare::
 	lock
 	message RogueHub_Shop_Rare_Text_0
 	waitmessage
 	pokemart RareItemMart
-	msgbox RogueHub_Shop_Utilty_Text_1
+	msgbox RogueHub_Shop_Rare_Text_1
 	release
 	return
 
-
-	.align 2
-BasicItemMart:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_ELIXIR
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_REPEAT_BALL
-	.2byte ITEM_LUXURY_BALL
-	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
-	.2byte ITEM_NONE
 
 	.align 2
 RareItemMart:
@@ -72,11 +47,8 @@ RogueHub_EventScript_ExitSign_Text_0:
 	.string "Furthest Progress defeated\n"
 	.string "{STR_VAR_1} bosses..$"
 
-RogueHub_Shop_Utilty_Text_0:
-	.string "Welcome to the Utility Shop!$"
-
-RogueHub_Shop_Utilty_Text_1:
-	.string "Come again soon.$"
-
 RogueHub_Shop_Rare_Text_0:
 	.string "Welcome to the Rare Items Shop!$"
+
+RogueHub_Shop_Rare_Text_1:
+	.string "Come again soon.$"
