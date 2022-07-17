@@ -88,7 +88,7 @@ static u16 Rogue_GetSeed(void)
 
     if(Rogue_IsRunActive())
     {
-        room = gRogueRun.currentRoomIdx * 3;
+        offset = gRogueRun.currentRoomIdx * 3;
     }
 
     return (u16)(word0 + word1 * offset);
