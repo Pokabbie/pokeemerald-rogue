@@ -211,14 +211,11 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
-    //FlagClear(FLAG_SET_SEED_ENABLED);
+    FlagClear(FLAG_SET_SEED_ENABLED);
     FlagSet(FLAG_SET_SEED_ITEMS);
     FlagSet(FLAG_SET_SEED_TRAINERS);
     FlagSet(FLAG_SET_SEED_BOSSES);
     FlagSet(FLAG_SET_SEED_WILDMONS);
-
-    // TEMP
-    FlagSet(FLAG_SET_SEED_ENABLED);
     
     FlagSet(FLAG_ROGUE_EXP_ALL);
 
