@@ -70,6 +70,16 @@ static void RandomiseBerryTrees(void);
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueSaveData = {};
 
+#define OVERWORLD_FLAG 0
+
+static u16 RogueRandomRange(u16 range, u8 flag)
+{
+    if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
+        return RogueRandom() % range;
+    else
+        return Random() % range;
+}
+
 bool8 Rogue_IsRunActive(void)
 {
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
@@ -200,6 +210,15 @@ void Rogue_OnNewGame(void)
     struct Pokemon starterMon;
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+
+    //FlagClear(FLAG_SET_SEED_ENABLED);
+    FlagSet(FLAG_SET_SEED_ITEMS);
+    FlagSet(FLAG_SET_SEED_TRAINERS);
+    FlagSet(FLAG_SET_SEED_BOSSES);
+    FlagSet(FLAG_SET_SEED_WILDMONS);
+
+    // TEMP
+    FlagSet(FLAG_SET_SEED_ENABLED);
     
     FlagSet(FLAG_ROGUE_EXP_ALL);
 
@@ -271,6 +290,17 @@ static void BeginRogueRun(void)
 {
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
+    if(FlagGet(FLAG_SET_SEED_ENABLED))
+    {
+        // TODO
+        SeedRogueRng(123);
+    }
+    else
+    {
+        // Random seed
+        SeedRogueRng(Random());
+    }
+
     ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = 0;
@@ -308,6 +338,7 @@ static void BeginRogueRun(void)
 static void EndRogueRun(void)
 {
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_SET_SEED_ENABLED);
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore current states
@@ -387,7 +418,7 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
         //    bossId = Random() % 4;
         //}
         
-        bossId = Random() % 8;
+        bossId = RogueRandomRange(8, OVERWORLD_FLAG);
     }
     while(FlagGet(FLAG_ROGUE_DEFEATED_ROXANNE + bossId));
 
@@ -632,6 +663,11 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum)
     return FALSE;
 }
 
+static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
+{
+    SeedRogueRng(seed + trainerNum * 3 + offset * 7);
+}
+
 static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, u8* monsCount)
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
@@ -716,36 +752,36 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
     {
         if(difficultyLevel == 0)
         {
-            *monsCount = 1 + Random() % 2;
+            *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
         }
         else if(difficultyLevel == 1)
         {
-            *monsCount = 1 + Random() % 3;
+            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 2 + Random() % 2;
+            *monsCount = 2 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
         }
         else if(difficultyLevel <= 7)
         {
-            *monsCount = 3 + Random() % 1;
+            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
         }
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + Random() % 1;
+            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
         }
         else
         {
             // Champion
-            *monsCount = 4 + ((Random() % 5) == 0 ? 2 : 0);
+            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 2 : 0);
             *allowItemEvos = TRUE;
         }
     }
@@ -770,8 +806,11 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
+        u16 startSeed = gRngRogueValue;
         u8 allowedType = TYPE_NONE;
         bool8 allowItemEvos = FALSE;
+
+        SeedRogueTrainer(startSeed, trainerNum, 0);
         ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, monsCount);
 
         // Query for the current trainer team
@@ -797,6 +836,8 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         RogueQuery_CollapseSpeciesBuffer();
 
         *useRogueCreateMon = TRUE;
+
+        SeedRogueRng(startSeed);
         return;
     }
 
@@ -808,13 +849,18 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
     u16 species;
     u8 level;
     u8 fixedIV;
-
+    u16 randIdx;
+    u16 startSeed = gRngRogueValue;
+    bool8 isBoss = IsBossTrainer(trainerNum);
     u16 queryCount = RogueQuery_BufferSize();
-    u16 randIdx = Random() % queryCount;
+
+    SeedRogueTrainer(startSeed, trainerNum, monIdx);
+
+    randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
 
     species = RogueQuery_BufferPtr()[randIdx];
     level = CalculateTrainerLevel(trainerNum) - 1;
-    fixedIV = IsBossTrainer(trainerNum) ? MAX_PER_STAT_IVS : 0;
+    fixedIV = isBoss ? MAX_PER_STAT_IVS : 0;
 
     if(monIdx == 0)
         level--;
@@ -827,7 +873,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
     if(UseCompetitiveMoveset(trainerNum) && gPresetMonTable[species].presetCount != 0)
     {
         s32 i;
-        u8 presetIdx = Random() % gPresetMonTable[species].presetCount;
+        u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
         const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
 
         if(preset->abilityNum != ABILITY_NONE)
@@ -849,16 +895,19 @@ void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct 
             }
         }
     }
+
+    SeedRogueRng(startSeed);
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
+    // Note: Don't seed individual encounters
     if(Rogue_IsRunActive())
     {
         u8 maxlevel = CalculateWildLevel();
         u8 levelVariation = min(6,maxlevel - 1);
         const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
-        u16 randIdx = Random() % count;
+        u16 randIdx = Random() % count; 
 
         *species = gRogueRun.wildEncounters[randIdx];
         *level = maxlevel - (Random() % levelVariation);
@@ -894,7 +943,7 @@ static void RandomiseWildEncounters(void)
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
-            randIdx = Random() % queryCount;
+            randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
             gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
         }
     }
@@ -978,14 +1027,14 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
     }
 }
 
-static bool8 RandomChance(u8 chance)
+static bool8 RandomChance(u8 chance, u16 seedFlag)
 {
     if(chance == 0)
         return FALSE;
     else if(chance >= 100)
         return TRUE;
 
-    return ((Random() % 100) + 1) <= chance;
+    return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
 static bool8 RandomChanceTrainer()
@@ -993,7 +1042,7 @@ static bool8 RandomChanceTrainer()
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
     u8 chance = 10 + 5 * difficultyLevel;
 
-    return RandomChance(chance);
+    return RandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
 
 static bool8 RandomChanceItem()
@@ -1010,7 +1059,7 @@ static bool8 RandomChanceItem()
         chance = 75 - 5 * difficultyLevel;
     }
 
-    return RandomChance(chance);
+    return RandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static bool8 RandomChanceBerry()
@@ -1018,7 +1067,7 @@ static bool8 RandomChanceBerry()
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
     u8 chance = 95 - 7 * difficultyLevel;
 
-    return RandomChance(chance);
+    return RandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static void RandomiseEnabledTrainers(void)
@@ -1081,25 +1130,25 @@ static void RandomiseItemContent(u8 difficultyLevel)
 #endif
 
     // These VARs aren't sequential
-    VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[Random() % queryCount]);
-    VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[Random() % queryCount]);
+    VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
 }
 
 static void RandomiseEnabledItems(void)
@@ -1135,7 +1184,7 @@ static void RandomiseBerryTrees(void)
     {
         if(RandomChanceBerry())
         {
-            u8 berryItem = FIRST_BERRY_INDEX + (Random() % BERRY_COUNT);
+            u8 berryItem = FIRST_BERRY_INDEX + (RogueRandom() % BERRY_COUNT);
             u8 berry = ItemIdToBerryType(berryItem);
             PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
         }

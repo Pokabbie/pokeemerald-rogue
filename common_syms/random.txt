@@ -1,2 +1,3 @@
 gRngValue
 gRng2Value
+gRngRogueValue
