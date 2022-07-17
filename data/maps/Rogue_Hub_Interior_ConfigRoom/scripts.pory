@@ -1,0 +1,87 @@
+const VAR_FLAG_STATE = VAR_0x8000
+
+mapscripts Rogue_Hub_Interior_ConfigRoom_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_ConfigRoom_RedrawMap
+}
+
+script Rogue_ConfigRoom_PreButtonInternal
+{
+    lockall
+    //setvar(VAR_TEMP_1, 1)
+    //setvar(VAR_TEMP_2, 0)
+
+    if(var(VAR_FLAG_STATE) == YES)
+    {
+        bufferstring(STR_VAR_2, format("ON"))
+        bufferstring(STR_VAR_3, format("OFF"))
+    }
+    else
+    {
+        bufferstring(STR_VAR_2, format("OFF"))
+        bufferstring(STR_VAR_3, format("ON"))
+    }
+
+    msgbox(format("{STR_VAR_1} is set to {STR_VAR_2}"), MSGBOX_DEFAULT)
+    msgbox(format("Flip the switch to {STR_VAR_3}?"), MSGBOX_YESNO)
+    return
+}
+
+script Rogue_ConfigRoom_PostButtonInternal
+{
+    if(var(VAR_RESULT) == YES)
+    {
+        waitse
+        playse(SE_PIN)
+        call(Rogue_ConfigRoom_RedrawMap)
+        msgbox(format("{STR_VAR_1} set to {STR_VAR_3}"), MSGBOX_DEFAULT)
+    }
+    releaseall
+    return
+}
+
+script Rogue_ConfigRoom_RedrawMap
+{
+    if(flag(FLAG_ROGUE_EXP_ALL))
+    {
+        setmetatile(7,6, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,6, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    special(DrawWholeMapView)
+    return
+}
+
+// Settings
+//
+
+script Rogue_ConfigRoom_Button_ExpAll
+{
+    bufferstring(STR_VAR_1, format("EXP. ALL"))
+
+    if(flag(FLAG_ROGUE_EXP_ALL))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_EXP_ALL))
+        {
+            clearflag(FLAG_ROGUE_EXP_ALL)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_EXP_ALL)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}

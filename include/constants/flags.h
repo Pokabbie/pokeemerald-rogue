@@ -43,7 +43,7 @@
 
 // RogueNote: Flag block 1
 #define FLAG_ROGUE_RUN_ACTIVE    0x20
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_ROGUE_EXP_ALL      0x21
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

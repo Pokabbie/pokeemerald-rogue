@@ -4417,7 +4417,7 @@
       "width": 32,
       "height": 32,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Slateport",
+      "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Hub/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub/map.bin"
     },
@@ -4620,6 +4620,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Forest0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Forest0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
+      "name": "Rogue_Hub_Interior_ConfigRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BikeShop",
+      "border_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/map.bin"
     }
   ]
 }

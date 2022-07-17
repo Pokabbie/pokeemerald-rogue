@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_HUB",
   "name": "Rogue_Hub",
   "layout": "LAYOUT_ROGUE_HUB",
-  "music": "MUS_EVER_GRANDE",
+  "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 8,
+      "x": 6,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -84,10 +84,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 12,
-      "y": 13,
+      "x": 25,
+      "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "dest_warp_id": 0
     }
   ],

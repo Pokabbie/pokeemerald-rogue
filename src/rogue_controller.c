@@ -77,7 +77,7 @@ bool8 Rogue_IsRunActive(void)
 
 bool8 Rogue_ForceExpAll(void)
 {
-    return TRUE;
+    return FlagGet(FLAG_ROGUE_EXP_ALL);
 }
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
@@ -200,6 +200,8 @@ void Rogue_OnNewGame(void)
     struct Pokemon starterMon;
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    
+    FlagSet(FLAG_ROGUE_EXP_ALL);
 
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_SYS_POKEDEX_GET);
