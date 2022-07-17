@@ -618,7 +618,7 @@ void Rogue_Battle_StartTrainerBattle(void)
 {
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) //NoOfApproachingTrainers != 2 
     {
-        if(gPlayerPartyCount >= 2)
+        if(gPlayerPartyCount >= 2 && gEnemyPartyCount >= 2)
         {
             // Force double?
             gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;

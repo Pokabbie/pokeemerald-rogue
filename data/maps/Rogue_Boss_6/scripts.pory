@@ -1,4 +1,5 @@
-const BOSS_NPC = 5
+const BOSS_NPC_LIZA = 6
+const BOSS_NPC_TATE = 5
 
 mapscripts Rogue_Boss_6_MapScripts
 {
@@ -14,13 +15,14 @@ script Rogue_Battle_Boss6
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss6)
     waitmovement(0)
 
-    msgbox(format("LIZA: A new challenger!"))
+    msgbox(format("LIZA: Look TATE!\nA new challenger!"))
 
-    applymovement(BOSS_NPC, BossToFightBoss6)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss6)
+    applymovement(BOSS_NPC_LIZA, BossLizaToFightBoss6)
+    applymovement(BOSS_NPC_TATE, BossTateToFightBoss6)
     waitmovement(0)
 
-    trainerbattle_single(TRAINER_TATE_AND_LIZA_1, format("Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss6)
+    trainerbattle_single(TRAINER_TATE_AND_LIZA_1, format("TATE: Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss6)
 }
 
 script Rogue_BattleDefeated_Boss6
@@ -51,6 +53,14 @@ movement PlayerToFightBoss6 {
     face_right
 }
 
-movement BossToFightBoss6 {
+movement BossTateToFightBoss6 {
     walk_left
+    walk_down
+    face_left
+}
+
+movement BossLizaToFightBoss6 {
+    walk_left
+    walk_up
+    face_left
 }
