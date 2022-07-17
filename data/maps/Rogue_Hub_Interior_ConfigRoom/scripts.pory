@@ -11,7 +11,7 @@ script Rogue_ConfigRoom_TalkLanette
 {
     lock
     faceplayer
-    msgbox(format("LANETTE: Hi {PLAYER}!\pThis is the CONFIG LAB!\pIn here you can change settings for the next time you go on an adventure.\pJust step on the switches to change the settings."), MSGBOX_DEFAULT)
+    msgbox(format("LANETTE: Hi {PLAYER}!\pThis is the CONFIG LAB!\pIn here you can change settings for the next time you go on an adventure.\pJust step onto a switch to adjust the setting."), MSGBOX_DEFAULT)
     release
 }
 
@@ -19,10 +19,28 @@ script Rogue_ConfigRoom_TalkAssistant
 {
     lock
     faceplayer
-    msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and POKéMON"), MSGBOX_DEFAULT)
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and POKéMON.\pI can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
+    }
     call(Rogue_ConfigRoom_TalkAssistantInternal)
     release
 }
+
+
+//abbyAndTy_EventScript_Interview::
+//	goto_if_eq VAR_RESULT, NO, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
+//	msgbox GabbyAndTy_Text_DescribeYourFeelings, MSGBOX_DEFAULT
+//	setvar VAR_0x8004, EASY_CHAT_TYPE_GABBY_AND_TY
+//	call Common_ShowEasyChatScreen
+//	lock
+//	faceplayer
+//	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
+//	msgbox GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT
+//	special GabbyAndTyAfterInterview
+//	setflag FLAG_TEMP_1
+//	release
+//	end
 
 script Rogue_ConfigRoom_TalkAssistantInternal
 {
@@ -40,11 +58,25 @@ script Rogue_ConfigRoom_TalkAssistantInternal
     }
     else
     {
-        msgbox(format("ASSISTANT: Do you want to enable SEEDED mode?"), MSGBOX_YESNO)
+        msgbox(format("ASSISTANT: Do you want to enable SEEDED mode for your next adventure?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("ASSISTANT: OK.\nI'll enable SEEDED mode"), MSGBOX_DEFAULT)
-            setflag(FLAG_SET_SEED_ENABLED)
+            msgbox(format("ASSISTANT: Please select the SEED phrases"), MSGBOX_DEFAULT)
+            setvar(VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE)
+            call(Common_ShowEasyChatScreen)
+
+            if(var(VAR_RESULT) == TRUE)
+            {
+                msgbox(format("ASSISTANT: OK.\nI'll enable SEEDED mode using that phrase!"), MSGBOX_DEFAULT)
+                setflag(FLAG_SET_SEED_ENABLED)
+            }
+            else
+            {
+                msgbox(format("ASSISTANT: Oh.\nSpeak to me if you ever want to enable SEEDED mode"), MSGBOX_DEFAULT)
+                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                waitmovement(0)
+            }
         }
         else
         {
@@ -106,8 +138,6 @@ movement ConfigRoom_WalkLeft {
 script Rogue_ConfigRoom_PreButtonInternal
 {
     lockall
-    //setvar(VAR_TEMP_1, 1)
-    //setvar(VAR_TEMP_2, 0)
 
     if(var(VAR_FLAG_STATE) == YES)
     {
@@ -149,16 +179,47 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(1,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    // SEED settings
+    //
+    if(flag(FLAG_SET_SEED_ITEMS))
+    {
+        setmetatile(14,6, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(14,6, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_WILDMONS))
+    {
+        setmetatile(16,6, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(16,6, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_TRAINERS))
+    {
+        setmetatile(14,8, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(14,8, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_BOSSES))
+    {
+        setmetatile(16,8, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(16,8, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     special(DrawWholeMapView)
     return
 }
-
-
-//define FLAG_SET_SEED_ENABLED       0x22
-//define FLAG_SET_SEED_ITEMS         0x23
-//define FLAG_SET_SEED_TRAINERS      0x24
-//define FLAG_SET_SEED_BOSSES        0x25
-//define FLAG_SET_SEED_WILDMONS      0x26
 
 // Settings
 //
@@ -186,6 +247,118 @@ script Rogue_ConfigRoom_Button_ExpAll
         else
         {
             setflag(FLAG_ROGUE_EXP_ALL)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedItems
+{
+    bufferstring(STR_VAR_1, format("SEED ITEMS"))
+
+    if(flag(FLAG_SET_SEED_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_SET_SEED_ITEMS))
+        {
+            clearflag(FLAG_SET_SEED_ITEMS)
+        }
+        else
+        {
+            setflag(FLAG_SET_SEED_ITEMS)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedWildMons
+{
+    bufferstring(STR_VAR_1, format("SEED WILD POKéMON"))
+
+    if(flag(FLAG_SET_SEED_WILDMONS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_SET_SEED_WILDMONS))
+        {
+            clearflag(FLAG_SET_SEED_WILDMONS)
+        }
+        else
+        {
+            setflag(FLAG_SET_SEED_WILDMONS)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedTrainers
+{
+    bufferstring(STR_VAR_1, format("SEED TRAINERS"))
+
+    if(flag(FLAG_SET_SEED_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_SET_SEED_TRAINERS))
+        {
+            clearflag(FLAG_SET_SEED_TRAINERS)
+        }
+        else
+        {
+            setflag(FLAG_SET_SEED_TRAINERS)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedBosses
+{
+    bufferstring(STR_VAR_1, format("SEED BOSSES"))
+
+    if(flag(FLAG_SET_SEED_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_SET_SEED_BOSSES))
+        {
+            clearflag(FLAG_SET_SEED_BOSSES)
+        }
+        else
+        {
+            setflag(FLAG_SET_SEED_BOSSES)
         }
     }
     call(Rogue_ConfigRoom_PostButtonInternal)

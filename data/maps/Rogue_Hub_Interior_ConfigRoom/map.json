@@ -102,6 +102,42 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Rogue_ConfigRoom_WalkBelowAssistant"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_SeedItems"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_SeedWildMons"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_SeedTrainers"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_SeedBosses"
     }
   ],
   "bg_events": [

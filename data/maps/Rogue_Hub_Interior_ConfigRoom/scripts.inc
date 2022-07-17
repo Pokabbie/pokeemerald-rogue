@@ -14,10 +14,15 @@ Rogue_ConfigRoom_TalkLanette::
 Rogue_ConfigRoom_TalkAssistant::
 	lock
 	faceplayer
-	msgbox Rogue_ConfigRoom_TalkAssistant_Text_0, MSGBOX_DEFAULT
+	goto_if_unset FLAG_SET_SEED_ENABLED, Rogue_ConfigRoom_TalkAssistant_2
+Rogue_ConfigRoom_TalkAssistant_1:
 	call Rogue_ConfigRoom_TalkAssistantInternal
 	release
 	return
+
+Rogue_ConfigRoom_TalkAssistant_2:
+	msgbox Rogue_ConfigRoom_TalkAssistant_Text_0, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_TalkAssistant_1
 
 
 Rogue_ConfigRoom_TalkAssistantInternal::
@@ -46,6 +51,18 @@ Rogue_ConfigRoom_TalkAssistantInternal_4:
 
 Rogue_ConfigRoom_TalkAssistantInternal_6:
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_3, MSGBOX_DEFAULT
+	setvar VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE
+	call Common_ShowEasyChatScreen
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_ConfigRoom_TalkAssistantInternal_9
+	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_5, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
+	applymovement 1, ConfigRoom_LookLeft
+	waitmovement 0
+	return
+
+Rogue_ConfigRoom_TalkAssistantInternal_9:
+	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_4, MSGBOX_DEFAULT
 	setflag FLAG_SET_SEED_ENABLED
 	return
 
@@ -133,12 +150,40 @@ Rogue_ConfigRoom_RedrawMap::
 	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_2
 	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_1:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_6
+	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_5:
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_10
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_9:
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_14
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_13:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_18
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_17:
 	special DrawWholeMapView
 	return
 
 Rogue_ConfigRoom_RedrawMap_2:
 	setmetatile 1, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_1
+
+Rogue_ConfigRoom_RedrawMap_6:
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_5
+
+Rogue_ConfigRoom_RedrawMap_10:
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_9
+
+Rogue_ConfigRoom_RedrawMap_14:
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_13
+
+Rogue_ConfigRoom_RedrawMap_18:
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_17
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -167,20 +212,126 @@ Rogue_ConfigRoom_Button_ExpAll_8:
 	goto Rogue_ConfigRoom_Button_ExpAll_5
 
 
+Rogue_ConfigRoom_Button_SeedItems::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_SeedItems_Text_0
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_Button_SeedItems_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_SeedItems_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_SeedItems_6
+Rogue_ConfigRoom_Button_SeedItems_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_SeedItems_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_SeedItems_1
+
+Rogue_ConfigRoom_Button_SeedItems_6:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_Button_SeedItems_8
+	setflag FLAG_SET_SEED_ITEMS
+	goto Rogue_ConfigRoom_Button_SeedItems_5
+
+Rogue_ConfigRoom_Button_SeedItems_8:
+	clearflag FLAG_SET_SEED_ITEMS
+	goto Rogue_ConfigRoom_Button_SeedItems_5
+
+
+Rogue_ConfigRoom_Button_SeedWildMons::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_SeedWildMons_Text_0
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_Button_SeedWildMons_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_SeedWildMons_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_SeedWildMons_6
+Rogue_ConfigRoom_Button_SeedWildMons_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_SeedWildMons_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_SeedWildMons_1
+
+Rogue_ConfigRoom_Button_SeedWildMons_6:
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_Button_SeedWildMons_8
+	setflag FLAG_SET_SEED_WILDMONS
+	goto Rogue_ConfigRoom_Button_SeedWildMons_5
+
+Rogue_ConfigRoom_Button_SeedWildMons_8:
+	clearflag FLAG_SET_SEED_WILDMONS
+	goto Rogue_ConfigRoom_Button_SeedWildMons_5
+
+
+Rogue_ConfigRoom_Button_SeedTrainers::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_SeedTrainers_Text_0
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_Button_SeedTrainers_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_SeedTrainers_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_SeedTrainers_6
+Rogue_ConfigRoom_Button_SeedTrainers_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_SeedTrainers_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_SeedTrainers_1
+
+Rogue_ConfigRoom_Button_SeedTrainers_6:
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_Button_SeedTrainers_8
+	setflag FLAG_SET_SEED_TRAINERS
+	goto Rogue_ConfigRoom_Button_SeedTrainers_5
+
+Rogue_ConfigRoom_Button_SeedTrainers_8:
+	clearflag FLAG_SET_SEED_TRAINERS
+	goto Rogue_ConfigRoom_Button_SeedTrainers_5
+
+
+Rogue_ConfigRoom_Button_SeedBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_SeedBosses_Text_0
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_Button_SeedBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_SeedBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_SeedBosses_6
+Rogue_ConfigRoom_Button_SeedBosses_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_SeedBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_SeedBosses_1
+
+Rogue_ConfigRoom_Button_SeedBosses_6:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_Button_SeedBosses_8
+	setflag FLAG_SET_SEED_BOSSES
+	goto Rogue_ConfigRoom_Button_SeedBosses_5
+
+Rogue_ConfigRoom_Button_SeedBosses_8:
+	clearflag FLAG_SET_SEED_BOSSES
+	goto Rogue_ConfigRoom_Button_SeedBosses_5
+
+
 Rogue_ConfigRoom_TalkLanette_Text_0:
 	.string "LANETTE: Hi {PLAYER}!\p"
 	.string "This is the CONFIG LAB!\p"
 	.string "In here you can change settings for\n"
 	.string "the next time you go on an adventure.\p"
-	.string "Just step on the switches to change\n"
-	.string "the settings.$"
+	.string "Just step onto a switch to adjust the\n"
+	.string "setting.$"
 
 Rogue_ConfigRoom_TalkAssistant_Text_0:
 	.string "ASSISTANT: The settings back here are\n"
 	.string "for SEEDED mode!\p"
 	.string "In SEEDED mode you will always\n"
 	.string "encounter the same ROUTES, TRAINERS\l"
-	.string "and POKéMON$"
+	.string "and POKéMON.\p"
+	.string "I can enabled SEEDED mode for your\n"
+	.string "next adventure, if you'd like?$"
 
 Rogue_ConfigRoom_TalkAssistantInternal_Text_0:
 	.string "ASSISTANT: Do you want to disable\n"
@@ -192,11 +343,21 @@ Rogue_ConfigRoom_TalkAssistantInternal_Text_1:
 
 Rogue_ConfigRoom_TalkAssistantInternal_Text_2:
 	.string "ASSISTANT: Do you want to enable\n"
-	.string "SEEDED mode?$"
+	.string "SEEDED mode for your next adventure?$"
 
 Rogue_ConfigRoom_TalkAssistantInternal_Text_3:
+	.string "ASSISTANT: Please select the SEED\n"
+	.string "phrases$"
+
+Rogue_ConfigRoom_TalkAssistantInternal_Text_4:
 	.string "ASSISTANT: OK.\n"
-	.string "I'll enable SEEDED mode$"
+	.string "I'll enable SEEDED mode using that\l"
+	.string "phrase!$"
+
+Rogue_ConfigRoom_TalkAssistantInternal_Text_5:
+	.string "ASSISTANT: Oh.\n"
+	.string "Speak to me if you ever want to enable\l"
+	.string "SEEDED mode$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_0:
 	.string "ON$"
@@ -216,3 +377,15 @@ Rogue_ConfigRoom_PostButtonInternal_Text_0:
 
 Rogue_ConfigRoom_Button_ExpAll_Text_0:
 	.string "EXP. ALL$"
+
+Rogue_ConfigRoom_Button_SeedItems_Text_0:
+	.string "SEED ITEMS$"
+
+Rogue_ConfigRoom_Button_SeedWildMons_Text_0:
+	.string "SEED WILD POKéMON$"
+
+Rogue_ConfigRoom_Button_SeedTrainers_Text_0:
+	.string "SEED TRAINERS$"
+
+Rogue_ConfigRoom_Button_SeedBosses_Text_0:
+	.string "SEED BOSSES$"

@@ -80,6 +80,20 @@ static u16 RogueRandomRange(u16 range, u8 flag)
         return Random() % range;
 }
 
+static u16 Rogue_GetSeed(void)
+{
+    u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
+    u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
+    u32 offset = 0;
+
+    if(Rogue_IsRunActive())
+    {
+        room = gRogueRun.currentRoomIdx * 3;
+    }
+
+    return (u16)(word0 + word1 * offset);
+}
+
 bool8 Rogue_IsRunActive(void)
 {
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
@@ -146,6 +160,8 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         *catchRate = 50;
 }
 
+#undef ROGUE_DEBUG
+
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u16 gDebug_WildOptionCount = 0;
 EWRAM_DATA u16 gDebug_ItemOptionCount = 0;
@@ -157,15 +173,17 @@ const u8 gText_RogueDebug_PlayerLvl[] = _("\nPlayer lvl: ");
 const u8 gText_RogueDebug_WildLvl[] = _("\nWild lvl: ");
 const u8 gText_RogueDebug_WildCount[] = _("\nWild Opt: ");
 const u8 gText_RogueDebug_ItemCount[] = _("\nItem Opt: ");
+const u8 gText_RogueDebug_Seed[] = _("\nSeed: ");
+const u8 gText_RogueDebug_SeedNone[] = _("\nSeed: NONE");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
     return TRUE;
 }
 
-static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
+static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num, u8 units)
 {
-    ConvertIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertUIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, units);
 
     strPointer = StringAppend(strPointer, field);
     return StringAppend(strPointer, gStringVar1);
@@ -181,11 +199,21 @@ u8* Rogue_GetMiniMenuContent(void)
     *strPointer = EOS;
 
     strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
+
+    if(FlagGet(FLAG_SET_SEED_ENABLED))
+    {
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed(), 9);
+    }
+    else
+    {
+        strPointer = StringAppend(strPointer, gText_RogueDebug_SeedNone);
+    }
+
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx, 2);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel, 2);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel, 2);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount, 2);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount, 2);
 
     return gStringVar4;
 }
@@ -289,13 +317,7 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        // TODO
-        SeedRogueRng(123);
-    }
-    else
-    {
-        // Random seed
-        SeedRogueRng(Random());
+        SeedRogueRng(Rogue_GetSeed());
     }
 
     ClearBerryTrees();
@@ -483,6 +505,12 @@ void Rogue_OnWarpIntoMap(void)
     else if(Rogue_IsRunActive())
     {
         ++gRogueRun.currentRoomIdx;
+
+        // Re-seed after each room increment to avoid desync
+        if(FlagGet(FLAG_SET_SEED_ENABLED))
+        {
+            SeedRogueRng(Rogue_GetSeed());
+        }
         
         if(IsBossRoom(gRogueRun.currentRoomIdx))
         {
@@ -1181,7 +1209,7 @@ static void RandomiseBerryTrees(void)
     {
         if(RandomChanceBerry())
         {
-            u8 berryItem = FIRST_BERRY_INDEX + (RogueRandom() % BERRY_COUNT);
+            u8 berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
             u8 berry = ItemIdToBerryType(berryItem);
             PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
         }
