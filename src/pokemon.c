@@ -2996,7 +2996,7 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     }
 }
 
-u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, bool8 shouldGive)
 {
     u32 retVal = MOVE_NONE;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
@@ -3021,11 +3021,29 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
     {
         gMoveToLearn = (gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_ID);
-        sLearningMoveTableID++;
-        retVal = GiveMoveToMon(mon, gMoveToLearn);
+
+        if(shouldGive)
+        {
+            sLearningMoveTableID++;
+            retVal = GiveMoveToMon(mon, gMoveToLearn);
+        }
+        else
+        {
+            retVal = gMoveToLearn;
+        }
     }
 
     return retVal;
+}
+
+u16 CheckMonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+{
+    return MonTryLearningNewMoveInternal(mon, firstMove, FALSE);
+}
+
+u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+{
+    return MonTryLearningNewMoveInternal(mon, firstMove, TRUE);
 }
 
 void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move)
