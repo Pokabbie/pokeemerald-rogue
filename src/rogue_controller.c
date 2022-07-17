@@ -221,6 +221,7 @@ u8* Rogue_GetMiniMenuContent(void)
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
 
@@ -260,6 +261,9 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_ROGUE_EXP_ALL);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+
+    VarSet(VAR_ROGUE_DIFFICULTY, 0);
+    VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_SYS_POKEDEX_GET);
@@ -341,12 +345,10 @@ static void BeginRogueRun(void)
     ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = 0;
+    gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
     
-    // (1 / N) chance of appearing
-    //gRogueRun.trainerSpawnChance = 15;
-    //gRogueRun.itemSpawnChance = 75;
-    //gRogueRun.berrySpawnChance = 100;
-
+    VarSet(VAR_ROGUE_DIFFICULTY, 0);
+    
     // Store current states
     SavePlayerParty();
     LoadPlayerBag(); // Bag funcs named in opposite
@@ -505,6 +507,8 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 
 void Rogue_OnWarpIntoMap(void)
 {
+    u8 difficultyLevel;
+
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
         if(!Rogue_IsRunActive())
@@ -523,12 +527,17 @@ void Rogue_OnWarpIntoMap(void)
     else if(Rogue_IsRunActive())
     {
         ++gRogueRun.currentRoomIdx;
+        difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
         // Re-seed after each room increment to avoid desync
         if(FlagGet(FLAG_SET_SEED_ENABLED))
         {
             SeedRogueRng(Rogue_GetSeed());
         }
+        
+        // Update VARs
+        VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
+        VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(difficultyLevel, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         
         if(IsBossRoom(gRogueRun.currentRoomIdx))
         {
@@ -537,8 +546,6 @@ void Rogue_OnWarpIntoMap(void)
         }
         else
         {
-            gRogueRun.currentRouteType = ROGUE_ROUTE_FOREST;
-
             RandomiseWildEncounters();
             ResetTrainerBattles();
             RandomiseEnabledTrainers();

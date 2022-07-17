@@ -6,7 +6,8 @@ mapscripts Rogue_Hub_MapScripts
 
 script RogueHub_EventScript_ExitSign
 {
-	msgbox(format("The journey begins beyond this point.."), MSGBOX_SIGN)
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
+    msgbox(format("The journey begins beyond this point..\pFurthest Progress defeated {STR_VAR_1} bosses.."), MSGBOX_SIGN)
 }
 
 script RogueHub_ResetRun

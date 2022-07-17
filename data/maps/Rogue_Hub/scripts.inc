@@ -4,6 +4,7 @@ Rogue_Hub_MapScripts::
 
 
 RogueHub_EventScript_ExitSign::
+	buffernumberstring STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY
 	msgbox RogueHub_EventScript_ExitSign_Text_0, MSGBOX_SIGN
 	return
 
@@ -67,7 +68,9 @@ RareItemMart:
 	.2byte ITEM_NONE
 
 RogueHub_EventScript_ExitSign_Text_0:
-	.string "The journey begins beyond this point..$"
+	.string "The journey begins beyond this point..\n"
+	.string "Furthest Progress defeated\l"
+	.string "{STR_VAR_1} bosses..$"
 
 RogueHub_Shop_Utilty_Text_0:
 	.string "Welcome to the Utility Shop!$"
