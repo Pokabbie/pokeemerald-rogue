@@ -4594,20 +4594,20 @@
     {
       "id": "LAYOUT_ROGUE_BOSS_12",
       "name": "Rogue_Boss_12_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "width": 13,
+      "height": 29,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/Rogue_Boss_12/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Boss_12/map.bin"
     },
     {
       "id": "LAYOUT_ROGUE_BOSS_13",
       "name": "Rogue_Boss_13_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 17,
+      "height": 25,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Boss_13/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Boss_13/map.bin"
     },

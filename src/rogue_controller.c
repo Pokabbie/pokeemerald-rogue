@@ -452,20 +452,20 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     do
     {
-        if(nextRoomIdx <= ROOM_BOSS_GYM_END)
-        {
-            bossId = RogueRandomRange(8, OVERWORLD_FLAG);
-        }
-        else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
-        {
-            bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
-        }
-        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
-        {
-            bossId = 12;
-            break;
-        }
-        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
+        //if(nextRoomIdx <= ROOM_BOSS_GYM_END)
+        //{
+        //    bossId = RogueRandomRange(8, OVERWORLD_FLAG);
+        //}
+        //else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
+        //{
+        //    bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
+        //}
+        //else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
+        //{
+        //    bossId = 12;
+        //    break;
+        //}
+        //else //if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
         {
             bossId = 13;
             break;
