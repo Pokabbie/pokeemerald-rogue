@@ -23,7 +23,7 @@ Rogue_BattleDefeated_Boss6::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_BADGE02_GET
-	setflag FLAG_ROGUE_DEFEATED_LIZA
+	setflag FLAG_ROGUE_DEFEATED_BOSS06
 	msgbox Rogue_BattleDefeated_Boss6_Text_1
 	waitmessage
 	special RemoveCameraObject

@@ -354,11 +354,11 @@ static void BeginRogueRun(void)
     gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
-    FlagClear(FLAG_ROGUE_DEFEATED_ROXANNE);
-    FlagClear(FLAG_ROGUE_DEFEATED_BRAWLY);
-    FlagClear(FLAG_ROGUE_DEFEATED_WATTSON);
-    FlagClear(FLAG_ROGUE_DEFEATED_FLANNERY);
-    FlagClear(FLAG_ROGUE_DEFEATED_NORMAN);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS03);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS04);
     FlagClear(FLAG_ROGUE_DEFEATED_WINONA);
     FlagClear(FLAG_ROGUE_DEFEATED_LIZA);
     FlagClear(FLAG_ROGUE_DEFEATED_JUAN);
@@ -457,7 +457,7 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
         
         bossId = RogueRandomRange(8, OVERWORLD_FLAG);
     }
-    while(FlagGet(FLAG_ROGUE_DEFEATED_ROXANNE + bossId));
+    while(FlagGet(FLAG_ROGUE_DEFEATED_BOSS00 + bossId));
 
     switch(bossId)
     {
@@ -512,10 +512,6 @@ void Rogue_OnWarpIntoMap(void)
         if(!Rogue_IsRunActive())
         {
             BeginRogueRun();
-        }
-        else
-        {
-
         }
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())

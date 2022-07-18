@@ -30,8 +30,8 @@ script Rogue_BattleDefeated_Boss6
     message(format("{PLAYER} received the ?? BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
-    setflag(FLAG_BADGE02_GET)
-    setflag(FLAG_ROGUE_DEFEATED_LIZA)
+    setflag(FLAG_BADGE07_GET)
+    setflag(FLAG_ROGUE_DEFEATED_BOSS06)
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
 

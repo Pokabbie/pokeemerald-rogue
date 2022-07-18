@@ -24,7 +24,7 @@ Rogue_BattleDefeated_Boss2::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_BADGE02_GET
-	setflag FLAG_ROGUE_DEFEATED_WATTSON
+	setflag FLAG_ROGUE_DEFEATED_BOSS02
 	msgbox Rogue_BattleDefeated_Boss2_Text_1
 	waitmessage
 	special RemoveCameraObject
