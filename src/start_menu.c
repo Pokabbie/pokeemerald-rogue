@@ -145,7 +145,7 @@ static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 
 #ifdef ROGUE_DEBUG
 static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 20, 0xF, 8};
 #else
-static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 2, 0xF, 8};
+static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
 #endif
 
 static const u8* const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =

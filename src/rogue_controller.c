@@ -23,7 +23,6 @@
 #include "rogue_controller.h"
 #include "rogue_query.h"
 
-
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
@@ -54,11 +53,24 @@
 #define ROOM_BOSS_CHAMPION_START        ROOM_IDX_BOSS12
 #define ROOM_BOSS_CHAMPION_END          ROOM_IDX_BOSS13
 
+#define OVERWORLD_FLAG 0
+
+#ifdef ROGUE_DEBUG
+EWRAM_DATA u8 gDebug_WildOptionCount = 0;
+EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
+
+extern const u8 gText_RogueDebug_Header[];
+extern const u8 gText_RogueDebug_Room[];
+extern const u8 gText_RogueDebug_Difficulty[];
+extern const u8 gText_RogueDebug_PlayerLvl[];
+extern const u8 gText_RogueDebug_WildLvl[];
+extern const u8 gText_RogueDebug_WildCount[];
+extern const u8 gText_RogueDebug_ItemCount[];
+extern const u8 gText_RogueDebug_Seed[];
+#endif
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueSaveData = {};
-
-#define OVERWORLD_FLAG 0
 
 static u8 GetDifficultyLevel(u16 roomIdx);
 
@@ -164,20 +176,7 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         *catchRate = 50;
 }
 
-#undef ROGUE_DEBUG
-
 #ifdef ROGUE_DEBUG
-EWRAM_DATA u8 gDebug_WildOptionCount = 0;
-EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
-
-const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
-const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
-const u8 gText_RogueDebug_Difficulty[] = _("\nDifficulty: ");
-const u8 gText_RogueDebug_PlayerLvl[] = _("\nPlayer lvl: ");
-const u8 gText_RogueDebug_WildLvl[] = _("\nWild lvl: ");
-const u8 gText_RogueDebug_WildCount[] = _("\nWild Opt: ");
-const u8 gText_RogueDebug_ItemCount[] = _("\nItem Opt: ");
-const u8 gText_RogueDebug_Seed[] = _("\nSeed: ");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -233,8 +232,10 @@ bool8 Rogue_ShouldShowMiniMenu(void)
 
 u8* Rogue_GetMiniMenuContent(void)
 {
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
     ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar2, gPlayerPartyCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 2);
     StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
     return gStringVar4;
 }
@@ -359,17 +360,17 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS03);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS04);
-    FlagClear(FLAG_ROGUE_DEFEATED_WINONA);
-    FlagClear(FLAG_ROGUE_DEFEATED_LIZA);
-    FlagClear(FLAG_ROGUE_DEFEATED_JUAN);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS05);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS06);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS07);
     
-    FlagClear(FLAG_ROGUE_DEFEATED_SIDNEY);
-    FlagClear(FLAG_ROGUE_DEFEATED_PHOEBE);
-    FlagClear(FLAG_ROGUE_DEFEATED_GLACIA);
-    FlagClear(FLAG_ROGUE_DEFEATED_DRAKE);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS08);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS09);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS10);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS11);
 
-    FlagClear(FLAG_ROGUE_DEFEATED_WALLACE);
-    FlagClear(FLAG_ROGUE_DEFEATED_STEVEN);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
+    FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
 }
 
 static void EndRogueRun(void)

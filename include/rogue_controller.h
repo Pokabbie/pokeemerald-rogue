@@ -1,8 +1,6 @@
 #ifndef ROGUE_CONTROLLER_H
 #define ROGUE_CONTROLLER_H
 
-#define ROGUE_DEBUG
-
 void RemoveAnyFaintedMons(void);
 
 bool8 Rogue_IsRunActive(void);
