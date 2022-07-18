@@ -55,6 +55,11 @@
 #define ROOM_BOSS_CHAMPION_END          ROOM_IDX_BOSS13
 
 
+EWRAM_DATA struct RogueRunData gRogueRun = {};
+EWRAM_DATA struct RogueHubData gRogueSaveData = {};
+
+#define OVERWORLD_FLAG 0
+
 static u8 GetDifficultyLevel(u16 roomIdx);
 
 static u8 CalculatePlayerLevel(void);
@@ -66,11 +71,6 @@ static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
-
-EWRAM_DATA struct RogueRunData gRogueRun = {};
-EWRAM_DATA struct RogueHubData gRogueSaveData = {};
-
-#define OVERWORLD_FLAG 0
 
 static u16 RogueRandomRange(u16 range, u8 flag)
 {
@@ -342,6 +342,7 @@ static void BeginRogueRun(void)
     ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = 0;
+    gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS0;
     gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -523,31 +524,47 @@ void Rogue_OnWarpIntoMap(void)
     }
     else if(Rogue_IsRunActive())
     {
-        ++gRogueRun.currentRoomIdx;
-        difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+        if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ENCOUNTER_REST_STOP)
+        {
+            // Don't increment room IDX yet
+            // Re-seed after each room increment to avoid desync
+            if(FlagGet(FLAG_SET_SEED_ENABLED))
+            {
+                SeedRogueRng(Rogue_GetSeed());
+            }
 
-        // Re-seed after each room increment to avoid desync
-        if(FlagGet(FLAG_SET_SEED_ENABLED))
-        {
-            SeedRogueRng(Rogue_GetSeed());
-        }
-        
-        // Update VARs
-        VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
-        VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(difficultyLevel, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
-        
-        if(IsBossRoom(gRogueRun.currentRoomIdx))
-        {
-            ResetTrainerBattles();
-            RandomiseEnabledItems();
-        }
-        else
-        {
-            RandomiseWildEncounters();
-            ResetTrainerBattles();
             RandomiseEnabledTrainers();
             RandomiseEnabledItems();
             RandomiseBerryTrees();
+        }
+        else
+        {
+            ++gRogueRun.currentRoomIdx;
+            difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+            // Re-seed after each room increment to avoid desync
+            if(FlagGet(FLAG_SET_SEED_ENABLED))
+            {
+                SeedRogueRng(Rogue_GetSeed());
+            }
+            
+            // Update VARs
+            VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(difficultyLevel, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+        
+            if(IsBossRoom(gRogueRun.currentRoomIdx))
+            {
+                ResetTrainerBattles();
+                RandomiseEnabledItems();
+            }
+            else
+            {
+                RandomiseWildEncounters();
+                ResetTrainerBattles();
+                RandomiseEnabledTrainers();
+                RandomiseEnabledItems();
+                RandomiseBerryTrees();
+            }
         }
     }
 }
@@ -562,7 +579,16 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         u16 nextRoomIdx = gRogueRun.currentRoomIdx + 1;
 
-        if(IsBossRoom(nextRoomIdx))
+        if(nextRoomIdx >= gRogueRun.nextRestStopRoomIdx)
+        {
+            // We're about to hit a rest stop so force it here
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_REST_STOP);
+
+            // Will encounter the next rest stop in 4-6 rooms
+            gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
+        }
+        else if(IsBossRoom(nextRoomIdx))
         {
             SelectBossRoom(nextRoomIdx, warp);
         }
@@ -583,12 +609,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 warp->mapNum = MAP_NUM(ROGUE_ROUTE_FOREST0);
                 //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
                 //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
-            }
-
-            if(nextRoomIdx == ROOM_IDX_BOSS0 - 1)
-            {
-                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
-                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_REST_STOP);
             }
         }
 
