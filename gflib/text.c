@@ -1037,26 +1037,28 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             case EXT_CTRL_CODE_PAUSE:
                 textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
-                
-                //if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
-                //    return RENDER_REPEAT;
-                
                 textPrinter->state = RENDER_STATE_PAUSE;
+
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_PAUSE_UNTIL_PRESS:
                 textPrinter->state = RENDER_STATE_WAIT;
 
-                //if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
-                //    subStruct->autoScrollDelay = 0;
-
                 if (gTextFlags.autoScroll)
                     subStruct->autoScrollDelay = 0;
+
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+
                 return RENDER_UPDATE;
             case EXT_CTRL_CODE_WAIT_SE:
-                //if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
-                //    return RENDER_REPEAT;
-
                 textPrinter->state = RENDER_STATE_WAIT_SE;
+                
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+                    
                 return RENDER_UPDATE;
             case EXT_CTRL_CODE_PLAY_BGM:
                 currChar = *textPrinter->printerTemplate.currentChar;
