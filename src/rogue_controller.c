@@ -355,6 +355,8 @@ static void BeginRogueRun(void)
     gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
+    SetMoney(&gSaveBlock1Ptr->money, 0);
+
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
@@ -450,13 +452,24 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     do
     {
-        //if(nextRoomIdx <= ROOM_BOSS_GYM_START)
-        //{
-        //    // Smaller pool of allowed bosses
-        //    bossId = Random() % 4;
-        //}
-        
-        bossId = RogueRandomRange(8, OVERWORLD_FLAG);
+        if(nextRoomIdx <= ROOM_BOSS_GYM_END)
+        {
+            bossId = RogueRandomRange(8, OVERWORLD_FLAG);
+        }
+        else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
+        {
+            bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
+        }
+        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
+        {
+            bossId = 12;
+            break;
+        }
+        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
+        {
+            bossId = 13;
+            break;
+        }
     }
     while(FlagGet(FLAG_ROGUE_DEFEATED_BOSS00 + bossId));
 
@@ -500,6 +513,38 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
         case 7:
             warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
             warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
+            break;
+
+
+        case 8:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
+            break;
+
+        case 9:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
+            break;
+
+        case 10:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
+            break;
+
+        case 11:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
+            break;
+
+
+        case 12:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
+            break;
+
+        case 13:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
             break;
     };
 }
@@ -812,7 +857,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else if(difficultyLevel <= 5)
         {
             *monsCount = 5;
-            *allowItemEvos = FALSE;
+            *allowItemEvos = TRUE;
         }
         else
         {

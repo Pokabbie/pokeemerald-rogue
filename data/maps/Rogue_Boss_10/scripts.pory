@@ -1,1 +1,57 @@
-mapscripts Rogue_Boss_10_MapScripts {}
+const BOSS_NPC = 1
+
+mapscripts Rogue_Boss_10_MapScripts
+{
+}
+
+script Rogue_Battle_Boss10
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss10)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss10)
+    waitmovement(0)
+
+    msgbox(format("GLACIA: A new challenger!"))
+
+    setweather(WEATHER_SNOW)
+    doweather
+
+    applymovement(BOSS_NPC, BossToFightBoss10)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss10)
+    waitmovement(0)
+
+    trainerbattle_single(TRAINER_GLACIA, format("Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss10)
+}
+
+script Rogue_BattleDefeated_Boss10
+{
+    message(format("{PLAYER} received the ?? BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+    //setflag(FLAG_BADGE08_GET)
+    setflag(FLAG_ROGUE_DEFEATED_BOSS10)
+    msgbox(format("Good luck in your future battles!"))
+    waitmessage()
+
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+}
+
+movement PlayerToBattleFieldBoss10 {
+    walk_up * 10
+}
+
+movement CameraToBattleFieldBoss10 {
+    walk_up * 3
+}
+
+movement PlayerToFightBoss10 {
+    walk_up
+}
+
+movement BossToFightBoss10 {
+    walk_down
+}

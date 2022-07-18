@@ -1,1 +1,57 @@
-mapscripts Rogue_Boss_11_MapScripts {}
+const BOSS_NPC = 1
+
+mapscripts Rogue_Boss_11_MapScripts
+{
+}
+
+script Rogue_Battle_Boss11
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss11)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss11)
+    waitmovement(0)
+
+    msgbox(format("DRAKE: A new challenger!"))
+
+    setweather(WEATHER_SUNNY)
+    doweather
+
+    applymovement(BOSS_NPC, BossToFightBoss11)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss11)
+    waitmovement(0)
+
+    trainerbattle_single(TRAINER_DRAKE, format("Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss11)
+}
+
+script Rogue_BattleDefeated_Boss11
+{
+    message(format("{PLAYER} received the ?? BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+    //setflag(FLAG_BADGE08_GET)
+    setflag(FLAG_ROGUE_DEFEATED_BOSS11)
+    msgbox(format("Good luck in your future battles!"))
+    waitmessage()
+
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+}
+
+movement PlayerToBattleFieldBoss11 {
+    walk_up * 10
+}
+
+movement CameraToBattleFieldBoss11 {
+    walk_up * 3
+}
+
+movement PlayerToFightBoss11 {
+    walk_up
+}
+
+movement BossToFightBoss11 {
+    walk_down
+}
