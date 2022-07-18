@@ -73,7 +73,9 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "move_relearner.h"
 #include "rogue_controller.h"
+
 
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
@@ -871,12 +873,10 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    //if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
-    //    DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
-    //else
-
-    // RogueNote: Just forcing everything to be able to learn for now
-    DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+    if(CanLearnMovesInCurrentContext(&gPlayerParty[slot]))
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+    else
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
 }
 
 static void DisplayPartyPokemonDataForWirelessMinigame(u8 slot)
@@ -2013,6 +2013,28 @@ static bool8 CanLearnTutorMove(u16 species, u8 tutor)
         return TRUE;
     else
         return FALSE;
+}
+
+u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
+{
+    u16 tutorMoveIdx;
+    u16 numTutorMoves;
+    u16 species;
+    u16 i;
+
+    numTutorMoves = 0;
+    tutorMoveIdx = 0;
+    species = GetMonData(pokemon, MON_DATA_SPECIES);
+
+    for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
+    {
+        if(CanLearnTutorMove(species, i))
+        {
+            tutorMoves[numTutorMoves++] = GetTutorMove(i);
+        }
+    }
+
+    return numTutorMoves;
 }
 
 static void InitPartyMenuWindows(u8 layout)

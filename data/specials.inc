@@ -235,8 +235,11 @@ gSpecials::
 	def_special MoveDeleterForgetMove
 	def_special BufferMoveDeleterNicknameAndMove
 	def_special GetNumMovesSelectedMonHas
+	def_special TeachMoveSetContextRelearnMove
+	def_special TeachMoveSetContextEggMove
+	def_special TeachMoveSetContextTutorMove
+	def_special TeachMoveFromContext
 	def_special TeachMoveRelearnerMove
-	def_special TeachMoveEggMove
 	def_special GetRecordedCyclingRoadResults
 	def_special Special_BeginCyclingRoadChallenge
 	def_special GetPlayerAvatarBike

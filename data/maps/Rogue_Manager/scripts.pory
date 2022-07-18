@@ -1,6 +1,7 @@
 const VAR_ITEM_INDEX = VAR_0x8000
 const VAR_ITEM_ID_VAL = VAR_0x8001
 const VAR_SHOP_DIFFICULTY = VAR_0x8000
+const VAR_SHOP_RANDOM_IDX = VAR_TEMP_F
 
 mapscripts Rogue_Manager_MapScripts
 {
@@ -33,6 +34,19 @@ script Rogue_GiveItem_Internal
 // Shops
 //
 
+script Rogue_Shop_GetRandomIndex
+{
+    if(var(VAR_SHOP_RANDOM_IDX) == 0)
+    {
+        random(5)
+        addvar(VAR_RESULT, 1)
+        copyvar(VAR_SHOP_RANDOM_IDX, VAR_RESULT)
+    }
+    else
+    {
+        copyvar(VAR_RESULT, VAR_SHOP_RANDOM_IDX)
+    }
+}
 
 script Rogue_Shop_Utilty
 {    
@@ -199,6 +213,47 @@ mart Rogue_Shop_Utility6 {
     ITEM_ICE_HEAL
 }
 
+script Rogue_Shop_TMs
+{
+    lock
+    faceplayer
+    message("Welcome to the TM Shop!")
+    waitmessage
+
+
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_DIFFICULTY)
+    }
+    else
+    {
+        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_FURTHEST_DIFFICULTY)
+    }
+
+    switch(var(VAR_SHOP_DIFFICULTY))
+    {
+        case 0:
+            pokemart(Rogue_Shop_Utility0)
+        case 1:
+            pokemart(Rogue_Shop_Utility1)
+        case 2:
+            pokemart(Rogue_Shop_Utility2)
+        case 3:
+            pokemart(Rogue_Shop_Utility3)
+        case 4:
+            pokemart(Rogue_Shop_Utility4)
+        case 5:
+            pokemart(Rogue_Shop_Utility5)
+        default:
+            pokemart(Rogue_Shop_Utility6)
+    }
+
+    msgbox("Come again soon!")
+    release
+}
+
+
 // TMs / Evo items (TODO - Split these into separate shops?)
 script Rogue_Shop_Specials
 {
@@ -208,6 +263,243 @@ script Rogue_Shop_Specials
 script Rogue_Shop_KeyItems
 {
     //call(Rogue_Shop_PreSetup)
+}
+
+// Tutors
+//
+script Rogue_Tutor_MoveRelearn
+{
+    special(TeachMoveSetContextRelearnMove)
+
+    lock
+    faceplayer
+    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach POKéMON moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
+
+    showmoneybox(0, 0)
+    msgbox(format("Would you like me to teach your POKéMON a move for ¥1000?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    checkmoney(1000)
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_NotEnoughMoney)
+    }
+
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    // Teach move
+    special(TeachMoveFromContext)
+    waitstate
+
+    if(var(VAR_0x8004) == 0)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    removemoney(1000)
+    release
+}
+
+script Rogue_Tutor_EggMoveLearn
+{
+    special(TeachMoveSetContextEggMove)
+
+    lock
+    faceplayer
+    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach POKéMON moves if you'd like?"), MSGBOX_DEFAULT)
+
+    showmoneybox(0, 0)
+    msgbox(format("Would you like me to teach your POKéMON a move for ¥2000?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    checkmoney(2000)
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_NotEnoughMoneyKind)
+    }
+
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    // Teach move
+    special(TeachMoveFromContext)
+    waitstate
+
+    if(var(VAR_0x8004) == 0)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    removemoney(2000)
+    release
+}
+
+script Rogue_Tutor_TutorMoveLearn
+{
+    special(TeachMoveSetContextTutorMove)
+
+    lock
+    faceplayer
+    msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach POKéMON moves some radical moves!"), MSGBOX_DEFAULT)
+
+    showmoneybox(0, 0)
+    msgbox(format("Want me to teach your POKéMON a move for ¥3000?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    checkmoney(3000)
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_NotEnoughMoney)
+    }
+
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    // Teach move
+    special(TeachMoveFromContext)
+    waitstate
+
+    if(var(VAR_0x8004) == 0)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+    }
+
+    removemoney(3000)
+    release
+}
+
+script Rogue_Tutor_NotEnoughMoneyKind
+{
+    msgbox(format("I'm afraid you don't have enough money.\pCome back once you've gotten a bit more and I'll gladly teach some moves to your POKéMON."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_NotEnoughMoney
+{
+    msgbox(format("You don't have enough money!\pCome back once you've got enough."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveRelearnCancel
+{
+    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveDelete
+{
+    lock
+    faceplayer
+    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make POKéMON forget their moves, if you'd like?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(IsSelectedMonEgg)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Tutor_MoveDeleteEgg)
+    }
+
+    special(GetNumMovesSelectedMonHas)
+    if(var(VAR_RESULT) <= 1)
+    {
+        goto(Rogue_Tutor_MoveDeleteNoMoves)
+    }
+
+    fadescreen(FADE_TO_BLACK)
+    special(MoveDeleterChooseMoveToForget)
+    fadescreen(FADE_FROM_BLACK)
+
+    if(var(VAR_0x8005) == MAX_MON_MOVES)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(MoveDeleterForgetMove)
+    playfanfare(MUS_MOVE_DELETED)
+    waitfanfare
+
+    release
+}
+
+script Rogue_Tutor_MoveDeleteNoMoves
+{
+    msgbox(format("This POKéMON needs move moves before I can make it forget any."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveDeleteEgg
+{
+    msgbox(format("As much as wish I could..\nI can't unteach an EGG."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveDeleteCancel
+{
+    msgbox(format("Oh.. OK then."), MSGBOX_DEFAULT)
+    release
 }
 
 

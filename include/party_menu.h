@@ -91,4 +91,6 @@ void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 
+u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves);
+
 #endif // GUARD_PARTY_MENU_H

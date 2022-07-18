@@ -164,6 +164,8 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         *catchRate = 50;
 }
 
+#undef ROGUE_DEBUG
+
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_WildOptionCount = 0;
 EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
@@ -176,7 +178,6 @@ const u8 gText_RogueDebug_WildLvl[] = _("\nWild lvl: ");
 const u8 gText_RogueDebug_WildCount[] = _("\nWild Opt: ");
 const u8 gText_RogueDebug_ItemCount[] = _("\nItem Opt: ");
 const u8 gText_RogueDebug_Seed[] = _("\nSeed: ");
-const u8 gText_RogueDebug_SeedNone[] = _("\nSeed: NONE");
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -212,10 +213,6 @@ u8* Rogue_GetMiniMenuContent(void)
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
-    }
-    else
-    {
-        strPointer = StringAppend(strPointer, gText_RogueDebug_SeedNone);
     }
 
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);

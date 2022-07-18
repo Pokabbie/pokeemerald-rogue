@@ -26,6 +26,7 @@
 #include "constants/songs.h"
 
 #include "daycare.h"
+#include "party_menu.h"
 
 /*
  * Move relearner state machine
@@ -154,6 +155,10 @@
 
 #define MAX_RELEARNER_MOVES (MAX_LEVEL_UP_MOVES > 25 ? MAX_LEVEL_UP_MOVES : 25)
 
+#define TEACH_STATE_RELEARN       0
+#define TEACH_STATE_EGG_MOVES     1
+#define TEACH_STATE_TUTOR_MOVES   2
+
 static EWRAM_DATA struct
 {
     u8 state;
@@ -174,7 +179,7 @@ static EWRAM_DATA struct {
     u16 listOffset;
     u16 listRow;
     bool8 showContestInfo;
-    bool8 viewEggMoves;
+    u8 teachMoveState;
 } sMoveRelearnerMenuSate = {0};
 
 static const u16 sMoveRelearnerPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -365,10 +370,34 @@ static void VBlankCB_MoveRelearner(void)
     TransferPlttBuffer();
 }
 
+void TeachMoveSetContextRelearnMove(void)
+{
+    sMoveRelearnerMenuSate.teachMoveState = TEACH_STATE_RELEARN;
+}
+
+void TeachMoveSetContextEggMove(void)
+{
+    sMoveRelearnerMenuSate.teachMoveState = TEACH_STATE_EGG_MOVES;
+}
+
+void TeachMoveSetContextTutorMove(void)
+{
+    sMoveRelearnerMenuSate.teachMoveState = TEACH_STATE_TUTOR_MOVES;
+}
+
+void TeachMoveFromContext(void)
+{
+    ScriptContext2_Enable();
+    CreateTask(Task_WaitForFadeOut, 10);
+    // Fade to black
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
 // Script arguments: The pokemon to teach is in VAR_0x8004
+// RogueNote: legacy path
 void TeachMoveRelearnerMove(void)
 {
-    sMoveRelearnerMenuSate.viewEggMoves = FALSE;
+    sMoveRelearnerMenuSate.teachMoveState = TEACH_STATE_RELEARN;
 
     ScriptContext2_Enable();
     CreateTask(Task_WaitForFadeOut, 10);
@@ -376,14 +405,26 @@ void TeachMoveRelearnerMove(void)
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 }
 
-void TeachMoveEggMove(void)
+static void GatherLearnableMoves(struct Pokemon* mon)
 {
-    sMoveRelearnerMenuSate.viewEggMoves = TRUE;
+    if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_EGG_MOVES)
+    {
+        sMoveRelearnerStruct->numMenuChoices = GetEggMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
+    else if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_TUTOR_MOVES)
+    {
+        sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
+    else // TEACH_STATE_RELEARN
+    {
+        sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
+}
 
-    ScriptContext2_Enable();
-    CreateTask(Task_WaitForFadeOut, 10);
-    // Fade to black
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+bool8 CanLearnMovesInCurrentContext(struct Pokemon* mon)
+{
+    GatherLearnableMoves(mon);
+    return sMoveRelearnerStruct->numMenuChoices != 0;
 }
 
 static void Task_WaitForFadeOut(u8 taskId)
@@ -918,14 +959,7 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    if(sMoveRelearnerMenuSate.viewEggMoves)
-    {
-        sMoveRelearnerStruct->numMenuChoices = GetEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
-    }
-    else
-    {
-        sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
-    }
+    GatherLearnableMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon]);
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {
