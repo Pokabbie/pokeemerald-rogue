@@ -610,7 +610,8 @@
     "Rogue_Encounter_RestStop",
     "Rogue_Route_Forest1",
     "Rogue_Route_Cave0",
-    "Rogue_Route_Mountain0"
+    "Rogue_Route_Mountain0",
+    "Rogue_Route_WaterFront0"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

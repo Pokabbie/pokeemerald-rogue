@@ -35,7 +35,7 @@ static const u8 sRouteEncontersWaterfront[] = {
     TYPE_WATER, TYPE_FLYING
 };
 static const struct RogueRouteMap sRouteMapsWaterfront[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FOREST0)
+    ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT0)
 };
 
 static const u8 sRouteEncontersUrban[] = {

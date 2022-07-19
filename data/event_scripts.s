@@ -1107,3 +1107,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Cave0/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Mountain0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_WaterFront0/scripts.inc"
