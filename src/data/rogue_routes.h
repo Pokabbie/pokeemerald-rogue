@@ -28,7 +28,7 @@ static const u8 sRouteEncontersMountain[] = {
     TYPE_GROUND, TYPE_FIRE, TYPE_FIGHTING
 };
 static const struct RogueRouteMap sRouteMapsMountain[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FOREST0)
+    ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN0)
 };
 
 static const u8 sRouteEncontersWaterfront[] = {
