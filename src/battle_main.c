@@ -1946,8 +1946,6 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite)
 
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
-    // RogueNote: edit trainer content (Override trainer ID?)
-
     u32 nameHash = 0;
     u32 personalityValue;
     u8 fixedIV;
@@ -1978,6 +1976,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         for (i = 0; i < monsCount; i++)
         {
+            if(useRogueCreateMon)
+            {
+                Rogue_CreateTrainerMon(trainerNum, party, i, monsCount);
+                continue;
+            }
+
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
@@ -1987,12 +1991,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
-
-            if(useRogueCreateMon)
-            {
-                Rogue_CreateTrainerMon(trainerNum, i, monsCount, &party[i]);
-                continue;
-            }
 
             switch (gTrainers[trainerNum].partyFlags)
             {

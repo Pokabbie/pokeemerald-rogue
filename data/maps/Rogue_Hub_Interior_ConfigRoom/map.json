@@ -156,6 +156,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Rogue_ConfigRoom_Button_CanOverLvl"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_HardTrainers"
     }
   ],
   "bg_events": [

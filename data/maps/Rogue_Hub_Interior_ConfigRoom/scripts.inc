@@ -156,18 +156,21 @@ Rogue_ConfigRoom_RedrawMap_5:
 	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_10
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_9:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_14
-	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_14
+	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_13:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_18
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_18
+	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_17:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_22
-	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_22
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_21:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_26
-	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_26
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_25:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_30
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_29:
 	special DrawWholeMapView
 	return
 
@@ -184,20 +187,24 @@ Rogue_ConfigRoom_RedrawMap_10:
 	goto Rogue_ConfigRoom_RedrawMap_9
 
 Rogue_ConfigRoom_RedrawMap_14:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_13
 
 Rogue_ConfigRoom_RedrawMap_18:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_17
 
 Rogue_ConfigRoom_RedrawMap_22:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_21
 
 Rogue_ConfigRoom_RedrawMap_26:
-	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_25
+
+Rogue_ConfigRoom_RedrawMap_30:
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_29
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -276,6 +283,32 @@ Rogue_ConfigRoom_Button_CanOverLvl_6:
 Rogue_ConfigRoom_Button_CanOverLvl_8:
 	clearflag FLAG_ROGUE_CAN_OVERLVL
 	goto Rogue_ConfigRoom_Button_CanOverLvl_5
+
+
+Rogue_ConfigRoom_Button_HardTrainers::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HardTrainers_Text_0
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_HardTrainers_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_HardTrainers_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_HardTrainers_6
+Rogue_ConfigRoom_Button_HardTrainers_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_HardTrainers_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_HardTrainers_1
+
+Rogue_ConfigRoom_Button_HardTrainers_6:
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_HardTrainers_8
+	setflag FLAG_ROGUE_HARD_TRAINERS
+	goto Rogue_ConfigRoom_Button_HardTrainers_5
+
+Rogue_ConfigRoom_Button_HardTrainers_8:
+	clearflag FLAG_ROGUE_HARD_TRAINERS
+	goto Rogue_ConfigRoom_Button_HardTrainers_5
 
 
 Rogue_ConfigRoom_Button_SeedItems::
@@ -449,6 +482,9 @@ Rogue_ConfigRoom_Button_DoubleBattle_Text_0:
 
 Rogue_ConfigRoom_Button_CanOverLvl_Text_0:
 	.string "ALLOW OVERLEVLING$"
+
+Rogue_ConfigRoom_Button_HardTrainers_Text_0:
+	.string "HARD TRAINERS$"
 
 Rogue_ConfigRoom_Button_SeedItems_Text_0:
 	.string "SEED ITEMS$"

@@ -15,7 +15,10 @@ Rogue_Battle_Boss7::
 	applymovement 5, BossToFightBoss7
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss7
 	waitmovement 0
-	trainerbattle_single TRAINER_JUAN_1, Rogue_Battle_Boss7_Text_1, Rogue_Battle_Boss7_Text_2, Rogue_BattleDefeated_Boss7
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	msgbox Rogue_Battle_Boss7_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_JUAN_1, 0, Rogue_Battle_Boss7_Text_2
+	call Rogue_BattleDefeated_Boss7
 	return
 
 
@@ -23,7 +26,7 @@ Rogue_BattleDefeated_Boss7::
 	message Rogue_BattleDefeated_Boss7_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE08_GET
 	setflag FLAG_ROGUE_DEFEATED_BOSS07
 	msgbox Rogue_BattleDefeated_Boss7_Text_1
 	waitmessage
@@ -72,7 +75,7 @@ Rogue_Battle_Boss7_Text_2:
 	.string "Well fought trainer!$"
 
 Rogue_BattleDefeated_Boss7_Text_0:
-	.string "{PLAYER} received the ?? BADGE!$"
+	.string "{PLAYER} received a GYM BADGE!$"
 
 Rogue_BattleDefeated_Boss7_Text_1:
 	.string "Good luck in your future battles!$"

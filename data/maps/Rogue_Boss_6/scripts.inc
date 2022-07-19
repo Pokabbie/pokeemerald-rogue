@@ -14,7 +14,10 @@ Rogue_Battle_Boss6::
 	applymovement 6, BossLizaToFightBoss6
 	applymovement 5, BossTateToFightBoss6
 	waitmovement 0
-	trainerbattle_single TRAINER_TATE_AND_LIZA_1, Rogue_Battle_Boss6_Text_1, Rogue_Battle_Boss6_Text_2, Rogue_BattleDefeated_Boss6
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	msgbox Rogue_Battle_Boss6_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_TATE_AND_LIZA_1, 0, Rogue_Battle_Boss6_Text_2
+	call Rogue_BattleDefeated_Boss6
 	return
 
 
@@ -22,7 +25,7 @@ Rogue_BattleDefeated_Boss6::
 	message Rogue_BattleDefeated_Boss6_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE07_GET
 	setflag FLAG_ROGUE_DEFEATED_BOSS06
 	msgbox Rogue_BattleDefeated_Boss6_Text_1
 	waitmessage
@@ -74,13 +77,13 @@ Rogue_Battle_Boss6_Text_0:
 	.string "A new challenger!$"
 
 Rogue_Battle_Boss6_Text_1:
-	.string "TATE: Don't hold back now!$"
+	.string "Don't hold back now!$"
 
 Rogue_Battle_Boss6_Text_2:
 	.string "Well fought trainer!$"
 
 Rogue_BattleDefeated_Boss6_Text_0:
-	.string "{PLAYER} received the ?? BADGE!$"
+	.string "{PLAYER} received a GYM BADGE!$"
 
 Rogue_BattleDefeated_Boss6_Text_1:
 	.string "Good luck in your future battles!$"

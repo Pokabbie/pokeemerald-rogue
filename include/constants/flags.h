@@ -51,7 +51,7 @@
 #define FLAG_SET_SEED_WILDMONS          0x26
 #define FLAG_ROGUE_DOUBLE_BATTLES       0x27
 #define FLAG_ROGUE_CAN_OVERLVL          0x28
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_ROGUE_HARD_TRAINERS        0x29
 
 #define FLAG_ROGUE_TRAINER0    0x2A // Unused Flag
 #define FLAG_ROGUE_TRAINER1    0x2B // Unused Flag

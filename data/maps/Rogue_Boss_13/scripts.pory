@@ -14,14 +14,18 @@ script Rogue_Battle_Boss13
 
     msgbox(format("...\p...\p...\pSTEVEN: You did well to make it here...\pNow...\pFor one last time..."))
 
-    setweather(WEATHER_SUNNY_CLOUDS)
-    doweather
+    //setweather(WEATHER_SUNNY_CLOUDS)
+    //doweather
 
     applymovement(BOSS_NPC, BossToFightBoss13)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13)
     waitmovement(0)
 
-    trainerbattle_single(TRAINER_STEVEN, format("Let's battle!"), format("Congratulations {PLAYER}!"), Rogue_BattleDefeated_Boss13)
+    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+    //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+    msgbox(format("Let's battle!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STEVEN, 0, format("Congratulations {PLAYER}!"))
+    call(Rogue_BattleDefeated_Boss13)
 }
 
 script Rogue_BattleDefeated_Boss13

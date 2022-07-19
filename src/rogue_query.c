@@ -308,25 +308,25 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
         {
             for(evo = 0; evo < EVOS_PER_MON; ++evo)
             {
-                    switch(gEvolutionTable[species][evo].method)
+                switch(gEvolutionTable[species][evo].method)
+                {
+                case EVO_LEVEL:
+                case EVO_LEVEL_ATK_GT_DEF:
+                case EVO_LEVEL_ATK_EQ_DEF:
+                case EVO_LEVEL_ATK_LT_DEF:
+                case EVO_LEVEL_SILCOON:
+                case EVO_LEVEL_CASCOON:
+                case EVO_LEVEL_NINJASK:
+                if (gEvolutionTable[species][evo].param <= level)
+                {
+                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    if(removeChild)
                     {
-                    case EVO_LEVEL:
-                    case EVO_LEVEL_ATK_GT_DEF:
-                    case EVO_LEVEL_ATK_EQ_DEF:
-                    case EVO_LEVEL_ATK_LT_DEF:
-                    case EVO_LEVEL_SILCOON:
-                    case EVO_LEVEL_CASCOON:
-                    case EVO_LEVEL_NINJASK:
-                    if (gEvolutionTable[species][evo].param <= level)
-                    {
-                        SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
-                        if(removeChild)
-                        {
-                            SetQueryState(species, FALSE);
-                        }
+                        SetQueryState(species, FALSE);
                     }
-                    break;
-                    };
+                }
+                break;
+                };
             }
         }
     }
@@ -344,19 +344,19 @@ void RogueQuery_EvolveSpeciesByItem()
         {
             for(evo = 0; evo < EVOS_PER_MON; ++evo)
             {
-                    switch(gEvolutionTable[species][evo].method)
+                switch(gEvolutionTable[species][evo].method)
+                {
+                case EVO_ITEM:
+                case EVO_TRADE_ITEM:
+                {
+                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    if(removeChild)
                     {
-                    case EVO_ITEM:
-                    case EVO_TRADE_ITEM:
-                    {
-                        SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
-                        if(removeChild)
-                        {
-                            SetQueryState(species, FALSE);
-                        }
+                        SetQueryState(species, FALSE);
                     }
-                    break;
-                    };
+                }
+                break;
+                };
             }
         }
     }

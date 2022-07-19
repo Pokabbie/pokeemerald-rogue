@@ -15,7 +15,10 @@ Rogue_Battle_Boss9::
 	applymovement 1, BossToFightBoss9
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss9
 	waitmovement 0
-	trainerbattle_single TRAINER_PHOEBE, Rogue_Battle_Boss9_Text_1, Rogue_Battle_Boss9_Text_2, Rogue_BattleDefeated_Boss9
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox Rogue_Battle_Boss9_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_PHOEBE, 0, Rogue_Battle_Boss9_Text_2
+	call Rogue_BattleDefeated_Boss9
 	return
 
 
@@ -68,7 +71,7 @@ Rogue_Battle_Boss9_Text_2:
 	.string "Well fought trainer!$"
 
 Rogue_BattleDefeated_Boss9_Text_0:
-	.string "{PLAYER} received the ?? BADGE!$"
+	.string "{PLAYER} received a ELITE BADGE!$"
 
 Rogue_BattleDefeated_Boss9_Text_1:
 	.string "Good luck in your future battles!$"

@@ -15,7 +15,10 @@ Rogue_Battle_Boss0::
 	applymovement 5, BossToFight
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFight
 	waitmovement 0
-	trainerbattle_single TRAINER_ROXANNE_1, Rogue_Battle_Boss0_Text_1, Rogue_Battle_Boss0_Text_2, Rogue_BattleDefeated_Boss0
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	msgbox Rogue_Battle_Boss0_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROXANNE_1, 0, Rogue_Battle_Boss0_Text_2
+	call Rogue_BattleDefeated_Boss0
 	return
 
 
@@ -72,7 +75,7 @@ Rogue_Battle_Boss0_Text_2:
 	.string "Well fought trainer!$"
 
 Rogue_BattleDefeated_Boss0_Text_0:
-	.string "{PLAYER} received the STONE BADGE!$"
+	.string "{PLAYER} received a GYM BADGE!$"
 
 Rogue_BattleDefeated_Boss0_Text_1:
 	.string "Good luck in your future battles!$"

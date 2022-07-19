@@ -21,13 +21,17 @@ script Rogue_Battle_Boss6
     applymovement(BOSS_NPC_LIZA, BossLizaToFightBoss6)
     applymovement(BOSS_NPC_TATE, BossTateToFightBoss6)
     waitmovement(0)
-
-    trainerbattle_single(TRAINER_TATE_AND_LIZA_1, format("TATE: Don't hold back now!"), format("Well fought trainer!"), Rogue_BattleDefeated_Boss6)
+    
+    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    msgbox(format("Don't hold back now!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_TATE_AND_LIZA_1, 0, format("Well fought trainer!"))
+    call(Rogue_BattleDefeated_Boss6)
 }
 
 script Rogue_BattleDefeated_Boss6
 {
-    message(format("{PLAYER} received the ?? BADGE!"))
+    message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
     setflag(FLAG_BADGE07_GET)

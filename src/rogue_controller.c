@@ -190,9 +190,13 @@ static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
 {
     u8 pow = 2;
 
-    if(num >= 100)
+    if(num >= 1000)
     {
         pow = 9;
+    }
+    else if(num >= 100)
+    {
+        pow = 3;
     }
 
     ConvertUIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_RIGHT_ALIGN, pow);
@@ -262,6 +266,7 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_ROGUE_EXP_ALL);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+    FlagClear(FLAG_ROGUE_HARD_TRAINERS);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -280,6 +285,21 @@ void Rogue_OnNewGame(void)
     SetMoney(&gSaveBlock1Ptr->money, 60000);
 
     CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_GROUDON, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_KYOGRE, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_DEOXYS, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_LUGIA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    GiveMonToPlayer(&starterMon);
+
+    CreateMon(&starterMon, SPECIES_HO_OH, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     GiveMonToPlayer(&starterMon);
 #else
     SetMoney(&gSaveBlock1Ptr->money, 100);
@@ -381,6 +401,12 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+
+#ifdef ROGUE_DEBUG
+    // TEMP - Testing only
+    gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
+    gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
+#endif
 }
 
 static void EndRogueRun(void)
@@ -460,20 +486,20 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     do
     {
-        //if(nextRoomIdx <= ROOM_BOSS_GYM_END)
-        //{
-        //    bossId = RogueRandomRange(8, OVERWORLD_FLAG);
-        //}
-        //else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
-        //{
-        //    bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
-        //}
-        //else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
-        //{
-        //    bossId = 12;
-        //    break;
-        //}
-        //else //if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
+        if(nextRoomIdx <= ROOM_BOSS_GYM_END)
+        {
+            bossId = RogueRandomRange(8, OVERWORLD_FLAG);
+        }
+        else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
+        {
+            bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
+        }
+        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
+        {
+            bossId = 12;
+            break;
+        }
+        else //if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
         {
             bossId = 13;
             break;
@@ -794,7 +820,7 @@ static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
     SeedRogueRng(seed + trainerNum * 3 + offset * 7);
 }
 
-static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, u8* monsCount)
+static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
@@ -852,26 +878,37 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         {
             *monsCount = 3;
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 1)
         {
             *monsCount = 4;
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
             *monsCount = 4;
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
             *monsCount = 5;
             *allowItemEvos = TRUE;
+            *allowLedgendaries = FALSE;
         }
-        else
+        else if(difficultyLevel <= 6) 
         {
             *monsCount = 6;
             *allowItemEvos = TRUE;
+            *allowLedgendaries = FALSE;
+        }
+        else // From last gym leader we can see ledgendaries
+        {
+            *monsCount = 6;
+            *allowItemEvos = TRUE;
+            *allowLedgendaries = TRUE;
         }
     }
     else
@@ -881,34 +918,40 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 1)
         {
             *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
             *monsCount = 2 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 7)
         {
             *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 11)
         {
             // Elite 4
             *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
+            *allowLedgendaries = TRUE;
         }
         else
         {
             // Champion
             *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 2 : 0);
             *allowItemEvos = TRUE;
+            *allowLedgendaries = TRUE;
         }
     }
 
@@ -943,15 +986,18 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         u16 startSeed = gRngRogueValue;
         u8 allowedType = TYPE_NONE;
         bool8 allowItemEvos = FALSE;
+        bool8 allowLedgendaries = FALSE;
 
         SeedRogueTrainer(startSeed, trainerNum, 0);
-        ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, monsCount);
+        ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, &allowLedgendaries, monsCount);
 
         // Query for the current trainer team
         RogueQuery_Clear();
 
         RogueQuery_SpeciesIsValid();
-        RogueQuery_SpeciesIsNotLegendary();
+
+        if(!allowLedgendaries)
+            RogueQuery_SpeciesIsNotLegendary();
 
         if(allowedType != TYPE_NONE)
             RogueQuery_SpeciesOfType(allowedType);
@@ -961,7 +1007,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         // Evolve the species to just below the wild encounter level
         RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
         
-        if(GetDifficultyLevel(gRogueRun.currentRoomIdx) >= 5)
+        if(allowItemEvos)
             RogueQuery_EvolveSpeciesByItem();
 
         if(allowedType != TYPE_NONE)
@@ -978,26 +1024,89 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
     *useRogueCreateMon = FALSE;
 }
 
-void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct Pokemon *mon)
+static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
+{
+    u16 species;
+    u16 randIdx;
+    u16 queryCount = RogueQuery_BufferSize();
+    
+    // Prevent duplicates, if possible (Only for bosses)
+    do
+    {
+        randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+        species = RogueQuery_BufferPtr()[randIdx];
+    }
+    while(isBoss && PartyContainsSpecies(party, monIdx, species) && queryCount > totalMonCount);
+
+    return species;
+}
+
+void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
     u8 level;
     u8 fixedIV;
-    u16 randIdx;
     u16 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
-    u16 queryCount = RogueQuery_BufferSize();
+    struct Pokemon *mon = &party[monIdx];
 
     SeedRogueTrainer(startSeed, trainerNum, monIdx);
 
-    randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+    // For wallace will will always have at least 1 ledgendary in last slot
+    if(trainerNum == TRAINER_WALLACE)
+    {
+        if(monIdx == 5)
+        {
+            // Requery with just legendaries
+            RogueQuery_Clear();
+            RogueQuery_SpeciesIsValid();
+            RogueQuery_SpeciesIsLegendary();
+            RogueQuery_SpeciesOfType(TYPE_WATER);
+            RogueQuery_CollapseSpeciesBuffer();
+        }
+    }
+    // For steven will will always have at least 2 ledgendarys, both in last 2 slots
+    else if(trainerNum == TRAINER_STEVEN)
+    {
+        if(monIdx == 4)
+        {
+            // Requery with just legendaries
+            RogueQuery_Clear();
+            RogueQuery_SpeciesIsValid();
+            RogueQuery_SpeciesIsLegendary();
+            RogueQuery_SpeciesOfType(TYPE_PSYCHIC);
+            RogueQuery_CollapseSpeciesBuffer();
+        }
+    }
 
-    species = RogueQuery_BufferPtr()[randIdx];
+    species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
     level = CalculateTrainerLevel(trainerNum) - 1;
-    fixedIV = isBoss ? MAX_PER_STAT_IVS : 0;
 
-    if(monIdx == 0)
-        level--;
+    if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+        fixedIV = MAX_PER_STAT_IVS;
+    else
+        fixedIV = 0;//isBoss ? 11 : 0;
+
+    if(!isBoss)
+    {
+        if(monIdx == 0)
+            level--;
+    }
 
     if(monIdx == totalMonCount - 1)
         level++;
@@ -1103,13 +1212,13 @@ static u8 CalculateBossLevel(u8 difficulty)
     // Gym leaders lvs 10 -> 80
     if(difficulty <= 7)
     {
-        return 10 + 10 * difficulty;
+        return min(100, 10 + 10 * difficulty);
     }
     else
     {
         // Both champions are lvl 100
         difficulty -= 7;
-        return 80 + 4 * difficulty;
+        return min(100, 80 + 4 * difficulty);
     }
 }
 

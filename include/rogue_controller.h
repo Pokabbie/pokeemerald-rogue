@@ -25,7 +25,7 @@ void Rogue_Battle_EndWildBattle(void);
 
 bool8 Rogue_OverrideTrainerItems(u16* items);
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount);
-void Rogue_CreateTrainerMon(u16 trainerNum, u8 monIdx, u8 totalMonCount, struct Pokemon *mon);
+void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level);
 
 #endif

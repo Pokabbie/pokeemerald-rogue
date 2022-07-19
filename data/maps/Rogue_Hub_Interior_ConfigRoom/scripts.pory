@@ -197,6 +197,15 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     // SEED settings
     //
     if(flag(FLAG_SET_SEED_ITEMS))
@@ -321,6 +330,34 @@ script Rogue_ConfigRoom_Button_CanOverLvl
         else
         {
             setflag(FLAG_ROGUE_CAN_OVERLVL)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HardTrainers
+{
+    bufferstring(STR_VAR_1, format("HARD TRAINERS"))
+
+    if(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_HARD_TRAINERS))
+        {
+            clearflag(FLAG_ROGUE_HARD_TRAINERS)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_HARD_TRAINERS)
         }
     }
     call(Rogue_ConfigRoom_PostButtonInternal)
