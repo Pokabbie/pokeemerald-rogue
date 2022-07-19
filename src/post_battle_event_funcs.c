@@ -9,6 +9,8 @@
 #include "tv.h"
 #include "constants/heal_locations.h"
 
+#include "rogue_controller.h"
+
 int GameClear(void)
 {
     int i;
@@ -35,12 +37,11 @@ int GameClear(void)
 
     SetContinueGameWarpStatus();
 
-    // RogueNote: Override respawn location
-    //if (gSaveBlock2Ptr->playerGender == MALE)
-    //    SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
-    //else
-    //    SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
-    SetContinueGameWarpToHealLocation(HEAL_LOCATION_ROGUE_HUB);
+    // RogueNote: Override respawn location below
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
+    else
+        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
 
     ribbonGet = FALSE;
 
@@ -82,6 +83,8 @@ int GameClear(void)
             TryPutSpotTheCutiesOnAir(&gPlayerParty[ribbonCounts[0].partyIndex], MON_DATA_CHAMPION_RIBBON);
         }
     }
+
+    Rogue_GameClear();
 
     SetMainCallback2(CB2_DoHallOfFameScreen);
     return 0;

@@ -287,6 +287,11 @@ void Rogue_OnNewGame(void)
 #endif
 }
 
+void Rogue_GameClear(void)
+{
+    SetContinueGameWarpToHealLocation(HEAL_LOCATION_ROGUE_HUB);
+}
+
 void Rogue_SetDefaultOptions(void)
 {
 #ifdef ROGUE_DEBUG
