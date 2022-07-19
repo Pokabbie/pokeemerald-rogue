@@ -168,12 +168,15 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 {
-    // TODO -
-    //*ballMultiplier = 50;
+#ifdef ROGUE_DEBUG
     *ballMultiplier = 255; // Masterball equiv
+#else
+    *ballMultiplier = *ballMultiplier * 2;
+#endif
 
-    if(*catchRate < 50)
-        *catchRate = 50;
+    // Equiv to chansey
+    if(*catchRate < 30)
+        *catchRate = 30;
 }
 
 #ifdef ROGUE_DEBUG
@@ -700,9 +703,10 @@ void Rogue_Battle_StartTrainerBattle(void)
 {
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) //NoOfApproachingTrainers != 2 
     {
-        if(gPlayerPartyCount >= 2 && gEnemyPartyCount >= 2)
+        // No need to check opponent party as we force it to 2 below
+        if(gPlayerPartyCount >= 2) // gEnemyPartyCount >= 2
         {
-            // Force double?
+             // Force double?
             gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
         }
     }
@@ -905,6 +909,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             // Champion
             *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 2 : 0);
             *allowItemEvos = TRUE;
+        }
+    }
+
+    if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
+    {
+        if(*monsCount < 2)
+        {
+            *monsCount = 2;
         }
     }
 }
