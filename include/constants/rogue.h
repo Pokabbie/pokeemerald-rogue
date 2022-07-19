@@ -29,10 +29,19 @@ struct RogueHubData
     u16 registeredItem;
 };
 
+struct RogueRouteMap
+{
+    u16 layout;
+    u16 group;
+    u16 num;
+};
+
 struct RogueRouteData
 {
     u8 wildTypeTableCount;
+    u8 mapCount;
     const u8* wildTypeTable;
+    const struct RogueRouteMap* mapTable;
 };
 
 struct SpeciesTable

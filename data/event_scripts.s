@@ -1101,3 +1101,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Hub_Interior_ConfigRoom/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_RestStop/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Forest1/scripts.inc"

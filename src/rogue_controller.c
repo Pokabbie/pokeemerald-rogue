@@ -404,8 +404,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
-    gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
+    //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
+    //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
 #endif
 }
 
@@ -583,6 +583,44 @@ static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
     };
 }
 
+static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
+{
+    u8 mapCount;
+    u8 mapIdx;
+    u8 swapRouteChance = 50;
+    const struct RogueRouteMap* selectedMap = NULL;
+
+    gRogueRun.currentRouteType = 0;
+
+    if(nextRoomIdx == 1)
+    {
+        // Always get first route on field(?)
+        swapRouteChance = 0;
+    }
+    else if(nextRoomIdx < ROOM_IDX_BOSS0)
+    {
+        swapRouteChance = 100;
+    }
+
+    if(RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
+    {
+        gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+    }
+
+    mapCount = gRogueRouteTable[gRogueRun.currentRouteType].mapCount;
+
+    // Avoid doing same route in a row
+    do
+    {
+        mapIdx = RogueRandomRange(mapCount,  OVERWORLD_FLAG);
+        selectedMap = &gRogueRouteTable[gRogueRun.currentRouteType].mapTable[mapIdx];
+    }
+    while(mapCount > 1 && gMapHeader.mapLayoutId == selectedMap->layout);
+
+    warp->mapGroup = selectedMap->group;
+    warp->mapNum = selectedMap->num;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
@@ -670,22 +708,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
         else
         {
-            //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FOREST0);
-            //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FOREST0);
-
-            // Normal room
-            if((nextRoomIdx % 2) == 0)
-            {
-                warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
-                warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
-            }
-            else
-            {
-                warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FOREST0);
-                warp->mapNum = MAP_NUM(ROGUE_ROUTE_FOREST0);
-                //warp->mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD1);
-                //warp->mapNum = MAP_NUM(ROGUE_ROUTE_FIELD1);
-            }
+            SelectRouteRoom(nextRoomIdx, warp);
         }
 
         warp->warpId = 0;
