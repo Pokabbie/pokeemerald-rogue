@@ -21,7 +21,7 @@ static const u8 sRouteEncontersCave[] = {
     TYPE_ROCK, TYPE_ICE, TYPE_DRAGON
 };
 static const struct RogueRouteMap sRouteMapsCave[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FOREST0)
+    ROUTE_MAP(ROGUE_ROUTE_CAVE0)
 };
 
 static const u8 sRouteEncontersMountain[] = {

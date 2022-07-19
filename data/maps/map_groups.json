@@ -608,7 +608,8 @@
     "Rogue_Route_Forest0",
     "Rogue_Hub_Interior_ConfigRoom",
     "Rogue_Encounter_RestStop",
-    "Rogue_Route_Forest1"
+    "Rogue_Route_Forest1",
+    "Rogue_Route_Cave0"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

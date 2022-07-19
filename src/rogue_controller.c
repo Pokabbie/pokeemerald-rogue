@@ -406,6 +406,8 @@ static void BeginRogueRun(void)
     // TEMP - Testing only
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
+
+    gRogueRun.currentRouteType = ROGUE_ROUTE_CAVE;
 #endif
 }
 
@@ -587,24 +589,28 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 mapCount;
     u8 mapIdx;
-    u8 swapRouteChance = 50;
+    u8 swapRouteChance = 60;
     const struct RogueRouteMap* selectedMap = NULL;
 
-    gRogueRun.currentRouteType = 0;
-
+#ifdef ROGUE_DEBUG
     if(nextRoomIdx == 1)
     {
-        // Always get first route on field(?)
+        // Always force first route type for debug
         swapRouteChance = 0;
     }
-    else if(nextRoomIdx < ROOM_IDX_BOSS0)
+    else 
+#endif
+    if(nextRoomIdx < ROOM_IDX_BOSS0)
     {
         swapRouteChance = 100;
     }
 
-    if(RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
+    if(swapRouteChance != 0)
     {
-        gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+        if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
+        {
+            gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+        }
     }
 
     mapCount = gRogueRouteTable[gRogueRun.currentRouteType].mapCount;
@@ -1360,7 +1366,16 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     // Queue up random items
     RogueQuery_Clear();
-    RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 800 * difficultyLevel);
+
+    if(gRogueRun.currentRouteType == ROGUE_ROUTE_CAVE)
+    {
+        // In cave we have higher chance of finding valuables
+        RogueQuery_ItemsInPriceRange(100 + 400 * difficultyLevel, 300 + 800 * difficultyLevel);
+    }
+    else
+    {
+        RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 800 * difficultyLevel);
+    }
 
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);

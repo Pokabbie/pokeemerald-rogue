@@ -578,6 +578,7 @@
 #define MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM                  (110 | (26 << 8))
 #define MAP_ROGUE_ENCOUNTER_REST_STOP                       (111 | (26 << 8))
 #define MAP_ROGUE_ROUTE_FOREST1                             (112 | (26 << 8))
+#define MAP_ROGUE_ROUTE_CAVE0                               (113 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))
