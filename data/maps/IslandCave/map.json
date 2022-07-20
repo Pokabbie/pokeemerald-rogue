@@ -31,7 +31,7 @@
   "warp_events": [
     {
       "x": 8,
-      "y": 29,
+      "y": 11,
       "elevation": 3,
       "dest_map": "MAP_ROUTE105",
       "dest_warp_id": 0
@@ -45,7 +45,7 @@
     },
     {
       "x": 8,
-      "y": 11,
+      "y": 29,
       "elevation": 3,
       "dest_map": "MAP_ISLAND_CAVE",
       "dest_warp_id": 1

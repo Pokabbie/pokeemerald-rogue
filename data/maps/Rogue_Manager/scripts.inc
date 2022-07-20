@@ -12,6 +12,11 @@ Rogue_GiveItem_Internal::
 	return
 
 
+Rogue_ShouldShowSpecialWarp::
+	setvar VAR_RESULT, YES
+	return
+
+
 Rogue_Shop_GetRandomIndex::
 	compare VAR_TEMP_F, 0
 	goto_if_eq Rogue_Shop_GetRandomIndex_1

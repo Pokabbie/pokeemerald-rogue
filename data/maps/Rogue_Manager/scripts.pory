@@ -31,6 +31,12 @@ script Rogue_GiveItem_Internal
     finditem(VAR_ITEM_ID_VAL, 3)
 }
 
+script Rogue_ShouldShowSpecialWarp
+{
+    setvar(VAR_RESULT, YES)
+    return
+}
+
 // Shops
 //
 

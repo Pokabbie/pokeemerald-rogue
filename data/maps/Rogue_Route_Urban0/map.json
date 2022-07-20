@@ -393,10 +393,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 14,
-      "y": 76,
+      "x": 34,
+      "y": 92,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -549,6 +549,27 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
       "dest_warp_id": 0
+    },
+    {
+      "x": 22,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 42,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 26,
+      "y": 88,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
+      "dest_warp_id": 55
     }
   ],
   "coord_events": [

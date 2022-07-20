@@ -89,3 +89,26 @@ const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
         .mapTable = sRouteMapsUrban
     },
 };
+
+//tatic const u8 sRouteEncontersSpecial[] = {
+//   TYPE_GRASS, TYPE_NORMAL
+//;
+static const struct RogueRouteMap sRouteMapsSpecial[] = {
+    ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIAS)
+
+    //ROUTE_MAP(SKY_PILLAR_TOP), ROUTE_MAP(TERRA_CAVE_END), ROUTE_MAP(MARINE_CAVE_END),
+    //ROUTE_MAP(NAVEL_ROCK_TOP), ROUTE_MAP(NAVEL_ROCK_BOTTOM),
+    //ROUTE_MAP(ISLAND_CAVE), ROUTE_MAP(DESERT_RUINS), ROUTE_MAP(ANCIENT_TOMB), // Regis
+    //ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIOS), ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIAS)
+    //ROUTE_MAP(SOUTHERN_ISLAND_INTERIOR), // TODO - Make version for each
+    //ROUTE_MAP(FARAWAY_ISLAND_INTERIOR),
+    //ROUTE_MAP(BIRTH_ISLAND_EXTERIOR),
+};
+
+const struct RogueRouteData gRogueSpecialEncounterInfo = 
+{
+    .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersField),
+    .wildTypeTable = sRouteEncontersField,
+    .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
+    .mapTable = sRouteMapsSpecial
+};

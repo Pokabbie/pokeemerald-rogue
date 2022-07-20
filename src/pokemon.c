@@ -47,6 +47,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 struct SpeciesItem
 {
     u16 species;
@@ -2762,9 +2764,11 @@ u16 GetUnionRoomTrainerClass(void)
 
 void CreateEventLegalEnemyMon(void)
 {
-    s32 species = gSpecialVar_0x8004;
-    s32 level = gSpecialVar_0x8005;
-    s32 itemId = gSpecialVar_0x8006;
+    u16 species = gSpecialVar_0x8004;
+    u8 level = gSpecialVar_0x8005;
+    u16 itemId = gSpecialVar_0x8006;
+
+    Rogue_CreateEventMon(&species, &level, &itemId);
 
     ZeroEnemyPartyMons();
     CreateEventLegalMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);

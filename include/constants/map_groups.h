@@ -582,6 +582,8 @@
 #define MAP_ROGUE_ROUTE_MOUNTAIN0                           (114 | (26 << 8))
 #define MAP_ROGUE_ROUTE_WATER_FRONT0                        (115 | (26 << 8))
 #define MAP_ROGUE_ROUTE_URBAN0                              (116 | (26 << 8))
+#define MAP_ROGUE_SOUTHERN_ISLAND_LATIOS                    (117 | (26 << 8))
+#define MAP_ROGUE_SOUTHERN_ISLAND_LATIAS                    (118 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

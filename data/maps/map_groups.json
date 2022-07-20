@@ -612,7 +612,9 @@
     "Rogue_Route_Cave0",
     "Rogue_Route_Mountain0",
     "Rogue_Route_WaterFront0",
-    "Rogue_Route_Urban0"
+    "Rogue_Route_Urban0",
+    "Rogue_SouthernIsland_Latios",
+    "Rogue_SouthernIsland_Latias"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

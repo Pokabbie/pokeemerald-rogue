@@ -4690,6 +4690,26 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Route_Urban0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Urban0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SOUTHERN_ISLAND_LATIOS",
+      "name": "Rogue_SouthernIsland_Latios_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Rogue_SouthernIsland_Latios/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_SouthernIsland_Latios/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SOUTHERN_ISLAND_LATIAS",
+      "name": "Rogue_SouthernIsland_Latias_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Rogue_SouthernIsland_Latias/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_SouthernIsland_Latias/map.bin"
     }
   ]
 }

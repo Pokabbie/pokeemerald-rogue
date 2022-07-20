@@ -24,6 +24,8 @@
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
 
+#include "rogue_controller.h"
+
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
 
@@ -139,8 +141,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
     // RogueNote: wild encounters
     u8 heldItem[2];
     
-    species = 124;
-    level = 69;
+    Rogue_CreateEventMon(&species, &level, &item);
 
     ZeroEnemyPartyMons();
     CreateMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);

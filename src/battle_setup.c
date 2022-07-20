@@ -542,6 +542,7 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_MEW:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
+    // TODO - extra for all legdendaries
     }
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);

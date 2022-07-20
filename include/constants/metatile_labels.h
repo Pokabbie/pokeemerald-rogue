@@ -254,6 +254,7 @@
 
 // gTileset_Mauville
 #define METATILE_Mauville_Door               0x2AC
+#define METATILE_Mauville_DoorTop_CyclingRoad   0x281
 #define METATILE_Mauville_Door_CyclingRoad   0x289
 #define METATILE_Mauville_Door_Verdanturf    0x3A1
 #define METATILE_Mauville_Door_BattleTent    0x3D4

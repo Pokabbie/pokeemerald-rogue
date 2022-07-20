@@ -402,6 +402,43 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
 
+    // Special states
+    // Rayquaza
+    VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
+    VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
+    FlagClear(FLAG_DEFEATED_RAYQUAZA);
+    FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
+    FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
+
+    // Groudon + Kyogre
+    FlagClear(FLAG_DEFEATED_GROUDON);
+    FlagClear(FLAG_DEFEATED_KYOGRE);
+
+    // Mew
+    FlagClear(FLAG_HIDE_MEW);
+    FlagClear(FLAG_DEFEATED_MEW);
+    FlagClear(FLAG_CAUGHT_MEW);
+
+    // Deoxys
+    FlagClear(FLAG_BATTLED_DEOXYS);
+    FlagClear(FLAG_DEFEATED_DEOXYS);
+
+    // Ho-oh + Lugia
+    FlagClear(FLAG_CAUGHT_HO_OH);
+    FlagClear(FLAG_CAUGHT_LUGIA);
+
+    // Regis
+    FlagClear(FLAG_DEFEATED_REGICE);
+    FlagClear(FLAG_DEFEATED_REGISTEEL);
+    FlagClear(FLAG_DEFEATED_REGIROCK);
+
+    // Latis
+    //FlagClear(FLAG_DEFEATED_LATIAS_OR_LATIOS);
+    //FlagClear(FLAG_CAUGHT_LATIAS_OR_LATIOS);
+
+    // Reset ledgendary encounters
+    //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
+
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
@@ -447,6 +484,12 @@ static bool8 IsBossRoom(u16 roomIdx)
     };
 
     return FALSE;
+}
+
+static bool8 IsSpecialEncounterRoomWarp(struct WarpData *warp)
+{
+    // Just an arbitrary number we're gonna use to indicate special encounter rooms
+    return warp->warpId == 55;
 }
 
 static u8 GetDifficultyLevel(u16 roomIdx)
@@ -627,6 +670,27 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     warp->mapNum = selectedMap->num;
 }
 
+static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
+{
+    u8 mapCount;
+    u8 mapIdx;
+    u8 swapRouteChance = 60;
+    const struct RogueRouteMap* selectedMap = NULL;
+
+    mapCount = gRogueSpecialEncounterInfo.mapCount;
+
+    // Avoid repeating same ecounter (TODO)
+    do
+    {
+        mapIdx = RogueRandomRange(mapCount,  OVERWORLD_FLAG);
+        selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
+    }
+    while(mapCount > 1 && gMapHeader.mapLayoutId == selectedMap->layout);
+
+    warp->mapGroup = selectedMap->group;
+    warp->mapNum = selectedMap->num;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
@@ -707,6 +771,10 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             // Will encounter the next rest stop in 4-6 rooms
             gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
+        }
+        else if(IsSpecialEncounterRoomWarp(warp))
+        {
+            SelectSpecialEncounterRoom(nextRoomIdx, warp);
         }
         else if(IsBossRoom(nextRoomIdx))
         {
@@ -1184,6 +1252,11 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         *species = gRogueRun.wildEncounters[randIdx];
         *level = maxlevel - (Random() % levelVariation);
     }
+}
+
+void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
+{
+    *level = CalculateWildLevel();
 }
 
 static void RandomiseWildEncounters(void)
