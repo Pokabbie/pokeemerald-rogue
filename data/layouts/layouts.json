@@ -4680,6 +4680,16 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Rogue_Route_WaterFront0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_WaterFront0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_URBAN0",
+      "name": "Rogue_Route_Urban0_Layout",
+      "width": 54,
+      "height": 100,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Urban0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Urban0/map.bin"
     }
   ]
 }

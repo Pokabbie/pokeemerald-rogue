@@ -42,7 +42,7 @@ static const u8 sRouteEncontersUrban[] = {
     TYPE_STEEL, TYPE_ELECTRIC, TYPE_PSYCHIC
 };
 static const struct RogueRouteMap sRouteMapsUrban[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FOREST0)
+    ROUTE_MAP(ROGUE_ROUTE_URBAN0)
 };
 
 const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {

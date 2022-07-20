@@ -407,7 +407,7 @@ static void BeginRogueRun(void)
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
 
-    gRogueRun.currentRouteType = ROGUE_ROUTE_WATERFRONT;
+    gRogueRun.currentRouteType = ROGUE_ROUTE_URBAN;
 #endif
 }
 
