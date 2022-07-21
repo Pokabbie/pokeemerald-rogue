@@ -407,7 +407,7 @@ static void BeginRogueRun(void)
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
 
-    gRogueRun.currentRouteType = ROGUE_ROUTE_URBAN;
+    gRogueRun.currentRouteType = ROGUE_ROUTE_MOUNTAIN;
 #endif
 }
 
@@ -711,6 +711,20 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
     warp->mapNum = selectedMap->num;
 }
 
+static bool8 IsSpecialEncounterRoom(void)
+{
+    u8 i;
+    u8 mapCount = gRogueSpecialEncounterInfo.mapCount;
+
+    for(i = 0; i < mapCount; ++i)
+    {
+        if(gRogueSpecialEncounterInfo.mapTable[i].layout == gMapHeader.mapLayoutId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
@@ -738,8 +752,15 @@ void Rogue_OnWarpIntoMap(void)
             }
 
             RandomiseEnabledTrainers();
-            RandomiseEnabledItems();
-            RandomiseBerryTrees();
+        }
+        else if(IsSpecialEncounterRoom())
+        {
+            // Don't increment room IDX yet
+            // Re-seed after each room increment to avoid desync
+            if(FlagGet(FLAG_SET_SEED_ENABLED))
+            {
+                SeedRogueRng(Rogue_GetSeed());
+            }
         }
         else
         {
@@ -783,7 +804,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         u16 nextRoomIdx = gRogueRun.currentRoomIdx + 1;
 
-        if(nextRoomIdx >= gRogueRun.nextRestStopRoomIdx)
+        if(IsSpecialEncounterRoomWarp(warp))
+        {
+            SelectSpecialEncounterRoom(nextRoomIdx, warp);
+        }
+        else if(nextRoomIdx >= gRogueRun.nextRestStopRoomIdx)
         {
             // We're about to hit a rest stop so force it here
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
@@ -791,10 +816,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             // Will encounter the next rest stop in 4-6 rooms
             gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
-        }
-        else if(IsSpecialEncounterRoomWarp(warp))
-        {
-            SelectSpecialEncounterRoom(nextRoomIdx, warp);
         }
         else if(IsBossRoom(nextRoomIdx))
         {

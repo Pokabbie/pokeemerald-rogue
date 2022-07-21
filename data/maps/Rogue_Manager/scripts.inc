@@ -17,6 +17,26 @@ Rogue_ShouldShowSpecialWarp::
 	return
 
 
+Rogue_Common_TurnPlayerNorth::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
+
+Rogue_Common_TurnPlayerSourt::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	end
+
+
+Rogue_Common_TurnPlayerEast::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	end
+
+
+Rogue_Common_TurnPlayerWest::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	end
+
+
 Rogue_Shop_GetRandomIndex::
 	compare VAR_TEMP_F, 0
 	goto_if_eq Rogue_Shop_GetRandomIndex_1

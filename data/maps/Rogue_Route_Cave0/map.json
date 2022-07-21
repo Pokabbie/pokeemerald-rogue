@@ -506,10 +506,24 @@
     },
     {
       "x": 39,
-      "y": 6,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_CAVE0",
       "dest_warp_id": 0
+    },
+    {
+      "x": 25,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_CAVE0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 31,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_CAVE0",
+      "dest_warp_id": 55
     }
   ],
   "coord_events": [

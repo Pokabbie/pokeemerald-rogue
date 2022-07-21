@@ -1,12 +1,7 @@
-mapscripts Rogue_HubTransition_MapScripts
+mapscripts Rogue_HubTransition_MapScripts 
 {
-    // This can occasionally crash the game!?
-    //MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE {
-    //    applymovement(OBJ_EVENT_ID_PLAYER, LookNorth)
-    //    waitmovement(0)
-    //}
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
 }
-
-//movement LookNorth {
-//    face_up
-//}

@@ -37,6 +37,29 @@ script Rogue_ShouldShowSpecialWarp
     return
 }
 
+// Movement
+//
+script Rogue_Common_TurnPlayerNorth
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    end
+}
+script Rogue_Common_TurnPlayerSourt
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    end
+}
+script Rogue_Common_TurnPlayerEast
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    end
+}
+script Rogue_Common_TurnPlayerWest
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    end
+}
+
 // Shops
 //
 

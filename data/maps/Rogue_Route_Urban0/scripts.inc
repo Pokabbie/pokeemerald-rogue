@@ -4,17 +4,12 @@ Rogue_Route_Urban0_MapScripts::
 	.byte 0
 
 Rogue_Route_Urban0_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
-	map_script_2 VAR_TEMP_1, 0, Rogue_Route_Urban0_TurnPlayerNorth
+	map_script_2 VAR_TEMP_1, 0, Rogue_Common_TurnPlayerNorth
 	.2byte 0
 
 Rogue_Route_Urban0_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_TEMP_1, 0, Rogue_Route_Urban0_OnFrame0
 	.2byte 0
-
-
-Rogue_Route_Urban0_TurnPlayerNorth::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
 
 
 Rogue_Route_Urban0_OnFrame0::
@@ -31,28 +26,20 @@ Rogue_Route_Urban0_OnFrame0_2:
 	waitstate
 	playse SE_DOOR
 	delay 10
-	random 3
+	random 2
 	switch VAR_RESULT
 	case 0, Rogue_Route_Urban0_OnFrame0_6
 	case 1, Rogue_Route_Urban0_OnFrame0_7
-	case 2, Rogue_Route_Urban0_OnFrame0_8
 Rogue_Route_Urban0_OnFrame0_4:
-	setmetatile 26, 87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE
-	setmetatile 26, 88, METATILE_Mauville_Door_CyclingRoad, TRUE
 	releaseall
 	goto Rogue_Route_Urban0_OnFrame0_1
 
 Rogue_Route_Urban0_OnFrame0_6:
-	setmetatile 41, 23, METATILE_General_CaveEntrance_Top, TRUE
-	setmetatile 41, 24, METATILE_General_CaveEntrance_Bottom, TRUE
-	goto Rogue_Route_Urban0_OnFrame0_4
-
-Rogue_Route_Urban0_OnFrame0_7:
 	setmetatile 26, 87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE
 	setmetatile 26, 88, METATILE_Mauville_Door_CyclingRoad, TRUE
 	goto Rogue_Route_Urban0_OnFrame0_4
 
-Rogue_Route_Urban0_OnFrame0_8:
+Rogue_Route_Urban0_OnFrame0_7:
 	setmetatile 22, 15, METATILE_Mauville_DoorTop_CyclingRoad, TRUE
 	setmetatile 22, 16, METATILE_Mauville_Door_CyclingRoad, TRUE
 	goto Rogue_Route_Urban0_OnFrame0_4

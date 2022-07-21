@@ -290,7 +290,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 4,
-      "y": 8,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -517,6 +517,34 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
       "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 32,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 33,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
     }
   ],
   "coord_events": [

@@ -2,20 +2,13 @@ mapscripts Rogue_Route_Urban0_MapScripts
 {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
     [
-        VAR_TEMP_1, 0: Rogue_Route_Urban0_TurnPlayerNorth
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
     ]
     MAP_SCRIPT_ON_FRAME_TABLE 
     [
         VAR_TEMP_1, 0: Rogue_Route_Urban0_OnFrame0
         //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
     ]
-}
-
-
-script Rogue_Route_Urban0_TurnPlayerNorth
-{
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-    end
 }
 
 script Rogue_Route_Urban0_OnFrame0
@@ -28,23 +21,16 @@ script Rogue_Route_Urban0_OnFrame0
         waitstate
         playse(SE_DOOR)
         delay(10)
-        random(3)
+        random(2)
         switch(var(VAR_RESULT))
         {
             case 0:
-                setmetatile(41,23, METATILE_General_CaveEntrance_Top, TRUE)
-                setmetatile(41,24, METATILE_General_CaveEntrance_Bottom, TRUE)
-            case 1:
                 setmetatile(26,87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE)
                 setmetatile(26,88, METATILE_Mauville_Door_CyclingRoad, TRUE)
-            case 2:
+            case 1:
                 setmetatile(22,15, METATILE_Mauville_DoorTop_CyclingRoad, TRUE)
                 setmetatile(22,16, METATILE_Mauville_Door_CyclingRoad, TRUE)
         }
-
-        // TEMP
-                setmetatile(26,87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE)
-                setmetatile(26,88, METATILE_Mauville_Door_CyclingRoad, TRUE)
         releaseall
     }
 

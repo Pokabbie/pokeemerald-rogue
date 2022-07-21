@@ -601,6 +601,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
       "dest_warp_id": 0
+    },
+    {
+      "x": 32,
+      "y": 70,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 17,
+      "y": 46,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_FIELD0",
+      "dest_warp_id": 55
     }
   ],
   "coord_events": [
