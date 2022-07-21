@@ -2,6 +2,7 @@
 #include "constants/maps.h"
 
 #define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
+#define ENCOUNTER_MAP(species, map) { .encounterSpecies=species, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
 
 static const u8 sRouteEncontersField[] = {
     TYPE_GRASS, TYPE_NORMAL
@@ -90,25 +91,27 @@ const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
     },
 };
 
-//tatic const u8 sRouteEncontersSpecial[] = {
-//   TYPE_GRASS, TYPE_NORMAL
-//;
-static const struct RogueRouteMap sRouteMapsSpecial[] = {
-    ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIAS)
+static const struct RogueEncounterMap sRouteMapsSpecial[] = {
+    ENCOUNTER_MAP(SPECIES_RAYQUAZA, SKY_PILLAR_TOP),
+    ENCOUNTER_MAP(SPECIES_GROUDON, TERRA_CAVE_END),
+    ENCOUNTER_MAP(SPECIES_KYOGRE, MARINE_CAVE_END),
 
-    //ROUTE_MAP(SKY_PILLAR_TOP), ROUTE_MAP(TERRA_CAVE_END), ROUTE_MAP(MARINE_CAVE_END),
-    //ROUTE_MAP(NAVEL_ROCK_TOP), ROUTE_MAP(NAVEL_ROCK_BOTTOM),
-    //ROUTE_MAP(ISLAND_CAVE), ROUTE_MAP(DESERT_RUINS), ROUTE_MAP(ANCIENT_TOMB), // Regis
-    //ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIOS), ROUTE_MAP(ROGUE_SOUTHERN_ISLAND_LATIAS)
-    //ROUTE_MAP(SOUTHERN_ISLAND_INTERIOR), // TODO - Make version for each
-    //ROUTE_MAP(FARAWAY_ISLAND_INTERIOR),
-    //ROUTE_MAP(BIRTH_ISLAND_EXTERIOR),
+    ENCOUNTER_MAP(SPECIES_LATIAS, ROGUE_SOUTHERN_ISLAND_LATIAS),
+    ENCOUNTER_MAP(SPECIES_LATIOS, ROGUE_SOUTHERN_ISLAND_LATIOS),
+
+    ENCOUNTER_MAP(SPECIES_HO_OH, NAVEL_ROCK_TOP),
+    ENCOUNTER_MAP(SPECIES_LUGIA, NAVEL_ROCK_BOTTOM),
+
+    ENCOUNTER_MAP(SPECIES_REGICE, ISLAND_CAVE),
+    ENCOUNTER_MAP(SPECIES_REGIROCK, DESERT_RUINS),
+    ENCOUNTER_MAP(SPECIES_REGISTEEL, ANCIENT_TOMB),
+
+    ENCOUNTER_MAP(SPECIES_MEW, FARAWAY_ISLAND_INTERIOR),
+    ENCOUNTER_MAP(SPECIES_DEOXYS, BIRTH_ISLAND_EXTERIOR)
 };
 
-const struct RogueRouteData gRogueSpecialEncounterInfo = 
+const struct RogueEncounterData gRogueSpecialEncounterInfo = 
 {
-    .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersField),
-    .wildTypeTable = sRouteEncontersField,
     .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
     .mapTable = sRouteMapsSpecial
 };

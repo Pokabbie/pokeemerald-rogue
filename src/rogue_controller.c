@@ -402,43 +402,6 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
 
-    // Special states
-    // Rayquaza
-    VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
-    VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
-    FlagClear(FLAG_DEFEATED_RAYQUAZA);
-    FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
-    FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
-
-    // Groudon + Kyogre
-    FlagClear(FLAG_DEFEATED_GROUDON);
-    FlagClear(FLAG_DEFEATED_KYOGRE);
-
-    // Mew
-    FlagClear(FLAG_HIDE_MEW);
-    FlagClear(FLAG_DEFEATED_MEW);
-    FlagClear(FLAG_CAUGHT_MEW);
-
-    // Deoxys
-    FlagClear(FLAG_BATTLED_DEOXYS);
-    FlagClear(FLAG_DEFEATED_DEOXYS);
-
-    // Ho-oh + Lugia
-    FlagClear(FLAG_CAUGHT_HO_OH);
-    FlagClear(FLAG_CAUGHT_LUGIA);
-
-    // Regis
-    FlagClear(FLAG_DEFEATED_REGICE);
-    FlagClear(FLAG_DEFEATED_REGISTEEL);
-    FlagClear(FLAG_DEFEATED_REGIROCK);
-
-    // Latis
-    //FlagClear(FLAG_DEFEATED_LATIAS_OR_LATIOS);
-    //FlagClear(FLAG_CAUGHT_LATIAS_OR_LATIOS);
-
-    // Reset ledgendary encounters
-    //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
-
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
@@ -670,22 +633,79 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     warp->mapNum = selectedMap->num;
 }
 
+static void ResetSpecialEncounterStates(void)
+{
+    // Special states
+    // Rayquaza
+    VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
+    VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
+    FlagClear(FLAG_DEFEATED_RAYQUAZA);
+    FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
+    FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
+
+    // Groudon + Kyogre
+    FlagClear(FLAG_DEFEATED_GROUDON);
+    FlagClear(FLAG_DEFEATED_KYOGRE);
+
+    // Mew
+    FlagClear(FLAG_HIDE_MEW);
+    FlagClear(FLAG_DEFEATED_MEW);
+    FlagClear(FLAG_CAUGHT_MEW);
+
+    // Deoxys
+    FlagClear(FLAG_BATTLED_DEOXYS);
+    FlagClear(FLAG_DEFEATED_DEOXYS);
+
+    // Ho-oh + Lugia
+    FlagClear(FLAG_CAUGHT_HO_OH);
+    FlagClear(FLAG_CAUGHT_LUGIA);
+
+    // Regis
+    FlagClear(FLAG_DEFEATED_REGICE);
+    FlagClear(FLAG_DEFEATED_REGISTEEL);
+    FlagClear(FLAG_DEFEATED_REGIROCK);
+
+    // Latis
+    //FlagClear(FLAG_DEFEATED_LATIAS_OR_LATIOS);
+    //FlagClear(FLAG_CAUGHT_LATIAS_OR_LATIOS);
+
+    // Reset ledgendary encounters
+    //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
+}
+
+static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 mapCount;
     u8 mapIdx;
     u8 swapRouteChance = 60;
-    const struct RogueRouteMap* selectedMap = NULL;
+    const struct RogueEncounterMap* selectedMap = NULL;
+    
+    ResetSpecialEncounterStates();
 
     mapCount = gRogueSpecialEncounterInfo.mapCount;
 
     // Avoid repeating same ecounter (TODO)
     do
     {
-        mapIdx = RogueRandomRange(mapCount,  OVERWORLD_FLAG);
+        mapIdx = RogueRandomRange(mapCount, OVERWORLD_FLAG);
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 1 && gMapHeader.mapLayoutId == selectedMap->layout);
+    while(mapCount > 6 && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -1119,21 +1139,6 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
     }
 
     *useRogueCreateMon = FALSE;
-}
-
-static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
-{
-    u8 i;
-    u16 s;
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = GetMonData(&party[i], MON_DATA_SPECIES);
-
-        if(s == species)
-            return TRUE;
-    }
-
-    return FALSE;
 }
 
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)

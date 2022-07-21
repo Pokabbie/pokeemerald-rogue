@@ -2633,6 +2633,12 @@ void CreateEventLegalMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
 // If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form
 bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
 {
+    //if(Rogue_IsRunActive())
+    //{
+    //    // No special deoxys form
+    //    return TRUE;
+    //}
+
     switch (caseId)
     {
     case 0:

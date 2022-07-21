@@ -44,6 +44,20 @@ struct RogueRouteData
     const struct RogueRouteMap* mapTable;
 };
 
+struct RogueEncounterMap
+{
+    u16 encounterSpecies;
+    u16 layout;
+    u16 group;
+    u16 num;
+};
+
+struct RogueEncounterData
+{
+    u8 mapCount;
+    const struct RogueEncounterMap* mapTable;
+};
+
 struct SpeciesTable
 {
     u8 wildSpeciesCount;
@@ -77,7 +91,7 @@ struct RogueMonPresetCollection
 
 extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
-extern const struct RogueRouteData gRogueSpecialEncounterInfo;
+extern const struct RogueEncounterData gRogueSpecialEncounterInfo;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H

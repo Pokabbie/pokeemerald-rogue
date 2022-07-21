@@ -1,4 +1,5 @@
 Rogue_SouthernIsland_Latios_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, SouthernIsland_Interior_OnResume
 	.byte 0
 
 
@@ -9,5 +10,6 @@ Rogue_SouthernIsland_Interior_Latios_TryLatiEncounter::
 	clearflag FLAG_CAUGHT_LATIAS_OR_LATIOS
 	call SouthernIsland_Interior_EventScript_SetUpLatios
 	call SouthernIsland_Interior_EventScript_TryLatiEncounter
+	call Common_EventScript_RemoveStaticPokemon
 	return
 

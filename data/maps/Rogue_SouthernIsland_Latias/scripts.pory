@@ -1,6 +1,6 @@
 mapscripts Rogue_SouthernIsland_Latias_MapScripts 
 {
-
+    MAP_SCRIPT_ON_RESUME: SouthernIsland_Interior_OnResume
 }
 
 script Rogue_SouthernIsland_Interior_Latias_TryLatiEncounter
@@ -14,4 +14,6 @@ script Rogue_SouthernIsland_Interior_Latias_TryLatiEncounter
 
     call(SouthernIsland_Interior_EventScript_SetUpLatias)
     call(SouthernIsland_Interior_EventScript_TryLatiEncounter)
+
+    call(Common_EventScript_RemoveStaticPokemon)
 }
