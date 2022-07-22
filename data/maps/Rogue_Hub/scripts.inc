@@ -77,7 +77,7 @@ RogueHub_SpeakScott_9:
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_11:
-	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_YESNO
+	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	goto RogueHub_SpeakScott_1

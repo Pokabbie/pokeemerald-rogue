@@ -86,8 +86,11 @@ static void RandomiseBerryTrees(void);
 
 static u16 RogueRandomRange(u16 range, u8 flag)
 {
+    // Always use rogue random to avoid seeding issues based on flag
+    u16 res = RogueRandom();
+
     if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
-        return RogueRandom() % range;
+        return res % range;
     else
         return Random() % range;
 }
@@ -96,12 +99,12 @@ static u16 Rogue_GetSeed(void)
 {
     u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
     u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
-    u32 offset = 0;
+    u32 offset = 3;
 
-    if(Rogue_IsRunActive())
-    {
-        offset = gRogueRun.currentRoomIdx * 3;
-    }
+    //if(Rogue_IsRunActive())
+    //{
+    //    offset = gRogueRun.currentRoomIdx * 3;
+    //}
 
     return (u16)(word0 + word1 * offset);
 }
@@ -779,34 +782,15 @@ void Rogue_OnWarpIntoMap(void)
     {
         if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ENCOUNTER_REST_STOP)
         {
-            // Don't increment room IDX yet
-            // Re-seed after each room increment to avoid desync
-            if(FlagGet(FLAG_SET_SEED_ENABLED))
-            {
-                SeedRogueRng(Rogue_GetSeed());
-            }
-
             RandomiseEnabledTrainers();
         }
         else if(IsSpecialEncounterRoom())
         {
-            // Don't increment room IDX yet
-            // Re-seed after each room increment to avoid desync
-            if(FlagGet(FLAG_SET_SEED_ENABLED))
-            {
-                SeedRogueRng(Rogue_GetSeed());
-            }
         }
         else
         {
             ++gRogueRun.currentRoomIdx;
             difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-
-            // Re-seed after each room increment to avoid desync
-            if(FlagGet(FLAG_SET_SEED_ENABLED))
-            {
-                SeedRogueRng(Rogue_GetSeed());
-            }
             
             // Update VARs
             VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
