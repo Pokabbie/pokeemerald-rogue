@@ -1,24 +1,28 @@
 gText_Birch_Welcome::
-	.string "Wah!\p"
+	.string "Hello!\p"
 	.string "$"
 
 gText_Birch_Pokemon::
-	.string "This is what we call a “POKéMON.”\p"
+	.string "Welcome to POKéMON EMERALD ROGUE!\p"
 	.string "$"
 
 gText_Birch_MainSpeech::
-	.string "TODO\n"
-	.string "o.\p"
+	.string "In this game, every time you embark \n"
+	.string "on an Adventure...\p"
+	.string "the world and the POKéMON you\n"
+	.string "encounter will be different!\p"
 	.string "$"
 
 gText_Birch_AndYouAre::
-	.string "How do you want to preset?$"
+	.string "Now...\n"
+	.string "Time to tell me about yourself$"
+	.string "$"
 
 gText_Birch_BoyOrGirl::
-	.string "Which do you prefer?$"
+	.string "Pick a style$"
 
 gText_Birch_WhatsYourName::
-	.string "What's your name?$"
+	.string "Now, what is your name?$"
 
 gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"
@@ -29,7 +33,6 @@ gText_Birch_YourePlayer::
 	.string "$"
 
 gText_Birch_AreYouReady::
-	.string "All right, are you ready?\p"
-	.string "Your very own adventure is about\n"
-	.string "to unfold.\p"
+	.string "I'll be waiting for you in my LAB!\p"
+	.string "Come and find me once you arrive.\p"
 	.string "$"

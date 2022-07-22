@@ -1,7 +1,66 @@
+// Stolen state control from this var entirely
+const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
+
+const NPC_INTRO_SCOTT = 2
 
 mapscripts Rogue_Hub_MapScripts
 {
-    MAP_SCRIPT_ON_LOAD: RogueHub_ResetRun
+    MAP_SCRIPT_ON_TRANSITION: RogueHub_OnTransition
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_LITTLEROOT_INTRO_STATE, 0: RogueHub_Intro0
+    ]
+}
+
+script RogueHub_OnTransition
+{
+    if(var(VAR_ROGUE_INTRO_STATE) <= 2)
+    {
+        setobjectxyperm(NPC_INTRO_SCOTT, 22, 6)
+    }
+}
+
+script RogueHub_Intro0
+{
+    lockall
+    //delay(15)
+    playse(SE_LEDGE)
+    applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_StepOffTruck)
+    waitmovement(0)
+
+    applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottGreetAtTruck)
+    waitmovement(0)
+
+    applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_PlayerGreetAtTruck)
+    waitmovement(0)
+
+    msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF. first\nI'll be here waiting when you're done."))
+
+    applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
+    waitmovement(0)
+
+    setvar(VAR_ROGUE_INTRO_STATE, 3)
+    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+    releaseall
+    end
+}
+
+script RogueHub_SpeakScott
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+    {
+        msgbox(format("SCOTT: You should go and speak to find the PROF. first"))
+    }
+    else
+    {
+
+    }
+
+    release
+    end
 }
 
 script RogueHub_EventScript_ExitSign
@@ -10,44 +69,41 @@ script RogueHub_EventScript_ExitSign
     msgbox(format("The journey begins beyond this point..\pFurthest Progress defeated {STR_VAR_1} bosses.."), MSGBOX_SIGN)
 }
 
-script RogueHub_ResetRun
-{
-    //removemoney(100000000000000)
-    //addmoney(1000)
-    //addmoney(10000000)
-    
-    //givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
-    //givemon(SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY)
-    //givemon(SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY)
-    //givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
+//script RogueHub_ResetRun
+//{
+//    //removemoney(100000000000000)
+//    //addmoney(1000)
+//    //addmoney(10000000)
+//    
+//    //givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
+//    //givemon(SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY)
+//    //givemon(SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY)
+//    //givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
+//
+//    //giveitem(ITEM_ULTRA_BALL, 20)
+//}
 
-    //giveitem(ITEM_ULTRA_BALL, 20)
+movement RogueHub_Intro_StepOffTruck 
+{
+    jump_right
+    delay_16 * 2
 }
 
-script RogueHub_Shop_Rare
+movement RogueHub_Intro_PlayerGreetAtTruck 
 {
-	lock
-	message("Welcome to the Rare Items Shop!")
-	waitmessage
-	pokemart(RareItemMart)
-	msgbox("Come again soon.")
-	release
+    face_up
 }
 
-mart RareItemMart {
-	ITEM_SUPER_ROD
-	ITEM_MACH_BIKE
-	ITEM_ACRO_BIKE
-	ITEM_RARE_CANDY
-	ITEM_LEAF_STONE
-	ITEM_WATER_STONE
-	ITEM_FIRE_STONE
-	ITEM_SOOTHE_BELL
-	ITEM_EXP_SHARE
-	ITEM_MOON_STONE
-	ITEM_SUN_STONE
-	ITEM_KINGS_ROCK
-	ITEM_METAL_COAT
-	ITEM_DEEP_SEA_SCALE
-	ITEM_DEEP_SEA_TOOTH
+movement RogueHub_Intro_ScottGreetAtTruck
+{
+    walk_left
+    walk_up
+    walk_right * 3
+    walk_down
+}
+
+movement RogueHub_Intro_ScottWalkToPost
+{
+    walk_right * 4
+    face_down
 }
