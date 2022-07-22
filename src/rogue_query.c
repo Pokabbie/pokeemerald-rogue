@@ -199,6 +199,22 @@ static bool8 IsSpeciesIsLegendary(u16 species)
     return FALSE;
 }
 
+static u8 GetEvolutionCount(u16 species)
+{
+    u16 s, e;
+
+    for (e = 0; e < EVOS_PER_MON; e++)
+    {
+        s = gEvolutionTable[species][e].targetSpecies;
+        if (s != SPECIES_NONE)
+        {
+            return 1 + GetEvolutionCount(s);
+        }
+    }
+
+    return 0;
+}
+
 void RogueQuery_SpeciesIsValid(void)
 {
     // Handle for ?? species mainly
@@ -290,6 +306,24 @@ void RogueQuery_TransformToEggSpecies(void)
             if(eggSpecies != species)
             {
                 SetQueryState(eggSpecies, TRUE);
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesWithEvolutionStages(u8 count)
+{
+    u8 evo;
+    u16 species;
+    bool8 removeChild = TRUE;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(GetEvolutionCount(species) != count)
+            {
                 SetQueryState(species, FALSE);
             }
         }

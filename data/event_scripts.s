@@ -1115,3 +1115,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_SouthernIsland_Latios/scripts.inc"
 
 	.include "data/maps/Rogue_SouthernIsland_Latias/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_ProfLab/scripts.inc"

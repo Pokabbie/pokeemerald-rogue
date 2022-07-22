@@ -248,9 +248,51 @@ u8* Rogue_GetMiniMenuContent(void)
 }
 #endif
 
+static void SelectStartMons(void)
+{
+    u8 i, j;
+    bool8 isValid;
+    u16 randIdx;
+    u16 queryCount;
+    u16 species;
+
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsNotLegendary();
+    RogueQuery_TransformToEggSpecies();
+    RogueQuery_SpeciesWithEvolutionStages(2);
+
+    RogueQuery_CollapseSpeciesBuffer();
+    queryCount = RogueQuery_BufferSize();
+
+    for(i = 0; i < 3;)
+    {
+        isValid = TRUE;
+        randIdx = Random() % queryCount;
+        species = RogueQuery_BufferPtr()[randIdx];
+
+        // Check other starter is not already this
+        for(j = 0; j < i; ++j)
+        {
+            if(VarGet(VAR_ROGUE_STARTER0 + j) == species)
+            {
+                isValid = FALSE;
+                break;
+            }
+        }
+
+        if(isValid)
+        {
+            VarSet(VAR_ROGUE_STARTER0 + i, species);
+            ++i;
+        }
+    }
+}
+
 void Rogue_OnNewGame(void)
 {
-    struct Pokemon starterMon;
+    SelectStartMons();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
@@ -272,8 +314,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
-    FlagSet(FLAG_SYS_POKEDEX_GET);
-    FlagSet(FLAG_SYS_POKEMON_GET);
     EnableNationalPokedex();
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
@@ -282,31 +322,26 @@ void Rogue_OnNewGame(void)
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
-    SetMoney(&gSaveBlock1Ptr->money, 60000);
-
-    CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
-    CreateMon(&starterMon, SPECIES_GROUDON, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
-    CreateMon(&starterMon, SPECIES_KYOGRE, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
-    CreateMon(&starterMon, SPECIES_DEOXYS, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
-    CreateMon(&starterMon, SPECIES_LUGIA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-
-    CreateMon(&starterMon, SPECIES_HO_OH, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
-#else
-    SetMoney(&gSaveBlock1Ptr->money, 100);
-
-    // TEMP - Should do this by script
-    CreateMon(&starterMon, SPECIES_RATTATA, 5, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-    GiveMonToPlayer(&starterMon);
+    //SetMoney(&gSaveBlock1Ptr->money, 60000);
+//
+    //struct Pokemon starterMon;
+    //CreateMon(&starterMon, SPECIES_RAYQUAZA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
+//
+    //CreateMon(&starterMon, SPECIES_GROUDON, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
+//
+    //CreateMon(&starterMon, SPECIES_KYOGRE, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
+//
+    //CreateMon(&starterMon, SPECIES_DEOXYS, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
+//
+    //CreateMon(&starterMon, SPECIES_LUGIA, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
+//
+    //CreateMon(&starterMon, SPECIES_HO_OH, 100, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    //GiveMonToPlayer(&starterMon);
 #endif
 }
 

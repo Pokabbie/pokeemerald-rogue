@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 5,
-      "y": 15,
+      "x": 1,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -63,10 +63,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 17,
-      "y": 3,
+      "x": 23,
+      "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_map": "MAP_ROGUE_HUB_PROF_LAB",
       "dest_warp_id": 0
     },
     {
@@ -77,15 +77,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 25,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB_POKEMON_CENTRE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 25,
-      "y": 20,
+      "x": 12,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "dest_warp_id": 0
@@ -97,11 +90,27 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 14,
-      "y": 7,
+      "x": 30,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "RogueHub_EventScript_ExitSign"
+      "script": "RogueHub_Sign_AdventureSign"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "RogueHub_Sign_ProfLab"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "RogueHub_Sign_ConfigLab"
     }
   ]
 }

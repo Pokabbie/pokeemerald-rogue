@@ -1,0 +1,309 @@
+const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
+const VAR_PICKING_STARTER = VAR_TEMP_F
+
+const NPC_BIRCH = 1
+
+mapscripts Rogue_Hub_ProfLab_MapScripts 
+{
+    MAP_SCRIPT_ON_TRANSITION: Rogue_Hub_ProfLab_OnTransition
+}
+
+script Rogue_Hub_ProfLab_OnTransition
+{
+    switch(var(VAR_STARTER_MON))
+    {
+        case 1:
+            setflag(FLAG_TEMP_1)
+        case 2:
+            setflag(FLAG_TEMP_2)
+        case 3:
+            setflag(FLAG_TEMP_3)
+    }
+}
+
+script Rogue_Hub_ProfLab_SpeakProf
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+    {
+        msgbox(format("BIRCH: Go ahead!\nPick a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        call(Rogue_Hub_ProfLab_ProfExplain)
+    }
+
+    release
+}
+
+script Rogue_Hub_ProfLab_ProfExplain
+{
+    msgbox(format("BIRCH: Would you like me to explain how adventures work?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("BIRCH: TODO"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("BIRCH: OK then!\nIf you ever need an explaination, you know where to find me."), MSGBOX_DEFAULT)
+    }
+
+    return
+}
+
+script Rogue_Hub_ProfLab_TriggerPC
+{
+    lockall
+    msgbox(format("(I shouldn't use this now)"), MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkBackwards)
+    waitmovement(0)
+    releaseall
+}
+
+movement Rogue_Hub_ProfLab_WalkBackwards 
+{
+    walk_down
+}
+
+script Rogue_Hub_ProfLab_IntroCommon
+{
+    msgbox(format("BIRCH: {PLAYER}!\nYou finally made it!\pI assume you're itching to go on adventures, but before you start you need a POKéMON of your own."), MSGBOX_DEFAULT)
+    turnobject(NPC_BIRCH, DIR_EAST)
+    msgbox(format("BIRCH: I went out and caught a few for you to pick from this morning.\pPick whichever you like!"), MSGBOX_DEFAULT)
+    return
+}
+
+script Rogue_Hub_ProfLab_IntroRunAwayCommon
+{
+    bufferspeciesname(STR_VAR_1, SPECIES_SUNKERN)
+    givemon(SPECIES_SUNKERN, 7, ITEM_ORAN_BERRY)
+
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(format("{PLAYER} obtained a {STR_VAR_1}."))
+    waitmessage
+    waitfanfare
+
+    msgbox(format("BIRCH: Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    
+    setvar(VAR_STARTER_MON, 4)
+
+    call(Rogue_Hub_ProfLab_PostStarterSelect)
+    return
+}
+
+script Rogue_Hub_ProfLab_IntroTriggerL
+{
+    lockall
+    if(var(VAR_PICKING_STARTER) != YES)
+    {
+        setvar(VAR_PICKING_STARTER, YES)
+
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkToProfL)
+        waitmovement(0)
+
+        call(Rogue_Hub_ProfLab_IntroCommon)
+    }
+    else
+    {
+        turnobject(NPC_BIRCH, DIR_SOUTH)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+        msgbox(format("BIRCH: Oh...\pWould you prefer a different POKéMON?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("BIRCH: OK, here you go!"), MSGBOX_DEFAULT)
+
+            applymovement(NPC_BIRCH, Rogue_Hub_ProfLab_WalkFromProfL)
+            waitmovement(0)
+
+            call(Rogue_Hub_ProfLab_IntroRunAwayCommon)
+        }
+        else
+        {
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkUpOne)
+            waitmovement(0)
+        }
+    }
+    releaseall
+}
+
+script Rogue_Hub_ProfLab_IntroTriggerR
+{
+    lockall
+    if(var(VAR_PICKING_STARTER) != YES)
+    {
+        setvar(VAR_PICKING_STARTER, YES)
+
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkToProfR)
+        waitmovement(0)
+
+        call(Rogue_Hub_ProfLab_IntroCommon)
+    }
+    else
+    {
+        turnobject(NPC_BIRCH, DIR_SOUTH)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+        msgbox(format("BIRCH: Oh...\pWould you prefer a different POKéMON?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("BIRCH: OK, here you go!"), MSGBOX_DEFAULT)
+
+            applymovement(NPC_BIRCH, Rogue_Hub_ProfLab_WalkFromProfR)
+            waitmovement(0)
+
+            call(Rogue_Hub_ProfLab_IntroRunAwayCommon)
+        }
+        else
+        {
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkUpOne)
+            waitmovement(0)
+        }
+    }
+    releaseall
+}
+
+movement Rogue_Hub_ProfLab_WalkUpOne
+{
+    walk_up
+}
+
+movement Rogue_Hub_ProfLab_WalkToProfL
+{
+    walk_up * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkToProfR
+{
+    walk_left
+    walk_up * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkFromProfL
+{
+    walk_down * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkFromProfR
+{
+    walk_right
+    walk_down * 3
+}
+
+script Rogue_Hub_ProfLab_PokeballCommon
+{
+    if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+    {
+        turnobject(NPC_BIRCH, DIR_EAST)
+
+        showmonpic(VAR_0x8001, 10, 3)
+        playmoncry(VAR_0x8001, CRY_MODE_NORMAL)
+        waitmoncry
+
+        bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        msgbox(format("BIRCH: You'd like to take {STR_VAR_1}?"), MSGBOX_YESNO)
+        hidemonpic
+
+        if(var(VAR_RESULT) == YES)
+        {
+            removeobject(VAR_LAST_TALKED)
+            givemon(VAR_0x8001, 7, ITEM_ORAN_BERRY)
+
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(format("{PLAYER} obtained a {STR_VAR_1}."))
+            waitmessage
+            waitfanfare
+
+            msgbox(format("BIRCH: Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                call(Common_EventScript_NameReceivedPartyMon)
+            }
+            
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            call(Rogue_Hub_ProfLab_PostStarterSelect)
+
+            setvar(VAR_RESULT, YES)
+            return
+        }
+    }
+    else
+    {
+        bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        msgbox(format("(Poor {STR_VAR_1}...)\p(Must be lonely...)"))
+    }
+
+    setvar(VAR_RESULT, NO)
+    return
+}
+
+script Rogue_Hub_ProfLab_PostStarterSelect
+{
+    msgbox(format("BIRCH: I also threw some items and a POKéDEX in there too!"), MSGBOX_DEFAULT)
+    
+    giveitem(ITEM_POKE_BALL, 5)
+    giveitem(ITEM_POTION, 1)
+    
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_SYS_POKEMON_GET)
+    setvar(VAR_ROGUE_INTRO_STATE, 4)
+
+    msgbox(format("You're now ready to go on adventures!"), MSGBOX_DEFAULT)
+
+    call(Rogue_Hub_ProfLab_ProfExplain)
+    return
+}
+
+script Rogue_Hub_ProfLab_Pokeball0
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER0)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 1)
+        setflag(FLAG_TEMP_1)
+    }
+
+    release
+}
+
+script Rogue_Hub_ProfLab_Pokeball1
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER1)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 2)
+        setflag(FLAG_TEMP_2)
+    }
+
+    release
+}
+
+script Rogue_Hub_ProfLab_Pokeball2
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER2)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 3)
+        setflag(FLAG_TEMP_3)
+    }
+
+    release
+}

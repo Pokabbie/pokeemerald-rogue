@@ -18,6 +18,12 @@ script RogueHub_OnTransition
     {
         setobjectxyperm(NPC_INTRO_SCOTT, 22, 6)
     }
+
+    // Have gone on first adventure
+    if(var(VAR_ROGUE_INTRO_STATE) >= 5)
+    {
+
+    }
 }
 
 script RogueHub_Intro0
@@ -52,21 +58,71 @@ script RogueHub_SpeakScott
 
     if(var(VAR_ROGUE_INTRO_STATE) <= 3)
     {
-        msgbox(format("SCOTT: You should go and speak to find the PROF. first"))
+        msgbox(format("SCOTT: You should go and speak to find the PROF. first"), MSGBOX_DEFAULT)
     }
     else
     {
+        if(var(VAR_ROGUE_INTRO_STATE) == 4)
+        {
+            msgbox(format("SCOTT: Great!\nYou got yourself a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+        }
 
+        msgbox(format("SCOTT: So what'd you say?\nReady to go on an adventure?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            getpartysize
+            if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+            {
+                if(var(VAR_RESULT) > 2)
+                {
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    setvar(VAR_RESULT, NO)
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
+            }
+            else
+            {
+                if(var(VAR_RESULT) > 1)
+                {
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    setvar(VAR_RESULT, NO)
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
+            }
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
+            setvar(VAR_ROGUE_INTRO_STATE, 5)
+            warp(MAP_ROGUE_HUB_TRANSITION, 0)
+        }
     }
 
     release
     end
 }
 
-script RogueHub_EventScript_ExitSign
+script RogueHub_Sign_AdventureSign
 {
     buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    msgbox(format("The journey begins beyond this point..\pFurthest Progress defeated {STR_VAR_1} bosses.."), MSGBOX_SIGN)
+    msgbox(format("Adventures await beyond this point...\pFurthest Progress:\nGained {STR_VAR_1} BADGES..."), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_ProfLab
+{
+    msgbox(format("PROF. BIRCH's LAB"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_ConfigLab
+{
+    msgbox(format("CONFIG LAB"), MSGBOX_SIGN)
 }
 
 //script RogueHub_ResetRun

@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
   "name": "Rogue_Hub_Interior_ConfigRoom",
   "layout": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
-  "music": "MUS_LITTLEROOT",
+  "music": "MUS_BIRCH_LAB",
   "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -47,14 +47,14 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 4
+      "dest_warp_id": 3
     },
     {
       "x": 1,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 4
+      "dest_warp_id": 3
     }
   ],
   "coord_events": [

@@ -4710,6 +4710,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_SouthernIsland_Latias/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_SouthernIsland_Latias/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_PROF_LAB",
+      "name": "Rogue_Hub_ProfLab_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Hub_ProfLab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub_ProfLab/map.bin"
     }
   ]
 }
