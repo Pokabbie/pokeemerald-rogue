@@ -159,10 +159,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 29,
-      "y": 25,
+      "x": 25,
+      "y": 93,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -354,8 +354,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 7,
-      "y": 6,
+      "x": 13,
+      "y": 82,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -419,8 +419,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 36,
-      "y": 93,
+      "x": 28,
+      "y": 87,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -432,8 +432,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 33,
-      "y": 110,
+      "x": 28,
+      "y": 88,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -445,7 +445,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 34,
+      "x": 35,
       "y": 110,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -458,8 +458,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 37,
-      "y": 83,
+      "x": 29,
+      "y": 88,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -511,7 +511,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 6,
-      "y": 6,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -575,6 +575,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
       "dest_warp_id": 0
+    },
+    {
+      "x": 17,
+      "y": 81,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
+      "dest_warp_id": 55
+    },
+    {
+      "x": 6,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
+      "dest_warp_id": 55
     }
   ],
   "coord_events": [

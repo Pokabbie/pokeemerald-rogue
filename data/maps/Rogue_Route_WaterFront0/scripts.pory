@@ -1,1 +1,38 @@
-mapscripts Rogue_Route_WaterFront0_MapScripts {}
+mapscripts Rogue_Route_WaterFront0_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_TEMP_1, 0: Rogue_Route_WaterFront0_OnFrame0
+        //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
+    ]
+}
+
+script Rogue_Route_WaterFront0_OnFrame0
+{
+    call(Rogue_ShouldShowSpecialWarp)
+    if(var(VAR_RESULT) == YES)
+    {
+        lockall
+        special(DoSealedChamberShakingEffect_Short)
+        waitstate
+        playse(SE_DOOR)
+        delay(10)
+        random(2)
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                setmetatile(6,32, 0x2CA, FALSE)
+            case 1:
+                setmetatile(17,80, METATILE_General_CaveEntrance_Top, FALSE)
+                setmetatile(17,81, METATILE_General_CaveEntrance_Bottom, FALSE)
+        }
+        releaseall
+    }
+
+    setvar(VAR_TEMP_1, 1)
+    end
+}
