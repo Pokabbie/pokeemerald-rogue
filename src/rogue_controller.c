@@ -95,6 +95,16 @@ static u16 RogueRandomRange(u16 range, u8 flag)
         return Random() % range;
 }
 
+static bool8 RandomChance(u8 chance, u16 seedFlag)
+{
+    if(chance == 0)
+        return FALSE;
+    else if(chance >= 100)
+        return TRUE;
+
+    return (RogueRandomRange(100, seedFlag) + 1) <= chance;
+}
+
 static u16 Rogue_GetSeed(void)
 {
     u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
@@ -298,6 +308,7 @@ void Rogue_OnNewGame(void)
     SelectStartMons();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
 
     // Seed settings
     FlagClear(FLAG_SET_SEED_ENABLED);
@@ -409,6 +420,7 @@ static void BeginRogueRun(void)
     ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = 0;
+    gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS0;
     gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
     
@@ -763,6 +775,34 @@ static bool8 IsSpecialEncounterRoom(void)
     return FALSE;
 }
 
+static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
+{
+    if(difficultyLevel == 0)
+    {
+        return 0;
+    }
+    else if(difficultyLevel < 3)
+    {
+        // Once we have a badge there is small chance
+        return 2;
+    }
+    else
+    {
+        if(gRogueRun.specialEncounterCounter <= 1)
+        {
+            return 0;
+        }
+        else if(gRogueRun.specialEncounterCounter >= 5)
+        {
+            return 33;
+        }
+        else
+        {
+            return 5;
+        }
+    }
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
@@ -786,11 +826,18 @@ void Rogue_OnWarpIntoMap(void)
         }
         else if(IsSpecialEncounterRoom())
         {
+            gRogueRun.specialEncounterCounter = 0;
         }
         else
         {
             ++gRogueRun.currentRoomIdx;
+            ++gRogueRun.specialEncounterCounter;
             difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+            if(RandomChance(CalcSpecialEncounterChance(difficultyLevel), OVERWORLD_FLAG))
+                FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+            else
+                FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
             
             // Update VARs
             VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
@@ -1415,16 +1462,6 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
             return CalculateBossLevel(difficultyLevel - 1);
         }
     }
-}
-
-static bool8 RandomChance(u8 chance, u16 seedFlag)
-{
-    if(chance == 0)
-        return FALSE;
-    else if(chance >= 100)
-        return TRUE;
-
-    return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
 static bool8 RandomChanceTrainer()

@@ -13,8 +13,7 @@ mapscripts Rogue_Route_Forest0_MapScripts
 
 script Rogue_Route_Forest0_OnFrame0
 {
-    call(Rogue_ShouldShowSpecialWarp)
-    if(var(VAR_RESULT) == YES)
+    if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     {
         lockall
         special(DoSealedChamberShakingEffect_Short)

@@ -12,11 +12,6 @@ Rogue_GiveItem_Internal::
 	return
 
 
-Rogue_ShouldShowSpecialWarp::
-	setvar VAR_RESULT, YES
-	return
-
-
 Rogue_Common_TurnPlayerNorth::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end

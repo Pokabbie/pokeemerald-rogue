@@ -13,9 +13,7 @@ Rogue_Route_Cave0_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 Rogue_Route_Cave0_OnFrame0::
-	call Rogue_ShouldShowSpecialWarp
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Route_Cave0_OnFrame0_2
+	goto_if_set FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE, Rogue_Route_Cave0_OnFrame0_2
 Rogue_Route_Cave0_OnFrame0_1:
 	setvar VAR_TEMP_1, 1
 	end
