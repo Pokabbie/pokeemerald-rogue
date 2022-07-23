@@ -3149,13 +3149,19 @@ BattleScript_Pausex20::
 	pause B_WAIT_TIME_SHORT
 	return
 
-BattleScript_LevelUp::
+
+
+BattleScript_LevelUp_Minimal::
+	printstring STRINGID_PKMNGREWTOLV
+	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
+	goto BattleScript_AskToLearnMove
+
+BattleScript_LevelUp_Full::
 	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNGREWTOLV
 	setbyte sLVLBOX_STATE, 0
 	drawlvlupbox
-	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
-	goto BattleScript_AskToLearnMove
+
 BattleScript_TryLearnMoveLoop::
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, FALSE
 BattleScript_AskToLearnMove::

@@ -131,7 +131,9 @@ bool8 Rogue_ForceExpAll(void)
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
-    if(Rogue_IsRunActive())
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    
+    if(Rogue_IsRunActive() && species != SPECIES_NONE)
     {
         u8 targetLevel = CalculatePlayerLevel();
         u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
@@ -149,14 +151,14 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 s32 desiredExpGain = 0;
                 if(delta <= 3)
                 {
-                    // Give 25% of level always
-                    desiredExpGain = (nextLvlExp * 25) / 100;
+                    // Give 50% of level always
+                    desiredExpGain = (lvlExp * 50) / 100;
                 }
                 else
                 {
                     // Give faster levels to catch up
                     delta = (delta - 3);
-                    desiredExpGain = (nextLvlExp * 75 * delta) / 100;
+                    desiredExpGain = (lvlExp * 75 * delta) / 100;
                 }
 
                 *expGain = max(*expGain, desiredExpGain);

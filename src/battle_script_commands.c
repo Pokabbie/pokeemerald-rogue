@@ -3420,26 +3420,19 @@ static void Cmd_getexp(void)
     case 3: // Set stats and give exp
         if (gBattleControllerExecFlags == 0)
         {
-            if(gBattleMoveDamage != 0) // If we have any exp
+            gBattleBufferB[gBattleStruct->expGetterBattlerId][0] = 0;
+            if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP) && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) != MAX_LEVEL)
             {
-                gBattleBufferB[gBattleStruct->expGetterBattlerId][0] = 0;
-                if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP) && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) != MAX_LEVEL)
-                {
-                    if(!hasLockedInBeforeStats)
-                    {
-                        hasLockedInBeforeStats = TRUE;
-                        gBattleResources->beforeLvlUp->stats[STAT_HP]    = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MAX_HP);
-                        gBattleResources->beforeLvlUp->stats[STAT_ATK]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_ATK);
-                        gBattleResources->beforeLvlUp->stats[STAT_DEF]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_DEF);
-                        gBattleResources->beforeLvlUp->stats[STAT_SPEED] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPEED);
-                        gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPATK);
-                        gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPDEF);
-                    }
+                gBattleResources->beforeLvlUp->stats[STAT_HP]    = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MAX_HP);
+                gBattleResources->beforeLvlUp->stats[STAT_ATK]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_ATK);
+                gBattleResources->beforeLvlUp->stats[STAT_DEF]   = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_DEF);
+                gBattleResources->beforeLvlUp->stats[STAT_SPEED] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPEED);
+                gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPATK);
+                gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPDEF);
 
-                    gActiveBattler = gBattleStruct->expGetterBattlerId;
-                    BtlController_EmitExpUpdate(BUFFER_A, gBattleStruct->expGetterMonId, gBattleMoveDamage);
-                    MarkBattlerForControllerExec(gActiveBattler);
-                }
+                gActiveBattler = gBattleStruct->expGetterBattlerId;
+                BtlController_EmitExpUpdate(BUFFER_A, gBattleStruct->expGetterMonId, gBattleMoveDamage);
+                MarkBattlerForControllerExec(gActiveBattler);
             }
             gBattleScripting.getexpState++;
         }
@@ -3447,9 +3440,6 @@ static void Cmd_getexp(void)
     case 4: // lvl up if necessary
         if (gBattleControllerExecFlags == 0)
         {
-            u16 learnMove;
-            bool8 shouldDisplay = FALSE;
-
             gActiveBattler = gBattleStruct->expGetterBattlerId;
             if (gBattleBufferB[gActiveBattler][0] == CONTROLLER_TWORETURNVALUES && gBattleBufferB[gActiveBattler][1] == RET_VALUE_LEVELED_UP)
             {
@@ -3459,12 +3449,13 @@ static void Cmd_getexp(void)
                 PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gActiveBattler, gBattleStruct->expGetterMonId);
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff2, 3, GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL));
 
+                BattleScriptPushCursor();
                 gLeveledUpInBattle |= gBitTable[gBattleStruct->expGetterMonId];
+                gBattlescriptCurrInstr = BattleScript_LevelUp_Minimal;
                 gBattleMoveDamage = (gBattleBufferB[gActiveBattler][2] | (gBattleBufferB[gActiveBattler][3] << 8));
                 AdjustFriendship(&gPlayerParty[gBattleStruct->expGetterMonId], FRIENDSHIP_EVENT_GROW_LEVEL);
 
                 // Check to see if this is the last level up
-                if(!shouldDisplay)
                 {
                     struct Pokemon *mon = &gPlayerParty[gBattleStruct->expGetterMonId];
                     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -3473,25 +3464,7 @@ static void Cmd_getexp(void)
                     u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
 
                     if (currExp + gBattleMoveDamage < nextLvlExp)
-                        shouldDisplay = TRUE;
-                }
-
-                // Check for lvl up moves
-                if(!shouldDisplay)
-                {
-                    learnMove = CheckMonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], TRUE);
-                    while (learnMove == MON_ALREADY_KNOWS_MOVE)
-                        learnMove = CheckMonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], FALSE);
-
-                    if(learnMove != MOVE_NONE)
-                        shouldDisplay = TRUE;
-                }
-
-                if(shouldDisplay)
-                {
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_LevelUp;
-                    hasLockedInBeforeStats = FALSE;
+                        gBattlescriptCurrInstr = BattleScript_LevelUp_Full;
                 }
 
                 // update battle mon structure after level up
