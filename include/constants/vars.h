@@ -155,13 +155,13 @@
 #define VAR_CONTEST_TYPE                     0x4088
 #define VAR_SECRET_BASE_INITIALIZED          0x4089
 #define VAR_CONTEST_PRIZE_PICKUP             0x408A
-#define VAR_UNUSED_0x408B                    0x408B // Unused Var
+#define VAR_ROGUE_CURRENT_ROOM_IDX           0x408B
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN  0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE           0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE          0x408E
 #define VAR_DEVON_CORP_3F_STATE              0x408F
 #define VAR_BRINEY_HOUSE_STATE               0x4090
-#define VAR_UNUSED_0x4091                    0x4091 // Unused Var
+#define VAR_ROGUE_REWARD_MONEY               0x4091
 #define VAR_LITTLEROOT_INTRO_STATE           0x4092
 #define VAR_MAUVILLE_GYM_STATE               0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE         0x4094
@@ -171,7 +171,7 @@
 #define VAR_PETALBURG_WOODS_STATE            0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE     0x4099
 #define VAR_RUSTURF_TUNNEL_STATE             0x409A
-#define VAR_UNUSED_0x409B                    0x409B // Unused Var
+#define VAR_ROGUE_REWARD_CANDY               0x409B
 #define VAR_ELITE_4_STATE                    0x409C
 #define VAR_UNUSED_0x409D                    0x409D // Unused Var
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE    0x409E

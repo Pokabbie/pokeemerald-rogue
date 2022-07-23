@@ -6,22 +6,18 @@ Rogue_Hub_MapScripts::
 
 Rogue_Hub_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 0, RogueHub_Intro0
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, RogueHub_ReturnAdventure
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, RogueHub_ReturnAdventure
 	.2byte 0
 
 
 RogueHub_OnTransition::
 	compare VAR_LITTLEROOT_INTRO_STATE, 2
-	goto_if_le RogueHub_OnTransition_2
-RogueHub_OnTransition_1:
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_ge RogueHub_OnTransition_4
+	goto_if_le RogueHub_OnTransition_1
 	return
 
-RogueHub_OnTransition_2:
+RogueHub_OnTransition_1:
 	setobjectxyperm 2, 22, 6
-	goto RogueHub_OnTransition_1
-
-RogueHub_OnTransition_4:
 	return
 
 
@@ -46,6 +42,90 @@ RogueHub_Intro0::
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
 	releaseall
 	end
+
+
+RogueHub_Intro_StepOffTruck:
+	jump_right
+	delay_16
+	delay_16
+	step_end
+
+RogueHub_Intro_PlayerGreetAtTruck:
+	face_up
+	step_end
+
+RogueHub_Intro_ScottGreetAtTruck:
+	walk_left
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+RogueHub_Intro_ScottWalkToPost:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	face_down
+	step_end
+
+RogueHub_ReturnAdventure::
+	compare VAR_TEMP_0, 1
+	goto_if_ne RogueHub_ReturnAdventure_1
+	return
+
+RogueHub_ReturnAdventure_1:
+	lockall
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	compare VAR_LITTLEROOT_INTRO_STATE, 5
+	goto_if_eq RogueHub_ReturnAdventure_4
+RogueHub_ReturnAdventure_3:
+	buffernumberstring STR_VAR_1, VAR_ROGUE_REWARD_MONEY
+	buffernumberstring STR_VAR_2, VAR_ROGUE_REWARD_CANDY
+	message RogueHub_ReturnAdventure_Text_3
+	playfanfare MUS_OBTAIN_ITEM
+	waitmessage
+	waitfanfare
+	compare VAR_ROGUE_REWARD_CANDY, 0
+	goto_if_ne RogueHub_ReturnAdventure_7
+RogueHub_ReturnAdventure_6:
+	compare VAR_LITTLEROOT_INTRO_STATE, 5
+	goto_if_eq RogueHub_ReturnAdventure_10
+RogueHub_ReturnAdventure_9:
+	clearflag FLAG_ROGUE_LEFT_ON_RUN
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	msgbox RogueHub_ReturnAdventure_Text_6, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_ReturnAdventure_13
+RogueHub_ReturnAdventure_12:
+	msgbox RogueHub_ReturnAdventure_Text_7, MSGBOX_DEFAULT
+	releaseall
+	return
+
+RogueHub_ReturnAdventure_4:
+	msgbox RogueHub_ReturnAdventure_Text_0, MSGBOX_DEFAULT
+	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX
+	buffernumberstring STR_VAR_2, VAR_ROGUE_DIFFICULTY
+	msgbox RogueHub_ReturnAdventure_Text_1, MSGBOX_DEFAULT
+	turnobject 2, DIR_EAST
+	msgbox RogueHub_ReturnAdventure_Text_2, MSGBOX_DEFAULT
+	turnobject 2, DIR_SOUTH
+	goto RogueHub_ReturnAdventure_3
+
+RogueHub_ReturnAdventure_7:
+	msgbox RogueHub_ReturnAdventure_Text_4, MSGBOX_DEFAULT
+	giveitem ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY
+	goto RogueHub_ReturnAdventure_6
+
+RogueHub_ReturnAdventure_10:
+	msgbox RogueHub_ReturnAdventure_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_ReturnAdventure_9
+
+RogueHub_ReturnAdventure_13:
+	call Common_EventScript_SaveGame
+	goto RogueHub_ReturnAdventure_12
 
 
 RogueHub_SpeakScott::
@@ -78,28 +158,37 @@ RogueHub_SpeakScott_9:
 	getpartysize
 	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, RogueHub_SpeakScott_13
 	compare VAR_RESULT, 1
-	goto_if_gt RogueHub_SpeakScott_19
+	goto_if_gt RogueHub_SpeakScott_23
 	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_11:
 	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	setvar VAR_TEMP_0, 1
+	compare VAR_LITTLEROOT_INTRO_STATE, 4
+	goto_if_eq RogueHub_SpeakScott_17
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+RogueHub_SpeakScott_16:
+	setflag FLAG_ROGUE_LEFT_ON_RUN
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	goto RogueHub_SpeakScott_1
 
 RogueHub_SpeakScott_13:
 	compare VAR_RESULT, 2
-	goto_if_gt RogueHub_SpeakScott_16
+	goto_if_gt RogueHub_SpeakScott_20
 	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakScott_8
 
-RogueHub_SpeakScott_16:
+RogueHub_SpeakScott_17:
+	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	goto RogueHub_SpeakScott_16
+
+RogueHub_SpeakScott_20:
 	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_YESNO
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
 
-RogueHub_SpeakScott_19:
+RogueHub_SpeakScott_23:
 	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_YESNO
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
@@ -120,33 +209,6 @@ RogueHub_Sign_ConfigLab::
 	msgbox RogueHub_Sign_ConfigLab_Text_0, MSGBOX_SIGN
 	return
 
-
-RogueHub_Intro_StepOffTruck:
-	jump_right
-	delay_16
-	delay_16
-	step_end
-
-RogueHub_Intro_PlayerGreetAtTruck:
-	face_up
-	step_end
-
-RogueHub_Intro_ScottGreetAtTruck:
-	walk_left
-	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	step_end
-
-RogueHub_Intro_ScottWalkToPost:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	face_down
-	step_end
 
 RogueHub_HideSafari::
 	setmetatile 9, 3, 0x10C, TRUE
@@ -232,6 +294,48 @@ RogueHub_Intro0_Text_0:
 	.string "I'm sure you're raring to go, but first\n"
 	.string "you should go speak the PROF. first\n"
 	.string "I'll be here waiting when you're done.$"
+
+RogueHub_ReturnAdventure_Text_0:
+	.string "SCOTT: {PLAYER}!\p"
+	.string "Welcome back!\p"
+	.string "Whenever you return from an adventure\n"
+	.string "you earn rewards based on how well you\l"
+	.string "did.$"
+
+RogueHub_ReturnAdventure_Text_1:
+	.string "Lets have a look now...\p"
+	.string "You managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n"
+	.string "{STR_VAR_1} routes...{PAUSE 15}\p"
+	.string "and you recieved {STR_VAR_2}\n"
+	.string "BADGES...{PAUSE 15}$"
+
+RogueHub_ReturnAdventure_Text_2:
+	.string "So erm.\n"
+	.string "Your rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.$"
+
+RogueHub_ReturnAdventure_Text_3:
+	.string "SCOTT: You recieve ¥{STR_VAR_1}$"
+
+RogueHub_ReturnAdventure_Text_4:
+	.string "and for the BADGE's...$"
+
+RogueHub_ReturnAdventure_Text_5:
+	.string "SCOTT: Good job champ!\p"
+	.string "You should have a look round the HUB\n"
+	.string "too!\p"
+	.string "As you adventure more, people may be\n"
+	.string "attracted to the HUB and want to move\l"
+	.string "in.\p"
+	.string "Some useful buildings might have been\n"
+	.string "setup when you return back here.$"
+
+RogueHub_ReturnAdventure_Text_6:
+	.string "SCOTT: Would you like to SAVE your\n"
+	.string "progress?$"
+
+RogueHub_ReturnAdventure_Text_7:
+	.string "SCOTT: Come chat to me once you're\n"
+	.string "ready for your next adventure.$"
 
 RogueHub_SpeakScott_Text_0:
 	.string "SCOTT: You should go and speak to find\n"

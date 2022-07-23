@@ -331,6 +331,7 @@ static void SelectStartMons(void)
 void Rogue_OnNewGame(void)
 {
     SelectStartMons();
+    SetMoney(&gSaveBlock1Ptr->money, 0);
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
@@ -351,6 +352,9 @@ void Rogue_OnNewGame(void)
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
+    VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
+    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
+    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
@@ -450,6 +454,9 @@ static void BeginRogueRun(void)
     gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
+    VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
+    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
+    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     
     // Store current states
     SavePlayerParty();
@@ -492,12 +499,15 @@ static void EndRogueRun(void)
     FlagClear(FLAG_SET_SEED_ENABLED);
     //gRogueRun.currentRoomIdx = 0;
 
+    // Restore money and give reward here too, as it's a bit easier
+    SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
+    AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
+
+    gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
+
     // Restore current states
     LoadPlayerParty();
     SavePlayerBag(); // Bag funcs named in opposite
-
-    SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
-    gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
 }
 
 static bool8 IsBossRoom(u16 roomIdx)
@@ -874,6 +884,18 @@ void Rogue_OnWarpIntoMap(void)
             // Update VARs
             VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(difficultyLevel, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+            VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
+
+            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 150);
+                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel);
+            }
+            else
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 100);
+                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel);
+            }
         
             if(IsBossRoom(gRogueRun.currentRoomIdx))
             {
