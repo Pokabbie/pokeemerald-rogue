@@ -145,32 +145,45 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
             u32 lvlExp = (nextLvlExp - currLvlExp);
 
+            s32 desiredExpPerc = 0;
+
             if(currentLevel < targetLevel)
             {
                 u8 delta = targetLevel - currentLevel;
                 s32 desiredExpGain = 0;
                 if(delta <= 3)
                 {
-                    // Give 50% of level always
-                    desiredExpGain = (lvlExp * 50) / 100;
+                    desiredExpPerc = 50;
                 }
                 else
                 {
                     // Give faster levels to catch up
                     delta = (delta - 3);
-                    desiredExpGain = (lvlExp * 75 * delta) / 100;
+                    desiredExpPerc = 75 * delta;
                 }
-
-                *expGain = max(*expGain, desiredExpGain);
             }
             else
             {
                 // If flag not set, just use normal EXP calculations (For now)
-                if(!FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+                if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+                {
+                    desiredExpPerc = 20;
+                }
+                else
                 {
                     // No EXP once at target level
-                    *expGain = 0;
+                    desiredExpPerc = 0;
                 }
+            }
+
+            if(desiredExpPerc != 0)
+            {
+                // If default calc would give us more exp, use that instead
+                *expGain = max(*expGain, (lvlExp * desiredExpPerc) / 100);
+            }
+            else
+            {
+                *expGain = 0;
             }
         }
     }
@@ -182,16 +195,26 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 }
 
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
-{
+{ 
+    if(Rogue_IsRunActive())
+    {
 #ifdef ROGUE_DEBUG
-    *ballMultiplier = 255; // Masterball equiv
+        *ballMultiplier = 255; // Masterball equiv
 #else
-    *ballMultiplier = *ballMultiplier * 2;
+        // Ball multiplyer will be 8x to 3x and will reduce based on room
+        if(gRogueRun.currentRoomIdx <= 6)
+        {
+            *ballMultiplier = *ballMultiplier * (9 - gRogueRun.currentRoomIdx);
+        }
+        else
+        {
+            *ballMultiplier = *ballMultiplier * 3;
+        }
 #endif
-
-    // Equiv to chansey
-    if(*catchRate < 30)
-        *catchRate = 30;
+        // Equiv to Onix
+        if(*catchRate < 45)
+            *catchRate = 45;
+    }
 }
 
 #ifdef ROGUE_DEBUG
