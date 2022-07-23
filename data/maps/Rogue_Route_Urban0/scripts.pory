@@ -24,8 +24,8 @@ script Rogue_Route_Urban0_OnFrame0
         switch(var(VAR_RESULT))
         {
             case 0:
-                setmetatile(26,87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE)
-                setmetatile(26,88, METATILE_Mauville_Door_CyclingRoad, TRUE)
+                setmetatile(18,65, 0x2A4, TRUE)
+                setmetatile(18,66, 0x2AC, TRUE)
             case 1:
                 setmetatile(22,15, METATILE_Mauville_DoorTop_CyclingRoad, TRUE)
                 setmetatile(22,16, METATILE_Mauville_Door_CyclingRoad, TRUE)

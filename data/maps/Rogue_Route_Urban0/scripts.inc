@@ -33,8 +33,8 @@ Rogue_Route_Urban0_OnFrame0_4:
 	goto Rogue_Route_Urban0_OnFrame0_1
 
 Rogue_Route_Urban0_OnFrame0_6:
-	setmetatile 26, 87, METATILE_Mauville_DoorTop_CyclingRoad, TRUE
-	setmetatile 26, 88, METATILE_Mauville_Door_CyclingRoad, TRUE
+	setmetatile 18, 65, 0x2A4, TRUE
+	setmetatile 18, 66, 0x2AC, TRUE
 	goto Rogue_Route_Urban0_OnFrame0_4
 
 Rogue_Route_Urban0_OnFrame0_7:

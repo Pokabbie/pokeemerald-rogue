@@ -558,15 +558,8 @@
       "dest_warp_id": 55
     },
     {
-      "x": 42,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
-      "dest_warp_id": 55
-    },
-    {
-      "x": 26,
-      "y": 88,
+      "x": 18,
+      "y": 66,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
       "dest_warp_id": 55

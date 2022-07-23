@@ -1,11 +1,38 @@
 // Stolen state control from this var entirely
 const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
 
+const METATILE_Grass = 0x001
+
+// Mountain/Hole
+const METATILE_DirtCentre = 0x10C
+
+const METATILE_DirtLeft = 0x075
+const METATILE_DirtRight = 0x073
+const METATILE_DirtBottom = 0x002
+const METATILE_DirtTop = 0x07C
+
+const METATILE_DirtTopLeft = 0x074
+const METATILE_DirtTopRight = 0x089
+
+// Normal Dirt
+//const METATILE_DirtCentre = 0x121
+
+//const METATILE_DirtLeft = 0x120
+//const METATILE_DirtRight = 0x122
+//const METATILE_DirtBottom = 0x129
+//const METATILE_DirtTop = 0x119
+//
+//const METATILE_DirtBottomLeft = 0x128
+//const METATILE_DirtBottomRight = 0x12A
+//const METATILE_DirtTopLeft = 0x118
+//const METATILE_DirtTopRight = 0x11A
+
 const NPC_INTRO_SCOTT = 2
 
 mapscripts Rogue_Hub_MapScripts
 {
     MAP_SCRIPT_ON_TRANSITION: RogueHub_OnTransition
+    MAP_SCRIPT_ON_LOAD: RogueHub_OnMapLoad
     MAP_SCRIPT_ON_FRAME_TABLE 
     [
         VAR_LITTLEROOT_INTRO_STATE, 0: RogueHub_Intro0
@@ -24,6 +51,11 @@ script RogueHub_OnTransition
     {
 
     }
+}
+
+script RogueHub_OnMapLoad
+{
+    call(RogueHub_HideSafari)
 }
 
 script RogueHub_Intro0
@@ -162,4 +194,93 @@ movement RogueHub_Intro_ScottWalkToPost
 {
     walk_right * 4
     face_down
+}
+
+script RogueHub_HideSafari
+{
+    // Main Shape
+    // Centre
+    setmetatile(9,3, METATILE_DirtCentre, TRUE)
+    setmetatile(10,3, METATILE_DirtCentre, TRUE)
+    setmetatile(11,3, METATILE_DirtCentre, TRUE)
+    setmetatile(9,4, METATILE_DirtCentre, TRUE)
+    setmetatile(10,4, METATILE_DirtCentre, TRUE)
+    setmetatile(11,4, METATILE_DirtCentre, TRUE)
+    setmetatile(9,5, METATILE_DirtCentre, TRUE)
+    setmetatile(10,5, METATILE_DirtCentre, TRUE)
+    setmetatile(11,5, METATILE_DirtCentre, TRUE)
+    setmetatile(9,6, METATILE_DirtCentre, TRUE)
+    setmetatile(10,6, METATILE_DirtCentre, TRUE)
+    setmetatile(11,6, METATILE_DirtCentre, TRUE)
+    setmetatile(9,7, METATILE_DirtCentre, TRUE)
+    setmetatile(10,7, METATILE_DirtCentre, TRUE)
+    setmetatile(11,7, METATILE_DirtCentre, TRUE)
+
+    // Left edge
+    setmetatile(8,2, METATILE_DirtLeft, TRUE)
+    setmetatile(8,3, METATILE_DirtLeft, TRUE)
+    setmetatile(8,4, METATILE_DirtLeft, TRUE)
+    setmetatile(8,5, METATILE_DirtLeft, TRUE)
+    setmetatile(8,6, METATILE_DirtLeft, TRUE)
+    setmetatile(8,7, METATILE_DirtLeft, TRUE)
+
+    // Right edge
+    setmetatile(12,2, METATILE_DirtRight, TRUE)
+    setmetatile(12,3, METATILE_DirtRight, TRUE)
+    setmetatile(12,4, METATILE_DirtRight, TRUE)
+    setmetatile(12,5, METATILE_DirtRight, TRUE)
+    setmetatile(12,6, METATILE_DirtRight, TRUE)
+    setmetatile(12,7, METATILE_DirtRight, TRUE)
+
+    // Bottom edge
+    setmetatile(8,8, METATILE_DirtBottom, FALSE)
+    setmetatile(9,8, METATILE_DirtBottom, FALSE)
+    setmetatile(10,8, METATILE_DirtBottom, FALSE)
+    setmetatile(11,8, METATILE_DirtBottom, FALSE)
+    setmetatile(12,8, METATILE_DirtBottom, FALSE)
+
+    // Off shoot building
+    // Centre
+    setmetatile(0,2, METATILE_Grass, TRUE)
+    setmetatile(1,2, METATILE_Grass, TRUE)
+    setmetatile(2,2, METATILE_Grass, TRUE)
+    setmetatile(3,2, METATILE_Grass, TRUE)
+    setmetatile(4,2, METATILE_Grass, TRUE)
+    setmetatile(5,2, METATILE_Grass, TRUE)
+    setmetatile(6,2, METATILE_Grass, TRUE)
+    setmetatile(7,2, METATILE_Grass, TRUE)
+    setmetatile(0,3, METATILE_Grass, TRUE)
+    setmetatile(1,3, METATILE_Grass, TRUE)
+    setmetatile(2,3, METATILE_Grass, TRUE)
+    setmetatile(3,3, METATILE_Grass, TRUE)
+    setmetatile(4,3, METATILE_Grass, TRUE)
+    setmetatile(5,3, METATILE_Grass, TRUE)
+    setmetatile(6,3, METATILE_Grass, TRUE)
+    setmetatile(7,3, METATILE_Grass, TRUE)
+    setmetatile(0,4, METATILE_Grass, TRUE)
+    setmetatile(1,4, METATILE_Grass, TRUE)
+    setmetatile(2,4, METATILE_Grass, TRUE)
+    setmetatile(3,4, METATILE_Grass, TRUE)
+    setmetatile(4,4, METATILE_Grass, TRUE)
+    setmetatile(5,4, METATILE_Grass, TRUE)
+    setmetatile(6,4, METATILE_Grass, TRUE)
+    setmetatile(7,4, METATILE_Grass, TRUE)
+    setmetatile(0,5, METATILE_Grass, TRUE)
+    setmetatile(1,5, METATILE_Grass, TRUE)
+    setmetatile(2,5, METATILE_Grass, TRUE)
+    setmetatile(3,5, METATILE_Grass, TRUE)
+    setmetatile(4,5, METATILE_Grass, TRUE)
+    setmetatile(5,5, METATILE_Grass, TRUE)
+    setmetatile(6,5, METATILE_Grass, TRUE)
+    setmetatile(7,5, METATILE_Grass, TRUE)
+    setmetatile(0,6, METATILE_Grass, TRUE)
+    setmetatile(1,6, METATILE_Grass, TRUE)
+    setmetatile(2,6, METATILE_Grass, TRUE)
+    setmetatile(3,6, METATILE_Grass, TRUE)
+    setmetatile(4,6, METATILE_Grass, TRUE)
+    setmetatile(5,6, METATILE_Grass, TRUE)
+    setmetatile(6,6, METATILE_Grass, TRUE)
+    setmetatile(7,6, METATILE_Grass, TRUE)
+
+    return
 }

@@ -671,6 +671,7 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     u8 mapCount;
     u8 mapIdx;
     u8 swapRouteChance = 60;
+    u16 startRouteType = gRogueRun.currentRouteType;
     const struct RogueRouteMap* selectedMap = NULL;
 
 #ifdef ROGUE_DEBUG
@@ -681,16 +682,22 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     }
     else 
 #endif
-    if(nextRoomIdx < ROOM_IDX_BOSS0)
+    //if(nextRoomIdx < ROOM_IDX_BOSS0)
     {
+        // For now always swap route
         swapRouteChance = 100;
     }
+    
 
     if(swapRouteChance != 0)
     {
         if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
         {
-            gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+            do
+            {
+                gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+            }
+            while(startRouteType == gRogueRun.currentRouteType);
         }
     }
 

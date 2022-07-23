@@ -1,5 +1,6 @@
 Rogue_Hub_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RogueHub_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, RogueHub_OnMapLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rogue_Hub_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
@@ -21,6 +22,11 @@ RogueHub_OnTransition_2:
 	goto RogueHub_OnTransition_1
 
 RogueHub_OnTransition_4:
+	return
+
+
+RogueHub_OnMapLoad::
+	call RogueHub_HideSafari
 	return
 
 
@@ -141,6 +147,82 @@ RogueHub_Intro_ScottWalkToPost:
 	walk_right
 	face_down
 	step_end
+
+RogueHub_HideSafari::
+	setmetatile 9, 3, 0x10C, TRUE
+	setmetatile 10, 3, 0x10C, TRUE
+	setmetatile 11, 3, 0x10C, TRUE
+	setmetatile 9, 4, 0x10C, TRUE
+	setmetatile 10, 4, 0x10C, TRUE
+	setmetatile 11, 4, 0x10C, TRUE
+	setmetatile 9, 5, 0x10C, TRUE
+	setmetatile 10, 5, 0x10C, TRUE
+	setmetatile 11, 5, 0x10C, TRUE
+	setmetatile 9, 6, 0x10C, TRUE
+	setmetatile 10, 6, 0x10C, TRUE
+	setmetatile 11, 6, 0x10C, TRUE
+	setmetatile 9, 7, 0x10C, TRUE
+	setmetatile 10, 7, 0x10C, TRUE
+	setmetatile 11, 7, 0x10C, TRUE
+	setmetatile 8, 2, 0x075, TRUE
+	setmetatile 8, 3, 0x075, TRUE
+	setmetatile 8, 4, 0x075, TRUE
+	setmetatile 8, 5, 0x075, TRUE
+	setmetatile 8, 6, 0x075, TRUE
+	setmetatile 8, 7, 0x075, TRUE
+	setmetatile 12, 2, 0x073, TRUE
+	setmetatile 12, 3, 0x073, TRUE
+	setmetatile 12, 4, 0x073, TRUE
+	setmetatile 12, 5, 0x073, TRUE
+	setmetatile 12, 6, 0x073, TRUE
+	setmetatile 12, 7, 0x073, TRUE
+	setmetatile 8, 8, 0x002, FALSE
+	setmetatile 9, 8, 0x002, FALSE
+	setmetatile 10, 8, 0x002, FALSE
+	setmetatile 11, 8, 0x002, FALSE
+	setmetatile 12, 8, 0x002, FALSE
+	setmetatile 0, 2, 0x001, TRUE
+	setmetatile 1, 2, 0x001, TRUE
+	setmetatile 2, 2, 0x001, TRUE
+	setmetatile 3, 2, 0x001, TRUE
+	setmetatile 4, 2, 0x001, TRUE
+	setmetatile 5, 2, 0x001, TRUE
+	setmetatile 6, 2, 0x001, TRUE
+	setmetatile 7, 2, 0x001, TRUE
+	setmetatile 0, 3, 0x001, TRUE
+	setmetatile 1, 3, 0x001, TRUE
+	setmetatile 2, 3, 0x001, TRUE
+	setmetatile 3, 3, 0x001, TRUE
+	setmetatile 4, 3, 0x001, TRUE
+	setmetatile 5, 3, 0x001, TRUE
+	setmetatile 6, 3, 0x001, TRUE
+	setmetatile 7, 3, 0x001, TRUE
+	setmetatile 0, 4, 0x001, TRUE
+	setmetatile 1, 4, 0x001, TRUE
+	setmetatile 2, 4, 0x001, TRUE
+	setmetatile 3, 4, 0x001, TRUE
+	setmetatile 4, 4, 0x001, TRUE
+	setmetatile 5, 4, 0x001, TRUE
+	setmetatile 6, 4, 0x001, TRUE
+	setmetatile 7, 4, 0x001, TRUE
+	setmetatile 0, 5, 0x001, TRUE
+	setmetatile 1, 5, 0x001, TRUE
+	setmetatile 2, 5, 0x001, TRUE
+	setmetatile 3, 5, 0x001, TRUE
+	setmetatile 4, 5, 0x001, TRUE
+	setmetatile 5, 5, 0x001, TRUE
+	setmetatile 6, 5, 0x001, TRUE
+	setmetatile 7, 5, 0x001, TRUE
+	setmetatile 0, 6, 0x001, TRUE
+	setmetatile 1, 6, 0x001, TRUE
+	setmetatile 2, 6, 0x001, TRUE
+	setmetatile 3, 6, 0x001, TRUE
+	setmetatile 4, 6, 0x001, TRUE
+	setmetatile 5, 6, 0x001, TRUE
+	setmetatile 6, 6, 0x001, TRUE
+	setmetatile 7, 6, 0x001, TRUE
+	return
+
 
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"

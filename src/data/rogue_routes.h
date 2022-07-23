@@ -8,7 +8,8 @@ static const u8 sRouteEncontersField[] = {
     TYPE_GRASS, TYPE_NORMAL
 };
 static const struct RogueRouteMap sRouteMapsField[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FIELD0), ROUTE_MAP(ROGUE_ROUTE_FIELD1)
+    ROUTE_MAP(ROGUE_ROUTE_FIELD0)
+    //, ROUTE_MAP(ROGUE_ROUTE_FIELD1)
 };
 
 static const u8 sRouteEncontersForest[] = {

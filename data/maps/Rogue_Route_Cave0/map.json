@@ -499,14 +499,14 @@
   "warp_events": [
     {
       "x": 15,
-      "y": 40,
+      "y": 39,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_CAVE0",
       "dest_warp_id": 0
     },
     {
       "x": 39,
-      "y": 2,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_CAVE0",
       "dest_warp_id": 0
