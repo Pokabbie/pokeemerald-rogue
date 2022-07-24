@@ -409,13 +409,188 @@ Rogue_Shop_TM4:
 	.2byte ITEM_TM18
 	.2byte ITEM_NONE
 
-Rogue_Shop_Specials::
+Rogue_Shop_BattleItems::
+	lock
+	faceplayer
+	message Rogue_Shop_BattleItems_Text_0
+	waitmessage
+	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_BattleItems_2
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
+	goto_if_ge Rogue_Shop_BattleItems_8
+	pokemartwithminprice Rogue_Shop_BattleEvos, 500
+Rogue_Shop_BattleItems_1:
+	msgbox Rogue_Shop_Utilty_Text_1
+	release
 	return
 
+Rogue_Shop_BattleItems_2:
+	compare VAR_TEMP_F, 0
+	goto_if_eq Rogue_Shop_BattleItems_6
+Rogue_Shop_BattleItems_5:
+	switch VAR_TEMP_F
+	case 1, Rogue_Shop_BattleItems_12
+	case 2, Rogue_Shop_BattleItems_13
+	case 3, Rogue_Shop_BattleItems_14
+	pokemartwithminprice Rogue_Shop_Battle3, 500
+	goto Rogue_Shop_BattleItems_1
 
-Rogue_Shop_KeyItems::
-	return
+Rogue_Shop_BattleItems_6:
+	random 4
+	copyvar VAR_TEMP_F, VAR_RESULT
+	addvar VAR_TEMP_F, 1
+	goto Rogue_Shop_BattleItems_5
 
+Rogue_Shop_BattleItems_8:
+	pokemartwithminprice Rogue_Shop_BattleFull, 500
+	goto Rogue_Shop_BattleItems_1
+
+Rogue_Shop_BattleItems_12:
+	pokemartwithminprice Rogue_Shop_Battle0, 500
+	goto Rogue_Shop_BattleItems_1
+
+Rogue_Shop_BattleItems_13:
+	pokemartwithminprice Rogue_Shop_Battle1, 500
+	goto Rogue_Shop_BattleItems_1
+
+Rogue_Shop_BattleItems_14:
+	pokemartwithminprice Rogue_Shop_Battle2, 500
+	goto Rogue_Shop_BattleItems_1
+
+
+	.align 2
+Rogue_Shop_BattleEvos:
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_EXP_SHARE
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_BattleFull:
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_EXP_SHARE
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_AMULET_COIN
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_BRIGHT_POWDER
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_CHOICE_BAND
+	.2byte ITEM_CLEANSE_TAG
+	.2byte ITEM_EVERSTONE
+	.2byte ITEM_FOCUS_BAND
+	.2byte ITEM_GREEN_SCARF
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_LEFTOVERS
+	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_LUCKY_EGG
+	.2byte ITEM_LUCKY_PUNCH
+	.2byte ITEM_MAGNET
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_METAL_POWDER
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_QUICK_CLAW
+	.2byte ITEM_SCOPE_LENS
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_SHELL_BELL
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_SMOKE_BALL
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_STICK
+	.2byte ITEM_THICK_CLUB
+	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Battle0:
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_AMULET_COIN
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_CLEANSE_TAG
+	.2byte ITEM_EVERSTONE
+	.2byte ITEM_FOCUS_BAND
+	.2byte ITEM_SCOPE_LENS
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Battle1:
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_BRIGHT_POWDER
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_LUCKY_PUNCH
+	.2byte ITEM_MAGNET
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Battle2:
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_CHOICE_BAND
+	.2byte ITEM_GREEN_SCARF
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_SMOKE_BALL
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_METAL_POWDER
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_SHELL_BELL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Battle3:
+	.2byte ITEM_EXP_SHARE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_STICK
+	.2byte ITEM_THICK_CLUB
+	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_QUICK_CLAW
+	.2byte ITEM_LEFTOVERS
+	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_LUCKY_EGG
+	.2byte ITEM_NONE
 
 Rogue_Tutor_MoveRelearn::
 	special TeachMoveSetContextRelearnMove
@@ -920,6 +1095,9 @@ Rogue_Shop_Utilty_Text_1:
 
 Rogue_Shop_TMs_Text_0:
 	.string "Welcome to the TM Shop!$"
+
+Rogue_Shop_BattleItems_Text_0:
+	.string "Welcome to the TRAVELLING BATTLE Shop!$"
 
 Rogue_Tutor_MoveRelearn_Text_0:
 	.string "I'm the LVL MOVE TUTOR.\p"

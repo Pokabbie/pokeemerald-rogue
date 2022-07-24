@@ -414,16 +414,182 @@ mart Rogue_Shop_TM4 {
 }
 
 
-// TMs / Evo items (TODO - Split these into separate shops?)
-script Rogue_Shop_Specials
+script Rogue_Shop_BattleItems
 {
-    //call(Rogue_Shop_PreSetup)
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!")
+    waitmessage
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {        
+        if(var(VAR_SHOP_RANDOM_IDX) == 0)
+        {
+            random(4)
+            copyvar(VAR_SHOP_RANDOM_IDX, VAR_RESULT)
+            addvar(VAR_SHOP_RANDOM_IDX, 1)
+        }
+
+        switch(var(VAR_SHOP_RANDOM_IDX))
+        {
+            case 1:
+                pokemartwithminprice(Rogue_Shop_Battle0, 500)
+            case 2:
+                pokemartwithminprice(Rogue_Shop_Battle1, 500)
+            case 3:
+                pokemartwithminprice(Rogue_Shop_Battle2, 500)
+            default:
+                pokemartwithminprice(Rogue_Shop_Battle3, 500)
+        }
+    }
+    else
+    {
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
+        {
+            pokemartwithminprice(Rogue_Shop_BattleFull, 500)
+        }
+        else
+        {
+            pokemartwithminprice(Rogue_Shop_BattleEvos, 500)
+        }
+    }
+
+    msgbox("Come again soon!")
+    release
 }
 
-script Rogue_Shop_KeyItems
-{
-    //call(Rogue_Shop_PreSetup)
+mart Rogue_Shop_BattleEvos {
+    ITEM_FIRE_STONE
+    ITEM_WATER_STONE
+    ITEM_THUNDER_STONE
+    ITEM_LEAF_STONE
+    ITEM_MOON_STONE
+    ITEM_SUN_STONE
+    ITEM_EXP_SHARE
+    ITEM_DRAGON_SCALE
+    ITEM_KINGS_ROCK
+    ITEM_METAL_COAT
+    ITEM_UP_GRADE
+    ITEM_DEEP_SEA_SCALE
+    ITEM_DEEP_SEA_TOOTH
 }
+
+mart Rogue_Shop_BattleFull {
+    ITEM_FIRE_STONE
+    ITEM_WATER_STONE
+    ITEM_THUNDER_STONE
+    ITEM_LEAF_STONE
+    ITEM_MOON_STONE
+    ITEM_SUN_STONE
+    ITEM_EXP_SHARE
+    ITEM_DRAGON_SCALE
+    ITEM_KINGS_ROCK
+    ITEM_METAL_COAT
+    ITEM_UP_GRADE
+    ITEM_DEEP_SEA_SCALE
+    ITEM_DEEP_SEA_TOOTH
+
+    ITEM_AMULET_COIN
+    ITEM_BLACK_BELT
+    ITEM_BLACK_GLASSES
+    ITEM_BRIGHT_POWDER
+    ITEM_CHARCOAL
+    ITEM_CHOICE_BAND
+    ITEM_CLEANSE_TAG
+    ITEM_EVERSTONE
+    ITEM_FOCUS_BAND
+    ITEM_HARD_STONE
+    ITEM_LEFTOVERS
+    ITEM_LIGHT_BALL
+    ITEM_LUCKY_EGG
+    ITEM_LUCKY_PUNCH
+    ITEM_MAGNET
+    ITEM_MENTAL_HERB
+    ITEM_METAL_POWDER
+    ITEM_MIRACLE_SEED
+    ITEM_MYSTIC_WATER
+    ITEM_NEVER_MELT_ICE
+    ITEM_POISON_BARB
+    ITEM_QUICK_CLAW
+    ITEM_SCOPE_LENS
+    ITEM_SHARP_BEAK
+    ITEM_SHELL_BELL
+    ITEM_SILK_SCARF
+    ITEM_SILVER_POWDER
+    ITEM_SMOKE_BALL
+    ITEM_SOFT_SAND
+    ITEM_SPELL_TAG
+    ITEM_STICK
+    ITEM_THICK_CLUB
+    ITEM_TWISTED_SPOON
+    ITEM_WHITE_HERB
+    ITEM_DRAGON_FANG
+}
+
+mart Rogue_Shop_Battle0 {
+    ITEM_FIRE_STONE
+    ITEM_WATER_STONE
+    ITEM_SUN_STONE
+    
+    ITEM_AMULET_COIN
+    ITEM_BLACK_BELT
+    ITEM_BLACK_GLASSES
+    ITEM_CLEANSE_TAG
+    ITEM_EVERSTONE
+    ITEM_FOCUS_BAND
+    ITEM_SCOPE_LENS
+    ITEM_WHITE_HERB
+    ITEM_DRAGON_FANG
+}
+
+mart Rogue_Shop_Battle1 {
+    ITEM_LEAF_STONE
+    ITEM_METAL_COAT
+    ITEM_THUNDER_STONE
+
+    ITEM_BRIGHT_POWDER
+    ITEM_CHARCOAL
+    ITEM_MIRACLE_SEED
+    ITEM_MYSTIC_WATER
+    ITEM_NEVER_MELT_ICE
+    ITEM_LUCKY_PUNCH
+    ITEM_MAGNET
+    ITEM_MENTAL_HERB
+}
+
+mart Rogue_Shop_Battle2 {
+    ITEM_UP_GRADE
+    ITEM_DRAGON_SCALE
+    ITEM_KINGS_ROCK
+
+    ITEM_CHOICE_BAND
+    ITEM_HARD_STONE
+    ITEM_SMOKE_BALL
+    ITEM_SOFT_SAND
+    ITEM_SPELL_TAG
+    ITEM_METAL_POWDER
+    ITEM_SHARP_BEAK
+    ITEM_SHELL_BELL
+}
+
+mart Rogue_Shop_Battle3 {
+    ITEM_EXP_SHARE
+    ITEM_MOON_STONE
+    ITEM_DEEP_SEA_SCALE
+    ITEM_DEEP_SEA_TOOTH
+
+    ITEM_SILK_SCARF
+    ITEM_SILVER_POWDER
+    ITEM_STICK
+    ITEM_THICK_CLUB
+    ITEM_TWISTED_SPOON
+    ITEM_POISON_BARB
+    ITEM_QUICK_CLAW
+    ITEM_LEFTOVERS
+    ITEM_LIGHT_BALL
+    ITEM_LUCKY_EGG
+}
+
 
 // Tutors
 //

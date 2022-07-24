@@ -28,6 +28,7 @@ struct MartInfo
     /*0xC*/ u16 itemCount;
     /*0xE*/ u8 windowId;
     /*0xF*/ u8 martType;
+    u16 minPrice;
 };
 
 struct ShopData
@@ -47,6 +48,7 @@ struct ShopData
 void CreatePokemartMenu(const u16 *);
 void CreateDecorationShop1Menu(const u16 *);
 void CreateDecorationShop2Menu(const u16 *);
+void CreatePokemartMenuWithMinPrice(const u16 *, u16 minPrice);
 void CB2_ExitSellMenu(void);
 
 #endif // GUARD_SHOP_H

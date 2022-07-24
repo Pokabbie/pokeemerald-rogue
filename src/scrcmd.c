@@ -1914,6 +1914,16 @@ bool8 ScrCmd_pokemartdecoration2(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_pokemartwithminprice(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+    u16 minPrice = VarGet(ScriptReadHalfword(ctx));
+
+    CreatePokemartMenuWithMinPrice(ptr, minPrice);
+    ScriptContext1_Stop();
+    return TRUE;
+}
+
 bool8 ScrCmd_playslotmachine(struct ScriptContext *ctx)
 {
     u8 machineId = VarGet(ScriptReadHalfword(ctx));

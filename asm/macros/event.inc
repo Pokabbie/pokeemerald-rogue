@@ -1121,6 +1121,14 @@
 	.4byte \products
 	.endm
 
+	@ Opens the Pokemart system, offering the specified products for sale.
+	@ Products should be a list of .2byte item values preceded by an .align 2
+	.macro pokemartwithminprice products:req price:req
+	.byte 0xe4
+	.4byte \products
+	.2byte \price
+	.endm
+
 	@ Starts up the slot machine minigame. id is a SLOT_MACHINE_* value that influences probabilities of certain reel outcomes.
 	.macro playslotmachine id:req
 	.byte 0x89
