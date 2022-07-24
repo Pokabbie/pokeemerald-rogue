@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 24,
+      "x": 33,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 28,
+      "x": 29,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 22,
+      "x": 23,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -56,7 +56,7 @@
   ],
   "warp_events": [
     {
-      "x": 23,
+      "x": 24,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_NONE",
@@ -64,21 +64,21 @@
     },
     {
       "x": 23,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_PROF_LAB",
       "dest_warp_id": 0
     },
     {
-      "x": 28,
-      "y": 5,
+      "x": 29,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_TRANSITION",
       "dest_warp_id": 0
     },
     {
       "x": 15,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "dest_warp_id": 0
@@ -90,7 +90,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 30,
+      "x": 31,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -99,7 +99,7 @@
     {
       "type": "sign",
       "x": 21,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RogueHub_Sign_ProfLab"
@@ -107,7 +107,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RogueHub_Sign_ConfigLab"

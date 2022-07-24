@@ -2,6 +2,11 @@
 const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
 const VAR_JUST_LEFT = VAR_TEMP_0
 
+const VAR_TL_X = VAR_0x8000
+const VAR_TL_Y = VAR_0x8001
+const VAR_BR_X = VAR_0x8002
+const VAR_BR_Y = VAR_0x8003
+
 const METATILE_Grass = 0x001
 
 // Mountain/Hole
@@ -46,7 +51,7 @@ script RogueHub_OnTransition
 {
     if(var(VAR_ROGUE_INTRO_STATE) <= 2)
     {
-        setobjectxyperm(NPC_INTRO_SCOTT, 22, 6)
+        setobjectxyperm(NPC_INTRO_SCOTT, 23, 6)
     }
 }
 
@@ -75,7 +80,7 @@ script RogueHub_Intro0
     waitmovement(0)
 
     // Have to rest coords here otherwise will be stood in wrong place when walk off screen
-    setobjectxyperm(NPC_INTRO_SCOTT, 28, 6)
+    setobjectxyperm(NPC_INTRO_SCOTT, 29, 6)
 
     setvar(VAR_ROGUE_INTRO_STATE, 3)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)

@@ -17,7 +17,7 @@ RogueHub_OnTransition::
 	return
 
 RogueHub_OnTransition_1:
-	setobjectxy 2, 22, 6
+	setobjectxyperm 2, 23, 6
 	return
 
 
@@ -38,6 +38,7 @@ RogueHub_Intro0::
 	msgbox RogueHub_Intro0_Text_0
 	applymovement 2, RogueHub_Intro_ScottWalkToPost
 	waitmovement 0
+	setobjectxyperm 2, 29, 6
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
 	releaseall
