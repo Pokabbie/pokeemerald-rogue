@@ -36,7 +36,7 @@ script Rogue_BattleDefeated_Boss1
     setflag(FLAG_ROGUE_DEFEATED_BOSS01)
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
-
+    special(HealPlayerParty)
     special(RemoveCameraObject)
     warp(MAP_ROGUE_HUB_TRANSITION, 0)
 }

@@ -9985,6 +9985,8 @@ static void Cmd_rogue_partyhasroom(void)
 static void Cmd_givecaughtmon(void)
 {
     // RogueNote: Whether we're allow to capture this is handled further up
+    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())

@@ -29,6 +29,7 @@ Rogue_BattleDefeated_Boss6::
 	setflag FLAG_ROGUE_DEFEATED_BOSS06
 	msgbox Rogue_BattleDefeated_Boss6_Text_1
 	waitmessage
+	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	return

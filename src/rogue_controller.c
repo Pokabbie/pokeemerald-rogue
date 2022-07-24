@@ -217,6 +217,22 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
     }
 }
 
+void Rogue_ModifyCaughtMon(struct Pokemon *mon)
+{
+    if(Rogue_IsRunActive())
+    {
+        u16 hp = GetMonData(mon, MON_DATA_HP);
+        u16 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
+        u16 statusAilment = 0; // AILMENT_NONE
+
+        hp = max(maxHp / 2, hp);
+
+        // Heal up to 1/2 health and remove status effect
+        SetMonData(mon, MON_DATA_HP, &hp);
+        SetMonData(mon, MON_DATA_STATUS, &statusAilment);
+    }
+}
+
 #ifdef ROGUE_DEBUG
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -889,12 +905,12 @@ void Rogue_OnWarpIntoMap(void)
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
                 VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 150);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel);
+                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2 + 1);
             }
             else
             {
                 VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 100);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel);
+                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2);
             }
         
             if(IsBossRoom(gRogueRun.currentRoomIdx))
