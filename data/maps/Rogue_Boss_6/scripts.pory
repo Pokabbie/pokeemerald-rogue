@@ -65,6 +65,4 @@ movement BossTateToFightBoss6 {
 
 movement BossLizaToFightBoss6 {
     walk_left
-    walk_up
-    face_left
 }
