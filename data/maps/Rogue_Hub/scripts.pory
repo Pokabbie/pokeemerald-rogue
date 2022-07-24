@@ -74,6 +74,9 @@ script RogueHub_Intro0
     applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
     waitmovement(0)
 
+    // Have to rest coords here otherwise will be stood in wrong place when walk off screen
+    setobjectxyperm(NPC_INTRO_SCOTT, 28, 6)
+
     setvar(VAR_ROGUE_INTRO_STATE, 3)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
     releaseall
@@ -211,6 +214,56 @@ script RogueHub_SpeakScott
 
         if(var(VAR_RESULT) == YES)
         {
+            setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+            specialvar(VAR_RESULT, GetLeadMonLevel)
+
+            if(var(VAR_RESULT) > 80)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
+            }
+            elif(var(VAR_RESULT) > 70)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
+            }
+            elif(var(VAR_RESULT) > 60)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
+            }
+            elif(var(VAR_RESULT) > 50)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
+            }
+            elif(var(VAR_RESULT) > 40)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
+            }
+            elif(var(VAR_RESULT) > 30)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
+            }
+            elif(var(VAR_RESULT) > 20)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
+            }
+            elif(var(VAR_RESULT) > 10)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
+            }
+
+            // Skip ahead based on lvl
+            if(var(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
+            {
+                msgbox(format("SCOTT: You've leveled up your PARTNER quite a bit there!"), MSGBOX_DEFAULT)
+
+                buffernumberstring(STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY)
+
+                msgbox(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == NO)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+                }
+            }
+
             msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
             setvar(VAR_JUST_LEFT, 1)
 

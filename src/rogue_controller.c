@@ -453,6 +453,79 @@ void Rogue_OnLoadMap(void)
     // TODO - Do something
 }
 
+static u16 GetBossRoomForDifficulty(u16 difficulty)
+{
+    switch(difficulty)
+    {
+        case 0:
+            return ROOM_IDX_BOSS0;
+        case 1:
+            return ROOM_IDX_BOSS1;
+        case 2:
+            return ROOM_IDX_BOSS2;
+        case 3:
+            return ROOM_IDX_BOSS3;
+        case 4:
+            return ROOM_IDX_BOSS4;
+        case 5:
+            return ROOM_IDX_BOSS5;
+        case 6:
+            return ROOM_IDX_BOSS6;
+        case 7:
+            return ROOM_IDX_BOSS7;
+        case 8:
+            return ROOM_IDX_BOSS8;
+        case 9:
+            return ROOM_IDX_BOSS9;
+        case 10:
+            return ROOM_IDX_BOSS10;
+        case 11:
+            return ROOM_IDX_BOSS11;
+        case 12:
+            return ROOM_IDX_BOSS12;
+        case 13:
+            return ROOM_IDX_BOSS12;
+    }
+
+    return 0;
+}
+
+static u16 GetStartDifficulty(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+    if(skipToDifficulty != 0)
+    {
+        return skipToDifficulty;
+    }
+    
+    return 0;
+}
+
+static u16 GetStartRoomIdx(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+    if(skipToDifficulty != 0)
+    {
+        return GetBossRoomForDifficulty(skipToDifficulty - 1);
+    }
+    
+    return 0;
+}
+
+static u16 GetStartRestStopRoomIdx(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+    if(skipToDifficulty != 0)
+    {
+        return GetBossRoomForDifficulty(skipToDifficulty);
+    }
+    
+    return GetBossRoomForDifficulty(0);
+}
+
 static void BeginRogueRun(void)
 {
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
@@ -464,9 +537,9 @@ static void BeginRogueRun(void)
 
     ClearBerryTrees();
 
-    gRogueRun.currentRoomIdx = 0;
+    gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
-    gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS0;
+    gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
     gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -904,13 +977,13 @@ void Rogue_OnWarpIntoMap(void)
 
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 150);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2 + 1);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 150);
+                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2 + 1);
             }
             else
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 100);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 100);
+                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2);
             }
         
             if(IsBossRoom(gRogueRun.currentRoomIdx))

@@ -1185,6 +1185,11 @@ bool8 CheckLeadMonTough(void)
     return TRUE;
 }
 
+u8 GetLeadMonLevel(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_LEVEL);
+}
+
 void IsGrassTypeInParty(void)
 {
     u8 i;
