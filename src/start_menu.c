@@ -346,6 +346,7 @@ static void BuildRogueRunStartMenu(void)
     AddStartMenuAction(MENU_ACTION_PLAYER);
     //AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
+    AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
@@ -781,11 +782,21 @@ static bool8 StartMenuExitCallback(void)
     return TRUE;
 }
 
+extern const u8 Rogue_RetireFromRun[];
+
 static bool8 StartMenuSafariZoneRetireCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu();
-    SafariZoneRetirePrompt();
+
+    if(Rogue_IsRunActive())
+    {
+        ScriptContext1_SetupScript(Rogue_RetireFromRun);
+    }
+    else
+    {
+        SafariZoneRetirePrompt();
+    }
 
     return TRUE;
 }

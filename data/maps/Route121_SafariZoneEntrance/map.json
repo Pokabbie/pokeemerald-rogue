@@ -9,7 +9,7 @@
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -24,13 +24,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route121_SafariZoneEntrance_EventScript_WelcomeAttendant",
+      "script": "RogueHub_SpeakSafariWelcome",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 10,
-      "y": 2,
+      "x": -6,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -73,15 +73,15 @@
       "x": 14,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121",
-      "dest_warp_id": 0
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 4
     },
     {
       "x": 15,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121",
-      "dest_warp_id": 0
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [

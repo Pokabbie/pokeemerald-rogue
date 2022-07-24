@@ -12,6 +12,20 @@ Rogue_GiveItem_Internal::
 	return
 
 
+Rogue_RetireFromRun::
+	lockall
+	msgbox Rogue_RetireFromRun_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_RetireFromRun_2
+Rogue_RetireFromRun_1:
+	releaseall
+	return
+
+Rogue_RetireFromRun_2:
+	warp MAP_ROGUE_HUB_TRANSITION, 29, 7
+	goto Rogue_RetireFromRun_1
+
+
 Rogue_Common_TurnPlayerNorth::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
@@ -498,7 +512,6 @@ Rogue_Shop_BattleFull:
 	.2byte ITEM_CLEANSE_TAG
 	.2byte ITEM_EVERSTONE
 	.2byte ITEM_FOCUS_BAND
-	.2byte ITEM_GREEN_SCARF
 	.2byte ITEM_HARD_STONE
 	.2byte ITEM_LEFTOVERS
 	.2byte ITEM_LIGHT_BALL
@@ -564,7 +577,6 @@ Rogue_Shop_Battle2:
 	.2byte ITEM_DRAGON_SCALE
 	.2byte ITEM_KINGS_ROCK
 	.2byte ITEM_CHOICE_BAND
-	.2byte ITEM_GREEN_SCARF
 	.2byte ITEM_HARD_STONE
 	.2byte ITEM_SMOKE_BALL
 	.2byte ITEM_SOFT_SAND
@@ -1086,6 +1098,10 @@ Rogue_Give_Item18::
 
 Rogue_PostBattle_Internal_Text_0:
 	.string "Good luck with your next battle!$"
+
+Rogue_RetireFromRun_Text_0:
+	.string "Are you sure you'd like to return to the\n"
+	.string "HUB?$"
 
 Rogue_Shop_Utilty_Text_0:
 	.string "Welcome to the UTILITY Shop!$"

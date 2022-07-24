@@ -16,6 +16,7 @@
 #include "overworld.h"
 #include "pokemon.h"
 #include "random.h"
+#include "safari_zone.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
@@ -215,6 +216,10 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         if(*catchRate < 45)
             *catchRate = 45;
     }
+    else if(GetSafariZoneFlag())
+    {
+        *ballMultiplier = 255; // Masterball equiv
+    }
 }
 
 void Rogue_ModifyCaughtMon(struct Pokemon *mon)
@@ -378,7 +383,8 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
 #ifdef ROGUE_DEBUG
-    //AddBagItem(ITEM_RARE_CANDY, 99);
+    AddBagItem(ITEM_RARE_CANDY, 99);
+
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //SetMoney(&gSaveBlock1Ptr->money, 60000);
@@ -977,12 +983,12 @@ void Rogue_OnWarpIntoMap(void)
 
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 150);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 300);
                 VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2 + 1);
             }
             else
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 100);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 200);
                 VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2);
             }
         
@@ -1006,8 +1012,11 @@ void Rogue_OnWarpIntoMap(void)
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
-    // Configure random warp
-    //if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_TRANSITION) && warp->mapNum == MAP_NUM(ROGUE_HUB_TRANSITION) && warp->warpId == 1)
+    if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
+    {
+        // Warping back to hub must be intentional
+        return;
+    }
 
     if(Rogue_IsRunActive())
     {

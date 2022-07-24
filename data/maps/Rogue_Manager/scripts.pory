@@ -31,6 +31,19 @@ script Rogue_GiveItem_Internal
     finditem(VAR_ITEM_ID_VAL, 3)
 }
 
+script Rogue_RetireFromRun
+{
+    lockall
+    msgbox(format("Are you sure you'd like to return to the HUB?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        warp(MAP_ROGUE_HUB_TRANSITION, 29, 7)
+    }
+
+    releaseall
+}
+
 // Movement
 //
 script Rogue_Common_TurnPlayerNorth

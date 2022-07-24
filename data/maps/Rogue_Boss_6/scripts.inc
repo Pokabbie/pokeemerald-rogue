@@ -69,8 +69,6 @@ BossTateToFightBoss6:
 
 BossLizaToFightBoss6:
 	walk_left
-	walk_up
-	face_left
 	step_end
 
 Rogue_Battle_Boss6_Text_0:

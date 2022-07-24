@@ -76,6 +76,14 @@ script RogueHub_OnMapLoad
         fillmetatile(1, 3, 14, 10, METATILE_Grass, FALSE)
         fillmetatile(1, 11, 12, 11, METATILE_Grass, FALSE)
         fillmetatile(1, 12, 6, 12, METATILE_Grass, FALSE)
+
+        // +name rater
+        fillmetatile(31, 21, 37, 26, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER4)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER4)
     }
 
     // Bike Shop
@@ -118,9 +126,6 @@ script RogueHub_OnMapLoad
     // TODO - Fisherman hut?
 
     // Clothes shop?
-    fillmetatile(31, 21, 37, 26, METATILE_Grass, FALSE)
-
-    // ???
     fillmetatile(41, 20, 48, 25, METATILE_Grass, FALSE)
 }
 
@@ -332,7 +337,7 @@ script RogueHub_SpeakScott
             {
                 if(var(VAR_RESULT) > 2)
                 {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
                     setvar(VAR_RESULT, NO)
                 }
                 else
@@ -344,7 +349,7 @@ script RogueHub_SpeakScott
             {
                 if(var(VAR_RESULT) > 1)
                 {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 1.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
                     setvar(VAR_RESULT, NO)
                 }
                 else
@@ -473,6 +478,16 @@ script RogueHub_SpeakBikeShop
 
     release
 }
+script RogueHub_SpeakSafariWelcome
+{
+    lock
+    faceplayer
+
+    msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed POKéMON and let them roam freely!\pAs a thanks for providing the POKéMON data for us, we'll allow you to enter and capture a POKéMON of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
+
+    release
+}
+
 
 script RogueHub_SpeakFisherman
 {
@@ -480,7 +495,7 @@ script RogueHub_SpeakFisherman
     faceplayer
 
     checkitem(ITEM_SUPER_ROD)
-    if(var(VAR_RESULT) == NO)
+    if(var(VAR_RESULT) == YES)
     {
         msgbox(format("Hope that SUPER ROD is doing good work for you!"), MSGBOX_DEFAULT)
     }
@@ -532,6 +547,11 @@ script RogueHub_Sign_Shop
 script RogueHub_Sign_BikeShop
 {
     msgbox(format("BIKE SHOP"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_NameRater
+{
+    msgbox(format("NAME RATER's HOUSE"), MSGBOX_SIGN)
 }
 
 script RogueHub_Sign_Bank

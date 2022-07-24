@@ -28,20 +28,20 @@ RogueHub_OnMapLoad::
 RogueHub_OnMapLoad_1:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
 	goto_if_lt RogueHub_OnMapLoad_6
+	clearflag FLAG_ROGUE_TRAINER4
 RogueHub_OnMapLoad_5:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
-	goto_if_lt RogueHub_OnMapLoad_9
+	goto_if_lt RogueHub_OnMapLoad_10
 	clearflag FLAG_ROGUE_TRAINER1
-RogueHub_OnMapLoad_8:
+RogueHub_OnMapLoad_9:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
-	goto_if_lt RogueHub_OnMapLoad_13
+	goto_if_lt RogueHub_OnMapLoad_14
 	clearflag FLAG_ROGUE_TRAINER2
-RogueHub_OnMapLoad_12:
+RogueHub_OnMapLoad_13:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
-	goto_if_lt RogueHub_OnMapLoad_17
+	goto_if_lt RogueHub_OnMapLoad_18
 	clearflag FLAG_ROGUE_TRAINER3
-RogueHub_OnMapLoad_16:
-	fillmetatile 31, 21, 37, 26, 0x001, FALSE
+RogueHub_OnMapLoad_17:
 	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	return
 
@@ -54,23 +54,25 @@ RogueHub_OnMapLoad_6:
 	fillmetatile 1, 3, 14, 10, 0x001, FALSE
 	fillmetatile 1, 11, 12, 11, 0x001, FALSE
 	fillmetatile 1, 12, 6, 12, 0x001, FALSE
+	fillmetatile 31, 21, 37, 26, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER4
 	goto RogueHub_OnMapLoad_5
 
-RogueHub_OnMapLoad_9:
+RogueHub_OnMapLoad_10:
 	fillmetatile 22, 12, 27, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER1
-	goto RogueHub_OnMapLoad_8
+	goto RogueHub_OnMapLoad_9
 
-RogueHub_OnMapLoad_13:
+RogueHub_OnMapLoad_14:
 	fillmetatile 42, 14, 48, 19, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER2
-	goto RogueHub_OnMapLoad_12
+	goto RogueHub_OnMapLoad_13
 
-RogueHub_OnMapLoad_17:
+RogueHub_OnMapLoad_18:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
 	fillmetatile 33, 8, 35, 8, 0x001, FALSE
-	goto RogueHub_OnMapLoad_16
+	goto RogueHub_OnMapLoad_17
 
 
 RogueHub_Intro0::
@@ -336,7 +338,7 @@ RogueHub_SpeakScott_16:
 	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	goto_if_ne RogueHub_SpeakScott_40
 RogueHub_SpeakScott_39:
-	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
 	setvar VAR_TEMP_0, 1
 	compare VAR_LITTLEROOT_INTRO_STATE, 4
 	goto_if_eq RogueHub_SpeakScott_43
@@ -385,19 +387,19 @@ RogueHub_SpeakScott_24:
 	goto RogueHub_SpeakScott_16
 
 RogueHub_SpeakScott_33:
-	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_YESNO
+	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_36:
-	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_YESNO
+	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_40:
-	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakScott_Text_5, MSGBOX_DEFAULT
 	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
-	msgbox RogueHub_SpeakScott_Text_5, MSGBOX_YESNO
+	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_SpeakScott_46
 	goto RogueHub_SpeakScott_39
@@ -454,11 +456,19 @@ RogueHub_SpeakBikeShop_9:
 	goto RogueHub_SpeakBikeShop_1
 
 
+RogueHub_SpeakSafariWelcome::
+	lock
+	faceplayer
+	msgbox RogueHub_SpeakSafariWelcome_Text_0, MSGBOX_NPC
+	release
+	return
+
+
 RogueHub_SpeakFisherman::
 	lock
 	faceplayer
 	checkitem ITEM_SUPER_ROD
-	compare VAR_RESULT, NO
+	compare VAR_RESULT, YES
 	goto_if_eq RogueHub_SpeakFisherman_2
 	msgbox RogueHub_SpeakFisherman_Text_1, MSGBOX_DEFAULT
 	giveitem ITEM_SUPER_ROD
@@ -507,6 +517,11 @@ RogueHub_Sign_Shop::
 
 RogueHub_Sign_BikeShop::
 	msgbox RogueHub_Sign_BikeShop_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueHub_Sign_NameRater::
+	msgbox RogueHub_Sign_NameRater_Text_0, MSGBOX_SIGN
 	return
 
 
@@ -587,14 +602,22 @@ RogueHub_SpeakScott_Text_3:
 	.string "an adventure.$"
 
 RogueHub_SpeakScott_Text_4:
+	.string "SCOTT: Looks like you have too many\n"
+	.string "POKéMON there bud.\p"
+	.string "You can only take in 1.\n"
+	.string "You should use the PC in the PROF.'s LAB\l"
+	.string "to deposit some before I can let you on\l"
+	.string "an adventure.$"
+
+RogueHub_SpeakScott_Text_5:
 	.string "SCOTT: You've leveled up your PARTNER\n"
 	.string "quite a bit there!$"
 
-RogueHub_SpeakScott_Text_5:
+RogueHub_SpeakScott_Text_6:
 	.string "Would you like to skip ahead and start\n"
 	.string "at BADGE {STR_VAR_1}?$"
 
-RogueHub_SpeakScott_Text_6:
+RogueHub_SpeakScott_Text_7:
 	.string "SCOTT: Good luck CHAMP!$"
 
 RogueHub_SpeakBikeShop_Text_0:
@@ -618,6 +641,17 @@ RogueHub_SpeakBikeShop_Text_2:
 	.string "Tell you what. You take that one and if\n"
 	.string "you ever want to swap it out for the\l"
 	.string "other one, let me know$"
+
+RogueHub_SpeakSafariWelcome_Text_0:
+	.string "Welcome to the SAFARI ZONE!\p"
+	.string "We use the data from your POKéDEX to\n"
+	.string "breed POKéMON and let them roam\l"
+	.string "freely!\p"
+	.string "As a thanks for providing the POKéMON\n"
+	.string "data for us, we'll allow you to enter\l"
+	.string "and capture a POKéMON of your\l"
+	.string "choosing which you may then use as a\l"
+	.string "PARTNER in future adventures!$"
 
 RogueHub_SpeakFisherman_Text_0:
 	.string "Hope that SUPER ROD is doing good work\n"
@@ -655,6 +689,9 @@ RogueHub_Sign_Shop_Text_0:
 
 RogueHub_Sign_BikeShop_Text_0:
 	.string "BIKE SHOP$"
+
+RogueHub_Sign_NameRater_Text_0:
+	.string "NAME RATER's HOUSE$"
 
 RogueHub_Sign_Bank_Text_0:
 	.string "BANK$"

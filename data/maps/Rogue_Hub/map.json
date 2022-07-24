@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RogueHub_SpeakBank",
       "flag": "FLAG_ROGUE_TRAINER3"
     },
     {
@@ -182,6 +182,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_ROGUE_TRAINER3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 34,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SlateportCity_NameRatersHouse_EventScript_NameRater",
+      "flag": "FLAG_ROGUE_TRAINER4"
     }
   ],
   "warp_events": [
@@ -212,6 +225,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [
@@ -273,6 +293,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RogueHub_Sign_Bank"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "RogueHub_Sign_NameRater"
     }
   ]
 }
