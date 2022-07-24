@@ -79,6 +79,7 @@ static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
 static u8 CalculateTrainerLevel(u16 trainerNum);
 
+static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
@@ -431,32 +432,10 @@ void Rogue_SetDefaultOptions(void)
 
 void Rogue_OnLoadMap(void)
 {
-    // TODO - Remove this
-
-    // Seems to be working? Need to track against flag here though, as this gets called for started maps
-    //FlagSet(FLAG_SYS_POKEMON_GET);
-    
-        //*((s32*)((void*)0)) = 123;
-
-    //s32 i;
-    //struct WarpEvent *warpEvent = gMapHeader.events->warps;
-    //u8 warpCount = gMapHeader.events->warpCount;
-    //
-    //for (i = 0; i < warpCount; i++, warpEvent++)
-    //{
-    //    if(i == 0)
-    //    {
-    //        // Skip first warp as that should always be left as the entry warp
-    //        continue;
-    //    }
-//
-    //    // Should be Prof lab
-    //    warpEvent->warpId = 0;
-    //    warpEvent->mapNum = 4;
-    //    warpEvent->mapGroup = 0;
-    //}
-
-    // TODO - Do something
+    if(GetSafariZoneFlag())
+    {
+        RandomiseSafariWildEncounters();
+    }
 }
 
 static u16 GetBossRoomForDifficulty(u16 difficulty)
@@ -1007,6 +986,10 @@ void Rogue_OnWarpIntoMap(void)
             }
         }
     }
+    else if(GetSafariZoneFlag())
+    {
+        RandomiseSafariWildEncounters();
+    }
 }
 
 
@@ -1486,15 +1469,27 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     // Note: Don't seed individual encounters
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u8 maxlevel = CalculateWildLevel();
         u8 levelVariation = min(6,maxlevel - 1);
-        const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
-        u16 randIdx = Random() % count; 
 
-        *species = gRogueRun.wildEncounters[randIdx];
-        *level = maxlevel - (Random() % levelVariation);
+        if(area == 1) //WILD_AREA_WATER)
+        {
+            const u16 count = ARRAY_COUNT(gRogueRun.fishingEncounters);
+            u16 randIdx = Random() % count; 
+
+            *species = gRogueRun.fishingEncounters[randIdx];
+            *level = maxlevel - (Random() % levelVariation);
+        }
+        else
+        {
+            const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+            u16 randIdx = Random() % count; 
+
+            *species = gRogueRun.wildEncounters[randIdx];
+            *level = maxlevel - (Random() % levelVariation);
+        }
     }
 }
 
@@ -1536,6 +1531,111 @@ static void RandomiseWildEncounters(void)
             gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
         }
     }
+
+    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
+    gRogueRun.fishingEncounters[0] = SPECIES_FEEBAS;
+}
+
+static void RandomiseSafariWildEncounters(void)
+{
+    u8 maxlevel = CalculateWildLevel();
+
+    // Query for the current zone
+    RogueQuery_Clear();
+    RogueQuery_SpeciesIsValid();
+
+    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
+    {
+        // Once we've got 8 badges we're going to allow legendaries for fun!
+        RogueQuery_SpeciesIsNotLegendary();
+    }
+
+    RogueQuery_SpeciesInPokedex();
+
+    // Select supported types
+    if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTH)
+    {
+        u8 types[] =
+        {
+            TYPE_NORMAL, TYPE_FIGHTING
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTHWEST)
+    {
+        u8 types[] =
+        {
+            TYPE_GRASS, TYPE_POISON, TYPE_DARK
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHWEST)
+    {
+        u8 types[] =
+        {
+            TYPE_DRAGON, TYPE_STEEL, TYPE_PSYCHIC
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTH)
+    {
+        u8 types[] =
+        {
+            TYPE_FLYING, TYPE_GHOST, TYPE_FIRE
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHEAST)
+    {
+        u8 types[] =
+        {
+            TYPE_ROCK, TYPE_GROUND, TYPE_ELECTRIC
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else // SAFARI_ZONE_SOUTHEAST
+    {
+        u8 types[] =
+        {
+            TYPE_WATER, TYPE_BUG, TYPE_ICE
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_TransformToEggSpecies();
+
+    RogueQuery_CollapseSpeciesBuffer();
+
+    {
+        u8 i;
+        u16 randIdx;
+        u16 queryCount = RogueQuery_BufferSize();
+
+#ifdef ROGUE_DEBUG
+        gDebug_WildOptionCount = queryCount;
+#endif
+
+        if(queryCount == 0)
+        {
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+            {
+                // Just encounter self, as we don't have a great fallback?
+                gRogueRun.wildEncounters[i] = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+            }
+        }
+        else
+        {
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+            {
+                randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
+                gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+            }
+        }
+    }
+
+    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
+    gRogueRun.fishingEncounters[0] = SPECIES_FEEBAS;
 }
 
 static void ResetTrainerBattles(void)
@@ -1548,8 +1648,15 @@ static void ResetTrainerBattles(void)
     }
 }
 
+u8 GetLeadMonLevel(void);
+
 static u8 CalculateWildLevel(void)
 {
+    if(GetSafariZoneFlag())
+    {
+        return GetLeadMonLevel();
+    }
+
     return CalculatePlayerLevel() - 7;
 }
 

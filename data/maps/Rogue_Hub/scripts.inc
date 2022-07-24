@@ -649,7 +649,7 @@ RogueHub_SpeakSafariWelcome_Text_0:
 	.string "freely!\p"
 	.string "As a thanks for providing the POKéMON\n"
 	.string "data for us, we'll allow you to enter\l"
-	.string "and capture a POKéMON of your\l"
+	.string "and capture a few POKéMON of your\l"
 	.string "choosing which you may then use as a\l"
 	.string "PARTNER in future adventures!$"
 

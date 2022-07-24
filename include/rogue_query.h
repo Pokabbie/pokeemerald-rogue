@@ -11,6 +11,7 @@ void RogueQuery_Exclude(u16 idx);
 
 // Species
 void RogueQuery_SpeciesIsValid(void);
+void RogueQuery_SpeciesInPokedex(void);
 void RogueQuery_SpeciesOfType(u8 type);
 void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);
 void RogueQuery_SpeciesIsFinalEvolution(void);

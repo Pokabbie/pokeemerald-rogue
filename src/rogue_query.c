@@ -13,6 +13,7 @@
 #include "item.h"
 //#include "money.h"
 //#include "overworld.h"
+#include "pokedex.h"
 #include "pokemon.h"
 //#include "random.h"
 //#include "strings.h"
@@ -226,6 +227,22 @@ void RogueQuery_SpeciesIsValid(void)
         if(GetQueryState(species))
         {
             if(gBaseStats[species].abilities[0] == ABILITY_NONE)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesInPokedex(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
             {
                 SetQueryState(species, FALSE);
             }

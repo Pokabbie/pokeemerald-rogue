@@ -114,7 +114,7 @@ Route121_SafariZoneEntrance_Text_ComeInAndEnjoy:
 
 Route121_SafariZoneEntrance_Text_FirstTimeInfo:
 	.string "When you enter the SAFARI ZONE, you\n"
-	.string "start with 1 SAFARI BALL for\l"
+	.string "start with 30 SAFARI BALLS for\l"
 	.string "catching POKéMON.\p"
 	.string "The SAFARI Game is over when you run\n"
 	.string "out of SAFARI BALLS, or when you've\l"
@@ -123,8 +123,8 @@ Route121_SafariZoneEntrance_Text_FirstTimeInfo:
 
 Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay:
 	.string "Welcome to the SAFARI ZONE!\p"
-	.string "One catch for just ¥1000!\n"
-	.string "Would you like enter?$"
+	.string "All you can catch for just ¥2000!\n"
+	.string "Would you like to play a SAFARI Game?$"
 
 Route121_SafariZoneEntrance_Text_PlayAnotherTime:
 	.string "Okay.\n"
@@ -138,14 +138,14 @@ Route121_SafariZoneEntrance_Text_ThatWillBe500Please:
 	.string "That will be ¥1000, please.$"
 
 Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls:
-	.string "And this is for you.$"
+	.string "Here are your SAFARI BALLS.$"
 
 Route121_SafariZoneEntrance_Text_Received30SafariBalls:
-	.string "{PLAYER} received SAFARI BALL.$"
+	.string "{PLAYER} received 3 SAFARI BALLS.$"
 
 Route121_SafariZoneEntrance_Text_PleaseEnjoyYourself:
-	.string "We'll come collect you once you're\n"
-	.string "out of SAFARI BALLs.\p"
+	.string "We'll let you know when your game\n"
+	.string "is over.\p"
 	.string "So, until then, enjoy yourself, please!\n"
 	.string "Off you go on your wild excursion!$"
 

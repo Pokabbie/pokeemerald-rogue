@@ -98,8 +98,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 15,
-      "y": 1,
+      "x": 19,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route121_SafariZoneEntrance_EventScript_TrainerTipSign"
