@@ -2050,6 +2050,30 @@ bool8 ScrCmd_setmetatile(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_fillmetatile(struct ScriptContext *ctx)
+{
+    u16 x, y;
+
+    u16 xStart = VarGet(ScriptReadHalfword(ctx));
+    u16 yStart = VarGet(ScriptReadHalfword(ctx));
+    u16 xEnd = VarGet(ScriptReadHalfword(ctx));
+    u16 yEnd = VarGet(ScriptReadHalfword(ctx));
+    u16 tileId = VarGet(ScriptReadHalfword(ctx));
+    u16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+
+    for(x = xStart; x <= xEnd; ++x)
+    {
+        for(y = yStart; y <= yEnd; ++y)
+        {
+            if (!isImpassable)
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, tileId);
+            else
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, tileId | MAPGRID_COLLISION_MASK);
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScrCmd_opendoor(struct ScriptContext *ctx)
 {
     u16 x = VarGet(ScriptReadHalfword(ctx));

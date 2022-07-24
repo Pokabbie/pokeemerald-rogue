@@ -1728,6 +1728,17 @@
 	.2byte \item
 	.2byte \quantity
 	.endm
+	
+	@ Set the metatile at (x, y) on the current map to the given metatile and impassability.
+	.macro fillmetatile x:req, y:req, xEnd:req, yEnd:req, metatileId:req, impassable:req
+	.byte 0xe3
+	.2byte \x
+	.2byte \y
+	.2byte \xEnd
+	.2byte \yEnd
+	.2byte \metatileId
+	.2byte \impassable
+	.endm
 
 
 @ Supplementary

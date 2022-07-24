@@ -22,8 +22,54 @@ RogueHub_OnTransition_1:
 
 
 RogueHub_OnMapLoad::
-	call RogueHub_HideSafari
+	compare VAR_LITTLEROOT_INTRO_STATE, 4
+	goto_if_le RogueHub_OnMapLoad_2
+	clearflag FLAG_ROGUE_TRAINER0
+RogueHub_OnMapLoad_1:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
+	goto_if_lt RogueHub_OnMapLoad_6
+RogueHub_OnMapLoad_5:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
+	goto_if_lt RogueHub_OnMapLoad_9
+	clearflag FLAG_ROGUE_TRAINER1
+RogueHub_OnMapLoad_8:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
+	goto_if_lt RogueHub_OnMapLoad_13
+	clearflag FLAG_ROGUE_TRAINER2
+RogueHub_OnMapLoad_12:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
+	goto_if_lt RogueHub_OnMapLoad_17
+	clearflag FLAG_ROGUE_TRAINER3
+RogueHub_OnMapLoad_16:
+	fillmetatile 31, 21, 37, 26, 0x001, FALSE
+	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	return
+
+RogueHub_OnMapLoad_2:
+	fillmetatile 31, 9, 40, 16, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER0
+	goto RogueHub_OnMapLoad_1
+
+RogueHub_OnMapLoad_6:
+	fillmetatile 1, 3, 14, 10, 0x001, FALSE
+	fillmetatile 1, 11, 12, 11, 0x001, FALSE
+	fillmetatile 1, 12, 6, 12, 0x001, FALSE
+	goto RogueHub_OnMapLoad_5
+
+RogueHub_OnMapLoad_9:
+	fillmetatile 22, 12, 27, 16, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER1
+	goto RogueHub_OnMapLoad_8
+
+RogueHub_OnMapLoad_13:
+	fillmetatile 42, 14, 48, 19, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER2
+	goto RogueHub_OnMapLoad_12
+
+RogueHub_OnMapLoad_17:
+	fillmetatile 13, 27, 27, 36, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER3
+	goto RogueHub_OnMapLoad_16
 
 
 RogueHub_Intro0::
@@ -99,8 +145,8 @@ RogueHub_ReturnAdventure_9:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
 	msgbox RogueHub_ReturnAdventure_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_ReturnAdventure_13
-RogueHub_ReturnAdventure_12:
+	goto_if_eq RogueHub_ReturnAdventure_16
+RogueHub_ReturnAdventure_15:
 	msgbox RogueHub_ReturnAdventure_Text_7, MSGBOX_DEFAULT
 	releaseall
 	return
@@ -118,6 +164,29 @@ RogueHub_ReturnAdventure_4:
 RogueHub_ReturnAdventure_7:
 	msgbox RogueHub_ReturnAdventure_Text_4, MSGBOX_DEFAULT
 	giveitem ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
+	goto_if_ge RogueHub_ReturnAdventure_13
+RogueHub_ReturnAdventure_12:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
+	goto_if_ge RogueHub_ReturnAdventure_19
+RogueHub_ReturnAdventure_18:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
+	goto_if_ge RogueHub_ReturnAdventure_24
+RogueHub_ReturnAdventure_23:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
+	goto_if_ge RogueHub_ReturnAdventure_29
+RogueHub_ReturnAdventure_28:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
+	goto_if_ge RogueHub_ReturnAdventure_34
+RogueHub_ReturnAdventure_33:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
+	goto_if_ge RogueHub_ReturnAdventure_39
+RogueHub_ReturnAdventure_38:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
+	goto_if_ge RogueHub_ReturnAdventure_44
+RogueHub_ReturnAdventure_43:
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 8
+	goto_if_ge RogueHub_ReturnAdventure_48
 	goto RogueHub_ReturnAdventure_6
 
 RogueHub_ReturnAdventure_10:
@@ -125,8 +194,88 @@ RogueHub_ReturnAdventure_10:
 	goto RogueHub_ReturnAdventure_9
 
 RogueHub_ReturnAdventure_13:
-	call Common_EventScript_SaveGame
+	checkitem ITEM_HM01
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_21
 	goto RogueHub_ReturnAdventure_12
+
+RogueHub_ReturnAdventure_16:
+	call Common_EventScript_SaveGame
+	goto RogueHub_ReturnAdventure_15
+
+RogueHub_ReturnAdventure_19:
+	checkitem ITEM_HM05_FLASH
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_26
+	goto RogueHub_ReturnAdventure_18
+
+RogueHub_ReturnAdventure_21:
+	giveitem ITEM_HM01
+	goto RogueHub_ReturnAdventure_12
+
+RogueHub_ReturnAdventure_24:
+	checkitem ITEM_HM06_ROCK_SMASH
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_31
+	goto RogueHub_ReturnAdventure_23
+
+RogueHub_ReturnAdventure_26:
+	giveitem ITEM_HM05_FLASH
+	goto RogueHub_ReturnAdventure_18
+
+RogueHub_ReturnAdventure_29:
+	checkitem ITEM_HM04_STRENGTH
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_36
+	goto RogueHub_ReturnAdventure_28
+
+RogueHub_ReturnAdventure_31:
+	giveitem ITEM_HM06_ROCK_SMASH
+	goto RogueHub_ReturnAdventure_23
+
+RogueHub_ReturnAdventure_34:
+	checkitem ITEM_HM08_DIVE
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_41
+	goto RogueHub_ReturnAdventure_33
+
+RogueHub_ReturnAdventure_36:
+	giveitem ITEM_HM04_STRENGTH
+	goto RogueHub_ReturnAdventure_28
+
+RogueHub_ReturnAdventure_39:
+	checkitem ITEM_HM02_FLY
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_46
+	goto RogueHub_ReturnAdventure_38
+
+RogueHub_ReturnAdventure_41:
+	giveitem ITEM_HM08_DIVE
+	goto RogueHub_ReturnAdventure_33
+
+RogueHub_ReturnAdventure_44:
+	checkitem ITEM_HM07_WATERFALL
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_50
+	goto RogueHub_ReturnAdventure_43
+
+RogueHub_ReturnAdventure_46:
+	giveitem ITEM_HM02_FLY
+	goto RogueHub_ReturnAdventure_38
+
+RogueHub_ReturnAdventure_48:
+	checkitem ITEM_HM03_SURF
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ReturnAdventure_52
+	goto RogueHub_ReturnAdventure_6
+
+RogueHub_ReturnAdventure_50:
+	giveitem ITEM_HM07_WATERFALL
+	goto RogueHub_ReturnAdventure_43
+
+RogueHub_ReturnAdventure_52:
+	giveitem ITEM_HM03_SURF
+	goto RogueHub_ReturnAdventure_6
 
 
 RogueHub_SpeakScott::
@@ -261,6 +410,74 @@ RogueHub_SpeakScott_46:
 	goto RogueHub_SpeakScott_39
 
 
+RogueHub_SpeakBikeShop::
+	lock
+	faceplayer
+	checkitem ITEM_ACRO_BIKE
+	copyvar VAR_0x8000, VAR_RESULT
+	checkitem ITEM_MACH_BIKE
+	copyvar VAR_0x8001, VAR_RESULT
+	compare VAR_0x8000, YES
+	goto_if_eq RogueHub_SpeakBikeShop_2
+	compare VAR_0x8001, YES
+	goto_if_eq RogueHub_SpeakBikeShop_3
+	msgbox RogueHub_SpeakBikeShop_Text_1
+	giveitem ITEM_ACRO_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_2
+RogueHub_SpeakBikeShop_1:
+	release
+	return
+
+RogueHub_SpeakBikeShop_2:
+	bufferitemname STR_VAR_1, ITEM_MACH_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakBikeShop_7
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_3:
+	bufferitemname STR_VAR_1, ITEM_ACRO_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakBikeShop_9
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_7:
+	removeitem ITEM_ACRO_BIKE
+	giveitem ITEM_MACH_BIKE
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_9:
+	removeitem ITEM_MACH_BIKE
+	giveitem ITEM_ACRO_BIKE
+	goto RogueHub_SpeakBikeShop_1
+
+
+RogueHub_SpeakFisherman::
+	lock
+	faceplayer
+	checkitem ITEM_SUPER_ROD
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakFisherman_2
+	msgbox RogueHub_SpeakFisherman_Text_1, MSGBOX_DEFAULT
+	giveitem ITEM_SUPER_ROD
+RogueHub_SpeakFisherman_1:
+	release
+	return
+
+RogueHub_SpeakFisherman_2:
+	msgbox RogueHub_SpeakFisherman_Text_0, MSGBOX_DEFAULT
+	goto RogueHub_SpeakFisherman_1
+
+
+RogueHub_SpeakBank::
+	lock
+	faceplayer
+	msgbox RogueHub_SpeakBank_Text_0
+	release
+	return
+
+
 RogueHub_Sign_AdventureSign::
 	buffernumberstring STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY
 	msgbox RogueHub_Sign_AdventureSign_Text_0, MSGBOX_SIGN
@@ -277,79 +494,23 @@ RogueHub_Sign_ConfigLab::
 	return
 
 
-RogueHub_HideSafari::
-	setmetatile 9, 3, 0x10C, TRUE
-	setmetatile 10, 3, 0x10C, TRUE
-	setmetatile 11, 3, 0x10C, TRUE
-	setmetatile 9, 4, 0x10C, TRUE
-	setmetatile 10, 4, 0x10C, TRUE
-	setmetatile 11, 4, 0x10C, TRUE
-	setmetatile 9, 5, 0x10C, TRUE
-	setmetatile 10, 5, 0x10C, TRUE
-	setmetatile 11, 5, 0x10C, TRUE
-	setmetatile 9, 6, 0x10C, TRUE
-	setmetatile 10, 6, 0x10C, TRUE
-	setmetatile 11, 6, 0x10C, TRUE
-	setmetatile 9, 7, 0x10C, TRUE
-	setmetatile 10, 7, 0x10C, TRUE
-	setmetatile 11, 7, 0x10C, TRUE
-	setmetatile 8, 2, 0x075, TRUE
-	setmetatile 8, 3, 0x075, TRUE
-	setmetatile 8, 4, 0x075, TRUE
-	setmetatile 8, 5, 0x075, TRUE
-	setmetatile 8, 6, 0x075, TRUE
-	setmetatile 8, 7, 0x075, TRUE
-	setmetatile 12, 2, 0x073, TRUE
-	setmetatile 12, 3, 0x073, TRUE
-	setmetatile 12, 4, 0x073, TRUE
-	setmetatile 12, 5, 0x073, TRUE
-	setmetatile 12, 6, 0x073, TRUE
-	setmetatile 12, 7, 0x073, TRUE
-	setmetatile 8, 8, 0x002, FALSE
-	setmetatile 9, 8, 0x002, FALSE
-	setmetatile 10, 8, 0x002, FALSE
-	setmetatile 11, 8, 0x002, FALSE
-	setmetatile 12, 8, 0x002, FALSE
-	setmetatile 0, 2, 0x001, TRUE
-	setmetatile 1, 2, 0x001, TRUE
-	setmetatile 2, 2, 0x001, TRUE
-	setmetatile 3, 2, 0x001, TRUE
-	setmetatile 4, 2, 0x001, TRUE
-	setmetatile 5, 2, 0x001, TRUE
-	setmetatile 6, 2, 0x001, TRUE
-	setmetatile 7, 2, 0x001, TRUE
-	setmetatile 0, 3, 0x001, TRUE
-	setmetatile 1, 3, 0x001, TRUE
-	setmetatile 2, 3, 0x001, TRUE
-	setmetatile 3, 3, 0x001, TRUE
-	setmetatile 4, 3, 0x001, TRUE
-	setmetatile 5, 3, 0x001, TRUE
-	setmetatile 6, 3, 0x001, TRUE
-	setmetatile 7, 3, 0x001, TRUE
-	setmetatile 0, 4, 0x001, TRUE
-	setmetatile 1, 4, 0x001, TRUE
-	setmetatile 2, 4, 0x001, TRUE
-	setmetatile 3, 4, 0x001, TRUE
-	setmetatile 4, 4, 0x001, TRUE
-	setmetatile 5, 4, 0x001, TRUE
-	setmetatile 6, 4, 0x001, TRUE
-	setmetatile 7, 4, 0x001, TRUE
-	setmetatile 0, 5, 0x001, TRUE
-	setmetatile 1, 5, 0x001, TRUE
-	setmetatile 2, 5, 0x001, TRUE
-	setmetatile 3, 5, 0x001, TRUE
-	setmetatile 4, 5, 0x001, TRUE
-	setmetatile 5, 5, 0x001, TRUE
-	setmetatile 6, 5, 0x001, TRUE
-	setmetatile 7, 5, 0x001, TRUE
-	setmetatile 0, 6, 0x001, TRUE
-	setmetatile 1, 6, 0x001, TRUE
-	setmetatile 2, 6, 0x001, TRUE
-	setmetatile 3, 6, 0x001, TRUE
-	setmetatile 4, 6, 0x001, TRUE
-	setmetatile 5, 6, 0x001, TRUE
-	setmetatile 6, 6, 0x001, TRUE
-	setmetatile 7, 6, 0x001, TRUE
+RogueHub_Sign_Safari::
+	msgbox RogueHub_Sign_Safari_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueHub_Sign_Shop::
+	msgbox RogueHub_Sign_Shop_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueHub_Sign_BikeShop::
+	msgbox RogueHub_Sign_BikeShop_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueHub_Sign_Bank::
+	msgbox RogueHub_Sign_Bank_Text_0, MSGBOX_SIGN
 	return
 
 
@@ -435,6 +596,44 @@ RogueHub_SpeakScott_Text_5:
 RogueHub_SpeakScott_Text_6:
 	.string "SCOTT: Good luck CHAMP!$"
 
+RogueHub_SpeakBikeShop_Text_0:
+	.string "Do you want to use the {STR_VAR_1} instead?$"
+
+RogueHub_SpeakBikeShop_Text_1:
+	.string "Finally!\p"
+	.string "You must be this {PLAYER} I've been\n"
+	.string "told about.\p"
+	.string "You seem a bit slower than I expected...\p"
+	.string "I know!\n"
+	.string "I have a couple old BIKE's I've been\l"
+	.string "looked to get rid of!\p"
+	.string "You can have them!$"
+
+RogueHub_SpeakBikeShop_Text_2:
+	.string "On second thought...\n"
+	.string "You look like you're struggling to carry\l"
+	.string "that much.\p"
+	.string "Tell you what. You take that one and if\n"
+	.string "you ever want to swap it out for the\l"
+	.string "other one, let me know$"
+
+RogueHub_SpeakFisherman_Text_0:
+	.string "Hope that SUPER ROD is doing good work\n"
+	.string "for you!$"
+
+RogueHub_SpeakFisherman_Text_1:
+	.string "Oh you're that TRAINER I keep hearing\n"
+	.string "about!\p"
+	.string "You know, if you find yourself short on\n"
+	.string "WATER POKéMON you can always use a\l"
+	.string "FISHING ROD\p"
+	.string "What!?\n"
+	.string "You don't have one!\p"
+	.string "Here, you should take this one!$"
+
+RogueHub_SpeakBank_Text_0:
+	.string "TODO$"
+
 RogueHub_Sign_AdventureSign_Text_0:
 	.string "Adventures await beyond this point...\p"
 	.string "Furthest Progress:\n"
@@ -445,3 +644,15 @@ RogueHub_Sign_ProfLab_Text_0:
 
 RogueHub_Sign_ConfigLab_Text_0:
 	.string "CONFIG LAB$"
+
+RogueHub_Sign_Safari_Text_0:
+	.string "SAFARI ZONE$"
+
+RogueHub_Sign_Shop_Text_0:
+	.string "OUTDOOR MART$"
+
+RogueHub_Sign_BikeShop_Text_0:
+	.string "BIKE SHOP$"
+
+RogueHub_Sign_Bank_Text_0:
+	.string "BANK$"

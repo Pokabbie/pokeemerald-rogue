@@ -75,7 +75,7 @@ script Rogue_Shop_Utilty
 {    
     lock
     faceplayer
-    message("Welcome to the Utility Shop!")
+    message("Welcome to the UTILITY Shop!")
     waitmessage
 
     if(flag(FLAG_ROGUE_RUN_ACTIVE))
@@ -101,6 +101,10 @@ script Rogue_Shop_Utilty
             pokemart(Rogue_Shop_Utility4)
         case 5:
             pokemart(Rogue_Shop_Utility5)
+
+        case 8:
+            pokemart(Rogue_Shop_Utility8)
+
         default:
             pokemart(Rogue_Shop_Utility6)
     }
@@ -132,6 +136,7 @@ mart Rogue_Shop_Utility2 {
     ITEM_POTION
     ITEM_SUPER_POTION
     ITEM_HYPER_POTION
+    ITEM_ETHER
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -149,6 +154,8 @@ mart Rogue_Shop_Utility3 {
     ITEM_SUPER_POTION
     ITEM_HYPER_POTION
     ITEM_MAX_POTION
+    ITEM_ETHER
+    ITEM_MAX_ETHER
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -169,6 +176,9 @@ mart Rogue_Shop_Utility4 {
     ITEM_HYPER_POTION
     ITEM_MAX_POTION
     ITEM_FULL_RESTORE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -189,6 +199,10 @@ mart Rogue_Shop_Utility5 {
     ITEM_HYPER_POTION
     ITEM_MAX_POTION
     ITEM_FULL_RESTORE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
+    ITEM_MAX_ELIXIR
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -215,6 +229,42 @@ mart Rogue_Shop_Utility6 {
     ITEM_HYPER_POTION
     ITEM_MAX_POTION
     ITEM_FULL_RESTORE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
+    ITEM_MAX_ELIXIR
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_NET_BALL
+    ITEM_DIVE_BALL
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_TIMER_BALL
+    ITEM_LUXURY_BALL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_PARALYZE_HEAL
+    ITEM_BURN_HEAL
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_ICE_HEAL
+}
+
+// Skip Shop 7
+
+mart Rogue_Shop_Utility8 {
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
+    ITEM_MAX_ELIXIR
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -243,8 +293,6 @@ script Rogue_Shop_TMs
     message("Welcome to the TM Shop!")
     waitmessage
 
-
-
     if(flag(FLAG_ROGUE_RUN_ACTIVE))
     {
         copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_DIFFICULTY)
@@ -257,23 +305,112 @@ script Rogue_Shop_TMs
     switch(var(VAR_SHOP_DIFFICULTY))
     {
         case 0:
-            pokemart(Rogue_Shop_Utility0)
         case 1:
-            pokemart(Rogue_Shop_Utility1)
+            pokemart(Rogue_Shop_TM0)
         case 2:
-            pokemart(Rogue_Shop_Utility2)
         case 3:
-            pokemart(Rogue_Shop_Utility3)
-        case 4:
-            pokemart(Rogue_Shop_Utility4)
-        case 5:
-            pokemart(Rogue_Shop_Utility5)
+            pokemart(Rogue_Shop_TM2)
         default:
-            pokemart(Rogue_Shop_Utility6)
+            pokemart(Rogue_Shop_TM4)
     }
 
     msgbox("Come again soon!")
     release
+}
+
+mart Rogue_Shop_TM0 {
+    ITEM_TM12
+    ITEM_TM34
+    ITEM_TM09
+    ITEM_TM05
+    ITEM_TM17
+    ITEM_TM20
+}
+
+mart Rogue_Shop_TM2 {
+    ITEM_TM12
+    ITEM_TM41
+    ITEM_TM46
+    ITEM_TM24
+    ITEM_TM34
+    ITEM_TM08
+    ITEM_TM31
+    ITEM_TM35
+    ITEM_TM40
+    ITEM_TM30
+    ITEM_TM09
+    ITEM_TM22
+    ITEM_TM28
+    ITEM_TM07
+    ITEM_TM05
+    ITEM_TM10
+    ITEM_TM17
+    ITEM_TM20
+    ITEM_TM21
+    ITEM_TM27
+    ITEM_TM43
+    ITEM_TM45
+    ITEM_TM36
+    ITEM_TM16
+    ITEM_TM33
+    ITEM_TM44
+    ITEM_TM48
+    ITEM_TM39
+    ITEM_TM23
+    ITEM_TM03
+}
+
+mart Rogue_Shop_TM4 {
+    ITEM_TM12
+    ITEM_TM41
+    ITEM_TM46
+    ITEM_TM49
+    ITEM_TM02
+    ITEM_TM24
+    ITEM_TM25
+    ITEM_TM34
+    ITEM_TM01
+    ITEM_TM08
+    ITEM_TM31
+    ITEM_TM11
+    ITEM_TM35
+    ITEM_TM38
+    ITEM_TM50
+    ITEM_TM40
+    ITEM_TM30
+    ITEM_TM09
+    ITEM_TM19
+    ITEM_TM22
+    ITEM_TM26
+    ITEM_TM28
+    ITEM_TM07
+    ITEM_TM13
+    ITEM_TM14
+    ITEM_TM05
+    ITEM_TM10
+    ITEM_TM15
+    ITEM_TM17
+    ITEM_TM20
+    ITEM_TM21
+    ITEM_TM27
+    ITEM_TM32
+    ITEM_TM42
+    ITEM_TM43
+    ITEM_TM45
+    ITEM_TM06
+    ITEM_TM36
+    ITEM_TM04
+    ITEM_TM16
+    ITEM_TM29
+    ITEM_TM33
+    ITEM_TM44
+    ITEM_TM48
+    ITEM_TM37
+    ITEM_TM39
+    ITEM_TM23
+    ITEM_TM47
+    ITEM_TM03
+    ITEM_TM18
 }
 
 

@@ -60,6 +60,7 @@ Rogue_Shop_Utilty_1:
 	case 3, Rogue_Shop_Utilty_10
 	case 4, Rogue_Shop_Utilty_11
 	case 5, Rogue_Shop_Utilty_12
+	case 8, Rogue_Shop_Utilty_13
 	pokemart Rogue_Shop_Utility6
 Rogue_Shop_Utilty_5:
 	msgbox Rogue_Shop_Utilty_Text_1
@@ -94,6 +95,10 @@ Rogue_Shop_Utilty_12:
 	pokemart Rogue_Shop_Utility5
 	goto Rogue_Shop_Utilty_5
 
+Rogue_Shop_Utilty_13:
+	pokemart Rogue_Shop_Utility8
+	goto Rogue_Shop_Utilty_5
+
 
 	.align 2
 Rogue_Shop_Utility0:
@@ -121,6 +126,7 @@ Rogue_Shop_Utility2:
 	.2byte ITEM_POTION
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ETHER
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -139,6 +145,8 @@ Rogue_Shop_Utility3:
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -160,6 +168,9 @@ Rogue_Shop_Utility4:
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -181,6 +192,10 @@ Rogue_Shop_Utility5:
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -208,6 +223,41 @@ Rogue_Shop_Utility6:
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Rogue_Shop_Utility8:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -239,12 +289,10 @@ Rogue_Shop_TMs::
 Rogue_Shop_TMs_1:
 	switch VAR_0x8000
 	case 0, Rogue_Shop_TMs_7
-	case 1, Rogue_Shop_TMs_8
-	case 2, Rogue_Shop_TMs_9
-	case 3, Rogue_Shop_TMs_10
-	case 4, Rogue_Shop_TMs_11
-	case 5, Rogue_Shop_TMs_12
-	pokemart Rogue_Shop_Utility6
+	case 1, Rogue_Shop_TMs_7
+	case 2, Rogue_Shop_TMs_8
+	case 3, Rogue_Shop_TMs_8
+	pokemart Rogue_Shop_TM4
 Rogue_Shop_TMs_5:
 	msgbox Rogue_Shop_Utilty_Text_1
 	release
@@ -255,29 +303,111 @@ Rogue_Shop_TMs_2:
 	goto Rogue_Shop_TMs_1
 
 Rogue_Shop_TMs_7:
-	pokemart Rogue_Shop_Utility0
+	pokemart Rogue_Shop_TM0
 	goto Rogue_Shop_TMs_5
 
 Rogue_Shop_TMs_8:
-	pokemart Rogue_Shop_Utility1
+	pokemart Rogue_Shop_TM2
 	goto Rogue_Shop_TMs_5
 
-Rogue_Shop_TMs_9:
-	pokemart Rogue_Shop_Utility2
-	goto Rogue_Shop_TMs_5
 
-Rogue_Shop_TMs_10:
-	pokemart Rogue_Shop_Utility3
-	goto Rogue_Shop_TMs_5
+	.align 2
+Rogue_Shop_TM0:
+	.2byte ITEM_TM12
+	.2byte ITEM_TM34
+	.2byte ITEM_TM09
+	.2byte ITEM_TM05
+	.2byte ITEM_TM17
+	.2byte ITEM_TM20
+	.2byte ITEM_NONE
 
-Rogue_Shop_TMs_11:
-	pokemart Rogue_Shop_Utility4
-	goto Rogue_Shop_TMs_5
+	.align 2
+Rogue_Shop_TM2:
+	.2byte ITEM_TM12
+	.2byte ITEM_TM41
+	.2byte ITEM_TM46
+	.2byte ITEM_TM24
+	.2byte ITEM_TM34
+	.2byte ITEM_TM08
+	.2byte ITEM_TM31
+	.2byte ITEM_TM35
+	.2byte ITEM_TM40
+	.2byte ITEM_TM30
+	.2byte ITEM_TM09
+	.2byte ITEM_TM22
+	.2byte ITEM_TM28
+	.2byte ITEM_TM07
+	.2byte ITEM_TM05
+	.2byte ITEM_TM10
+	.2byte ITEM_TM17
+	.2byte ITEM_TM20
+	.2byte ITEM_TM21
+	.2byte ITEM_TM27
+	.2byte ITEM_TM43
+	.2byte ITEM_TM45
+	.2byte ITEM_TM36
+	.2byte ITEM_TM16
+	.2byte ITEM_TM33
+	.2byte ITEM_TM44
+	.2byte ITEM_TM48
+	.2byte ITEM_TM39
+	.2byte ITEM_TM23
+	.2byte ITEM_TM03
+	.2byte ITEM_NONE
 
-Rogue_Shop_TMs_12:
-	pokemart Rogue_Shop_Utility5
-	goto Rogue_Shop_TMs_5
-
+	.align 2
+Rogue_Shop_TM4:
+	.2byte ITEM_TM12
+	.2byte ITEM_TM41
+	.2byte ITEM_TM46
+	.2byte ITEM_TM49
+	.2byte ITEM_TM02
+	.2byte ITEM_TM24
+	.2byte ITEM_TM25
+	.2byte ITEM_TM34
+	.2byte ITEM_TM01
+	.2byte ITEM_TM08
+	.2byte ITEM_TM31
+	.2byte ITEM_TM11
+	.2byte ITEM_TM35
+	.2byte ITEM_TM38
+	.2byte ITEM_TM50
+	.2byte ITEM_TM40
+	.2byte ITEM_TM30
+	.2byte ITEM_TM09
+	.2byte ITEM_TM19
+	.2byte ITEM_TM22
+	.2byte ITEM_TM26
+	.2byte ITEM_TM28
+	.2byte ITEM_TM07
+	.2byte ITEM_TM13
+	.2byte ITEM_TM14
+	.2byte ITEM_TM05
+	.2byte ITEM_TM10
+	.2byte ITEM_TM15
+	.2byte ITEM_TM17
+	.2byte ITEM_TM20
+	.2byte ITEM_TM21
+	.2byte ITEM_TM27
+	.2byte ITEM_TM32
+	.2byte ITEM_TM42
+	.2byte ITEM_TM43
+	.2byte ITEM_TM45
+	.2byte ITEM_TM06
+	.2byte ITEM_TM36
+	.2byte ITEM_TM04
+	.2byte ITEM_TM16
+	.2byte ITEM_TM29
+	.2byte ITEM_TM33
+	.2byte ITEM_TM44
+	.2byte ITEM_TM48
+	.2byte ITEM_TM37
+	.2byte ITEM_TM39
+	.2byte ITEM_TM23
+	.2byte ITEM_TM47
+	.2byte ITEM_TM03
+	.2byte ITEM_TM18
+	.2byte ITEM_NONE
 
 Rogue_Shop_Specials::
 	return
@@ -783,7 +913,7 @@ Rogue_PostBattle_Internal_Text_0:
 	.string "Good luck with your next battle!$"
 
 Rogue_Shop_Utilty_Text_0:
-	.string "Welcome to the Utility Shop!$"
+	.string "Welcome to the UTILITY Shop!$"
 
 Rogue_Shop_Utilty_Text_1:
 	.string "Come again soon!$"
