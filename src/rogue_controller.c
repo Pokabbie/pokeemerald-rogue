@@ -29,22 +29,22 @@
 // Gym leaders
 #define ROOM_IDX_BOSS0      3
 #define ROOM_IDX_BOSS1      6
-#define ROOM_IDX_BOSS2      10
-#define ROOM_IDX_BOSS3      14
-#define ROOM_IDX_BOSS4      18
-#define ROOM_IDX_BOSS5      22
-#define ROOM_IDX_BOSS6      26
-#define ROOM_IDX_BOSS7      30
+#define ROOM_IDX_BOSS2      9
+#define ROOM_IDX_BOSS3      12
+#define ROOM_IDX_BOSS4      15
+#define ROOM_IDX_BOSS5      18
+#define ROOM_IDX_BOSS6      21
+#define ROOM_IDX_BOSS7      24
 
 // Elite 4
-#define ROOM_IDX_BOSS8      35
-#define ROOM_IDX_BOSS9      40
-#define ROOM_IDX_BOSS10     45
-#define ROOM_IDX_BOSS11     50
+#define ROOM_IDX_BOSS8      28
+#define ROOM_IDX_BOSS9      32
+#define ROOM_IDX_BOSS10     34
+#define ROOM_IDX_BOSS11     38
 
 // Champions
-#define ROOM_IDX_BOSS12     55
-#define ROOM_IDX_BOSS13     60
+#define ROOM_IDX_BOSS12     42
+#define ROOM_IDX_BOSS13     46
 
 #define ROOM_BOSS_GYM_START             ROOM_IDX_BOSS0
 #define ROOM_BOSS_GYM_END               ROOM_IDX_BOSS7
