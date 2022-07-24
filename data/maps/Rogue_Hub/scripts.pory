@@ -440,7 +440,7 @@ script RogueHub_SpeakBikeShop
     if(var(VAR_0x8000) == YES) // Has ACRO bike
     {
         bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
-        msgbox("Do you want to use the {STR_VAR_1} instead?", MSGBOX_YESNO)
+        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {
@@ -451,7 +451,7 @@ script RogueHub_SpeakBikeShop
     elif(var(VAR_0x8001) == YES) // Has MACH bike
     {
         bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
-        msgbox("Do you want to use the {STR_VAR_1} instead?", MSGBOX_YESNO)
+        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {
@@ -461,7 +461,7 @@ script RogueHub_SpeakBikeShop
     }
     else
     {
-        msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKE's I've been looked to get rid of!\pYou can have them!"))
+        msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
 
         giveitem(ITEM_ACRO_BIKE)
 

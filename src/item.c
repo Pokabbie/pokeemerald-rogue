@@ -15,6 +15,9 @@
 #include "constants/items.h"
 #include "constants/hold_effects.h"
 
+#include "data.h"
+#include "party_menu.h"
+
 extern u16 gUnknown_0203CF30[];
 
 // this file's functions
@@ -85,23 +88,51 @@ void SetBagItemsPointers(void)
 void CopyItemName(u16 itemId, u8 *dst)
 {
     StringCopy(dst, ItemId_GetName(itemId));
+
+    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+        u16 moveId = ItemIdToBattleMoveId(itemId);
+
+        if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+        {
+            StringCopy(dst, gText_HMPrefix);
+        }
+        else
+        {
+            StringCopy(dst, gText_TMPrefix);
+        }
+
+        StringAppend(dst, gMoveNames[moveId]);
+    }
 }
 
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
 {
-    if (itemId == ITEM_POKE_BALL)
-    {
-        if (quantity < 2)
-            StringCopy(dst, ItemId_GetName(ITEM_POKE_BALL));
-        else
-            StringCopy(dst, gText_PokeBalls);
-    }
-    else
+    //if (itemId == ITEM_POKE_BALL)
+    //{
+    //    if (quantity < 2)
+    //        StringCopy(dst, ItemId_GetName(ITEM_POKE_BALL));
+    //    else
+    //        StringCopy(dst, gText_PokeBalls);
+    //}
+    //else
     {
         if (itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
             GetBerryCountString(dst, gBerries[itemId - FIRST_BERRY_INDEX].name, quantity);
         else
-            StringCopy(dst, ItemId_GetName(itemId));
+        {
+            if(quantity == 1)
+            {
+                CopyItemName(itemId, dst);
+            }
+            else
+            {
+                ConvertUIntToDecimalStringN(dst, quantity, STR_CONV_MODE_LEFT_ALIGN, 2);
+                dst = StringAppend(dst, gText_Space);
+                CopyItemName(itemId, dst);
+                StringAppend(dst, gText_Plural);
+            }
+        }
     }
 }
 

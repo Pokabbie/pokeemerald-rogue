@@ -597,7 +597,8 @@ RogueHub_SpeakScott_Text_6:
 	.string "SCOTT: Good luck CHAMP!$"
 
 RogueHub_SpeakBikeShop_Text_0:
-	.string "Do you want to use the {STR_VAR_1} instead?$"
+	.string "Do you want to swap to the\n"
+	.string "{STR_VAR_1}?$"
 
 RogueHub_SpeakBikeShop_Text_1:
 	.string "Finally!\p"
@@ -605,8 +606,8 @@ RogueHub_SpeakBikeShop_Text_1:
 	.string "told about.\p"
 	.string "You seem a bit slower than I expected...\p"
 	.string "I know!\n"
-	.string "I have a couple old BIKE's I've been\l"
-	.string "looked to get rid of!\p"
+	.string "I have a couple old BIKEs I've been\l"
+	.string "looking to get rid of.\p"
 	.string "You can have them!$"
 
 RogueHub_SpeakBikeShop_Text_2:
