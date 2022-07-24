@@ -421,7 +421,7 @@ static void BuildMultiPartnerRoomStartMenu(void)
 
 static void ShowSafariBallsWindow(void)
 {
-    sRogueRunWindowId = AddWindow(&sSafariBallsWindowTemplate);
+    sSafariBallsWindowId = AddWindow(&sSafariBallsWindowTemplate);
     PutWindowTilemap(sSafariBallsWindowId);
     DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
     ConvertIntToDecimalStringN(gStringVar1, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
