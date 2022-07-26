@@ -141,7 +141,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
         u8 targetLevel = CalculatePlayerLevel();
         u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
-        if(currentLevel != 100)
+        if(currentLevel != MAX_LEVEL)
         {
             u8 growthRate = gBaseStats[species].growthRate; // Was using GROWTH_FAST?
             u32 currLvlExp;
@@ -153,9 +153,9 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             if(currentLevel < targetLevel)
             {
                 s16 delta = targetLevel - currentLevel;
-                if(delta < 1)
+                if(delta == 1)
                 {
-                    desiredExpPerc = 34;
+                    desiredExpPerc = 50;
                 }
                 else if(delta < 6)
                 {
@@ -172,7 +172,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             {
                 if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
                 {
-                    desiredExpPerc = 25;
+                    desiredExpPerc = 34;
                 }
                 else
                 {
@@ -1733,7 +1733,15 @@ static u8 CalculateWildLevel(void)
 {
     if(GetSafariZoneFlag())
     {
-        return GetLeadMonLevel();
+        if((Random() % 6) == 0)
+        {
+            // Occasionally throw in starter level mons
+            return 7;
+        }
+        else
+        {
+            return GetLeadMonLevel();
+        }
     }
 
     return CalculatePlayerLevel() - 7;
