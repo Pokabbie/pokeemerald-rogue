@@ -338,14 +338,10 @@ RogueHub_SpeakScott_16:
 	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	goto_if_ne RogueHub_SpeakScott_40
 RogueHub_SpeakScott_39:
-	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
-	setvar VAR_TEMP_0, 1
-	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq RogueHub_SpeakScott_43
-	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-RogueHub_SpeakScott_42:
-	setflag FLAG_ROGUE_LEFT_ON_RUN
-	warp MAP_ROGUE_HUB_TRANSITION, 0
+	call Common_EventScript_SaveGame
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakScott_42
+	msgbox RogueHub_SpeakScott_Text_8, MSGBOX_DEFAULT
 	goto RogueHub_SpeakScott_1
 
 RogueHub_SpeakScott_13:
@@ -401,16 +397,27 @@ RogueHub_SpeakScott_40:
 	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
 	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakScott_46
+	goto_if_eq RogueHub_SpeakScott_45
 	goto RogueHub_SpeakScott_39
 
-RogueHub_SpeakScott_43:
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
-	goto RogueHub_SpeakScott_42
+RogueHub_SpeakScott_42:
+	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
+	setvar VAR_TEMP_0, 1
+	compare VAR_LITTLEROOT_INTRO_STATE, 4
+	goto_if_eq RogueHub_SpeakScott_48
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+RogueHub_SpeakScott_47:
+	setflag FLAG_ROGUE_LEFT_ON_RUN
+	warp MAP_ROGUE_HUB_TRANSITION, 0
+	goto RogueHub_SpeakScott_1
 
-RogueHub_SpeakScott_46:
+RogueHub_SpeakScott_45:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	goto RogueHub_SpeakScott_39
+
+RogueHub_SpeakScott_48:
+	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	goto RogueHub_SpeakScott_47
 
 
 RogueHub_SpeakBikeShop::
@@ -619,6 +626,10 @@ RogueHub_SpeakScott_Text_6:
 
 RogueHub_SpeakScott_Text_7:
 	.string "SCOTT: Good luck CHAMP!$"
+
+RogueHub_SpeakScott_Text_8:
+	.string "SCOTT: OK. Come chat to me once you're\n"
+	.string "ready.$"
 
 RogueHub_SpeakBikeShop_Text_0:
 	.string "Do you want to swap to the\n"

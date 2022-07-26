@@ -142,34 +142,36 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
         if(currentLevel != 100)
         {
-            // Could base of gBaseStats[species].growthRate?
-            u32 currLvlExp = gExperienceTables[GROWTH_FAST][currentLevel];
-            u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
-            u32 lvlExp = (nextLvlExp - currLvlExp);
+            u8 growthRate = gBaseStats[species].growthRate; // Was using GROWTH_FAST?
+            u32 currLvlExp;
+            u32 nextLvlExp;
+            u32 lvlExp;
 
             s32 desiredExpPerc = 0;
 
             if(currentLevel < targetLevel)
             {
-                u8 delta = targetLevel - currentLevel;
-                s32 desiredExpGain = 0;
-                if(delta <= 3)
+                s16 delta = targetLevel - currentLevel;
+                if(delta < 1)
                 {
-                    desiredExpPerc = 50;
+                    desiredExpPerc = 34;
+                }
+                else if(delta < 6)
+                {
+                    // Give up to 5 levels at once
+                    desiredExpPerc = 100 * min(3, delta - 1);
                 }
                 else
                 {
-                    // Give faster levels to catch up
-                    delta = (delta - 3);
-                    desiredExpPerc = 75 * delta;
+                    // Give up to 10 levels at once
+                    desiredExpPerc = 100 * min(10, delta - 1);
                 }
             }
             else
             {
-                // If flag not set, just use normal EXP calculations (For now)
                 if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
                 {
-                    desiredExpPerc = 20;
+                    desiredExpPerc = 25;
                 }
                 else
                 {
@@ -180,8 +182,46 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
             if(desiredExpPerc != 0)
             {
-                // If default calc would give us more exp, use that instead
-                *expGain = max(*expGain, (lvlExp * desiredExpPerc) / 100);
+                // Pretty sure expGain get's casted to a u16 at some point so there's a limit to how much exp we can give
+                s16 actualExpGain = 0;
+                s16 lastExpGain = 0;
+
+                //desiredExpPerc = 100;
+
+                // Give levels
+                while(desiredExpPerc > 0)
+                {
+                    currLvlExp = gExperienceTables[growthRate][currentLevel];
+                    nextLvlExp = gExperienceTables[growthRate][currentLevel + 1];
+                    lvlExp = (nextLvlExp - currLvlExp);
+
+                    if(desiredExpPerc >= 100)
+                    {
+                        actualExpGain += lvlExp;
+                        desiredExpPerc -= 100;
+
+                        ++currentLevel;
+                    }
+                    else
+                    {
+                        s32 actualDelta = (lvlExp * desiredExpPerc) / 100;
+
+                        // Give leftovers
+                        actualExpGain += actualDelta;
+                        desiredExpPerc = 0;
+                    }
+
+                    if(actualExpGain < lastExpGain)
+                    {
+                        // We must have overflowed :O
+                        actualExpGain = 32767; // Max of a s16
+                        break;
+                    }
+
+                    lastExpGain = actualExpGain;
+                }
+
+                *expGain = actualExpGain;
             }
             else
             {

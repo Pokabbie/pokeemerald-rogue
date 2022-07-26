@@ -411,22 +411,30 @@ script RogueHub_SpeakScott
                 }
             }
 
-            msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
-            setvar(VAR_JUST_LEFT, 1)
-
-            if(var(VAR_ROGUE_INTRO_STATE) == 4)
+            call(Common_EventScript_SaveGame)
+            if(var(VAR_RESULT) == YES)
             {
-                // First adventure
-                setvar(VAR_ROGUE_INTRO_STATE, 5)
+                msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
+                setvar(VAR_JUST_LEFT, 1)
+
+                if(var(VAR_ROGUE_INTRO_STATE) == 4)
+                {
+                    // First adventure
+                    setvar(VAR_ROGUE_INTRO_STATE, 5)
+                }
+                else
+                {
+                    // Normal adventure
+                    setvar(VAR_ROGUE_INTRO_STATE, 6)
+                }
+
+                setflag(FLAG_ROGUE_LEFT_ON_RUN)
+                warp(MAP_ROGUE_HUB_TRANSITION, 0)
             }
             else
             {
-                // Normal adventure
-                setvar(VAR_ROGUE_INTRO_STATE, 6)
+                msgbox(format("SCOTT: OK. Come chat to me once you're ready."), MSGBOX_DEFAULT)
             }
-
-            setflag(FLAG_ROGUE_LEFT_ON_RUN)
-            warp(MAP_ROGUE_HUB_TRANSITION, 0)
         }
     }
 

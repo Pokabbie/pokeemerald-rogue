@@ -3398,15 +3398,19 @@ static void Cmd_getexp(void)
                     //    firstExpGained = FALSE;
                     //}
 
-                    //if(gBattleMoveDamage != 0)
-                    //{
-                    //    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
-                    //    // buffer 'gained' or 'gained a boosted'
-                    //    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    //    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
-//
-                    //    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
-                    //}
+                    // Only display EXP message if not EXP All
+                    if(!Rogue_ForceExpAll())
+                    {
+                        if(gBattleMoveDamage != 0)
+                        {
+                            PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
+                            // buffer 'gained' or 'gained a boosted'
+                            PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                            PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+
+                            PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        }
+                    }
 
                     // RogueNote: Remove EVs?
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
