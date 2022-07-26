@@ -74,6 +74,7 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueSaveData = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
+static bool8 IsBossRoom(u16 roomIdx);
 
 static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
@@ -276,6 +277,14 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         // Heal up to 1/2 health and remove status effect
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_STATUS, &statusAilment);
+    }
+}
+
+void Rogue_ModifyBattleWaitTime(u16* waitTime)
+{
+    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx))
+    {
+        *waitTime = *waitTime / 4;
     }
 }
 
