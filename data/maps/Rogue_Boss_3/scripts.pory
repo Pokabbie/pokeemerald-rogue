@@ -16,7 +16,7 @@ script Rogue_Battle_Boss3
 
     msgbox(format("FLANNERY: A new challenger!"))
     
-    setweather(WEATHER_SUNNY_CLOUDS)
+    setweather(WEATHER_DROUGHT)
     doweather
 
     applymovement(BOSS_NPC, BossToFightBoss3)
