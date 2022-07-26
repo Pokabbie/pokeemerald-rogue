@@ -22,7 +22,7 @@ Rogue_RetireFromRun_1:
 	return
 
 Rogue_RetireFromRun_2:
-	warp MAP_ROGUE_HUB_TRANSITION, 29, 7
+	warp MAP_ROGUE_HUB, 29, 7
 	goto Rogue_RetireFromRun_1
 
 

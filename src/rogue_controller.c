@@ -280,11 +280,22 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
+void Rogue_ModifyBattleWinnings(u32* money)
+{
+    if(Rogue_IsRunActive())
+    {
+        if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        {
+            *money = *money / 3;
+        }
+    }
+}
+
 void Rogue_ModifyBattleWaitTime(u16* waitTime)
 {
     if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx))
     {
-        *waitTime = *waitTime / 4;
+        *waitTime = *waitTime / 8;
     }
 }
 
@@ -419,7 +430,9 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_ROGUE_EXP_ALL);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
+    FlagClear(FLAG_ROGUE_EASY_ITEMS);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -1434,6 +1447,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     u16 species;
     u8 level;
     u8 fixedIV;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
     u16 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
@@ -1468,21 +1482,26 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     }
 
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
-    level = CalculateTrainerLevel(trainerNum) - 1;
+    level = CalculateTrainerLevel(trainerNum);
 
+    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         fixedIV = MAX_PER_STAT_IVS;
     else
-        fixedIV = 0;//isBoss ? 11 : 0;
+        fixedIV = isBoss ? 11 : 0;
 
-    if(!isBoss)
+    if(!isBoss || difficultyLevel < 4)
     {
+        // Team average is something like -2, -1, -1, 0
+        level--;
+
         if(monIdx == 0)
             level--;
-    }
 
-    if(monIdx == totalMonCount - 1)
-        level++;
+        if(level != 100 && monIdx == totalMonCount - 1)
+            level++;
+    }
 
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -1510,6 +1529,17 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
                 SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[preset->moves[i]].pp);
             }
         }
+
+        //if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        //{
+        //    for (i = 0; i < MAX_MON_MOVES; i++)
+        //    {
+        //        if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
+        //        {
+        //            // TODO - Teach some other move
+        //        }
+        //    }
+        //}
     }
 
     SeedRogueRng(startSeed);
@@ -1791,7 +1821,15 @@ static bool8 RandomChanceItem()
     else
     {
         u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-        chance = 75 - 5 * difficultyLevel;
+        
+        if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        {
+            chance = 75 - 5 * difficultyLevel;
+        }
+        else
+        {
+            chance = 54 - 4 * difficultyLevel;
+        }
     }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
@@ -1799,8 +1837,17 @@ static bool8 RandomChanceItem()
 
 static bool8 RandomChanceBerry()
 {
+    u8 chance;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u8 chance = 95 - 7 * difficultyLevel;
+
+    if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
+    {
+        chance = 95 - 7 * difficultyLevel;
+    }
+    else
+    {
+        chance = 70 - 5 * difficultyLevel;
+    }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
 }

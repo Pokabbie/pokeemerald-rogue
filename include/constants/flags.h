@@ -663,8 +663,8 @@
 // RogueNote: Flag block 2
 #define FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE  0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
+#define FLAG_ROGUE_EASY_TRAINERS             0x266
+#define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
