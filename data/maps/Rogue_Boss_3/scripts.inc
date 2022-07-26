@@ -10,7 +10,7 @@ Rogue_Battle_Boss3::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss3
 	waitmovement 0
 	msgbox Rogue_Battle_Boss3_Text_0
-	setweather WEATHER_SUNNY_CLOUDS
+	setweather WEATHER_DROUGHT
 	doweather
 	applymovement 5, BossToFightBoss3
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss3
