@@ -139,6 +139,16 @@ bool8 Rogue_ForceExpAll(void)
     return FlagGet(FLAG_ROGUE_EXP_ALL);
 }
 
+bool8 Rogue_FastBattleAnims(void)
+{
+    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx))
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -300,7 +310,7 @@ void Rogue_ModifyBattleWinnings(u32* money)
 
 void Rogue_ModifyBattleWaitTime(u16* waitTime)
 {
-    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx))
+    if(Rogue_FastBattleAnims())
     {
         *waitTime = *waitTime / 8;
     }
@@ -1669,7 +1679,7 @@ static void RandomiseWildEncounters(void)
     }
 
     gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
-    gRogueRun.fishingEncounters[0] = SPECIES_FEEBAS;
+    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
 }
 
 static void RandomiseSafariWildEncounters(void)
@@ -1771,7 +1781,7 @@ static void RandomiseSafariWildEncounters(void)
     }
 
     gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
-    gRogueRun.fishingEncounters[0] = SPECIES_FEEBAS;
+    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
 }
 
 static void ResetTrainerBattles(void)

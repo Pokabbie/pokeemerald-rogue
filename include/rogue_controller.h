@@ -5,6 +5,7 @@ void RemoveAnyFaintedMons(void);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
+bool8 Rogue_FastBattleAnims(void);
 void Rogue_ModifyBattleWaitTime(u16* waitTime);
 void Rogue_ModifyBattleWinnings(u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
