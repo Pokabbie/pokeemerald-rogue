@@ -82,6 +82,7 @@ EWRAM_DATA struct RogueHubData gRogueHubData = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
 static bool8 IsBossRoom(u16 roomIdx);
+static bool8 IsSpecialEncounterRoom(void);
 
 static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
@@ -141,7 +142,7 @@ bool8 Rogue_ForceExpAll(void)
 
 bool8 Rogue_FastBattleAnims(void)
 {
-    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx))
+    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx) && !IsSpecialEncounterRoom())
     {
         return TRUE;
     }
