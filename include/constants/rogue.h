@@ -3,6 +3,12 @@
 
 #define ROGUE_DEBUG
 
+// Unfinished feature (tl;dr ran save location as we need to store party and bag starting states)
+//#define ROGUE_SUPPORT_QUICK_SAVE
+
+// It looks like file.c:line: size of array `id' is negative
+#define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
+
 #define ROGUE_ROUTE_FIELD           0
 #define ROGUE_ROUTE_FOREST          1
 #define ROGUE_ROUTE_CAVE            2
@@ -28,7 +34,25 @@ struct RogueHubData
 {
     u32 money;
     u16 registeredItem;
+    //struct Pokemon playerParty[PARTY_SIZE];
+    //struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    //struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    //struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    //struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    //struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
 };
+
+// Can at most be 384 bytes
+struct RogueSaveData // 27 Bytes
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u32 rngSeed;
+    struct RogueRunData runData;
+    struct RogueHubData hubData;
+#endif
+};
+
+ROGUE_STATIC_ASSERT(sizeof(struct RogueSaveData) <= 384, RogueSaveDataSize);
 
 struct RogueRouteMap
 {

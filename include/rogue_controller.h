@@ -14,9 +14,13 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon);
 bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);
 
+
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);
 void Rogue_SetDefaultOptions(void);
+void Rogue_OnSaveGame(void);
+void Rogue_OnLoadGame(void);
+bool8 Rogue_OnProcessPlayerFieldInput(void);
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);

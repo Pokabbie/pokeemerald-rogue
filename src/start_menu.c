@@ -65,7 +65,8 @@ enum
     MENU_ACTION_PLAYER_LINK,
     MENU_ACTION_REST_FRONTIER,
     MENU_ACTION_RETIRE_FRONTIER,
-    MENU_ACTION_PYRAMID_BAG
+    MENU_ACTION_PYRAMID_BAG,
+    MENU_ACTION_QUICK_SAVE,
 };
 
 // Save status
@@ -107,6 +108,7 @@ static bool8 StartMenuSafariZoneRetireCallback(void);
 static bool8 StartMenuLinkModePlayerNameCallback(void);
 static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
+static bool8 StartMenuQuickSaveCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -118,6 +120,7 @@ static bool8 HandleStartMenuInput(void);
 
 // Save dialog callbacks
 static u8 SaveConfirmSaveCallback(void);
+static u8 SaveForceSaveCallback(void);
 static u8 SaveYesNoCallback(void);
 static u8 SaveConfirmInputCallback(void);
 static u8 SaveFileExistsCallback(void);
@@ -177,7 +180,8 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_PLAYER_LINK]     = {gText_MenuPlayer,  {.u8_void = StartMenuLinkModePlayerNameCallback}},
     [MENU_ACTION_REST_FRONTIER]   = {gText_MenuRest,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,  {.u8_void = StartMenuBattlePyramidRetireCallback}},
-    [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}}
+    [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
+    [MENU_ACTION_QUICK_SAVE]      = {gText_MenuRest,    {.u8_void = StartMenuQuickSaveCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -344,7 +348,9 @@ static void BuildRogueRunStartMenu(void)
     //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    //AddStartMenuAction(MENU_ACTION_SAVE);
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
+#endif
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
     AddStartMenuAction(MENU_ACTION_EXIT);
@@ -648,7 +654,8 @@ static bool8 HandleStartMenuInput(void)
         if (gMenuCallback != StartMenuSaveCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
-            && gMenuCallback != StartMenuBattlePyramidRetireCallback)
+            && gMenuCallback != StartMenuBattlePyramidRetireCallback
+            && gMenuCallback != StartMenuQuickSaveCallback)
         {
            FadeScreen(FADE_TO_BLACK, 0);
         }
@@ -783,6 +790,7 @@ static bool8 StartMenuExitCallback(void)
 }
 
 extern const u8 Rogue_RetireFromRun[];
+extern const u8 Rogue_QuickSaveRun[];
 
 static bool8 StartMenuSafariZoneRetireCallback(void)
 {
@@ -797,6 +805,16 @@ static bool8 StartMenuSafariZoneRetireCallback(void)
     {
         SafariZoneRetirePrompt();
     }
+
+    return TRUE;
+}
+
+static bool8 StartMenuQuickSaveCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+
+    ScriptContext1_SetupScript(Rogue_QuickSaveRun);
 
     return TRUE;
 }
@@ -921,6 +939,13 @@ static void InitSave(void)
     sSavingComplete = FALSE;
 }
 
+static void InitForceSave(void)
+{
+    SaveMapView();
+    sSaveDialogCallback = SaveForceSaveCallback;
+    sSavingComplete = FALSE;
+}
+
 static u8 RunSaveCallback(void)
 {
     // True if text is still printing
@@ -936,6 +961,12 @@ static u8 RunSaveCallback(void)
 void SaveGame(void)
 {
     InitSave();
+    CreateTask(SaveGameTask, 0x50);
+}
+
+void ForceSaveGame(void)
+{
+    InitForceSave();
     CreateTask(SaveGameTask, 0x50);
 }
 
@@ -1030,6 +1061,15 @@ static u8 SaveConfirmSaveCallback(void)
         ShowSaveMessage(gText_ConfirmSave, SaveYesNoCallback);
     }
 
+    return SAVE_IN_PROGRESS;
+}
+
+static u8 SaveForceSaveCallback(void)
+{
+    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
+    RemoveStartMenuWindow();
+    ShowSaveInfoWindow();
+    sSaveDialogCallback = SaveSavingMessageCallback;
     return SAVE_IN_PROGRESS;
 }
 

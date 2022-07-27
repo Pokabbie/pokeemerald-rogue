@@ -15,6 +15,7 @@
 #include "constants/pokemon.h"
 #include "constants/easy_chat.h"
 #include "constants/trainer_hill.h"
+#include "constants/rogue.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -1005,7 +1006,11 @@ struct SaveBlock1
     /*0x31DC*/ struct Roamer roamer;
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MysteryGiftSave mysteryGift;
-    /*0x3598*/ u8 unused_3598[0x180];
+    union
+    {
+        u8 unused_3598[0x180];
+        struct RogueSaveData saveData;
+    } rogueBlock;
     /*0x3718*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
     /*0x3728*/ struct RamScript ramScript;
     /*0x3B14*/ struct RecordMixingGift recordMixingGift;

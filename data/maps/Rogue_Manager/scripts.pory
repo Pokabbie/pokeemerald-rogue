@@ -31,6 +31,46 @@ script Rogue_GiveItem_Internal
     finditem(VAR_ITEM_ID_VAL, 3)
 }
 
+script Rogue_QuickSaveRun
+{
+    lockall
+
+    setflag(FLAG_ROGUE_VALID_QUICK_SAVE)
+    call(Common_EventScript_SaveGame)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+        delay(60)
+        special(DoSoftReset)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_VALID_QUICK_SAVE)
+    }
+
+    releaseall
+}
+
+script Rogue_QuickSaveLoad
+{
+    lockall
+
+    if(flag(FLAG_ROGUE_VALID_QUICK_SAVE))
+    {
+        clearflag(FLAG_ROGUE_VALID_QUICK_SAVE)
+        msgbox(format("Adventure has been reloaded."))
+        waitmessage()
+        call(Common_EventScript_ForceSaveGame)
+    }
+    else
+    {
+        call(Rogue_ReturnToHub)
+    }
+
+    releaseall
+}
+
 script Rogue_RetireFromRun
 {
     lockall
@@ -38,10 +78,16 @@ script Rogue_RetireFromRun
 
     if(var(VAR_RESULT) == YES)
     {
-        warp(MAP_ROGUE_HUB, 29, 7)
+        call(Rogue_ReturnToHub)
     }
 
     releaseall
+}
+
+script Rogue_ReturnToHub
+{
+    warp(MAP_ROGUE_HUB, 29, 7)
+    return
 }
 
 // Movement

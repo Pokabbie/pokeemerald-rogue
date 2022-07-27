@@ -12,6 +12,40 @@ Rogue_GiveItem_Internal::
 	return
 
 
+Rogue_QuickSaveRun::
+	lockall
+	setflag FLAG_ROGUE_VALID_QUICK_SAVE
+	call Common_EventScript_SaveGame
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_QuickSaveRun_2
+	clearflag FLAG_ROGUE_VALID_QUICK_SAVE
+Rogue_QuickSaveRun_1:
+	releaseall
+	return
+
+Rogue_QuickSaveRun_2:
+	fadescreen FADE_TO_BLACK
+	delay 60
+	special DoSoftReset
+	goto Rogue_QuickSaveRun_1
+
+
+Rogue_QuickSaveLoad::
+	lockall
+	goto_if_set FLAG_ROGUE_VALID_QUICK_SAVE, Rogue_QuickSaveLoad_2
+	call Rogue_ReturnToHub
+Rogue_QuickSaveLoad_1:
+	releaseall
+	return
+
+Rogue_QuickSaveLoad_2:
+	clearflag FLAG_ROGUE_VALID_QUICK_SAVE
+	msgbox Rogue_QuickSaveLoad_Text_0
+	waitmessage
+	call Common_EventScript_ForceSaveGame
+	goto Rogue_QuickSaveLoad_1
+
+
 Rogue_RetireFromRun::
 	lockall
 	msgbox Rogue_RetireFromRun_Text_0, MSGBOX_YESNO
@@ -22,8 +56,13 @@ Rogue_RetireFromRun_1:
 	return
 
 Rogue_RetireFromRun_2:
-	warp MAP_ROGUE_HUB, 29, 7
+	call Rogue_ReturnToHub
 	goto Rogue_RetireFromRun_1
+
+
+Rogue_ReturnToHub::
+	warp MAP_ROGUE_HUB, 29, 7
+	return
 
 
 Rogue_Common_TurnPlayerNorth::
@@ -1098,6 +1137,9 @@ Rogue_Give_Item18::
 
 Rogue_PostBattle_Internal_Text_0:
 	.string "Good luck with your next battle!$"
+
+Rogue_QuickSaveLoad_Text_0:
+	.string "Adventure has been reloaded.$"
 
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"

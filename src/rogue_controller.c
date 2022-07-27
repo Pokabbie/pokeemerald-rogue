@@ -17,6 +17,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "safari_zone.h"
+#include "script.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
@@ -70,8 +71,14 @@ extern const u8 gText_RogueDebug_ItemCount[];
 extern const u8 gText_RogueDebug_Seed[];
 #endif
 
+struct RogueLocalData
+{
+    bool8 hasQuickLoadPending;
+};
+
+EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
-EWRAM_DATA struct RogueHubData gRogueSaveData = {};
+EWRAM_DATA struct RogueHubData gRogueHubData = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
 static bool8 IsBossRoom(u16 roomIdx);
@@ -492,6 +499,50 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
+extern const u8 Rogue_QuickSaveLoad[];
+
+void Rogue_OnSaveGame(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
+
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
+#endif
+}
+
+void Rogue_OnLoadGame(void)
+{
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    SeedRogueRng(gSaveBlock1Ptr->rogueBlock.saveData.rngSeed);
+
+    memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
+    memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
+
+    if(Rogue_IsRunActive())
+    {
+        gRogueLocal.hasQuickLoadPending = TRUE;
+        //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+    }
+#endif
+}
+
+bool8 Rogue_OnProcessPlayerFieldInput(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    if(gRogueLocal.hasQuickLoadPending)
+    {
+        gRogueLocal.hasQuickLoadPending = FALSE;
+        ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+        return TRUE;
+    }
+
+#endif
+    return FALSE;
+}
+
 void Rogue_OnLoadMap(void)
 {
     if(GetSafariZoneFlag())
@@ -598,8 +649,8 @@ static void BeginRogueRun(void)
     SavePlayerParty();
     LoadPlayerBag(); // Bag funcs named in opposite
 
-    gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
-    gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
+    gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
+    gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
     SetMoney(&gSaveBlock1Ptr->money, 0);
 
@@ -636,10 +687,10 @@ static void EndRogueRun(void)
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore money and give reward here too, as it's a bit easier
-    SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
+    SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
     AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
-    gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
+    gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
     // Restore current states
     LoadPlayerParty();
@@ -1384,7 +1435,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
-        u16 startSeed = gRngRogueValue;
+        u32 startSeed = gRngRogueValue;
         u8 allowedType = TYPE_NONE;
         bool8 allowItemEvos = FALSE;
         bool8 allowLedgendaries = FALSE;
@@ -1448,7 +1499,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     u8 level;
     u8 fixedIV;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u16 startSeed = gRngRogueValue;
+    u32 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
 

@@ -35,6 +35,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 
+#include "rogue_controller.h"
+
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPreviousPlayerMetatileBehavior = 0;
 
@@ -148,6 +150,9 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
 
     if (TryRunOnFrameMapScript() == TRUE)
+        return TRUE;
+
+    if (Rogue_OnProcessPlayerFieldInput() == TRUE)
         return TRUE;
 
     if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)

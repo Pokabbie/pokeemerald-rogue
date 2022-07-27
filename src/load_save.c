@@ -14,6 +14,8 @@
 #include "decoration_inventory.h"
 #include "agb_flash.h"
 
+#include "rogue_controller.h"
+
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 
 #define SAVEBLOCK_MOVE_RANGE    128
@@ -183,6 +185,8 @@ void SaveObjectEvents(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
+
+    Rogue_OnSaveGame();
 }
 
 void LoadObjectEvents(void)
@@ -191,6 +195,8 @@ void LoadObjectEvents(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
+
+    Rogue_OnLoadGame();
 }
 
 void CopyPartyAndObjectsToSave(void)

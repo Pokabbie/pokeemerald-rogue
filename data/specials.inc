@@ -105,6 +105,7 @@ gSpecials::
 	def_special GiveMonArtistRibbon
 	def_special TryContestGModeLinkup
 	def_special SaveGame
+	def_special ForceSaveGame
 	def_special DoWateringBerryTreeAnim
 	def_special ShowEasyChatScreen
 	def_special ShowEasyChatProfile
