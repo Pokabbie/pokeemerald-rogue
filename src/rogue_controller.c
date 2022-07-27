@@ -446,6 +446,7 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
@@ -652,7 +653,7 @@ static void BeginRogueRun(void)
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
-    SetMoney(&gSaveBlock1Ptr->money, 0);
+    SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
@@ -1075,13 +1076,13 @@ void Rogue_OnWarpIntoMap(void)
 
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 300);
-                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2 + 1);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 400);
+                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
             }
             else
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 200);
-                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) * 2);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 300);
+                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()));
             }
         
             if(IsBossRoom(gRogueRun.currentRoomIdx))

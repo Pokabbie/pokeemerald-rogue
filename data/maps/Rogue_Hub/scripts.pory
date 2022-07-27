@@ -520,9 +520,52 @@ script RogueHub_SpeakBank
 {
     lock
     faceplayer
+
+    if(var(VAR_ROGUE_ADVENTURE_MONEY) == 0)
+    {
+        // Tutorial
+        msgbox(format("Why hello!\nYou must be {PLAYER} if I'm not mistaken?\pWonderful!\nYou see I'm rather useful when it comes to managing money and I was hoping to setup an ADVENTURE FUND for yourself."), MSGBOX_DEFAULT)
+        msgbox(format("What's an ADVENTURE FUND?\nIn essence, if you donate your HUB MONEY to myself, I will invest it on your behalf and then every time you head out on another adventure, I will give you some extra money to start with.\pSo rather than having to start with ¥0, by donating money to myself, you can start with ¥1000, ¥2000, ¥10000!\pThe sky is the limit really!\nOr rather I guess the limit would be your HUB MONEY."), MSGBOX_DEFAULT)
     
-    msgbox(format("TODO"))
-    
+        msgbox(format("Here, let me get you started with a gift.\pI shall add ¥500 to your ADVENTURE FUND out of my own pocket!"), MSGBOX_DEFAULT)
+        setvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
+        playse(SE_SHOP)
+        waitse
+    }
+
+    showmoneybox(0, 0)
+
+    buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
+    msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pWould you like to deposit another ¥500?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(500)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("I'm afraid you seem to be lacking the required funds currently."), MSGBOX_YESNO)
+        }
+        else
+        {
+            removemoney(500)
+
+            hidemoneybox
+            showmoneybox(0, 0)
+
+            addvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
+            buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
+
+            playse(SE_SHOP)
+            waitse
+            
+            msgbox(format("Thankyou very much!\nYour fund now contains ¥{STR_VAR_2}."), MSGBOX_DEFAULT)
+        }
+    }
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
+    }
     release
 }
 

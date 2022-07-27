@@ -123,8 +123,8 @@ Route121_SafariZoneEntrance_Text_FirstTimeInfo:
 
 Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay:
 	.string "Welcome to the SAFARI ZONE!\p"
-	.string "All you can catch for just ¥2000!\n"
-	.string "Would you like to play a SAFARI Game?$"
+	.string "Entry is just ¥1000!\n"
+	.string "Would you like to enter?$"
 
 Route121_SafariZoneEntrance_Text_PlayAnotherTime:
 	.string "Okay.\n"

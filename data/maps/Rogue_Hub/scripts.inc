@@ -491,9 +491,52 @@ RogueHub_SpeakFisherman_2:
 RogueHub_SpeakBank::
 	lock
 	faceplayer
-	msgbox RogueHub_SpeakBank_Text_0
+	compare VAR_ROGUE_ADVENTURE_MONEY, 0
+	goto_if_eq RogueHub_SpeakBank_2
+RogueHub_SpeakBank_1:
+	showmoneybox 0, 0
+	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
+	msgbox RogueHub_SpeakBank_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakBank_5
+RogueHub_SpeakBank_4:
+	hidemoneybox
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakBank_8
+RogueHub_SpeakBank_7:
 	release
 	return
+
+RogueHub_SpeakBank_2:
+	msgbox RogueHub_SpeakBank_Text_0, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakBank_Text_1, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakBank_Text_2, MSGBOX_DEFAULT
+	setvar VAR_ROGUE_ADVENTURE_MONEY, 500
+	playse SE_SHOP
+	waitse
+	goto RogueHub_SpeakBank_1
+
+RogueHub_SpeakBank_5:
+	checkmoney 500
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakBank_10
+	removemoney 500
+	hidemoneybox
+	showmoneybox 0, 0
+	addvar VAR_ROGUE_ADVENTURE_MONEY, 500
+	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
+	playse SE_SHOP
+	waitse
+	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_4
+
+RogueHub_SpeakBank_8:
+	msgbox RogueHub_SpeakBank_Text_6, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_7
+
+RogueHub_SpeakBank_10:
+	msgbox RogueHub_SpeakBank_Text_4, MSGBOX_YESNO
+	goto RogueHub_SpeakBank_4
 
 
 RogueHub_Sign_AdventureSign::
@@ -679,7 +722,52 @@ RogueHub_SpeakFisherman_Text_1:
 	.string "Here, you should take this one!$"
 
 RogueHub_SpeakBank_Text_0:
-	.string "TODO$"
+	.string "Why hello!\n"
+	.string "You must be {PLAYER} if I'm not\l"
+	.string "mistaken?\p"
+	.string "Wonderful!\n"
+	.string "You see I'm rather useful when it comes\l"
+	.string "to managing money and I was hoping to\l"
+	.string "setup an ADVENTURE FUND for yourself.$"
+
+RogueHub_SpeakBank_Text_1:
+	.string "What's an ADVENTURE FUND?\n"
+	.string "In essence, if you donate your HUB\l"
+	.string "MONEY to myself, I will invest it on\l"
+	.string "your behalf and then every time you\l"
+	.string "head out on another adventure, I will\l"
+	.string "give you some extra money to start\l"
+	.string "with.\p"
+	.string "So rather than having to start with ¥0,\n"
+	.string "by donating money to myself, you can\l"
+	.string "start with ¥1000, ¥2000, ¥10000!\p"
+	.string "The sky is the limit really!\n"
+	.string "Or rather I guess the limit would be\l"
+	.string "your HUB MONEY.$"
+
+RogueHub_SpeakBank_Text_2:
+	.string "Here, let me get you started with a gift.\p"
+	.string "I shall add ¥500 to your ADVENTURE FUND\n"
+	.string "out of my own pocket!$"
+
+RogueHub_SpeakBank_Text_3:
+	.string "Your fund currently has\n"
+	.string "¥{STR_VAR_2}.\p"
+	.string "Would you like to deposit another ¥500?$"
+
+RogueHub_SpeakBank_Text_4:
+	.string "I'm afraid you seem to be lacking the\n"
+	.string "required funds currently.$"
+
+RogueHub_SpeakBank_Text_5:
+	.string "Thankyou very much!\n"
+	.string "Your fund now contains\l"
+	.string "¥{STR_VAR_2}.$"
+
+RogueHub_SpeakBank_Text_6:
+	.string "I see...\n"
+	.string "You know where I am, if you change your\l"
+	.string "mind.$"
 
 RogueHub_Sign_AdventureSign_Text_0:
 	.string "Adventures await beyond this point...\p"
