@@ -665,8 +665,8 @@
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
 #define FLAG_ROGUE_EASY_TRAINERS             0x266
 #define FLAG_ROGUE_EASY_ITEMS                0x267
-#define FLAG_ROGUE_VALID_QUICK_SAVE          0x268
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_ROGUE_HARD_ITEMS                0x268
+#define FLAG_ROGUE_VALID_QUICK_SAVE          0x269
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag

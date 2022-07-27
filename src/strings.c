@@ -1824,3 +1824,6 @@ const u8 gText_Berries[] = _("BERRIES");
 const u8 gText_Plural[] = _("s");
 const u8 gText_TMPrefix[] = _("TM ");
 const u8 gText_HMPrefix [] = _("HM ");
+const u8 gText_Easy[] = _("EASY");
+const u8 gText_Average[] = _("AVERAGE");
+const u8 gText_Hard[] = _("HARD");

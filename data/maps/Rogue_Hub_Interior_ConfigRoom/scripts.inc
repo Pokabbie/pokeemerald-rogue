@@ -131,6 +131,67 @@ Rogue_ConfigRoom_PreButtonInternal_2:
 	goto Rogue_ConfigRoom_PreButtonInternal_1
 
 
+Rogue_ConfigRoom_PreEAHButtonInternal::
+	lockall
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
+	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
+	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreEAHButtonInternal_Text_3
+Rogue_ConfigRoom_PreEAHButtonInternal_1:
+	message Rogue_ConfigRoom_PreEAHButtonInternal_Text_4
+	waitmessage
+	multichoice 20, 4, MULTI_EASY_AVERAGE_HARD_INFO, NO
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_8
+	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_9
+	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_10
+	case 3, Rogue_ConfigRoom_PreEAHButtonInternal_11
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_PreEAHButtonInternal_12
+	return
+
+Rogue_ConfigRoom_PreEAHButtonInternal_3:
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreEAHButtonInternal_Text_0
+	goto Rogue_ConfigRoom_PreEAHButtonInternal_1
+
+Rogue_ConfigRoom_PreEAHButtonInternal_4:
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreEAHButtonInternal_Text_1
+	goto Rogue_ConfigRoom_PreEAHButtonInternal_1
+
+Rogue_ConfigRoom_PreEAHButtonInternal_5:
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreEAHButtonInternal_Text_2
+	goto Rogue_ConfigRoom_PreEAHButtonInternal_1
+
+Rogue_ConfigRoom_PreEAHButtonInternal_8:
+	waitse
+	playse SE_PIN
+	setvar VAR_0x8000, 0
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_ConfigRoom_PreEAHButtonInternal_9:
+	waitse
+	playse SE_PIN
+	setvar VAR_0x8000, 1
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_ConfigRoom_PreEAHButtonInternal_10:
+	waitse
+	playse SE_PIN
+	setvar VAR_0x8000, 2
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_ConfigRoom_PreEAHButtonInternal_11:
+	setvar VAR_RESULT, NO
+	return
+
+Rogue_ConfigRoom_PreEAHButtonInternal_12:
+	setvar VAR_RESULT, YES
+	return
+
+
 Rogue_ConfigRoom_PostButtonInternal::
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_ConfigRoom_PostButtonInternal_2
@@ -139,10 +200,7 @@ Rogue_ConfigRoom_PostButtonInternal_1:
 	return
 
 Rogue_ConfigRoom_PostButtonInternal_2:
-	waitse
-	playse SE_PIN
 	call Rogue_ConfigRoom_RedrawMap
-	msgbox Rogue_ConfigRoom_PostButtonInternal_Text_0, MSGBOX_DEFAULT
 	goto Rogue_ConfigRoom_PostButtonInternal_1
 
 
@@ -157,20 +215,25 @@ Rogue_ConfigRoom_RedrawMap_5:
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_9:
 	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_14
-	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_15
+	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_13:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_18
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_20
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_21
+	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
+Rogue_ConfigRoom_RedrawMap_19:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_26
 	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_17:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_22
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_21:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_26
-	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_25:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_30
-	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_30
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_29:
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_34
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_33:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_38
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_37:
 	special DrawWholeMapView
 	return
 
@@ -187,24 +250,36 @@ Rogue_ConfigRoom_RedrawMap_10:
 	goto Rogue_ConfigRoom_RedrawMap_9
 
 Rogue_ConfigRoom_RedrawMap_14:
-	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 1, 5, 0x23E, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_13
 
-Rogue_ConfigRoom_RedrawMap_18:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_17
+Rogue_ConfigRoom_RedrawMap_15:
+	setmetatile 1, 5, METATILE_BikeShop_Button_Blue, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_13
 
-Rogue_ConfigRoom_RedrawMap_22:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_21
+Rogue_ConfigRoom_RedrawMap_20:
+	setmetatile 3, 5, 0x23E, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_19
+
+Rogue_ConfigRoom_RedrawMap_21:
+	setmetatile 3, 5, METATILE_BikeShop_Button_Blue, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_19
 
 Rogue_ConfigRoom_RedrawMap_26:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_25
 
 Rogue_ConfigRoom_RedrawMap_30:
-	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_29
+
+Rogue_ConfigRoom_RedrawMap_34:
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_33
+
+Rogue_ConfigRoom_RedrawMap_38:
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_37
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -285,30 +360,96 @@ Rogue_ConfigRoom_Button_CanOverLvl_8:
 	goto Rogue_ConfigRoom_Button_CanOverLvl_5
 
 
-Rogue_ConfigRoom_Button_HardTrainers::
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HardTrainers_Text_0
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_HardTrainers_2
-	setvar VAR_0x8000, NO
-Rogue_ConfigRoom_Button_HardTrainers_1:
-	call Rogue_ConfigRoom_PreButtonInternal
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_Button_HardTrainers_6
-Rogue_ConfigRoom_Button_HardTrainers_5:
+Rogue_ConfigRoom_Button_TrainerDifficulty::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_Button_TrainerDifficulty_2
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_TrainerDifficulty_3
+	setvar VAR_0x8000, 1
+Rogue_ConfigRoom_Button_TrainerDifficulty_1:
+	call Rogue_ConfigRoom_PreEAHButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_TrainerDifficulty_9
+	case 1, Rogue_ConfigRoom_Button_TrainerDifficulty_10
+	case 2, Rogue_ConfigRoom_Button_TrainerDifficulty_11
+Rogue_ConfigRoom_Button_TrainerDifficulty_7:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_TrainerDifficulty_13
+Rogue_ConfigRoom_Button_TrainerDifficulty_12:
 	call Rogue_ConfigRoom_PostButtonInternal
 	return
 
-Rogue_ConfigRoom_Button_HardTrainers_2:
-	setvar VAR_0x8000, YES
-	goto Rogue_ConfigRoom_Button_HardTrainers_1
+Rogue_ConfigRoom_Button_TrainerDifficulty_2:
+	setvar VAR_0x8000, 0
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_1
 
-Rogue_ConfigRoom_Button_HardTrainers_6:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_HardTrainers_8
-	setflag FLAG_ROGUE_HARD_TRAINERS
-	goto Rogue_ConfigRoom_Button_HardTrainers_5
+Rogue_ConfigRoom_Button_TrainerDifficulty_3:
+	setvar VAR_0x8000, 2
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_1
 
-Rogue_ConfigRoom_Button_HardTrainers_8:
+Rogue_ConfigRoom_Button_TrainerDifficulty_9:
+	setflag FLAG_ROGUE_EASY_TRAINERS
 	clearflag FLAG_ROGUE_HARD_TRAINERS
-	goto Rogue_ConfigRoom_Button_HardTrainers_5
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
+
+Rogue_ConfigRoom_Button_TrainerDifficulty_10:
+	clearflag FLAG_ROGUE_EASY_TRAINERS
+	clearflag FLAG_ROGUE_HARD_TRAINERS
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
+
+Rogue_ConfigRoom_Button_TrainerDifficulty_11:
+	clearflag FLAG_ROGUE_EASY_TRAINERS
+	setflag FLAG_ROGUE_HARD_TRAINERS
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
+
+Rogue_ConfigRoom_Button_TrainerDifficulty_13:
+	msgbox Rogue_ConfigRoom_Button_TrainerDifficulty_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_TrainerDifficulty_12
+
+
+Rogue_ConfigRoom_Button_ItemDifficulty::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_ItemDifficulty_Text_0
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_Button_ItemDifficulty_2
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_Button_ItemDifficulty_3
+	setvar VAR_0x8000, 1
+Rogue_ConfigRoom_Button_ItemDifficulty_1:
+	call Rogue_ConfigRoom_PreEAHButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_ItemDifficulty_9
+	case 1, Rogue_ConfigRoom_Button_ItemDifficulty_10
+	case 2, Rogue_ConfigRoom_Button_ItemDifficulty_11
+Rogue_ConfigRoom_Button_ItemDifficulty_7:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_ItemDifficulty_13
+Rogue_ConfigRoom_Button_ItemDifficulty_12:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_ItemDifficulty_2:
+	setvar VAR_0x8000, 0
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_1
+
+Rogue_ConfigRoom_Button_ItemDifficulty_3:
+	setvar VAR_0x8000, 2
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_1
+
+Rogue_ConfigRoom_Button_ItemDifficulty_9:
+	setflag FLAG_ROGUE_EASY_ITEMS
+	clearflag FLAG_ROGUE_HARD_ITEMS
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_7
+
+Rogue_ConfigRoom_Button_ItemDifficulty_10:
+	clearflag FLAG_ROGUE_EASY_ITEMS
+	clearflag FLAG_ROGUE_HARD_ITEMS
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_7
+
+Rogue_ConfigRoom_Button_ItemDifficulty_11:
+	clearflag FLAG_ROGUE_EASY_ITEMS
+	setflag FLAG_ROGUE_HARD_ITEMS
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_7
+
+Rogue_ConfigRoom_Button_ItemDifficulty_13:
+	msgbox Rogue_ConfigRoom_Button_ItemDifficulty_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_ItemDifficulty_12
 
 
 Rogue_ConfigRoom_Button_SeedItems::
@@ -471,8 +612,21 @@ Rogue_ConfigRoom_PreButtonInternal_Text_2:
 Rogue_ConfigRoom_PreButtonInternal_Text_3:
 	.string "Flip the switch to {STR_VAR_3}?$"
 
-Rogue_ConfigRoom_PostButtonInternal_Text_0:
-	.string "{STR_VAR_1} set to {STR_VAR_3}$"
+Rogue_ConfigRoom_PreEAHButtonInternal_Text_0:
+	.string "EASY$"
+
+Rogue_ConfigRoom_PreEAHButtonInternal_Text_1:
+	.string "AVERAGE$"
+
+Rogue_ConfigRoom_PreEAHButtonInternal_Text_2:
+	.string "HARD$"
+
+Rogue_ConfigRoom_PreEAHButtonInternal_Text_3:
+	.string "???$"
+
+Rogue_ConfigRoom_PreEAHButtonInternal_Text_4:
+	.string "{STR_VAR_1} is currently\n"
+	.string "'{STR_VAR_2}'$"
 
 Rogue_ConfigRoom_Button_ExpAll_Text_0:
 	.string "EXP. ALL$"
@@ -483,8 +637,25 @@ Rogue_ConfigRoom_Button_DoubleBattle_Text_0:
 Rogue_ConfigRoom_Button_CanOverLvl_Text_0:
 	.string "ALLOW OVERLEVLING$"
 
-Rogue_ConfigRoom_Button_HardTrainers_Text_0:
-	.string "HARD TRAINERS$"
+Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0:
+	.string "TRAINERS$"
+
+Rogue_ConfigRoom_Button_TrainerDifficulty_Text_1:
+	.string "Adjust teams/moves from very casual to\n"
+	.string "very competitive.\p"
+	.string "Average mode will start casual but get\n"
+	.string "more competitive as you progress.\p"
+	.string "The higher this difficulty the more\n"
+	.string "rewards you get when returning from an\l"
+	.string "adventure.$"
+
+Rogue_ConfigRoom_Button_ItemDifficulty_Text_0:
+	.string "ITEM DROPS$"
+
+Rogue_ConfigRoom_Button_ItemDifficulty_Text_1:
+	.string "Increases/Decrease the rate at which\n"
+	.string "items will appear and money trainers\l"
+	.string "give$"
 
 Rogue_ConfigRoom_Button_SeedItems_Text_0:
 	.string "SEED ITEMS$"

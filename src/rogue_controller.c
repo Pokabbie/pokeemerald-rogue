@@ -302,7 +302,7 @@ void Rogue_ModifyBattleWinnings(u32* money)
 {
     if(Rogue_IsRunActive())
     {
-        if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
             *money = *money / 3;
         }
@@ -451,6 +451,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_EASY_TRAINERS);
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
+    FlagClear(FLAG_ROGUE_HARD_ITEMS);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -1902,6 +1903,10 @@ static bool8 RandomChanceItem()
         {
             chance = 75 - 5 * difficultyLevel;
         }
+        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        {
+            chance = 30 - 1 * difficultyLevel;
+        }
         else
         {
             chance = 54 - 4 * difficultyLevel;
@@ -1919,6 +1924,10 @@ static bool8 RandomChanceBerry()
     if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
     {
         chance = 95 - 7 * difficultyLevel;
+    }
+    else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+    {
+        chance = 50 - 3 * difficultyLevel;
     }
     else
     {

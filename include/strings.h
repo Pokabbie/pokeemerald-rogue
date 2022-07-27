@@ -3026,4 +3026,8 @@ extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
 
+extern const u8 gText_Easy[];
+extern const u8 gText_Average[];
+extern const u8 gText_Hard[];
+
 #endif // GUARD_STRINGS_H

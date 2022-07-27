@@ -48,7 +48,7 @@
 #define MULTI_MECHADOLL5_Q1                37
 #define MULTI_MECHADOLL5_Q2                38
 #define MULTI_MECHADOLL5_Q3                39
-#define MULTI_UNUSED_40                    40
+#define MULTI_EASY_AVERAGE_HARD_INFO       40
 #define MULTI_UNUSED_41                    41
 #define MULTI_VENDING_MACHINE              42
 #define MULTI_MACH_BIKE_INFO               43

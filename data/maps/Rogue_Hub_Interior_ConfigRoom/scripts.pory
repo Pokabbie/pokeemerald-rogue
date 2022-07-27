@@ -2,6 +2,8 @@ const OBJ_ASSISTANT_ID =  1
 
 const VAR_FLAG_STATE = VAR_0x8000
 
+const METATILE_BikeShop_Button_Red = 0x23E
+
 mapscripts Rogue_Hub_Interior_ConfigRoom_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_ConfigRoom_RedrawMap
@@ -155,14 +157,59 @@ script Rogue_ConfigRoom_PreButtonInternal
     return
 }
 
+script Rogue_ConfigRoom_PreEAHButtonInternal
+{
+    lockall
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            bufferstring(STR_VAR_2, format("EASY"))
+        case 1:
+            bufferstring(STR_VAR_2, format("AVERAGE"))
+        case 2:
+            bufferstring(STR_VAR_2, format("HARD"))
+        default:
+            bufferstring(STR_VAR_2, format("???"))
+    }
+
+    message(format("{STR_VAR_1} is currently '{STR_VAR_2}'"))
+    waitmessage
+    multichoice(20, 4, MULTI_EASY_AVERAGE_HARD_INFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Easy
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 0)
+            setvar(VAR_RESULT, YES)
+
+        case 1: // Average
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 1)
+            setvar(VAR_RESULT, YES)
+
+        case 2: // Hard
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 2)
+            setvar(VAR_RESULT, YES)
+
+        case 3: // Info
+            setvar(VAR_RESULT, NO)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, YES)
+    }
+}
+
 script Rogue_ConfigRoom_PostButtonInternal
 {
     if(var(VAR_RESULT) == YES)
     {
-        waitse
-        playse(SE_PIN)
         call(Rogue_ConfigRoom_RedrawMap)
-        msgbox(format("{STR_VAR_1} set to {STR_VAR_3}"), MSGBOX_DEFAULT)
     }
     releaseall
     return
@@ -199,11 +246,28 @@ script Rogue_ConfigRoom_RedrawMap
 
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {
-        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+        setmetatile(1,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        setmetatile(1,5, METATILE_BikeShop_Button_Blue, FALSE)
     }
     else
     {
-        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+        setmetatile(1,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
     }
 
     // SEED settings
@@ -335,30 +399,82 @@ script Rogue_ConfigRoom_Button_CanOverLvl
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
-script Rogue_ConfigRoom_Button_HardTrainers
+script Rogue_ConfigRoom_Button_TrainerDifficulty
 {
-    bufferstring(STR_VAR_1, format("HARD TRAINERS"))
+    bufferstring(STR_VAR_1, format("TRAINERS"))
 
-    if(flag(FLAG_ROGUE_HARD_TRAINERS))
+    if(flag(FLAG_ROGUE_EASY_TRAINERS))
     {
-        setvar(VAR_FLAG_STATE, YES)
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
     }
     else
     {
-        setvar(VAR_FLAG_STATE, NO)
+        setvar(VAR_FLAG_STATE, 1)
     }
 
-    call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_ROGUE_HARD_TRAINERS))
-        {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_TRAINERS)
             clearflag(FLAG_ROGUE_HARD_TRAINERS)
-        }
-        else
-        {
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
+            clearflag(FLAG_ROGUE_HARD_TRAINERS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
             setflag(FLAG_ROGUE_HARD_TRAINERS)
-        }
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust teams/moves from very casual to very competitive.\pAverage mode will start casual but get more competitive as you progress.\pThe higher this difficulty the more rewards you get when returning from an adventure."), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_ItemDifficulty
+{
+    bufferstring(STR_VAR_1, format("ITEM DROPS"))
+
+    if(flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            setflag(FLAG_ROGUE_HARD_ITEMS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
     }
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
