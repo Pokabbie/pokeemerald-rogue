@@ -991,7 +991,7 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     mapCount = gRogueSpecialEncounterInfo.mapCount;
 
-    // Avoid repeating same ecounter (TODO)
+    // Avoid repeating same encounter (Base of current party)
     do
     {
         mapIdx = RogueRandomRange(mapCount, OVERWORLD_FLAG);
@@ -1594,16 +1594,16 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             }
         }
 
-        //if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-        //{
-        //    for (i = 0; i < MAX_MON_MOVES; i++)
-        //    {
-        //        if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
-        //        {
-        //            // TODO - Teach some other move
-        //        }
-        //    }
-        //}
+        if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        {
+            //for (i = 0; i < MAX_MON_MOVES; i++)
+            //{
+            //    if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
+            //    {
+            //        // TODO - Teach some other move
+            //    }
+            //}
+        }
     }
 
     SeedRogueRng(startSeed);
@@ -1901,15 +1901,15 @@ static bool8 RandomChanceItem()
         
         if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
-            chance = 75 - 5 * difficultyLevel;
+            chance = 75 - min(50, 4 * difficultyLevel);
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
-            chance = 30 - 1 * difficultyLevel;
+            chance = 30 - min(28, 2 * difficultyLevel);
         }
         else
         {
-            chance = 54 - 4 * difficultyLevel;
+            chance = 55 - min(50, 4 * difficultyLevel);
         }
     }
 
@@ -1923,15 +1923,15 @@ static bool8 RandomChanceBerry()
 
     if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
     {
-        chance = 95 - 7 * difficultyLevel;
+        chance = 95 - min(85, 7 * difficultyLevel);
     }
     else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
     {
-        chance = 50 - 3 * difficultyLevel;
+        chance = 50 - min(48, 5 * difficultyLevel);
     }
     else
     {
-        chance = 70 - 5 * difficultyLevel;
+        chance = 70 - min(65, 5 * difficultyLevel);
     }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
