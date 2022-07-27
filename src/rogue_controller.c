@@ -1605,6 +1605,11 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         u8 maxlevel = CalculateWildLevel();
         u8 levelVariation = min(6,maxlevel - 1);
 
+        if(GetSafariZoneFlag())
+        {
+            levelVariation = min(3, maxlevel - 1);
+        }
+
         if(area == 1) //WILD_AREA_WATER)
         {
             const u16 count = ARRAY_COUNT(gRogueRun.fishingEncounters);
