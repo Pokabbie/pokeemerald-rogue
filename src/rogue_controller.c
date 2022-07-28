@@ -1459,6 +1459,22 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         case TRAINER_STEVEN:
             *forceType = TYPE_STEEL;
             break;
+
+        case TRAINER_ROGUE_AQUA_F:
+        case TRAINER_ROGUE_AQUA_M:
+            forceType[0] = TYPE_DARK;
+
+            if(difficultyLevel > 0)
+                forceType[1] = TYPE_WATER;
+            break;
+
+        case TRAINER_ROGUE_MAGMA_F:
+        case TRAINER_ROGUE_MAGMA_M:
+            forceType[0] = TYPE_DARK;
+
+            if(difficultyLevel > 0)
+                forceType[1] = TYPE_FIRE;
+            break;
     };
 
     if(IsBossTrainer(trainerNum))
@@ -1573,12 +1589,12 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
     if(Rogue_IsRunActive())
     {
         u32 startSeed = gRngRogueValue;
-        u8 allowedType = TYPE_NONE;
+        u8 allowedType[2] = { TYPE_NONE, TYPE_NONE };
         bool8 allowItemEvos = FALSE;
         bool8 allowLedgendaries = FALSE;
 
         SeedRogueTrainer(startSeed, trainerNum, 0);
-        ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, &allowLedgendaries, monsCount);
+        ConfigureTrainer(trainerNum, &allowedType[0], &allowItemEvos, &allowLedgendaries, monsCount);
 
         // Query for the current trainer team
         RogueQuery_Clear();
@@ -1588,8 +1604,13 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         if(!allowLedgendaries)
             RogueQuery_SpeciesIsNotLegendary();
 
-        if(allowedType != TYPE_NONE)
-            RogueQuery_SpeciesOfType(allowedType);
+        if(allowedType[0] != TYPE_NONE)
+        {
+            if(allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
+        }
 
         RogueQuery_TransformToEggSpecies();
 
@@ -1599,8 +1620,13 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         if(allowItemEvos)
             RogueQuery_EvolveSpeciesByItem();
 
-        if(allowedType != TYPE_NONE)
-            RogueQuery_SpeciesOfType(allowedType);
+        if(allowedType[0] != TYPE_NONE)
+        {
+            if(allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
+        }
 
         RogueQuery_CollapseSpeciesBuffer();
 
