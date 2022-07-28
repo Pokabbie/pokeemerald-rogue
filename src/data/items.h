@@ -861,7 +861,7 @@ const struct Item gItems[] =
     {
         .name = _("RARE CANDY"),
         .itemId = ITEM_RARE_CANDY,
-        .price = 4800,
+        .price = 1000,
         .description = sRareCandyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -2639,7 +2639,7 @@ const struct Item gItems[] =
     {
         .name = _("CHARCOAL"),
         .itemId = ITEM_CHARCOAL,
-        .price = 9800,
+        .price = 100,
         .holdEffect = HOLD_EFFECT_FIRE_POWER,
         .holdEffectParam = 10,
         .description = sCharcoalDesc,

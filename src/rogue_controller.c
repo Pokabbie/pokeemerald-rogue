@@ -1393,22 +1393,35 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
-static bool8 UseCompetitiveMoveset(u16 trainerNum)
+static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
         return FALSE;
     }
-
-    if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
-        return TRUE;
+        if(difficultyLevel == 0) // Last mon has competitive set
+            return IsBossTrainer(trainerNum) && monIdx == (totalMonCount - 1);
+        else if(difficultyLevel == 1)
+            return IsBossTrainer(trainerNum);
+        else
+            return TRUE;
     }
-
-    // Start using competitive movesets on 3rd gym
-    if(IsBossTrainer(trainerNum) && GetDifficultyLevel(gRogueRun.currentRoomIdx) >= 2)
+    else
     {
-        return TRUE;
+        // Start using competitive movesets on 3rd gym
+        if(IsBossTrainer(trainerNum))
+        {
+            if(difficultyLevel == 0)
+                return FALSE;
+            else if(difficultyLevel == 1) // Last mon has competitive set
+                return monIdx == (totalMonCount - 1);
+            else
+                return TRUE;
+        }
     }
 
     return FALSE;
@@ -1766,7 +1779,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
-    if(UseCompetitiveMoveset(trainerNum))
+    if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
         s32 i;
         u16 move;
@@ -2189,6 +2202,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     RogueQuery_Exclude(ITEM_REVIVE);
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
     RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
+    RogueQuery_Exclude(ITEM_RARE_CANDY);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
