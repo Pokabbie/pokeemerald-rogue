@@ -15,6 +15,7 @@
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -71,9 +72,35 @@ extern const u8 gText_RogueDebug_ItemCount[];
 extern const u8 gText_RogueDebug_Seed[];
 #endif
 
+// Box save data
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+struct RogueBoxSaveData
+{
+    u32 encryptionKey;
+    struct Pokemon playerParty[PARTY_SIZE];
+    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+};
+
+ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
+
+#endif
+
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
+    
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    // We encode all our save data as box data :D
+    union
+    {
+        struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
+        struct RogueBoxSaveData raw;
+    } saveData;
+#endif
 };
 
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
@@ -512,27 +539,126 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
+static void CopyFromPocket(u8 pocket, struct ItemSlot* dst)
+{
+    u16 i;
+    u16 count = gBagPockets[pocket].capacity;
+
+    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+        dst[i] = gBagPockets[pocket].itemSlots[i];
+
+    //memcpy(dst, gBagPockets[pocket].itemSlots, sizeof(struct ItemSlot) * gBagPockets[pocket].capacity);
+}
+
+static void CopyToPocket(u8 pocket, struct ItemSlot* src)
+{
+    u16 i;
+    u16 count = gBagPockets[pocket].capacity;
+
+    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+        gBagPockets[pocket].itemSlots[i] = src[i];
+
+   // memcpy(gBagPockets[pocket].itemSlots, src, sizeof(struct ItemSlot) * gBagPockets[pocket].capacity);
+}
+
+static void SaveHubInventory(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        CopyMon(&gRogueLocal.saveData.raw.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
+    }
+    for(; i < PARTY_SIZE; ++i)
+    {
+        ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
+    }
+    
+    gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
+    CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
+    CopyFromPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
+    CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
+    CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
+    CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+
+#else
+    // Store current states (Use normal save data)
+    SavePlayerParty();
+    LoadPlayerBag(); // Bag funcs named in opposite
+#endif
+}
+
+static void LoadHubInventory(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        CopyMon(&gPlayerParty[i], &gRogueLocal.saveData.raw.playerParty[i], sizeof(gPlayerParty[i]));
+    }
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+            break;
+    }
+    gPlayerPartyCount = i;
+
+    CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
+    CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
+    CopyToPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
+    CopyToPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
+    CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+
+    ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
+
+#else
+    // Restore current states
+    LoadPlayerParty();
+    SavePlayerBag(); // Bag funcs named in opposite
+#endif
+}
+
 extern const u8 Rogue_QuickSaveLoad[];
 
 void Rogue_OnSaveGame(void)
 {
 #ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
 
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
+
+    // Move Hub save data into storage box space
+    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
+    {
+        memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+    }
+
 #endif
 }
 
 void Rogue_OnLoadGame(void)
 {
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     SeedRogueRng(gSaveBlock1Ptr->rogueBlock.saveData.rngSeed);
 
     memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
     memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
+
+    // Move Hub save data out of storage box space
+    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
+    {
+        memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+    }
+
 
     if(Rogue_IsRunActive())
     {
@@ -639,6 +765,8 @@ static u16 GetStartRestStopRoomIdx(void)
 
 static void BeginRogueRun(void)
 {
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
@@ -658,9 +786,7 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     
-    // Store current states
-    SavePlayerParty();
-    LoadPlayerBag(); // Bag funcs named in opposite
+    SaveHubInventory();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
@@ -705,9 +831,7 @@ static void EndRogueRun(void)
 
     gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
-    // Restore current states
-    LoadPlayerParty();
-    SavePlayerBag(); // Bag funcs named in opposite
+    LoadHubInventory();
 }
 
 static bool8 IsBossRoom(u16 roomIdx)

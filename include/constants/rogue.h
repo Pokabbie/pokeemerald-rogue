@@ -1,10 +1,10 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-#define ROGUE_DEBUG
+//#define ROGUE_DEBUG
 
 // Unfinished feature (tl;dr ran save location as we need to store party and bag starting states)
-//#define ROGUE_SUPPORT_QUICK_SAVE
+#define ROGUE_SUPPORT_QUICK_SAVE
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
