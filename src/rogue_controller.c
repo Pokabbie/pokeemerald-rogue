@@ -422,11 +422,12 @@ static void SelectStartMons(void)
     u16 species;
 
     RogueQuery_Clear();
+    RogueQuery_Exclude(SPECIES_SUNKERN);
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
-    RogueQuery_SpeciesWithEvolutionStages(2);
+    RogueQuery_SpeciesWithAtLeastEvolutionStages(1);
 
     RogueQuery_CollapseSpeciesBuffer();
     queryCount = RogueQuery_BufferSize();

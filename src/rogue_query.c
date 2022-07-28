@@ -329,7 +329,7 @@ void RogueQuery_TransformToEggSpecies(void)
     }
 }
 
-void RogueQuery_SpeciesWithEvolutionStages(u8 count)
+void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
 {
     u8 evo;
     u16 species;
@@ -339,7 +339,7 @@ void RogueQuery_SpeciesWithEvolutionStages(u8 count)
     {
         if(GetQueryState(species))
         {
-            if(GetEvolutionCount(species) != count)
+            if(GetEvolutionCount(species) < count)
             {
                 SetQueryState(species, FALSE);
             }
