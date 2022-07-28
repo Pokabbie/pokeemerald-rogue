@@ -114,7 +114,7 @@ static bool8 IsSpeciesType(u16 species, u8 type)
 }
 
 // Taken straight from daycare
-static u16 GetEggSpecies(u16 species)
+u16 RogueUtil_GetEggSpecies(u16 species)
 {
     u16 e, s, evo, spe;
     bool8 found;
@@ -319,7 +319,7 @@ void RogueQuery_TransformToEggSpecies(void)
     {
         if(GetQueryState(species))
         {
-            eggSpecies = GetEggSpecies(species);
+            eggSpecies = RogueUtil_GetEggSpecies(species);
             if(eggSpecies != species)
             {
                 SetQueryState(eggSpecies, TRUE);

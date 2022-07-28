@@ -1,6 +1,8 @@
 #ifndef ROGUE_QUERY_H
 #define ROGUE_QUERY_H
 
+u16 RogueUtil_GetEggSpecies(u16 species);
+
 void RogueQuery_Clear(void);
 void RogueQuery_CollapseSpeciesBuffer(void);
 void RogueQuery_CollapseItemBuffer(void);

@@ -1395,6 +1395,16 @@ static bool8 IsBossTrainer(u16 trainerNum)
 
 static bool8 UseCompetitiveMoveset(u16 trainerNum)
 {
+    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        return FALSE;
+    }
+
+    if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        return TRUE;
+    }
+
     // Start using competitive movesets on 3rd gym
     if(IsBossTrainer(trainerNum) && GetDifficultyLevel(gRogueRun.currentRoomIdx) >= 2)
     {
@@ -1656,6 +1666,43 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     return species;
 }
 
+extern const u16 *const gLevelUpLearnsets[];
+
+bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
+{
+    u16 eggSpecies;
+    s32 i;
+
+    for (i = 0; gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
+    {
+        u16 moveLevel;
+
+        if(move == (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID))
+        {
+            moveLevel = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV);
+
+            if (moveLevel > (level << 9))
+                return FALSE;
+
+            return TRUE;
+        }
+    }
+
+    eggSpecies = RogueUtil_GetEggSpecies(species);
+
+    if(eggSpecies == species)
+    {
+        // Must be taught by some other means
+        return TRUE;
+    }
+    else
+    {
+        // Check if we would've learnt this before evolving (not 100% as can skip middle exclusive learn moves)
+        return CanLearnMoveByLvl(eggSpecies, move, level);
+    }
+}
+
+
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
@@ -1705,7 +1752,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     else
         fixedIV = isBoss ? 11 : 0;
 
-    if(!isBoss || difficultyLevel < 4)
+    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
     {
         // Team average is something like -2, -1, -1, 0
         level--;
@@ -1719,40 +1766,51 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
-    if(UseCompetitiveMoveset(trainerNum) && gPresetMonTable[species].presetCount != 0)
+    if(UseCompetitiveMoveset(trainerNum))
     {
         s32 i;
-        u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-        const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
-
-        if(preset->abilityNum != ABILITY_NONE)
+        u16 move;
+        if(gPresetMonTable[species].presetCount != 0)
         {
-            SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
-        }
+            u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+            const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
 
-        if(preset->heldItem != ITEM_NONE)
-        {
-            SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
-        }
-
-        for (i = 0; i < MAX_MON_MOVES; i++)
-        {
-            if(preset->moves[i] != MOVE_NONE)
+            if(preset->abilityNum != ABILITY_NONE)
             {
-                SetMonData(mon, MON_DATA_MOVE1 + i, &preset->moves[i]);
-                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[preset->moves[i]].pp);
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+            }
+
+            if(preset->heldItem != ITEM_NONE)
+            {
+                SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+            }
+
+            // Teach moves from set that we can learn at this lvl
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = preset->moves[i]; 
+
+                if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
+                {
+                    SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+                }
+                else
+                {
+                    SetMonData(mon, MON_DATA_MOVE1 + i, MOVE_NONE);
+                }
             }
         }
 
-        if(!FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        // Fill in empty moves
+        for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            //for (i = 0; i < MAX_MON_MOVES; i++)
-            //{
-            //    if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
-            //    {
-            //        // TODO - Teach some other move
-            //    }
-            //}
+            if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
+            {
+                move = MOVE_SPLASH; // TEMP
+                SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+            }
         }
     }
 
