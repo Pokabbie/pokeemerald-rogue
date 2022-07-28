@@ -323,10 +323,10 @@ Rogue_Hub_ProfLab_IntroRunAwayCommon_Text_1:
 
 Rogue_Hub_ProfLab_IntroTriggerL_Text_0:
 	.string "BIRCH: Oh...\p"
-	.string "Would you prefer a different POKéMON?$"
+	.string "Would you prefer some different POKéMON?$"
 
 Rogue_Hub_ProfLab_IntroTriggerL_Text_1:
-	.string "BIRCH: OK, here you go!$"
+	.string "BIRCH: OK, you can have this one!$"
 
 Rogue_Hub_ProfLab_PokeballCommon_Text_0:
 	.string "BIRCH: You'd like to take\n"
