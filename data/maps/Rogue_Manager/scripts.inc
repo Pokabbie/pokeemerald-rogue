@@ -470,7 +470,7 @@ Rogue_Shop_BattleItems::
 	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_BattleItems_2
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
 	goto_if_ge Rogue_Shop_BattleItems_8
-	pokemartwithminprice Rogue_Shop_BattleEvos, 500
+	pokemartwithminprice Rogue_Shop_BattleEvos, 1000
 Rogue_Shop_BattleItems_1:
 	msgbox Rogue_Shop_Utilty_Text_1
 	release
@@ -494,7 +494,7 @@ Rogue_Shop_BattleItems_6:
 	goto Rogue_Shop_BattleItems_5
 
 Rogue_Shop_BattleItems_8:
-	pokemartwithminprice Rogue_Shop_BattleFull, 500
+	pokemartwithminprice Rogue_Shop_BattleFull, 1000
 	goto Rogue_Shop_BattleItems_1
 
 Rogue_Shop_BattleItems_12:
@@ -542,6 +542,14 @@ Rogue_Shop_BattleFull:
 	.2byte ITEM_UP_GRADE
 	.2byte ITEM_DEEP_SEA_SCALE
 	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CARBOS
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_PP_UP
+	.2byte ITEM_ZINC
+	.2byte ITEM_PP_MAX
 	.2byte ITEM_AMULET_COIN
 	.2byte ITEM_BLACK_BELT
 	.2byte ITEM_BLACK_GLASSES
