@@ -545,10 +545,12 @@ static void CopyFromPocket(u8 pocket, struct ItemSlot* dst)
     u16 i;
     u16 count = gBagPockets[pocket].capacity;
 
+    // Use getters to avoid encryption
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        dst[i] = gBagPockets[pocket].itemSlots[i];
-
-    //memcpy(dst, gBagPockets[pocket].itemSlots, sizeof(struct ItemSlot) * gBagPockets[pocket].capacity);
+    {
+        dst[i].itemId = gBagPockets[pocket].itemSlots[i].itemId;
+        dst[i].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+    }
 }
 
 static void CopyToPocket(u8 pocket, struct ItemSlot* src)
@@ -557,9 +559,10 @@ static void CopyToPocket(u8 pocket, struct ItemSlot* src)
     u16 count = gBagPockets[pocket].capacity;
 
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gBagPockets[pocket].itemSlots[i] = src[i];
-
-   // memcpy(gBagPockets[pocket].itemSlots, src, sizeof(struct ItemSlot) * gBagPockets[pocket].capacity);
+    {
+        gBagPockets[pocket].itemSlots[i].itemId = src[i].itemId;
+        SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, src[i].quantity);
+    }
 }
 
 static void SaveHubInventory(void)
@@ -613,7 +616,7 @@ static void LoadHubInventory(void)
     CopyToPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
     CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
 
-    ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
+    //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
 
 #else
     // Restore current states
