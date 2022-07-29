@@ -1785,8 +1785,15 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
-        s32 i;
+        u8 i, j;
         u16 move;
+        u16 initialMoves[4];
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            initialMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
+        }
+
         if(gPresetMonTable[species].presetCount != 0)
         {
             u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
@@ -1820,13 +1827,21 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         }
 
         // Fill in empty moves
+        j = 0;
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
             {
-                move = MOVE_SPLASH; // TEMP
-                SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+                move = initialMoves[j++]; // TEMP
+                if(move != MOVE_NONE)
+                {
+                    SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+                }
+                else
+                {
+                    // TODO - Look up other moves?
+                }
             }
         }
     }
