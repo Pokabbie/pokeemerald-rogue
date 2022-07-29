@@ -111,6 +111,7 @@ static u8 GetDifficultyLevel(u16 roomIdx);
 static bool8 IsBossRoom(u16 roomIdx);
 static bool8 IsSpecialEncounterRoom(void);
 
+static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
 static u8 CalculateTrainerLevel(u16 trainerNum);
@@ -184,6 +185,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     if(Rogue_IsRunActive() && species != SPECIES_NONE)
     {
         u8 targetLevel = CalculatePlayerLevel();
+        u8 maxLevel = CalculateBossLevel();
         u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
         if(currentLevel != MAX_LEVEL)
@@ -195,22 +197,25 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
             s32 desiredExpPerc = 0;
 
-            if(currentLevel < targetLevel)
+            if(currentLevel < maxLevel)
             {
-                s16 delta = targetLevel - currentLevel;
-                if(delta == 1)
+                if(currentLevel >= targetLevel)
                 {
-                    desiredExpPerc = 50;
-                }
-                else if(delta < 6)
-                {
-                    // Give up to 5 levels at once
-                    desiredExpPerc = 100 * min(3, delta - 1);
+                    desiredExpPerc = 51;
                 }
                 else
                 {
-                    // Give up to 10 levels at once
-                    desiredExpPerc = 100 * min(10, delta - 1);
+                    s16 delta = targetLevel - currentLevel;
+                    if(delta <= 2)
+                    {
+                        // Give up to 5 levels at once
+                        desiredExpPerc = 76 * min(3, delta);
+                    }
+                    else
+                    {
+                        // Give up to 10 levels at once
+                        desiredExpPerc = 100 * min(10, delta - 2);
+                    }
                 }
             }
             else
@@ -2101,19 +2106,25 @@ static u8 CalculateWildLevel(void)
     return CalculatePlayerLevel() - 7;
 }
 
-static u8 CalculateBossLevel(u8 difficulty)
+static u8 CalculateBossLevelForDifficulty(u8 difficulty)
 {
-    // Gym leaders lvs 10 -> 80
+    // Gym leaders lvs 15 -> 85
     if(difficulty <= 7)
     {
-        return min(100, 10 + 10 * difficulty);
+        return min(100, 15 + 10 * difficulty);
     }
     else
     {
         // Both champions are lvl 100
-        difficulty -= 7;
-        return min(100, 80 + 4 * difficulty);
+        difficulty -= 7; // (0 - 6)
+        return min(100, 85 + 4 * difficulty);
     }
+}
+
+static u8 CalculateBossLevel()
+{
+    u8 currLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    return CalculateBossLevelForDifficulty(currLevel);
 }
 
 static u8 CalculatePlayerLevel(void)
@@ -2123,8 +2134,16 @@ static u8 CalculatePlayerLevel(void)
 
     if(currLevel == 0)
     {
-        // Cannot do blending
-        return CalculateBossLevel(currLevel);
+        if(gRogueRun.currentRoomIdx <= 1)
+        {
+            // Just hard guessing this one
+            return 10;
+        }
+        else
+        {
+            // Cannot do blending
+            return CalculateBossLevelForDifficulty(currLevel);
+        }
     }
     else
     {
@@ -2133,12 +2152,12 @@ static u8 CalculatePlayerLevel(void)
 
     if(currLevel == prevLevel)
     {
-        return CalculateBossLevel(currLevel);
+        return CalculateBossLevelForDifficulty(currLevel);
     }
     else
     {
         // We've just transitioned so use midpoint
-        return (CalculateBossLevel(prevLevel) + CalculateBossLevel(currLevel)) / 2;
+        return (CalculateBossLevelForDifficulty(prevLevel) + CalculateBossLevelForDifficulty(currLevel)) / 2;
     }
 }
 
@@ -2154,12 +2173,12 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 
         if(difficultyLevel == 0)
         {
-            return 2 + gRogueRun.currentRoomIdx;
+            return CalculatePlayerLevel() - 7;
         }
         else
         {
             // Trainers will lag behind to make grinding easier
-            return CalculateBossLevel(difficultyLevel - 1);
+            return CalculateBossLevelForDifficulty(difficultyLevel - 1);
         }
     }
 }
