@@ -34,6 +34,10 @@ struct RogueHubData
 {
     u32 money;
     u16 registeredItem;
+    u16 playTimeHours;
+    u8 playTimeMinutes;
+    u8 playTimeSeconds;
+    u8 playTimeVBlanks;
     //struct Pokemon playerParty[PARTY_SIZE];
     //struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
     //struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];

@@ -795,6 +795,16 @@ static void BeginRogueRun(void)
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
+    gRogueHubData.playTimeHours = gSaveBlock2Ptr->playTimeHours;
+    gRogueHubData.playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
+    gRogueHubData.playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds;
+    gRogueHubData.playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks;
+
+    gSaveBlock2Ptr->playTimeHours = 0;
+    gSaveBlock2Ptr->playTimeMinutes = 0;
+    gSaveBlock2Ptr->playTimeSeconds = 0;
+    gSaveBlock2Ptr->playTimeVBlanks = 0;
+
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
@@ -834,6 +844,35 @@ static void EndRogueRun(void)
     AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
     gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
+
+    
+    //gRogueHubData.playTimeHours += gSaveBlock2Ptr->playTimeHours;
+    //gRogueHubData.playTimeMinutes += gSaveBlock2Ptr->playTimeMinutes;
+    //gRogueHubData.playTimeSeconds += gSaveBlock2Ptr->playTimeSeconds;
+    //gRogueHubData.playTimeVBlanks += gSaveBlock2Ptr->playTimeVBlanks;
+
+    gSaveBlock2Ptr->playTimeHours += gRogueHubData.playTimeHours;
+    gSaveBlock2Ptr->playTimeMinutes += gRogueHubData.playTimeMinutes;
+    gSaveBlock2Ptr->playTimeSeconds += gRogueHubData.playTimeSeconds + (gRogueHubData.playTimeVBlanks / 60);
+    gSaveBlock2Ptr->playTimeVBlanks += gRogueHubData.playTimeVBlanks;
+
+    if(gSaveBlock2Ptr->playTimeVBlanks > 60)
+    {
+        gSaveBlock2Ptr->playTimeSeconds += gSaveBlock2Ptr->playTimeVBlanks / 60;
+        gSaveBlock2Ptr->playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks % 60;
+    }
+
+    if(gSaveBlock2Ptr->playTimeSeconds > 60)
+    {
+        gSaveBlock2Ptr->playTimeMinutes += gSaveBlock2Ptr->playTimeSeconds / 60;
+        gSaveBlock2Ptr->playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds % 60;
+    }
+
+    if(gSaveBlock2Ptr->playTimeMinutes > 60)
+    {
+        gSaveBlock2Ptr->playTimeHours += gSaveBlock2Ptr->playTimeMinutes / 60;
+        gSaveBlock2Ptr->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes % 60;
+    }
 
     LoadHubInventory();
 }
