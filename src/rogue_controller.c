@@ -406,9 +406,15 @@ u8* Rogue_GetMiniMenuContent(void)
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    StringExpandPlaceholders(gStringVar3, gText_RogueHourMinute);
+
     ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
     ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    
     StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+
     return gStringVar4;
 }
 #endif
