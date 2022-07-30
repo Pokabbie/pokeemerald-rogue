@@ -484,6 +484,7 @@ static void SelectStartMons(void)
     u16 queryCount;
     u16 species;
 
+    // Maybe consider compile time caching this query, as it's pretty slow :(
     RogueQuery_Clear();
     RogueQuery_Exclude(SPECIES_SUNKERN);
     RogueQuery_Exclude(SPECIES_SUNFLORA);

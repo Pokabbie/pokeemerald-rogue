@@ -110,6 +110,14 @@
 #define FEMALE 1
 #define GENDER_COUNT 2
 
+#define STYLE_EMR_BRENDAN   0
+#define STYLE_EMR_MAY       1
+#define STYLE_RED           2
+#define STYLE_LEAF          3
+#define STYLE_RS_BRENDAN    4
+#define STYLE_RS_MAY        5
+#define PLAYER_STYLE_COUNT 6
+
 #define BARD_SONG_LENGTH       6
 #define NUM_STORYTELLER_TALES  4
 #define NUM_TRADER_ITEMS       4

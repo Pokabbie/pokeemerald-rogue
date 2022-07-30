@@ -1163,7 +1163,7 @@ void CB2_InitCopyrightScreenAfterTitleScreen(void)
 static void Task_Scene1_Load(u8 taskId)
 {
     SetVBlankCallback(NULL);
-    sIntroCharacterGender = Random() & 1;
+    sIntroCharacterGender = Random() % PLAYER_STYLE_COUNT;
     IntroResetGpuRegs();
     SetGpuReg(REG_OFFSET_BG3VOFS, 0);
     SetGpuReg(REG_OFFSET_BG2VOFS, 80);
@@ -1371,10 +1371,29 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     u8 spriteId;
 
     // Load sprite sheets
-    if (sIntroCharacterGender == MALE)
-        LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
-    else
-        LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+    switch(sIntroCharacterGender)
+    {
+        case STYLE_EMR_BRENDAN: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
+            break;
+        case STYLE_EMR_MAY: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+            break;
+
+        case STYLE_RS_BRENDAN: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
+            break;
+        case STYLE_RS_MAY: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+            break;
+
+        case STYLE_RED: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
+            break;
+        case STYLE_LEAF: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+            break;
+    }
 
     LoadCompressedSpriteSheet(gSpriteSheet_IntroBicycle);
     LoadCompressedSpriteSheet(gSpriteSheet_IntroFlygon);
@@ -1390,10 +1409,29 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     CreateSprite(&sSpriteTemplate_Manectric, DISPLAY_WIDTH + 32, 128, 0);
     CreateSprite(&sSpriteTemplate_Torchic, DISPLAY_WIDTH + 48, 110, 1);
 
-    if (sIntroCharacterGender == MALE)
-        spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
-    else
-        spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+    switch(sIntroCharacterGender)
+    {
+        case STYLE_EMR_BRENDAN: 
+            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
+            break;
+        case STYLE_EMR_MAY: 
+            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+            break;
+
+        case STYLE_RS_BRENDAN: 
+            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
+            break;
+        case STYLE_RS_MAY: 
+            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+            break;
+
+        case STYLE_RED: 
+            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
+            break;
+        case STYLE_LEAF: 
+            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+            break;
+    }
 
     gSprites[spriteId].callback = SpriteCB_PlayerOnBicycle;
     gSprites[spriteId].anims = sAnims_PlayerBicycle;

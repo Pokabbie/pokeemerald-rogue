@@ -684,8 +684,26 @@ void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 }
 
 void DecompressTrainerBackPic(u16 backPicId, u8 battlerId)
-{
+{    
     u8 position = GetBattlerPosition(battlerId);
+    
+    // RogueNote: gender swap around backPicId indices
+    //switch(backPicId)
+    //{
+    //    case 2: 
+    //        backPicId = 4;
+    //        break;
+    //    case 3: 
+    //        backPicId = 5;
+    //        break;
+    //    case 4: 
+    //        backPicId = 2;
+    //        break;
+    //    case 5: 
+    //        backPicId = 3;
+    //        break;
+    //};
+
     DecompressPicFromTable_2(&gTrainerBackPicTable[backPicId],
                              gMonSpritesGfxPtr->sprites.ptr[position],
                              SPECIES_NONE);

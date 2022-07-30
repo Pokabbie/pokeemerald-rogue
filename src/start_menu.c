@@ -1428,7 +1428,7 @@ static void ShowSaveInfoWindow(void)
     gender = gSaveBlock2Ptr->playerGender;
     color = TEXT_COLOR_RED;  // Red when female, blue when male.
 
-    if (gender == MALE)
+    if ((gender % 2) == MALE)
     {
         color = TEXT_COLOR_BLUE;
     }

@@ -74,6 +74,23 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
     }
     else
     {
+        // RogueNote: gender swap around backPicId indices
+        //switch(species)
+        //{
+        //    case 2: 
+        //        species = 4;
+        //        break;
+        //    case 3: 
+        //        species = 5;
+        //        break;
+        //    case 4: 
+        //        species = 2;
+        //        break;
+        //    case 5: 
+        //        species = 3;
+        //        break;
+        //};
+
         if (isFrontPic)
             DecompressPicFromTable(&gTrainerFrontPicTable[species], dest, species);
         else
