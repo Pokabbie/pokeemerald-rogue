@@ -42,12 +42,13 @@ Rogue_Hub_ProfLab_ProfExplain::
 	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Hub_ProfLab_ProfExplain_2
-	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_2, MSGBOX_DEFAULT
+	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_3, MSGBOX_DEFAULT
 Rogue_Hub_ProfLab_ProfExplain_1:
 	return
 
 Rogue_Hub_ProfLab_ProfExplain_2:
 	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_2, MSGBOX_DEFAULT
 	goto Rogue_Hub_ProfLab_ProfExplain_1
 
 
@@ -127,7 +128,7 @@ Rogue_Hub_ProfLab_IntroTriggerR::
 	goto_if_ne Rogue_Hub_ProfLab_IntroTriggerR_2
 	turnobject 1, DIR_SOUTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	msgbox Rogue_Hub_ProfLab_IntroTriggerL_Text_0, MSGBOX_YESNO
+	msgbox Rogue_Hub_ProfLab_IntroTriggerR_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Hub_ProfLab_IntroTriggerR_5
 	applymovement OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkUpOne
@@ -292,9 +293,38 @@ Rogue_Hub_ProfLab_ProfExplain_Text_0:
 	.string "adventures work?$"
 
 Rogue_Hub_ProfLab_ProfExplain_Text_1:
-	.string "BIRCH: TODO$"
+	.string "BIRCH: You never know what you're\n"
+	.string "gonna see on an adventure!\p"
+	.string "The routes will swap around, the\n"
+	.string "POKéMON and TRAINERS you encounter\l"
+	.string "will also change!\p"
+	.string "When you finish your adventure you'll\n"
+	.string "be escorted back to the HUB and we'll\l"
+	.string "restore you BAG and POKéMON back to\l"
+	.string "their original states.\p"
+	.string "So, for example, if you evolved your\n"
+	.string "PARTNER POKéMON whilst on an\l"
+	.string "adventure, it would unevolve when you\l"
+	.string "come back to the HUB.$"
 
 Rogue_Hub_ProfLab_ProfExplain_Text_2:
+	.string "When you return from adventures, you'll\n"
+	.string "get given reward money which you can\l"
+	.string "then spend on anything you'd like in\l"
+	.string "the HUB.\n"
+	.string "Whatever you buy or use in the HUB will\l"
+	.string "be permanent.\p"
+	.string "So if you went and bought extra potions\n"
+	.string "in the HUB but used them during an\l"
+	.string "adventure, once you returned you'd\l"
+	.string "find that they've been placed right\l"
+	.string "back in to you BAG.\p"
+	.string "The best way to learn about adventures\n"
+	.string "is to go on many of them!\p"
+	.string "So go ahead!\n"
+	.string "Explore and have fun!$"
+
+Rogue_Hub_ProfLab_ProfExplain_Text_3:
 	.string "BIRCH: OK then!\n"
 	.string "If you ever need an explaination, you\l"
 	.string "know where to find me.$"
@@ -323,10 +353,15 @@ Rogue_Hub_ProfLab_IntroRunAwayCommon_Text_1:
 
 Rogue_Hub_ProfLab_IntroTriggerL_Text_0:
 	.string "BIRCH: Oh...\p"
-	.string "Would you prefer some different POKéMON?$"
+	.string "Would you prefer some different\n"
+	.string "POKéMON options?$"
 
 Rogue_Hub_ProfLab_IntroTriggerL_Text_1:
-	.string "BIRCH: OK, you can have this one!$"
+	.string "BIRCH: OK, here you go!$"
+
+Rogue_Hub_ProfLab_IntroTriggerR_Text_0:
+	.string "BIRCH: Oh...\p"
+	.string "Would you prefer a different POKéMON?$"
 
 Rogue_Hub_ProfLab_PokeballCommon_Text_0:
 	.string "BIRCH: You'd like to take\n"

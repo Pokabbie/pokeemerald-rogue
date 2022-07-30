@@ -101,6 +101,55 @@ u16 RogueQuery_BufferSize(void)
     return gRogueQueryBufferSize;
 }
 
+u16 RogueQuery_UncollapsedSpeciesSize(void)
+{
+    u16 species;
+    u16 count = 0;
+    
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+u16 RogueQuery_UncollapsedItemSize(void)
+{
+    u16 item;
+    u16 count = 0;
+    
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+u16 RogueQuery_AtUncollapsedIndex(u16 idx)
+{
+    u16 i;
+    u16 counter = 0;
+    
+    for(i = 1; i < MAX_QUERY_BIT_COUNT; ++i)
+    {
+        if(GetQueryState(i))
+        {
+            if(idx == counter++)
+                return i;
+        }
+    }
+
+    return 0;
+}
+
 void RogueQuery_Exclude(u16 idx)
 {
     SetQueryState(idx, FALSE);

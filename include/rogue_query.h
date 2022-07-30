@@ -9,6 +9,11 @@ void RogueQuery_CollapseItemBuffer(void);
 u16* RogueQuery_BufferPtr(void);
 u16 RogueQuery_BufferSize(void);
 
+// Uncollapsed queries are slow but can be used to query the entire range
+u16 RogueQuery_UncollapsedSpeciesSize(void);
+u16 RogueQuery_UncollapsedItemSize(void);
+u16 RogueQuery_AtUncollapsedIndex(u16 idx);
+
 void RogueQuery_Exclude(u16 idx);
 
 // Species

@@ -486,20 +486,21 @@ static void SelectStartMons(void)
 
     RogueQuery_Clear();
     RogueQuery_Exclude(SPECIES_SUNKERN);
+    RogueQuery_Exclude(SPECIES_SUNFLORA);
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
     RogueQuery_SpeciesWithAtLeastEvolutionStages(1);
 
-    RogueQuery_CollapseSpeciesBuffer();
-    queryCount = RogueQuery_BufferSize();
+    // Have to use uncollapsed queries as this query is too large otherwise
+    queryCount = RogueQuery_UncollapsedSpeciesSize();
 
     for(i = 0; i < 3;)
     {
         isValid = TRUE;
         randIdx = Random() % queryCount;
-        species = RogueQuery_BufferPtr()[randIdx];
+        species = RogueQuery_AtUncollapsedIndex(randIdx);
 
         // Check other starter is not already this
         for(j = 0; j < i; ++j)
