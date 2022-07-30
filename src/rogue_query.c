@@ -21,6 +21,7 @@
 //#include "text.h"
 
 #include "rogue_query.h"
+#include "rogue_controller.h"
 
 #define QUERY_BUFFER_COUNT 64
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
@@ -29,7 +30,7 @@ EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 static void SetQueryState(u16 elem, bool8 state)
 {
@@ -118,6 +119,7 @@ u16 RogueUtil_GetEggSpecies(u16 species)
 {
     u16 e, s, evo, spe;
     bool8 found;
+    struct Evolution evolution;
 
     // Working backwards up to 5 times seems arbitrary, since the maximum number
     // of times would only be 3 for 3-stage evolutions.
@@ -135,7 +137,9 @@ u16 RogueUtil_GetEggSpecies(u16 species)
 
             for (evo = 0; evo < EVOS_PER_MON; evo++)
             {
-                if (gEvolutionTable[spe][evo].targetSpecies == species)
+                Rogue_ModifyEvolution(spe, evo, &evolution);
+
+                if (evolution.targetSpecies == species)
                 {
                     species = spe;
                     found = TRUE;
@@ -157,10 +161,13 @@ u16 RogueUtil_GetEggSpecies(u16 species)
 static bool8 IsFinalEvolution(u16 species)
 {
     u16 s, e;
+    struct Evolution evo;
 
     for (e = 0; e < EVOS_PER_MON; e++)
     {
-        if (gEvolutionTable[species][e].targetSpecies != SPECIES_NONE)
+        Rogue_ModifyEvolution(species, e, &evo);
+
+        if (evo.targetSpecies != SPECIES_NONE)
         {
             return FALSE;
         }
@@ -203,10 +210,13 @@ static bool8 IsSpeciesIsLegendary(u16 species)
 static u8 GetEvolutionCount(u16 species)
 {
     u16 s, e;
+    struct Evolution evo;
 
     for (e = 0; e < EVOS_PER_MON; e++)
     {
-        s = gEvolutionTable[species][e].targetSpecies;
+        Rogue_ModifyEvolution(species, e, &evo);
+
+        s = evo.targetSpecies;
         if (s != SPECIES_NONE)
         {
             return 1 + GetEvolutionCount(s);
@@ -349,17 +359,20 @@ void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
 
 void RogueQuery_EvolveSpeciesToLevel(u8 level)
 {
-    u8 evo;
+    u8 e;
     u16 species;
     bool8 removeChild = TRUE;
+    struct Evolution evo;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
-            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            for(e = 0; e < EVOS_PER_MON; ++e)
             {
-                switch(gEvolutionTable[species][evo].method)
+                Rogue_ModifyEvolution(species, e, &evo);
+
+                switch(evo.method)
                 {
                 case EVO_LEVEL:
                 case EVO_LEVEL_ATK_GT_DEF:
@@ -368,9 +381,9 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                 case EVO_LEVEL_SILCOON:
                 case EVO_LEVEL_CASCOON:
                 case EVO_LEVEL_NINJASK:
-                if (gEvolutionTable[species][evo].param <= level)
+                if (evo.param <= level)
                 {
-                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
                     {
                         SetQueryState(species, FALSE);
@@ -385,22 +398,25 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
 
 void RogueQuery_EvolveSpeciesByItem()
 {
-    u8 evo;
+    u8 e;
     u16 species;
     bool8 removeChild = TRUE;
+    struct Evolution evo;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
-            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            for(e = 0; e < EVOS_PER_MON; ++e)
             {
-                switch(gEvolutionTable[species][evo].method)
+                Rogue_ModifyEvolution(species, e, &evo);
+
+                switch(evo.method)
                 {
                 case EVO_ITEM:
                 case EVO_TRADE_ITEM:
                 {
-                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
                     {
                         SetQueryState(species, FALSE);

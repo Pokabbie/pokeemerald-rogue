@@ -1,7 +1,7 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
 
 // Unfinished feature (tl;dr ran save location as we need to store party and bag starting states)
 #define ROGUE_SUPPORT_QUICK_SAVE

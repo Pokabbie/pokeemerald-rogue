@@ -330,6 +330,46 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
+void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
+{
+    memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
+
+    if(outEvo->targetSpecies != SPECIES_NONE)
+    {
+        switch(outEvo->method)
+        {
+            case(EVO_FRIENDSHIP):
+                outEvo->method = EVO_LEVEL;
+                outEvo->param = 20;
+                break;
+
+            case(EVO_TRADE):
+                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->param = ITEM_EXP_SHARE; // Link cable
+                break;
+            case(EVO_TRADE_ITEM):
+                outEvo->method = EVO_LEVEL_ITEM;
+                break;
+
+            case(EVO_FRIENDSHIP_DAY):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_SUN_STONE;
+                break;
+            case(EVO_FRIENDSHIP_NIGHT):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_MOON_STONE;
+                break;
+
+            case(EVO_BEAUTY):
+                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->param = ITEM_DRAGON_SCALE;
+                break;
+        }
+    }
+}
+
 void Rogue_ModifyBattleWinnings(u32* money)
 {
     if(Rogue_IsRunActive())
@@ -505,7 +545,10 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
 #ifdef ROGUE_DEBUG
+    SetMoney(&gSaveBlock1Ptr->money, 999999);
+
     AddBagItem(ITEM_RARE_CANDY, 99);
+    VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
 
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
