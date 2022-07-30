@@ -206,16 +206,28 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 else
                 {
                     s16 delta = targetLevel - currentLevel;
-                    if(delta <= 2)
+                    
+                    if(delta < 10)
                     {
                         // Give up to 5 levels at once
-                        desiredExpPerc = 76 * min(3, delta);
+                        desiredExpPerc = 100 * min(5, delta);
                     }
                     else
                     {
                         // Give up to 10 levels at once
-                        desiredExpPerc = 100 * min(10, delta - 2);
+                        desiredExpPerc = 100 * min(10, delta);
                     }
+
+                    //if(delta <= 2)
+                    //{
+                    //    // Give up to 5 levels at once
+                    //    desiredExpPerc = 76 * min(3, delta);
+                    //}
+                    //else
+                    //{
+                    //    // Give up to 10 levels at once
+                    //    desiredExpPerc = 100 * min(10, delta - 2);
+                    //}
                 }
             }
             else
