@@ -397,7 +397,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime)
 {
     if(Rogue_FastBattleAnims())
     {
-        *waitTime = *waitTime / 8;
+        *waitTime = 0;//*waitTime / 8;
     }
     else if(gRogueRun.currentRoomIdx != ROOM_IDX_BOSS13) // Go at default speed for final fight
     {

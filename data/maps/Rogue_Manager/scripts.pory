@@ -161,11 +161,12 @@ script Rogue_Shop_Utilty
         case 5:
             pokemart(Rogue_Shop_Utility5)
 
-        case 8:
-            pokemart(Rogue_Shop_Utility8)
+        case 6:
+        case 7:
+            pokemart(Rogue_Shop_Utility6)
 
         default:
-            pokemart(Rogue_Shop_Utility6)
+            pokemart(Rogue_Shop_Utility8)
     }
 
     msgbox("Come again soon!")
