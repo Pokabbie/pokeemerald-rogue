@@ -39,14 +39,12 @@ RogueHub_OnMapLoad_9:
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_13:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
-	goto_if_lt RogueHub_OnMapLoad_18
+	goto_if_lt RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER3
-RogueHub_OnMapLoad_17:
-	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	return
 
 RogueHub_OnMapLoad_2:
-	fillmetatile 31, 9, 40, 16, 0x001, FALSE
+	fillmetatile 31, 10, 40, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER0
 	goto RogueHub_OnMapLoad_1
 
@@ -61,6 +59,7 @@ RogueHub_OnMapLoad_6:
 RogueHub_OnMapLoad_10:
 	fillmetatile 22, 12, 27, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER1
+	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	goto RogueHub_OnMapLoad_9
 
 RogueHub_OnMapLoad_14:
@@ -68,11 +67,11 @@ RogueHub_OnMapLoad_14:
 	setflag FLAG_ROGUE_TRAINER2
 	goto RogueHub_OnMapLoad_13
 
-RogueHub_OnMapLoad_18:
+RogueHub_OnMapLoad_17:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
 	fillmetatile 33, 8, 35, 8, 0x001, FALSE
-	goto RogueHub_OnMapLoad_17
+	return
 
 
 RogueHub_Intro0::
@@ -580,6 +579,11 @@ RogueHub_Sign_Bank::
 	return
 
 
+RogueHub_Sign_ClothesShop::
+	msgbox RogueHub_Sign_ClothesShop_Text_0, MSGBOX_SIGN
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -794,3 +798,6 @@ RogueHub_Sign_NameRater_Text_0:
 
 RogueHub_Sign_Bank_Text_0:
 	.string "BANK$"
+
+RogueHub_Sign_ClothesShop_Text_0:
+	.string "CLOTHES SHOP$"

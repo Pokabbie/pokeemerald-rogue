@@ -4810,6 +4810,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Jirachi/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Jirachi/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
+      "name": "Rogue_Hub_Interior_ClothesShop_Layout",
+      "width": 26,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/Rogue_Hub_Interior_ClothesShop/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub_Interior_ClothesShop/map.bin"
     }
   ]
 }

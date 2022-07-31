@@ -62,7 +62,7 @@ script RogueHub_OnMapLoad
     // Shop
     if(var(VAR_ROGUE_INTRO_STATE) <= 4) // i.e. has been on an adventure
     {
-        fillmetatile(31, 9, 40, 16, METATILE_Grass, FALSE)
+        fillmetatile(31, 10, 40, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER0)
     }
     else
@@ -91,6 +91,9 @@ script RogueHub_OnMapLoad
     {
         fillmetatile(22, 12, 27, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER1)
+
+        // +clothes shop
+        fillmetatile(41, 20, 48, 25, METATILE_Grass, FALSE)
     }
     else
     {
@@ -121,12 +124,6 @@ script RogueHub_OnMapLoad
     {
         clearflag(FLAG_ROGUE_TRAINER3)
     }
-
-    // TODO - Battle item shop
-    // TODO - Fisherman hut?
-
-    // Clothes shop?
-    fillmetatile(41, 20, 48, 25, METATILE_Grass, FALSE)
 }
 
 script RogueHub_Intro0
@@ -608,6 +605,11 @@ script RogueHub_Sign_NameRater
 script RogueHub_Sign_Bank
 {
     msgbox(format("BANK"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_ClothesShop
+{
+    msgbox(format("CLOTHES SHOP"), MSGBOX_SIGN)
 }
 
 //script RogueHub_ResetRun

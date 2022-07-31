@@ -1,0 +1,135 @@
+mapscripts Rogue_Hub_Interior_ClothesShop_MapScripts {}
+
+script Rogue_Hub_Clothes_TalkAssistant
+{
+    lockall
+    faceplayer
+    msgbox(format("Are you feeling bored of your look?\nIf so you're in the right place!\pJust walk up to one of the statues to swap"), MSGBOX_DEFAULT)
+    releaseall
+}
+
+script Rogue_Hub_Clothes_SetStyle_EmrBrendan
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 0)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_EmrMay
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 1)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Red
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 2)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Leaf
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 3)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_RSBrendan
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 4)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_RSMay
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 5)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB, 5)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}

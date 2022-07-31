@@ -1135,3 +1135,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Special_Celebi/scripts.inc"
 
 	.include "data/maps/Rogue_Special_Jirachi/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Interior_ClothesShop/scripts.inc"

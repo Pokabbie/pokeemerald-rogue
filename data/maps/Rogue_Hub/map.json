@@ -232,6 +232,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": 2
+    },
+    {
+      "x": 45,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
@@ -301,6 +308,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RogueHub_Sign_NameRater"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "RogueHub_Sign_ClothesShop"
     }
   ]
 }

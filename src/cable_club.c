@@ -1201,6 +1201,16 @@ void Script_ShowLinkTrainerCard(void)
     ShowTrainerCardInLink(gSpecialVar_0x8006, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
+void Script_ShowTrainerCard(void)
+{
+    ShowPlayerTrainerCard(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void Script_ChangePlayerGender(void)
+{
+    gSaveBlock2Ptr->playerGender = gSpecialVar_0x8006;
+}
+
 // Returns FALSE if the player has no stars. Returns TRUE otherwise, and puts the name of the
 // color into gStringVar2.
 bool32 GetLinkTrainerCardColor(u8 linkPlayerIndex)
