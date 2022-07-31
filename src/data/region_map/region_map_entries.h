@@ -188,7 +188,7 @@ static const u8 sMapName_ScufibChamber[] = _("SCUFIB CHAMBER");
 static const u8 sMapName_RixyChamber[] = _("RIXY CHAMBER");
 static const u8 sMapName_ViapoisChamber[] = _("VIAPOIS CHAMBER");
 static const u8 sMapName_EmberSpa[] = _("EMBER SPA");
-static const u8 sMapName_SpecialArea[] = _("SPECIAL AREA");
+static const u8 sMapName_SpecialArea[] = _("ADVENTURE");
 static const u8 sMapName_AquaHideout[] = _("AQUA HIDEOUT");
 static const u8 sMapName_MagmaHideout[] = _("MAGMA HIDEOUT");
 static const u8 sMapName_MirageTower[] = _("MIRAGE TOWER");
@@ -197,7 +197,7 @@ static const u8 sMapName_ArtisanCave[] = _("ARTISAN CAVE");
 static const u8 sMapName_MarineCave[] = _("MARINE CAVE");
 static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
-static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
+static const u8 sMapName_TrainerHill[] = _("POKéMON HUB");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_LITTLEROOT_TOWN]            = { 4, 11, 1, 1, sMapName_LittlerootTown},

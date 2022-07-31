@@ -2058,23 +2058,8 @@ static void RandomiseWildEncounters(void)
     gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
 }
 
-static void RandomiseSafariWildEncounters(void)
+static void RogueQuery_SafariTypeForMap()
 {
-    u8 maxlevel = CalculateWildLevel();
-
-    // Query for the current zone
-    RogueQuery_Clear();
-    RogueQuery_SpeciesIsValid();
-
-    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
-    {
-        // Once we've got 8 badges we're going to allow legendaries for fun!
-        RogueQuery_SpeciesIsNotLegendary();
-    }
-
-    RogueQuery_SpeciesInPokedex();
-
-    // Select supported types
     if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTH)
     {
         u8 types[] =
@@ -2123,9 +2108,27 @@ static void RandomiseSafariWildEncounters(void)
         };
         RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
     }
+}
 
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+static void RandomiseSafariWildEncounters(void)
+{
+    u8 maxlevel = CalculateWildLevel();
+
+    // Query for the current zone
+    RogueQuery_Clear();
+    RogueQuery_SpeciesIsValid();
+
+    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
+    {
+        // Once we've got 8 badges we're going to allow legendaries for fun!
+        RogueQuery_SpeciesIsNotLegendary();
+    }
+
+    RogueQuery_SpeciesInPokedex();
+
+    RogueQuery_SafariTypeForMap();
     RogueQuery_TransformToEggSpecies();
+    RogueQuery_SafariTypeForMap();
 
     RogueQuery_CollapseSpeciesBuffer();
 
