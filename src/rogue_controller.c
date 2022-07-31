@@ -2455,6 +2455,9 @@ static void RandomiseEnabledItems(void)
     RandomiseItemContent(difficultyLevel);
 }
 
+#define FIRST_USELESS_BERRY_INDEX ITEM_CORNN_BERRY
+#define LAST_USELESS_BERRY_INDEX  ITEM_BELUE_BERRY
+
 #define BERRY_COUNT (LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 1)
 
 static void RandomiseBerryTrees(void)
@@ -2465,8 +2468,16 @@ static void RandomiseBerryTrees(void)
     {
         if(RandomChanceBerry())
         {
-            u8 berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
-            u8 berry = ItemIdToBerryType(berryItem);
+            u8 berryItem;
+            u8 berry;
+
+            do
+            {
+                berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
+            }
+            while(berryItem >= FIRST_USELESS_BERRY_INDEX && berryItem <= LAST_USELESS_BERRY_INDEX);
+
+            berry = ItemIdToBerryType(berryItem);
             PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
         }
         else
