@@ -10,8 +10,8 @@ Rogue_Battle_Boss9::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss9
 	waitmovement 0
 	msgbox Rogue_Battle_Boss9_Text_0
-	setweather WEATHER_SHADE
-	doweather
+	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Battle_Boss9_2
+Rogue_Battle_Boss9_1:
 	applymovement 1, BossToFightBoss9
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss9
 	waitmovement 0
@@ -20,6 +20,11 @@ Rogue_Battle_Boss9::
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_PHOEBE, 0, Rogue_Battle_Boss9_Text_2
 	call Rogue_BattleDefeated_Boss9
 	return
+
+Rogue_Battle_Boss9_2:
+	setweather WEATHER_SHADE
+	doweather
+	goto Rogue_Battle_Boss9_1
 
 
 Rogue_BattleDefeated_Boss9::

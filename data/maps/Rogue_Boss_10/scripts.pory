@@ -16,8 +16,11 @@ script Rogue_Battle_Boss10
 
     msgbox(format("GLACIA: A new challenger!"))
 
-    setweather(WEATHER_SNOW)
-    doweather
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_SNOW)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFightBoss10)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss10)

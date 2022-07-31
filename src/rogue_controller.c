@@ -545,6 +545,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
+    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -857,6 +858,7 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
     
     SaveHubInventory();
 
@@ -1300,10 +1302,12 @@ void Rogue_OnWarpIntoMap(void)
         if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ENCOUNTER_REST_STOP)
         {
             RandomiseEnabledTrainers();
+            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
         }
         else if(IsSpecialEncounterRoom())
         {
             gRogueRun.specialEncounterCounter = 0;
+            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
         }
         else
         {
@@ -1336,6 +1340,20 @@ void Rogue_OnWarpIntoMap(void)
             {
                 ResetTrainerBattles();
                 RandomiseEnabledItems();
+
+                // Weather
+                if(difficultyLevel == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || difficultyLevel > 2)
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
             }
             else
             {
@@ -1344,6 +1362,15 @@ void Rogue_OnWarpIntoMap(void)
                 RandomiseEnabledTrainers();
                 RandomiseEnabledItems();
                 RandomiseBerryTrees();
+
+                if(difficultyLevel != 0 && RandomChance(20, OVERWORLD_FLAG))
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
             }
         }
     }

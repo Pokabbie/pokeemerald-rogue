@@ -10,8 +10,8 @@ Rogue_Battle_Boss8::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss8
 	waitmovement 0
 	msgbox Rogue_Battle_Boss8_Text_0
-	setweather WEATHER_VOLCANIC_ASH
-	doweather
+	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Battle_Boss8_2
+Rogue_Battle_Boss8_1:
 	applymovement 1, BossToFightBoss8
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss8
 	waitmovement 0
@@ -20,6 +20,11 @@ Rogue_Battle_Boss8::
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_SIDNEY, 0, Rogue_Battle_Boss8_Text_2
 	call Rogue_BattleDefeated_Boss8
 	return
+
+Rogue_Battle_Boss8_2:
+	setweather WEATHER_VOLCANIC_ASH
+	doweather
+	goto Rogue_Battle_Boss8_1
 
 
 Rogue_BattleDefeated_Boss8::

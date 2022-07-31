@@ -16,8 +16,11 @@ script Rogue_Battle_Boss12
 
     msgbox(format("WALLACE: A new challenger!"))
 
-    setweather(WEATHER_DOWNPOUR)
-    doweather
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_DOWNPOUR)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFightBoss12)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12)

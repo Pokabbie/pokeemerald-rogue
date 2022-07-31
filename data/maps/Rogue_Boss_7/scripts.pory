@@ -16,8 +16,11 @@ script Rogue_Battle_Boss7
 
     msgbox(format("JUAN: A new challenger!"))
 
-    setweather(WEATHER_RAIN)
-    doweather
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_RAIN)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFightBoss7)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss7)
