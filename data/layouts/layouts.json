@@ -4720,6 +4720,96 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/Rogue_Hub_ProfLab/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_ProfLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_ARTICUNO",
+      "name": "Rogue_Special_Articuno_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Articuno/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Articuno/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_ZAPDOS",
+      "name": "Rogue_Special_Zapdos_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Zapdos/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Zapdos/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_MOLTRES",
+      "name": "Rogue_Special_Moltres_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Moltres/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Moltres/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_MEWTWO",
+      "name": "Rogue_Special_Mewtwo_Layout",
+      "width": 19,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Mewtwo/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Mewtwo/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_RAIKOU",
+      "name": "Rogue_Special_Raikou_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Raikou/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Raikou/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_ENTEI",
+      "name": "Rogue_Special_Entei_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Entei/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Entei/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_SUICUNE",
+      "name": "Rogue_Special_Suicune_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Suicune/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Suicune/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_CELEBI",
+      "name": "Rogue_Special_Celebi_Layout",
+      "width": 9,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Celebi/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Celebi/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_JIRACHI",
+      "name": "Rogue_Special_Jirachi_Layout",
+      "width": 19,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Jirachi/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Jirachi/map.bin"
     }
   ]
 }

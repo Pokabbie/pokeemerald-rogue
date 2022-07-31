@@ -399,6 +399,11 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime)
     {
         *waitTime = *waitTime / 8;
     }
+    else if(gRogueRun.currentRoomIdx != ROOM_IDX_BOSS13) // Go at default speed for final fight
+    {
+        // Still run faster and default game because it's way too slow :(
+        *waitTime = *waitTime / 2;
+    }
 }
 
 #ifdef ROGUE_DEBUG
@@ -899,7 +904,7 @@ static void BeginRogueRun(void)
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
 
-    gRogueRun.currentRouteType = ROGUE_ROUTE_WATERFRONT;
+    //gRogueRun.currentRouteType = ROGUE_ROUTE_WATERFRONT;
 #endif
 }
 
@@ -1256,6 +1261,9 @@ static bool8 IsSpecialEncounterRoom(void)
 
 static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
 {
+#ifdef ROGUE_DEBUG
+    return 100;
+#else
     if(difficultyLevel == 0)
     {
         return 0;
@@ -1277,9 +1285,10 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
         }
         else
         {
-            return 5;
+            return 8;
         }
     }
+#endif
 }
 
 void Rogue_OnWarpIntoMap(void)
@@ -1560,9 +1569,9 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
             else
                 return TRUE;
         }
-    }
 
-    return FALSE;
+        return FALSE;
+    }
 }
 
 static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
@@ -2273,7 +2282,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 static bool8 RandomChanceTrainer()
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u8 chance = 10 + 5 * difficultyLevel;
+    u8 chance = max(10, 5 * difficultyLevel);
 
     return RandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
