@@ -113,8 +113,9 @@ Rogue_Shop_Utilty_1:
 	case 3, Rogue_Shop_Utilty_10
 	case 4, Rogue_Shop_Utilty_11
 	case 5, Rogue_Shop_Utilty_12
-	case 8, Rogue_Shop_Utilty_13
-	pokemart Rogue_Shop_Utility6
+	case 6, Rogue_Shop_Utilty_13
+	case 7, Rogue_Shop_Utilty_13
+	pokemart Rogue_Shop_Utility8
 Rogue_Shop_Utilty_5:
 	msgbox Rogue_Shop_Utilty_Text_1
 	release
@@ -149,7 +150,7 @@ Rogue_Shop_Utilty_12:
 	goto Rogue_Shop_Utilty_5
 
 Rogue_Shop_Utilty_13:
-	pokemart Rogue_Shop_Utility8
+	pokemart Rogue_Shop_Utility6
 	goto Rogue_Shop_Utilty_5
 
 

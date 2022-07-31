@@ -386,9 +386,13 @@ void Rogue_ModifyBattleWinnings(u32* money)
 {
     if(Rogue_IsRunActive())
     {
-        if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
             *money = *money / 3;
+        }
+        else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        {
+            *money = *money / 2;
         }
     }
 }
@@ -1710,14 +1714,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         }
         else if(difficultyLevel <= 7)
         {
-            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -2451,8 +2455,7 @@ static void RandomiseEnabledItems(void)
     RandomiseItemContent(difficultyLevel);
 }
 
-// Only take up to Sitrus berry, as past that is just misc non-battle related berries or reskins
-#define BERRY_COUNT (ITEM_SITRUS_BERRY - FIRST_BERRY_INDEX + 1)
+#define BERRY_COUNT (LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 1)
 
 static void RandomiseBerryTrees(void)
 {
