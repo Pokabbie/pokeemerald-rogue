@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_SPECIAL_SUICUNE",
   "name": "Rogue_Special_Suicune",
   "layout": "LAYOUT_ROGUE_SPECIAL_SUICUNE",
-  "music": "MUS_RG_SEVII_DUNGEON",
+  "music": "MUS_RG_MT_MOON",
   "region_map_section": "MAPSEC_SPECIAL_AREA",
   "requires_flash": false,
   "weather": "WEATHER_RAIN",
