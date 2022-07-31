@@ -17,7 +17,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
       "x": 2,
-      "y": 2,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAY_NORMAL",
       "x": 6,
-      "y": 2,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RED",
-      "x": 10,
+      "x": 14,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LEAF",
-      "x": 15,
+      "x": 19,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LINK_RS_BRENDAN",
-      "x": 19,
-      "y": 2,
+      "x": 27,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -81,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LINK_RS_MAY",
-      "x": 23,
-      "y": 2,
+      "x": 31,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -94,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 13,
-      "y": 7,
+      "x": 17,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -108,15 +108,15 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 11,
+      "x": 16,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
       "dest_warp_id": 5
     },
     {
-      "x": 13,
-      "y": 11,
+      "x": 17,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
       "dest_warp_id": 5
@@ -129,7 +129,7 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 3,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Hub_Clothes_SetStyle_EmrBrendan"
@@ -137,14 +137,14 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 3,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Hub_Clothes_SetStyle_EmrMay"
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 14,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -152,7 +152,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 19,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -160,16 +160,16 @@
     },
     {
       "type": "sign",
-      "x": 19,
-      "y": 3,
+      "x": 27,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Hub_Clothes_SetStyle_RSBrendan"
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 3,
+      "x": 31,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Hub_Clothes_SetStyle_RSMay"

@@ -4814,8 +4814,8 @@
     {
       "id": "LAYOUT_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
       "name": "Rogue_Hub_Interior_ClothesShop_Layout",
-      "width": 26,
-      "height": 12,
+      "width": 34,
+      "height": 17,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/Rogue_Hub_Interior_ClothesShop/border.bin",
