@@ -361,37 +361,40 @@ script RogueHub_SpeakScott
             setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
             specialvar(VAR_RESULT, GetLeadMonLevel)
 
-            if(var(VAR_RESULT) > 80)
+            if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
             {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
-            }
-            elif(var(VAR_RESULT) > 70)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
-            }
-            elif(var(VAR_RESULT) > 60)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
-            }
-            elif(var(VAR_RESULT) > 50)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
-            }
-            elif(var(VAR_RESULT) > 40)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
-            }
-            elif(var(VAR_RESULT) > 30)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
-            }
-            elif(var(VAR_RESULT) > 20)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
-            }
-            elif(var(VAR_RESULT) > 10)
-            {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
+                if(var(VAR_RESULT) > 80)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
+                }
+                elif(var(VAR_RESULT) > 70)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
+                }
+                elif(var(VAR_RESULT) > 60)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
+                }
+                elif(var(VAR_RESULT) > 50)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
+                }
+                elif(var(VAR_RESULT) > 40)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
+                }
+                elif(var(VAR_RESULT) > 30)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
+                }
+                elif(var(VAR_RESULT) > 20)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
+                }
+                elif(var(VAR_RESULT) > 10)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
+                }
             }
 
             // Skip ahead based on lvl
