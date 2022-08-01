@@ -4820,6 +4820,16 @@
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/Rogue_Hub_Interior_ClothesShop/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_Interior_ClothesShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN1",
+      "name": "Rogue_Route_Mountain1_Layout",
+      "width": 40,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Rogue_Route_Mountain1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Mountain1/map.bin"
     }
   ]
 }

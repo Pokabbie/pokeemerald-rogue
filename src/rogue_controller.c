@@ -834,7 +834,7 @@ static void BeginRogueRun(void)
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
-    gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
+    gRogueRun.currentRouteIndex = 0;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -890,7 +890,7 @@ static void BeginRogueRun(void)
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
 
-    //gRogueRun.currentRouteType = ROGUE_ROUTE_WATERFRONT;
+    //gRogueRun.currentRouteIndex = 7;
 #endif
 }
 
@@ -1109,7 +1109,7 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     u8 mapCount;
     u8 mapIdx;
     u8 swapRouteChance = 60;
-    u16 startRouteType = gRogueRun.currentRouteType;
+    u16 startRouteType = gRogueRun.currentRouteIndex;
     const struct RogueRouteMap* selectedMap = NULL;
 
 #ifdef ROGUE_DEBUG
@@ -1133,21 +1133,13 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
         {
             do
             {
-                gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+                gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
             }
-            while(startRouteType == gRogueRun.currentRouteType);
+            while(startRouteType == gRogueRun.currentRouteIndex);
         }
     }
 
-    mapCount = gRogueRouteTable[gRogueRun.currentRouteType].mapCount;
-
-    // Avoid doing same route in a row
-    do
-    {
-        mapIdx = RogueRandomRange(mapCount,  OVERWORLD_FLAG);
-        selectedMap = &gRogueRouteTable[gRogueRun.currentRouteType].mapTable[mapIdx];
-    }
-    while(mapCount > 1 && gMapHeader.mapLayoutId == selectedMap->layout);
+    selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -2024,12 +2016,12 @@ static void RandomiseWildEncounters(void)
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
     RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();
 
@@ -2344,19 +2336,12 @@ static void RandomiseEnabledTrainers(void)
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
+    u8 dropRarity = gRogueRouteTable[gRogueRun.currentRouteIndex].dropRarity;
 
     // Queue up random items
     RogueQuery_Clear();
 
-    if(gRogueRun.currentRouteType == ROGUE_ROUTE_CAVE)
-    {
-        // In cave we have higher chance of finding valuables
-        RogueQuery_ItemsInPriceRange(100 + 400 * difficultyLevel, 300 + 800 * difficultyLevel);
-    }
-    else
-    {
-        RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 800 * difficultyLevel);
-    }
+    RogueQuery_ItemsInPriceRange(50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
 
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);

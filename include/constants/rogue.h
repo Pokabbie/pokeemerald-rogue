@@ -8,23 +8,14 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_ROUTE_FIELD           0
-#define ROGUE_ROUTE_FOREST          1
-#define ROGUE_ROUTE_CAVE            2
-#define ROGUE_ROUTE_MOUNTAIN        3
-#define ROGUE_ROUTE_WATERFRONT      4
-#define ROGUE_ROUTE_URBAN           5
-
-#define ROGUE_ROUTE_START   ROGUE_ROUTE_FIELD
-#define ROGUE_ROUTE_END     ROGUE_ROUTE_URBAN
-#define ROGUE_ROUTE_COUNT (ROGUE_ROUTE_END - ROGUE_ROUTE_START + 1)
+#define ROGUE_ROUTE_COUNT 7
 
 struct RogueRunData
 {
     u16 currentRoomIdx;
     u16 nextRestStopRoomIdx;
     u16 specialEncounterCounter;
-    u8 currentRouteType;
+    u8 currentRouteIndex;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
 };
@@ -66,10 +57,9 @@ struct RogueRouteMap
 
 struct RogueRouteData
 {
-    u8 wildTypeTableCount;
-    u8 mapCount;
-    const u8* wildTypeTable;
-    const struct RogueRouteMap* mapTable;
+    u8 dropRarity;
+    struct RogueRouteMap map;
+    const u8 wildTypeTable[3];
 };
 
 struct RogueEncounterMap
