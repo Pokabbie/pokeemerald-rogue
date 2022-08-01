@@ -703,7 +703,7 @@ void Rogue_OnLoadGame(void)
     u8 i;
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
-    SeedRogueRng(gSaveBlock1Ptr->rogueBlock.saveData.rngSeed);
+    gRngRogueValue = gSaveBlock1Ptr->rogueBlock.saveData.rngSeed;
 
     memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
     memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
@@ -826,7 +826,7 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        SeedRogueRng(Rogue_GetSeed());
+        gRngRogueValue = Rogue_GetSeed();
     }
 
     ClearBerryTrees();
@@ -1556,7 +1556,7 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 
 static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
 {
-    SeedRogueRng(seed + trainerNum * 3 + offset * 7);
+    gRngRogueValue = seed + trainerNum * 3 + offset * 7;
 }
 
 static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
@@ -1782,7 +1782,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 
         *useRogueCreateMon = TRUE;
 
-        SeedRogueRng(startSeed);
+        gRngRogueValue = startSeed;
         return;
     }
 
@@ -1969,7 +1969,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         }
     }
 
-    SeedRogueRng(startSeed);
+    gRngRogueValue = startSeed;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
