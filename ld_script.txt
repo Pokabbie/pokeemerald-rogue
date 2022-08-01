@@ -339,6 +339,7 @@ SECTIONS {
         src/international_string_util.o(.text);
         src/rogue_controller.o(.text);
         src/rogue_query.o(.text);
+        src/rogue_baked.o(.text);
     } =0
 
     script_data :
@@ -702,6 +703,7 @@ SECTIONS {
         data/sound_data.o(.rodata);
         src/rogue_controller.o(.rodata);
         src/rogue_query.o(.rodata);
+        src/rogue_baked.o(.rodata);
     } =0
 
     song_data :

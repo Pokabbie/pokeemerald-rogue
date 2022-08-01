@@ -1,6 +1,8 @@
 #ifndef ROGUE_CONTROLLER_H
 #define ROGUE_CONTROLLER_H
 
+#include "rogue_baked.h"
+
 void RemoveAnyFaintedMons(void);
 
 bool8 Rogue_IsRunActive(void);
@@ -11,7 +13,6 @@ void Rogue_ModifyBattleWinnings(u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
-void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);

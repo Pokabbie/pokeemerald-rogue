@@ -21,7 +21,8 @@
 //#include "text.h"
 
 #include "rogue_query.h"
-#include "rogue_controller.h"
+#include "rogue_baked.h"
+//#include "rogue_controller.h"
 
 #define QUERY_BUFFER_COUNT 64
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
@@ -163,50 +164,6 @@ static bool8 IsSpeciesType(u16 species, u8 type)
     return gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
 }
 
-// Taken straight from daycare
-u16 RogueUtil_GetEggSpecies(u16 species)
-{
-    u16 e, s, evo, spe;
-    bool8 found;
-    struct Evolution evolution;
-
-    // Working backwards up to 5 times seems arbitrary, since the maximum number
-    // of times would only be 3 for 3-stage evolutions.
-    for (e = 0; e < 2; ++e)//EVOS_PER_MON; i++)
-    {
-        found = FALSE;
-        for (s = 1; s < NUM_SPECIES; s++)
-        {
-            if(s < species)
-                // Work downwards, as the evolution is most likely just before this
-                spe = species - s;
-            else
-                // Start counting upwards now, as we've exhausted all of the before species
-                spe = s;
-
-            for (evo = 0; evo < EVOS_PER_MON; evo++)
-            {
-                Rogue_ModifyEvolution(spe, evo, &evolution);
-
-                if (evolution.targetSpecies == species)
-                {
-                    species = spe;
-                    found = TRUE;
-                    break;
-                }
-            }
-
-            if (found)
-                break;
-        }
-
-        if (s == NUM_SPECIES)
-            break;
-    }
-
-    return species;
-}
-
 static bool8 IsFinalEvolution(u16 species)
 {
     u16 s, e;
@@ -254,25 +211,6 @@ static bool8 IsSpeciesIsLegendary(u16 species)
     };
 
     return FALSE;
-}
-
-static u8 GetEvolutionCount(u16 species)
-{
-    u16 s, e;
-    struct Evolution evo;
-
-    for (e = 0; e < EVOS_PER_MON; e++)
-    {
-        Rogue_ModifyEvolution(species, e, &evo);
-
-        s = evo.targetSpecies;
-        if (s != SPECIES_NONE)
-        {
-            return 1 + GetEvolutionCount(s);
-        }
-    }
-
-    return 0;
 }
 
 void RogueQuery_SpeciesIsValid(void)
@@ -378,7 +316,7 @@ void RogueQuery_TransformToEggSpecies(void)
     {
         if(GetQueryState(species))
         {
-            eggSpecies = RogueUtil_GetEggSpecies(species);
+            eggSpecies = Rogue_GetEggSpecies(species);
             if(eggSpecies != species)
             {
                 SetQueryState(eggSpecies, TRUE);
@@ -398,7 +336,7 @@ void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
     {
         if(GetQueryState(species))
         {
-            if(GetEvolutionCount(species) < count)
+            if(Rogue_GetEvolutionCount(species) < count)
             {
                 SetQueryState(species, FALSE);
             }

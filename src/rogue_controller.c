@@ -342,46 +342,6 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
-
-void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
-{
-    memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
-
-    if(outEvo->targetSpecies != SPECIES_NONE)
-    {
-        switch(outEvo->method)
-        {
-            case(EVO_FRIENDSHIP):
-                outEvo->method = EVO_LEVEL;
-                outEvo->param = 20;
-                break;
-
-            case(EVO_TRADE):
-                outEvo->method = EVO_LEVEL_ITEM;
-                outEvo->param = ITEM_EXP_SHARE; // Link cable
-                break;
-            case(EVO_TRADE_ITEM):
-                outEvo->method = EVO_LEVEL_ITEM;
-                break;
-
-            case(EVO_FRIENDSHIP_DAY):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_SUN_STONE;
-                break;
-            case(EVO_FRIENDSHIP_NIGHT):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_MOON_STONE;
-                break;
-
-            case(EVO_BEAUTY):
-                outEvo->method = EVO_LEVEL_ITEM;
-                outEvo->param = ITEM_DRAGON_SCALE;
-                break;
-        }
-    }
-}
-
 void Rogue_ModifyBattleWinnings(u32* money)
 {
     if(Rogue_IsRunActive())
@@ -1861,7 +1821,7 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
         }
     }
 
-    eggSpecies = RogueUtil_GetEggSpecies(species);
+    eggSpecies = Rogue_GetEggSpecies(species);
 
     if(eggSpecies == species)
     {
@@ -2168,7 +2128,7 @@ static void RandomiseSafariWildEncounters(void)
             for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
             {
                 // Just encounter self, as we don't have a great fallback?
-                gRogueRun.wildEncounters[i] = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+                gRogueRun.wildEncounters[i] = Rogue_GetEggSpecies(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES));
             }
         }
         else
