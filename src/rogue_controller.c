@@ -886,6 +886,15 @@ static void BeginRogueRun(void)
 
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
+    FlagClear(FLAG_BADGE01_GET);
+    FlagClear(FLAG_BADGE02_GET);
+    FlagClear(FLAG_BADGE03_GET);
+    FlagClear(FLAG_BADGE04_GET);
+    FlagClear(FLAG_BADGE05_GET);
+    FlagClear(FLAG_BADGE06_GET);
+    FlagClear(FLAG_BADGE07_GET);
+    FlagClear(FLAG_BADGE08_GET);
+
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
@@ -2455,10 +2464,11 @@ static void RandomiseEnabledItems(void)
     RandomiseItemContent(difficultyLevel);
 }
 
-#define FIRST_USELESS_BERRY_INDEX ITEM_CORNN_BERRY
+#define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY
 #define LAST_USELESS_BERRY_INDEX  ITEM_BELUE_BERRY
 
-#define BERRY_COUNT (LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 1)
+// Ignore enigma berry as it's useless in gen 3
+#define BERRY_COUNT (LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
 
 static void RandomiseBerryTrees(void)
 {
