@@ -15,6 +15,7 @@ struct RogueRunData
     u16 currentRoomIdx;
     u16 nextRestStopRoomIdx;
     u16 specialEncounterCounter;
+    u8 previousRouteIndex;
     u8 currentRouteIndex;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];

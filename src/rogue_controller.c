@@ -834,6 +834,7 @@ static void BeginRogueRun(void)
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
+    gRogueRun.previousRouteIndex = 255;
     gRogueRun.currentRouteIndex = 0;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -1126,7 +1127,7 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
         swapRouteChance = 100;
     }
     
-
+    // Don't replay the most recent 2 routes
     if(swapRouteChance != 0)
     {
         if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
@@ -1135,11 +1136,12 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
             {
                 gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
             }
-            while(startRouteType == gRogueRun.currentRouteIndex);
+            while(startRouteType == gRogueRun.currentRouteIndex || gRogueRun.currentRouteIndex == gRogueRun.previousRouteIndex);
         }
     }
 
     selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
+    gRogueRun.previousRouteIndex = startRouteType;
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;

@@ -276,6 +276,9 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
             isValid = FALSE;
             for(t = 0; t < count; ++t)
             {
+                if(types[t] == TYPE_NONE)
+                    continue;
+
                 if(IsSpeciesType(species, types[t]))
                 {
                     isValid = TRUE;
