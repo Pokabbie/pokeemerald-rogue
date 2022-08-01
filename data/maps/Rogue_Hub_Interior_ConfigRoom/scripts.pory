@@ -154,6 +154,13 @@ script Rogue_ConfigRoom_PreButtonInternal
 
     msgbox(format("{STR_VAR_1} is set to {STR_VAR_2}"), MSGBOX_DEFAULT)
     msgbox(format("Flip the switch to {STR_VAR_3}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        waitse
+        playse(SE_PIN)
+    }
+
     return
 }
 
@@ -242,6 +249,15 @@ script Rogue_ConfigRoom_RedrawMap
     else
     {
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
@@ -399,9 +415,37 @@ script Rogue_ConfigRoom_Button_CanOverLvl
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
+script Rogue_ConfigRoom_Button_EVGainEnabled
+{
+    bufferstring(STR_VAR_1, format("ENABLE EVs"))
+
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
+        {
+            clearflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
 script Rogue_ConfigRoom_Button_TrainerDifficulty
 {
-    bufferstring(STR_VAR_1, format("TRAINERS"))
+    bufferstring(STR_VAR_1, format("TRAINER DIFFICULTY"))
 
     if(flag(FLAG_ROGUE_EASY_TRAINERS))
     {
@@ -441,7 +485,7 @@ script Rogue_ConfigRoom_Button_TrainerDifficulty
 
 script Rogue_ConfigRoom_Button_ItemDifficulty
 {
-    bufferstring(STR_VAR_1, format("ITEM DROPS"))
+    bufferstring(STR_VAR_1, format("ITEM RATES"))
 
     if(flag(FLAG_ROGUE_EASY_ITEMS))
     {

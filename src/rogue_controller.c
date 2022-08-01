@@ -299,6 +299,18 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     }
 }
 
+void Rogue_ModifyEVGain(int* multiplier)
+{
+    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        *multiplier = 4;
+    }
+    else
+    {
+        *multiplier = 0;
+    }
+}
+
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 { 
     if(Rogue_IsRunActive())
@@ -508,6 +520,7 @@ void Rogue_OnNewGame(void)
     // Run settings
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagSet(FLAG_ROGUE_EXP_ALL);
+    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
     FlagClear(FLAG_ROGUE_EASY_TRAINERS);

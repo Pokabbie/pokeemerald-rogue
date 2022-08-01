@@ -123,12 +123,20 @@ Rogue_ConfigRoom_PreButtonInternal::
 Rogue_ConfigRoom_PreButtonInternal_1:
 	msgbox Rogue_ConfigRoom_PreButtonInternal_Text_2, MSGBOX_DEFAULT
 	msgbox Rogue_ConfigRoom_PreButtonInternal_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_PreButtonInternal_6
+Rogue_ConfigRoom_PreButtonInternal_5:
 	return
 
 Rogue_ConfigRoom_PreButtonInternal_2:
 	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreButtonInternal_Text_0
 	bufferstring STR_VAR_3, Rogue_ConfigRoom_PreButtonInternal_Text_1
 	goto Rogue_ConfigRoom_PreButtonInternal_1
+
+Rogue_ConfigRoom_PreButtonInternal_6:
+	waitse
+	playse SE_PIN
+	goto Rogue_ConfigRoom_PreButtonInternal_5
 
 
 Rogue_ConfigRoom_PreEAHButtonInternal::
@@ -214,26 +222,29 @@ Rogue_ConfigRoom_RedrawMap_5:
 	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_10
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_9:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_14
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_15
-	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_14
+	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_13:
-	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_20
-	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_21
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_18
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_19
+	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+Rogue_ConfigRoom_RedrawMap_17:
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_24
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_25
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
-Rogue_ConfigRoom_RedrawMap_19:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_26
+Rogue_ConfigRoom_RedrawMap_23:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_30
 	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_25:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_30
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_29:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_34
-	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_34
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_33:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_38
-	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_38
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_37:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_42
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_41:
 	special DrawWholeMapView
 	return
 
@@ -250,36 +261,40 @@ Rogue_ConfigRoom_RedrawMap_10:
 	goto Rogue_ConfigRoom_RedrawMap_9
 
 Rogue_ConfigRoom_RedrawMap_14:
+	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_13
+
+Rogue_ConfigRoom_RedrawMap_18:
 	setmetatile 1, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_13
+	goto Rogue_ConfigRoom_RedrawMap_17
 
-Rogue_ConfigRoom_RedrawMap_15:
+Rogue_ConfigRoom_RedrawMap_19:
 	setmetatile 1, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_13
+	goto Rogue_ConfigRoom_RedrawMap_17
 
-Rogue_ConfigRoom_RedrawMap_20:
+Rogue_ConfigRoom_RedrawMap_24:
 	setmetatile 3, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_19
+	goto Rogue_ConfigRoom_RedrawMap_23
 
-Rogue_ConfigRoom_RedrawMap_21:
+Rogue_ConfigRoom_RedrawMap_25:
 	setmetatile 3, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_19
-
-Rogue_ConfigRoom_RedrawMap_26:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_25
+	goto Rogue_ConfigRoom_RedrawMap_23
 
 Rogue_ConfigRoom_RedrawMap_30:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_29
 
 Rogue_ConfigRoom_RedrawMap_34:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_33
 
 Rogue_ConfigRoom_RedrawMap_38:
-	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_37
+
+Rogue_ConfigRoom_RedrawMap_42:
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_41
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -358,6 +373,32 @@ Rogue_ConfigRoom_Button_CanOverLvl_6:
 Rogue_ConfigRoom_Button_CanOverLvl_8:
 	clearflag FLAG_ROGUE_CAN_OVERLVL
 	goto Rogue_ConfigRoom_Button_CanOverLvl_5
+
+
+Rogue_ConfigRoom_Button_EVGainEnabled::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_EVGainEnabled_Text_0
+	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_Button_EVGainEnabled_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_EVGainEnabled_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_Button_EVGainEnabled_6
+Rogue_ConfigRoom_Button_EVGainEnabled_5:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_EVGainEnabled_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_EVGainEnabled_1
+
+Rogue_ConfigRoom_Button_EVGainEnabled_6:
+	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_Button_EVGainEnabled_8
+	setflag FLAG_ROGUE_EV_GAIN_ENABLED
+	goto Rogue_ConfigRoom_Button_EVGainEnabled_5
+
+Rogue_ConfigRoom_Button_EVGainEnabled_8:
+	clearflag FLAG_ROGUE_EV_GAIN_ENABLED
+	goto Rogue_ConfigRoom_Button_EVGainEnabled_5
 
 
 Rogue_ConfigRoom_Button_TrainerDifficulty::
@@ -637,8 +678,11 @@ Rogue_ConfigRoom_Button_DoubleBattle_Text_0:
 Rogue_ConfigRoom_Button_CanOverLvl_Text_0:
 	.string "ALLOW OVERLEVLING$"
 
+Rogue_ConfigRoom_Button_EVGainEnabled_Text_0:
+	.string "ENABLE EVs$"
+
 Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0:
-	.string "TRAINERS$"
+	.string "TRAINER DIFFICULTY$"
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_Text_1:
 	.string "Adjust teams/moves from very casual to\n"
@@ -650,7 +694,7 @@ Rogue_ConfigRoom_Button_TrainerDifficulty_Text_1:
 	.string "adventure.$"
 
 Rogue_ConfigRoom_Button_ItemDifficulty_Text_0:
-	.string "ITEM DROPS$"
+	.string "ITEM RATES$"
 
 Rogue_ConfigRoom_Button_ItemDifficulty_Text_1:
 	.string "Increases/Decrease the rate at which\n"

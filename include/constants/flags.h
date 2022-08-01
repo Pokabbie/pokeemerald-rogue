@@ -668,7 +668,7 @@
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_ROGUE_VALID_QUICK_SAVE          0x269
 #define FLAG_ROGUE_WEATHER_ACTIVE            0x26A
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_ROGUE_EV_GAIN_ENABLED           0x26B
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag

@@ -2770,6 +2770,8 @@ u16 GetUnionRoomTrainerClass(void)
 
 void CreateEventLegalEnemyMon(void)
 {
+    u8 i;
+    u16 moveId;
     u16 species = gSpecialVar_0x8004;
     u8 level = gSpecialVar_0x8005;
     u16 itemId = gSpecialVar_0x8006;
@@ -2778,6 +2780,19 @@ void CreateEventLegalEnemyMon(void)
 
     ZeroEnemyPartyMons();
     CreateEventLegalMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+
+    // RogueNote: Replace roar with hidden power to avoid pokemon roaring itself out of battle
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        moveId = GetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + i);
+        if(moveId == MOVE_ROAR)
+        {
+            moveId = MOVE_HIDDEN_POWER;
+            SetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + i, &moveId);
+            SetMonData(&gEnemyParty[0], MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+        }
+    }
+
     if (itemId)
     {
         u8 heldItem[2];
@@ -5942,8 +5957,6 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 {
-    // RogueNote: TODO - Skip EVs?
-
     u8 evs[NUM_STATS];
     u16 evIncrease = 0;
     u16 totalEVs = 0;
@@ -5966,6 +5979,11 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
             multiplier = 2;
         else
             multiplier = 1;
+
+        Rogue_ModifyEVGain(&multiplier);
+        
+        if(multiplier == 0)
+            continue;
 
         switch (i)
         {
