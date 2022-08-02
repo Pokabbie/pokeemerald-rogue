@@ -1908,14 +1908,20 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
-        u8 i, j;
+        u8 i;
         u16 move;
-        u16 initialMoves[4];
+        u8 writeMoveIdx;
 
-        for (i = 0; i < MAX_MON_MOVES; i++)
+        // We want to start writing the move from the first free slot and loop back around
+        for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
         {
-            initialMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
+            move = GetMonData(mon, MON_DATA_MOVE1 + i);
+            if(move == MOVE_NONE)
+                break;
         }
+
+        // Loop incase we already have 4 moves
+        writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
         if(gPresetMonTable[species].presetCount != 0)
         {
@@ -1939,31 +1945,11 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
                 if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
                 {
-                    SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
-                }
-                else
-                {
-                    SetMonData(mon, MON_DATA_MOVE1 + i, MOVE_NONE);
-                }
-            }
-        }
+                    SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+                    SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
 
-        // Fill in empty moves
-        j = 0;
-        for (i = 0; i < MAX_MON_MOVES; i++)
-        {
-            if(GetMonData(mon, MON_DATA_MOVE1 + i) == MOVE_NONE)
-            {
-                move = initialMoves[j++]; // TEMP
-                if(move != MOVE_NONE)
-                {
-                    SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
-                }
-                else
-                {
-                    // TODO - Look up other moves?
+                    // Loop back round
+                    writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
                 }
             }
         }

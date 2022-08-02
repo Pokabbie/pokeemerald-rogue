@@ -5571,6 +5571,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
     case EVO_MODE_TRADE:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
+            Rogue_ModifyEvolution(species, i, &currentEvo);
+
             switch (currentEvo.method)
             {
             case EVO_TRADE:
@@ -5591,6 +5593,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
     case EVO_MODE_ITEM_CHECK:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
+            Rogue_ModifyEvolution(species, i, &currentEvo);
+
             if (currentEvo.method == EVO_ITEM
              && currentEvo.param == evolutionItem)
             {

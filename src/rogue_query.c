@@ -404,7 +404,7 @@ void RogueQuery_EvolveSpeciesByItem()
                 switch(evo.method)
                 {
                 case EVO_ITEM:
-                case EVO_TRADE_ITEM:
+                case EVO_LEVEL_ITEM:
                 {
                     SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
