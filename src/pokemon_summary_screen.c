@@ -47,6 +47,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_baked.h"
+
 enum {
     PSS_PAGE_INFO,
     PSS_PAGE_SKILLS,
@@ -2611,8 +2613,8 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
 
     if (summary->level < MAX_LEVEL)
     {
-        u32 expBetweenLevels = gExperienceTables[gBaseStats[summary->species].growthRate][summary->level + 1] - gExperienceTables[gBaseStats[summary->species].growthRate][summary->level];
-        u32 expSinceLastLevel = summary->exp - gExperienceTables[gBaseStats[summary->species].growthRate][summary->level];
+        u32 expBetweenLevels = Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level + 1) - Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level);
+        u32 expSinceLastLevel = summary->exp - Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level);
 
         // Calculate the number of 1-pixel "ticks" to illuminate in the experience progress bar.
         // There are 8 tiles that make up the bar, and each tile has 8 "ticks". Hence, the numerator
@@ -3412,7 +3414,7 @@ static void PrintExpPointsNextLevel(void)
     PrintTextOnWindow(windowId, gStringVar1, x, 1, 0, 0);
 
     if (sum->level < MAX_LEVEL)
-        expToNextLevel = gExperienceTables[gBaseStats[sum->species].growthRate][sum->level + 1] - sum->exp;
+        expToNextLevel = Rogue_ModifyExperienceTables(gBaseStats[sum->species].growthRate, sum->level + 1) - sum->exp;
     else
         expToNextLevel = 0;
 

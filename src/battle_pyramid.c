@@ -38,6 +38,8 @@
 #include "constants/moves.h"
 #include "constants/trainers.h"
 
+#include "rogue_baked.h"
+
 extern const struct MapLayout *const gMapLayouts[];
 
 struct PyramidWildMon
@@ -1342,6 +1344,7 @@ void GenerateBattlePyramidWildMon(void)
 {
     u8 name[POKEMON_NAME_LENGTH + 1];
     int i;
+    u32 exp;
     const struct PyramidWildMon *wildMons;
     u32 id;
     u32 lvl = gSaveBlock2Ptr->frontier.lvlMode;
@@ -1369,9 +1372,12 @@ void GenerateBattlePyramidWildMon(void)
     {
         lvl = wildMons[id].lvl - 5 + ((Random() % 11));
     }
+
+    exp = Rogue_ModifyExperienceTables(gBaseStats[wildMons[id].species].growthRate, lvl);
+
     SetMonData(&gEnemyParty[0],
                MON_DATA_EXP,
-               &gExperienceTables[gBaseStats[wildMons[id].species].growthRate][lvl]);
+               &exp);
 
     switch (wildMons[id].abilityNum)
     {

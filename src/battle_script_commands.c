@@ -3467,7 +3467,7 @@ static void Cmd_getexp(void)
                     u16 species = GetMonData(mon, MON_DATA_SPECIES);
                     u8 level = GetMonData(mon, MON_DATA_LEVEL);
                     u32 currExp = GetMonData(mon, MON_DATA_EXP);
-                    u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+                    u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
                     if (currExp + gBattleMoveDamage < nextLvlExp)
                         gBattlescriptCurrInstr = BattleScript_LevelUp_Full;

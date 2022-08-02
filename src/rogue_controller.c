@@ -232,8 +232,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 // Give levels
                 while(desiredExpPerc > 0)
                 {
-                    currLvlExp = gExperienceTables[growthRate][currentLevel];
-                    nextLvlExp = gExperienceTables[growthRate][currentLevel + 1];
+                    currLvlExp = Rogue_ModifyExperienceTables(growthRate, currentLevel);
+                    nextLvlExp = Rogue_ModifyExperienceTables(growthRate, currentLevel + 1);
                     lvlExp = (nextLvlExp - currLvlExp);
 
                     if(desiredExpPerc >= 100)
