@@ -28,6 +28,8 @@ Rogue_Battle_Boss0_2:
 
 
 Rogue_BattleDefeated_Boss0::
+	setweather WEATHER_NONE
+	doweather
 	message Rogue_BattleDefeated_Boss0_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare

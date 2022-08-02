@@ -500,6 +500,11 @@ static void SelectStartMons(void)
             ++i;
         }
     }
+
+#ifdef ROGUE_DEBUG
+    VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
+    VarSet(VAR_ROGUE_STARTER1, SPECIES_ABRA);
+#endif
 }
 
 void Rogue_OnNewGame(void)

@@ -35,6 +35,9 @@ script Rogue_Battle_Boss7
 
 script Rogue_BattleDefeated_Boss7
 {
+    setweather(WEATHER_NONE)
+    doweather
+    
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)

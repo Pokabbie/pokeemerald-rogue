@@ -35,12 +35,19 @@ script Rogue_Battle_Boss12
 
 script Rogue_BattleDefeated_Boss12
 {
+    setweather(WEATHER_NONE)
+    doweather
+
     message(format("{PLAYER} received a CHAMPION BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
     //setflag(FLAG_BADGE08_GET)
     setflag(FLAG_ROGUE_DEFEATED_BOSS12)
-    msgbox(format("Good luck in your future battles!"))
+
+    playbgm(MUS_VICTORY_LEAGUE, FALSE)
+    msgbox(format("WALLACE: Well fought {PLAYER}!\pYou showed great skill and prowess, the way you battle alongside your POKéMON!\pAnd with that said...\pI hearby declare you..\nA POKéMON CHAMPION!"))
+    playbgm(MUS_NONE, TRUE)
+    msgbox(format("Is what I would've said...\pI'm afraid another battle awaits before you may be bestowed that title...\pGood luck!"))
     waitmessage()
     special(HealPlayerParty)
     special(RemoveCameraObject)

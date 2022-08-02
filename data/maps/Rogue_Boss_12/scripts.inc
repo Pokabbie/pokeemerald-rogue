@@ -28,11 +28,16 @@ Rogue_Battle_Boss12_2:
 
 
 Rogue_BattleDefeated_Boss12::
+	setweather WEATHER_NONE
+	doweather
 	message Rogue_BattleDefeated_Boss12_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_ROGUE_DEFEATED_BOSS12
+	playbgm MUS_VICTORY_LEAGUE, FALSE
 	msgbox Rogue_BattleDefeated_Boss12_Text_1
+	playbgm MUS_NONE, TRUE
+	msgbox Rogue_BattleDefeated_Boss12_Text_2
 	waitmessage
 	special HealPlayerParty
 	special RemoveCameraObject
@@ -80,4 +85,15 @@ Rogue_BattleDefeated_Boss12_Text_0:
 	.string "{PLAYER} received a CHAMPION BADGE!$"
 
 Rogue_BattleDefeated_Boss12_Text_1:
-	.string "Good luck in your future battles!$"
+	.string "WALLACE: Well fought {PLAYER}!\p"
+	.string "You showed great skill and prowess, the\n"
+	.string "way you battle alongside your POKéMON!\p"
+	.string "And with that said...\p"
+	.string "I hearby declare you..\n"
+	.string "A POKéMON CHAMPION!$"
+
+Rogue_BattleDefeated_Boss12_Text_2:
+	.string "Is what I would've said...\p"
+	.string "I'm afraid another battle awaits before\n"
+	.string "you may be bestowed that title...\p"
+	.string "Good luck!$"
