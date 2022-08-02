@@ -895,6 +895,8 @@ static void BeginRogueRun(void)
     // TEMP - Testing only
     //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
     //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
+    gRogueRun.currentRoomIdx = ROOM_IDX_BOSS11 - 1;
+    gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS11;
 
     //gRogueRun.currentRouteIndex = 7;
 #endif
