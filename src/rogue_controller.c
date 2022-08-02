@@ -29,32 +29,8 @@
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
-// Gym leaders
-#define ROOM_IDX_BOSS0      3
-#define ROOM_IDX_BOSS1      6
-#define ROOM_IDX_BOSS2      9
-#define ROOM_IDX_BOSS3      12
-#define ROOM_IDX_BOSS4      15
-#define ROOM_IDX_BOSS5      18
-#define ROOM_IDX_BOSS6      21
-#define ROOM_IDX_BOSS7      24
-
-// Elite 4
-#define ROOM_IDX_BOSS8      28
-#define ROOM_IDX_BOSS9      32
-#define ROOM_IDX_BOSS10     34
-#define ROOM_IDX_BOSS11     38
-
-// Champions
-#define ROOM_IDX_BOSS12     42
-#define ROOM_IDX_BOSS13     46
-
-#define ROOM_BOSS_GYM_START             ROOM_IDX_BOSS0
-#define ROOM_BOSS_GYM_END               ROOM_IDX_BOSS7
-#define ROOM_BOSS_ELITEFOUR_START       ROOM_IDX_BOSS8
-#define ROOM_BOSS_ELITEFOUR_END         ROOM_IDX_BOSS11
-#define ROOM_BOSS_CHAMPION_START        ROOM_IDX_BOSS12
-#define ROOM_BOSS_CHAMPION_END          ROOM_IDX_BOSS13
+// 8 badges, 4 elite, 2 champion
+#define BOSS_ROOM_COUNT 14
 
 #define OVERWORLD_FLAG 0
 
@@ -64,6 +40,7 @@ EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
 
 extern const u8 gText_RogueDebug_Header[];
 extern const u8 gText_RogueDebug_Room[];
+extern const u8 gText_RogueDebug_BossRoom[];
 extern const u8 gText_RogueDebug_Difficulty[];
 extern const u8 gText_RogueDebug_PlayerLvl[];
 extern const u8 gText_RogueDebug_WildLvl[];
@@ -108,6 +85,7 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
+static u16 GetBossRoomForDifficulty(u16 difficulty);
 static bool8 IsBossRoom(u16 roomIdx);
 static bool8 IsSpecialEncounterRoom(void);
 
@@ -358,24 +336,40 @@ void Rogue_ModifyBattleWinnings(u32* money)
 {
     if(Rogue_IsRunActive())
     {
+        // Once we've gotten champion we want to give a bit more money 
+        u8 difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
         if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
-            *money = *money / 3;
+            if(difficulty <= 11)
+            {
+                *money = *money / 3;
+            }
+            else
+            {
+                // Kinder but not by much ;)
+                *money = *money / 2;
+            }
         }
         else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
-            *money = *money / 2;
+            if(difficulty <= 11)
+            {
+                *money = *money / 2;
+            }
         }
     }
 }
 
 void Rogue_ModifyBattleWaitTime(u16* waitTime)
 {
+    u8 difficulty = Rogue_IsRunActive() ? GetDifficultyLevel(gRogueRun.currentRoomIdx) : 0;
+
     if(Rogue_FastBattleAnims())
     {
         *waitTime = 0;//*waitTime / 8;
     }
-    else if(gRogueRun.currentRoomIdx != ROOM_IDX_BOSS13) // Go at default speed for final fight
+    else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
     {
         // Still run faster and default game because it's way too slow :(
         *waitTime = *waitTime / 2;
@@ -425,6 +419,7 @@ u8* Rogue_GetMiniMenuContent(void)
     }
 
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_BossRoom, GetBossRoomForDifficulty(difficultyLevel));
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
@@ -752,39 +747,30 @@ void Rogue_OnLoadMap(void)
 
 static u16 GetBossRoomForDifficulty(u16 difficulty)
 {
-    switch(difficulty)
+    const u16 gymSpacing = 3;
+    const u16 eliteFourSpacing = 3;
+    const u16 championSpacing = 4;
+
+    u16 roomIndex = 0;
+
+    // 0-7 gym leaders
     {
-        case 0:
-            return ROOM_IDX_BOSS0;
-        case 1:
-            return ROOM_IDX_BOSS1;
-        case 2:
-            return ROOM_IDX_BOSS2;
-        case 3:
-            return ROOM_IDX_BOSS3;
-        case 4:
-            return ROOM_IDX_BOSS4;
-        case 5:
-            return ROOM_IDX_BOSS5;
-        case 6:
-            return ROOM_IDX_BOSS6;
-        case 7:
-            return ROOM_IDX_BOSS7;
-        case 8:
-            return ROOM_IDX_BOSS8;
-        case 9:
-            return ROOM_IDX_BOSS9;
-        case 10:
-            return ROOM_IDX_BOSS10;
-        case 11:
-            return ROOM_IDX_BOSS11;
-        case 12:
-            return ROOM_IDX_BOSS12;
-        case 13:
-            return ROOM_IDX_BOSS12;
+        roomIndex += gymSpacing * (min(difficulty, 7) + 1);
     }
 
-    return 0;
+    // 8 - 11 elite four
+    if(difficulty >= 8)
+    {
+        roomIndex += eliteFourSpacing * (min(difficulty, 11) - 8 + 1);
+    }
+
+    // 12 - 13 champion
+    if(difficulty >= 12)
+    {
+        roomIndex += championSpacing * (min(difficulty, 13) - 12 + 1);
+    }
+
+    return roomIndex;
 }
 
 static u16 GetStartDifficulty(void)
@@ -893,10 +879,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
-    //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
-    gRogueRun.currentRoomIdx = ROOM_IDX_BOSS11 - 1;
-    gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS11;
+    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
+    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif
@@ -948,24 +932,12 @@ static void EndRogueRun(void)
 
 static bool8 IsBossRoom(u16 roomIdx)
 {
-    switch(roomIdx)
+    u8 i;
+    for(i = 0; i < BOSS_ROOM_COUNT; ++i)
     {
-        case ROOM_IDX_BOSS0:
-        case ROOM_IDX_BOSS1:
-        case ROOM_IDX_BOSS2:
-        case ROOM_IDX_BOSS3:
-        case ROOM_IDX_BOSS4:
-        case ROOM_IDX_BOSS5:
-        case ROOM_IDX_BOSS6:
-        case ROOM_IDX_BOSS7:
-        case ROOM_IDX_BOSS8:
-        case ROOM_IDX_BOSS9:
-        case ROOM_IDX_BOSS10:
-        case ROOM_IDX_BOSS11:
-        case ROOM_IDX_BOSS12:
-        case ROOM_IDX_BOSS13:
+        if(GetBossRoomForDifficulty(i) == roomIdx)
             return TRUE;
-    };
+    }
 
     return FALSE;
 }
@@ -978,57 +950,41 @@ static bool8 IsSpecialEncounterRoomWarp(struct WarpData *warp)
 
 static u8 GetDifficultyLevel(u16 roomIdx)
 {
-    if(roomIdx <= ROOM_IDX_BOSS0)
-        return 0;
-    if(roomIdx <= ROOM_IDX_BOSS1)
-        return 1;
-    if(roomIdx <= ROOM_IDX_BOSS2)
-        return 2;
-    if(roomIdx <= ROOM_IDX_BOSS3)
-        return 3;
-    if(roomIdx <= ROOM_IDX_BOSS4)
-        return 4;
-    if(roomIdx <= ROOM_IDX_BOSS5)
-        return 5;
-    if(roomIdx <= ROOM_IDX_BOSS6)
-        return 6;
-    if(roomIdx <= ROOM_IDX_BOSS7)
-        return 7;
+    u8 i;
+    for(i = 0; i < BOSS_ROOM_COUNT; ++i)
+    {
+        if(roomIdx <= GetBossRoomForDifficulty(i))
+            return i;
+    }
 
-    if(roomIdx <= ROOM_IDX_BOSS8)
-        return 8;
-    if(roomIdx <= ROOM_IDX_BOSS9)
-        return 9;
-    if(roomIdx <= ROOM_IDX_BOSS10)
-        return 10;
-    if(roomIdx <= ROOM_IDX_BOSS11)
-        return 11;
-
-    if(roomIdx <= ROOM_IDX_BOSS12)
-        return 12;
-    return 13;
+    return BOSS_ROOM_COUNT - 1;
 }
 
 static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 bossId = 0;
+    u8 difficulty = GetDifficultyLevel(nextRoomIdx);
 
     do
     {
-        if(nextRoomIdx <= ROOM_BOSS_GYM_END)
+        // Gym leaders 0-7
+        if(difficulty <= 7)
         {
             bossId = RogueRandomRange(8, OVERWORLD_FLAG);
         }
-        else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
+        // Elite Four 8-11
+        else if(difficulty <= 11)
         {
             bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
         }
-        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
+        // Champion 1
+        else if(difficulty == 12) 
         {
             bossId = 12;
             break;
         }
-        else //if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
+        // Champion 2
+        else
         {
             bossId = 13;
             break;
@@ -1323,8 +1279,17 @@ void Rogue_OnWarpIntoMap(void)
 
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 400);
-                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
+                if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+                {
+                    // Pretty much max difficulty
+                    VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 500);
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
+                }
+                else
+                {
+                    VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 400);
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
+                }
             }
             else
             {
@@ -1393,7 +1358,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         {
             SelectSpecialEncounterRoom(nextRoomIdx, warp);
         }
-        else if(nextRoomIdx >= gRogueRun.nextRestStopRoomIdx)
+        else if(!IsBossRoom(gRogueRun.currentRoomIdx) && nextRoomIdx >= gRogueRun.nextRestStopRoomIdx) // If we just came from a boss room give us an extra room of space
         {
             // We're about to hit a rest stop so force it here
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
@@ -1651,20 +1616,20 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else if(difficultyLevel == 2)
         {
             *monsCount = 4;
-            *allowItemEvos = FALSE;
+            *allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
             *monsCount = 5;
             *allowItemEvos = TRUE;
-            *allowLedgendaries = FALSE;
+            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
         else if(difficultyLevel <= 6) 
         {
             *monsCount = 6;
             *allowItemEvos = TRUE;
-            *allowLedgendaries = FALSE;
+            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
         else // From last gym leader we can see ledgendaries
         {
@@ -1697,7 +1662,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         }
         else if(difficultyLevel <= 7)
         {
-            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
@@ -1711,7 +1676,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else
         {
             // Champion
-            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 2 : 0);
+            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 1 : 0);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -1798,6 +1763,9 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
+#ifdef ROGUE_DEBUG
+    return SPECIES_MAGIKARP;
+#else
     u16 species;
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
@@ -1811,6 +1779,7 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     while(isBoss && PartyContainsSpecies(party, monIdx, species) && queryCount > totalMonCount);
 
     return species;
+#endif
 }
 
 extern const u16 *const gLevelUpLearnsets[];
@@ -2100,9 +2069,9 @@ static void RandomiseSafariWildEncounters(void)
     RogueQuery_Clear();
     RogueQuery_SpeciesIsValid();
 
-    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
+    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
     {
-        // Once we've got 8 badges we're going to allow legendaries for fun!
+        // Once we've defeated the elite 4, we're going to allow legendaries for fun!
         RogueQuery_SpeciesIsNotLegendary();
     }
 
@@ -2274,15 +2243,15 @@ static bool8 RandomChanceItem()
         
         if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
-            chance = 75 - min(50, 4 * difficultyLevel);
+            chance = max(15, 75 - min(50, 4 * difficultyLevel));
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
-            chance = 30 - min(28, 2 * difficultyLevel);
+            chance = max(5, 30 - min(28, 2 * difficultyLevel));
         }
         else
         {
-            chance = 55 - min(50, 4 * difficultyLevel);
+            chance = max(10, 55 - min(50, 4 * difficultyLevel));
         }
     }
 
@@ -2296,15 +2265,15 @@ static bool8 RandomChanceBerry()
 
     if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
     {
-        chance = 95 - min(85, 7 * difficultyLevel);
+        chance = max(15, 95 - min(85, 7 * difficultyLevel));
     }
     else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
     {
-        chance = 50 - min(48, 5 * difficultyLevel);
+        chance = max(5, 50 - min(48, 5 * difficultyLevel));
     }
     else
     {
-        chance = 70 - min(65, 5 * difficultyLevel);
+        chance = max(10, 70 - min(65, 5 * difficultyLevel));
     }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
@@ -2356,7 +2325,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     //ITEM_SACRED_ASH
 
-    if(difficultyLevel <= 1)
+    if(difficultyLevel <= 1 || IsBossRoom(gRogueRun.currentRoomIdx))
     {
         RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
     }

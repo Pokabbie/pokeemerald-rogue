@@ -1,6 +1,7 @@
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
+const u8 gText_RogueDebug_BossRoom[] = _("\nBossRoom: ");
 const u8 gText_RogueDebug_Difficulty[] = _("\nDfcy: ");
 const u8 gText_RogueDebug_PlayerLvl[] = _("\nPly lvl: ");
 const u8 gText_RogueDebug_WildLvl[] = _("\nWld lvl: ");
