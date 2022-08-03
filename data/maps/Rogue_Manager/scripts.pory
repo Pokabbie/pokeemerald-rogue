@@ -54,6 +54,7 @@ script Rogue_QuickSaveRun
 
 script Rogue_QuickSaveLoad
 {
+    // We can accidentally call this on successful run return
     lockall
 
     if(flag(FLAG_ROGUE_VALID_QUICK_SAVE))

@@ -735,8 +735,7 @@ void Rogue_OnLoadGame(void)
         memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
     }
 
-
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
     {
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
