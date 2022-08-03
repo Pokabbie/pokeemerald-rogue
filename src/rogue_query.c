@@ -371,6 +371,7 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                 case EVO_LEVEL_SILCOON:
                 case EVO_LEVEL_CASCOON:
                 case EVO_LEVEL_NINJASK:
+                case EVO_LEVEL_SHEDINJA:
                 if (evo.param <= level)
                 {
                     SetQueryState(evo.targetSpecies, TRUE);

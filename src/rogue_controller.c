@@ -768,11 +768,17 @@ void Rogue_OnLoadMap(void)
 
 static u16 GetBossRoomForDifficulty(u16 difficulty)
 {
-    const u16 gymSpacing = 3;
-    const u16 eliteFourSpacing = 3;
-    const u16 championSpacing = 4;
+    u16 gymSpacing = 3;
+    u16 eliteFourSpacing = 3;
+    u16 championSpacing = 4;
 
     u16 roomIndex = 0;
+
+#ifdef ROGUE_DEBUG
+    gymSpacing = 1;
+    eliteFourSpacing = 1;
+    championSpacing = 1;
+#endif
 
     // 0-7 gym leaders
     {
@@ -900,8 +906,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
-    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
+    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(8) - 1;
+    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(8);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif
