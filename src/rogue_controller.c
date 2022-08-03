@@ -1298,6 +1298,19 @@ void Rogue_OnWarpIntoMap(void)
                 FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
             else
                 FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+
+            // Ensure we have all badges by this point
+            if(difficultyLevel >= 8)
+            {
+                FlagSet(FLAG_BADGE01_GET);
+                FlagSet(FLAG_BADGE02_GET);
+                FlagSet(FLAG_BADGE03_GET);
+                FlagSet(FLAG_BADGE04_GET);
+                FlagSet(FLAG_BADGE05_GET);
+                FlagSet(FLAG_BADGE06_GET);
+                FlagSet(FLAG_BADGE07_GET);
+                FlagSet(FLAG_BADGE08_GET);
+            }
             
             // Update VARs
             VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
