@@ -1928,6 +1928,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         u8 i;
         u16 move;
         u8 writeMoveIdx;
+        bool8 useMaxHappiness = TRUE;
 
         // We want to start writing the move from the first free slot and loop back around
         for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
@@ -1962,6 +1963,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
                 if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
                 {
+                    if(move == MOVE_FRUSTRATION)
+                        useMaxHappiness = FALSE;
+
                     SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
                     SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
 
@@ -1970,6 +1974,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
                 }
             }
         }
+
+        move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
+        SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
     }
 
     gRngRogueValue = startSeed;
