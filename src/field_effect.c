@@ -32,6 +32,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
 EWRAM_DATA s32 gFieldEffectArguments[8] = {0};
@@ -2932,6 +2934,8 @@ static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality)
 
 static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *sprite)
 {
+
+    // RogueNote: Modify HM anim?
     if ((sprite->x -= 20) <= DISPLAY_WIDTH / 2)
     {
         sprite->x = DISPLAY_WIDTH / 2;

@@ -9,6 +9,7 @@ bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
 void Rogue_ModifyBattleWaitTime(u16* waitTime);
+s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);

@@ -376,6 +376,27 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime)
     }
 }
 
+s16 Rogue_ModifyBattleSlideAnim(s16 rate)
+{
+    u8 difficulty = Rogue_IsRunActive() ? GetDifficultyLevel(gRogueRun.currentRoomIdx) : 0;
+
+    if(Rogue_FastBattleAnims())
+    {
+        if(rate < 0)
+            return rate * 2 - 1;
+        else
+            return rate * 2 + 1;
+    }
+    //else if(difficulty == (BOSS_ROOM_COUNT - 1))
+    //{
+    //    // Go at default speed for final fight
+    //    return rate * 2;
+    //}
+
+    // Still run faster and default game because it's way too slow :(
+    return rate;
+}
+
 #ifdef ROGUE_DEBUG
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -1763,23 +1784,20 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
-#ifdef ROGUE_DEBUG
-    return SPECIES_MAGIKARP;
-#else
     u16 species;
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
     
     // Prevent duplicates, if possible (Only for bosses)
+    // *Only allow duplicates after we've already seen everything in the query
     do
     {
         randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
         species = RogueQuery_BufferPtr()[randIdx];
     }
-    while(isBoss && PartyContainsSpecies(party, monIdx, species) && queryCount > totalMonCount);
+    while(isBoss && PartyContainsSpecies(party, monIdx, species) && monIdx < queryCount);
 
     return species;
-#endif
 }
 
 extern const u16 *const gLevelUpLearnsets[];
@@ -1860,6 +1878,10 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
     level = CalculateTrainerLevel(trainerNum);
+
+#ifdef ROGUE_DEBUG
+    level = 5;
+#endif
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
@@ -2141,7 +2163,7 @@ static u8 CalculateWildLevel(void)
         }
     }
 
-    return CalculatePlayerLevel() - 7;
+    return CalculatePlayerLevel();
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)
@@ -2154,8 +2176,8 @@ static u8 CalculateBossLevelForDifficulty(u8 difficulty)
     else
     {
         // Both champions are lvl 100
-        difficulty -= 7; // (0 - 6)
-        return min(100, 85 + 4 * difficulty);
+        difficulty -= 7; // (1 - 6)
+        return min(100, 85 + 3 * difficulty);
     }
 }
 
@@ -2215,8 +2237,16 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         }
         else
         {
-            // Trainers will lag behind to make grinding easier
-            return CalculateBossLevelForDifficulty(difficultyLevel - 1);
+            if(difficultyLevel >= 12)
+            {
+                // Before champion gap is super small
+                return CalculatePlayerLevel() - 5;
+            }
+            else
+            {
+                // Trainers will lag behind to make grinding easier
+                return CalculatePlayerLevel() - 10;
+            }
         }
     }
 }
