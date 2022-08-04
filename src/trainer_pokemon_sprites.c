@@ -141,7 +141,7 @@ static void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 pale
     if (!isTrainer)
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), paletteSlot * 0x10, 0x20);
     else
-        LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, paletteSlot * 0x10, 0x20);
+        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[species].data), paletteSlot * 0x10, 0x20);
 }
 
 static void AssignSpriteAnimsTable(bool8 isTrainer)

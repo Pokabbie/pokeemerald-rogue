@@ -1801,7 +1801,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     else
     {
         u8 spriteId = GetFrontierTrainerFrontSpriteId(gPartnerTrainerId);
-        LoadCompressedPalette(gTrainerFrontPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
+        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[spriteId].data), 0x100 + paletteNum * 16, 32);
     }
 
 

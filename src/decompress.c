@@ -36,7 +36,7 @@ void LoadCompressedSpriteSheetOverrideBuffer(const struct CompressedSpriteSheet 
 {
     struct SpriteSheet dest;
 
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
     dest.data = buffer;
     dest.size = src->size;
     dest.tag = src->tag;
@@ -104,7 +104,7 @@ void LoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32
     else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     else
-        LZ77UnCompWram(src->data, dest);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), dest);
 
     DuplicateDeoxysTiles(dest, species);
     DrawSpindaSpots(species, personality, dest, isFrontPic);
@@ -271,7 +271,7 @@ bool8 LoadCompressedSpriteSheetUsingHeap(const struct CompressedSpriteSheet* src
     void* buffer;
 
     buffer = AllocZeroed(*((u32*)(&src->data[0])) >> 8);
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
 
     dest.data = buffer;
     dest.size = src->size;
@@ -302,7 +302,7 @@ void DecompressPicFromTable_2(const struct CompressedSpriteSheet *src, void* buf
     if (species > NUM_SPECIES)
         LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
     else
-        LZ77UnCompWram(src->data, buffer);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
     DuplicateDeoxysTiles(buffer, species);
 }
 
@@ -326,7 +326,7 @@ void LoadSpecialPokePic_2(const struct CompressedSpriteSheet *src, void *dest, s
     else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     else
-        LZ77UnCompWram(src->data, dest);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), dest);
 
     DuplicateDeoxysTiles(dest, species);
     DrawSpindaSpots(species, personality, dest, isFrontPic);
@@ -349,7 +349,7 @@ void DecompressPicFromTable_DontHandleDeoxys(const struct CompressedSpriteSheet 
     if (species > NUM_SPECIES)
         LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
     else
-        LZ77UnCompWram(src->data, buffer);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
 }
 
 void HandleLoadSpecialPokePic_DontHandleDeoxys(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality)
@@ -384,7 +384,7 @@ void LoadSpecialPokePic_DontHandleDeoxys(const struct CompressedSpriteSheet *src
     else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     else
-        LZ77UnCompWram(src->data, dest);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), dest);
 
     DrawSpindaSpots(species, personality, dest, isFrontPic);
 }
