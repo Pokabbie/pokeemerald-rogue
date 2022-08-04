@@ -21,6 +21,9 @@ gText_Birch_AndYouAre::
 gText_Birch_BoyOrGirl::
 	.string "Pick an avatar$"
 
+gText_Birch_AvatarStyle::
+	.string "Pick a style$"
+
 gText_Birch_WhatsYourName::
 	.string "Now, what is your name?$"
 

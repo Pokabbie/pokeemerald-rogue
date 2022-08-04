@@ -347,9 +347,22 @@ const u8* Rogue_ModifyPallete8(const u8* input)
 
 const u16* Rogue_ModifyPallete16(const u16* input)
 {
+    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
+
     if(input == &gObjectEventPal_Brendan[0])
     {
-        return gObjectEventPal_Brendan_2_green; 
+        if(skinStyle == 2)
+        {
+            return gObjectEventPal_Brendan_2_green; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gObjectEventPal_Brendan_1_green; 
+        }
+        else // skinStyle = 0
+        {
+            //
+        }
     }
 
     if(input == &gObjectEventPal_May[0])
@@ -363,9 +376,22 @@ const u16* Rogue_ModifyPallete16(const u16* input)
 
 const u32* Rogue_ModifyPallete32(const u32* input)
 {
+    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
+
     if(input == &gTrainerPalette_Brendan[0])
     {
-        return gTrainerPalette_Brendan_2_green;
+        if(skinStyle == 2)
+        {
+            return gTrainerPalette_Brendan_2_green; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gTrainerPalette_Brendan_1_green; 
+        }
+        else // skinStyle = 0
+        {
+
+        }
     }
 
     // Must swap for compressed version
