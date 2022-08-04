@@ -2188,7 +2188,7 @@ static u8 CalculateWildLevel(void)
         }
     }
 
-    return CalculatePlayerLevel();
+    return CalculatePlayerLevel() - 7;
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)
