@@ -10,6 +10,7 @@
 #include "battle_setup.h"
 #include "berry.h"
 #include "event_data.h"
+#include "graphics.h"
 #include "item.h"
 #include "load_save.h"
 #include "money.h"
@@ -330,6 +331,71 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_STATUS, &statusAilment);
     }
+}
+
+const u8* Rogue_ModifyPallete8(const u8* input)
+{
+    // Unused?
+
+    //if(input == &gTrainerBackPic_Brendan[0])
+    //{
+    //    return gTrainerBackPic_RubySapphireBrendan;
+    //}
+
+    return input;
+}
+
+const u16* Rogue_ModifyPallete16(const u16* input)
+{
+    if(input == &gObjectEventPal_Brendan[0])
+    {
+
+//extern const u16 gObjectEventPal_Brendan[];
+//extern const u16 gObjectEventPal_May[];
+
+        // Yellow?
+        return gObjectEventPal_RubySapphireBrendan; 
+    }
+
+    if(input == &gObjectEventPal_May[0])
+    {
+
+//extern const u16 gObjectEventPal_Brendan[];
+//extern const u16 gObjectEventPal_May[];
+
+        // Yellow?
+        return gObjectEventPal_RubySapphireMay; 
+    }
+
+    return input;
+}
+
+const u32* Rogue_ModifyPallete32(const u32* input)
+{
+    if(input == &gTrainerPalette_Brendan[0])
+    {
+        return gTrainerPalette_RubySapphireBrendan;
+    }
+
+    // Must swap for compressed version
+    if(input == &gTrainerFrontPic_Brendan[0])
+    {
+        return gTrainerFrontPic_RubySapphireBrendan;
+    }
+
+
+    if(input == &gTrainerPalette_May[0])
+    {
+        return gTrainerPalette_RubySapphireMay;
+    }
+
+    // Must swap for compressed version
+    if(input == &gTrainerFrontPic_May[0])
+    {
+        return gTrainerFrontPic_RubySapphireMay;
+    }
+
+    return input;
 }
 
 void Rogue_ModifyBattleWinnings(u32* money)
@@ -774,9 +840,9 @@ static u16 GetBossRoomForDifficulty(u16 difficulty)
     u16 roomIndex = 0;
 
 #ifdef ROGUE_DEBUG
-    gymSpacing = 1;
-    eliteFourSpacing = 1;
-    championSpacing = 1;
+    //gymSpacing = 1;
+    //eliteFourSpacing = 1;
+    //championSpacing = 1;
 #endif
 
     // 0-7 gym leaders
@@ -905,8 +971,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(8) - 1;
-    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(8);
+    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(8) - 1;
+    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(8);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif

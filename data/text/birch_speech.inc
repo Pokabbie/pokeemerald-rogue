@@ -19,7 +19,7 @@ gText_Birch_AndYouAre::
 	.string "$"
 
 gText_Birch_BoyOrGirl::
-	.string "Pick a style$"
+	.string "Pick an avatar$"
 
 gText_Birch_WhatsYourName::
 	.string "Now, what is your name?$"

@@ -9,6 +9,8 @@
 #include "pokemon.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 struct PicData
 {
     u8 *frames;

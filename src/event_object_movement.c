@@ -30,6 +30,8 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 
+#include "rogue_controller.h"
+
 // this file was known as evobjmv.c in Game Freak's original source
 
 enum {
@@ -2007,7 +2009,7 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
-    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
+    LoadPalette(Rogue_ModifyPallete16(sObjectEventSpritePalettes[paletteIndex].data), 16 * paletteSlot + 0x100, 0x20);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)

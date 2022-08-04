@@ -3,6 +3,8 @@
 #include "main.h"
 #include "palette.h"
 
+#include "rogue_controller.h"
+
 #define MAX_SPRITE_COPY_REQUESTS 64
 
 #define OAM_MATRIX_COUNT 32
@@ -1600,7 +1602,7 @@ u8 LoadSpritePalette(const struct SpritePalette *palette)
     else
     {
         sSpritePaletteTags[index] = palette->tag;
-        DoLoadSpritePalette(palette->data, index * 16);
+        DoLoadSpritePalette(Rogue_ModifyPallete16(palette->data), index * 16);
         return index;
     }
 }

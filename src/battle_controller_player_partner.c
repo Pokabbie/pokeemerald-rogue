@@ -1796,7 +1796,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
         u8 spriteId = TRAINER_BACK_PIC_STEVEN;
-        LoadCompressedPalette(gTrainerBackPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
+        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[spriteId].data), 0x100 + paletteNum * 16, 32);
     }
     else
     {
