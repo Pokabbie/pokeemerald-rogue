@@ -217,7 +217,9 @@ const u32 gTrainerPalette_Brendan_1_green[] = INCBIN_U32("graphics/trainers/pale
 const u32 gTrainerPalette_Brendan_2_green[] = INCBIN_U32("graphics/trainers/palettes/brendan/2_green.gbapal.lz");
 
 const u32 gTrainerFrontPic_May[] = INCBIN_U32("graphics/trainers/front_pics/may_front_pic.4bpp.lz");
-const u32 gTrainerPalette_May[] = INCBIN_U32("graphics/trainers/palettes/may.gbapal.lz");
+const u32 gTrainerPalette_May[] = INCBIN_U32("graphics/trainers/palettes/may/0_green.gbapal.lz");
+const u32 gTrainerPalette_May_1_green[] = INCBIN_U32("graphics/trainers/palettes/may/1_green.gbapal.lz");
+const u32 gTrainerPalette_May_2_green[] = INCBIN_U32("graphics/trainers/palettes/may/2_green.gbapal.lz");
 
 const u32 gTrainerFrontPic_BugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/bug_catcher_front_pic.4bpp.lz");
 const u32 gTrainerPalette_BugCatcher[] = INCBIN_U32("graphics/trainers/palettes/bug_catcher.gbapal.lz");

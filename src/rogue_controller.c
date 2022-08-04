@@ -367,8 +367,18 @@ const u16* Rogue_ModifyPallete16(const u16* input)
 
     if(input == &gObjectEventPal_May[0])
     {
-        // Yellow?
-        return gObjectEventPal_RubySapphireMay; 
+        if(skinStyle == 2)
+        {
+            return gObjectEventPal_May_2_green; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gObjectEventPal_May_1_green; 
+        }
+        else // skinStyle = 0
+        {
+            //
+        }
     }
 
     return input;
@@ -403,7 +413,18 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_May[0])
     {
-        return gTrainerPalette_RubySapphireMay;
+        if(skinStyle == 2)
+        {
+            return gTrainerPalette_May_2_green; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gTrainerPalette_May_1_green; 
+        }
+        else // skinStyle = 0
+        {
+
+        }
     }
 
     // Must swap for compressed version
