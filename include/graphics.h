@@ -3057,7 +3057,11 @@ extern const u32 gTrainerPalette_FactoryHeadNoland[];
 extern const u32 gTrainerPalette_PikeQueenLucy[];
 extern const u32 gTrainerPalette_PyramidKingBrandon[];
 extern const u32 gTrainerPalette_Red[];
+extern const u32 gTrainerPalette_Red_1_red[];
+extern const u32 gTrainerPalette_Red_2_red[];
 extern const u32 gTrainerPalette_Leaf[];
+extern const u32 gTrainerPalette_Leaf_1_red[];
+extern const u32 gTrainerPalette_Leaf_2_red[];
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
@@ -5029,6 +5033,9 @@ extern const u16 gObjectEventPal_May_1_green[];
 extern const u16 gObjectEventPal_May_2_green[];
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
+extern const u16 gObjectEventPal_RedLeaf[];
+extern const u16 gObjectEventPal_RedLeaf_1_red[];
+extern const u16 gObjectEventPal_RedLeaf_2_red[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];

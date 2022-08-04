@@ -381,6 +381,22 @@ const u16* Rogue_ModifyPallete16(const u16* input)
         }
     }
 
+    if(input == &gObjectEventPal_RedLeaf[0])
+    {
+        if(skinStyle == 2)
+        {
+            return gObjectEventPal_RedLeaf_2_red; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gObjectEventPal_RedLeaf_1_red; 
+        }
+        else // skinStyle = 0
+        {
+            //
+        }
+    }
+
     return input;
 }
 
@@ -420,6 +436,38 @@ const u32* Rogue_ModifyPallete32(const u32* input)
         else if(skinStyle == 1)
         {
             return gTrainerPalette_May_1_green; 
+        }
+        else // skinStyle = 0
+        {
+
+        }
+    }
+
+    if(input == &gTrainerPalette_Red[0])
+    {
+        if(skinStyle == 2)
+        {
+            return gTrainerPalette_Red_2_red; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gTrainerPalette_Red_1_red; 
+        }
+        else // skinStyle = 0
+        {
+
+        }
+    }
+
+    if(input == &gTrainerPalette_Leaf[0])
+    {
+        if(skinStyle == 2)
+        {
+            return gTrainerPalette_Leaf_2_red; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gTrainerPalette_Leaf_1_red; 
         }
         else // skinStyle = 0
         {
