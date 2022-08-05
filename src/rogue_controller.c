@@ -475,6 +475,22 @@ const u32* Rogue_ModifyPallete32(const u32* input)
         }
     }
 
+    if(input == &gTrainerBackPicPalette_RedLeaf[0])
+    {
+        if(skinStyle == 2)
+        {
+            return gTrainerBackPicPalette_RedLeaf_2_red; 
+        }
+        else if(skinStyle == 1)
+        {
+            return gTrainerBackPicPalette_RedLeaf_1_red; 
+        }
+        else // skinStyle = 0
+        {
+
+        }
+    }
+
     // Must swap for compressed version
     //if(input == &gTrainerFrontPic_May[0])
     //{

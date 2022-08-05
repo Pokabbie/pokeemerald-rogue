@@ -294,5 +294,8 @@ const u8 gTrainerBackPic_RubySapphireMay[] = INCBIN_U8("graphics/trainers/back_p
 const u8 gTrainerBackPic_Wally[] = INCBIN_U8("graphics/trainers/back_pics/wally_back_pic.4bpp");
 const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steven_back_pic.4bpp");
 
-const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/palettes/red_back_pic.gbapal.lz");
-const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/palettes/leaf_back_pic.gbapal.lz");
+const u32 gTrainerBackPicPalette_RedLeaf[] = INCBIN_U32("graphics/trainers/palettes/red/back/0_red.gbapal.lz");
+const u32 gTrainerBackPicPalette_RedLeaf_1_red[] = INCBIN_U32("graphics/trainers/palettes/red/back/1_red.gbapal.lz");
+const u32 gTrainerBackPicPalette_RedLeaf_2_red[] = INCBIN_U32("graphics/trainers/palettes/red/back/2_red.gbapal.lz");
+
+//const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/palettes/leaf/back/0_red.gbapal.lz");
