@@ -1380,13 +1380,6 @@ static void Task_Scene2_CreateSprites(u8 taskId)
             LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
             break;
 
-        case STYLE_RS_BRENDAN: 
-            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
-            break;
-        case STYLE_RS_MAY: 
-            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
-            break;
-
         case STYLE_RED: 
             LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
             break;
@@ -1415,13 +1408,6 @@ static void Task_Scene2_CreateSprites(u8 taskId)
             spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
             break;
         case STYLE_EMR_MAY: 
-            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
-            break;
-
-        case STYLE_RS_BRENDAN: 
-            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
-            break;
-        case STYLE_RS_MAY: 
             spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
             break;
 

@@ -461,8 +461,8 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 };
 
 static const struct MenuAction sMenuActions_Gender[PLAYER_STYLE_COUNT] = {
-    {gText_BirchEmrBrendan, NULL},
-    {gText_BirchEmrMay, NULL},
+    {gText_BirchBrendan, NULL},
+    {gText_BirchMay, NULL},
 
     {gText_BirchRed, NULL},
     {gText_BirchLeaf, NULL},
@@ -471,7 +471,7 @@ static const struct MenuAction sMenuActions_Gender[PLAYER_STYLE_COUNT] = {
     //{gText_BirchRSMay, NULL}
 };
 
-static const struct MenuAction sMenuActions_Styles[PLAYER_STYLE_COUNT] = {
+static const struct MenuAction sMenuActions_Styles[4] = {
     {gText_BirchStyleA, NULL},
     {gText_BirchStyleB, NULL},
     {gText_BirchStyleC, NULL},
@@ -1510,17 +1510,19 @@ static void Task_NewGameBirchSpeech_WaitForPlayerFadeIn(u8 taskId)
 
 static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
 {
-    //gTasks[taskId].tStyleSelectId = 0;
-
     NewGameBirchSpeech_ClearWindow(0);
 
     if(gTasks[taskId].tStyleSelectId == 0)
     {
         StringExpandPlaceholders(gStringVar4, gText_Birch_BoyOrGirl);
     }
-    else //if(gTasks[taskId].tStyleSelectId == 1)
+    else if(gTasks[taskId].tStyleSelectId == 1)
     {
-        StringExpandPlaceholders(gStringVar4, gText_Birch_AvatarStyle);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_AvatarStyle0);
+    }
+    else //if(gTasks[taskId].tStyleSelectId == 2)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_Birch_AvatarStyle1);
     }
 
     AddTextPrinterForMessage(1);
@@ -1530,9 +1532,6 @@ static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
 static void Task_NewGameBirchSpeech_Style(u8 taskId)
 {
     gTasks[taskId].tStyleSelectId++;
-    //NewGameBirchSpeech_ClearWindow(0);
-    //StringExpandPlaceholders(gStringVar4, gText_Birch_AvatarStyle);
-    //AddTextPrinterForMessage(1);
     gTasks[taskId].func = Task_NewGameBirchSpeech_StartPlayerFadeIn;
 }
 

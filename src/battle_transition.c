@@ -914,8 +914,6 @@ static const u16 *const sPlayerMugshotsPals[PLAYER_STYLE_COUNT] =
 {
     [STYLE_EMR_BRENDAN] = sMugshotPal_Brendan,
     [STYLE_EMR_MAY] = sMugshotPal_May,
-    [STYLE_RS_BRENDAN] = sMugshotPal_Brendan, // TODO
-    [STYLE_RS_MAY] = sMugshotPal_May,
     [STYLE_RED] = sMugshotPal_Brendan,
     [STYLE_LEAF] = sMugshotPal_May
 };

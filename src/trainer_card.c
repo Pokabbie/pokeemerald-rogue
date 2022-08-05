@@ -314,10 +314,8 @@ static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
 
 static const u8 sTrainerPicFacilityClass[PLAYER_STYLE_COUNT] =
 {
-    [STYLE_EMR_BRENDAN]   = FACILITY_CLASS_BRENDAN,
+    [STYLE_EMR_BRENDAN] = FACILITY_CLASS_BRENDAN,
     [STYLE_EMR_MAY] = FACILITY_CLASS_MAY,
-    [STYLE_RS_BRENDAN]   = FACILITY_CLASS_RS_BRENDAN,
-    [STYLE_RS_MAY] = FACILITY_CLASS_RS_MAY,
     [STYLE_RED]   = FACILITY_CLASS_RED,
     [STYLE_LEAF] = FACILITY_CLASS_LEAF
 };
@@ -705,11 +703,6 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
 
     switch(gSaveBlock2Ptr->playerGender)
     {
-        case STYLE_RS_BRENDAN:
-        case STYLE_RS_MAY:
-            cardType = CARD_TYPE_RS;
-            break;
-
         case STYLE_RED:
         case STYLE_LEAF:
             cardType = CARD_TYPE_FRLG;
