@@ -22,7 +22,7 @@ gText_Birch_BoyOrGirl::
 	.string "Select an avatar$"
 
 gText_Birch_AvatarStyle0::
-	.string "Select skin complexion$"
+	.string "Select an appearance$"
 
 gText_Birch_AvatarStyle1::
 	.string "Select clothing style$"

@@ -54,6 +54,8 @@ gSpecials::
 	def_special Script_ShowLinkTrainerCard
 	def_special Script_ShowTrainerCard
 	def_special Script_ChangePlayerGender
+	def_special Script_ChangePlayerStyle0
+	def_special Script_ChangePlayerStyle1
 	def_special ObjectEventInteractionGetBerryTreeData
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString

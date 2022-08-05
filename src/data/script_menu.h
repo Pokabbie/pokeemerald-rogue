@@ -216,6 +216,14 @@ static const struct MenuAction MultichoiceList_EasyAverageHardInfo[] =
     {gText_Info3},
 };
 
+static const struct MenuAction MultichoiceList_StyleChoice[] =
+{
+    {gText_BirchStyleA},
+    {gText_BirchStyleB},
+    {gText_BirchStyleC},
+    {gText_BirchStyleD},
+};
+
 static const struct MenuAction MultichoiceList_VendingMachine[] =
 {
     {gText_FreshWaterAndPrice},
@@ -833,7 +841,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MECHADOLL5_Q2]              = MULTICHOICE(MultichoiceList_Mechadoll5_Q2),
     [MULTI_MECHADOLL5_Q3]              = MULTICHOICE(MultichoiceList_Mechadoll5_Q3),
     [MULTI_EASY_AVERAGE_HARD_INFO]     = MULTICHOICE(MultichoiceList_EasyAverageHardInfo),
-    [MULTI_UNUSED_41]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_STYLE_CHOICE]               = MULTICHOICE(MultichoiceList_StyleChoice),
     [MULTI_VENDING_MACHINE]            = MULTICHOICE(MultichoiceList_VendingMachine),
     [MULTI_MACH_BIKE_INFO]             = MULTICHOICE(MultichoiceList_MachBikeInfo),
     [MULTI_ACRO_BIKE_INFO]             = MULTICHOICE(MultichoiceList_AcroBikeInfo),

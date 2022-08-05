@@ -1206,9 +1206,20 @@ void Script_ShowTrainerCard(void)
     ShowPlayerTrainerCard(CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
+// These are here because I'm lazy, no other reason :)
 void Script_ChangePlayerGender(void)
 {
     gSaveBlock2Ptr->playerGender = gSpecialVar_0x8006;
+}
+
+void Script_ChangePlayerStyle0(void)
+{
+    gSaveBlock2Ptr->playerStyle0 = gSpecialVar_0x8006;
+}
+
+void Script_ChangePlayerStyle1(void)
+{
+    gSaveBlock2Ptr->playerStyle1 = gSpecialVar_0x8006;
 }
 
 // Returns FALSE if the player has no stars. Returns TRUE otherwise, and puts the name of the

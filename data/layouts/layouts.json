@@ -4814,7 +4814,7 @@
     {
       "id": "LAYOUT_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
       "name": "Rogue_Hub_Interior_ClothesShop_Layout",
-      "width": 34,
+      "width": 38,
       "height": 17,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Contest",
