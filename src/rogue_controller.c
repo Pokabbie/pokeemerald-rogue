@@ -391,20 +391,25 @@ const u16* Rogue_ModifyPallete16(const u16* input)
         PLAYER_STYLE(gObjectEventPal_May, 3, 3);
     }
 
-    if(input == &gObjectEventPal_RedLeaf[0])
+    // Shared palettes between red and leaf
+    if(input == &gObjectEventPal_Red_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gObjectEventPal_RedLeaf_2_red; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gObjectEventPal_RedLeaf_1_red; 
-        }
-        else // skinStyle = 0
-        {
-            //
-        }
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 3);
     }
 
     return input;
@@ -461,52 +466,49 @@ const u32* Rogue_ModifyPallete32(const u32* input)
         PLAYER_STYLE(gTrainerPalette_May, 3, 3);
     }
 
-    if(input == &gTrainerPalette_Red[0])
+    if(input == &gTrainerPalette_Red_Front_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gTrainerPalette_Red_2_red; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gTrainerPalette_Red_1_red; 
-        }
-        else // skinStyle = 0
-        {
-
-        }
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 3);
     }
 
-    if(input == &gTrainerPalette_Leaf[0])
+    // Palette is shared with red
+    //if(input == &gTrainerPalette_Leaf[0])
+    //{
+    //}
+
+    if(input == &gTrainerPalette_Red_Back_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gTrainerPalette_Leaf_2_red; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gTrainerPalette_Leaf_1_red; 
-        }
-        else // skinStyle = 0
-        {
-
-        }
-    }
-
-    if(input == &gTrainerBackPicPalette_RedLeaf[0])
-    {
-        if(skinStyle == 2)
-        {
-            return gTrainerBackPicPalette_RedLeaf_2_red; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gTrainerBackPicPalette_RedLeaf_1_red; 
-        }
-        else // skinStyle = 0
-        {
-
-        }
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 3);
     }
 
     // Must swap for compressed version

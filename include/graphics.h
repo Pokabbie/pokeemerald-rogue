@@ -3082,12 +3082,41 @@ extern const u32 gTrainerPalette_ArenaTycoonGreta[];
 extern const u32 gTrainerPalette_FactoryHeadNoland[];
 extern const u32 gTrainerPalette_PikeQueenLucy[];
 extern const u32 gTrainerPalette_PyramidKingBrandon[];
-extern const u32 gTrainerPalette_Red[];
-extern const u32 gTrainerPalette_Red_1_red[];
-extern const u32 gTrainerPalette_Red_2_red[];
-extern const u32 gTrainerPalette_Leaf[];
-extern const u32 gTrainerPalette_Leaf_1_red[];
-extern const u32 gTrainerPalette_Leaf_2_red[];
+extern const u32 gTrainerPalette_Red_Front_0_0[];
+extern const u32 gTrainerPalette_Red_Front_1_0[];
+extern const u32 gTrainerPalette_Red_Front_2_0[];
+extern const u32 gTrainerPalette_Red_Front_3_0[];
+extern const u32 gTrainerPalette_Red_Front_0_1[];
+extern const u32 gTrainerPalette_Red_Front_1_1[];
+extern const u32 gTrainerPalette_Red_Front_2_1[];
+extern const u32 gTrainerPalette_Red_Front_3_1[];
+extern const u32 gTrainerPalette_Red_Front_0_2[];
+extern const u32 gTrainerPalette_Red_Front_1_2[];
+extern const u32 gTrainerPalette_Red_Front_2_2[];
+extern const u32 gTrainerPalette_Red_Front_3_2[];
+extern const u32 gTrainerPalette_Red_Front_0_3[];
+extern const u32 gTrainerPalette_Red_Front_1_3[];
+extern const u32 gTrainerPalette_Red_Front_2_3[];
+extern const u32 gTrainerPalette_Red_Front_3_3[];
+extern const u32 gTrainerPalette_Red_Back_0_0[];
+extern const u32 gTrainerPalette_Red_Back_1_0[];
+extern const u32 gTrainerPalette_Red_Back_2_0[];
+extern const u32 gTrainerPalette_Red_Back_3_0[];
+extern const u32 gTrainerPalette_Red_Back_0_1[];
+extern const u32 gTrainerPalette_Red_Back_1_1[];
+extern const u32 gTrainerPalette_Red_Back_2_1[];
+extern const u32 gTrainerPalette_Red_Back_3_1[];
+extern const u32 gTrainerPalette_Red_Back_0_2[];
+extern const u32 gTrainerPalette_Red_Back_1_2[];
+extern const u32 gTrainerPalette_Red_Back_2_2[];
+extern const u32 gTrainerPalette_Red_Back_3_2[];
+extern const u32 gTrainerPalette_Red_Back_0_3[];
+extern const u32 gTrainerPalette_Red_Back_1_3[];
+extern const u32 gTrainerPalette_Red_Back_2_3[];
+extern const u32 gTrainerPalette_Red_Back_3_3[];
+// Share palette for now
+#define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
+#define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
@@ -3099,11 +3128,6 @@ extern const u8 gTrainerBackPic_RubySapphireBrendan[];
 extern const u8 gTrainerBackPic_RubySapphireMay[];
 extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
-
-extern const u32 gTrainerBackPicPalette_RedLeaf[];
-extern const u32 gTrainerBackPicPalette_RedLeaf_1_red[];
-extern const u32 gTrainerBackPicPalette_RedLeaf_2_red[];
-//extern const u32 gTrainerBackPicPalette_Leaf[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -5087,9 +5111,22 @@ extern const u16 gObjectEventPal_May_2_3[];
 extern const u16 gObjectEventPal_May_3_3[];
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
-extern const u16 gObjectEventPal_RedLeaf[];
-extern const u16 gObjectEventPal_RedLeaf_1_red[];
-extern const u16 gObjectEventPal_RedLeaf_2_red[];
+extern const u16 gObjectEventPal_Red_0_0[];
+extern const u16 gObjectEventPal_Red_1_0[];
+extern const u16 gObjectEventPal_Red_2_0[];
+extern const u16 gObjectEventPal_Red_3_0[];
+extern const u16 gObjectEventPal_Red_0_1[];
+extern const u16 gObjectEventPal_Red_1_1[];
+extern const u16 gObjectEventPal_Red_2_1[];
+extern const u16 gObjectEventPal_Red_3_1[];
+extern const u16 gObjectEventPal_Red_0_2[];
+extern const u16 gObjectEventPal_Red_1_2[];
+extern const u16 gObjectEventPal_Red_2_2[];
+extern const u16 gObjectEventPal_Red_3_2[];
+extern const u16 gObjectEventPal_Red_0_3[];
+extern const u16 gObjectEventPal_Red_1_3[];
+extern const u16 gObjectEventPal_Red_2_3[];
+extern const u16 gObjectEventPal_Red_3_3[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];
