@@ -594,7 +594,7 @@ static void LoadLinkPartnerObjectEventSpritePalette(u8 graphicsId, u8 localEvent
                 LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_Brendan_0_0), 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
             case OBJ_EVENT_GFX_RIVAL_MAY_NORMAL:
-                LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_May), 0x100 + (adjustedPaletteNum << 4), 0x20);
+                LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_May_0_0), 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
             }
         }

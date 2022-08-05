@@ -270,7 +270,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(MAGMA_ADMIN, gTrainerPalette_MagmaAdmin),
     TRAINER_PAL(WALLY, gTrainerPalette_Wally),
     TRAINER_PAL(BRENDAN, gTrainerPalette_Brendan_0_0),
-    TRAINER_PAL(MAY, gTrainerPalette_May),
+    TRAINER_PAL(MAY, gTrainerPalette_May_0_0),
     TRAINER_PAL(BUG_CATCHER, gTrainerPalette_BugCatcher),
     TRAINER_PAL(POKEMON_RANGER_M, gTrainerPalette_PokemonRangerM),
     TRAINER_PAL(POKEMON_RANGER_F, gTrainerPalette_PokemonRangerF),

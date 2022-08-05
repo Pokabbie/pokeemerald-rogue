@@ -230,9 +230,22 @@ const u32 gTrainerPalette_Brendan_2_3[] = INCBIN_U32("graphics/rogue_palettes/br
 const u32 gTrainerPalette_Brendan_3_3[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_3.gbapal.lz");
 
 const u32 gTrainerFrontPic_May[] = INCBIN_U32("graphics/trainers/front_pics/may_front_pic.4bpp.lz");
-const u32 gTrainerPalette_May[] = INCBIN_U32("graphics/trainers/palettes/may/0_green.gbapal.lz");
-const u32 gTrainerPalette_May_1_green[] = INCBIN_U32("graphics/trainers/palettes/may/1_green.gbapal.lz");
-const u32 gTrainerPalette_May_2_green[] = INCBIN_U32("graphics/trainers/palettes/may/2_green.gbapal.lz");
+const u32 gTrainerPalette_May_0_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_0.gbapal.lz");
+const u32 gTrainerPalette_May_1_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_0.gbapal.lz");
+const u32 gTrainerPalette_May_2_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_0.gbapal.lz");
+const u32 gTrainerPalette_May_3_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_0.gbapal.lz");
+const u32 gTrainerPalette_May_0_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_1.gbapal.lz");
+const u32 gTrainerPalette_May_1_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_1.gbapal.lz");
+const u32 gTrainerPalette_May_2_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_1.gbapal.lz");
+const u32 gTrainerPalette_May_3_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_1.gbapal.lz");
+const u32 gTrainerPalette_May_0_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_2.gbapal.lz");
+const u32 gTrainerPalette_May_1_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_2.gbapal.lz");
+const u32 gTrainerPalette_May_2_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_2.gbapal.lz");
+const u32 gTrainerPalette_May_3_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_2.gbapal.lz");
+const u32 gTrainerPalette_May_0_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_3.gbapal.lz");
+const u32 gTrainerPalette_May_1_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_3.gbapal.lz");
+const u32 gTrainerPalette_May_2_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_3.gbapal.lz");
+const u32 gTrainerPalette_May_3_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_3.gbapal.lz");
 
 const u32 gTrainerFrontPic_BugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/bug_catcher_front_pic.4bpp.lz");
 const u32 gTrainerPalette_BugCatcher[] = INCBIN_U32("graphics/trainers/palettes/bug_catcher.gbapal.lz");

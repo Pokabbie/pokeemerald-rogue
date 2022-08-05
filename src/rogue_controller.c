@@ -371,20 +371,24 @@ const u16* Rogue_ModifyPallete16(const u16* input)
         PLAYER_STYLE(gObjectEventPal_Brendan, 3, 3);
     }
 
-    if(input == &gObjectEventPal_May[0])
+    if(input == &gObjectEventPal_May_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gObjectEventPal_May_2_green; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gObjectEventPal_May_1_green; 
-        }
-        else // skinStyle = 0
-        {
-            //
-        }
+        PLAYER_STYLE(gObjectEventPal_May, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 3);
     }
 
     if(input == &gObjectEventPal_RedLeaf[0])
@@ -437,20 +441,24 @@ const u32* Rogue_ModifyPallete32(const u32* input)
     //}
 
 
-    if(input == &gTrainerPalette_May[0])
+    if(input == &gTrainerPalette_May_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gTrainerPalette_May_2_green; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gTrainerPalette_May_1_green; 
-        }
-        else // skinStyle = 0
-        {
-
-        }
+        PLAYER_STYLE(gTrainerPalette_May, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 3);
     }
 
     if(input == &gTrainerPalette_Red[0])
