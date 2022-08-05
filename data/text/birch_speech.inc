@@ -27,6 +27,9 @@ gText_Birch_AvatarStyle::
 gText_Birch_WhatsYourName::
 	.string "Now, what is your name?$"
 
+gText_Birch_HappyWithAvatar::
+	.string "So this is your avatar?\n(Can be changed later)$"
+
 gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"
 
