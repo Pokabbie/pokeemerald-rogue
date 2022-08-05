@@ -366,6 +366,7 @@ extern const u8 gText_BirchLeaf[];
 extern const u8 gText_BirchStyleA[];
 extern const u8 gText_BirchStyleB[];
 extern const u8 gText_BirchStyleC[];
+extern const u8 gText_BirchStyleD[];
 extern const u8 gText_DefaultNameStu[];
 extern const u8 gText_DefaultNameMilton[];
 extern const u8 gText_DefaultNameTom[];

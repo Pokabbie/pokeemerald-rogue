@@ -64,6 +64,7 @@ const u8 gText_BirchLeaf[] = _("LEAF");
 const u8 gText_BirchStyleA[] = _("A");
 const u8 gText_BirchStyleB[] = _("B");
 const u8 gText_BirchStyleC[] = _("C");
+const u8 gText_BirchStyleD[] = _("D");
 const u8 gText_DefaultNameStu[] = _("STU");
 const u8 gText_DefaultNameMilton[] = _("MILTON");
 const u8 gText_DefaultNameTom[] = _("TOM");

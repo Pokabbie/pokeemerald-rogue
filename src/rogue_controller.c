@@ -333,6 +333,8 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
+#define PLAYER_STYLE(prefix, x, y) if(gSaveBlock2Ptr->playerStyle0 == x && gSaveBlock2Ptr->playerStyle1 == y) return prefix ## _ ## x ## _ ## y
+
 const u8* Rogue_ModifyPallete8(const u8* input)
 {
     // Unused?
@@ -349,20 +351,24 @@ const u16* Rogue_ModifyPallete16(const u16* input)
 {
     u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
 
-    if(input == &gObjectEventPal_Brendan[0])
+    if(input == &gObjectEventPal_Brendan_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gObjectEventPal_Brendan_2_green; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gObjectEventPal_Brendan_1_green; 
-        }
-        else // skinStyle = 0
-        {
-            //
-        }
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 3);
     }
 
     if(input == &gObjectEventPal_May[0])
@@ -404,20 +410,24 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 {
     u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
 
-    if(input == &gTrainerPalette_Brendan[0])
+    if(input == &gTrainerPalette_Brendan_0_0[0])
     {
-        if(skinStyle == 2)
-        {
-            return gTrainerPalette_Brendan_2_green; 
-        }
-        else if(skinStyle == 1)
-        {
-            return gTrainerPalette_Brendan_1_green; 
-        }
-        else // skinStyle = 0
-        {
-
-        }
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 3);
     }
 
     // Must swap for compressed version
@@ -499,6 +509,8 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     return input;
 }
+
+#undef PLAYER_STYLE
 
 void Rogue_ModifyBattleWinnings(u32* money)
 {
