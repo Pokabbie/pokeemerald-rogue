@@ -700,7 +700,9 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
     ShowBg(0);
     ShowBg(1);
     ShowBg(3);
+
     gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 1, 120, 72, 6, TAG_NONE);
+    //gTasks[taskId].tPlayerSpriteID = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 120, 60, 0, &gDecompressionBuffer[0x0]);
     AddWindow(&sHof_WindowTemplate);
     LoadWindowGfx(1, gSaveBlock2Ptr->optionsWindowFrameType, 0x21D, 0xD0);
     LoadPalette(GetTextWindowPalette(1), 0xE0, 0x20);

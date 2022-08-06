@@ -126,7 +126,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, 0x100 + paletteSlot * 0x10, 0x20);
+            LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[species].data), 0x100 + paletteSlot * 0x10, 0x20);
         }
         else
         {
@@ -389,10 +389,21 @@ u16 PlayerGenderToFrontTrainerPicId_Debug(u8 gender, bool8 getClass)
 {
     if (getClass == TRUE)
     {
-        if (gender != MALE)
-            return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
-        else
-            return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
+        //PLAYER_STYLE_COUNT
+        switch(gender)
+        {
+            case STYLE_EMR_BRENDAN:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
+
+            case STYLE_EMR_MAY:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
+
+            case STYLE_RED:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
+    
+            case STYLE_LEAF:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
+        };
     }
     return gender;
 }
