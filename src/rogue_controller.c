@@ -38,6 +38,7 @@
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_WildOptionCount = 0;
 EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
+EWRAM_DATA u8 gDebug_TrainerOptionCount = 0;
 
 extern const u8 gText_RogueDebug_Header[];
 extern const u8 gText_RogueDebug_Room[];
@@ -47,6 +48,7 @@ extern const u8 gText_RogueDebug_PlayerLvl[];
 extern const u8 gText_RogueDebug_WildLvl[];
 extern const u8 gText_RogueDebug_WildCount[];
 extern const u8 gText_RogueDebug_ItemCount[];
+extern const u8 gText_RogueDebug_TrainerCount[];
 extern const u8 gText_RogueDebug_Seed[];
 #endif
 
@@ -636,6 +638,7 @@ u8* Rogue_GetMiniMenuContent(void)
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
 
     return gStringVar4;
 }
@@ -2011,6 +2014,10 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         }
 
         RogueQuery_CollapseSpeciesBuffer();
+
+#ifdef ROGUE_DEBUG
+        gDebug_TrainerOptionCount = RogueQuery_BufferSize();
+#endif
 
         *useRogueCreateMon = TRUE;
 

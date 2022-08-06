@@ -24,7 +24,7 @@
 #include "rogue_baked.h"
 //#include "rogue_controller.h"
 
-#define QUERY_BUFFER_COUNT 64
+#define QUERY_BUFFER_COUNT 96
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
 
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
