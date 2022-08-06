@@ -38,6 +38,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     {
         switch(outEvo->method)
         {
+            case(EVO_BEAUTY):
             case(EVO_FRIENDSHIP):
                 outEvo->method = EVO_LEVEL;
                 outEvo->param = 20;
@@ -58,11 +59,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_FRIENDSHIP_NIGHT):
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_MOON_STONE;
-                break;
-
-            case(EVO_BEAUTY):
-                outEvo->method = EVO_LEVEL_ITEM;
-                outEvo->param = ITEM_DRAGON_SCALE;
                 break;
         }
     }
