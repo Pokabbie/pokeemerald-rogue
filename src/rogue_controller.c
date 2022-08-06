@@ -181,6 +181,11 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 if(currentLevel >= targetLevel)
                 {
                     desiredExpPerc = 51;
+
+                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                    {
+                        desiredExpPerc = 100;
+                    }
                 }
                 else
                 {
@@ -197,16 +202,11 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                         desiredExpPerc = 100 * min(10, delta);
                     }
 
-                    //if(delta <= 2)
-                    //{
-                    //    // Give up to 5 levels at once
-                    //    desiredExpPerc = 76 * min(3, delta);
-                    //}
-                    //else
-                    //{
-                    //    // Give up to 10 levels at once
-                    //    desiredExpPerc = 100 * min(10, delta - 2);
-                    //}
+                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                    {
+                        // Give up to 30 levels at once
+                        desiredExpPerc = 100 * min(30, delta);
+                    }
                 }
             }
             else
@@ -969,6 +969,14 @@ static u16 GetBossRoomForDifficulty(u16 difficulty)
     //championSpacing = 1;
 #endif
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        roomIndex = 5;
+        gymSpacing = 1;
+        eliteFourSpacing = 1;
+        championSpacing = 1;
+    }
+
     // 0-7 gym leaders
     {
         roomIndex += gymSpacing * (min(difficulty, 7) + 1);
@@ -1423,6 +1431,11 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
 #ifdef ROGUE_DEBUG
     return 100;
 #else
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return 33;
+    }
+
     if(difficultyLevel == 0)
     {
         return 0;
@@ -1441,6 +1454,11 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
         else if(gRogueRun.specialEncounterCounter >= 5)
         {
             return 33;
+        }
+        else if(gRogueRun.specialEncounterCounter >= 15)
+        {
+            // Very unlucky :(
+            return 80;
         }
         else
         {
@@ -1595,6 +1613,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             // Will encounter the next rest stop in 4-6 rooms
             gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
+            
+            // We only get 1 rest stop at the begining
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                gRogueRun.nextRestStopRoomIdx = 255;
+            }
         }
         else if(IsBossRoom(nextRoomIdx))
         {
@@ -1917,6 +1941,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         {
             *monsCount = 2;
         }
+    }
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        *monsCount = 6;
+        *allowItemEvos = TRUE;
+        *allowLedgendaries = TRUE;
     }
 }
 
@@ -2378,11 +2409,22 @@ static u8 CalculateWildLevel(void)
         }
     }
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        // 5 rooms the constant badges
+        return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
+    }
+
     return CalculatePlayerLevel() - 7;
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)
 {
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return MAX_LEVEL;
+    }
+
     // Gym leaders lvs 15 -> 85
     if(difficulty <= 7)
     {
@@ -2406,6 +2448,12 @@ static u8 CalculatePlayerLevel(void)
 {
     u8 prevLevel;
     u8 currLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        // 5 rooms the constant badges
+        return min(15 + (gRogueRun.currentRoomIdx - 1) * 20, MAX_LEVEL);
+    }
 
     if(currLevel == 0)
     {
@@ -2470,6 +2518,11 @@ static bool8 RandomChanceTrainer()
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
     u8 chance = max(10, 5 * difficultyLevel);
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return 0;
+    }
 
     return RandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
@@ -2547,6 +2600,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
     u16 queryCount;
     u8 dropRarity = gRogueRouteTable[gRogueRun.currentRouteIndex].dropRarity;
 
+    // Give us 1 room of basic items
+    if(gRogueRun.currentRoomIdx > 1 && FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        dropRarity += 10;
+    }
+
     // Queue up random items
     RogueQuery_Clear();
 
@@ -2570,14 +2629,18 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     //ITEM_SACRED_ASH
 
-    if(difficultyLevel <= 1 || IsBossRoom(gRogueRun.currentRoomIdx))
-    {
-        RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
-    }
 
-    if(difficultyLevel <= 3)
+    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        RogueQuery_ItemsNotHeldItem();
+        if(difficultyLevel <= 1 || IsBossRoom(gRogueRun.currentRoomIdx))
+        {
+            RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
+        }
+
+        if(difficultyLevel <= 3)
+        {
+            RogueQuery_ItemsNotHeldItem();
+        }
     }
 
     RogueQuery_CollapseItemBuffer();

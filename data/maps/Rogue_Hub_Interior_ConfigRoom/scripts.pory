@@ -150,7 +150,7 @@ script Rogue_ConfigRoom_TalkHiddenEnterance
             setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
 
             waitse
-            playse(SE_PIN)
+            playse(SE_TRUCK_DOOR)
             call(Rogue_ConfigRoom_RedrawMap)
         }
 
@@ -162,6 +162,7 @@ script Rogue_ConfigRoom_MeetPokabbie
 {
     lockall
 
+    playse(SE_PIN)
     applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_NoticePlayer)
     waitmovement(0)
 
@@ -402,6 +403,15 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        setmetatile(5,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(5,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {
         setmetatile(1,5, METATILE_BikeShop_Button_Red, FALSE)
@@ -580,6 +590,34 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
         else
         {
             setflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+        }
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_GauntletMode
+{
+    bufferstring(STR_VAR_1, format("GAUNTLET MODE"))
+
+    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+    if(var(VAR_RESULT) == YES)
+    {
+        if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+        {
+            clearflag(FLAG_ROGUE_GAUNTLET_MODE)
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_GAUNTLET_MODE)
         }
     }
     call(Rogue_ConfigRoom_PostButtonInternal)

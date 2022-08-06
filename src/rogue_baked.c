@@ -72,7 +72,7 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
 {
     // Originallu from const u32 gExperienceTables[][MAX_LEVEL + 1]
     // But want to ideally fit all EXP within u16 since we earn it differently in Rogue anyway
-    return level * 3000;//MAX_LEVEL;
+    return level * 300;//MAX_LEVEL;
 }
 
 
