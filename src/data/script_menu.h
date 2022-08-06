@@ -84,8 +84,8 @@ static const struct MenuAction MultichoiceList_ViewedPaintings[] =
 
 static const struct MenuAction MultichoiceList_YesNoInfo2[] =
 {
-    {gText_Yes},
-    {gText_No},
+    {gText_On},
+    {gText_Off},
     {gText_Info2},
 };
 

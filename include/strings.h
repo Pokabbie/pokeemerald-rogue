@@ -1087,6 +1087,8 @@ extern const u8 gText_SawIt[];
 extern const u8 gText_NotYet[];
 extern const u8 gText_Yes[];
 extern const u8 gText_No[];
+extern const u8 gText_On[];
+extern const u8 gText_Off[];
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];
