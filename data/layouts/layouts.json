@@ -4625,8 +4625,8 @@
       "id": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "name": "Rogue_Hub_Interior_ConfigRoom_Layout",
       "width": 18,
-      "height": 10,
-      "primary_tileset": "gTileset_Building",
+      "height": 25,
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_Interior_ConfigRoom/map.bin"

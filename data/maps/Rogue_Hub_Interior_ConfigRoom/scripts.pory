@@ -1,4 +1,5 @@
 const OBJ_ASSISTANT_ID =  1
+const OBJ_POKABBIE_ID =  4
 
 const VAR_FLAG_STATE = VAR_0x8000
 
@@ -136,6 +137,126 @@ movement ConfigRoom_WalkLeft {
     walk_left
 }
 
+script Rogue_ConfigRoom_TalkHiddenEnterance
+{
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE)
+    {
+        lock
+
+        msgbox(format("What's this?\pA hidden switch!\pPress the switch?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+            waitse
+            playse(SE_PIN)
+            call(Rogue_ConfigRoom_RedrawMap)
+        }
+
+        release
+    }
+}
+
+script Rogue_ConfigRoom_MeetPokabbie
+{
+    lockall
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_NoticePlayer)
+    waitmovement(0)
+
+    msgbox(format("???: What are you doing here!\pYou discovered my SECRET LAB already!"))
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceUp)
+    waitmovement(0)
+
+    msgbox(format("I was gonna wait until you had beat the CHAMPION at least..."))
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
+    waitmovement(0)
+
+    msgbox(format("Anyway!\pWhere I my manners!\nAllow me to introduce myself!"))
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+    waitmovement(0)
+
+    msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"))
+
+    msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+    msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+    setvar(VAR_TEMP_1, 1)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkPokabbie
+{
+    lockall
+
+    faceplayer
+    msgbox(format("POKABBIE: I hope you're enjoying EMERALD ROGUE!\pFeel free to enable any SPECIAL MODES from this room!\pI'll be sure to add some more in future!"), MSGBOX_DEFAULT)
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+    waitmovement(0)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkDitto
+{
+    lock
+
+    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+    msgbox(format("A Ditto!\pWhy is it here?"), MSGBOX_DEFAULT)
+
+    release
+}
+
+movement ConfigRoom_Pokabbie_FaceDown 
+{
+    face_down
+}
+
+movement ConfigRoom_Pokabbie_FaceUp 
+{
+    face_up
+}
+
+movement ConfigRoom_Pokabbie_NoticePlayer 
+{
+    face_down
+    emote_exclamation_mark
+}
+
+movement ConfigRoom_Pokabbie_Spin 
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+}
+
 
 script Rogue_ConfigRoom_PreButtonInternal
 {
@@ -224,6 +345,27 @@ script Rogue_ConfigRoom_PostButtonInternal
 
 script Rogue_ConfigRoom_RedrawMap
 {
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        setmetatile(8,0, 0x25C, TRUE)
+        setmetatile(8,1, 0x293, TRUE)
+
+        setmetatile(9,0, 0x26E, TRUE)
+        setmetatile(9,1, 0x276, FALSE)
+        
+        setmetatile(10,0, 0x25D, TRUE)
+        setmetatile(10,1, 0x294, TRUE)
+    }
+
+    if(flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        setvar(VAR_TEMP_1, 1)
+    }
+    else
+    {
+        setvar(VAR_TEMP_1, 0)
+    }
+
     if(flag(FLAG_ROGUE_EXP_ALL))
     {
         setmetatile(1,3, METATILE_BikeShop_Button_Green, FALSE)
