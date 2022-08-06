@@ -3152,7 +3152,6 @@ BattleScript_Pausex20::
 	return
 
 BattleScript_LevelUp_Minimal::
-	printstring STRINGID_PKMNGREWTOLV
 	goto BattleScript_PostLevelUp
 BattleScript_LevelUp_Full::
 	printstring STRINGID_PKMNGREWTOLV

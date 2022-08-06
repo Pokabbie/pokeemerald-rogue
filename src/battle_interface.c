@@ -2231,6 +2231,9 @@ s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
             expFraction = 1;
         expFraction = abs(gBattleSpritesDataPtr->battleBars[battlerId].receivedValue / expFraction);
 
+        // RogueNote: Fast exp bar
+        expFraction = 100;
+
         currentBarValue = CalcNewBarValue(gBattleSpritesDataPtr->battleBars[battlerId].maxValue,
                     gBattleSpritesDataPtr->battleBars[battlerId].oldValue,
                     gBattleSpritesDataPtr->battleBars[battlerId].receivedValue,

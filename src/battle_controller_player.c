@@ -1220,7 +1220,7 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
 
 static void Task_GiveExpWithExpBar(u8 taskId)
 {
-    if (gTasks[taskId].tExpTask_frames < 13)
+    if (gTasks[taskId].tExpTask_frames < 3)
     {
         gTasks[taskId].tExpTask_frames++;
     }
