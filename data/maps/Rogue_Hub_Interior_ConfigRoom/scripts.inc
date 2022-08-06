@@ -140,22 +140,29 @@ Rogue_ConfigRoom_MeetPokabbie::
 	playse SE_PIN
 	applymovement 4, ConfigRoom_Pokabbie_NoticePlayer
 	waitmovement 0
-	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_0
+	goto_if_set FLAG_IS_CHAMPION, Rogue_ConfigRoom_MeetPokabbie_2
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_2
 	applymovement 4, ConfigRoom_Pokabbie_FaceUp
 	waitmovement 0
-	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_1
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_3
 	applymovement 4, ConfigRoom_Pokabbie_FaceDown
 	waitmovement 0
-	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_2
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_4
 	applymovement 4, ConfigRoom_Pokabbie_Spin
 	waitmovement 0
-	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_3
-	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_4
 	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_5
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_6
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_1
+Rogue_ConfigRoom_MeetPokabbie_1:
 	setflag FLAG_ROGUE_MET_POKABBIE
 	setvar VAR_TEMP_1, 1
 	releaseall
 	return
+
+Rogue_ConfigRoom_MeetPokabbie_2:
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_0
+	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_1
+	goto Rogue_ConfigRoom_MeetPokabbie_1
 
 
 Rogue_ConfigRoom_TalkPokabbie::
@@ -791,35 +798,41 @@ Rogue_ConfigRoom_TalkHiddenEnterance_Text_0:
 	.string "Press the switch?$"
 
 Rogue_ConfigRoom_MeetPokabbie_Text_0:
-	.string "???: What are you doing here!\p"
-	.string "You discovered my SECRET LAB already!$"
-
-Rogue_ConfigRoom_MeetPokabbie_Text_1:
-	.string "I was gonna wait until you had beat the\n"
-	.string "CHAMPION at least...$"
-
-Rogue_ConfigRoom_MeetPokabbie_Text_2:
-	.string "Anyway!\p"
-	.string "Where I my manners!\n"
-	.string "Allow me to introduce myself!$"
-
-Rogue_ConfigRoom_MeetPokabbie_Text_3:
-	.string "The name's Abbie!\n"
-	.string "But you can call me Pokabbie!$"
-
-Rogue_ConfigRoom_MeetPokabbie_Text_4:
-	.string "POKABBIE: I'm the DEV behind EMERALD\n"
-	.string "ROGUE!\p"
+	.string "POKABBIE: Ah {PLAYER}!\p"
 	.string "Welcome to my LAB!\n"
 	.string "Or what I like to dub...\p"
 	.string "The EXPANSION ROOM!$"
 
-Rogue_ConfigRoom_MeetPokabbie_Text_5:
+Rogue_ConfigRoom_MeetPokabbie_Text_1:
 	.string "You can use this ROOM to enable\n"
 	.string "SPECIAL MODES and although there's\l"
 	.string "not too many now, I'll be sure to add\l"
 	.string "more in future!\p"
 	.string "Feel free to look around!$"
+
+Rogue_ConfigRoom_MeetPokabbie_Text_2:
+	.string "???: What are you doing here!\p"
+	.string "You discovered my SECRET LAB already!$"
+
+Rogue_ConfigRoom_MeetPokabbie_Text_3:
+	.string "I was gonna wait until you had beat the\n"
+	.string "CHAMPION at least...$"
+
+Rogue_ConfigRoom_MeetPokabbie_Text_4:
+	.string "Anyway!\p"
+	.string "Where I my manners!\n"
+	.string "Allow me to introduce myself!$"
+
+Rogue_ConfigRoom_MeetPokabbie_Text_5:
+	.string "The name's Abbie!\n"
+	.string "But you can call me Pokabbie!$"
+
+Rogue_ConfigRoom_MeetPokabbie_Text_6:
+	.string "POKABBIE: I'm the DEV behind EMERALD\n"
+	.string "ROGUE!\p"
+	.string "Welcome to my LAB!\n"
+	.string "Or what I like to dub...\p"
+	.string "The EXPANSION ROOM!$"
 
 Rogue_ConfigRoom_TalkPokabbie_Text_0:
 	.string "POKABBIE: I hope you're enjoying\n"

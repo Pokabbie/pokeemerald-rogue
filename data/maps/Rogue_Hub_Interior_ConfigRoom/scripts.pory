@@ -166,25 +166,33 @@ script Rogue_ConfigRoom_MeetPokabbie
     applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_NoticePlayer)
     waitmovement(0)
 
-    msgbox(format("???: What are you doing here!\pYou discovered my SECRET LAB already!"))
+    if(flag(FLAG_IS_CHAMPION))
+    {
+        msgbox(format("POKABBIE: Ah {PLAYER}!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
+    else
+    {
+        msgbox(format("???: What are you doing here!\pYou discovered my SECRET LAB already!"))
 
-    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceUp)
-    waitmovement(0)
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceUp)
+        waitmovement(0)
 
-    msgbox(format("I was gonna wait until you had beat the CHAMPION at least..."))
+        msgbox(format("I was gonna wait until you had beat the CHAMPION at least..."))
 
-    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
-    waitmovement(0)
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
+        waitmovement(0)
 
-    msgbox(format("Anyway!\pWhere I my manners!\nAllow me to introduce myself!"))
+        msgbox(format("Anyway!\pWhere I my manners!\nAllow me to introduce myself!"))
 
-    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
-    waitmovement(0)
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+        waitmovement(0)
 
-    msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"))
+        msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"))
 
-    msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
-    msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
 
     setflag(FLAG_ROGUE_MET_POKABBIE)
     setvar(VAR_TEMP_1, 1)

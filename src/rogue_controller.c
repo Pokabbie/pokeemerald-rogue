@@ -1106,8 +1106,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(8) - 1;
-    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(8);
+    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
+    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif

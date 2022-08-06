@@ -34,6 +34,7 @@ const METATILE_DirtTopRight = 0x089
 //const METATILE_DirtTopRight = 0x11A
 
 const NPC_INTRO_SCOTT = 2
+const NPC_POKABBIE = 15
 
 mapscripts Rogue_Hub_MapScripts
 {
@@ -52,6 +53,16 @@ script RogueHub_OnTransition
     if(var(VAR_ROGUE_INTRO_STATE) <= 2)
     {
         setobjectxyperm(NPC_INTRO_SCOTT, 23, 6)
+    }
+
+    // Show/Hide Pokabbie
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        clearflag(FLAG_TEMP_8)
+    }
+    else
+    {
+        setflag(FLAG_TEMP_8)
     }
 }
 
@@ -306,6 +317,7 @@ script RogueHub_ReturnAdventure
         }
 
         msgbox(format("SCOTT: Come chat to me once you're ready for your next adventure."), MSGBOX_DEFAULT)
+        call(RogueHub_IntroPokabbie)
         releaseall
     }
 }
@@ -361,7 +373,7 @@ script RogueHub_SpeakScott
             setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
             specialvar(VAR_RESULT, GetLeadMonLevel)
 
-            if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+            if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
             {
                 if(var(VAR_RESULT) > 80)
                 {
@@ -440,6 +452,78 @@ script RogueHub_SpeakScott
 
     release
     end
+}
+
+script RogueHub_IntroPokabbie
+{
+    // Show/Hide Pokabbie
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        showobjectat(NPC_POKABBIE, MAP_ROGUE_HUB)
+
+        msgbox(format("{PLAYER}!"), MSGBOX_NPC)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Enter)
+        waitmovement(0)
+
+        msgbox(format("???: Congratulations {PLAYER}!\nI can't believe you managed to defeat the CHAMPION!\pOh of course.\nWhere I my manners!\nAllow me to introduce myself!"), MSGBOX_NPC)
+    
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
+        waitmovement(0)
+
+        msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"), MSGBOX_NPC)
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pAs a reward for beating the CHAMPION I would like to welcome you to my LAB!\pI've uncovered the secret enterance inside the CONFIG LAB, so feel free to come take a look at some point."), MSGBOX_NPC)
+    
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
+        waitmovement(0)
+        
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Exit)
+        waitmovement(0)
+
+        setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+        setflag(FLAG_TEMP_8)
+        removeobject(NPC_POKABBIE)
+    }
+}
+
+movement RogueHub_Pokabbie_Enter 
+{
+    walk_fast_up * 5
+}
+
+movement RogueHub_Pokabbie_Spin 
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+    face_up
+}
+
+movement RogueHub_Pokabbie_Exit
+{
+    walk_fast_down * 5
 }
 
 script RogueHub_SpeakBikeShop

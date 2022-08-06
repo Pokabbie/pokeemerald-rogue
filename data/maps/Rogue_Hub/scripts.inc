@@ -13,12 +13,24 @@ Rogue_Hub_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 RogueHub_OnTransition::
 	compare VAR_LITTLEROOT_INTRO_STATE, 2
-	goto_if_le RogueHub_OnTransition_1
+	goto_if_le RogueHub_OnTransition_2
+RogueHub_OnTransition_1:
+	goto_if_set FLAG_IS_CHAMPION, RogueHub_OnTransition_6
+RogueHub_OnTransition_5:
+	setflag FLAG_TEMP_8
 	return
 
-RogueHub_OnTransition_1:
+RogueHub_OnTransition_2:
 	setobjectxyperm 2, 23, 6
+	goto RogueHub_OnTransition_1
+
+RogueHub_OnTransition_4:
+	clearflag FLAG_TEMP_8
 	return
+
+RogueHub_OnTransition_6:
+	goto_if_unset FLAG_ROGUE_UNCOVERRED_POKABBIE, RogueHub_OnTransition_4
+	goto RogueHub_OnTransition_5
 
 
 RogueHub_OnMapLoad::
@@ -150,6 +162,7 @@ RogueHub_ReturnAdventure_9:
 	goto_if_eq RogueHub_ReturnAdventure_16
 RogueHub_ReturnAdventure_15:
 	msgbox RogueHub_ReturnAdventure_Text_7, MSGBOX_DEFAULT
+	call RogueHub_IntroPokabbie
 	releaseall
 	return
 
@@ -310,118 +323,187 @@ RogueHub_SpeakScott_9:
 	getpartysize
 	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, RogueHub_SpeakScott_13
 	compare VAR_RESULT, 1
-	goto_if_gt RogueHub_SpeakScott_22
+	goto_if_gt RogueHub_SpeakScott_24
 	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_11:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	specialvar VAR_RESULT, GetLeadMonLevel
-	goto_if_unset FLAG_SET_SEED_ENABLED, RogueHub_SpeakScott_17
+	goto_if_unset FLAG_SET_SEED_ENABLED, RogueHub_SpeakScott_18
 RogueHub_SpeakScott_16:
 	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto_if_ne RogueHub_SpeakScott_26
-RogueHub_SpeakScott_25:
+	goto_if_ne RogueHub_SpeakScott_28
+RogueHub_SpeakScott_27:
 	call Common_EventScript_SaveGame
 	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakScott_44
+	goto_if_eq RogueHub_SpeakScott_46
 	msgbox RogueHub_SpeakScott_Text_8, MSGBOX_DEFAULT
 	goto RogueHub_SpeakScott_1
 
 RogueHub_SpeakScott_13:
 	compare VAR_RESULT, 2
-	goto_if_gt RogueHub_SpeakScott_19
+	goto_if_gt RogueHub_SpeakScott_21
 	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakScott_8
 
 RogueHub_SpeakScott_17:
 	compare VAR_RESULT, 80
-	goto_if_gt RogueHub_SpeakScott_28
-	compare VAR_RESULT, 70
-	goto_if_gt RogueHub_SpeakScott_29
-	compare VAR_RESULT, 60
 	goto_if_gt RogueHub_SpeakScott_30
-	compare VAR_RESULT, 50
+	compare VAR_RESULT, 70
 	goto_if_gt RogueHub_SpeakScott_31
-	compare VAR_RESULT, 40
+	compare VAR_RESULT, 60
 	goto_if_gt RogueHub_SpeakScott_32
-	compare VAR_RESULT, 30
+	compare VAR_RESULT, 50
 	goto_if_gt RogueHub_SpeakScott_33
-	compare VAR_RESULT, 20
+	compare VAR_RESULT, 40
 	goto_if_gt RogueHub_SpeakScott_34
-	compare VAR_RESULT, 10
+	compare VAR_RESULT, 30
 	goto_if_gt RogueHub_SpeakScott_35
+	compare VAR_RESULT, 20
+	goto_if_gt RogueHub_SpeakScott_36
+	compare VAR_RESULT, 10
+	goto_if_gt RogueHub_SpeakScott_37
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_19:
+RogueHub_SpeakScott_18:
+	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, RogueHub_SpeakScott_17
+	goto RogueHub_SpeakScott_16
+
+RogueHub_SpeakScott_21:
 	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
 
-RogueHub_SpeakScott_22:
+RogueHub_SpeakScott_24:
 	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto RogueHub_SpeakScott_8
 
-RogueHub_SpeakScott_26:
+RogueHub_SpeakScott_28:
 	msgbox RogueHub_SpeakScott_Text_5, MSGBOX_DEFAULT
 	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
 	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakScott_47
-	goto RogueHub_SpeakScott_25
+	goto_if_eq RogueHub_SpeakScott_49
+	goto RogueHub_SpeakScott_27
 
-RogueHub_SpeakScott_28:
+RogueHub_SpeakScott_30:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_29:
+RogueHub_SpeakScott_31:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_30:
+RogueHub_SpeakScott_32:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_31:
+RogueHub_SpeakScott_33:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_32:
+RogueHub_SpeakScott_34:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_33:
+RogueHub_SpeakScott_35:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_34:
+RogueHub_SpeakScott_36:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_35:
+RogueHub_SpeakScott_37:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
 	goto RogueHub_SpeakScott_16
 
-RogueHub_SpeakScott_44:
+RogueHub_SpeakScott_46:
 	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
 	setvar VAR_TEMP_0, 1
 	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq RogueHub_SpeakScott_50
+	goto_if_eq RogueHub_SpeakScott_52
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-RogueHub_SpeakScott_49:
+RogueHub_SpeakScott_51:
 	setflag FLAG_ROGUE_LEFT_ON_RUN
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	goto RogueHub_SpeakScott_1
 
-RogueHub_SpeakScott_47:
+RogueHub_SpeakScott_49:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto RogueHub_SpeakScott_25
+	goto RogueHub_SpeakScott_27
 
-RogueHub_SpeakScott_50:
+RogueHub_SpeakScott_52:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
-	goto RogueHub_SpeakScott_49
+	goto RogueHub_SpeakScott_51
 
+
+RogueHub_IntroPokabbie::
+	goto_if_set FLAG_IS_CHAMPION, RogueHub_IntroPokabbie_2
+	return
+
+RogueHub_IntroPokabbie_1:
+	showobjectat 15, MAP_ROGUE_HUB
+	msgbox RogueHub_IntroPokabbie_Text_0, MSGBOX_NPC
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	applymovement 15, RogueHub_Pokabbie_Enter
+	waitmovement 0
+	msgbox RogueHub_IntroPokabbie_Text_1, MSGBOX_NPC
+	applymovement 15, RogueHub_Pokabbie_Spin
+	waitmovement 0
+	msgbox RogueHub_IntroPokabbie_Text_2, MSGBOX_NPC
+	msgbox RogueHub_IntroPokabbie_Text_3, MSGBOX_NPC
+	applymovement 15, RogueHub_Pokabbie_Spin
+	waitmovement 0
+	applymovement 15, RogueHub_Pokabbie_Exit
+	waitmovement 0
+	setflag FLAG_ROGUE_UNCOVERRED_POKABBIE
+	setflag FLAG_TEMP_8
+	removeobject 15
+	return
+
+RogueHub_IntroPokabbie_2:
+	goto_if_unset FLAG_ROGUE_UNCOVERRED_POKABBIE, RogueHub_IntroPokabbie_1
+	return
+
+
+RogueHub_Pokabbie_Enter:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+RogueHub_Pokabbie_Spin:
+	face_right
+	delay_1
+	face_up
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_right
+	delay_1
+	face_up
+	delay_1
+	face_left
+	delay_1
+	face_down
+	delay_1
+	face_up
+	step_end
+
+RogueHub_Pokabbie_Exit:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
 
 RogueHub_SpeakBikeShop::
 	lock
@@ -681,6 +763,30 @@ RogueHub_SpeakScott_Text_7:
 RogueHub_SpeakScott_Text_8:
 	.string "SCOTT: OK. Come chat to me once you're\n"
 	.string "ready.$"
+
+RogueHub_IntroPokabbie_Text_0:
+	.string "{PLAYER}!$"
+
+RogueHub_IntroPokabbie_Text_1:
+	.string "???: Congratulations {PLAYER}!\n"
+	.string "I can't believe you managed to defeat\l"
+	.string "the CHAMPION!\p"
+	.string "Oh of course.\n"
+	.string "Where I my manners!\n"
+	.string "Allow me to introduce myself!$"
+
+RogueHub_IntroPokabbie_Text_2:
+	.string "The name's Abbie!\n"
+	.string "But you can call me Pokabbie!$"
+
+RogueHub_IntroPokabbie_Text_3:
+	.string "POKABBIE: I'm the DEV behind EMERALD\n"
+	.string "ROGUE!\p"
+	.string "As a reward for beating the CHAMPION I\n"
+	.string "would like to welcome you to my LAB!\p"
+	.string "I've uncovered the secret enterance\n"
+	.string "inside the CONFIG LAB, so feel free to\l"
+	.string "come take a look at some point.$"
 
 RogueHub_SpeakBikeShop_Text_0:
 	.string "Do you want to swap to the\n"
