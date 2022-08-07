@@ -1,8 +1,0 @@
-﻿  rogue_baked.c
-G:\Side Projects\Pokemon\pokeemerald-rogue\src\rogue_baked.c(91,47): warning C4244: 'function': conversion from 'u16' to 'u8', possible loss of data
-G:\Side Projects\Pokemon\pokeemerald-rogue\src\rogue_baked.c(124,41): warning C4244: 'function': conversion from 'u16' to 'u8', possible loss of data
-  Main.cpp
-  BakeHelpers.cpp
-  Generating Code...
-G:\Side Projects\Pokemon\pokeemerald-rogue\tools\Pokabbie\PokemonQueryBaker\PokemonQueryBaker\Src\BakeHelpers.cpp(8): warning C4717: 'memcpy': recursive on all control paths, function will cause runtime stack overflow
-  PokemonQueryBaker.vcxproj -> G:\Side Projects\Pokemon\pokeemerald-rogue\tools\Pokabbie\PokemonQueryBaker\x64\Debug\PokemonQueryBaker.exe
