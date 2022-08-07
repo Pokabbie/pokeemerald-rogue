@@ -3,7 +3,7 @@
 
 //#define ROGUE_DEBUG
 
-//#define ROGUE_EXPANSION
+#define ROGUE_EXPANSION
 
 #define ROGUE_SUPPORT_QUICK_SAVE
 
