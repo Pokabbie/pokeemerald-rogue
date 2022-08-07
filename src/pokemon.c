@@ -6514,6 +6514,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (currentEvo.param <= beauty)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
+            case EVO_LEVEL_ITEM:
+                if (currentEvo.param == heldItem)
+                {
+                    heldItem = ITEM_NONE;
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
+                    targetSpecies = currentEvo.targetSpecies;
+                }
+                break;
             case EVO_MOVE:
                 if (MonKnowsMove(mon, currentEvo.param))
                     targetSpecies = currentEvo.targetSpecies;
