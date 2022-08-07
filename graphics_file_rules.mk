@@ -1,4 +1,5 @@
 CASTFORMGFXDIR := graphics/pokemon/castform
+CHERRIMGFXDIR := graphics/pokemon/cherrim
 TILESETGFXDIR := data/tilesets
 FONTGFXDIR := graphics/fonts
 INTERFACEGFXDIR := graphics/interface
@@ -21,44 +22,62 @@ JPCONTESTGFXDIR := graphics/contest/japanese
 POKEDEXGFXDIR := graphics/pokedex
 STARTERGFXDIR := graphics/starter_choose
 
-types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
+types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy
 contest_types := cool beauty cute smart tough
 
+### Cherrim ###
 
+$(CHERRIMGFXDIR)/front.4bpp: $(CHERRIMGFXDIR)/normal/front.4bpp \
+                              $(CHERRIMGFXDIR)/sunshine/front.4bpp
+	@cat $^ >$@
+
+$(CHERRIMGFXDIR)/back.4bpp: $(CHERRIMGFXDIR)/normal/back.4bpp \
+                              $(CHERRIMGFXDIR)/sunshine/back.4bpp
+	@cat $^ >$@
+
+$(CHERRIMGFXDIR)/anim_front.4bpp: $(CHERRIMGFXDIR)/normal/anim_front.4bpp \
+                              $(CHERRIMGFXDIR)/sunshine/anim_front.4bpp
+	@cat $^ >$@
+
+$(CHERRIMGFXDIR)/normal.gbapal: $(CHERRIMGFXDIR)/normal/normal.gbapal \
+                              $(CHERRIMGFXDIR)/sunshine/normal.gbapal
+	@cat $^ >$@
+
+$(CHERRIMGFXDIR)/shiny.gbapal: $(CHERRIMGFXDIR)/normal/shiny.gbapal \
+                              $(CHERRIMGFXDIR)/sunshine/shiny.gbapal
+	@cat $^ >$@
 
 ### Castform ###
 
-$(CASTFORMGFXDIR)/front.4bpp: $(CASTFORMGFXDIR)/front_normal_form.4bpp \
-                              $(CASTFORMGFXDIR)/front_sunny_form.4bpp \
-                              $(CASTFORMGFXDIR)/front_rainy_form.4bpp \
-                              $(CASTFORMGFXDIR)/front_snowy_form.4bpp
+$(CASTFORMGFXDIR)/front.4bpp: $(CASTFORMGFXDIR)/normal/front.4bpp \
+                              $(CASTFORMGFXDIR)/sunny/front.4bpp \
+                              $(CASTFORMGFXDIR)/rainy/front.4bpp \
+                              $(CASTFORMGFXDIR)/snowy/front.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/back.4bpp: $(CASTFORMGFXDIR)/back_normal_form.4bpp \
-                             $(CASTFORMGFXDIR)/back_sunny_form.4bpp \
-                             $(CASTFORMGFXDIR)/back_rainy_form.4bpp \
-                             $(CASTFORMGFXDIR)/back_snowy_form.4bpp
+$(CASTFORMGFXDIR)/back.4bpp: $(CASTFORMGFXDIR)/normal/back.4bpp \
+                              $(CASTFORMGFXDIR)/sunny/back.4bpp \
+                              $(CASTFORMGFXDIR)/rainy/back.4bpp \
+                              $(CASTFORMGFXDIR)/snowy/back.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/anim_front.4bpp: $(CASTFORMGFXDIR)/anim_front_normal_form.4bpp \
-                                   $(CASTFORMGFXDIR)/anim_front_sunny_form.4bpp \
-                                   $(CASTFORMGFXDIR)/anim_front_rainy_form.4bpp \
-                                   $(CASTFORMGFXDIR)/anim_front_snowy_form.4bpp
+$(CASTFORMGFXDIR)/anim_front.4bpp: $(CASTFORMGFXDIR)/normal/anim_front.4bpp \
+                              $(CASTFORMGFXDIR)/sunny/anim_front.4bpp \
+                              $(CASTFORMGFXDIR)/rainy/anim_front.4bpp \
+                              $(CASTFORMGFXDIR)/snowy/anim_front.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/normal.gbapal: $(CASTFORMGFXDIR)/normal_normal_form.gbapal \
-                                 $(CASTFORMGFXDIR)/normal_sunny_form.gbapal \
-                                 $(CASTFORMGFXDIR)/normal_rainy_form.gbapal \
-                                 $(CASTFORMGFXDIR)/normal_snowy_form.gbapal
+$(CASTFORMGFXDIR)/normal.gbapal: $(CASTFORMGFXDIR)/normal/normal.gbapal \
+                              $(CASTFORMGFXDIR)/sunny/normal.gbapal \
+                              $(CASTFORMGFXDIR)/rainy/normal.gbapal \
+                              $(CASTFORMGFXDIR)/snowy/normal.gbapal
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/shiny.gbapal: $(CASTFORMGFXDIR)/shiny_normal_form.gbapal \
-                                $(CASTFORMGFXDIR)/shiny_sunny_form.gbapal \
-                                $(CASTFORMGFXDIR)/shiny_rainy_form.gbapal \
-                                $(CASTFORMGFXDIR)/shiny_snowy_form.gbapal
+$(CASTFORMGFXDIR)/shiny.gbapal: $(CASTFORMGFXDIR)/normal/shiny.gbapal \
+                              $(CASTFORMGFXDIR)/sunny/shiny.gbapal \
+                              $(CASTFORMGFXDIR)/rainy/shiny.gbapal \
+                              $(CASTFORMGFXDIR)/snowy/shiny.gbapal
 	@cat $^ >$@
-
-
 
 ### Tilesets ###
 
