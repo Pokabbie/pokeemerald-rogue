@@ -44,7 +44,8 @@ script Rogue_Hub_ProfLab_ProfExplain
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("BIRCH: TODO"), MSGBOX_DEFAULT)
+        msgbox(format("BIRCH: You never know what you're gonna see on an adventure!\pThe routes will swap around, the POKéMON and TRAINERS you encounter will also change!\pWhen you finish your adventure you'll be escorted back to the HUB and we'll restore you BAG and POKéMON back to their original states.\pSo, for example, if you evolved your PARTNER POKéMON whilst on an adventure, it would unevolve when you come back to the HUB."), MSGBOX_DEFAULT)
+        msgbox(format("When you return from adventures, you'll get given reward money which you can then spend on anything you'd like in the HUB.\nWhatever you buy or use in the HUB will be permanent.\pSo if you went and bought extra potions in the HUB but used them during an adventure, once you returned you'd find that they've been placed right back in to you BAG.\pThe best way to learn about adventures is to go on many of them!\pSo go ahead!\nExplore and have fun!"), MSGBOX_DEFAULT)
     }
     else
     {
@@ -115,7 +116,7 @@ script Rogue_Hub_ProfLab_IntroTriggerL
         turnobject(NPC_BIRCH, DIR_SOUTH)
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 
-        msgbox(format("BIRCH: Oh...\pWould you prefer a different POKéMON?"), MSGBOX_YESNO)
+        msgbox(format("BIRCH: Oh...\pWould you prefer some different POKéMON options?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {

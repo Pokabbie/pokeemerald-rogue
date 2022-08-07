@@ -10,12 +10,16 @@
 #include "battle_setup.h"
 #include "berry.h"
 #include "event_data.h"
+#include "graphics.h"
 #include "item.h"
 #include "load_save.h"
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
+#include "safari_zone.h"
+#include "script.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
@@ -26,58 +30,74 @@
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
-// Gym leaders
-#define ROOM_IDX_BOSS0      3
-#define ROOM_IDX_BOSS1      6
-#define ROOM_IDX_BOSS2      10
-#define ROOM_IDX_BOSS3      14
-#define ROOM_IDX_BOSS4      18
-#define ROOM_IDX_BOSS5      22
-#define ROOM_IDX_BOSS6      26
-#define ROOM_IDX_BOSS7      30
-
-// Elite 4
-#define ROOM_IDX_BOSS8      35
-#define ROOM_IDX_BOSS9      40
-#define ROOM_IDX_BOSS10     45
-#define ROOM_IDX_BOSS11     50
-
-// Champions
-#define ROOM_IDX_BOSS12     55
-#define ROOM_IDX_BOSS13     60
-
-#define ROOM_BOSS_GYM_START             ROOM_IDX_BOSS0
-#define ROOM_BOSS_GYM_END               ROOM_IDX_BOSS7
-#define ROOM_BOSS_ELITEFOUR_START       ROOM_IDX_BOSS8
-#define ROOM_BOSS_ELITEFOUR_END         ROOM_IDX_BOSS11
-#define ROOM_BOSS_CHAMPION_START        ROOM_IDX_BOSS12
-#define ROOM_BOSS_CHAMPION_END          ROOM_IDX_BOSS13
+// 8 badges, 4 elite, 2 champion
+#define BOSS_ROOM_COUNT 14
 
 #define OVERWORLD_FLAG 0
 
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_WildOptionCount = 0;
 EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
+EWRAM_DATA u8 gDebug_TrainerOptionCount = 0;
 
 extern const u8 gText_RogueDebug_Header[];
 extern const u8 gText_RogueDebug_Room[];
+extern const u8 gText_RogueDebug_BossRoom[];
 extern const u8 gText_RogueDebug_Difficulty[];
 extern const u8 gText_RogueDebug_PlayerLvl[];
 extern const u8 gText_RogueDebug_WildLvl[];
 extern const u8 gText_RogueDebug_WildCount[];
 extern const u8 gText_RogueDebug_ItemCount[];
+extern const u8 gText_RogueDebug_TrainerCount[];
 extern const u8 gText_RogueDebug_Seed[];
 #endif
 
+// Box save data
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+struct RogueBoxSaveData
+{
+    u32 encryptionKey;
+    struct Pokemon playerParty[PARTY_SIZE];
+    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+};
+
+ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
+
+#endif
+
+struct RogueLocalData
+{
+    bool8 hasQuickLoadPending;
+    
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    // We encode all our save data as box data :D
+    union
+    {
+        struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
+        struct RogueBoxSaveData raw;
+    } saveData;
+#endif
+};
+
+EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
-EWRAM_DATA struct RogueHubData gRogueSaveData = {};
+EWRAM_DATA struct RogueHubData gRogueHubData = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
+static u16 GetBossRoomForDifficulty(u16 difficulty);
+static bool8 IsBossRoom(u16 roomIdx);
+static bool8 IsSpecialEncounterRoom(void);
 
+static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(void);
 static u8 CalculateTrainerLevel(u16 trainerNum);
 
+static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
@@ -129,6 +149,16 @@ bool8 Rogue_ForceExpAll(void)
     return FlagGet(FLAG_ROGUE_EXP_ALL);
 }
 
+bool8 Rogue_FastBattleAnims(void)
+{
+    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx) && !IsSpecialEncounterRoom())
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -136,38 +166,56 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     if(Rogue_IsRunActive() && species != SPECIES_NONE)
     {
         u8 targetLevel = CalculatePlayerLevel();
+        u8 maxLevel = CalculateBossLevel();
         u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
-        if(currentLevel != 100)
+        if(currentLevel != MAX_LEVEL)
         {
-            // Could base of gBaseStats[species].growthRate?
-            u32 currLvlExp = gExperienceTables[GROWTH_FAST][currentLevel];
-            u32 nextLvlExp = gExperienceTables[GROWTH_FAST][currentLevel + 1];
-            u32 lvlExp = (nextLvlExp - currLvlExp);
+            u8 growthRate = gBaseStats[species].growthRate; // Was using GROWTH_FAST?
+            u32 currLvlExp;
+            u32 nextLvlExp;
+            u32 lvlExp;
 
             s32 desiredExpPerc = 0;
 
-            if(currentLevel < targetLevel)
+            if(currentLevel < maxLevel)
             {
-                u8 delta = targetLevel - currentLevel;
-                s32 desiredExpGain = 0;
-                if(delta <= 3)
+                if(currentLevel >= targetLevel)
                 {
-                    desiredExpPerc = 50;
+                    desiredExpPerc = 51;
+
+                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                    {
+                        desiredExpPerc = 100;
+                    }
                 }
                 else
                 {
-                    // Give faster levels to catch up
-                    delta = (delta - 3);
-                    desiredExpPerc = 75 * delta;
+                    s16 delta = targetLevel - currentLevel;
+                    
+                    if(delta < 10)
+                    {
+                        // Give up to 5 levels at once
+                        desiredExpPerc = 100 * min(5, delta);
+                    }
+                    else
+                    {
+                        // Give up to 10 levels at once
+                        desiredExpPerc = 100 * min(10, delta);
+                    }
+
+                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                    {
+                        // Give up to 30 levels at once
+                        desiredExpPerc = 100 * min(30, delta);
+                    }
                 }
             }
             else
             {
-                // If flag not set, just use normal EXP calculations (For now)
                 if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
                 {
-                    desiredExpPerc = 20;
+                    desiredExpPerc = 34;
                 }
                 else
                 {
@@ -178,8 +226,46 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
             if(desiredExpPerc != 0)
             {
-                // If default calc would give us more exp, use that instead
-                *expGain = max(*expGain, (lvlExp * desiredExpPerc) / 100);
+                // Pretty sure expGain get's casted to a u16 at some point so there's a limit to how much exp we can give
+                s16 actualExpGain = 0;
+                s16 lastExpGain = 0;
+
+                //desiredExpPerc = 100;
+
+                // Give levels
+                while(desiredExpPerc > 0)
+                {
+                    currLvlExp = Rogue_ModifyExperienceTables(growthRate, currentLevel);
+                    nextLvlExp = Rogue_ModifyExperienceTables(growthRate, currentLevel + 1);
+                    lvlExp = (nextLvlExp - currLvlExp);
+
+                    if(desiredExpPerc >= 100)
+                    {
+                        actualExpGain += lvlExp;
+                        desiredExpPerc -= 100;
+
+                        ++currentLevel;
+                    }
+                    else
+                    {
+                        s32 actualDelta = (lvlExp * desiredExpPerc) / 100;
+
+                        // Give leftovers
+                        actualExpGain += actualDelta;
+                        desiredExpPerc = 0;
+                    }
+
+                    if(actualExpGain < lastExpGain)
+                    {
+                        // We must have overflowed :O
+                        actualExpGain = 32767; // Max of a s16
+                        break;
+                    }
+
+                    lastExpGain = actualExpGain;
+                }
+
+                *expGain = actualExpGain;
             }
             else
             {
@@ -191,6 +277,18 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     {
         // No EXP outside of runs
         *expGain = 0;
+    }
+}
+
+void Rogue_ModifyEVGain(int* multiplier)
+{
+    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        *multiplier = 4;
+    }
+    else
+    {
+        *multiplier = 0;
     }
 }
 
@@ -215,6 +313,10 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
         if(*catchRate < 45)
             *catchRate = 45;
     }
+    else if(GetSafariZoneFlag())
+    {
+        *ballMultiplier = 255; // Masterball equiv
+    }
 }
 
 void Rogue_ModifyCaughtMon(struct Pokemon *mon)
@@ -231,6 +333,260 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_STATUS, &statusAilment);
     }
+}
+
+#define PLAYER_STYLE(prefix, x, y) if(gSaveBlock2Ptr->playerStyle0 == x && gSaveBlock2Ptr->playerStyle1 == y) return prefix ## _ ## x ## _ ## y
+
+const u8* Rogue_ModifyPallete8(const u8* input)
+{
+    // Unused?
+
+    //if(input == &gTrainerBackPic_Brendan[0])
+    //{
+    //    return gTrainerBackPic_RubySapphireBrendan;
+    //}
+
+    return input;
+}
+
+const u16* Rogue_ModifyPallete16(const u16* input)
+{
+    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
+
+    if(input == &gObjectEventPal_Brendan_0_0[0])
+    {
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 3);
+    }
+
+    if(input == &gObjectEventPal_May_0_0[0])
+    {
+        PLAYER_STYLE(gObjectEventPal_May, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_May, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_May, 3, 3);
+    }
+
+    // Shared palettes between red and leaf
+    if(input == &gObjectEventPal_Red_0_0[0])
+    {
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 0);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 1);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 2);
+        PLAYER_STYLE(gObjectEventPal_Red, 0, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 1, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 2, 3);
+        PLAYER_STYLE(gObjectEventPal_Red, 3, 3);
+    }
+
+    return input;
+}
+
+const u32* Rogue_ModifyPallete32(const u32* input)
+{
+    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
+
+    if(input == &gTrainerPalette_Brendan_0_0[0])
+    {
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 3);
+    }
+
+    // Must swap for compressed version
+    //if(input == &gTrainerFrontPic_Brendan[0])
+    //{
+    //    return gTrainerFrontPic_RubySapphireBrendan;
+    //}
+
+
+    if(input == &gTrainerPalette_May_0_0[0])
+    {
+        PLAYER_STYLE(gTrainerPalette_May, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_May, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_May, 3, 3);
+    }
+
+    if(input == &gTrainerPalette_Red_Front_0_0[0])
+    {
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 3);
+    }
+
+    // Palette is shared with red
+    //if(input == &gTrainerPalette_Leaf[0])
+    //{
+    //}
+
+    if(input == &gTrainerPalette_Red_Back_0_0[0])
+    {
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 0);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 1);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 2);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 3);
+        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 3);
+    }
+
+    // Must swap for compressed version
+    //if(input == &gTrainerFrontPic_May[0])
+    //{
+    //    return gTrainerFrontPic_RubySapphireMay;
+    //}
+
+    return input;
+}
+
+#undef PLAYER_STYLE
+
+void Rogue_ModifyBattleWinnings(u32* money)
+{
+    if(Rogue_IsRunActive())
+    {
+        // Once we've gotten champion we want to give a bit more money 
+        u8 difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        {
+            if(difficulty <= 11)
+            {
+                *money = *money / 3;
+            }
+            else
+            {
+                // Kinder but not by much ;)
+                *money = *money / 2;
+            }
+        }
+        else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        {
+            if(difficulty <= 11)
+            {
+                *money = *money / 2;
+            }
+        }
+    }
+}
+
+void Rogue_ModifyBattleWaitTime(u16* waitTime)
+{
+    u8 difficulty = Rogue_IsRunActive() ? GetDifficultyLevel(gRogueRun.currentRoomIdx) : 0;
+
+    if(Rogue_FastBattleAnims())
+    {
+        *waitTime = 0;//*waitTime / 8;
+    }
+    else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
+    {
+        // Still run faster and default game because it's way too slow :(
+        *waitTime = *waitTime / 2;
+    }
+}
+
+s16 Rogue_ModifyBattleSlideAnim(s16 rate)
+{
+    u8 difficulty = Rogue_IsRunActive() ? GetDifficultyLevel(gRogueRun.currentRoomIdx) : 0;
+
+    if(Rogue_FastBattleAnims())
+    {
+        if(rate < 0)
+            return rate * 2 - 1;
+        else
+            return rate * 2 + 1;
+    }
+    //else if(difficulty == (BOSS_ROOM_COUNT - 1))
+    //{
+    //    // Go at default speed for final fight
+    //    return rate * 2;
+    //}
+
+    // Still run faster and default game because it's way too slow :(
+    return rate;
 }
 
 #ifdef ROGUE_DEBUG
@@ -276,11 +632,13 @@ u8* Rogue_GetMiniMenuContent(void)
     }
 
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_BossRoom, GetBossRoomForDifficulty(difficultyLevel));
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
     strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
+    strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
 
     return gStringVar4;
 }
@@ -295,9 +653,15 @@ u8* Rogue_GetMiniMenuContent(void)
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    StringExpandPlaceholders(gStringVar3, gText_RogueHourMinute);
+
     ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
     ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    
     StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+
     return gStringVar4;
 }
 #endif
@@ -310,21 +674,24 @@ static void SelectStartMons(void)
     u16 queryCount;
     u16 species;
 
+    // Maybe consider compile time caching this query, as it's pretty slow :(
     RogueQuery_Clear();
+    RogueQuery_Exclude(SPECIES_SUNKERN);
+    RogueQuery_Exclude(SPECIES_SUNFLORA);
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
-    RogueQuery_SpeciesWithEvolutionStages(2);
+    RogueQuery_SpeciesWithAtLeastEvolutionStages(1);
 
-    RogueQuery_CollapseSpeciesBuffer();
-    queryCount = RogueQuery_BufferSize();
+    // Have to use uncollapsed queries as this query is too large otherwise
+    queryCount = RogueQuery_UncollapsedSpeciesSize();
 
     for(i = 0; i < 3;)
     {
         isValid = TRUE;
         randIdx = Random() % queryCount;
-        species = RogueQuery_BufferPtr()[randIdx];
+        species = RogueQuery_AtUncollapsedIndex(randIdx);
 
         // Check other starter is not already this
         for(j = 0; j < i; ++j)
@@ -342,6 +709,11 @@ static void SelectStartMons(void)
             ++i;
         }
     }
+
+#ifdef ROGUE_DEBUG
+    VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
+    VarSet(VAR_ROGUE_STARTER1, SPECIES_ABRA);
+#endif
 }
 
 void Rogue_OnNewGame(void)
@@ -362,15 +734,21 @@ void Rogue_OnNewGame(void)
     // Run settings
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagSet(FLAG_ROGUE_EXP_ALL);
+    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
+    FlagClear(FLAG_ROGUE_EASY_ITEMS);
+    FlagClear(FLAG_ROGUE_HARD_ITEMS);
+    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
@@ -378,7 +756,11 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
 #ifdef ROGUE_DEBUG
-    //AddBagItem(ITEM_RARE_CANDY, 99);
+    SetMoney(&gSaveBlock1Ptr->money, 999999);
+
+    AddBagItem(ITEM_RARE_CANDY, 99);
+    VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
+
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //SetMoney(&gSaveBlock1Ptr->money, 60000);
@@ -423,65 +805,287 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
+static void CopyFromPocket(u8 pocket, struct ItemSlot* dst)
+{
+    u16 i;
+    u16 count = gBagPockets[pocket].capacity;
+
+    // Use getters to avoid encryption
+    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+    {
+        dst[i].itemId = gBagPockets[pocket].itemSlots[i].itemId;
+        dst[i].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+    }
+}
+
+static void CopyToPocket(u8 pocket, struct ItemSlot* src)
+{
+    u16 i;
+    u16 count = gBagPockets[pocket].capacity;
+
+    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+    {
+        gBagPockets[pocket].itemSlots[i].itemId = src[i].itemId;
+        SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, src[i].quantity);
+    }
+}
+
+static void SaveHubInventory(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        CopyMon(&gRogueLocal.saveData.raw.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
+    }
+    for(; i < PARTY_SIZE; ++i)
+    {
+        ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
+    }
+    
+    gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
+    CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
+    CopyFromPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
+    CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
+    CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
+    CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+
+#else
+    // Store current states (Use normal save data)
+    SavePlayerParty();
+    LoadPlayerBag(); // Bag funcs named in opposite
+#endif
+}
+
+static void LoadHubInventory(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        CopyMon(&gPlayerParty[i], &gRogueLocal.saveData.raw.playerParty[i], sizeof(gPlayerParty[i]));
+    }
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+            break;
+    }
+    gPlayerPartyCount = i;
+
+    CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
+    CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
+    CopyToPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
+    CopyToPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
+    CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+
+    //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
+
+#else
+    // Restore current states
+    LoadPlayerParty();
+    SavePlayerBag(); // Bag funcs named in opposite
+#endif
+}
+
+extern const u8 Rogue_QuickSaveLoad[];
+
+void Rogue_OnSaveGame(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+
+    gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
+
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
+
+    // Move Hub save data into storage box space
+    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
+    {
+        memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+    }
+
+#endif
+}
+
+void Rogue_OnLoadGame(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    u8 i;
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+
+    gRngRogueValue = gSaveBlock1Ptr->rogueBlock.saveData.rngSeed;
+
+    memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
+    memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
+
+    // Move Hub save data out of storage box space
+    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
+    {
+        memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+    }
+
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
+    {
+        gRogueLocal.hasQuickLoadPending = TRUE;
+        //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+    }
+#endif
+}
+
+bool8 Rogue_OnProcessPlayerFieldInput(void)
+{
+#ifdef ROGUE_SUPPORT_QUICK_SAVE
+    if(gRogueLocal.hasQuickLoadPending)
+    {
+        gRogueLocal.hasQuickLoadPending = FALSE;
+        ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+        return TRUE;
+    }
+
+#endif
+    return FALSE;
+}
+
 void Rogue_OnLoadMap(void)
 {
-    // TODO - Remove this
+    if(GetSafariZoneFlag())
+    {
+        RandomiseSafariWildEncounters();
+    }
+}
 
-    // Seems to be working? Need to track against flag here though, as this gets called for started maps
-    //FlagSet(FLAG_SYS_POKEMON_GET);
+static u16 GetBossRoomForDifficulty(u16 difficulty)
+{
+    u16 gymSpacing = 3;
+    u16 eliteFourSpacing = 3;
+    u16 championSpacing = 4;
+
+    u16 roomIndex = 0;
+
+#ifdef ROGUE_DEBUG
+    //gymSpacing = 1;
+    //eliteFourSpacing = 1;
+    //championSpacing = 1;
+#endif
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        roomIndex = 5;
+        gymSpacing = 1;
+        eliteFourSpacing = 1;
+        championSpacing = 1;
+    }
+
+    // 0-7 gym leaders
+    {
+        roomIndex += gymSpacing * (min(difficulty, 7) + 1);
+    }
+
+    // 8 - 11 elite four
+    if(difficulty >= 8)
+    {
+        roomIndex += eliteFourSpacing * (min(difficulty, 11) - 8 + 1);
+    }
+
+    // 12 - 13 champion
+    if(difficulty >= 12)
+    {
+        roomIndex += championSpacing * (min(difficulty, 13) - 12 + 1);
+    }
+
+    return roomIndex;
+}
+
+static u16 GetStartDifficulty(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+    if(skipToDifficulty != 0)
+    {
+        return skipToDifficulty;
+    }
     
-        //*((s32*)((void*)0)) = 123;
+    return 0;
+}
 
-    //s32 i;
-    //struct WarpEvent *warpEvent = gMapHeader.events->warps;
-    //u8 warpCount = gMapHeader.events->warpCount;
-    //
-    //for (i = 0; i < warpCount; i++, warpEvent++)
-    //{
-    //    if(i == 0)
-    //    {
-    //        // Skip first warp as that should always be left as the entry warp
-    //        continue;
-    //    }
-//
-    //    // Should be Prof lab
-    //    warpEvent->warpId = 0;
-    //    warpEvent->mapNum = 4;
-    //    warpEvent->mapGroup = 0;
-    //}
+static u16 GetStartRoomIdx(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
 
-    // TODO - Do something
+    if(skipToDifficulty != 0)
+    {
+        return GetBossRoomForDifficulty(skipToDifficulty - 1);
+    }
+    
+    return 0;
+}
+
+static u16 GetStartRestStopRoomIdx(void)
+{
+    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+    if(skipToDifficulty != 0)
+    {
+        return GetBossRoomForDifficulty(skipToDifficulty);
+    }
+    
+    return GetBossRoomForDifficulty(0);
 }
 
 static void BeginRogueRun(void)
 {
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        SeedRogueRng(Rogue_GetSeed());
+        gRngRogueValue = Rogue_GetSeed();
     }
 
     ClearBerryTrees();
 
-    gRogueRun.currentRoomIdx = 0;
+    gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
-    gRogueRun.nextRestStopRoomIdx = ROOM_IDX_BOSS0;
-    gRogueRun.currentRouteType = ROGUE_ROUTE_FIELD;
+    gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
+    gRogueRun.previousRouteIndex = 255;
+    gRogueRun.currentRouteIndex = 0;
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
     
-    // Store current states
-    SavePlayerParty();
-    LoadPlayerBag(); // Bag funcs named in opposite
+    SaveHubInventory();
 
-    gRogueSaveData.money = GetMoney(&gSaveBlock1Ptr->money);
-    gRogueSaveData.registeredItem = gSaveBlock1Ptr->registeredItem;
+    gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
+    gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
-    SetMoney(&gSaveBlock1Ptr->money, 0);
+    gRogueHubData.playTimeHours = gSaveBlock2Ptr->playTimeHours;
+    gRogueHubData.playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
+    gRogueHubData.playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds;
+    gRogueHubData.playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks;
+
+    gSaveBlock2Ptr->playTimeHours = 0;
+    gSaveBlock2Ptr->playTimeMinutes = 0;
+    gSaveBlock2Ptr->playTimeSeconds = 0;
+    gSaveBlock2Ptr->playTimeVBlanks = 0;
+
+    SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+
+    FlagClear(FLAG_BADGE01_GET);
+    FlagClear(FLAG_BADGE02_GET);
+    FlagClear(FLAG_BADGE03_GET);
+    FlagClear(FLAG_BADGE04_GET);
+    FlagClear(FLAG_BADGE05_GET);
+    FlagClear(FLAG_BADGE06_GET);
+    FlagClear(FLAG_BADGE07_GET);
+    FlagClear(FLAG_BADGE08_GET);
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
@@ -502,10 +1106,10 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    //gRogueRun.currentRoomIdx = ROOM_BOSS_CHAMPION_END - 1;
-    //gRogueRun.nextRestStopRoomIdx = ROOM_BOSS_CHAMPION_END;
+    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
+    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
 
-    gRogueRun.currentRouteType = ROGUE_ROUTE_WATERFRONT;
+    //gRogueRun.currentRouteIndex = 7;
 #endif
 }
 
@@ -516,36 +1120,51 @@ static void EndRogueRun(void)
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore money and give reward here too, as it's a bit easier
-    SetMoney(&gSaveBlock1Ptr->money, gRogueSaveData.money);
+    SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
     AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
-    gSaveBlock1Ptr->registeredItem = gRogueSaveData.registeredItem;
+    gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
-    // Restore current states
-    LoadPlayerParty();
-    SavePlayerBag(); // Bag funcs named in opposite
+    
+    //gRogueHubData.playTimeHours += gSaveBlock2Ptr->playTimeHours;
+    //gRogueHubData.playTimeMinutes += gSaveBlock2Ptr->playTimeMinutes;
+    //gRogueHubData.playTimeSeconds += gSaveBlock2Ptr->playTimeSeconds;
+    //gRogueHubData.playTimeVBlanks += gSaveBlock2Ptr->playTimeVBlanks;
+
+    gSaveBlock2Ptr->playTimeHours += gRogueHubData.playTimeHours;
+    gSaveBlock2Ptr->playTimeMinutes += gRogueHubData.playTimeMinutes;
+    gSaveBlock2Ptr->playTimeSeconds += gRogueHubData.playTimeSeconds + (gRogueHubData.playTimeVBlanks / 60);
+    gSaveBlock2Ptr->playTimeVBlanks += gRogueHubData.playTimeVBlanks;
+
+    if(gSaveBlock2Ptr->playTimeVBlanks > 60)
+    {
+        gSaveBlock2Ptr->playTimeSeconds += gSaveBlock2Ptr->playTimeVBlanks / 60;
+        gSaveBlock2Ptr->playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks % 60;
+    }
+
+    if(gSaveBlock2Ptr->playTimeSeconds > 60)
+    {
+        gSaveBlock2Ptr->playTimeMinutes += gSaveBlock2Ptr->playTimeSeconds / 60;
+        gSaveBlock2Ptr->playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds % 60;
+    }
+
+    if(gSaveBlock2Ptr->playTimeMinutes > 60)
+    {
+        gSaveBlock2Ptr->playTimeHours += gSaveBlock2Ptr->playTimeMinutes / 60;
+        gSaveBlock2Ptr->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes % 60;
+    }
+
+    LoadHubInventory();
 }
 
 static bool8 IsBossRoom(u16 roomIdx)
 {
-    switch(roomIdx)
+    u8 i;
+    for(i = 0; i < BOSS_ROOM_COUNT; ++i)
     {
-        case ROOM_IDX_BOSS0:
-        case ROOM_IDX_BOSS1:
-        case ROOM_IDX_BOSS2:
-        case ROOM_IDX_BOSS3:
-        case ROOM_IDX_BOSS4:
-        case ROOM_IDX_BOSS5:
-        case ROOM_IDX_BOSS6:
-        case ROOM_IDX_BOSS7:
-        case ROOM_IDX_BOSS8:
-        case ROOM_IDX_BOSS9:
-        case ROOM_IDX_BOSS10:
-        case ROOM_IDX_BOSS11:
-        case ROOM_IDX_BOSS12:
-        case ROOM_IDX_BOSS13:
+        if(GetBossRoomForDifficulty(i) == roomIdx)
             return TRUE;
-    };
+    }
 
     return FALSE;
 }
@@ -558,57 +1177,41 @@ static bool8 IsSpecialEncounterRoomWarp(struct WarpData *warp)
 
 static u8 GetDifficultyLevel(u16 roomIdx)
 {
-    if(roomIdx <= ROOM_IDX_BOSS0)
-        return 0;
-    if(roomIdx <= ROOM_IDX_BOSS1)
-        return 1;
-    if(roomIdx <= ROOM_IDX_BOSS2)
-        return 2;
-    if(roomIdx <= ROOM_IDX_BOSS3)
-        return 3;
-    if(roomIdx <= ROOM_IDX_BOSS4)
-        return 4;
-    if(roomIdx <= ROOM_IDX_BOSS5)
-        return 5;
-    if(roomIdx <= ROOM_IDX_BOSS6)
-        return 6;
-    if(roomIdx <= ROOM_IDX_BOSS7)
-        return 7;
+    u8 i;
+    for(i = 0; i < BOSS_ROOM_COUNT; ++i)
+    {
+        if(roomIdx <= GetBossRoomForDifficulty(i))
+            return i;
+    }
 
-    if(roomIdx <= ROOM_IDX_BOSS8)
-        return 8;
-    if(roomIdx <= ROOM_IDX_BOSS9)
-        return 9;
-    if(roomIdx <= ROOM_IDX_BOSS10)
-        return 10;
-    if(roomIdx <= ROOM_IDX_BOSS11)
-        return 11;
-
-    if(roomIdx <= ROOM_IDX_BOSS12)
-        return 12;
-    return 13;
+    return BOSS_ROOM_COUNT - 1;
 }
 
 static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 bossId = 0;
+    u8 difficulty = GetDifficultyLevel(nextRoomIdx);
 
     do
     {
-        if(nextRoomIdx <= ROOM_BOSS_GYM_END)
+        // Gym leaders 0-7
+        if(difficulty <= 7)
         {
             bossId = RogueRandomRange(8, OVERWORLD_FLAG);
         }
-        else if(nextRoomIdx <= ROOM_BOSS_ELITEFOUR_END)
+        // Elite Four 8-11
+        else if(difficulty <= 11)
         {
             bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
         }
-        else if(nextRoomIdx == ROOM_BOSS_CHAMPION_START)
+        // Champion 1
+        else if(difficulty == 12) 
         {
             bossId = 12;
             break;
         }
-        else //if(nextRoomIdx == ROOM_BOSS_CHAMPION_END)
+        // Champion 2
+        else
         {
             bossId = 13;
             break;
@@ -697,7 +1300,7 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
     u8 mapCount;
     u8 mapIdx;
     u8 swapRouteChance = 60;
-    u16 startRouteType = gRogueRun.currentRouteType;
+    u16 startRouteType = gRogueRun.currentRouteIndex;
     const struct RogueRouteMap* selectedMap = NULL;
 
 #ifdef ROGUE_DEBUG
@@ -714,28 +1317,21 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
         swapRouteChance = 100;
     }
     
-
+    // Don't replay the most recent 2 routes
     if(swapRouteChance != 0)
     {
         if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
         {
             do
             {
-                gRogueRun.currentRouteType = ROGUE_ROUTE_START + RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+                gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
             }
-            while(startRouteType == gRogueRun.currentRouteType);
+            while(startRouteType == gRogueRun.currentRouteIndex || gRogueRun.currentRouteIndex == gRogueRun.previousRouteIndex);
         }
     }
 
-    mapCount = gRogueRouteTable[gRogueRun.currentRouteType].mapCount;
-
-    // Avoid doing same route in a row
-    do
-    {
-        mapIdx = RogueRandomRange(mapCount,  OVERWORLD_FLAG);
-        selectedMap = &gRogueRouteTable[gRogueRun.currentRouteType].mapTable[mapIdx];
-    }
-    while(mapCount > 1 && gMapHeader.mapLayoutId == selectedMap->layout);
+    selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
+    gRogueRun.previousRouteIndex = startRouteType;
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -807,7 +1403,7 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     mapCount = gRogueSpecialEncounterInfo.mapCount;
 
-    // Avoid repeating same ecounter (TODO)
+    // Avoid repeating same encounter (Base of current party)
     do
     {
         mapIdx = RogueRandomRange(mapCount, OVERWORLD_FLAG);
@@ -835,6 +1431,14 @@ static bool8 IsSpecialEncounterRoom(void)
 
 static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
 {
+#ifdef ROGUE_DEBUG
+    return 100;
+#else
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return 33;
+    }
+
     if(difficultyLevel == 0)
     {
         return 0;
@@ -854,11 +1458,17 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
         {
             return 33;
         }
+        else if(gRogueRun.specialEncounterCounter >= 15)
+        {
+            // Very unlucky :(
+            return 80;
+        }
         else
         {
-            return 5;
+            return 8;
         }
     }
+#endif
 }
 
 void Rogue_OnWarpIntoMap(void)
@@ -881,10 +1491,12 @@ void Rogue_OnWarpIntoMap(void)
         if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ENCOUNTER_REST_STOP)
         {
             RandomiseEnabledTrainers();
+            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
         }
         else if(IsSpecialEncounterRoom())
         {
             gRogueRun.specialEncounterCounter = 0;
+            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
         }
         else
         {
@@ -896,6 +1508,19 @@ void Rogue_OnWarpIntoMap(void)
                 FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
             else
                 FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+
+            // Ensure we have all badges by this point
+            if(difficultyLevel >= 8)
+            {
+                FlagSet(FLAG_BADGE01_GET);
+                FlagSet(FLAG_BADGE02_GET);
+                FlagSet(FLAG_BADGE03_GET);
+                FlagSet(FLAG_BADGE04_GET);
+                FlagSet(FLAG_BADGE05_GET);
+                FlagSet(FLAG_BADGE06_GET);
+                FlagSet(FLAG_BADGE07_GET);
+                FlagSet(FLAG_BADGE08_GET);
+            }
             
             // Update VARs
             VarSet(VAR_ROGUE_DIFFICULTY, difficultyLevel);
@@ -904,19 +1529,42 @@ void Rogue_OnWarpIntoMap(void)
 
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 150);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2 + 1);
+                if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+                {
+                    // Pretty much max difficulty
+                    VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 500);
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
+                }
+                else
+                {
+                    VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 400);
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()) + 1);
+                }
             }
             else
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 100);
-                VarSet(VAR_ROGUE_REWARD_CANDY, difficultyLevel * 2);
+                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 300);
+                VarSet(VAR_ROGUE_REWARD_CANDY, (difficultyLevel - GetStartDifficulty()));
             }
         
             if(IsBossRoom(gRogueRun.currentRoomIdx))
             {
                 ResetTrainerBattles();
                 RandomiseEnabledItems();
+
+                // Weather
+                if(difficultyLevel == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || difficultyLevel > 2)
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
             }
             else
             {
@@ -925,16 +1573,32 @@ void Rogue_OnWarpIntoMap(void)
                 RandomiseEnabledTrainers();
                 RandomiseEnabledItems();
                 RandomiseBerryTrees();
+
+                if(difficultyLevel != 0 && RandomChance(20, OVERWORLD_FLAG))
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
             }
         }
+    }
+    else if(GetSafariZoneFlag())
+    {
+        RandomiseSafariWildEncounters();
     }
 }
 
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
-    // Configure random warp
-    //if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_TRANSITION) && warp->mapNum == MAP_NUM(ROGUE_HUB_TRANSITION) && warp->warpId == 1)
+    if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
+    {
+        // Warping back to hub must be intentional
+        return;
+    }
 
     if(Rogue_IsRunActive())
     {
@@ -944,7 +1608,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         {
             SelectSpecialEncounterRoom(nextRoomIdx, warp);
         }
-        else if(nextRoomIdx >= gRogueRun.nextRestStopRoomIdx)
+        else if(!IsBossRoom(gRogueRun.currentRoomIdx) && nextRoomIdx >= gRogueRun.nextRestStopRoomIdx) // If we just came from a boss room give us an extra room of space
         {
             // We're about to hit a rest stop so force it here
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
@@ -952,6 +1616,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             // Will encounter the next rest stop in 4-6 rooms
             gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
+            
+            // We only get 1 rest stop at the begining
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                gRogueRun.nextRestStopRoomIdx = 255;
+            }
         }
         else if(IsBossRoom(nextRoomIdx))
         {
@@ -1078,20 +1748,43 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
-static bool8 UseCompetitiveMoveset(u16 trainerNum)
+static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
-    // Start using competitive movesets on 3rd gym
-    if(IsBossTrainer(trainerNum) && GetDifficultyLevel(gRogueRun.currentRoomIdx) >= 2)
-    {
-        return TRUE;
-    }
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
-    return FALSE;
+    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        return FALSE;
+    }
+    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        if(difficultyLevel == 0) // Last mon has competitive set
+            return IsBossTrainer(trainerNum) && monIdx == (totalMonCount - 1);
+        else if(difficultyLevel == 1)
+            return IsBossTrainer(trainerNum);
+        else
+            return TRUE;
+    }
+    else
+    {
+        // Start using competitive movesets on 3rd gym
+        if(IsBossTrainer(trainerNum))
+        {
+            if(difficultyLevel == 0)
+                return FALSE;
+            else if(difficultyLevel == 1) // Last mon has competitive set
+                return monIdx == (totalMonCount - 1);
+            else
+                return TRUE;
+        }
+
+        return FALSE;
+    }
 }
 
 static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
 {
-    SeedRogueRng(seed + trainerNum * 3 + offset * 7);
+    gRngRogueValue = seed + trainerNum * 3 + offset * 7;
 }
 
 static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
@@ -1144,6 +1837,22 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         case TRAINER_STEVEN:
             *forceType = TYPE_STEEL;
             break;
+
+        case TRAINER_ROGUE_AQUA_F:
+        case TRAINER_ROGUE_AQUA_M:
+            forceType[0] = TYPE_DARK;
+
+            if(difficultyLevel > 0)
+                forceType[1] = TYPE_WATER;
+            break;
+
+        case TRAINER_ROGUE_MAGMA_F:
+        case TRAINER_ROGUE_MAGMA_M:
+            forceType[0] = TYPE_DARK;
+
+            if(difficultyLevel > 0)
+                forceType[1] = TYPE_FIRE;
+            break;
     };
 
     if(IsBossTrainer(trainerNum))
@@ -1163,20 +1872,20 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else if(difficultyLevel == 2)
         {
             *monsCount = 4;
-            *allowItemEvos = FALSE;
+            *allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
             *monsCount = 5;
             *allowItemEvos = TRUE;
-            *allowLedgendaries = FALSE;
+            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
         else if(difficultyLevel <= 6) 
         {
             *monsCount = 6;
             *allowItemEvos = TRUE;
-            *allowLedgendaries = FALSE;
+            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
         else // From last gym leader we can see ledgendaries
         {
@@ -1209,21 +1918,21 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         }
         else if(difficultyLevel <= 7)
         {
-            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(1, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
         else
         {
             // Champion
-            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 2 : 0);
+            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 1 : 0);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -1235,6 +1944,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         {
             *monsCount = 2;
         }
+    }
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        *monsCount = 6;
+        *allowItemEvos = TRUE;
+        *allowLedgendaries = TRUE;
     }
 }
 
@@ -1257,13 +1973,13 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
-        u16 startSeed = gRngRogueValue;
-        u8 allowedType = TYPE_NONE;
+        u32 startSeed = gRngRogueValue;
+        u8 allowedType[2] = { TYPE_NONE, TYPE_NONE };
         bool8 allowItemEvos = FALSE;
         bool8 allowLedgendaries = FALSE;
 
         SeedRogueTrainer(startSeed, trainerNum, 0);
-        ConfigureTrainer(trainerNum, &allowedType, &allowItemEvos, &allowLedgendaries, monsCount);
+        ConfigureTrainer(trainerNum, &allowedType[0], &allowItemEvos, &allowLedgendaries, monsCount);
 
         // Query for the current trainer team
         RogueQuery_Clear();
@@ -1273,8 +1989,13 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         if(!allowLedgendaries)
             RogueQuery_SpeciesIsNotLegendary();
 
-        if(allowedType != TYPE_NONE)
-            RogueQuery_SpeciesOfType(allowedType);
+        if(allowedType[0] != TYPE_NONE)
+        {
+            if(allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
+        }
 
         RogueQuery_TransformToEggSpecies();
 
@@ -1284,14 +2005,23 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         if(allowItemEvos)
             RogueQuery_EvolveSpeciesByItem();
 
-        if(allowedType != TYPE_NONE)
-            RogueQuery_SpeciesOfType(allowedType);
+        if(allowedType[0] != TYPE_NONE)
+        {
+            if(allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
+        }
 
         RogueQuery_CollapseSpeciesBuffer();
 
+#ifdef ROGUE_DEBUG
+        gDebug_TrainerOptionCount = RogueQuery_BufferSize();
+#endif
+
         *useRogueCreateMon = TRUE;
 
-        SeedRogueRng(startSeed);
+        gRngRogueValue = startSeed;
         return;
     }
 
@@ -1305,22 +2035,61 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     u16 queryCount = RogueQuery_BufferSize();
     
     // Prevent duplicates, if possible (Only for bosses)
+    // *Only allow duplicates after we've already seen everything in the query
     do
     {
         randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
         species = RogueQuery_BufferPtr()[randIdx];
     }
-    while(isBoss && PartyContainsSpecies(party, monIdx, species) && queryCount > totalMonCount);
+    while(isBoss && PartyContainsSpecies(party, monIdx, species) && monIdx < queryCount);
 
     return species;
 }
+
+extern const struct LevelUpMove *const gLevelUpLearnsets[];
+
+bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
+{
+    u16 eggSpecies;
+    s32 i;
+
+    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+    {
+        u16 moveLevel;
+
+        if(move == gLevelUpLearnsets[species][i].move)
+        {
+            moveLevel = gLevelUpLearnsets[species][i].level;
+
+            if (moveLevel > (level << 9))
+                return FALSE;
+
+            return TRUE;
+        }
+    }
+
+    eggSpecies = Rogue_GetEggSpecies(species);
+
+    if(eggSpecies == species)
+    {
+        // Must be taught by some other means
+        return TRUE;
+    }
+    else
+    {
+        // Check if we would've learnt this before evolving (not 100% as can skip middle exclusive learn moves)
+        return CanLearnMoveByLvl(eggSpecies, move, level);
+    }
+}
+
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
     u8 level;
     u8 fixedIV;
-    u16 startSeed = gRngRogueValue;
+    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    u32 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
 
@@ -1354,65 +2123,121 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     }
 
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
-    level = CalculateTrainerLevel(trainerNum) - 1;
+    level = CalculateTrainerLevel(trainerNum);
 
+#ifdef ROGUE_DEBUG
+    level = 5;
+#endif
+
+    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+        fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         fixedIV = MAX_PER_STAT_IVS;
     else
-        fixedIV = 0;//isBoss ? 11 : 0;
+        fixedIV = isBoss ? 11 : 0;
 
-    if(!isBoss)
+    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
     {
+        // Team average is something like -2, -1, -1, 0
+        level--;
+
         if(monIdx == 0)
             level--;
-    }
 
-    if(monIdx == totalMonCount - 1)
-        level++;
+        if(level != 100 && monIdx == totalMonCount - 1)
+            level++;
+    }
 
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
-    if(UseCompetitiveMoveset(trainerNum) && gPresetMonTable[species].presetCount != 0)
+    if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
-        s32 i;
-        u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-        const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
+        u8 i;
+        u16 move;
+        u8 writeMoveIdx;
+        bool8 useMaxHappiness = TRUE;
 
-        if(preset->abilityNum != ABILITY_NONE)
+        // We want to start writing the move from the first free slot and loop back around
+        for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
         {
-            SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+            move = GetMonData(mon, MON_DATA_MOVE1 + i);
+            if(move == MOVE_NONE)
+                break;
         }
 
-        if(preset->heldItem != ITEM_NONE)
-        {
-            SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
-        }
+        // Loop incase we already have 4 moves
+        writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-        for (i = 0; i < MAX_MON_MOVES; i++)
+        if(gPresetMonTable[species].presetCount != 0)
         {
-            if(preset->moves[i] != MOVE_NONE)
+            u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+            const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
+
+            if(preset->abilityNum != ABILITY_NONE)
             {
-                SetMonData(mon, MON_DATA_MOVE1 + i, &preset->moves[i]);
-                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[preset->moves[i]].pp);
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+            }
+
+            if(preset->heldItem != ITEM_NONE)
+            {
+                SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+            }
+
+            // Teach moves from set that we can learn at this lvl
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = preset->moves[i]; 
+
+                if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
+                {
+                    if(move == MOVE_FRUSTRATION)
+                        useMaxHappiness = FALSE;
+
+                    SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+                    SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+
+                    // Loop back round
+                    writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
+                }
             }
         }
+
+        move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
+        SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
     }
 
-    SeedRogueRng(startSeed);
+    gRngRogueValue = startSeed;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     // Note: Don't seed individual encounters
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u8 maxlevel = CalculateWildLevel();
         u8 levelVariation = min(6,maxlevel - 1);
-        const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
-        u16 randIdx = Random() % count; 
 
-        *species = gRogueRun.wildEncounters[randIdx];
-        *level = maxlevel - (Random() % levelVariation);
+        if(GetSafariZoneFlag())
+        {
+            levelVariation = min(3, maxlevel - 1);
+        }
+
+        if(area == 1) //WILD_AREA_WATER)
+        {
+            const u16 count = ARRAY_COUNT(gRogueRun.fishingEncounters);
+            u16 randIdx = Random() % count; 
+
+            *species = gRogueRun.fishingEncounters[randIdx];
+            *level = maxlevel - (Random() % levelVariation);
+        }
+        else
+        {
+            const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+            u16 randIdx = Random() % count; 
+
+            *species = gRogueRun.wildEncounters[randIdx];
+            *level = maxlevel - (Random() % levelVariation);
+        }
     }
 }
 
@@ -1430,12 +2255,12 @@ static void RandomiseWildEncounters(void)
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
     RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTable, gRogueRouteTable[gRogueRun.currentRouteType].wildTypeTableCount);
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();
 
@@ -1454,6 +2279,114 @@ static void RandomiseWildEncounters(void)
             gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
         }
     }
+
+    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
+    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
+}
+
+static void RogueQuery_SafariTypeForMap()
+{
+    if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTH)
+    {
+        u8 types[] =
+        {
+            TYPE_NORMAL, TYPE_FIGHTING
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTHWEST)
+    {
+        u8 types[] =
+        {
+            TYPE_GRASS, TYPE_POISON, TYPE_DARK
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHWEST)
+    {
+        u8 types[] =
+        {
+            TYPE_DRAGON, TYPE_STEEL, TYPE_PSYCHIC
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTH)
+    {
+        u8 types[] =
+        {
+            TYPE_FLYING, TYPE_GHOST, TYPE_FIRE
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHEAST)
+    {
+        u8 types[] =
+        {
+            TYPE_ROCK, TYPE_GROUND, TYPE_ELECTRIC
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+    else // SAFARI_ZONE_SOUTHEAST
+    {
+        u8 types[] =
+        {
+            TYPE_WATER, TYPE_BUG, TYPE_ICE
+        };
+        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+    }
+}
+
+static void RandomiseSafariWildEncounters(void)
+{
+    u8 maxlevel = CalculateWildLevel();
+
+    // Query for the current zone
+    RogueQuery_Clear();
+    RogueQuery_SpeciesIsValid();
+
+    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
+    {
+        // Once we've defeated the elite 4, we're going to allow legendaries for fun!
+        RogueQuery_SpeciesIsNotLegendary();
+    }
+
+    RogueQuery_SpeciesInPokedex();
+
+    RogueQuery_SafariTypeForMap();
+    RogueQuery_TransformToEggSpecies();
+    RogueQuery_SafariTypeForMap();
+
+    RogueQuery_CollapseSpeciesBuffer();
+
+    {
+        u8 i;
+        u16 randIdx;
+        u16 queryCount = RogueQuery_BufferSize();
+
+#ifdef ROGUE_DEBUG
+        gDebug_WildOptionCount = queryCount;
+#endif
+
+        if(queryCount == 0)
+        {
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+            {
+                // Just encounter self, as we don't have a great fallback?
+                gRogueRun.wildEncounters[i] = Rogue_GetEggSpecies(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES));
+            }
+        }
+        else
+        {
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+            {
+                randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
+                gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+            }
+        }
+    }
+
+    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
+    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
 }
 
 static void ResetTrainerBattles(void)
@@ -1466,24 +2399,56 @@ static void ResetTrainerBattles(void)
     }
 }
 
+u8 GetLeadMonLevel(void);
+
 static u8 CalculateWildLevel(void)
 {
+    if(GetSafariZoneFlag())
+    {
+        if((Random() % 6) == 0)
+        {
+            // Occasionally throw in starter level mons
+            return 7;
+        }
+        else
+        {
+            return GetLeadMonLevel();
+        }
+    }
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        // 5 rooms the constant badges
+        return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
+    }
+
     return CalculatePlayerLevel() - 7;
 }
 
-static u8 CalculateBossLevel(u8 difficulty)
+static u8 CalculateBossLevelForDifficulty(u8 difficulty)
 {
-    // Gym leaders lvs 10 -> 80
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return MAX_LEVEL;
+    }
+
+    // Gym leaders lvs 15 -> 85
     if(difficulty <= 7)
     {
-        return min(100, 10 + 10 * difficulty);
+        return min(100, 15 + 10 * difficulty);
     }
     else
     {
         // Both champions are lvl 100
-        difficulty -= 7;
-        return min(100, 80 + 4 * difficulty);
+        difficulty -= 7; // (1 - 6)
+        return min(100, 85 + 3 * difficulty);
     }
+}
+
+static u8 CalculateBossLevel()
+{
+    u8 currLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    return CalculateBossLevelForDifficulty(currLevel);
 }
 
 static u8 CalculatePlayerLevel(void)
@@ -1491,10 +2456,24 @@ static u8 CalculatePlayerLevel(void)
     u8 prevLevel;
     u8 currLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        // 5 rooms the constant badges
+        return min(15 + (gRogueRun.currentRoomIdx - 1) * 20, MAX_LEVEL);
+    }
+
     if(currLevel == 0)
     {
-        // Cannot do blending
-        return CalculateBossLevel(currLevel);
+        if(gRogueRun.currentRoomIdx <= 1)
+        {
+            // Just hard guessing this one
+            return 10;
+        }
+        else
+        {
+            // Cannot do blending
+            return CalculateBossLevelForDifficulty(currLevel);
+        }
     }
     else
     {
@@ -1503,12 +2482,12 @@ static u8 CalculatePlayerLevel(void)
 
     if(currLevel == prevLevel)
     {
-        return CalculateBossLevel(currLevel);
+        return CalculateBossLevelForDifficulty(currLevel);
     }
     else
     {
         // We've just transitioned so use midpoint
-        return (CalculateBossLevel(prevLevel) + CalculateBossLevel(currLevel)) / 2;
+        return (CalculateBossLevelForDifficulty(prevLevel) + CalculateBossLevelForDifficulty(currLevel)) / 2;
     }
 }
 
@@ -1524,12 +2503,20 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 
         if(difficultyLevel == 0)
         {
-            return 2 + gRogueRun.currentRoomIdx;
+            return CalculatePlayerLevel() - 7;
         }
         else
         {
-            // Trainers will lag behind to make grinding easier
-            return CalculateBossLevel(difficultyLevel - 1);
+            if(difficultyLevel >= 12)
+            {
+                // Before champion gap is super small
+                return CalculatePlayerLevel() - 5;
+            }
+            else
+            {
+                // Trainers will lag behind to make grinding easier
+                return CalculatePlayerLevel() - 10;
+            }
         }
     }
 }
@@ -1537,7 +2524,12 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 static bool8 RandomChanceTrainer()
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u8 chance = 10 + 5 * difficultyLevel;
+    u8 chance = max(10, 5 * difficultyLevel);
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return 0;
+    }
 
     return RandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
@@ -1553,7 +2545,19 @@ static bool8 RandomChanceItem()
     else
     {
         u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-        chance = 75 - 5 * difficultyLevel;
+        
+        if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        {
+            chance = max(15, 75 - min(50, 4 * difficultyLevel));
+        }
+        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        {
+            chance = max(5, 30 - min(28, 2 * difficultyLevel));
+        }
+        else
+        {
+            chance = max(10, 55 - min(50, 4 * difficultyLevel));
+        }
     }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
@@ -1561,8 +2565,21 @@ static bool8 RandomChanceItem()
 
 static bool8 RandomChanceBerry()
 {
+    u8 chance;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u8 chance = 95 - 7 * difficultyLevel;
+
+    if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
+    {
+        chance = max(15, 95 - min(85, 7 * difficultyLevel));
+    }
+    else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+    {
+        chance = max(5, 50 - min(48, 5 * difficultyLevel));
+    }
+    else
+    {
+        chance = max(10, 70 - min(65, 5 * difficultyLevel));
+    }
 
     return RandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
@@ -1588,19 +2605,18 @@ static void RandomiseEnabledTrainers(void)
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
+    u8 dropRarity = gRogueRouteTable[gRogueRun.currentRouteIndex].dropRarity;
+
+    // Give us 1 room of basic items
+    if(gRogueRun.currentRoomIdx > 1 && FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        dropRarity += 10;
+    }
 
     // Queue up random items
     RogueQuery_Clear();
 
-    if(gRogueRun.currentRouteType == ROGUE_ROUTE_CAVE)
-    {
-        // In cave we have higher chance of finding valuables
-        RogueQuery_ItemsInPriceRange(100 + 400 * difficultyLevel, 300 + 800 * difficultyLevel);
-    }
-    else
-    {
-        RogueQuery_ItemsInPriceRange(50 + 100 * difficultyLevel, 300 + 800 * difficultyLevel);
-    }
+    RogueQuery_ItemsInPriceRange(50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
 
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
@@ -1611,6 +2627,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     RogueQuery_Exclude(ITEM_REVIVE);
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
     RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
+    RogueQuery_Exclude(ITEM_RARE_CANDY);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
@@ -1619,14 +2636,18 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     //ITEM_SACRED_ASH
 
-    if(difficultyLevel <= 1)
-    {
-        RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
-    }
 
-    if(difficultyLevel <= 3)
+    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        RogueQuery_ItemsNotHeldItem();
+        if(difficultyLevel <= 1 || IsBossRoom(gRogueRun.currentRoomIdx))
+        {
+            RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
+        }
+
+        if(difficultyLevel <= 3)
+        {
+            RogueQuery_ItemsNotHeldItem();
+        }
     }
 
     RogueQuery_CollapseItemBuffer();
@@ -1680,8 +2701,11 @@ static void RandomiseEnabledItems(void)
     RandomiseItemContent(difficultyLevel);
 }
 
-// Only take up to Sitrus berry, as past that is just misc non-battle related berries or reskins
-#define BERRY_COUNT (ITEM_SITRUS_BERRY - FIRST_BERRY_INDEX + 1)
+#define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY
+#define LAST_USELESS_BERRY_INDEX  ITEM_BELUE_BERRY
+
+// Ignore enigma berry as it's useless in gen 3
+#define BERRY_COUNT (LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
 
 static void RandomiseBerryTrees(void)
 {
@@ -1691,8 +2715,16 @@ static void RandomiseBerryTrees(void)
     {
         if(RandomChanceBerry())
         {
-            u8 berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
-            u8 berry = ItemIdToBerryType(berryItem);
+            u8 berryItem;
+            u8 berry;
+
+            do
+            {
+                berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
+            }
+            while(berryItem >= FIRST_USELESS_BERRY_INDEX && berryItem <= LAST_USELESS_BERRY_INDEX);
+
+            berry = ItemIdToBerryType(berryItem);
             PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
         }
         else

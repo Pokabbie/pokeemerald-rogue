@@ -16,8 +16,11 @@ script Rogue_Battle_Boss0
 
     msgbox(format("ROXANNE: A new challenger!"))
 
-    setweather(WEATHER_SANDSTORM)
-    doweather
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_SANDSTORM)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFight)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFight)
@@ -32,6 +35,9 @@ script Rogue_Battle_Boss0
 
 script Rogue_BattleDefeated_Boss0
 {
+    setweather(WEATHER_NONE)
+    doweather
+    
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)

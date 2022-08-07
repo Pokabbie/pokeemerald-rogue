@@ -63,3 +63,4 @@
 	.include "*libc.a:syscalls.o"
 	.include "src/rogue_controller.o"
 	.include "src/rogue_query.o"
+	.include "src/rogue_baked.o"

@@ -34,6 +34,9 @@ struct BagPocket
 extern const struct Item gItems[];
 extern struct BagPocket gBagPockets[];
 
+u16 GetBagItemQuantity(u16 *quantity);
+void SetBagItemQuantity(u16 *quantity, u16 newValue);
+
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
 void SetBagItemsPointers(void);

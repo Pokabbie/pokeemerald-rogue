@@ -13,6 +13,12 @@ mapscripts Rogue_Route_WaterFront0_MapScripts
 
 script Rogue_Route_WaterFront0_OnFrame0
 {
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_DOWNPOUR)
+        doweather
+    }
+
     if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     {
         lockall

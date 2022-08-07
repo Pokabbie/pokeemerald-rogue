@@ -15,9 +15,12 @@ script Rogue_Battle_Boss3
     waitmovement(0)
 
     msgbox(format("FLANNERY: A new challenger!"))
-    
-    setweather(WEATHER_SUNNY_CLOUDS)
-    doweather
+
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_DROUGHT)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFightBoss3)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss3)
@@ -32,6 +35,9 @@ script Rogue_Battle_Boss3
 
 script Rogue_BattleDefeated_Boss3
 {
+    setweather(WEATHER_NONE)
+    doweather
+    
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)

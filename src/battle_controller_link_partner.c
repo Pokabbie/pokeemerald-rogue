@@ -29,6 +29,8 @@
 #include "constants/trainers.h"
 #include "recorded_battle.h"
 
+#include "rogue_controller.h"
+
 static void LinkPartnerHandleGetMonData(void);
 static void LinkPartnerHandleGetRawMonData(void);
 static void LinkPartnerHandleSetMonData(void);
@@ -1145,7 +1147,7 @@ static void LinkPartnerHandleDrawTrainerPic(void)
 
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Rogue_ModifyBattleSlideAnim(-2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;
@@ -1552,7 +1554,7 @@ static void LinkPartnerHandleIntroTrainerBallThrow(void)
         trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(gActiveBattler)].gender;
     }
 
-    LoadCompressedPalette(gTrainerBackPicPaletteTable[trainerPicId].data, 0x100 + paletteNum * 16, 32);
+    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[trainerPicId].data), 0x100 + paletteNum * 16, 32);
 
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = paletteNum;
 

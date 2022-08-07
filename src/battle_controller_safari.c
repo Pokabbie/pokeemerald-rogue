@@ -24,6 +24,8 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 static void SafariHandleGetMonData(void);
 static void SafariHandleGetRawMonData(void);
 static void SafariHandleSetMonData(void);
@@ -171,6 +173,7 @@ static void SafariBufferRunCommand(void)
 
 static void HandleInputChooseAction(void)
 {
+    // RogueNote: Scuff the options
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
@@ -181,14 +184,14 @@ static void HandleInputChooseAction(void)
             BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_BALL, 0);
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_POKEBLOCK, 0);
-            break;
-        case 2:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
-            break;
-        case 3:
             BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
             break;
+        //case 2:
+        //    //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
+        //    break;
+        //case 3:
+        //    BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+        //    break;
         }
         SafariBufferExecCompleted();
     }
@@ -212,26 +215,26 @@ static void HandleInputChooseAction(void)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
-    else if (JOY_NEW(DPAD_UP))
-    {
-        if (gActionSelectionCursor[gActiveBattler] & 2)
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 2;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
-    else if (JOY_NEW(DPAD_DOWN))
-    {
-        if (!(gActionSelectionCursor[gActiveBattler] & 2))
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 2;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
+    //else if (JOY_NEW(DPAD_UP))
+    //{
+    //    if (gActionSelectionCursor[gActiveBattler] & 2)
+    //    {
+    //        PlaySE(SE_SELECT);
+    //        ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+    //        gActionSelectionCursor[gActiveBattler] ^= 2;
+    //        ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+    //    }
+    //}
+    //else if (JOY_NEW(DPAD_DOWN))
+    //{
+    //    if (!(gActionSelectionCursor[gActiveBattler] & 2))
+    //    {
+    //        PlaySE(SE_SELECT);
+    //        ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+    //        gActionSelectionCursor[gActiveBattler] ^= 2;
+    //        ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+    //    }
+    //}
 }
 
 static void CompleteOnBattlerSpriteCallbackDummy(void)
@@ -363,7 +366,7 @@ static void SafariHandleDrawTrainerPic(void)
       30);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Rogue_ModifyBattleSlideAnim(-2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;
 }

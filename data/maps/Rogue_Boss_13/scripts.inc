@@ -20,6 +20,7 @@ Rogue_Battle_Boss13::
 Rogue_BattleDefeated_Boss13::
 	setflag FLAG_IS_CHAMPION
 	setrespawn HEAL_LOCATION_ROGUE_HUB
+	setflag FLAG_ROGUE_DEFEATED_BOSS13
 	fadescreen FADE_TO_BLACK
 	special GameClear
 	waitstate

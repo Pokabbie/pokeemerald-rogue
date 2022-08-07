@@ -127,9 +127,11 @@ static const u8 sTextColors[] = {
 
 // Background is alternating bars of a dark/light color.
 // Either blue or red depending on player's gender
-static const u16 sBgColors[GENDER_COUNT][2] = {
-    [MALE]   = { RGB(13, 22, 26), RGB(5, 13, 20) },
-    [FEMALE] = { RGB(28, 15, 17), RGB(20, 6, 14) }
+static const u16 sBgColors[PLAYER_STYLE_COUNT][2] = {
+    [STYLE_EMR_BRENDAN] = { RGB(13, 22, 26), RGB(5, 13, 20) },
+    [STYLE_EMR_MAY]     = { RGB(28, 15, 17), RGB(20, 6, 14) },
+    [STYLE_RED]         = { RGB(31, 31, 31), RGB(31, 31, 31) },
+    [STYLE_LEAF]        = { RGB(31, 31, 31), RGB(31, 31, 31) }
 };
 
 static const struct MailGraphics sMailGraphics[] = {

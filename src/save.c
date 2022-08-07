@@ -711,6 +711,8 @@ u8 HandleSavingData(u8 saveType)
     u32 *backupVar = gTrainerHillVBlankCounter;
     u8 *tempAddr;
 
+    // RogueNote: todo pre save
+
     gTrainerHillVBlankCounter = NULL;
     UpdateSaveAddresses();
     switch (saveType)

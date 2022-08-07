@@ -31,6 +31,9 @@ script Rogue_Battle_Boss6
 
 script Rogue_BattleDefeated_Boss6
 {
+    setweather(WEATHER_NONE)
+    doweather
+    
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
@@ -65,6 +68,4 @@ movement BossTateToFightBoss6 {
 
 movement BossLizaToFightBoss6 {
     walk_left
-    walk_up
-    face_left
 }

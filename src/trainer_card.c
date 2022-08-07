@@ -109,7 +109,7 @@ static u32 GetCappedGameStat(u8 statId, u32 maxValue);
 static bool8 HasAllFrontierSymbols(void);
 static u8 GetRubyTrainerStars(struct TrainerCard*);
 static u16 GetCaughtMonsCount(void);
-static void SetPlayerCardData(struct TrainerCard*, u8);
+static void SetPlayerCardData(struct TrainerCard*);
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard*);
 static u8 VersionToCardType(u8);
 static void SetDataFromTrainerCard(void);
@@ -277,6 +277,8 @@ static const u8 sTrainerCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_D
 static const u8 sTrainerCardStatColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_RED};
 static const u8 sTimeColonInvisibleTextColors[6] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT};
 
+// PLAYER_STYLE_COUNT TODO
+
 static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
 {
     // Kanto
@@ -291,23 +293,31 @@ static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
     },
 };
 
-static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
+//static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
+//{
+//    [CARD_TYPE_FRLG] =
+//    {
+//        [MALE]   = FACILITY_CLASS_RED,
+//        [FEMALE] = FACILITY_CLASS_LEAF
+//    },
+//    [CARD_TYPE_RS] =
+//    {
+//        [MALE]   = FACILITY_CLASS_RS_BRENDAN,
+//        [FEMALE] = FACILITY_CLASS_RS_MAY
+//    },
+//    [CARD_TYPE_EMERALD] =
+//    {
+//        [MALE]   = FACILITY_CLASS_BRENDAN,
+//        [FEMALE] = FACILITY_CLASS_MAY
+//    }
+//};
+
+static const u8 sTrainerPicFacilityClass[PLAYER_STYLE_COUNT] =
 {
-    [CARD_TYPE_FRLG] =
-    {
-        [MALE]   = FACILITY_CLASS_RED,
-        [FEMALE] = FACILITY_CLASS_LEAF
-    },
-    [CARD_TYPE_RS] =
-    {
-        [MALE]   = FACILITY_CLASS_RS_BRENDAN,
-        [FEMALE] = FACILITY_CLASS_RS_MAY
-    },
-    [CARD_TYPE_EMERALD] =
-    {
-        [MALE]   = FACILITY_CLASS_BRENDAN,
-        [FEMALE] = FACILITY_CLASS_MAY
-    }
+    [STYLE_EMR_BRENDAN] = FACILITY_CLASS_BRENDAN,
+    [STYLE_EMR_MAY] = FACILITY_CLASS_MAY,
+    [STYLE_RED]   = FACILITY_CLASS_RED,
+    [STYLE_LEAF] = FACILITY_CLASS_LEAF
 };
 
 static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
@@ -685,10 +695,26 @@ static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
     return stars;
 }
 
-static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
+static void SetPlayerCardData(struct TrainerCard *trainerCard)
 {
     u32 playTime;
     u8 i;
+    u8 cardType;
+
+    switch(gSaveBlock2Ptr->playerGender)
+    {
+        case STYLE_RED:
+        case STYLE_LEAF:
+            cardType = CARD_TYPE_FRLG;
+            break;
+
+        default:
+        //case STYLE_EMR_BRENDAN:
+        //case STYLE_EMR_MAY:
+            cardType = CARD_TYPE_EMERALD;
+            break;
+
+    };
 
     trainerCard->gender = gSaveBlock2Ptr->playerGender;
     trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
@@ -754,13 +780,13 @@ static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
 {
     memset(trainerCard, 0, sizeof(struct TrainerCard));
     trainerCard->version = GAME_VERSION;
-    SetPlayerCardData(trainerCard, CARD_TYPE_EMERALD);
+    SetPlayerCardData(trainerCard);
     trainerCard->hasAllFrontierSymbols = HasAllFrontierSymbols();
     trainerCard->frontierBP = gSaveBlock2Ptr->frontier.cardBattlePoints;
     if (trainerCard->hasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
+    if (trainerCard->gender % 2 == FEMALE)
         trainerCard->facilityClass = gLinkPlayerFacilityClasses[(trainerCard->trainerId % NUM_FEMALE_LINK_FACILITY_CLASSES) + NUM_MALE_LINK_FACILITY_CLASSES];
     else
         trainerCard->facilityClass = gLinkPlayerFacilityClasses[trainerCard->trainerId % NUM_MALE_LINK_FACILITY_CLASSES];
@@ -770,13 +796,13 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
 {
     memset(trainerCard, 0, 0x60);
     trainerCard->version = GAME_VERSION;
-    SetPlayerCardData(trainerCard, CARD_TYPE_EMERALD);
+    SetPlayerCardData(trainerCard);
     trainerCard->linkHasAllFrontierSymbols = HasAllFrontierSymbols();
     *((u16*)&trainerCard->linkPoints.frontier) = gSaveBlock2Ptr->frontier.cardBattlePoints;
     if (trainerCard->linkHasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
+    if (trainerCard->gender % 2 == FEMALE)
         trainerCard->facilityClass = gLinkPlayerFacilityClasses[(trainerCard->trainerId % NUM_FEMALE_LINK_FACILITY_CLASSES) + NUM_MALE_LINK_FACILITY_CLASSES];
     else
         trainerCard->facilityClass = gLinkPlayerFacilityClasses[trainerCard->trainerId % NUM_MALE_LINK_FACILITY_CLASSES];
@@ -1426,14 +1452,14 @@ static u8 SetCardBgsAndPals(void)
         {
             LoadPalette(sHoennTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
-            if (sData->trainerCard.gender != MALE)
+            if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sHoennTrainerCardFemaleBg_Pal, 16, 32);
         }
         else
         {
             LoadPalette(sKantoTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(sKantoTrainerCardBadges_Pal, 48, 32);
-            if (sData->trainerCard.gender != MALE)
+            if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sKantoTrainerCardFemaleBg_Pal, 16, 32);
         }
         LoadPalette(sTrainerCardGold_Pal, 64, 32);
@@ -1878,17 +1904,17 @@ static void CreateTrainerCardTrainerPic(void)
     {
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.facilityClass),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][1],
                     8,
                     2);
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->trainerCard.gender]),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][1],
                     8,
                     2);
     }

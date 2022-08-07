@@ -1,0 +1,44 @@
+mapscripts Rogue_Route_Mountain1_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_TEMP_1, 0: Rogue_Route_Mountain1_OnFrame0
+        //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
+    ]
+}
+
+script Rogue_Route_Mountain1_OnFrame0
+{
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_DROUGHT)
+        doweather
+    }
+
+    if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
+    {
+        lockall
+        special(DoSealedChamberShakingEffect_Short)
+        waitstate
+        playse(SE_DOOR)
+        delay(10)
+        random(2)
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                setmetatile(8,62, 0x259, FALSE)
+                setmetatile(8,63, 0x261, FALSE)
+            case 1:
+                setmetatile(27,35, 0x019, TRUE)
+                setmetatile(27,36, 0x021, TRUE)
+        }
+        releaseall
+    }
+
+    setvar(VAR_TEMP_1, 1)
+    end
+}

@@ -37,6 +37,8 @@
 #include "constants/event_objects.h"
 #include "constants/moves.h"
 
+#include "rogue_baked.h"
+
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_MaxieTrainer[];
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer[];
 
@@ -3643,6 +3645,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
         s32 i;
+        u32 exp;
         u8 enemyLevel = SetFacilityPtrsGetLevel();
 
         for (i = 0; i < PARTY_SIZE; i++)
@@ -3650,7 +3653,9 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
             u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
             if (species)
             {
-                SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gBaseStats[species].growthRate][enemyLevel]);
+                exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, enemyLevel);
+
+                SetMonData(&gEnemyParty[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&gEnemyParty[i]);
             }
         }

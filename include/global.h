@@ -16,6 +16,7 @@
 #include "constants/easy_chat.h"
 #include "constants/trainer_hill.h"
 #include "constants/expansion_branches.h"
+#include "constants/rogue.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -492,7 +493,9 @@ struct SaveBlock2
              u16 optionsBattleSceneOff:1; // whether battle animations are disabled
              u16 regionMapZoom:1; // whether the map is zoomed in
     /*0x18*/ struct Pokedex pokedex;
-    /*0x90*/ u8 filler_90[0x8];
+             u8 playerStyle0;
+             u8 playerStyle1;
+    /*0x90*/ u8 filler_90[0x6];
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;
     /*0xA8*/ u32 gcnLinkFlags; // Read by Pokemon Colosseum/XD
@@ -1011,6 +1014,10 @@ struct SaveBlock1
     /*0x322C*/ struct MysteryGiftSave mysteryGift;
     /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES];
+    union
+    {
+        struct RogueSaveData saveData;
+    } rogueBlock;
     /*0x3???*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
     /*0x3???*/ struct RamScript ramScript;
     /*0x3???*/ struct RecordMixingGift recordMixingGift;

@@ -6490,10 +6490,8 @@ BattleScript_Pausex20::
 	return
 
 BattleScript_LevelUp_Minimal::
-	printstring STRINGID_PKMNGREWTOLV
 	goto BattleScript_PostLevelUp
 BattleScript_LevelUp_Full::
-	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNGREWTOLV
 	setbyte sLVLBOX_STATE, 0
 	drawlvlupbox

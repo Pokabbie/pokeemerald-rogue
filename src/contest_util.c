@@ -46,6 +46,8 @@
 #include "constants/songs.h"
 #include "contest.h"
 
+#include "rogue_controller.h"
+
 enum {
     SLIDING_TEXT_OFFSCREEN,
     SLIDING_TEXT_ENTERING,
@@ -2516,9 +2518,9 @@ void LoadLinkContestPlayerPalettes(void)
             else
             {
                 if (gLinkPlayers[i].gender == MALE)
-                    LoadPalette(gObjectEventPal_Brendan, 0x160 + i * 0x10, 0x20);
+                    LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_Brendan_0_0), 0x160 + i * 0x10, 0x20);
                 else
-                    LoadPalette(gObjectEventPal_May, 0x160 + i * 0x10, 0x20);
+                    LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_May_0_0), 0x160 + i * 0x10, 0x20);
             }
         }
     }

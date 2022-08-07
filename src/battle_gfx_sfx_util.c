@@ -27,6 +27,8 @@
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
 
+#include "rogue_controller.h"
+
 extern const u8 gBattlePalaceNatureToMoveTarget[];
 extern const u8 * const gBattleAnims_General[];
 extern const u8 * const gBattleAnims_Special[];
@@ -377,7 +379,20 @@ void SpriteCB_TrainerSlideIn(struct Sprite *sprite)
 {
     if (!(gIntroSlideFlags & 1))
     {
-        sprite->x2 += sprite->sSpeedX;
+        if(sprite->x2 < 0)
+        {
+            sprite->x2 += sprite->sSpeedX;
+            if(sprite->x2 >= 0)
+                sprite->x2 = 0;
+        }
+        else
+        {
+            sprite->x2 += sprite->sSpeedX;
+
+            if(sprite->x2 <= 0)
+                sprite->x2 = 0;
+        }
+
         if (sprite->x2 == 0)
         {
             if (sprite->y2 != 0)
@@ -639,12 +654,30 @@ void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 }
 
 void DecompressTrainerBackPic(u16 backPicId, u8 battlerId)
-{
+{    
     u8 position = GetBattlerPosition(battlerId);
+    
+    // RogueNote: gender swap around backPicId indices
+    //switch(backPicId)
+    //{
+    //    case 2: 
+    //        backPicId = 4;
+    //        break;
+    //    case 3: 
+    //        backPicId = 5;
+    //        break;
+    //    case 4: 
+    //        backPicId = 2;
+    //        break;
+    //    case 5: 
+    //        backPicId = 3;
+    //        break;
+    //};
+
     DecompressPicFromTable(&gTrainerBackPicTable[backPicId],
                            gMonSpritesGfxPtr->sprites.ptr[position],
                            SPECIES_NONE);
-    LoadCompressedPalette(gTrainerBackPicPaletteTable[backPicId].data,
+    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[backPicId].data),
                           0x100 + 16 * battlerId, 0x20);
 }
 

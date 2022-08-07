@@ -817,14 +817,14 @@ static bool8 LoadBagMenu_Graphics(void)
         }
         break;
     case 2:
-        if (!IsWallysBag() && gSaveBlock2Ptr->playerGender != MALE)
+        if (!IsWallysBag() && (gSaveBlock2Ptr->playerGender % 2) != MALE)
             LoadCompressedPalette(gBagScreenFemale_Pal, 0, 0x40);
         else
             LoadCompressedPalette(gBagScreenMale_Pal, 0, 0x40);
         gBagMenu->graphicsLoadState++;
         break;
     case 3:
-        if (IsWallysBag() == TRUE || gSaveBlock2Ptr->playerGender == MALE)
+        if (IsWallysBag() == TRUE || (gSaveBlock2Ptr->playerGender % 2) == MALE)
             LoadCompressedSpriteSheet(&gBagMaleSpriteSheet);
         else
             LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet);

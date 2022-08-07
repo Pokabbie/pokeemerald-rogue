@@ -32,6 +32,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
 EWRAM_DATA s32 gFieldEffectArguments[8] = {0};
@@ -890,10 +892,25 @@ u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buf
     return CreateSprite(&spriteTemplate, x, y, subpriority);
 }
 
+u8 UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+{
+    struct SpriteTemplate spriteTemplate;
+    LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
+    LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
+    spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
+    spriteTemplate.paletteTag = gTrainerFrontPicPaletteTable[trainerSpriteID].tag;
+    spriteTemplate.oam = &sOam_64x64;
+    spriteTemplate.anims = gDummySpriteAnimTable;
+    spriteTemplate.images = NULL;
+    spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
+    spriteTemplate.callback = SpriteCallbackDummy;
+    return CreateSpriteAt(spriteID, &spriteTemplate, x, y, subpriority);
+}
+
 void LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest)
 {
-    LZDecompressVram(gTrainerFrontPicTable[gender].data, dest);
-    LoadCompressedPalette(gTrainerFrontPicPaletteTable[gender].data, palOffset, 0x20);
+    LZDecompressVram(Rogue_ModifyPallete32(gTrainerFrontPicTable[gender].data), dest);
+    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[gender].data), palOffset, 0x20);
 }
 
 u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
@@ -2932,6 +2949,8 @@ static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality)
 
 static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *sprite)
 {
+
+    // RogueNote: Modify HM anim?
     if ((sprite->x -= 20) <= DISPLAY_WIDTH / 2)
     {
         sprite->x = DISPLAY_WIDTH / 2;

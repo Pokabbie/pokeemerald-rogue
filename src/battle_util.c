@@ -7596,6 +7596,10 @@ static bool32 IsMonEventLegal(u8 battlerId)
 
 u8 IsMonDisobedient(void)
 {
+    // RogueNote: never disobedient
+    return 0;
+
+#if 0
     s32 rnd;
     s32 calc;
     u8 obedienceLevel = 0;
@@ -7676,7 +7680,7 @@ u8 IsMonDisobedient(void)
         obedienceLevel = gBattleMons[gBattlerAttacker].level - obedienceLevel;
 
         calc = (Random() & 255);
-        if (calc < obedienceLevel && CanSleep(gBattlerAttacker))
+        if (calc < obedienceLevel && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_ANY) && gBattleMons[gBattlerAttacker].ability != ABILITY_VITAL_SPIRIT && gBattleMons[gBattlerAttacker].ability != ABILITY_INSOMNIA)
         {
             // try putting asleep
             int i;
@@ -7694,7 +7698,7 @@ u8 IsMonDisobedient(void)
         calc -= obedienceLevel;
         if (calc < obedienceLevel)
         {
-            gBattleMoveDamage = CalculateMoveDamage(MOVE_NONE, gBattlerAttacker, gBattlerAttacker, TYPE_MYSTERY, 40, FALSE, FALSE, TRUE);
+            gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerAttacker], MOVE_POUND, 0, 40, 0, gBattlerAttacker, gBattlerAttacker);
             gBattlerTarget = gBattlerAttacker;
             gBattlescriptCurrInstr = BattleScript_IgnoresAndHitsItself;
             gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
@@ -7709,6 +7713,7 @@ u8 IsMonDisobedient(void)
             return 1;
         }
     }
+#endif
 }
 
 u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)

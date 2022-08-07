@@ -1121,6 +1121,14 @@
 	.4byte \products
 	.endm
 
+	@ Opens the Pokemart system, offering the specified products for sale.
+	@ Products should be a list of .2byte item values preceded by an .align 2
+	.macro pokemartwithminprice products:req price:req
+	.byte 0xe4
+	.4byte \products
+	.2byte \price
+	.endm
+
 	@ Starts up the slot machine minigame. id is a SLOT_MACHINE_* value that influences probabilities of certain reel outcomes.
 	.macro playslotmachine id:req
 	.byte 0x89
@@ -1733,6 +1741,17 @@
 	stringvar \stringVarId
 	.2byte \item
 	.2byte \quantity
+	.endm
+	
+	@ Set the metatile at (x, y) on the current map to the given metatile and impassability.
+	.macro fillmetatile x:req, y:req, xEnd:req, yEnd:req, metatileId:req, impassable:req
+	.byte 0xe3
+	.2byte \x
+	.2byte \y
+	.2byte \xEnd
+	.2byte \yEnd
+	.2byte \metatileId
+	.2byte \impassable
 	.endm
 
 

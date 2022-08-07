@@ -52,6 +52,10 @@ gSpecials::
 	def_special LoadPlayerParty
 	def_special ChooseHalfPartyForBattle
 	def_special Script_ShowLinkTrainerCard
+	def_special Script_ShowTrainerCard
+	def_special Script_ChangePlayerGender
+	def_special Script_ChangePlayerStyle0
+	def_special Script_ChangePlayerStyle1
 	def_special ObjectEventInteractionGetBerryTreeData
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
@@ -105,6 +109,7 @@ gSpecials::
 	def_special GiveMonArtistRibbon
 	def_special TryContestGModeLinkup
 	def_special SaveGame
+	def_special ForceSaveGame
 	def_special DoWateringBerryTreeAnim
 	def_special ShowEasyChatScreen
 	def_special ShowEasyChatProfile
@@ -285,6 +290,7 @@ gSpecials::
 	def_special CheckLeadMonCute
 	def_special CheckLeadMonSmart
 	def_special CheckLeadMonTough
+	def_special GetLeadMonLevel
 	def_special LookThroughPorthole
 	def_special DoSoftReset
 	def_special GameClear

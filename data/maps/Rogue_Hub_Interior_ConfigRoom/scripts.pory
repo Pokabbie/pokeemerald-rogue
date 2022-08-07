@@ -1,6 +1,9 @@
 const OBJ_ASSISTANT_ID =  1
+const OBJ_POKABBIE_ID =  4
 
 const VAR_FLAG_STATE = VAR_0x8000
+
+const METATILE_BikeShop_Button_Red = 0x23E
 
 mapscripts Rogue_Hub_Interior_ConfigRoom_MapScripts 
 {
@@ -26,21 +29,6 @@ script Rogue_ConfigRoom_TalkAssistant
     call(Rogue_ConfigRoom_TalkAssistantInternal)
     release
 }
-
-
-//abbyAndTy_EventScript_Interview::
-//	goto_if_eq VAR_RESULT, NO, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
-//	msgbox GabbyAndTy_Text_DescribeYourFeelings, MSGBOX_DEFAULT
-//	setvar VAR_0x8004, EASY_CHAT_TYPE_GABBY_AND_TY
-//	call Common_ShowEasyChatScreen
-//	lock
-//	faceplayer
-//	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
-//	msgbox GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT
-//	special GabbyAndTyAfterInterview
-//	setflag FLAG_TEMP_1
-//	release
-//	end
 
 script Rogue_ConfigRoom_TalkAssistantInternal
 {
@@ -134,35 +122,229 @@ movement ConfigRoom_WalkLeft {
     walk_left
 }
 
+script Rogue_ConfigRoom_TalkHiddenEnterance
+{
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE)
+    {
+        lock
+
+        msgbox(format("What's this?\pA hidden switch!\pPress the switch?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+            waitse
+            playse(SE_TRUCK_DOOR)
+            call(Rogue_ConfigRoom_RedrawMap)
+        }
+
+        release
+    }
+}
+
+script Rogue_ConfigRoom_MeetPokabbie
+{
+    lockall
+
+    playse(SE_PIN)
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_NoticePlayer)
+    waitmovement(0)
+
+    if(flag(FLAG_IS_CHAMPION))
+    {
+        msgbox(format("POKABBIE: Ah {PLAYER}!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
+    else
+    {
+        msgbox(format("???: What are you doing here!\pYou discovered my SECRET LAB already!"))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceUp)
+        waitmovement(0)
+
+        msgbox(format("I was gonna wait until you had beat the CHAMPION at least..."))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
+        waitmovement(0)
+
+        msgbox(format("Anyway!\pWhere I my manners!\nAllow me to introduce myself!"))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+        waitmovement(0)
+
+        msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"))
+
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
+
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+    setvar(VAR_TEMP_1, 1)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkPokabbie
+{
+    lockall
+
+    faceplayer
+    msgbox(format("POKABBIE: I hope you're enjoying EMERALD ROGUE!\pFeel free to enable any SPECIAL MODES from this room!\pI'll be sure to add some more in future!"), MSGBOX_DEFAULT)
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+    waitmovement(0)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkDitto
+{
+    lock
+
+    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+    msgbox(format("A Ditto!\pWhy is it here?"), MSGBOX_DEFAULT)
+
+    release
+}
+
+movement ConfigRoom_Pokabbie_FaceDown 
+{
+    face_down
+}
+
+movement ConfigRoom_Pokabbie_FaceUp 
+{
+    face_up
+}
+
+movement ConfigRoom_Pokabbie_NoticePlayer 
+{
+    face_down
+    emote_exclamation_mark
+}
+
+movement ConfigRoom_Pokabbie_Spin 
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+}
+
 
 script Rogue_ConfigRoom_PreButtonInternal
 {
     lockall
 
-    if(var(VAR_FLAG_STATE) == YES)
+    switch(var(VAR_FLAG_STATE))
     {
-        bufferstring(STR_VAR_2, format("ON"))
-        bufferstring(STR_VAR_3, format("OFF"))
-    }
-    else
-    {
-        bufferstring(STR_VAR_2, format("OFF"))
-        bufferstring(STR_VAR_3, format("ON"))
+        case 0:
+            bufferstring(STR_VAR_2, format("ON"))
+        case 1:
+            bufferstring(STR_VAR_2, format("OFF"))
+        default:
+            bufferstring(STR_VAR_2, format("???"))
     }
 
-    msgbox(format("{STR_VAR_1} is set to {STR_VAR_2}"), MSGBOX_DEFAULT)
-    msgbox(format("Flip the switch to {STR_VAR_3}?"), MSGBOX_YESNO)
-    return
+    message(format("{STR_VAR_1} is currently '{STR_VAR_2}'"))
+    waitmessage
+    multichoice(20, 4, MULTI_YESNOINFO_2, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 0)
+            setvar(VAR_RESULT, YES)
+
+        case 1: // No
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 1)
+            setvar(VAR_RESULT, YES)
+
+        case 2: // Info
+            setvar(VAR_RESULT, NO)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, YES)
+    }
+}
+
+script Rogue_ConfigRoom_PreEAHButtonInternal
+{
+    lockall
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            bufferstring(STR_VAR_2, format("EASY"))
+        case 1:
+            bufferstring(STR_VAR_2, format("AVERAGE"))
+        case 2:
+            bufferstring(STR_VAR_2, format("HARD"))
+        default:
+            bufferstring(STR_VAR_2, format("???"))
+    }
+
+    message(format("{STR_VAR_1} is currently '{STR_VAR_2}'"))
+    waitmessage
+    multichoice(20, 4, MULTI_EASY_AVERAGE_HARD_INFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Easy
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 0)
+            setvar(VAR_RESULT, YES)
+
+        case 1: // Average
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 1)
+            setvar(VAR_RESULT, YES)
+
+        case 2: // Hard
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 2)
+            setvar(VAR_RESULT, YES)
+
+        case 3: // Info
+            setvar(VAR_RESULT, NO)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, YES)
+    }
 }
 
 script Rogue_ConfigRoom_PostButtonInternal
 {
     if(var(VAR_RESULT) == YES)
     {
-        waitse
-        playse(SE_PIN)
         call(Rogue_ConfigRoom_RedrawMap)
-        msgbox(format("{STR_VAR_1} set to {STR_VAR_3}"), MSGBOX_DEFAULT)
     }
     releaseall
     return
@@ -170,6 +352,28 @@ script Rogue_ConfigRoom_PostButtonInternal
 
 script Rogue_ConfigRoom_RedrawMap
 {
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        setmetatile(8,0, 0x25C, TRUE)
+        setmetatile(8,1, 0x293, TRUE)
+
+        setmetatile(9,0, 0x26E, TRUE)
+        setmetatile(9,1, 0x276, FALSE)
+        
+        setmetatile(10,0, 0x25D, TRUE)
+        setmetatile(10,1, 0x294, TRUE)
+    }
+
+    if(flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        setvar(VAR_TEMP_1, 1)
+    }
+    else
+    {
+        setvar(VAR_TEMP_1, 0)
+    }
+
+
     if(flag(FLAG_ROGUE_EXP_ALL))
     {
         setmetatile(1,3, METATILE_BikeShop_Button_Green, FALSE)
@@ -179,7 +383,7 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(1,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
-    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+    if(flag(FLAG_ROGUE_CAN_OVERLVL))
     {
         setmetatile(3,3, METATILE_BikeShop_Button_Green, FALSE)
     }
@@ -188,7 +392,7 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(3,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
-    if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         setmetatile(5,3, METATILE_BikeShop_Button_Green, FALSE)
     }
@@ -197,14 +401,33 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {
-        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+        setmetatile(1,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        setmetatile(1,5, METATILE_BikeShop_Button_Blue, FALSE)
     }
     else
     {
-        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+        setmetatile(1,5, METATILE_BikeShop_Button_Green, FALSE)
     }
+
+    if(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
 
     // SEED settings
     //
@@ -244,6 +467,27 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(16,8, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+
+    // Special modes
+    //
+    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        setmetatile(12,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(12,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        setmetatile(5,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(5,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     special(DrawWholeMapView)
     return
 }
@@ -265,17 +509,21 @@ script Rogue_ConfigRoom_Button_ExpAll
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_ROGUE_EXP_ALL))
-        {
-            clearflag(FLAG_ROGUE_EXP_ALL)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_ROGUE_EXP_ALL)
-        }
+        case 1:
+            clearflag(FLAG_ROGUE_EXP_ALL)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled all POKéMON in the party will gain EXP.\nIt is heavily recommended that you keep this ON as the game has been balanced around it."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
@@ -293,17 +541,21 @@ script Rogue_ConfigRoom_Button_DoubleBattle
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
-        {
-            clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_ROGUE_DOUBLE_BATTLES)
-        }
+        case 1:
+            clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Forces all TRAINER battles to be DOUBLE BATTLES."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
@@ -321,25 +573,29 @@ script Rogue_ConfigRoom_Button_CanOverLvl
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_ROGUE_CAN_OVERLVL))
-        {
-            clearflag(FLAG_ROGUE_CAN_OVERLVL)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_ROGUE_CAN_OVERLVL)
-        }
+        case 1:
+            clearflag(FLAG_ROGUE_CAN_OVERLVL)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When disabled will prevent POKéMON from levelling past the hight level POKéMON of the next GYM LEADER/BOSS."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
-script Rogue_ConfigRoom_Button_HardTrainers
+script Rogue_ConfigRoom_Button_EVGainEnabled
 {
-    bufferstring(STR_VAR_1, format("HARD TRAINERS"))
+    bufferstring(STR_VAR_1, format("ENABLE EVs"))
 
-    if(flag(FLAG_ROGUE_HARD_TRAINERS))
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         setvar(VAR_FLAG_STATE, YES)
     }
@@ -349,16 +605,132 @@ script Rogue_ConfigRoom_Button_HardTrainers
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_ROGUE_HARD_TRAINERS))
-        {
+        case 0:
+            setflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+        case 1:
+            clearflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled POKéMON will gain EVs at an accelerated rate.\pWhen disabled POKéMON will gain no EVs."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_GauntletMode
+{
+    bufferstring(STR_VAR_1, format("GAUNTLET MODE"))
+
+    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_GAUNTLET_MODE)
+        case 1:
+            clearflag(FLAG_ROGUE_GAUNTLET_MODE)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("A CHALLENGE mode where you will have a few ROUTEs to create a team and collect items, then you will face every GYM LEADER back to back without any chance to HEAL or catch new POKéMON."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_TrainerDifficulty
+{
+    bufferstring(STR_VAR_1, format("TRAINER DIFFICULTY"))
+
+    if(flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_TRAINERS)
             clearflag(FLAG_ROGUE_HARD_TRAINERS)
-        }
-        else
-        {
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
+            clearflag(FLAG_ROGUE_HARD_TRAINERS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
             setflag(FLAG_ROGUE_HARD_TRAINERS)
-        }
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust teams/moves from very casual to very competitive.\pAverage mode will start casual but get more competitive as you progress.\pThe higher this difficulty the more rewards you get when returning from an adventure."), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_ItemDifficulty
+{
+    bufferstring(STR_VAR_1, format("ITEM RATES"))
+
+    if(flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            setflag(FLAG_ROGUE_HARD_ITEMS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
     }
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
@@ -377,17 +749,21 @@ script Rogue_ConfigRoom_Button_SeedItems
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_SET_SEED_ITEMS))
-        {
-            clearflag(FLAG_SET_SEED_ITEMS)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_SET_SEED_ITEMS)
-        }
+        case 1:
+            clearflag(FLAG_SET_SEED_ITEMS)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled items will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
@@ -405,17 +781,21 @@ script Rogue_ConfigRoom_Button_SeedWildMons
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_SET_SEED_WILDMONS))
-        {
-            clearflag(FLAG_SET_SEED_WILDMONS)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_SET_SEED_WILDMONS)
-        }
+        case 1:
+            clearflag(FLAG_SET_SEED_WILDMONS)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled WILD POKéMON encounters will be completely RANDOM and not linked to the SEED.\pNote this does not affect LEGENDARY encounters."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
@@ -433,17 +813,21 @@ script Rogue_ConfigRoom_Button_SeedTrainers
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_SET_SEED_TRAINERS))
-        {
-            clearflag(FLAG_SET_SEED_TRAINERS)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_SET_SEED_TRAINERS)
-        }
+        case 1:
+            clearflag(FLAG_SET_SEED_TRAINERS)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled TRAINER spawns and teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
@@ -461,16 +845,20 @@ script Rogue_ConfigRoom_Button_SeedBosses
     }
 
     call(Rogue_ConfigRoom_PreButtonInternal)
-    if(var(VAR_RESULT) == YES)
+
+    switch(var(VAR_FLAG_STATE))
     {
-        if(flag(FLAG_SET_SEED_BOSSES))
-        {
-            clearflag(FLAG_SET_SEED_BOSSES)
-        }
-        else
-        {
+        case 0:
             setflag(FLAG_SET_SEED_BOSSES)
-        }
+        case 1:
+            clearflag(FLAG_SET_SEED_BOSSES)
     }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled GYM LEADER teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_ConfigRoom_PostButtonInternal)
 }

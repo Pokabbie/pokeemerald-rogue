@@ -1,21 +1,29 @@
 #ifndef ROGUE_QUERY_H
 #define ROGUE_QUERY_H
 
+u16 RogueUtil_GetEggSpecies(u16 species);
+
 void RogueQuery_Clear(void);
 void RogueQuery_CollapseSpeciesBuffer(void);
 void RogueQuery_CollapseItemBuffer(void);
 u16* RogueQuery_BufferPtr(void);
 u16 RogueQuery_BufferSize(void);
 
+// Uncollapsed queries are slow but can be used to query the entire range
+u16 RogueQuery_UncollapsedSpeciesSize(void);
+u16 RogueQuery_UncollapsedItemSize(void);
+u16 RogueQuery_AtUncollapsedIndex(u16 idx);
+
 void RogueQuery_Exclude(u16 idx);
 
 // Species
 void RogueQuery_SpeciesIsValid(void);
+void RogueQuery_SpeciesInPokedex(void);
 void RogueQuery_SpeciesOfType(u8 type);
 void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);
 void RogueQuery_SpeciesIsFinalEvolution(void);
 void RogueQuery_TransformToEggSpecies(void);
-void RogueQuery_SpeciesWithEvolutionStages(u8 count);
+void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count);
 void RogueQuery_EvolveSpeciesToLevel(u8 level);
 void RogueQuery_EvolveSpeciesByItem();
 void RogueQuery_SpeciesIsLegendary(void);

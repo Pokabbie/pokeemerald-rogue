@@ -38,6 +38,8 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
 static void PlayerHandleSetRawMonData(void);
@@ -1384,7 +1386,7 @@ static void Task_GiveExpToMon(u8 taskId)
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
         u32 currExp = GetMonData(mon, MON_DATA_EXP);
-        u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+        u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
         if (currExp + gainedExp >= nextLvlExp)
         {
@@ -1427,11 +1429,11 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u8 level = GetMonData(mon, MON_DATA_LEVEL);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u32 exp = GetMonData(mon, MON_DATA_EXP);
-    u32 currLvlExp = gExperienceTables[gBaseStats[species].growthRate][level];
+    u32 currLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
     u32 expToNextLvl;
 
     exp -= currLvlExp;
-    expToNextLvl = gExperienceTables[gBaseStats[species].growthRate][level + 1] - currLvlExp;
+    expToNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1) - currLvlExp;
     SetBattleBarStruct(battlerId, gHealthboxSpriteIds[battlerId], expToNextLvl, exp, -gainedExp);
     PlaySE(SE_EXP);
     gTasks[taskId].func = Task_GiveExpWithExpBar;
@@ -1439,7 +1441,7 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
 
 static void Task_GiveExpWithExpBar(u8 taskId)
 {
-    if (gTasks[taskId].tExpTask_frames < 13)
+    if (gTasks[taskId].tExpTask_frames < 3)
     {
         gTasks[taskId].tExpTask_frames++;
     }
@@ -1463,7 +1465,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
             currExp = GetMonData(&gPlayerParty[monId], MON_DATA_EXP);
             species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);
-            expOnNextLvl = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+            expOnNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
             if (currExp + gainedExp >= expOnNextLvl)
             {
@@ -2549,7 +2551,7 @@ static void PlayerHandleDrawTrainerPic(void)
         gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
         gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
         gSprites[gBattlerSpriteIds[gActiveBattler]].y2 = 48;
-        gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+        gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Rogue_ModifyBattleSlideAnim(-2);
         gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
         gSprites[gBattlerSpriteIds[gActiveBattler]].oam.affineMode = ST_OAM_AFFINE_OFF;
         gSprites[gBattlerSpriteIds[gActiveBattler]].hFlip = 1;
@@ -2563,7 +2565,7 @@ static void PlayerHandleDrawTrainerPic(void)
 
         gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
         gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
-        gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+        gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Rogue_ModifyBattleSlideAnim(-2);
         gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
     }
 
@@ -2602,7 +2604,7 @@ static void PlayerHandleTrainerSlide(void)
 
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = -96;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = 2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Rogue_ModifyBattleSlideAnim(2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBankSpriteCallbackDummy2;
@@ -3200,7 +3202,7 @@ static void PlayerHandleIntroTrainerBallThrow(void)
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], 1);
 
     paletteNum = AllocSpritePalette(0xD6F8);
-    LoadCompressedPalette(gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data, 0x100 + paletteNum * 16, 32);
+    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data), 0x100 + paletteNum * 16, 32);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = paletteNum;
 
     taskId = CreateTask(Task_StartSendOutAnim, 5);

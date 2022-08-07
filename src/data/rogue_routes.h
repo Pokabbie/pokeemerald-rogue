@@ -4,110 +4,69 @@
 #define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
 #define ENCOUNTER_MAP(species, map) { .encounterSpecies=species, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
 
-static const u8 sRouteEncontersField[] = {
-    TYPE_GRASS, TYPE_NORMAL
-};
-static const struct RogueRouteMap sRouteMapsField[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FIELD0)
-    //, ROUTE_MAP(ROGUE_ROUTE_FIELD1)
-};
-
-static const u8 sRouteEncontersForest[] = {
-    TYPE_BUG, TYPE_GHOST, TYPE_POISON
-};
-static const struct RogueRouteMap sRouteMapsForest[] = {
-    ROUTE_MAP(ROGUE_ROUTE_FOREST0)
-};
-
-static const u8 sRouteEncontersCave[] = {
-    TYPE_ROCK, TYPE_ICE, TYPE_DRAGON
-};
-static const struct RogueRouteMap sRouteMapsCave[] = {
-    ROUTE_MAP(ROGUE_ROUTE_CAVE0)
-};
-
-static const u8 sRouteEncontersMountain[] = {
-    TYPE_GROUND, TYPE_FIRE, TYPE_FIGHTING
-};
-static const struct RogueRouteMap sRouteMapsMountain[] = {
-    ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN0)
-};
-
-static const u8 sRouteEncontersWaterfront[] = {
-    TYPE_WATER, TYPE_FLYING
-};
-static const struct RogueRouteMap sRouteMapsWaterfront[] = {
-    ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT0)
-};
-
-static const u8 sRouteEncontersUrban[] = {
-    TYPE_STEEL, TYPE_ELECTRIC, TYPE_PSYCHIC
-};
-static const struct RogueRouteMap sRouteMapsUrban[] = {
-    ROUTE_MAP(ROGUE_ROUTE_URBAN0)
-};
-
 const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
-    [ROGUE_ROUTE_FIELD] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersField),
-        .wildTypeTable = sRouteEncontersField,
-        .mapCount = ARRAY_COUNT(sRouteMapsField),
-        .mapTable = sRouteMapsField
+        .map = ROUTE_MAP(ROGUE_ROUTE_FIELD0),
+        .wildTypeTable = { TYPE_GRASS, TYPE_NORMAL, TYPE_FLYING }
     },
-    [ROGUE_ROUTE_FOREST] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersForest),
-        .wildTypeTable = sRouteEncontersForest,
-        .mapCount = ARRAY_COUNT(sRouteMapsForest),
-        .mapTable = sRouteMapsForest
+        .dropRarity = 1,
+        .map = ROUTE_MAP(ROGUE_ROUTE_FOREST0),
+        .wildTypeTable = { TYPE_BUG, TYPE_GHOST, TYPE_POISON }
     },
-    [ROGUE_ROUTE_CAVE] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersCave),
-        .wildTypeTable = sRouteEncontersCave,
-        .mapCount = ARRAY_COUNT(sRouteMapsCave),
-        .mapTable = sRouteMapsCave
+        .dropRarity = 2,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CAVE0),
+        .wildTypeTable = { TYPE_ROCK, TYPE_ICE, TYPE_DRAGON }
     },
-    [ROGUE_ROUTE_MOUNTAIN] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersMountain),
-        .wildTypeTable = sRouteEncontersMountain,
-        .mapCount = ARRAY_COUNT(sRouteMapsMountain),
-        .mapTable = sRouteMapsMountain
+        .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN0),
+        .wildTypeTable = { TYPE_GROUND, TYPE_FIRE, TYPE_FIGHTING }
     },
-    [ROGUE_ROUTE_WATERFRONT] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersWaterfront),
-        .wildTypeTable = sRouteEncontersWaterfront,
-        .mapCount = ARRAY_COUNT(sRouteMapsWaterfront),
-        .mapTable = sRouteMapsWaterfront
+        .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN1),
+        .wildTypeTable = { TYPE_GRASS, TYPE_FIRE, TYPE_PSYCHIC }
     },
-    [ROGUE_ROUTE_URBAN] = 
     {
-        .wildTypeTableCount = ARRAY_COUNT(sRouteEncontersUrban),
-        .wildTypeTable = sRouteEncontersUrban,
-        .mapCount = ARRAY_COUNT(sRouteMapsUrban),
-        .mapTable = sRouteMapsUrban
+        .map = ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT0),
+        .wildTypeTable = { TYPE_WATER, TYPE_FLYING, TYPE_GRASS }
     },
+    {
+        .map = ROUTE_MAP(ROGUE_ROUTE_URBAN0),
+        .wildTypeTable = { TYPE_STEEL, TYPE_ELECTRIC, TYPE_PSYCHIC }
+    }
 };
 
-static const struct RogueEncounterMap sRouteMapsSpecial[] = {
-    ENCOUNTER_MAP(SPECIES_RAYQUAZA, SKY_PILLAR_TOP),
-    ENCOUNTER_MAP(SPECIES_GROUDON, TERRA_CAVE_END),
-    ENCOUNTER_MAP(SPECIES_KYOGRE, MARINE_CAVE_END),
+static const struct RogueEncounterMap sRouteMapsSpecial[] = 
+{
+    ENCOUNTER_MAP(SPECIES_ARTICUNO, ROGUE_SPECIAL_ARTICUNO),
+    ENCOUNTER_MAP(SPECIES_ZAPDOS, ROGUE_SPECIAL_ZAPDOS),
+    ENCOUNTER_MAP(SPECIES_MOLTRES, ROGUE_SPECIAL_MOLTRES),
+    
+    ENCOUNTER_MAP(SPECIES_MEWTWO, ROGUE_SPECIAL_MEWTWO),
+    ENCOUNTER_MAP(SPECIES_MEW, FARAWAY_ISLAND_INTERIOR),
 
-    ENCOUNTER_MAP(SPECIES_LATIAS, ROGUE_SOUTHERN_ISLAND_LATIAS),
-    ENCOUNTER_MAP(SPECIES_LATIOS, ROGUE_SOUTHERN_ISLAND_LATIOS),
+    ENCOUNTER_MAP(SPECIES_RAIKOU, ROGUE_SPECIAL_RAIKOU),
+    ENCOUNTER_MAP(SPECIES_ENTEI, ROGUE_SPECIAL_ENTEI),
+    ENCOUNTER_MAP(SPECIES_SUICUNE, ROGUE_SPECIAL_SUICUNE),
 
     ENCOUNTER_MAP(SPECIES_HO_OH, NAVEL_ROCK_TOP),
     ENCOUNTER_MAP(SPECIES_LUGIA, NAVEL_ROCK_BOTTOM),
+
+    ENCOUNTER_MAP(SPECIES_CELEBI, ROGUE_SPECIAL_CELEBI),
 
     ENCOUNTER_MAP(SPECIES_REGICE, ISLAND_CAVE),
     ENCOUNTER_MAP(SPECIES_REGIROCK, DESERT_RUINS),
     ENCOUNTER_MAP(SPECIES_REGISTEEL, ANCIENT_TOMB),
 
-    ENCOUNTER_MAP(SPECIES_MEW, FARAWAY_ISLAND_INTERIOR),
+    ENCOUNTER_MAP(SPECIES_GROUDON, TERRA_CAVE_END),
+    ENCOUNTER_MAP(SPECIES_KYOGRE, MARINE_CAVE_END),
+    ENCOUNTER_MAP(SPECIES_RAYQUAZA, SKY_PILLAR_TOP),
+
+    ENCOUNTER_MAP(SPECIES_LATIAS, ROGUE_SOUTHERN_ISLAND_LATIAS),
+    ENCOUNTER_MAP(SPECIES_LATIOS, ROGUE_SOUTHERN_ISLAND_LATIOS),
+
+    ENCOUNTER_MAP(SPECIES_JIRACHI, ROGUE_SPECIAL_JIRACHI),
     ENCOUNTER_MAP(SPECIES_DEOXYS, BIRTH_ISLAND_EXTERIOR)
 };
 

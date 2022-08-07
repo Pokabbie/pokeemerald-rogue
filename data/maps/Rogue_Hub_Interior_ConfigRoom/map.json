@@ -3,7 +3,7 @@
   "name": "Rogue_Hub_Interior_ConfigRoom",
   "layout": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
   "music": "MUS_BIRCH_LAB",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_TRAINER_HILL",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -39,6 +39,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_ConfigRoom_TalkLanette",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DITTO_DOLL",
+      "x": 9,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_ConfigRoom_TalkDitto",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "x": 8,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_ConfigRoom_TalkPokabbie",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -55,6 +81,27 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
       "dest_warp_id": 3
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 8,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 9,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [
@@ -141,8 +188,8 @@
     },
     {
       "type": "trigger",
-      "x": 3,
-      "y": 3,
+      "x": 12,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -150,7 +197,7 @@
     },
     {
       "type": "trigger",
-      "x": 5,
+      "x": 3,
       "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -159,15 +206,85 @@
     },
     {
       "type": "trigger",
-      "x": 7,
+      "x": 1,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_TrainerDifficulty"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_ItemDifficulty"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
       "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "Rogue_ConfigRoom_Button_HardTrainers"
+      "script": "Rogue_ConfigRoom_Button_EVGainEnabled"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_MeetPokabbie"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_MeetPokabbie"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_MeetPokabbie"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_MeetPokabbie"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_GauntletMode"
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Rogue_ConfigRoom_TalkHiddenEnterance"
+    }
   ]
 }

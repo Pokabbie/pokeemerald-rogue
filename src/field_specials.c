@@ -66,6 +66,8 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 
+#include "rogue_controller.h"
+
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
 static EWRAM_DATA u32 sBikeCyclingTimer = 0;
@@ -589,10 +591,10 @@ static void LoadLinkPartnerObjectEventSpritePalette(u8 graphicsId, u8 localEvent
                 LoadPalette(gObjectEventPal_RubySapphireMay, 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
             case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
-                LoadPalette(gObjectEventPal_Brendan, 0x100 + (adjustedPaletteNum << 4), 0x20);
+                LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_Brendan_0_0), 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
             case OBJ_EVENT_GFX_RIVAL_MAY_NORMAL:
-                LoadPalette(gObjectEventPal_May, 0x100 + (adjustedPaletteNum << 4), 0x20);
+                LoadPalette(Rogue_ModifyPallete16(gObjectEventPal_May_0_0), 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
             }
         }
@@ -1183,6 +1185,11 @@ bool8 CheckLeadMonTough(void)
         return FALSE;
 
     return TRUE;
+}
+
+u8 GetLeadMonLevel(void)
+{
+    return GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_LEVEL);
 }
 
 void IsGrassTypeInParty(void)

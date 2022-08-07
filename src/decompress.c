@@ -6,6 +6,8 @@
 #include "pokemon_debug.h"
 #include "text.h"
 
+#include "rogue_controller.h"
+
 EWRAM_DATA ALIGNED(4) u8 gDecompressionBuffer[0x4000] = {0};
 
 void LZDecompressWram(const u32 *src, void *dest)
@@ -22,7 +24,7 @@ u16 LoadCompressedSpriteSheet(const struct CompressedSpriteSheet *src)
 {
     struct SpriteSheet dest;
 
-    LZ77UnCompWram(src->data, gDecompressionBuffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), gDecompressionBuffer);
     dest.data = gDecompressionBuffer;
     dest.size = src->size;
     dest.tag = src->tag;
@@ -33,7 +35,7 @@ void LoadCompressedSpriteSheetOverrideBuffer(const struct CompressedSpriteSheet 
 {
     struct SpriteSheet dest;
 
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
     dest.data = buffer;
     dest.size = src->size;
     dest.tag = src->tag;
@@ -44,7 +46,7 @@ void LoadCompressedSpritePalette(const struct CompressedSpritePalette *src)
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, gDecompressionBuffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), gDecompressionBuffer);
     dest.data = (void*) gDecompressionBuffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -54,7 +56,7 @@ void LoadCompressedSpritePaletteOverrideBuffer(const struct CompressedSpritePale
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
     dest.data = buffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -65,7 +67,7 @@ void DecompressPicFromTable(const struct CompressedSpriteSheet *src, void* buffe
     if (species > NUM_SPECIES)
         LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
     else
-        LZ77UnCompWram(src->data, buffer);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
 }
 
 void DecompressPicFromTableGender(void* buffer, s32 species, u32 personality)
@@ -136,7 +138,7 @@ static void LoadSpecialPokePicCustom(const struct CompressedSpriteSheet *src, vo
             LZ77UnCompWram(gMonBackPicTableFemale[species].data, dest);
     }
     else
-        LZ77UnCompWram(src->data, dest);
+        LZ77UnCompWram(Rogue_ModifyPallete32(src->data), dest);
 
     DrawSpindaSpots(species, personality, dest, isFrontPic);
 }
@@ -314,7 +316,7 @@ bool8 LoadCompressedSpriteSheetUsingHeap(const struct CompressedSpriteSheet* src
     void* buffer;
 
     buffer = AllocZeroed(*((u32*)(&src->data[0])) >> 8);
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
 
     dest.data = buffer;
     dest.size = src->size;
@@ -331,7 +333,7 @@ bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette 
     void* buffer;
 
     buffer = AllocZeroed(*((u32*)(&src->data[0])) >> 8);
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Rogue_ModifyPallete32(src->data), buffer);
     dest.data = buffer;
     dest.tag = src->tag;
 

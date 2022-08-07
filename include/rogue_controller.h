@@ -1,20 +1,35 @@
 #ifndef ROGUE_CONTROLLER_H
 #define ROGUE_CONTROLLER_H
 
+#include "rogue_baked.h"
+
 void RemoveAnyFaintedMons(void);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
+bool8 Rogue_FastBattleAnims(void);
+void Rogue_ModifyBattleWaitTime(u16* waitTime);
+s16 Rogue_ModifyBattleSlideAnim(s16 rate);
+void Rogue_ModifyBattleWinnings(u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
+void Rogue_ModifyEVGain(int* multiplier);
 void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
+
+const u8* Rogue_ModifyPallete8(const u8* input);
+const u16* Rogue_ModifyPallete16(const u16* input);
+const u32* Rogue_ModifyPallete32(const u32* input);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);
 
+
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);
 void Rogue_SetDefaultOptions(void);
+void Rogue_OnSaveGame(void);
+void Rogue_OnLoadGame(void);
+bool8 Rogue_OnProcessPlayerFieldInput(void);
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);

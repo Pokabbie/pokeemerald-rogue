@@ -1708,6 +1708,8 @@ void CB2_ContinueSavedGame(void)
 {
     u8 trainerHillMapId;
 
+    // RogueNote: rest handle continue
+
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();

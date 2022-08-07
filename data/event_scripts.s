@@ -1118,3 +1118,25 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_SouthernIsland_Latias/scripts.inc"
 
 	.include "data/maps/Rogue_Hub_ProfLab/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Articuno/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Zapdos/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Moltres/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Mewtwo/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Raikou/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Entei/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Suicune/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Celebi/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Jirachi/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Interior_ClothesShop/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain1/scripts.inc"

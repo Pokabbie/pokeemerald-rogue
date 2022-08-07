@@ -92,9 +92,8 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-// RogueNote: odds
-//#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
-#define SHINY_ODDS 1 // Actual probability is SHINY_ODDS/65536
+// RogueNote: odds are currently ~1/100
+#define SHINY_ODDS 655 // Actual probability is SHINY_ODDS/65536
 
 // Flags for Get(Box)MonData / Set(Box)MonData
 #define MON_DATA_PERSONALITY        0
@@ -389,6 +388,7 @@
 #define EVO_SCRIPT_TRIGGER_DMG            36     // Pokémon has specified HP below max, then player interacts trigger
 #define EVO_DARK_SCROLL                   37     // interacts with Scroll of Darkness
 #define EVO_WATER_SCROLL                  38     // interacts with Scroll of Waters
+#define EVO_LEVEL_ITEM                    39     // Pokémon levels up whilst holding item
 
 #define EVOS_PER_MON 10
 

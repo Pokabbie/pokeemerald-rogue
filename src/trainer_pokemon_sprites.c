@@ -9,6 +9,8 @@
 #include "pokemon.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 struct PicData
 {
     u8 *frames;
@@ -68,6 +70,23 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
     }
     else
     {
+        // RogueNote: gender swap around backPicId indices
+        //switch(species)
+        //{
+        //    case 2: 
+        //        species = 4;
+        //        break;
+        //    case 3: 
+        //        species = 5;
+        //        break;
+        //    case 4: 
+        //        species = 2;
+        //        break;
+        //    case 5: 
+        //        species = 3;
+        //        break;
+        //};
+
         if (isFrontPic)
             DecompressPicFromTable(&gTrainerFrontPicTable[species], dest, species);
         else
@@ -96,7 +115,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, 0x100 + paletteSlot * 0x10, 0x20);
+            LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[species].data), 0x100 + paletteSlot * 0x10, 0x20);
         }
         else
         {
@@ -111,7 +130,7 @@ static void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 pale
     if (!isTrainer)
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), paletteSlot * 0x10, 0x20);
     else
-        LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, paletteSlot * 0x10, 0x20);
+        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[species].data), paletteSlot * 0x10, 0x20);
 }
 
 static void AssignSpriteAnimsTable(bool8 isTrainer)
@@ -349,10 +368,21 @@ u16 PlayerGenderToFrontTrainerPicId_Debug(u8 gender, bool8 getClass)
 {
     if (getClass == TRUE)
     {
-        if (gender != MALE)
-            return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
-        else
-            return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
+        //PLAYER_STYLE_COUNT
+        switch(gender)
+        {
+            case STYLE_EMR_BRENDAN:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
+
+            case STYLE_EMR_MAY:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
+
+            case STYLE_RED:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
+    
+            case STYLE_LEAF:
+                return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
+        };
     }
     return gender;
 }

@@ -2537,6 +2537,8 @@ static void Cmd_waitmessage(void)
         else
         {
             u16 toWait = T2_READ_16(gBattlescriptCurrInstr + 1);
+            Rogue_ModifyBattleWaitTime(&toWait);
+
             if (++gPauseCounterBattle >= toWait)
             {
                 gPauseCounterBattle = 0;
@@ -4072,15 +4074,19 @@ static void Cmd_getexp(void)
                     //    firstExpGained = FALSE;
                     //}
 
-                    //if(gBattleMoveDamage != 0)
-                    //{
-                    //    PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
-                    //    // buffer 'gained' or 'gained a boosted'
-                    //    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    //    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
-//
-                    //    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
-                    //}
+                    // Only display EXP message if not EXP All
+                    //if(!Rogue_ForceExpAll())
+                    {
+                        if(gBattleMoveDamage != 0)
+                        {
+                            PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
+                            // buffer 'gained' or 'gained a boosted'
+                            PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                            PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+
+                            PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        }
+                    }
 
                     // RogueNote: Remove EVs?
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
@@ -4136,7 +4142,7 @@ static void Cmd_getexp(void)
                     u16 species = GetMonData(mon, MON_DATA_SPECIES);
                     u8 level = GetMonData(mon, MON_DATA_LEVEL);
                     u32 currExp = GetMonData(mon, MON_DATA_EXP);
-                    u32 nextLvlExp = gExperienceTables[gBaseStats[species].growthRate][level + 1];
+                    u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
                     if (currExp + gBattleMoveDamage < nextLvlExp)
                         gBattlescriptCurrInstr = BattleScript_LevelUp_Full;
@@ -4637,6 +4643,8 @@ static void Cmd_pause(void)
     if (gBattleControllerExecFlags == 0)
     {
         u16 value = T2_READ_16(gBattlescriptCurrInstr + 1);
+        Rogue_ModifyBattleWaitTime(&value);
+
         if (++gPauseCounterBattle >= value)
         {
             gPauseCounterBattle = 0;
@@ -6862,6 +6870,8 @@ static void Cmd_getmoneyreward(void)
         money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+
+        Rogue_ModifyBattleWinnings(&money);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else
@@ -6882,6 +6892,7 @@ static void Cmd_getmoneyreward(void)
                 ++count;
         }
         money = sWhiteOutBadgeMoney[count] * sPartyLevel;
+
         RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
 

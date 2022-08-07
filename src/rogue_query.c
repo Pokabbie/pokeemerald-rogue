@@ -13,6 +13,7 @@
 #include "item.h"
 //#include "money.h"
 //#include "overworld.h"
+#include "pokedex.h"
 #include "pokemon.h"
 //#include "random.h"
 //#include "strings.h"
@@ -20,15 +21,17 @@
 //#include "text.h"
 
 #include "rogue_query.h"
+#include "rogue_baked.h"
+//#include "rogue_controller.h"
 
-#define QUERY_BUFFER_COUNT 64
+#define QUERY_BUFFER_COUNT 96
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
 
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 static void SetQueryState(u16 elem, bool8 state)
 {
@@ -99,6 +102,55 @@ u16 RogueQuery_BufferSize(void)
     return gRogueQueryBufferSize;
 }
 
+u16 RogueQuery_UncollapsedSpeciesSize(void)
+{
+    u16 species;
+    u16 count = 0;
+    
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+u16 RogueQuery_UncollapsedItemSize(void)
+{
+    u16 item;
+    u16 count = 0;
+    
+    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    {
+        if(GetQueryState(item))
+        {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+u16 RogueQuery_AtUncollapsedIndex(u16 idx)
+{
+    u16 i;
+    u16 counter = 0;
+    
+    for(i = 1; i < MAX_QUERY_BIT_COUNT; ++i)
+    {
+        if(GetQueryState(i))
+        {
+            if(idx == counter++)
+                return i;
+        }
+    }
+
+    return 0;
+}
+
 void RogueQuery_Exclude(u16 idx)
 {
     SetQueryState(idx, FALSE);
@@ -112,54 +164,16 @@ static bool8 IsSpeciesType(u16 species, u8 type)
     return gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
 }
 
-// Taken straight from daycare
-static u16 GetEggSpecies(u16 species)
-{
-    u16 e, s, evo, spe;
-    bool8 found;
-
-    // Working backwards up to 5 times seems arbitrary, since the maximum number
-    // of times would only be 3 for 3-stage evolutions.
-    for (e = 0; e < 2; ++e)//EVOS_PER_MON; i++)
-    {
-        found = FALSE;
-        for (s = 1; s < NUM_SPECIES; s++)
-        {
-            if(s < species)
-                // Work downwards, as the evolution is most likely just before this
-                spe = species - s;
-            else
-                // Start counting upwards now, as we've exhausted all of the before species
-                spe = s;
-
-            for (evo = 0; evo < EVOS_PER_MON; evo++)
-            {
-                if (gEvolutionTable[spe][evo].targetSpecies == species)
-                {
-                    species = spe;
-                    found = TRUE;
-                    break;
-                }
-            }
-
-            if (found)
-                break;
-        }
-
-        if (s == NUM_SPECIES)
-            break;
-    }
-
-    return species;
-}
-
 static bool8 IsFinalEvolution(u16 species)
 {
     u16 s, e;
+    struct Evolution evo;
 
     for (e = 0; e < EVOS_PER_MON; e++)
     {
-        if (gEvolutionTable[species][e].targetSpecies != SPECIES_NONE)
+        Rogue_ModifyEvolution(species, e, &evo);
+
+        if (evo.targetSpecies != SPECIES_NONE)
         {
             return FALSE;
         }
@@ -199,22 +213,6 @@ static bool8 IsSpeciesIsLegendary(u16 species)
     return FALSE;
 }
 
-static u8 GetEvolutionCount(u16 species)
-{
-    u16 s, e;
-
-    for (e = 0; e < EVOS_PER_MON; e++)
-    {
-        s = gEvolutionTable[species][e].targetSpecies;
-        if (s != SPECIES_NONE)
-        {
-            return 1 + GetEvolutionCount(s);
-        }
-    }
-
-    return 0;
-}
-
 void RogueQuery_SpeciesIsValid(void)
 {
     // Handle for ?? species mainly
@@ -226,6 +224,22 @@ void RogueQuery_SpeciesIsValid(void)
         if(GetQueryState(species))
         {
             if(gBaseStats[species].abilities[0] == ABILITY_NONE)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesInPokedex(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
             {
                 SetQueryState(species, FALSE);
             }
@@ -262,6 +276,9 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
             isValid = FALSE;
             for(t = 0; t < count; ++t)
             {
+                if(types[t] == TYPE_NONE)
+                    continue;
+
                 if(IsSpeciesType(species, types[t]))
                 {
                     isValid = TRUE;
@@ -302,7 +319,7 @@ void RogueQuery_TransformToEggSpecies(void)
     {
         if(GetQueryState(species))
         {
-            eggSpecies = GetEggSpecies(species);
+            eggSpecies = Rogue_GetEggSpecies(species);
             if(eggSpecies != species)
             {
                 SetQueryState(eggSpecies, TRUE);
@@ -312,7 +329,7 @@ void RogueQuery_TransformToEggSpecies(void)
     }
 }
 
-void RogueQuery_SpeciesWithEvolutionStages(u8 count)
+void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
 {
     u8 evo;
     u16 species;
@@ -322,7 +339,7 @@ void RogueQuery_SpeciesWithEvolutionStages(u8 count)
     {
         if(GetQueryState(species))
         {
-            if(GetEvolutionCount(species) != count)
+            if(Rogue_GetEvolutionCount(species) < count)
             {
                 SetQueryState(species, FALSE);
             }
@@ -332,17 +349,20 @@ void RogueQuery_SpeciesWithEvolutionStages(u8 count)
 
 void RogueQuery_EvolveSpeciesToLevel(u8 level)
 {
-    u8 evo;
+    u8 e;
     u16 species;
     bool8 removeChild = TRUE;
+    struct Evolution evo;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
-            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            for(e = 0; e < EVOS_PER_MON; ++e)
             {
-                switch(gEvolutionTable[species][evo].method)
+                Rogue_ModifyEvolution(species, e, &evo);
+
+                switch(evo.method)
                 {
                 case EVO_LEVEL:
                 case EVO_LEVEL_ATK_GT_DEF:
@@ -351,9 +371,10 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                 case EVO_LEVEL_SILCOON:
                 case EVO_LEVEL_CASCOON:
                 case EVO_LEVEL_NINJASK:
-                if (gEvolutionTable[species][evo].param <= level)
+                case EVO_LEVEL_SHEDINJA:
+                if (evo.param <= level)
                 {
-                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
                     {
                         SetQueryState(species, FALSE);
@@ -368,22 +389,25 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
 
 void RogueQuery_EvolveSpeciesByItem()
 {
-    u8 evo;
+    u8 e;
     u16 species;
     bool8 removeChild = TRUE;
+    struct Evolution evo;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
-            for(evo = 0; evo < EVOS_PER_MON; ++evo)
+            for(e = 0; e < EVOS_PER_MON; ++e)
             {
-                switch(gEvolutionTable[species][evo].method)
+                Rogue_ModifyEvolution(species, e, &evo);
+
+                switch(evo.method)
                 {
                 case EVO_ITEM:
-                case EVO_TRADE_ITEM:
+                case EVO_LEVEL_ITEM:
                 {
-                    SetQueryState(gEvolutionTable[species][evo].targetSpecies, TRUE);
+                    SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
                     {
                         SetQueryState(species, FALSE);

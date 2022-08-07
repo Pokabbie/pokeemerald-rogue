@@ -1,0 +1,177 @@
+mapscripts Rogue_Hub_Interior_ClothesShop_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
+}
+
+script Rogue_Hub_Clothes_TalkAssistant
+{
+    lockall
+    faceplayer
+    msgbox(format("Are you feeling bored of your look?\nIf so you're in the right place!\pJust walk up to one of the statues to swap your avatar!"), MSGBOX_DEFAULT)
+    releaseall
+}
+
+script Rogue_Hub_Clothes_ChangeStyle0
+{
+    lock
+
+    msgbox(format("Hello!\nI can help with adjusting your appearance"))
+    
+    message(format("Which appearance option would you like to swap to?"))
+    waitmessage
+    multichoice(20, 4, MULTI_STYLE_CHOICE, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+            copyvar(VAR_0x8006, VAR_RESULT)
+            setvar(VAR_RESULT, YES)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Hello!\nI can help with adjusting your appearance"))
+            setvar(VAR_RESULT, NO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Script_ChangePlayerStyle0)
+        
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 17, 9)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("Come back any time!"))
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_ChangeStyle1
+{
+    lock
+
+    msgbox(format("Hello!\nI can help with adjusting your clothing style"))
+    
+    message(format("Which clothing style option would you like to swap to?"))
+    waitmessage
+    multichoice(20, 4, MULTI_STYLE_CHOICE, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+            copyvar(VAR_0x8006, VAR_RESULT)
+            setvar(VAR_RESULT, YES)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Hello!\nI can help with adjusting your appearance"))
+            setvar(VAR_RESULT, NO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Script_ChangePlayerStyle1)
+        
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 20, 9)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("Come back any time!"))
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Brendan
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 0)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 2, 9)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_May
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 1)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 6, 9)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Red
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 2)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 31, 9)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Leaf
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 3)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 35, 9)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}

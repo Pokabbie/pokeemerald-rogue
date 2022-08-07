@@ -47,3 +47,8 @@ Common_EventScript_SaveGame::
 	special SaveGame
 	waitstate
 	return
+
+Common_EventScript_ForceSaveGame::
+	special ForceSaveGame
+	waitstate
+	return

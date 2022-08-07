@@ -1937,6 +1937,16 @@ bool8 ScrCmd_pokemartdecoration2(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_pokemartwithminprice(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+    u16 minPrice = VarGet(ScriptReadHalfword(ctx));
+
+    CreatePokemartMenuWithMinPrice(ptr, minPrice);
+    ScriptContext1_Stop();
+    return TRUE;
+}
+
 bool8 ScrCmd_playslotmachine(struct ScriptContext *ctx)
 {
     u8 machineId = VarGet(ScriptReadHalfword(ctx));
@@ -2070,6 +2080,30 @@ bool8 ScrCmd_setmetatile(struct ScriptContext *ctx)
         MapGridSetMetatileIdAt(x, y, tileId);
     else
         MapGridSetMetatileIdAt(x, y, tileId | MAPGRID_COLLISION_MASK);
+    return FALSE;
+}
+
+bool8 ScrCmd_fillmetatile(struct ScriptContext *ctx)
+{
+    u16 x, y;
+
+    u16 xStart = VarGet(ScriptReadHalfword(ctx));
+    u16 yStart = VarGet(ScriptReadHalfword(ctx));
+    u16 xEnd = VarGet(ScriptReadHalfword(ctx));
+    u16 yEnd = VarGet(ScriptReadHalfword(ctx));
+    u16 tileId = VarGet(ScriptReadHalfword(ctx));
+    u16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+
+    for(x = xStart; x <= xEnd; ++x)
+    {
+        for(y = yStart; y <= yEnd; ++y)
+        {
+            if (!isImpassable)
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, tileId);
+            else
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, tileId | MAPGRID_COLLISION_MASK);
+        }
+    }
     return FALSE;
 }
 

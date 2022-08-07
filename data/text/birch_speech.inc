@@ -19,10 +19,19 @@ gText_Birch_AndYouAre::
 	.string "$"
 
 gText_Birch_BoyOrGirl::
-	.string "Pick a style$"
+	.string "Select an avatar$"
+
+gText_Birch_AvatarStyle0::
+	.string "Select an appearance$"
+
+gText_Birch_AvatarStyle1::
+	.string "Select clothing style$"
 
 gText_Birch_WhatsYourName::
 	.string "Now, what is your name?$"
+
+gText_Birch_HappyWithAvatar::
+	.string "So this is your avatar?\n(Can be changed later)$"
 
 gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"

@@ -10,8 +10,8 @@ Rogue_Battle_Boss2::
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss2
 	waitmovement 0
 	msgbox Rogue_Battle_Boss2_Text_0
-	setweather WEATHER_RAIN_THUNDERSTORM
-	doweather
+	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Battle_Boss2_2
+Rogue_Battle_Boss2_1:
 	applymovement 5, BossToFightBoss2
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss2
 	waitmovement 0
@@ -21,8 +21,15 @@ Rogue_Battle_Boss2::
 	call Rogue_BattleDefeated_Boss2
 	return
 
+Rogue_Battle_Boss2_2:
+	setweather WEATHER_RAIN_THUNDERSTORM
+	doweather
+	goto Rogue_Battle_Boss2_1
+
 
 Rogue_BattleDefeated_Boss2::
+	setweather WEATHER_NONE
+	doweather
 	message Rogue_BattleDefeated_Boss2_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare

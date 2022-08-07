@@ -2,6 +2,11 @@
 const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
 const VAR_JUST_LEFT = VAR_TEMP_0
 
+const VAR_TL_X = VAR_0x8000
+const VAR_TL_Y = VAR_0x8001
+const VAR_BR_X = VAR_0x8002
+const VAR_BR_Y = VAR_0x8003
+
 const METATILE_Grass = 0x001
 
 // Mountain/Hole
@@ -29,6 +34,7 @@ const METATILE_DirtTopRight = 0x089
 //const METATILE_DirtTopRight = 0x11A
 
 const NPC_INTRO_SCOTT = 2
+const NPC_POKABBIE = 15
 
 mapscripts Rogue_Hub_MapScripts
 {
@@ -46,13 +52,89 @@ script RogueHub_OnTransition
 {
     if(var(VAR_ROGUE_INTRO_STATE) <= 2)
     {
-        setobjectxyperm(NPC_INTRO_SCOTT, 22, 6)
+        setobjectxyperm(NPC_INTRO_SCOTT, 23, 6)
+    }
+
+    // Show/Hide Pokabbie
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        clearflag(FLAG_TEMP_8)
+    }
+    else
+    {
+        setflag(FLAG_TEMP_8)
     }
 }
 
 script RogueHub_OnMapLoad
 {
-    call(RogueHub_HideSafari)
+    // Turn off buildings that haven't unlocked yet
+
+    // Shop
+    if(var(VAR_ROGUE_INTRO_STATE) <= 4) // i.e. has been on an adventure
+    {
+        fillmetatile(31, 10, 40, 16, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER0)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER0)
+    }
+
+    // Safari Zone
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 1)
+    {
+        fillmetatile(1, 3, 14, 10, METATILE_Grass, FALSE)
+        fillmetatile(1, 11, 12, 11, METATILE_Grass, FALSE)
+        fillmetatile(1, 12, 6, 12, METATILE_Grass, FALSE)
+
+        // +name rater
+        fillmetatile(31, 21, 37, 26, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER4)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER4)
+    }
+
+    // Bike Shop
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 2)
+    {
+        fillmetatile(22, 12, 27, 16, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER1)
+
+        // +clothes shop
+        fillmetatile(41, 20, 48, 25, METATILE_Grass, FALSE)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER1)
+    }
+
+    // Tutor area
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 3)
+    {
+        fillmetatile(42, 14, 48, 19, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER2)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER2)
+    }
+
+    // Bank
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 4)
+    {
+        fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER3)
+
+        // + Travel shop
+        fillmetatile(33, 8, 35, 8, METATILE_Grass, FALSE)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER3)
+    }
 }
 
 script RogueHub_Intro0
@@ -73,6 +155,9 @@ script RogueHub_Intro0
 
     applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
     waitmovement(0)
+
+    // Have to rest coords here otherwise will be stood in wrong place when walk off screen
+    setobjectxyperm(NPC_INTRO_SCOTT, 29, 6)
 
     setvar(VAR_ROGUE_INTRO_STATE, 3)
     setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
@@ -141,6 +226,79 @@ script RogueHub_ReturnAdventure
         {
             msgbox(format("and for the BADGE's..."), MSGBOX_DEFAULT)
             giveitem(ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY)
+
+            // Give HMs if haven't got them
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 1)
+            {
+                checkitem(ITEM_HM01)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM01)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 2)
+            {
+                checkitem(ITEM_HM05_FLASH)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM05_FLASH)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 3)
+            {
+                checkitem(ITEM_HM06_ROCK_SMASH)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM06_ROCK_SMASH)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 4)
+            {
+                checkitem(ITEM_HM04_STRENGTH)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM04_STRENGTH)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 5)
+            {
+                checkitem(ITEM_HM08_DIVE)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM08_DIVE)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
+            {
+                checkitem(ITEM_HM02_FLY)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM02_FLY)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 7)
+            {
+                checkitem(ITEM_HM07_WATERFALL)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM07_WATERFALL)
+                }
+            }
+
+            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 8)
+            {
+                checkitem(ITEM_HM03_SURF)
+                if(var(VAR_RESULT) == NO)
+                {
+                    giveitem(ITEM_HM03_SURF)
+                }
+            }
         }
 
         if(var(VAR_ROGUE_INTRO_STATE) == 5)
@@ -159,6 +317,7 @@ script RogueHub_ReturnAdventure
         }
 
         msgbox(format("SCOTT: Come chat to me once you're ready for your next adventure."), MSGBOX_DEFAULT)
+        call(RogueHub_IntroPokabbie)
         releaseall
     }
 }
@@ -187,7 +346,7 @@ script RogueHub_SpeakScott
             {
                 if(var(VAR_RESULT) > 2)
                 {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
                     setvar(VAR_RESULT, NO)
                 }
                 else
@@ -199,7 +358,7 @@ script RogueHub_SpeakScott
             {
                 if(var(VAR_RESULT) > 1)
                 {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_YESNO)
+                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 1.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
                     setvar(VAR_RESULT, NO)
                 }
                 else
@@ -211,27 +370,287 @@ script RogueHub_SpeakScott
 
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
-            setvar(VAR_JUST_LEFT, 1)
+            setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+            specialvar(VAR_RESULT, GetLeadMonLevel)
 
-            if(var(VAR_ROGUE_INTRO_STATE) == 4)
+            if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
             {
-                // First adventure
-                setvar(VAR_ROGUE_INTRO_STATE, 5)
+                if(var(VAR_RESULT) > 80)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
+                }
+                elif(var(VAR_RESULT) > 70)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
+                }
+                elif(var(VAR_RESULT) > 60)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
+                }
+                elif(var(VAR_RESULT) > 50)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
+                }
+                elif(var(VAR_RESULT) > 40)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
+                }
+                elif(var(VAR_RESULT) > 30)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
+                }
+                elif(var(VAR_RESULT) > 20)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
+                }
+                elif(var(VAR_RESULT) > 10)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
+                }
+            }
+
+            // Skip ahead based on lvl
+            if(var(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
+            {
+                msgbox(format("SCOTT: You've leveled up your PARTNER quite a bit there!"), MSGBOX_DEFAULT)
+
+                buffernumberstring(STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY)
+
+                msgbox(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == NO)
+                {
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+                }
+            }
+
+            call(Common_EventScript_SaveGame)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
+                setvar(VAR_JUST_LEFT, 1)
+
+                if(var(VAR_ROGUE_INTRO_STATE) == 4)
+                {
+                    // First adventure
+                    setvar(VAR_ROGUE_INTRO_STATE, 5)
+                }
+                else
+                {
+                    // Normal adventure
+                    setvar(VAR_ROGUE_INTRO_STATE, 6)
+                }
+
+                setflag(FLAG_ROGUE_LEFT_ON_RUN)
+                warp(MAP_ROGUE_HUB_TRANSITION, 0)
             }
             else
             {
-                // Normal adventure
-                setvar(VAR_ROGUE_INTRO_STATE, 6)
+                msgbox(format("SCOTT: OK. Come chat to me once you're ready."), MSGBOX_DEFAULT)
             }
-
-            setflag(FLAG_ROGUE_LEFT_ON_RUN)
-            warp(MAP_ROGUE_HUB_TRANSITION, 0)
         }
     }
 
     release
     end
+}
+
+script RogueHub_IntroPokabbie
+{
+    // Show/Hide Pokabbie
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        showobjectat(NPC_POKABBIE, MAP_ROGUE_HUB)
+
+        msgbox(format("{PLAYER}!"), MSGBOX_NPC)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Enter)
+        waitmovement(0)
+
+        msgbox(format("???: Congratulations {PLAYER}!\nI can't believe you managed to defeat the CHAMPION!\pOh of course.\nWhere I my manners!\nAllow me to introduce myself!"), MSGBOX_NPC)
+    
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
+        waitmovement(0)
+
+        msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"), MSGBOX_NPC)
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pAs a reward for beating the CHAMPION I would like to welcome you to my LAB!\pI've uncovered the secret enterance inside the CONFIG LAB, so feel free to come take a look at some point."), MSGBOX_NPC)
+    
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
+        waitmovement(0)
+        
+        applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Exit)
+        waitmovement(0)
+
+        setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+        setflag(FLAG_TEMP_8)
+        removeobject(NPC_POKABBIE)
+    }
+}
+
+movement RogueHub_Pokabbie_Enter 
+{
+    walk_fast_up * 5
+}
+
+movement RogueHub_Pokabbie_Spin 
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+    face_up
+}
+
+movement RogueHub_Pokabbie_Exit
+{
+    walk_fast_down * 5
+}
+
+script RogueHub_SpeakBikeShop
+{
+    lock
+    faceplayer
+
+    checkitem(ITEM_ACRO_BIKE)
+    copyvar(VAR_0x8000, VAR_RESULT)
+
+    checkitem(ITEM_MACH_BIKE)
+    copyvar(VAR_0x8001, VAR_RESULT)
+
+    if(var(VAR_0x8000) == YES) // Has ACRO bike
+    {
+        bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
+        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            removeitem(ITEM_ACRO_BIKE)
+            giveitem(ITEM_MACH_BIKE)
+        }
+    }
+    elif(var(VAR_0x8001) == YES) // Has MACH bike
+    {
+        bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
+        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            removeitem(ITEM_MACH_BIKE)
+            giveitem(ITEM_ACRO_BIKE)
+        }
+    }
+    else
+    {
+        msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
+
+        giveitem(ITEM_ACRO_BIKE)
+
+        msgbox(format("On second thought...\nYou look like you're struggling to carry that much.\pTell you what. You take that one and if you ever want to swap it out for the other one, let me know"))
+    }
+
+    release
+}
+script RogueHub_SpeakSafariWelcome
+{
+    lock
+    faceplayer
+
+    msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed POKéMON and let them roam freely!\pAs a thanks for providing the POKéMON data for us, we'll allow you to enter and capture a few POKéMON of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
+
+    release
+}
+
+
+script RogueHub_SpeakFisherman
+{
+    lock
+    faceplayer
+
+    checkitem(ITEM_SUPER_ROD)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Hope that SUPER ROD is doing good work for you!"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("Oh you're that TRAINER I keep hearing about!\pYou know, if you find yourself short on WATER POKéMON you can always use a FISHING ROD\pWhat!?\nYou don't have one!\pHere, you should take this one!"), MSGBOX_DEFAULT)
+        giveitem(ITEM_SUPER_ROD)
+    }
+
+    release
+}
+
+script RogueHub_SpeakBank
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_ADVENTURE_MONEY) == 0)
+    {
+        // Tutorial
+        msgbox(format("Why hello!\nYou must be {PLAYER} if I'm not mistaken?\pWonderful!\nYou see I'm rather useful when it comes to managing money and I was hoping to setup an ADVENTURE FUND for yourself."), MSGBOX_DEFAULT)
+        msgbox(format("What's an ADVENTURE FUND?\nIn essence, if you donate your HUB MONEY to myself, I will invest it on your behalf and then every time you head out on another adventure, I will give you some extra money to start with.\pSo rather than having to start with ¥0, by donating money to myself, you can start with ¥1000, ¥2000, ¥10000!\pThe sky is the limit really!\nOr rather I guess the limit would be your HUB MONEY."), MSGBOX_DEFAULT)
+    
+        msgbox(format("Here, let me get you started with a gift.\pI shall add ¥500 to your ADVENTURE FUND out of my own pocket!"), MSGBOX_DEFAULT)
+        setvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
+        playse(SE_SHOP)
+        waitse
+    }
+
+    showmoneybox(0, 0)
+
+    buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
+    msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pWould you like to deposit another ¥500?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(500)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("I'm afraid you seem to be lacking the required funds currently."), MSGBOX_YESNO)
+        }
+        else
+        {
+            removemoney(500)
+
+            hidemoneybox
+            showmoneybox(0, 0)
+
+            addvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
+            buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
+
+            playse(SE_SHOP)
+            waitse
+            
+            msgbox(format("Thankyou very much!\nYour fund now contains ¥{STR_VAR_2}."), MSGBOX_DEFAULT)
+        }
+    }
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
+    }
+    release
 }
 
 script RogueHub_Sign_AdventureSign
@@ -250,6 +669,36 @@ script RogueHub_Sign_ConfigLab
     msgbox(format("CONFIG LAB"), MSGBOX_SIGN)
 }
 
+script RogueHub_Sign_Safari
+{
+    msgbox(format("SAFARI ZONE"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_Shop
+{
+    msgbox(format("OUTDOOR MART"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_BikeShop
+{
+    msgbox(format("BIKE SHOP"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_NameRater
+{
+    msgbox(format("NAME RATER's HOUSE"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_Bank
+{
+    msgbox(format("BANK"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_ClothesShop
+{
+    msgbox(format("CLOTHES SHOP"), MSGBOX_SIGN)
+}
+
 //script RogueHub_ResetRun
 //{
 //    //removemoney(100000000000000)
@@ -263,92 +712,3 @@ script RogueHub_Sign_ConfigLab
 //
 //    //giveitem(ITEM_ULTRA_BALL, 20)
 //}
-
-script RogueHub_HideSafari
-{
-    // Main Shape
-    // Centre
-    setmetatile(9,3, METATILE_DirtCentre, TRUE)
-    setmetatile(10,3, METATILE_DirtCentre, TRUE)
-    setmetatile(11,3, METATILE_DirtCentre, TRUE)
-    setmetatile(9,4, METATILE_DirtCentre, TRUE)
-    setmetatile(10,4, METATILE_DirtCentre, TRUE)
-    setmetatile(11,4, METATILE_DirtCentre, TRUE)
-    setmetatile(9,5, METATILE_DirtCentre, TRUE)
-    setmetatile(10,5, METATILE_DirtCentre, TRUE)
-    setmetatile(11,5, METATILE_DirtCentre, TRUE)
-    setmetatile(9,6, METATILE_DirtCentre, TRUE)
-    setmetatile(10,6, METATILE_DirtCentre, TRUE)
-    setmetatile(11,6, METATILE_DirtCentre, TRUE)
-    setmetatile(9,7, METATILE_DirtCentre, TRUE)
-    setmetatile(10,7, METATILE_DirtCentre, TRUE)
-    setmetatile(11,7, METATILE_DirtCentre, TRUE)
-
-    // Left edge
-    setmetatile(8,2, METATILE_DirtLeft, TRUE)
-    setmetatile(8,3, METATILE_DirtLeft, TRUE)
-    setmetatile(8,4, METATILE_DirtLeft, TRUE)
-    setmetatile(8,5, METATILE_DirtLeft, TRUE)
-    setmetatile(8,6, METATILE_DirtLeft, TRUE)
-    setmetatile(8,7, METATILE_DirtLeft, TRUE)
-
-    // Right edge
-    setmetatile(12,2, METATILE_DirtRight, TRUE)
-    setmetatile(12,3, METATILE_DirtRight, TRUE)
-    setmetatile(12,4, METATILE_DirtRight, TRUE)
-    setmetatile(12,5, METATILE_DirtRight, TRUE)
-    setmetatile(12,6, METATILE_DirtRight, TRUE)
-    setmetatile(12,7, METATILE_DirtRight, TRUE)
-
-    // Bottom edge
-    setmetatile(8,8, METATILE_DirtBottom, FALSE)
-    setmetatile(9,8, METATILE_DirtBottom, FALSE)
-    setmetatile(10,8, METATILE_DirtBottom, FALSE)
-    setmetatile(11,8, METATILE_DirtBottom, FALSE)
-    setmetatile(12,8, METATILE_DirtBottom, FALSE)
-
-    // Off shoot building
-    // Centre
-    setmetatile(0,2, METATILE_Grass, TRUE)
-    setmetatile(1,2, METATILE_Grass, TRUE)
-    setmetatile(2,2, METATILE_Grass, TRUE)
-    setmetatile(3,2, METATILE_Grass, TRUE)
-    setmetatile(4,2, METATILE_Grass, TRUE)
-    setmetatile(5,2, METATILE_Grass, TRUE)
-    setmetatile(6,2, METATILE_Grass, TRUE)
-    setmetatile(7,2, METATILE_Grass, TRUE)
-    setmetatile(0,3, METATILE_Grass, TRUE)
-    setmetatile(1,3, METATILE_Grass, TRUE)
-    setmetatile(2,3, METATILE_Grass, TRUE)
-    setmetatile(3,3, METATILE_Grass, TRUE)
-    setmetatile(4,3, METATILE_Grass, TRUE)
-    setmetatile(5,3, METATILE_Grass, TRUE)
-    setmetatile(6,3, METATILE_Grass, TRUE)
-    setmetatile(7,3, METATILE_Grass, TRUE)
-    setmetatile(0,4, METATILE_Grass, TRUE)
-    setmetatile(1,4, METATILE_Grass, TRUE)
-    setmetatile(2,4, METATILE_Grass, TRUE)
-    setmetatile(3,4, METATILE_Grass, TRUE)
-    setmetatile(4,4, METATILE_Grass, TRUE)
-    setmetatile(5,4, METATILE_Grass, TRUE)
-    setmetatile(6,4, METATILE_Grass, TRUE)
-    setmetatile(7,4, METATILE_Grass, TRUE)
-    setmetatile(0,5, METATILE_Grass, TRUE)
-    setmetatile(1,5, METATILE_Grass, TRUE)
-    setmetatile(2,5, METATILE_Grass, TRUE)
-    setmetatile(3,5, METATILE_Grass, TRUE)
-    setmetatile(4,5, METATILE_Grass, TRUE)
-    setmetatile(5,5, METATILE_Grass, TRUE)
-    setmetatile(6,5, METATILE_Grass, TRUE)
-    setmetatile(7,5, METATILE_Grass, TRUE)
-    setmetatile(0,6, METATILE_Grass, TRUE)
-    setmetatile(1,6, METATILE_Grass, TRUE)
-    setmetatile(2,6, METATILE_Grass, TRUE)
-    setmetatile(3,6, METATILE_Grass, TRUE)
-    setmetatile(4,6, METATILE_Grass, TRUE)
-    setmetatile(5,6, METATILE_Grass, TRUE)
-    setmetatile(6,6, METATILE_Grass, TRUE)
-    setmetatile(7,6, METATILE_Grass, TRUE)
-
-    return
-}

@@ -910,10 +910,12 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_CHAMPION_STEVEN] = sMugshotPal_Steven
 };
 
-static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
+static const u16 *const sPlayerMugshotsPals[PLAYER_STYLE_COUNT] =
 {
-    [MALE] = sMugshotPal_Brendan,
-    [FEMALE] = sMugshotPal_May
+    [STYLE_EMR_BRENDAN] = sMugshotPal_Brendan,
+    [STYLE_EMR_MAY] = sMugshotPal_May,
+    [STYLE_RED] = sMugshotPal_Brendan,
+    [STYLE_LEAF] = sMugshotPal_May
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
