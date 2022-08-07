@@ -18,6 +18,8 @@
 #include "data.h"
 #include "party_menu.h"
 
+#include "rogue_baked.h"
+
 extern u16 gUnknown_0203CF30[];
 
 // this file's functions
@@ -910,73 +912,99 @@ static u16 SanitizeItemId(u16 itemId)
 
 const u8 *ItemId_GetName(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].name;
+    return Rogue_GetItemName(itemId);
 }
 
 u16 ItemId_GetId(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].itemId;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.itemId;
 }
 
 u16 ItemId_GetPrice(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].price;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.price;
 }
 
 u8 ItemId_GetHoldEffect(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].holdEffect;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.holdEffect;
 }
 
 u8 ItemId_GetHoldEffectParam(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].holdEffectParam;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.holdEffectParam;
 }
 
 const u8 *ItemId_GetDescription(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].description;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.description;
 }
 
 u8 ItemId_GetImportance(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].importance;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.importance;
 }
 
 // unused
 u8 ItemId_GetRegistrability(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].registrability;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.registrability;
 }
 
 u8 ItemId_GetPocket(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].pocket;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.pocket;
 }
 
 u8 ItemId_GetType(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].type;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.type;
 }
 
 ItemUseFunc ItemId_GetFieldFunc(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].fieldUseFunc;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.fieldUseFunc;
 }
 
 u8 ItemId_GetBattleUsage(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].battleUsage;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.battleUsage;
 }
 
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].battleUseFunc;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.battleUseFunc;
 }
 
 u8 ItemId_GetSecondaryId(u16 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].secondaryId;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.secondaryId;
 }
 
 u8 ItemId_GetFlingPower(u16 itemId)

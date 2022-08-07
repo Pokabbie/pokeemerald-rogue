@@ -3,6 +3,8 @@
 
 //#define ROGUE_DEBUG
 
+//#define ROGUE_EXPANSION
+
 #define ROGUE_SUPPORT_QUICK_SAVE
 
 // It looks like file.c:line: size of array `id' is negative
