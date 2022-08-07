@@ -63,6 +63,40 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_MOON_STONE;
                 break;
+
+#ifdef ROGUE_EXPANSION
+            case(EVO_LEVEL_DAY):
+            case(EVO_ITEM_HOLD_DAY):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_SUN_STONE;
+                break;
+            case(EVO_LEVEL_DUSK):
+            case(EVO_ITEM_HOLD_NIGHT):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_MOON_STONE;
+                break;
+
+            case(EVO_WATER_SCROLL):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_WATER_STONE;
+                break;
+            case(EVO_DARK_SCROLL):
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_MOON_STONE;
+                break;
+
+            case(EVO_TRADE_SPECIFIC_MON):
+                outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
+                break;
+
+            // TODO -
+            //case(EVO_SPECIFIC_MAP):
+            //    outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
+            //    break;
+            //case(EVO_MAPSEC):
+            //    outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
+            //    break;
+#endif
         }
     }
 }
@@ -189,11 +223,19 @@ u16 Rogue_GetEggSpecies(u16 species)
             {
                 Rogue_ModifyEvolution(spe, evo, &evolution);
 
-                if (evolution.targetSpecies == species)
+#ifdef ROGUE_EXPANSION
+                if(evolution.method != EVO_MEGA_EVOLUTION &&
+                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
+                    evolution.method != EVO_PRIMAL_REVERSION
+                )
+#endif
                 {
-                    species = spe;
-                    found = TRUE;
-                    break;
+                    if (evolution.targetSpecies == species)
+                    {
+                        species = spe;
+                        found = TRUE;
+                        break;
+                    }
                 }
             }
 

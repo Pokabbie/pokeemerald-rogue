@@ -26,11 +26,13 @@
 
 #ifdef ROGUE_EXPANSION
 #define QUERY_BUFFER_COUNT 128
-#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, FORMS_START))
+#define QUERY_NUM_SPECIES FORMS_START
 #else
 #define QUERY_BUFFER_COUNT 96
-#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
+#define QUERY_NUM_SPECIES NUM_SPECIES
 #endif
+
+#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, QUERY_NUM_SPECIES))
 
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
@@ -74,7 +76,7 @@ void RogueQuery_CollapseSpeciesBuffer(void)
     u16 species;
     gRogueQueryBufferSize = 0;
     
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++species)
     {
         if(GetQueryState(species))
         {
@@ -112,7 +114,7 @@ u16 RogueQuery_UncollapsedSpeciesSize(void)
     u16 species;
     u16 count = 0;
     
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -196,12 +198,14 @@ static bool8 IsSpeciesIsLegendary(u16 species)
         case SPECIES_MOLTRES:
         case SPECIES_MEWTWO:
         case SPECIES_MEW:
+
         case SPECIES_RAIKOU:
         case SPECIES_ENTEI:
         case SPECIES_SUICUNE:
         case SPECIES_LUGIA:
         case SPECIES_HO_OH:
         case SPECIES_CELEBI:
+
         case SPECIES_REGIROCK:
         case SPECIES_REGICE:
         case SPECIES_REGISTEEL:
@@ -212,6 +216,84 @@ static bool8 IsSpeciesIsLegendary(u16 species)
         case SPECIES_LATIOS:
         case SPECIES_JIRACHI:
         case SPECIES_DEOXYS:
+#ifdef ROGUE_EXPANSION
+
+        case SPECIES_UXIE:
+        case SPECIES_MESPRIT:
+        case SPECIES_AZELF:
+        case SPECIES_DIALGA:
+        case SPECIES_PALKIA:
+        case SPECIES_HEATRAN:
+        case SPECIES_REGIGIGAS:
+        case SPECIES_GIRATINA:
+        case SPECIES_CRESSELIA:
+        case SPECIES_PHIONE:
+        case SPECIES_MANAPHY:
+        case SPECIES_DARKRAI:
+        case SPECIES_SHAYMIN:
+        case SPECIES_ARCEUS:
+
+        case SPECIES_VICTINI:
+        case SPECIES_COBALION:
+        case SPECIES_TERRAKION:
+        case SPECIES_VIRIZION:
+        case SPECIES_TORNADUS:
+        case SPECIES_THUNDURUS:
+        case SPECIES_RESHIRAM:
+        case SPECIES_ZEKROM:
+        case SPECIES_LANDORUS:
+        case SPECIES_KYUREM:
+        case SPECIES_KELDEO:
+        case SPECIES_MELOETTA:
+        case SPECIES_GENESECT:
+
+        case SPECIES_XERNEAS:
+        case SPECIES_YVELTAL:
+        case SPECIES_ZYGARDE:
+        case SPECIES_DIANCIE:
+        case SPECIES_HOOPA:
+        case SPECIES_VOLCANION:
+        
+        case SPECIES_TYPE_NULL:
+        case SPECIES_SILVALLY:
+        case SPECIES_TAPU_KOKO:
+        case SPECIES_TAPU_LELE:
+        case SPECIES_TAPU_BULU:
+        case SPECIES_TAPU_FINI:
+        case SPECIES_COSMOG:
+        case SPECIES_COSMOEM:
+        case SPECIES_SOLGALEO:
+        case SPECIES_LUNALA:
+        case SPECIES_NIHILEGO:
+        case SPECIES_BUZZWOLE:
+        case SPECIES_PHEROMOSA:
+        case SPECIES_XURKITREE:
+        case SPECIES_CELESTEELA:
+        case SPECIES_KARTANA:
+        case SPECIES_GUZZLORD:
+        case SPECIES_NECROZMA:
+        case SPECIES_MAGEARNA:
+        case SPECIES_MARSHADOW:
+        case SPECIES_POIPOLE:
+        case SPECIES_NAGANADEL:
+        case SPECIES_STAKATAKA:
+        case SPECIES_BLACEPHALON:
+        case SPECIES_ZERAORA:
+        case SPECIES_MELTAN:
+        case SPECIES_MELMETAL:
+
+        case SPECIES_ZACIAN:
+        case SPECIES_ZAMAZENTA:
+        case SPECIES_ETERNATUS:
+        case SPECIES_KUBFU:
+        case SPECIES_URSHIFU:
+        case SPECIES_ZARUDE:
+        case SPECIES_REGIELEKI:
+        case SPECIES_REGIDRAGO:
+        case SPECIES_GLASTRIER:
+        case SPECIES_SPECTRIER:
+        case SPECIES_CALYREX:
+#endif
             return TRUE;
     };
 
@@ -224,7 +306,7 @@ void RogueQuery_SpeciesIsValid(void)
     // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -240,7 +322,7 @@ void RogueQuery_SpeciesInPokedex(void)
 {
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -256,7 +338,7 @@ void RogueQuery_SpeciesOfType(u8 type)
 {
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -274,7 +356,7 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
     bool8 isValid;
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -303,7 +385,7 @@ void RogueQuery_SpeciesIsFinalEvolution(void)
 {
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -320,7 +402,7 @@ void RogueQuery_TransformToEggSpecies(void)
     u16 species;
     u16 eggSpecies;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -340,7 +422,7 @@ void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
     u16 species;
     bool8 removeChild = TRUE;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -359,7 +441,7 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
     bool8 removeChild = TRUE;
     struct Evolution evo;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -377,6 +459,15 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                 case EVO_LEVEL_CASCOON:
                 case EVO_LEVEL_NINJASK:
                 case EVO_LEVEL_SHEDINJA:
+#ifdef ROGUE_EXPANSION
+                case EVO_LEVEL_FEMALE:
+                case EVO_LEVEL_MALE:
+                case EVO_LEVEL_DAY:
+                case EVO_LEVEL_DUSK:
+                case EVO_LEVEL_NATURE_AMPED:
+                case EVO_LEVEL_NATURE_LOW_KEY:
+                case EVO_CRITICAL_HITS:
+#endif
                 if (evo.param <= level)
                 {
                     SetQueryState(evo.targetSpecies, TRUE);
@@ -399,7 +490,7 @@ void RogueQuery_EvolveSpeciesByItem()
     bool8 removeChild = TRUE;
     struct Evolution evo;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -411,6 +502,22 @@ void RogueQuery_EvolveSpeciesByItem()
                 {
                 case EVO_ITEM:
                 case EVO_LEVEL_ITEM:
+#ifdef ROGUE_EXPANSION
+                case EVO_ITEM_HOLD_DAY:
+                case EVO_ITEM_HOLD_NIGHT:
+                case EVO_MOVE:
+                case EVO_MOVE_TYPE:
+                case EVO_MAPSEC:
+                case EVO_ITEM_MALE:
+                case EVO_ITEM_FEMALE:
+                case EVO_LEVEL_RAIN:
+                case EVO_SPECIFIC_MON_IN_PARTY:
+                case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+                case EVO_SPECIFIC_MAP:
+                case EVO_SCRIPT_TRIGGER_DMG:
+                case EVO_DARK_SCROLL:
+                case EVO_WATER_SCROLL:
+#endif
                 {
                     SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
@@ -429,7 +536,7 @@ void RogueQuery_SpeciesIsLegendary(void)
 {
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
@@ -445,7 +552,7 @@ void RogueQuery_SpeciesIsNotLegendary(void)
 {
     u16 species;
 
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryState(species))
         {
