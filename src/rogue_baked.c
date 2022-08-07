@@ -19,8 +19,8 @@
 #define ROGUE_BAKE_INVALID
 #else
 // Swap to force runtime resolution
-//#define ROGUE_BAKE_INVALID
-#define ROGUE_BAKE_VALID
+#define ROGUE_BAKE_INVALID
+//#define ROGUE_BAKE_VALID
 #endif
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];

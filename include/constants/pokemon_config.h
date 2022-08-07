@@ -1,6 +1,7 @@
 #ifndef GUARD_CONSTANTS_POKEMON_CONFIG_H
 #define GUARD_CONSTANTS_POKEMON_CONFIG_H
 
+#include "constants/rogue.h"
 #include "constants/expansion_branches.h"
 
 #ifndef GEN_3
@@ -21,7 +22,12 @@
 #define P_KADABRA_EVERSTONE     GEN_8 // Since Gen 4, Kadabra can evolve even when holding an Everstone.
 #define P_NIDORAN_M_DITTO_BREED GEN_8 // Since Gen 5, when Nidoran♂ breeds with Ditto it can produce Nidoran♀ offspring. Before, it would only yield male offspring. This change also applies to Volbeat.
 
+#ifdef ROGUE_DEBUG
 #define P_ENABLE_DEBUG          TRUE  // Enables a debug menu for pokemon sprites and icons, accessed by pressing SELECT in the summary screen.
+#else
+#define P_ENABLE_DEBUG          FALSE  // Enables a debug menu for pokemon sprites and icons, accessed by pressing SELECT in the summary screen.
+#endif
+
 
 #ifndef ITEM_EXPANSION
 //Item Definitions for gEvolutionTable

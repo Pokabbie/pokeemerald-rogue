@@ -1012,10 +1012,11 @@ struct SaveBlock1
     /*0x31DC*/ struct Roamer roamer;
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MysteryGiftSave mysteryGift;
-    /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES];
-    /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES];
+    /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES]; // 113
+    /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES]; // 113
     union
     {
+        u8 unused_3598[158];
         struct RogueSaveData saveData;
     } rogueBlock;
     /*0x3???*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
