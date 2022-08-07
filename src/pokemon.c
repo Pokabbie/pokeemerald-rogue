@@ -6541,15 +6541,20 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                  && (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || j == WEATHER_DOWNPOUR))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_MAPSEC:
                 if (gMapHeader.regionMapSectionId == gEvolutionTable[species][i].param)
-                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_SPECIFIC_MAP:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (currentMap == gEvolutionTable[species][i].param)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_LEVEL_NATURE_AMPED:
+                if (gEvolutionTable[species][i].param <= level)
                 {
+                    u8 nature = GetNature(mon);
+                    switch (nature)
                     {
                     case NATURE_HARDY:
                     case NATURE_BRAVE:
@@ -6564,7 +6569,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     case NATURE_RASH:
                     case NATURE_SASSY:
                     case NATURE_QUIRKY:
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
                         break;
                     }
                 }

@@ -676,7 +676,7 @@
 	.byte 0x77
 	.endm
 
-	.macro tryexplosion
+	.macro faintifabilitynotdamp
 	.byte 0x78
 	.endm
 
@@ -1044,7 +1044,7 @@
 	.byte 0xc8
 	.endm
 
-	.macro trymemento ptr:req
+	.macro jumpifattackandspecialattackcannotfall ptr:req
 	.byte 0xc9
 	.4byte \ptr
 	.endm
@@ -1270,11 +1270,6 @@
 	.byte \position
 	.endm
 
-	.macro rogue_partyhasroom ptr:req
-	.byte 0xf9
-	.4byte \ptr
-	.endm
-
 	.macro settelekinesis ptr:req
 	.byte 0xf9
 	.4byte \ptr
@@ -1307,6 +1302,13 @@
 
 	.macro metalburstdamagecalculator ptr:req
 	.byte 0xff
+	.byte 0x0
+	.4byte \ptr
+	.endm
+	
+	.macro rogue_partyhasroom ptr:req
+	.byte 0xff
+	.byte 0x1
 	.4byte \ptr
 	.endm
 

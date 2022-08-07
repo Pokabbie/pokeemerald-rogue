@@ -573,6 +573,7 @@ static void Cmd_averagestats(void);
 static void Cmd_jumpifoppositegenders(void);
 static void Cmd_trygetbaddreamstarget(void);
 static void Cmd_tryworryseed(void);
+static void Cmd_extMethods(void);
 static void Cmd_metalburstdamagecalculator(void);
 static void Cmd_rogue_partyhasroom(void);
 void (* const gBattleScriptingCommandsTable[])(void) =
@@ -832,8 +833,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifoppositegenders,                   //0xFC
     Cmd_trygetbaddreamstarget,                   //0xFD
     Cmd_tryworryseed,                            //0xFE
-    Cmd_metalburstdamagecalculator,              //0xFF
-    Cmd_rogue_partyhasroom                       //0xF9
+    Cmd_extMethods,                              //0xFF
+    //Cmd_metalburstdamagecalculator,              //0xFF
+    //Cmd_rogue_partyhasroom                       //0xFF
 };
 
 const struct StatFractions gAccuracyStageRatios[] =
@@ -4125,7 +4127,7 @@ static void Cmd_getexp(void)
                 BattleScriptPushCursor();
                 gLeveledUpInBattle |= gBitTable[gBattleStruct->expGetterMonId];
                 gBattlescriptCurrInstr = BattleScript_LevelUp_Minimal;
-                gBattleMoveDamage = (gBattleBufferB[gActiveBattler][2] | (gBattleBufferB[gActiveBattler][3] << 8));
+                gBattleMoveDamage = T1_READ_32(&gBattleResources->bufferB[gActiveBattler][2]);
                 AdjustFriendship(&gPlayerParty[gBattleStruct->expGetterMonId], FRIENDSHIP_EVENT_GROW_LEVEL);
 
                 // Check to see if this is the last level up
@@ -13970,23 +13972,6 @@ static void Cmd_handleballthrow(void)
     }
 }
 
-static void Cmd_rogue_partyhasroom(void)
-{
-    if(Rogue_IsRunActive())
-    {
-        if (CalculatePlayerPartyCount() == PARTY_SIZE)
-        {
-            // Continue
-            gBattlescriptCurrInstr += 5;
-            return;
-        }
-    }
-
-    // Jump to location
-    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-    return;
-}
-
 static void Cmd_givecaughtmon(void)
 {
     // RogueNote: Whether we're allow to capture this is handled further up
@@ -14369,6 +14354,22 @@ static void Cmd_tryworryseed(void)
     }
 }
 
+static void Cmd_extMethods(void)
+{
+    u8 subCmd = T1_READ_8(++gBattlescriptCurrInstr);
+
+    switch(subCmd)
+    {
+        case 0:
+            Cmd_metalburstdamagecalculator();
+            break;
+
+        case 1:
+            Cmd_rogue_partyhasroom();
+            break;
+    }
+}
+
 static void Cmd_metalburstdamagecalculator(void)
 {
     u8 sideAttacker = GetBattlerSide(gBattlerAttacker);
@@ -14405,6 +14406,23 @@ static void Cmd_metalburstdamagecalculator(void)
         gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = TRUE;
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
+}
+
+static void Cmd_rogue_partyhasroom(void)
+{
+    if(Rogue_IsRunActive())
+    {
+        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+        {
+            // Continue
+            gBattlescriptCurrInstr += 5;
+            return;
+        }
+    }
+
+    // Jump to location
+    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    return;
 }
 
 static bool32 CriticalCapture(u32 odds)

@@ -1266,14 +1266,9 @@ static const u8 sStrawberrySweetDesc[] = _(
     "Milcery.");
 
 static const u8 sLoveSweetDesc[] = _(
-    "A hold item that\n"
-    "gets EXP. points\n"
-    "from battles.");
+    "A heart-shaped\n"
     "sweet loved by\n"
     "Milcery.");
-    "calms spirits and\n"
-    "fosters friendship.");
-    "evolve.");
 
 static const u8 sBerrySweetDesc[] = _(
     "A berry-shaped\n"
