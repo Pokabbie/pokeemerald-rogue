@@ -1,3 +1,9 @@
+#ifdef ROGUE_EXPANSION
+const u8 gText_ItemLinkCable[] = _("Link Cable");
+#else
+const u8 gText_ItemLinkCable[] = _("LINK CABLE");
+#endif
+
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Room[] = _("\nRoom: ");

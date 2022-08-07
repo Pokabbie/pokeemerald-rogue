@@ -24,8 +24,13 @@
 #include "rogue_baked.h"
 //#include "rogue_controller.h"
 
+#ifdef ROGUE_EXPANSION
+#define QUERY_BUFFER_COUNT 128
+#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, FORMS_START))
+#else
 #define QUERY_BUFFER_COUNT 96
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, NUM_SPECIES))
+#endif
 
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
@@ -80,14 +85,14 @@ void RogueQuery_CollapseSpeciesBuffer(void)
 
 void RogueQuery_CollapseItemBuffer(void)
 {
-    u16 item;
+    u16 itemId;
     gRogueQueryBufferSize = 0;
     
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT && gRogueQueryBufferSize < (QUERY_BUFFER_COUNT - 1); ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            gRogueQueryBuffer[gRogueQueryBufferSize++] = item;
+            gRogueQueryBuffer[gRogueQueryBufferSize++] = itemId;
         }
     }
 }
@@ -120,12 +125,12 @@ u16 RogueQuery_UncollapsedSpeciesSize(void)
 
 u16 RogueQuery_UncollapsedItemSize(void)
 {
-    u16 item;
+    u16 itemId;
     u16 count = 0;
     
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
             ++count;
         }
@@ -457,15 +462,18 @@ void RogueQuery_SpeciesIsNotLegendary(void)
 
 void RogueQuery_ItemsIsValid(void)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].itemId != item)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.itemId != itemId)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -473,15 +481,18 @@ void RogueQuery_ItemsIsValid(void)
 
 void RogueQuery_ItemsInPocket(u8 pocket)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].pocket != pocket)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.pocket != pocket)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -489,15 +500,18 @@ void RogueQuery_ItemsInPocket(u8 pocket)
 
 void RogueQuery_ItemsNotInPocket(u8 pocket)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].pocket == pocket)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.pocket == pocket)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -505,15 +519,18 @@ void RogueQuery_ItemsNotInPocket(u8 pocket)
 
 void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].price < minPrice || gItems[item].price > maxPrice)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.price < minPrice || item.price > maxPrice)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -521,15 +538,18 @@ void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice)
 
 void RogueQuery_ItemsHeldItem(void)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].holdEffect == HOLD_EFFECT_NONE)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.holdEffect == HOLD_EFFECT_NONE)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -537,15 +557,18 @@ void RogueQuery_ItemsHeldItem(void)
 
 void RogueQuery_ItemsNotHeldItem(void)
 {
-    u16 item;
+    u16 itemId;
+    struct Item item;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(gItems[item].holdEffect != HOLD_EFFECT_NONE)
+            Rogue_ModifyItem(itemId, &item);
+
+            if(item.holdEffect != HOLD_EFFECT_NONE)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }
@@ -553,15 +576,15 @@ void RogueQuery_ItemsNotHeldItem(void)
 
 void RogueQuery_ItemsExcludeRange(u16 fromId, u16 toId)
 {
-    u16 item;
+    u16 itemId;
 
-    for(item = ITEM_NONE + 1; item < ITEMS_COUNT; ++item)
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
-        if(GetQueryState(item))
+        if(GetQueryState(itemId))
         {
-            if(item >= fromId && item <= toId)
+            if(itemId >= fromId && itemId <= toId)
             {
-                SetQueryState(item, FALSE);
+                SetQueryState(itemId, FALSE);
             }
         }
     }

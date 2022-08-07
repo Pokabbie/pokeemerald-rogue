@@ -2,18 +2,21 @@
 // This file is shared between the game src and the offline bake to assist in making 
 // queries and other stuff which can be prepared offline a bit faster
 //
+#include "constants/pokemon.h"
+#include "constants/species.h"
+#include "constants/items.h"
+
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
 #else
 #include "global.h"
+#include "item.h"
+#include "item_use.h"
 #endif
 
-#include "constants/pokemon.h"
-#include "constants/species.h"
-#include "constants/items.h"
-
 #include "rogue_baked.h"
+
 
 #ifdef ROGUE_BAKING
 #define ROGUE_BAKE_INVALID
@@ -63,6 +66,91 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         }
     }
 }
+
+static u16 SanitizeItemId(u16 itemId)
+{
+    if (itemId >= ITEMS_COUNT)
+        return ITEM_NONE;
+    else
+        return itemId;
+}
+
+#ifdef ROGUE_BAKING
+// DUDs
+const u8* Rogue_GetItemName(u16 itemId)
+{
+    return NULL;
+}
+
+void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
+{
+}
+#else
+
+extern const u8 gText_ItemLinkCable[];
+
+const u8* Rogue_GetItemName(u16 itemId)
+{
+    itemId = SanitizeItemId(itemId);
+
+    switch(itemId)
+    {
+        case ITEM_EXP_SHARE:
+            return gText_ItemLinkCable;
+    }
+
+    return gItems[itemId].name;
+}
+
+void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
+{
+    itemId = SanitizeItemId(itemId);
+    memcpy(outItem, &gItems[itemId], sizeof(struct Item));
+
+    // Range edits
+    if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
+    {
+        outItem->price = 4000;
+    }
+
+    if(outItem->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone)
+    {
+        outItem->price = 2100;
+    }
+
+    // Hold items set price (Ignore berries)
+    if(outItem->holdEffect != 0 && !(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
+    {
+        outItem->price = 500;
+    }
+
+    // Individual items
+    switch(itemId)
+    {
+        // Evo item prices
+        case ITEM_EXP_SHARE:
+            outItem->price = 2100;
+            outItem->holdEffect = 0;//HOLD_EFFECT_NONE;
+            break;
+
+        case ITEM_KINGS_ROCK:
+        case ITEM_DEEP_SEA_TOOTH:
+        case ITEM_DEEP_SEA_SCALE:
+        case ITEM_METAL_COAT:
+            outItem->price = 2100;
+            break;
+
+        case ITEM_RARE_CANDY:
+            outItem->price = 1000;
+            break;
+
+        case ITEM_MASTER_BALL:
+            outItem->price = 50000;
+            break;
+    }
+}
+#endif
+
 
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
 {
