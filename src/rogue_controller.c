@@ -713,7 +713,7 @@ static void SelectStartMons(void)
 
 #ifdef ROGUE_DEBUG
     VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
-    VarSet(VAR_ROGUE_STARTER1, SPECIES_ABRA);
+    VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
 #endif
 }
 
@@ -2446,6 +2446,38 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     return RogueQuery_BufferPtr();
 }
 
+static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = party[i];
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static u16 NextWildSpecies(u16 * party, u8 monIdx)
+{
+    u16 species;
+    u16 randIdx;
+    u16 queryCount = RogueQuery_BufferSize();
+    
+    // Prevent duplicates, if possible
+    do
+    {
+        randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
+        species = RogueQuery_BufferPtr()[randIdx];
+    }
+    while(ContainsSpecies(party, monIdx, species) && monIdx < queryCount);
+
+    return species;
+}
+
 static void RandomiseWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel();
@@ -2466,17 +2498,14 @@ static void RandomiseWildEncounters(void)
 
     {
         u8 i;
-        u16 randIdx;
-        u16 queryCount = RogueQuery_BufferSize();
 
 #ifdef ROGUE_DEBUG
-        gDebug_WildOptionCount = queryCount;
+        gDebug_WildOptionCount = RogueQuery_BufferSize();
 #endif
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
-            randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
-            gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+            gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }
 
@@ -2582,8 +2611,7 @@ static void RandomiseSafariWildEncounters(void)
         {
             for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
             {
-                randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
-                gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+                gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
             }
         }
     }
