@@ -724,6 +724,12 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
 
+#ifdef ROGUE_EXPANSION
+    FlagSet(FLAG_ROGUE_EXPANSION_ACTIVE);
+#else
+    FlagClear(FLAG_ROGUE_EXPANSION_ACTIVE);
+#endif
+
     // Seed settings
     FlagClear(FLAG_SET_SEED_ENABLED);
     FlagSet(FLAG_SET_SEED_ITEMS);
@@ -2244,6 +2250,179 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
     *level = CalculateWildLevel();
+} 
+
+#ifdef ROGUE_DEBUG
+//#define ROGUE_SHOP_DEBUG
+#endif
+
+static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
+{
+    // Always use rogue random so this is seeded correctly
+    u16 res = 1 + (RogueRandom() % 100);
+
+    return res <= chance;
+}
+
+static void ApplyRandomMartChanceQuery(u16 chance)
+{
+    u32 startSeed = gRngRogueValue;
+
+    if(chance >= 100)
+        return;
+
+    RogueQuery_CustomItems(ApplyRandomMartChanceCallback, chance);
+
+        //randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+        //species = RogueQuery_BufferPtr()[randIdx];
+
+    gRngRogueValue = startSeed;
+}
+
+const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
+{
+    u16 difficulty;
+    
+    if(Rogue_IsRunActive())
+        difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+    else
+        difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
+
+    RogueQuery_Clear();
+    RogueQuery_ItemsIsValid();
+    RogueQuery_ExcludeCommon();
+
+    RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
+    RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+    switch(itemCategory)
+    {
+        case ROGUE_SHOP_MEDICINE:
+            RogueQuery_ItemsMedicine();
+
+            #ifndef ROGUE_SHOP_DEBUG
+            RogueQuery_ItemsInPriceRange(10, 300 + difficulty * 400);
+
+            if(difficulty < 4)
+            {
+                RogueQuery_Exclude(ITEM_FULL_HEAL);
+            }
+            #endif
+
+            RogueQuery_Exclude(ITEM_FRESH_WATER);
+            RogueQuery_Exclude(ITEM_SODA_POP);
+            RogueQuery_Exclude(ITEM_LEMONADE);
+            RogueQuery_Exclude(ITEM_MOOMOO_MILK);
+            RogueQuery_Exclude(ITEM_ENERGY_POWDER);
+            RogueQuery_Exclude(ITEM_ENERGY_ROOT);
+            RogueQuery_Exclude(ITEM_HEAL_POWDER);
+            RogueQuery_Exclude(ITEM_LAVA_COOKIE);
+            RogueQuery_Exclude(ITEM_BERRY_JUICE);
+            break;
+
+        case ROGUE_SHOP_BALLS:
+            RogueQuery_ItemsInPocket(POCKET_POKE_BALLS);
+
+            #ifndef ROGUE_SHOP_DEBUG
+            if(difficulty <= 0)
+            {
+                RogueQuery_ItemsInPriceRange(10, 200);
+            }
+            else if(difficulty <= 1)
+            {
+                RogueQuery_ItemsInPriceRange(10, 600);
+            }
+            else if(difficulty <= 2)
+            {
+                RogueQuery_ItemsInPriceRange(10, 1000);
+            }
+            else if(difficulty >= 11)
+            {
+                RogueQuery_ItemsInPriceRange(10, 60000);
+            }
+            else //if(difficulty <= 3)
+            {
+                RogueQuery_ItemsInPriceRange(10, 2000);
+            }
+            #endif
+
+            RogueQuery_Exclude(ITEM_PREMIER_BALL);
+            break;
+
+        case ROGUE_SHOP_TMS:
+            RogueQuery_ItemsInPocket(POCKET_TM_HM);
+            RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
+
+            #ifndef ROGUE_SHOP_DEBUG
+            RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
+            #endif
+
+            break;
+
+        case ROGUE_SHOP_BATTLE_ENHANCERS:
+            RogueQuery_ItemsBattleEnchancer();
+            RogueQuery_ItemsInPriceRange(10, 60000);
+            
+            #ifndef ROGUE_SHOP_DEBUG
+            if(Rogue_IsRunActive())
+            {
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(20);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            }
+            #endif
+
+            if(Rogue_IsRunActive())
+                *minSalePrice = 500;
+            else
+                *minSalePrice = 1000;
+
+            break;
+
+        case ROGUE_SHOP_HELD_ITEMS:
+            RogueQuery_ItemsHeldItem();
+            RogueQuery_ItemsInPriceRange(10, 60000);
+
+            #ifndef ROGUE_SHOP_DEBUG
+            if(Rogue_IsRunActive())
+            {
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(20);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            }
+            else if(difficulty <= 5)
+            {
+                // Remove contents 
+                RogueQuery_ItemsInPriceRange(10, 11);
+            }
+            #endif
+
+            if(Rogue_IsRunActive())
+                *minSalePrice = 500;
+            else
+                *minSalePrice = 2000;
+            break;
+    };
+
+    RogueQuery_CollapseItemBuffer();
+
+    if(RogueQuery_BufferSize() == 0)
+    {
+        // If we don't have anything then just use this (Really unlucky to happen)
+        RogueQuery_Include(ITEM_TINY_MUSHROOM);
+        RogueQuery_CollapseItemBuffer();
+    }
+
+    return RogueQuery_BufferPtr();
 }
 
 static void RandomiseWildEncounters(void)
@@ -2291,6 +2470,9 @@ static void RogueQuery_SafariTypeForMap()
         u8 types[] =
         {
             TYPE_NORMAL, TYPE_FIGHTING
+#ifdef ROGUE_EXPANSION
+            ,TYPE_FAIRY
+#endif
         };
         RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
     }
@@ -2622,20 +2804,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
 
-    RogueQuery_Exclude(ITEM_SACRED_ASH);
-    RogueQuery_Exclude(ITEM_REVIVAL_HERB);
-    RogueQuery_Exclude(ITEM_REVIVE);
-    RogueQuery_Exclude(ITEM_MAX_REVIVE);
-    RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
-    RogueQuery_Exclude(ITEM_RARE_CANDY);
-
-    RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
-    RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
-    RogueQuery_ItemsExcludeRange(ITEM_RED_SHARD, ITEM_GREEN_SHARD);
-    RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
-
-    //ITEM_SACRED_ASH
-
+    RogueQuery_ExcludeCommon();
 
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {

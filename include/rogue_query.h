@@ -1,6 +1,8 @@
 #ifndef ROGUE_QUERY_H
 #define ROGUE_QUERY_H
 
+typedef bool8 (*QueryCallback)(u16 elem, u16 usrData);
+
 u16 RogueUtil_GetEggSpecies(u16 species);
 
 void RogueQuery_Clear(void);
@@ -14,7 +16,10 @@ u16 RogueQuery_UncollapsedSpeciesSize(void);
 u16 RogueQuery_UncollapsedItemSize(void);
 u16 RogueQuery_AtUncollapsedIndex(u16 idx);
 
+void RogueQuery_Include(u16 idx);
 void RogueQuery_Exclude(u16 idx);
+void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData);
+void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
 
 // Species
 void RogueQuery_SpeciesIsValid(void);
@@ -31,10 +36,15 @@ void RogueQuery_SpeciesIsNotLegendary(void);
 
 // Items
 void RogueQuery_ItemsIsValid(void);
+void RogueQuery_ExcludeCommon(void);
 void RogueQuery_ItemsInPocket(u8 pocket);
 void RogueQuery_ItemsNotInPocket(u8 pocket);
 void RogueQuery_ItemsHeldItem(void);
 void RogueQuery_ItemsNotHeldItem(void);
+void RogueQuery_ItemsMedicine(void);
+void RogueQuery_ItemsNotMedicine(void);
+void RogueQuery_ItemsBattleEnchancer(void);
+void RogueQuery_ItemsNotBattleEnchancer(void);
 void RogueQuery_ItemsExcludeRange(u16 fromId, u16 toId);
 void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice);
 

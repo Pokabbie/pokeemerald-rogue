@@ -157,4 +157,12 @@
 #define CONNECTION_DIVE     5
 #define CONNECTION_EMERGE   6
 
+// RogueNote: Constants
+#define ROGUE_SHOP_NONE                 0
+#define ROGUE_SHOP_MEDICINE             1
+#define ROGUE_SHOP_BALLS                2
+#define ROGUE_SHOP_TMS                  3
+#define ROGUE_SHOP_BATTLE_ENHANCERS     4
+#define ROGUE_SHOP_HELD_ITEMS           5
+
 #endif // GUARD_CONSTANTS_GLOBAL_H

@@ -39,6 +39,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
 
@@ -1244,6 +1246,16 @@ void CreatePokemartMenuWithMinPrice(const u16 *itemsForSale, u16 minPrice)
 
     CreateShopMenu(MART_TYPE_NORMAL);
     SetShopItemsForSale(itemsForSale);
+    ClearItemPurchases();
+    SetShopMenuCallback(EnableBothScriptContexts);
+}
+
+void CreateDynamicPokemartMenu(const u16 category)
+{
+    sMartInfo.minPrice = 0;
+
+    CreateShopMenu(MART_TYPE_NORMAL);
+    SetShopItemsForSale(Rogue_CreateMartContents(category, &sMartInfo.minPrice));
     ClearItemPurchases();
     SetShopMenuCallback(EnableBothScriptContexts);
 }

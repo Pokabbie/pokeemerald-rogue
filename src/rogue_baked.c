@@ -147,6 +147,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 4000;
     }
 
+    if(itemId >= ITEM_GUARD_SPEC && itemId <= ITEM_X_SPECIAL)
+    {
+        outItem->price = 1500;
+    }
+
     if(outItem->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone)
     {
         outItem->price = 2100;
@@ -171,6 +176,8 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_DEEP_SEA_TOOTH:
         case ITEM_DEEP_SEA_SCALE:
         case ITEM_METAL_COAT:
+        case ITEM_DRAGON_SCALE:
+        case ITEM_UP_GRADE:
             outItem->price = 2100;
             break;
 

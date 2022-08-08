@@ -11,6 +11,7 @@
 //#include "battle_setup.h"
 //#include "event_data.h"
 #include "item.h"
+#include "item_use.h"
 //#include "money.h"
 //#include "overworld.h"
 #include "pokedex.h"
@@ -83,6 +84,9 @@ void RogueQuery_CollapseSpeciesBuffer(void)
             gRogueQueryBuffer[gRogueQueryBufferSize++] = species;
         }
     }
+
+    if(gRogueQueryBufferSize < QUERY_BUFFER_COUNT)
+        gRogueQueryBuffer[gRogueQueryBufferSize] = 0;
 }
 
 void RogueQuery_CollapseItemBuffer(void)
@@ -97,6 +101,9 @@ void RogueQuery_CollapseItemBuffer(void)
             gRogueQueryBuffer[gRogueQueryBufferSize++] = itemId;
         }
     }
+
+    if(gRogueQueryBufferSize < QUERY_BUFFER_COUNT)
+        gRogueQueryBuffer[gRogueQueryBufferSize] = 0;
 }
 
 u16* RogueQuery_BufferPtr(void)
@@ -158,9 +165,46 @@ u16 RogueQuery_AtUncollapsedIndex(u16 idx)
     return 0;
 }
 
+void RogueQuery_Include(u16 idx)
+{
+    SetQueryState(idx, TRUE);
+}
+
 void RogueQuery_Exclude(u16 idx)
 {
     SetQueryState(idx, FALSE);
+}
+
+void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(query(species, usrData) == FALSE)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_CustomItems(QueryCallback query, u16 usrData)
+{
+    u16 itemId;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            if(query(itemId, usrData) == FALSE)
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
 }
 
 // Species
@@ -586,6 +630,21 @@ void RogueQuery_ItemsIsValid(void)
     }
 }
 
+void RogueQuery_ExcludeCommon(void)
+{
+    RogueQuery_Exclude(ITEM_SACRED_ASH);
+    RogueQuery_Exclude(ITEM_REVIVAL_HERB);
+    RogueQuery_Exclude(ITEM_REVIVE);
+    RogueQuery_Exclude(ITEM_MAX_REVIVE);
+    RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
+    RogueQuery_Exclude(ITEM_RARE_CANDY);
+
+    RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
+    RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
+    RogueQuery_ItemsExcludeRange(ITEM_RED_SHARD, ITEM_GREEN_SHARD);
+    RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
+}
+
 void RogueQuery_ItemsInPocket(u8 pocket)
 {
     u16 itemId;
@@ -643,6 +702,44 @@ void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice)
     }
 }
 
+static bool8 IsExtraEvolutionItem(struct Item* item)
+{
+    switch(item->itemId)
+    {
+        case ITEM_EXP_SHARE:
+        case ITEM_KINGS_ROCK:
+        case ITEM_METAL_COAT:
+        case ITEM_DRAGON_SCALE:
+        case ITEM_UP_GRADE:
+        case ITEM_DEEP_SEA_TOOTH:
+        case ITEM_DEEP_SEA_SCALE:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 IsBattleEnchancer(struct Item* item)
+{
+    return (item->itemId >= ITEM_HP_UP && item->itemId <= ITEM_PP_MAX) ||
+        item->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone ||
+        item->battleUseFunc == ItemUseInBattle_StatIncrease ||
+        IsExtraEvolutionItem(item);
+}
+
+static bool8 IsMedicine(struct Item* item)
+{
+    return (item->fieldUseFunc == ItemUseOutOfBattle_Medicine || 
+        item->fieldUseFunc == ItemUseOutOfBattle_PPRecovery ||
+        item->fieldUseFunc == ItemUseOutOfBattle_Repel) 
+        && !IsBattleEnchancer(item);
+}
+
+static bool8 IsHeldItem(struct Item* item)
+{
+    return item->holdEffect != HOLD_EFFECT_NONE && !IsBattleEnchancer(item);
+}
+
 void RogueQuery_ItemsHeldItem(void)
 {
     u16 itemId;
@@ -654,7 +751,7 @@ void RogueQuery_ItemsHeldItem(void)
         {
             Rogue_ModifyItem(itemId, &item);
 
-            if(item.holdEffect == HOLD_EFFECT_NONE)
+            if(!IsHeldItem(&item))
             {
                 SetQueryState(itemId, FALSE);
             }
@@ -673,7 +770,83 @@ void RogueQuery_ItemsNotHeldItem(void)
         {
             Rogue_ModifyItem(itemId, &item);
 
-            if(item.holdEffect != HOLD_EFFECT_NONE)
+            if(IsHeldItem(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsMedicine(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(!IsMedicine(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsNotMedicine(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(IsMedicine(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsBattleEnchancer(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(!IsBattleEnchancer(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsNotBattleEnchancer(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(IsBattleEnchancer(&item))
             {
                 SetQueryState(itemId, FALSE);
             }
