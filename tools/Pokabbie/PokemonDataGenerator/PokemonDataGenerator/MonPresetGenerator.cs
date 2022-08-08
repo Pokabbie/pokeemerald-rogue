@@ -53,8 +53,11 @@ namespace PokemonDataGenerator
 				.Replace(".", "")
 				.Replace("’", "")
 				.Replace("'", "")
+				.Replace("%", "")
+				.Replace(":", "")
 				.Replace(" ", "_")
 				.Replace("-", "_")
+				.Replace("é", "e")
 				.ToUpper();
 		}
 
@@ -76,12 +79,19 @@ namespace PokemonDataGenerator
 			{
 				var category = (JObject)categoryKvp.Value;
 
+				if (categoryKvp.Key.EndsWith("hackmons", StringComparison.CurrentCultureIgnoreCase) ||
+					categoryKvp.Key.EndsWith("cap", StringComparison.CurrentCultureIgnoreCase))
+					continue;
+
 				// There is stats too, although they don't seem to be as populated?
 				var entries = (JObject)(category.ContainsKey("dex") ? category["dex"] : category["stats"]);
 
 				foreach (var pokemonKvp in entries)
 				{
 					string pokemonName = pokemonKvp.Key;
+
+					if (pokemonName.Equals("Eevee-starter", StringComparison.CurrentCultureIgnoreCase))
+						continue;
 
 					if (pokemonName.StartsWith("Deoxys", StringComparison.CurrentCultureIgnoreCase))
 					{
@@ -91,6 +101,34 @@ namespace PokemonDataGenerator
 						else
 							continue;
 					}
+
+					if (pokemonName.StartsWith("Darmanitan-Zen", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName = "Darmanitan-Zen-Mode" + pokemonName.Substring("Darmanitan Zen".Length);
+
+					if (pokemonName.Equals("Darmanitan-Galar-Zen", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName = "Darmanitan-Zen-Mode-Galar";
+
+					if (pokemonName.Equals("Meowstic-f", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName = "Meowstic-female";
+
+					if (pokemonName.Equals("Indeedee-f", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName = "Indeedee-female";
+
+					if (pokemonName.StartsWith("Calyrex-", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "-rider";
+
+					if (pokemonName.EndsWith("Urshifu-rapid-strike", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "-style";
+
+					if (pokemonName.EndsWith("Wormadam-Sandy", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "-cloak";
+					if (pokemonName.EndsWith("Wormadam-Trash", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "-cloak";
+
+					if (pokemonName.EndsWith("Alola", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "n";
+					if (pokemonName.EndsWith("Galar", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName += "ian";
 
 					var sets = (JObject)pokemonKvp.Value;
 
@@ -119,17 +157,35 @@ namespace PokemonDataGenerator
 									moveString = "Faint Attack";
 								}
 							}
+							else
+							{
+							}
 
 							preset.Moves.Add(moveString);
 						}
 
 						preset.Ability = null;
 						if (set.ContainsKey("ability"))
+						{
 							preset.Ability = set["ability"].ToString();
+
+							if (preset.Ability.Equals("As One (GLASTRIER)", StringComparison.CurrentCultureIgnoreCase))
+								preset.Ability = null;
+							else if (preset.Ability.Equals("As One (SPECTRIER)", StringComparison.CurrentCultureIgnoreCase))
+								preset.Ability = null;
+						}
 
 						preset.Item = null;
 						if (set.ContainsKey("item"))
+						{
 							preset.Item = set["item"].ToString();
+
+							if (!useGen3Format)
+							{
+								if (preset.Item.Equals("Stick", StringComparison.CurrentCultureIgnoreCase))
+									preset.Item = null; // Doesn't seem to exist in expansion :(
+							}
+						}
 
 						pokemonData.Presets.Add(preset);
 					}
@@ -166,7 +222,7 @@ namespace PokemonDataGenerator
 				{
 					upperBlock.AppendLine("\t{");
 
-					if (preset.Ability == null)
+					if (preset.Ability == null || preset.Ability.Equals("No Ability", StringComparison.CurrentCultureIgnoreCase))
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_NONE,");
 					else
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_{FormatKeyword(preset.Ability)},");
