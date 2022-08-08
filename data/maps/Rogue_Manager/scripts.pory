@@ -196,6 +196,43 @@ script Rogue_Shop_HeldItems
     release
 }
 
+script RogueSafari_Sign_South
+{
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING, FAIRY POKéMON"), MSGBOX_SIGN)
+    }
+    else
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING POKéMON"), MSGBOX_SIGN)
+    }
+}
+
+script RogueSafari_Sign_SouthWest
+{
+    msgbox(format("SOUTH WEST AREA home to:\nGRASS, POISON, DARK POKéMON"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_NorthWest
+{
+    msgbox(format("NORTH WEST AREA home to:\nDRAGON, STEEL, PSYCHIC POKéMON"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_North
+{
+    msgbox(format("NORTH AREA home to:\nFLYING, GHOST, FIRE POKéMON"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_NorthEast
+{
+    msgbox(format("NORTH EAST AREA home to:\nROCK, GROUND, ELECTRIC POKéMON"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_SouthEast
+{
+    msgbox(format("SOUTH EAST AREA home to:\nWATER, BUG, ICE POKéMON"), MSGBOX_SIGN)
+}
+
 
 // Tutors
 //

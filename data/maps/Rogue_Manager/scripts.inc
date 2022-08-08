@@ -153,6 +153,41 @@ Rogue_Shop_HeldItems::
 	return
 
 
+RogueSafari_Sign_South::
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueSafari_Sign_South_1
+	msgbox RogueSafari_Sign_South_Text_1, MSGBOX_SIGN
+	return
+
+RogueSafari_Sign_South_1:
+	msgbox RogueSafari_Sign_South_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_SouthWest::
+	msgbox RogueSafari_Sign_SouthWest_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_NorthWest::
+	msgbox RogueSafari_Sign_NorthWest_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_North::
+	msgbox RogueSafari_Sign_North_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_NorthEast::
+	msgbox RogueSafari_Sign_NorthEast_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_SouthEast::
+	msgbox RogueSafari_Sign_SouthEast_Text_0, MSGBOX_SIGN
+	return
+
+
 Rogue_Tutor_MoveRelearn::
 	special TeachMoveSetContextRelearnMove
 	lock
@@ -672,6 +707,34 @@ Rogue_Shop_BattleEnhancers_Text_0:
 
 Rogue_Shop_HeldItems_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.$"
+
+RogueSafari_Sign_South_Text_0:
+	.string "SOUTH AREA home to:\n"
+	.string "NORMAL, FIGHTING, FAIRY POKéMON$"
+
+RogueSafari_Sign_South_Text_1:
+	.string "SOUTH AREA home to:\n"
+	.string "NORMAL, FIGHTING POKéMON$"
+
+RogueSafari_Sign_SouthWest_Text_0:
+	.string "SOUTH WEST AREA home to:\n"
+	.string "GRASS, POISON, DARK POKéMON$"
+
+RogueSafari_Sign_NorthWest_Text_0:
+	.string "NORTH WEST AREA home to:\n"
+	.string "DRAGON, STEEL, PSYCHIC POKéMON$"
+
+RogueSafari_Sign_North_Text_0:
+	.string "NORTH AREA home to:\n"
+	.string "FLYING, GHOST, FIRE POKéMON$"
+
+RogueSafari_Sign_NorthEast_Text_0:
+	.string "NORTH EAST AREA home to:\n"
+	.string "ROCK, GROUND, ELECTRIC POKéMON$"
+
+RogueSafari_Sign_SouthEast_Text_0:
+	.string "SOUTH EAST AREA home to:\n"
+	.string "WATER, BUG, ICE POKéMON$"
 
 Rogue_Tutor_MoveRelearn_Text_0:
 	.string "I'm the LVL MOVE TUTOR.\p"
