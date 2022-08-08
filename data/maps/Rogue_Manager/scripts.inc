@@ -98,385 +98,50 @@ Rogue_Shop_GetRandomIndex_1:
 	return
 
 
-Rogue_Shop_Utilty::
+Rogue_Shop_Balls::
 	lock
 	faceplayer
-	message Rogue_Shop_Utilty_Text_0
+	message Rogue_Shop_Balls_Text_0
 	waitmessage
-	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_Utilty_2
-	copyvar VAR_0x8000, VAR_ROGUE_FURTHEST_DIFFICULTY
-Rogue_Shop_Utilty_1:
-	switch VAR_0x8000
-	case 0, Rogue_Shop_Utilty_7
-	case 1, Rogue_Shop_Utilty_8
-	case 2, Rogue_Shop_Utilty_9
-	case 3, Rogue_Shop_Utilty_10
-	case 4, Rogue_Shop_Utilty_11
-	case 5, Rogue_Shop_Utilty_12
-	case 6, Rogue_Shop_Utilty_13
-	case 7, Rogue_Shop_Utilty_13
-	pokemart Rogue_Shop_Utility8
-Rogue_Shop_Utilty_5:
-	msgbox Rogue_Shop_Utilty_Text_1
+	rogue_dynamicpokemart ROGUE_SHOP_BALLS
+	msgbox Rogue_Shop_Balls_Text_1
 	release
 	return
 
-Rogue_Shop_Utilty_2:
-	copyvar VAR_0x8000, VAR_ROGUE_DIFFICULTY
-	goto Rogue_Shop_Utilty_1
 
-Rogue_Shop_Utilty_7:
-	pokemart Rogue_Shop_Utility0
-	goto Rogue_Shop_Utilty_5
+Rogue_Shop_Medicine::
+	lock
+	faceplayer
+	message Rogue_Shop_Medicine_Text_0
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_MEDICINE
+	msgbox Rogue_Shop_Balls_Text_1
+	release
+	return
 
-Rogue_Shop_Utilty_8:
-	pokemart Rogue_Shop_Utility1
-	goto Rogue_Shop_Utilty_5
-
-Rogue_Shop_Utilty_9:
-	pokemart Rogue_Shop_Utility2
-	goto Rogue_Shop_Utilty_5
-
-Rogue_Shop_Utilty_10:
-	pokemart Rogue_Shop_Utility3
-	goto Rogue_Shop_Utilty_5
-
-Rogue_Shop_Utilty_11:
-	pokemart Rogue_Shop_Utility4
-	goto Rogue_Shop_Utilty_5
-
-Rogue_Shop_Utilty_12:
-	pokemart Rogue_Shop_Utility5
-	goto Rogue_Shop_Utilty_5
-
-Rogue_Shop_Utilty_13:
-	pokemart Rogue_Shop_Utility6
-	goto Rogue_Shop_Utilty_5
-
-
-	.align 2
-Rogue_Shop_Utility0:
-	.2byte ITEM_POTION
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility1:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility2:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_ETHER
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility3:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_ETHER
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility4:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_ETHER
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_ELIXIR
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility5:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_ETHER
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_ELIXIR
-	.2byte ITEM_MAX_ELIXIR
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
-	.2byte ITEM_NEST_BALL
-	.2byte ITEM_REPEAT_BALL
-	.2byte ITEM_TIMER_BALL
-	.2byte ITEM_LUXURY_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility6:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_ETHER
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_ELIXIR
-	.2byte ITEM_MAX_ELIXIR
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
-	.2byte ITEM_NEST_BALL
-	.2byte ITEM_REPEAT_BALL
-	.2byte ITEM_TIMER_BALL
-	.2byte ITEM_LUXURY_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_Utility8:
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_ETHER
-	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_ELIXIR
-	.2byte ITEM_MAX_ELIXIR
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_MASTER_BALL
-	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
-	.2byte ITEM_NEST_BALL
-	.2byte ITEM_REPEAT_BALL
-	.2byte ITEM_TIMER_BALL
-	.2byte ITEM_LUXURY_BALL
-	.2byte ITEM_REPEL
-	.2byte ITEM_SUPER_REPEL
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_NONE
 
 Rogue_Shop_TMs::
 	lock
 	faceplayer
 	message Rogue_Shop_TMs_Text_0
 	waitmessage
-	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_TMs_2
-	copyvar VAR_0x8000, VAR_ROGUE_FURTHEST_DIFFICULTY
-Rogue_Shop_TMs_1:
-	switch VAR_0x8000
-	case 0, Rogue_Shop_TMs_7
-	case 1, Rogue_Shop_TMs_7
-	case 2, Rogue_Shop_TMs_8
-	case 3, Rogue_Shop_TMs_8
-	pokemart Rogue_Shop_TM4
-Rogue_Shop_TMs_5:
-	msgbox Rogue_Shop_Utilty_Text_1
+	rogue_dynamicpokemart ROGUE_SHOP_TMS
+	msgbox Rogue_Shop_Balls_Text_1
 	release
 	return
 
-Rogue_Shop_TMs_2:
-	copyvar VAR_0x8000, VAR_ROGUE_DIFFICULTY
-	goto Rogue_Shop_TMs_1
 
-Rogue_Shop_TMs_7:
-	pokemart Rogue_Shop_TM0
-	goto Rogue_Shop_TMs_5
-
-Rogue_Shop_TMs_8:
-	pokemart Rogue_Shop_TM2
-	goto Rogue_Shop_TMs_5
-
-
-	.align 2
-Rogue_Shop_TM0:
-	.2byte ITEM_TM12
-	.2byte ITEM_TM34
-	.2byte ITEM_TM09
-	.2byte ITEM_TM05
-	.2byte ITEM_TM17
-	.2byte ITEM_TM20
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_TM2:
-	.2byte ITEM_TM12
-	.2byte ITEM_TM41
-	.2byte ITEM_TM46
-	.2byte ITEM_TM24
-	.2byte ITEM_TM34
-	.2byte ITEM_TM08
-	.2byte ITEM_TM31
-	.2byte ITEM_TM35
-	.2byte ITEM_TM40
-	.2byte ITEM_TM30
-	.2byte ITEM_TM09
-	.2byte ITEM_TM22
-	.2byte ITEM_TM28
-	.2byte ITEM_TM07
-	.2byte ITEM_TM05
-	.2byte ITEM_TM10
-	.2byte ITEM_TM17
-	.2byte ITEM_TM20
-	.2byte ITEM_TM21
-	.2byte ITEM_TM27
-	.2byte ITEM_TM43
-	.2byte ITEM_TM45
-	.2byte ITEM_TM36
-	.2byte ITEM_TM16
-	.2byte ITEM_TM33
-	.2byte ITEM_TM44
-	.2byte ITEM_TM48
-	.2byte ITEM_TM39
-	.2byte ITEM_TM23
-	.2byte ITEM_TM03
-	.2byte ITEM_NONE
-
-	.align 2
-Rogue_Shop_TM4:
-	.2byte ITEM_TM12
-	.2byte ITEM_TM41
-	.2byte ITEM_TM46
-	.2byte ITEM_TM49
-	.2byte ITEM_TM02
-	.2byte ITEM_TM24
-	.2byte ITEM_TM25
-	.2byte ITEM_TM34
-	.2byte ITEM_TM01
-	.2byte ITEM_TM08
-	.2byte ITEM_TM31
-	.2byte ITEM_TM11
-	.2byte ITEM_TM35
-	.2byte ITEM_TM38
-	.2byte ITEM_TM50
-	.2byte ITEM_TM40
-	.2byte ITEM_TM30
-	.2byte ITEM_TM09
-	.2byte ITEM_TM19
-	.2byte ITEM_TM22
-	.2byte ITEM_TM26
-	.2byte ITEM_TM28
-	.2byte ITEM_TM07
-	.2byte ITEM_TM13
-	.2byte ITEM_TM14
-	.2byte ITEM_TM05
-	.2byte ITEM_TM10
-	.2byte ITEM_TM15
-	.2byte ITEM_TM17
-	.2byte ITEM_TM20
-	.2byte ITEM_TM21
-	.2byte ITEM_TM27
-	.2byte ITEM_TM32
-	.2byte ITEM_TM42
-	.2byte ITEM_TM43
-	.2byte ITEM_TM45
-	.2byte ITEM_TM06
-	.2byte ITEM_TM36
-	.2byte ITEM_TM04
-	.2byte ITEM_TM16
-	.2byte ITEM_TM29
-	.2byte ITEM_TM33
-	.2byte ITEM_TM44
-	.2byte ITEM_TM48
-	.2byte ITEM_TM37
-	.2byte ITEM_TM39
-	.2byte ITEM_TM23
-	.2byte ITEM_TM47
-	.2byte ITEM_TM03
-	.2byte ITEM_TM18
-	.2byte ITEM_NONE
-
-Rogue_Shop_BattleItems::
+Rogue_Shop_BattleEnhancers::
 	lock
 	faceplayer
-	message Rogue_Shop_BattleItems_Text_0
+	message Rogue_Shop_BattleEnhancers_Text_0
 	waitmessage
-	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Shop_BattleItems_2
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
-	goto_if_ge Rogue_Shop_BattleItems_8
-	pokemartwithminprice Rogue_Shop_BattleEvos, 1000
-Rogue_Shop_BattleItems_1:
-	msgbox Rogue_Shop_Utilty_Text_1
+	rogue_dynamicpokemart ROGUE_SHOP_BATTLE_ENHANCERS
+	msgbox Rogue_Shop_Balls_Text_1
 	release
 	return
 
+<<<<<<< HEAD
 Rogue_Shop_BattleItems_2:
 	compare VAR_TEMP_F, 0
 	goto_if_eq Rogue_Shop_BattleItems_6
@@ -662,6 +327,54 @@ Rogue_Shop_Battle3:
 	.2byte ITEM_LIGHT_BALL
 	.2byte ITEM_LUCKY_EGG
 	.2byte ITEM_NONE
+=======
+
+Rogue_Shop_HeldItems::
+	lock
+	faceplayer
+	message Rogue_Shop_HeldItems_Text_0
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_HELD_ITEMS
+	msgbox Rogue_Shop_Balls_Text_1
+	release
+	return
+
+
+RogueSafari_Sign_South::
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueSafari_Sign_South_1
+	msgbox RogueSafari_Sign_South_Text_1, MSGBOX_SIGN
+	return
+
+RogueSafari_Sign_South_1:
+	msgbox RogueSafari_Sign_South_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_SouthWest::
+	msgbox RogueSafari_Sign_SouthWest_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_NorthWest::
+	msgbox RogueSafari_Sign_NorthWest_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_North::
+	msgbox RogueSafari_Sign_North_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_NorthEast::
+	msgbox RogueSafari_Sign_NorthEast_Text_0, MSGBOX_SIGN
+	return
+
+
+RogueSafari_Sign_SouthEast::
+	msgbox RogueSafari_Sign_SouthEast_Text_0, MSGBOX_SIGN
+	return
+
+>>>>>>> remotes/origin/master
 
 Rogue_Tutor_MoveRelearn::
 	special TeachMoveSetContextRelearnMove
@@ -1165,17 +878,51 @@ Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"
 	.string "HUB?$"
 
-Rogue_Shop_Utilty_Text_0:
-	.string "Welcome to the UTILITY Shop!$"
+Rogue_Shop_Balls_Text_0:
+	.string "Welcome to the POKéBALL Shop!$"
 
-Rogue_Shop_Utilty_Text_1:
+Rogue_Shop_Balls_Text_1:
 	.string "Come again soon!$"
+
+Rogue_Shop_Medicine_Text_0:
+	.string "Welcome to the MEDICINE Shop!$"
 
 Rogue_Shop_TMs_Text_0:
 	.string "Welcome to the TM Shop!$"
 
-Rogue_Shop_BattleItems_Text_0:
-	.string "Welcome to the TRAVELLING BATTLE Shop!$"
+Rogue_Shop_BattleEnhancers_Text_0:
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock ENHANCEMENT ITEMS.$"
+
+Rogue_Shop_HeldItems_Text_0:
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.$"
+
+RogueSafari_Sign_South_Text_0:
+	.string "SOUTH AREA home to:\n"
+	.string "NORMAL, FIGHTING, FAIRY POKéMON$"
+
+RogueSafari_Sign_South_Text_1:
+	.string "SOUTH AREA home to:\n"
+	.string "NORMAL, FIGHTING POKéMON$"
+
+RogueSafari_Sign_SouthWest_Text_0:
+	.string "SOUTH WEST AREA home to:\n"
+	.string "GRASS, POISON, DARK POKéMON$"
+
+RogueSafari_Sign_NorthWest_Text_0:
+	.string "NORTH WEST AREA home to:\n"
+	.string "DRAGON, STEEL, PSYCHIC POKéMON$"
+
+RogueSafari_Sign_North_Text_0:
+	.string "NORTH AREA home to:\n"
+	.string "FLYING, GHOST, FIRE POKéMON$"
+
+RogueSafari_Sign_NorthEast_Text_0:
+	.string "NORTH EAST AREA home to:\n"
+	.string "ROCK, GROUND, ELECTRIC POKéMON$"
+
+RogueSafari_Sign_SouthEast_Text_0:
+	.string "SOUTH EAST AREA home to:\n"
+	.string "WATER, BUG, ICE POKéMON$"
 
 Rogue_Tutor_MoveRelearn_Text_0:
 	.string "I'm the LVL MOVE TUTOR.\p"

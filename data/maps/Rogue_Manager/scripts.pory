@@ -131,220 +131,30 @@ script Rogue_Shop_GetRandomIndex
     }
 }
 
-script Rogue_Shop_Utilty
+script Rogue_Shop_Balls
 {    
     lock
     faceplayer
-    message("Welcome to the UTILITY Shop!")
+    message("Welcome to the POKéBALL Shop!")
     waitmessage
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE))
-    {
-        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_DIFFICULTY)
-    }
-    else
-    {
-        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    }
-
-    switch(var(VAR_SHOP_DIFFICULTY))
-    {
-        case 0:
-            pokemart(Rogue_Shop_Utility0)
-        case 1:
-            pokemart(Rogue_Shop_Utility1)
-        case 2:
-            pokemart(Rogue_Shop_Utility2)
-        case 3:
-            pokemart(Rogue_Shop_Utility3)
-        case 4:
-            pokemart(Rogue_Shop_Utility4)
-        case 5:
-            pokemart(Rogue_Shop_Utility5)
-
-        case 6:
-        case 7:
-            pokemart(Rogue_Shop_Utility6)
-
-        default:
-            pokemart(Rogue_Shop_Utility8)
-    }
+    rogue_dynamicpokemart(ROGUE_SHOP_BALLS)
 
     msgbox("Come again soon!")
     release
 }
 
-mart Rogue_Shop_Utility0 {
-    ITEM_POTION
-    ITEM_POKE_BALL
-    ITEM_ANTIDOTE
-}
+script Rogue_Shop_Medicine
+{    
+    lock
+    faceplayer
+    message("Welcome to the MEDICINE Shop!")
+    waitmessage
 
-mart Rogue_Shop_Utility1 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_REPEL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
+    rogue_dynamicpokemart(ROGUE_SHOP_MEDICINE)
 
-mart Rogue_Shop_Utility2 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_ETHER
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
-
-mart Rogue_Shop_Utility3 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_MAX_POTION
-    ITEM_ETHER
-    ITEM_MAX_ETHER
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_MAX_REPEL
-    ITEM_FULL_HEAL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
-
-mart Rogue_Shop_Utility4 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_MAX_POTION
-    ITEM_FULL_RESTORE
-    ITEM_ETHER
-    ITEM_MAX_ETHER
-    ITEM_ELIXIR
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_MAX_REPEL
-    ITEM_FULL_HEAL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
-
-mart Rogue_Shop_Utility5 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_MAX_POTION
-    ITEM_FULL_RESTORE
-    ITEM_ETHER
-    ITEM_MAX_ETHER
-    ITEM_ELIXIR
-    ITEM_MAX_ELIXIR
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_NET_BALL
-    ITEM_DIVE_BALL
-    ITEM_NEST_BALL
-    ITEM_REPEAT_BALL
-    ITEM_TIMER_BALL
-    ITEM_LUXURY_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_MAX_REPEL
-    ITEM_FULL_HEAL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
-
-mart Rogue_Shop_Utility6 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_MAX_POTION
-    ITEM_FULL_RESTORE
-    ITEM_ETHER
-    ITEM_MAX_ETHER
-    ITEM_ELIXIR
-    ITEM_MAX_ELIXIR
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_NET_BALL
-    ITEM_DIVE_BALL
-    ITEM_NEST_BALL
-    ITEM_REPEAT_BALL
-    ITEM_TIMER_BALL
-    ITEM_LUXURY_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_MAX_REPEL
-    ITEM_FULL_HEAL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
-}
-
-// Skip Shop 7
-
-mart Rogue_Shop_Utility8 {
-    ITEM_POTION
-    ITEM_SUPER_POTION
-    ITEM_HYPER_POTION
-    ITEM_MAX_POTION
-    ITEM_FULL_RESTORE
-    ITEM_ETHER
-    ITEM_MAX_ETHER
-    ITEM_ELIXIR
-    ITEM_MAX_ELIXIR
-    ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_ULTRA_BALL
-    ITEM_MASTER_BALL
-    ITEM_NET_BALL
-    ITEM_DIVE_BALL
-    ITEM_NEST_BALL
-    ITEM_REPEAT_BALL
-    ITEM_TIMER_BALL
-    ITEM_LUXURY_BALL
-    ITEM_REPEL
-    ITEM_SUPER_REPEL
-    ITEM_MAX_REPEL
-    ITEM_FULL_HEAL
-    ITEM_PARALYZE_HEAL
-    ITEM_BURN_HEAL
-    ITEM_ANTIDOTE
-    ITEM_AWAKENING
-    ITEM_ICE_HEAL
+    msgbox("Come again soon!")
+    release
 }
 
 script Rogue_Shop_TMs
@@ -354,331 +164,73 @@ script Rogue_Shop_TMs
     message("Welcome to the TM Shop!")
     waitmessage
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE))
-    {
-        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_DIFFICULTY)
-    }
-    else
-    {
-        copyvar(VAR_SHOP_DIFFICULTY, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    }
-
-    switch(var(VAR_SHOP_DIFFICULTY))
-    {
-        case 0:
-        case 1:
-            pokemart(Rogue_Shop_TM0)
-        case 2:
-        case 3:
-            pokemart(Rogue_Shop_TM2)
-        default:
-            pokemart(Rogue_Shop_TM4)
-    }
+    rogue_dynamicpokemart(ROGUE_SHOP_TMS)
 
     msgbox("Come again soon!")
     release
 }
 
-mart Rogue_Shop_TM0 {
-    ITEM_TM12
-    ITEM_TM34
-    ITEM_TM09
-    ITEM_TM05
-    ITEM_TM17
-    ITEM_TM20
-}
-
-mart Rogue_Shop_TM2 {
-    ITEM_TM12
-    ITEM_TM41
-    ITEM_TM46
-    ITEM_TM24
-    ITEM_TM34
-    ITEM_TM08
-    ITEM_TM31
-    ITEM_TM35
-    ITEM_TM40
-    ITEM_TM30
-    ITEM_TM09
-    ITEM_TM22
-    ITEM_TM28
-    ITEM_TM07
-    ITEM_TM05
-    ITEM_TM10
-    ITEM_TM17
-    ITEM_TM20
-    ITEM_TM21
-    ITEM_TM27
-    ITEM_TM43
-    ITEM_TM45
-    ITEM_TM36
-    ITEM_TM16
-    ITEM_TM33
-    ITEM_TM44
-    ITEM_TM48
-    ITEM_TM39
-    ITEM_TM23
-    ITEM_TM03
-}
-
-mart Rogue_Shop_TM4 {
-    ITEM_TM12
-    ITEM_TM41
-    ITEM_TM46
-    ITEM_TM49
-    ITEM_TM02
-    ITEM_TM24
-    ITEM_TM25
-    ITEM_TM34
-    ITEM_TM01
-    ITEM_TM08
-    ITEM_TM31
-    ITEM_TM11
-    ITEM_TM35
-    ITEM_TM38
-    ITEM_TM50
-    ITEM_TM40
-    ITEM_TM30
-    ITEM_TM09
-    ITEM_TM19
-    ITEM_TM22
-    ITEM_TM26
-    ITEM_TM28
-    ITEM_TM07
-    ITEM_TM13
-    ITEM_TM14
-    ITEM_TM05
-    ITEM_TM10
-    ITEM_TM15
-    ITEM_TM17
-    ITEM_TM20
-    ITEM_TM21
-    ITEM_TM27
-    ITEM_TM32
-    ITEM_TM42
-    ITEM_TM43
-    ITEM_TM45
-    ITEM_TM06
-    ITEM_TM36
-    ITEM_TM04
-    ITEM_TM16
-    ITEM_TM29
-    ITEM_TM33
-    ITEM_TM44
-    ITEM_TM48
-    ITEM_TM37
-    ITEM_TM39
-    ITEM_TM23
-    ITEM_TM47
-    ITEM_TM03
-    ITEM_TM18
-}
-
-
-script Rogue_Shop_BattleItems
+script Rogue_Shop_BattleEnhancers
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!")
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock ENHANCEMENT ITEMS.")
     waitmessage
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE))
-    {        
-        if(var(VAR_SHOP_RANDOM_IDX) == 0)
-        {
-            random(4)
-            copyvar(VAR_SHOP_RANDOM_IDX, VAR_RESULT)
-            addvar(VAR_SHOP_RANDOM_IDX, 1)
-        }
-
-        switch(var(VAR_SHOP_RANDOM_IDX))
-        {
-            case 1:
-                pokemartwithminprice(Rogue_Shop_Battle0, 500)
-            case 2:
-                pokemartwithminprice(Rogue_Shop_Battle1, 500)
-            case 3:
-                pokemartwithminprice(Rogue_Shop_Battle2, 500)
-            default:
-                pokemartwithminprice(Rogue_Shop_Battle3, 500)
-        }
-    }
-    else
-    {
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
-        {
-            pokemartwithminprice(Rogue_Shop_BattleFull, 1000)
-        }
-        else
-        {
-            pokemartwithminprice(Rogue_Shop_BattleEvos, 1000)
-        }
-    }
+    rogue_dynamicpokemart(ROGUE_SHOP_BATTLE_ENHANCERS)
 
     msgbox("Come again soon!")
     release
 }
 
-mart Rogue_Shop_BattleEvos {
-    ITEM_FIRE_STONE
-    ITEM_WATER_STONE
-    ITEM_THUNDER_STONE
-    ITEM_LEAF_STONE
-    ITEM_MOON_STONE
-    ITEM_SUN_STONE
-    ITEM_EXP_SHARE
-    ITEM_DRAGON_SCALE
-    ITEM_KINGS_ROCK
-    ITEM_METAL_COAT
-    //ITEM_UP_GRADE
-    ITEM_DEEP_SEA_SCALE
-    ITEM_DEEP_SEA_TOOTH
+script Rogue_Shop_HeldItems
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.")
+    waitmessage
 
-    ITEM_HP_UP
-    ITEM_PROTEIN
-    ITEM_IRON
-    ITEM_CARBOS
-    ITEM_CALCIUM
-    ITEM_PP_UP
-    ITEM_ZINC
-    ITEM_PP_MAX
+    rogue_dynamicpokemart(ROGUE_SHOP_HELD_ITEMS)
+
+    msgbox("Come again soon!")
+    release
 }
 
-mart Rogue_Shop_BattleFull {
-    ITEM_FIRE_STONE
-    ITEM_WATER_STONE
-    ITEM_THUNDER_STONE
-    ITEM_LEAF_STONE
-    ITEM_MOON_STONE
-    ITEM_SUN_STONE
-    ITEM_EXP_SHARE
-    ITEM_DRAGON_SCALE
-    ITEM_KINGS_ROCK
-    ITEM_METAL_COAT
-    //ITEM_UP_GRADE
-    ITEM_DEEP_SEA_SCALE
-    ITEM_DEEP_SEA_TOOTH
-
-    ITEM_HP_UP
-    ITEM_PROTEIN
-    ITEM_IRON
-    ITEM_CARBOS
-    ITEM_CALCIUM
-    ITEM_PP_UP
-    ITEM_ZINC
-    ITEM_PP_MAX
-
-    ITEM_AMULET_COIN
-    ITEM_BLACK_BELT
-    ITEM_BLACK_GLASSES
-    ITEM_BRIGHT_POWDER
-    ITEM_CHARCOAL
-    ITEM_CHOICE_BAND
-    ITEM_CLEANSE_TAG
-    ITEM_EVERSTONE
-    ITEM_FOCUS_BAND
-    ITEM_HARD_STONE
-    ITEM_LEFTOVERS
-    ITEM_LIGHT_BALL
-    ITEM_LUCKY_EGG
-    ITEM_LUCKY_PUNCH
-    ITEM_MAGNET
-    ITEM_MENTAL_HERB
-    ITEM_METAL_POWDER
-    ITEM_MIRACLE_SEED
-    ITEM_MYSTIC_WATER
-    ITEM_NEVER_MELT_ICE
-    ITEM_POISON_BARB
-    ITEM_QUICK_CLAW
-    ITEM_SCOPE_LENS
-    ITEM_SHARP_BEAK
-    ITEM_SHELL_BELL
-    ITEM_SILK_SCARF
-    ITEM_SILVER_POWDER
-    ITEM_SMOKE_BALL
-    ITEM_SOFT_SAND
-    ITEM_SPELL_TAG
-    //ITEM_STICK
-    ITEM_THICK_CLUB
-    ITEM_TWISTED_SPOON
-    ITEM_WHITE_HERB
-    ITEM_DRAGON_FANG
+script RogueSafari_Sign_South
+{
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING, FAIRY POKéMON"), MSGBOX_SIGN)
+    }
+    else
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING POKéMON"), MSGBOX_SIGN)
+    }
 }
 
-mart Rogue_Shop_Battle0 {
-    ITEM_FIRE_STONE
-    ITEM_WATER_STONE
-    ITEM_SUN_STONE
-    
-    ITEM_HP_UP
-    ITEM_PROTEIN
-
-    ITEM_AMULET_COIN
-    ITEM_BLACK_BELT
-    ITEM_BLACK_GLASSES
-    ITEM_CLEANSE_TAG
-    ITEM_EVERSTONE
-    ITEM_FOCUS_BAND
-    ITEM_SCOPE_LENS
-    ITEM_WHITE_HERB
-    ITEM_DRAGON_FANG
+script RogueSafari_Sign_SouthWest
+{
+    msgbox(format("SOUTH WEST AREA home to:\nGRASS, POISON, DARK POKéMON"), MSGBOX_SIGN)
 }
 
-mart Rogue_Shop_Battle1 {
-    ITEM_LEAF_STONE
-    ITEM_METAL_COAT
-    ITEM_THUNDER_STONE
-
-    ITEM_IRON
-    ITEM_CARBOS
-
-    ITEM_BRIGHT_POWDER
-    ITEM_CHARCOAL
-    ITEM_MIRACLE_SEED
-    ITEM_MYSTIC_WATER
-    ITEM_NEVER_MELT_ICE
-    ITEM_LUCKY_PUNCH
-    ITEM_MAGNET
-    ITEM_MENTAL_HERB
+script RogueSafari_Sign_NorthWest
+{
+    msgbox(format("NORTH WEST AREA home to:\nDRAGON, STEEL, PSYCHIC POKéMON"), MSGBOX_SIGN)
 }
 
-mart Rogue_Shop_Battle2 {
-    //ITEM_UP_GRADE
-    ITEM_DRAGON_SCALE
-    ITEM_KINGS_ROCK
-
-    ITEM_CALCIUM
-    ITEM_PP_UP
-
-    ITEM_CHOICE_BAND
-    ITEM_HARD_STONE
-    ITEM_SMOKE_BALL
-    ITEM_SOFT_SAND
-    ITEM_SPELL_TAG
-    ITEM_METAL_POWDER
-    ITEM_SHARP_BEAK
-    ITEM_SHELL_BELL
+script RogueSafari_Sign_North
+{
+    msgbox(format("NORTH AREA home to:\nFLYING, GHOST, FIRE POKéMON"), MSGBOX_SIGN)
 }
 
-mart Rogue_Shop_Battle3 {
-    ITEM_EXP_SHARE
-    ITEM_MOON_STONE
-    ITEM_DEEP_SEA_SCALE
-    ITEM_DEEP_SEA_TOOTH
+script RogueSafari_Sign_NorthEast
+{
+    msgbox(format("NORTH EAST AREA home to:\nROCK, GROUND, ELECTRIC POKéMON"), MSGBOX_SIGN)
+}
 
-    ITEM_ZINC
-    ITEM_PP_MAX
-
-    ITEM_SILK_SCARF
-    ITEM_SILVER_POWDER
-    //ITEM_STICK
-    ITEM_THICK_CLUB
-    ITEM_TWISTED_SPOON
-    ITEM_POISON_BARB
-    ITEM_QUICK_CLAW
-    ITEM_LEFTOVERS
-    ITEM_LIGHT_BALL
-    ITEM_LUCKY_EGG
+script RogueSafari_Sign_SouthEast
+{
+    msgbox(format("SOUTH EAST AREA home to:\nWATER, BUG, ICE POKéMON"), MSGBOX_SIGN)
 }
 
 

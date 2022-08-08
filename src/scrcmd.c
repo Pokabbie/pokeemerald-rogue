@@ -1947,6 +1947,15 @@ bool8 ScrCmd_pokemartwithminprice(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_rogue_dynamicpokemart(struct ScriptContext *ctx)
+{
+    u16 shopCategory = VarGet(ScriptReadHalfword(ctx));
+
+    CreateDynamicPokemartMenu(shopCategory);
+    ScriptContext1_Stop();
+    return TRUE;
+}
+
 bool8 ScrCmd_playslotmachine(struct ScriptContext *ctx)
 {
     u8 machineId = VarGet(ScriptReadHalfword(ctx));

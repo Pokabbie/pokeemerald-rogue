@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 11,
+      "x": 12,
       "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Shop_Utilty",
+      "script": "Rogue_Shop_Medicine",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Shop_BattleItems",
+      "script": "Rogue_Shop_HeldItems",
       "flag": "0"
     },
     {
@@ -133,7 +133,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 13,
+      "x": 14,
       "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -142,6 +142,32 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Shop_TMs",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+      "x": 10,
+      "y": 10,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Shop_Balls",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
+      "x": 37,
+      "y": 15,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Shop_BattleEnhancers",
       "flag": "0"
     }
   ],

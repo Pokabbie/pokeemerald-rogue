@@ -45,4 +45,6 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 
+const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
+
 #endif

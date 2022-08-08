@@ -672,7 +672,7 @@
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
+#define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
