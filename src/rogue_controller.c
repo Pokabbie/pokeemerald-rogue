@@ -559,7 +559,8 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime)
 
     if(Rogue_FastBattleAnims())
     {
-        *waitTime = 0;//*waitTime / 8;
+        // 0 bugs out status sometimes I think?
+        *waitTime = 1;//*waitTime / 8;
     }
     else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
     {
