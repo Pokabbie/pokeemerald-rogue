@@ -710,11 +710,25 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
         case ITEM_KINGS_ROCK:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:
+#ifndef ROGUE_EXPANSION
         case ITEM_UP_GRADE:
+#endif
         case ITEM_DEEP_SEA_TOOTH:
         case ITEM_DEEP_SEA_SCALE:
             return TRUE;
     }
+
+#ifdef ROGUE_EXPANSION
+    if(item->itemId >= ITEM_FIRE_STONE && item->itemId <= ITEM_RIBBON_SWEET)
+    {
+        return TRUE;
+    }
+
+    if(item->itemId >= ITEM_RED_ORB && item->itemId <= ITEM_DIANCITE)
+    {
+        return TRUE;
+    }
+#endif
 
     return FALSE;
 }
@@ -724,6 +738,10 @@ static bool8 IsBattleEnchancer(struct Item* item)
     return (item->itemId >= ITEM_HP_UP && item->itemId <= ITEM_PP_MAX) ||
         item->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone ||
         item->battleUseFunc == ItemUseInBattle_StatIncrease ||
+#ifdef ROGUE_EXPANSION
+        (item->itemId >= ITEM_NORMALIUM_Z && item->itemId <= ITEM_ULTRANECROZIUM_Z) ||
+        (item->itemId >= ITEM_HEALTH_FEATHER && item->itemId <= ITEM_SERIOUS_MINT) ||
+#endif
         IsExtraEvolutionItem(item);
 }
 
