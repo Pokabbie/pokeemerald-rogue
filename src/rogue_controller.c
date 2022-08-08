@@ -2053,13 +2053,18 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     return species;
 }
 
+#ifdef ROGUE_EXPANSION
 extern const struct LevelUpMove *const gLevelUpLearnsets[];
+#else
+extern const u16 *const gLevelUpLearnsets[];
+#endif
 
 bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
 {
     u16 eggSpecies;
     s32 i;
 
+#ifdef ROGUE_EXPANSION
     for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
     {
         u16 moveLevel;
@@ -2067,6 +2072,15 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
         if(move == gLevelUpLearnsets[species][i].move)
         {
             moveLevel = gLevelUpLearnsets[species][i].level;
+#else
+    for (i = 0; gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
+    {
+        u16 moveLevel;
+
+        if(move == (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID))
+        {
+            moveLevel = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV);
+#endif
 
             if (moveLevel > (level << 9))
                 return FALSE;
@@ -2295,6 +2309,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+
+    // RogueNote: EE Todo exclude mega stones and z crystals if don't have the key items (Do that for trainers too)
+
     switch(itemCategory)
     {
         case ROGUE_SHOP_MEDICINE:
@@ -2318,6 +2335,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_Exclude(ITEM_HEAL_POWDER);
             RogueQuery_Exclude(ITEM_LAVA_COOKIE);
             RogueQuery_Exclude(ITEM_BERRY_JUICE);
+#ifdef ROGUE_EXPANSION
+            RogueQuery_ItemsExcludeRange(ITEM_PEWTER_CRUNCHIES, ITEM_BIG_MALASADA);
+#endif
             break;
 
         case ROGUE_SHOP_BALLS:

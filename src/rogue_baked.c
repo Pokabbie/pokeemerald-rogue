@@ -147,7 +147,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 4000;
     }
 
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_X_ATTACK && itemId <= ITEM_GUARD_SPEC)
+#else
     if(itemId >= ITEM_GUARD_SPEC && itemId <= ITEM_X_SPECIAL)
+#endif
     {
         outItem->price = 1500;
     }
@@ -163,6 +167,23 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 500;
     }
 
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_FIRE_STONE && itemId <= ITEM_RIBBON_SWEET)
+    {
+        outItem->price = 2100;
+    }
+
+    if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
+    {
+        outItem->price = 3000;
+    }
+
+    if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+    {
+        outItem->price = 3000;
+    }
+#endif
+
     // Individual items
     switch(itemId)
     {
@@ -177,7 +198,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_DEEP_SEA_SCALE:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:
+#ifndef ROGUE_EXPANSION
         case ITEM_UP_GRADE:
+#endif
             outItem->price = 2100;
             break;
 
