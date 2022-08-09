@@ -932,10 +932,10 @@ Rogue_ConfigRoom_TalkDitto_Text_0:
 	.string "Why is it here?$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_0:
-	.string "ON$"
+	.string "OFF$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_1:
-	.string "OFF$"
+	.string "ON$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_2:
 	.string "???$"

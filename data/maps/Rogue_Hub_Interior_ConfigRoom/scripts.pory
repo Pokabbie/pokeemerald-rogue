@@ -168,7 +168,7 @@ script Rogue_ConfigRoom_MeetPokabbie
         applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
         waitmovement(0)
 
-        msgbox(format("Anyway!\pWhere I my manners!\nAllow me to introduce myself!"))
+        msgbox(format("Anyway!\pWhere are my manners!\nAllow me to introduce myself!"))
 
         applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
         waitmovement(0)
@@ -259,9 +259,9 @@ script Rogue_ConfigRoom_PreButtonInternal
     switch(var(VAR_FLAG_STATE))
     {
         case 0:
-            bufferstring(STR_VAR_2, format("ON"))
-        case 1:
             bufferstring(STR_VAR_2, format("OFF"))
+        case 1:
+            bufferstring(STR_VAR_2, format("ON"))
         default:
             bufferstring(STR_VAR_2, format("???"))
     }

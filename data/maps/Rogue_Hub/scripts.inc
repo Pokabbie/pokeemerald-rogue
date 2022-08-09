@@ -676,8 +676,7 @@ RogueHub_Intro0_Text_0:
 	.string "Sorry again for making you sit in the\n"
 	.string "back with all the supplies.\p"
 	.string "I'm sure you're raring to go, but first\n"
-	.string "you should go speak the PROF. first\n"
-	.string "I'll be here waiting when you're done.$"
+	.string "you should go speak the PROF.$"
 
 RogueHub_ReturnAdventure_Text_0:
 	.string "SCOTT: {PLAYER}!\p"

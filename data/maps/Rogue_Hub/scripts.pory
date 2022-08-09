@@ -151,7 +151,7 @@ script RogueHub_Intro0
     applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_PlayerGreetAtTruck)
     waitmovement(0)
 
-    msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF. first\nI'll be here waiting when you're done."))
+    msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF."))
 
     applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
     waitmovement(0)
