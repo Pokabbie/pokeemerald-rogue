@@ -1424,7 +1424,8 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
     // Avoid repeating same encounter (Base of current party)
     do
     {
-        mapIdx = RogueRandomRange(mapCount, OVERWORLD_FLAG);
+        // Special encounters are NOT seeded
+        mapIdx = Random() % mapCount;
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
     while(mapCount > 6 && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
