@@ -299,19 +299,39 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 #ifdef ROGUE_DEBUG
         *ballMultiplier = 255; // Masterball equiv
 #else
-        // Ball multiplyer will be 8x to 3x and will reduce based on room
-        if(gRogueRun.currentRoomIdx <= 6)
+        u8 difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+        if(difficulty <= 1) // First 2 badges
         {
-            *ballMultiplier = *ballMultiplier * (9 - gRogueRun.currentRoomIdx);
+            *ballMultiplier = 8;
+        }
+        else if(difficulty <= 2)
+        {
+            *ballMultiplier = 4;
+        }
+        else if(difficulty <= 3)
+        {
+            *ballMultiplier = 3;
+        }
+        else if(difficulty <= 4)
+        {
+            *ballMultiplier = 2;
+        }
+        else if(difficulty <= 7)
+        {
+            // Minimum of 2x multiplier whilst doing gyms?
+            *ballMultiplier = 2;
         }
         else
         {
-            *ballMultiplier = *ballMultiplier * 3;
+            // Elite 4 back to normal catch rates
+            *ballMultiplier = 1;
         }
 #endif
-        // Equiv to Onix
-        if(*catchRate < 45)
-            *catchRate = 45;
+
+        // Equiv to Snorlax
+        if(*catchRate < 25)
+            *catchRate = 25;
     }
     else if(GetSafariZoneFlag())
     {
