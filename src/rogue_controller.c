@@ -104,6 +104,9 @@ static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 
+static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
+static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
+
 static u16 RogueRandomRange(u16 range, u8 flag)
 {
     // Always use rogue random to avoid seeding issues based on flag
@@ -1079,8 +1082,10 @@ static void BeginRogueRun(void)
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
-    gRogueRun.previousRouteIndex = 255;
     gRogueRun.currentRouteIndex = 0;
+
+    memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
+    memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1133,8 +1138,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
-    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
+    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
+    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif
@@ -1326,39 +1331,17 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 mapCount;
     u8 mapIdx;
-    u8 swapRouteChance = 60;
-    u16 startRouteType = gRogueRun.currentRouteIndex;
     const struct RogueRouteMap* selectedMap = NULL;
 
-#ifdef ROGUE_DEBUG
-    if(nextRoomIdx == 1)
+    // Don't reply recent routes
+    do
     {
-        // Always force first route type for debug
-        swapRouteChance = 0;
+        gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
     }
-    else 
-#endif
-    //if(nextRoomIdx < ROOM_IDX_BOSS0)
-    {
-        // For now always swap route
-        swapRouteChance = 100;
-    }
-    
-    // Don't replay the most recent 2 routes
-    if(swapRouteChance != 0)
-    {
-        if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
-        {
-            do
-            {
-                gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
-            }
-            while(startRouteType == gRogueRun.currentRouteIndex || gRogueRun.currentRouteIndex == gRogueRun.previousRouteIndex);
-        }
-    }
+    while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex));
 
     selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
-    gRogueRun.previousRouteIndex = startRouteType;
+    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex);
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -2274,9 +2257,17 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         else
         {
             const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
-            u16 randIdx = Random() % count; 
+            u16 randIdx;
+            
+            do
+            {
+                // Prevent recent duplicates when on a run (Don't use this in safari mode though)
+                randIdx = Random() % count; 
+                *species = gRogueRun.wildEncounters[randIdx];
+            }
+            while(!GetSafariZoneFlag() && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
 
-            *species = gRogueRun.wildEncounters[randIdx];
+            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
             *level = maxlevel - (Random() % levelVariation);
         }
     }
@@ -2970,4 +2961,27 @@ static void RandomiseBerryTrees(void)
             RemoveBerryTree(i);
         }
     }
+}
+
+static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    for(i = 1; i < capacity; ++i)
+    {
+        buffer[i] = buffer[i - 1];
+    }
+
+    buffer[0] = value;
+}
+
+static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    for(i = 0; i < capacity; ++i)
+    {
+        if(buffer[i] == value)
+            return TRUE;
+    }
+
+    return FALSE;
 }
