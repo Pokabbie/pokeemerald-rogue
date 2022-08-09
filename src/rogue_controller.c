@@ -69,9 +69,17 @@ ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon)
 
 #endif
 
+struct RogueTrainerTemp
+{
+    u32 seedToRestore;
+    bool8 hasUsedLeftovers;
+    bool8 hasUsedShellbell;
+};
+
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
+    struct RogueTrainerTemp trainerTemp;
     
 #ifdef ROGUE_SUPPORT_QUICK_SAVE
     // We encode all our save data as box data :D
@@ -1983,12 +1991,15 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
-        u32 startSeed = gRngRogueValue;
         u8 allowedType[2] = { TYPE_NONE, TYPE_NONE };
         bool8 allowItemEvos = FALSE;
         bool8 allowLedgendaries = FALSE;
 
-        SeedRogueTrainer(startSeed, trainerNum, 0);
+        // Reset trainer temp
+        memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
+        gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
+
+        SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
         ConfigureTrainer(trainerNum, &allowedType[0], &allowItemEvos, &allowLedgendaries, monsCount);
 
         // Query for the current trainer team
@@ -2030,12 +2041,20 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 #endif
 
         *useRogueCreateMon = TRUE;
-
-        gRngRogueValue = startSeed;
         return;
     }
 
     *useRogueCreateMon = FALSE;
+}
+
+void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
+{
+    //struct Pokemon tempMon;
+    //CopyMon(&tempMon, party[0]);
+
+    // TODO - Re-order team hear for best compat (e.g. mega evo later)
+
+    gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
 
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
@@ -2106,6 +2125,79 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
+static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* outPreset)
+{
+    u8 randOffset;
+    u8 i;
+    bool8 isPresetValid;
+    u8 presetCount = gPresetMonTable[species].presetCount;
+
+    if(presetCount != 0)
+    {
+        const struct RogueMonPreset* currPreset;
+        randOffset = RogueRandomRange(presetCount, randFlag);
+
+        // Work from random offset and attempt to find the best preset which slots into this team
+        // If none is found, we will use the last option and adjust below
+        for(i = 0; i < presetCount; ++i)
+        {
+            currPreset = &gPresetMonTable[species].presets[((randOffset + i) % presetCount)];
+            isPresetValid = TRUE;
+
+            if(currPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
+            {
+                isPresetValid = FALSE;
+            }
+
+            if(currPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
+            {
+                isPresetValid = FALSE;
+            }
+
+            if(isPresetValid)
+            {
+                break;
+            }
+        }
+
+        memcpy(outPreset, currPreset, sizeof(struct RogueMonPreset));
+
+        // Swap out limited count items, if they already exist
+        if(!isPresetValid)
+        {
+            if(outPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
+            {
+                // Swap left overs to shell bell
+                outPreset->heldItem = ITEM_SHELL_BELL;
+            }
+
+            if(outPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
+            {
+                // Swap shell bell to NONE (i.e. berry)
+                outPreset->heldItem = ITEM_NONE;
+            }
+        }
+
+        if(outPreset->heldItem == ITEM_NONE)
+        {
+            // Swap empty item to a berry either lum or sitrus
+            outPreset->heldItem = RogueRandomRange(2, randFlag) == 0 ? ITEM_LUM_BERRY : ITEM_SITRUS_BERRY;
+        }
+        else if(outPreset->heldItem == ITEM_LEFTOVERS)
+        {
+            gRogueLocal.trainerTemp.hasUsedLeftovers = TRUE;
+        }
+        else if(outPreset->heldItem == ITEM_SHELL_BELL)
+        {
+            gRogueLocal.trainerTemp.hasUsedShellbell = TRUE;
+        }
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
@@ -2113,11 +2205,8 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     u8 level;
     u8 fixedIV;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u32 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
-
-    SeedRogueTrainer(startSeed, trainerNum, monIdx);
 
     // For wallace will will always have at least 1 ledgendary in last slot
     if(trainerNum == TRAINER_WALLACE)
@@ -2178,7 +2267,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     {
         u8 i;
         u16 move;
+        u16 heldItem;
         u8 writeMoveIdx;
+        struct RogueMonPreset preset;
         bool8 useMaxHappiness = TRUE;
 
         // We want to start writing the move from the first free slot and loop back around
@@ -2192,25 +2283,22 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         // Loop incase we already have 4 moves
         writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-        if(gPresetMonTable[species].presetCount != 0)
+        if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
-            u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-            const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
-
-            if(preset->abilityNum != ABILITY_NONE)
+            if(preset.abilityNum != ABILITY_NONE)
             {
-                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset.abilityNum);
             }
 
-            if(preset->heldItem != ITEM_NONE)
+            if(preset.heldItem != ITEM_NONE)
             {
-                SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+                SetMonData(mon, MON_DATA_HELD_ITEM, &preset.heldItem);
             }
 
             // Teach moves from set that we can learn at this lvl
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
-                move = preset->moves[i]; 
+                move = preset.moves[i]; 
 
                 if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
                 {
@@ -2229,8 +2317,6 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
         SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
     }
-
-    gRngRogueValue = startSeed;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
