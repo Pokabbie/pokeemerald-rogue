@@ -1938,6 +1938,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             }
         }
 
+        if(useRogueCreateMon)
+        {
+            Rogue_PostCreateTrainerParty(trainerNum, party, monsCount);
+        }
+
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
 

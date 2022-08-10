@@ -38,19 +38,19 @@ RogueHub_OnMapLoad::
 	goto_if_le RogueHub_OnMapLoad_2
 	clearflag FLAG_ROGUE_TRAINER0
 RogueHub_OnMapLoad_1:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
 	goto_if_lt RogueHub_OnMapLoad_6
 	clearflag FLAG_ROGUE_TRAINER4
 RogueHub_OnMapLoad_5:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
 	goto_if_lt RogueHub_OnMapLoad_10
 	clearflag FLAG_ROGUE_TRAINER1
 RogueHub_OnMapLoad_9:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
 	goto_if_lt RogueHub_OnMapLoad_14
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_13:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
 	goto_if_lt RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER3
 	return
@@ -58,6 +58,7 @@ RogueHub_OnMapLoad_13:
 RogueHub_OnMapLoad_2:
 	fillmetatile 31, 10, 40, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER0
+	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	goto RogueHub_OnMapLoad_1
 
 RogueHub_OnMapLoad_6:
@@ -71,7 +72,6 @@ RogueHub_OnMapLoad_6:
 RogueHub_OnMapLoad_10:
 	fillmetatile 22, 12, 27, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER1
-	fillmetatile 41, 20, 48, 25, 0x001, FALSE
 	goto RogueHub_OnMapLoad_9
 
 RogueHub_OnMapLoad_14:
@@ -676,8 +676,7 @@ RogueHub_Intro0_Text_0:
 	.string "Sorry again for making you sit in the\n"
 	.string "back with all the supplies.\p"
 	.string "I'm sure you're raring to go, but first\n"
-	.string "you should go speak the PROF. first\n"
-	.string "I'll be here waiting when you're done.$"
+	.string "you should go speak the PROF.$"
 
 RogueHub_ReturnAdventure_Text_0:
 	.string "SCOTT: {PLAYER}!\p"

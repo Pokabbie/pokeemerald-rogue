@@ -69,9 +69,17 @@ ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon)
 
 #endif
 
+struct RogueTrainerTemp
+{
+    u32 seedToRestore;
+    bool8 hasUsedLeftovers;
+    bool8 hasUsedShellbell;
+};
+
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
+    struct RogueTrainerTemp trainerTemp;
     
 #ifdef ROGUE_SUPPORT_QUICK_SAVE
     // We encode all our save data as box data :D
@@ -103,6 +111,9 @@ static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
+
+static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
+static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
 static u16 RogueRandomRange(u16 range, u8 flag)
 {
@@ -299,19 +310,39 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
 #ifdef ROGUE_DEBUG
         *ballMultiplier = 255; // Masterball equiv
 #else
-        // Ball multiplyer will be 8x to 3x and will reduce based on room
-        if(gRogueRun.currentRoomIdx <= 6)
+        u8 difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+
+        if(difficulty <= 1) // First 2 badges
         {
-            *ballMultiplier = *ballMultiplier * (9 - gRogueRun.currentRoomIdx);
+            *ballMultiplier = 8;
+        }
+        else if(difficulty <= 2)
+        {
+            *ballMultiplier = 4;
+        }
+        else if(difficulty <= 3)
+        {
+            *ballMultiplier = 3;
+        }
+        else if(difficulty <= 4)
+        {
+            *ballMultiplier = 2;
+        }
+        else if(difficulty <= 7)
+        {
+            // Minimum of 2x multiplier whilst doing gyms?
+            *ballMultiplier = 2;
         }
         else
         {
-            *ballMultiplier = *ballMultiplier * 3;
+            // Elite 4 back to normal catch rates
+            *ballMultiplier = 1;
         }
 #endif
-        // Equiv to Onix
-        if(*catchRate < 45)
-            *catchRate = 45;
+
+        // Equiv to Snorlax
+        if(*catchRate < 25)
+            *catchRate = 25;
     }
     else if(GetSafariZoneFlag())
     {
@@ -713,7 +744,7 @@ static void SelectStartMons(void)
 
 #ifdef ROGUE_DEBUG
     VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
-    VarSet(VAR_ROGUE_STARTER1, SPECIES_ABRA);
+    VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
 #endif
 }
 
@@ -1059,8 +1090,10 @@ static void BeginRogueRun(void)
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
-    gRogueRun.previousRouteIndex = 255;
     gRogueRun.currentRouteIndex = 0;
+
+    memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
+    memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1113,8 +1146,8 @@ static void BeginRogueRun(void)
 
 #ifdef ROGUE_DEBUG
     // TEMP - Testing only
-    gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
-    gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
+    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
+    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
 
     //gRogueRun.currentRouteIndex = 7;
 #endif
@@ -1306,39 +1339,17 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
 {
     u8 mapCount;
     u8 mapIdx;
-    u8 swapRouteChance = 60;
-    u16 startRouteType = gRogueRun.currentRouteIndex;
     const struct RogueRouteMap* selectedMap = NULL;
 
-#ifdef ROGUE_DEBUG
-    if(nextRoomIdx == 1)
+    // Don't reply recent routes
+    do
     {
-        // Always force first route type for debug
-        swapRouteChance = 0;
+        gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
     }
-    else 
-#endif
-    //if(nextRoomIdx < ROOM_IDX_BOSS0)
-    {
-        // For now always swap route
-        swapRouteChance = 100;
-    }
-    
-    // Don't replay the most recent 2 routes
-    if(swapRouteChance != 0)
-    {
-        if(swapRouteChance >= 100 || RogueRandomRange(100, OVERWORLD_FLAG) < swapRouteChance)
-        {
-            do
-            {
-                gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
-            }
-            while(startRouteType == gRogueRun.currentRouteIndex || gRogueRun.currentRouteIndex == gRogueRun.previousRouteIndex);
-        }
-    }
+    while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex));
 
     selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
-    gRogueRun.previousRouteIndex = startRouteType;
+    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex);
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -1413,7 +1424,8 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
     // Avoid repeating same encounter (Base of current party)
     do
     {
-        mapIdx = RogueRandomRange(mapCount, OVERWORLD_FLAG);
+        // Special encounters are NOT seeded
+        mapIdx = Random() % mapCount;
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
     while(mapCount > 6 && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
@@ -1980,12 +1992,15 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
-        u32 startSeed = gRngRogueValue;
         u8 allowedType[2] = { TYPE_NONE, TYPE_NONE };
         bool8 allowItemEvos = FALSE;
         bool8 allowLedgendaries = FALSE;
 
-        SeedRogueTrainer(startSeed, trainerNum, 0);
+        // Reset trainer temp
+        memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
+        gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
+
+        SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
         ConfigureTrainer(trainerNum, &allowedType[0], &allowItemEvos, &allowLedgendaries, monsCount);
 
         // Query for the current trainer team
@@ -2027,12 +2042,20 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 #endif
 
         *useRogueCreateMon = TRUE;
-
-        gRngRogueValue = startSeed;
         return;
     }
 
     *useRogueCreateMon = FALSE;
+}
+
+void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
+{
+    //struct Pokemon tempMon;
+    //CopyMon(&tempMon, party[0]);
+
+    // TODO - Re-order team hear for best compat (e.g. mega evo later)
+
+    gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
 
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
@@ -2103,6 +2126,79 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
+static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* outPreset)
+{
+    u8 randOffset;
+    u8 i;
+    bool8 isPresetValid;
+    u8 presetCount = gPresetMonTable[species].presetCount;
+
+    if(presetCount != 0)
+    {
+        const struct RogueMonPreset* currPreset;
+        randOffset = RogueRandomRange(presetCount, randFlag);
+
+        // Work from random offset and attempt to find the best preset which slots into this team
+        // If none is found, we will use the last option and adjust below
+        for(i = 0; i < presetCount; ++i)
+        {
+            currPreset = &gPresetMonTable[species].presets[((randOffset + i) % presetCount)];
+            isPresetValid = TRUE;
+
+            if(currPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
+            {
+                isPresetValid = FALSE;
+            }
+
+            if(currPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
+            {
+                isPresetValid = FALSE;
+            }
+
+            if(isPresetValid)
+            {
+                break;
+            }
+        }
+
+        memcpy(outPreset, currPreset, sizeof(struct RogueMonPreset));
+
+        // Swap out limited count items, if they already exist
+        if(!isPresetValid)
+        {
+            if(outPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
+            {
+                // Swap left overs to shell bell
+                outPreset->heldItem = ITEM_SHELL_BELL;
+            }
+
+            if(outPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
+            {
+                // Swap shell bell to NONE (i.e. berry)
+                outPreset->heldItem = ITEM_NONE;
+            }
+        }
+
+        if(outPreset->heldItem == ITEM_NONE)
+        {
+            // Swap empty item to a berry either lum or sitrus
+            outPreset->heldItem = RogueRandomRange(2, randFlag) == 0 ? ITEM_LUM_BERRY : ITEM_SITRUS_BERRY;
+        }
+        else if(outPreset->heldItem == ITEM_LEFTOVERS)
+        {
+            gRogueLocal.trainerTemp.hasUsedLeftovers = TRUE;
+        }
+        else if(outPreset->heldItem == ITEM_SHELL_BELL)
+        {
+            gRogueLocal.trainerTemp.hasUsedShellbell = TRUE;
+        }
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
@@ -2110,11 +2206,8 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     u8 level;
     u8 fixedIV;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u32 startSeed = gRngRogueValue;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
-
-    SeedRogueTrainer(startSeed, trainerNum, monIdx);
 
     // For wallace will will always have at least 1 ledgendary in last slot
     if(trainerNum == TRAINER_WALLACE)
@@ -2175,7 +2268,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     {
         u8 i;
         u16 move;
+        u16 heldItem;
         u8 writeMoveIdx;
+        struct RogueMonPreset preset;
         bool8 useMaxHappiness = TRUE;
 
         // We want to start writing the move from the first free slot and loop back around
@@ -2189,25 +2284,22 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         // Loop incase we already have 4 moves
         writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-        if(gPresetMonTable[species].presetCount != 0)
+        if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
-            u8 presetIdx = RogueRandomRange(gPresetMonTable[species].presetCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-            const struct RogueMonPreset* preset = &gPresetMonTable[species].presets[presetIdx];
-
-            if(preset->abilityNum != ABILITY_NONE)
+            if(preset.abilityNum != ABILITY_NONE)
             {
-                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset->abilityNum);
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset.abilityNum);
             }
 
-            if(preset->heldItem != ITEM_NONE)
+            if(preset.heldItem != ITEM_NONE)
             {
-                SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+                SetMonData(mon, MON_DATA_HELD_ITEM, &preset.heldItem);
             }
 
             // Teach moves from set that we can learn at this lvl
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
-                move = preset->moves[i]; 
+                move = preset.moves[i]; 
 
                 if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
                 {
@@ -2226,8 +2318,6 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
         SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
     }
-
-    gRngRogueValue = startSeed;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
@@ -2254,9 +2344,17 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         else
         {
             const u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
-            u16 randIdx = Random() % count; 
+            u16 randIdx;
+            
+            do
+            {
+                // Prevent recent duplicates when on a run (Don't use this in safari mode though)
+                randIdx = Random() % count; 
+                *species = gRogueRun.wildEncounters[randIdx];
+            }
+            while(!GetSafariZoneFlag() && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
 
-            *species = gRogueRun.wildEncounters[randIdx];
+            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
             *level = maxlevel - (Random() % levelVariation);
         }
     }
@@ -2446,6 +2544,38 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     return RogueQuery_BufferPtr();
 }
 
+static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = party[i];
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static u16 NextWildSpecies(u16 * party, u8 monIdx)
+{
+    u16 species;
+    u16 randIdx;
+    u16 queryCount = RogueQuery_BufferSize();
+    
+    // Prevent duplicates, if possible
+    do
+    {
+        randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
+        species = RogueQuery_BufferPtr()[randIdx];
+    }
+    while(ContainsSpecies(party, monIdx, species) && monIdx < queryCount);
+
+    return species;
+}
+
 static void RandomiseWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel();
@@ -2466,17 +2596,14 @@ static void RandomiseWildEncounters(void)
 
     {
         u8 i;
-        u16 randIdx;
-        u16 queryCount = RogueQuery_BufferSize();
 
 #ifdef ROGUE_DEBUG
-        gDebug_WildOptionCount = queryCount;
+        gDebug_WildOptionCount = RogueQuery_BufferSize();
 #endif
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
-            randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
-            gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+            gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }
 
@@ -2582,8 +2709,7 @@ static void RandomiseSafariWildEncounters(void)
         {
             for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
             {
-                randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
-                gRogueRun.wildEncounters[i] = RogueQuery_BufferPtr()[randIdx];
+                gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
             }
         }
     }
@@ -2922,4 +3048,27 @@ static void RandomiseBerryTrees(void)
             RemoveBerryTree(i);
         }
     }
+}
+
+static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    for(i = 1; i < capacity; ++i)
+    {
+        buffer[i] = buffer[i - 1];
+    }
+
+    buffer[0] = value;
+}
+
+static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    for(i = 0; i < capacity; ++i)
+    {
+        if(buffer[i] == value)
+            return TRUE;
+    }
+
+    return FALSE;
 }
