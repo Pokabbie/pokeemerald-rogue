@@ -621,6 +621,81 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
     return rate;
 }
 
+u8 SpeciesToGen(u16 species)
+{
+    if(species >= SPECIES_BULBASAUR && species <= SPECIES_MEW)
+        return 1;
+    if(species >= SPECIES_CHIKORITA && species <= SPECIES_CELEBI)
+        return 2;
+    if(species >= SPECIES_TREECKO && species <= SPECIES_DEOXYS)
+        return 3;
+#ifdef ROGUE_EXPANSION
+    if(species >= SPECIES_TURTWIG && species <= SPECIES_ARCEUS)
+        return 4;
+    if(species >= SPECIES_VICTINI && species <= SPECIES_GENESECT)
+        return 5;
+    if(species >= SPECIES_CHESPIN && species <= SPECIES_VOLCANION)
+        return 6;
+    if(species >= SPECIES_ROWLET && species <= SPECIES_MELMETAL)
+        return 7;
+    if(species >= SPECIES_GROOKEY && species <= SPECIES_CALYREX)
+        return 8;
+
+    if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
+        return 7;
+    if(species >= SPECIES_MEOWTH_GALARIAN && species <= SPECIES_STUNFISK_GALARIAN)
+        return 8;
+
+    if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_ARCEUS_FAIRY)
+        return 4;
+#endif
+    
+    return 0;
+}
+
+bool8 IsGenEnabled(u8 gen)
+{
+#ifdef ROGUE_EXPANSION
+    if(gen >= 1 && gen <= 8)
+#else
+    if(gen >= 1 && gen <= 3)
+#endif
+    {
+        return FlagGet(FLAG_ROGUE_GEN1_ENABLED + gen);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 IsMegaEvolutionEnabled(void)
+{
+#ifdef ROGUE_EXPANSION
+    return CheckBagHasItem(ITEM_MEGA_RING, 1);
+#else
+    return FALSE;
+#endif
+}
+
+bool8 IsZMovesEnabled(void)
+{
+#ifdef ROGUE_EXPANSION
+    return CheckBagHasItem(ITEM_Z_POWER_RING, 1);
+#else
+    return FALSE;
+#endif
+}
+
+bool8 IsDynamaxEnabled(void)
+{
+#ifdef ROGUE_EXPANSION
+    return CheckBagHasItem(ITEM_DYNAMAX_BAND, 1);
+#else
+    return FALSE;
+#endif
+}
+
 #ifdef ROGUE_DEBUG
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -780,6 +855,15 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+
+    FlagSet(FLAG_ROGUE_GEN1_ENABLED);
+    FlagSet(FLAG_ROGUE_GEN2_ENABLED);
+    FlagSet(FLAG_ROGUE_GEN3_ENABLED);
+    FlagClear(FLAG_ROGUE_GEN4_ENABLED);
+    FlagClear(FLAG_ROGUE_GEN5_ENABLED);
+    FlagClear(FLAG_ROGUE_GEN6_ENABLED);
+    FlagClear(FLAG_ROGUE_GEN7_ENABLED);
+    FlagClear(FLAG_ROGUE_GEN8_ENABLED);
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);

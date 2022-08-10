@@ -23,6 +23,12 @@ const u32* Rogue_ModifyPallete32(const u32* input);
 bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);
 
+u8 SpeciesToGen(u16 species);
+bool8 IsGenEnabled(u8 gen);
+
+bool8 IsMegaEvolutionEnabled(void);
+bool8 IsZMovesEnabled(void);
+bool8 IsDynamaxEnabled(void);
 
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);
