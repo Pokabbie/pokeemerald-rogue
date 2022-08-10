@@ -215,6 +215,110 @@ ConfigRoom_Pokabbie_Spin:
 	delay_1
 	step_end
 
+Rogue_ConfigRoom_MegaBag::
+	lock
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_MegaBag_2
+Rogue_ConfigRoom_MegaBag_1:
+	release
+	return
+
+Rogue_ConfigRoom_MegaBag_2:
+	checkitem 703
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_MegaBag_4
+	msgbox Rogue_ConfigRoom_MegaBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_MegaBag_9
+	goto Rogue_ConfigRoom_MegaBag_1
+
+Rogue_ConfigRoom_MegaBag_4:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_MegaBag_7
+	goto Rogue_ConfigRoom_MegaBag_1
+
+Rogue_ConfigRoom_MegaBag_7:
+	giveitem 703
+	goto Rogue_ConfigRoom_MegaBag_1
+
+Rogue_ConfigRoom_MegaBag_9:
+	message Rogue_ConfigRoom_MegaBag_Text_2
+	removeitem 703
+	goto Rogue_ConfigRoom_MegaBag_1
+
+
+Rogue_ConfigRoom_ZMoveBag::
+	lock
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_ZMoveBag_2
+Rogue_ConfigRoom_ZMoveBag_1:
+	release
+	return
+
+Rogue_ConfigRoom_ZMoveBag_2:
+	checkitem 704
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_4
+	msgbox Rogue_ConfigRoom_ZMoveBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_9
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+Rogue_ConfigRoom_ZMoveBag_4:
+	msgbox Rogue_ConfigRoom_ZMoveBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_7
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+Rogue_ConfigRoom_ZMoveBag_7:
+	giveitem 704
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+Rogue_ConfigRoom_ZMoveBag_9:
+	message Rogue_ConfigRoom_ZMoveBag_Text_2
+	removeitem 704
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+
+Rogue_ConfigRoom_DynamaxBag::
+	lock
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_DynamaxBag_2
+Rogue_ConfigRoom_DynamaxBag_1:
+	release
+	return
+
+Rogue_ConfigRoom_DynamaxBag_2:
+	checkitem 705
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_4
+	msgbox Rogue_ConfigRoom_DynamaxBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_9
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+Rogue_ConfigRoom_DynamaxBag_4:
+	msgbox Rogue_ConfigRoom_DynamaxBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_7
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+Rogue_ConfigRoom_DynamaxBag_7:
+	giveitem 705
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+Rogue_ConfigRoom_DynamaxBag_9:
+	message Rogue_ConfigRoom_DynamaxBag_Text_2
+	removeitem 705
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+
+Rogue_ConfigRoom_AdjustWildGens::
+	lock
+	faceplayer
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 Rogue_ConfigRoom_PreButtonInternal::
 	lockall
 	switch VAR_0x8000
@@ -339,44 +443,48 @@ Rogue_ConfigRoom_PostButtonInternal_2:
 Rogue_ConfigRoom_RedrawMap::
 	goto_if_set FLAG_ROGUE_UNCOVERRED_POKABBIE, Rogue_ConfigRoom_RedrawMap_2
 Rogue_ConfigRoom_RedrawMap_1:
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_ConfigRoom_RedrawMap_5
-	setvar VAR_TEMP_1, 0
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_RedrawMap_5
+	setvar VAR_TEMP_2, 1
+	setflag FLAG_TEMP_1
 Rogue_ConfigRoom_RedrawMap_4:
-	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_9
-	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_ConfigRoom_RedrawMap_9
+	setvar VAR_TEMP_1, 0
 Rogue_ConfigRoom_RedrawMap_8:
-	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_13
-	setmetatile 3, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_13
+	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_12:
-	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_17
-	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_17
+	setmetatile 3, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_16:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_21
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_22
-	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_21
+	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_20:
-	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_27
-	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_28
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_25
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_26
+	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+Rogue_ConfigRoom_RedrawMap_24:
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_31
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_32
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
-Rogue_ConfigRoom_RedrawMap_26:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_33
+Rogue_ConfigRoom_RedrawMap_30:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_37
 	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_32:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_37
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_36:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_41
-	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_41
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_40:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_45
-	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_45
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_44:
-	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_ConfigRoom_RedrawMap_49
-	setmetatile 12, 22, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_49
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_48:
-	goto_if_set FLAG_ROGUE_GAUNTLET_MODE, Rogue_ConfigRoom_RedrawMap_53
-	setmetatile 5, 22, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_ConfigRoom_RedrawMap_53
+	setmetatile 12, 22, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_52:
+	goto_if_set FLAG_ROGUE_GAUNTLET_MODE, Rogue_ConfigRoom_RedrawMap_57
+	setmetatile 5, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_56:
 	special DrawWholeMapView
 	return
 
@@ -390,60 +498,65 @@ Rogue_ConfigRoom_RedrawMap_2:
 	goto Rogue_ConfigRoom_RedrawMap_1
 
 Rogue_ConfigRoom_RedrawMap_5:
-	setvar VAR_TEMP_1, 1
+	setvar VAR_TEMP_2, 1
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_RedrawMap_4
 
 Rogue_ConfigRoom_RedrawMap_9:
-	setmetatile 1, 3, METATILE_BikeShop_Button_Green, FALSE
+	setvar VAR_TEMP_1, 1
 	goto Rogue_ConfigRoom_RedrawMap_8
 
 Rogue_ConfigRoom_RedrawMap_13:
-	setmetatile 3, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 1, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_12
 
 Rogue_ConfigRoom_RedrawMap_17:
-	setmetatile 5, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 3, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_16
 
 Rogue_ConfigRoom_RedrawMap_21:
+	setmetatile 5, 3, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_20
+
+Rogue_ConfigRoom_RedrawMap_25:
 	setmetatile 1, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_20
+	goto Rogue_ConfigRoom_RedrawMap_24
 
-Rogue_ConfigRoom_RedrawMap_22:
+Rogue_ConfigRoom_RedrawMap_26:
 	setmetatile 1, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_20
+	goto Rogue_ConfigRoom_RedrawMap_24
 
-Rogue_ConfigRoom_RedrawMap_27:
+Rogue_ConfigRoom_RedrawMap_31:
 	setmetatile 3, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_26
+	goto Rogue_ConfigRoom_RedrawMap_30
 
-Rogue_ConfigRoom_RedrawMap_28:
+Rogue_ConfigRoom_RedrawMap_32:
 	setmetatile 3, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_26
-
-Rogue_ConfigRoom_RedrawMap_33:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_32
+	goto Rogue_ConfigRoom_RedrawMap_30
 
 Rogue_ConfigRoom_RedrawMap_37:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_36
 
 Rogue_ConfigRoom_RedrawMap_41:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_40
 
 Rogue_ConfigRoom_RedrawMap_45:
-	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_44
 
 Rogue_ConfigRoom_RedrawMap_49:
-	setmetatile 12, 22, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_48
 
 Rogue_ConfigRoom_RedrawMap_53:
-	setmetatile 5, 22, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 12, 22, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_52
+
+Rogue_ConfigRoom_RedrawMap_57:
+	setmetatile 5, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_56
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -930,6 +1043,44 @@ Rogue_ConfigRoom_TalkPokabbie_Text_0:
 Rogue_ConfigRoom_TalkDitto_Text_0:
 	.string "A Ditto!\p"
 	.string "Why is it here?$"
+
+Rogue_ConfigRoom_MegaBag_Text_0:
+	.string "Would you like to take the MEGA RING?$"
+
+Rogue_ConfigRoom_MegaBag_Text_1:
+	.string "Would you like to put back the MEGA\n"
+	.string "RING?$"
+
+Rogue_ConfigRoom_MegaBag_Text_2:
+	.string "The MEGA RING was placed back into the\n"
+	.string "bag.$"
+
+Rogue_ConfigRoom_ZMoveBag_Text_0:
+	.string "Would you like to take the Z POWER\n"
+	.string "RING?$"
+
+Rogue_ConfigRoom_ZMoveBag_Text_1:
+	.string "Would you like to put back the Z POWER\n"
+	.string "RING?$"
+
+Rogue_ConfigRoom_ZMoveBag_Text_2:
+	.string "The Z POWER RING was placed back into\n"
+	.string "the bag.$"
+
+Rogue_ConfigRoom_DynamaxBag_Text_0:
+	.string "Would you like to take the DYNAMAX\n"
+	.string "BAND?$"
+
+Rogue_ConfigRoom_DynamaxBag_Text_1:
+	.string "Would you like to put back the DYNAMAX\n"
+	.string "BAND?$"
+
+Rogue_ConfigRoom_DynamaxBag_Text_2:
+	.string "The DYNAMAX BAND was placed back into\n"
+	.string "the bag.$"
+
+Rogue_ConfigRoom_AdjustWildGens_Text_0:
+	.string "TODO$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_0:
 	.string "OFF$"

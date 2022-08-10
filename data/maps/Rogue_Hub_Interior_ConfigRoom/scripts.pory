@@ -251,6 +251,103 @@ movement ConfigRoom_Pokabbie_Spin
     delay_1
 }
 
+script Rogue_ConfigRoom_MegaBag
+{
+    lock
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+
+        //ITEM_MEGA_RING
+        checkitem(703)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Would you like to take the MEGA RING?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                giveitem(703)
+            }
+        }
+        else
+        {
+            msgbox(format("Would you like to put back the MEGA RING?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                message(format("The MEGA RING was placed back into the bag."))
+                removeitem(703)
+            }
+        }
+    }
+    release
+}
+
+script Rogue_ConfigRoom_ZMoveBag
+{
+    lock
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+
+        //ITEM_Z_POWER_RING
+        checkitem(704)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Would you like to take the Z POWER RING?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                giveitem(704)
+            }
+        }
+        else
+        {
+            msgbox(format("Would you like to put back the Z POWER RING?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                message(format("The Z POWER RING was placed back into the bag."))
+                removeitem(704)
+            }
+        }
+    }
+    release
+}
+
+script Rogue_ConfigRoom_DynamaxBag
+{
+    lock
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        //ITEM_DYNAMAX_BAND
+        checkitem(705)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Would you like to take the DYNAMAX BAND?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                giveitem(705)
+            }
+        }
+        else
+        {
+            msgbox(format("Would you like to put back the DYNAMAX BAND?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                message(format("The DYNAMAX BAND was placed back into the bag."))
+                removeitem(705)
+            }
+        }
+    }
+    release
+}
+
+script Rogue_ConfigRoom_AdjustWildGens
+{
+    lock
+    faceplayer
+    msgbox(format("TODO"), MSGBOX_DEFAULT)
+    release
+}
+
 
 script Rogue_ConfigRoom_PreButtonInternal
 {
@@ -362,6 +459,17 @@ script Rogue_ConfigRoom_RedrawMap
         
         setmetatile(10,0, 0x25D, TRUE)
         setmetatile(10,1, 0x294, TRUE)
+    }
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        setvar(VAR_TEMP_2, 1)
+        clearflag(FLAG_TEMP_1)
+    }
+    else
+    {
+        setvar(VAR_TEMP_2, 1)
+        setflag(FLAG_TEMP_1)
     }
 
     if(flag(FLAG_ROGUE_MET_POKABBIE))

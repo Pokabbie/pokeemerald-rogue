@@ -662,6 +662,24 @@ void RogueQuery_ExcludeCommon(void)
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SHARD, ITEM_GREEN_SHARD);
     RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
+    
+#ifdef ROGUE_EXPANSION
+    if(!IsMegaEvolutionEnabled())
+    {
+        RogueQuery_ItemsExcludeRange(ITEM_RED_ORB, ITEM_DIANCITE);
+    }
+
+    if(!IsZMovesEnabled())
+    {
+        RogueQuery_ItemsExcludeRange(ITEM_NORMALIUM_Z, ITEM_ULTRANECROZIUM_Z);
+    }
+
+    if(!IsDynamaxEnabled())
+    {
+        RogueQuery_Exclude(ITEM_DYNAMAX_CANDY);
+        RogueQuery_Exclude(ITEM_MAX_MUSHROOMS);
+    }
+#endif
 }
 
 void RogueQuery_ItemsInPocket(u8 pocket)
