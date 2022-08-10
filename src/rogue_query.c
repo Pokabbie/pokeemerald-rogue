@@ -25,13 +25,8 @@
 #include "rogue_baked.h"
 //#include "rogue_controller.h"
 
-#ifdef ROGUE_EXPANSION
 #define QUERY_BUFFER_COUNT 128
-#define QUERY_NUM_SPECIES FORMS_START
-#else
-#define QUERY_BUFFER_COUNT 96
 #define QUERY_NUM_SPECIES NUM_SPECIES
-#endif
 
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, QUERY_NUM_SPECIES))
 
@@ -349,6 +344,7 @@ void RogueQuery_SpeciesIsValid(void)
     // Handle for ?? species mainly
     // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
     u16 species;
+    bool8 state;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
@@ -358,6 +354,29 @@ void RogueQuery_SpeciesIsValid(void)
             {
                 SetQueryState(species, FALSE);
             }
+#ifdef ROGUE_EXPANSION
+            else if(species >= FORMS_START)
+            {
+                // Only validate certain forms here
+                // (A lot of them are manual transform methods)
+                state = FALSE;
+
+                if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
+                {
+                    state = TRUE;
+                }
+                else if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_WORMADAM_TRASH_CLOAK)
+                {
+                    state = TRUE;
+                }
+                else if(species >= SPECIES_SHELLOS_EAST_SEA && species <= SPECIES_ROTOM_MOW)
+                {
+                    state = TRUE;
+                }
+
+                SetQueryState(species, state);
+            }
+#endif
         }
     }
 }
