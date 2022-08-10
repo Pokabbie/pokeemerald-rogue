@@ -13,7 +13,7 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);
-void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier);
+void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
 
 const u8* Rogue_ModifyPallete8(const u8* input);

@@ -9842,7 +9842,7 @@ static void Cmd_removelightscreenreflect(void) // brick break
 
 static void Cmd_handleballthrow(void)
 {
-    u8 ballMultiplier = 0;
+    u16 ballMultiplier = 0;
 
     if (gBattleControllerExecFlags)
         return;
@@ -9865,7 +9865,7 @@ static void Cmd_handleballthrow(void)
     else
     {
         u32 odds;
-        u8 catchRate;
+        u16 catchRate;
 
         if (gLastUsedItem == ITEM_SAFARI_BALL)
             catchRate = gBattleStruct->safariCatchFactor * 1275 / 100;
@@ -9933,7 +9933,7 @@ static void Cmd_handleballthrow(void)
 
         if (gLastUsedItem != ITEM_SAFARI_BALL)
         {
-            if (gLastUsedItem == ITEM_MASTER_BALL || ballMultiplier == 255)
+            if (gLastUsedItem == ITEM_MASTER_BALL)
             {
                 gBattleResults.usedMasterBall = TRUE;
             }
@@ -9946,7 +9946,7 @@ static void Cmd_handleballthrow(void)
 
         // RogueNote: catching odds
 
-        if (odds > 254) // mon caught
+        if (odds > 254 || ballMultiplier == 12345) // mon caught
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
