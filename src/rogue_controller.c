@@ -3031,8 +3031,8 @@ static void RandomiseBerryTrees(void)
     {
         if(RandomChanceBerry())
         {
-            u8 berryItem;
-            u8 berry;
+            u16 berryItem;
+            u16 berry;
 
             do
             {

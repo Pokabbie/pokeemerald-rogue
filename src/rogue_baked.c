@@ -71,6 +71,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->param = ITEM_SUN_STONE;
                 break;
             case(EVO_LEVEL_DUSK):
+            case(EVO_LEVEL_NIGHT):
             case(EVO_ITEM_HOLD_NIGHT):
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_MOON_STONE;
@@ -89,13 +90,24 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
                 break;
 
-            // TODO -
-            //case(EVO_SPECIFIC_MAP):
-            //    outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
-            //    break;
-            //case(EVO_MAPSEC):
-            //    outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
-            //    break;
+            case(EVO_SPECIFIC_MAP):
+                if(outEvo->param == MAP_PETALBURG_WOODS)
+                {
+                    outEvo->param = MAP_ROGUE_ROUTE_FOREST0;
+                }
+                else if(outEvo->param == MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM)
+                {
+                    outEvo->method = MAP_ROGUE_ROUTE_CAVE0;
+                }
+                break;
+
+            case(EVO_MAPSEC):
+                // All these were MAPSEC_NEW_MAUVILLE
+                //outEvo->method = EVO_SPECIFIC_MAP;
+                //outEvo->param = MAP_ROGUE_ROUTE_URBAN0;
+                outEvo->method = EVO_ITEM;
+                outEvo->param = ITEM_THUNDER_STONE;
+                break;
 #endif
         }
     }

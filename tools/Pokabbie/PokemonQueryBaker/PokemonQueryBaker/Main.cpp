@@ -40,7 +40,7 @@ int main()
 	file << "const u16 gRogueBake_EggSpecies[NUM_SPECIES] =\n{\n";
 	for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
 	{
-		file << "\t" << (int)eggLookup[s] << ",\n";
+		file << "\t[" << s << "] = " << (int)eggLookup[s] << ",\n";
 	}
 	file << "};\n";
 	file << "\n";
@@ -48,7 +48,7 @@ int main()
 	file << "const u8 gRogueBake_EvolutionCount[NUM_SPECIES] =\n{\n";
 	for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
 	{
-		file << "\t" << (int)evolutionCountLookup[s] << ",\n";
+		file << "\t[" << s << "] = " << (int)evolutionCountLookup[s] << ",\n";
 	}
 	file << "};\n";
 
