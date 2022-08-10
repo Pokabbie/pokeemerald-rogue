@@ -13654,7 +13654,7 @@ u8 GetCatchingBattler(void)
 
 static void Cmd_handleballthrow(void)
 {
-    u8 ballMultiplier = 10;
+    u16 ballMultiplier = 10;
     s8 ballAddition = 0;
 
     if (gBattleControllerExecFlags)
@@ -13678,7 +13678,7 @@ static void Cmd_handleballthrow(void)
     else
     {
         u32 odds, i;
-        u8 catchRate;
+        u16 catchRate;
     
         gLastThrownBall = gLastUsedItem;
         if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
@@ -13888,7 +13888,7 @@ static void Cmd_handleballthrow(void)
         if (gBattleResults.catchAttempts[gLastUsedItem - FIRST_BALL] < 255)
             gBattleResults.catchAttempts[gLastUsedItem - FIRST_BALL]++;
 
-        if (odds > 254) // mon caught
+        if (odds > 254 || ballMultiplier == 12345) // mon caught
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);

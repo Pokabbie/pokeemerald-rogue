@@ -303,40 +303,39 @@ void Rogue_ModifyEVGain(int* multiplier)
     }
 }
 
-void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
+void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
 { 
     if(Rogue_IsRunActive())
     {
 #ifdef ROGUE_DEBUG
-        *ballMultiplier = 255; // Masterball equiv
+        *ballMultiplier = 12345; // Masterball equiv
 #else
         u8 difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
         if(difficulty <= 1) // First 2 badges
         {
-            *ballMultiplier = 8;
+            *ballMultiplier = *ballMultiplier * 8;
         }
         else if(difficulty <= 2)
         {
-            *ballMultiplier = 4;
+            *ballMultiplier = *ballMultiplier * 4;
         }
         else if(difficulty <= 3)
         {
-            *ballMultiplier = 3;
+            *ballMultiplier = *ballMultiplier * 3;
         }
         else if(difficulty <= 4)
         {
-            *ballMultiplier = 2;
+            *ballMultiplier = *ballMultiplier * 2;
         }
         else if(difficulty <= 7)
         {
             // Minimum of 2x multiplier whilst doing gyms?
-            *ballMultiplier = 2;
+            *ballMultiplier = *ballMultiplier * 2;
         }
         else
         {
             // Elite 4 back to normal catch rates
-            *ballMultiplier = 1;
         }
 #endif
 
@@ -346,7 +345,7 @@ void Rogue_ModifyCatchRate(u8* catchRate, u8* ballMultiplier)
     }
     else if(GetSafariZoneFlag())
     {
-        *ballMultiplier = 255; // Masterball equiv
+        *ballMultiplier = 12345; // Masterball equiv
     }
 }
 
