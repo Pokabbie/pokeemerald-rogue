@@ -164,5 +164,6 @@
 #define ROGUE_SHOP_TMS                  3
 #define ROGUE_SHOP_BATTLE_ENHANCERS     4
 #define ROGUE_SHOP_HELD_ITEMS           5
+#define ROGUE_SHOP_RARE_HELD_ITEMS      6
 
 #endif // GUARD_CONSTANTS_GLOBAL_H

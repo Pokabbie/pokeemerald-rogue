@@ -215,6 +215,33 @@ ConfigRoom_Pokabbie_Spin:
 	delay_1
 	step_end
 
+Rogue_ConfigRoom_ItemBag::
+	bufferitemname STR_VAR_1, VAR_0x8000
+	checkitem VAR_0x8000
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_ItemBag_2
+	msgbox Rogue_ConfigRoom_ItemBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ItemBag_7
+Rogue_ConfigRoom_ItemBag_1:
+	return
+
+Rogue_ConfigRoom_ItemBag_2:
+	msgbox Rogue_ConfigRoom_ItemBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ItemBag_5
+	goto Rogue_ConfigRoom_ItemBag_1
+
+Rogue_ConfigRoom_ItemBag_5:
+	giveitem VAR_0x8000
+	goto Rogue_ConfigRoom_ItemBag_1
+
+Rogue_ConfigRoom_ItemBag_7:
+	msgbox Rogue_ConfigRoom_ItemBag_Text_2, MSGBOX_DEFAULT
+	removeitem VAR_0x8000
+	goto Rogue_ConfigRoom_ItemBag_1
+
+
 Rogue_ConfigRoom_MegaBag::
 	lock
 	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_MegaBag_2
@@ -223,27 +250,8 @@ Rogue_ConfigRoom_MegaBag_1:
 	return
 
 Rogue_ConfigRoom_MegaBag_2:
-	checkitem 703
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_MegaBag_4
-	msgbox Rogue_ConfigRoom_MegaBag_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_MegaBag_9
-	goto Rogue_ConfigRoom_MegaBag_1
-
-Rogue_ConfigRoom_MegaBag_4:
-	msgbox Rogue_ConfigRoom_MegaBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_MegaBag_7
-	goto Rogue_ConfigRoom_MegaBag_1
-
-Rogue_ConfigRoom_MegaBag_7:
-	giveitem 703
-	goto Rogue_ConfigRoom_MegaBag_1
-
-Rogue_ConfigRoom_MegaBag_9:
-	message Rogue_ConfigRoom_MegaBag_Text_2
-	removeitem 703
+	setvar VAR_0x8000, 703
+	call Rogue_ConfigRoom_ItemBag
 	goto Rogue_ConfigRoom_MegaBag_1
 
 
@@ -255,27 +263,8 @@ Rogue_ConfigRoom_ZMoveBag_1:
 	return
 
 Rogue_ConfigRoom_ZMoveBag_2:
-	checkitem 704
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_ZMoveBag_4
-	msgbox Rogue_ConfigRoom_ZMoveBag_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_ZMoveBag_9
-	goto Rogue_ConfigRoom_ZMoveBag_1
-
-Rogue_ConfigRoom_ZMoveBag_4:
-	msgbox Rogue_ConfigRoom_ZMoveBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_ZMoveBag_7
-	goto Rogue_ConfigRoom_ZMoveBag_1
-
-Rogue_ConfigRoom_ZMoveBag_7:
-	giveitem 704
-	goto Rogue_ConfigRoom_ZMoveBag_1
-
-Rogue_ConfigRoom_ZMoveBag_9:
-	message Rogue_ConfigRoom_ZMoveBag_Text_2
-	removeitem 704
+	setvar VAR_0x8000, 704
+	call Rogue_ConfigRoom_ItemBag
 	goto Rogue_ConfigRoom_ZMoveBag_1
 
 
@@ -287,27 +276,8 @@ Rogue_ConfigRoom_DynamaxBag_1:
 	return
 
 Rogue_ConfigRoom_DynamaxBag_2:
-	checkitem 705
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_DynamaxBag_4
-	msgbox Rogue_ConfigRoom_DynamaxBag_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_DynamaxBag_9
-	goto Rogue_ConfigRoom_DynamaxBag_1
-
-Rogue_ConfigRoom_DynamaxBag_4:
-	msgbox Rogue_ConfigRoom_DynamaxBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_DynamaxBag_7
-	goto Rogue_ConfigRoom_DynamaxBag_1
-
-Rogue_ConfigRoom_DynamaxBag_7:
-	giveitem 705
-	goto Rogue_ConfigRoom_DynamaxBag_1
-
-Rogue_ConfigRoom_DynamaxBag_9:
-	message Rogue_ConfigRoom_DynamaxBag_Text_2
-	removeitem 705
+	setvar VAR_0x8000, 705
+	call Rogue_ConfigRoom_ItemBag
 	goto Rogue_ConfigRoom_DynamaxBag_1
 
 
@@ -1044,40 +1014,17 @@ Rogue_ConfigRoom_TalkDitto_Text_0:
 	.string "A Ditto!\p"
 	.string "Why is it here?$"
 
-Rogue_ConfigRoom_MegaBag_Text_0:
-	.string "Would you like to take the MEGA RING?$"
+Rogue_ConfigRoom_ItemBag_Text_0:
+	.string "Would you like to take the\n"
+	.string "{STR_VAR_1}?$"
 
-Rogue_ConfigRoom_MegaBag_Text_1:
-	.string "Would you like to put back the MEGA\n"
-	.string "RING?$"
+Rogue_ConfigRoom_ItemBag_Text_1:
+	.string "Would you like to put back the\n"
+	.string "{STR_VAR_1}?$"
 
-Rogue_ConfigRoom_MegaBag_Text_2:
-	.string "The MEGA RING was placed back into the\n"
-	.string "bag.$"
-
-Rogue_ConfigRoom_ZMoveBag_Text_0:
-	.string "Would you like to take the Z POWER\n"
-	.string "RING?$"
-
-Rogue_ConfigRoom_ZMoveBag_Text_1:
-	.string "Would you like to put back the Z POWER\n"
-	.string "RING?$"
-
-Rogue_ConfigRoom_ZMoveBag_Text_2:
-	.string "The Z POWER RING was placed back into\n"
-	.string "the bag.$"
-
-Rogue_ConfigRoom_DynamaxBag_Text_0:
-	.string "Would you like to take the DYNAMAX\n"
-	.string "BAND?$"
-
-Rogue_ConfigRoom_DynamaxBag_Text_1:
-	.string "Would you like to put back the DYNAMAX\n"
-	.string "BAND?$"
-
-Rogue_ConfigRoom_DynamaxBag_Text_2:
-	.string "The DYNAMAX BAND was placed back into\n"
-	.string "the bag.$"
+Rogue_ConfigRoom_ItemBag_Text_2:
+	.string "The {STR_VAR_1} was placed back\n"
+	.string "into the bag.$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_0:
 	.string "TODO$"

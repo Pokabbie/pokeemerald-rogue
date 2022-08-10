@@ -153,6 +153,17 @@ Rogue_Shop_HeldItems::
 	return
 
 
+Rogue_Shop_RareHeldItems::
+	lock
+	faceplayer
+	message Rogue_Shop_RareHeldItems_Text_0
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_RARE_HELD_ITEMS
+	msgbox Rogue_Shop_Balls_Text_1
+	release
+	return
+
+
 RogueSafari_Sign_South::
 	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueSafari_Sign_South_1
 	msgbox RogueSafari_Sign_South_Text_1, MSGBOX_SIGN
@@ -707,6 +718,9 @@ Rogue_Shop_BattleEnhancers_Text_0:
 
 Rogue_Shop_HeldItems_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.$"
+
+Rogue_Shop_RareHeldItems_Text_0:
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.$"
 
 RogueSafari_Sign_South_Text_0:
 	.string "SOUTH AREA home to:\n"

@@ -23,7 +23,7 @@
 
 #include "rogue_query.h"
 #include "rogue_baked.h"
-//#include "rogue_controller.h"
+#include "rogue_controller.h"
 
 #define QUERY_BUFFER_COUNT 128
 #define QUERY_NUM_SPECIES NUM_SPECIES
@@ -795,6 +795,18 @@ static bool8 IsHeldItem(struct Item* item)
     return item->holdEffect != HOLD_EFFECT_NONE && !IsBattleEnchancer(item);
 }
 
+static bool8 IsRareHeldItem(struct Item* item)
+{
+#ifdef ROGUE_EXPANSION
+    return (item->itemId >= ITEM_RED_ORB && item->itemId <= ITEM_DIANCITE) ||
+        (item->itemId >= ITEM_NORMALIUM_Z && item->itemId <= ITEM_ULTRANECROZIUM_Z) ||
+        item->itemId == ITEM_DYNAMAX_CANDY ||
+        item->itemId == ITEM_MAX_MUSHROOMS;
+#else
+    return FALSE;
+#endif
+}
+
 void RogueQuery_ItemsHeldItem(void)
 {
     u16 itemId;
@@ -826,6 +838,44 @@ void RogueQuery_ItemsNotHeldItem(void)
             Rogue_ModifyItem(itemId, &item);
 
             if(IsHeldItem(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsRareHeldItem(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(!IsRareHeldItem(&item))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_ItemsNotRareHeldItem(void)
+{
+    u16 itemId;
+    struct Item item;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(IsRareHeldItem(&item))
             {
                 SetQueryState(itemId, FALSE);
             }
