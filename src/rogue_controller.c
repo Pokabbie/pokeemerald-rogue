@@ -1578,6 +1578,15 @@ void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
 
+    if(IsMegaEvolutionEnabled() || IsZMovesEnabled() || IsDynamaxEnabled())
+    {
+        FlagClear(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
+    }
+    else
+    {
+        FlagSet(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
+    }
+
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
         if(!Rogue_IsRunActive())
@@ -2588,6 +2597,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
         case ROGUE_SHOP_HELD_ITEMS:
             RogueQuery_ItemsHeldItem();
+            RogueQuery_ItemsNotRareHeldItem();
             RogueQuery_ItemsInPriceRange(10, 60000);
 
             #ifndef ROGUE_SHOP_DEBUG
@@ -2613,6 +2623,30 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 *minSalePrice = 500;
             else
                 *minSalePrice = 2000;
+            break;
+
+        case ROGUE_SHOP_RARE_HELD_ITEMS:
+            RogueQuery_ItemsRareHeldItem();
+            RogueQuery_ItemsInPriceRange(10, 60000);
+
+            #ifndef ROGUE_SHOP_DEBUG
+            if(Rogue_IsRunActive())
+            {
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(20);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            }
+            #endif
+
+            if(Rogue_IsRunActive())
+                *minSalePrice = 1500;
+            else
+                *minSalePrice = 3000;
             break;
     };
 

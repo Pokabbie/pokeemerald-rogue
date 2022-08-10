@@ -196,6 +196,19 @@ script Rogue_Shop_HeldItems
     release
 }
 
+script Rogue_Shop_RareHeldItems
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)
+
+    msgbox("Come again soon!")
+    release
+}
+
 script RogueSafari_Sign_South
 {
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))

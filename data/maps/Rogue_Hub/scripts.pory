@@ -127,13 +127,20 @@ script RogueHub_OnMapLoad
     {
         fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER3)
+        setflag(FLAG_ROGUE_TRAINER5)
 
         // + Travel shop
-        fillmetatile(33, 8, 35, 8, METATILE_Grass, FALSE)
+        fillmetatile(22, 8, 24, 8, METATILE_Grass, FALSE)
     }
     else
     {
         clearflag(FLAG_ROGUE_TRAINER3)
+        clearflag(FLAG_ROGUE_TRAINER5)
+
+        if(flag(FLAG_ROGUE_RARE_ITEM_MART_DISABLED))
+        {
+            setflag(FLAG_ROGUE_TRAINER5)
+        }
     }
 }
 

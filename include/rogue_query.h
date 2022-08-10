@@ -41,6 +41,8 @@ void RogueQuery_ItemsInPocket(u8 pocket);
 void RogueQuery_ItemsNotInPocket(u8 pocket);
 void RogueQuery_ItemsHeldItem(void);
 void RogueQuery_ItemsNotHeldItem(void);
+void RogueQuery_ItemsRareHeldItem(void);
+void RogueQuery_ItemsNotRareHeldItem(void);
 void RogueQuery_ItemsMedicine(void);
 void RogueQuery_ItemsNotMedicine(void);
 void RogueQuery_ItemsBattleEnchancer(void);

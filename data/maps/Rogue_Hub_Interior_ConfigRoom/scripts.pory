@@ -2,6 +2,7 @@ const OBJ_ASSISTANT_ID =  1
 const OBJ_POKABBIE_ID =  4
 
 const VAR_FLAG_STATE = VAR_0x8000
+const VAR_CONFIG_ITEM = VAR_0x8000
 
 const METATILE_BikeShop_Button_Red = 0x23E
 
@@ -251,32 +252,39 @@ movement ConfigRoom_Pokabbie_Spin
     delay_1
 }
 
+script Rogue_ConfigRoom_ItemBag
+{
+    bufferitemname(STR_VAR_1, VAR_CONFIG_ITEM)
+    checkitem(VAR_CONFIG_ITEM)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            giveitem(VAR_CONFIG_ITEM)
+        }
+    }
+    else
+    {
+        msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+            removeitem(VAR_CONFIG_ITEM)
+        }
+    }
+    return
+}
+
 script Rogue_ConfigRoom_MegaBag
 {
     lock
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
-
         //ITEM_MEGA_RING
-        checkitem(703)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("Would you like to take the MEGA RING?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                giveitem(703)
-            }
-        }
-        else
-        {
-            msgbox(format("Would you like to put back the MEGA RING?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                message(format("The MEGA RING was placed back into the bag."))
-                removeitem(703)
-            }
-        }
+        setvar(VAR_CONFIG_ITEM, 703)
+        call(Rogue_ConfigRoom_ItemBag)
     }
     release
 }
@@ -286,27 +294,9 @@ script Rogue_ConfigRoom_ZMoveBag
     lock
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
-
         //ITEM_Z_POWER_RING
-        checkitem(704)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("Would you like to take the Z POWER RING?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                giveitem(704)
-            }
-        }
-        else
-        {
-            msgbox(format("Would you like to put back the Z POWER RING?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                message(format("The Z POWER RING was placed back into the bag."))
-                removeitem(704)
-            }
-        }
+        setvar(VAR_CONFIG_ITEM, 704)
+        call(Rogue_ConfigRoom_ItemBag)
     }
     release
 }
@@ -317,25 +307,8 @@ script Rogue_ConfigRoom_DynamaxBag
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
         //ITEM_DYNAMAX_BAND
-        checkitem(705)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("Would you like to take the DYNAMAX BAND?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                giveitem(705)
-            }
-        }
-        else
-        {
-            msgbox(format("Would you like to put back the DYNAMAX BAND?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                message(format("The DYNAMAX BAND was placed back into the bag."))
-                removeitem(705)
-            }
-        }
+        setvar(VAR_CONFIG_ITEM, 705)
+        call(Rogue_ConfigRoom_ItemBag)
     }
     release
 }

@@ -53,6 +53,8 @@ RogueHub_OnMapLoad_13:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
 	goto_if_lt RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER3
+	clearflag FLAG_ROGUE_TRAINER5
+	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_20
 	return
 
 RogueHub_OnMapLoad_2:
@@ -82,7 +84,12 @@ RogueHub_OnMapLoad_14:
 RogueHub_OnMapLoad_17:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
-	fillmetatile 33, 8, 35, 8, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER5
+	fillmetatile 22, 8, 24, 8, 0x001, FALSE
+	return
+
+RogueHub_OnMapLoad_20:
+	setflag FLAG_ROGUE_TRAINER5
 	return
 
 
