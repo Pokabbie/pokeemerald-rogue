@@ -28,7 +28,27 @@ script Rogue_GiveItem_Internal
     //bufferitemname(STR_VAR_2, VAR_ITEM_ID_VAL)
     //msgbox(format("idx {STR_VAR_1}\nitem {STR_VAR_2}"), MSGBOX_DEFAULT)
 
-    finditem(VAR_ITEM_ID_VAL, 3)
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        // ITEM_FIRE_MEMORY -> ITEM_DIANCITE
+        if(var(VAR_ITEM_ID_VAL) >= 250 && var(VAR_ITEM_ID_VAL) <= 338)
+        {
+            finditem(VAR_ITEM_ID_VAL, 1)
+        } 
+        // ITEM_NORMALIUM_Z -> ITEM_ULTRANECROZIUM_Z
+        elif(var(VAR_ITEM_ID_VAL) >= 357 && var(VAR_ITEM_ID_VAL) <= 391)
+        {
+            finditem(VAR_ITEM_ID_VAL, 1)
+        } 
+        else
+        {
+            finditem(VAR_ITEM_ID_VAL, 3)
+        }
+    }
+    else
+    {
+        finditem(VAR_ITEM_ID_VAL, 3)
+    }
 }
 
 script Rogue_QuickSaveRun

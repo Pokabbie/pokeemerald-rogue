@@ -8,8 +8,37 @@ Rogue_PostBattle_Internal::
 
 
 Rogue_GiveItem_Internal::
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_GiveItem_Internal_1
 	finditem VAR_0x8001, 3
 	return
+
+Rogue_GiveItem_Internal_1:
+	compare VAR_0x8001, 250
+	goto_if_ge Rogue_GiveItem_Internal_10
+Rogue_GiveItem_Internal_8:
+	compare VAR_0x8001, 357
+	goto_if_ge Rogue_GiveItem_Internal_7
+Rogue_GiveItem_Internal_6:
+	finditem VAR_0x8001, 3
+	return
+
+Rogue_GiveItem_Internal_4:
+	finditem VAR_0x8001, 1
+	return
+
+Rogue_GiveItem_Internal_5:
+	finditem VAR_0x8001, 1
+	return
+
+Rogue_GiveItem_Internal_7:
+	compare VAR_0x8001, 391
+	goto_if_le Rogue_GiveItem_Internal_5
+	goto Rogue_GiveItem_Internal_6
+
+Rogue_GiveItem_Internal_10:
+	compare VAR_0x8001, 338
+	goto_if_le Rogue_GiveItem_Internal_4
+	goto Rogue_GiveItem_Internal_8
 
 
 Rogue_QuickSaveRun::

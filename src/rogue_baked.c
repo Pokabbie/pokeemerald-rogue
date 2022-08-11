@@ -180,6 +180,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 
 #ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_LEVEL_BALL && itemId <= ITEM_CHERISH_BALL)
+    {
+        outItem->price = 2500;
+    }
+
     if(itemId >= ITEM_FIRE_STONE && itemId <= ITEM_RIBBON_SWEET)
     {
         outItem->price = 2100;
@@ -187,12 +192,17 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
     if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
     {
-        outItem->price = 3000;
+        outItem->price = 5000;
     }
 
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
-        outItem->price = 3000;
+        outItem->price = 5000;
+    }
+
+    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
+    {
+        outItem->price = 1000;
     }
 #endif
 
@@ -210,7 +220,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_DEEP_SEA_SCALE:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:
-#ifndef ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
+        case ITEM_UPGRADE:
+#else
         case ITEM_UP_GRADE:
 #endif
             outItem->price = 2100;
@@ -218,6 +230,14 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_RARE_CANDY:
             outItem->price = 1000;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_SPORT_BALL:
+        case ITEM_PARK_BALL:
+#endif
+        case ITEM_SAFARI_BALL:
+            outItem->price = 0;
             break;
 
         case ITEM_MASTER_BALL:

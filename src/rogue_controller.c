@@ -2505,6 +2505,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
 
+#ifdef ROGUE_EXPANSION
+    RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
+    RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
+#endif
+
     // RogueNote: EE Todo exclude mega stones and z crystals if don't have the key items (Do that for trainers too)
 
     switch(itemCategory)
