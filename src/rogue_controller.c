@@ -2069,10 +2069,10 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 {
     if(Rogue_IsRunActive())
     {
-        //for (i = 0; i < MAX_TRAINER_ITEMS; i++)
-        //{
-        //    items[i] = ITEM_NONE;
-        //}
+        for (i = 0; i < MAX_TRAINER_ITEMS; i++)
+        {
+            items[i] = ITEM_NONE;
+        }
 
         return TRUE;
     }
