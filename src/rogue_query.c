@@ -679,7 +679,7 @@ void RogueQuery_ExcludeCommon(void)
 
     if(!IsDynamaxEnabled())
     {
-        RogueQuery_Exclude(ITEM_DYNAMAX_CANDY);
+        RogueQuery_ItemsExcludeRange(ITEM_EXP_CANDY_XS, ITEM_DYNAMAX_CANDY);
         RogueQuery_Exclude(ITEM_MAX_MUSHROOMS);
     }
 #endif
