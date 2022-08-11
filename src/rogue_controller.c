@@ -2483,9 +2483,6 @@ static void ApplyRandomMartChanceQuery(u16 chance)
 
     RogueQuery_CustomItems(ApplyRandomMartChanceCallback, chance);
 
-        //randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-        //species = RogueQuery_BufferPtr()[randIdx];
-
     gRngRogueValue = startSeed;
 }
 
@@ -2509,8 +2506,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
     RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
 #endif
-
-    // RogueNote: EE Todo exclude mega stones and z crystals if don't have the key items (Do that for trainers too)
 
     switch(itemCategory)
     {
@@ -2587,6 +2582,18 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             #ifndef ROGUE_SHOP_DEBUG
             if(Rogue_IsRunActive())
             {
+            #ifdef ROGUE_EXPANSION
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(5);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 5)
+                    ApplyRandomMartChanceQuery(25);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            #else
                 if(difficulty <= 0)
                     ApplyRandomMartChanceQuery(10);
                 else if(difficulty <= 3)
@@ -2595,6 +2602,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(50);
                 else
                     ApplyRandomMartChanceQuery(100);
+            #endif
             }
             #endif
 
@@ -2613,6 +2621,18 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             #ifndef ROGUE_SHOP_DEBUG
             if(Rogue_IsRunActive())
             {
+            #ifdef ROGUE_EXPANSION
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(5);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 5)
+                    ApplyRandomMartChanceQuery(25);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            #else
                 if(difficulty <= 0)
                     ApplyRandomMartChanceQuery(10);
                 else if(difficulty <= 3)
@@ -2621,6 +2641,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(50);
                 else
                     ApplyRandomMartChanceQuery(100);
+            #endif
             }
             else if(difficulty <= 5)
             {
@@ -2642,6 +2663,18 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             #ifndef ROGUE_SHOP_DEBUG
             if(Rogue_IsRunActive())
             {
+            #ifdef ROGUE_EXPANSION
+                if(difficulty <= 0)
+                    ApplyRandomMartChanceQuery(5);
+                else if(difficulty <= 3)
+                    ApplyRandomMartChanceQuery(10);
+                else if(difficulty <= 5)
+                    ApplyRandomMartChanceQuery(25);
+                else if(difficulty <= 7)
+                    ApplyRandomMartChanceQuery(50);
+                else
+                    ApplyRandomMartChanceQuery(100);
+            #else
                 if(difficulty <= 0)
                     ApplyRandomMartChanceQuery(10);
                 else if(difficulty <= 3)
@@ -2650,6 +2683,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(50);
                 else
                     ApplyRandomMartChanceQuery(100);
+            #endif
             }
             #endif
 
@@ -3081,9 +3115,14 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     RogueQuery_ExcludeCommon();
 
+    if(IsBossRoom(gRogueRun.currentRoomIdx))
+    {
+        RogueQuery_ItemsMedicine();
+    }
+
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        if(difficultyLevel <= 1 || IsBossRoom(gRogueRun.currentRoomIdx))
+        if(difficultyLevel <= 1)
         {
             RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
         }
@@ -3091,6 +3130,9 @@ static void RandomiseItemContent(u8 difficultyLevel)
         if(difficultyLevel <= 3)
         {
             RogueQuery_ItemsNotHeldItem();
+            RogueQuery_ItemsNotRareHeldItem();
+
+            //More item tweaks (removal of dynamax items)
         }
     }
 
