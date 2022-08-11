@@ -1749,7 +1749,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 }
 
-void RemoveAnyFaintedMons(void)
+void RemoveAnyFaintedMons(bool8 keepItems)
 {
     u8 read;
     u8 write = 0;
@@ -1767,10 +1767,13 @@ void RemoveAnyFaintedMons(void)
         }
         else
         {
-            // Dead so give back held item
-            u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
-            if(heldItem != ITEM_NONE)
-                AddBagItem(heldItem, 1);
+            if(keepItems)
+            {
+                // Dead so give back held item
+                u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
+                if(heldItem != ITEM_NONE)
+                    AddBagItem(heldItem, 1);
+            }
         }
     }
 
@@ -1817,7 +1820,7 @@ void Rogue_Battle_EndTrainerBattle(void)
     {
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
-            RemoveAnyFaintedMons();
+            RemoveAnyFaintedMons(FALSE);
         }
     }
 }
@@ -1828,7 +1831,7 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
-            RemoveAnyFaintedMons();
+            RemoveAnyFaintedMons(FALSE);
         }
     }
 }
@@ -2069,10 +2072,12 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 {
     if(Rogue_IsRunActive())
     {
-        //for (i = 0; i < MAX_TRAINER_ITEMS; i++)
-        //{
-        //    items[i] = ITEM_NONE;
-        //}
+        u8 i;
+
+        for (i = 0; i < MAX_TRAINER_ITEMS; i++)
+        {
+            items[i] = ITEM_NONE;
+        }
 
         return TRUE;
     }

@@ -1158,7 +1158,7 @@ static void ReleasePartyPokemon(u8 slot)
     {
         u32 hp = 0;
         SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
-        RemoveAnyFaintedMons();
+        RemoveAnyFaintedMons(TRUE);
     }
 }
 

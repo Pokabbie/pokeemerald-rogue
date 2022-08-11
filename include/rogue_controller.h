@@ -3,7 +3,7 @@
 
 #include "rogue_baked.h"
 
-void RemoveAnyFaintedMons(void);
+void RemoveAnyFaintedMons(bool8 keepItems);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
