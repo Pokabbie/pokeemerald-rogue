@@ -664,6 +664,9 @@ void RogueQuery_ExcludeCommon(void)
     RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
     
 #ifdef ROGUE_EXPANSION
+    // These TMs aren't setup
+    RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
+
     if(!IsMegaEvolutionEnabled())
     {
         RogueQuery_ItemsExcludeRange(ITEM_RED_ORB, ITEM_DIANCITE);
@@ -770,13 +773,14 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
     return FALSE;
 }
 
+static bool8 IsRareHeldItem(struct Item* item);
+
 static bool8 IsBattleEnchancer(struct Item* item)
 {
     return (item->itemId >= ITEM_HP_UP && item->itemId <= ITEM_PP_MAX) ||
         item->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone ||
         item->battleUseFunc == ItemUseInBattle_StatIncrease ||
 #ifdef ROGUE_EXPANSION
-        (item->itemId >= ITEM_NORMALIUM_Z && item->itemId <= ITEM_ULTRANECROZIUM_Z) ||
         (item->itemId >= ITEM_HEALTH_FEATHER && item->itemId <= ITEM_SERIOUS_MINT) ||
 #endif
         IsExtraEvolutionItem(item);
