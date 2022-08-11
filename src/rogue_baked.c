@@ -327,9 +327,18 @@ u8 Rogue_GetEvolutionCount(u16 species)
         Rogue_ModifyEvolution(species, e, &evo);
 
         s = evo.targetSpecies;
-        if (s != SPECIES_NONE)
+
+#ifdef ROGUE_EXPANSION
+        if(evo.method != EVO_MEGA_EVOLUTION &&
+            evo.method != EVO_MOVE_MEGA_EVOLUTION &&
+            evo.method != EVO_PRIMAL_REVERSION
+        )
+#endif
         {
-            return 1 + Rogue_GetEvolutionCount(s);
+            if (s != SPECIES_NONE)
+            {
+                return 1 + Rogue_GetEvolutionCount(s);
+            }
         }
     }
 
