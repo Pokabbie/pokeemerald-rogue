@@ -2581,6 +2581,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
         case ROGUE_SHOP_BATTLE_ENHANCERS:
             RogueQuery_ItemsBattleEnchancer();
+            RogueQuery_ItemsNotRareHeldItem();
             RogueQuery_ItemsInPriceRange(10, 60000);
             
             #ifndef ROGUE_SHOP_DEBUG
