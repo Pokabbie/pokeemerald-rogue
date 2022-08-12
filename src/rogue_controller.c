@@ -824,7 +824,7 @@ static void SelectStartMons(void)
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
-    RogueQuery_SpeciesWithAtLeastEvolutionStages(1);
+    RogueQuery_EvolveSpeciesToLevel(2); // To force gen3+ mons off
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
