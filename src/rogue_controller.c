@@ -2216,12 +2216,33 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
     *useRogueCreateMon = FALSE;
 }
 
+static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
+{
+    if(aIdx != bIdx)
+    {
+        struct Pokemon tempMon;
+        CopyMon(&tempMon, &party[aIdx], sizeof(struct Pokemon));
+
+        CopyMon(&party[aIdx], &party[bIdx], sizeof(struct Pokemon));
+        CopyMon(&party[bIdx], &tempMon, sizeof(struct Pokemon));
+    }
+}
+
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
-    //struct Pokemon tempMon;
-    //CopyMon(&tempMon, party[0]);
+#ifdef ROGUE_EXPANSION
+    u8 writeSlot = monsCount - 1;
+    u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
 
-    // TODO - Re-order team hear for best compat (e.g. mega evo later)
+    // Try to move mega/z user to back of party
+    while(writeSlot != 0 && ((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
+    {
+        SwapMons(0, writeSlot, party);
+
+        item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
+        --writeSlot;
+    }
+#endif
 
     gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
@@ -2330,6 +2351,33 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
                 isPresetValid = FALSE;
             }
 
+#ifdef ROGUE_EXPANSION
+            if(!IsMegaEvolutionEnabled())
+            {
+                // Special case for primal reversion
+                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+#endif
+
             if(isPresetValid)
             {
                 break;
@@ -2352,6 +2400,33 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
                 // Swap shell bell to NONE (i.e. berry)
                 outPreset->heldItem = ITEM_NONE;
             }
+
+#ifdef ROGUE_EXPANSION
+            if(!IsMegaEvolutionEnabled())
+            {
+                // Special case for primal reversion
+                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+#endif
         }
 
         if(outPreset->heldItem == ITEM_NONE)
@@ -2367,6 +2442,16 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
         {
             gRogueLocal.trainerTemp.hasUsedShellbell = TRUE;
         }
+#ifdef ROGUE_EXPANSION
+        else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+        {
+            gRogueLocal.trainerTemp.hasUsedMegaStone = TRUE;
+        }
+        else if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+        {
+            gRogueLocal.trainerTemp.hasUsedZMove = TRUE;
+        }
+#endif
 
         return TRUE;
     }
