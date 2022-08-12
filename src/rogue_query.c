@@ -528,36 +528,47 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
             {
                 Rogue_ModifyEvolution(species, e, &evo);
 
-                switch(evo.method)
+                if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(species)))
                 {
-                case EVO_LEVEL:
-                case EVO_LEVEL_ATK_GT_DEF:
-                case EVO_LEVEL_ATK_EQ_DEF:
-                case EVO_LEVEL_ATK_LT_DEF:
-                case EVO_LEVEL_SILCOON:
-                case EVO_LEVEL_CASCOON:
-                case EVO_LEVEL_NINJASK:
-                case EVO_LEVEL_SHEDINJA:
-#ifdef ROGUE_EXPANSION
-                case EVO_LEVEL_FEMALE:
-                case EVO_LEVEL_MALE:
-                case EVO_LEVEL_DAY:
-                case EVO_LEVEL_DUSK:
-                case EVO_LEVEL_NATURE_AMPED:
-                case EVO_LEVEL_NATURE_LOW_KEY:
-                case EVO_CRITICAL_HITS:
-#endif
-                // Evolve by level or if the baby species should be disabled
-                if (evo.param <= level || !IsGenEnabled(SpeciesToGen(species)))
-                {
+                    // If the baby mon didn't exist for the enabled gen we will force it to evolve
                     SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
                     {
                         SetQueryState(species, FALSE);
                     }
                 }
-                break;
-                };
+                else
+                {
+                    switch(evo.method)
+                    {
+                    case EVO_LEVEL:
+                    case EVO_LEVEL_ATK_GT_DEF:
+                    case EVO_LEVEL_ATK_EQ_DEF:
+                    case EVO_LEVEL_ATK_LT_DEF:
+                    case EVO_LEVEL_SILCOON:
+                    case EVO_LEVEL_CASCOON:
+                    case EVO_LEVEL_NINJASK:
+                    case EVO_LEVEL_SHEDINJA:
+#ifdef ROGUE_EXPANSION
+                    case EVO_LEVEL_FEMALE:
+                    case EVO_LEVEL_MALE:
+                    case EVO_LEVEL_DAY:
+                    case EVO_LEVEL_DUSK:
+                    case EVO_LEVEL_NATURE_AMPED:
+                    case EVO_LEVEL_NATURE_LOW_KEY:
+                    case EVO_CRITICAL_HITS:
+#endif
+                    if (evo.param <= level)
+                    {
+                        SetQueryState(evo.targetSpecies, TRUE);
+                        if(removeChild)
+                        {
+                            SetQueryState(species, FALSE);
+                        }
+                    }
+                    break;
+                    };
+                }
             }
         }
     }
