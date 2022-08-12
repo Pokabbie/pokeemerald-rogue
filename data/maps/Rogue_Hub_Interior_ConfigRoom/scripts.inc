@@ -285,8 +285,42 @@ Rogue_ConfigRoom_AdjustWildGens::
 	lock
 	faceplayer
 	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_0, MSGBOX_DEFAULT
+	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
+	message Rogue_ConfigRoom_AdjustWildGens_Text_1
+	waitmessage
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_AdjustWildGens_2
+	multichoice 20, 4, MULTI_GENERATIONS_UPTO3, NO
+Rogue_ConfigRoom_AdjustWildGens_1:
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_AdjustWildGens_7
+	case 1, Rogue_ConfigRoom_AdjustWildGens_7
+	case 2, Rogue_ConfigRoom_AdjustWildGens_7
+	case 3, Rogue_ConfigRoom_AdjustWildGens_7
+	case 4, Rogue_ConfigRoom_AdjustWildGens_7
+	case 5, Rogue_ConfigRoom_AdjustWildGens_7
+	case 6, Rogue_ConfigRoom_AdjustWildGens_7
+	case 7, Rogue_ConfigRoom_AdjustWildGens_7
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_AdjustWildGens_8
+Rogue_ConfigRoom_AdjustWildGens_5:
 	release
 	return
+
+Rogue_ConfigRoom_AdjustWildGens_2:
+	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	goto Rogue_ConfigRoom_AdjustWildGens_1
+
+Rogue_ConfigRoom_AdjustWildGens_7:
+	waitse
+	playse SE_PIN
+	addvar VAR_RESULT, 1
+	copyvar VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT
+	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_2, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_AdjustWildGens_5
+
+Rogue_ConfigRoom_AdjustWildGens_8:
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_3, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_AdjustWildGens_5
 
 
 Rogue_ConfigRoom_PreButtonInternal::
@@ -1027,7 +1061,23 @@ Rogue_ConfigRoom_ItemBag_Text_2:
 	.string "into the bag.$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_0:
-	.string "TODO$"
+	.string "Hi there {PLAYER}!\p"
+	.string "I can adjust the enabled GENERATIONs\n"
+	.string "if you'd like to expand or shrink the\l"
+	.string "types of POKéMON you'll encounter.$"
+
+Rogue_ConfigRoom_AdjustWildGens_Text_1:
+	.string "GEN {STR_VAR_1} is the current max.\n"
+	.string "What should it be changed to?$"
+
+Rogue_ConfigRoom_AdjustWildGens_Text_2:
+	.string "Now you will encounter POKéMON upto\n"
+	.string "GENERATION {STR_VAR_1}.$"
+
+Rogue_ConfigRoom_AdjustWildGens_Text_3:
+	.string "No worries!\n"
+	.string "Come chat to me if you ever change your\l"
+	.string "mind.$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_0:
 	.string "OFF$"

@@ -317,7 +317,43 @@ script Rogue_ConfigRoom_AdjustWildGens
 {
     lock
     faceplayer
-    msgbox(format("TODO"), MSGBOX_DEFAULT)
+    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of POKéMON you'll encounter."), MSGBOX_DEFAULT)
+
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+    message(format("GEN {STR_VAR_1} is the current max.\nWhat should it be changed to?"))
+    waitmessage
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+    }
+    else
+    {
+        multichoice(20, 4, MULTI_GENERATIONS_UPTO3, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT)
+            buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+            msgbox(format("Now you will encounter POKéMON upto GENERATION {STR_VAR_1}."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED: 
+            msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+
+    }
+
     release
 }
 

@@ -13,6 +13,8 @@
 #include "global.h"
 #include "item.h"
 #include "item_use.h"
+
+#include "rogue_controller.h"
 #endif
 
 #include "rogue_baked.h"
@@ -36,6 +38,13 @@ extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
+
+    if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
+    {
+        // Invalid evo
+        outEvo->targetSpecies = SPECIES_NONE;
+        outEvo->method = 0;
+    }
 
     if(outEvo->targetSpecies != SPECIES_NONE)
     {
