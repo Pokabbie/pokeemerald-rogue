@@ -701,6 +701,8 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
     
 #ifdef ROGUE_EXPANSION
+    RogueQuery_Exclude(ITEM_MAX_HONEY);
+
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
 
