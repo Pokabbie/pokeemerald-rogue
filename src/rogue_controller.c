@@ -2906,6 +2906,7 @@ void Rogue_RandomisePartyMon(void)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
+            targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
             species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);

@@ -228,7 +228,7 @@ static bool8 IsFinalEvolution(u16 species)
     return TRUE;
 }
 
-static bool8 IsSpeciesIsLegendary(u16 species)
+static bool8 IsSpeciesLegendary(u16 species)
 {
     switch(species)
     {
@@ -640,7 +640,7 @@ void RogueQuery_SpeciesIsLegendary(void)
     {
         if(GetQueryState(species))
         {
-            if(!IsSpeciesIsLegendary(species))
+            if(!IsSpeciesLegendary(species))
             {
                 SetQueryState(species, FALSE);
             }
@@ -656,7 +656,7 @@ void RogueQuery_SpeciesIsNotLegendary(void)
     {
         if(GetQueryState(species))
         {
-            if(IsSpeciesIsLegendary(species))
+            if(IsSpeciesLegendary(species))
             {
                 SetQueryState(species, FALSE);
             }
