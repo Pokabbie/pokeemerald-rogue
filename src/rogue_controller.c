@@ -78,6 +78,10 @@ struct RogueTrainerTemp
     bool8 hasAppliedFallback;
     bool8 hasUsedLeftovers;
     bool8 hasUsedShellbell;
+#ifdef ROGUE_EXPANSION
+    bool8 hasUsedMegaStone;
+    bool8 hasUsedZMove;
+#endif
 };
 
 struct RogueLocalData
