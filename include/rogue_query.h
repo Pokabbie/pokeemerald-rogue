@@ -32,6 +32,7 @@ void RogueQuery_TransformToEggSpecies(void);
 void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count);
 void RogueQuery_EvolveSpeciesToLevel(u8 level);
 void RogueQuery_EvolveSpeciesByItem();
+void RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
 void RogueQuery_SpeciesIsLegendary(void);
 void RogueQuery_SpeciesIsNotLegendary(void);
 

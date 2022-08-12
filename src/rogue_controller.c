@@ -1737,6 +1737,16 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 gRogueRun.nextRestStopRoomIdx = 255;
             }
+
+            if(RandomChance(50, OVERWORLD_FLAG))
+            {
+                // Enable random trader
+                FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
+            else
+            {
+                FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
         }
         else if(IsBossRoom(nextRoomIdx))
         {
@@ -2216,12 +2226,33 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
     *useRogueCreateMon = FALSE;
 }
 
+static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
+{
+    if(aIdx != bIdx)
+    {
+        struct Pokemon tempMon;
+        CopyMon(&tempMon, &party[aIdx], sizeof(struct Pokemon));
+
+        CopyMon(&party[aIdx], &party[bIdx], sizeof(struct Pokemon));
+        CopyMon(&party[bIdx], &tempMon, sizeof(struct Pokemon));
+    }
+}
+
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
-    //struct Pokemon tempMon;
-    //CopyMon(&tempMon, party[0]);
+#ifdef ROGUE_EXPANSION
+    u8 writeSlot = monsCount - 1;
+    u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
 
-    // TODO - Re-order team hear for best compat (e.g. mega evo later)
+    // Try to move mega/z user to back of party
+    while(writeSlot != 0 && ((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
+    {
+        SwapMons(0, writeSlot, party);
+
+        item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
+        --writeSlot;
+    }
+#endif
 
     gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
@@ -2330,6 +2361,33 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
                 isPresetValid = FALSE;
             }
 
+#ifdef ROGUE_EXPANSION
+            if(!IsMegaEvolutionEnabled())
+            {
+                // Special case for primal reversion
+                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                {
+                    isPresetValid = FALSE;
+                }
+            }
+#endif
+
             if(isPresetValid)
             {
                 break;
@@ -2352,6 +2410,33 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
                 // Swap shell bell to NONE (i.e. berry)
                 outPreset->heldItem = ITEM_NONE;
             }
+
+#ifdef ROGUE_EXPANSION
+            if(!IsMegaEvolutionEnabled())
+            {
+                // Special case for primal reversion
+                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+
+            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
+            {
+                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                {
+                    outPreset->heldItem = ITEM_NONE;
+                }
+            }
+#endif
         }
 
         if(outPreset->heldItem == ITEM_NONE)
@@ -2367,6 +2452,16 @@ static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* 
         {
             gRogueLocal.trainerTemp.hasUsedShellbell = TRUE;
         }
+#ifdef ROGUE_EXPANSION
+        else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+        {
+            gRogueLocal.trainerTemp.hasUsedMegaStone = TRUE;
+        }
+        else if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+        {
+            gRogueLocal.trainerTemp.hasUsedZMove = TRUE;
+        }
+#endif
 
         return TRUE;
     }
@@ -2667,9 +2762,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2708,9 +2803,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2752,9 +2847,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2779,6 +2874,74 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     }
 
     return RogueQuery_BufferPtr();
+}
+
+
+
+void Rogue_RandomisePartyMon(void)
+{
+    u8 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+        u16 queryCount;
+        u16 species;
+        u16 heldItem;
+        u8 targetlevel = CalculatePlayerLevel();
+
+        // Query for the current route type
+        RogueQuery_Clear();
+
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
+        RogueQuery_TransformToEggSpecies();
+
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpeciesToLevel(targetlevel);
+        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+
+        queryCount = RogueQuery_UncollapsedSpeciesSize();
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+            species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+
+            ZeroMonData(&gPlayerParty[i]);
+            CreateMon(&gPlayerParty[i], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+        }
+    }
+    else
+    {
+        u16 queryCount;
+        u16 species;
+        u8 targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
+        u16 heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+
+        // Query for the current route type
+        RogueQuery_Clear();
+
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
+        RogueQuery_TransformToEggSpecies();
+
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpeciesToLevel(targetlevel);
+        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+
+        queryCount = RogueQuery_UncollapsedSpeciesSize();
+        species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+
+        ZeroMonData(&gPlayerParty[monIdx]);
+        CreateMon(&gPlayerParty[monIdx], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+        SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
+    }
 }
 
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)

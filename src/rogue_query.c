@@ -574,11 +574,10 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
     }
 }
 
-void RogueQuery_EvolveSpeciesByItem()
+static void RogueQuery_EvolveSpeciesByItem_Internal(bool8 removeChild)
 {
     u8 e;
     u16 species;
-    bool8 removeChild = TRUE;
     struct Evolution evo;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
@@ -621,6 +620,16 @@ void RogueQuery_EvolveSpeciesByItem()
             }
         }
     }
+}
+
+void RogueQuery_EvolveSpeciesByItem()
+{
+    RogueQuery_EvolveSpeciesByItem_Internal(TRUE);
+}
+
+void RogueQuery_EvolveSpeciesByItemAndKeepPreEvo()
+{
+    RogueQuery_EvolveSpeciesByItem_Internal(FALSE);
 }
 
 void RogueQuery_SpeciesIsLegendary(void)

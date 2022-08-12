@@ -1098,6 +1098,8 @@ extern const u8 gText_Gen5[];
 extern const u8 gText_Gen6[];
 extern const u8 gText_Gen7[];
 extern const u8 gText_Gen8[];
+extern const u8 gText_SwapOne[];
+extern const u8 gText_SwapAll[];
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];
