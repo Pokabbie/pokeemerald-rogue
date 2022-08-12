@@ -381,6 +381,22 @@ void RogueQuery_SpeciesIsValid(void)
     }
 }
 
+void RogueQuery_SpeciesExcludeCommon(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(!IsGenEnabled(SpeciesToGen(species)))
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
 void RogueQuery_SpeciesInPokedex(void)
 {
     u16 species;
@@ -531,7 +547,8 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                 case EVO_LEVEL_NATURE_LOW_KEY:
                 case EVO_CRITICAL_HITS:
 #endif
-                if (evo.param <= level)
+                // Evolve by level or if the baby species should be disabled
+                if (evo.param <= level || !IsGenEnabled(SpeciesToGen(species)))
                 {
                     SetQueryState(evo.targetSpecies, TRUE);
                     if(removeChild)
@@ -649,7 +666,7 @@ void RogueQuery_ItemsIsValid(void)
     }
 }
 
-void RogueQuery_ExcludeCommon(void)
+void RogueQuery_ItemsExcludeCommon(void)
 {
     RogueQuery_Exclude(ITEM_SACRED_ASH);
     RogueQuery_Exclude(ITEM_REVIVAL_HERB);

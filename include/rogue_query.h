@@ -23,6 +23,7 @@ void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
 
 // Species
 void RogueQuery_SpeciesIsValid(void);
+void RogueQuery_SpeciesExcludeCommon(void);
 void RogueQuery_SpeciesInPokedex(void);
 void RogueQuery_SpeciesOfType(u8 type);
 void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);
@@ -36,7 +37,7 @@ void RogueQuery_SpeciesIsNotLegendary(void);
 
 // Items
 void RogueQuery_ItemsIsValid(void);
-void RogueQuery_ExcludeCommon(void);
+void RogueQuery_ItemsExcludeCommon(void);
 void RogueQuery_ItemsInPocket(u8 pocket);
 void RogueQuery_ItemsNotInPocket(u8 pocket);
 void RogueQuery_ItemsHeldItem(void);

@@ -660,9 +660,15 @@ bool8 IsGenEnabled(u8 gen)
     if(gen >= 1 && gen <= 3)
 #endif
     {
-        return FlagGet(FLAG_ROGUE_GEN1_ENABLED + gen);
+        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        return TRUE;
+        if(maxGen == 0)
+        {
+            // Fallback for broken var
+            return TRUE;
+        }
+
+        return gen <= maxGen;
     }
 
     return FALSE;
@@ -786,6 +792,7 @@ static void SelectStartMons(void)
     RogueQuery_Exclude(SPECIES_SUNFLORA);
 
     RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
     RogueQuery_SpeciesWithAtLeastEvolutionStages(1);
@@ -855,15 +862,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
-    FlagSet(FLAG_ROGUE_GEN1_ENABLED);
-    FlagSet(FLAG_ROGUE_GEN2_ENABLED);
-    FlagSet(FLAG_ROGUE_GEN3_ENABLED);
-    FlagClear(FLAG_ROGUE_GEN4_ENABLED);
-    FlagClear(FLAG_ROGUE_GEN5_ENABLED);
-    FlagClear(FLAG_ROGUE_GEN6_ENABLED);
-    FlagClear(FLAG_ROGUE_GEN7_ENABLED);
-    FlagClear(FLAG_ROGUE_GEN8_ENABLED);
-
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1511,7 +1510,7 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 6 && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
+    while(mapCount > 6 && IsGenEnabled(SpeciesToGen(selectedMap->encounterSpecies)) && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -2104,6 +2103,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         RogueQuery_Clear();
 
         RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
 
         if(!allowLedgendaries)
             RogueQuery_SpeciesIsNotLegendary();
@@ -2314,6 +2314,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             // Requery with just legendaries
             RogueQuery_Clear();
             RogueQuery_SpeciesIsValid();
+            RogueQuery_SpeciesExcludeCommon();
             RogueQuery_SpeciesIsLegendary();
             RogueQuery_SpeciesOfType(TYPE_WATER);
             RogueQuery_CollapseSpeciesBuffer();
@@ -2327,6 +2328,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             // Requery with just legendaries
             RogueQuery_Clear();
             RogueQuery_SpeciesIsValid();
+            RogueQuery_SpeciesExcludeCommon();
             RogueQuery_SpeciesIsLegendary();
             RogueQuery_SpeciesOfType(TYPE_PSYCHIC);
             RogueQuery_CollapseSpeciesBuffer();
@@ -2497,7 +2499,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     RogueQuery_Clear();
     RogueQuery_ItemsIsValid();
-    RogueQuery_ExcludeCommon();
+    RogueQuery_ItemsExcludeCommon();
 
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
@@ -2746,6 +2748,7 @@ static void RandomiseWildEncounters(void)
     RogueQuery_Clear();
 
     RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
     RogueQuery_TransformToEggSpecies();
@@ -3113,7 +3116,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
 
-    RogueQuery_ExcludeCommon();
+    RogueQuery_ItemsExcludeCommon();
 
     if(IsBossRoom(gRogueRun.currentRoomIdx))
     {

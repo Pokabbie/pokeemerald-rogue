@@ -673,15 +673,15 @@
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
-#define FLAG_ROGUE_GEN1_ENABLED              0x270
-#define FLAG_ROGUE_GEN2_ENABLED              0x271
-#define FLAG_ROGUE_GEN3_ENABLED              0x272
-#define FLAG_ROGUE_GEN4_ENABLED              0x273
-#define FLAG_ROGUE_GEN5_ENABLED              0x274
-#define FLAG_ROGUE_GEN6_ENABLED              0x275
-#define FLAG_ROGUE_GEN7_ENABLED              0x276 
-#define FLAG_ROGUE_GEN8_ENABLED              0x277
-#define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x278
+#define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
+#define FLAG_UNUSED_0x271  0x271
+#define FLAG_UNUSED_0x272  0x272
+#define FLAG_UNUSED_0x273  0x273
+#define FLAG_UNUSED_0x274  0x274
+#define FLAG_UNUSED_0x275  0x275
+#define FLAG_UNUSED_0x276  0x276
+#define FLAG_UNUSED_0x277  0x277
+#define FLAG_UNUSED_0x278  0x278
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag
 #define FLAG_UNUSED_0x27A  0x27A // Unused Flag
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag

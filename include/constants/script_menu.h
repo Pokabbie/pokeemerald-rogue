@@ -29,8 +29,8 @@
 #define MULTI_BATTLE_MODE                  18
 #define MULTI_UNUSED_19                    19
 #define MULTI_YESNOINFO_2                  20
-#define MULTI_UNUSED_21                    21
-#define MULTI_UNUSED_22                    22
+#define MULTI_GENERATIONS_UPTO3            21
+#define MULTI_GENERATIONS_UPTO8            22
 #define MULTI_CHALLENGEINFO                23
 #define MULTI_LEVEL_MODE                   24
 #define MULTI_MECHADOLL1_Q1                25

@@ -89,6 +89,25 @@ static const struct MenuAction MultichoiceList_YesNoInfo2[] =
     {gText_Info2},
 };
 
+static const struct MenuAction MultichoiceList_Generations3[] =
+{
+    {gText_Gen1},
+    {gText_Gen2},
+    {gText_Gen3},
+};
+
+static const struct MenuAction MultichoiceList_Generations8[] =
+{
+    {gText_Gen1},
+    {gText_Gen2},
+    {gText_Gen3},
+    {gText_Gen4},
+    {gText_Gen5},
+    {gText_Gen6},
+    {gText_Gen7},
+    {gText_Gen8},
+};
+
 static const struct MenuAction MultichoiceList_ChallengeInfo[] =
 {
     {gText_Challenge},
@@ -821,8 +840,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BATTLE_MODE]                = MULTICHOICE(MultichoiceList_BattleMode),
     [MULTI_UNUSED_19]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_YESNOINFO_2]                = MULTICHOICE(MultichoiceList_YesNoInfo2),
-    [MULTI_UNUSED_21]                  = MULTICHOICE(MultichoiceList_Exit),
-    [MULTI_UNUSED_22]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_GENERATIONS_UPTO3]          = MULTICHOICE(MultichoiceList_Generations3),
+    [MULTI_GENERATIONS_UPTO8]          = MULTICHOICE(MultichoiceList_Generations8),
     [MULTI_CHALLENGEINFO]              = MULTICHOICE(MultichoiceList_ChallengeInfo),
     [MULTI_LEVEL_MODE]                 = MULTICHOICE(MultichoiceList_LevelMode),
     [MULTI_MECHADOLL1_Q1]              = MULTICHOICE(MultichoiceList_Mechadoll1_Q1),
