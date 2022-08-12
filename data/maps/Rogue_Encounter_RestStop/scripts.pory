@@ -1,3 +1,5 @@
+const NPC_RANDOM_MAN = 7
+
 mapscripts Rogue_Encounter_RestStop_MapScripts 
 {
 
@@ -11,4 +13,112 @@ script Rogue_Encounter_RestStop_Heal
     call(Common_EventScript_OutOfCenterPartyHeal)
     msgbox(format("Take care!"), MSGBOX_DEFAULT)
     release
+}
+
+script Rogue_Encounter_RestStop_RandomMan
+{
+    lock
+    applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_Spin)
+    waitmovement(0)
+    faceplayer
+
+    msgbox(format("WAHEY!\pYou looking to add a bit of randomness to you life?\pTell you what..."), MSGBOX_DEFAULT)
+    
+    showmoneybox(0, 0)
+    msgbox(format("For ¥1000 I'll trade you one POKéMON.\nOR!\pI'll trade ALL your POKéMON for free?"), MSGBOX_DEFAULT)
+
+    message(format("What do you say?"))
+    waitmessage
+
+    multichoice(17, 6, MULTI_RANDOM_SWAP_OPTIONS, NO)
+    hidemoneybox
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Trade 1
+            checkmoney(1000)
+            if(var(VAR_RESULT) == YES)
+            {
+                fadescreen(FADE_TO_BLACK)
+                special(ChoosePartyMon)
+                waitstate
+
+                if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+                {
+                    msgbox(format("Blagh!\nHow boring..."), MSGBOX_DEFAULT)
+                }
+                else
+                {
+                    removemoney(1000)
+
+                    waitse
+                    playse(SE_VEND)
+                    special(Rogue_RandomisePartyMon)
+
+                    msgbox(format("Ke ke ke!\pEnjoy!"))
+                    applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
+                    waitmovement(0)
+
+                    setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+                    removeobject(NPC_RANDOM_MAN)
+                }
+            }
+            else
+            {
+                msgbox(format("Blagh!\nHow boring...\pCome back with some more money."), MSGBOX_DEFAULT)
+            }
+
+        case 1: // Trade all
+            setvar(VAR_0x8004, 255)
+
+            waitse
+                    playse(SE_VEND)
+            special(Rogue_RandomisePartyMon)
+            
+            msgbox(format("Ke ke ke!\pEnjoy!"))
+            applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
+            waitmovement(0)
+
+            setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+            removeobject(NPC_RANDOM_MAN)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Blagh!\nHow boring..."), MSGBOX_DEFAULT)
+
+    }
+    release
+}
+
+movement Rogue_RestStop_RandomMan_Spin
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+    jump_in_place_down
+}
+
+movement Rogue_RestStop_RandomMan_RunAway
+{
+    jump_2_up * 4
 }

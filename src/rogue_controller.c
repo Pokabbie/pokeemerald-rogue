@@ -1737,6 +1737,16 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 gRogueRun.nextRestStopRoomIdx = 255;
             }
+
+            if(RandomChance(50, OVERWORLD_FLAG))
+            {
+                // Enable random trader
+                FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
+            else
+            {
+                FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
         }
         else if(IsBossRoom(nextRoomIdx))
         {
@@ -2752,9 +2762,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2793,9 +2803,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2837,9 +2847,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #else
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(10);
+                    ApplyRandomMartChanceQuery(15);
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(20);
+                    ApplyRandomMartChanceQuery(25);
                 else if(difficulty <= 7)
                     ApplyRandomMartChanceQuery(50);
                 else
@@ -2864,6 +2874,74 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     }
 
     return RogueQuery_BufferPtr();
+}
+
+
+
+void Rogue_RandomisePartyMon(void)
+{
+    u8 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+        u16 queryCount;
+        u16 species;
+        u16 heldItem;
+        u8 targetlevel = CalculatePlayerLevel();
+
+        // Query for the current route type
+        RogueQuery_Clear();
+
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
+        RogueQuery_TransformToEggSpecies();
+
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpeciesToLevel(targetlevel);
+        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+
+        queryCount = RogueQuery_UncollapsedSpeciesSize();
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+            species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+
+            ZeroMonData(&gPlayerParty[i]);
+            CreateMon(&gPlayerParty[i], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+        }
+    }
+    else
+    {
+        u16 queryCount;
+        u16 species;
+        u8 targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
+        u16 heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+
+        // Query for the current route type
+        RogueQuery_Clear();
+
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
+        RogueQuery_TransformToEggSpecies();
+
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpeciesToLevel(targetlevel);
+        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+
+        queryCount = RogueQuery_UncollapsedSpeciesSize();
+        species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+
+        ZeroMonData(&gPlayerParty[monIdx]);
+        CreateMon(&gPlayerParty[monIdx], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+        SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
+    }
 }
 
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
