@@ -634,6 +634,7 @@
 #define MAP_ROGUE_SPECIAL_SUICUNE           (39 | (34 << 8))
 #define MAP_ROGUE_SPECIAL_CELEBI            (40 | (34 << 8))
 #define MAP_ROGUE_SPECIAL_JIRACHI           (41 | (34 << 8))
+#define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON  (42 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

@@ -213,6 +213,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->price = 1000;
     }
+
+    if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
+    {
+        outItem->price = 5000;
+    }
 #endif
 
     // Individual items

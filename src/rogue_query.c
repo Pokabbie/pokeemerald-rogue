@@ -332,6 +332,22 @@ static bool8 IsSpeciesLegendary(u16 species)
         case SPECIES_GLASTRIER:
         case SPECIES_SPECTRIER:
         case SPECIES_CALYREX:
+
+        // Forms
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+        
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_ETERNATUS_ETERNAMAX:
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
 #endif
             return TRUE;
     };

@@ -519,7 +519,6 @@ void BattleSetup_StartLegendaryBattle(void)
 
     switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
     {
-    default:
     case SPECIES_GROUDON:
         gBattleTypeFlags |= BATTLE_TYPE_GROUDON;
         CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
@@ -553,7 +552,10 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_MEWTWO);
         break;
-    // TODO - extra for all legdendaries
+
+    default:
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_RAYQUAZA);
+        break;
     }
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
