@@ -651,6 +651,27 @@ u8 SpeciesToGen(u16 species)
 
     if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_ARCEUS_FAIRY)
         return 4;
+    
+    switch(species)
+    {
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+            return 5;
+        
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+            return 7;
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_ETERNATUS_ETERNAMAX:
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
+            return 8;
+    }
 #endif
     
     return 0;
@@ -1516,6 +1537,8 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
     while(mapCount > 6 && (!IsGenEnabled(SpeciesToGen(selectedMap->encounterSpecies)) || PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies)));
+
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, selectedMap->encounterSpecies);
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -2906,6 +2929,7 @@ void Rogue_RandomisePartyMon(void)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
+            targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
             species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);

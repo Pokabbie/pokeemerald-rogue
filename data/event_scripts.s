@@ -1140,3 +1140,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Hub_Interior_ClothesShop/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Mountain1/scripts.inc"
+
+	.include "data/maps/Rogue_Special_GenericWildMon/scripts.inc"

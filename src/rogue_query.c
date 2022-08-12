@@ -228,7 +228,7 @@ static bool8 IsFinalEvolution(u16 species)
     return TRUE;
 }
 
-static bool8 IsSpeciesIsLegendary(u16 species)
+static bool8 IsSpeciesLegendary(u16 species)
 {
     switch(species)
     {
@@ -332,6 +332,22 @@ static bool8 IsSpeciesIsLegendary(u16 species)
         case SPECIES_GLASTRIER:
         case SPECIES_SPECTRIER:
         case SPECIES_CALYREX:
+
+        // Forms
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+        
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_ETERNATUS_ETERNAMAX:
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
 #endif
             return TRUE;
     };
@@ -640,7 +656,7 @@ void RogueQuery_SpeciesIsLegendary(void)
     {
         if(GetQueryState(species))
         {
-            if(!IsSpeciesIsLegendary(species))
+            if(!IsSpeciesLegendary(species))
             {
                 SetQueryState(species, FALSE);
             }
@@ -656,7 +672,7 @@ void RogueQuery_SpeciesIsNotLegendary(void)
     {
         if(GetQueryState(species))
         {
-            if(IsSpeciesIsLegendary(species))
+            if(IsSpeciesLegendary(species))
             {
                 SetQueryState(species, FALSE);
             }
@@ -701,6 +717,8 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
     
 #ifdef ROGUE_EXPANSION
+    RogueQuery_Exclude(ITEM_MAX_HONEY);
+
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
 

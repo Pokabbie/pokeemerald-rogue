@@ -3783,7 +3783,7 @@ void CreateEventLegalEnemyMon(void)
 {
     u8 i;
     u16 moveId;
-    u16 species = gSpecialVar_0x8004;
+    u16 species = VarGet(gSpecialVar_0x8004);
     u8 level = gSpecialVar_0x8005;
     u16 itemId = gSpecialVar_0x8006;
 
