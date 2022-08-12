@@ -320,7 +320,7 @@ script Rogue_ConfigRoom_AdjustWildGens
     msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of POKéMON you'll encounter."), MSGBOX_DEFAULT)
 
     buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
-    message(format("Currently you will encounter POKéMON upto GENERATION {STR_VAR_1}. \nWhat should it be changed to?"))
+    message(format("GEN {STR_VAR_1} is the current max.\nWhat should it be changed to?"))
     waitmessage
 
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))

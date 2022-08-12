@@ -1067,8 +1067,7 @@ Rogue_ConfigRoom_AdjustWildGens_Text_0:
 	.string "types of POKéMON you'll encounter.$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_1:
-	.string "Currently you will encounter POKéMON\n"
-	.string "upto GENERATION {STR_VAR_1}.\n"
+	.string "GEN {STR_VAR_1} is the current max.\n"
 	.string "What should it be changed to?$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_2:

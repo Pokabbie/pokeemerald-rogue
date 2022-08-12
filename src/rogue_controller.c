@@ -72,6 +72,10 @@ ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon)
 struct RogueTrainerTemp
 {
     u32 seedToRestore;
+    u8 allowedType[2];
+    bool8 allowItemEvos;
+    bool8 allowLedgendaries;
+    bool8 hasAppliedFallback;
     bool8 hasUsedLeftovers;
     bool8 hasUsedShellbell;
 };
@@ -1510,7 +1514,7 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 6 && IsGenEnabled(SpeciesToGen(selectedMap->encounterSpecies)) && PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies));
+    while(mapCount > 6 && (!IsGenEnabled(SpeciesToGen(selectedMap->encounterSpecies)) || PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies)));
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -2084,55 +2088,121 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
     return FALSE;
 }
 
+static void ApplyTrainerQuery(u16 trainerNum)
+{
+    // Query for the current trainer team
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
+
+    if(!gRogueLocal.trainerTemp.allowLedgendaries)
+        RogueQuery_SpeciesIsNotLegendary();
+
+    if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+    {
+        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+        else
+            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+    }
+
+    RogueQuery_TransformToEggSpecies();
+
+    // Evolve the species to just below the wild encounter level
+    RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
+    
+    if(gRogueLocal.trainerTemp.allowItemEvos)
+        RogueQuery_EvolveSpeciesByItem();
+
+    if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+    {
+        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+        else
+            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+    }
+
+    RogueQuery_CollapseSpeciesBuffer();
+}
+
+static void ApplyFallbackTrainerQuery(u16 trainerNum)
+{
+    bool8 hasFallback = FALSE;
+
+    switch(gRogueLocal.trainerTemp.allowedType[0])
+    {
+        case TYPE_DARK:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+            break;
+
+        case TYPE_STEEL:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_DRAGON;
+            break;
+
+        case TYPE_FIGHTING:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
+        case TYPE_GHOST:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
+        case TYPE_DRAGON:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_WATER;
+            break;
+
+        case TYPE_FIRE:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
+        case TYPE_FLYING:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_NORMAL;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
+        case TYPE_ICE:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+    }
+
+    if(hasFallback && !gRogueLocal.trainerTemp.hasAppliedFallback)
+    {
+        gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+        ApplyTrainerQuery(trainerNum);
+    }
+}
+
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
     if(Rogue_IsRunActive())
     {
-        u8 allowedType[2] = { TYPE_NONE, TYPE_NONE };
-        bool8 allowItemEvos = FALSE;
-        bool8 allowLedgendaries = FALSE;
-
         // Reset trainer temp
         memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
         gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
 
+        gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+        gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
-        ConfigureTrainer(trainerNum, &allowedType[0], &allowItemEvos, &allowLedgendaries, monsCount);
+        ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
 
-        // Query for the current trainer team
-        RogueQuery_Clear();
-
-        RogueQuery_SpeciesIsValid();
-        RogueQuery_SpeciesExcludeCommon();
-
-        if(!allowLedgendaries)
-            RogueQuery_SpeciesIsNotLegendary();
-
-        if(allowedType[0] != TYPE_NONE)
-        {
-            if(allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
-        }
-
-        RogueQuery_TransformToEggSpecies();
-
-        // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
-        
-        if(allowItemEvos)
-            RogueQuery_EvolveSpeciesByItem();
-
-        if(allowedType[0] != TYPE_NONE)
-        {
-            if(allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(allowedType[0]); // 1 type
-        }
-
-        RogueQuery_CollapseSpeciesBuffer();
+        ApplyTrainerQuery(trainerNum);
 
 #ifdef ROGUE_DEBUG
         gDebug_TrainerOptionCount = RogueQuery_BufferSize();
@@ -2161,6 +2231,13 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
     
+    if(monIdx >= queryCount)
+    {
+        // Apply the fallback query (If we have one)
+        // This will allow for secondary types if we've exhausted the primary one
+        ApplyFallbackTrainerQuery(trainerNum);
+    }
+
     // Prevent duplicates, if possible (Only for bosses)
     // *Only allow duplicates after we've already seen everything in the query
     do
@@ -2464,10 +2541,6 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
     *level = CalculateWildLevel();
 } 
 
-#ifdef ROGUE_DEBUG
-//#define ROGUE_SHOP_DEBUG
-#endif
-
 static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
 {
     // Always use rogue random so this is seeded correctly
@@ -2514,14 +2587,12 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
         case ROGUE_SHOP_MEDICINE:
             RogueQuery_ItemsMedicine();
 
-            #ifndef ROGUE_SHOP_DEBUG
             RogueQuery_ItemsInPriceRange(10, 300 + difficulty * 400);
 
             if(difficulty < 4)
             {
                 RogueQuery_Exclude(ITEM_FULL_HEAL);
             }
-            #endif
 
             RogueQuery_Exclude(ITEM_FRESH_WATER);
             RogueQuery_Exclude(ITEM_SODA_POP);
@@ -2540,7 +2611,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
         case ROGUE_SHOP_BALLS:
             RogueQuery_ItemsInPocket(POCKET_POKE_BALLS);
 
-            #ifndef ROGUE_SHOP_DEBUG
             if(difficulty <= 0)
             {
                 RogueQuery_ItemsInPriceRange(10, 200);
@@ -2561,7 +2631,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             {
                 RogueQuery_ItemsInPriceRange(10, 2000);
             }
-            #endif
 
             RogueQuery_Exclude(ITEM_PREMIER_BALL);
             break;
@@ -2570,10 +2639,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsInPocket(POCKET_TM_HM);
             RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
 
-            #ifndef ROGUE_SHOP_DEBUG
             RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
-            #endif
-
             break;
 
         case ROGUE_SHOP_BATTLE_ENHANCERS:
@@ -2581,8 +2647,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsNotRareHeldItem();
             RogueQuery_ItemsInPriceRange(10, 60000);
             
-            #ifndef ROGUE_SHOP_DEBUG
-            if(Rogue_IsRunActive())
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                // Do nothing
+            }
+            else if(Rogue_IsRunActive())
             {
             #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
@@ -2606,7 +2675,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #endif
             }
-            #endif
 
             if(Rogue_IsRunActive())
                 *minSalePrice = 500;
@@ -2620,8 +2688,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsNotRareHeldItem();
             RogueQuery_ItemsInPriceRange(10, 60000);
 
-            #ifndef ROGUE_SHOP_DEBUG
-            if(Rogue_IsRunActive())
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                // Do nothing
+            }
+            else if(Rogue_IsRunActive())
             {
             #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
@@ -2650,7 +2721,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 // Remove contents 
                 RogueQuery_ItemsInPriceRange(10, 11);
             }
-            #endif
 
             if(Rogue_IsRunActive())
                 *minSalePrice = 500;
@@ -2662,8 +2732,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsRareHeldItem();
             RogueQuery_ItemsInPriceRange(10, 60000);
 
-            #ifndef ROGUE_SHOP_DEBUG
-            if(Rogue_IsRunActive())
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                // Do nothing
+            }
+            else if(Rogue_IsRunActive())
             {
             #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
@@ -2687,7 +2760,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     ApplyRandomMartChanceQuery(100);
             #endif
             }
-            #endif
 
             if(Rogue_IsRunActive())
                 *minSalePrice = 1500;
