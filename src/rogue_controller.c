@@ -835,7 +835,6 @@ static void SelectStartMons(void)
 
 void Rogue_OnNewGame(void)
 {
-    SelectStartMons();
     SetMoney(&gSaveBlock1Ptr->money, 0);
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
@@ -878,6 +877,8 @@ void Rogue_OnNewGame(void)
     EnableNationalPokedex();
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
+
+    SelectStartMons();
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
