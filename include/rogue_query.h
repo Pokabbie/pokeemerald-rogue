@@ -16,6 +16,9 @@ u16 RogueQuery_UncollapsedSpeciesSize(void);
 u16 RogueQuery_UncollapsedItemSize(void);
 u16 RogueQuery_AtUncollapsedIndex(u16 idx);
 
+u16 RogueQuery_PopCollapsedIndex(u16 idx);
+u16 RogueQuery_PopUncollapsedIndex(u16 idx);
+
 void RogueQuery_Include(u16 idx);
 void RogueQuery_Exclude(u16 idx);
 void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData);

@@ -160,6 +160,43 @@ u16 RogueQuery_AtUncollapsedIndex(u16 idx)
     return 0;
 }
 
+u16 RogueQuery_PopCollapsedIndex(u16 idx)
+{
+    u16 i;
+    u16 value = gRogueQueryBuffer[idx];
+
+    SetQueryState(value, FALSE);
+    --gRogueQueryBufferSize;
+
+    for(i = idx; i < gRogueQueryBufferSize; ++i)
+    {
+        gRogueQueryBuffer[i] = gRogueQueryBuffer[i + 1];
+    }
+
+    gRogueQueryBuffer[gRogueQueryBufferSize] = 0;
+    return value;
+}
+
+u16 RogueQuery_PopUncollapsedIndex(u16 idx)
+{
+    u16 i;
+    u16 counter = 0;
+    
+    for(i = 1; i < MAX_QUERY_BIT_COUNT; ++i)
+    {
+        if(GetQueryState(i))
+        {
+            if(idx == counter++)
+            {
+                SetQueryState(i, FALSE);
+                return i;
+            }
+        }
+    }
+
+    return 0;
+}
+
 void RogueQuery_Include(u16 idx)
 {
     SetQueryState(idx, TRUE);

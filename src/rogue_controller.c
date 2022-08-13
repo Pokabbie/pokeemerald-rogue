@@ -2014,25 +2014,25 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
     {
         if(difficultyLevel == 0)
         {
-            *monsCount = 3;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 1)
         {
-            *monsCount = 4;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 5 : 4;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 4;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 4;
             *allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
-            *monsCount = 5;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 5;
             *allowItemEvos = TRUE;
             *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
@@ -2547,7 +2547,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         fixedIV = MAX_PER_STAT_IVS;
     else
-        fixedIV = isBoss ? 11 : 0;
+        fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
     {
@@ -2684,9 +2684,24 @@ static void ApplyRandomMartChanceQuery(u16 chance)
     gRngRogueValue = startSeed;
 }
 
+static void ApplyMartCapacity(u16 capacity)
+{
+    u16 randIdx;
+    u32 startSeed = gRngRogueValue;
+
+    while(RogueQuery_BufferSize() > capacity)
+    {
+        randIdx = RogueRandom() % RogueQuery_BufferSize();
+        RogueQuery_PopCollapsedIndex(randIdx);
+    }
+
+    gRngRogueValue = startSeed;
+}
+
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 {
     u16 difficulty;
+    u16 itemCapacity = 0; // MAX is 0
     
     if(Rogue_IsRunActive())
         difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
@@ -2776,27 +2791,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
 
             if(Rogue_IsRunActive())
@@ -2817,27 +2819,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
             else if(difficulty <= 5)
             {
@@ -2861,27 +2850,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
 
             if(Rogue_IsRunActive())
@@ -2892,6 +2868,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     };
 
     RogueQuery_CollapseItemBuffer();
+
+    if(itemCapacity != 0)
+        ApplyMartCapacity(itemCapacity);
 
     if(RogueQuery_BufferSize() == 0)
     {
@@ -2933,7 +2912,7 @@ void Rogue_RandomisePartyMon(void)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
-            targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
+            targetlevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
             species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
