@@ -681,6 +681,169 @@ u8 SpeciesToGen(u16 species)
     return 0;
 }
 
+u8 ItemToGen(u16 item)
+{
+#ifdef ROGUE_EXPANSION
+    if(item >= ITEM_FLAME_PLATE && item <= ITEM_PIXIE_PLATE)
+        return 4;
+
+    if(item >= ITEM_DOUSE_DRIVE && item <= ITEM_CHILL_DRIVE)
+        return 5;
+
+    if(item >= ITEM_FIRE_MEMORY && item <= ITEM_FAIRY_MEMORY)
+        return 7;
+
+    // Mega stones are gonna be gen'd by the mons as we already feature toggle them based on key items
+    if(item >= ITEM_VENUSAURITE && item <= ITEM_MEWTWONITE_Y)
+        return 1;
+    if(item >= ITEM_AMPHAROSITE && item <= ITEM_TYRANITARITE)
+        return 2;
+    if(item >= ITEM_SCEPTILITE && item <= ITEM_LATIOSITE)
+        return 3;
+    if(item >= ITEM_LOPUNNITE && item <= ITEM_GALLADITE)
+        return 4;
+    if(item == ITEM_AUDINITE)
+        return 5;
+    if(item == ITEM_DIANCITE)
+        return 6;
+
+    // Z-crystals are key item feature toggled so leave them as always on except to for mon specific ones
+    if(item >= ITEM_NORMALIUM_Z && item <= ITEM_MEWNIUM_Z)
+        return 1;
+    if(item >= ITEM_DECIDIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
+        return 7;
+
+    switch(item)
+    {
+        case ITEM_SWEET_HEART:
+            return 5;
+
+        case ITEM_PEWTER_CRUNCHIES:
+            return 1;
+        case ITEM_RAGE_CANDY_BAR:
+            return 2;
+        case ITEM_LAVA_COOKIE:
+            return 3;
+        case ITEM_OLD_GATEAU:
+            return 4;
+        case ITEM_CASTELIACONE:
+            return 5;
+        case ITEM_LUMIOSE_GALETTE:
+            return 6;
+        case ITEM_SHALOUR_SABLE:
+            return 7;
+        case ITEM_BIG_MALASADA:
+            return 8;
+
+        case ITEM_SUN_STONE:
+        case ITEM_DRAGON_SCALE:
+        case ITEM_UPGRADE:
+        case ITEM_KINGS_ROCK:
+        case ITEM_METAL_COAT:
+            return 2;
+
+        case ITEM_SHINY_STONE:
+        case ITEM_DUSK_STONE:
+        case ITEM_DAWN_STONE:
+        case ITEM_ICE_STONE: // needed for gen 4 evos
+        case ITEM_PROTECTOR:
+        case ITEM_ELECTIRIZER:
+        case ITEM_MAGMARIZER:
+        case ITEM_DUBIOUS_DISC:
+        case ITEM_REAPER_CLOTH:
+        case ITEM_OVAL_STONE:
+            return 4;
+
+        case ITEM_PRISM_SCALE:
+            return 5;
+
+        case ITEM_WHIPPED_DREAM:
+        case ITEM_SACHET:
+            return 6;
+
+        case ITEM_SWEET_APPLE:
+        case ITEM_TART_APPLE:
+        case ITEM_CRACKED_POT:
+        case ITEM_CHIPPED_POT:
+        case ITEM_GALARICA_CUFF:
+        case ITEM_GALARICA_WREATH:
+        case ITEM_STRAWBERRY_SWEET:
+        case ITEM_LOVE_SWEET:
+        case ITEM_BERRY_SWEET:
+        case ITEM_CLOVER_SWEET:
+        case ITEM_FLOWER_SWEET:
+        case ITEM_STAR_SWEET:
+        case ITEM_RIBBON_SWEET:
+            return 8;
+
+        case ITEM_RUSTED_SWORD:
+        case ITEM_RUSTED_SHIELD:
+            return 8;
+
+        case ITEM_RED_ORB:
+        case ITEM_BLUE_ORB:
+            return 3;
+
+        case ITEM_LIGHT_BALL:
+        case ITEM_LEEK:
+        case ITEM_THICK_CLUB:
+            return 1;
+
+        case ITEM_DEEP_SEA_SCALE:
+        case ITEM_DEEP_SEA_TOOTH:
+        case ITEM_SOUL_DEW:
+            return 3;
+
+        case ITEM_ADAMANT_ORB:
+        case ITEM_LUSTROUS_ORB:
+        case ITEM_GRISEOUS_ORB:
+            return 4;
+
+        case ITEM_ROTOM_CATALOG:
+        case ITEM_GRACIDEA:
+            return 4;
+
+        case ITEM_REVEAL_GLASS:
+        case ITEM_DNA_SPLICERS:
+            return 5;
+
+        case ITEM_ZYGARDE_CUBE:
+        case ITEM_PRISON_BOTTLE:
+            return 6;
+
+        case ITEM_N_SOLARIZER:
+        case ITEM_N_LUNARIZER:
+            return 7;
+
+        case ITEM_REINS_OF_UNITY:
+            return 8;
+    };
+
+#else
+    // Item ranges are different so handle differently for EE and vanilla
+    switch(item)
+    {       
+        case ITEM_SUN_STONE:
+        case ITEM_DRAGON_SCALE:
+        case ITEM_UP_GRADE:
+        case ITEM_KINGS_ROCK:
+        case ITEM_METAL_COAT:
+            return 2;
+
+        case ITEM_DEEP_SEA_SCALE:
+        case ITEM_DEEP_SEA_TOOTH:
+        case ITEM_SOUL_DEW:
+        case ITEM_RED_ORB:
+        case ITEM_BLUE_ORB:
+        case ITEM_LAVA_COOKIE:
+            return 3;
+    };
+#endif
+    
+    // Assume gen 1 if we get here (i.e. always on)
+    return 1;
+}
+
 bool8 IsGenEnabled(u8 gen)
 {
 #ifdef ROGUE_EXPANSION
@@ -2870,7 +3033,17 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_CollapseItemBuffer();
 
     if(itemCapacity != 0)
+    {
+        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+        if(maxGen > 3)
+        {
+            // Increase capacity by a little bit to accomadate for extra items when in higher gens
+            itemCapacity += (maxGen - 3) * 2;
+        }
+
         ApplyMartCapacity(itemCapacity);
+    }
 
     if(RogueQuery_BufferSize() == 0)
     {

@@ -24,6 +24,7 @@ bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);
 
 u8 SpeciesToGen(u16 species);
+u8 ItemToGen(u16 item);
 bool8 IsGenEnabled(u8 gen);
 
 bool8 IsMegaEvolutionEnabled(void);
