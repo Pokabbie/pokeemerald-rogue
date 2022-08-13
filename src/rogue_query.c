@@ -741,6 +741,8 @@ void RogueQuery_ItemsIsValid(void)
 
 void RogueQuery_ItemsExcludeCommon(void)
 {
+    u16 itemId;
+
     RogueQuery_Exclude(ITEM_SACRED_ASH);
     RogueQuery_Exclude(ITEM_REVIVAL_HERB);
     RogueQuery_Exclude(ITEM_REVIVE);
@@ -755,6 +757,8 @@ void RogueQuery_ItemsExcludeCommon(void)
     
 #ifdef ROGUE_EXPANSION
     RogueQuery_Exclude(ITEM_MAX_HONEY);
+    RogueQuery_Exclude(ITEM_PRISM_SCALE); // Not needed as is not a lvl up evo
+    RogueQuery_ItemsExcludeRange(ITEM_GROWTH_MULCH, ITEM_BLACK_APRICORN);
 
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
@@ -775,6 +779,17 @@ void RogueQuery_ItemsExcludeCommon(void)
         RogueQuery_Exclude(ITEM_MAX_MUSHROOMS);
     }
 #endif
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(GetQueryState(itemId))
+        {
+            if(!IsGenEnabled(ItemToGen(itemId)))
+            {
+                SetQueryState(itemId, FALSE);
+            }
+        }
+    }
 }
 
 void RogueQuery_ItemsInPocket(u8 pocket)
@@ -842,11 +857,15 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
         case ITEM_KINGS_ROCK:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:
-#ifndef ROGUE_EXPANSION
-        case ITEM_UP_GRADE:
-#endif
         case ITEM_DEEP_SEA_TOOTH:
         case ITEM_DEEP_SEA_SCALE:
+#ifdef ROGUE_EXPANSION
+        case ITEM_UPGRADE:
+        case ITEM_RAZOR_FANG:
+        case ITEM_RAZOR_CLAW:
+#else
+        case ITEM_UP_GRADE:
+#endif
             return TRUE;
     }
 

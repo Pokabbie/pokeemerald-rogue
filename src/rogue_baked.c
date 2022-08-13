@@ -74,14 +74,17 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
 #ifdef ROGUE_EXPANSION
-            case(EVO_LEVEL_DAY):
             case(EVO_ITEM_HOLD_DAY):
+            case(EVO_ITEM_HOLD_NIGHT):
+                outEvo->method = EVO_LEVEL_ITEM;
+                break;
+
+            case(EVO_LEVEL_DAY):
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_SUN_STONE;
                 break;
             case(EVO_LEVEL_DUSK):
             case(EVO_LEVEL_NIGHT):
-            case(EVO_ITEM_HOLD_NIGHT):
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_MOON_STONE;
                 break;

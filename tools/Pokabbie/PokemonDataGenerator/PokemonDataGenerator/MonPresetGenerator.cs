@@ -183,7 +183,7 @@ namespace PokemonDataGenerator
 							if (!useGen3Format)
 							{
 								if (preset.Item.Equals("Stick", StringComparison.CurrentCultureIgnoreCase))
-									preset.Item = null; // Doesn't seem to exist in expansion :(
+									preset.Item = "Leek";
 							}
 						}
 
