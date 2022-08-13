@@ -752,6 +752,8 @@ u8 ItemToGen(u16 item)
         case ITEM_DUBIOUS_DISC:
         case ITEM_REAPER_CLOTH:
         case ITEM_OVAL_STONE:
+        case ITEM_RAZOR_FANG:
+        case ITEM_RAZOR_CLAW:
             return 4;
 
         case ITEM_PRISM_SCALE:
