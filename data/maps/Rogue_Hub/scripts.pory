@@ -306,6 +306,11 @@ script RogueHub_ReturnAdventure
                     giveitem(ITEM_HM03_SURF)
                 }
             }
+
+            if(var(VAR_ROGUE_INTRO_STATE) == 5)
+            {
+                msgbox(format("SCOTT: By levelling up your PARTNER POKéMON, you'll get the option to skip over eariler GYM LEADERs.\pAlthough it does take a lot of them..."), MSGBOX_DEFAULT)
+            }
         }
 
         if(var(VAR_ROGUE_INTRO_STATE) == 5)
@@ -343,9 +348,14 @@ script RogueHub_SpeakScott
         if(var(VAR_ROGUE_INTRO_STATE) == 4)
         {
             msgbox(format("SCOTT: Great!\nYou got yourself a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+            msgbox(format("SCOTT: So what'd you say?\nReady to go on an adventure?"), MSGBOX_YESNO)
+        }
+        else
+        {
+            msgbox(format("SCOTT: Time for another adventure, huh!"), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
         }
 
-        msgbox(format("SCOTT: So what'd you say?\nReady to go on an adventure?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES)
         {
             getpartysize
@@ -382,35 +392,35 @@ script RogueHub_SpeakScott
 
             if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
             {
-                if(var(VAR_RESULT) > 80)
+                if(var(VAR_RESULT) > 85)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
                 }
-                elif(var(VAR_RESULT) > 70)
+                elif(var(VAR_RESULT) > 75)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
                 }
-                elif(var(VAR_RESULT) > 60)
+                elif(var(VAR_RESULT) > 65)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
                 }
-                elif(var(VAR_RESULT) > 50)
+                elif(var(VAR_RESULT) > 55)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
                 }
-                elif(var(VAR_RESULT) > 40)
+                elif(var(VAR_RESULT) > 45)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
                 }
-                elif(var(VAR_RESULT) > 30)
+                elif(var(VAR_RESULT) > 35)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
                 }
-                elif(var(VAR_RESULT) > 20)
+                elif(var(VAR_RESULT) > 25)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
                 }
-                elif(var(VAR_RESULT) > 10)
+                elif(var(VAR_RESULT) > 15)
                 {
                     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
                 }
