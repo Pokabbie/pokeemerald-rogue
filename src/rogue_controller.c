@@ -2014,25 +2014,25 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
     {
         if(difficultyLevel == 0)
         {
-            *monsCount = 3;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 1)
         {
-            *monsCount = 4;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 5 : 4;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 4;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 4;
             *allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
-            *monsCount = 5;
+            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 5;
             *allowItemEvos = TRUE;
             *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
@@ -2547,7 +2547,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         fixedIV = MAX_PER_STAT_IVS;
     else
-        fixedIV = isBoss ? 11 : 0;
+        fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
     {
