@@ -2684,9 +2684,24 @@ static void ApplyRandomMartChanceQuery(u16 chance)
     gRngRogueValue = startSeed;
 }
 
+static void ApplyMartCapacity(u16 capacity)
+{
+    u16 randIdx;
+    u32 startSeed = gRngRogueValue;
+
+    while(RogueQuery_BufferSize() > capacity)
+    {
+        randIdx = RogueRandom() % RogueQuery_BufferSize();
+        RogueQuery_PopCollapsedIndex(randIdx);
+    }
+
+    gRngRogueValue = startSeed;
+}
+
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 {
     u16 difficulty;
+    u16 itemCapacity = 0; // MAX is 0
     
     if(Rogue_IsRunActive())
         difficulty = GetDifficultyLevel(gRogueRun.currentRoomIdx);
@@ -2776,27 +2791,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
 
             if(Rogue_IsRunActive())
@@ -2817,27 +2819,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
             else if(difficulty <= 5)
             {
@@ -2861,27 +2850,14 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-            #ifdef ROGUE_EXPANSION
                 if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(5);
+                    itemCapacity = 10;
                 else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(10);
+                    itemCapacity = 15;
                 else if(difficulty <= 5)
-                    ApplyRandomMartChanceQuery(25);
+                    itemCapacity = 20;
                 else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #else
-                if(difficulty <= 0)
-                    ApplyRandomMartChanceQuery(15);
-                else if(difficulty <= 3)
-                    ApplyRandomMartChanceQuery(25);
-                else if(difficulty <= 7)
-                    ApplyRandomMartChanceQuery(50);
-                else
-                    ApplyRandomMartChanceQuery(100);
-            #endif
+                    itemCapacity = 30;
             }
 
             if(Rogue_IsRunActive())
@@ -2892,6 +2868,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     };
 
     RogueQuery_CollapseItemBuffer();
+
+    if(itemCapacity != 0)
+        ApplyMartCapacity(itemCapacity);
 
     if(RogueQuery_BufferSize() == 0)
     {
