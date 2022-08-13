@@ -18742,7 +18742,7 @@ static const struct RogueMonPreset sRoguePresets_FARFETCHD[] =
 {
 	{
 		.abilityNum = ABILITY_DEFIANT,
-		.heldItem = ITEM_NONE,
+		.heldItem = ITEM_LEEK,
 		.moves = { MOVE_FIRST_IMPRESSION, MOVE_BRAVE_BIRD, MOVE_LEAF_BLADE, MOVE_KNOCK_OFF}
 	},
 };
