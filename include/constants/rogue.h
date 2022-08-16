@@ -1,7 +1,7 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
 
 //#define ROGUE_EXPANSION
 
