@@ -1302,6 +1302,7 @@ u8 GetPlayerAvatarGenderByGraphicsId(u8 gfxId)
     case OBJ_EVENT_GFX_RED_ACRO_BIKE:
     case OBJ_EVENT_GFX_RED_SURFING:
     case OBJ_EVENT_GFX_RED_FIELD_MOVE:
+    case OBJ_EVENT_GFX_RED_FISHING:
         return STYLE_RED;
 
     case OBJ_EVENT_GFX_LEAF:
