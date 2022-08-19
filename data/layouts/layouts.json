@@ -4692,6 +4692,16 @@
       "blockdata_filepath": "data/layouts/Rogue_Route_Mountain1/map.bin"
     },
     {
+      "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN2",
+      "name": "Rogue_Route_Mountain2_Layout",
+      "width": 72,
+      "height": 55,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Route_Mountain2/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Mountain2/map.bin"
+    },
+    {
       "id": "LAYOUT_ROGUE_ROUTE_WATER_FRONT0",
       "name": "Rogue_Route_WaterFront0_Layout",
       "width": 40,

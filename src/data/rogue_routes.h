@@ -32,8 +32,12 @@ const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
 #ifdef ROGUE_EXPANSION
         .wildTypeTable = { TYPE_FAIRY, TYPE_DARK, TYPE_PSYCHIC }
 #else
-        .wildTypeTable = { TYPE_FIRE, TYPE_DARK, TYPE_PSYCHIC }
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_DARK, TYPE_PSYCHIC }
 #endif
+    },
+    {
+        .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN2),
+        .wildTypeTable = { TYPE_GROUND, TYPE_GHOST, TYPE_FIRE }
     },
     {
         .map = ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT0),
