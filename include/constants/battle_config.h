@@ -139,14 +139,14 @@
 #define B_PARALYSIS_SPEED           GEN_7 // In Gen7+, Speed is decreased by 50% instead of 75%.
 #define B_CONFUSION_SELF_DMG_CHANCE GEN_7 // In Gen7+, confusion has a 33.3% of self-damage, instead of 50%.
 #define B_MULTI_HIT_CHANCE          GEN_7 // In Gen5+, multi-hit moves have different %. See Cmd_setmultihitcounter for values.
-#define B_WHITEOUT_MONEY            GEN_7 // In Gen4+, the amount of money lost by losing a battle is determined by the amount of badges earned. Previously, it would cut the current money by half. (While this change was also in FRLG, for the sake of simplicity, setting this to GEN_3 will result in RSE behavior.)
+#define B_WHITEOUT_MONEY            GEN_3 // In Gen4+, the amount of money lost by losing a battle is determined by the amount of badges earned. Previously, it would cut the current money by half. (While this change was also in FRLG, for the sake of simplicity, setting this to GEN_3 will result in RSE behavior.)
 
 // Exp and stat settings
 #define B_EXP_CATCH                 GEN_7 // In Gen6+, Pokémon get experience from catching.
 #define B_TRAINER_EXP_MULTIPLIER    GEN_7 // In Gen7+, trainer battles no longer give a 1.5 multiplier to EXP gain.
 #define B_SPLIT_EXP                 GEN_7 // In Gen6+, all participating mon get full experience.
 #define B_SCALED_EXP                GEN_7 // In Gen5 and Gen7+, experience is weighted by level difference.
-#define B_BADGE_BOOST               GEN_7 // In Gen4+, Gym Badges no longer boost a Pokémon's stats.
+#define B_BADGE_BOOST               GEN_3 // In Gen4+, Gym Badges no longer boost a Pokémon's stats.
 #define B_MAX_LEVEL_EV_GAINS        GEN_7 // In Gen5+, Lv100 Pokémon can obtain Effort Values normally.
 #define B_RECALCULATE_STATS         GEN_7 // In Gen5+, the stats of the Pokémon who participate in battle are recalculated at the end of each battle.
 
