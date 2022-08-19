@@ -591,14 +591,13 @@ void Rogue_ModifyBattleWinnings(u32* money)
     }
 }
 
-void Rogue_ModifyBattleWaitTime(u16* waitTime)
+void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
 {
     u8 difficulty = Rogue_IsRunActive() ? GetDifficultyLevel(gRogueRun.currentRoomIdx) : 0;
 
     if(Rogue_FastBattleAnims())
     {
-        // 0 bugs out status sometimes I think?
-        *waitTime = 1;//*waitTime / 8;
+        *waitTime = awaitingMessage ? 8 : 0;
     }
     else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
     {
