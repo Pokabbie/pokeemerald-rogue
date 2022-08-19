@@ -363,7 +363,7 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     {
         u16 hp = GetMonData(mon, MON_DATA_HP);
         u16 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
-        u16 statusAilment = 0; // AILMENT_NONE
+        u32 statusAilment = 0; // STATUS1_NONE
 
         hp = max(maxHp / 2, hp);
 

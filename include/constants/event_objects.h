@@ -241,6 +241,19 @@
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
 
+// RogueNote: overwritten sprites
+#define OBJ_EVENT_GFX_LEAF_MACH_BIKE               OBJ_EVENT_GFX_PICHU_DOLL
+#define OBJ_EVENT_GFX_LEAF_ACRO_BIKE               OBJ_EVENT_GFX_PIKACHU_DOLL
+#define OBJ_EVENT_GFX_LEAF_SURFING                 OBJ_EVENT_GFX_MARILL_DOLL
+#define OBJ_EVENT_GFX_LEAF_FIELD_MOVE              OBJ_EVENT_GFX_TOGEPI_DOLL
+#define OBJ_EVENT_GFX_LEAF_FISHING                 OBJ_EVENT_GFX_CYNDAQUIL_DOLL
+
+#define OBJ_EVENT_GFX_RED_MACH_BIKE               OBJ_EVENT_GFX_CHIKORITA_DOLL
+#define OBJ_EVENT_GFX_RED_ACRO_BIKE               OBJ_EVENT_GFX_TOTODILE_DOLL
+#define OBJ_EVENT_GFX_RED_SURFING                 OBJ_EVENT_GFX_JIGGLYPUFF_DOLL
+#define OBJ_EVENT_GFX_RED_FIELD_MOVE              OBJ_EVENT_GFX_MEOWTH_DOLL
+#define OBJ_EVENT_GFX_RED_FISHING                 OBJ_EVENT_GFX_CLEFAIRY_DOLL
+
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
 // Object event graphics ids are 1 byte in size (max value of 255), and the dynamic
