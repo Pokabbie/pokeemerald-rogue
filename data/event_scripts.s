@@ -1142,3 +1142,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Mountain1/scripts.inc"
 
 	.include "data/maps/Rogue_Special_GenericWildMon/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Field0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain2/scripts.inc"

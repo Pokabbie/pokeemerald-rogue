@@ -1929,7 +1929,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 gRogueRun.nextRestStopRoomIdx = 255;
             }
 
-            if(RandomChance(50, OVERWORLD_FLAG))
+            if(RandomChance(33, OVERWORLD_FLAG))
             {
                 // Enable random trader
                 FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);

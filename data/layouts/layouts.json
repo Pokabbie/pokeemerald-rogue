@@ -4444,10 +4444,10 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_FIELD1",
       "name": "Rogue_Route_Field1_Layout",
-      "width": 22,
-      "height": 76,
+      "width": 140,
+      "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Route_Field1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Field1/map.bin"
     },
@@ -4692,6 +4692,16 @@
       "blockdata_filepath": "data/layouts/Rogue_Route_Mountain1/map.bin"
     },
     {
+      "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN2",
+      "name": "Rogue_Route_Mountain2_Layout",
+      "width": 72,
+      "height": 55,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Route_Mountain2/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Mountain2/map.bin"
+    },
+    {
       "id": "LAYOUT_ROGUE_ROUTE_WATER_FRONT0",
       "name": "Rogue_Route_WaterFront0_Layout",
       "width": 40,
@@ -4840,6 +4850,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_GenericWildMon/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_GenericWildMon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_FIELD0",
+      "name": "Rogue_Route_Kanto_Field0_Layout",
+      "width": 22,
+      "height": 76,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Field0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Field0/map.bin"
     }
   ]
 }

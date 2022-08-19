@@ -118,7 +118,7 @@ script Rogue_Common_TurnPlayerNorth
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     end
 }
-script Rogue_Common_TurnPlayerSourt
+script Rogue_Common_TurnPlayerSouth
 {
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
     end

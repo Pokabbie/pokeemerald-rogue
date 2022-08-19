@@ -639,6 +639,7 @@
     "Rogue_Route_Cave0",
     "Rogue_Route_Mountain0",
     "Rogue_Route_Mountain1",
+    "Rogue_Route_Mountain2",
     "Rogue_Route_WaterFront0",
     "Rogue_Route_Urban0",
     "Rogue_Boss_0",
@@ -666,6 +667,7 @@
     "Rogue_Special_Suicune",
     "Rogue_Special_Celebi",
     "Rogue_Special_Jirachi",
-    "Rogue_Special_GenericWildMon"
+    "Rogue_Special_GenericWildMon",
+    "Rogue_Route_Kanto_Field0"
   ]
 }

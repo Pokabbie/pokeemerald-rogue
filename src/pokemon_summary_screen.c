@@ -1758,6 +1758,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
         PrintMonInfo();
         break;
     case 11:
+        PrintPageNamesAndStats();
         PrintPageSpecificText(sMonSummaryScreen->currPageIndex);
         LimitEggSummaryPageDisplay();
         break;
