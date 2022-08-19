@@ -99,7 +99,7 @@ Rogue_Common_TurnPlayerNorth::
 	end
 
 
-Rogue_Common_TurnPlayerSourt::
+Rogue_Common_TurnPlayerSouth::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	end
 

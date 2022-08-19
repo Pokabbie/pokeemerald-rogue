@@ -1,0 +1,44 @@
+mapscripts Rogue_Route_Field1_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerSouth
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_TEMP_1, 0: Rogue_Route_Field1_OnFrame0
+        //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
+    ]
+}
+
+script Rogue_Route_Field1_OnFrame0
+{
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_FOG_DIAGONAL)
+        doweather
+    }
+
+    if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
+    {
+        lockall
+        special(DoSealedChamberShakingEffect_Short)
+        waitstate
+        playse(SE_DOOR)
+        delay(10)
+        random(2)
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                setmetatile(56,4, 0x064, FALSE)
+                setmetatile(56,5, 0x0A7, FALSE)
+            case 1:
+                setmetatile(22,5, 0x019, TRUE)
+                setmetatile(22,6, 0x021, TRUE)
+        }
+        releaseall
+    }
+
+    setvar(VAR_TEMP_1, 1)
+    end
+}

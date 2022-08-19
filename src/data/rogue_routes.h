@@ -10,6 +10,10 @@ const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
         .wildTypeTable = { TYPE_GRASS, TYPE_NORMAL, TYPE_FLYING }
     },
     {
+        .map = ROUTE_MAP(ROGUE_ROUTE_FIELD1),
+        .wildTypeTable = { TYPE_ELECTRIC, TYPE_STEEL, TYPE_ICE }
+    },
+    {
         .dropRarity = 1,
         .map = ROUTE_MAP(ROGUE_ROUTE_FOREST0),
         .wildTypeTable = { TYPE_BUG, TYPE_GHOST, TYPE_POISON }
