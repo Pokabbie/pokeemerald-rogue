@@ -6397,6 +6397,9 @@ void SetNature(struct Pokemon *mon, u8 nature)
     personality = (personality - origNature) + nature;
 
     ChangePersonality(&mon->box, personality);
+
+    // Recalc mon stats
+    CalculateMonStats(mon);
 }
 
 u8 GetNatureFromPersonality(u32 personality)
