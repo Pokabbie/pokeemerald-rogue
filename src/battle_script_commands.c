@@ -2537,7 +2537,7 @@ static void Cmd_waitmessage(void)
         else
         {
             u16 toWait = T2_READ_16(gBattlescriptCurrInstr + 1);
-            Rogue_ModifyBattleWaitTime(&toWait);
+            Rogue_ModifyBattleWaitTime(&toWait, TRUE);
 
             if (++gPauseCounterBattle >= toWait)
             {
@@ -4643,7 +4643,7 @@ static void Cmd_pause(void)
     if (gBattleControllerExecFlags == 0)
     {
         u16 value = T2_READ_16(gBattlescriptCurrInstr + 1);
-        Rogue_ModifyBattleWaitTime(&value);
+        Rogue_ModifyBattleWaitTime(&value, FALSE);
 
         if (++gPauseCounterBattle >= value)
         {
