@@ -530,9 +530,9 @@ static const u8 sNaiveMintDesc[] = _(
     "reduces Sp. Def.");
 
 static const u8 sSeriousMintDesc[] = _(
-    "Can be smelled. It\n"
-    "ups Speed, but\n"
-    "reduces Attack.");
+    "Can be smelled. All\n"
+    "stats will grow at\n"
+    "an equal rate.");
 
 // Candy
 static const u8 sRareCandyDesc[] = _(

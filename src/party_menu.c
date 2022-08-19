@@ -4708,6 +4708,15 @@ void Task_NatureMint(u8 taskId)
     switch (tState)
     {
     case 0:
+        if (GetNature(mon) == nature)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(mon, gStringVar1);
         StringCopy(gStringVar2, gNatureNamePointers[nature]);
