@@ -14423,6 +14423,8 @@ static void Cmd_rogue_partyhasroom(void)
 {
     if(Rogue_IsRunActive())
     {
+        RemoveAnyFaintedMons(FALSE);
+
         if (CalculatePlayerPartyCount() == PARTY_SIZE)
         {
             // Continue

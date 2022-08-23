@@ -1153,13 +1153,7 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 
 static void ReleasePartyPokemon(u8 slot)
 {
-    // RogueNote: Kill pokemon and then do a party cleanup
-    if(slot < gPlayerPartyCount)
-    {
-        u32 hp = 0;
-        SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
-        RemoveAnyFaintedMons(TRUE);
-    }
+    RemoveMonAtSlot(slot, TRUE);
 }
 
 static void Task_ClosePartyMenu(u8 taskId)
