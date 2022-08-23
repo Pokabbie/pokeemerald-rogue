@@ -4620,8 +4620,8 @@ static u32 GetPokedexMonPersonality(u16 species)
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
 {
     nationalNum = NationalPokedexNumToSpecies(nationalNum);
-    // Previously fed in SHINY_ODDS but use 0x100 due to comment above
-    return CreateMonPicSprite(nationalNum, 0x100, GetPokedexMonPersonality(nationalNum), TRUE, x, y, paletteSlot, TAG_NONE);
+    // Previously fed in SHINY_ODDS but use 0xFFFF due to comment above
+    return CreateMonPicSprite(nationalNum, 0xFFFF, GetPokedexMonPersonality(nationalNum), TRUE, x, y, paletteSlot, TAG_NONE);
 }
 
 static u16 CreateSizeScreenTrainerPic(u16 species, s16 x, s16 y, s8 paletteSlot)
