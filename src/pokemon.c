@@ -7393,25 +7393,28 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
 
 u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    if (species == SPECIES_EGG)
-    {
-        return 0;
-    }
-    else if (tm < 32)
-    {
-        u32 mask = 1 << tm;
-        return gTMHMLearnsets[species][0] & mask;
-    }
-    else
-    {
-        u32 mask = 1 << (tm - 32);
-        return gTMHMLearnsets[species][1] & mask;
-    }
+    return CanSpeciesLearnTMHM(GetMonData(mon, MON_DATA_SPECIES2, 0), tm);
 }
 
 u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
 {
+    u8 tmEnd = (ITEM_LAST_VALID_TM - ITEM_TM01); // ITEM_LAST_VALID_TM can have a gap 
+    u8 hmStart = (ITEM_HM01 - ITEM_TM01);
+
+    if(tm > tmEnd)
+    {
+        if(tm >= hmStart)
+        {
+            // This is a HM so jump to the correct bit to check
+            tm = tmEnd + (tm - hmStart);
+        }
+        else
+        {
+            // Invalid tm
+            return 0;
+        }
+    }
+
     if (species == SPECIES_EGG)
     {
         return 0;
