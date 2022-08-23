@@ -3,6 +3,7 @@
 
 #include "rogue_baked.h"
 
+void RemoveMonAtSlot(u8 slot, bool8 keepItems);
 void RemoveAnyFaintedMons(bool8 keepItems);
 
 bool8 Rogue_IsRunActive(void);

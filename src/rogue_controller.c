@@ -1954,23 +1954,43 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 }
 
+void RemoveMonAtSlot(u8 slot, bool8 keepItems)
+{
+    if(slot < gPlayerPartyCount)
+    {
+        if(GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            u32 hp = 0;
+            SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
+            RemoveAnyFaintedMons(keepItems);
+        }
+    }
+}
+
 void RemoveAnyFaintedMons(bool8 keepItems)
 {
+    bool8 hasValidSpecies;
     u8 read;
     u8 write = 0;
-    u8 alivePartyCount = 0;
 
-    for(read = 0; read < gPlayerPartyCount; ++read)
+    for(read = 0; read < PARTY_SIZE; ++read)
     {
-        if(GetMonData(&gPlayerParty[read], MON_DATA_HP) != 0)
+        hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
+
+        if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
         {
+            // This mon is alive
+
+            // No need to do anything as this mon is in the correct slot
             if(write != read)
-                CopyMon(&gPlayerParty[write], &gPlayerParty[read], sizeof(gPlayerParty[read]));
+            {
+                CopyMon(&gPlayerParty[write], &gPlayerParty[read], sizeof(struct Pokemon));
+                ZeroMonData(&gPlayerParty[read]);
+            }
 
             ++write;
-            ++alivePartyCount;
         }
-        else
+        else if(hasValidSpecies)
         {
             if(keepItems)
             {
@@ -1979,13 +1999,12 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 if(heldItem != ITEM_NONE)
                     AddBagItem(heldItem, 1);
             }
+
+            ZeroMonData(&gPlayerParty[read]);
         }
     }
 
-    gPlayerPartyCount = alivePartyCount;
-
-    for(read = gPlayerPartyCount; read < PARTY_SIZE; ++read)
-        ZeroMonData(&gPlayerParty[read]);
+    gPlayerPartyCount = CalculatePlayerPartyCount();
 }
 
 void Rogue_Battle_StartTrainerBattle(void)
