@@ -46,6 +46,21 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->method = 0;
     }
 
+#ifdef ROGUE_EXPANSION
+    if(!IsMegaEvolutionEnabled())
+    {
+        switch(outEvo->method)
+        {
+            case(EVO_MEGA_EVOLUTION):
+            case(EVO_MOVE_MEGA_EVOLUTION):
+            case(EVO_PRIMAL_REVERSION):
+                outEvo->targetSpecies = SPECIES_NONE;
+                outEvo->method = 0;
+                break;
+        }
+    }
+#endif
+
     if(outEvo->targetSpecies != SPECIES_NONE)
     {
         switch(outEvo->method)
