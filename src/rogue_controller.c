@@ -3274,6 +3274,7 @@ static void RandomiseSafariWildEncounters(void)
     // Query for the current zone
     RogueQuery_Clear();
     RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
 
     if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
     {
