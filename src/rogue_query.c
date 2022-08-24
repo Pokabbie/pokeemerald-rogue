@@ -385,6 +385,10 @@ static bool8 IsSpeciesLegendary(u16 species)
         case SPECIES_ZARUDE_DADA:
         case SPECIES_CALYREX_ICE_RIDER:
         case SPECIES_CALYREX_SHADOW_RIDER:
+
+        case SPECIES_ARTICUNO_GALARIAN:
+        case SPECIES_ZAPDOS_GALARIAN:
+        case SPECIES_MOLTRES_GALARIAN:
 #endif
             return TRUE;
     };
