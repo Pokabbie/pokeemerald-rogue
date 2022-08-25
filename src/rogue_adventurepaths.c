@@ -9,10 +9,12 @@
 // Node refers to horizontal paths
 // Ladder refers to vertical
 // e.g.
-//   ____ <- Node
+//   <- Crossover
+//  X ____ <- Node
 //  |
 //  | <- Ladder
 //  |
+
 
 #define MAX_PATH_ROWS ROGUE_MAX_ADVPATH_ROWS
 #define MAX_PATH_COLUMNS ROGUE_MAX_ADVPATH_COLUMNS
@@ -66,11 +68,24 @@ static void DisableLadderMetatiles(u16 LadderX, u16 LadderY)
 {
     u16 x, y, i, j;
 
-    if(LadderX == 0)
+    LadderToCoords(LadderX, LadderY, &x, &y);
+
+    if(LadderY == CENTRE_ROW_IDX)
     {
-        // 0 column has now ladders
-        return;
     }
+    else if(LadderY < CENTRE_ROW_IDX)
+    {
+        MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y + 1 + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
+    }
+    else
+    {
+        MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y - 1 + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
+    }
+}
+
+static void DisableCrossoverMetatiles(u16 LadderX, u16 LadderY)
+{
+    u16 x, y, i, j;
 
     LadderToCoords(LadderX, LadderY, &x, &y);
 
@@ -81,12 +96,10 @@ static void DisableLadderMetatiles(u16 LadderX, u16 LadderY)
     else if(LadderY < CENTRE_ROW_IDX)
     {
         MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
-        MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y + 1 + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
     }
     else
     {
         MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
-        MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET, y - 1 + PATH_MAP_OFFSET, c_MetaTile_Water | MAPGRID_COLLISION_MASK);
     }
 }
 
@@ -140,6 +153,7 @@ void Rogue_ApplyAdventureMetatiles()
 {
     u8 x, y;
     struct RogueAdvPathNode* nodeInfo;
+    struct RogueAdvPathNode* prevNodeInfo;
 
     Rogue_GenerateAdventurePaths();
 
@@ -155,6 +169,16 @@ void Rogue_ApplyAdventureMetatiles()
         if(!nodeInfo->isLadderActive)
         {
             DisableLadderMetatiles(x, y);
+        }
+        
+        if(x != 0 && !nodeInfo->isNodeActive && !nodeInfo->isLadderActive)
+        {
+            prevNodeInfo = GetNodeInfo(x - 1, y);
+
+            if(!prevNodeInfo->isNodeActive)
+            {
+                DisableCrossoverMetatiles(x, y);
+            }
         }
     }
 }
