@@ -3,6 +3,13 @@
 
 #include "rogue_baked.h"
 
+extern EWRAM_DATA struct RogueRunData gRogueRun;
+extern EWRAM_DATA struct RogueHubData gRogueHubData;
+
+#define OVERWORLD_FLAG 0
+
+u16 RogueRandomRange(u16 range, u8 flag);
+
 void RemoveMonAtSlot(u8 slot, bool8 keepItems);
 void RemoveAnyFaintedMons(bool8 keepItems);
 

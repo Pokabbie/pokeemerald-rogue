@@ -64,3 +64,4 @@
 	.include "src/rogue_controller.o"
 	.include "src/rogue_query.o"
 	.include "src/rogue_baked.o"
+	.include "src/rogue_adventurepaths.o"

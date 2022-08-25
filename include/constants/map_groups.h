@@ -637,6 +637,7 @@
 #define MAP_ROGUE_SPECIAL_JIRACHI           (42 | (34 << 8))
 #define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON  (43 | (34 << 8))
 #define MAP_ROGUE_ROUTE_KANTO_FIELD0        (44 | (34 << 8))
+#define MAP_ROGUE_ADVENTURE_PATHS           (45 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

@@ -12,6 +12,15 @@
 
 #define ROGUE_ROUTE_COUNT 9
 
+#define ROGUE_MAX_ADVPATH_ROWS 5
+#define ROGUE_MAX_ADVPATH_COLUMNS 9
+
+struct RogueAdvPathNode
+{
+    u8 isNodeActive : 1;
+    u8 isLadderActive : 1;
+};
+
 struct RogueRunData
 {
     u16 currentRoomIdx;
@@ -22,6 +31,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[ROGUE_ROUTE_COUNT - 3];
     u16 wildEncounterHistoryBuffer[2];
+    struct RogueAdvPathNode advPathNodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 
 struct RogueHubData

@@ -33,8 +33,6 @@
 // 8 badges, 4 elite, 2 champion
 #define BOSS_ROOM_COUNT 14
 
-#define OVERWORLD_FLAG 0
-
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_WildOptionCount = 0;
 EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
@@ -123,7 +121,7 @@ static void RandomiseBerryTrees(void);
 static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
 static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
-static u16 RogueRandomRange(u16 range, u8 flag)
+u16 RogueRandomRange(u16 range, u8 flag)
 {
     // Always use rogue random to avoid seeding issues based on flag
     u16 res = RogueRandom();
@@ -1629,6 +1627,10 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
+
+    // DEBUG NO CHECKIN
+    warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);
+    warp->mapNum = MAP_NUM(ROGUE_ADVENTURE_PATHS);
 }
 
 static void ResetSpecialEncounterStates(void)
@@ -3074,8 +3076,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     return RogueQuery_BufferPtr();
 }
-
-
 
 void Rogue_RandomisePartyMon(void)
 {

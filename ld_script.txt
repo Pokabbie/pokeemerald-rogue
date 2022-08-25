@@ -340,6 +340,7 @@ SECTIONS {
         src/rogue_controller.o(.text);
         src/rogue_query.o(.text);
         src/rogue_baked.o(.text);
+        src/rogue_adventurepaths.o(.text);
     } =0
 
     script_data :
@@ -704,6 +705,7 @@ SECTIONS {
         src/rogue_controller.o(.rodata);
         src/rogue_query.o(.rodata);
         src/rogue_baked.o(.rodata);
+        src/rogue_adventurepaths.o(.rodata);
     } =0
 
     song_data :
