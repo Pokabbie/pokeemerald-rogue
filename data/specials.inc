@@ -177,7 +177,9 @@ gSpecials::
 	def_special ChangePokemonNickname
 	def_special ChoosePartyMon
 	def_special Rogue_RandomisePartyMon
+	def_special Rogue_GenerateAdventurePathsIfRequired
 	def_special Rogue_ApplyAdventureMetatiles
+	def_special Rogue_UpdateObjectGFX
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
 	def_special PlayRoulette

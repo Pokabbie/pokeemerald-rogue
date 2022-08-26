@@ -132,7 +132,7 @@ u16 RogueRandomRange(u16 range, u8 flag)
         return Random() % range;
 }
 
-static bool8 RandomChance(u8 chance, u16 seedFlag)
+bool8 RogueRandomChance(u8 chance, u16 seedFlag)
 {
     if(chance == 0)
         return FALSE;
@@ -1812,7 +1812,7 @@ void Rogue_OnWarpIntoMap(void)
             ++gRogueRun.specialEncounterCounter;
             difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
 
-            if(RandomChance(CalcSpecialEncounterChance(difficultyLevel), OVERWORLD_FLAG))
+            if(RogueRandomChance(CalcSpecialEncounterChance(difficultyLevel), OVERWORLD_FLAG))
                 FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
             else
                 FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
@@ -1882,7 +1882,7 @@ void Rogue_OnWarpIntoMap(void)
                 RandomiseEnabledItems();
                 RandomiseBerryTrees();
 
-                if(difficultyLevel != 0 && RandomChance(20, OVERWORLD_FLAG))
+                if(difficultyLevel != 0 && RogueRandomChance(20, OVERWORLD_FLAG))
                 {
                     FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
@@ -1931,7 +1931,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 gRogueRun.nextRestStopRoomIdx = 255;
             }
 
-            if(RandomChance(33, OVERWORLD_FLAG))
+            if(RogueRandomChance(33, OVERWORLD_FLAG))
             {
                 // Enable random trader
                 FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
@@ -3452,7 +3452,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
     }
 }
 
-static bool8 RandomChanceTrainer()
+static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
     u8 chance = max(10, 5 * difficultyLevel);
@@ -3462,10 +3462,10 @@ static bool8 RandomChanceTrainer()
         return 0;
     }
 
-    return RandomChance(chance, FLAG_SET_SEED_TRAINERS);
+    return RogueRandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
 
-static bool8 RandomChanceItem()
+static bool8 RogueRandomChanceItem()
 {
     u8 chance;
 
@@ -3491,10 +3491,10 @@ static bool8 RandomChanceItem()
         }
     }
 
-    return RandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
-static bool8 RandomChanceBerry()
+static bool8 RogueRandomChanceBerry()
 {
     u8 chance;
     u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
@@ -3512,7 +3512,7 @@ static bool8 RandomChanceBerry()
         chance = max(10, 70 - min(65, 5 * difficultyLevel));
     }
 
-    return RandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static void RandomiseEnabledTrainers(void)
@@ -3520,7 +3520,7 @@ static void RandomiseEnabledTrainers(void)
     s32 i;
     for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
     {
-        if(RandomChanceTrainer())
+        if(RogueRandomChanceTrainer())
         {
             // Clear flag to show
             FlagClear(FLAG_ROGUE_TRAINER_START + i);
@@ -3612,7 +3612,7 @@ static void RandomiseEnabledItems(void)
 
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
-        if(RandomChanceItem())
+        if(RogueRandomChanceItem())
         {
             // Clear flag to show
             FlagClear(FLAG_ROGUE_ITEM_START + i);
@@ -3639,7 +3639,7 @@ static void RandomiseBerryTrees(void)
 
     for (i = 0; i < BERRY_TREES_COUNT; i++)
     {
-        if(RandomChanceBerry())
+        if(RogueRandomChanceBerry())
         {
             u16 berryItem;
             u16 berry;

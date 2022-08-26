@@ -4,6 +4,8 @@ Rogue_AdventurePaths_MapScripts::
 
 
 Rogue_AdventurePaths_RedrawMap::
+	special Rogue_GenerateAdventurePathsIfRequired
 	special Rogue_ApplyAdventureMetatiles
+	special Rogue_UpdateObjectGFX
 	return
 
