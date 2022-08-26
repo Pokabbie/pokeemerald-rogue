@@ -13,6 +13,7 @@
 #include "graphics.h"
 #include "item.h"
 #include "load_save.h"
+#include "main.h"
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
@@ -24,6 +25,7 @@
 #include "string_util.h"
 #include "text.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
 
@@ -34,6 +36,7 @@
 #define BOSS_ROOM_COUNT 14
 
 #ifdef ROGUE_DEBUG
+EWRAM_DATA u8 gDebug_CurrentTab = 0;
 EWRAM_DATA u8 gDebug_WildOptionCount = 0;
 EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
 EWRAM_DATA u8 gDebug_TrainerOptionCount = 0;
@@ -48,6 +51,11 @@ extern const u8 gText_RogueDebug_WildCount[];
 extern const u8 gText_RogueDebug_ItemCount[];
 extern const u8 gText_RogueDebug_TrainerCount[];
 extern const u8 gText_RogueDebug_Seed[];
+
+extern const u8 gText_RogueDebug_AdvHeader[];
+extern const u8 gText_RogueDebug_AdvCount[];
+extern const u8 gText_RogueDebug_X[];
+extern const u8 gText_RogueDebug_Y[];
 #endif
 
 // Box save data
@@ -920,28 +928,51 @@ static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
 
 u8* Rogue_GetMiniMenuContent(void)
 {
-    u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
-    u8 playerLevel = CalculatePlayerLevel();
-    u8 wildLevel = CalculateWildLevel();
-
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
 
-    strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-
-    if(FlagGet(FLAG_SET_SEED_ENABLED))
+    if(JOY_NEW(R_BUTTON) && gDebug_CurrentTab != 1)
     {
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
+        ++gDebug_CurrentTab;
+    }
+    else if(JOY_NEW(L_BUTTON) && gDebug_CurrentTab != 0)
+    {
+        --gDebug_CurrentTab;
     }
 
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_BossRoom, GetBossRoomForDifficulty(difficultyLevel));
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
-    strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
+    // Main tab
+    //
+    if(gDebug_CurrentTab == 0)
+    {
+        u8 difficultyLevel = GetDifficultyLevel(gRogueRun.currentRoomIdx);
+        u8 playerLevel = CalculatePlayerLevel();
+        u8 wildLevel = CalculateWildLevel();
+
+        strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+
+        if(FlagGet(FLAG_SET_SEED_ENABLED))
+        {
+            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
+        }
+
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_BossRoom, GetBossRoomForDifficulty(difficultyLevel));
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildCount, gDebug_WildOptionCount);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
+    }
+    // Adventur path tab
+    //
+    else
+    {
+        strPointer = StringAppend(strPointer, gText_RogueDebug_AdvHeader);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueRun.advPath.currentColumnCount);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueRun.advPath.currentNodeX);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueRun.advPath.currentNodeY);
+    }
 
     return gStringVar4;
 }
@@ -1627,10 +1658,6 @@ static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
-
-    // DEBUG NO CHECKIN
-    warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);
-    warp->mapNum = MAP_NUM(ROGUE_ADVENTURE_PATHS);
 }
 
 static void ResetSpecialEncounterStates(void)
@@ -1773,6 +1800,7 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
+    gRogueRun.advPath.isOverviewActive = FALSE;
 
     if(IsMegaEvolutionEnabled() || IsZMovesEnabled() || IsDynamaxEnabled())
     {
@@ -1789,6 +1817,10 @@ void Rogue_OnWarpIntoMap(void)
         {
             BeginRogueRun();
         }
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    {
+        gRogueRun.advPath.isOverviewActive = TRUE;
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())
     {
@@ -1912,47 +1944,50 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         u16 nextRoomIdx = gRogueRun.currentRoomIdx + 1;
 
-        if(IsSpecialEncounterRoomWarp(warp))
-        {
-            SelectSpecialEncounterRoom(nextRoomIdx, warp);
-        }
-        else if(!IsBossRoom(gRogueRun.currentRoomIdx) && nextRoomIdx >= gRogueRun.nextRestStopRoomIdx) // If we just came from a boss room give us an extra room of space
-        {
-            // We're about to hit a rest stop so force it here
-            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
-            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_REST_STOP);
+        //warp->warpId = 0;
+        //warp->x = -1;
+        //warp->y = -1;
 
-            // Will encounter the next rest stop in 4-6 rooms
-            gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
-            
-            // We only get 1 rest stop at the begining
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                gRogueRun.nextRestStopRoomIdx = 255;
-            }
+        RogueAdv_EnqueueNextWarp(warp);
 
-            if(RogueRandomChance(33, OVERWORLD_FLAG))
-            {
-                // Enable random trader
-                FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-            }
-            else
-            {
-                FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-            }
-        }
-        else if(IsBossRoom(nextRoomIdx))
-        {
-            SelectBossRoom(nextRoomIdx, warp);
-        }
-        else
-        {
-            SelectRouteRoom(nextRoomIdx, warp);
-        }
+        //if(IsSpecialEncounterRoomWarp(warp))
+        //{
+        //    SelectSpecialEncounterRoom(nextRoomIdx, warp);
+        //}
+        //else if(!IsBossRoom(gRogueRun.currentRoomIdx) && nextRoomIdx >= gRogueRun.nextRestStopRoomIdx) // If we just came from a boss room give us an extra room of space
+        //{
+        //    // We're about to hit a rest stop so force it here
+        //    warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_REST_STOP);
+        //    warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_REST_STOP);
+//
+        //    // Will encounter the next rest stop in 4-6 rooms
+        //    gRogueRun.nextRestStopRoomIdx = nextRoomIdx + 4 + RogueRandomRange(3, OVERWORLD_FLAG);
+        //    
+        //    // We only get 1 rest stop at the begining
+        //    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        //    {
+        //        gRogueRun.nextRestStopRoomIdx = 255;
+        //    }
+//
+        //    if(RogueRandomChance(33, OVERWORLD_FLAG))
+        //    {
+        //        // Enable random trader
+        //        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+        //    }
+        //    else
+        //    {
+        //        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+        //    }
+        //}
+        //else if(IsBossRoom(nextRoomIdx))
+        //{
+        //    SelectBossRoom(nextRoomIdx, warp);
+        //}
+        //else
+        //{
+        //    SelectRouteRoom(nextRoomIdx, warp);
+        //}
 
-        warp->warpId = 0;
-        warp->x = -1;
-        warp->y = -1;
     }
 }
 

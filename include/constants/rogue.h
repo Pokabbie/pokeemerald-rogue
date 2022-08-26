@@ -1,7 +1,7 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
 
 //#define ROGUE_EXPANSION
 
@@ -17,8 +17,17 @@
 
 struct RogueAdvPathNode
 {
-    u8 isNodeActive : 1;
+    u8 isBridgeActive : 1;
     u8 isLadderActive : 1;
+};
+
+struct RogueAdvPath
+{
+    u8 currentNodeX;
+    u8 currentNodeY;
+    u8 currentColumnCount;
+    u8 isOverviewActive : 1;
+    struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 
 struct RogueRunData
@@ -31,7 +40,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[ROGUE_ROUTE_COUNT - 3];
     u16 wildEncounterHistoryBuffer[2];
-    struct RogueAdvPathNode advPathNodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
+    struct RogueAdvPath advPath;
 };
 
 struct RogueHubData
