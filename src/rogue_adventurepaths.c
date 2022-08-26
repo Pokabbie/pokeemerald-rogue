@@ -108,7 +108,7 @@ struct AdvEventScratch
     u8 nextRoomType;
 };
 
-static void GetBranchingChance(u8 roomType, u8 difficulty, u8* breakChance, u8* extraSplitChance)
+static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8 difficulty, u8* breakChance, u8* extraSplitChance)
 {
     *breakChance = 0;
     *extraSplitChance = 0;
@@ -125,8 +125,16 @@ static void GetBranchingChance(u8 roomType, u8 difficulty, u8* breakChance, u8* 
             break;
 
         case ADVPATH_ROOM_ROUTE:
-            *breakChance = 20;
-            *extraSplitChance = 20;
+            if(columnIdx == columnCount - 1)
+            {
+                *breakChance = 50;
+                *extraSplitChance = 34;
+            }
+            else
+            {
+                *breakChance = 20;
+                *extraSplitChance = 20;
+            }
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
@@ -136,12 +144,12 @@ static void GetBranchingChance(u8 roomType, u8 difficulty, u8* breakChance, u8* 
 
         case ADVPATH_ROOM_LEGENDARY:
             *breakChance = 0;
-            *extraSplitChance = 0;
+            *extraSplitChance = 50;
             break;
 
         case ADVPATH_ROOM_MINIBOSS:
             *breakChance = 2;
-            *extraSplitChance = 0;
+            *extraSplitChance = 50;
             break;
     }
 }
@@ -175,7 +183,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                 nextRoomType = nextNodeInfo->roomType;
             }
 
-            GetBranchingChance(nextRoomType, difficulty, &breakChance, &extraChance);
+            GetBranchingChance(columnIdx, columnCount, nextRoomType, difficulty, &breakChance, &extraChance);
 
             if(RogueRandomChance(breakChance, OVERWORLD_FLAG))
             {
@@ -406,6 +414,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
             break;
 
+        case ADVPATH_ROOM_RESTSTOP:
+            weights[ADVPATH_ROOM_RESTSTOP] = 0;
+            break;
+
         case ADVPATH_ROOM_ROUTE:
             weights[ADVPATH_ROOM_NONE] += 3;
             break;
@@ -414,7 +426,6 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
             break;
     }
-
 
     totalWeight = 0;
     for(i = 0; i < ADVPATH_ROOM_COUNT; ++i)
@@ -647,6 +658,14 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
     return 0;
 }
 
+static u16 GetInitialGFXColumn()
+{
+    if(gRogueAdvPath.justGenerated)
+        return 0;
+    else
+        return gRogueAdvPath.currentNodeX + 1;
+}
+
 void RogueAdv_UpdateObjectGFX()
 {
     struct RogueAdvPathNode* nodeInfo;
@@ -657,7 +676,7 @@ void RogueAdv_UpdateObjectGFX()
     u8 maxID = 0;
 
     // Only place future GFX
-    for(x = gRogueAdvPath.currentNodeX + 1; x < MAX_PATH_COLUMNS; ++x)
+    for(x = GetInitialGFXColumn(); x < MAX_PATH_COLUMNS; ++x)
     for(y = 0; y < MAX_PATH_ROWS; ++y)
     {
         nodeInfo = GetNodeInfo(x, y);
@@ -687,7 +706,7 @@ static struct RogueAdvPathNode* GetScriptNode()
     u8 targetNodeId = gSpecialVar_ScriptNodeID;
     u8 maxID = 0;
 
-    for(x = gRogueAdvPath.currentNodeX + 1; x < MAX_PATH_COLUMNS; ++x)
+    for(x = GetInitialGFXColumn(); x < MAX_PATH_COLUMNS; ++x)
     for(y = 0; y < MAX_PATH_ROWS; ++y)
     {
         nodeInfo = GetNodeInfo(x, y);
@@ -713,7 +732,7 @@ static void GetScriptNodeCoords(u16* outX, u16* outY)
     u8 targetNodeId = gSpecialVar_ScriptNodeID;
     u8 maxID = 0;
 
-    for(x = gRogueAdvPath.currentNodeX + 1; x < MAX_PATH_COLUMNS; ++x)
+    for(x = GetInitialGFXColumn(); x < MAX_PATH_COLUMNS; ++x)
     for(y = 0; y < MAX_PATH_ROWS; ++y)
     {
         nodeInfo = GetNodeInfo(x, y);
