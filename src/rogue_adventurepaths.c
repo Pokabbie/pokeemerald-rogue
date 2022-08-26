@@ -595,6 +595,7 @@ void RogueAdv_ExecuteNodeAction()
         // Move to the selected node
         gRogueAdvPath.currentNodeX = nodeX;
         gRogueAdvPath.currentNodeY = nodeY;
+        gRogueAdvPath.currentRoomType = node->roomType;
 
         switch(node->roomType)
         {

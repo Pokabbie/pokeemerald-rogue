@@ -60,6 +60,7 @@ struct RogueAdvPath
     u8 currentNodeX;
     u8 currentNodeY;
     u8 currentColumnCount;
+    u8 currentRoomType;
     u8 isOverviewActive : 1;
     struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
@@ -67,6 +68,7 @@ struct RogueAdvPath
 struct RogueRunData
 {
     u16 currentRoomIdx;
+    u16 currentDifficulty;
     u16 nextRestStopRoomIdx;
     u16 specialEncounterCounter;
     u8 currentRouteIndex;
