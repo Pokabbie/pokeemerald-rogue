@@ -75,24 +75,48 @@ static void DisableCrossoverMetatiles(u16 nodeX, u16 nodeY)
 
 static struct RogueAdvPathNode* GetNodeInfo(u16 x, u16 y)
 {
-    return &gRogueRun.advPath.nodes[y * MAX_PATH_COLUMNS + x];
+    return &gRogueAdvPath.nodes[y * MAX_PATH_COLUMNS + x];
 }
 
 static void ResetNodeInfo()
 {
     u16 i;
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.advPath.nodes); ++i)
+    for(i = 0; i < ARRAY_COUNT(gRogueAdvPath.nodes); ++i)
     {
-        gRogueRun.advPath.nodes[i].isBridgeActive = FALSE;
-        gRogueRun.advPath.nodes[i].isLadderActive = FALSE;
+        gRogueAdvPath.nodes[i].isBridgeActive = FALSE;
+        gRogueAdvPath.nodes[i].isLadderActive = FALSE;
+        gRogueAdvPath.nodes[i].roomType = ADVPATH_ROOM_NONE;
+        memset(&gRogueAdvPath.nodes[i].roomParams.encoded.data[0], 0, sizeof(u8) * ARRAY_COUNT(gRogueAdvPath.nodes[i].roomParams.encoded.data));
     }
 }
 
 // Difficulty rating is from 1-10 (5 being average, 1 easy, 10 hard)
-static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, u8* rowDifficulties)
+struct AdvEventScratch
+{
+    u8 difficulty;
+    u8 difficultyContributions;
+    u8 roomType;
+};
+
+static void GetBranchingChance(u8 roomType, u8 difficulty, u8* breakChance, u8* extraSplitChance)
+{
+    *breakChance = 0;
+    *extraSplitChance = 0;
+
+    switch(roomType)
+    {
+        case ADVPATH_ROOM_BOSS:
+            *breakChance = 100;
+            *extraSplitChance = 50;
+            break;
+    }
+}
+
+static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct AdvEventScratch* readScratch, struct AdvEventScratch* writeScratch)
 {
     u8 i;
-    u8 chance;
+    u8 breakChance;
+    u8 extraChance;
     u8 difficulty;
     struct RogueAdvPathNode* nextNodeInfo;
     struct RogueAdvPathNode* nodeInfo;
@@ -104,34 +128,21 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, u8* rowDif
 
         if(nextNodeInfo->isBridgeActive)
         {
-            difficulty = rowDifficulties[i];
-
             // Calculate the split chance
             if(columnIdx == columnCount - 1)
             {
-                chance = 100;
+                // Auto fill the bost connection
+                difficulty = 5;
+                GetBranchingChance(ADVPATH_ROOM_BOSS, difficulty, &breakChance, &extraChance);
             }
-            else if(difficulty >= 4 && difficulty <= 6)
+            else 
             {
-                chance = 85;
+                difficulty = readScratch[i].difficulty;
+                GetBranchingChance(readScratch[i].roomType, difficulty, &breakChance, &extraChance);
             }
-            else if(difficulty <= 2)
-            {
-                // Too easy
-                chance = 0;
-            }
-            else if(difficulty >= 8)
-            {
-                // Too Hard
-                chance = 0;
-            }
-            else
-            {
-                // Small chance
-                chance = 10;
-            }
+           
 
-            if(RogueRandomChance(chance, OVERWORLD_FLAG))
+            if(RogueRandomChance(breakChance, OVERWORLD_FLAG))
             {
                 if(i == 0)
                 {
@@ -142,9 +153,13 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, u8* rowDif
 
                     nodeInfo = GetNodeInfo(columnIdx, i);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i].difficulty += difficulty;
+                    writeScratch[i].difficultyContributions++;
 
                     nodeInfo = GetNodeInfo(columnIdx, i + 1);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i + 1].difficulty += difficulty;
+                    writeScratch[i + 1].difficultyContributions++;
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i);
                     nodeInfo->isLadderActive = TRUE;
@@ -158,9 +173,13 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, u8* rowDif
 
                     nodeInfo = GetNodeInfo(columnIdx, i);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i].difficulty += difficulty;
+                    writeScratch[i].difficultyContributions++;
 
                     nodeInfo = GetNodeInfo(columnIdx, i - 1);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i - 1].difficulty += difficulty;
+                    writeScratch[i - 1].difficultyContributions++;
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
                     nodeInfo->isLadderActive = TRUE;
@@ -173,39 +192,128 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, u8* rowDif
                     //   |==
                     //   |
                     // ==|
-                    // TODO - Another chance of splitting into 3?
                     nodeInfo = GetNodeInfo(columnIdx, i - 1);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i - 1].difficulty += difficulty;
+                    writeScratch[i - 1].difficultyContributions++;
 
                     nodeInfo = GetNodeInfo(columnIdx, i + 1);
                     nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i + 1].difficulty += difficulty;
+                    writeScratch[i + 1].difficultyContributions++;
+
+                    // 3rd bridge might appear on occasion
+                    if(RogueRandomChance(extraChance, OVERWORLD_FLAG))
+                    {
+                        nodeInfo = GetNodeInfo(columnIdx, i);
+                        nodeInfo->isBridgeActive = TRUE;
+                        writeScratch[i].difficulty += difficulty;
+                        writeScratch[i].difficultyContributions++;
+                    }
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
                     nodeInfo->isLadderActive = TRUE;
                     
                     nodeInfo = GetNodeInfo(columnIdx + 1, i);
                     nodeInfo->isLadderActive = TRUE;
+
                 }
             }
             else
             {
-                // Just continue the same path
-                nodeInfo = GetNodeInfo(columnIdx, i);
-                nodeInfo->isBridgeActive = TRUE;
+                u8 offset = 1;
+
+                // Move path up or down but don't split
+                if(RogueRandomChance(33, OVERWORLD_FLAG))
+                {
+                    if(RogueRandomChance(50, OVERWORLD_FLAG))
+                    {
+                        if(i != 0)
+                            --offset;
+                    }
+                    else
+                    {
+                        if(i != MAX_PATH_ROWS - 1)
+                            ++offset;
+                    }
+                }
+
+                // Above
+                if(offset == 0)
+                {
+                    nodeInfo = GetNodeInfo(columnIdx, i - 1);
+                    nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i - 1].difficulty += difficulty;
+                    writeScratch[i - 1].difficultyContributions++;
+                    
+                    nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
+                    nodeInfo->isLadderActive = TRUE;
+                }
+                // Below
+                else if(offset == 2)
+                {
+                    nodeInfo = GetNodeInfo(columnIdx, i + 1);
+                    nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i + 1].difficulty += difficulty;
+                    writeScratch[i + 1].difficultyContributions++;
+
+                    nodeInfo = GetNodeInfo(columnIdx + 1, i);
+                    nodeInfo->isLadderActive = TRUE;
+                }
+                // Aligned
+                else
+                {
+                    nodeInfo = GetNodeInfo(columnIdx, i);
+                    nodeInfo->isBridgeActive = TRUE;
+                    writeScratch[i].difficulty += difficulty;
+                    writeScratch[i].difficultyContributions++;
+                }
             }
         }
     }
 
 }
 
-static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, u8* rowDifficulties)
+static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
 {
+    if(nodeX == columnCount - 1)
+    {
+        // Just before boss so can be a bit more chaotic
+        currScratch->roomType = ADVPATH_ROOM_ROUTE;
+    }
+    else
+    {
+        currScratch->roomType = ADVPATH_ROOM_NONE;
+    }
+}
+
+static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
+{
+    nodeInfo->roomType = currScratch->roomType;
+
+    // TODO - Set room params + adjust difficulty scratch a bit if needed
+    //nodeInfo->roomParams;
+}
+
+static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct AdvEventScratch* readScratch, struct AdvEventScratch* writeScratch)
+{
+    struct RogueAdvPathNode* nodeInfo;
     u8 i;
 
-    // TODO
-    for(i = 0; i < MAX_PATH_COLUMNS; ++i)
+    for(i = 0; i < MAX_PATH_ROWS; ++i)
     {
-        rowDifficulties[i] = 1 + RogueRandomRange(9, OVERWORLD_FLAG);
+        // Average the input difficulty
+        if(writeScratch[i].difficultyContributions)
+            writeScratch[i].difficulty /= writeScratch[i].difficultyContributions;
+        else
+            writeScratch[i].difficulty = 5;
+
+        nodeInfo = GetNodeInfo(columnIdx, i);
+        if(nodeInfo->isBridgeActive)
+        {
+            ChooseNewEvent(columnIdx, i, columnCount, &readScratch[i], &writeScratch[i]);
+            CreateEventParams(nodeInfo, &readScratch[i], &writeScratch[i]);
+        }
     }
 }
 
@@ -215,9 +323,10 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     u8 i;
     u8 totalDistance;
     u8 minY, maxY;
-    u8 rowDifficulties[MAX_PATH_COLUMNS];
+    struct AdvEventScratch rowEventScratchA[MAX_PATH_ROWS];
+    struct AdvEventScratch rowEventScratchB[MAX_PATH_ROWS];
 
-    if(gRogueRun.advPath.currentNodeX < gRogueRun.advPath.currentColumnCount)
+    if(gRogueAdvPath.currentNodeX < gRogueAdvPath.currentColumnCount)
     {
         // Path is still valid
         return FALSE;
@@ -227,16 +336,21 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
     // Setup defaults
     totalDistance = 3 + RogueRandomRange(1, OVERWORLD_FLAG);
-    memset(rowDifficulties, 5, sizeof(u8) * ARRAY_COUNT(rowDifficulties));
 
     // Exit node
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX + (RogueRandomRange(3, OVERWORLD_FLAG) - 1));
     nodeInfo->isBridgeActive = TRUE;
+    nodeInfo->roomType = ADVPATH_ROOM_BOSS;
 
     for(i = 0; i < totalDistance; ++i)
     {
-        GenerateAdventureColumnPath(totalDistance - i - 1, totalDistance, rowDifficulties);
-        GenerateAdventureColumnEvents(totalDistance - i - 1, totalDistance, rowDifficulties);
+        struct AdvEventScratch* readScratch = (i == 0 ? &rowEventScratchA[0] : &rowEventScratchB[0]);
+        struct AdvEventScratch* writeScratch =  (i == 0 ? &rowEventScratchB[0] : &rowEventScratchA[0]);
+
+        memset(writeScratch, 0, sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
+
+        GenerateAdventureColumnPath(totalDistance - i - 1, totalDistance, readScratch, writeScratch);
+        GenerateAdventureColumnEvents(totalDistance - i - 1, totalDistance, readScratch, writeScratch);
     }
 
     minY = MAX_PATH_ROWS;
@@ -260,9 +374,9 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
 
     // Place in centre of options
-    gRogueRun.advPath.currentColumnCount = totalDistance;
-    gRogueRun.advPath.currentNodeX = 0;
-    gRogueRun.advPath.currentNodeY = (minY + maxY) / 2;
+    gRogueAdvPath.currentColumnCount = totalDistance;
+    gRogueAdvPath.currentNodeX = 0;
+    gRogueAdvPath.currentNodeY = (minY + maxY) / 2;
     return TRUE;
 }
 
@@ -308,13 +422,13 @@ void RogueAdv_ApplyAdventureMetatiles()
 void RogueAdv_EnqueueNextWarp(struct WarpData *warp)
 {
     // Should already be set correctly for RogueAdv_ExecuteNodeAction
-    if(!gRogueRun.advPath.isOverviewActive)
+    if(!gRogueAdvPath.isOverviewActive)
     {
         u16 x, y;
 
         bool8 freshPath = RogueAdv_GenerateAdventurePathsIfRequired();
 
-        NodeToCoords(gRogueRun.advPath.currentNodeX, gRogueRun.advPath.currentNodeY, &x, &y);
+        NodeToCoords(gRogueAdvPath.currentNodeX, gRogueAdvPath.currentNodeY, &x, &y);
 
         // Always jump back to overview screen, after a different route
         warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);
@@ -325,7 +439,7 @@ void RogueAdv_EnqueueNextWarp(struct WarpData *warp)
     }
 }
 
-void RogueAdv_UpdateObjectGFX()
+static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 {
     //OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
     //OBJ_EVENT_GFX_MART_EMPLOYEE
@@ -336,16 +450,29 @@ void RogueAdv_UpdateObjectGFX()
     //OBJ_EVENT_GFX_ITEM_BALL
     //OBJ_EVENT_GFX_BALL_CUSHION
     //OBJ_EVENT_GFX_CUTTABLE_TREE
-//setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_LATIOS
 
-    // Local ID is 1 above the GFX id
+    switch(nodeInfo->roomType)
+    {
+        case ADVPATH_ROOM_NONE:
+            return 0;
+            
+        case ADVPATH_ROOM_ROUTE:
+            return OBJ_EVENT_GFX_CUTTABLE_TREE;
 
-    //SetObjEventTemplateCoords(localId, x, y);
+        case ADVPATH_ROOM_BOSS:
+            return OBJ_EVENT_GFX_BALL_CUSHION; // ?
+    }
 
+    return 0;
+}
+
+void RogueAdv_UpdateObjectGFX()
+{
     struct RogueAdvPathNode* nodeInfo;
     u8 currentID;
     u16 x, y;
     u16 mapX, mapY;
+    u16 objGFX;
     u8 maxID = 0;
 
     for(x = 0; x < MAX_PATH_COLUMNS; ++x)
@@ -356,16 +483,19 @@ void RogueAdv_UpdateObjectGFX()
         {
             currentID = maxID++;
             NodeToCoords(x, y, &mapX, &mapY);
-            
-            // TODO - Read pre-gen info here
-            VarSet(VAR_OBJ_GFX_ID_0 + currentID, OBJ_EVENT_GFX_CUTTABLE_TREE);
 
-            // Want them to sit on the bridge not the node
-            SetObjEventTemplateCoords(currentID + 1, mapX + 1, mapY + 1);
+            objGFX = SelectGFXForNode(nodeInfo);
+
+            if(objGFX)
+            {
+                // TODO - Read pre-gen info here
+                VarSet(VAR_OBJ_GFX_ID_0 + currentID, objGFX);
+
+                // Want them to sit on the bridge not the node
+                SetObjEventTemplateCoords(currentID + 1, mapX + 1, mapY + 1);
+            }
         }
     }
-
-    // TODO - move the rest out of the way
 }
 
 static struct RogueAdvPathNode* GetScriptNode()
@@ -448,33 +578,33 @@ void RogueAdv_BufferNodeMessage()
 void RogueAdv_ExecuteNodeAction()
 {
     u16 nodeX, nodeY;
+    struct WarpData warp;
     struct RogueAdvPathNode* node = GetScriptNode();
+
+    // Fill with default warp
+    warp.mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
+    warp.mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
+    warp.warpId = 0;
+    warp.x = -1;
+    warp.y = -1;
 
     if(node)
     {
         GetScriptNodeCoords(&nodeX, &nodeY);
 
         // Move to the selected node
-        gRogueRun.advPath.currentNodeX = nodeX;
-        gRogueRun.advPath.currentNodeY = nodeY;
+        gRogueAdvPath.currentNodeX = nodeX;
+        gRogueAdvPath.currentNodeY = nodeY;
 
-        //SetWarpDestination(mapGroup, mapNum, warpId, x, y);
-        SetWarpDestination(
-            MAP_GROUP(ROGUE_ROUTE_FIELD0), 
-            MAP_NUM(ROGUE_ROUTE_FIELD0), 
-            0, 
-            -1, -1
-            );
-        DoWarp();
-        ResetInitialPlayerAvatarState();
-        //u8 mapGroup = ScriptReadByte(ctx);
-        //u8 mapNum = ScriptReadByte(ctx);
-        //u8 warpId = ScriptReadByte(ctx);
-        //u16 x = VarGet(ScriptReadHalfword(ctx));
-        //u16 y = VarGet(ScriptReadHalfword(ctx));
-//
-        //SetWarpDestination(mapGroup, mapNum, warpId, x, y);
-        //DoWarp();
-        //ResetInitialPlayerAvatarState();
+        switch(node->roomType)
+        {
+            case ADVPATH_ROOM_BOSS:
+                Rogue_SelectBossRoomWarp(&warp);
+                break;
+        }
     }
+
+    SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
 }

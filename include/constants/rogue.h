@@ -12,11 +12,45 @@
 
 #define ROGUE_ROUTE_COUNT 9
 
-#define ROGUE_MAX_ADVPATH_ROWS 5
-#define ROGUE_MAX_ADVPATH_COLUMNS 9
+#define ROGUE_MAX_ADVPATH_ROWS 7
+#define ROGUE_MAX_ADVPATH_COLUMNS 7
+
+enum RogueAdvPathRoomType
+{
+    ADVPATH_ROOM_NONE,
+    ADVPATH_ROOM_ROUTE,
+    ADVPATH_ROOM_RESTSTOP,
+    ADVPATH_ROOM_SPECIAL,
+    ADVPATH_ROOM_BOSS,
+};
+
+union RogueAdvPathRoomParams
+{
+    struct
+    {
+        u8 roomIdx;
+    } route;
+    struct
+    {
+        u8 roomIdx;
+    } reststop;
+    struct
+    {
+        u8 roomIdx;
+    } special;
+    struct
+    {
+    } boss;
+    struct
+    {
+        u8 data[1];
+    } encoded;
+};
 
 struct RogueAdvPathNode
 {
+    u8 roomType;
+    union RogueAdvPathRoomParams roomParams;
     u8 isBridgeActive : 1;
     u8 isLadderActive : 1;
 };
@@ -40,7 +74,6 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[ROGUE_ROUTE_COUNT - 3];
     u16 wildEncounterHistoryBuffer[2];
-    struct RogueAdvPath advPath;
 };
 
 struct RogueHubData

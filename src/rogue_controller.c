@@ -69,6 +69,8 @@ struct RogueBoxSaveData
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+    
+    struct RogueAdvPath advPath;
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
@@ -108,6 +110,7 @@ struct RogueLocalData
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
+EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 
 static u8 GetDifficultyLevel(u16 roomIdx);
 static u16 GetBossRoomForDifficulty(u16 difficulty);
@@ -969,9 +972,9 @@ u8* Rogue_GetMiniMenuContent(void)
     else
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_AdvHeader);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueRun.advPath.currentColumnCount);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueRun.advPath.currentNodeX);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueRun.advPath.currentNodeY);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueAdvPath.currentColumnCount);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
     }
 
     return gStringVar4;
@@ -1245,6 +1248,8 @@ void Rogue_OnSaveGame(void)
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
 
+    memcpy(&gRogueLocal.saveData.raw.advPath, &gRogueAdvPath, sizeof(gRogueAdvPath));
+
     // Move Hub save data into storage box space
     for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
     {
@@ -1270,6 +1275,8 @@ void Rogue_OnLoadGame(void)
     {
         memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
     }
+
+    memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
     {
@@ -1396,6 +1403,11 @@ static void BeginRogueRun(void)
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
     gRogueRun.currentRouteIndex = 0;
+
+    // Will get generated later
+    gRogueAdvPath.currentColumnCount = 0;
+    gRogueAdvPath.currentNodeX = 0;
+    gRogueAdvPath.currentNodeY = 0;
 
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
@@ -1532,10 +1544,12 @@ static u8 GetDifficultyLevel(u16 roomIdx)
     return BOSS_ROOM_COUNT - 1;
 }
 
-static void SelectBossRoom(u16 nextRoomIdx, struct WarpData *warp)
+void Rogue_SelectBossRoomWarp(struct WarpData *warp)
 {
     u8 bossId = 0;
-    u8 difficulty = GetDifficultyLevel(nextRoomIdx);
+    u8 difficulty = GetDifficultyLevel(gRogueRun.nextRestStopRoomIdx);
+
+    // TODO - Support refighting gymleaders by wrapping to room selection again
 
     do
     {
@@ -1800,7 +1814,7 @@ static u8 CalcSpecialEncounterChance(u8 difficultyLevel)
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
-    gRogueRun.advPath.isOverviewActive = FALSE;
+    gRogueAdvPath.isOverviewActive = FALSE;
 
     if(IsMegaEvolutionEnabled() || IsZMovesEnabled() || IsDynamaxEnabled())
     {
@@ -1820,7 +1834,7 @@ void Rogue_OnWarpIntoMap(void)
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
     {
-        gRogueRun.advPath.isOverviewActive = TRUE;
+        gRogueAdvPath.isOverviewActive = TRUE;
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())
     {
@@ -1981,7 +1995,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         //}
         //else if(IsBossRoom(nextRoomIdx))
         //{
-        //    SelectBossRoom(nextRoomIdx, warp);
+        //    SelectBossRoom(GetDifficultyLevel(nextRoomIdx), warp);
         //}
         //else
         //{

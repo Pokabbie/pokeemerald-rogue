@@ -177,7 +177,6 @@ gSpecials::
 	def_special ChangePokemonNickname
 	def_special ChoosePartyMon
 	def_special Rogue_RandomisePartyMon
-	def_special RogueAdv_GenerateAdventurePathsIfRequired
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_BufferNodeMessage
