@@ -20,7 +20,11 @@ enum RogueAdvPathRoomType
     ADVPATH_ROOM_NONE,
     ADVPATH_ROOM_ROUTE,
     ADVPATH_ROOM_RESTSTOP,
-    ADVPATH_ROOM_SPECIAL,
+    ADVPATH_ROOM_LEGENDARY,
+    ADVPATH_ROOM_MINIBOSS,
+    ADVPATH_ROOM_COUNT,
+
+    // Special cases are excluded from count
     ADVPATH_ROOM_BOSS,
 };
 
@@ -62,6 +66,7 @@ struct RogueAdvPath
     u8 currentColumnCount;
     u8 currentRoomType;
     u8 isOverviewActive : 1;
+    u8 justGenerated : 1;
     struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 

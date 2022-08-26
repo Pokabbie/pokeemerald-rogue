@@ -2077,11 +2077,13 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
-void Rogue_Battle_EndTrainerBattle(void)
+static bool8 IsBossTrainer(u16 trainerNum);
+
+void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        if(IsBossTrainer(trainerNum))
         {
             ++gRogueRun.currentDifficulty;
         }
