@@ -304,7 +304,7 @@
 #define B_NEW_LEECH_SEED_PARTICLE       TRUE    // If set to TRUE, it updates Leech Seed's animation particle.
 #define B_NEW_HORN_ATTACK_PARTICLE      TRUE    // If set to TRUE, it updates Horn Attack's horn particle.
 #define B_NEW_LEAF_PARTICLE             TRUE    // If set to TRUE, it updates leaf particle.
-#define B_NEW_EMBER_PARTICLES           TRUE    // If set to TRUE, it updates Ember's fire particle.
+#define B_NEW_EMBER_PARTICLES           FALSE   // If set to TRUE, it updates Ember's fire particle.
 #define B_NEW_MEAN_LOOK_PARTICLE        TRUE    // If set to TRUE, it updates Mean Look's eye particle.
 #define B_NEW_TEETH_PARTICLE            TRUE    // If set to TRUE, it updates Bite/Crunch teeth particle.
 #define B_NEW_HANDS_FEET_PARTICLE       TRUE    // If set to TRUE, it updates chop/kick/punch particles.
@@ -316,6 +316,10 @@
 #define B_NEW_IMPACT_PALETTE            TRUE    // If set to TRUE, it updates the basic 'hit' palette.
 #define B_NEW_SURF_PARTICLE_PALETTE     TRUE    // If set to TRUE, it updates Surf's wave palette.
 
+#ifdef ROGUE_DEBUG
 #define B_ENABLE_DEBUG                  TRUE     // If set to TRUE, enables a debug menu to use in battles by pressing the Select button.
+#else
+#define B_ENABLE_DEBUG                  FALSE
+#endif
 
 #endif // GUARD_CONSTANTS_BATTLE_CONFIG_H

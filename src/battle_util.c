@@ -46,6 +46,8 @@
 #include "constants/trainers.h"
 #include "constants/weather.h"
 
+#include "constants/rogue.h"
+
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 /*

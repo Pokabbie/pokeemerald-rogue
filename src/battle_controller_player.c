@@ -38,6 +38,7 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "constants/rogue.h"
 #include "rogue_controller.h"
 
 static void PlayerHandleGetMonData(void);

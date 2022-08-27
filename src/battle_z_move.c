@@ -43,6 +43,8 @@
 #include "constants/abilities.h"
 #include "constants/moves.h"
 
+#include "constants/rogue.h"
+
 #define STAT_STAGE(battler, stat) (gBattleMons[battler].statStages[stat - 1])
 
 // Function Declarations
