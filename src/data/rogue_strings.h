@@ -1,3 +1,19 @@
+
+
+const u8 gText_RogueVersion[] = _("v1.0.3");
+
+#ifdef ROGUE_EXPANSION
+const u8 gText_RogueVersionPrefix[] = _("EX ");
+#else
+const u8 gText_RogueVersionPrefix[] = _("Vanilla ");
+#endif
+
+#ifdef ROGUE_DEBUG
+const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
+#else
+const u8 gText_RogueVersionSuffix[] = _("");
+#endif
+
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 #else

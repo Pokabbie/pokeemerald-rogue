@@ -21,7 +21,7 @@ Rogue_Route_Field0_OnFrame0_4:
 	end
 
 Rogue_Route_Field0_OnFrame0_2:
-	setweather WEATHER_SUNNY_CLOUDS
+	setweather WEATHER_SHADE
 	doweather
 	goto Rogue_Route_Field0_OnFrame0_1
 
