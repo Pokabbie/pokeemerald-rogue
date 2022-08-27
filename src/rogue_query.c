@@ -9,7 +9,7 @@
 //
 //#include "battle.h"
 //#include "battle_setup.h"
-//#include "event_data.h"
+#include "event_data.h"
 #include "item.h"
 #include "item_use.h"
 //#include "money.h"
