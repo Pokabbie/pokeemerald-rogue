@@ -26,7 +26,7 @@
 
 #include "rogue_controller.h"
 
-extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
+//extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 static void ClearDaycareMonMail(struct DaycareMail *mail);
 static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare);

@@ -61,7 +61,9 @@
 #include "battle_util.h"
 
 #include "rogue_controller.h"
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+#include "rogue_baked.h"
+
+//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 extern const u8* const gBattleScriptsForMoveEffects[];
 
@@ -7859,6 +7861,7 @@ static void Cmd_various(void)
     s32 i, j;
     u8 data[10];
     u32 side, bits;
+    struct Evolution evo;
 
     if (gBattleControllerExecFlags)
         return;
@@ -9434,8 +9437,10 @@ static void Cmd_various(void)
 
         for (i = 0; i < EVOS_PER_MON; i++)
         {
-            if (gEvolutionTable[gBattleMons[gActiveBattler].species][i].method == EVO_PRIMAL_REVERSION
-            && gEvolutionTable[gBattleMons[gActiveBattler].species][i].param == gBattleMons[gActiveBattler].item)
+            Rogue_ModifyEvolution(gBattleMons[gActiveBattler].species, i, &evo);
+
+            if (evo.method == EVO_PRIMAL_REVERSION
+            && evo.param == gBattleMons[gActiveBattler].item)
                 canDoPrimalReversion = TRUE;
         }
         if (!canDoPrimalReversion)
@@ -13656,6 +13661,7 @@ static void Cmd_handleballthrow(void)
 {
     u16 ballMultiplier = 10;
     s8 ballAddition = 0;
+    struct Evolution evo;
 
     if (gBattleControllerExecFlags)
         return;
@@ -13798,8 +13804,10 @@ static void Cmd_handleballthrow(void)
         case ITEM_MOON_BALL:
             for (i = 0; i < EVOS_PER_MON; i++)
             {
-                if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_ITEM
-                    && gEvolutionTable[gBattleMons[gBattlerTarget].species][i].param == ITEM_MOON_STONE)
+                Rogue_ModifyEvolution(gBattleMons[gActiveBattler].species, i, &evo);
+
+                if (evo.method == EVO_ITEM
+                    && evo.param == ITEM_MOON_STONE)
                     ballMultiplier = 40;
             }
             break;

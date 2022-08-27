@@ -64,7 +64,7 @@
 #include "constants/trainers.h"
 #include "cable_club.h"
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 #include "rogue_controller.h"
 
@@ -3586,6 +3586,7 @@ static void DoBattleIntro(void)
 static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
+    struct Evolution evo;
 
     if (gBattleControllerExecFlags)
         return;
@@ -3645,8 +3646,10 @@ static void TryDoEventsBeforeFirstTurn(void)
         {
             for (j = 0; j < EVOS_PER_MON; j++)
             {
-                if (gEvolutionTable[gBattleMons[i].species][j].targetSpecies != SPECIES_NONE
-                 && gEvolutionTable[gBattleMons[i].species][j].method == EVO_PRIMAL_REVERSION)
+                Rogue_ModifyEvolution(gBattleMons[i].species, j, &evo);
+
+                if (evo.targetSpecies != SPECIES_NONE
+                 && evo.method == EVO_PRIMAL_REVERSION)
                 {
                     gBattlerAttacker = i;
                     BattleScriptExecute(BattleScript_PrimalReversion);
