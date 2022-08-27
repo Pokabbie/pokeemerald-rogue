@@ -625,6 +625,9 @@ u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
     numEggMoves = 0;
     eggMoveIdx = 0;
     species = GetMonData(pokemon, MON_DATA_SPECIES);
+
+    species = Rogue_GetEggSpecies(species);
+
     for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
     {
         if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
