@@ -217,6 +217,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 2100;
     }
 
+    if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
+    {
+        outItem->price = 2100;
+    }
+
     if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
     {
         outItem->price = 5000;

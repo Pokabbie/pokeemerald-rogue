@@ -15,7 +15,7 @@ script Rogue_Route_Field0_OnFrame0
 {
     if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
     {
-        setweather(WEATHER_SUNNY_CLOUDS)
+        setweather(WEATHER_SHADE)
         doweather
     }
 
