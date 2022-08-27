@@ -1380,7 +1380,7 @@ static void BeginRogueRun(void)
     SaveHubInventory();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
-    gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
+    //gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
 
     gRogueHubData.playTimeHours = gSaveBlock2Ptr->playTimeHours;
     gRogueHubData.playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
@@ -1439,7 +1439,7 @@ static void EndRogueRun(void)
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
     AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
-    gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
+    //gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
     
     //gRogueHubData.playTimeHours += gSaveBlock2Ptr->playTimeHours;

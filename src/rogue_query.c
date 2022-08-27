@@ -760,7 +760,12 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_ItemsExcludeRange(ITEM_BLUE_FLUTE, ITEM_WHITE_FLUTE);
     
 #ifdef ROGUE_EXPANSION
+    // Not implemented
     RogueQuery_Exclude(ITEM_MAX_HONEY);
+    RogueQuery_Exclude(ITEM_SUPER_LURE);
+    RogueQuery_Exclude(ITEM_BOTTLE_CAP);
+    RogueQuery_Exclude(ITEM_GOLD_BOTTLE_CAP);
+
     RogueQuery_Exclude(ITEM_PRISM_SCALE); // Not needed as is not a lvl up evo
     RogueQuery_ItemsExcludeRange(ITEM_GROWTH_MULCH, ITEM_BLACK_APRICORN);
 
@@ -781,6 +786,11 @@ void RogueQuery_ItemsExcludeCommon(void)
     {
         RogueQuery_ItemsExcludeRange(ITEM_EXP_CANDY_XS, ITEM_DYNAMAX_CANDY);
         RogueQuery_Exclude(ITEM_MAX_MUSHROOMS);
+    }
+
+    if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
     }
 #endif
 
