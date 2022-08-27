@@ -120,5 +120,5 @@ movement Rogue_RestStop_RandomMan_Spin
 
 movement Rogue_RestStop_RandomMan_RunAway
 {
-    jump_2_up * 4
+    jump_2_right * 3
 }

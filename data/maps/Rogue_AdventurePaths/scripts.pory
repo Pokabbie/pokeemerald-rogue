@@ -2,7 +2,19 @@ const VAR_NODE_ID = VAR_0x8000
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
-    MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_RedrawMap
+    MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_OnLoad
+}
+
+script Rogue_AdventurePaths_OnLoad
+{
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
+
+    call(Rogue_AdventurePaths_RedrawMap)
+}
+
+movement AdventurePaths_OffsetCamera {
+    walk_right * 4
 }
 
 script Rogue_AdventurePaths_RedrawMap

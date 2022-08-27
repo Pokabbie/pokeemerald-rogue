@@ -4870,6 +4870,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_AdventurePaths/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_AdventurePaths/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_HEALING",
+      "name": "Rogue_Encounter_Healing_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Encounter_Healing/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Healing/map.bin"
     }
   ]
 }
