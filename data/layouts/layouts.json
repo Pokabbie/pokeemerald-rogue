@@ -4880,6 +4880,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Encounter_Healing/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Healing/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_SHOPS",
+      "name": "Rogue_Encounter_Shops_Layout",
+      "width": 17,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Encounter_Shops/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Shops/map.bin"
     }
   ]
 }
