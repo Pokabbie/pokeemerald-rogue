@@ -1403,7 +1403,7 @@ static void BeginRogueRun(void)
     ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
-    gRogueRun.currentDifficulty = 0;
+    gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.specialEncounterCounter = 0;
     gRogueRun.nextRestStopRoomIdx = GetStartRestStopRoomIdx();
     gRogueRun.currentRouteIndex = 0;

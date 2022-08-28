@@ -75,15 +75,6 @@ static void DisableCrossoverMetatiles(u16 nodeX, u16 nodeY)
     MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET_X, y + PATH_MAP_OFFSET_Y, c_MetaTile_Grass | MAPGRID_COLLISION_MASK);
 }
 
-static void BlockBridgeMetatiles(u16 nodeX, u16 nodeY)
-{
-    u16 x, y, i, j;
-
-    NodeToCoords(nodeX, nodeY, &x, &y);
-
-    MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET_X + 1, y + PATH_MAP_OFFSET_Y, c_MetaTile_Sign | MAPGRID_COLLISION_MASK);
-}
-
 static struct RogueAdvPathNode* GetNodeInfo(u16 x, u16 y)
 {
     return &gRogueAdvPath.nodes[y * MAX_PATH_COLUMNS + x];
@@ -118,8 +109,16 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8 dif
     switch(roomType)
     {
         case ADVPATH_ROOM_BOSS:
-            *breakChance = 100;
-            *extraSplitChance = gRogueRun.currentDifficulty < 8 ? 90 : 50;
+            if(columnIdx == columnCount - 1)
+            {
+                *breakChance = 100;
+                *extraSplitChance = 10;
+            }
+            else
+            {
+                *breakChance = 100;
+                *extraSplitChance = gRogueRun.currentDifficulty < 8 ? 90 : 50;
+            }
             break;
 
         case ADVPATH_ROOM_NONE:
@@ -127,7 +126,7 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8 dif
             break;
 
         case ADVPATH_ROOM_ROUTE:
-            if(columnIdx == columnCount - 1)
+            if(columnIdx >= columnCount - 2)
             {
                 *breakChance = 50;
                 *extraSplitChance = 34;
@@ -174,7 +173,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
         if(nextNodeInfo->isBridgeActive)
         {
             // Calculate the split chance
-            if(columnIdx == columnCount - 1)
+            if(columnIdx >= columnCount - 2) // First column before boss will be empty purely to give branches extra width
             {
                 difficulty = 5;
                 nextRoomType = ADVPATH_ROOM_BOSS;
@@ -185,6 +184,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                 nextRoomType = nextNodeInfo->roomType;
             }
 
+            // Calculate the split chance
             GetBranchingChance(columnIdx, columnCount, nextRoomType, difficulty, &breakChance, &extraChance);
 
             if(RogueRandomChance(breakChance, OVERWORLD_FLAG))
@@ -336,20 +336,27 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     u16 targetWeight;
     u8 i;
 
-    // 5 is default weight
+    // 50 is default weight
     memset(&weights[0], 5, sizeof(u8) * ARRAY_COUNT(weights));
+
+    if(nodeX == columnCount - 1)
+    {
+        // This column is purely to allow for larger branches
+        currScratch->roomType = ADVPATH_ROOM_NONE;
+        return;
+    }
 
 
     // Normal routes
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
         // Less likely near the end
-        weights[ADVPATH_ROOM_ROUTE] = 2;
+        weights[ADVPATH_ROOM_ROUTE] = 20;
     }
     else
     {
         // Most common
-        weights[ADVPATH_ROOM_ROUTE] = 15;
+        weights[ADVPATH_ROOM_ROUTE] = 150;
     }
 
     // NONE / Skip encounters
@@ -358,29 +365,29 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         if(nodeY < CENTRE_ROW_IDX)
         {
             // Lower routes are much more likely to have skips
-            weights[ADVPATH_ROOM_NONE] = 10;
+            weights[ADVPATH_ROOM_NONE] = 100;
         }
         else
         {
             // Slightly below average
-            weights[ADVPATH_ROOM_NONE] = 3;
+            weights[ADVPATH_ROOM_NONE] = 20;
         }
     }
     else
     {
         // Unlikely but not impossible
-        weights[ADVPATH_ROOM_NONE] = 2;
+        weights[ADVPATH_ROOM_NONE] = 20;
     }
 
     // Rest stops
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
-        weights[ADVPATH_ROOM_RESTSTOP] = 10;
+        weights[ADVPATH_ROOM_RESTSTOP] = 100;
     }
     else
     {
         // Unlikely but not impossible
-        weights[ADVPATH_ROOM_RESTSTOP] = 2;
+        weights[ADVPATH_ROOM_RESTSTOP] = 20;
     }
 
     // Legendaries/Mini encounters
@@ -393,12 +400,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     {
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = 7;
-            weights[ADVPATH_ROOM_LEGENDARY] = 7;
+            weights[ADVPATH_ROOM_MINIBOSS] = 70;
+            weights[ADVPATH_ROOM_LEGENDARY] = 70;
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = 3;
+            weights[ADVPATH_ROOM_MINIBOSS] = 30;
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
     }
@@ -421,7 +428,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             break;
 
         case ADVPATH_ROOM_ROUTE:
-            weights[ADVPATH_ROOM_NONE] += 3;
+            weights[ADVPATH_ROOM_NONE] += 30;
             break;
 
         case ADVPATH_ROOM_NONE:
@@ -503,12 +510,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     ResetNodeInfo();
 
     // Setup defaults
-    if(gRogueRun.currentDifficulty == 0)
-        totalDistance = 3;
-    else if(gRogueRun.currentDifficulty >= 8)
-        totalDistance = 4;
-    else
-        totalDistance = 3;
+    totalDistance = 4;
 
     // Exit node
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);
@@ -590,20 +592,6 @@ void RogueAdv_ApplyAdventureMetatiles()
             }
         }
     }
-
-    if(!gRogueAdvPath.justGenerated)
-    {
-        // Disable last bridges
-        x = gRogueAdvPath.currentNodeX;
-        for(y = 0; y < MAX_PATH_ROWS; ++y)
-        {
-            nodeInfo = GetNodeInfo(x, y);
-            if(nodeInfo->isBridgeActive)
-            {
-                BlockBridgeMetatiles(x, y);
-            }
-        }
-    }
 }
 
 bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
@@ -622,7 +610,7 @@ bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);
         warp->mapNum = MAP_NUM(ROGUE_ADVENTURE_PATHS);
         warp->warpId = WARP_ID_NONE;
-        warp->x = x + (freshPath ? 1 : 3);
+        warp->x = x + (freshPath ? 1 : 4);
         warp->y = y + 1;
         return TRUE;
     }
@@ -634,16 +622,6 @@ bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
 
 static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 {
-    //OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
-    //OBJ_EVENT_GFX_MART_EMPLOYEE
-    //OBJ_EVENT_GFX_NURSE
-    //OBJ_EVENT_GFX_MYSTERY_GIFT_MAN
-    //OBJ_EVENT_GFX_DEOXYS_TRIANGLE
-    //OBJ_EVENT_GFX_CONTEST_JUDGE
-    //OBJ_EVENT_GFX_ITEM_BALL
-    //OBJ_EVENT_GFX_BALL_CUSHION
-    //OBJ_EVENT_GFX_CUTTABLE_TREE
-
     switch(nodeInfo->roomType)
     {
         case ADVPATH_ROOM_NONE:
@@ -659,7 +637,7 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             return OBJ_EVENT_GFX_TRICK_HOUSE_STATUE;
 
         case ADVPATH_ROOM_MINIBOSS:
-            return OBJ_EVENT_GFX_WALLY; // ??
+            return OBJ_EVENT_GFX_NOLAND; //OBJ_EVENT_GFX_WALLY; // ?? OBJ_EVENT_GFX_YOUNGSTER
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?

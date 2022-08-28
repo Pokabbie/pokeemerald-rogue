@@ -101,6 +101,7 @@ Rogue_RestStop_RandomMan_RunAway:
 	jump_2_right
 	jump_2_right
 	jump_2_right
+	jump_2_right
 	step_end
 
 Rogue_Encounter_RestStop_Heal_Text_0:
