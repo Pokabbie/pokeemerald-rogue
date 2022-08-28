@@ -662,6 +662,10 @@ u8 SpeciesToGen(u16 species)
 
     if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_ARCEUS_FAIRY)
         return 4;
+
+    // Just treat megas as gen 1 as they are controlled by a different mechanism
+    if(species >= SPECIES_VENUSAUR_MEGA && species <= SPECIES_GROUDON_PRIMAL)
+        return 1;
     
     switch(species)
     {
