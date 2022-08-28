@@ -204,7 +204,7 @@ Rogue_AdventurePaths_InteractNodeInternal_Text_4:
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_5:
-	.string "It's an EASY {STR_VAR_1} route.\n"
+	.string "It's a CALM {STR_VAR_1} route.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_6:

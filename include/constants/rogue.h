@@ -54,6 +54,7 @@ struct RogueAdvPath
     u8 currentNodeY;
     u8 currentColumnCount;
     u8 currentRoomType;
+    u8 lengendaryEncounterCounter;
     u8 isOverviewActive : 1;
     u8 justGenerated : 1;
     struct RogueAdvPathRoomParams currentRoomParams;
@@ -64,8 +65,8 @@ struct RogueRunData
 {
     u16 currentRoomIdx;
     u16 currentDifficulty;
-    u16 specialEncounterCounter;
     u8 currentRouteIndex;
+    u8 currentLevelOffset;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[ROGUE_ROUTE_COUNT - 3];

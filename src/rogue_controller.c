@@ -577,24 +577,30 @@ void Rogue_ModifyBattleWinnings(u32* money)
     {
         // Once we've gotten champion we want to give a bit more money 
         u8 difficulty = gRogueRun.currentDifficulty;
+        u8 difficultyModifier = GetRoomTypeDifficulty();
 
         if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
             if(difficulty <= 11)
             {
-                *money = *money / 3;
+                if(difficultyModifier == 2) // Hard
+                    *money = *money / 2;
+                else
+                    *money = *money / 3;
             }
             else
             {
                 // Kinder but not by much ;)
-                *money = *money / 2;
+                if(difficultyModifier != 2) // !Hard
+                    *money = *money / 2;
             }
         }
         else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
             if(difficulty <= 11)
             {
-                *money = *money / 2;
+                if(difficultyModifier != 2) // !Hard
+                    *money = *money / 2;
             }
         }
     }
@@ -1405,13 +1411,14 @@ static void BeginRogueRun(void)
 
     gRogueRun.currentRoomIdx = GetStartRoomIdx();
     gRogueRun.currentDifficulty = GetStartDifficulty();
-    gRogueRun.specialEncounterCounter = 0;
+    gRogueRun.currentLevelOffset = 10;
     gRogueRun.currentRouteIndex = 0;
 
     // Will get generated later
     gRogueAdvPath.currentColumnCount = 0;
     gRogueAdvPath.currentNodeX = 0;
     gRogueAdvPath.currentNodeY = 0;
+    gRogueAdvPath.lengendaryEncounterCounter = 0;
 
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
@@ -1790,19 +1797,6 @@ void Rogue_OnWarpIntoMap(void)
     {
         EndRogueRun();
     }
-    else if(Rogue_IsRunActive())
-    {
-        if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ENCOUNTER_REST_STOP)
-        {
-            RandomiseEnabledTrainers();
-            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-        }
-        else if(IsSpecialEncounterRoom())
-        {
-            gRogueRun.specialEncounterCounter = 0; // TODO - Remove
-            FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-        }
-    }
     else if(GetSafariZoneFlag())
     {
         RandomiseSafariWildEncounters();
@@ -2024,8 +2018,18 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
+        if(gRogueRun.currentLevelOffset)
+        {
+            // Every trainer battle drops level cap by 4
+            if(gRogueRun.currentLevelOffset < 4)
+                gRogueRun.currentLevelOffset = 0;
+            else
+                gRogueRun.currentLevelOffset -= 4;
+        }
+
         if(IsBossTrainer(trainerNum))
         {
+            gRogueRun.currentLevelOffset = 10;
             ++gRogueRun.currentDifficulty;
         }
 
@@ -2040,6 +2044,15 @@ void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
+        if(gRogueRun.currentLevelOffset)
+        {
+            // Every wild battle drops level cap by 3
+            if(gRogueRun.currentLevelOffset < 3)
+                gRogueRun.currentLevelOffset = 0;
+            else
+                gRogueRun.currentLevelOffset -= 3;
+        }
+
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             RemoveAnyFaintedMons(FALSE);
@@ -3332,6 +3345,8 @@ u8 GetLeadMonLevel(void);
 
 static u8 CalculateWildLevel(void)
 {
+    u8 playerLevel = CalculatePlayerLevel();
+
     if(GetSafariZoneFlag())
     {
         if((Random() % 6) == 0)
@@ -3351,7 +3366,14 @@ static u8 CalculateWildLevel(void)
         return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
     }
 
-    return CalculatePlayerLevel() - 7;
+    if(playerLevel < 10)
+    {
+        return 4;
+    }
+    else
+    {
+        return playerLevel - 7;
+    }
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)
@@ -3388,8 +3410,7 @@ static u8 CalculatePlayerLevel(void)
         return min(15 + (gRogueRun.currentRoomIdx - 1) * 20, MAX_LEVEL);
     }
 
-    // TODO - Calc diff based on battle
-    return CalculateBossLevel();
+    return CalculateBossLevel() - gRogueRun.currentLevelOffset;
 }
 
 static u8 CalculateTrainerLevel(u16 trainerNum)
@@ -3408,13 +3429,15 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(difficultyLevel == 0)
         {
             prevBossLevel = 5;
-            nextBossLevel = CalculateBossLevelForDifficulty(0);
+            nextBossLevel = CalculatePlayerLevel();
         }
         else
         {
             prevBossLevel = CalculateBossLevelForDifficulty(difficultyModifier - 1);
-            nextBossLevel = CalculateBossLevelForDifficulty(difficultyModifier);
+            nextBossLevel = CalculatePlayerLevel();
         }
+
+        prevBossLevel = min(prevBossLevel, nextBossLevel);
 
         if(difficultyModifier == 0) // Easy
         {

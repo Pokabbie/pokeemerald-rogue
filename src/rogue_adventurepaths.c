@@ -337,7 +337,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     u8 i;
 
     // 50 is default weight
-    memset(&weights[0], 5, sizeof(u8) * ARRAY_COUNT(weights));
+    memset(&weights[0], 50, sizeof(u8) * ARRAY_COUNT(weights));
 
     if(nodeX == columnCount - 1)
     {
@@ -350,13 +350,13 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     // Normal routes
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
-        // Less likely near the end
+        // Very unlikely at und
         weights[ADVPATH_ROOM_ROUTE] = 20;
     }
     else
     {
         // Most common
-        weights[ADVPATH_ROOM_ROUTE] = 150;
+        weights[ADVPATH_ROOM_ROUTE] = 200;
     }
 
     // NONE / Skip encounters
@@ -400,12 +400,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     {
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = 70;
-            weights[ADVPATH_ROOM_LEGENDARY] = 70;
+            weights[ADVPATH_ROOM_MINIBOSS] = min(5 * gRogueRun.currentDifficulty, 40);
+            weights[ADVPATH_ROOM_LEGENDARY] = min(70, (gRogueAdvPath.lengendaryEncounterCounter / 2)); // Chance increases the longer it's been since last legendary possiblity
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = 30;
+            weights[ADVPATH_ROOM_MINIBOSS] = min(1 * gRogueRun.currentDifficulty, 40);
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
     }
@@ -456,6 +456,18 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             break;
         }
     }
+
+    // Update legendary tracking
+    if(currScratch->roomType == ADVPATH_ROOM_LEGENDARY)
+    {
+        gRogueAdvPath.lengendaryEncounterCounter = 0;
+    }
+    else if(weights[ADVPATH_ROOM_LEGENDARY])
+    {
+        // We had a chance but no legendary room spawned
+        if(gRogueAdvPath.lengendaryEncounterCounter != 255)
+            ++gRogueAdvPath.lengendaryEncounterCounter;
+    }
 }
 
 static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
@@ -464,14 +476,38 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
 
     switch(nodeInfo->roomType)
     {
+        // TODO - Decide boss here
+
         case ADVPATH_ROOM_RESTSTOP:
             nodeInfo->roomParams.roomIdx = RogueRandomRange(gRogueRestStopEncounterInfo.mapCount, OVERWORLD_FLAG);
             break;
 
         case ADVPATH_ROOM_ROUTE:
+        {
             nodeInfo->roomParams.roomIdx = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
-            nodeInfo->roomParams.perType.route.difficulty = RogueRandomRange(3, OVERWORLD_FLAG);
+
+            switch(RogueRandomRange(7, OVERWORLD_FLAG))
+            {
+                case 0:
+                case 1:
+                case 2:
+                    nodeInfo->roomParams.perType.route.difficulty = 0;
+                    break;
+
+                case 3:
+                case 4:
+                case 5:
+                    nodeInfo->roomParams.perType.route.difficulty = 1;
+                    break;
+
+                //case 6:
+                default:
+                    nodeInfo->roomParams.perType.route.difficulty = 2;
+                    break;
+            };
+
             break;
+        }
     }
 }
 
@@ -777,10 +813,116 @@ static void BufferRoomType(u8* dst, u8 roomType)
     }
 }
 
+static void BufferTypeAdjective(u8 type)
+{
+    const u8 gText_AdjNormal[] = _("TYPICAL");
+    const u8 gText_AdjFighting[] = _("MIGHTY");
+    const u8 gText_AdjFlying[] = _("BREEZY");
+    const u8 gText_AdjPoison[] = _("CORROSIVE");
+    const u8 gText_AdjGround[] = _("COARSE");
+    const u8 gText_AdjRock[] = _("RUGGED");
+    const u8 gText_AdjBug[] = _("SWARMING");
+    const u8 gText_AdjGhost[] = _("SPOOKY");
+    const u8 gText_AdjSteel[] = _("SHARP");
+    const u8 gText_AdjFire[] = _("WARM");
+    const u8 gText_AdjWater[] = _("WET");
+    const u8 gText_AdjGrass[] = _("VERDANT");
+    const u8 gText_AdjElectric[] = _("ENERGETIC");
+    const u8 gText_AdjPsychic[] = _("CONFUSING");
+    const u8 gText_AdjIce[] = _("CHILLY");
+    const u8 gText_AdjDragon[] = _("FIERCE");
+    const u8 gText_AdjDark[] = _("GLOOMY");
+#ifdef ROGUE_EXPANSION
+    const u8 gText_AdjFairy[] = _("MAGICAL");
+#endif
+    const u8 gText_AdjNone[] = _("???");
+
+    switch(type)
+    {
+        case TYPE_NORMAL:
+            StringCopy(gStringVar1, gText_AdjNormal);
+            break;
+
+        case TYPE_FIGHTING:
+            StringCopy(gStringVar1, gText_AdjFighting);
+            break;
+
+        case TYPE_FLYING:
+            StringCopy(gStringVar1, gText_AdjFlying);
+            break;
+
+        case TYPE_POISON:
+            StringCopy(gStringVar1, gText_AdjPoison);
+            break;
+
+        case TYPE_GROUND:
+            StringCopy(gStringVar1, gText_AdjGround);
+            break;
+
+        case TYPE_ROCK:
+            StringCopy(gStringVar1, gText_AdjRock);
+            break;
+
+        case TYPE_BUG:
+            StringCopy(gStringVar1, gText_AdjBug);
+            break;
+
+        case TYPE_GHOST:
+            StringCopy(gStringVar1, gText_AdjGhost);
+            break;
+
+        case TYPE_STEEL:
+            StringCopy(gStringVar1, gText_AdjSteel);
+            break;
+
+        case TYPE_FIRE:
+            StringCopy(gStringVar1, gText_AdjFire);
+            break;
+
+        case TYPE_WATER:
+            StringCopy(gStringVar1, gText_AdjWater);
+            break;
+
+        case TYPE_GRASS:
+            StringCopy(gStringVar1, gText_AdjWater);
+            break;
+
+        case TYPE_ELECTRIC:
+            StringCopy(gStringVar1, gText_AdjElectric);
+            break;
+
+        case TYPE_PSYCHIC:
+            StringCopy(gStringVar1, gText_AdjPsychic);
+            break;
+
+        case TYPE_ICE:
+            StringCopy(gStringVar1, gText_AdjIce);
+            break;
+
+        case TYPE_DRAGON:
+            StringCopy(gStringVar1, gText_AdjIce);
+            break;
+
+        case TYPE_DARK:
+            StringCopy(gStringVar1, gText_AdjDark);
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case TYPE_FAIRY:
+            StringCopy(gStringVar1, gText_AdjFairy);
+            break;
+#endif
+
+        default:
+            StringCopy(gStringVar1, gText_AdjNone);
+            break;
+    }
+}
+
 void RogueAdv_GetNodeParams()
 {
-    const u8 gText_TEMP[] = _("TODO");
-    struct RogueAdvPathNode* node = GetScriptNode();
+    u16 nodeX, nodeY;
+    struct RogueAdvPathNode* node = GetScriptNodeWithCoords(&nodeX, &nodeY);
 
     if(node)
     {
@@ -791,11 +933,7 @@ void RogueAdv_GetNodeParams()
         {
             case ADVPATH_ROOM_ROUTE:
                 gSpecialVar_ScriptNodeParam1 = node->roomParams.perType.route.difficulty;
-                StringCopy(gStringVar1, gText_TEMP);
-                break;
-
-            default:
-                gSpecialVar_ScriptNodeParam1 = node->roomParams.roomIdx;
+                BufferTypeAdjective(gRogueRouteTable[node->roomParams.roomIdx].wildTypeTable[(nodeX + nodeY) % 3]);
                 break;
         }
     }
