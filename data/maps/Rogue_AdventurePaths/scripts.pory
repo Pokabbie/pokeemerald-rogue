@@ -37,7 +37,6 @@ script Rogue_AdventurePaths_RedrawMap
 script Rogue_AdventurePaths_InteractNodeInternal
 {
     lock
-    //special(RogueAdv_BufferNodeMessage)
     special(RogueAdv_GetNodeParams)
 
     //ROGUE_ROUTE_COUNT
@@ -45,29 +44,44 @@ script Rogue_AdventurePaths_InteractNodeInternal
     switch(var(VAR_NODE_PARAM0))
     {
         case ADVPATH_ROOM_BOSS:
-            msgbox(format("A might trainer!"))
+            msgbox(format("It's a Mighty Trainer!"), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))
             {
                 case 0:
-                    msgbox(format("It's a healing Rest Stop."))
+                    msgbox(format("It's a Healing Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 case 1:
-                    msgbox(format("It's a Shop Rest Stop."))
+                    msgbox(format("It's a Mart Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 case 2:
-                    msgbox(format("It's a Battle Prep. Rest Stop."))
+                    msgbox(format("It's a Battle Prep. Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 default:
-                    msgbox(format("??"))
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
             }
             
-        default:
-            msgbox(format("??"))
-    }
+        case ADVPATH_ROOM_ROUTE:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a CALM {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
 
-    msgbox(format("Enter this encounter?"), MSGBOX_YESNO)
+                case 1:
+                    msgbox(format("It's an AVERAGE {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 2:
+                    msgbox(format("It's an TOUGH {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                default:
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+            }
+
+        default:
+            msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+    }
 
     if(var(VAR_RESULT) == YES)
     {

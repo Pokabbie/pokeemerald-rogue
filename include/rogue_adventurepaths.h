@@ -10,7 +10,6 @@ void RogueAdv_UpdateObjectGFX();
 bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp);
 
 void RogueAdv_GetNodeParams();
-void RogueAdv_BufferNodeMessage();
 void RogueAdv_ExecuteNodeAction();
 
 #endif

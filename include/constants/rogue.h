@@ -31,14 +31,21 @@ enum RogueAdvPathRoomType
 struct RogueAdvPathRoomParams
 {
     u8 roomIdx;
+    union
+    {
+        struct
+        {
+            u8 difficulty;
+        } route;
+    } perType;
 };
 
 struct RogueAdvPathNode
 {
     u8 roomType;
-    struct RogueAdvPathRoomParams roomParams;
     u8 isBridgeActive : 1;
     u8 isLadderActive : 1;
+    struct RogueAdvPathRoomParams roomParams;
 };
 
 struct RogueAdvPath
@@ -49,6 +56,7 @@ struct RogueAdvPath
     u8 currentRoomType;
     u8 isOverviewActive : 1;
     u8 justGenerated : 1;
+    struct RogueAdvPathRoomParams currentRoomParams;
     struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 
@@ -56,7 +64,6 @@ struct RogueRunData
 {
     u16 currentRoomIdx;
     u16 currentDifficulty;
-    u16 nextRestStopRoomIdx;
     u16 specialEncounterCounter;
     u8 currentRouteIndex;
     u16 wildEncounters[6];

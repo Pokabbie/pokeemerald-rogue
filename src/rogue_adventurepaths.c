@@ -465,7 +465,12 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
     switch(nodeInfo->roomType)
     {
         case ADVPATH_ROOM_RESTSTOP:
-            nodeInfo->roomParams.roomIdx= RogueRandomRange(gRogueRestStopEncounterInfo.mapCount, OVERWORLD_FLAG);
+            nodeInfo->roomParams.roomIdx = RogueRandomRange(gRogueRestStopEncounterInfo.mapCount, OVERWORLD_FLAG);
+            break;
+
+        case ADVPATH_ROOM_ROUTE:
+            nodeInfo->roomParams.roomIdx = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+            nodeInfo->roomParams.perType.route.difficulty = RogueRandomRange(3, OVERWORLD_FLAG);
             break;
     }
 }
@@ -628,7 +633,19 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             return 0;
             
         case ADVPATH_ROOM_ROUTE:
-            return OBJ_EVENT_GFX_CUTTABLE_TREE;
+        {
+            switch(nodeInfo->roomParams.perType.route.difficulty)
+            {
+                case 0:
+                    return OBJ_EVENT_GFX_CUTTABLE_TREE;
+                case 1:
+                    return OBJ_EVENT_GFX_BREAKABLE_ROCK;
+                case 2:
+                    return OBJ_EVENT_GFX_PUSHABLE_BOULDER;
+                default:
+                    return OBJ_EVENT_GFX_CUTTABLE_TREE;
+            };
+        }
 
         case ADVPATH_ROOM_RESTSTOP:
             return gRogueRestStopEncounterInfo.mapTable[nodeInfo->roomParams.roomIdx].encounterId;
@@ -762,39 +779,30 @@ static void BufferRoomType(u8* dst, u8 roomType)
 
 void RogueAdv_GetNodeParams()
 {
+    const u8 gText_TEMP[] = _("TODO");
     struct RogueAdvPathNode* node = GetScriptNode();
 
     if(node)
     {
         gSpecialVar_ScriptNodeParam0 = node->roomType;
         gSpecialVar_ScriptNodeParam1 = node->roomParams.roomIdx;
+
+        switch(node->roomType)
+        {
+            case ADVPATH_ROOM_ROUTE:
+                gSpecialVar_ScriptNodeParam1 = node->roomParams.perType.route.difficulty;
+                StringCopy(gStringVar1, gText_TEMP);
+                break;
+
+            default:
+                gSpecialVar_ScriptNodeParam1 = node->roomParams.roomIdx;
+                break;
+        }
     }
     else
     {
         gSpecialVar_ScriptNodeParam0 = (u16)-1;
         gSpecialVar_ScriptNodeParam1 = (u16)-1;
-    }
-}
-
-void RogueAdv_BufferNodeMessage()
-{
-    u16 nodeX, nodeY;
-    const u8 gText_TEMP[] = _("{STR_VAR_2},{STR_VAR_3}: ");
-    struct RogueAdvPathNode* node = GetScriptNodeWithCoords(&nodeX, &nodeY);
-
-    if(node)
-    {
-        ConvertUIntToDecimalStringN(gStringVar2, nodeX, STR_CONV_MODE_LEFT_ALIGN, 3);
-        ConvertUIntToDecimalStringN(gStringVar3, nodeY, STR_CONV_MODE_LEFT_ALIGN, 3);
-
-        BufferRoomType(gStringVar4, node->roomType);
-
-        StringExpandPlaceholders(gStringVar1, gText_TEMP);
-        StringAppend(gStringVar1, gStringVar4);
-    }
-    else
-    {
-        ConvertUIntToDecimalStringN(gStringVar1, 123, STR_CONV_MODE_LEFT_ALIGN, 3);
     }
 }
 
@@ -817,6 +825,7 @@ void RogueAdv_ExecuteNodeAction()
         gRogueAdvPath.currentNodeX = nodeX;
         gRogueAdvPath.currentNodeY = nodeY;
         gRogueAdvPath.currentRoomType = node->roomType;
+        memcpy(&gRogueAdvPath.currentRoomParams, &node->roomParams, sizeof(struct RogueAdvPathRoomParams));
 
         switch(node->roomType)
         {
@@ -827,6 +836,11 @@ void RogueAdv_ExecuteNodeAction()
             case ADVPATH_ROOM_RESTSTOP:
                 warp.mapGroup = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].group;
                 warp.mapNum = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_ROUTE:
+                warp.mapGroup = gRogueRouteTable[node->roomParams.roomIdx].map.group;
+                warp.mapNum = gRogueRouteTable[node->roomParams.roomIdx].map.num;
                 break;
         }
         
