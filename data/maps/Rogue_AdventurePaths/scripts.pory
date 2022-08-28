@@ -1,4 +1,15 @@
-const VAR_NODE_ID = VAR_0x8000
+const VAR_NODE_ID = VAR_0x8001
+const VAR_NODE_PARAM0 = VAR_0x8002
+const VAR_NODE_PARAM1 = VAR_0x8003
+
+
+const ADVPATH_ROOM_NONE = 0
+const ADVPATH_ROOM_ROUTE = 1
+const ADVPATH_ROOM_RESTSTOP = 2
+const ADVPATH_ROOM_LEGENDARY = 3
+const ADVPATH_ROOM_MINIBOSS = 4
+// ADVPATH_ROOM_COUNT
+const ADVPATH_ROOM_BOSS = 6
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
@@ -26,10 +37,37 @@ script Rogue_AdventurePaths_RedrawMap
 script Rogue_AdventurePaths_InteractNodeInternal
 {
     lock
-    special(RogueAdv_BufferNodeMessage)
+    //special(RogueAdv_BufferNodeMessage)
+    special(RogueAdv_GetNodeParams)
 
-    //buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX)
-    msgbox(format("{STR_VAR_1}"), MSGBOX_YESNO)
+    //ROGUE_ROUTE_COUNT
+
+    switch(var(VAR_NODE_PARAM0))
+    {
+        case ADVPATH_ROOM_BOSS:
+            msgbox(format("A might trainer!"))
+
+        case ADVPATH_ROOM_RESTSTOP:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a healing Rest Stop."))
+
+                case 1:
+                    msgbox(format("It's a Shop Rest Stop."))
+
+                case 2:
+                    msgbox(format("It's a Battle Prep. Rest Stop."))
+
+                default:
+                    msgbox(format("??"))
+            }
+            
+        default:
+            msgbox(format("??"))
+    }
+
+    msgbox(format("Enter this encounter?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {

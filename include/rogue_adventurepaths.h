@@ -7,8 +7,9 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired();
 void RogueAdv_ApplyAdventureMetatiles();
 void RogueAdv_UpdateObjectGFX();
 
-void RogueAdv_EnqueueNextWarp(struct WarpData *warp);
+bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp);
 
+void RogueAdv_GetNodeParams();
 void RogueAdv_BufferNodeMessage();
 void RogueAdv_ExecuteNodeAction();
 

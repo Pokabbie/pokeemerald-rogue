@@ -28,33 +28,15 @@ enum RogueAdvPathRoomType
     ADVPATH_ROOM_BOSS,
 };
 
-union RogueAdvPathRoomParams
+struct RogueAdvPathRoomParams
 {
-    struct
-    {
-        u8 roomIdx;
-    } route;
-    struct
-    {
-        u8 roomIdx;
-    } reststop;
-    struct
-    {
-        u8 roomIdx;
-    } special;
-    struct
-    {
-    } boss;
-    struct
-    {
-        u8 data[1];
-    } encoded;
+    u8 roomIdx;
 };
 
 struct RogueAdvPathNode
 {
     u8 roomType;
-    union RogueAdvPathRoomParams roomParams;
+    struct RogueAdvPathRoomParams roomParams;
     u8 isBridgeActive : 1;
     u8 isLadderActive : 1;
 };
@@ -127,7 +109,7 @@ struct RogueRouteData
 
 struct RogueEncounterMap
 {
-    u16 encounterSpecies;
+    u16 encounterId;
     u16 layout;
     u16 group;
     u16 num;
@@ -173,6 +155,7 @@ struct RogueMonPresetCollection
 extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueSpecialEncounterInfo;
+extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H

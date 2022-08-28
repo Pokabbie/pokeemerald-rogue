@@ -14,7 +14,7 @@ Rogue_Encounter_RestStop_Heal::
 
 Rogue_Encounter_RestStop_RandomMan::
 	lock
-	applymovement 7, Rogue_RestStop_RandomMan_Spin
+	applymovement 1, Rogue_RestStop_RandomMan_Spin
 	waitmovement 0
 	faceplayer
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_0, MSGBOX_DEFAULT
@@ -45,10 +45,10 @@ Rogue_Encounter_RestStop_RandomMan_4:
 	playse SE_VEND
 	special Rogue_RandomisePartyMon
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
-	applymovement 7, Rogue_RestStop_RandomMan_RunAway
+	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
 	setflag FLAG_ROGUE_RANDOM_TRADE_DISABLED
-	removeobject 7
+	removeobject 1
 	goto Rogue_Encounter_RestStop_RandomMan_1
 
 Rogue_Encounter_RestStop_RandomMan_5:
@@ -66,10 +66,10 @@ Rogue_Encounter_RestStop_RandomMan_6:
 	playse SE_VEND
 	special Rogue_RandomisePartyMon
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
-	applymovement 7, Rogue_RestStop_RandomMan_RunAway
+	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
 	setflag FLAG_ROGUE_RANDOM_TRADE_DISABLED
-	removeobject 7
+	removeobject 1
 	goto Rogue_Encounter_RestStop_RandomMan_1
 
 Rogue_Encounter_RestStop_RandomMan_9:

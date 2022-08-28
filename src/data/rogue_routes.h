@@ -1,8 +1,10 @@
+
+#include "constants/event_objects.h"
 #include "constants/layouts.h"
 #include "constants/maps.h"
 
 #define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
-#define ENCOUNTER_MAP(species, map) { .encounterSpecies=species, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
+#define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
 
 const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
     {
@@ -176,4 +178,17 @@ const struct RogueEncounterData gRogueSpecialEncounterInfo =
 {
     .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
     .mapTable = sRouteMapsSpecial
+};
+
+static const struct RogueEncounterMap sRouteMapsRestStop[] = 
+{
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_NURSE, ROGUE_ENCOUNTER_HEALING),
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_MART_EMPLOYEE, ROGUE_ENCOUNTER_SHOPS),
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_MYSTERY_GIFT_MAN, ROGUE_ENCOUNTER_TUTORS),
+};
+
+const struct RogueEncounterData gRogueRestStopEncounterInfo = 
+{
+    .mapCount = ARRAY_COUNT(sRouteMapsRestStop),
+    .mapTable = sRouteMapsRestStop
 };

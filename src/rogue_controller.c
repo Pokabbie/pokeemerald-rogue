@@ -1739,9 +1739,9 @@ static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 6 && (!IsGenEnabled(SpeciesToGen(selectedMap->encounterSpecies)) || PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterSpecies)));
+    while(mapCount > 6 && (!IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) || PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterId)));
 
-    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, selectedMap->encounterSpecies);
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, selectedMap->encounterId);
 
     warp->mapGroup = selectedMap->group;
     warp->mapNum = selectedMap->num;
@@ -1946,15 +1946,22 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         return;
     }
 
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
     {
-        u16 nextRoomIdx = gRogueRun.currentRoomIdx + 1;
-
-        //warp->warpId = 0;
-        //warp->x = -1;
-        //warp->y = -1;
-
-        RogueAdv_EnqueueNextWarp(warp);
+        // We're warping into a valid map
+        // We've already set the next room type so adjust the scaling now
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP)
+        {
+            if(RogueRandomChance(33, OVERWORLD_FLAG))
+            {
+                // Enable random trader
+                FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
+            else
+            {
+                FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+            }
+        }
 
         //if(IsSpecialEncounterRoomWarp(warp))
         //{
