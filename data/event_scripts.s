@@ -1150,3 +1150,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Encounter_Healing/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_Shops/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Tutors/scripts.inc"

@@ -4890,6 +4890,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Encounter_Shops/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Shops/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_TUTORS",
+      "name": "Rogue_Encounter_Tutors_Layout",
+      "width": 17,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/Rogue_Encounter_Tutors/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Tutors/map.bin"
     }
   ]
 }
