@@ -350,7 +350,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     // Normal routes
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
-        // Very unlikely at und
+        // Very unlikely at end
         weights[ADVPATH_ROOM_ROUTE] = 20;
     }
     else
@@ -360,23 +360,23 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     }
 
     // NONE / Skip encounters
-    if(gRogueRun.currentDifficulty >= 8)
+    if(nodeX == columnCount - 2) 
     {
-        if(nodeY < CENTRE_ROW_IDX)
+        // Final encounter cannot be none, to avoid GFX obj running out
+        weights[ADVPATH_ROOM_NONE] = 0;
+    }
+    else
+    {
+        if(gRogueRun.currentDifficulty >= 8 && nodeY < CENTRE_ROW_IDX)
         {
             // Lower routes are much more likely to have skips
             weights[ADVPATH_ROOM_NONE] = 100;
         }
         else
         {
-            // Slightly below average
+            // Unlikely but not impossible
             weights[ADVPATH_ROOM_NONE] = 20;
         }
-    }
-    else
-    {
-        // Unlikely but not impossible
-        weights[ADVPATH_ROOM_NONE] = 20;
     }
 
     // Rest stops
@@ -476,7 +476,8 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
 
     switch(nodeInfo->roomType)
     {
-        // TODO - Decide boss here
+        // Handled below as this is a special case
+        //case ADVPATH_ROOM_BOSS:
 
         case ADVPATH_ROOM_RESTSTOP:
             nodeInfo->roomParams.roomIdx = RogueRandomRange(gRogueRestStopEncounterInfo.mapCount, OVERWORLD_FLAG);
@@ -557,6 +558,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);
     nodeInfo->isBridgeActive = TRUE;
     nodeInfo->roomType = ADVPATH_ROOM_BOSS;
+    nodeInfo->roomParams.roomIdx = Rogue_SelectBossRoom();
 
     for(i = 0; i < totalDistance; ++i)
     {
@@ -944,6 +946,85 @@ void RogueAdv_GetNodeParams()
     }
 }
 
+static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
+{
+    switch(bossId)
+    {
+        case 0:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+            break;
+
+        case 1:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_1);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_1);
+            break;
+
+        case 2:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_2);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_2);
+            break;
+
+        case 3:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_3);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_3);
+            break;
+
+        case 4:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_4);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_4);
+            break;
+
+        case 5:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_5);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_5);
+            break;
+
+        case 6:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_6);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_6);
+            break;
+
+        case 7:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
+            break;
+
+
+        case 8:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
+            break;
+
+        case 9:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
+            break;
+
+        case 10:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
+            break;
+
+        case 11:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
+            break;
+
+
+        case 12:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
+            break;
+
+        //case 13:
+        default:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
+            break;
+    };
+}
+
 void RogueAdv_ExecuteNodeAction()
 {
     u16 nodeX, nodeY;
@@ -968,7 +1049,8 @@ void RogueAdv_ExecuteNodeAction()
         switch(node->roomType)
         {
             case ADVPATH_ROOM_BOSS:
-                Rogue_SelectBossRoomWarp(&warp);
+                // THIS IS BROKEN
+                SetBossRoomWarp(node->roomParams.roomIdx, &warp);
                 break;
 
             case ADVPATH_ROOM_RESTSTOP:

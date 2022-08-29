@@ -50,7 +50,7 @@ bool8 Rogue_OnProcessPlayerFieldInput(void);
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
-void Rogue_SelectBossRoomWarp(struct WarpData *warp);
+u8 Rogue_SelectBossRoom();
 
 void Rogue_Battle_StartTrainerBattle(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);

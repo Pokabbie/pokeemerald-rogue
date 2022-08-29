@@ -1543,7 +1543,7 @@ static bool8 IsSpecialEncounterRoomWarp(struct WarpData *warp)
     return warp->warpId == 55;
 }
 
-void Rogue_SelectBossRoomWarp(struct WarpData *warp)
+u8 Rogue_SelectBossRoom()
 {
     u8 bossId = 0;
     u8 difficulty = gRogueRun.currentDifficulty;
@@ -1577,80 +1577,7 @@ void Rogue_SelectBossRoomWarp(struct WarpData *warp)
     }
     while(FlagGet(FLAG_ROGUE_DEFEATED_BOSS00 + bossId));
 
-    switch(bossId)
-    {
-        case 0:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
-            break;
-
-        case 1:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_1);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_1);
-            break;
-
-        case 2:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_2);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_2);
-            break;
-
-        case 3:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_3);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_3);
-            break;
-
-        case 4:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_4);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_4);
-            break;
-
-        case 5:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_5);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_5);
-            break;
-
-        case 6:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_6);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_6);
-            break;
-
-        case 7:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
-            break;
-
-
-        case 8:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
-            break;
-
-        case 9:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
-            break;
-
-        case 10:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
-            break;
-
-        case 11:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
-            break;
-
-
-        case 12:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
-            break;
-
-        case 13:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
-            break;
-    };
+    return bossId;
 }
 
 static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
@@ -2461,6 +2388,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
 
     // Try to move mega/z user to back of party
+    // TODO - Identify setup user and move them to front of party
     while(writeSlot != 0 && ((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
     {
         SwapMons(0, writeSlot, party);
@@ -2486,14 +2414,14 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         ApplyFallbackTrainerQuery(trainerNum);
     }
 
-    // Prevent duplicates, if possible (Only for bosses)
+    // Prevent duplicates, if possible
     // *Only allow duplicates after we've already seen everything in the query
     do
     {
         randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
         species = RogueQuery_BufferPtr()[randIdx];
     }
-    while(isBoss && PartyContainsSpecies(party, monIdx, species) && monIdx < queryCount);
+    while(PartyContainsSpecies(party, monIdx, species) && monIdx < queryCount);
 
     return species;
 }
