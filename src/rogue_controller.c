@@ -1744,18 +1744,15 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 // Pretty much max difficulty
                 VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 500);
-                VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
             }
             else
             {
                 VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 400);
-                VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
             }
         }
         else
         {
             VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 300);
-            VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
         }
     }
 }
@@ -1863,6 +1860,24 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         {
             gRogueRun.currentLevelOffset = 10;
             ++gRogueRun.currentDifficulty;
+            
+            // Update reward candy only after boss has been defeated
+            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            {
+                if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+                {
+                    // Pretty much max difficulty
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 2);
+                }
+                else
+                {
+                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
+                }
+            }
+            else
+            {
+                VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
+            }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -3197,6 +3212,12 @@ static u8 CalculateWildLevel(void)
     {
         // 5 rooms the constant badges
         return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
+    }
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    {
+        // Basically at player level
+        return playerLevel - 2;
     }
 
     if(playerLevel < 10)
