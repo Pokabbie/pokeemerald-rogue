@@ -445,6 +445,24 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
 
         case ADVPATH_ROOM_RESTSTOP:
             nodeInfo->roomParams.roomIdx = RogueRandomRange(gRogueRestStopEncounterInfo.mapCount, OVERWORLD_FLAG);
+            
+            switch(RogueRandomRange(7, OVERWORLD_FLAG))
+            {
+                case 0:
+                    nodeInfo->roomParams.roomIdx = 0; // Heals
+                    break;
+
+                case 1:
+                case 2:
+                    nodeInfo->roomParams.roomIdx = 1; // Shops
+                    break;
+
+                //case 3:
+                //case 4:
+                default:
+                    nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                    break;
+            };
             break;
 
         case ADVPATH_ROOM_LEGENDARY:

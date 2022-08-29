@@ -586,7 +586,11 @@ void Rogue_ModifyBattleWinnings(u32* money)
         u8 difficulty = gRogueRun.currentDifficulty;
         u8 difficultyModifier = GetRoomTypeDifficulty();
 
-        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+        {
+            // Keep default calc
+        }
+        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
             if(difficulty <= 11)
             {
@@ -1687,6 +1691,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_BOSS:
             {
+                gRogueRun.currentLevelOffset = 0;
+
                 RandomiseEnabledItems();
 
                 // Weather
