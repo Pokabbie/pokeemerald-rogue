@@ -5655,7 +5655,7 @@ static void Cmd_getmoneyreward(void)
     if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         moneyReward += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-    Rogue_ModifyBattleWinnings(&moneyReward);
+    Rogue_ModifyBattleWinnings(gTrainerBattleOpponent_A, &moneyReward);
 
     AddMoney(&gSaveBlock1Ptr->money, moneyReward);
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, moneyReward);

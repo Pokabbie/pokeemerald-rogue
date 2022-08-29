@@ -507,6 +507,24 @@ script Rogue_Tutor_MoveDeleteCancel
 
 // Trainer Blocks
 //
+script Rogue_Battle_PreBoss
+{
+    lock
+    faceplayer
+    msgbox(format("Would you like to battle with me to level up?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, format("Good luck with the big battle!"))
+    }
+    else
+    {
+        msgbox(format("Let me know if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
 script Rogue_Battle_BreederF
 {
     //call(Rogue_PreBattle_Internal)

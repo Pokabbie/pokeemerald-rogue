@@ -479,6 +479,22 @@ Rogue_Tutor_MoveDeleteCancel::
 	return
 
 
+Rogue_Battle_PreBoss::
+	lock
+	faceplayer
+	msgbox Rogue_Battle_PreBoss_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Battle_PreBoss_2
+	msgbox Rogue_Battle_PreBoss_Text_2, MSGBOX_DEFAULT
+Rogue_Battle_PreBoss_1:
+	release
+	return
+
+Rogue_Battle_PreBoss_2:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, Rogue_Battle_PreBoss_Text_1
+	goto Rogue_Battle_PreBoss_1
+
+
 Rogue_Battle_BreederF::
 	trainerbattle_single TRAINER_ROGUE_BREEDER_F, Rogue_Battle_BreederF_Text_0, Rogue_Battle_BreederF_Text_1
 	call Rogue_PostBattle_Internal
@@ -838,6 +854,16 @@ Rogue_Tutor_MoveDeleteEgg_Text_0:
 
 Rogue_Tutor_MoveDeleteCancel_Text_0:
 	.string "Oh.. OK then.$"
+
+Rogue_Battle_PreBoss_Text_0:
+	.string "Would you like to battle with me to level\n"
+	.string "up?$"
+
+Rogue_Battle_PreBoss_Text_1:
+	.string "Good luck with the big battle!$"
+
+Rogue_Battle_PreBoss_Text_2:
+	.string "Let me know if you change your mind.$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"
