@@ -112,7 +112,7 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 
-static bool8 IsSpecialEncounterRoom(void);
+static bool8 IsBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
@@ -209,16 +209,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
             if(currentLevel < maxLevel)
             {
-                if(currentLevel >= targetLevel)
-                {
-                    desiredExpPerc = 51;
-
-                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                    {
-                        desiredExpPerc = 100;
-                    }
-                }
-                else
+                if(currentLevel < targetLevel)
                 {
                     s16 delta = targetLevel - currentLevel;
                     
@@ -578,7 +569,7 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
 #undef PLAYER_STYLE
 
-void Rogue_ModifyBattleWinnings(u32* money)
+void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {
     if(Rogue_IsRunActive())
     {
@@ -586,7 +577,19 @@ void Rogue_ModifyBattleWinnings(u32* money)
         u8 difficulty = gRogueRun.currentDifficulty;
         u8 difficultyModifier = GetRoomTypeDifficulty();
 
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        {
+            if(IsBossTrainer(trainerNum))
+            {
+                // Keep default calc
+            }
+            else
+            {
+                // EXP trainer
+                *money = 0;
+            }
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
             // Keep default calc
         }
@@ -1853,8 +1856,6 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
-static bool8 IsBossTrainer(u16 trainerNum);
-
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -2099,7 +2100,15 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
     }
     else
     {
-        if(difficultyLevel == 0)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        {
+            // EXP trainer
+            *monsCount = 1;
+            *forceType = TYPE_NORMAL;
+            *allowItemEvos = FALSE;
+            *allowLedgendaries = FALSE;
+        }
+        else if(difficultyLevel == 0)
         {
             *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
@@ -2339,6 +2348,13 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
     
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS && !isBoss)
+    {
+        // EXP trainer
+        return SPECIES_CHANSEY;
+    }
+
     if(monIdx >= queryCount)
     {
         // Apply the fallback query (If we have one)

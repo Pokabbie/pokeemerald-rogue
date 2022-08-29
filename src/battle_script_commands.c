@@ -6873,7 +6873,7 @@ static void Cmd_getmoneyreward(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-        Rogue_ModifyBattleWinnings(&money);
+        Rogue_ModifyBattleWinnings(gTrainerBattleOpponent_A, &money);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else
