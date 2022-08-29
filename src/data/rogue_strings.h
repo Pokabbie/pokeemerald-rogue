@@ -31,4 +31,9 @@ const u8 gText_RogueDebug_WildCount[] = _("\nWld Opt: ");
 const u8 gText_RogueDebug_ItemCount[] = _("\nItm Opt: ");
 const u8 gText_RogueDebug_TrainerCount[] = _("\nTrn Opt: ");
 const u8 gText_RogueDebug_Seed[] = _("\nSeed: ");
+
+const u8 gText_RogueDebug_AdvHeader[] = _("ROGUE ADVPATH");
+const u8 gText_RogueDebug_AdvCount[] = _("\nCount: ");
+const u8 gText_RogueDebug_X[] = _("\nX: ");
+const u8 gText_RogueDebug_Y[] = _("\nY: ");
 #endif

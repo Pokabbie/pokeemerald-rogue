@@ -3,6 +3,14 @@
 
 #include "rogue_baked.h"
 
+extern EWRAM_DATA struct RogueRunData gRogueRun;
+extern EWRAM_DATA struct RogueHubData gRogueHubData;
+
+#define OVERWORLD_FLAG 0
+
+u16 RogueRandomRange(u16 range, u8 seedFlag);
+bool8 RogueRandomChance(u8 chance, u16 seedFlag);
+
 void RemoveMonAtSlot(u8 slot, bool8 keepItems);
 void RemoveAnyFaintedMons(bool8 keepItems);
 
@@ -38,12 +46,16 @@ void Rogue_SetDefaultOptions(void);
 void Rogue_OnSaveGame(void);
 void Rogue_OnLoadGame(void);
 bool8 Rogue_OnProcessPlayerFieldInput(void);
+
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
+u8 Rogue_SelectRouteRoom(void);
+u8 Rogue_SelectBossRoom(void);
+u8 Rogue_SelectLegendaryEncounterRoom(void);
 
 void Rogue_Battle_StartTrainerBattle(void);
-void Rogue_Battle_EndTrainerBattle(void);
+void Rogue_Battle_EndTrainerBattle(u16 trainerNum);
 //void Rogue_Battle_StartWildBattle(void);
 void Rogue_Battle_EndWildBattle(void);
 

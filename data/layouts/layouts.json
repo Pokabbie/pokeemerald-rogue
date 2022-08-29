@@ -4860,6 +4860,46 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Field0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Field0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ADVENTURE_PATHS",
+      "name": "Rogue_AdventurePaths_Layout",
+      "width": 22,
+      "height": 17,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_AdventurePaths/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_AdventurePaths/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_HEALING",
+      "name": "Rogue_Encounter_Healing_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Encounter_Healing/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Healing/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_SHOPS",
+      "name": "Rogue_Encounter_Shops_Layout",
+      "width": 17,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Encounter_Shops/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Shops/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_TUTORS",
+      "name": "Rogue_Encounter_Tutors_Layout",
+      "width": 17,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/Rogue_Encounter_Tutors/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Tutors/map.bin"
     }
   ]
 }

@@ -746,6 +746,7 @@ void RogueQuery_ItemsIsValid(void)
 void RogueQuery_ItemsExcludeCommon(void)
 {
     u16 itemId;
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
     RogueQuery_Exclude(ITEM_SACRED_ASH);
     RogueQuery_Exclude(ITEM_REVIVAL_HERB);
@@ -772,6 +773,38 @@ void RogueQuery_ItemsExcludeCommon(void)
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
 
+    // Regional treat (Avoid spawning in multiple)
+    RogueQuery_ItemsExcludeRange(ITEM_PEWTER_CRUNCHIES, ITEM_BIG_MALASADA);
+
+    switch(maxGen)
+    {
+        case 1:
+            RogueQuery_Include(ITEM_PEWTER_CRUNCHIES);
+            break;
+        case 2:
+            RogueQuery_Include(ITEM_RAGE_CANDY_BAR);
+            break;
+        case 3:
+            RogueQuery_Include(ITEM_LAVA_COOKIE);
+            break;
+        case 4:
+            RogueQuery_Include(ITEM_OLD_GATEAU);
+            break;
+        case 5:
+            RogueQuery_Include(ITEM_CASTELIACONE);
+            break;
+        case 6:
+            RogueQuery_Include(ITEM_LUMIOSE_GALETTE);
+            break;
+        case 7:
+            RogueQuery_Include(ITEM_SHALOUR_SABLE);
+            break;
+        //case 8:
+        default:
+            RogueQuery_Include(ITEM_BIG_MALASADA);
+            break;
+    }
+
     if(!IsMegaEvolutionEnabled())
     {
         RogueQuery_ItemsExcludeRange(ITEM_RED_ORB, ITEM_DIANCITE);
@@ -791,6 +824,14 @@ void RogueQuery_ItemsExcludeCommon(void)
     if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
+    }
+#else
+    if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        // These items aren't next to each other in vanilla
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CALCIUM);
+        RogueQuery_Exclude(ITEM_ZINC);
     }
 #endif
 

@@ -344,17 +344,19 @@ RogueHub_SpeakScott_10:
 	goto RogueHub_SpeakScott_9
 
 RogueHub_SpeakScott_12:
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_SpeakScott_19
+RogueHub_SpeakScott_17:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	specialvar VAR_RESULT, GetLeadMonLevel
-	goto_if_unset FLAG_SET_SEED_ENABLED, RogueHub_SpeakScott_19
-RogueHub_SpeakScott_17:
-	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto_if_ne RogueHub_SpeakScott_29
+	goto_if_unset FLAG_SET_SEED_ENABLED, RogueHub_SpeakScott_30
 RogueHub_SpeakScott_28:
+	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
+	goto_if_ne RogueHub_SpeakScott_36
+RogueHub_SpeakScott_35:
 	call Common_EventScript_SaveGame
 	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakScott_47
-	msgbox RogueHub_SpeakScott_Text_9, MSGBOX_DEFAULT
+	goto_if_eq RogueHub_SpeakScott_54
+	msgbox RogueHub_SpeakScott_Text_10, MSGBOX_DEFAULT
 	goto RogueHub_SpeakScott_1
 
 RogueHub_SpeakScott_14:
@@ -364,26 +366,13 @@ RogueHub_SpeakScott_14:
 	goto RogueHub_SpeakScott_9
 
 RogueHub_SpeakScott_18:
-	compare VAR_RESULT, 85
-	goto_if_gt RogueHub_SpeakScott_31
-	compare VAR_RESULT, 75
-	goto_if_gt RogueHub_SpeakScott_32
-	compare VAR_RESULT, 65
-	goto_if_gt RogueHub_SpeakScott_33
-	compare VAR_RESULT, 55
-	goto_if_gt RogueHub_SpeakScott_34
-	compare VAR_RESULT, 45
-	goto_if_gt RogueHub_SpeakScott_35
-	compare VAR_RESULT, 35
-	goto_if_gt RogueHub_SpeakScott_36
-	compare VAR_RESULT, 25
-	goto_if_gt RogueHub_SpeakScott_37
-	compare VAR_RESULT, 15
-	goto_if_gt RogueHub_SpeakScott_38
+	checkitem 694
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakScott_33
 	goto RogueHub_SpeakScott_17
 
 RogueHub_SpeakScott_19:
-	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, RogueHub_SpeakScott_18
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_SpeakScott_18
 	goto RogueHub_SpeakScott_17
 
 RogueHub_SpeakScott_22:
@@ -397,63 +386,99 @@ RogueHub_SpeakScott_25:
 	goto RogueHub_SpeakScott_9
 
 RogueHub_SpeakScott_29:
-	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_DEFAULT
-	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
-	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakScott_50
+	compare VAR_RESULT, 85
+	goto_if_gt RogueHub_SpeakScott_38
+	compare VAR_RESULT, 75
+	goto_if_gt RogueHub_SpeakScott_39
+	compare VAR_RESULT, 65
+	goto_if_gt RogueHub_SpeakScott_40
+	compare VAR_RESULT, 55
+	goto_if_gt RogueHub_SpeakScott_41
+	compare VAR_RESULT, 45
+	goto_if_gt RogueHub_SpeakScott_42
+	compare VAR_RESULT, 35
+	goto_if_gt RogueHub_SpeakScott_43
+	compare VAR_RESULT, 25
+	goto_if_gt RogueHub_SpeakScott_44
+	compare VAR_RESULT, 15
+	goto_if_gt RogueHub_SpeakScott_45
 	goto RogueHub_SpeakScott_28
 
-RogueHub_SpeakScott_31:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_32:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
-	goto RogueHub_SpeakScott_17
+RogueHub_SpeakScott_30:
+	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, RogueHub_SpeakScott_29
+	goto RogueHub_SpeakScott_28
 
 RogueHub_SpeakScott_33:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_34:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_35:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
+	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_DEFAULT
+	giveitem 694
+	giveitem 695
+	giveitem 696
+	giveitem 697
+	giveitem 698
+	giveitem 699
+	giveitem 700
+	giveitem 701
+	giveitem 702
 	goto RogueHub_SpeakScott_17
 
 RogueHub_SpeakScott_36:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_37:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
-	goto RogueHub_SpeakScott_17
+	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
+	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
+	msgbox RogueHub_SpeakScott_Text_8, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakScott_57
+	goto RogueHub_SpeakScott_35
 
 RogueHub_SpeakScott_38:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
-	goto RogueHub_SpeakScott_17
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
+	goto RogueHub_SpeakScott_28
 
-RogueHub_SpeakScott_47:
-	msgbox RogueHub_SpeakScott_Text_8, MSGBOX_DEFAULT
+RogueHub_SpeakScott_39:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_40:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_41:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_42:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_43:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_44:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_45:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
+	goto RogueHub_SpeakScott_28
+
+RogueHub_SpeakScott_54:
+	msgbox RogueHub_SpeakScott_Text_9, MSGBOX_DEFAULT
 	setvar VAR_TEMP_0, 1
 	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq RogueHub_SpeakScott_53
+	goto_if_eq RogueHub_SpeakScott_60
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-RogueHub_SpeakScott_52:
+RogueHub_SpeakScott_59:
 	setflag FLAG_ROGUE_LEFT_ON_RUN
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	goto RogueHub_SpeakScott_1
 
-RogueHub_SpeakScott_50:
+RogueHub_SpeakScott_57:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto RogueHub_SpeakScott_28
+	goto RogueHub_SpeakScott_35
 
-RogueHub_SpeakScott_53:
+RogueHub_SpeakScott_60:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
-	goto RogueHub_SpeakScott_52
+	goto RogueHub_SpeakScott_59
 
 
 RogueHub_IntroPokabbie::
@@ -774,17 +799,22 @@ RogueHub_SpeakScott_Text_5:
 	.string "an adventure.$"
 
 RogueHub_SpeakScott_Text_6:
+	.string "SCOTT: Oh before I forget!\n"
+	.string "Pokabbie actually left me a bunch of\l"
+	.string "items to give to you.$"
+
+RogueHub_SpeakScott_Text_7:
 	.string "SCOTT: You've leveled up your PARTNER\n"
 	.string "quite a bit there!$"
 
-RogueHub_SpeakScott_Text_7:
+RogueHub_SpeakScott_Text_8:
 	.string "Would you like to skip ahead and start\n"
 	.string "at BADGE {STR_VAR_1}?$"
 
-RogueHub_SpeakScott_Text_8:
+RogueHub_SpeakScott_Text_9:
 	.string "SCOTT: Good luck CHAMP!$"
 
-RogueHub_SpeakScott_Text_9:
+RogueHub_SpeakScott_Text_10:
 	.string "SCOTT: OK. Come chat to me once you're\n"
 	.string "ready.$"
 

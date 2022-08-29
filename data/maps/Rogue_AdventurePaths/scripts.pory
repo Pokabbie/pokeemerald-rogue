@@ -1,0 +1,191 @@
+const VAR_NODE_ID = VAR_0x8004
+const VAR_NODE_PARAM0 = VAR_0x8005
+const VAR_NODE_PARAM1 = VAR_0x8006
+
+
+const ADVPATH_ROOM_NONE = 0
+const ADVPATH_ROOM_ROUTE = 1
+const ADVPATH_ROOM_RESTSTOP = 2
+const ADVPATH_ROOM_LEGENDARY = 3
+const ADVPATH_ROOM_MINIBOSS = 4
+// ADVPATH_ROOM_COUNT
+const ADVPATH_ROOM_BOSS = 6
+
+mapscripts Rogue_AdventurePaths_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_OnLoad
+}
+
+script Rogue_AdventurePaths_OnLoad
+{
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
+
+    call(Rogue_AdventurePaths_RedrawMap)
+}
+
+movement AdventurePaths_OffsetCamera {
+    walk_right * 4
+}
+
+script Rogue_AdventurePaths_RedrawMap
+{
+    special(RogueAdv_ApplyAdventureMetatiles)
+    special(RogueAdv_UpdateObjectGFX)
+}
+
+script Rogue_AdventurePaths_InteractNodeInternal
+{
+    lock
+    special(RogueAdv_GetNodeParams)
+
+    //ROGUE_ROUTE_COUNT
+
+    switch(var(VAR_NODE_PARAM0))
+    {
+        case ADVPATH_ROOM_BOSS:
+            msgbox(format("It's a Mighty Trainer!"), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
+
+        case ADVPATH_ROOM_RESTSTOP:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a Healing Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 1:
+                    msgbox(format("It's a Mart Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 2:
+                    msgbox(format("It's a Battle Prep. Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                default:
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+            }
+            
+        case ADVPATH_ROOM_ROUTE:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a CALM {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 1:
+                    msgbox(format("It's an AVERAGE {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 2:
+                    msgbox(format("It's an TOUGH {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                default:
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+            }
+
+        case ADVPATH_ROOM_LEGENDARY:
+            msgbox(format("It's a Powerful POKéMON!\nEnter this encounter?"), MSGBOX_YESNO)
+
+        default:
+            msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueAdv_ExecuteNodeAction)
+    }
+
+    release
+}
+
+script Rogue_AdventurePaths_InteractNode0
+{
+    setvar(VAR_NODE_ID, 0)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode1
+{
+    setvar(VAR_NODE_ID, 1)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode2
+{
+    setvar(VAR_NODE_ID, 2)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode3
+{
+    setvar(VAR_NODE_ID, 3)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode4
+{
+    setvar(VAR_NODE_ID, 4)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode5
+{
+    setvar(VAR_NODE_ID, 5)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode6
+{
+    setvar(VAR_NODE_ID, 6)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode7
+{
+    setvar(VAR_NODE_ID, 7)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode8
+{
+    setvar(VAR_NODE_ID, 8)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode9
+{
+    setvar(VAR_NODE_ID, 9)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode10
+{
+    setvar(VAR_NODE_ID, 10)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode11
+{
+    setvar(VAR_NODE_ID, 11)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode12
+{
+    setvar(VAR_NODE_ID, 12)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode13
+{
+    setvar(VAR_NODE_ID, 13)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode14
+{
+    setvar(VAR_NODE_ID, 14)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}
+
+script Rogue_AdventurePaths_InteractNode15
+{
+    setvar(VAR_NODE_ID, 15)
+    call(Rogue_AdventurePaths_InteractNodeInternal)
+}

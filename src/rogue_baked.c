@@ -251,6 +251,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = 2100;
             outItem->holdEffect = 0;//HOLD_EFFECT_NONE;
             break;
+    
+#ifdef ROGUE_EXPANSION
+        case ITEM_ABILITY_PATCH:
+            outItem->price = 10000;
+            break;
+#endif
 
         case ITEM_KINGS_ROCK:
         case ITEM_DEEP_SEA_TOOTH:

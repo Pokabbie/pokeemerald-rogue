@@ -1,4 +1,6 @@
-const NPC_RANDOM_MAN = 7
+
+// Randoman always should have ID as 1
+const NPC_RANDOM_MAN = 1
 
 mapscripts Rogue_Encounter_RestStop_MapScripts 
 {
@@ -120,5 +122,5 @@ movement Rogue_RestStop_RandomMan_Spin
 
 movement Rogue_RestStop_RandomMan_RunAway
 {
-    jump_2_up * 4
+    jump_2_right * 4
 }

@@ -1381,7 +1381,7 @@ void BattleSetup_StartTrainerBattle(void)
 
 static void CB2_EndTrainerBattle(void)
 {
-    Rogue_Battle_EndTrainerBattle();
+    Rogue_Battle_EndTrainerBattle(gTrainerBattleOpponent_A);
     
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
     {

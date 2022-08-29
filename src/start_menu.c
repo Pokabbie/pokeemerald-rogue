@@ -234,6 +234,7 @@ static void BuildBattlePyramidStartMenu(void);
 static void BuildMultiPartnerRoomStartMenu(void);
 static void ShowSafariBallsWindow(void);
 static void ShowPyramidFloorWindow(void);
+static void ShowExtraStartMenuWindows(void);
 static void RemoveExtraStartMenuWindows(void);
 static bool32 PrintStartMenuActions(s8 *pIndex, u32 count);
 static bool32 InitStartMenuStep(void);
@@ -460,6 +461,16 @@ static void ShowRogueRunWindow(void)
     CopyWindowToVram(sRogueRunWindowId, COPYWIN_GFX);
 }
 
+static void ShowExtraStartMenuWindows(void)
+{
+    if (GetSafariZoneFlag())
+        ShowSafariBallsWindow();
+    if (InBattlePyramid())
+        ShowPyramidFloorWindow();
+    if (Rogue_ShouldShowMiniMenu())
+        ShowRogueRunWindow();
+}
+
 static void RemoveExtraStartMenuWindows(void)
 {
     if (GetSafariZoneFlag())
@@ -531,12 +542,7 @@ static bool32 InitStartMenuStep(void)
         sInitStartMenuData[0]++;
         break;
     case 3:
-        if (GetSafariZoneFlag())
-            ShowSafariBallsWindow();
-        if (InBattlePyramid())
-            ShowPyramidFloorWindow();
-        if (Rogue_ShouldShowMiniMenu())
-            ShowRogueRunWindow();
+        ShowExtraStartMenuWindows();
         sInitStartMenuData[0]++;
         break;
     case 4:
@@ -662,6 +668,15 @@ static bool8 HandleStartMenuInput(void)
 
         return FALSE;
     }
+
+#ifdef ROGUE_DEBUG
+    if (JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        RemoveExtraStartMenuWindows();
+        ShowExtraStartMenuWindows();
+    }
+#endif
 
     if (JOY_NEW(START_BUTTON | B_BUTTON))
     {
