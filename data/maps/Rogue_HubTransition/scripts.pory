@@ -1,7 +1,43 @@
+// Randoman always should have ID as 1
+const NPC_RANDOM_MAN = 1
+
 mapscripts Rogue_HubTransition_MapScripts 
 {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
     [
         VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
     ]
+}
+
+script Rogue_HubTransition_RandomMan
+{
+    lock
+    applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_Spin)
+    waitmovement(0)
+    faceplayer
+
+    msgbox(format("WAHEY!\pYou looking to add a bit of randomness to you life?"), MSGBOX_DEFAULT)
+    msgbox(format("You wanna trade me your POKéMON?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 255)
+
+        waitse
+        special(Rogue_RandomisePartyMon)
+        
+        msgbox(format("Ke ke ke!\pEnjoy!"))
+        applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
+        waitmovement(0)
+
+        setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+        setflag(FLAG_ROGUE_RANDOM_TRADE_USED)
+        removeobject(NPC_RANDOM_MAN)
+    }
+    else
+    {
+        msgbox(format("Blagh!\nHow boring..."), MSGBOX_DEFAULT)
+    }
+
+    release
 }

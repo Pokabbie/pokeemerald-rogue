@@ -366,7 +366,7 @@ RogueHub_SpeakScott_14:
 	goto RogueHub_SpeakScott_9
 
 RogueHub_SpeakScott_18:
-	checkitem 694
+	checkitem 695
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_SpeakScott_33
 	goto RogueHub_SpeakScott_17
@@ -410,15 +410,9 @@ RogueHub_SpeakScott_30:
 
 RogueHub_SpeakScott_33:
 	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_DEFAULT
-	giveitem 694
 	giveitem 695
 	giveitem 696
-	giveitem 697
-	giveitem 698
 	giveitem 699
-	giveitem 700
-	giveitem 701
-	giveitem 702
 	goto RogueHub_SpeakScott_17
 
 RogueHub_SpeakScott_36:
