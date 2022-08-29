@@ -112,8 +112,6 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 
-static u16 GetBossRoomForDifficulty(u16 difficulty);
-static bool8 IsBossRoom(u16 roomIdx);
 static bool8 IsSpecialEncounterRoom(void);
 
 static u8 CalculateBossLevel(void);
@@ -179,7 +177,10 @@ bool8 Rogue_ForceExpAll(void)
 
 bool8 Rogue_FastBattleAnims(void)
 {
-    if(Rogue_IsRunActive() && !IsBossRoom(gRogueRun.currentRoomIdx) && !IsSpecialEncounterRoom())
+    if(Rogue_IsRunActive() && 
+    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
+    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
     {
         return TRUE;
     }
@@ -328,6 +329,12 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         *ballMultiplier = 12345; // Masterball equiv
 #else
         u8 difficulty = gRogueRun.currentDifficulty;
+        
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+        {
+            // Want to make legendaries hard to catch than other mons in the area
+            difficulty += 2;
+        }
 
         if(difficulty <= 1) // First 2 badges
         {
@@ -969,7 +976,6 @@ u8* Rogue_GetMiniMenuContent(void)
         }
 
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_BossRoom, GetBossRoomForDifficulty(difficultyLevel));
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
@@ -1318,48 +1324,6 @@ void Rogue_OnLoadMap(void)
     }
 }
 
-static u16 GetBossRoomForDifficulty(u16 difficulty)
-{
-    u16 gymSpacing = 3;
-    u16 eliteFourSpacing = 3;
-    u16 championSpacing = 4;
-
-    u16 roomIndex = 0;
-
-#ifdef ROGUE_DEBUG
-    //gymSpacing = 1;
-    //eliteFourSpacing = 1;
-    //championSpacing = 1;
-#endif
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        roomIndex = 5;
-        gymSpacing = 1;
-        eliteFourSpacing = 1;
-        championSpacing = 1;
-    }
-
-    // 0-7 gym leaders
-    {
-        roomIndex += gymSpacing * (min(difficulty, 7) + 1);
-    }
-
-    // 8 - 11 elite four
-    if(difficulty >= 8)
-    {
-        roomIndex += eliteFourSpacing * (min(difficulty, 11) - 8 + 1);
-    }
-
-    // 12 - 13 champion
-    if(difficulty >= 12)
-    {
-        roomIndex += championSpacing * (min(difficulty, 13) - 12 + 1);
-    }
-
-    return roomIndex;
-}
-
 static u16 GetStartDifficulty(void)
 {
     u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
@@ -1370,30 +1334,6 @@ static u16 GetStartDifficulty(void)
     }
     
     return 0;
-}
-
-static u16 GetStartRoomIdx(void)
-{
-    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
-
-    if(skipToDifficulty != 0)
-    {
-        return GetBossRoomForDifficulty(skipToDifficulty - 1);
-    }
-    
-    return 0;
-}
-
-static u16 GetStartRestStopRoomIdx(void)
-{
-    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
-
-    if(skipToDifficulty != 0)
-    {
-        return GetBossRoomForDifficulty(skipToDifficulty);
-    }
-    
-    return GetBossRoomForDifficulty(0);
 }
 
 static void BeginRogueRun(void)
@@ -1409,7 +1349,7 @@ static void BeginRogueRun(void)
 
     ClearBerryTrees();
 
-    gRogueRun.currentRoomIdx = GetStartRoomIdx();
+    gRogueRun.currentRoomIdx = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.currentLevelOffset = 10;
     gRogueRun.currentRouteIndex = 0;
@@ -1418,10 +1358,10 @@ static void BeginRogueRun(void)
     gRogueAdvPath.currentColumnCount = 0;
     gRogueAdvPath.currentNodeX = 0;
     gRogueAdvPath.currentNodeY = 0;
-    gRogueAdvPath.lengendaryEncounterCounter = 0;
 
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
-    memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
+    memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
+    memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1471,14 +1411,6 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
-
-#ifdef ROGUE_DEBUG
-    // TEMP - Testing only
-    //gRogueRun.currentRoomIdx = GetBossRoomForDifficulty(13) - 1;
-    //gRogueRun.nextRestStopRoomIdx = GetBossRoomForDifficulty(13);
-
-    //gRogueRun.currentRouteIndex = 7;
-#endif
 }
 
 static void EndRogueRun(void)
@@ -1525,25 +1457,7 @@ static void EndRogueRun(void)
     LoadHubInventory();
 }
 
-static bool8 IsBossRoom(u16 roomIdx)
-{
-    u8 i;
-    for(i = 0; i < BOSS_ROOM_COUNT; ++i)
-    {
-        if(GetBossRoomForDifficulty(i) == roomIdx)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 IsSpecialEncounterRoomWarp(struct WarpData *warp)
-{
-    // Just an arbitrary number we're gonna use to indicate special encounter rooms
-    return warp->warpId == 55;
-}
-
-u8 Rogue_SelectBossRoom()
+u8 Rogue_SelectBossRoom(void)
 {
     u8 bossId = 0;
     u8 difficulty = gRogueRun.currentDifficulty;
@@ -1580,24 +1494,42 @@ u8 Rogue_SelectBossRoom()
     return bossId;
 }
 
-static void SelectRouteRoom(u16 nextRoomIdx, struct WarpData *warp)
+u8 Rogue_SelectLegendaryEncounterRoom(void)
 {
     u8 mapCount;
     u8 mapIdx;
-    const struct RogueRouteMap* selectedMap = NULL;
+    const struct RogueEncounterMap* selectedMap = NULL;
 
-    // Don't reply recent routes
+    mapCount = gRogueLegendaryEncounterInfo.mapCount;
+
+    // Avoid repeating same encounter 
     do
     {
-        gRogueRun.currentRouteIndex = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+        mapIdx = Random() % mapCount;
+        selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
-    while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex));
+    while(mapCount > 6 && !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) && HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx));
 
-    selectedMap = &gRogueRouteTable[gRogueRun.currentRouteIndex].map;
-    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), gRogueRun.currentRouteIndex);
+    HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
 
-    warp->mapGroup = selectedMap->group;
-    warp->mapNum = selectedMap->num;
+    return mapIdx;
+}
+
+u8 Rogue_SelectRouteRoom(void)
+{
+    u8 mapCount;
+    u8 mapIdx;
+
+    // Don't replay recent routes
+    do
+    {
+        mapIdx = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+    }
+    while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), mapIdx));
+
+    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), mapIdx);
+
+    return mapIdx;
 }
 
 static void ResetSpecialEncounterStates(void)
@@ -1649,46 +1581,6 @@ static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 spec
         s = GetMonData(&party[i], MON_DATA_SPECIES);
 
         if(s == species)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static void SelectSpecialEncounterRoom(u16 nextRoomIdx, struct WarpData *warp)
-{
-    u8 mapCount;
-    u8 mapIdx;
-    u8 swapRouteChance = 60;
-    const struct RogueEncounterMap* selectedMap = NULL;
-    
-    ResetSpecialEncounterStates();
-
-    mapCount = gRogueSpecialEncounterInfo.mapCount;
-
-    // Avoid repeating same encounter (Base of current party)
-    do
-    {
-        // Special encounters are NOT seeded
-        mapIdx = Random() % mapCount;
-        selectedMap = &gRogueSpecialEncounterInfo.mapTable[mapIdx];
-    }
-    while(mapCount > 6 && (!IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) || PartyContainsSpecies(&gPlayerParty[0], gPlayerPartyCount, selectedMap->encounterId)));
-
-    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, selectedMap->encounterId);
-
-    warp->mapGroup = selectedMap->group;
-    warp->mapNum = selectedMap->num;
-}
-
-static bool8 IsSpecialEncounterRoom(void)
-{
-    u8 i;
-    u8 mapCount = gRogueSpecialEncounterInfo.mapCount;
-
-    for(i = 0; i < mapCount; ++i)
-    {
-        if(gRogueSpecialEncounterInfo.mapTable[i].layout == gMapHeader.mapLayoutId)
             return TRUE;
     }
 
@@ -1812,6 +1704,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 }
                 break;
             }
+
+            case ADVPATH_ROOM_LEGENDARY:
+            {
+                ResetSpecialEncounterStates();
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                break;
+            }
         };
 
         
@@ -1838,18 +1737,18 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
             {
                 // Pretty much max difficulty
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 500);
+                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 500);
                 VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
             }
             else
             {
-                VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 400);
+                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 400);
                 VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
             }
         }
         else
         {
-            VarSet(VAR_ROGUE_REWARD_MONEY, (gRogueRun.currentRoomIdx - GetStartRoomIdx()) * 300);
+            VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 300);
             VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
         }
     }
@@ -3393,8 +3292,8 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = GetRoomTypeDifficulty();
     s32 chance = max(10, 5 * difficultyLevel);
 
-    if(difficultyModifier == 2) // Hard
-        chance = min(100, chance + 25);
+    if(difficultyModifier == 0) // Easy
+        chance = max(0, chance - 25);
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
@@ -3409,7 +3308,7 @@ static bool8 RogueRandomChanceItem()
     s32 chance;
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
-    if(IsBossRoom(gRogueRun.currentRoomIdx))
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
         chance = 75;
     }
@@ -3432,7 +3331,7 @@ static bool8 RogueRandomChanceItem()
     }
 
     if(difficultyModifier == 0) // Easy
-        chance = max(0, chance - 25);
+        chance = max(10, chance - 25);
     else if(difficultyModifier == 2) // Hard
         chance = min(100, chance + 25);
 
@@ -3512,7 +3411,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     RogueQuery_ItemsExcludeCommon();
 
-    if(IsBossRoom(gRogueRun.currentRoomIdx))
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
         RogueQuery_ItemsMedicine();
     }

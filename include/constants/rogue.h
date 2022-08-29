@@ -54,7 +54,6 @@ struct RogueAdvPath
     u8 currentNodeY;
     u8 currentColumnCount;
     u8 currentRoomType;
-    u8 lengendaryEncounterCounter;
     u8 isOverviewActive : 1;
     u8 justGenerated : 1;
     struct RogueAdvPathRoomParams currentRoomParams;
@@ -69,7 +68,8 @@ struct RogueRunData
     u8 currentLevelOffset;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[ROGUE_ROUTE_COUNT - 3];
+    u16 routeHistoryBuffer[6];
+    u16 legendaryHistoryBuffer[6];
     u16 wildEncounterHistoryBuffer[2];
 };
 
@@ -162,7 +162,7 @@ struct RogueMonPresetCollection
 
 extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
-extern const struct RogueEncounterData gRogueSpecialEncounterInfo;
+extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 

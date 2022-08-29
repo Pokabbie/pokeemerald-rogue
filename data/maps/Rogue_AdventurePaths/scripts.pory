@@ -1,6 +1,6 @@
-const VAR_NODE_ID = VAR_0x8001
-const VAR_NODE_PARAM0 = VAR_0x8002
-const VAR_NODE_PARAM1 = VAR_0x8003
+const VAR_NODE_ID = VAR_0x8004
+const VAR_NODE_PARAM0 = VAR_0x8005
+const VAR_NODE_PARAM1 = VAR_0x8006
 
 
 const ADVPATH_ROOM_NONE = 0
@@ -78,6 +78,9 @@ script Rogue_AdventurePaths_InteractNodeInternal
                 default:
                     msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
             }
+
+        case ADVPATH_ROOM_LEGENDARY:
+            msgbox(format("It's a Powerful POKéMON!\nEnter this encounter?"), MSGBOX_YESNO)
 
         default:
             msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)

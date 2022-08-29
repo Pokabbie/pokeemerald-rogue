@@ -174,7 +174,7 @@ static const struct RogueEncounterMap sRouteMapsSpecial[] =
 #endif
 };
 
-const struct RogueEncounterData gRogueSpecialEncounterInfo = 
+const struct RogueEncounterData gRogueLegendaryEncounterInfo = 
 {
     .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
     .mapTable = sRouteMapsSpecial
