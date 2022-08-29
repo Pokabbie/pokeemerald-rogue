@@ -2152,7 +2152,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
 
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
     {
-        if(*monsCount < 2)
+        if(*monsCount < 2 && gPlayerPartyCount >= 2)
         {
             *monsCount = 2;
         }
