@@ -390,15 +390,15 @@ script RogueHub_SpeakScott
             if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
             {
                 // Give extra key items
-                // Check from ITEM_ROTOM_CATALOG, as we're gonna give them all out
-                checkitem(694)
+                // Check from ITEM_GRACIDEA, as we're gonna give them all out
+                checkitem(695)
 
                 if(var(VAR_RESULT) == NO)
                 {
                     msgbox(format("SCOTT: Oh before I forget!\nPokabbie actually left me a bunch of items to give to you."), MSGBOX_DEFAULT)
                     
                     // ITEM_ROTOM_CATALOG
-                    giveitem(694)
+                    //giveitem(694)
 
                     // ITEM_GRACIDEA
                     giveitem(695)
@@ -407,22 +407,22 @@ script RogueHub_SpeakScott
                     giveitem(696)
 
                     // ITEM_DNA_SPLICERS
-                    giveitem(697)
+                    //giveitem(697)
 
                     // ITEM_ZYGARDE_CUBE
-                    giveitem(698)
+                    //giveitem(698)
 
                     // ITEM_PRISON_BOTTLE
                     giveitem(699)
 
                     // ITEM_N_SOLARIZER
-                    giveitem(700)
+                    //giveitem(700)
 
                     // ITEM_N_LUNARIZER
-                    giveitem(701)
+                    //giveitem(701)
 
                     // ITEM_REINS_OF_UNITY
-                    giveitem(702)
+                    //giveitem(702)
                 }
             }
 
