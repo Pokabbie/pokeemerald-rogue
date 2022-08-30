@@ -70,7 +70,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[6];
     u16 legendaryHistoryBuffer[6];
-    u16 wildEncounterHistoryBuffer[2];
+    u16 wildEncounterHistoryBuffer[3];
 };
 
 struct RogueHubData
