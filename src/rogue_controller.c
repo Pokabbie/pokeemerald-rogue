@@ -1938,8 +1938,16 @@ static bool8 IsBossTrainer(u16 trainerNum)
 
 static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
+    bool8 preferCompetitive = FALSE;
+    bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
+
+    if(difficultyModifier == 2) // HARD
+    {
+        // For regular trainers, Last and first mon can have competitive sets
+        preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
+    }
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
@@ -1948,32 +1956,24 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(difficultyLevel == 0) // Last mon has competitive set
-            return IsBossTrainer(trainerNum) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else if(difficultyLevel == 1)
-            return IsBossTrainer(trainerNum);
+            return (preferCompetitive || IsBossTrainer(trainerNum));
         else
             return TRUE;
     }
     else
     {
         // Start using competitive movesets on 3rd gym
-        if(IsBossTrainer(trainerNum))
-        {
-            if(difficultyLevel == 0)
-                return FALSE;
-            else if(difficultyLevel == 1) // Last mon has competitive set
-                return monIdx == (totalMonCount - 1);
-            else
-                return TRUE;
-        }
-        else if(difficultyModifier == 2) // HARD
-        {
-            // Last mon has competitive set
-            return monIdx == (totalMonCount - 1);
-        }
-
-        return FALSE;
+        if(difficultyLevel == 0) // Last mon has competitive set
+            return FALSE;
+        else if(difficultyLevel == 1)
+            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+        else
+            return (preferCompetitive || IsBossTrainer(trainerNum));
     }
+
+    return FALSE;
 }
 
 static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
@@ -2329,6 +2329,29 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     }
 #endif
 
+
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
+    {
+        u8 i;
+        u16 exp = Rogue_ModifyExperienceTables(1, 100);
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            ZeroMonData(&gPlayerParty[i]);
+        }
+
+        gPlayerPartyCount = monsCount;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            CopyMon(&gPlayerParty[i], &party[i], sizeof(gPlayerParty[i]));
+
+            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+            CalculateMonStats(&gPlayerParty[i]);
+        }
+    }
+#endif
+
     gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
 
@@ -2593,10 +2616,6 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
     level = CalculateTrainerLevel(trainerNum);
 
-#ifdef ROGUE_DEBUG
-    level = 5;
-#endif
-
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
@@ -2616,11 +2635,16 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             level++;
     }
 
+#ifdef ROGUE_DEBUG
+    // Just force the level down so it can be one shotted but do the rest of the calcs corectly
+    CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+#else
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+#endif
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
-        u8 i;
+        u16 i;
         u16 move;
         u16 heldItem;
         u8 writeMoveIdx;
@@ -2640,9 +2664,20 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
         if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
-            if(preset.abilityNum != ABILITY_NONE)
+            // We need to set the ability index
+            for(i; i < 3; ++i)
             {
-                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset.abilityNum);
+#ifdef ROGUE_EXPANSION
+                if(preset.abilityNum != ABILITY_NONE)
+                {
+                    SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+                }
+                else
+                {
+                    // Ability is set
+                    break;
+                }
+#endif
             }
 
             if(preset.heldItem != ITEM_NONE)
