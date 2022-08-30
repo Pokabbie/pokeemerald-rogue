@@ -1245,7 +1245,8 @@
 #define FLAG_ROGUE_DEFEATED_BOSS12                                  0x49F
 #define FLAG_ROGUE_DEFEATED_BOSS13                                  0x4A0
 
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
+#define FLAG_ROGUE_FREE_HEAL_USED                                   0x4A1
+
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
 #define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag

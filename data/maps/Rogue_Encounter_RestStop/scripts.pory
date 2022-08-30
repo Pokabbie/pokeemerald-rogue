@@ -52,6 +52,7 @@ script Rogue_Encounter_RestStop_RandomMan
                 else
                 {
                     removemoney(1000)
+                    updatemoneybox
 
                     waitse
                     playse(SE_VEND)
@@ -75,7 +76,7 @@ script Rogue_Encounter_RestStop_RandomMan
             setvar(VAR_0x8004, 255)
 
             waitse
-                    playse(SE_VEND)
+            playse(SE_VEND)
             special(Rogue_RandomisePartyMon)
             
             msgbox(format("Ke ke ke!\pEnjoy!"))

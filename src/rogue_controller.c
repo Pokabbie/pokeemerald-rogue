@@ -178,9 +178,9 @@ bool8 Rogue_ForceExpAll(void)
 bool8 Rogue_FastBattleAnims(void)
 {
     if(Rogue_IsRunActive() && 
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
     {
         return TRUE;
     }
@@ -213,22 +213,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 {
                     s16 delta = targetLevel - currentLevel;
                     
-                    if(delta < 10)
-                    {
-                        // Give up to 5 levels at once
-                        desiredExpPerc = 100 * min(5, delta);
-                    }
-                    else
-                    {
-                        // Give up to 10 levels at once
-                        desiredExpPerc = 100 * min(10, delta);
-                    }
-
-                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                    {
-                        // Give up to 30 levels at once
-                        desiredExpPerc = 100 * min(30, delta);
-                    }
+                    // Level up immediatly to the targetLevel (As it's the soft cap and moves with each fight)
+                    desiredExpPerc = 100 * delta;
                 }
             }
             else
@@ -1393,6 +1379,8 @@ static void BeginRogueRun(void)
 
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
+    FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
+
     FlagClear(FLAG_BADGE01_GET);
     FlagClear(FLAG_BADGE02_GET);
     FlagClear(FLAG_BADGE03_GET);
@@ -1752,6 +1740,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
         VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
+        VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
 
         if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         {
@@ -1860,15 +1849,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueRun.currentLevelOffset)
-        {
-            // Every trainer battle drops level cap by 4
-            if(gRogueRun.currentLevelOffset < 4)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= 4;
-        }
-
         if(IsBossTrainer(trainerNum))
         {
             gRogueRun.currentLevelOffset = 10;
@@ -1891,6 +1871,16 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             {
                 VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
             }
+        }
+
+        // Adjust this after the boss reset
+        if(gRogueRun.currentLevelOffset)
+        {
+            // Every trainer battle drops level cap by 4
+            if(gRogueRun.currentLevelOffset < 4)
+                gRogueRun.currentLevelOffset = 0;
+            else
+                gRogueRun.currentLevelOffset -= 4;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -1948,8 +1938,16 @@ static bool8 IsBossTrainer(u16 trainerNum)
 
 static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
+    bool8 preferCompetitive = FALSE;
+    bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
+
+    if(difficultyModifier == 2) // HARD
+    {
+        // For regular trainers, Last and first mon can have competitive sets
+        preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
+    }
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
@@ -1958,32 +1956,24 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(difficultyLevel == 0) // Last mon has competitive set
-            return IsBossTrainer(trainerNum) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else if(difficultyLevel == 1)
-            return IsBossTrainer(trainerNum);
+            return (preferCompetitive || IsBossTrainer(trainerNum));
         else
             return TRUE;
     }
     else
     {
         // Start using competitive movesets on 3rd gym
-        if(IsBossTrainer(trainerNum))
-        {
-            if(difficultyLevel == 0)
-                return FALSE;
-            else if(difficultyLevel == 1) // Last mon has competitive set
-                return monIdx == (totalMonCount - 1);
-            else
-                return TRUE;
-        }
-        else if(difficultyModifier == 2) // HARD
-        {
-            // Last mon has competitive set
-            return monIdx == (totalMonCount - 1);
-        }
-
-        return FALSE;
+        if(difficultyLevel == 0) // Last mon has competitive set
+            return FALSE;
+        else if(difficultyLevel == 1)
+            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+        else
+            return (preferCompetitive || IsBossTrainer(trainerNum));
     }
+
+    return FALSE;
 }
 
 static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
@@ -2059,7 +2049,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             break;
     };
 
-    if(IsBossTrainer(trainerNum))
+    if(IsBossTrainer(trainerNum)) 
     {
         if(difficultyLevel == 0)
         {
@@ -2152,7 +2142,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
 
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
     {
-        if(*monsCount < 2)
+        if(*monsCount < 2 && gPlayerPartyCount >= 2)
         {
             *monsCount = 2;
         }
@@ -2336,6 +2326,29 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
 
         item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
         --writeSlot;
+    }
+#endif
+
+
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
+    {
+        u8 i;
+        u16 exp = Rogue_ModifyExperienceTables(1, 100);
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            ZeroMonData(&gPlayerParty[i]);
+        }
+
+        gPlayerPartyCount = monsCount;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            CopyMon(&gPlayerParty[i], &party[i], sizeof(gPlayerParty[i]));
+
+            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+            CalculateMonStats(&gPlayerParty[i]);
+        }
     }
 #endif
 
@@ -2603,10 +2616,6 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
     level = CalculateTrainerLevel(trainerNum);
 
-#ifdef ROGUE_DEBUG
-    level = 5;
-#endif
-
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
@@ -2626,11 +2635,16 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             level++;
     }
 
+#ifdef ROGUE_DEBUG
+    // Just force the level down so it can be one shotted but do the rest of the calcs corectly
+    CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+#else
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+#endif
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
     {
-        u8 i;
+        u16 i;
         u16 move;
         u16 heldItem;
         u8 writeMoveIdx;
@@ -2650,9 +2664,20 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
         if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
-            if(preset.abilityNum != ABILITY_NONE)
+            // We need to set the ability index
+            for(i; i < 3; ++i)
             {
-                SetMonData(mon, MON_DATA_ABILITY_NUM, &preset.abilityNum);
+#ifdef ROGUE_EXPANSION
+                if(preset.abilityNum != ABILITY_NONE)
+                {
+                    SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+                }
+                else
+                {
+                    // Ability is set
+                    break;
+                }
+#endif
             }
 
             if(preset.heldItem != ITEM_NONE)
@@ -2780,6 +2805,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     else
         difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        difficulty = 13;
+
     RogueQuery_Clear();
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsExcludeCommon();
@@ -2864,13 +2892,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 3)
                     itemCapacity = 15;
-                else if(difficulty <= 5)
+                else if(difficulty <= 3)
                     itemCapacity = 20;
-                else if(difficulty <= 7)
+                else if(difficulty <= 5)
                     itemCapacity = 30;
+                else if(difficulty <= 7)
+                    itemCapacity = 40;
             }
 
             if(Rogue_IsRunActive())
@@ -2892,13 +2920,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 3)
                     itemCapacity = 15;
-                else if(difficulty <= 5)
+                else if(difficulty <= 3)
                     itemCapacity = 20;
-                else if(difficulty <= 7)
+                else if(difficulty <= 5)
                     itemCapacity = 30;
+                else if(difficulty <= 7)
+                    itemCapacity = 40;
             }
             else if(difficulty <= 5)
             {
@@ -2923,13 +2951,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 3)
                     itemCapacity = 15;
-                else if(difficulty <= 5)
+                else if(difficulty <= 3)
                     itemCapacity = 20;
-                else if(difficulty <= 7)
+                else if(difficulty <= 5)
                     itemCapacity = 30;
+                else if(difficulty <= 7)
+                    itemCapacity = 40;
             }
 
             if(Rogue_IsRunActive())
@@ -3321,17 +3349,23 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 
         prevBossLevel = min(prevBossLevel, nextBossLevel);
 
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        {
+            // Not boss trainer so must be EXP trainer
+            return prevBossLevel;
+        }
+
         if(difficultyModifier == 0) // Easy
         {
             return prevBossLevel;
         }
         else if(difficultyModifier == 2) // Hard
         {
-            return nextBossLevel - 2;
+            return nextBossLevel - 5;
         }
         else
         {
-            return (prevBossLevel + nextBossLevel) / 2;
+            return nextBossLevel - 10;
         }
     }
 }
@@ -3349,6 +3383,10 @@ static bool8 RogueRandomChanceTrainer()
 
     if(difficultyModifier == 0) // Easy
         chance = max(0, chance - 25);
+    else if(difficultyModifier == 2) // Hard
+        chance = max(20, chance);
+    else
+        chance = max(10, chance);
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
@@ -3365,7 +3403,8 @@ static bool8 RogueRandomChanceItem()
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        chance = 75;
+        // Use to give healing items in gym rooms
+        chance = 0;
     }
     else
     {

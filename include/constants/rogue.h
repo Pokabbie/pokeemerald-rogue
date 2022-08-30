@@ -2,6 +2,7 @@
 #define GUARD_ROGUE_H
 
 //#define ROGUE_DEBUG
+#define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
 
@@ -70,7 +71,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[6];
     u16 legendaryHistoryBuffer[6];
-    u16 wildEncounterHistoryBuffer[2];
+    u16 wildEncounterHistoryBuffer[3];
 };
 
 struct RogueHubData
