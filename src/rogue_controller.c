@@ -178,9 +178,9 @@ bool8 Rogue_ForceExpAll(void)
 bool8 Rogue_FastBattleAnims(void)
 {
     if(Rogue_IsRunActive() && 
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-    gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
     {
         return TRUE;
     }
@@ -213,22 +213,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
                 {
                     s16 delta = targetLevel - currentLevel;
                     
-                    if(delta < 10)
-                    {
-                        // Give up to 5 levels at once
-                        desiredExpPerc = 100 * min(5, delta);
-                    }
-                    else
-                    {
-                        // Give up to 10 levels at once
-                        desiredExpPerc = 100 * min(10, delta);
-                    }
-
-                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                    {
-                        // Give up to 30 levels at once
-                        desiredExpPerc = 100 * min(30, delta);
-                    }
+                    // Level up immediatly to the targetLevel (As it's the soft cap and moves with each fight)
+                    desiredExpPerc = 100 * delta;
                 }
             }
             else
@@ -1860,15 +1846,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueRun.currentLevelOffset)
-        {
-            // Every trainer battle drops level cap by 4
-            if(gRogueRun.currentLevelOffset < 4)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= 4;
-        }
-
         if(IsBossTrainer(trainerNum))
         {
             gRogueRun.currentLevelOffset = 10;
@@ -1891,6 +1868,16 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             {
                 VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
             }
+        }
+
+        // Adjust this after the boss reset
+        if(gRogueRun.currentLevelOffset)
+        {
+            // Every trainer battle drops level cap by 4
+            if(gRogueRun.currentLevelOffset < 4)
+                gRogueRun.currentLevelOffset = 0;
+            else
+                gRogueRun.currentLevelOffset -= 4;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -2059,7 +2046,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             break;
     };
 
-    if(IsBossTrainer(trainerNum))
+    if(IsBossTrainer(trainerNum)) 
     {
         if(difficultyLevel == 0)
         {
@@ -3321,17 +3308,23 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 
         prevBossLevel = min(prevBossLevel, nextBossLevel);
 
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        {
+            // Not boss trainer so must be EXP trainer
+            return prevBossLevel;
+        }
+
         if(difficultyModifier == 0) // Easy
         {
             return prevBossLevel;
         }
         else if(difficultyModifier == 2) // Hard
         {
-            return nextBossLevel - 2;
+            return nextBossLevel - 5;
         }
         else
         {
-            return (prevBossLevel + nextBossLevel) / 2;
+            return nextBossLevel - 10;
         }
     }
 }
@@ -3349,6 +3342,10 @@ static bool8 RogueRandomChanceTrainer()
 
     if(difficultyModifier == 0) // Easy
         chance = max(0, chance - 25);
+    else if(difficultyModifier == 2) // Hard
+        chance = max(20, chance);
+    else
+        chance = max(10, chance);
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
