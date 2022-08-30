@@ -390,7 +390,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     switch(currScratch->nextRoomType)
     {
         case ADVPATH_ROOM_LEGENDARY:
-            weights[ADVPATH_ROOM_MINIBOSS] *= 2;
+            weights[ADVPATH_ROOM_MINIBOSS] += 250; // Pretty much always gonna be before a legendary
             weights[ADVPATH_ROOM_RESTSTOP] = 0;
             weights[ADVPATH_ROOM_NONE] = 0;
             break;
