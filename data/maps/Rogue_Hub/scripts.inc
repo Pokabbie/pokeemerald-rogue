@@ -641,8 +641,7 @@ RogueHub_SpeakBank_5:
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_SpeakBank_10
 	removemoney 500
-	hidemoneybox
-	showmoneybox 0, 0
+	updatemoneybox
 	addvar VAR_ROGUE_ADVENTURE_MONEY, 500
 	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
 	playse SE_SHOP

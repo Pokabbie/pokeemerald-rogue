@@ -496,6 +496,136 @@ Rogue_Battle_PreBoss_2:
 	goto Rogue_Battle_PreBoss_1
 
 
+Rogue_Heal_PreBoss::
+	lock
+	faceplayer
+	msgbox Rogue_Heal_PreBoss_Text_0, MSGBOX_DEFAULT
+	goto_if_set FLAG_ROGUE_FREE_HEAL_USED, Rogue_Heal_PreBoss_2
+	msgbox Rogue_Heal_PreBoss_Text_3, MSGBOX_DEFAULT
+	msgbox Rogue_Heal_PreBoss_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Heal_PreBoss_19
+Rogue_Heal_PreBoss_1:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Heal_PreBoss_6
+	msgbox Rogue_Heal_PreBoss_Text_6, MSGBOX_DEFAULT
+Rogue_Heal_PreBoss_5:
+	release
+	return
+
+Rogue_Heal_PreBoss_2:
+	showmoneybox 0, 0
+	switch VAR_ROGUE_DIFFICULTY
+	case 0, Rogue_Heal_PreBoss_11
+	case 1, Rogue_Heal_PreBoss_12
+	case 2, Rogue_Heal_PreBoss_13
+	case 3, Rogue_Heal_PreBoss_14
+	case 4, Rogue_Heal_PreBoss_15
+	case 5, Rogue_Heal_PreBoss_16
+	case 6, Rogue_Heal_PreBoss_17
+	checkmoney 32000
+	buffernumberstring STR_VAR_1, 32000
+Rogue_Heal_PreBoss_9:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Heal_PreBoss_22
+	msgbox Rogue_Heal_PreBoss_Text_2, MSGBOX_DEFAULT
+Rogue_Heal_PreBoss_21:
+	hidemoneybox
+	goto Rogue_Heal_PreBoss_1
+
+Rogue_Heal_PreBoss_6:
+	msgbox Rogue_Heal_PreBoss_Text_5, MSGBOX_DEFAULT
+	goto Rogue_Heal_PreBoss_5
+
+Rogue_Heal_PreBoss_11:
+	checkmoney 2000
+	buffernumberstring STR_VAR_1, 2000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_12:
+	checkmoney 4000
+	buffernumberstring STR_VAR_1, 4000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_13:
+	checkmoney 8000
+	buffernumberstring STR_VAR_1, 8000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_14:
+	checkmoney 12000
+	buffernumberstring STR_VAR_1, 12000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_15:
+	checkmoney 16000
+	buffernumberstring STR_VAR_1, 16000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_16:
+	checkmoney 20000
+	buffernumberstring STR_VAR_1, 20000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_17:
+	checkmoney 24000
+	buffernumberstring STR_VAR_1, 24000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_19:
+	call Common_EventScript_OutOfCenterPartyHeal
+	setflag FLAG_ROGUE_FREE_HEAL_USED
+	goto Rogue_Heal_PreBoss_1
+
+Rogue_Heal_PreBoss_22:
+	msgbox Rogue_Heal_PreBoss_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Heal_PreBoss_25
+	goto Rogue_Heal_PreBoss_21
+
+Rogue_Heal_PreBoss_25:
+	switch VAR_ROGUE_DIFFICULTY
+	case 0, Rogue_Heal_PreBoss_29
+	case 1, Rogue_Heal_PreBoss_30
+	case 2, Rogue_Heal_PreBoss_31
+	case 3, Rogue_Heal_PreBoss_32
+	case 4, Rogue_Heal_PreBoss_33
+	case 5, Rogue_Heal_PreBoss_34
+	case 6, Rogue_Heal_PreBoss_35
+	removemoney 32000
+Rogue_Heal_PreBoss_27:
+	call Common_EventScript_OutOfCenterPartyHeal
+	goto Rogue_Heal_PreBoss_21
+
+Rogue_Heal_PreBoss_29:
+	removemoney 2000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_30:
+	removemoney 4000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_31:
+	removemoney 8000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_32:
+	removemoney 12000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_33:
+	removemoney 16000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_34:
+	removemoney 20000
+	goto Rogue_Heal_PreBoss_27
+
+Rogue_Heal_PreBoss_35:
+	removemoney 24000
+	goto Rogue_Heal_PreBoss_27
+
+
 Rogue_Battle_BreederF::
 	trainerbattle_single TRAINER_ROGUE_BREEDER_F, Rogue_Battle_BreederF_Text_0, Rogue_Battle_BreederF_Text_1
 	call Rogue_PostBattle_Internal
@@ -866,6 +996,32 @@ Rogue_Battle_PreBoss_Text_1:
 
 Rogue_Battle_PreBoss_Text_2:
 	.string "Let me know if you change your mind.$"
+
+Rogue_Heal_PreBoss_Text_0:
+	.string "Urgh...\n"
+	.string "You want me to heal you or something?$"
+
+Rogue_Heal_PreBoss_Text_1:
+	.string "It's gonna cost you ¥{STR_VAR_1}.$"
+
+Rogue_Heal_PreBoss_Text_2:
+	.string "It's gonna cost you ¥{STR_VAR_1}.\n"
+	.string "But you don't even have enough money...$"
+
+Rogue_Heal_PreBoss_Text_3:
+	.string "Look kid...\n"
+	.string "I'll give you a single free heal. After\l"
+	.string "that you're gonna have to pay.$"
+
+Rogue_Heal_PreBoss_Text_4:
+	.string "You wanna use your free heal now?$"
+
+Rogue_Heal_PreBoss_Text_5:
+	.string "What...\n"
+	.string "You're still here?$"
+
+Rogue_Heal_PreBoss_Text_6:
+	.string "So thanks for wasting my time I guess...$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"

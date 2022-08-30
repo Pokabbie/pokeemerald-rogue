@@ -63,6 +63,7 @@ Rogue_Encounter_RestStop_RandomMan_6:
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Rogue_Encounter_RestStop_RandomMan_9
 	removemoney 1000
+	updatemoneybox
 	waitse
 	playse SE_VEND
 	special Rogue_RandomisePartyMon

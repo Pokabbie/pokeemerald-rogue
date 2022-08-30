@@ -1379,6 +1379,8 @@ static void BeginRogueRun(void)
 
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
+    FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
+
     FlagClear(FLAG_BADGE01_GET);
     FlagClear(FLAG_BADGE02_GET);
     FlagClear(FLAG_BADGE03_GET);
@@ -3363,7 +3365,8 @@ static bool8 RogueRandomChanceItem()
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        chance = 75;
+        // Use to give healing items in gym rooms
+        chance = 0;
     }
     else
     {

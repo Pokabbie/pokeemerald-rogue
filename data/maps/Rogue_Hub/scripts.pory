@@ -688,9 +688,7 @@ script RogueHub_SpeakBank
         else
         {
             removemoney(500)
-
-            hidemoneybox
-            showmoneybox(0, 0)
+            updatemoneybox
 
             addvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
             buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
