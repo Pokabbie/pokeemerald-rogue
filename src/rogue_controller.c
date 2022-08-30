@@ -1738,6 +1738,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
         VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
+        VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
 
         if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
         {

@@ -482,6 +482,7 @@ Rogue_Tutor_MoveDeleteCancel::
 Rogue_Battle_PreBoss::
 	lock
 	faceplayer
+	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP
 	msgbox Rogue_Battle_PreBoss_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Battle_PreBoss_2
@@ -856,8 +857,9 @@ Rogue_Tutor_MoveDeleteCancel_Text_0:
 	.string "Oh.. OK then.$"
 
 Rogue_Battle_PreBoss_Text_0:
-	.string "Would you like to battle with me to level\n"
-	.string "up?$"
+	.string "I can help you level up if you'd like.\p"
+	.string "Lvl. {STR_VAR_1} is the current cap.\n"
+	.string "Would you like to battle?$"
 
 Rogue_Battle_PreBoss_Text_1:
 	.string "Good luck with the big battle!$"

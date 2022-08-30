@@ -511,7 +511,9 @@ script Rogue_Battle_PreBoss
 {
     lock
     faceplayer
-    msgbox(format("Would you like to battle with me to level up?"), MSGBOX_YESNO)
+
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP)
+    msgbox(format("I can help you level up if you'd like.\pLvl. {STR_VAR_1} is the current cap. Would you like to battle?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
