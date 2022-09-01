@@ -52,8 +52,23 @@ script Rogue_BattleDefeated_MiniBoss
 {
     setweather(WEATHER_NONE)
     doweather
-    
-    msgbox(format("TODO item choice!"))
+
+    bufferitemname(STR_VAR_1, VAR_ROGUE_ITEM0)
+    bufferitemname(STR_VAR_2, VAR_ROGUE_ITEM1)
+
+    msgbox(format("I've got {STR_VAR_1} in my LEFT hand\nand {STR_VAR_2} in my right."))
+
+    message(format("Which do you want to take?\nL: {STR_VAR_1}, R: {STR_VAR_2}"))
+    waitmessage
+    multichoice(17, 6, MULTI_RIGHTLEFT, TRUE)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            giveitem(VAR_ROGUE_ITEM0)
+        case 1:
+            giveitem(VAR_ROGUE_ITEM1)
+    }
 
     special(HealPlayerParty)
     special(RemoveCameraObject)

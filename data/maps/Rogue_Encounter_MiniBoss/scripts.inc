@@ -37,11 +37,28 @@ Rogue_Battle_MiniBoss::
 Rogue_BattleDefeated_MiniBoss::
 	setweather WEATHER_NONE
 	doweather
+	bufferitemname STR_VAR_1, VAR_ROGUE_ITEM0
+	bufferitemname STR_VAR_2, VAR_ROGUE_ITEM1
 	msgbox Rogue_BattleDefeated_MiniBoss_Text_0
+	message Rogue_BattleDefeated_MiniBoss_Text_1
+	waitmessage
+	multichoice 17, 6, MULTI_RIGHTLEFT, TRUE
+	switch VAR_RESULT
+	case 0, Rogue_BattleDefeated_MiniBoss_3
+	case 1, Rogue_BattleDefeated_MiniBoss_4
+Rogue_BattleDefeated_MiniBoss_1:
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	return
+
+Rogue_BattleDefeated_MiniBoss_3:
+	giveitem VAR_ROGUE_ITEM0
+	goto Rogue_BattleDefeated_MiniBoss_1
+
+Rogue_BattleDefeated_MiniBoss_4:
+	giveitem VAR_ROGUE_ITEM1
+	goto Rogue_BattleDefeated_MiniBoss_1
 
 
 MiniBoss_PlayerToBattleField:
@@ -103,7 +120,12 @@ Rogue_MiniBoss_KickOffBattle_3:
 
 
 Rogue_BattleDefeated_MiniBoss_Text_0:
-	.string "TODO item choice!$"
+	.string "I've got {STR_VAR_1} in my LEFT hand\n"
+	.string "and {STR_VAR_2} in my right.$"
+
+Rogue_BattleDefeated_MiniBoss_Text_1:
+	.string "Which do you want to take?\n"
+	.string "L: {STR_VAR_1}, R: {STR_VAR_2}$"
 
 Rogue_MiniBoss_KickOffBattle_Text_0:
 	.string "MAXIE: Don't think I'll let you through\n"

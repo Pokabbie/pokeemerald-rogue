@@ -55,7 +55,7 @@
 #define MULTI_ACRO_BIKE_INFO               44
 #define MULTI_SATISFACTION                 45
 #define MULTI_STERN_DEEPSEA                46
-#define MULTI_UNUSED_ASH_VENDOR            47 // Replaced by scrollable multichoice
+#define MULTI_STR_VARS_2                   47
 #define MULTI_GAME_CORNER_DOLLS            48
 #define MULTI_GAME_CORNER_COINS            49
 #define MULTI_HOWS_FISHING                 50

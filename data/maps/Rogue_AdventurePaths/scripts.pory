@@ -47,6 +47,9 @@ script Rogue_AdventurePaths_InteractNodeInternal
             msgbox(format("It's a Mighty Trainer!"), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, YES)
 
+        case ADVPATH_ROOM_MINIBOSS:
+            msgbox(format("It's a Strong Trainer!\nEnter this encounter?"), MSGBOX_YESNO)
+
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))
             {
