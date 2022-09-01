@@ -53,6 +53,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp);
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectBossRoom(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
+u8 Rogue_SelectMiniBossEncounterRoom(void);
 
 void Rogue_Battle_StartTrainerBattle(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);

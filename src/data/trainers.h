@@ -11925,7 +11925,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("RED"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Red),
         .party = {.NoItemDefaultMoves = sParty_Red},
     },
@@ -11939,12 +11939,12 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("LEAF"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Leaf),
         .party = {.NoItemDefaultMoves = sParty_Leaf},
     },
 
-    [TRAINER_BRENDAN_PLACEHOLDER] =
+    [TRAINER_BRENDAN_PLACEHOLDER ] =
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_RS_PROTAG,
@@ -11953,7 +11953,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("BRENDAN"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_BrendanLinkPlaceholder),
         .party = {.NoItemDefaultMoves = sParty_BrendanLinkPlaceholder},
     },
@@ -11967,7 +11967,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("MAY"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_MayLinkPlaceholder),
         .party = {.NoItemDefaultMoves = sParty_MayLinkPlaceholder},
     },

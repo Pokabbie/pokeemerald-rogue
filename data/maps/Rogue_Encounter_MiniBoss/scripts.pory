@@ -1,0 +1,113 @@
+const BOSS_NPC = 1
+
+const MINIBOSS_MAXIE_IDX = 0
+const MINIBOSS_ARCHIE_IDX = 1
+
+mapscripts Rogue_Encounter_MiniBoss_MapScripts
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerEast
+    ]
+    //MAP_SCRIPT_ON_FRAME_TABLE  
+    //[
+    //    VAR_TEMP_2, 0: Rogue_MiniBoss_OnFrame0
+    //]
+    MAP_SCRIPT_ON_LOAD: Rogue_MiniBoss_OnLoad
+}
+
+script Rogue_MiniBoss_OnLoad
+{
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        call(Rogue_MiniBoss_SetWeather)
+    }
+
+    //setvar(VAR_TEMP_2, 1)
+}
+
+script Rogue_Battle_MiniBoss
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToBattleField)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, MiniBoss_CameraToBattleField)
+    waitmovement(0)
+
+    call(Rogue_MiniBoss_IntroSpeech)
+
+    applymovement(BOSS_NPC, MiniBoss_BossToFight)
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToFight)
+    waitmovement(0)
+    
+    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    call(Rogue_MiniBoss_KickOffBattle)
+    call(Rogue_BattleDefeated_MiniBoss)
+}
+
+script Rogue_BattleDefeated_MiniBoss
+{
+    setweather(WEATHER_NONE)
+    doweather
+    
+    msgbox(format("TODO item choice!"))
+
+    special(HealPlayerParty)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+}
+
+movement MiniBoss_PlayerToBattleField {
+    walk_right
+}
+
+movement MiniBoss_CameraToBattleField {
+    walk_right * 3
+}
+
+movement MiniBoss_PlayerToFight {
+    walk_right
+    face_right
+}
+
+movement MiniBoss_BossToFight {
+    walk_left
+}
+
+script Rogue_MiniBoss_SetWeather
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case MINIBOSS_MAXIE_IDX:
+            setweather(WEATHER_DROUGHT)
+            doweather
+
+        case MINIBOSS_ARCHIE_IDX:
+            setweather(WEATHER_RAIN)
+            doweather
+    }
+}
+
+script Rogue_MiniBoss_IntroSpeech
+{
+}
+
+script Rogue_MiniBoss_KickOffBattle
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case MINIBOSS_MAXIE_IDX:
+            msgbox(format("MAXIE: Don't think I'll let you through lightly!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAXIE_MAGMA_HIDEOUT, 0, format("Well that was unexpected..."))
+
+        case MINIBOSS_ARCHIE_IDX:
+            msgbox(format("ARCHIE: Don't think I'll let you through lightly!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ARCHIE, 0, format("Well that was unexpected..."))
+        
+        default:
+            msgbox(format("UNEXPECTED TRAINER INDEX"))
+    }
+}

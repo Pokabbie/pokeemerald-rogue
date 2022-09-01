@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/abilities.h"
+#include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
@@ -113,6 +114,7 @@ EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 
 static bool8 IsBossTrainer(u16 trainerNum);
+static bool8 IsMiniBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
@@ -1510,6 +1512,19 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
     return mapIdx;
 }
 
+u8 Rogue_SelectMiniBossEncounterRoom(void)
+{
+    u8 bossId = 0;
+
+    //do
+    //{
+        bossId = RogueRandomRange(ROGUE_MINIBOSS_COUNT, OVERWORLD_FLAG);
+    //}
+    //while(false); // TODO - Add buffer support to avoid repeats if possible
+
+    return bossId;
+}
+
 u8 Rogue_SelectRouteRoom(void)
 {
     u8 mapCount;
@@ -1718,6 +1733,38 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 ResetSpecialEncounterStates();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                break;
+            }
+
+            case ADVPATH_ROOM_MINIBOSS:
+            {
+                u16 encounterId = gRogueAdvPath.currentRoomParams.roomIdx;
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, encounterId);
+
+                switch(encounterId)
+                {
+                    case 0:
+                        VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAXIE);
+                        break;
+
+                    case 1:
+                        VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ARCHIE);
+                        break;
+                }
+                
+                // Weather
+                if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
                 break;
             }
         };
@@ -1936,6 +1983,30 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
+static bool8 IsMiniBossTrainer(u16 trainerNum)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_MAXIE_MAGMA_HIDEOUT:
+        case TRAINER_ARCHIE:
+
+        case TRAINER_WALLY_VR_1:
+
+        case TRAINER_RED:
+        case TRAINER_LEAF:
+        case TRAINER_BRENDAN_PLACEHOLDER:
+        case TRAINER_MAY_PLACEHOLDER:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
+static bool8 IsAnyBossTrainer(u16 trainerNum)
+{
+    return IsBossTrainer(trainerNum) || IsMiniBossTrainer(trainerNum);
+}
+
 static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
     bool8 preferCompetitive = FALSE;
@@ -1956,9 +2027,9 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(difficultyLevel == 0) // Last mon has competitive set
-            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else if(difficultyLevel == 1)
-            return (preferCompetitive || IsBossTrainer(trainerNum));
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
         else
             return TRUE;
     }
@@ -1968,9 +2039,9 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
         if(difficultyLevel == 0) // Last mon has competitive set
             return FALSE;
         else if(difficultyLevel == 1)
-            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else
-            return (preferCompetitive || IsBossTrainer(trainerNum));
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
     }
 
     return FALSE;
@@ -2047,9 +2118,20 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             if(difficultyLevel > 0)
                 forceType[1] = TYPE_FIRE;
             break;
+        
+        // Minibosses
+        case TRAINER_MAXIE_MAGMA_HIDEOUT:
+            forceType[0] = TYPE_FIRE;
+            forceType[1] = TYPE_DARK;
+            break;
+
+        case TRAINER_ARCHIE:
+            forceType[0] = TYPE_WATER;
+            forceType[1] = TYPE_DARK;
+            break;
     };
 
-    if(IsBossTrainer(trainerNum)) 
+    if(IsAnyBossTrainer(trainerNum)) 
     {
         if(difficultyLevel == 0)
         {
@@ -2114,7 +2196,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 2 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
@@ -2127,14 +2209,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
         else
         {
             // Champion
-            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 1 : 0);
+            *monsCount = 3 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -2206,6 +2288,11 @@ static void ApplyTrainerQuery(u16 trainerNum)
             RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
         else
             RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+    }
+
+    if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_MAXIE_MAGMA_HIDEOUT)
+    {
+        RogueQuery_Include(SPECIES_GROUDON);
     }
 
     RogueQuery_CollapseSpeciesBuffer();
@@ -2715,7 +2802,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u8 maxlevel = CalculateWildLevel();
-        u8 levelVariation = min(6,maxlevel - 1);
+        u8 levelVariation = min(6, maxlevel - 1);
 
         if(GetSafariZoneFlag())
         {

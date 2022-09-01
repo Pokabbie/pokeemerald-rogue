@@ -4900,6 +4900,16 @@
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/Rogue_Encounter_Tutors/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Tutors/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_MINI_BOSS",
+      "name": "Rogue_Encounter_MiniBoss_Layout",
+      "width": 16,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/Rogue_Encounter_MiniBoss/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_MiniBoss/map.bin"
     }
   ]
 }

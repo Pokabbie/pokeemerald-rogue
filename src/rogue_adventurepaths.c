@@ -469,6 +469,10 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
             nodeInfo->roomParams.roomIdx = Rogue_SelectLegendaryEncounterRoom();
             break;
 
+        case ADVPATH_ROOM_MINIBOSS:
+            nodeInfo->roomParams.roomIdx = Rogue_SelectMiniBossEncounterRoom();
+            break;
+
         case ADVPATH_ROOM_ROUTE:
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
@@ -1046,6 +1050,11 @@ void RogueAdv_ExecuteNodeAction()
             case ADVPATH_ROOM_LEGENDARY:
                 warp.mapGroup = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].group;
                 warp.mapNum = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_MINIBOSS:
+                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_MINI_BOSS);
+                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_MINI_BOSS);
                 break;
         }
         
