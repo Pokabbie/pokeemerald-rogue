@@ -12218,18 +12218,17 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_RoguePlaceholder},
     },
 
-    [TRAINER_ROGUE_POKEMANIAC] =
-    {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_POKEMANIAC,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("CHALLENGER"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_RoguePlaceholder),
-        .party = {.NoItemDefaultMoves = sParty_RoguePlaceholder},
-    },
-
+    //[TRAINER_ROGUE_POKEMANIAC] =
+    //{
+    //    .partyFlags = 0,
+    //    .trainerClass = TRAINER_CLASS_POKEMANIAC,
+    //    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+    //    .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
+    //    .trainerName = _("CHALLENGER"),
+    //    .items = {},
+    //    .doubleBattle = FALSE,
+    //    .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+    //    .partySize = ARRAY_COUNT(sParty_RoguePlaceholder),
+    //    .party = {.NoItemDefaultMoves = sParty_RoguePlaceholder},
+    //},
 };
