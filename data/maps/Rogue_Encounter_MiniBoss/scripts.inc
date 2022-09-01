@@ -82,8 +82,8 @@ MiniBoss_BossToFight:
 
 Rogue_MiniBoss_SetWeather::
 	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
-	case 0, Rogue_MiniBoss_SetWeather_2
-	case 1, Rogue_MiniBoss_SetWeather_3
+	case OBJ_EVENT_GFX_MAXIE, Rogue_MiniBoss_SetWeather_2
+	case OBJ_EVENT_GFX_ARCHIE, Rogue_MiniBoss_SetWeather_3
 	return
 
 Rogue_MiniBoss_SetWeather_2:
@@ -103,8 +103,8 @@ Rogue_MiniBoss_IntroSpeech::
 
 Rogue_MiniBoss_KickOffBattle::
 	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
-	case 0, Rogue_MiniBoss_KickOffBattle_2
-	case 1, Rogue_MiniBoss_KickOffBattle_3
+	case OBJ_EVENT_GFX_MAXIE, Rogue_MiniBoss_KickOffBattle_2
+	case OBJ_EVENT_GFX_ARCHIE, Rogue_MiniBoss_KickOffBattle_3
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_3
 	return
 

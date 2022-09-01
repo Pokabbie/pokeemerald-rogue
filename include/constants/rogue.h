@@ -12,7 +12,6 @@
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
 #define ROGUE_ROUTE_COUNT 9
-#define ROGUE_MINIBOSS_COUNT 2
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7
@@ -166,6 +165,7 @@ extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
+extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H

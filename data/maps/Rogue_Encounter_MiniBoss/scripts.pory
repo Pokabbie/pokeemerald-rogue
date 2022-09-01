@@ -1,8 +1,5 @@
 const BOSS_NPC = 1
 
-const MINIBOSS_MAXIE_IDX = 0
-const MINIBOSS_ARCHIE_IDX = 1
-
 mapscripts Rogue_Encounter_MiniBoss_MapScripts
 {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
@@ -96,11 +93,11 @@ script Rogue_MiniBoss_SetWeather
 {
     switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
     {
-        case MINIBOSS_MAXIE_IDX:
+        case OBJ_EVENT_GFX_MAXIE:
             setweather(WEATHER_DROUGHT)
             doweather
 
-        case MINIBOSS_ARCHIE_IDX:
+        case OBJ_EVENT_GFX_ARCHIE:
             setweather(WEATHER_RAIN)
             doweather
     }
@@ -114,11 +111,11 @@ script Rogue_MiniBoss_KickOffBattle
 {
     switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
     {
-        case MINIBOSS_MAXIE_IDX:
+        case OBJ_EVENT_GFX_MAXIE:
             msgbox(format("MAXIE: Don't think I'll let you through lightly!"))
             trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAXIE_MAGMA_HIDEOUT, 0, format("Well that was unexpected..."))
 
-        case MINIBOSS_ARCHIE_IDX:
+        case OBJ_EVENT_GFX_ARCHIE:
             msgbox(format("ARCHIE: Don't think I'll let you through lightly!"))
             trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ARCHIE, 0, format("Well that was unexpected..."))
         

@@ -1052,8 +1052,8 @@ void RogueAdv_ExecuteNodeAction()
                 break;
 
             case ADVPATH_ROOM_MINIBOSS:
-                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_MINI_BOSS);
-                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_MINI_BOSS);
+                warp.mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
+                warp.mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
                 break;
         }
         

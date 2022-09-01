@@ -1518,7 +1518,7 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 
     //do
     //{
-        bossId = RogueRandomRange(ROGUE_MINIBOSS_COUNT, OVERWORLD_FLAG);
+        bossId = RogueRandomRange(gRouteMiniBossEncounters.mapCount, OVERWORLD_FLAG);
     //}
     //while(false); // TODO - Add buffer support to avoid repeats if possible
 
@@ -1738,21 +1738,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_MINIBOSS:
             {
-                u16 encounterId = gRogueAdvPath.currentRoomParams.roomIdx;
+                u16 encounterId = gRouteMiniBossEncounters.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
+                VarSet(VAR_OBJ_GFX_ID_0, encounterId);
 
                 RandomiseEnabledItems(); // We only want this for the item content tbf
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, encounterId);
-
-                switch(encounterId)
-                {
-                    case 0:
-                        VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAXIE);
-                        break;
-
-                    case 1:
-                        VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ARCHIE);
-                        break;
-                }
 
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
