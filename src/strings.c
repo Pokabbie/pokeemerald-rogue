@@ -1331,6 +1331,7 @@ ALIGNED(4) const u8 gText_TimeColon[] = _("Time:");
 ALIGNED(4) const u8 gText_PressingSpeed[] = _("Pressing Speed:");
 ALIGNED(4) const u8 gText_Silkiness[] = _("Silkiness:");
 ALIGNED(4) const u8 gText_StrVar1[] = _("{STR_VAR_1}");
+ALIGNED(4) const u8 gText_StrVar2[] = _("{STR_VAR_2}");
 ALIGNED(4) const u8 gText_SpaceMin[] = _(" min. ");
 ALIGNED(4) const u8 gText_XDotY2[] = _("{STR_VAR_1}.{STR_VAR_2}");
 ALIGNED(4) const u8 gText_SpaceSec[] = _(" sec.");
