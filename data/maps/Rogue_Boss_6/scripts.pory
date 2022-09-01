@@ -15,6 +15,12 @@ script Rogue_Battle_Boss6
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss6)
     waitmovement(0)
 
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_FOG_HORIZONTAL)
+        doweather
+    }
+
     msgbox(format("LIZA: Look TATE!\nA new challenger!"))
 
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss6)

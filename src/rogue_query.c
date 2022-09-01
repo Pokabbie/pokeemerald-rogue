@@ -776,6 +776,9 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Regional treat (Avoid spawning in multiple)
     RogueQuery_ItemsExcludeRange(ITEM_PEWTER_CRUNCHIES, ITEM_BIG_MALASADA);
 
+    // Ignore fossils for now
+    RogueQuery_ItemsExcludeRange(ITEM_HELIX_FOSSIL, ITEM_FOSSILIZED_DINO);
+
     switch(maxGen)
     {
         case 1:

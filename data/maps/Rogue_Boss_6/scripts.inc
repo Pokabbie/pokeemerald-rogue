@@ -9,6 +9,8 @@ Rogue_Battle_Boss6::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss6
 	waitmovement 0
+	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Battle_Boss6_2
+Rogue_Battle_Boss6_1:
 	msgbox Rogue_Battle_Boss6_Text_0
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss6
 	applymovement 6, BossLizaToFightBoss6
@@ -19,6 +21,11 @@ Rogue_Battle_Boss6::
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_TATE_AND_LIZA_1, 0, Rogue_Battle_Boss6_Text_2
 	call Rogue_BattleDefeated_Boss6
 	return
+
+Rogue_Battle_Boss6_2:
+	setweather WEATHER_FOG_HORIZONTAL
+	doweather
+	goto Rogue_Battle_Boss6_1
 
 
 Rogue_BattleDefeated_Boss6::

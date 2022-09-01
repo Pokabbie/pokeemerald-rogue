@@ -192,3 +192,17 @@ const struct RogueEncounterData gRogueRestStopEncounterInfo =
     .mapCount = ARRAY_COUNT(sRouteMapsRestStop),
     .mapTable = sRouteMapsRestStop
 };
+
+
+static const struct RogueEncounterMap sRouteMiniBossEncounters[] = 
+{
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_MAXIE, ROGUE_ENCOUNTER_MINI_BOSS),
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_ARCHIE, ROGUE_ENCOUNTER_MINI_BOSS),
+    ENCOUNTER_MAP(OBJ_EVENT_GFX_BRENDAN_NORMAL, ROGUE_ENCOUNTER_MINI_BOSS) // Copy party
+};
+
+const struct RogueEncounterData gRouteMiniBossEncounters = 
+{
+    .mapCount = ARRAY_COUNT(sRouteMiniBossEncounters),
+    .mapTable = sRouteMiniBossEncounters
+};

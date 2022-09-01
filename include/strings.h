@@ -2928,6 +2928,7 @@ extern const u8 gText_SpaceSec[];
 extern const u8 gText_XDotY2[];
 extern const u8 gText_SpaceMin[];
 extern const u8 gText_StrVar1[];
+extern const u8 gText_StrVar2[];
 extern const u8 gText_PressingSpeed[];
 extern const u8 gText_TimesPerSec[];
 extern const u8 gText_XDotY3[];

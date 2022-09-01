@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/abilities.h"
+#include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
@@ -113,6 +114,7 @@ EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 
 static bool8 IsBossTrainer(u16 trainerNum);
+static bool8 IsMiniBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
@@ -577,7 +579,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
-            // Keep default calc
+            u8 difficulty = gRogueRun.currentDifficulty;
+            *money = (difficulty + 1) * 1000;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
@@ -1510,6 +1513,19 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
     return mapIdx;
 }
 
+u8 Rogue_SelectMiniBossEncounterRoom(void)
+{
+    u8 bossId = 0;
+
+    //do
+    //{
+        bossId = RogueRandomRange(gRouteMiniBossEncounters.mapCount, OVERWORLD_FLAG);
+    //}
+    //while(false); // TODO - Add buffer support to avoid repeats if possible
+
+    return bossId;
+}
+
 u8 Rogue_SelectRouteRoom(void)
 {
     u8 mapCount;
@@ -1718,6 +1734,54 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 ResetSpecialEncounterStates();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                break;
+            }
+
+            case ADVPATH_ROOM_MINIBOSS:
+            {
+                u16 encounterId = gRouteMiniBossEncounters.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
+
+                RandomiseEnabledItems(); // We only want this for the item content tbf
+
+                if(encounterId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                {
+                    switch(gSaveBlock2Ptr->playerGender)
+                    {
+                        case(STYLE_EMR_BRENDAN):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            break;
+                        case(STYLE_EMR_MAY):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            break;
+
+                        case(STYLE_RED):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            break;
+                        case(STYLE_LEAF):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                    };
+                }
+                else
+                {
+                    VarSet(VAR_OBJ_GFX_ID_0, encounterId);
+                }
+
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, encounterId);
+
+                // Weather
+                if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
+                {
+                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
+                else
+                {
+                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                }
                 break;
             }
         };
@@ -1936,6 +2000,44 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
+static bool8 IsMirrorTrainer(u16 trainerNum)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_RED:
+        case TRAINER_LEAF:
+        case TRAINER_BRENDAN_PLACEHOLDER:
+        case TRAINER_MAY_PLACEHOLDER:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
+static bool8 IsMiniBossTrainer(u16 trainerNum)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_MAXIE_MAGMA_HIDEOUT:
+        case TRAINER_ARCHIE:
+
+        case TRAINER_WALLY_VR_1:
+
+        case TRAINER_RED:
+        case TRAINER_LEAF:
+        case TRAINER_BRENDAN_PLACEHOLDER:
+        case TRAINER_MAY_PLACEHOLDER:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
+static bool8 IsAnyBossTrainer(u16 trainerNum)
+{
+    return IsBossTrainer(trainerNum) || IsMiniBossTrainer(trainerNum);
+}
+
 static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
 {
     bool8 preferCompetitive = FALSE;
@@ -1956,9 +2058,9 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(difficultyLevel == 0) // Last mon has competitive set
-            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else if(difficultyLevel == 1)
-            return (preferCompetitive || IsBossTrainer(trainerNum));
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
         else
             return TRUE;
     }
@@ -1968,9 +2070,9 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
         if(difficultyLevel == 0) // Last mon has competitive set
             return FALSE;
         else if(difficultyLevel == 1)
-            return (preferCompetitive || IsBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
         else
-            return (preferCompetitive || IsBossTrainer(trainerNum));
+            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
     }
 
     return FALSE;
@@ -1984,6 +2086,12 @@ static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
 static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
+
+    if(IsMirrorTrainer(trainerNum))
+    {
+        *monsCount = gPlayerPartyCount;
+        return;
+    }
 
     switch(trainerNum)
     {
@@ -2047,9 +2155,29 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             if(difficultyLevel > 0)
                 forceType[1] = TYPE_FIRE;
             break;
+        
+        // Minibosses
+        case TRAINER_MAXIE_MAGMA_HIDEOUT:
+            forceType[0] = TYPE_FIRE;
+            forceType[1] = TYPE_DARK;
+            break;
+
+        case TRAINER_ARCHIE:
+            forceType[0] = TYPE_WATER;
+            forceType[1] = TYPE_DARK;
+            break;
+
+        case TRAINER_WALLY_VR_1:
+            forceType[0] = TYPE_PSYCHIC;
+#ifdef ROGUE_EXPANSION
+            forceType[1] = TYPE_FAIRY;
+#else
+            forceType[1] = TYPE_FIGHTING;
+#endif
+            break;
     };
 
-    if(IsBossTrainer(trainerNum)) 
+    if(IsAnyBossTrainer(trainerNum)) 
     {
         if(difficultyLevel == 0)
         {
@@ -2114,7 +2242,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 2 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
@@ -2127,14 +2255,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
         else
         {
             // Champion
-            *monsCount = 4 + (RogueRandomRange(5, FLAG_SET_SEED_TRAINERS) == 0 ? 1 : 0);
+            *monsCount = 3 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -2206,6 +2334,11 @@ static void ApplyTrainerQuery(u16 trainerNum)
             RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
         else
             RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+    }
+
+    if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_MAXIE_MAGMA_HIDEOUT)
+    {
+        RogueQuery_Include(SPECIES_GROUDON);
     }
 
     RogueQuery_CollapseSpeciesBuffer();
@@ -2368,6 +2501,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         return SPECIES_CHANSEY;
     }
 
+    if(IsMirrorTrainer(trainerNum))
+    {
+        return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+    }
+
     if(monIdx >= queryCount)
     {
         // Apply the fallback query (If we have one)
@@ -2437,14 +2575,28 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
-static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* outPreset)
+static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset)
 {
     u8 randOffset;
     u8 i;
     bool8 isPresetValid;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
-    if(presetCount != 0)
+    
+    if(IsMirrorTrainer(trainerNum))
+    {
+        // Populate mon preset based on exact same team
+        outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+        outPreset->abilityNum = GetMonData(&gPlayerParty[monIdx], MON_DATA_ABILITY_NUM);
+
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
+        }
+
+        return TRUE;
+    }
+    else if(presetCount != 0)
     {
         const struct RogueMonPreset* currPreset;
         randOffset = RogueRandomRange(presetCount, randFlag);
@@ -2662,7 +2814,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         // Loop incase we already have 4 moves
         writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-        if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
+        if(SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
             // We need to set the ability index
             for(i; i < 3; ++i)
@@ -2715,7 +2867,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u8 maxlevel = CalculateWildLevel();
-        u8 levelVariation = min(6,maxlevel - 1);
+        u8 levelVariation = min(6, maxlevel - 1);
 
         if(GetSafariZoneFlag())
         {
@@ -3497,33 +3649,44 @@ static void RandomiseItemContent(u8 difficultyLevel)
     // Queue up random items
     RogueQuery_Clear();
 
-    RogueQuery_ItemsInPriceRange(50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
-
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
 
     RogueQuery_ItemsExcludeCommon();
 
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    {
+        RogueQuery_ItemsInPriceRange(1000 + 500 * difficultyLevel, 2000 + 1600 * difficultyLevel);
+#ifdef ROGUE_EXPANSION
+        RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_STRANGE_SOUVENIR);
+#else
+        RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_HEART_SCALE);
+#endif
+        RogueQuery_Include(ITEM_MASTER_BALL);
+    }
+    else
+    {
+        RogueQuery_ItemsInPriceRange(50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
+
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        {
+            if(difficultyLevel <= 1)
+            {
+                RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
+            }
+
+            if(difficultyLevel <= 3)
+            {
+                RogueQuery_ItemsNotHeldItem();
+                RogueQuery_ItemsNotRareHeldItem();
+            }
+        }
+    }
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
         RogueQuery_ItemsMedicine();
-    }
-
-    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        if(difficultyLevel <= 1)
-        {
-            RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
-        }
-
-        if(difficultyLevel <= 3)
-        {
-            RogueQuery_ItemsNotHeldItem();
-            RogueQuery_ItemsNotRareHeldItem();
-
-            //More item tweaks (removal of dynamax items)
-        }
     }
 
     RogueQuery_CollapseItemBuffer();
@@ -3533,26 +3696,40 @@ static void RandomiseItemContent(u8 difficultyLevel)
     gDebug_ItemOptionCount = queryCount;
 #endif
 
-    // These VARs aren't sequential
-    VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-    VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    {
+        // Only need to set 2, but try to make them unique
+        VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        do
+        {
+            VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        }
+        while(queryCount >= 2 && VarGet(VAR_ROGUE_ITEM0) == VarGet(VAR_ROGUE_ITEM1));
+    }
+    else
+    {
+        // These VARs aren't sequential
+        VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+    }
 }
 
 static void RandomiseEnabledItems(void)

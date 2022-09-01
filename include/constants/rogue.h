@@ -69,7 +69,7 @@ struct RogueRunData
     u8 currentLevelOffset;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[6];
+    u16 routeHistoryBuffer[8];
     u16 legendaryHistoryBuffer[6];
     u16 wildEncounterHistoryBuffer[3];
 };
@@ -165,6 +165,7 @@ extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
+extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
 #endif  // GUARD_ROGUE_H

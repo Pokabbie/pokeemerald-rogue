@@ -1,0 +1,152 @@
+const BOSS_NPC = 1
+
+mapscripts Rogue_Encounter_MiniBoss_MapScripts
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerEast
+    ]
+    //MAP_SCRIPT_ON_FRAME_TABLE  
+    //[
+    //    VAR_TEMP_2, 0: Rogue_MiniBoss_OnFrame0
+    //]
+    MAP_SCRIPT_ON_LOAD: Rogue_MiniBoss_OnLoad
+}
+
+script Rogue_MiniBoss_OnLoad
+{
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        call(Rogue_MiniBoss_SetWeather)
+    }
+
+    //setvar(VAR_TEMP_2, 1)
+}
+
+script Rogue_Battle_MiniBoss
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToBattleField)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, MiniBoss_CameraToBattleField)
+    waitmovement(0)
+
+    call(Rogue_MiniBoss_IntroSpeech)
+
+    applymovement(BOSS_NPC, MiniBoss_BossToFight)
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToFight)
+    waitmovement(0)
+    
+    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    call(Rogue_MiniBoss_KickOffBattle)
+    call(Rogue_BattleDefeated_MiniBoss)
+}
+
+script Rogue_BattleDefeated_MiniBoss
+{
+    setweather(WEATHER_NONE)
+    doweather
+
+    bufferitemname(STR_VAR_1, VAR_ROGUE_ITEM0)
+    bufferitemname(STR_VAR_2, VAR_ROGUE_ITEM1)
+
+    msgbox(format("I've got {STR_VAR_1} in my LEFT hand\nand {STR_VAR_2} in my right."))
+
+    message(format("Which do you want to take?\nL: {STR_VAR_1}, R: {STR_VAR_2}"))
+    waitmessage
+    multichoice(17, 6, MULTI_RIGHTLEFT, TRUE)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            giveitem(VAR_ROGUE_ITEM0)
+        case 1:
+            giveitem(VAR_ROGUE_ITEM1)
+    }
+
+    special(HealPlayerParty)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+}
+
+movement MiniBoss_PlayerToBattleField {
+    walk_right
+}
+
+movement MiniBoss_CameraToBattleField {
+    walk_right * 3
+}
+
+movement MiniBoss_PlayerToFight {
+    walk_right
+    face_right
+}
+
+movement MiniBoss_BossToFight {
+    walk_left
+}
+
+script Rogue_MiniBoss_SetWeather
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case OBJ_EVENT_GFX_MAXIE:
+            setweather(WEATHER_DROUGHT)
+            doweather
+
+        case OBJ_EVENT_GFX_ARCHIE:
+            setweather(WEATHER_RAIN)
+            doweather
+
+        case OBJ_EVENT_GFX_WALLY:
+            setweather(WEATHER_FOG_HORIZONTAL)
+            doweather
+
+        case OBJ_EVENT_GFX_BRENDAN_NORMAL:
+            setweather(WEATHER_UNDERWATER_BUBBLES)
+            doweather
+    }
+}
+
+script Rogue_MiniBoss_IntroSpeech
+{
+}
+
+script Rogue_MiniBoss_KickOffBattle
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case OBJ_EVENT_GFX_MAXIE:
+            msgbox(format("MAXIE: Don't think I'll let you through lightly!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAXIE_MAGMA_HIDEOUT, 0, format("Well that was unexpected..."))
+
+        case OBJ_EVENT_GFX_ARCHIE:
+            msgbox(format("ARCHIE: Don't think I'll let you through lightly!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ARCHIE, 0, format("Well that was unexpected..."))
+
+        case OBJ_EVENT_GFX_WALLY:
+            msgbox(format("WALLY: Oh hey!\nWill you battle with me!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_WALLY_VR_1, 0, format("What a fun fight!"))
+
+        case OBJ_EVENT_GFX_BRENDAN_NORMAL:
+            msgbox(format("{PLAYER}: ... ... ..."))
+            checkplayergender
+            switch(var(VAR_RESULT))
+            {
+                case 0: // STYLE_EMR_BRENDAN
+                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_BRENDAN_PLACEHOLDER, 0, format("...!"))
+                case 1: // STYLE_EMR_MAY
+                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAY_PLACEHOLDER, 0, format("...!"))
+                case 2: // STYLE_RED
+                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_RED, 0, format("...!"))
+                case 3: // STYLE_LEAF
+                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_LEAF, 0, format("...!"))
+            }
+        
+        default:
+            msgbox(format("UNEXPECTED TRAINER INDEX"))
+    }
+}

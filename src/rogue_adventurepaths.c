@@ -381,7 +381,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = min(2 * gRogueRun.currentDifficulty, 40);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(10 * gRogueRun.currentDifficulty, 70);
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
     }
@@ -390,7 +390,6 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     switch(currScratch->nextRoomType)
     {
         case ADVPATH_ROOM_LEGENDARY:
-            weights[ADVPATH_ROOM_MINIBOSS] += 250; // Pretty much always gonna be before a legendary
             weights[ADVPATH_ROOM_RESTSTOP] = 0;
             weights[ADVPATH_ROOM_NONE] = 0;
             break;
@@ -467,6 +466,10 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
 
         case ADVPATH_ROOM_LEGENDARY:
             nodeInfo->roomParams.roomIdx = Rogue_SelectLegendaryEncounterRoom();
+            break;
+
+        case ADVPATH_ROOM_MINIBOSS:
+            nodeInfo->roomParams.roomIdx = Rogue_SelectMiniBossEncounterRoom();
             break;
 
         case ADVPATH_ROOM_ROUTE:
@@ -1046,6 +1049,11 @@ void RogueAdv_ExecuteNodeAction()
             case ADVPATH_ROOM_LEGENDARY:
                 warp.mapGroup = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].group;
                 warp.mapNum = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_MINIBOSS:
+                warp.mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
+                warp.mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
                 break;
         }
         

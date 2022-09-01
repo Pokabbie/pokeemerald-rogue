@@ -14,8 +14,11 @@ script Rogue_Battle_Boss13
 
     msgbox(format("...\p...\p...\pSTEVEN: You did well to make it here...\pNow...\pFor one last time..."))
 
-    //setweather(WEATHER_SUNNY_CLOUDS)
-    //doweather
+    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
+    {
+        setweather(WEATHER_SANDSTORM)
+        doweather
+    }
 
     applymovement(BOSS_NPC, BossToFightBoss13)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13)
