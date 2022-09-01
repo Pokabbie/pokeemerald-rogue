@@ -151,6 +151,8 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
         heldItem[1] = item >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
     }
+
+    Rogue_ModifyEventMon(&gEnemyParty[0]);
 }
 
 void ScriptSetMonMoveSlot(u8 monIndex, u16 move, u8 slot)

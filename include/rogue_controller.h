@@ -54,6 +54,7 @@ u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectBossRoom(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
 u8 Rogue_SelectMiniBossEncounterRoom(void);
+u8 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_Battle_StartTrainerBattle(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);
@@ -66,6 +67,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
+void Rogue_ModifyEventMon(struct Pokemon* mon);
 
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
 void Rogue_RandomisePartyMon(void);

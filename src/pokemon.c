@@ -2803,6 +2803,8 @@ void CreateEventLegalEnemyMon(void)
         heldItem[1] = itemId >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
     }
+
+    Rogue_ModifyEventMon(&gEnemyParty[0]);
 }
 
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
