@@ -579,7 +579,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
-            // Keep default calc
+            u8 difficulty = gRogueRun.currentDifficulty;
+            *money = (difficulty + 1) * 1000;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
@@ -1739,9 +1740,33 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             case ADVPATH_ROOM_MINIBOSS:
             {
                 u16 encounterId = gRouteMiniBossEncounters.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
-                VarSet(VAR_OBJ_GFX_ID_0, encounterId);
 
                 RandomiseEnabledItems(); // We only want this for the item content tbf
+
+                if(encounterId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                {
+                    switch(gSaveBlock2Ptr->playerGender)
+                    {
+                        case(STYLE_EMR_BRENDAN):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            break;
+                        case(STYLE_EMR_MAY):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            break;
+
+                        case(STYLE_RED):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            break;
+                        case(STYLE_LEAF):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                    };
+                }
+                else
+                {
+                    VarSet(VAR_OBJ_GFX_ID_0, encounterId);
+                }
+
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, encounterId);
 
                 // Weather
@@ -1975,6 +2000,20 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
+static bool8 IsMirrorTrainer(u16 trainerNum)
+{
+    switch(trainerNum)
+    {
+        case TRAINER_RED:
+        case TRAINER_LEAF:
+        case TRAINER_BRENDAN_PLACEHOLDER:
+        case TRAINER_MAY_PLACEHOLDER:
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
 static bool8 IsMiniBossTrainer(u16 trainerNum)
 {
     switch(trainerNum)
@@ -2048,6 +2087,12 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
 
+    if(IsMirrorTrainer(trainerNum))
+    {
+        *monsCount = gPlayerPartyCount;
+        return;
+    }
+
     switch(trainerNum)
     {
         case TRAINER_ROXANNE_1:
@@ -2120,6 +2165,15 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
         case TRAINER_ARCHIE:
             forceType[0] = TYPE_WATER;
             forceType[1] = TYPE_DARK;
+            break;
+
+        case TRAINER_WALLY_VR_1:
+            forceType[0] = TYPE_PSYCHIC;
+#ifdef ROGUE_EXPANSION
+            forceType[1] = TYPE_FAIRY;
+#else
+            forceType[1] = TYPE_FIGHTING;
+#endif
             break;
     };
 
@@ -2447,6 +2501,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         return SPECIES_CHANSEY;
     }
 
+    if(IsMirrorTrainer(trainerNum))
+    {
+        return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+    }
+
     if(monIdx >= queryCount)
     {
         // Apply the fallback query (If we have one)
@@ -2516,14 +2575,28 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
-static bool8 SelectNextPreset(u16 species, u16 randFlag, struct RogueMonPreset* outPreset)
+static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset)
 {
     u8 randOffset;
     u8 i;
     bool8 isPresetValid;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
-    if(presetCount != 0)
+    
+    if(IsMirrorTrainer(trainerNum))
+    {
+        // Populate mon preset based on exact same team
+        outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+        outPreset->abilityNum = GetMonData(&gPlayerParty[monIdx], MON_DATA_ABILITY_NUM);
+
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
+        }
+
+        return TRUE;
+    }
+    else if(presetCount != 0)
     {
         const struct RogueMonPreset* currPreset;
         randOffset = RogueRandomRange(presetCount, randFlag);
@@ -2741,7 +2814,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         // Loop incase we already have 4 moves
         writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-        if(SelectNextPreset(species, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
+        if(SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         {
             // We need to set the ability index
             for(i; i < 3; ++i)

@@ -11947,7 +11947,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BRENDAN_PLACEHOLDER ] =
     {
         .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_BRENDAN,
         .trainerName = _("BRENDAN"),
@@ -11961,7 +11961,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MAY_PLACEHOLDER] =
     {
         .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_MAY,
         .trainerName = _("MAY"),
@@ -12208,6 +12208,20 @@ const struct Trainer gTrainers[] = {
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_TEAM_AQUA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
+        .trainerName = _("CHALLENGER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_RoguePlaceholder),
+        .party = {.NoItemDefaultMoves = sParty_RoguePlaceholder},
+    },
+
+    [TRAINER_ROGUE_POKEMANIAC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_POKEMANIAC,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
         .trainerName = _("CHALLENGER"),
