@@ -374,33 +374,43 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
         weights[ADVPATH_ROOM_WILD_DEN] = 40;
-        weights[ADVPATH_ROOM_GAMESHOW] = 40;
-        weights[ADVPATH_ROOM_GRAVEYARD] = 40;
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
     else
     {
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
             // Going to predict when we're likely to have a legendary encounter
-            weights[ADVPATH_ROOM_MINIBOSS] = min(20 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(10 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_GAMESHOW] = min(10 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 400);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 500);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(20 * gRogueRun.currentDifficulty, 500);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 400);
+            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
             weights[ADVPATH_ROOM_LEGENDARY] = ((u16)gRogueRun.currentDifficulty * 150) %  400;
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = min(20 * gRogueRun.currentDifficulty, 700);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(10 * gRogueRun.currentDifficulty, 700);
-            weights[ADVPATH_ROOM_GAMESHOW] = min(10 * gRogueRun.currentDifficulty, 700);
-            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(20 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
+            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
     }
 
+    if(nodeX == 0)
+    {
+        // Less likely in first column
+        weights[ADVPATH_ROOM_MINIBOSS] /= 2;
+        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] /= 2;
+        weights[ADVPATH_ROOM_GAMESHOW] /= 2;
+        weights[ADVPATH_ROOM_GRAVEYARD] /= 2;
+    }
+
     if(gRogueRun.currentDifficulty <= 3)
     {
-        weights[ADVPATH_ROOM_GRAVEYARD] = 40;
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
 
     // Now we've applied the default weights for this column, consider what out next encounter is
@@ -514,21 +524,20 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            switch(RogueRandomRange(7, OVERWORLD_FLAG))
+            switch(RogueRandomRange(6, OVERWORLD_FLAG))
             {
                 case 0:
                 case 1:
-                case 2:
                     nodeInfo->roomParams.perType.route.difficulty = 0;
                     break;
 
+                case 2:
                 case 3:
                 case 4:
-                case 5:
                     nodeInfo->roomParams.perType.route.difficulty = 1;
                     break;
 
-                //case 6:
+                //case 5:
                 default:
                     nodeInfo->roomParams.perType.route.difficulty = 2;
                     break;
