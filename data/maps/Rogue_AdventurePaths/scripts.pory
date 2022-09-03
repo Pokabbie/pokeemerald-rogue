@@ -8,8 +8,9 @@ const ADVPATH_ROOM_ROUTE = 1
 const ADVPATH_ROOM_RESTSTOP = 2
 const ADVPATH_ROOM_LEGENDARY = 3
 const ADVPATH_ROOM_MINIBOSS = 4
+const ADVPATH_ROOM_WILD_DEN = 5
 // ADVPATH_ROOM_COUNT
-const ADVPATH_ROOM_BOSS = 6
+const ADVPATH_ROOM_BOSS = 7
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
@@ -49,6 +50,9 @@ script Rogue_AdventurePaths_InteractNodeInternal
 
         case ADVPATH_ROOM_MINIBOSS:
             msgbox(format("It's a Strong Trainer!\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_WILD_DEN:
+            msgbox(format("It's the home of a Strong POKéMON!\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))

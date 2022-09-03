@@ -265,7 +265,7 @@ static bool8 IsFinalEvolution(u16 species)
     return TRUE;
 }
 
-static bool8 IsSpeciesLegendary(u16 species)
+bool8 IsSpeciesLegendary(u16 species)
 {
     switch(species)
     {

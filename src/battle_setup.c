@@ -528,13 +528,18 @@ void BattleSetup_StartLatiBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
+bool8 IsSpeciesLegendary(u16 species);
+
 void BattleSetup_StartLegendaryBattle(void)
 {
+    u16 species;
     ScriptContext2_Enable();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
 
-    switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+    species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+
+    switch (species)
     {
     case SPECIES_GROUDON:
         gBattleTypeFlags |= BATTLE_TYPE_GROUDON;
@@ -571,7 +576,10 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
 
     default:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_RAYQUAZA);
+        if(IsSpeciesLegendary(species))
+            CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_RAYQUAZA);
+        else
+            CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD);
         break;
     }
 

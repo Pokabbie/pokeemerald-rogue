@@ -122,6 +122,9 @@ static u8 CalculateWildLevel(void);
 static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
+static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
+static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void ResetTrainerBattles(void);
@@ -1526,6 +1529,26 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
     return bossId;
 }
 
+u8 Rogue_SelectWildDenEncounterRoom(void)
+{
+    u16 queryCount;
+
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
+    RogueQuery_SpeciesIsNotLegendary();
+    RogueQuery_TransformToEggSpecies();
+
+    RogueQuery_EvolveSpeciesToLevel(CalculatePlayerLevel());
+    RogueQuery_EvolveSpeciesByItem(); // Item evos included
+
+    // Have to use uncollapsed queries as this query is too large otherwise
+    queryCount = RogueQuery_UncollapsedSpeciesSize();
+
+    return RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+}
+
 u8 Rogue_SelectRouteRoom(void)
 {
     u8 mapCount;
@@ -1734,6 +1757,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 ResetSpecialEncounterStates();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                break;
+            }
+
+            case ADVPATH_ROOM_WILD_DEN:
+            {
+                ResetSpecialEncounterStates();
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.roomIdx);
                 break;
             }
 
@@ -2525,18 +2555,13 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     return species;
 }
 
-#ifdef ROGUE_EXPANSION
 extern const struct LevelUpMove *const gLevelUpLearnsets[];
-#else
-extern const u16 *const gLevelUpLearnsets[];
-#endif
 
-bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
+static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
 {
     u16 eggSpecies;
     s32 i;
 
-#ifdef ROGUE_EXPANSION
     for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
     {
         u16 moveLevel;
@@ -2544,17 +2569,8 @@ bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
         if(move == gLevelUpLearnsets[species][i].move)
         {
             moveLevel = gLevelUpLearnsets[species][i].level;
-#else
-    for (i = 0; gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
-    {
-        u16 moveLevel;
 
-        if(move == (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID))
-        {
-            moveLevel = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV);
-#endif
-
-            if (moveLevel > (level << 9))
+            if (moveLevel > level)
                 return FALSE;
 
             return TRUE;
@@ -2726,12 +2742,76 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     return FALSE;
 }
 
+static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
+{
+    u16 i;
+    u16 move;
+    u16 heldItem;
+    u8 writeMoveIdx;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    bool8 useMaxHappiness = TRUE;
+
+    // We want to start writing the move from the first free slot and loop back around
+    for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
+    {
+        move = GetMonData(mon, MON_DATA_MOVE1 + i);
+        if(move == MOVE_NONE)
+            break;
+    }
+
+    // Loop incase we already have 4 moves
+    writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
+
+    // We need to set the ability index
+    for(i; i < 3; ++i)
+    {
+#ifdef ROGUE_EXPANSION
+        if(preset->abilityNum != ABILITY_NONE)
+        {
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+        }
+        else
+        {
+            // Ability is set
+            break;
+        }
+#endif
+    }
+
+    if(preset->heldItem != ITEM_NONE)
+    {
+        SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+    }
+
+    // Teach moves from set that we can learn at this lvl
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        move = preset->moves[i]; 
+
+        if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
+        {
+            if(move == MOVE_FRUSTRATION)
+                useMaxHappiness = FALSE;
+
+            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+
+            // Loop back round
+            writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
+        }
+    }
+
+    move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
+}
+
 
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
     u8 level;
     u8 fixedIV;
+    struct RogueMonPreset preset;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
@@ -2794,71 +2874,8 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #endif
 
-    if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount))
-    {
-        u16 i;
-        u16 move;
-        u16 heldItem;
-        u8 writeMoveIdx;
-        struct RogueMonPreset preset;
-        bool8 useMaxHappiness = TRUE;
-
-        // We want to start writing the move from the first free slot and loop back around
-        for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
-        {
-            move = GetMonData(mon, MON_DATA_MOVE1 + i);
-            if(move == MOVE_NONE)
-                break;
-        }
-
-        // Loop incase we already have 4 moves
-        writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
-
-        if(SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
-        {
-            // We need to set the ability index
-            for(i; i < 3; ++i)
-            {
-#ifdef ROGUE_EXPANSION
-                if(preset.abilityNum != ABILITY_NONE)
-                {
-                    SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
-                }
-                else
-                {
-                    // Ability is set
-                    break;
-                }
-#endif
-            }
-
-            if(preset.heldItem != ITEM_NONE)
-            {
-                SetMonData(mon, MON_DATA_HELD_ITEM, &preset.heldItem);
-            }
-
-            // Teach moves from set that we can learn at this lvl
-            for (i = 0; i < MAX_MON_MOVES; i++)
-            {
-                move = preset.moves[i]; 
-
-                if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
-                {
-                    if(move == MOVE_FRUSTRATION)
-                        useMaxHappiness = FALSE;
-
-                    SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
-                    SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
-
-                    // Loop back round
-                    writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
-                }
-            }
-        }
-
-        move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
-        SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
-    }
+    if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
+        ApplyMonPreset(mon, level, &preset);
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
@@ -2911,7 +2928,29 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
     *level = CalculateWildLevel();
-} 
+}
+
+void Rogue_ModifyEventMon(struct Pokemon* mon)
+{
+    u16 presetIndex;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u8 presetCount = gPresetMonTable[species].presetCount;
+    u16 statA = (Random() % 6);
+    u16 statB = (statA + 1 + (Random() % 5)) % 6;
+    u16 temp = 31;
+
+    if(presetCount != 0)
+    {
+        presetIndex = Random() % presetCount;
+        ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+    }
+
+    SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+    SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+    temp = 0;
+    SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+}
 
 static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
 {
@@ -3422,7 +3461,7 @@ static u8 CalculateWildLevel(void)
         return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
     }
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
         // Basically at player level
         return playerLevel - 2;

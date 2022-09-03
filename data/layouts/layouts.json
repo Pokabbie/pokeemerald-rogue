@@ -4910,6 +4910,16 @@
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Rogue_Encounter_MiniBoss/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_MiniBoss/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_DEN",
+      "name": "Rogue_Encounter_Den_Layout",
+      "width": 11,
+      "height": 15,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Rogue_Encounter_Den/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Den/map.bin"
     }
   ]
 }
