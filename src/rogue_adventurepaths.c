@@ -148,6 +148,8 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
 
         case ADVPATH_ROOM_MINIBOSS:
         case ADVPATH_ROOM_WILD_DEN:
+        case ADVPATH_ROOM_GAMESHOW:
+        case ADVPATH_ROOM_GRAVEYARD:
             *breakChance = 2;
             *extraSplitChance = 50;
             break;
@@ -312,8 +314,8 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     u16 targetWeight;
     u8 i;
 
-    // 50 is default weight
-    memset(&weights[0], 50, sizeof(u8) * ARRAY_COUNT(weights));
+    // 500 is default weight
+    memset(&weights[0], 500, sizeof(u8) * ARRAY_COUNT(weights));
 
     if(nodeX == columnCount - 1)
     {
@@ -327,12 +329,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
         // Very unlikely at end
-        weights[ADVPATH_ROOM_ROUTE] = 20;
+        weights[ADVPATH_ROOM_ROUTE] = 200;
     }
     else
     {
         // Most common
-        weights[ADVPATH_ROOM_ROUTE] = 200;
+        weights[ADVPATH_ROOM_ROUTE] = 2000;
     }
 
     // NONE / Skip encounters
@@ -346,24 +348,24 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         if(gRogueRun.currentDifficulty >= 8 && nodeY <= CENTRE_ROW_IDX)
         {
             // Lower routes are much more likely to have skips
-            weights[ADVPATH_ROOM_NONE] = 300;
+            weights[ADVPATH_ROOM_NONE] = 3000;
         }
         else
         {
             // Unlikely but not impossible
-            weights[ADVPATH_ROOM_NONE] = 20;
+            weights[ADVPATH_ROOM_NONE] = 200;
         }
     }
 
     // Rest stops
     if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
     {
-        weights[ADVPATH_ROOM_RESTSTOP] = 100;
+        weights[ADVPATH_ROOM_RESTSTOP] = 1000;
     }
     else
     {
         // Unlikely but not impossible
-        weights[ADVPATH_ROOM_RESTSTOP] = 20;
+        weights[ADVPATH_ROOM_RESTSTOP] = 200;
     }
 
     // Legendaries/Mini encounters
@@ -371,23 +373,44 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     {
         weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        weights[ADVPATH_ROOM_WILD_DEN] = 10;
+        weights[ADVPATH_ROOM_WILD_DEN] = 40;
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
     else
     {
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
             // Going to predict when we're likely to have a legendary encounter
-            weights[ADVPATH_ROOM_MINIBOSS] = min(3 * gRogueRun.currentDifficulty, 40);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(2 * gRogueRun.currentDifficulty, 40);
-            weights[ADVPATH_ROOM_LEGENDARY] = ((u16)gRogueRun.currentDifficulty * 15) %  40;
+            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 500);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(20 * gRogueRun.currentDifficulty, 500);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 400);
+            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
+            weights[ADVPATH_ROOM_LEGENDARY] = ((u16)gRogueRun.currentDifficulty * 150) %  400;
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = min(6 * gRogueRun.currentDifficulty, 70);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(4 * gRogueRun.currentDifficulty, 70);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(20 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
+            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
+    }
+
+    if(nodeX == 0)
+    {
+        // Less likely in first column
+        weights[ADVPATH_ROOM_MINIBOSS] /= 2;
+        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] /= 2;
+        weights[ADVPATH_ROOM_GAMESHOW] /= 2;
+        weights[ADVPATH_ROOM_GRAVEYARD] /= 2;
+    }
+
+    if(gRogueRun.currentDifficulty <= 3)
+    {
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
 
     // Now we've applied the default weights for this column, consider what out next encounter is
@@ -405,12 +428,20 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             weights[ADVPATH_ROOM_MINIBOSS] = 0;
             break;
 
+        case ADVPATH_ROOM_GAMESHOW:
+            weights[ADVPATH_ROOM_GAMESHOW] = 0;
+            break;
+
+        case ADVPATH_ROOM_GRAVEYARD:
+            weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+            break;
+
         case ADVPATH_ROOM_RESTSTOP:
             weights[ADVPATH_ROOM_RESTSTOP] = 0;
             break;
 
         case ADVPATH_ROOM_ROUTE:
-            weights[ADVPATH_ROOM_NONE] += 30;
+            weights[ADVPATH_ROOM_NONE] += 300;
             break;
 
         case ADVPATH_ROOM_NONE:
@@ -483,25 +514,30 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
             nodeInfo->roomParams.roomIdx = Rogue_SelectWildDenEncounterRoom();
             break;
 
+        case ADVPATH_ROOM_GAMESHOW:
+            break;
+
+        case ADVPATH_ROOM_GRAVEYARD:
+            break;
+
         case ADVPATH_ROOM_ROUTE:
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            switch(RogueRandomRange(7, OVERWORLD_FLAG))
+            switch(RogueRandomRange(6, OVERWORLD_FLAG))
             {
                 case 0:
                 case 1:
-                case 2:
                     nodeInfo->roomParams.perType.route.difficulty = 0;
                     break;
 
+                case 2:
                 case 3:
                 case 4:
-                case 5:
                     nodeInfo->roomParams.perType.route.difficulty = 1;
                     break;
 
-                //case 6:
+                //case 5:
                 default:
                     nodeInfo->roomParams.perType.route.difficulty = 2;
                     break;
@@ -690,6 +726,12 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 
         case ADVPATH_ROOM_WILD_DEN:
             return OBJ_EVENT_GFX_GRASS_CUSHION;
+
+        case ADVPATH_ROOM_GAMESHOW:
+            return OBJ_EVENT_GFX_CONTEST_JUDGE;
+
+        case ADVPATH_ROOM_GRAVEYARD:
+            return OBJ_EVENT_GFX_HEX_MANIAC;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?
@@ -1073,6 +1115,16 @@ void RogueAdv_ExecuteNodeAction()
             case ADVPATH_ROOM_WILD_DEN:
                 warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_DEN);
                 warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_DEN);
+                break;
+
+            case ADVPATH_ROOM_GAMESHOW:
+                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GAME_SHOW);
+                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
+                break;
+
+            case ADVPATH_ROOM_GRAVEYARD:
+                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GRAVEYARD);
+                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_GRAVEYARD);
                 break;
         }
         

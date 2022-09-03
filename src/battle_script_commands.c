@@ -14431,9 +14431,11 @@ static void Cmd_rogue_partyhasroom(void)
 {
     if(Rogue_IsRunActive())
     {
+        u8 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE)
+
         RemoveAnyFaintedMons(FALSE);
 
-        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+        if (CalculatePlayerPartyCount() >= partySize)
         {
             // Continue
             gBattlescriptCurrInstr += 5;

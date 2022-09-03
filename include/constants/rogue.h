@@ -2,7 +2,7 @@
 #define GUARD_ROGUE_H
 
 //#define ROGUE_DEBUG
-#define ROGUE_DEBUG_STEAL_TEAM
+//#define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
 
@@ -24,6 +24,8 @@ enum RogueAdvPathRoomType
     ADVPATH_ROOM_LEGENDARY,
     ADVPATH_ROOM_MINIBOSS,
     ADVPATH_ROOM_WILD_DEN,
+    ADVPATH_ROOM_GAMESHOW,
+    ADVPATH_ROOM_GRAVEYARD,
     ADVPATH_ROOM_COUNT,
 
     // Special cases are excluded from count

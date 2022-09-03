@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/abilities.h"
+#include "constants/battle.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/items.h"
@@ -184,7 +185,7 @@ bool8 Rogue_FastBattleAnims(void)
 {
     if(Rogue_IsRunActive() && 
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
     {
         return TRUE;
@@ -1366,8 +1367,9 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-    
+
     SaveHubInventory();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
@@ -1418,6 +1420,8 @@ static void EndRogueRun(void)
 {
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_SET_SEED_ENABLED);
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore money and give reward here too, as it's a bit easier
@@ -1756,6 +1760,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             case ADVPATH_ROOM_LEGENDARY:
             {
                 ResetSpecialEncounterStates();
+                RandomiseEnabledTrainers();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
                 break;
             }
@@ -2075,7 +2080,7 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
-    if(difficultyModifier == 2) // HARD
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
     {
         // For regular trainers, Last and first mon can have competitive sets
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
@@ -2202,7 +2207,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
 #ifdef ROGUE_EXPANSION
             forceType[1] = TYPE_FAIRY;
 #else
-            forceType[1] = TYPE_FIGHTING;
+            forceType[1] = TYPE_GRASS;
 #endif
             break;
     };
@@ -3068,7 +3073,27 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsInPocket(POCKET_TM_HM);
             RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
 
-            RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
+
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                // Do nothing
+            }
+            else if(Rogue_IsRunActive())
+            {
+                if(difficulty <= 0)
+                    itemCapacity = 5;
+                else if(difficulty <= 3)
+                    itemCapacity = 10;
+                else if(difficulty <= 5)
+                    itemCapacity = 15;
+                else if(difficulty <= 7)
+                    itemCapacity = 20;
+            }
+            else
+            {
+                RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
+            }
+
             break;
 
         case ROGUE_SHOP_BATTLE_ENHANCERS:
@@ -3093,9 +3118,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 500;
-            else
                 *minSalePrice = 1000;
+            else
+                *minSalePrice = 1500;
 
             break;
 
@@ -3126,7 +3151,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 500;
+                *minSalePrice = 1000;
             else
                 *minSalePrice = 2000;
             break;
@@ -3249,6 +3274,127 @@ void Rogue_RandomisePartyMon(void)
         SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
     }
 }
+
+void Rogue_AlterMonIVs(void)
+{
+    const u16 delta = 10;
+
+    u16 statId;
+    u16 ivAmount;
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 statOp = gSpecialVar_0x8005;
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            for(statId = MON_DATA_HP_IV; statId <= MON_DATA_SPDEF_IV; ++statId)
+            {
+                ivAmount = GetMonData(&gPlayerParty[i], statId);
+
+                if(statOp == 0)
+                {
+                    ivAmount += delta;
+                    ivAmount = min(31, ivAmount);
+                }
+                else
+                {
+                    if(ivAmount < delta)
+                        ivAmount = 0;
+                    else
+                        ivAmount -= delta;
+                }
+
+                SetMonData(&gPlayerParty[i], statId, &ivAmount);
+                CalculateMonStats(&gPlayerParty[i]);
+            }
+        }
+    }
+    else
+    {
+        // Modify just 1 mon
+        for(statId = MON_DATA_HP_IV; statId <= MON_DATA_SPDEF_IV; ++statId)
+        {
+            ivAmount = GetMonData(&gPlayerParty[monIdx], statId);
+
+            if(statOp == 0)
+            {
+                ivAmount += delta;
+                ivAmount = min(31, ivAmount);
+            }
+            else
+            {
+                if(ivAmount < delta)
+                    ivAmount = 0;
+                else
+                    ivAmount -= delta;
+            }
+
+            SetMonData(&gPlayerParty[monIdx], statId, &ivAmount);
+            CalculateMonStats(&gPlayerParty[monIdx]);
+        }
+    }
+}
+
+void Rogue_ApplyStatusToMon(void)
+{
+    u16 statusAilment;
+    u16 monIdx = gSpecialVar_0x8004;
+
+    switch(gSpecialVar_0x8005)
+    {
+        case 0:
+            statusAilment = STATUS1_POISON;
+            break;
+
+        case 1:
+            statusAilment = STATUS1_PARALYSIS;
+            break;
+
+        case 2:
+            statusAilment = STATUS1_SLEEP;
+            break;
+
+        case 3:
+            statusAilment = STATUS1_FREEZE;
+            break;
+
+        case 4:
+            statusAilment = STATUS1_BURN;
+            break;
+    }
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_STATUS, &statusAilment);
+        }
+    }
+    else
+    {
+        SetMonData(&gPlayerParty[monIdx], MON_DATA_STATUS, &statusAilment);
+    }
+}
+
+void Rogue_ReducePartySize(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        RemoveMonAtSlot(monIdx, TRUE);
+    }
+
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, VarGet(VAR_ROGUE_MAX_PARTY_SIZE) - 1);
+}
+
 
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
 {
@@ -3545,6 +3691,10 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
             // Not boss trainer so must be EXP trainer
             return prevBossLevel;
         }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+        {
+            return nextBossLevel - 5;
+        }
 
         if(difficultyModifier == 0) // Easy
         {
@@ -3575,7 +3725,7 @@ static bool8 RogueRandomChanceTrainer()
     if(difficultyModifier == 0) // Easy
         chance = max(0, chance - 25);
     else if(difficultyModifier == 2) // Hard
-        chance = max(20, chance);
+        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent
     else
         chance = max(10, chance);
 
@@ -3646,18 +3796,40 @@ static bool8 RogueRandomChanceBerry()
 
 static void RandomiseEnabledTrainers(void)
 {
-    s32 i;
-    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    u16 i;
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
     {
-        if(RogueRandomChanceTrainer())
+        u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
+
+        // Only enable 1 trainer for legendary room
+        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
         {
-            // Clear flag to show
-            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            if(i == randTrainer)
+            {
+                // Clear flag to show
+                FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            }
+            else
+            {
+                // Set flag to hide
+                FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            }
         }
-        else
+    }
+    else
+    {
+        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
         {
-            // Set flag to hide
-            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            if(RogueRandomChanceTrainer())
+            {
+                // Clear flag to show
+                FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            }
+            else
+            {
+                // Set flag to hide
+                FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            }
         }
     }
 }
