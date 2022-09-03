@@ -185,7 +185,7 @@ bool8 Rogue_FastBattleAnims(void)
 {
     if(Rogue_IsRunActive() && 
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
     {
         return TRUE;
@@ -1760,6 +1760,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             case ADVPATH_ROOM_LEGENDARY:
             {
                 ResetSpecialEncounterStates();
+                RandomiseEnabledTrainers();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
                 break;
             }
@@ -2079,7 +2080,7 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
-    if(difficultyModifier == 2) // HARD
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
     {
         // For regular trainers, Last and first mon can have competitive sets
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
@@ -2206,7 +2207,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
 #ifdef ROGUE_EXPANSION
             forceType[1] = TYPE_FAIRY;
 #else
-            forceType[1] = TYPE_FIGHTING;
+            forceType[1] = TYPE_GRASS;
 #endif
             break;
     };
@@ -3072,7 +3073,27 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsInPocket(POCKET_TM_HM);
             RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
 
-            RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
+
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                // Do nothing
+            }
+            else if(Rogue_IsRunActive())
+            {
+                if(difficulty <= 0)
+                    itemCapacity = 5;
+                else if(difficulty <= 3)
+                    itemCapacity = 10;
+                else if(difficulty <= 5)
+                    itemCapacity = 15;
+                else if(difficulty <= 7)
+                    itemCapacity = 20;
+            }
+            else
+            {
+                RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
+            }
+
             break;
 
         case ROGUE_SHOP_BATTLE_ENHANCERS:
@@ -3097,9 +3118,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 500;
-            else
                 *minSalePrice = 1000;
+            else
+                *minSalePrice = 1500;
 
             break;
 
@@ -3130,7 +3151,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 500;
+                *minSalePrice = 1000;
             else
                 *minSalePrice = 2000;
             break;
@@ -3670,6 +3691,10 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
             // Not boss trainer so must be EXP trainer
             return prevBossLevel;
         }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+        {
+            return nextBossLevel - 5;
+        }
 
         if(difficultyModifier == 0) // Easy
         {
@@ -3771,18 +3796,40 @@ static bool8 RogueRandomChanceBerry()
 
 static void RandomiseEnabledTrainers(void)
 {
-    s32 i;
-    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    u16 i;
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
     {
-        if(RogueRandomChanceTrainer())
+        u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
+
+        // Only enable 1 trainer for legendary room
+        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
         {
-            // Clear flag to show
-            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            if(i == randTrainer)
+            {
+                // Clear flag to show
+                FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            }
+            else
+            {
+                // Set flag to hide
+                FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            }
         }
-        else
+    }
+    else
+    {
+        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
         {
-            // Set flag to hide
-            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            if(RogueRandomChanceTrainer())
+            {
+                // Clear flag to show
+                FlagClear(FLAG_ROGUE_TRAINER_START + i);
+            }
+            else
+            {
+                // Set flag to hide
+                FlagSet(FLAG_ROGUE_TRAINER_START + i);
+            }
         }
     }
 }

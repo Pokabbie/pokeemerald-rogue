@@ -572,59 +572,64 @@ void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
 
 void RogueQuery_EvolveSpeciesToLevel(u8 level)
 {
+    u8 i;
     u8 e;
     u16 species;
     bool8 removeChild = TRUE;
     struct Evolution evo;
 
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    // Loop twice to support baby mons from future gens (e.g. azuril line)
+    for(i = 0; i < 2; ++i)
     {
-        if(GetQueryState(species))
+        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
         {
-            for(e = 0; e < EVOS_PER_MON; ++e)
+            if(GetQueryState(species))
             {
-                Rogue_ModifyEvolution(species, e, &evo);
+                for(e = 0; e < EVOS_PER_MON; ++e)
+                {
+                    Rogue_ModifyEvolution(species, e, &evo);
 
-                if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(species)))
-                {
-                    // If the baby mon didn't exist for the enabled gen we will force it to evolve
-                    SetQueryState(evo.targetSpecies, TRUE);
-                    if(removeChild)
+                    if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(species)))
                     {
-                        SetQueryState(species, FALSE);
-                    }
-                }
-                else
-                {
-                    switch(evo.method)
-                    {
-                    case EVO_LEVEL:
-                    case EVO_LEVEL_ATK_GT_DEF:
-                    case EVO_LEVEL_ATK_EQ_DEF:
-                    case EVO_LEVEL_ATK_LT_DEF:
-                    case EVO_LEVEL_SILCOON:
-                    case EVO_LEVEL_CASCOON:
-                    case EVO_LEVEL_NINJASK:
-                    case EVO_LEVEL_SHEDINJA:
-#ifdef ROGUE_EXPANSION
-                    case EVO_LEVEL_FEMALE:
-                    case EVO_LEVEL_MALE:
-                    case EVO_LEVEL_DAY:
-                    case EVO_LEVEL_DUSK:
-                    case EVO_LEVEL_NATURE_AMPED:
-                    case EVO_LEVEL_NATURE_LOW_KEY:
-                    case EVO_CRITICAL_HITS:
-#endif
-                    if (evo.param <= level)
-                    {
+                        // If the baby mon didn't exist for the enabled gen we will force it to evolve
                         SetQueryState(evo.targetSpecies, TRUE);
                         if(removeChild)
                         {
                             SetQueryState(species, FALSE);
                         }
                     }
-                    break;
-                    };
+                    else
+                    {
+                        switch(evo.method)
+                        {
+                        case EVO_LEVEL:
+                        case EVO_LEVEL_ATK_GT_DEF:
+                        case EVO_LEVEL_ATK_EQ_DEF:
+                        case EVO_LEVEL_ATK_LT_DEF:
+                        case EVO_LEVEL_SILCOON:
+                        case EVO_LEVEL_CASCOON:
+                        case EVO_LEVEL_NINJASK:
+                        case EVO_LEVEL_SHEDINJA:
+    #ifdef ROGUE_EXPANSION
+                        case EVO_LEVEL_FEMALE:
+                        case EVO_LEVEL_MALE:
+                        case EVO_LEVEL_DAY:
+                        case EVO_LEVEL_DUSK:
+                        case EVO_LEVEL_NATURE_AMPED:
+                        case EVO_LEVEL_NATURE_LOW_KEY:
+                        case EVO_CRITICAL_HITS:
+    #endif
+                        if (evo.param <= level)
+                        {
+                            SetQueryState(evo.targetSpecies, TRUE);
+                            if(removeChild)
+                            {
+                                SetQueryState(species, FALSE);
+                            }
+                        }
+                        break;
+                        };
+                    }
                 }
             }
         }
