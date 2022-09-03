@@ -4930,6 +4930,16 @@
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/Rogue_Encounter_GameShow/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_GameShow/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_GRAVEYARD",
+      "name": "Rogue_Encounter_Graveyard_Layout",
+      "width": 27,
+      "height": 19,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Rogue_Encounter_Graveyard/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Graveyard/map.bin"
     }
   ]
 }

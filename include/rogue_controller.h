@@ -73,5 +73,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
 void Rogue_RandomisePartyMon(void);
 void Rogue_AlterMonIVs(void);
 void Rogue_ApplyStatusToMon(void);
+void Rogue_ReducePartySize(void);
 
 #endif

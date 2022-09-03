@@ -971,8 +971,10 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
 
 static bool8 RenderPartyMenuBoxes(void)
 {
+    u8 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+    
     RenderPartyMenuBox(sPartyMenuInternal->data[0]);
-    if (++sPartyMenuInternal->data[0] == PARTY_SIZE)
+    if (++sPartyMenuInternal->data[0] == partySize)
         return TRUE;
     else
         return FALSE;

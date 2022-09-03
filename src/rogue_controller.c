@@ -1367,8 +1367,9 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-    
+
     SaveHubInventory();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
@@ -1419,6 +1420,8 @@ static void EndRogueRun(void)
 {
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_SET_SEED_ENABLED);
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
     //gRogueRun.currentRoomIdx = 0;
 
     // Restore money and give reward here too, as it's a bit easier
@@ -3357,6 +3360,18 @@ void Rogue_ApplyStatusToMon(void)
     {
         SetMonData(&gPlayerParty[monIdx], MON_DATA_STATUS, &statusAilment);
     }
+}
+
+void Rogue_ReducePartySize(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        RemoveMonAtSlot(monIdx, TRUE);
+    }
+
+    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, VarGet(VAR_ROGUE_MAX_PARTY_SIZE) - 1);
 }
 
 
