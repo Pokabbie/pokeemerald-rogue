@@ -3725,7 +3725,7 @@ static bool8 RogueRandomChanceTrainer()
     if(difficultyModifier == 0) // Easy
         chance = max(0, chance - 25);
     else if(difficultyModifier == 2) // Hard
-        chance = max(20, chance);
+        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent
     else
         chance = max(10, chance);
 
