@@ -71,5 +71,7 @@ void Rogue_ModifyEventMon(struct Pokemon* mon);
 
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
 void Rogue_RandomisePartyMon(void);
+void Rogue_AlterMonIVs(void);
+void Rogue_ApplyStatusToMon(void);
 
 #endif

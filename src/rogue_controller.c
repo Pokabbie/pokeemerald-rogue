@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/abilities.h"
+#include "constants/battle.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/items.h"
@@ -3249,6 +3250,115 @@ void Rogue_RandomisePartyMon(void)
         SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
     }
 }
+
+void Rogue_AlterMonIVs(void)
+{
+    const u16 delta = 10;
+
+    u16 statId;
+    u16 ivAmount;
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 statOp = gSpecialVar_0x8005;
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            for(statId = MON_DATA_HP_IV; statId <= MON_DATA_SPDEF_IV; ++statId)
+            {
+                ivAmount = GetMonData(&gPlayerParty[i], statId);
+
+                if(statOp == 0)
+                {
+                    ivAmount += delta;
+                    ivAmount = min(31, ivAmount);
+                }
+                else
+                {
+                    if(ivAmount < delta)
+                        ivAmount = 0;
+                    else
+                        ivAmount -= delta;
+                }
+
+                SetMonData(&gPlayerParty[i], statId, &ivAmount);
+                CalculateMonStats(&gPlayerParty[i]);
+            }
+        }
+    }
+    else
+    {
+        // Modify just 1 mon
+        for(statId = MON_DATA_HP_IV; statId <= MON_DATA_SPDEF_IV; ++statId)
+        {
+            ivAmount = GetMonData(&gPlayerParty[monIdx], statId);
+
+            if(statOp == 0)
+            {
+                ivAmount += delta;
+                ivAmount = min(31, ivAmount);
+            }
+            else
+            {
+                if(ivAmount < delta)
+                    ivAmount = 0;
+                else
+                    ivAmount -= delta;
+            }
+
+            SetMonData(&gPlayerParty[monIdx], statId, &ivAmount);
+            CalculateMonStats(&gPlayerParty[monIdx]);
+        }
+    }
+}
+
+void Rogue_ApplyStatusToMon(void)
+{
+    u16 statusAilment;
+    u16 monIdx = gSpecialVar_0x8004;
+
+    switch(gSpecialVar_0x8005)
+    {
+        case 0:
+            statusAilment = STATUS1_POISON;
+            break;
+
+        case 1:
+            statusAilment = STATUS1_PARALYSIS;
+            break;
+
+        case 2:
+            statusAilment = STATUS1_SLEEP;
+            break;
+
+        case 3:
+            statusAilment = STATUS1_FREEZE;
+            break;
+
+        case 4:
+            statusAilment = STATUS1_BURN;
+            break;
+    }
+
+    if(monIdx == 255)
+    {
+        // Entire team
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_STATUS, &statusAilment);
+        }
+    }
+    else
+    {
+        SetMonData(&gPlayerParty[monIdx], MON_DATA_STATUS, &statusAilment);
+    }
+}
+
 
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
 {

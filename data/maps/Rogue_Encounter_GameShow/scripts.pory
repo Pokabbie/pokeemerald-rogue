@@ -3,6 +3,7 @@ const NPC_BOX_RIGHT = 1
 const NPC_HOST = 2
 
 const VAR_GAMESHOW_STAGE = VAR_TEMP_1
+const VAR_GOOD_BOX = VAR_TEMP_2
 
 mapscripts Rogue_Encounter_GameShow_MapScripts 
 {
@@ -17,7 +18,7 @@ script Rogue_Encounter_GameShow_TriggerIntro
     applymovement(NPC_HOST, GameShow_Host_Spin)
     waitmovement(0)
 
-    msgbox(format("Welcome to my ever so lovingly setup GAME SHOW!\pThis game is simple!\nYou'll get 2 choices...\pOne might be good...\nOne might be bad..!\pNow!\nOn to Round 1!"), MSGBOX_DEFAULT)
+    msgbox(format("Welcome to my ever so lovingly setup GAME SHOW!\pThis game is simple!\nYou'll get 2 choices...\pOne might be good...\nOne might be bad...!\pNow!\nOn to Round 1!"), MSGBOX_DEFAULT)
 
     call(Rogue_Encounter_GameShow_DropBoxes)
 
@@ -44,6 +45,9 @@ script Rogue_Encounter_GameShow_RestoreBoxes
 
 script Rogue_Encounter_GameShow_DropBoxes
 {
+    random(2)
+    copyvar(VAR_GOOD_BOX, VAR_RESULT)
+
     waitse
     playse(SE_FALL)
     waitse
@@ -92,9 +96,195 @@ script Rogue_Encounter_GameShow_Finish
     setobjectxyperm(NPC_HOST, 7, 0)
 }
 
-script Rogue_Encounter_GameShow_ChooseInternal
+script Rogue_Encounter_GameShow_DisplayGood
 {
-    msgbox(format("TODO"))
+    playse(SE_DING_DONG)
+    waitse
+
+    msgbox(format("Well chosen!"), MSGBOX_DEFAULT)
+    
+    random(5)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            addmoney(20000)
+            msgbox(format("You just got an extra ¥20000!"), MSGBOX_DEFAULT)
+
+        case 1:
+            specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+            random(VAR_RESULT)
+            copyvar(VAR_0x8004, VAR_RESULT)
+            special(BufferMonNickname)
+
+            setvar(VAR_0x8005, 0)
+            special(Rogue_AlterMonIVs)
+            msgbox(format("{STR_VAR_1} just got a bit stronger!"), MSGBOX_DEFAULT)
+
+        case 2:
+            setvar(VAR_0x8004, 255)
+            setvar(VAR_0x8005, 0)
+            special(Rogue_AlterMonIVs)
+            msgbox(format("All of your POKéMON all just got a bit stronger!"), MSGBOX_DEFAULT)
+
+        case 3:
+            random(10)
+            msgbox(format("You will recieve a special item!"), MSGBOX_DEFAULT)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    giveitem(ITEM_MAX_POTION, 3)
+
+                case 1:
+                    giveitem(ITEM_FULL_RESTORE, 3)
+
+                case 2:
+                    giveitem(ITEM_MASTER_BALL, 1)
+
+                case 3:
+                    giveitem(ITEM_TM26_EARTHQUAKE, 1)
+
+                case 4:
+                    giveitem(ITEM_TM15_HYPER_BEAM, 1)
+
+                case 5:
+                    giveitem(ITEM_TM14_BLIZZARD, 1)
+
+                case 6:
+                    giveitem(ITEM_TM38_FIRE_BLAST, 1)
+
+                case 7:
+                    giveitem(ITEM_TM25_THUNDER, 1)
+
+                case 8:
+                    giveitem(ITEM_POKE_BALL, 50)
+
+                case 9:
+                    giveitem(ITEM_ULTRA_BALL, 20)
+            }
+
+        case 4:
+            special(HealPlayerParty)
+            msgbox(format("All of your POKéMON all just got all healed up!"), MSGBOX_DEFAULT)
+    }
+    
+
+    call(Rogue_Encounter_GameShow_NextRound)
+}
+
+script Rogue_Encounter_GameShow_DisplayBad
+{
+    //playse(SE_FAINT)
+    //playse(SE_CLICK)
+    playse(SE_BOO)
+    waitse
+    msgbox(format("Oh no..."), MSGBOX_DEFAULT)
+
+    random(9)
+
+    // TODO - Neutral bad, just shuffles bag item orders
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            removemoney(20000)
+            msgbox(format("You just lost ¥20000."), MSGBOX_DEFAULT)
+
+        case 1:
+            specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+            random(VAR_RESULT)
+            copyvar(VAR_0x8004, VAR_RESULT)
+            special(BufferMonNickname)
+
+            setvar(VAR_0x8005, 1)
+            special(Rogue_AlterMonIVs)
+            msgbox(format("{STR_VAR_1} just got a bit weaker."), MSGBOX_DEFAULT)
+
+        case 2:
+            setvar(VAR_0x8004, 255)
+            setvar(VAR_0x8005, 1)
+            special(Rogue_AlterMonIVs)
+            msgbox(format("All of your POKéMON all just got a bit weaker."), MSGBOX_DEFAULT)
+            
+        case 3:
+            specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+            random(VAR_RESULT)
+            copyvar(VAR_0x8004, VAR_RESULT)
+            special(BufferMonNickname)
+
+            special(Rogue_RandomisePartyMon)
+            msgbox(format("Oh no!\n{STR_VAR_1} was traded away."), MSGBOX_DEFAULT)
+
+        case 4:
+            specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+            random(VAR_RESULT)
+            copyvar(VAR_0x8004, VAR_RESULT)
+            special(BufferMonNickname)
+
+            random(5)
+            copyvar(VAR_0x8005, VAR_RESULT)
+
+            special(Rogue_ApplyStatusToMon)
+
+            switch(var(VAR_0x8005))
+            {
+                case 0:
+                    msgbox(format("{STR_VAR_1} is now poisoned."), MSGBOX_DEFAULT)
+
+                case 1:
+                    msgbox(format("{STR_VAR_1} is now paralyzed."), MSGBOX_DEFAULT)
+
+                case 2:
+                    msgbox(format("{STR_VAR_1} is now sleeping."), MSGBOX_DEFAULT)
+
+                case 3:
+                    msgbox(format("{STR_VAR_1} is now frozen."), MSGBOX_DEFAULT)
+
+                case 4:
+                    msgbox(format("{STR_VAR_1} is now burnt."), MSGBOX_DEFAULT)
+            }
+
+        case 5:
+            setvar(VAR_0x8004, 255)
+
+            random(5)
+            copyvar(VAR_0x8005, VAR_RESULT)
+
+            special(Rogue_ApplyStatusToMon)
+
+            switch(var(VAR_0x8005))
+            {
+                case 0:
+                    msgbox(format("All of your POKéMON are now poisoned."), MSGBOX_DEFAULT)
+
+                case 1:
+                    msgbox(format("All of your POKéMON are now paralyzed."), MSGBOX_DEFAULT)
+
+                case 2:
+                    msgbox(format("All of your POKéMON are now sleeping."), MSGBOX_DEFAULT)
+
+                case 3:
+                    msgbox(format("All of your POKéMON are now frozen."), MSGBOX_DEFAULT)
+
+                case 4:
+                    msgbox(format("All of your POKéMON are now burnt."), MSGBOX_DEFAULT)
+            }
+
+        // Pad out the bottom with lesser bad things
+        case 6:
+            removemoney(100)
+            msgbox(format("You just lost ¥100."), MSGBOX_DEFAULT)
+
+        case 7:
+            removemoney(1000)
+            msgbox(format("You just lost ¥1000."), MSGBOX_DEFAULT)
+
+        case 8:
+            removemoney(10000)
+            msgbox(format("You just lost ¥10000."), MSGBOX_DEFAULT)
+    }
+
     call(Rogue_Encounter_GameShow_NextRound)
 }
 
@@ -108,7 +298,15 @@ script Rogue_Encounter_GameShow_ChooseLeft
     if(var(VAR_RESULT) == YES)
     {
         msgbox(format("The LEFT it is!"), MSGBOX_DEFAULT)
-        call(Rogue_Encounter_GameShow_ChooseInternal)
+
+        if(var(VAR_GOOD_BOX) == 0)
+        {
+            call(Rogue_Encounter_GameShow_DisplayGood)
+        }
+        else
+        {
+            call(Rogue_Encounter_GameShow_DisplayBad)
+        }
     }
 
     release
@@ -124,7 +322,15 @@ script Rogue_Encounter_GameShow_ChooseRight
     if(var(VAR_RESULT) == YES)
     {
         msgbox(format("The RIGHT it is!"), MSGBOX_DEFAULT)
-        call(Rogue_Encounter_GameShow_ChooseInternal)
+
+        if(var(VAR_GOOD_BOX) == 0)
+        {
+            call(Rogue_Encounter_GameShow_DisplayBad)
+        }
+        else
+        {
+            call(Rogue_Encounter_GameShow_DisplayGood)
+        }
     }
 
     release
