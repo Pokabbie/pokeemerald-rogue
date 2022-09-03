@@ -2860,7 +2860,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     else
         fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 
-    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
+    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
     {
         // Team average is something like -2, -1, -1, 0
         level--;
