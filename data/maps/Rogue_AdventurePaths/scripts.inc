@@ -27,17 +27,18 @@ Rogue_AdventurePaths_InteractNodeInternal::
 	lock
 	special RogueAdv_GetNodeParams
 	switch VAR_0x8005
-	case 7, Rogue_AdventurePaths_InteractNodeInternal_3
+	case 8, Rogue_AdventurePaths_InteractNodeInternal_3
 	case 4, Rogue_AdventurePaths_InteractNodeInternal_4
 	case 5, Rogue_AdventurePaths_InteractNodeInternal_5
-	case 2, Rogue_AdventurePaths_InteractNodeInternal_6
-	case 1, Rogue_AdventurePaths_InteractNodeInternal_7
-	case 3, Rogue_AdventurePaths_InteractNodeInternal_8
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_6, MSGBOX_YESNO
+	case 6, Rogue_AdventurePaths_InteractNodeInternal_6
+	case 2, Rogue_AdventurePaths_InteractNodeInternal_7
+	case 1, Rogue_AdventurePaths_InteractNodeInternal_8
+	case 3, Rogue_AdventurePaths_InteractNodeInternal_9
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_7, MSGBOX_YESNO
 Rogue_AdventurePaths_InteractNodeInternal_1:
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_AdventurePaths_InteractNodeInternal_11
-Rogue_AdventurePaths_InteractNodeInternal_10:
+	goto_if_eq Rogue_AdventurePaths_InteractNodeInternal_12
+Rogue_AdventurePaths_InteractNodeInternal_11:
 	release
 	return
 
@@ -55,32 +56,32 @@ Rogue_AdventurePaths_InteractNodeInternal_5:
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
 Rogue_AdventurePaths_InteractNodeInternal_6:
-	switch VAR_0x8006
-	case 0, Rogue_AdventurePaths_InteractNodeInternal_14
-	case 1, Rogue_AdventurePaths_InteractNodeInternal_15
-	case 2, Rogue_AdventurePaths_InteractNodeInternal_16
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_6, MSGBOX_YESNO
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_3, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
 Rogue_AdventurePaths_InteractNodeInternal_7:
 	switch VAR_0x8006
-	case 0, Rogue_AdventurePaths_InteractNodeInternal_19
-	case 1, Rogue_AdventurePaths_InteractNodeInternal_20
-	case 2, Rogue_AdventurePaths_InteractNodeInternal_21
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_6, MSGBOX_YESNO
+	case 0, Rogue_AdventurePaths_InteractNodeInternal_15
+	case 1, Rogue_AdventurePaths_InteractNodeInternal_16
+	case 2, Rogue_AdventurePaths_InteractNodeInternal_17
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_7, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
 Rogue_AdventurePaths_InteractNodeInternal_8:
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_10, MSGBOX_YESNO
+	switch VAR_0x8006
+	case 0, Rogue_AdventurePaths_InteractNodeInternal_20
+	case 1, Rogue_AdventurePaths_InteractNodeInternal_21
+	case 2, Rogue_AdventurePaths_InteractNodeInternal_22
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_7, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
-Rogue_AdventurePaths_InteractNodeInternal_11:
+Rogue_AdventurePaths_InteractNodeInternal_9:
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_11, MSGBOX_YESNO
+	goto Rogue_AdventurePaths_InteractNodeInternal_1
+
+Rogue_AdventurePaths_InteractNodeInternal_12:
 	special RogueAdv_ExecuteNodeAction
-	goto Rogue_AdventurePaths_InteractNodeInternal_10
-
-Rogue_AdventurePaths_InteractNodeInternal_14:
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_3, MSGBOX_YESNO
-	goto Rogue_AdventurePaths_InteractNodeInternal_1
+	goto Rogue_AdventurePaths_InteractNodeInternal_11
 
 Rogue_AdventurePaths_InteractNodeInternal_15:
 	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_4, MSGBOX_YESNO
@@ -90,8 +91,8 @@ Rogue_AdventurePaths_InteractNodeInternal_16:
 	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_5, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
-Rogue_AdventurePaths_InteractNodeInternal_19:
-	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_7, MSGBOX_YESNO
+Rogue_AdventurePaths_InteractNodeInternal_17:
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_6, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
 Rogue_AdventurePaths_InteractNodeInternal_20:
@@ -100,6 +101,10 @@ Rogue_AdventurePaths_InteractNodeInternal_20:
 
 Rogue_AdventurePaths_InteractNodeInternal_21:
 	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_9, MSGBOX_YESNO
+	goto Rogue_AdventurePaths_InteractNodeInternal_1
+
+Rogue_AdventurePaths_InteractNodeInternal_22:
+	msgbox Rogue_AdventurePaths_InteractNodeInternal_Text_10, MSGBOX_YESNO
 	goto Rogue_AdventurePaths_InteractNodeInternal_1
 
 
@@ -211,33 +216,37 @@ Rogue_AdventurePaths_InteractNodeInternal_Text_2:
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_3:
-	.string "It's a Healing Rest Stop.\n"
+	.string "It's a... Game Show?\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_4:
-	.string "It's a Mart Rest Stop.\n"
+	.string "It's a Healing Rest Stop.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_5:
-	.string "It's a Battle Prep. Rest Stop.\n"
+	.string "It's a Mart Rest Stop.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_6:
-	.string "??\n"
+	.string "It's a Battle Prep. Rest Stop.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_7:
-	.string "It's a CALM {STR_VAR_1} route.\n"
+	.string "??\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_8:
-	.string "It's an AVERAGE {STR_VAR_1} route.\n"
+	.string "It's a CALM {STR_VAR_1} route.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_9:
-	.string "It's an TOUGH {STR_VAR_1} route.\n"
+	.string "It's an AVERAGE {STR_VAR_1} route.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_10:
+	.string "It's an TOUGH {STR_VAR_1} route.\n"
+	.string "Enter this encounter?$"
+
+Rogue_AdventurePaths_InteractNodeInternal_Text_11:
 	.string "It's a Powerful POKéMON!\n"
 	.string "Enter this encounter?$"

@@ -148,6 +148,7 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
 
         case ADVPATH_ROOM_MINIBOSS:
         case ADVPATH_ROOM_WILD_DEN:
+        case ADVPATH_ROOM_GAMESHOW:
             *breakChance = 2;
             *extraSplitChance = 50;
             break;
@@ -372,20 +373,23 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
         weights[ADVPATH_ROOM_WILD_DEN] = 10;
+        weights[ADVPATH_ROOM_GAMESHOW] = 10;
     }
     else
     {
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
             // Going to predict when we're likely to have a legendary encounter
-            weights[ADVPATH_ROOM_MINIBOSS] = min(3 * gRogueRun.currentDifficulty, 40);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(2 * gRogueRun.currentDifficulty, 40);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(2 * gRogueRun.currentDifficulty, 40);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(1 * gRogueRun.currentDifficulty, 40);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(1 * gRogueRun.currentDifficulty, 40);
             weights[ADVPATH_ROOM_LEGENDARY] = ((u16)gRogueRun.currentDifficulty * 15) %  40;
         }
         else
         {
-            weights[ADVPATH_ROOM_MINIBOSS] = min(6 * gRogueRun.currentDifficulty, 70);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(4 * gRogueRun.currentDifficulty, 70);
+            weights[ADVPATH_ROOM_MINIBOSS] = min(3 * gRogueRun.currentDifficulty, 70);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(2 * gRogueRun.currentDifficulty, 70);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(2 * gRogueRun.currentDifficulty, 70);
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
     }
@@ -403,6 +407,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         case ADVPATH_ROOM_MINIBOSS:
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
             weights[ADVPATH_ROOM_MINIBOSS] = 0;
+            break;
+
+        case ADVPATH_ROOM_GAMESHOW:
+            weights[ADVPATH_ROOM_GAMESHOW] = 0;
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
@@ -481,6 +489,9 @@ static void CreateEventParams(struct RogueAdvPathNode* nodeInfo, struct AdvEvent
 
         case ADVPATH_ROOM_WILD_DEN:
             nodeInfo->roomParams.roomIdx = Rogue_SelectWildDenEncounterRoom();
+            break;
+
+        case ADVPATH_ROOM_GAMESHOW:
             break;
 
         case ADVPATH_ROOM_ROUTE:
@@ -690,6 +701,9 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 
         case ADVPATH_ROOM_WILD_DEN:
             return OBJ_EVENT_GFX_GRASS_CUSHION;
+
+        case ADVPATH_ROOM_GAMESHOW:
+            return OBJ_EVENT_GFX_CONTEST_JUDGE;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?
@@ -1073,6 +1087,11 @@ void RogueAdv_ExecuteNodeAction()
             case ADVPATH_ROOM_WILD_DEN:
                 warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_DEN);
                 warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_DEN);
+                break;
+
+            case ADVPATH_ROOM_GAMESHOW:
+                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GAME_SHOW);
+                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
                 break;
         }
         

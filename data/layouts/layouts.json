@@ -4920,6 +4920,16 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Rogue_Encounter_Den/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Den/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_GAME_SHOW",
+      "name": "Rogue_Encounter_GameShow_Layout",
+      "width": 15,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/Rogue_Encounter_GameShow/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_GameShow/map.bin"
     }
   ]
 }
