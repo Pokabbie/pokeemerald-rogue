@@ -397,10 +397,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             weights[ADVPATH_ROOM_RESTSTOP] = 0;
             weights[ADVPATH_ROOM_NONE] = 0;
             weights[ADVPATH_ROOM_WILD_DEN] = 0;
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
             break;
 
         case ADVPATH_ROOM_MINIBOSS:
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            weights[ADVPATH_ROOM_MINIBOSS] = 0;
             break;
 
         case ADVPATH_ROOM_RESTSTOP:

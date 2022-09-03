@@ -1835,6 +1835,7 @@ static void ChangeTab(u8 taskId, s8 delta)
     else
         sMonSummaryScreen->currTabIndex += delta;
 
+    PlaySE(SE_SELECT);
     PrintPageNamesAndStats();
     PrintPageSpecificText(sMonSummaryScreen->currPageIndex);
     LimitEggSummaryPageDisplay();
