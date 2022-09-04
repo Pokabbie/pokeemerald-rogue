@@ -19,6 +19,7 @@
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "safari_zone.h"
@@ -94,10 +95,18 @@ struct RogueTrainerTemp
 #endif
 };
 
+struct RouteMonPreview
+{
+    u16 species;
+    u8 monSpriteId;
+    bool8 isVisible;
+};
+
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     struct RogueTrainerTemp trainerTemp;
+    struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
     
 #ifdef ROGUE_SUPPORT_QUICK_SAVE
     // We encode all our save data as box data :D
@@ -125,6 +134,8 @@ static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+
+static u8 GetCurrentWildEncounterCount(void);
 
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
@@ -920,7 +931,7 @@ bool8 IsDynamaxEnabled(void)
 #endif
 }
 
-#ifdef ROGUE_DEBUG
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -1002,6 +1013,15 @@ u8* Rogue_GetMiniMenuContent(void)
 
     return gStringVar4;
 }
+
+void Rogue_CreateMiniMenuExtraGFX(void)
+{
+}
+
+void Rogue_RemoveMiniMenuExtraGFX(void)
+{
+}
+
 #else
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -1024,7 +1044,74 @@ u8* Rogue_GetMiniMenuContent(void)
 
     return gStringVar4;
 }
+
+void Rogue_CreateMiniMenuExtraGFX(void)
+{
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        //LoadMonIconPalettes();
+
+        for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
+        {
+            if(gRogueLocal.encounterPreview[i].isVisible)
+            {
+                gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
+
+                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+
+                if(i < 3)
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0, TRUE);
+                else
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, TRUE);
+            }
+            else
+            {
+                gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
+
+                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+
+                if(i < 3)
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0);
+                else
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
+            }
+
+            gSprites[gRogueLocal.encounterPreview[i].monSpriteId].oam.priority = 9;
+        }
+    }
 #endif
+}
+
+void Rogue_RemoveMiniMenuExtraGFX(void)
+{
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
+        {
+            //if(gRogueLocal.encounterPreview[i].species != SPECIES_NONE)
+            FreeMonIconPalette(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species));
+
+            if(gRogueLocal.encounterPreview[i].monSpriteId != SPRITE_NONE)
+                FreeAndDestroyMonIconSprite(&gSprites[gRogueLocal.encounterPreview[i].monSpriteId]);
+
+            gRogueLocal.encounterPreview[i].monSpriteId = SPRITE_NONE;
+        }
+
+        //FreeMonIconPalettes();
+    }
+#endif
+}
+
+#endif
+
+
+
 
 static void SelectStartMons(void)
 {
@@ -1365,6 +1452,7 @@ static void BeginRogueRun(void)
     gRogueAdvPath.currentColumnCount = 0;
     gRogueAdvPath.currentNodeX = 0;
     gRogueAdvPath.currentNodeY = 0;
+    gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
@@ -1431,6 +1519,7 @@ static void EndRogueRun(void)
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     //gRogueRun.currentRoomIdx = 0;
+    gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
     // Restore money and give reward here too, as it's a bit easier
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
@@ -2922,6 +3011,20 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         ApplyMonPreset(mon, level, &preset);
 }
 
+static u8 GetCurrentWildEncounterCount()
+{
+    u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+    u8 difficultyModifier = GetRoomTypeDifficulty();
+
+    if(difficultyModifier == 2) // Hard route
+    {
+        // Less encounters on hard route
+        count = 2;
+    }
+
+    return count;
+}
+
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     // Note: Don't seed individual encounters
@@ -2962,6 +3065,8 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
                 *species = gRogueRun.wildEncounters[randIdx];
             }
             while(!GetSafariZoneFlag() && (difficultyModifier != 2) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
+
+            gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
             *level = maxlevel - (Random() % levelVariation);
@@ -3495,6 +3600,7 @@ static void RandomiseWildEncounters(void)
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
+            gRogueLocal.encounterPreview[i].isVisible = FALSE;
             gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }

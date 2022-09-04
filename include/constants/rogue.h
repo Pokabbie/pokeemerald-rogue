@@ -2,11 +2,13 @@
 #define GUARD_ROGUE_H
 
 #define ROGUE_DEBUG
+//#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 
 //#define ROGUE_EXPANSION
 
 #define ROGUE_SUPPORT_QUICK_SAVE
+#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];

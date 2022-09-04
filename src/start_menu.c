@@ -145,7 +145,7 @@ static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
-#ifdef ROGUE_DEBUG
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
 static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 20, 0xF, 8};
 #else
 static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 6, 0xF, 8};
@@ -459,6 +459,8 @@ static void ShowRogueRunWindow(void)
     DrawStdWindowFrame(sRogueRunWindowId, FALSE);
     AddTextPrinterParameterized(sRogueRunWindowId, FONT_NORMAL, Rogue_GetMiniMenuContent(), 0, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(sRogueRunWindowId, COPYWIN_GFX);
+
+    Rogue_CreateMiniMenuExtraGFX();
 }
 
 static void ShowExtraStartMenuWindows(void)
@@ -486,6 +488,8 @@ static void RemoveExtraStartMenuWindows(void)
     }
     if (Rogue_ShouldShowMiniMenu())
     {
+        Rogue_RemoveMiniMenuExtraGFX();
+
         ClearStdWindowAndFrameToTransparent(sRogueRunWindowId, FALSE);
         RemoveWindow(sRogueRunWindowId);
     }

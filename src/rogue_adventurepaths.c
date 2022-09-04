@@ -711,6 +711,8 @@ bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         warp->warpId = WARP_ID_NONE;
         warp->x = x + (freshPath ? 1 : 4);
         warp->y = y + 1;
+
+        gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
         return TRUE;
     }
     else
