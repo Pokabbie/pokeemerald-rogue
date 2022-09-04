@@ -1,0 +1,25 @@
+Rogue_Route_WaterFront1_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Rogue_Route_WaterFront1_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rogue_Route_WaterFront1_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	.byte 0
+
+Rogue_Route_WaterFront1_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_1, 0, Rogue_Common_TurnPlayerEast
+	.2byte 0
+
+Rogue_Route_WaterFront1_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 0, Rogue_Route_WaterFront1_OnFrame0
+	.2byte 0
+
+
+Rogue_Route_WaterFront1_OnFrame0::
+	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Route_WaterFront1_OnFrame0_2
+Rogue_Route_WaterFront1_OnFrame0_1:
+	setvar VAR_TEMP_1, 1
+	end
+
+Rogue_Route_WaterFront1_OnFrame0_2:
+	setweather WEATHER_FOG_DIAGONAL
+	doweather
+	goto Rogue_Route_WaterFront1_OnFrame0_1
+

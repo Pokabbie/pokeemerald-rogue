@@ -7,12 +7,12 @@
 
 #define ROGUE_EXPANSION
 
-#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
+//#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_ROUTE_COUNT 9
+#define ROGUE_ROUTE_COUNT 12
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7
@@ -73,7 +73,7 @@ struct RogueRunData
     u8 currentLevelOffset;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[8];
+    u16 routeHistoryBuffer[10];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
     u16 wildEncounterHistoryBuffer[3];

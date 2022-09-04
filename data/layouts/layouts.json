@@ -4940,6 +4940,36 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/Rogue_Encounter_Graveyard/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Graveyard/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_WATER_FRONT1",
+      "name": "Rogue_Route_WaterFront1_Layout",
+      "width": 40,
+      "height": 100,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_WaterFront1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_WaterFront1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN3",
+      "name": "Rogue_Route_Mountain3_Layout",
+      "width": 100,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Rogue_Route_Mountain3/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Mountain3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_URBAN1",
+      "name": "Rogue_Route_Urban1_Layout",
+      "width": 134,
+      "height": 21,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Urban1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Urban1/map.bin"
     }
   ]
 }
