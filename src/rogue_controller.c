@@ -3223,14 +3223,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 5;
-                else if(difficulty <= 3)
-                    itemCapacity = 10;
-                else if(difficulty <= 5)
-                    itemCapacity = 15;
-                else if(difficulty <= 7)
-                    itemCapacity = 20;
+                if(difficulty <= 7)
+                    itemCapacity = 5 + difficulty * 2;
             }
             else
             {
