@@ -4960,6 +4960,16 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Rogue_Route_Mountain3/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Mountain3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_URBAN1",
+      "name": "Rogue_Route_Urban1_Layout",
+      "width": 134,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Urban1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Urban1/map.bin"
     }
   ]
 }
