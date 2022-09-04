@@ -7,7 +7,7 @@
 
 //#define ROGUE_EXPANSION
 
-#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
+//#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
