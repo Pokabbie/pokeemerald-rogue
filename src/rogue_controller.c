@@ -1058,9 +1058,9 @@ void Rogue_CreateMiniMenuExtraGFX(void)
                 LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
 
                 if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0, TRUE);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0);
                 else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, TRUE);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
             }
             else
             {
