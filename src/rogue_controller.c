@@ -3641,8 +3641,7 @@ static u8 CalculateWildLevel(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        // Basically at player level
-        return playerLevel - 2;
+        return playerLevel - 5;
     }
 
     if(playerLevel < 10)
