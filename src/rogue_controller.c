@@ -1837,6 +1837,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             case ADVPATH_ROOM_LEGENDARY:
             {
                 ResetSpecialEncounterStates();
+                ResetTrainerBattles();
                 RandomiseEnabledTrainers();
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
                 break;
