@@ -229,7 +229,7 @@ Rogue_AdventurePaths_InteractNodeInternal_Text_4:
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_5:
-	.string "It's a Healing Rest Stop.\n"
+	.string "It's a Full Rest Stop.\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_6:
