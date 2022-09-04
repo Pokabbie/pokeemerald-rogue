@@ -81,6 +81,7 @@ struct RogueTrainerTemp
 {
     u32 seedToRestore;
     u8 allowedType[2];
+    u8 disallowedType[2];
     bool8 allowItemEvos;
     bool8 allowLedgendaries;
     bool8 hasAppliedFallback;
@@ -2207,7 +2208,7 @@ static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
     gRngRogueValue = seed + trainerNum * 3 + offset * 7;
 }
 
-static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
+static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
 
@@ -2233,6 +2234,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, bool8* allowItemEvos
             break;
         case TRAINER_NORMAN_1:
             *forceType = TYPE_NORMAL;
+            *disabledType = TYPE_FLYING; // Too many normal flyings
             break;
         case TRAINER_WINONA_1:
             *forceType = TYPE_FLYING;
@@ -2460,6 +2462,15 @@ static void ApplyTrainerQuery(u16 trainerNum)
             RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
     }
 
+    // Disable types
+    if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
+    {
+        if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
+            RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
+        else
+            RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
+    }
+
     if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_MAXIE_MAGMA_HIDEOUT)
     {
         RogueQuery_Include(SPECIES_GROUDON);
@@ -2525,7 +2536,14 @@ static void ApplyFallbackTrainerQuery(u16 trainerNum)
         case TYPE_ICE:
             hasFallback = TRUE;
             gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            gRogueLocal
+            .trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
+        case TYPE_NORMAL:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GHOST;
             break;
     }
 
@@ -2547,8 +2565,11 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
         gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
 
+        gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
+        gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
+
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
-        ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
+        ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.disallowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
 
         ApplyTrainerQuery(trainerNum);
 

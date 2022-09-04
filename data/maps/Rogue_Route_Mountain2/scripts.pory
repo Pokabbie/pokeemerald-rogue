@@ -1,5 +1,6 @@
 mapscripts Rogue_Route_Mountain2_MapScripts 
 {
+    MAP_SCRIPT_ON_RESUME: Rogue_Route_Mountain2_OnResume
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
     [
         VAR_TEMP_1, 0: Rogue_Common_TurnPlayerSouth
@@ -9,6 +10,11 @@ mapscripts Rogue_Route_Mountain2_MapScripts
         VAR_TEMP_1, 0: Rogue_Route_Mountain2_OnFrame0
         //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
     ]
+}
+
+script Rogue_Route_Mountain2_OnResume
+{
+    setstepcallback(STEP_CB_ASH)
 }
 
 script Rogue_Route_Mountain2_OnFrame0

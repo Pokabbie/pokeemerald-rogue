@@ -486,6 +486,22 @@ void RogueQuery_SpeciesOfType(u8 type)
     }
 }
 
+void RogueQuery_SpeciesNotOfType(u8 type)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(IsSpeciesType(species, type))
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
 void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
 {
     u8 t;
@@ -503,6 +519,37 @@ void RogueQuery_SpeciesOfTypes(const u8* types, u8 count)
                     continue;
 
                 if(IsSpeciesType(species, types[t]))
+                {
+                    isValid = TRUE;
+                    break;
+                }
+            }
+
+            if(!isValid)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesNotOfTypes(const u8* types, u8 count)
+{
+    u8 t;
+    bool8 isValid;
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            isValid = FALSE;
+            for(t = 0; t < count; ++t)
+            {
+                if(types[t] == TYPE_NONE)
+                    continue;
+
+                if(!IsSpeciesType(species, types[t]))
                 {
                     isValid = TRUE;
                     break;
