@@ -18,6 +18,7 @@ void LoadMonIconPalettes(void);
 void LoadMonIconPalette(u16 species);
 void FreeMonIconPalettes(void);
 u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority);
+u8 CreateMissingMonIcon(void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority);
 void FreeMonIconPalette(u16 species);
 void FreeAndDestroyMonIconSprite(struct Sprite *sprite);
 u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality);

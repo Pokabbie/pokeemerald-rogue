@@ -19,6 +19,7 @@
 #include "money.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "safari_zone.h"
@@ -61,7 +62,6 @@ extern const u8 gText_RogueDebug_Y[];
 #endif
 
 // Box save data
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
 struct RogueBoxSaveData
 {
     u32 encryptionKey;
@@ -76,8 +76,6 @@ struct RogueBoxSaveData
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
-
-#endif
 
 struct RogueTrainerTemp
 {
@@ -94,19 +92,25 @@ struct RogueTrainerTemp
 #endif
 };
 
+struct RouteMonPreview
+{
+    u16 species;
+    u8 monSpriteId;
+    bool8 isVisible;
+};
+
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     struct RogueTrainerTemp trainerTemp;
+    struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
     
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     // We encode all our save data as box data :D
     union
     {
         struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
         struct RogueBoxSaveData raw;
     } saveData;
-#endif
 };
 
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
@@ -125,6 +129,8 @@ static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+
+static u8 GetCurrentWildEncounterCount(void);
 
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
@@ -920,7 +926,7 @@ bool8 IsDynamaxEnabled(void)
 #endif
 }
 
-#ifdef ROGUE_DEBUG
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
@@ -951,7 +957,7 @@ u8* Rogue_GetMiniMenuContent(void)
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
 
-    if(JOY_NEW(R_BUTTON) && gDebug_CurrentTab != 1)
+    if(JOY_NEW(R_BUTTON) && gDebug_CurrentTab != 2)
     {
         ++gDebug_CurrentTab;
     }
@@ -983,18 +989,34 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
     }
-    // Adventur path tab
+    // Adventure path tab
     //
-    else
+    else if(gDebug_CurrentTab == 1)
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_AdvHeader);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueAdvPath.currentColumnCount);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
     }
+    // Misc. debug tab
+    //
+    else
+    {
+        strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount,  VarGet(VAR_REPEL_STEP_COUNT));
+    }
 
     return gStringVar4;
 }
+
+void Rogue_CreateMiniMenuExtraGFX(void)
+{
+}
+
+void Rogue_RemoveMiniMenuExtraGFX(void)
+{
+}
+
 #else
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -1017,7 +1039,74 @@ u8* Rogue_GetMiniMenuContent(void)
 
     return gStringVar4;
 }
+
+void Rogue_CreateMiniMenuExtraGFX(void)
+{
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        //LoadMonIconPalettes();
+
+        for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
+        {
+            if(gRogueLocal.encounterPreview[i].isVisible)
+            {
+                gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
+
+                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+
+                if(i < 3)
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0, TRUE);
+                else
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, TRUE);
+            }
+            else
+            {
+                gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
+
+                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+
+                if(i < 3)
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0);
+                else
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
+            }
+
+            gSprites[gRogueLocal.encounterPreview[i].monSpriteId].oam.priority = 9;
+        }
+    }
 #endif
+}
+
+void Rogue_RemoveMiniMenuExtraGFX(void)
+{
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
+        {
+            //if(gRogueLocal.encounterPreview[i].species != SPECIES_NONE)
+            FreeMonIconPalette(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species));
+
+            if(gRogueLocal.encounterPreview[i].monSpriteId != SPRITE_NONE)
+                FreeAndDestroyMonIconSprite(&gSprites[gRogueLocal.encounterPreview[i].monSpriteId]);
+
+            gRogueLocal.encounterPreview[i].monSpriteId = SPRITE_NONE;
+        }
+
+        //FreeMonIconPalettes();
+    }
+#endif
+}
+
+#endif
+
+
+
 
 static void SelectStartMons(void)
 {
@@ -1194,7 +1283,6 @@ static void CopyToPocket(u8 pocket, struct ItemSlot* src)
 
 static void SaveHubInventory(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -1212,17 +1300,10 @@ static void SaveHubInventory(void)
     CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
     CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
     CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
-
-#else
-    // Store current states (Use normal save data)
-    SavePlayerParty();
-    LoadPlayerBag(); // Bag funcs named in opposite
-#endif
 }
 
 static void LoadHubInventory(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     for(i = 0; i < PARTY_SIZE; ++i)
@@ -1244,19 +1325,12 @@ static void LoadHubInventory(void)
     CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
 
     //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
-
-#else
-    // Restore current states
-    LoadPlayerParty();
-    SavePlayerBag(); // Bag funcs named in opposite
-#endif
 }
 
 extern const u8 Rogue_QuickSaveLoad[];
 
 void Rogue_OnSaveGame(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
@@ -1271,13 +1345,10 @@ void Rogue_OnSaveGame(void)
     {
         memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
     }
-
-#endif
 }
 
 void Rogue_OnLoadGame(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
@@ -1299,12 +1370,10 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
     }
-#endif
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
@@ -1312,7 +1381,6 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         return TRUE;
     }
 
-#endif
     return FALSE;
 }
 
@@ -1351,17 +1419,19 @@ static void BeginRogueRun(void)
 
     gRogueRun.currentRoomIdx = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
-    gRogueRun.currentLevelOffset = 10;
+    gRogueRun.currentLevelOffset = 5;
     gRogueRun.currentRouteIndex = 0;
 
     // Will get generated later
     gRogueAdvPath.currentColumnCount = 0;
     gRogueAdvPath.currentNodeX = 0;
     gRogueAdvPath.currentNodeY = 0;
+    gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
+    memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1423,6 +1493,7 @@ static void EndRogueRun(void)
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     //gRogueRun.currentRoomIdx = 0;
+    gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
     // Restore money and give reward here too, as it's a bit easier
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
@@ -1513,7 +1584,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 6 && !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) && HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx));
+    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) && (mapCount > 6 || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId))) );
 
     HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
 
@@ -1524,11 +1595,13 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 {
     u8 bossId = 0;
 
-    //do
-    //{
+    do
+    {
         bossId = RogueRandomRange(gRouteMiniBossEncounters.mapCount, OVERWORLD_FLAG);
-    //}
-    //while(false); // TODO - Add buffer support to avoid repeats if possible
+    }
+    while(HistoryBufferContains(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId));
+
+    HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId);
 
     return bossId;
 }
@@ -1663,6 +1736,7 @@ void Rogue_OnWarpIntoMap(void)
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
+
     if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
     {
         // Warping back to hub must be intentional
@@ -1680,6 +1754,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
         }
     }
+
+    // Reset preview data
+    memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
     if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
     {
@@ -1944,6 +2021,19 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
+static bool32 DidPlayerRun(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_RAN:
+    case B_OUTCOME_PLAYER_TELEPORTED:
+    case B_OUTCOME_MON_FLED:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -1993,7 +2083,7 @@ void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueRun.currentLevelOffset)
+        if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
             // Every wild battle drops level cap by 3
             if(gRogueRun.currentLevelOffset < 3)
@@ -2391,6 +2481,12 @@ static void ApplyFallbackTrainerQuery(u16 trainerNum)
             gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
             break;
 
+        case TYPE_PSYCHIC:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
         case TYPE_STEEL:
             hasFallback = TRUE;
             gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
@@ -2767,20 +2863,30 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     // Loop incase we already have 4 moves
     writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-    // We need to set the ability index
-    for(i; i < 3; ++i)
+    if(preset->abilityNum != ABILITY_NONE)
     {
+        // We need to set the ability index
 #ifdef ROGUE_EXPANSION
-        if(preset->abilityNum != ABILITY_NONE)
+        for(i; i < 3; ++i) // 3 to include hidden ability
+#else
+        for(i; i < 2; ++i)
+#endif
         {
             SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+
+            if(GetMonAbility(mon) == preset->abilityNum)
+            {
+                // Ability is set
+                break;
+            }
         }
-        else
+
+        if(i == 4)
         {
-            // Ability is set
-            break;
+            // We failed to set it, so fall back to default
+            i = 0;
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
         }
-#endif
     }
 
     if(preset->heldItem != ITEM_NONE)
@@ -2860,7 +2966,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     else
         fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 
-    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && (!isBoss || difficultyLevel < 4))
+    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
     {
         // Team average is something like -2, -1, -1, 0
         level--;
@@ -2881,6 +2987,20 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
         ApplyMonPreset(mon, level, &preset);
+}
+
+static u8 GetCurrentWildEncounterCount()
+{
+    u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+    u8 difficultyModifier = GetRoomTypeDifficulty();
+
+    if(difficultyModifier == 2) // Hard route
+    {
+        // Less encounters on hard route
+        count = 2;
+    }
+
+    return count;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
@@ -2923,6 +3043,8 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
                 *species = gRogueRun.wildEncounters[randIdx];
             }
             while(!GetSafariZoneFlag() && (difficultyModifier != 2) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
+
+            gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
             *level = maxlevel - (Random() % levelVariation);
@@ -3456,6 +3578,7 @@ static void RandomiseWildEncounters(void)
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
+            gRogueLocal.encounterPreview[i].isVisible = FALSE;
             gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }
@@ -3609,8 +3732,7 @@ static u8 CalculateWildLevel(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        // Basically at player level
-        return playerLevel - 2;
+        return playerLevel - 5;
     }
 
     if(playerLevel < 10)
@@ -3720,12 +3842,12 @@ static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
-    s32 chance = max(10, 5 * difficultyLevel);
+    s32 chance = 4 * (difficultyLevel + 1);
 
     if(difficultyModifier == 0) // Easy
-        chance = max(0, chance - 25);
+        chance = max(5, chance - 20);
     else if(difficultyModifier == 2) // Hard
-        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent
+        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent, but harder
     else
         chance = max(10, chance);
 

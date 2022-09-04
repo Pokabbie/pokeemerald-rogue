@@ -2639,6 +2639,27 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
     return spriteId;
 }
 
+u8 CreateMissingMonIcon(void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority)
+{
+    u8 spriteId;
+    struct MonIconSpriteTemplate iconTemplate =
+    {
+        .oam = &sMonIconOamData,
+        .image = NULL,
+        .anims = sMonIconAnims,
+        .affineAnims = sMonIconAffineAnims,
+        .callback = callback,
+        .paletteTag = POKE_ICON_BASE_PAL_TAG + 0,
+    };
+
+    iconTemplate.image = gMonIcon_QuestionMark;
+    spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
+
+    UpdateMonIconFrame(&gSprites[spriteId]);
+
+    return spriteId;
+}
+
 u16 GetIconSpecies(u16 species, u32 personality)
 {
     u16 result;

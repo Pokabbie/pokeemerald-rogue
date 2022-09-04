@@ -66,7 +66,7 @@ script Rogue_AdventurePaths_InteractNodeInternal
             switch(var(VAR_NODE_PARAM1))
             {
                 case 0:
-                    msgbox(format("It's a Healing Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+                    msgbox(format("It's a Full Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 case 1:
                     msgbox(format("It's a Mart Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)

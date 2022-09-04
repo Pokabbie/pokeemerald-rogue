@@ -31,6 +31,8 @@ const u32* Rogue_ModifyPallete32(const u32* input);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u8* Rogue_GetMiniMenuContent(void);
+void Rogue_CreateMiniMenuExtraGFX(void);
+void Rogue_RemoveMiniMenuExtraGFX(void);
 
 u8 SpeciesToGen(u16 species);
 u8 ItemToGen(u16 item);

@@ -1,12 +1,13 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
+//#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
 
-#define ROGUE_SUPPORT_QUICK_SAVE
+#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
@@ -74,6 +75,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[8];
     u16 legendaryHistoryBuffer[6];
+    u16 miniBossHistoryBuffer[3];
     u16 wildEncounterHistoryBuffer[3];
 };
 
@@ -96,11 +98,9 @@ struct RogueHubData
 // Can at most be 384 bytes
 struct RogueSaveData // 27 Bytes
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u32 rngSeed;
     struct RogueRunData runData;
     struct RogueHubData hubData;
-#endif
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueSaveData) <= 384, RogueSaveDataSize);
