@@ -1087,7 +1087,7 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
-        for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
+        for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
             //if(gRogueLocal.encounterPreview[i].species != SPECIES_NONE)
             FreeMonIconPalette(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species));
@@ -1736,7 +1736,6 @@ void Rogue_OnWarpIntoMap(void)
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
-
     if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
     {
         // Warping back to hub must be intentional
