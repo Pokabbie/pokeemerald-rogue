@@ -1351,7 +1351,7 @@ static void BeginRogueRun(void)
 
     gRogueRun.currentRoomIdx = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
-    gRogueRun.currentLevelOffset = 10;
+    gRogueRun.currentLevelOffset = 5;
     gRogueRun.currentRouteIndex = 0;
 
     // Will get generated later
@@ -1947,6 +1947,19 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
+static bool32 DidPlayerRun(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_RAN:
+    case B_OUTCOME_PLAYER_TELEPORTED:
+    case B_OUTCOME_MON_FLED:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -1996,7 +2009,7 @@ void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueRun.currentLevelOffset)
+        if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
             // Every wild battle drops level cap by 3
             if(gRogueRun.currentLevelOffset < 3)
