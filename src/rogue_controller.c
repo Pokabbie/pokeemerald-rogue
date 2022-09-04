@@ -1362,6 +1362,7 @@ static void BeginRogueRun(void)
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
+    memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1513,7 +1514,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
-    while(mapCount > 6 && !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) && HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx));
+    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) && (mapCount > 6 || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId))) );
 
     HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
 
@@ -1524,11 +1525,13 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 {
     u8 bossId = 0;
 
-    //do
-    //{
+    do
+    {
         bossId = RogueRandomRange(gRouteMiniBossEncounters.mapCount, OVERWORLD_FLAG);
-    //}
-    //while(false); // TODO - Add buffer support to avoid repeats if possible
+    }
+    while(HistoryBufferContains(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId));
+
+    HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId);
 
     return bossId;
 }
