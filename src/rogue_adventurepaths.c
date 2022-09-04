@@ -345,16 +345,8 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     }
     else
     {
-        if(gRogueRun.currentDifficulty >= 8 && nodeY <= CENTRE_ROW_IDX)
-        {
-            // Lower routes are much more likely to have skips
-            weights[ADVPATH_ROOM_NONE] = 3000;
-        }
-        else
-        {
-            // Unlikely but not impossible
-            weights[ADVPATH_ROOM_NONE] = 200;
-        }
+        // Unlikely but not impossible
+        weights[ADVPATH_ROOM_NONE] = 200;
     }
 
     // Rest stops
@@ -455,6 +447,15 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         case ADVPATH_ROOM_NONE:
             weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
             break;
+    }
+
+    // If we've reached elite 4 we want to swap odds of none and routes
+    // i.e. it's unlikey you get much choice
+    if(gRogueRun.currentDifficulty >= 8)
+    {
+        u16 temp = weights[ADVPATH_ROOM_NONE];
+        weights[ADVPATH_ROOM_NONE] = weights[ADVPATH_ROOM_ROUTE];
+        weights[ADVPATH_ROOM_ROUTE] = temp;
     }
 
     totalWeight = 0;
