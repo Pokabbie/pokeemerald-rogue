@@ -951,7 +951,7 @@ u8* Rogue_GetMiniMenuContent(void)
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
 
-    if(JOY_NEW(R_BUTTON) && gDebug_CurrentTab != 1)
+    if(JOY_NEW(R_BUTTON) && gDebug_CurrentTab != 2)
     {
         ++gDebug_CurrentTab;
     }
@@ -983,14 +983,21 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount, gDebug_ItemOptionCount);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_TrainerCount, gDebug_TrainerOptionCount);
     }
-    // Adventur path tab
+    // Adventure path tab
     //
-    else
+    else if(gDebug_CurrentTab == 1)
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_AdvHeader);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueAdvPath.currentColumnCount);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
+    }
+    // Misc. debug tab
+    //
+    else
+    {
+        strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount,  VarGet(VAR_REPEL_STEP_COUNT));
     }
 
     return gStringVar4;
@@ -3751,12 +3758,12 @@ static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
-    s32 chance = 4 * difficultyLevel;
+    s32 chance = 4 * (difficultyLevel + 1);
 
     if(difficultyModifier == 0) // Easy
-        chance = max(0, chance - 25);
+        chance = max(5, chance - 20);
     else if(difficultyModifier == 2) // Hard
-        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent
+        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent, but harder
     else
         chance = max(10, chance);
 

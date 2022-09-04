@@ -383,7 +383,21 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 600);
         weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
         weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
-        weights[ADVPATH_ROOM_LEGENDARY] = ((gRogueRun.currentDifficulty + 1) % 3 == 0) ? 400 : 10;
+
+        if(gRogueRun.currentDifficulty == 0)
+        {
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+        else if((gRogueRun.currentDifficulty % 4) == 0)
+        {
+            // Every 4 badges chances get really high
+            weights[ADVPATH_ROOM_LEGENDARY] = 600;
+        }
+        else
+        {
+            // Otherwise the chances are just quite low
+            weights[ADVPATH_ROOM_LEGENDARY] = 50;
+        }
     }
 
     if(nodeX == 0)
@@ -476,9 +490,20 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
         //case ADVPATH_ROOM_BOSS:
 
         case ADVPATH_ROOM_RESTSTOP:
+
             temp = RogueRandomRange(7, OVERWORLD_FLAG);
             
-            if(temp == 0)
+            if(gRogueRun.currentDifficulty >= 12)
+            {
+                // Always always a full rest stop
+                if(temp == 0)
+                    nodeInfo->roomParams.roomIdx = 1; // Shops
+                else if(temp == 1)
+                    nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                else
+                    nodeInfo->roomParams.roomIdx = 0; // Heals
+            }
+            else if(temp == 0)
             {
                 // Small chance for full rest stop
                 nodeInfo->roomParams.roomIdx = 0; // Heals
