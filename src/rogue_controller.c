@@ -2394,6 +2394,12 @@ static void ApplyFallbackTrainerQuery(u16 trainerNum)
             gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
             break;
 
+        case TYPE_PSYCHIC:
+            hasFallback = TRUE;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            break;
+
         case TYPE_STEEL:
             hasFallback = TRUE;
             gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
@@ -2770,20 +2776,30 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     // Loop incase we already have 4 moves
     writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
 
-    // We need to set the ability index
-    for(i; i < 3; ++i)
+    if(preset->abilityNum != ABILITY_NONE)
     {
+        // We need to set the ability index
 #ifdef ROGUE_EXPANSION
-        if(preset->abilityNum != ABILITY_NONE)
+        for(i; i < 3; ++i) // 3 to include hidden ability
+#else
+        for(i; i < 2; ++i)
+#endif
         {
             SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+
+            if(GetMonAbility(mon) == preset->abilityNum)
+            {
+                // Ability is set
+                break;
+            }
         }
-        else
+
+        if(i == 4)
         {
-            // Ability is set
-            break;
+            // We failed to set it, so fall back to default
+            i = 0;
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
         }
-#endif
     }
 
     if(preset->heldItem != ITEM_NONE)
