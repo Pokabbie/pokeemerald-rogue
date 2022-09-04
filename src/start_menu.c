@@ -349,9 +349,7 @@ static void BuildRogueRunStartMenu(void)
     //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
-#endif
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
     AddStartMenuAction(MENU_ACTION_EXIT);

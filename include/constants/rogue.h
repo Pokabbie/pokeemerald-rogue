@@ -7,7 +7,6 @@
 
 //#define ROGUE_EXPANSION
 
-#define ROGUE_SUPPORT_QUICK_SAVE
 #define ROGUE_FEATURE_ENCOUNTER_PREVIEW
 
 // It looks like file.c:line: size of array `id' is negative
@@ -99,11 +98,9 @@ struct RogueHubData
 // Can at most be 384 bytes
 struct RogueSaveData // 27 Bytes
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u32 rngSeed;
     struct RogueRunData runData;
     struct RogueHubData hubData;
-#endif
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueSaveData) <= 384, RogueSaveDataSize);

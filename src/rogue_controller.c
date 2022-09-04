@@ -62,7 +62,6 @@ extern const u8 gText_RogueDebug_Y[];
 #endif
 
 // Box save data
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
 struct RogueBoxSaveData
 {
     u32 encryptionKey;
@@ -77,8 +76,6 @@ struct RogueBoxSaveData
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
-
-#endif
 
 struct RogueTrainerTemp
 {
@@ -108,14 +105,12 @@ struct RogueLocalData
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
     
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     // We encode all our save data as box data :D
     union
     {
         struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
         struct RogueBoxSaveData raw;
     } saveData;
-#endif
 };
 
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
@@ -1288,7 +1283,6 @@ static void CopyToPocket(u8 pocket, struct ItemSlot* src)
 
 static void SaveHubInventory(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -1306,17 +1300,10 @@ static void SaveHubInventory(void)
     CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
     CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
     CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
-
-#else
-    // Store current states (Use normal save data)
-    SavePlayerParty();
-    LoadPlayerBag(); // Bag funcs named in opposite
-#endif
 }
 
 static void LoadHubInventory(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     for(i = 0; i < PARTY_SIZE; ++i)
@@ -1338,19 +1325,12 @@ static void LoadHubInventory(void)
     CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
 
     //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
-
-#else
-    // Restore current states
-    LoadPlayerParty();
-    SavePlayerBag(); // Bag funcs named in opposite
-#endif
 }
 
 extern const u8 Rogue_QuickSaveLoad[];
 
 void Rogue_OnSaveGame(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
 
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
@@ -1365,13 +1345,10 @@ void Rogue_OnSaveGame(void)
     {
         memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
     }
-
-#endif
 }
 
 void Rogue_OnLoadGame(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     u8 i;
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
@@ -1393,12 +1370,10 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
     }
-#endif
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
-#ifdef ROGUE_SUPPORT_QUICK_SAVE
     if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
@@ -1406,7 +1381,6 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         return TRUE;
     }
 
-#endif
     return FALSE;
 }
 
@@ -1762,6 +1736,7 @@ void Rogue_OnWarpIntoMap(void)
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
+
     if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
     {
         // Warping back to hub must be intentional
@@ -1779,6 +1754,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
         }
     }
+
+    // Reset preview data
+    memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
     if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
     {
