@@ -3751,7 +3751,7 @@ static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = GetRoomTypeDifficulty();
-    s32 chance = max(10, 5 * difficultyLevel);
+    s32 chance = 4 * difficultyLevel;
 
     if(difficultyModifier == 0) // Easy
         chance = max(0, chance - 25);
