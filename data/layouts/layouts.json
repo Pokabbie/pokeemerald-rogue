@@ -4950,6 +4950,16 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Rogue_Route_WaterFront1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_WaterFront1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN3",
+      "name": "Rogue_Route_Mountain3_Layout",
+      "width": 100,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Rogue_Route_Mountain3/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Mountain3/map.bin"
     }
   ]
 }

@@ -12,7 +12,7 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_ROUTE_COUNT 10
+#define ROGUE_ROUTE_COUNT 11
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7
