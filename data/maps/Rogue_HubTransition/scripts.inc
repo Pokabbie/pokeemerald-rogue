@@ -24,8 +24,8 @@ Rogue_HubTransition_RandomMan_1:
 Rogue_HubTransition_RandomMan_2:
 	setvar VAR_0x8004, 255
 	fadescreen FADE_TO_BLACK
-	special Rogue_RandomisePartyMon
 	playfanfare MUS_MOVE_DELETED
+	special Rogue_RandomisePartyMon
 	waitfanfare
 	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_HubTransition_RandomMan_Text_2

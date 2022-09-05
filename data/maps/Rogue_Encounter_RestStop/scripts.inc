@@ -42,8 +42,8 @@ Rogue_Encounter_RestStop_RandomMan_3:
 Rogue_Encounter_RestStop_RandomMan_4:
 	setvar VAR_0x8004, 255
 	fadescreen FADE_TO_BLACK
-	special Rogue_RandomisePartyMon
 	playfanfare MUS_MOVE_DELETED
+	special Rogue_RandomisePartyMon
 	waitfanfare
 	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
@@ -66,8 +66,8 @@ Rogue_Encounter_RestStop_RandomMan_6:
 	removemoney 1000
 	updatemoneybox
 	fadescreen FADE_TO_BLACK
-	special Rogue_RandomisePartyMon
 	playfanfare MUS_MOVE_DELETED
+	special Rogue_RandomisePartyMon
 	waitfanfare
 	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
