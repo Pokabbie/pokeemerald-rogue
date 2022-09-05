@@ -1058,11 +1058,11 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     // Gastrodon
     [SPECIES_GASTRODON_EAST_SEA] = sGastrodonLevelUpLearnset,
     // Rotom
-    [SPECIES_ROTOM_HEAT] = sRotomLevelUpLearnset,
-    [SPECIES_ROTOM_WASH] = sRotomLevelUpLearnset,
-    [SPECIES_ROTOM_FROST] = sRotomLevelUpLearnset,
-    [SPECIES_ROTOM_FAN] = sRotomLevelUpLearnset,
-    [SPECIES_ROTOM_MOW] = sRotomLevelUpLearnset,
+    [SPECIES_ROTOM_HEAT] = sRotomHeatLevelUpLearnset,
+    [SPECIES_ROTOM_WASH] = sRotomWashLevelUpLearnset,
+    [SPECIES_ROTOM_FROST] = sRotomFrostLevelUpLearnset,
+    [SPECIES_ROTOM_FAN] = sRotomFanLevelUpLearnset,
+    [SPECIES_ROTOM_MOW] = sRotomMowLevelUpLearnset,
     // Giratina
     [SPECIES_GIRATINA_ORIGIN] = sGiratinaLevelUpLearnset,
     // Shaymin
