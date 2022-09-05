@@ -281,6 +281,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_ABILITY_PATCH:
             outItem->price = 10000;
             break;
+
+        case ITEM_RUSTED_SWORD:
+        case ITEM_RUSTED_SHIELD:
+            outItem->price = 5000;
+            break;
 #endif
 
         case ITEM_KINGS_ROCK:
