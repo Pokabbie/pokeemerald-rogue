@@ -62,7 +62,7 @@ script Rogue_Encounter_GameShow_DropBoxes
 
 script Rogue_Encounter_GameShow_NextRound
 {
-    if(var(VAR_GAMESHOW_STAGE) >= 3)
+    if(var(VAR_GAMESHOW_STAGE) >= 5)
     {
         call(Rogue_Encounter_GameShow_Finish)
     }

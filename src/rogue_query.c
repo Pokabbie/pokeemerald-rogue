@@ -617,12 +617,71 @@ void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count)
     }
 }
 
-void RogueQuery_EvolveSpeciesToLevel(u8 level)
+static bool8 IsValidLevelEvo(struct Evolution* evo, u8 level)
+{
+    switch(evo->method)
+    {
+        case EVO_LEVEL:
+        case EVO_LEVEL_ATK_GT_DEF:
+        case EVO_LEVEL_ATK_EQ_DEF:
+        case EVO_LEVEL_ATK_LT_DEF:
+        case EVO_LEVEL_SILCOON:
+        case EVO_LEVEL_CASCOON:
+        case EVO_LEVEL_NINJASK:
+        case EVO_LEVEL_SHEDINJA:
+    #ifdef ROGUE_EXPANSION
+        case EVO_LEVEL_FEMALE:
+        case EVO_LEVEL_MALE:
+        case EVO_LEVEL_DAY:
+        case EVO_LEVEL_DUSK:
+        case EVO_LEVEL_NATURE_AMPED:
+        case EVO_LEVEL_NATURE_LOW_KEY:
+        case EVO_CRITICAL_HITS:
+    #endif
+        if (evo->param <= level)
+            return TRUE;
+        break;
+    };
+
+    return FALSE;
+}
+
+static bool8 IsValidItemEvo(struct Evolution* evo, bool8 itemEvos)
+{
+    if(!itemEvos)
+        return FALSE;
+
+    switch(evo->method)
+    {
+        case EVO_ITEM:
+        case EVO_LEVEL_ITEM:
+    #ifdef ROGUE_EXPANSION
+        case EVO_ITEM_HOLD_DAY:
+        case EVO_ITEM_HOLD_NIGHT:
+        case EVO_MOVE:
+        case EVO_MOVE_TYPE:
+        case EVO_MAPSEC:
+        case EVO_ITEM_MALE:
+        case EVO_ITEM_FEMALE:
+        case EVO_LEVEL_RAIN:
+        case EVO_SPECIFIC_MON_IN_PARTY:
+        case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+        case EVO_SPECIFIC_MAP:
+        case EVO_SCRIPT_TRIGGER_DMG:
+        case EVO_DARK_SCROLL:
+        case EVO_WATER_SCROLL:
+    #endif
+        return TRUE;
+    };
+
+    return FALSE;
+}
+
+static void RogueQuery_EvolveSpeciesInternal(u8 level, bool8 itemEvos, bool8 removeChild)
 {
     u8 i;
     u8 e;
     u16 species;
-    bool8 removeChild = TRUE;
     struct Evolution evo;
 
     // Loop twice to support baby mons from future gens (e.g. azuril line)
@@ -647,26 +706,7 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                     }
                     else
                     {
-                        switch(evo.method)
-                        {
-                        case EVO_LEVEL:
-                        case EVO_LEVEL_ATK_GT_DEF:
-                        case EVO_LEVEL_ATK_EQ_DEF:
-                        case EVO_LEVEL_ATK_LT_DEF:
-                        case EVO_LEVEL_SILCOON:
-                        case EVO_LEVEL_CASCOON:
-                        case EVO_LEVEL_NINJASK:
-                        case EVO_LEVEL_SHEDINJA:
-    #ifdef ROGUE_EXPANSION
-                        case EVO_LEVEL_FEMALE:
-                        case EVO_LEVEL_MALE:
-                        case EVO_LEVEL_DAY:
-                        case EVO_LEVEL_DUSK:
-                        case EVO_LEVEL_NATURE_AMPED:
-                        case EVO_LEVEL_NATURE_LOW_KEY:
-                        case EVO_CRITICAL_HITS:
-    #endif
-                        if (evo.param <= level)
+                        if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo, itemEvos))
                         {
                             SetQueryState(evo.targetSpecies, TRUE);
                             if(removeChild)
@@ -674,8 +714,6 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
                                 SetQueryState(species, FALSE);
                             }
                         }
-                        break;
-                        };
                     }
                 }
             }
@@ -683,62 +721,14 @@ void RogueQuery_EvolveSpeciesToLevel(u8 level)
     }
 }
 
-static void RogueQuery_EvolveSpeciesByItem_Internal(bool8 removeChild)
+void RogueQuery_EvolveSpecies(u8 level, bool8 itemEvos)
 {
-    u8 e;
-    u16 species;
-    struct Evolution evo;
-
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
-    {
-        if(GetQueryState(species))
-        {
-            for(e = 0; e < EVOS_PER_MON; ++e)
-            {
-                Rogue_ModifyEvolution(species, e, &evo);
-
-                switch(evo.method)
-                {
-                case EVO_ITEM:
-                case EVO_LEVEL_ITEM:
-#ifdef ROGUE_EXPANSION
-                case EVO_ITEM_HOLD_DAY:
-                case EVO_ITEM_HOLD_NIGHT:
-                case EVO_MOVE:
-                case EVO_MOVE_TYPE:
-                case EVO_MAPSEC:
-                case EVO_ITEM_MALE:
-                case EVO_ITEM_FEMALE:
-                case EVO_LEVEL_RAIN:
-                case EVO_SPECIFIC_MON_IN_PARTY:
-                case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-                case EVO_SPECIFIC_MAP:
-                case EVO_SCRIPT_TRIGGER_DMG:
-                case EVO_DARK_SCROLL:
-                case EVO_WATER_SCROLL:
-#endif
-                {
-                    SetQueryState(evo.targetSpecies, TRUE);
-                    if(removeChild)
-                    {
-                        SetQueryState(species, FALSE);
-                    }
-                }
-                break;
-                };
-            }
-        }
-    }
+    RogueQuery_EvolveSpeciesInternal(level, itemEvos, TRUE);
 }
 
-void RogueQuery_EvolveSpeciesByItem()
+void RogueQuery_EvolveSpeciesAndKeepPreEvo(u8 level, bool8 itemEvos)
 {
-    RogueQuery_EvolveSpeciesByItem_Internal(TRUE);
-}
-
-void RogueQuery_EvolveSpeciesByItemAndKeepPreEvo()
-{
-    RogueQuery_EvolveSpeciesByItem_Internal(FALSE);
+    RogueQuery_EvolveSpeciesInternal(level, itemEvos, FALSE);
 }
 
 void RogueQuery_SpeciesIsLegendary(void)
@@ -806,6 +796,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
     RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
     RogueQuery_Exclude(ITEM_RARE_CANDY);
+    RogueQuery_Exclude(ITEM_HEART_SCALE);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
@@ -816,11 +807,17 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Not implemented
     RogueQuery_Exclude(ITEM_MAX_HONEY);
     RogueQuery_Exclude(ITEM_SUPER_LURE);
-    RogueQuery_Exclude(ITEM_BOTTLE_CAP);
-    RogueQuery_Exclude(ITEM_GOLD_BOTTLE_CAP);
 
     RogueQuery_Exclude(ITEM_PRISM_SCALE); // Not needed as is not a lvl up evo
     RogueQuery_ItemsExcludeRange(ITEM_GROWTH_MULCH, ITEM_BLACK_APRICORN);
+
+    // Exclude all treasures then turn on the ones we want to use
+    RogueQuery_ItemsExcludeRange(ITEM_BOTTLE_CAP, ITEM_STRANGE_SOUVENIR);
+    RogueQuery_Include(ITEM_NUGGET);
+    RogueQuery_Include(ITEM_PEARL);
+    RogueQuery_Include(ITEM_BIG_PEARL);
+    RogueQuery_Include(ITEM_STARDUST);
+    RogueQuery_Include(ITEM_STAR_PIECE);
 
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
@@ -986,6 +983,11 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
     }
 
     if(item->itemId >= ITEM_RED_ORB && item->itemId <= ITEM_DIANCITE)
+    {
+        return TRUE;
+    }
+
+    if(item->itemId >= ITEM_RED_NECTAR && item->itemId <= ITEM_PURPLE_NECTAR)
     {
         return TRUE;
     }

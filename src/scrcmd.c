@@ -49,6 +49,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/items.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -1718,19 +1719,59 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
     u8 i;
     u16 moveId = ScriptReadHalfword(ctx);
 
-    gSpecialVar_Result = PARTY_SIZE;
-    for (i = 0; i < PARTY_SIZE; i++)
+    if(CanUseHMMove2(moveId))
     {
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
-        if (!species)
-            break;
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonKnowsMove(&gPlayerParty[i], moveId) == TRUE)
+        u16 itemId = BattleMoveIdToItemId(moveId);
+
+        gSpecialVar_Result = PARTY_SIZE;
+        for (i = 0; i < PARTY_SIZE; i++)
         {
-            gSpecialVar_Result = i;
-            gSpecialVar_0x8004 = species;
-            break;
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+            if (!species)
+                break;
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonKnowsMove(&gPlayerParty[i], moveId) == TRUE)
+            {
+                gSpecialVar_Result = i;
+                gSpecialVar_0x8004 = species;
+                break;
+            }
+        }
+
+        if(gSpecialVar_Result == PARTY_SIZE)
+        {
+            // RogueNote: Failed to find a mon who knows it, so just give first mon compatible
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+                if (!species)
+                    break;
+                if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanMonLearnTMHM(&gPlayerParty[i], itemId - ITEM_TM01) == TRUE)
+                {
+                    gSpecialVar_Result = i;
+                    gSpecialVar_0x8004 = species;
+                    break;
+                }
+            }
+        }
+
+        if(gSpecialVar_Result == PARTY_SIZE)
+        {
+            // RogueNote: Failed to find a mon who knows it, so just give first mon!
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+                if (!species)
+                    break;
+                if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+                {
+                    gSpecialVar_Result = i;
+                    gSpecialVar_0x8004 = species;
+                    break;
+                }
+            }
         }
     }
+
     return FALSE;
 }
 

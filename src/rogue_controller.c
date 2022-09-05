@@ -18,6 +18,7 @@
 #include "main.h"
 #include "money.h"
 #include "overworld.h"
+#include "party_menu.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -164,7 +165,7 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
-static u16 Rogue_GetSeed(void)
+u16 Rogue_GetStartSeed(void)
 {
     u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
     u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
@@ -979,7 +980,7 @@ u8* Rogue_GetMiniMenuContent(void)
 
         if(FlagGet(FLAG_SET_SEED_ENABLED))
         {
-            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
+            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
@@ -1126,7 +1127,7 @@ static void SelectStartMons(void)
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
-    RogueQuery_EvolveSpeciesToLevel(2); // To force gen3+ mons off
+    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
@@ -1375,12 +1376,14 @@ void Rogue_OnLoadGame(void)
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
+#ifndef ROGUE_DEBUG
     if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
+#endif
 
     return FALSE;
 }
@@ -1413,7 +1416,7 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        gRngRogueValue = Rogue_GetSeed();
+        gRngRogueValue = Rogue_GetStartSeed();
     }
 
     ClearBerryTrees();
@@ -1618,8 +1621,7 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
 
-    RogueQuery_EvolveSpeciesToLevel(CalculatePlayerLevel());
-    RogueQuery_EvolveSpeciesByItem(); // Item evos included
+    RogueQuery_EvolveSpecies(CalculatePlayerLevel(), TRUE);
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
@@ -1761,6 +1763,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
     {
         ++gRogueRun.currentRoomIdx;
+
+        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 300);
+
+        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
+
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
 
         // We're warping into a valid map
         // We've already set the next room type so adjust the scaling now
@@ -1918,23 +1928,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
-
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-        {
-            if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-            {
-                // Pretty much max difficulty
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 500);
-            }
-            else
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 400);
-            }
-        }
-        else
-        {
-            VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 300);
-        }
     }
 }
 
@@ -2044,6 +2037,22 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             gRogueRun.currentLevelOffset = 10;
             ++gRogueRun.currentDifficulty;
             
+            // Just beat last gym leader
+            if(gRogueRun.currentDifficulty == 8)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
+            }
+            // Just beat last elite 4 member
+            else if(gRogueRun.currentDifficulty == 12)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
+            }
+            // Just beat champion
+            else if(gRogueRun.currentDifficulty > 12)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 7500);
+            }
+
             // Update reward candy only after boss has been defeated
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
@@ -2450,10 +2459,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
-    
-    if(gRogueLocal.trainerTemp.allowItemEvos)
-        RogueQuery_EvolveSpeciesByItem();
+    RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
@@ -2870,19 +2876,18 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     u16 move;
     u16 heldItem;
     u8 writeMoveIdx;
+    u16 initialMonMoves[MAX_MON_MOVES];
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     bool8 useMaxHappiness = TRUE;
 
     // We want to start writing the move from the first free slot and loop back around
-    for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
+    for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        move = GetMonData(mon, MON_DATA_MOVE1 + i);
-        if(move == MOVE_NONE)
-            break;
-    }
+        initialMonMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
 
-    // Loop incase we already have 4 moves
-    writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
+        move = MOVE_NONE;
+        SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+    }
 
     if(preset->abilityNum != ABILITY_NONE)
     {
@@ -2916,6 +2921,8 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     }
 
     // Teach moves from set that we can learn at this lvl
+    writeMoveIdx = 0;
+
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         move = preset->moves[i]; 
@@ -2927,9 +2934,20 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
 
             SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
             SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+            ++writeMoveIdx;
+        }
+    }
 
-            // Loop back round
-            writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
+    // Try to re-teach initial moves to fill out last slots
+    for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+    {
+        move = initialMonMoves[i]; 
+
+        if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+        {
+            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+            ++writeMoveIdx;
         }
     }
 
@@ -3022,6 +3040,11 @@ static u8 GetCurrentWildEncounterCount()
     }
 
     return count;
+}
+
+bool8 Rogue_AllowWildMonItems(void)
+{
+    return !GetSafariZoneFlag();
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
@@ -3223,14 +3246,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 5;
-                else if(difficulty <= 3)
-                    itemCapacity = 10;
-                else if(difficulty <= 5)
-                    itemCapacity = 15;
-                else if(difficulty <= 7)
-                    itemCapacity = 20;
+                if(difficulty <= 7)
+                    itemCapacity = 5 + difficulty * 2;
             }
             else
             {
@@ -3251,6 +3268,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
@@ -3279,6 +3298,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
@@ -3310,6 +3331,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
@@ -3372,8 +3395,7 @@ void Rogue_RandomisePartyMon(void)
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(targetlevel);
-        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
 
         queryCount = RogueQuery_UncollapsedSpeciesSize();
 
@@ -3405,8 +3427,7 @@ void Rogue_RandomisePartyMon(void)
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(targetlevel);
-        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
 
         queryCount = RogueQuery_UncollapsedSpeciesSize();
         species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
@@ -3585,7 +3606,7 @@ static void RandomiseWildEncounters(void)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
+    RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();

@@ -7712,6 +7712,21 @@ bool32 IsHMMove2(u16 move)
     return FALSE;
 }
 
+bool32 CanUseHMMove2(u16 move)
+{
+    int i = 0;
+    while (sHMMoves[i] != HM_MOVES_END)
+    {
+        if (sHMMoves[i] == move)
+        {
+            return CheckBagHasItem(ITEM_HM01 + i, 1);
+        }
+        ++i;
+    }
+
+    return FALSE;
+}
+
 bool8 IsMonSpriteNotFlipped(u16 species)
 {
     return gBaseStats[species].noFlip;
