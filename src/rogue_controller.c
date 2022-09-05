@@ -18,6 +18,7 @@
 #include "main.h"
 #include "money.h"
 #include "overworld.h"
+#include "party_menu.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -2875,19 +2876,18 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     u16 move;
     u16 heldItem;
     u8 writeMoveIdx;
+    u16 initialMonMoves[MAX_MON_MOVES];
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     bool8 useMaxHappiness = TRUE;
 
     // We want to start writing the move from the first free slot and loop back around
-    for (writeMoveIdx = 0; writeMoveIdx < MAX_MON_MOVES; writeMoveIdx++)
+    for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        move = GetMonData(mon, MON_DATA_MOVE1 + i);
-        if(move == MOVE_NONE)
-            break;
-    }
+        initialMonMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
 
-    // Loop incase we already have 4 moves
-    writeMoveIdx = writeMoveIdx % MAX_MON_MOVES;
+        move = MOVE_NONE;
+        SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+    }
 
     if(preset->abilityNum != ABILITY_NONE)
     {
@@ -2921,6 +2921,8 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     }
 
     // Teach moves from set that we can learn at this lvl
+    writeMoveIdx = 0;
+
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         move = preset->moves[i]; 
@@ -2932,9 +2934,20 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
 
             SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
             SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+            ++writeMoveIdx;
+        }
+    }
 
-            // Loop back round
-            writeMoveIdx = (writeMoveIdx + 1) % MAX_MON_MOVES;
+    // Try to re-teach initial moves to fill out last slots
+    for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+    {
+        move = initialMonMoves[i]; 
+
+        if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+        {
+            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+            ++writeMoveIdx;
         }
     }
 

@@ -42,7 +42,7 @@ Rogue_Encounter_GameShow_DropBoxes::
 
 
 Rogue_Encounter_GameShow_NextRound::
-	compare VAR_TEMP_1, 3
+	compare VAR_TEMP_1, 5
 	goto_if_ge Rogue_Encounter_GameShow_NextRound_1
 	addvar VAR_TEMP_1, 1
 	buffernumberstring STR_VAR_1, VAR_TEMP_1

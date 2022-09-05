@@ -646,8 +646,11 @@ static bool8 IsValidLevelEvo(struct Evolution* evo, u8 level)
     return FALSE;
 }
 
-static bool8 IsValidItemEvo(struct Evolution* evo)
+static bool8 IsValidItemEvo(struct Evolution* evo, bool8 itemEvos)
 {
+    if(!itemEvos)
+        return FALSE;
+
     switch(evo->method)
     {
         case EVO_ITEM:
@@ -703,7 +706,7 @@ static void RogueQuery_EvolveSpeciesInternal(u8 level, bool8 itemEvos, bool8 rem
                     }
                     else
                     {
-                        if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo))
+                        if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo, itemEvos))
                         {
                             SetQueryState(evo.targetSpecies, TRUE);
                             if(removeChild)
