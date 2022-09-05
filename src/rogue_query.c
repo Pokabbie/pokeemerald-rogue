@@ -793,6 +793,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
     RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
     RogueQuery_Exclude(ITEM_RARE_CANDY);
+    RogueQuery_Exclude(ITEM_HEART_SCALE);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
@@ -803,11 +804,17 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Not implemented
     RogueQuery_Exclude(ITEM_MAX_HONEY);
     RogueQuery_Exclude(ITEM_SUPER_LURE);
-    RogueQuery_Exclude(ITEM_BOTTLE_CAP);
-    RogueQuery_Exclude(ITEM_GOLD_BOTTLE_CAP);
 
     RogueQuery_Exclude(ITEM_PRISM_SCALE); // Not needed as is not a lvl up evo
     RogueQuery_ItemsExcludeRange(ITEM_GROWTH_MULCH, ITEM_BLACK_APRICORN);
+
+    // Exclude all treasures then turn on the ones we want to use
+    RogueQuery_ItemsExcludeRange(ITEM_BOTTLE_CAP, ITEM_STRANGE_SOUVENIR);
+    RogueQuery_Include(ITEM_NUGGET);
+    RogueQuery_Include(ITEM_PEARL);
+    RogueQuery_Include(ITEM_BIG_PEARL);
+    RogueQuery_Include(ITEM_STARDUST);
+    RogueQuery_Include(ITEM_STAR_PIECE);
 
     // These TMs aren't setup
     RogueQuery_ItemsExcludeRange(ITEM_TM51, ITEM_TM100);
@@ -973,6 +980,11 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
     }
 
     if(item->itemId >= ITEM_RED_ORB && item->itemId <= ITEM_DIANCITE)
+    {
+        return TRUE;
+    }
+
+    if(item->itemId >= ITEM_RED_NECTAR && item->itemId <= ITEM_PURPLE_NECTAR)
     {
         return TRUE;
     }

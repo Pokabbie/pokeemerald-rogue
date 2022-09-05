@@ -56,7 +56,7 @@ static void FaintFromFieldPoison(u8 partyIdx)
 static bool32 MonFaintedFromPoison(u8 partyIdx)
 {
     struct Pokemon *pokemon = gPlayerParty + partyIdx;
-    if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == 0 && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
+    if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == 1 && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
     {
         return TRUE;
     }
@@ -73,6 +73,9 @@ static void Task_TryFieldPoisonWhiteOut(u8 taskId)
             {
                 if (MonFaintedFromPoison(data[1]))
                 {
+                    u32 statusAilment = 0; // STATUS1_NONE
+                    SetMonData(&gPlayerParty[data[1]], MON_DATA_STATUS, &statusAilment);
+
                     FaintFromFieldPoison(data[1]);
                     ShowFieldMessage(gText_PkmnFainted3);
                     data[0]++;
@@ -127,7 +130,7 @@ s32 DoPoisonFieldEffect(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
             hp = GetMonData(pokemon, MON_DATA_HP);
-            if (hp == 0 || --hp == 0)
+            if (hp <= 1 || --hp == 1)
             {
                 numFainted++;
             }

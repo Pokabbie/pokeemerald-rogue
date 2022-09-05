@@ -1375,12 +1375,14 @@ void Rogue_OnLoadGame(void)
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
+#ifndef ROGUE_DEBUG
     if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
+#endif
 
     return FALSE;
 }
