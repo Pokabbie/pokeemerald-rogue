@@ -67,6 +67,8 @@ bool8 Rogue_OverrideTrainerItems(u16* items);
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount);
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount);
 void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount);
+
+bool8 Rogue_AllowWildMonItems(void);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_ModifyEventMon(struct Pokemon* mon);

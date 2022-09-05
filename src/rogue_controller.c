@@ -3029,6 +3029,11 @@ static u8 GetCurrentWildEncounterCount()
     return count;
 }
 
+bool8 Rogue_AllowWildMonItems(void)
+{
+    return !GetSafariZoneFlag();
+}
+
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
 {
     // Note: Don't seed individual encounters
