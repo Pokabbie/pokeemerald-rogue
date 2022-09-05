@@ -1762,6 +1762,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         ++gRogueRun.currentRoomIdx;
 
+        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 300);
+
+        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
+
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
+
         // We're warping into a valid map
         // We've already set the next room type so adjust the scaling now
         switch(gRogueAdvPath.currentRoomType)
@@ -1918,23 +1926,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
-
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-        {
-            if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-            {
-                // Pretty much max difficulty
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 500);
-            }
-            else
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 400);
-            }
-        }
-        else
-        {
-            VarSet(VAR_ROGUE_REWARD_MONEY, gRogueRun.currentRoomIdx * 300);
-        }
     }
 }
 
@@ -2044,6 +2035,22 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             gRogueRun.currentLevelOffset = 10;
             ++gRogueRun.currentDifficulty;
             
+            // Just beat last gym leader
+            if(gRogueRun.currentDifficulty == 8)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
+            }
+            // Just beat last elite 4 member
+            else if(gRogueRun.currentDifficulty == 12)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
+            }
+            // Just beat champion
+            else if(gRogueRun.currentDifficulty > 12)
+            {
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 7500);
+            }
+
             // Update reward candy only after boss has been defeated
             if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             {
@@ -3245,6 +3252,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
@@ -3273,6 +3282,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
@@ -3304,6 +3315,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 0)
+                    itemCapacity = 10;
+                else if(difficulty <= 1)
                     itemCapacity = 15;
                 else if(difficulty <= 3)
                     itemCapacity = 20;
