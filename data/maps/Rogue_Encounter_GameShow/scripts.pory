@@ -212,8 +212,13 @@ script Rogue_Encounter_GameShow_DisplayBad
             random(VAR_RESULT)
             copyvar(VAR_0x8004, VAR_RESULT)
             special(BufferMonNickname)
-
+            
+            fadescreen(FADE_TO_BLACK)
             special(Rogue_RandomisePartyMon)
+            playfanfare(MUS_MOVE_DELETED)
+            waitfanfare
+            fadescreen(FADE_FROM_BLACK)
+
             msgbox(format("Oh no!\n{STR_VAR_1} was traded away."), MSGBOX_DEFAULT)
 
         case 4:

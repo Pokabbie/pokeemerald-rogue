@@ -214,7 +214,11 @@ Rogue_Encounter_GameShow_DisplayBad_6:
 	random VAR_RESULT
 	copyvar VAR_0x8004, VAR_RESULT
 	special BufferMonNickname
+	fadescreen FADE_TO_BLACK
 	special Rogue_RandomisePartyMon
+	playfanfare MUS_MOVE_DELETED
+	waitfanfare
+	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_4, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
