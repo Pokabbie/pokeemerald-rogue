@@ -164,7 +164,7 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
-static u16 Rogue_GetSeed(void)
+u16 Rogue_GetStartSeed(void)
 {
     u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
     u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
@@ -979,7 +979,7 @@ u8* Rogue_GetMiniMenuContent(void)
 
         if(FlagGet(FLAG_SET_SEED_ENABLED))
         {
-            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetSeed());
+            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
@@ -1415,7 +1415,7 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
-        gRngRogueValue = Rogue_GetSeed();
+        gRngRogueValue = Rogue_GetStartSeed();
     }
 
     ClearBerryTrees();

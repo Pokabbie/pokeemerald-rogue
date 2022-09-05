@@ -5,6 +5,7 @@
 #include "fieldmap.h"
 #include "field_screen_effect.h"
 #include "overworld.h"
+#include "random.h"
 #include "strings.h"
 #include "string_util.h"
 
@@ -591,6 +592,17 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct A
     }
 }
 
+static void SetRogueSeedForPath()
+{
+    gRngRogueValue = Rogue_GetStartSeed() + (u32)gRogueRun.currentDifficulty * 31;
+}
+
+static void SetRogueSeedForNode()
+{
+    SetRogueSeedForPath();
+    gRngRogueValue += (u32)gRogueAdvPath.currentNodeX * 71 + (u32)gRogueAdvPath.currentNodeY * 21;
+}
+
 bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 {
     struct RogueAdvPathNode* nodeInfo;
@@ -605,6 +617,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         // Path is still valid
         return FALSE;
     }
+
+    SetRogueSeedForPath();
 
     ResetNodeInfo();
 
@@ -1113,6 +1127,8 @@ void RogueAdv_ExecuteNodeAction()
         gRogueAdvPath.currentNodeY = nodeY;
         gRogueAdvPath.currentRoomType = node->roomType;
         memcpy(&gRogueAdvPath.currentRoomParams, &node->roomParams, sizeof(struct RogueAdvPathRoomParams));
+
+        SetRogueSeedForNode();
 
         switch(node->roomType)
         {
