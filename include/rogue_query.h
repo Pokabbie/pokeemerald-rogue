@@ -35,9 +35,8 @@ void RogueQuery_SpeciesNotOfTypes(const u8* types, u8 count);
 void RogueQuery_SpeciesIsFinalEvolution(void);
 void RogueQuery_TransformToEggSpecies(void);
 void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count);
-void RogueQuery_EvolveSpeciesToLevel(u8 level);
-void RogueQuery_EvolveSpeciesByItem();
-void RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+void RogueQuery_EvolveSpecies(u8 level, bool8 itemEvos);
+void RogueQuery_EvolveSpeciesAndKeepPreEvo(u8 level, bool8 itemEvos);
 void RogueQuery_SpeciesIsLegendary(void);
 void RogueQuery_SpeciesIsNotLegendary(void);
 

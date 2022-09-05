@@ -1126,7 +1126,7 @@ static void SelectStartMons(void)
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
-    RogueQuery_EvolveSpeciesToLevel(2); // To force gen3+ mons off
+    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
@@ -1618,8 +1618,7 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
 
-    RogueQuery_EvolveSpeciesToLevel(CalculatePlayerLevel());
-    RogueQuery_EvolveSpeciesByItem(); // Item evos included
+    RogueQuery_EvolveSpecies(CalculatePlayerLevel(), TRUE);
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
@@ -2457,10 +2456,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(CalculateTrainerLevel(trainerNum));
-    
-    if(gRogueLocal.trainerTemp.allowItemEvos)
-        RogueQuery_EvolveSpeciesByItem();
+    RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
@@ -3379,8 +3375,7 @@ void Rogue_RandomisePartyMon(void)
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(targetlevel);
-        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
 
         queryCount = RogueQuery_UncollapsedSpeciesSize();
 
@@ -3412,8 +3407,7 @@ void Rogue_RandomisePartyMon(void)
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesToLevel(targetlevel);
-        RogueQuery_EvolveSpeciesByItemAndKeepPreEvo();
+        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
 
         queryCount = RogueQuery_UncollapsedSpeciesSize();
         species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
@@ -3592,7 +3586,7 @@ static void RandomiseWildEncounters(void)
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpeciesToLevel(maxlevel - min(6, maxlevel - 1));
+    RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
     RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();
