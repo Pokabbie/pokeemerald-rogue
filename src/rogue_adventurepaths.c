@@ -155,6 +155,11 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
             *extraSplitChance = 50;
             break;
     }
+
+#ifdef ROGUE_DEBUG
+    //*breakChance = 100;
+    //*extraSplitChance = 100;
+#endif
 }
 
 static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct AdvEventScratch* readScratch, struct AdvEventScratch* writeScratch)
@@ -479,6 +484,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             break;
         }
     }
+
+#ifdef ROGUE_DEBUG
+    //currScratch->roomType = 1;
+#endif
 }
 
 static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nodeInfo, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
@@ -791,6 +800,11 @@ static u16 GetInitialGFXColumn()
         return gRogueAdvPath.currentNodeX + 1;
 }
 
+static u16 GetGFXVarCount()
+{
+    return VAR_OBJ_GFX_ID_F - VAR_OBJ_GFX_ID_0 + 1;
+}
+
 void RogueAdv_UpdateObjectGFX()
 {
     struct RogueAdvPathNode* nodeInfo;
@@ -812,7 +826,7 @@ void RogueAdv_UpdateObjectGFX()
 
             objGFX = SelectGFXForNode(nodeInfo);
 
-            if(objGFX)
+            if(objGFX && currentID < GetGFXVarCount())
             {
                 VarSet(VAR_OBJ_GFX_ID_0 + currentID, objGFX);
 
