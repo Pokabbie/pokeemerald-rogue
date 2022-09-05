@@ -54,8 +54,8 @@ script Rogue_Encounter_RestStop_RandomMan
                     updatemoneybox
 
                     fadescreen(FADE_TO_BLACK)
-                    special(Rogue_RandomisePartyMon)
                     playfanfare(MUS_MOVE_DELETED)
+                    special(Rogue_RandomisePartyMon)
                     waitfanfare
                     fadescreen(FADE_FROM_BLACK)
 
@@ -77,8 +77,8 @@ script Rogue_Encounter_RestStop_RandomMan
             setvar(VAR_0x8004, 255)
 
             fadescreen(FADE_TO_BLACK)
-            special(Rogue_RandomisePartyMon)
             playfanfare(MUS_MOVE_DELETED)
+            special(Rogue_RandomisePartyMon)
             waitfanfare
             fadescreen(FADE_FROM_BLACK)
             
