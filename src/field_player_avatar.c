@@ -1321,14 +1321,16 @@ bool8 PartyHasMonWithSurf(void)
 {
     u8 i;
 
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    if(CanUseHMMove2(MOVE_SURF))
     {
-        for (i = 0; i < PARTY_SIZE; i++)
+        if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
-                break;
-            if (MonKnowsMove(&gPlayerParty[i], MOVE_SURF))
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+                    break;
                 return TRUE;
+            }
         }
     }
     return FALSE;
