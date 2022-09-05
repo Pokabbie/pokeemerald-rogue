@@ -23,8 +23,11 @@ script Rogue_HubTransition_RandomMan
     {
         setvar(VAR_0x8004, 255)
 
-        waitse
+        fadescreen(FADE_TO_BLACK)
         special(Rogue_RandomisePartyMon)
+        playfanfare(MUS_MOVE_DELETED)
+        waitfanfare
+        fadescreen(FADE_FROM_BLACK)
         
         msgbox(format("Ke ke ke!\pEnjoy!"))
         applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)

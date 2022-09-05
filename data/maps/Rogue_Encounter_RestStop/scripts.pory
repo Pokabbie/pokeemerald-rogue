@@ -41,7 +41,6 @@ script Rogue_Encounter_RestStop_RandomMan
             checkmoney(1000)
             if(var(VAR_RESULT) == YES)
             {
-                fadescreen(FADE_TO_BLACK)
                 special(ChoosePartyMon)
                 waitstate
 
@@ -54,9 +53,11 @@ script Rogue_Encounter_RestStop_RandomMan
                     removemoney(1000)
                     updatemoneybox
 
-                    waitse
-                    playse(SE_VEND)
+                    fadescreen(FADE_TO_BLACK)
                     special(Rogue_RandomisePartyMon)
+                    playfanfare(MUS_MOVE_DELETED)
+                    waitfanfare
+                    fadescreen(FADE_FROM_BLACK)
 
                     msgbox(format("Ke ke ke!\pEnjoy!"))
                     applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
@@ -75,9 +76,11 @@ script Rogue_Encounter_RestStop_RandomMan
         case 1: // Trade all
             setvar(VAR_0x8004, 255)
 
-            waitse
-            playse(SE_VEND)
+            fadescreen(FADE_TO_BLACK)
             special(Rogue_RandomisePartyMon)
+            playfanfare(MUS_MOVE_DELETED)
+            waitfanfare
+            fadescreen(FADE_FROM_BLACK)
             
             msgbox(format("Ke ke ke!\pEnjoy!"))
             applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)

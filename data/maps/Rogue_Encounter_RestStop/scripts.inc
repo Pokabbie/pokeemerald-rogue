@@ -41,9 +41,11 @@ Rogue_Encounter_RestStop_RandomMan_3:
 
 Rogue_Encounter_RestStop_RandomMan_4:
 	setvar VAR_0x8004, 255
-	waitse
-	playse SE_VEND
+	fadescreen FADE_TO_BLACK
 	special Rogue_RandomisePartyMon
+	playfanfare MUS_MOVE_DELETED
+	waitfanfare
+	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
 	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
@@ -57,16 +59,17 @@ Rogue_Encounter_RestStop_RandomMan_5:
 	goto Rogue_Encounter_RestStop_RandomMan_1
 
 Rogue_Encounter_RestStop_RandomMan_6:
-	fadescreen FADE_TO_BLACK
 	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Rogue_Encounter_RestStop_RandomMan_9
 	removemoney 1000
 	updatemoneybox
-	waitse
-	playse SE_VEND
+	fadescreen FADE_TO_BLACK
 	special Rogue_RandomisePartyMon
+	playfanfare MUS_MOVE_DELETED
+	waitfanfare
+	fadescreen FADE_FROM_BLACK
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
 	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
