@@ -19,6 +19,7 @@
 #include "money.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "palette.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -125,7 +126,7 @@ static bool8 IsMiniBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
-static u8 CalculateWildLevel(void);
+static u8 CalculateWildLevel(u8 variation);
 static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
@@ -136,6 +137,7 @@ static u8 GetCurrentWildEncounterCount(void);
 
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
+static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
@@ -974,7 +976,7 @@ u8* Rogue_GetMiniMenuContent(void)
     {
         u8 difficultyLevel = gRogueRun.currentDifficulty;
         u8 playerLevel = CalculatePlayerLevel();
-        u8 wildLevel = CalculateWildLevel();
+        u8 wildLevel = CalculateWildLevel(0);
 
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
 
@@ -1046,6 +1048,9 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 {
 #ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
+    u8 palIndex;
+    u8 oamPriority = 0; // Render infront of background
+    u16 palBuffer[16];
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
@@ -1053,30 +1058,43 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
+            u8 paletteOffset = i;
+
+#ifdef ROGUE_DEBUG
+            if(i != 0)
+            {
+                gRogueLocal.encounterPreview[i].isVisible = TRUE;
+            }
+#endif
+
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
                 gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
-
-                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
                 if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, oamPriority, paletteOffset);
                 else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, oamPriority, paletteOffset);
             }
             else
             {
                 gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
-
-                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
                 if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0, paletteOffset);
                 else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, paletteOffset);
             }
 
-            gSprites[gRogueLocal.encounterPreview[i].monSpriteId].oam.priority = 9;
+            // Have to grey out icon as I can't figure out why custom palette offsets still seem to be stomping over each other
+            // The best guess I have is that the overworld palette is doing some extra behaviour but who knows
+            palIndex = IndexOfSpritePaletteTag(gSprites[gRogueLocal.encounterPreview[i].monSpriteId].template->paletteTag);
+            CpuCopy16(&gPlttBufferUnfaded[0x100 + palIndex * 16], &palBuffer[0], 32);
+            //TintPalette_CustomTone(&palBuffer[0], 16, 510, 510, 510);
+            TintPalette_GrayScale2(&palBuffer[0], 16);
+            LoadPalette(&palBuffer[0], 0x100 + palIndex * 16, 32);
         }
     }
 #endif
@@ -1091,8 +1109,9 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
     {
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
-            //if(gRogueLocal.encounterPreview[i].species != SPECIES_NONE)
-            FreeMonIconPalette(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species));
+            u8 paletteOffset = i;
+
+            FreeMonIconPaletteCustomOffset(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species), paletteOffset);
 
             if(gRogueLocal.encounterPreview[i].monSpriteId != SPRITE_NONE)
                 FreeAndDestroyMonIconSprite(&gSprites[gRogueLocal.encounterPreview[i].monSpriteId]);
@@ -1212,7 +1231,7 @@ void Rogue_OnNewGame(void)
     SetMoney(&gSaveBlock1Ptr->money, 999999);
 
     AddBagItem(ITEM_RARE_CANDY, 99);
-    VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
+    //VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
 
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
@@ -1445,6 +1464,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     SaveHubInventory();
+    RandomiseFishingEncounters();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     //gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
@@ -1588,7 +1608,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
-    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) && (mapCount > 6 || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId))) );
+    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
 
     HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
 
@@ -1631,7 +1651,6 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
 
 u8 Rogue_SelectRouteRoom(void)
 {
-    u8 mapCount;
     u8 mapIdx;
 
     // Don't replay recent routes
@@ -1760,7 +1779,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
-    if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
+    if(Rogue_IsRunActive() && RogueAdv_OverrideNextWarp(warp) == ROGUE_WARP_TO_ROOM)
     {
         ++gRogueRun.currentRoomIdx;
 
@@ -2034,8 +2053,13 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     {
         if(IsBossTrainer(trainerNum))
         {
-            gRogueRun.currentLevelOffset = 10;
+            u8 nextLevel;
+            u8 prevLevel = CalculateBossLevel();
+
             ++gRogueRun.currentDifficulty;
+            nextLevel = CalculateBossLevel();
+
+            gRogueRun.currentLevelOffset = nextLevel - prevLevel;
             
             // Just beat last gym leader
             if(gRogueRun.currentDifficulty == 8)
@@ -2075,11 +2099,11 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            // Every trainer battle drops level cap by 4
-            if(gRogueRun.currentLevelOffset < 4)
+            // Every trainer battle drops level cap by 2
+            if(gRogueRun.currentLevelOffset < 2)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 4;
+                gRogueRun.currentLevelOffset -= 2;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -2095,11 +2119,11 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            // Every wild battle drops level cap by 3
-            if(gRogueRun.currentLevelOffset < 3)
+            // Every wild battle drops level cap by 2
+            if(gRogueRun.currentLevelOffset < 2)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 3;
+                gRogueRun.currentLevelOffset -= 2;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -2444,6 +2468,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesExcludeCommon();
+    RogueQuery_Exclude(SPECIES_UNOWN);
 
     if(!gRogueLocal.trainerTemp.allowLedgendaries)
         RogueQuery_SpeciesIsNotLegendary();
@@ -3035,8 +3060,13 @@ static u8 GetCurrentWildEncounterCount()
 
     if(difficultyModifier == 2) // Hard route
     {
-        // Less encounters on hard route
+        // Less encounters
         count = 2;
+    }
+    else if(difficultyModifier == 1) // Avg route
+    {
+        // Slightly less encounters
+        count = 4;
     }
 
     return count;
@@ -3052,13 +3082,10 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
     // Note: Don't seed individual encounters
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
-        u8 maxlevel = CalculateWildLevel();
-        u8 levelVariation = min(6, maxlevel - 1);
-
         if(GetSafariZoneFlag())
-        {
-            levelVariation = min(3, maxlevel - 1);
-        }
+            *level  = CalculateWildLevel(3);
+        else
+            *level  = CalculateWildLevel(6);
 
         if(area == 1) //WILD_AREA_WATER)
         {
@@ -3066,19 +3093,13 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
             u16 randIdx = Random() % count; 
 
             *species = gRogueRun.fishingEncounters[randIdx];
-            *level = maxlevel - (Random() % levelVariation);
         }
         else
         {
             u8 difficultyModifier = GetRoomTypeDifficulty();
-            u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+            u16 count = GetCurrentWildEncounterCount();
+            u16 historyBufferCount = ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer);
             u16 randIdx;
-
-            if(difficultyModifier == 2) // Hard route
-            {
-                // Less encounters on hard route
-                count = 2;
-            }
             
             do
             {
@@ -3086,19 +3107,18 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
                 randIdx = Random() % count; 
                 *species = gRogueRun.wildEncounters[randIdx];
             }
-            while(!GetSafariZoneFlag() && (difficultyModifier != 2) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
+            while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
             gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
-            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
-            *level = maxlevel - (Random() % levelVariation);
+            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
     }
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
-    *level = CalculateWildLevel();
+    *level = CalculateWildLevel(3);
 }
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
@@ -3594,7 +3614,7 @@ static u16 NextWildSpecies(u16 * party, u8 monIdx)
 
 static void RandomiseWildEncounters(void)
 {
-    u8 maxlevel = CalculateWildLevel();
+    u8 maxlevel = CalculateWildLevel(0);
 
     // Query for the current route type
     RogueQuery_Clear();
@@ -3624,9 +3644,30 @@ static void RandomiseWildEncounters(void)
             gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }
+}
 
-    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
-    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
+static void RandomiseFishingEncounters(void)
+{
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
+    RogueQuery_SpeciesIsNotLegendary();
+
+    RogueQuery_SpeciesOfType(TYPE_WATER);
+    RogueQuery_TransformToEggSpecies();
+    RogueQuery_SpeciesOfType(TYPE_WATER);
+
+    RogueQuery_CollapseSpeciesBuffer();
+
+    {
+        u8 i;
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
+        {
+            gRogueRun.fishingEncounters[i] = NextWildSpecies(&gRogueRun.fishingEncounters[0], i);
+        }
+    }
 }
 
 static void RogueQuery_SafariTypeForMap()
@@ -3686,7 +3727,7 @@ static void RogueQuery_SafariTypeForMap()
 
 static void RandomiseSafariWildEncounters(void)
 {
-    u8 maxlevel = CalculateWildLevel();
+    u8 maxlevel = CalculateWildLevel(0);
 
     // Query for the current zone
     RogueQuery_Clear();
@@ -3749,8 +3790,9 @@ static void ResetTrainerBattles(void)
 
 u8 GetLeadMonLevel(void);
 
-static u8 CalculateWildLevel(void)
+static u8 CalculateWildLevel(u8 variation)
 {
+    u8 wildLevel;
     u8 playerLevel = CalculatePlayerLevel();
 
     if(GetSafariZoneFlag())
@@ -3758,33 +3800,37 @@ static u8 CalculateWildLevel(void)
         if((Random() % 6) == 0)
         {
             // Occasionally throw in starter level mons
-            return 7;
+            wildLevel = 7;
         }
         else
         {
-            return GetLeadMonLevel();
+            wildLevel = GetLeadMonLevel();
         }
     }
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    else if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
         // 5 rooms the constant badges
-        return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
+        wildLevel = min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
     }
-
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        return playerLevel - 5;
+        wildLevel = playerLevel - 5;
     }
-
-    if(playerLevel < 10)
+    else if(playerLevel < 10)
     {
-        return 4;
+        wildLevel = 4;
     }
     else
     {
-        return playerLevel - 7;
+        wildLevel = playerLevel - 7;
     }
+
+    variation = min(variation, wildLevel);
+
+    if(variation != 0)
+        return wildLevel - (Random() % variation);
+    else
+        return wildLevel;
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)

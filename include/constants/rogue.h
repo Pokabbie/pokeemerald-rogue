@@ -2,7 +2,7 @@
 #define GUARD_ROGUE_H
 
 #define ROGUE_DEBUG
-#define ROGUE_DEBUG_PAUSE_PANEL
+//#define ROGUE_DEBUG_PAUSE_PANEL
 #define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
@@ -73,7 +73,7 @@ struct RogueRunData
     u8 currentLevelOffset;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[10];
+    u16 routeHistoryBuffer[5];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
     u16 wildEncounterHistoryBuffer[3];

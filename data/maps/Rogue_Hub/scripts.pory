@@ -530,7 +530,7 @@ script RogueHub_IntroPokabbie
         waitmovement(0)
 
         msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"), MSGBOX_NPC)
-        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pAs a reward for beating the CHAMPION I would like to welcome you to my LAB!\pI've uncovered the secret enterance inside the CONFIG LAB, so feel free to come take a look at some point."), MSGBOX_NPC)
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pAs a reward for beating the CHAMPION I would like to welcome you to my LAB!\pI've uncovered the secret entrance inside the CONFIG LAB, so feel free to come take a look at some point."), MSGBOX_NPC)
     
         applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
         waitmovement(0)

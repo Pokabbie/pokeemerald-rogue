@@ -4684,7 +4684,7 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_MOUNTAIN1",
       "name": "Rogue_Route_Mountain1_Layout",
-      "width": 40,
+      "width": 45,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
