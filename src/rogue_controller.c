@@ -2451,6 +2451,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
 
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesExcludeCommon();
+    RogueQuery_Exclude(SPECIES_UNOWN);
 
     if(!gRogueLocal.trainerTemp.allowLedgendaries)
         RogueQuery_SpeciesIsNotLegendary();
