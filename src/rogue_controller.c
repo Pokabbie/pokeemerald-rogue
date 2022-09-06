@@ -19,6 +19,7 @@
 #include "money.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "palette.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -1047,6 +1048,9 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 {
 #ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
+    u8 palIndex;
+    u8 oamPriority = 0; // Render infront of background
+    u16 palBuffer[16];
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
@@ -1054,30 +1058,43 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
+            u8 paletteOffset = i;
+
+#ifdef ROGUE_DEBUG
+            if(i != 0)
+            {
+                gRogueLocal.encounterPreview[i].isVisible = TRUE;
+            }
+#endif
+
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
                 gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
-
-                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
                 if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, 0, TRUE);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, oamPriority, paletteOffset);
                 else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconNoPersonality(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, TRUE);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, oamPriority, paletteOffset);
             }
             else
             {
                 gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
-
-                LoadMonIconPalette(gRogueLocal.encounterPreview[i].species);
+                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
                 if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0, paletteOffset);
                 else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0);
+                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, paletteOffset);
             }
 
-            gSprites[gRogueLocal.encounterPreview[i].monSpriteId].oam.priority = 9;
+            // Have to grey out icon as I can't figure out why custom palette offsets still seem to be stomping over each other
+            // The best guess I have is that the overworld palette is doing some extra behaviour but who knows
+            palIndex = IndexOfSpritePaletteTag(gSprites[gRogueLocal.encounterPreview[i].monSpriteId].template->paletteTag);
+            CpuCopy16(&gPlttBufferUnfaded[0x100 + palIndex * 16], &palBuffer[0], 32);
+            //TintPalette_CustomTone(&palBuffer[0], 16, 510, 510, 510);
+            TintPalette_GrayScale2(&palBuffer[0], 16);
+            LoadPalette(&palBuffer[0], 0x100 + palIndex * 16, 32);
         }
     }
 #endif
@@ -1092,8 +1109,9 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
     {
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
-            //if(gRogueLocal.encounterPreview[i].species != SPECIES_NONE)
-            FreeMonIconPalette(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species));
+            u8 paletteOffset = i;
+
+            FreeMonIconPaletteCustomOffset(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species), paletteOffset);
 
             if(gRogueLocal.encounterPreview[i].monSpriteId != SPRITE_NONE)
                 FreeAndDestroyMonIconSprite(&gSprites[gRogueLocal.encounterPreview[i].monSpriteId]);
