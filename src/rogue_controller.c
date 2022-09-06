@@ -1213,7 +1213,7 @@ void Rogue_OnNewGame(void)
     SetMoney(&gSaveBlock1Ptr->money, 999999);
 
     AddBagItem(ITEM_RARE_CANDY, 99);
-    VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
+    //VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 13);
 
     //AddBagItem(ITEM_RARE_CANDY, 99);
     //AddBagItem(ITEM_RARE_CANDY, 99);
