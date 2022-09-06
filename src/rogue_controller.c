@@ -1779,7 +1779,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
-    if(Rogue_IsRunActive() && !RogueAdv_OverrideNextWarp(warp))
+    if(Rogue_IsRunActive() && RogueAdv_OverrideNextWarp(warp) == ROGUE_WARP_TO_ROOM)
     {
         ++gRogueRun.currentRoomIdx;
 

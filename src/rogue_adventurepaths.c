@@ -717,7 +717,142 @@ void RogueAdv_ApplyAdventureMetatiles()
     }
 }
 
-bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
+
+static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
+{
+    switch(bossId)
+    {
+        case 0:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+            break;
+
+        case 1:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_1);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_1);
+            break;
+
+        case 2:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_2);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_2);
+            break;
+
+        case 3:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_3);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_3);
+            break;
+
+        case 4:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_4);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_4);
+            break;
+
+        case 5:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_5);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_5);
+            break;
+
+        case 6:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_6);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_6);
+            break;
+
+        case 7:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
+            break;
+
+
+        case 8:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
+            break;
+
+        case 9:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
+            break;
+
+        case 10:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
+            break;
+
+        case 11:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
+            break;
+
+
+        case 12:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
+            break;
+
+        //case 13:
+        default:
+            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
+            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
+            break;
+    };
+}
+
+static void ApplyCurrentNodeWarp(struct WarpData *warp)
+{
+    struct RogueAdvPathNode* node = GetNodeInfo(gRogueAdvPath.currentNodeX, gRogueAdvPath.currentNodeY);
+
+    if(node)
+    {
+        SetRogueSeedForNode();
+
+        switch(node->roomType)
+        {
+            case ADVPATH_ROOM_BOSS:
+                SetBossRoomWarp(node->roomParams.roomIdx, warp);
+                break;
+
+            case ADVPATH_ROOM_RESTSTOP:
+                warp->mapGroup = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].group;
+                warp->mapNum = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_ROUTE:
+                warp->mapGroup = gRogueRouteTable[node->roomParams.roomIdx].map.group;
+                warp->mapNum = gRogueRouteTable[node->roomParams.roomIdx].map.num;
+                break;
+
+            case ADVPATH_ROOM_LEGENDARY:
+                warp->mapGroup = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].group;
+                warp->mapNum = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_MINIBOSS:
+                warp->mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
+                warp->mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
+                break;
+
+            case ADVPATH_ROOM_WILD_DEN:
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_DEN);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_DEN);
+                break;
+
+            case ADVPATH_ROOM_GAMESHOW:
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GAME_SHOW);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
+                break;
+
+            case ADVPATH_ROOM_GRAVEYARD:
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GRAVEYARD);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GRAVEYARD);
+                break;
+        }
+        
+        // Now we've interacted hide this node
+        //node->roomType = ADVPATH_ROOM_NONE;
+    }
+}
+
+u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
 {
     // Should already be set correctly for RogueAdv_ExecuteNodeAction
     if(!gRogueAdvPath.isOverviewActive)
@@ -737,11 +872,12 @@ bool8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         warp->y = y + 1;
 
         gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
-        return TRUE;
+        return ROGUE_WARP_TO_ADVPATH;
     }
     else
     {
-        return FALSE;
+        ApplyCurrentNodeWarp(warp);
+        return ROGUE_WARP_TO_ROOM;
     }
 }
 
@@ -1042,94 +1178,15 @@ void RogueAdv_GetNodeParams()
     }
 }
 
-static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
-{
-    switch(bossId)
-    {
-        case 0:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
-            break;
-
-        case 1:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_1);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_1);
-            break;
-
-        case 2:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_2);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_2);
-            break;
-
-        case 3:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_3);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_3);
-            break;
-
-        case 4:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_4);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_4);
-            break;
-
-        case 5:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_5);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_5);
-            break;
-
-        case 6:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_6);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_6);
-            break;
-
-        case 7:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
-            break;
-
-
-        case 8:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
-            break;
-
-        case 9:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
-            break;
-
-        case 10:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
-            break;
-
-        case 11:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
-            break;
-
-
-        case 12:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
-            break;
-
-        //case 13:
-        default:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
-            break;
-    };
-}
-
 void RogueAdv_ExecuteNodeAction()
 {
     u16 nodeX, nodeY;
     struct WarpData warp;
     struct RogueAdvPathNode* node = GetScriptNodeWithCoords(&nodeX, &nodeY);
 
-    // Fill with default warp
-    warp.mapGroup = MAP_GROUP(ROGUE_ROUTE_FIELD0);
-    warp.mapNum = MAP_NUM(ROGUE_ROUTE_FIELD0);
+    // Fill with dud warp
+    warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
+    warp.mapNum = MAP_NUM(ROGUE_HUB_TRANSITION);
     warp.warpId = 0;
     warp.x = -1;
     warp.y = -1;
@@ -1141,54 +1198,6 @@ void RogueAdv_ExecuteNodeAction()
         gRogueAdvPath.currentNodeY = nodeY;
         gRogueAdvPath.currentRoomType = node->roomType;
         memcpy(&gRogueAdvPath.currentRoomParams, &node->roomParams, sizeof(struct RogueAdvPathRoomParams));
-
-        SetRogueSeedForNode();
-
-        switch(node->roomType)
-        {
-            case ADVPATH_ROOM_BOSS:
-                // THIS IS BROKEN
-                SetBossRoomWarp(node->roomParams.roomIdx, &warp);
-                break;
-
-            case ADVPATH_ROOM_RESTSTOP:
-                warp.mapGroup = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].group;
-                warp.mapNum = gRogueRestStopEncounterInfo.mapTable[node->roomParams.roomIdx].num;
-                break;
-
-            case ADVPATH_ROOM_ROUTE:
-                warp.mapGroup = gRogueRouteTable[node->roomParams.roomIdx].map.group;
-                warp.mapNum = gRogueRouteTable[node->roomParams.roomIdx].map.num;
-                break;
-
-            case ADVPATH_ROOM_LEGENDARY:
-                warp.mapGroup = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].group;
-                warp.mapNum = gRogueLegendaryEncounterInfo.mapTable[node->roomParams.roomIdx].num;
-                break;
-
-            case ADVPATH_ROOM_MINIBOSS:
-                warp.mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
-                warp.mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
-                break;
-
-            case ADVPATH_ROOM_WILD_DEN:
-                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_DEN);
-                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_DEN);
-                break;
-
-            case ADVPATH_ROOM_GAMESHOW:
-                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GAME_SHOW);
-                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
-                break;
-
-            case ADVPATH_ROOM_GRAVEYARD:
-                warp.mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GRAVEYARD);
-                warp.mapNum = MAP_NUM(ROGUE_ENCOUNTER_GRAVEYARD);
-                break;
-        }
-        
-        // Now we've interacted hide this node
-        node->roomType = ADVPATH_ROOM_NONE;
     }
 
     SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
