@@ -1651,7 +1651,6 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
 
 u8 Rogue_SelectRouteRoom(void)
 {
-    u8 mapCount;
     u8 mapIdx;
 
     // Don't replay recent routes
