@@ -324,6 +324,25 @@ static void HandleInputChooseAction(void)
             BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted();
         }
+        else if(!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+        {
+            PlaySE(SE_SELECT);
+
+            // Auto jump to run option
+            switch (gActionSelectionCursor[gActiveBattler])
+            {
+            case 3: // Bottom right
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_RUN, 0);
+                PlayerBufferExecCompleted();
+                break;
+
+            default: // Bottom left
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] = 3;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+                break;
+            }
+        }
     }
     else if (JOY_NEW(START_BUTTON))
     {
