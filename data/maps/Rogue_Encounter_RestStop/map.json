@@ -186,8 +186,8 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 21,
+      "x": 10,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ENCOUNTER_REST_STOP",
       "dest_warp_id": 0
