@@ -1938,18 +1938,18 @@ static bool8 Fishing_CheckMoreDots(struct Task *task)
 
     AlignFishingAnimationFrames();
     task->tStep++;
-    if (task->tRoundsPlayed < task->tMinRoundsRequired)
-    {
-        task->tStep = FISHING_START_ROUND;
-    }
-    else if (task->tRoundsPlayed < 2)
-    {
-        // probability of having to play another round
-        s16 probability = Random() % 100;
-
-        if (moreDotsChance[task->tFishingRod][task->tRoundsPlayed] > probability)
-            task->tStep = FISHING_START_ROUND;
-    }
+    // RogueNote: Never play multiple fishing rounds
+    //if (task->tRoundsPlayed < task->tMinRoundsRequired)
+    //{
+    //    task->tStep = FISHING_START_ROUND;
+    //}
+    //else if (task->tRoundsPlayed < 2)
+    //{
+    //    // probability of having to play another round
+    //    s16 probability = Random() % 100;
+    //    if (moreDotsChance[task->tFishingRod][task->tRoundsPlayed] > probability)
+    //        task->tStep = FISHING_START_ROUND;
+    //}
     return FALSE;
 }
 
