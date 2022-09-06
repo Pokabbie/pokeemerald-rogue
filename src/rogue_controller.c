@@ -1590,7 +1590,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
         mapIdx = Random() % mapCount;
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
-    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) && (mapCount > 6 || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId))) );
+    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
 
     HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
 
