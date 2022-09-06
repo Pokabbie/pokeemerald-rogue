@@ -1060,13 +1060,6 @@ void Rogue_CreateMiniMenuExtraGFX(void)
         {
             u8 paletteOffset = i;
 
-#ifdef ROGUE_DEBUG
-            if(i != 0)
-            {
-                gRogueLocal.encounterPreview[i].isVisible = TRUE;
-            }
-#endif
-
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
                 gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
