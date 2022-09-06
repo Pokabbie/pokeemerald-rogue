@@ -831,7 +831,7 @@ RogueHub_IntroPokabbie_Text_3:
 	.string "ROGUE!\p"
 	.string "As a reward for beating the CHAMPION I\n"
 	.string "would like to welcome you to my LAB!\p"
-	.string "I've uncovered the secret enterance\n"
+	.string "I've uncovered the secret entrance\n"
 	.string "inside the CONFIG LAB, so feel free to\l"
 	.string "come take a look at some point.$"
 

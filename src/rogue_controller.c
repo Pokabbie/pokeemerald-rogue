@@ -125,7 +125,7 @@ static bool8 IsMiniBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
-static u8 CalculateWildLevel(void);
+static u8 CalculateWildLevel(u8 variation);
 static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
@@ -974,7 +974,7 @@ u8* Rogue_GetMiniMenuContent(void)
     {
         u8 difficultyLevel = gRogueRun.currentDifficulty;
         u8 playerLevel = CalculatePlayerLevel();
-        u8 wildLevel = CalculateWildLevel();
+        u8 wildLevel = CalculateWildLevel(0);
 
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
 
@@ -2034,8 +2034,13 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     {
         if(IsBossTrainer(trainerNum))
         {
-            gRogueRun.currentLevelOffset = 10;
+            u8 nextLevel;
+            u8 prevLevel = CalculateBossLevel();
+
             ++gRogueRun.currentDifficulty;
+            nextLevel = CalculateBossLevel();
+
+            gRogueRun.currentLevelOffset = nextLevel - prevLevel;
             
             // Just beat last gym leader
             if(gRogueRun.currentDifficulty == 8)
@@ -2075,11 +2080,11 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            // Every trainer battle drops level cap by 4
-            if(gRogueRun.currentLevelOffset < 4)
+            // Every trainer battle drops level cap by 2
+            if(gRogueRun.currentLevelOffset < 2)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 4;
+                gRogueRun.currentLevelOffset -= 2;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -2095,11 +2100,11 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            // Every wild battle drops level cap by 3
-            if(gRogueRun.currentLevelOffset < 3)
+            // Every wild battle drops level cap by 2
+            if(gRogueRun.currentLevelOffset < 2)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 3;
+                gRogueRun.currentLevelOffset -= 2;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -3052,13 +3057,10 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
     // Note: Don't seed individual encounters
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
-        u8 maxlevel = CalculateWildLevel();
-        u8 levelVariation = min(6, maxlevel - 1);
-
         if(GetSafariZoneFlag())
-        {
-            levelVariation = min(3, maxlevel - 1);
-        }
+            *level  = CalculateWildLevel(3);
+        else
+            *level  = CalculateWildLevel(6);
 
         if(area == 1) //WILD_AREA_WATER)
         {
@@ -3066,7 +3068,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
             u16 randIdx = Random() % count; 
 
             *species = gRogueRun.fishingEncounters[randIdx];
-            *level = maxlevel - (Random() % levelVariation);
         }
         else
         {
@@ -3091,14 +3092,13 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
             gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
-            *level = maxlevel - (Random() % levelVariation);
         }
     }
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
-    *level = CalculateWildLevel();
+    *level = CalculateWildLevel(3);
 }
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
@@ -3594,7 +3594,7 @@ static u16 NextWildSpecies(u16 * party, u8 monIdx)
 
 static void RandomiseWildEncounters(void)
 {
-    u8 maxlevel = CalculateWildLevel();
+    u8 maxlevel = CalculateWildLevel(0);
 
     // Query for the current route type
     RogueQuery_Clear();
@@ -3686,7 +3686,7 @@ static void RogueQuery_SafariTypeForMap()
 
 static void RandomiseSafariWildEncounters(void)
 {
-    u8 maxlevel = CalculateWildLevel();
+    u8 maxlevel = CalculateWildLevel(0);
 
     // Query for the current zone
     RogueQuery_Clear();
@@ -3749,8 +3749,9 @@ static void ResetTrainerBattles(void)
 
 u8 GetLeadMonLevel(void);
 
-static u8 CalculateWildLevel(void)
+static u8 CalculateWildLevel(u8 variation)
 {
+    u8 wildLevel;
     u8 playerLevel = CalculatePlayerLevel();
 
     if(GetSafariZoneFlag())
@@ -3758,33 +3759,37 @@ static u8 CalculateWildLevel(void)
         if((Random() % 6) == 0)
         {
             // Occasionally throw in starter level mons
-            return 7;
+            wildLevel = 7;
         }
         else
         {
-            return GetLeadMonLevel();
+            wildLevel = GetLeadMonLevel();
         }
     }
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    else if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
         // 5 rooms the constant badges
-        return min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
+        wildLevel = min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
     }
-
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        return playerLevel - 5;
+        wildLevel = playerLevel - 5;
     }
-
-    if(playerLevel < 10)
+    else if(playerLevel < 10)
     {
-        return 4;
+        wildLevel = 4;
     }
     else
     {
-        return playerLevel - 7;
+        wildLevel = playerLevel - 7;
     }
+
+    variation = min(variation, wildLevel);
+
+    if(variation != 0)
+        return wildLevel - (Random() % variation);
+    else
+        return wildLevel;
 }
 
 static u8 CalculateBossLevelForDifficulty(u8 difficulty)
