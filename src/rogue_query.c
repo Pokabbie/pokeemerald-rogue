@@ -677,43 +677,90 @@ static bool8 IsValidItemEvo(struct Evolution* evo, bool8 itemEvos)
     return FALSE;
 }
 
+static void RogueQuery_ReconsiderEvolveSpecies(u16 targetSpecies, u16 originSpecies, u8 level, bool8 itemEvos, bool8 removeChild)
+{
+    u8 i;
+    u8 e;
+    struct Evolution evo;
+    bool8 shouldEvolve = FALSE;
+
+    if(Rogue_GetEvolutionCount(targetSpecies))
+    {
+        for(e = 0; e < EVOS_PER_MON; ++e)
+        {
+            Rogue_ModifyEvolution(targetSpecies, e, &evo);
+            shouldEvolve = FALSE;
+
+            if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(targetSpecies)))
+            {
+                // If the baby mon didn't exist for the enabled gen we will force it to evolve
+                shouldEvolve = TRUE;
+            }
+            else if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo, itemEvos))
+            {
+                shouldEvolve = TRUE;
+            }
+
+            if(shouldEvolve)
+            {
+                SetQueryState(evo.targetSpecies, TRUE);
+                if(removeChild)
+                {
+                    SetQueryState(targetSpecies, FALSE);
+                }
+
+                // Check against origin species, as if it is greater than, we have yet to process it so can wait until later
+                if(evo.targetSpecies < originSpecies)
+                {
+                    // We've already considered this species so we must reconsider it e.g. if a baby mon was introduced in later gen 
+                    // (Azuril is a good example as it will miss out on full evo chain)
+                    RogueQuery_ReconsiderEvolveSpecies(evo.targetSpecies, originSpecies, level, itemEvos, removeChild);
+                }
+            }
+        }
+    }
+}
+
 static void RogueQuery_EvolveSpeciesInternal(u8 level, bool8 itemEvos, bool8 removeChild)
 {
     u8 i;
     u8 e;
     u16 species;
     struct Evolution evo;
+    bool8 shouldEvolve = FALSE;
 
-    // Loop twice to support baby mons from future gens (e.g. azuril line)
-    for(i = 0; i < 2; ++i)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
-        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+        if(GetQueryState(species) && Rogue_GetEvolutionCount(species))
         {
-            if(GetQueryState(species))
+            for(e = 0; e < EVOS_PER_MON; ++e)
             {
-                for(e = 0; e < EVOS_PER_MON; ++e)
-                {
-                    Rogue_ModifyEvolution(species, e, &evo);
+                Rogue_ModifyEvolution(species, e, &evo);
+                shouldEvolve = FALSE;
 
-                    if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(species)))
+                if(evo.method != 0 && !IsGenEnabled(SpeciesToGen(species)))
+                {
+                    // If the baby mon didn't exist for the enabled gen we will force it to evolve
+                    shouldEvolve = TRUE;
+                }
+                else if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo, itemEvos))
+                {
+                    shouldEvolve = TRUE;
+                }
+
+                if(shouldEvolve)
+                {
+                    SetQueryState(evo.targetSpecies, TRUE);
+                    if(removeChild)
                     {
-                        // If the baby mon didn't exist for the enabled gen we will force it to evolve
-                        SetQueryState(evo.targetSpecies, TRUE);
-                        if(removeChild)
-                        {
-                            SetQueryState(species, FALSE);
-                        }
+                        SetQueryState(species, FALSE);
                     }
-                    else
+
+                    if(evo.targetSpecies < species)
                     {
-                        if(IsValidLevelEvo(&evo, level) || IsValidItemEvo(&evo, itemEvos))
-                        {
-                            SetQueryState(evo.targetSpecies, TRUE);
-                            if(removeChild)
-                            {
-                                SetQueryState(species, FALSE);
-                            }
-                        }
+                        // We've already considered this species so we must reconsider it e.g. if a baby mon was introduced in later gen 
+                        // (Azuril is a good example as it will miss out on full evo chain)
+                        RogueQuery_ReconsiderEvolveSpecies(evo.targetSpecies, species, level, itemEvos, removeChild);
                     }
                 }
             }
