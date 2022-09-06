@@ -136,6 +136,7 @@ static u8 GetCurrentWildEncounterCount(void);
 
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
+static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
@@ -1445,6 +1446,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     SaveHubInventory();
+    RandomiseFishingEncounters();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     //gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
@@ -3040,8 +3042,13 @@ static u8 GetCurrentWildEncounterCount()
 
     if(difficultyModifier == 2) // Hard route
     {
-        // Less encounters on hard route
+        // Less encounters
         count = 2;
+    }
+    else if(difficultyModifier == 1) // Avg route
+    {
+        // Slightly less encounters
+        count = 4;
     }
 
     return count;
@@ -3072,14 +3079,9 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
         else
         {
             u8 difficultyModifier = GetRoomTypeDifficulty();
-            u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+            u16 count = GetCurrentWildEncounterCount();
+            u16 historyBufferCount = ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer);
             u16 randIdx;
-
-            if(difficultyModifier == 2) // Hard route
-            {
-                // Less encounters on hard route
-                count = 2;
-            }
             
             do
             {
@@ -3087,11 +3089,11 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
                 randIdx = Random() % count; 
                 *species = gRogueRun.wildEncounters[randIdx];
             }
-            while(!GetSafariZoneFlag() && (difficultyModifier != 2) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species));
+            while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
             gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
-            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer), *species);
+            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
     }
 }
@@ -3624,9 +3626,30 @@ static void RandomiseWildEncounters(void)
             gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
         }
     }
+}
 
-    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
-    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
+static void RandomiseFishingEncounters(void)
+{
+    RogueQuery_Clear();
+
+    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesExcludeCommon();
+    RogueQuery_SpeciesIsNotLegendary();
+
+    RogueQuery_SpeciesOfType(TYPE_WATER);
+    RogueQuery_TransformToEggSpecies();
+    RogueQuery_SpeciesOfType(TYPE_WATER);
+
+    RogueQuery_CollapseSpeciesBuffer();
+
+    {
+        u8 i;
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
+        {
+            gRogueRun.fishingEncounters[i] = NextWildSpecies(&gRogueRun.fishingEncounters[0], i);
+        }
+    }
 }
 
 static void RogueQuery_SafariTypeForMap()
