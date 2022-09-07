@@ -1,0 +1,491 @@
+const METATILE_Background = 0x001
+
+const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
+const VAR_RETURN_STATE = VAR_TEMP_0
+
+const NPC_INTRO_SCOTT = 1
+
+mapscripts Rogue_Hub_AdventureEnterance_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Adventure_RedrawMap
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_RETURN_STATE, 0: Rogue_Adventure_WarpState0
+    ]
+}
+
+script Rogue_Adventure_WarpState0
+{
+    if(flag(FLAG_ROGUE_LEFT_ON_RUN))
+    {
+        call(Rogue_ReturnAdventureCommon)
+    }
+    elif(flag(FLAG_ROGUE_MET_POKABBIE) && !flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS))
+    {
+        call(Rogue_Adventure_ScottGift)
+
+        // Skip intro if we did this first
+        if(var(VAR_ROGUE_INTRO_STATE) == 4)
+        {
+            setvar(VAR_ROGUE_INTRO_STATE, 5)
+        }
+    }
+    elif(var(VAR_ROGUE_INTRO_STATE) == 4)
+    {
+        call(Rogue_Adventure_ScottIntro)
+        setvar(VAR_ROGUE_INTRO_STATE, 5)
+    }
+
+    setvar(VAR_RETURN_STATE, 1)
+}
+
+script Rogue_Adventure_RedrawMap
+{
+    // Hide hidden rooms
+    if(flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS) || flag(FLAG_ROGUE_MET_POKABBIE) && !flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS))
+    {
+        // About to expand...
+        clearflag(FLAG_ROGUE_TRAINER0)
+    }
+    else
+    {
+        setflag(FLAG_ROGUE_TRAINER0)
+        fillmetatile(9, 0, 17, 8, METATILE_Background, TRUE)
+    }
+}
+
+script Rogue_Adventure_ScottIntro
+{
+    lockall
+
+    applymovement(NPC_INTRO_SCOTT, Rogue_Adventure_ScottIntroMovement0)
+    waitmovement(0)
+
+    msgbox(format("SCOTT: Hey {PLAYER}!\pLooks like you got yourself a partner POKéMON, so you're all ready to go on an adventure!\pJust go chat to the nurse over there and you can start exploring!"))
+
+    releaseall
+}
+
+script Rogue_Adventure_ScottGift
+{
+    lockall
+    setflag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS)
+
+    applymovement(NPC_INTRO_SCOTT, Rogue_Adventure_ScottIntroMovement0)
+    waitmovement(0)
+
+    // Give extra key items
+    msgbox(format("SCOTT: Oh hey {PLAYER}!\nPOKABBIE has gone and added some extra modes here for you to try!"), MSGBOX_DEFAULT)
+    
+    // Give extra key items
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        msgbox(format("She's actually left me a bunch of items to give to you too!"), MSGBOX_DEFAULT)
+    
+        // ITEM_ROTOM_CATALOG
+        //giveitem(694)
+
+        // ITEM_GRACIDEA
+        giveitem(695)
+
+        // ITEM_REVEAL_GLASS
+        giveitem(696)
+
+        // ITEM_DNA_SPLICERS
+        //giveitem(697)
+
+        // ITEM_ZYGARDE_CUBE
+        //giveitem(698)
+
+        // ITEM_PRISON_BOTTLE
+        giveitem(699)
+
+        // ITEM_N_SOLARIZER
+        //giveitem(700)
+
+        // ITEM_N_LUNARIZER
+        //giveitem(701)
+
+        // ITEM_REINS_OF_UNITY
+        //giveitem(702)
+    }
+
+    releaseall
+}
+
+script Rogue_Adventure_SpeakScott
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
+    {
+        msgbox(format("SCOTT: Hey {PLAYER}!\pJust go chat to the nurse over there and you can start exploring!"))
+    }
+    else
+    {
+        msgbox(format("SCOTT: Hey {PLAYER}!\pAdventuring sure is fun huh!"))
+    }
+
+    release
+}
+
+movement Rogue_Adventure_ScottIntroMovement0
+{
+    face_down
+    emote_exclamation_mark
+    delay_16
+
+    walk_left * 2
+    walk_down * 2
+}
+
+script Rogue_Adventure_StatsSign
+{
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
+    msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note for the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
+}
+
+
+script Rogue_Adventure_StartStandard
+{
+    call(Rogue_ResetAdventureFlags)
+
+    lock
+    faceplayer
+
+    // Yes No Info
+    msgbox(format("Would you like to go on an adventure?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_ResetAdventureFlags)
+        call(Rogue_StartAdventureCommon)
+    }
+    else
+    {
+        msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_Adventure_StartDoubles
+{
+    call(Rogue_ResetAdventureFlags)
+
+    lock
+    faceplayer
+
+    message(format("Would you like to go on a DOUBLEs adventure?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_ResetAdventureFlags)
+            setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+            call(Rogue_StartAdventureCommon)
+
+        case 1: // No
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            msgbox(format("The adventure uses the same settings as the standard mode, however all TRAINER battles will forced to be DOUBLE battles."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_Adventure_StartGauntlet
+{
+    call(Rogue_ResetAdventureFlags)
+
+    lock
+    faceplayer
+
+    message(format("Would you like to go on a GAUNTLET adventure?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_ResetAdventureFlags)
+            setflag(FLAG_ROGUE_GAUNTLET_MODE)
+
+            msgbox(format("Would you like to enable DOUBLE mode for this adventure too?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+            }
+
+            call(Rogue_StartAdventureCommon)
+
+        case 1: // No
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            msgbox(format("In GAUNTLET adventures, you will get given a few routes to capture POKéMON and collect items.\pAfter that you will fight every BOSS back to back with no chance to get any more POKéMON or items.\pThis is a high stakes mode intended for faster more difficult battles."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_ResetAdventureFlags
+{
+    clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
+    clearflag(FLAG_ROGUE_GAUNTLET_MODE)
+}
+
+script Rogue_StartAdventureCommon
+{
+    getpartysize
+    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        if(var(VAR_RESULT) > 2)
+        {
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            setvar(VAR_RESULT, YES)
+        }
+    }
+    else
+    {
+        if(var(VAR_RESULT) > 1)
+        {
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            setvar(VAR_RESULT, YES)
+        }
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+        specialvar(VAR_RESULT, GetLeadMonLevel)
+
+        if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
+        {
+            if(var(VAR_RESULT) > 85)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
+            }
+            elif(var(VAR_RESULT) > 75)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
+            }
+            elif(var(VAR_RESULT) > 65)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
+            }
+            elif(var(VAR_RESULT) > 55)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
+            }
+            elif(var(VAR_RESULT) > 45)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
+            }
+            elif(var(VAR_RESULT) > 35)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
+            }
+            elif(var(VAR_RESULT) > 25)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
+            }
+            elif(var(VAR_RESULT) > 15)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
+            }
+        }
+
+        // Skip ahead based on lvl
+        if(var(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
+        {
+            msgbox(format("You've leveled up your PARTNER enough to skip ahead!"), MSGBOX_DEFAULT)
+
+            buffernumberstring(STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY)
+
+            msgbox(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == NO)
+            {
+                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+            }
+        }
+
+        call(Common_EventScript_SaveGame)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Good luck {PLAYER}!"), MSGBOX_DEFAULT)
+
+            if(var(VAR_ROGUE_INTRO_STATE) == 5)
+            {
+                // First adventure
+                setvar(VAR_ROGUE_INTRO_STATE, 6)
+            }
+            else
+            {
+                // Normal adventure
+                setvar(VAR_ROGUE_INTRO_STATE, 7)
+            }
+
+            setflag(FLAG_ROGUE_LEFT_ON_RUN)
+            setrespawn(HEAL_LOCATION_ROGUE_HUB)
+            warp(MAP_ROGUE_HUB_TRANSITION, 0)
+        }
+        else
+        {
+            msgbox(format("OK. Come speak to me once you're ready."), MSGBOX_DEFAULT)
+        }
+    }
+}
+
+script Rogue_ReturnAdventureCommon
+{
+    lockall
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+    msgbox(format("Welcome back {PLAYER}!"), MSGBOX_DEFAULT)
+
+    // Just returned from firstadventure
+    if(var(VAR_ROGUE_INTRO_STATE) == 6)
+    {
+        msgbox(format("Whenever you return from an adventure\nyou earn rewards based on how well you did."), MSGBOX_DEFAULT)
+
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX)
+        buffernumberstring(STR_VAR_2, VAR_ROGUE_DIFFICULTY)
+
+        msgbox(format("Lets have a look now...\pYou managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n{STR_VAR_1} routes...{PAUSE 15}\pand you recieved {STR_VAR_2} BADGES...{PAUSE 15}"), MSGBOX_DEFAULT)
+        
+        //turnobject(NPC_INTRO_SCOTT, DIR_EAST)
+        msgbox(format("So hmm...\nYour rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}."), MSGBOX_DEFAULT)
+        //turnobject(NPC_INTRO_SCOTT, DIR_SOUTH)
+    }
+
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_REWARD_MONEY)
+    buffernumberstring(STR_VAR_2, VAR_ROGUE_REWARD_CANDY)
+
+    message(format("You recieve ¥{STR_VAR_1}"))
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitmessage
+    waitfanfare
+
+    if(var(VAR_ROGUE_REWARD_CANDY) != 0)
+    {
+        msgbox(format("and for the BADGE's..."), MSGBOX_DEFAULT)
+        giveitem(ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY)
+
+        // Give HMs if haven't got them
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 1)
+        {
+            checkitem(ITEM_HM01)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM01)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 2)
+        {
+            checkitem(ITEM_HM05_FLASH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM05_FLASH)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 3)
+        {
+            checkitem(ITEM_HM06_ROCK_SMASH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM06_ROCK_SMASH)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 4)
+        {
+            checkitem(ITEM_HM04_STRENGTH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM04_STRENGTH)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 5)
+        {
+            checkitem(ITEM_HM08_DIVE)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM08_DIVE)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
+        {
+            checkitem(ITEM_HM02_FLY)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM02_FLY)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 7)
+        {
+            checkitem(ITEM_HM07_WATERFALL)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM07_WATERFALL)
+            }
+        }
+
+        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 8)
+        {
+            checkitem(ITEM_HM03_SURF)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM03_SURF)
+            }
+        }
+
+        if(var(VAR_ROGUE_INTRO_STATE) == 6)
+        {
+            msgbox(format("By levelling up your PARTNER POKéMON, you'll get the option to skip over eariler GYM LEADERs.\pAlthough it does take a lot of levels to do that..."), MSGBOX_DEFAULT)
+        }
+    }
+
+    if(var(VAR_ROGUE_INTRO_STATE) == 6)
+    {
+        msgbox(format("Since you're back from your first adventure, you should have a look round the HUB!\pYou tend to get fans as you adventure more and some of them may want to move into the HUB and setup some useful facilities."), MSGBOX_DEFAULT)
+    }
+
+    clearflag(FLAG_ROGUE_LEFT_ON_RUN)
+    setvar(VAR_ROGUE_INTRO_STATE, 7)
+
+    
+    msgbox(format("Would you like to SAVE your progress?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Common_EventScript_SaveGame)
+    }
+
+    msgbox(format("Come speak to me once you're ready for your next adventure."), MSGBOX_DEFAULT)
+    releaseall
+}

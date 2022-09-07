@@ -90,7 +90,7 @@ Rogue_RetireFromRun_2:
 
 
 Rogue_ReturnToHub::
-	warp MAP_ROGUE_HUB, 29, 7
+	warprespawn
 	return
 
 

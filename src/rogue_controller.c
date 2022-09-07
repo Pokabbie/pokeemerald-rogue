@@ -1738,7 +1738,7 @@ void Rogue_OnWarpIntoMap(void)
     {
         gRogueAdvPath.isOverviewActive = TRUE;
     }
-    else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB && Rogue_IsRunActive())
+    else if((gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB || gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_ADVENTURE_ENTERANCE) && Rogue_IsRunActive())
     {
         EndRogueRun();
     }
@@ -1752,6 +1752,11 @@ void Rogue_OnWarpIntoMap(void)
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
     if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
+    {
+        // Warping back to hub must be intentional
+        return;
+    }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_ADVENTURE_ENTERANCE) && warp->mapNum == MAP_NUM(ROGUE_HUB_ADVENTURE_ENTERANCE))
     {
         // Warping back to hub must be intentional
         return;

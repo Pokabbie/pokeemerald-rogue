@@ -5,9 +5,8 @@ Rogue_Hub_MapScripts::
 	.byte 0
 
 Rogue_Hub_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 0, RogueHub_Intro0
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, RogueHub_ReturnAdventure
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, RogueHub_ReturnAdventure
+	map_script_2 VAR_TEMP_0, 0, RogueHub_Intro0
+	map_script_2 VAR_TEMP_0, 1, RogueHub_EnterPostTutortial
 	.2byte 0
 
 
@@ -51,10 +50,13 @@ RogueHub_OnMapLoad_9:
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_13:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
-	goto_if_lt RogueHub_OnMapLoad_17
+	goto_if_lt RogueHub_OnMapLoad_18
 	clearflag FLAG_ROGUE_TRAINER3
 	clearflag FLAG_ROGUE_TRAINER5
-	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_20
+	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_23
+RogueHub_OnMapLoad_17:
+	compare VAR_LITTLEROOT_INTRO_STATE, 3
+	goto_if_gt RogueHub_OnMapLoad_21
 	return
 
 RogueHub_OnMapLoad_2:
@@ -81,19 +83,30 @@ RogueHub_OnMapLoad_14:
 	setflag FLAG_ROGUE_TRAINER2
 	goto RogueHub_OnMapLoad_13
 
-RogueHub_OnMapLoad_17:
+RogueHub_OnMapLoad_18:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
 	setflag FLAG_ROGUE_TRAINER5
 	fillmetatile 22, 8, 24, 8, 0x001, FALSE
+	goto RogueHub_OnMapLoad_17
+
+RogueHub_OnMapLoad_21:
+	setflag FLAG_ROGUE_TRAINER6
 	return
 
-RogueHub_OnMapLoad_20:
+RogueHub_OnMapLoad_23:
 	setflag FLAG_ROGUE_TRAINER5
-	return
+	goto RogueHub_OnMapLoad_17
 
 
 RogueHub_Intro0::
+	compare VAR_LITTLEROOT_INTRO_STATE, 0
+	goto_if_eq RogueHub_Intro0_2
+RogueHub_Intro0_1:
+	setvar VAR_TEMP_0, 1
+	return
+
+RogueHub_Intro0_2:
 	lockall
 	playse SE_LEDGE
 	applymovement OBJ_EVENT_ID_PLAYER, RogueHub_Intro_StepOffTruck
@@ -109,7 +122,7 @@ RogueHub_Intro0::
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
 	releaseall
-	end
+	goto RogueHub_Intro0_1
 
 
 RogueHub_Intro_StepOffTruck:
@@ -139,172 +152,10 @@ RogueHub_Intro_ScottWalkToPost:
 	face_down
 	step_end
 
-RogueHub_ReturnAdventure::
-	compare VAR_TEMP_0, 1
-	goto_if_ne RogueHub_ReturnAdventure_1
-	return
-
-RogueHub_ReturnAdventure_1:
-	lockall
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_eq RogueHub_ReturnAdventure_4
-RogueHub_ReturnAdventure_3:
-	buffernumberstring STR_VAR_1, VAR_ROGUE_REWARD_MONEY
-	buffernumberstring STR_VAR_2, VAR_ROGUE_REWARD_CANDY
-	message RogueHub_ReturnAdventure_Text_3
-	playfanfare MUS_OBTAIN_ITEM
-	waitmessage
-	waitfanfare
-	compare VAR_ROGUE_REWARD_CANDY, 0
-	goto_if_ne RogueHub_ReturnAdventure_7
-RogueHub_ReturnAdventure_6:
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_eq RogueHub_ReturnAdventure_10
-RogueHub_ReturnAdventure_9:
-	clearflag FLAG_ROGUE_LEFT_ON_RUN
-	setvar VAR_LITTLEROOT_INTRO_STATE, 7
-	msgbox RogueHub_ReturnAdventure_Text_7, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_ReturnAdventure_16
-RogueHub_ReturnAdventure_15:
-	msgbox RogueHub_ReturnAdventure_Text_8, MSGBOX_DEFAULT
+RogueHub_EnterPostTutortial::
 	call RogueHub_IntroPokabbie
-	releaseall
+	setvar VAR_TEMP_0, 2
 	return
-
-RogueHub_ReturnAdventure_4:
-	msgbox RogueHub_ReturnAdventure_Text_0, MSGBOX_DEFAULT
-	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX
-	buffernumberstring STR_VAR_2, VAR_ROGUE_DIFFICULTY
-	msgbox RogueHub_ReturnAdventure_Text_1, MSGBOX_DEFAULT
-	turnobject 2, DIR_EAST
-	msgbox RogueHub_ReturnAdventure_Text_2, MSGBOX_DEFAULT
-	turnobject 2, DIR_SOUTH
-	goto RogueHub_ReturnAdventure_3
-
-RogueHub_ReturnAdventure_7:
-	msgbox RogueHub_ReturnAdventure_Text_4, MSGBOX_DEFAULT
-	giveitem ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
-	goto_if_ge RogueHub_ReturnAdventure_13
-RogueHub_ReturnAdventure_12:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
-	goto_if_ge RogueHub_ReturnAdventure_19
-RogueHub_ReturnAdventure_18:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
-	goto_if_ge RogueHub_ReturnAdventure_24
-RogueHub_ReturnAdventure_23:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
-	goto_if_ge RogueHub_ReturnAdventure_29
-RogueHub_ReturnAdventure_28:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
-	goto_if_ge RogueHub_ReturnAdventure_34
-RogueHub_ReturnAdventure_33:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
-	goto_if_ge RogueHub_ReturnAdventure_39
-RogueHub_ReturnAdventure_38:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
-	goto_if_ge RogueHub_ReturnAdventure_44
-RogueHub_ReturnAdventure_43:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 8
-	goto_if_ge RogueHub_ReturnAdventure_49
-RogueHub_ReturnAdventure_48:
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_eq RogueHub_ReturnAdventure_53
-	goto RogueHub_ReturnAdventure_6
-
-RogueHub_ReturnAdventure_10:
-	msgbox RogueHub_ReturnAdventure_Text_6, MSGBOX_DEFAULT
-	goto RogueHub_ReturnAdventure_9
-
-RogueHub_ReturnAdventure_13:
-	checkitem ITEM_HM01
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_21
-	goto RogueHub_ReturnAdventure_12
-
-RogueHub_ReturnAdventure_16:
-	call Common_EventScript_SaveGame
-	goto RogueHub_ReturnAdventure_15
-
-RogueHub_ReturnAdventure_19:
-	checkitem ITEM_HM05_FLASH
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_26
-	goto RogueHub_ReturnAdventure_18
-
-RogueHub_ReturnAdventure_21:
-	giveitem ITEM_HM01
-	goto RogueHub_ReturnAdventure_12
-
-RogueHub_ReturnAdventure_24:
-	checkitem ITEM_HM06_ROCK_SMASH
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_31
-	goto RogueHub_ReturnAdventure_23
-
-RogueHub_ReturnAdventure_26:
-	giveitem ITEM_HM05_FLASH
-	goto RogueHub_ReturnAdventure_18
-
-RogueHub_ReturnAdventure_29:
-	checkitem ITEM_HM04_STRENGTH
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_36
-	goto RogueHub_ReturnAdventure_28
-
-RogueHub_ReturnAdventure_31:
-	giveitem ITEM_HM06_ROCK_SMASH
-	goto RogueHub_ReturnAdventure_23
-
-RogueHub_ReturnAdventure_34:
-	checkitem ITEM_HM08_DIVE
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_41
-	goto RogueHub_ReturnAdventure_33
-
-RogueHub_ReturnAdventure_36:
-	giveitem ITEM_HM04_STRENGTH
-	goto RogueHub_ReturnAdventure_28
-
-RogueHub_ReturnAdventure_39:
-	checkitem ITEM_HM02_FLY
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_46
-	goto RogueHub_ReturnAdventure_38
-
-RogueHub_ReturnAdventure_41:
-	giveitem ITEM_HM08_DIVE
-	goto RogueHub_ReturnAdventure_33
-
-RogueHub_ReturnAdventure_44:
-	checkitem ITEM_HM07_WATERFALL
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_51
-	goto RogueHub_ReturnAdventure_43
-
-RogueHub_ReturnAdventure_46:
-	giveitem ITEM_HM02_FLY
-	goto RogueHub_ReturnAdventure_38
-
-RogueHub_ReturnAdventure_49:
-	checkitem ITEM_HM03_SURF
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_ReturnAdventure_55
-	goto RogueHub_ReturnAdventure_48
-
-RogueHub_ReturnAdventure_51:
-	giveitem ITEM_HM07_WATERFALL
-	goto RogueHub_ReturnAdventure_43
-
-RogueHub_ReturnAdventure_53:
-	msgbox RogueHub_ReturnAdventure_Text_5, MSGBOX_DEFAULT
-	goto RogueHub_ReturnAdventure_6
-
-RogueHub_ReturnAdventure_55:
-	giveitem ITEM_HM03_SURF
-	goto RogueHub_ReturnAdventure_48
 
 
 RogueHub_SpeakScott::
@@ -312,16 +163,7 @@ RogueHub_SpeakScott::
 	faceplayer
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
 	goto_if_le RogueHub_SpeakScott_2
-	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq RogueHub_SpeakScott_6
-	msgbox RogueHub_SpeakScott_Text_3, MSGBOX_DEFAULT
-	setvar VAR_RESULT, YES
-RogueHub_SpeakScott_5:
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakScott_10
-RogueHub_SpeakScott_9:
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakScott_12
+	msgbox RogueHub_SpeakScott_Text_1, MSGBOX_DEFAULT
 RogueHub_SpeakScott_1:
 	release
 	end
@@ -330,156 +172,13 @@ RogueHub_SpeakScott_2:
 	msgbox RogueHub_SpeakScott_Text_0, MSGBOX_DEFAULT
 	goto RogueHub_SpeakScott_1
 
-RogueHub_SpeakScott_6:
-	msgbox RogueHub_SpeakScott_Text_1, MSGBOX_DEFAULT
-	msgbox RogueHub_SpeakScott_Text_2, MSGBOX_YESNO
-	goto RogueHub_SpeakScott_5
-
-RogueHub_SpeakScott_10:
-	getpartysize
-	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, RogueHub_SpeakScott_14
-	compare VAR_RESULT, 1
-	goto_if_gt RogueHub_SpeakScott_25
-	setvar VAR_RESULT, YES
-	goto RogueHub_SpeakScott_9
-
-RogueHub_SpeakScott_12:
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_SpeakScott_19
-RogueHub_SpeakScott_17:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	specialvar VAR_RESULT, GetLeadMonLevel
-	goto_if_unset FLAG_SET_SEED_ENABLED, RogueHub_SpeakScott_30
-RogueHub_SpeakScott_28:
-	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto_if_ne RogueHub_SpeakScott_36
-RogueHub_SpeakScott_35:
-	call Common_EventScript_SaveGame
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakScott_54
-	msgbox RogueHub_SpeakScott_Text_10, MSGBOX_DEFAULT
-	goto RogueHub_SpeakScott_1
-
-RogueHub_SpeakScott_14:
-	compare VAR_RESULT, 2
-	goto_if_gt RogueHub_SpeakScott_22
-	setvar VAR_RESULT, YES
-	goto RogueHub_SpeakScott_9
-
-RogueHub_SpeakScott_18:
-	checkitem 695
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakScott_33
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_19:
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_SpeakScott_18
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_22:
-	msgbox RogueHub_SpeakScott_Text_4, MSGBOX_DEFAULT
-	setvar VAR_RESULT, NO
-	goto RogueHub_SpeakScott_9
-
-RogueHub_SpeakScott_25:
-	msgbox RogueHub_SpeakScott_Text_5, MSGBOX_DEFAULT
-	setvar VAR_RESULT, NO
-	goto RogueHub_SpeakScott_9
-
-RogueHub_SpeakScott_29:
-	compare VAR_RESULT, 85
-	goto_if_gt RogueHub_SpeakScott_38
-	compare VAR_RESULT, 75
-	goto_if_gt RogueHub_SpeakScott_39
-	compare VAR_RESULT, 65
-	goto_if_gt RogueHub_SpeakScott_40
-	compare VAR_RESULT, 55
-	goto_if_gt RogueHub_SpeakScott_41
-	compare VAR_RESULT, 45
-	goto_if_gt RogueHub_SpeakScott_42
-	compare VAR_RESULT, 35
-	goto_if_gt RogueHub_SpeakScott_43
-	compare VAR_RESULT, 25
-	goto_if_gt RogueHub_SpeakScott_44
-	compare VAR_RESULT, 15
-	goto_if_gt RogueHub_SpeakScott_45
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_30:
-	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, RogueHub_SpeakScott_29
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_33:
-	msgbox RogueHub_SpeakScott_Text_6, MSGBOX_DEFAULT
-	giveitem 695
-	giveitem 696
-	giveitem 699
-	goto RogueHub_SpeakScott_17
-
-RogueHub_SpeakScott_36:
-	msgbox RogueHub_SpeakScott_Text_7, MSGBOX_DEFAULT
-	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
-	msgbox RogueHub_SpeakScott_Text_8, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakScott_57
-	goto RogueHub_SpeakScott_35
-
-RogueHub_SpeakScott_38:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_39:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_40:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_41:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_42:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_43:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_44:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_45:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
-	goto RogueHub_SpeakScott_28
-
-RogueHub_SpeakScott_54:
-	msgbox RogueHub_SpeakScott_Text_9, MSGBOX_DEFAULT
-	setvar VAR_TEMP_0, 1
-	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq RogueHub_SpeakScott_60
-	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-RogueHub_SpeakScott_59:
-	setflag FLAG_ROGUE_LEFT_ON_RUN
-	warp MAP_ROGUE_HUB_TRANSITION, 0
-	goto RogueHub_SpeakScott_1
-
-RogueHub_SpeakScott_57:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto RogueHub_SpeakScott_35
-
-RogueHub_SpeakScott_60:
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
-	goto RogueHub_SpeakScott_59
-
 
 RogueHub_IntroPokabbie::
 	goto_if_set FLAG_IS_CHAMPION, RogueHub_IntroPokabbie_2
 	return
 
 RogueHub_IntroPokabbie_1:
+	lockall
 	showobjectat 15, MAP_ROGUE_HUB
 	msgbox RogueHub_IntroPokabbie_Text_0, MSGBOX_NPC
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
@@ -497,6 +196,7 @@ RogueHub_IntroPokabbie_1:
 	setflag FLAG_ROGUE_UNCOVERRED_POKABBIE
 	setflag FLAG_TEMP_8
 	removeobject 15
+	releaseall
 	return
 
 RogueHub_IntroPokabbie_2:
@@ -712,104 +412,17 @@ RogueHub_Intro0_Text_0:
 	.string "I'm sure you're raring to go, but first\n"
 	.string "you should go speak the PROF.$"
 
-RogueHub_ReturnAdventure_Text_0:
-	.string "SCOTT: {PLAYER}!\p"
-	.string "Welcome back!\p"
-	.string "Whenever you return from an adventure\n"
-	.string "you earn rewards based on how well you\l"
-	.string "did.$"
-
-RogueHub_ReturnAdventure_Text_1:
-	.string "Lets have a look now...\p"
-	.string "You managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n"
-	.string "{STR_VAR_1} routes...{PAUSE 15}\p"
-	.string "and you recieved {STR_VAR_2}\n"
-	.string "BADGES...{PAUSE 15}$"
-
-RogueHub_ReturnAdventure_Text_2:
-	.string "So erm.\n"
-	.string "Your rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.$"
-
-RogueHub_ReturnAdventure_Text_3:
-	.string "SCOTT: You recieve ¥{STR_VAR_1}$"
-
-RogueHub_ReturnAdventure_Text_4:
-	.string "and for the BADGE's...$"
-
-RogueHub_ReturnAdventure_Text_5:
-	.string "SCOTT: By levelling up your PARTNER\n"
-	.string "POKéMON, you'll get the option to skip\l"
-	.string "over eariler GYM LEADERs.\p"
-	.string "Although it does take a lot of them...$"
-
-RogueHub_ReturnAdventure_Text_6:
-	.string "SCOTT: Good job champ!\p"
-	.string "You should have a look round the HUB\n"
-	.string "too!\p"
-	.string "As you adventure more, people may be\n"
-	.string "attracted to the HUB and want to move\l"
-	.string "in.\p"
-	.string "Some useful buildings might have been\n"
-	.string "setup when you return back here.$"
-
-RogueHub_ReturnAdventure_Text_7:
-	.string "SCOTT: Would you like to SAVE your\n"
-	.string "progress?$"
-
-RogueHub_ReturnAdventure_Text_8:
-	.string "SCOTT: Come chat to me once you're\n"
-	.string "ready for your next adventure.$"
-
 RogueHub_SpeakScott_Text_0:
 	.string "SCOTT: You should go and speak to find\n"
 	.string "the PROF. first$"
 
 RogueHub_SpeakScott_Text_1:
-	.string "SCOTT: Great!\n"
-	.string "You got yourself a PARTNER POKéMON!$"
-
-RogueHub_SpeakScott_Text_2:
-	.string "SCOTT: So what'd you say?\n"
-	.string "Ready to go on an adventure?$"
-
-RogueHub_SpeakScott_Text_3:
-	.string "SCOTT: Time for another adventure, huh!$"
-
-RogueHub_SpeakScott_Text_4:
-	.string "SCOTT: Looks like you have too many\n"
-	.string "POKéMON there bud.\p"
-	.string "You can only take in 2.\n"
-	.string "You should use the PC in the PROF.'s LAB\l"
-	.string "to deposit some before I can let you on\l"
-	.string "an adventure.$"
-
-RogueHub_SpeakScott_Text_5:
-	.string "SCOTT: Looks like you have too many\n"
-	.string "POKéMON there bud.\p"
-	.string "You can only take in 1.\n"
-	.string "You should use the PC in the PROF.'s LAB\l"
-	.string "to deposit some before I can let you on\l"
-	.string "an adventure.$"
-
-RogueHub_SpeakScott_Text_6:
-	.string "SCOTT: Oh before I forget!\n"
-	.string "Pokabbie actually left me a bunch of\l"
-	.string "items to give to you.$"
-
-RogueHub_SpeakScott_Text_7:
-	.string "SCOTT: You've leveled up your PARTNER\n"
-	.string "quite a bit there!$"
-
-RogueHub_SpeakScott_Text_8:
-	.string "Would you like to skip ahead and start\n"
-	.string "at BADGE {STR_VAR_1}?$"
-
-RogueHub_SpeakScott_Text_9:
-	.string "SCOTT: Good luck CHAMP!$"
-
-RogueHub_SpeakScott_Text_10:
-	.string "SCOTT: OK. Come chat to me once you're\n"
-	.string "ready.$"
+	.string "SCOTT: Uh oh!\p"
+	.string "I'm not suppose to be standing here...\p"
+	.string "You probably loaded this SAVE from an\n"
+	.string "old game version.\p"
+	.string "Try entering a house and checking if I'm\n"
+	.string "still here.$"
 
 RogueHub_IntroPokabbie_Text_0:
 	.string "{PLAYER}!$"
@@ -931,9 +544,7 @@ RogueHub_SpeakBank_Text_6:
 	.string "mind.$"
 
 RogueHub_Sign_AdventureSign_Text_0:
-	.string "Adventures await beyond this point...\p"
-	.string "Furthest Progress:\n"
-	.string "Gained {STR_VAR_1} BADGES...$"
+	.string "Adventures await beyond this point...$"
 
 RogueHub_Sign_ProfLab_Text_0:
 	.string "PROF. BIRCH's LAB$"

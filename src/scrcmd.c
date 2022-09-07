@@ -2074,6 +2074,14 @@ bool8 ScrCmd_setrespawn(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_warprespawn(struct ScriptContext *ctx)
+{
+    SetWarpDestinationToLastHealLocation();
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+    return FALSE;
+}
+
 bool8 ScrCmd_checkplayergender(struct ScriptContext *ctx)
 {
     gSpecialVar_Result = gSaveBlock2Ptr->playerGender;

@@ -1,6 +1,6 @@
 // Stolen state control from this var entirely
 const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
-const VAR_JUST_LEFT = VAR_TEMP_0
+const VAR_RETURN_STATE = VAR_TEMP_0
 
 const VAR_TL_X = VAR_0x8000
 const VAR_TL_Y = VAR_0x8001
@@ -42,9 +42,8 @@ mapscripts Rogue_Hub_MapScripts
     MAP_SCRIPT_ON_LOAD: RogueHub_OnMapLoad
     MAP_SCRIPT_ON_FRAME_TABLE 
     [
-        VAR_LITTLEROOT_INTRO_STATE, 0: RogueHub_Intro0
-        VAR_LITTLEROOT_INTRO_STATE, 5: RogueHub_ReturnAdventure
-        VAR_LITTLEROOT_INTRO_STATE, 6: RogueHub_ReturnAdventure
+        VAR_RETURN_STATE, 0: RogueHub_Intro0
+        VAR_RETURN_STATE, 1: RogueHub_EnterPostTutortial
     ]
 }
 
@@ -142,34 +141,44 @@ script RogueHub_OnMapLoad
             setflag(FLAG_ROGUE_TRAINER5)
         }
     }
+
+    // Intro Scott
+    if(var(VAR_ROGUE_INTRO_STATE) > 3)
+    {
+        setflag(FLAG_ROGUE_TRAINER6)
+    }
 }
 
 script RogueHub_Intro0
 {
-    lockall
-    //delay(15)
-    playse(SE_LEDGE)
-    applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_StepOffTruck)
-    waitmovement(0)
+    if(var(VAR_ROGUE_INTRO_STATE) == 0)
+    {
+        lockall
+        //delay(15)
+        playse(SE_LEDGE)
+        applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_StepOffTruck)
+        waitmovement(0)
 
-    applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottGreetAtTruck)
-    waitmovement(0)
+        applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottGreetAtTruck)
+        waitmovement(0)
 
-    applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_PlayerGreetAtTruck)
-    waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_PlayerGreetAtTruck)
+        waitmovement(0)
 
-    msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF."))
+        msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF."))
 
-    applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
-    waitmovement(0)
+        applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
+        waitmovement(0)
 
-    // Have to rest coords here otherwise will be stood in wrong place when walk off screen
-    setobjectxyperm(NPC_INTRO_SCOTT, 29, 6)
+        // Have to rest coords here otherwise will be stood in wrong place when walk off screen
+        setobjectxyperm(NPC_INTRO_SCOTT, 29, 6)
 
-    setvar(VAR_ROGUE_INTRO_STATE, 3)
-    setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
-    releaseall
-    end
+        setvar(VAR_ROGUE_INTRO_STATE, 3)
+        setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+        releaseall
+    }
+
+    setvar(VAR_RETURN_STATE, 1)
 }
 
 movement RogueHub_Intro_StepOffTruck 
@@ -197,141 +206,10 @@ movement RogueHub_Intro_ScottWalkToPost
     face_down
 }
 
-script RogueHub_ReturnAdventure
+script RogueHub_EnterPostTutortial
 {
-    if(var(VAR_JUST_LEFT) != 1)
-    {
-        lockall
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-
-        // Just returned from adventure
-        if(var(VAR_ROGUE_INTRO_STATE) == 5)
-        {
-            msgbox(format("SCOTT: {PLAYER}!\pWelcome back!\pWhenever you return from an adventure\nyou earn rewards based on how well you did."), MSGBOX_DEFAULT)
-
-            buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX)
-            buffernumberstring(STR_VAR_2, VAR_ROGUE_DIFFICULTY)
-
-            msgbox(format("Lets have a look now...\pYou managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n{STR_VAR_1} routes...{PAUSE 15}\pand you recieved {STR_VAR_2} BADGES...{PAUSE 15}"), MSGBOX_DEFAULT)
-            
-            turnobject(NPC_INTRO_SCOTT, DIR_EAST)
-            msgbox(format("So erm.\nYour rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}."), MSGBOX_DEFAULT)
-            turnobject(NPC_INTRO_SCOTT, DIR_SOUTH)
-        }
-
-        buffernumberstring(STR_VAR_1, VAR_ROGUE_REWARD_MONEY)
-        buffernumberstring(STR_VAR_2, VAR_ROGUE_REWARD_CANDY)
-
-        message(format("SCOTT: You recieve ¥{STR_VAR_1}"))
-        playfanfare(MUS_OBTAIN_ITEM)
-        // Add money isn't setup for VARs so we've already given the reward in RogueEndRun
-        //addmoney(VAR_ROGUE_REWARD_MONEY)
-        waitmessage
-        waitfanfare
-
-        if(var(VAR_ROGUE_REWARD_CANDY) != 0)
-        {
-            msgbox(format("and for the BADGE's..."), MSGBOX_DEFAULT)
-            giveitem(ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY)
-
-            // Give HMs if haven't got them
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 1)
-            {
-                checkitem(ITEM_HM01)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM01)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 2)
-            {
-                checkitem(ITEM_HM05_FLASH)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM05_FLASH)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 3)
-            {
-                checkitem(ITEM_HM06_ROCK_SMASH)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM06_ROCK_SMASH)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 4)
-            {
-                checkitem(ITEM_HM04_STRENGTH)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM04_STRENGTH)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 5)
-            {
-                checkitem(ITEM_HM08_DIVE)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM08_DIVE)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
-            {
-                checkitem(ITEM_HM02_FLY)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM02_FLY)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 7)
-            {
-                checkitem(ITEM_HM07_WATERFALL)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM07_WATERFALL)
-                }
-            }
-
-            if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 8)
-            {
-                checkitem(ITEM_HM03_SURF)
-                if(var(VAR_RESULT) == NO)
-                {
-                    giveitem(ITEM_HM03_SURF)
-                }
-            }
-
-            if(var(VAR_ROGUE_INTRO_STATE) == 5)
-            {
-                msgbox(format("SCOTT: By levelling up your PARTNER POKéMON, you'll get the option to skip over eariler GYM LEADERs.\pAlthough it does take a lot of them..."), MSGBOX_DEFAULT)
-            }
-        }
-
-        if(var(VAR_ROGUE_INTRO_STATE) == 5)
-        {
-            msgbox(format("SCOTT: Good job champ!\pYou should have a look round the HUB too!\pAs you adventure more, people may be attracted to the HUB and want to move in.\pSome useful buildings might have been setup when you return back here."), MSGBOX_DEFAULT)
-        }
-
-        clearflag(FLAG_ROGUE_LEFT_ON_RUN)
-        setvar(VAR_ROGUE_INTRO_STATE, 7)
-
-        
-        msgbox(format("SCOTT: Would you like to SAVE your progress?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
-        {
-            call(Common_EventScript_SaveGame)
-        }
-
-        msgbox(format("SCOTT: Come chat to me once you're ready for your next adventure."), MSGBOX_DEFAULT)
-        call(RogueHub_IntroPokabbie)
-        releaseall
-    }
+    call(RogueHub_IntroPokabbie)
+    setvar(VAR_RETURN_STATE, 2)
 }
 
 script RogueHub_SpeakScott
@@ -345,166 +223,7 @@ script RogueHub_SpeakScott
     }
     else
     {
-        if(var(VAR_ROGUE_INTRO_STATE) == 4)
-        {
-            msgbox(format("SCOTT: Great!\nYou got yourself a PARTNER POKéMON!"), MSGBOX_DEFAULT)
-            msgbox(format("SCOTT: So what'd you say?\nReady to go on an adventure?"), MSGBOX_YESNO)
-        }
-        else
-        {
-            msgbox(format("SCOTT: Time for another adventure, huh!"), MSGBOX_DEFAULT)
-            setvar(VAR_RESULT, YES)
-        }
-
-        if(var(VAR_RESULT) == YES)
-        {
-            getpartysize
-            if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
-            {
-                if(var(VAR_RESULT) > 2)
-                {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 2.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
-                    setvar(VAR_RESULT, NO)
-                }
-                else
-                {
-                    setvar(VAR_RESULT, YES)
-                }
-            }
-            else
-            {
-                if(var(VAR_RESULT) > 1)
-                {
-                    msgbox(format("SCOTT: Looks like you have too many POKéMON there bud.\pYou can only take in 1.\nYou should use the PC in the PROF.'s LAB to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
-                    setvar(VAR_RESULT, NO)
-                }
-                else
-                {
-                    setvar(VAR_RESULT, YES)
-                }
-            }
-        }
-
-        if(var(VAR_RESULT) == YES)
-        {
-            if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
-            {
-                // Give extra key items
-                // Check from ITEM_GRACIDEA, as we're gonna give them all out
-                checkitem(695)
-
-                if(var(VAR_RESULT) == NO)
-                {
-                    msgbox(format("SCOTT: Oh before I forget!\nPokabbie actually left me a bunch of items to give to you."), MSGBOX_DEFAULT)
-                    
-                    // ITEM_ROTOM_CATALOG
-                    //giveitem(694)
-
-                    // ITEM_GRACIDEA
-                    giveitem(695)
-
-                    // ITEM_REVEAL_GLASS
-                    giveitem(696)
-
-                    // ITEM_DNA_SPLICERS
-                    //giveitem(697)
-
-                    // ITEM_ZYGARDE_CUBE
-                    //giveitem(698)
-
-                    // ITEM_PRISON_BOTTLE
-                    giveitem(699)
-
-                    // ITEM_N_SOLARIZER
-                    //giveitem(700)
-
-                    // ITEM_N_LUNARIZER
-                    //giveitem(701)
-
-                    // ITEM_REINS_OF_UNITY
-                    //giveitem(702)
-                }
-            }
-
-
-            setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
-            specialvar(VAR_RESULT, GetLeadMonLevel)
-
-            if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
-            {
-                if(var(VAR_RESULT) > 85)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 8)
-                }
-                elif(var(VAR_RESULT) > 75)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 7)
-                }
-                elif(var(VAR_RESULT) > 65)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 6)
-                }
-                elif(var(VAR_RESULT) > 55)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 5)
-                }
-                elif(var(VAR_RESULT) > 45)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 4)
-                }
-                elif(var(VAR_RESULT) > 35)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 3)
-                }
-                elif(var(VAR_RESULT) > 25)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 2)
-                }
-                elif(var(VAR_RESULT) > 15)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 1)
-                }
-            }
-
-            // Skip ahead based on lvl
-            if(var(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
-            {
-                msgbox(format("SCOTT: You've leveled up your PARTNER quite a bit there!"), MSGBOX_DEFAULT)
-
-                buffernumberstring(STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY)
-
-                msgbox(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"), MSGBOX_YESNO)
-                if(var(VAR_RESULT) == NO)
-                {
-                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
-                }
-            }
-
-            call(Common_EventScript_SaveGame)
-            if(var(VAR_RESULT) == YES)
-            {
-                msgbox(format("SCOTT: Good luck CHAMP!"), MSGBOX_DEFAULT)
-                setvar(VAR_JUST_LEFT, 1)
-
-                if(var(VAR_ROGUE_INTRO_STATE) == 4)
-                {
-                    // First adventure
-                    setvar(VAR_ROGUE_INTRO_STATE, 5)
-                }
-                else
-                {
-                    // Normal adventure
-                    setvar(VAR_ROGUE_INTRO_STATE, 6)
-                }
-
-                setflag(FLAG_ROGUE_LEFT_ON_RUN)
-                warp(MAP_ROGUE_HUB_TRANSITION, 0)
-            }
-            else
-            {
-                msgbox(format("SCOTT: OK. Come chat to me once you're ready."), MSGBOX_DEFAULT)
-            }
-        }
+        msgbox(format("SCOTT: Uh oh!\pI'm not suppose to be standing here...\pYou probably loaded this SAVE from an old game version.\pTry entering a house and checking if I'm still here."), MSGBOX_DEFAULT)
     }
 
     release
@@ -516,6 +235,7 @@ script RogueHub_IntroPokabbie
     // Show/Hide Pokabbie
     if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
     {
+        lockall
         showobjectat(NPC_POKABBIE, MAP_ROGUE_HUB)
 
         msgbox(format("{PLAYER}!"), MSGBOX_NPC)
@@ -541,6 +261,8 @@ script RogueHub_IntroPokabbie
         setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
         setflag(FLAG_TEMP_8)
         removeobject(NPC_POKABBIE)
+
+        releaseall
     }
 }
 
@@ -711,7 +433,7 @@ script RogueHub_SpeakBank
 script RogueHub_Sign_AdventureSign
 {
     buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    msgbox(format("Adventures await beyond this point...\pFurthest Progress:\nGained {STR_VAR_1} BADGES..."), MSGBOX_SIGN)
+    msgbox(format("Adventures await beyond this point..."), MSGBOX_SIGN)
 }
 
 script RogueHub_Sign_ProfLab
