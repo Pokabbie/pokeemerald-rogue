@@ -1052,7 +1052,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
     u8 oamPriority = 0; // Render infront of background
     u16 palBuffer[16];
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         //LoadMonIconPalettes();
 
@@ -1098,7 +1098,7 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 #ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
@@ -1749,6 +1749,9 @@ void Rogue_OnWarpIntoMap(void)
     }
     else if(GetSafariZoneFlag())
     {
+        // Reset preview data
+        memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
+
         RandomiseSafariWildEncounters();
     }
 }
@@ -3071,19 +3074,23 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 }
 
 static u8 GetCurrentWildEncounterCount()
-{
+{    
     u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
-    if(difficultyModifier == 2) // Hard route
+    if(!GetSafariZoneFlag())
     {
-        // Less encounters
-        count = 2;
-    }
-    else if(difficultyModifier == 1) // Avg route
-    {
-        // Slightly less encounters
-        count = 4;
+        u8 difficultyModifier = GetRoomTypeDifficulty();
+        if(difficultyModifier == 2) // Hard route
+        {
+            // Less encounters
+            count = 2;
+        }
+        else if(difficultyModifier == 1) // Avg route
+        {
+            // Slightly less encounters
+            count = 4;
+        }
     }
 
     return count;
