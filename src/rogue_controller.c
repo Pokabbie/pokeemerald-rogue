@@ -2230,6 +2230,10 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
     }
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return IsAnyBossTrainer(trainerNum);
+    }
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
         return FALSE;
@@ -2359,7 +2363,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
 
     if(IsAnyBossTrainer(trainerNum)) 
     {
-        if(difficultyLevel == 0)
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        {
+            *monsCount = 6;
+            *allowItemEvos = TRUE;
+            *allowLedgendaries = TRUE;
+        }
+        else if(difficultyLevel == 0)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
             *allowItemEvos = FALSE;
@@ -2454,13 +2464,6 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         {
             *monsCount = 2;
         }
-    }
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        *monsCount = 6;
-        *allowItemEvos = TRUE;
-        *allowLedgendaries = TRUE;
     }
 }
 
@@ -3010,6 +3013,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        difficultyLevel = 13;
 
     // For wallace will will always have at least 1 ledgendary in last slot
     if(trainerNum == TRAINER_WALLACE)
