@@ -329,7 +329,7 @@ script Rogue_ConfigRoom_AdjustWildGens
     }
     else
     {
-        multichoice(20, 4, MULTI_GENERATIONS_UPTO3, NO)
+        multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
     }
 
     switch(var(VAR_RESULT))

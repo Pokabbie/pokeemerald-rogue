@@ -289,7 +289,7 @@ Rogue_ConfigRoom_AdjustWildGens::
 	message Rogue_ConfigRoom_AdjustWildGens_Text_1
 	waitmessage
 	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_AdjustWildGens_2
-	multichoice 20, 4, MULTI_GENERATIONS_UPTO3, NO
+	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
 Rogue_ConfigRoom_AdjustWildGens_1:
 	switch VAR_RESULT
 	case 0, Rogue_ConfigRoom_AdjustWildGens_7

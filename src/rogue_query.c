@@ -470,6 +470,22 @@ void RogueQuery_SpeciesInPokedex(void)
     }
 }
 
+void RogueQuery_SpeciesInGeneration(u8 gen)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(SpeciesToGen(species) != gen)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
 void RogueQuery_SpeciesOfType(u8 type)
 {
     u16 species;

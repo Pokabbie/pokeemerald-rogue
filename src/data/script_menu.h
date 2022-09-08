@@ -124,9 +124,9 @@ static const struct MenuAction MultichoiceList_LevelMode[] =
 
 static const struct MenuAction MultichoiceList_Mechadoll1_Q1[] =
 {
-    {gTrickHouse_Mechadoll_Oddish},
-    {gTrickHouse_Mechadoll_Poochyena},
-    {gTrickHouse_Mechadoll_Taillow},
+    {gTrickHouse_Mechadoll_Three},
+    {gTrickHouse_Mechadoll_Six},
+    {gTrickHouse_Mechadoll_Nine},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll1_Q2[] =

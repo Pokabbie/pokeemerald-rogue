@@ -28,6 +28,7 @@ void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
 void RogueQuery_SpeciesIsValid(void);
 void RogueQuery_SpeciesExcludeCommon(void);
 void RogueQuery_SpeciesInPokedex(void);
+void RogueQuery_SpeciesInGeneration(u8 gen);
 void RogueQuery_SpeciesOfType(u8 type);
 void RogueQuery_SpeciesNotOfType(u8 type);
 void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);

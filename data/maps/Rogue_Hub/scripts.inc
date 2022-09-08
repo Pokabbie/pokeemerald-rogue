@@ -404,6 +404,128 @@ RogueHub_Sign_ClothesShop::
 	return
 
 
+RogueHub_EnterSafari::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	showmoneybox 0, 0
+	msgbox RogueHub_EnterSafari_Text_0, MSGBOX_YESNO
+	setvar VAR_0x8000, 0
+	setvar VAR_0x8000, 0
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_EnterSafari_2
+RogueHub_EnterSafari_1:
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_EnterSafari_5
+RogueHub_EnterSafari_4:
+	releaseall
+	return
+
+RogueHub_EnterSafari_2:
+	msgbox RogueHub_EnterSafari_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_EnterSafari_8
+	setvar VAR_ROGUE_SAFARI_GENERATION, 0
+RogueHub_EnterSafari_7:
+	bufferitemname STR_VAR_1, ITEM_SAFARI_BALL
+	message RogueHub_EnterSafari_Text_3
+	waitmessage
+	multichoice 20, 6, MULTI_MECHADOLL1_Q1, NO
+	switch VAR_RESULT
+	case 0, RogueHub_EnterSafari_12
+	case 1, RogueHub_EnterSafari_13
+	case 2, RogueHub_EnterSafari_14
+	case MULTI_B_PRESSED, RogueHub_EnterSafari_15
+	goto RogueHub_EnterSafari_1
+
+RogueHub_EnterSafari_5:
+	msgbox RogueHub_EnterSafari_Text_4
+	closemessage
+	hidemoneybox
+	applymovement OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_BackAwayFromCounter
+	waitmovement 0
+	goto RogueHub_EnterSafari_4
+
+RogueHub_EnterSafari_8:
+	message RogueHub_EnterSafari_Text_2
+	waitmessage
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_EnterSafari_19
+RogueHub_EnterSafari_18:
+	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+RogueHub_EnterSafari_16:
+	switch VAR_RESULT
+	case MULTI_B_PRESSED, RogueHub_EnterSafari_23
+	copyvar VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT
+	addvar VAR_ROGUE_SAFARI_GENERATION, 1
+	goto RogueHub_EnterSafari_7
+
+RogueHub_EnterSafari_12:
+	setvar VAR_0x8000, 3
+	setvar VAR_0x8001, 1000
+	call RogueHub_EnterSafari1
+	goto RogueHub_EnterSafari_1
+
+RogueHub_EnterSafari_13:
+	setvar VAR_0x8000, 6
+	setvar VAR_0x8001, 1800
+	call RogueHub_EnterSafari1
+	goto RogueHub_EnterSafari_1
+
+RogueHub_EnterSafari_14:
+	setvar VAR_0x8000, 9
+	setvar VAR_0x8001, 2500
+	call RogueHub_EnterSafari1
+	goto RogueHub_EnterSafari_1
+
+RogueHub_EnterSafari_15:
+	setvar VAR_RESULT, NO
+	goto RogueHub_EnterSafari_1
+
+RogueHub_EnterSafari_17:
+	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	goto RogueHub_EnterSafari_16
+
+RogueHub_EnterSafari_19:
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_EnterSafari_17
+	goto RogueHub_EnterSafari_18
+
+RogueHub_EnterSafari_23:
+	setvar VAR_ROGUE_SAFARI_GENERATION, 0
+	goto RogueHub_EnterSafari_7
+
+
+RogueHub_EnterSafari1::
+	checkmoney VAR_0x8001
+	buffernumberstring STR_VAR_1, VAR_0x8001
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_EnterSafari1_1
+	msgbox RogueHub_EnterSafari1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_EnterSafari1_4
+	return
+
+RogueHub_EnterSafari1_1:
+	msgbox RogueHub_EnterSafari1_Text_0
+	msgbox RogueHub_EnterSafari1_Text_1
+	return
+
+RogueHub_EnterSafari1_4:
+	playse SE_SHOP
+	removemoney VAR_0x8001
+	updatemoneybox
+	msgbox RogueHub_EnterSafari1_Text_3
+	closemessage
+	hidemoneybox
+	applymovement OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_EnterSafariZone
+	waitmovement 0
+	special EnterSafariMode
+	setvar VAR_SAFARI_ZONE_STATE, 2
+	clearflag FLAG_GOOD_LUCK_SAFARI_ZONE
+	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
+	waitstate
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -569,3 +691,38 @@ RogueHub_Sign_Bank_Text_0:
 
 RogueHub_Sign_ClothesShop_Text_0:
 	.string "CLOTHES SHOP$"
+
+RogueHub_EnterSafari_Text_0:
+	.string "Welcome to the SAFARI ZONE!\n"
+	.string "Would like to enter?$"
+
+RogueHub_EnterSafari_Text_1:
+	.string "Would you like to limit which GENERATION\n"
+	.string "of POKéMON will be wandering about for\l"
+	.string "you to catch?$"
+
+RogueHub_EnterSafari_Text_2:
+	.string "Which GENERATION would you like to\n"
+	.string "enable?$"
+
+RogueHub_EnterSafari_Text_3:
+	.string "How many {STR_VAR_1}s would you\n"
+	.string "like?$"
+
+RogueHub_EnterSafari_Text_4:
+	.string "Please Come again another time.$"
+
+RogueHub_EnterSafari1_Text_0:
+	.string "That will cost ¥{STR_VAR_1}.$"
+
+RogueHub_EnterSafari1_Text_1:
+	.string "Oh..\n"
+	.string "You don't appear to have enough money\l"
+	.string "right now.$"
+
+RogueHub_EnterSafari1_Text_2:
+	.string "That will cost ¥{STR_VAR_1}.\n"
+	.string "Would you like to enter?$"
+
+RogueHub_EnterSafari1_Text_3:
+	.string "Have fun!$"

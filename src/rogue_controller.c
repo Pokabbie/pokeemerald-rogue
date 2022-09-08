@@ -3745,11 +3745,16 @@ static void RogueQuery_SafariTypeForMap()
 static void RandomiseSafariWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
+    u8 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
 
     // Query for the current zone
     RogueQuery_Clear();
     RogueQuery_SpeciesIsValid();
-    RogueQuery_SpeciesExcludeCommon();
+
+    if(targetGen == 0)
+    {
+        RogueQuery_SpeciesExcludeCommon();
+    }
 
     if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
     {
@@ -3761,6 +3766,12 @@ static void RandomiseSafariWildEncounters(void)
 
     RogueQuery_SafariTypeForMap();
     RogueQuery_TransformToEggSpecies();
+
+    if(targetGen != 0)
+    {
+        RogueQuery_SpeciesInGeneration(targetGen);
+    }
+
     RogueQuery_SafariTypeForMap();
 
     RogueQuery_CollapseSpeciesBuffer();
