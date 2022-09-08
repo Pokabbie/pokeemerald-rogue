@@ -2,7 +2,7 @@
 #define GUARD_ROGUE_H
 
 #define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
+#define ROGUE_DEBUG_PAUSE_PANEL
 #define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
@@ -71,6 +71,9 @@ struct RogueRunData
     u16 currentDifficulty;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
+    u8 safairShinyBufferHead;
+    u16 safariShinyBuffer[6];
+    u32 safariShinyPersonality;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[5];

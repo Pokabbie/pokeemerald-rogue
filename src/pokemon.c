@@ -4400,6 +4400,11 @@ static void ChangePersonality(struct BoxPokemon *boxMon, u32 personality)
     EncryptBoxMon(boxMon);
 }
 
+void SetMonPersonality(struct Pokemon* mon, u32 personality)
+{
+    ChangePersonality(&mon->box, personality);
+}
+
 u32 GetMonData(struct Pokemon *mon, s32 field, u8* data)
 {
     u32 ret;

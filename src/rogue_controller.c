@@ -146,6 +146,38 @@ static void RandomiseBerryTrees(void);
 static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
 static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
+static void EnsureSafariShinyBufferIsValid()
+{
+    if(gRogueRun.safairShinyBufferHead > ARRAY_COUNT(gRogueRun.safariShinyBuffer))
+    {
+        gRogueRun.safairShinyBufferHead = 0;
+        memset(&gRogueRun.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.safariShinyBuffer));
+
+#ifdef ROGUE_DEBUG
+        gRogueRun.safariShinyBuffer[0] = SPECIES_FLAREON;
+        gRogueRun.safariShinyBuffer[1] = SPECIES_WEEDLE;
+#endif
+    }
+}
+
+static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
+{
+    u8 i;
+
+    EnsureSafariShinyBufferIsValid();
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.safariShinyBuffer); ++i)
+    {
+        if(Rogue_GetEggSpecies(gRogueRun.safariShinyBuffer[i]) == Rogue_GetEggSpecies(species))
+        {
+            gRogueRun.safariShinyBuffer[i] = (u16)-1;
+            return gRogueRun.safariShinyPersonality;
+        }
+    }
+
+    return 0;
+}
+
 u16 RogueRandomRange(u16 range, u8 flag)
 {
     // Always use rogue random to avoid seeding issues based on flag
@@ -379,6 +411,16 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         // Heal up to 1/2 health and remove status effect
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_STATUS, &statusAilment);
+
+        if(IsMonShiny(mon))
+        {
+            EnsureSafariShinyBufferIsValid();
+            gRogueRun.safariShinyBuffer[gRogueRun.safairShinyBufferHead] = GetMonData(mon, MON_DATA_SPECIES);
+            gRogueRun.safairShinyBufferHead = (gRogueRun.safairShinyBufferHead + 1) % ARRAY_COUNT(gRogueRun.safariShinyBuffer);
+
+            // Only store most recent personality, as u32s are costly and this is the easiest way to ensure shinies
+            gRogueRun.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+        }
     }
 }
 
@@ -2230,6 +2272,10 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
     }
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        return IsAnyBossTrainer(trainerNum);
+    }
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
         return FALSE;
@@ -2359,7 +2405,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
 
     if(IsAnyBossTrainer(trainerNum)) 
     {
-        if(difficultyLevel == 0)
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        {
+            *monsCount = 6;
+            *allowItemEvos = TRUE;
+            *allowLedgendaries = TRUE;
+        }
+        else if(difficultyLevel == 0)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
             *allowItemEvos = FALSE;
@@ -2454,13 +2506,6 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         {
             *monsCount = 2;
         }
-    }
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        *monsCount = 6;
-        *allowItemEvos = TRUE;
-        *allowLedgendaries = TRUE;
     }
 }
 
@@ -3011,6 +3056,9 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
 
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        difficultyLevel = 13;
+
     // For wallace will will always have at least 1 ledgendary in last slot
     if(trainerNum == TRAINER_WALLACE)
     {
@@ -3101,7 +3149,7 @@ bool8 Rogue_AllowWildMonItems(void)
     return !GetSafariZoneFlag();
 }
 
-void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
+void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality)
 {
     // Note: Don't seed individual encounters
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
@@ -3136,6 +3184,11 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level)
             gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
+        }
+
+        if(GetSafariZoneFlag())
+        {
+            *forcePersonality = ConsumeSafariShinyBufferIfPresent(*species);
         }
     }
 }
