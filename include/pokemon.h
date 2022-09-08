@@ -340,6 +340,8 @@ void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerSpriteId, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerFront(u16 trainerPicId, u8 battlerPosition);
 
+void SetMonPersonality(struct Pokemon* mon, u32 personality);
+
 // These are full type signatures for GetMonData() and GetBoxMonData(),
 // but they are not used since some code erroneously omits the third arg.
 // u32 GetMonData(struct Pokemon *mon, s32 field, u8 *data);

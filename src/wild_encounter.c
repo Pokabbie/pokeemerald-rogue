@@ -374,10 +374,8 @@ static u8 PickWildMonNature(void)
     return Random() % NUM_NATURES;
 }
 
-static void CreateWildMon(u16 species, u8 level)
+static void CreateWildMon(u16 species, u8 level, u32 forcePersonality)
 {
-    // RogueNote: Modify wild mons
-
     bool32 checkCuteCharm;
 
     ZeroEnemyPartyMons();
@@ -392,26 +390,33 @@ static void CreateWildMon(u16 species, u8 level)
         break;
     }
 
-    if (checkCuteCharm
-        && !GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
-        && GetMonAbility(&gPlayerParty[0]) == ABILITY_CUTE_CHARM
-        && Random() % 3 != 0)
+    if(forcePersonality)
     {
-        u16 leadingMonSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
-        u32 leadingMonPersonality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
-        u8 gender = GetGenderFromSpeciesAndPersonality(leadingMonSpecies, leadingMonPersonality);
-
-        // misses mon is genderless check, although no genderless mon can have cute charm as ability
-        if (gender == MON_FEMALE)
-            gender = MON_MALE;
-        else
-            gender = MON_FEMALE;
-
-        CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
-        return;
+        CreateMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, TRUE, forcePersonality, OT_ID_PLAYER_ID, 0);
     }
+    else
+    {
+        if (checkCuteCharm
+            && !GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
+            && GetMonAbility(&gPlayerParty[0]) == ABILITY_CUTE_CHARM
+            && Random() % 3 != 0)
+        {
+            u16 leadingMonSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+            u32 leadingMonPersonality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
+            u8 gender = GetGenderFromSpeciesAndPersonality(leadingMonSpecies, leadingMonPersonality);
 
-    CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+            // misses mon is genderless check, although no genderless mon can have cute charm as ability
+            if (gender == MON_FEMALE)
+                gender = MON_MALE;
+            else
+                gender = MON_FEMALE;
+
+            CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
+            return;
+        }
+
+        CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+    }
 }
 
 static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 area, u8 flags)
@@ -419,6 +424,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     u16 species = 0;
     u8 level = 0;
     u8 wildMonIndex = 0;
+    u32 forcePersonality = 0;
 
     switch (area)
     {
@@ -445,14 +451,14 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
 
     // Allow Rogue to re-choose the wildmon
-    Rogue_CreateWildMon(area, &species, &level);
+    Rogue_CreateWildMon(area, &species, &level, &forcePersonality);
 
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(species, level);
+    CreateWildMon(species, level, forcePersonality);
     return TRUE;
 }
 
@@ -461,11 +467,12 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
     u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
     u8 level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
+    u32 forcePersonality = 0;
 
     // Allow Rogue to re-choose the wildmon
-    Rogue_CreateWildMon(WILD_AREA_WATER, &species, &level);
+    Rogue_CreateWildMon(WILD_AREA_WATER, &species, &level, &forcePersonality);
 
-    CreateWildMon(species, level);
+    CreateWildMon(species, level, forcePersonality);
     return species;
 }
 
@@ -476,7 +483,7 @@ static bool8 SetUpMassOutbreakEncounter(u8 flags)
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
         return FALSE;
 
-    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel);
+    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel, 0);
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
 
@@ -788,7 +795,7 @@ void FishingWildEncounter(u8 rod)
         u8 level = ChooseWildMonLevel(&sWildFeebas);
 
         species = sWildFeebas.species;
-        CreateWildMon(species, level);
+        CreateWildMon(species, level, 0);
     }
     else
     {
