@@ -332,7 +332,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_3
 	waitmessage
-	multichoice 20, 4, MULTI_YESNOINFO_2, NO
+	multichoice 20, 6, MULTI_YESNOINFO_2, NO
 	switch VAR_RESULT
 	case 0, Rogue_ConfigRoom_PreButtonInternal_7
 	case 1, Rogue_ConfigRoom_PreButtonInternal_8
@@ -483,12 +483,6 @@ Rogue_ConfigRoom_RedrawMap_44:
 	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_49
 	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_48:
-	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_ConfigRoom_RedrawMap_53
-	setmetatile 12, 22, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_52:
-	goto_if_set FLAG_ROGUE_GAUNTLET_MODE, Rogue_ConfigRoom_RedrawMap_57
-	setmetatile 5, 22, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_56:
 	special DrawWholeMapView
 	return
 
@@ -554,14 +548,6 @@ Rogue_ConfigRoom_RedrawMap_49:
 	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_48
 
-Rogue_ConfigRoom_RedrawMap_53:
-	setmetatile 12, 22, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_52
-
-Rogue_ConfigRoom_RedrawMap_57:
-	setmetatile 5, 22, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_56
-
 
 Rogue_ConfigRoom_Button_ExpAll::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_ExpAll_Text_0
@@ -594,39 +580,6 @@ Rogue_ConfigRoom_Button_ExpAll_8:
 Rogue_ConfigRoom_Button_ExpAll_10:
 	msgbox Rogue_ConfigRoom_Button_ExpAll_Text_1, MSGBOX_DEFAULT
 	goto Rogue_ConfigRoom_Button_ExpAll_9
-
-
-Rogue_ConfigRoom_Button_DoubleBattle::
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_DoubleBattle_Text_0
-	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_ConfigRoom_Button_DoubleBattle_2
-	setvar VAR_0x8000, NO
-Rogue_ConfigRoom_Button_DoubleBattle_1:
-	call Rogue_ConfigRoom_PreButtonInternal
-	switch VAR_0x8000
-	case 0, Rogue_ConfigRoom_Button_DoubleBattle_7
-	case 1, Rogue_ConfigRoom_Button_DoubleBattle_8
-Rogue_ConfigRoom_Button_DoubleBattle_5:
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ConfigRoom_Button_DoubleBattle_10
-Rogue_ConfigRoom_Button_DoubleBattle_9:
-	call Rogue_ConfigRoom_PostButtonInternal
-	return
-
-Rogue_ConfigRoom_Button_DoubleBattle_2:
-	setvar VAR_0x8000, YES
-	goto Rogue_ConfigRoom_Button_DoubleBattle_1
-
-Rogue_ConfigRoom_Button_DoubleBattle_7:
-	setflag FLAG_ROGUE_DOUBLE_BATTLES
-	goto Rogue_ConfigRoom_Button_DoubleBattle_5
-
-Rogue_ConfigRoom_Button_DoubleBattle_8:
-	clearflag FLAG_ROGUE_DOUBLE_BATTLES
-	goto Rogue_ConfigRoom_Button_DoubleBattle_5
-
-Rogue_ConfigRoom_Button_DoubleBattle_10:
-	msgbox Rogue_ConfigRoom_Button_DoubleBattle_Text_1, MSGBOX_DEFAULT
-	goto Rogue_ConfigRoom_Button_DoubleBattle_9
 
 
 Rogue_ConfigRoom_Button_CanOverLvl::
@@ -693,39 +646,6 @@ Rogue_ConfigRoom_Button_EVGainEnabled_8:
 Rogue_ConfigRoom_Button_EVGainEnabled_10:
 	msgbox Rogue_ConfigRoom_Button_EVGainEnabled_Text_1, MSGBOX_DEFAULT
 	goto Rogue_ConfigRoom_Button_EVGainEnabled_9
-
-
-Rogue_ConfigRoom_Button_GauntletMode::
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_GauntletMode_Text_0
-	goto_if_set FLAG_ROGUE_GAUNTLET_MODE, Rogue_ConfigRoom_Button_GauntletMode_2
-	setvar VAR_0x8000, NO
-Rogue_ConfigRoom_Button_GauntletMode_1:
-	call Rogue_ConfigRoom_PreButtonInternal
-	switch VAR_0x8000
-	case 0, Rogue_ConfigRoom_Button_GauntletMode_7
-	case 1, Rogue_ConfigRoom_Button_GauntletMode_8
-Rogue_ConfigRoom_Button_GauntletMode_5:
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ConfigRoom_Button_GauntletMode_10
-Rogue_ConfigRoom_Button_GauntletMode_9:
-	call Rogue_ConfigRoom_PostButtonInternal
-	return
-
-Rogue_ConfigRoom_Button_GauntletMode_2:
-	setvar VAR_0x8000, YES
-	goto Rogue_ConfigRoom_Button_GauntletMode_1
-
-Rogue_ConfigRoom_Button_GauntletMode_7:
-	setflag FLAG_ROGUE_GAUNTLET_MODE
-	goto Rogue_ConfigRoom_Button_GauntletMode_5
-
-Rogue_ConfigRoom_Button_GauntletMode_8:
-	clearflag FLAG_ROGUE_GAUNTLET_MODE
-	goto Rogue_ConfigRoom_Button_GauntletMode_5
-
-Rogue_ConfigRoom_Button_GauntletMode_10:
-	msgbox Rogue_ConfigRoom_Button_GauntletMode_Text_1, MSGBOX_DEFAULT
-	goto Rogue_ConfigRoom_Button_GauntletMode_9
 
 
 Rogue_ConfigRoom_Button_TrainerDifficulty::
@@ -1111,13 +1031,6 @@ Rogue_ConfigRoom_Button_ExpAll_Text_1:
 	.string "keep this ON as the game has been\l"
 	.string "balanced around it.$"
 
-Rogue_ConfigRoom_Button_DoubleBattle_Text_0:
-	.string "DOUBLE BATTLE MODE$"
-
-Rogue_ConfigRoom_Button_DoubleBattle_Text_1:
-	.string "Forces all TRAINER battles to be\n"
-	.string "DOUBLE BATTLES.$"
-
 Rogue_ConfigRoom_Button_CanOverLvl_Text_0:
 	.string "ALLOW OVERLEVLING$"
 
@@ -1133,16 +1046,6 @@ Rogue_ConfigRoom_Button_EVGainEnabled_Text_1:
 	.string "When enabled POKéMON will gain EVs at\n"
 	.string "an accelerated rate.\p"
 	.string "When disabled POKéMON will gain no EVs.$"
-
-Rogue_ConfigRoom_Button_GauntletMode_Text_0:
-	.string "GAUNTLET MODE$"
-
-Rogue_ConfigRoom_Button_GauntletMode_Text_1:
-	.string "A CHALLENGE mode where you will have a\n"
-	.string "few ROUTEs to create a team and\l"
-	.string "collect items, then you will face every\l"
-	.string "GYM LEADER back to back without any\l"
-	.string "chance to HEAL or catch new POKéMON.$"
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0:
 	.string "TRAINER DIFFICULTY$"

@@ -230,6 +230,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_fillmetatile              @ 0xe3
 	.4byte ScrCmd_pokemartwithminprice      @ 0xe4
 	.4byte ScrCmd_rogue_dynamicpokemart     @ 0xe5
+	.4byte ScrCmd_warprespawn               @ 0xe6
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

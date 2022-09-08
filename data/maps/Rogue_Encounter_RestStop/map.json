@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CONTEST_JUDGE",
-      "x": 8,
+      "x": 9,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 14,
+      "x": 15,
       "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 10,
+      "x": 11,
       "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
-      "x": 37,
+      "x": 38,
       "y": 14,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
-      "x": 39,
+      "x": 40,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -81,7 +81,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 5,
+      "x": 6,
       "y": 15,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 39,
+      "x": 40,
       "y": 15,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -107,7 +107,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPENSER",
-      "x": 25,
+      "x": 26,
       "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -120,7 +120,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 21,
+      "x": 22,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -133,7 +133,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 19,
+      "x": 20,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -146,7 +146,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 17,
+      "x": 18,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -159,7 +159,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 12,
+      "x": 13,
       "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -172,7 +172,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
-      "x": 37,
+      "x": 38,
       "y": 15,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -185,7 +185,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 32,
+      "x": 33,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -199,14 +199,14 @@
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 11,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ENCOUNTER_REST_STOP",
       "dest_warp_id": 0
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ENCOUNTER_REST_STOP",

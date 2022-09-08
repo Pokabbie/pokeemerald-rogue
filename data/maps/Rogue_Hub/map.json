@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RogueHub_SpeakScott",
-      "flag": "0"
+      "flag": "FLAG_ROGUE_TRAINER6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
@@ -199,7 +199,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
       "x": 29,
-      "y": 13,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -266,9 +266,9 @@
     },
     {
       "x": 29,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_map": "MAP_ROGUE_HUB_ADVENTURE_ENTERANCE",
       "dest_warp_id": 0
     },
     {

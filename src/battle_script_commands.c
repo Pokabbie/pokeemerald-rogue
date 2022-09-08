@@ -4077,8 +4077,8 @@ static void Cmd_getexp(void)
                     //}
 
                     // Only display EXP message if not EXP All
-                    //if(!Rogue_ForceExpAll())
-                    {
+                    if(!Rogue_ForceExpAll())
+                    {   
                         if(gBattleMoveDamage != 0)
                         {
                             PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
