@@ -433,6 +433,8 @@ static void ShowSafariBallsWindow(void)
     StringExpandPlaceholders(gStringVar4, gText_SafariBallStock);
     AddTextPrinterParameterized(sSafariBallsWindowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
+    
+    Rogue_CreateMiniMenuExtraGFX();
 }
 
 static void ShowPyramidFloorWindow(void)
@@ -475,6 +477,8 @@ static void RemoveExtraStartMenuWindows(void)
 {
     if (GetSafariZoneFlag())
     {
+        Rogue_RemoveMiniMenuExtraGFX();
+
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
         RemoveWindow(sSafariBallsWindowId);

@@ -476,16 +476,122 @@ script RogueHub_Sign_ClothesShop
     msgbox(format("CLOTHES SHOP"), MSGBOX_SIGN)
 }
 
-//script RogueHub_ResetRun
-//{
-//    //removemoney(100000000000000)
-//    //addmoney(1000)
-//    //addmoney(10000000)
-//    
-//    //givemon(SPECIES_EEVEE, 5, ITEM_ORAN_BERRY)
-//    //givemon(SPECIES_GOLBAT, 5, ITEM_ORAN_BERRY)
-//    //givemon(SPECIES_MACHOKE, 5, ITEM_ORAN_BERRY)
-//    //givemon(SPECIES_MEWTWO, 100, ITEM_ORAN_BERRY)
-//
-//    //giveitem(ITEM_ULTRA_BALL, 20)
-//}
+script RogueHub_EnterSafari
+{
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+    waitmovement(0)
+
+    showmoneybox(0, 0)
+    msgbox(format("Welcome to the SAFARI ZONE!\nWould like to enter?"), MSGBOX_YESNO)
+
+    setvar(VAR_0x8000, 0)
+    setvar(VAR_0x8000, 0)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Would you like to limit which GENERATION of POKéMON will be wandering about for you to catch?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            message(format("Which GENERATION would you like to enable?"))
+            waitmessage
+            
+            if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
+            {
+                multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+            }
+            else
+            {
+                multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+            }
+
+            switch(var(VAR_RESULT))
+            {
+                case MULTI_B_PRESSED: 
+                    setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
+                
+                default:
+                    copyvar(VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT)
+                    addvar(VAR_ROGUE_SAFARI_GENERATION, 1)
+            }
+        }
+        else
+        {
+            setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
+        }
+
+        bufferitemname(STR_VAR_1, ITEM_SAFARI_BALL)
+        message(format("How many {STR_VAR_1}s would you like?"))
+        waitmessage
+        
+        multichoice(20, 6, MULTI_MECHADOLL1_Q1, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                setvar(VAR_0x8000, 3)
+                setvar(VAR_0x8001, 1000)
+                call(RogueHub_EnterSafari1)
+
+            case 1:
+                setvar(VAR_0x8000, 6)
+                setvar(VAR_0x8001, 1800)
+                call(RogueHub_EnterSafari1)
+
+            case 2:
+                setvar(VAR_0x8000, 9)
+                setvar(VAR_0x8001, 2500)
+                call(RogueHub_EnterSafari1)
+
+            case MULTI_B_PRESSED: 
+                setvar(VAR_RESULT, NO)
+        }
+    }
+    
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Please Come again another time."))
+        
+        closemessage
+        hidemoneybox
+        applymovement(OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_BackAwayFromCounter)
+        waitmovement(0)
+    }
+
+    releaseall
+}
+
+script RogueHub_EnterSafari1
+{
+    checkmoney(VAR_0x8001)
+    buffernumberstring(STR_VAR_1, VAR_0x8001)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("That will cost ¥{STR_VAR_1}."))
+        msgbox(format("Oh..\nYou don't appear to have enough money right now."))
+    }
+    else
+    {
+        msgbox(format("That will cost ¥{STR_VAR_1}.\nWould you like to enter?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            playse(SE_SHOP)
+            removemoney(VAR_0x8001)
+            updatemoneybox
+            msgbox(format("Have fun!"))
+
+            closemessage
+            hidemoneybox
+            applymovement(OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_EnterSafariZone)
+            waitmovement(0)
+            special(EnterSafariMode)
+            setvar(VAR_SAFARI_ZONE_STATE, 2)
+            clearflag(FLAG_GOOD_LUCK_SAFARI_ZONE)
+            warp(MAP_SAFARI_ZONE_SOUTH, 32, 33)
+            waitstate
+        }
+    }
+}
+

@@ -1146,6 +1146,7 @@ extern const u8 gTrickHouse_Mechadoll_Four[];
 extern const u8 gTrickHouse_Mechadoll_Six[];
 extern const u8 gTrickHouse_Mechadoll_Seven[];
 extern const u8 gTrickHouse_Mechadoll_Eight[];
+extern const u8 gTrickHouse_Mechadoll_Nine[];
 extern const u8 gTrickHouse_Mechadoll_Six2[];
 extern const u8 gTrickHouse_Mechadoll_Seven2[];
 extern const u8 gTrickHouse_Mechadoll_Eight2[];
