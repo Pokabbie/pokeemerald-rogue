@@ -321,7 +321,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     u8 i;
 
     // 500 is default weight
-    memset(&weights[0], 500, sizeof(u8) * ARRAY_COUNT(weights));
+    memset(&weights[0], 500, sizeof(u16) * ARRAY_COUNT(weights));
 
     if(nodeX == columnCount - 1)
     {
@@ -331,137 +331,167 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     }
 
 
-    // Normal routes
-    if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        // Very unlikely at end
-        weights[ADVPATH_ROOM_ROUTE] = 100;
-    }
-    else
-    {
-        // Most common but gets less common over time
-        weights[ADVPATH_ROOM_ROUTE] = 2000 - min(100 * gRogueRun.currentDifficulty, 500);
-    }
+        // Turn everything off
+        memset(&weights[0], 0, sizeof(u16) * ARRAY_COUNT(weights));
 
-    // NONE / Skip encounters
-    if(nodeX == columnCount - 2) 
-    {
-        // Final encounter cannot be none, to avoid GFX obj running out
-        weights[ADVPATH_ROOM_NONE] = 0;
-    }
-    else
-    {
-        // Unlikely but not impossible
-        weights[ADVPATH_ROOM_NONE] = 200;
-    }
-
-    // Rest stops
-    if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-    {
-        weights[ADVPATH_ROOM_RESTSTOP] = 1000;
-    }
-    else
-    {
-        // Unlikely but not impossible
-        weights[ADVPATH_ROOM_RESTSTOP] = 100;
-    }
-
-    // Legendaries/Mini encounters
-    if(gRogueRun.currentDifficulty == 0)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        weights[ADVPATH_ROOM_WILD_DEN] = 40;
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-    }
-    else
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
-        weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 600);
-        weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
-        weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
-
-        if(gRogueRun.currentDifficulty == 0)
+        // We should only be here for the first loop, as we should have no other encounters
+        if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-        else if((gRogueRun.currentDifficulty % 4) == 0)
-        {
-            // Every 4 badges chances get really high
-            weights[ADVPATH_ROOM_LEGENDARY] = 600;
+            weights[ADVPATH_ROOM_RESTSTOP] = 1000;
         }
         else
         {
-            // Otherwise the chances are just quite low
-            weights[ADVPATH_ROOM_LEGENDARY] = 50;
+            weights[ADVPATH_ROOM_ROUTE] = 1500;
+            weights[ADVPATH_ROOM_LEGENDARY] = 200;
+            weights[ADVPATH_ROOM_WILD_DEN] = 250;
+            weights[ADVPATH_ROOM_GAMESHOW] = 70;
+            weights[ADVPATH_ROOM_GRAVEYARD] = 70;
         }
     }
+    else
+    {
+        // Normal routes
+        if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+        {
+            // Very unlikely at end
+            weights[ADVPATH_ROOM_ROUTE] = 100;
+        }
+        else
+        {            
+            // If we've reached elite 4 we want to swap odds of none and routes
+            if(gRogueRun.currentDifficulty >= 8)
+            {
+                // Unlikely but not impossible
+                weights[ADVPATH_ROOM_ROUTE] = 200;
+            }
+            else
+            {
+                // Most common but gets less common over time
+                weights[ADVPATH_ROOM_ROUTE] = 2000 - min(100 * gRogueRun.currentDifficulty, 500);
+            }
+        }
 
-    if(nodeX == 0)
-    {
-        // Impossible in first column
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
-    }
-    if(nodeX == 0 || currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-    {
-        // Less likely in first column or last
-        weights[ADVPATH_ROOM_MINIBOSS] /= 2;
-        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
-        weights[ADVPATH_ROOM_WILD_DEN] /= 2;
-        weights[ADVPATH_ROOM_GAMESHOW] /= 2;
-        weights[ADVPATH_ROOM_GRAVEYARD] /= 2;
-    }
-
-    if(gRogueRun.currentDifficulty <= 3)
-    {
-        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-    }
-
-    // Now we've applied the default weights for this column, consider what out next encounter is
-    switch(currScratch->nextRoomType)
-    {
-        case ADVPATH_ROOM_LEGENDARY:
-            weights[ADVPATH_ROOM_RESTSTOP] = 0;
+        // NONE / Skip encounters
+        if(nodeX == columnCount - 2) 
+        {
+            // Final encounter cannot be none, to avoid GFX obj running out
             weights[ADVPATH_ROOM_NONE] = 0;
-            weights[ADVPATH_ROOM_WILD_DEN] = 0;
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-            break;
+        }
+        else
+        {
+            // If we've reached elite 4 we want to swap odds of none and routes
+            if(gRogueRun.currentDifficulty >= 8)
+            {
+                weights[ADVPATH_ROOM_NONE] = 1500;
+            }
+            else
+            {
+                // Unlikely but not impossible
+                weights[ADVPATH_ROOM_NONE] = 200;
+            }
+        }
 
-        case ADVPATH_ROOM_MINIBOSS:
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        // Rest stops
+        if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+        {
+            weights[ADVPATH_ROOM_RESTSTOP] = 1000;
+        }
+        else
+        {
+            // Unlikely but not impossible
+            weights[ADVPATH_ROOM_RESTSTOP] = 100;
+        }
+
+        // Legendaries/Mini encounters
+        if(gRogueRun.currentDifficulty == 0)
+        {
             weights[ADVPATH_ROOM_MINIBOSS] = 0;
-            weights[ADVPATH_ROOM_GRAVEYARD] *= 2;
-            break;
-
-        case ADVPATH_ROOM_GAMESHOW:
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            weights[ADVPATH_ROOM_WILD_DEN] = 40;
             weights[ADVPATH_ROOM_GAMESHOW] = 0;
-            break;
-
-        case ADVPATH_ROOM_GRAVEYARD:
             weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-            break;
+        }
+        else
+        {
+            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 600);
+            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
+            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
 
-        case ADVPATH_ROOM_RESTSTOP:
-            weights[ADVPATH_ROOM_RESTSTOP] = 0;
-            break;
+            if(gRogueRun.currentDifficulty == 0)
+            {
+                weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            }
+            else if((gRogueRun.currentDifficulty % 4) == 0)
+            {
+                // Every 4 badges chances get really high
+                weights[ADVPATH_ROOM_LEGENDARY] = 600;
+            }
+            else
+            {
+                // Otherwise the chances are just quite low
+                weights[ADVPATH_ROOM_LEGENDARY] = 50;
+            }
+        }
 
-        case ADVPATH_ROOM_ROUTE:
-            weights[ADVPATH_ROOM_NONE] += 300;
-            break;
+        if(nodeX == 0)
+        {
+            // Impossible in first column
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+        if(nodeX == 0 || currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+        {
+            // Less likely in first column or last
+            weights[ADVPATH_ROOM_MINIBOSS] /= 2;
+            weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+            weights[ADVPATH_ROOM_WILD_DEN] /= 2;
+            weights[ADVPATH_ROOM_GAMESHOW] /= 2;
+            weights[ADVPATH_ROOM_GRAVEYARD] /= 2;
+        }
 
-        case ADVPATH_ROOM_NONE:
-            weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
-            break;
-    }
+        if(gRogueRun.currentDifficulty <= 3)
+        {
+            weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+        }
 
-    // If we've reached elite 4 we want to swap odds of none and routes
-    // i.e. it's unlikey you get much choice
-    if(gRogueRun.currentDifficulty >= 8)
-    {
-        u16 temp = weights[ADVPATH_ROOM_NONE];
-        weights[ADVPATH_ROOM_NONE] = weights[ADVPATH_ROOM_ROUTE];
-        weights[ADVPATH_ROOM_ROUTE] = temp;
+        // Now we've applied the default weights for this column, consider what out next encounter is
+        switch(currScratch->nextRoomType)
+        {
+            case ADVPATH_ROOM_LEGENDARY:
+                weights[ADVPATH_ROOM_RESTSTOP] = 0;
+                weights[ADVPATH_ROOM_NONE] = 0;
+                weights[ADVPATH_ROOM_WILD_DEN] = 0;
+                weights[ADVPATH_ROOM_LEGENDARY] = 0;
+                break;
+
+            case ADVPATH_ROOM_MINIBOSS:
+                weights[ADVPATH_ROOM_LEGENDARY] = 0;
+                weights[ADVPATH_ROOM_MINIBOSS] = 0;
+                weights[ADVPATH_ROOM_GRAVEYARD] *= 2;
+                break;
+
+            case ADVPATH_ROOM_GAMESHOW:
+                weights[ADVPATH_ROOM_GAMESHOW] = 0;
+                break;
+
+            case ADVPATH_ROOM_GRAVEYARD:
+                weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+                break;
+
+            case ADVPATH_ROOM_RESTSTOP:
+                weights[ADVPATH_ROOM_RESTSTOP] = 0;
+                break;
+
+            case ADVPATH_ROOM_ROUTE:
+                weights[ADVPATH_ROOM_NONE] += 300;
+                break;
+
+            case ADVPATH_ROOM_NONE:
+                weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
+                break;
+        }
     }
 
     totalWeight = 0;
@@ -501,40 +531,47 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
         //case ADVPATH_ROOM_BOSS:
 
         case ADVPATH_ROOM_RESTSTOP:
-
-            temp = RogueRandomRange(7, OVERWORLD_FLAG);
-            
-            if(gRogueRun.currentDifficulty >= 12)
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
-                // Always always a full rest stop
-                if(temp == 0)
-                    nodeInfo->roomParams.roomIdx = 1; // Shops
-                else if(temp == 1)
-                    nodeInfo->roomParams.roomIdx = 2; // Battle prep.
-                else
-                    nodeInfo->roomParams.roomIdx = 0; // Heals
-            }
-            else if(temp == 0)
-            {
-                // Small chance for full rest stop
+                // Always full rest stop
                 nodeInfo->roomParams.roomIdx = 0; // Heals
             }
             else
             {
-                // We want to ping pong the options rather then have them appear in the same order
-                if(nodeY % 2 == 0)
+                temp = RogueRandomRange(7, OVERWORLD_FLAG);
+                
+                if(gRogueRun.currentDifficulty >= 12)
                 {
-                    if(temp <= 2)
+                    // Always always a full rest stop
+                    if(temp == 0)
                         nodeInfo->roomParams.roomIdx = 1; // Shops
-                    else
+                    else if(temp == 1)
                         nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                    else
+                        nodeInfo->roomParams.roomIdx = 0; // Heals
+                }
+                else if(temp == 0)
+                {
+                    // Small chance for full rest stop
+                    nodeInfo->roomParams.roomIdx = 0; // Heals
                 }
                 else
                 {
-                    if(temp <= 2)
-                        nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                    // We want to ping pong the options rather then have them appear in the same order
+                    if(nodeY % 2 == 0)
+                    {
+                        if(temp <= 2)
+                            nodeInfo->roomParams.roomIdx = 1; // Shops
+                        else
+                            nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                    }
                     else
-                        nodeInfo->roomParams.roomIdx = 1; // Shops
+                    {
+                        if(temp <= 2)
+                            nodeInfo->roomParams.roomIdx = 2; // Battle prep.
+                        else
+                            nodeInfo->roomParams.roomIdx = 1; // Shops
+                    }
                 }
             }
             break;
@@ -561,25 +598,32 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            switch(RogueRandomRange(6, OVERWORLD_FLAG))
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
-                case 0:
-                case 1:
-                    nodeInfo->roomParams.perType.route.difficulty = 0;
-                    break;
+                // All calm to maximise encounters
+                nodeInfo->roomParams.perType.route.difficulty = 0;
+            }
+            else
+            {
+                    switch(RogueRandomRange(6, OVERWORLD_FLAG))
+                    {
+                        case 0:
+                        case 1:
+                            nodeInfo->roomParams.perType.route.difficulty = 0;
+                            break;
 
-                case 2:
-                case 3:
-                case 4:
-                    nodeInfo->roomParams.perType.route.difficulty = 1;
-                    break;
+                        case 2:
+                        case 3:
+                        case 4:
+                            nodeInfo->roomParams.perType.route.difficulty = 1;
+                            break;
 
-                //case 5:
-                default:
-                    nodeInfo->roomParams.perType.route.difficulty = 2;
-                    break;
-            };
-
+                        //case 5:
+                        default:
+                            nodeInfo->roomParams.perType.route.difficulty = 2;
+                            break;
+                    };
+            }
             break;
         }
     }
@@ -633,6 +677,18 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
     // Setup defaults
     totalDistance = 4;
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        if(gRogueRun.currentDifficulty == 0)
+        {
+            totalDistance = 6;
+        }
+        else
+        {
+            totalDistance = 0;
+        }
+    }
 
     // Exit node
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);

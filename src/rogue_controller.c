@@ -1437,6 +1437,11 @@ static void BeginRogueRun(void)
     gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.currentLevelOffset = 5;
     gRogueRun.currentRouteIndex = 0;
+    
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        gRogueRun.currentLevelOffset = 80;
+    }
 
     // Will get generated later
     gRogueAdvPath.currentColumnCount = 0;
@@ -2097,11 +2102,18 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            // Every trainer battle drops level cap by 2
-            if(gRogueRun.currentLevelOffset < 2)
+            u8 levelOffsetDelta = 2;
+            
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                levelOffsetDelta = 5;
+            }
+
+            // Every trainer battle drops level cap slightly
+            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 2;
+                gRogueRun.currentLevelOffset -= levelOffsetDelta;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -2117,11 +2129,18 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            // Every wild battle drops level cap by 2
-            if(gRogueRun.currentLevelOffset < 2)
+            u8 levelOffsetDelta = 2;
+            
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            {
+                levelOffsetDelta = 5;
+            }
+
+            // Every trainer battle drops level cap slightly
+            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
                 gRogueRun.currentLevelOffset = 0;
             else
-                gRogueRun.currentLevelOffset -= 2;
+                gRogueRun.currentLevelOffset -= levelOffsetDelta;
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -3805,11 +3824,6 @@ static u8 CalculateWildLevel(u8 variation)
             wildLevel = GetLeadMonLevel();
         }
     }
-    else if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        // 5 rooms the constant badges
-        wildLevel = min(5 + (gRogueRun.currentRoomIdx - 1) * 10, MAX_LEVEL);
-    }
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
         wildLevel = playerLevel - 5;
@@ -3859,12 +3873,6 @@ static u8 CalculateBossLevel()
 
 static u8 CalculatePlayerLevel(void)
 {
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        // 5 rooms the constant badges
-        return min(15 + (gRogueRun.currentRoomIdx - 1) * 20, MAX_LEVEL);
-    }
-
     return CalculateBossLevel() - gRogueRun.currentLevelOffset;
 }
 
@@ -3937,11 +3945,6 @@ static bool8 RogueRandomChanceTrainer()
     else
         chance = max(10, chance);
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        return 0;
-    }
-
     return RogueRandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
 
@@ -3973,10 +3976,13 @@ static bool8 RogueRandomChanceItem()
         }
     }
 
-    if(difficultyModifier == 0) // Easy
-        chance = max(10, chance - 25);
-    else if(difficultyModifier == 2) // Hard
-        chance = min(100, chance + 25);
+    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        if(difficultyModifier == 0) // Easy
+            chance = max(10, chance - 25);
+        else if(difficultyModifier == 2) // Hard
+            chance = min(100, chance + 25);
+    }
 
     return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
@@ -4005,7 +4011,16 @@ static bool8 RogueRandomChanceBerry()
 static void RandomiseEnabledTrainers(void)
 {
     u16 i;
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+        {
+            // Set flag to hide
+            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+        }
+    }
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
     {
         u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
 
@@ -4048,21 +4063,26 @@ static void RandomiseItemContent(u8 difficultyLevel)
     u8 difficultyModifier = GetRoomTypeDifficulty();
     u8 dropRarity = gRogueRouteTable[gRogueRun.currentRouteIndex].dropRarity;
 
-    // Give us 1 room of basic items
-    if(gRogueRun.currentRoomIdx > 1 && FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        dropRarity += 10;
+        // Give us 1 room of basic items
+        if(gRogueRun.currentRoomIdx > 1)
+        {
+            dropRarity += 10;
+        }
     }
-
-    if(difficultyModifier == 0) // Easy
+    else
     {
-        if(dropRarity != 0)
-            --dropRarity;
-    }
-    else if(difficultyModifier == 2) // Hard
-    {
-        if(dropRarity != 0)
-            ++dropRarity;
+        if(difficultyModifier == 0) // Easy
+        {
+            if(dropRarity != 0)
+                --dropRarity;
+        }
+        else if(difficultyModifier == 2) // Hard
+        {
+            if(dropRarity != 0)
+                ++dropRarity;
+        }
     }
 
     // Queue up random items
