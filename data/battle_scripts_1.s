@@ -2920,6 +2920,9 @@ BattleScript_EffectHitEscape:
 	printstring STRINGID_SWITCHINMON
 	switchinanim BS_ATTACKER, TRUE
 	waitstate
+	jumpifcantreverttoprimal BattleScript_EffectHitEscape1
+	call BattleScript_PrimalReversionRet
+BattleScript_EffectHitEscape1:
 	switchineffects BS_ATTACKER
 BattleScript_HitEscapeEnd:
 	end
@@ -4860,6 +4863,9 @@ BattleScript_EffectBatonPass::
 	printstring STRINGID_SWITCHINMON
 	switchinanim BS_ATTACKER, TRUE
 	waitstate
+	jumpifcantreverttoprimal BattleScript_EffectBatonPass2
+	call BattleScript_PrimalReversionRet
+BattleScript_EffectBatonPass2::
 	switchineffects BS_ATTACKER
 	goto BattleScript_MoveEnd
 
