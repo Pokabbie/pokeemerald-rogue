@@ -6,6 +6,7 @@
 #include "pokemon.h"
 #include "random.h"
 
+#include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
 
@@ -197,3 +198,77 @@ void Rogue_ReducePartySize(void)
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, VarGet(VAR_ROGUE_MAX_PARTY_SIZE) - 1);
 }
 
+u16 Rogue_GetMonEvoCount(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+
+    if(species != SPECIES_NONE)
+    {
+        u16 e;
+        struct Evolution evo;
+        u16 count = 0;
+
+        for (e = 0; e < EVOS_PER_MON; e++)
+        {
+            Rogue_ModifyEvolution(species, e, &evo);
+
+            if (evo.targetSpecies != SPECIES_NONE)
+            {
+#ifdef ROGUE_EXPANSION
+                if(evolution.method != EVO_MEGA_EVOLUTION &&
+                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
+                    evolution.method != EVO_PRIMAL_REVERSION
+                )
+#endif
+                {
+                    ++count;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    return 0;
+}
+
+void Rogue_GetMonEvoParams(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 evoIdx = gSpecialVar_0x8005;
+    u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+
+    gSpecialVar_0x8006 = 0;
+    gSpecialVar_0x8007 = 0;
+
+    if(species != SPECIES_NONE)
+    {        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
+        u16 e;
+        struct Evolution evo;
+        u16 count = 0;
+
+        for (e = 0; e < EVOS_PER_MON; e++)
+        {
+            Rogue_ModifyEvolution(species, e, &evo);
+
+            if (evo.targetSpecies != SPECIES_NONE)
+            {
+#ifdef ROGUE_EXPANSION
+                if(evolution.method != EVO_MEGA_EVOLUTION &&
+                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
+                    evolution.method != EVO_PRIMAL_REVERSION
+                )
+#endif
+                {
+                    if(count++ == evoIdx)
+                    {
+                        gSpecialVar_0x8006 = evo.method;
+                        gSpecialVar_0x8007 = evo.param;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+}

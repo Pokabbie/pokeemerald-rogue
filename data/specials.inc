@@ -180,6 +180,8 @@ gSpecials::
 	def_special Rogue_AlterMonIVs
 	def_special Rogue_ApplyStatusToMon
 	def_special Rogue_ReducePartySize
+	def_special Rogue_GetMonEvoCount
+	def_special Rogue_GetMonEvoParams
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams

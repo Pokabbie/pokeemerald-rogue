@@ -332,6 +332,35 @@
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 #define EVO_LEVEL_ITEM       16 // Pokémon levels up whilst holding item
 
+// RogueNote: Dud evolution types no avaliable outside of ROGUE_EXPANSION, but easier to define here
+// (Note that these values don't match either)
+#define EVO_MEGA_EVOLUTION                0xffff // Not an actual evolution, used to temporarily mega evolve in battle.
+#define EVO_MOVE_MEGA_EVOLUTION           0xfffe // Mega Evolution that checks for a move instead of held item.
+#define EVO_PRIMAL_REVERSION              0xfffd // Not an actual evolution, used to undergo primal reversion in battle.
+#define EVO_LEVEL_FEMALE                  17     // Pokémon reaches the specified level, is female
+#define EVO_LEVEL_MALE                    18     // Pokémon reaches the specified level, is male
+#define EVO_LEVEL_NIGHT                   19     // Pokémon reaches the specified level, is night
+#define EVO_LEVEL_DAY                     20     // Pokémon reaches the specified level, is day
+#define EVO_LEVEL_DUSK                    21     // Pokémon reaches the specified level, is dusk (5-6 P.M)
+#define EVO_ITEM_HOLD_DAY                 22     // Pokémon levels up, holds specified item at day
+#define EVO_ITEM_HOLD_NIGHT               23     // Pokémon levels up, holds specified item at night
+#define EVO_MOVE                          24     // Pokémon levels up, knows specified move
+#define EVO_MOVE_TYPE                     25     // Pokémon levels up, knows move with specified type
+#define EVO_MAPSEC                        26     // Pokémon levels up on specified mapsec
+#define EVO_ITEM_MALE                     27     // specified item is used on a male Pokémon
+#define EVO_ITEM_FEMALE                   28     // specified item is used on a female Pokémon
+#define EVO_LEVEL_RAIN                    29     // Pokémon reaches the specified level while it's raining
+#define EVO_SPECIFIC_MON_IN_PARTY         30     // Pokémon levels up with a specified Pokémon in party
+#define EVO_LEVEL_DARK_TYPE_MON_IN_PARTY  31     // Pokémon reaches the specified level with a Dark Type Pokémon in party
+#define EVO_TRADE_SPECIFIC_MON            32     // Pokémon is traded for a specified Pokémon
+#define EVO_SPECIFIC_MAP                  33     // Pokémon levels up on specified map
+#define EVO_LEVEL_NATURE_AMPED            34     // Pokémon reaches the specified level, it has a Hardy, Brave, Adamant, Naughty, Docile, Impish, Lax, Hasty, Jolly, Naive, Rash, Sassy, or Quirky nature.
+#define EVO_LEVEL_NATURE_LOW_KEY          35     // Pokémon reaches the specified level, it has a Lonely, Bold, Relaxed, Timid, Serious, Modest, Mild, Quiet, Bashful, Calm, Gentle, or Careful nature.
+#define EVO_CRITICAL_HITS                 36     // Pokémon performs specified number of critical hits in one battle
+#define EVO_SCRIPT_TRIGGER_DMG            37     // Pokémon has specified HP below max, then player interacts trigger
+#define EVO_DARK_SCROLL                   38     // interacts with Scroll of Darkness
+#define EVO_WATER_SCROLL                  39     // interacts with Scroll of Waters
+
 #define EVOS_PER_MON 5
 
 // Evolution 'modes,' for GetEvolutionTargetSpecies
