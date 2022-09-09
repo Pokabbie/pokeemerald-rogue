@@ -216,9 +216,9 @@ u16 Rogue_GetMonEvoCount(void)
             if (evo.targetSpecies != SPECIES_NONE)
             {
 #ifdef ROGUE_EXPANSION
-                if(evolution.method != EVO_MEGA_EVOLUTION &&
-                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evolution.method != EVO_PRIMAL_REVERSION
+                if(evo.method != EVO_MEGA_EVOLUTION &&
+                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
+                    evo.method != EVO_PRIMAL_REVERSION
                 )
 #endif
                 {
@@ -255,9 +255,9 @@ void Rogue_GetMonEvoParams(void)
             if (evo.targetSpecies != SPECIES_NONE)
             {
 #ifdef ROGUE_EXPANSION
-                if(evolution.method != EVO_MEGA_EVOLUTION &&
-                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evolution.method != EVO_PRIMAL_REVERSION
+                if(evo.method != EVO_MEGA_EVOLUTION &&
+                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
+                    evo.method != EVO_PRIMAL_REVERSION
                 )
 #endif
                 {
