@@ -1998,7 +1998,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 }
 
-void RemoveMonAtSlot(u8 slot, bool8 keepItems)
+void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
 {
     if(slot < gPlayerPartyCount)
     {
@@ -2006,7 +2006,23 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems)
         {
             u32 hp = 0;
             SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
-            RemoveAnyFaintedMons(keepItems);
+
+            if(shiftUpwardsParty)
+            {
+                RemoveAnyFaintedMons(keepItems);
+            }
+            else
+            {
+                if(keepItems)
+                {
+                    // Dead so give back held item
+                    u16 heldItem = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+                    if(heldItem != ITEM_NONE)
+                        AddBagItem(heldItem, 1);
+                }
+
+                ZeroMonData(&gPlayerParty[slot]);
+            }
         }
     }
 }

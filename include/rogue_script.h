@@ -2,6 +2,8 @@
 #define ROGUE_SCRIPT_H
 
 
+bool8 Rogue_CheckPartyHasRoomForMon(void);
+
 void Rogue_RandomisePartyMon(void);
 void Rogue_AlterMonIVs(void);
 void Rogue_ApplyStatusToMon(void);
