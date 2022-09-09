@@ -53,11 +53,15 @@ Rogue_BattleDefeated_MiniBoss_1:
 	return
 
 Rogue_BattleDefeated_MiniBoss_3:
-	giveitem VAR_ROGUE_ITEM0
+	setvar VAR_0x8000, 0
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
+	call Rogue_GiveItem_Internal
 	goto Rogue_BattleDefeated_MiniBoss_1
 
 Rogue_BattleDefeated_MiniBoss_4:
-	giveitem VAR_ROGUE_ITEM1
+	setvar VAR_0x8000, 1
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM1
+	call Rogue_GiveItem_Internal
 	goto Rogue_BattleDefeated_MiniBoss_1
 
 

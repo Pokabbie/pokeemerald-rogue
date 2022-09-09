@@ -28,6 +28,12 @@ script Rogue_GiveItem_Internal
     //bufferitemname(STR_VAR_2, VAR_ITEM_ID_VAL)
     //msgbox(format("idx {STR_VAR_1}\nitem {STR_VAR_2}"), MSGBOX_DEFAULT)
 
+    if(var(VAR_ITEM_ID_VAL) == ITEM_MASTER_BALL)
+    {
+        finditem(VAR_ITEM_ID_VAL, 1)
+        return
+    }
+
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
         // ITEM_FIRE_MEMORY -> ITEM_DIANCITE
@@ -40,6 +46,11 @@ script Rogue_GiveItem_Internal
         {
             finditem(VAR_ITEM_ID_VAL, 1)
         } 
+        // ITEM_ABILITY_CAPSULE, ITEM_ABILITY_PATCH
+        if(var(VAR_ITEM_ID_VAL) == 79 || var(VAR_ITEM_ID_VAL) == 80)
+        {
+            finditem(VAR_ITEM_ID_VAL, 1)
+        }
         else
         {
             finditem(VAR_ITEM_ID_VAL, 3)
