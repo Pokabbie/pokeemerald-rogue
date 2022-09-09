@@ -12,6 +12,24 @@
 
 #include "rogue_script.h"
 
+bool8 Rogue_CheckPartyHasRoomForMon(void)
+{
+    if(Rogue_IsRunActive())
+    {
+        u8 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+
+        // We don't actually want to shift around the party as that can cause issue in EX
+        // Where stuff like megas keep track of exact indicies which mega evolve
+        //RemoveAnyFaintedMons(FALSE);
+
+        if (CalculatePlayerPartyCount() >= partySize)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
 
 void Rogue_RandomisePartyMon(void)
 {
@@ -192,7 +210,7 @@ void Rogue_ReducePartySize(void)
 
     if(monIdx < gPlayerPartyCount)
     {
-        RemoveMonAtSlot(monIdx, TRUE);
+        RemoveMonAtSlot(monIdx, TRUE, TRUE);
     }
 
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, VarGet(VAR_ROGUE_MAX_PARTY_SIZE) - 1);

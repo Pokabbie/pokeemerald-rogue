@@ -53,6 +53,7 @@
 #include "constants/trainers.h"
 
 #include "rogue_controller.h"
+#include "rogue_script.h"
 
 extern const u8* const gBattleScriptsForMoveEffects[];
 
@@ -9994,18 +9995,11 @@ static void Cmd_handleballthrow(void)
 
 static void Cmd_rogue_partyhasroom(void)
 {
-    if(Rogue_IsRunActive())
+    if(!Rogue_CheckPartyHasRoomForMon())
     {
-        u8 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
-
-        RemoveAnyFaintedMons(FALSE);
-
-        if (CalculatePlayerPartyCount() >= partySize)
-        {
-            // Continue
-            gBattlescriptCurrInstr += 5;
-            return;
-        }
+        // Continue
+        gBattlescriptCurrInstr += 5;
+        return;
     }
 
     // Jump to location
