@@ -2,6 +2,20 @@ Rogue_Boss_5_MapScripts::
 	.byte 0
 
 
+Rogue_Battle_Boss5_Hint::
+	lock
+	call Rogue_GymIdentity_PreBoss
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Battle_Boss5_Hint_2
+Rogue_Battle_Boss5_Hint_1:
+	release
+	return
+
+Rogue_Battle_Boss5_Hint_2:
+	msgbox Rogue_Battle_Boss5_Hint_Text_0, MSGBOX_DEFAULT
+	goto Rogue_Battle_Boss5_Hint_1
+
+
 Rogue_Battle_Boss5::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss5
@@ -65,6 +79,10 @@ PlayerToFightBoss5:
 BossToFightBoss5:
 	walk_left
 	step_end
+
+Rogue_Battle_Boss5_Hint_Text_0:
+	.string "A GYM LEADER of the type FLYING\n"
+	.string "awaits...$"
 
 Rogue_Battle_Boss5_Text_0:
 	.string "WINONA: A new challenger!$"

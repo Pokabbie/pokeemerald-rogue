@@ -1,3 +1,6 @@
+const VAR_ITEM_INDEX = VAR_0x8000
+const VAR_ITEM_ID_VAL = VAR_0x8001
+
 const BOSS_NPC = 1
 
 mapscripts Rogue_Encounter_MiniBoss_MapScripts
@@ -62,9 +65,13 @@ script Rogue_BattleDefeated_MiniBoss
     switch(var(VAR_RESULT))
     {
         case 0:
-            giveitem(VAR_ROGUE_ITEM0)
+            setvar(VAR_ITEM_INDEX, 0)
+            copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
+            call(Rogue_GiveItem_Internal)
         case 1:
-            giveitem(VAR_ROGUE_ITEM1)
+            setvar(VAR_ITEM_INDEX, 1)
+            copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM1)
+            call(Rogue_GiveItem_Internal)
     }
 
     special(HealPlayerParty)

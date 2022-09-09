@@ -11,7 +11,7 @@ const u8 gText_RogueVersionPrefix[] = _("Vanilla ");
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _("");
+const u8 gText_RogueVersionSuffix[] = _(" (PRE-RELEASE)");
 #endif
 
 #ifdef ROGUE_EXPANSION

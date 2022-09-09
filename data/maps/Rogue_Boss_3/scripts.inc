@@ -2,6 +2,20 @@ Rogue_Boss_3_MapScripts::
 	.byte 0
 
 
+Rogue_Battle_Boss3_Hint::
+	lock
+	call Rogue_GymIdentity_PreBoss
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Battle_Boss3_Hint_2
+Rogue_Battle_Boss3_Hint_1:
+	release
+	return
+
+Rogue_Battle_Boss3_Hint_2:
+	msgbox Rogue_Battle_Boss3_Hint_Text_0, MSGBOX_DEFAULT
+	goto Rogue_Battle_Boss3_Hint_1
+
+
 Rogue_Battle_Boss3::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss3
@@ -72,6 +86,9 @@ PlayerToFightBoss3:
 BossToFightBoss3:
 	walk_left
 	step_end
+
+Rogue_Battle_Boss3_Hint_Text_0:
+	.string "A GYM LEADER of the type FIRE awaits...$"
 
 Rogue_Battle_Boss3_Text_0:
 	.string "FLANNERY: A new challenger!$"
