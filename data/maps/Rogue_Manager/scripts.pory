@@ -582,6 +582,7 @@ script Rogue_Heal_PreBoss
             msgbox(format("It's gonna cost you ¥{STR_VAR_1}."), MSGBOX_YESNO)
             if(var(VAR_RESULT) == YES)
             {
+                playse(SE_VEND)
                 switch(var(VAR_ROGUE_DIFFICULTY))
                 {
                     case 0:
@@ -634,6 +635,88 @@ script Rogue_Heal_PreBoss
     }
 
     release
+}
+
+script Rogue_GymIdentity_PreBoss
+{
+    msgbox(format("A mysterious statue!"), MSGBOX_DEFAULT)
+
+    if(flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        msgbox(format("It reads...\p'I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+        msgbox(format("Do you want to read on?"), MSGBOX_YESNO)
+    }
+    else
+    {
+        msgbox(format("It reads...\p'For a cost, I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+
+        showmoneybox(0, 0)
+
+        switch(var(VAR_ROGUE_DIFFICULTY))
+        {
+            case 0:
+                checkmoney(2000)
+                buffernumberstring(STR_VAR_1, 2000)
+            case 1:
+                checkmoney(4000)
+                buffernumberstring(STR_VAR_1, 4000)
+            case 2:
+                checkmoney(8000)
+                buffernumberstring(STR_VAR_1, 8000)
+            case 3:
+                checkmoney(12000)
+                buffernumberstring(STR_VAR_1, 12000)
+            case 4:
+                checkmoney(16000)
+                buffernumberstring(STR_VAR_1, 16000)
+            case 5:
+                checkmoney(20000)
+                buffernumberstring(STR_VAR_1, 20000)
+            case 6:
+                checkmoney(24000)
+                buffernumberstring(STR_VAR_1, 24000)
+            default:
+                checkmoney(32000)
+                buffernumberstring(STR_VAR_1, 32000)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Do you want to insert ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                playse(SE_VEND)
+                switch(var(VAR_ROGUE_DIFFICULTY))
+                {
+                    case 0:
+                        removemoney(2000)
+                    case 1:
+                        removemoney(4000)
+                    case 2:
+                        removemoney(8000)
+                    case 3:
+                        removemoney(12000)
+                    case 4:
+                        removemoney(16000)
+                    case 5:
+                        removemoney(20000)
+                    case 6:
+                        removemoney(24000)
+                    default:
+                        removemoney(32000)
+                }
+
+                updatemoneybox
+                waitse
+            }
+        }
+        else
+        {
+            msgbox(format("Oh no!\pI requires ¥{STR_VAR_1} which is more than what you have!"), MSGBOX_DEFAULT)
+        }
+
+        hidemoneybox
+    }
 }
 
 script Rogue_Battle_BreederF

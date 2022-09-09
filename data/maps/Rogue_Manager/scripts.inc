@@ -598,6 +598,7 @@ Rogue_Heal_PreBoss_22:
 	goto Rogue_Heal_PreBoss_21
 
 Rogue_Heal_PreBoss_25:
+	playse SE_VEND
 	switch VAR_ROGUE_DIFFICULTY
 	case 0, Rogue_Heal_PreBoss_29
 	case 1, Rogue_Heal_PreBoss_30
@@ -638,6 +639,120 @@ Rogue_Heal_PreBoss_34:
 Rogue_Heal_PreBoss_35:
 	removemoney 24000
 	goto Rogue_Heal_PreBoss_27
+
+
+Rogue_GymIdentity_PreBoss::
+	msgbox Rogue_GymIdentity_PreBoss_Text_0, MSGBOX_DEFAULT
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_GymIdentity_PreBoss_1
+	msgbox Rogue_GymIdentity_PreBoss_Text_3, MSGBOX_DEFAULT
+	showmoneybox 0, 0
+	switch VAR_ROGUE_DIFFICULTY
+	case 0, Rogue_GymIdentity_PreBoss_6
+	case 1, Rogue_GymIdentity_PreBoss_7
+	case 2, Rogue_GymIdentity_PreBoss_8
+	case 3, Rogue_GymIdentity_PreBoss_9
+	case 4, Rogue_GymIdentity_PreBoss_10
+	case 5, Rogue_GymIdentity_PreBoss_11
+	case 6, Rogue_GymIdentity_PreBoss_12
+	checkmoney 32000
+	buffernumberstring STR_VAR_1, 32000
+Rogue_GymIdentity_PreBoss_4:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_GymIdentity_PreBoss_15
+	msgbox Rogue_GymIdentity_PreBoss_Text_5, MSGBOX_DEFAULT
+Rogue_GymIdentity_PreBoss_14:
+	hidemoneybox
+	return
+
+Rogue_GymIdentity_PreBoss_1:
+	msgbox Rogue_GymIdentity_PreBoss_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_GymIdentity_PreBoss_Text_2, MSGBOX_YESNO
+	return
+
+Rogue_GymIdentity_PreBoss_6:
+	checkmoney 2000
+	buffernumberstring STR_VAR_1, 2000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_7:
+	checkmoney 4000
+	buffernumberstring STR_VAR_1, 4000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_8:
+	checkmoney 8000
+	buffernumberstring STR_VAR_1, 8000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_9:
+	checkmoney 12000
+	buffernumberstring STR_VAR_1, 12000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_10:
+	checkmoney 16000
+	buffernumberstring STR_VAR_1, 16000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_11:
+	checkmoney 20000
+	buffernumberstring STR_VAR_1, 20000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_12:
+	checkmoney 24000
+	buffernumberstring STR_VAR_1, 24000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_15:
+	msgbox Rogue_GymIdentity_PreBoss_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_GymIdentity_PreBoss_18
+	goto Rogue_GymIdentity_PreBoss_14
+
+Rogue_GymIdentity_PreBoss_18:
+	playse SE_VEND
+	switch VAR_ROGUE_DIFFICULTY
+	case 0, Rogue_GymIdentity_PreBoss_22
+	case 1, Rogue_GymIdentity_PreBoss_23
+	case 2, Rogue_GymIdentity_PreBoss_24
+	case 3, Rogue_GymIdentity_PreBoss_25
+	case 4, Rogue_GymIdentity_PreBoss_26
+	case 5, Rogue_GymIdentity_PreBoss_27
+	case 6, Rogue_GymIdentity_PreBoss_28
+	removemoney 32000
+Rogue_GymIdentity_PreBoss_20:
+	updatemoneybox
+	waitse
+	goto Rogue_GymIdentity_PreBoss_14
+
+Rogue_GymIdentity_PreBoss_22:
+	removemoney 2000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_23:
+	removemoney 4000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_24:
+	removemoney 8000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_25:
+	removemoney 12000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_26:
+	removemoney 16000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_27:
+	removemoney 20000
+	goto Rogue_GymIdentity_PreBoss_20
+
+Rogue_GymIdentity_PreBoss_28:
+	removemoney 24000
+	goto Rogue_GymIdentity_PreBoss_20
 
 
 Rogue_Battle_BreederF::
@@ -1036,6 +1151,30 @@ Rogue_Heal_PreBoss_Text_5:
 
 Rogue_Heal_PreBoss_Text_6:
 	.string "So thanks for wasting my time I guess...$"
+
+Rogue_GymIdentity_PreBoss_Text_0:
+	.string "A mysterious statue!$"
+
+Rogue_GymIdentity_PreBoss_Text_1:
+	.string "It reads...\p"
+	.string "'I can provide you a glimpse of the\n"
+	.string "future'$"
+
+Rogue_GymIdentity_PreBoss_Text_2:
+	.string "Do you want to read on?$"
+
+Rogue_GymIdentity_PreBoss_Text_3:
+	.string "It reads...\p"
+	.string "'For a cost, I can provide you a glimpse\n"
+	.string "of the future'$"
+
+Rogue_GymIdentity_PreBoss_Text_4:
+	.string "Do you want to insert ¥{STR_VAR_1}?$"
+
+Rogue_GymIdentity_PreBoss_Text_5:
+	.string "Oh no!\p"
+	.string "I requires ¥{STR_VAR_1} which is\n"
+	.string "more than what you have!$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"

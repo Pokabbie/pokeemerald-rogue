@@ -4,6 +4,19 @@ mapscripts Rogue_Boss_1_MapScripts
 {
 }
 
+script Rogue_Battle_Boss1_Hint
+{
+    lock
+
+    call(Rogue_GymIdentity_PreBoss)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("A GYM LEADER of the type FIGHTING awaits..."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
 script Rogue_Battle_Boss1
 {
     lockall()
