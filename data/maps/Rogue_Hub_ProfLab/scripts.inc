@@ -24,17 +24,36 @@ Rogue_Hub_ProfLab_OnTransition_4:
 
 
 Rogue_Hub_ProfLab_SpeakProf::
-	lock
+	lockall
 	faceplayer
+	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_Hub_ProfLab_SpeakProf_2
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_le Rogue_Hub_ProfLab_SpeakProf_2
+	goto_if_le Rogue_Hub_ProfLab_SpeakProf_8
 	call Rogue_Hub_ProfLab_ProfExplain
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Hub_ProfLab_SpeakProf_11
 Rogue_Hub_ProfLab_SpeakProf_1:
-	release
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Hub_ProfLab_SpeakProf_6
+Rogue_Hub_ProfLab_SpeakProf_5:
+	releaseall
 	return
 
 Rogue_Hub_ProfLab_SpeakProf_2:
-	msgbox Rogue_Hub_ProfLab_SpeakProf_Text_0, MSGBOX_DEFAULT
+	msgbox Rogue_Hub_ProfLab_SpeakProf_Text_0
+	call Rogue_Hub_ProfLab_ProfShowEvos
+	goto Rogue_Hub_ProfLab_SpeakProf_1
+
+Rogue_Hub_ProfLab_SpeakProf_6:
+	msgbox Rogue_Hub_ProfLab_SpeakProf_Text_2, MSGBOX_DEFAULT
+	goto Rogue_Hub_ProfLab_SpeakProf_5
+
+Rogue_Hub_ProfLab_SpeakProf_8:
+	msgbox Rogue_Hub_ProfLab_SpeakProf_Text_1, MSGBOX_DEFAULT
+	goto Rogue_Hub_ProfLab_SpeakProf_1
+
+Rogue_Hub_ProfLab_SpeakProf_11:
+	call Rogue_Hub_ProfLab_ProfShowEvos
 	goto Rogue_Hub_ProfLab_SpeakProf_1
 
 
@@ -42,7 +61,6 @@ Rogue_Hub_ProfLab_ProfExplain::
 	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Hub_ProfLab_ProfExplain_2
-	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_3, MSGBOX_DEFAULT
 Rogue_Hub_ProfLab_ProfExplain_1:
 	return
 
@@ -50,6 +68,268 @@ Rogue_Hub_ProfLab_ProfExplain_2:
 	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_1, MSGBOX_DEFAULT
 	msgbox Rogue_Hub_ProfLab_ProfExplain_Text_2, MSGBOX_DEFAULT
 	goto Rogue_Hub_ProfLab_ProfExplain_1
+
+
+Rogue_Hub_ProfLab_ProfCycleEvos::
+Rogue_Hub_ProfLab_ProfCycleEvos_1:
+	compare VAR_0x8005, VAR_RESULT
+	goto_if_lt Rogue_Hub_ProfLab_ProfCycleEvos_2
+	return
+
+Rogue_Hub_ProfLab_ProfCycleEvos_2:
+	special Rogue_GetMonEvoParams
+	addvar VAR_0x8005, 1
+	buffernumberstring STR_VAR_2, VAR_0x8005
+	switch VAR_0x8006
+	case EVO_FRIENDSHIP, Rogue_Hub_ProfLab_ProfCycleEvos_5
+	case EVO_FRIENDSHIP_DAY, Rogue_Hub_ProfLab_ProfCycleEvos_6
+	case EVO_FRIENDSHIP_NIGHT, Rogue_Hub_ProfLab_ProfCycleEvos_7
+	case EVO_LEVEL, Rogue_Hub_ProfLab_ProfCycleEvos_8
+	case EVO_LEVEL_NINJASK, Rogue_Hub_ProfLab_ProfCycleEvos_8
+	case EVO_TRADE, Rogue_Hub_ProfLab_ProfCycleEvos_9
+	case EVO_TRADE_ITEM, Rogue_Hub_ProfLab_ProfCycleEvos_10
+	case EVO_ITEM, Rogue_Hub_ProfLab_ProfCycleEvos_11
+	case EVO_LEVEL_ATK_GT_DEF, Rogue_Hub_ProfLab_ProfCycleEvos_12
+	case EVO_LEVEL_ATK_EQ_DEF, Rogue_Hub_ProfLab_ProfCycleEvos_13
+	case EVO_LEVEL_ATK_LT_DEF, Rogue_Hub_ProfLab_ProfCycleEvos_14
+	case EVO_LEVEL_SILCOON, Rogue_Hub_ProfLab_ProfCycleEvos_15
+	case EVO_LEVEL_CASCOON, Rogue_Hub_ProfLab_ProfCycleEvos_15
+	case EVO_LEVEL_SHEDINJA, Rogue_Hub_ProfLab_ProfCycleEvos_16
+	case EVO_BEAUTY, Rogue_Hub_ProfLab_ProfCycleEvos_17
+	case EVO_LEVEL_ITEM, Rogue_Hub_ProfLab_ProfCycleEvos_18
+	case EVO_LEVEL_FEMALE, Rogue_Hub_ProfLab_ProfCycleEvos_19
+	case EVO_LEVEL_MALE, Rogue_Hub_ProfLab_ProfCycleEvos_20
+	case EVO_LEVEL_NIGHT, Rogue_Hub_ProfLab_ProfCycleEvos_21
+	case EVO_LEVEL_DAY, Rogue_Hub_ProfLab_ProfCycleEvos_22
+	case EVO_LEVEL_DUSK, Rogue_Hub_ProfLab_ProfCycleEvos_23
+	case EVO_ITEM_HOLD_DAY, Rogue_Hub_ProfLab_ProfCycleEvos_24
+	case EVO_ITEM_HOLD_NIGHT, Rogue_Hub_ProfLab_ProfCycleEvos_25
+	case EVO_MOVE, Rogue_Hub_ProfLab_ProfCycleEvos_26
+	case EVO_MOVE_TYPE, Rogue_Hub_ProfLab_ProfCycleEvos_27
+	case EVO_MAPSEC, Rogue_Hub_ProfLab_ProfCycleEvos_28
+	case EVO_SPECIFIC_MAP, Rogue_Hub_ProfLab_ProfCycleEvos_28
+	case EVO_ITEM_MALE, Rogue_Hub_ProfLab_ProfCycleEvos_29
+	case EVO_ITEM_FEMALE, Rogue_Hub_ProfLab_ProfCycleEvos_30
+	case EVO_LEVEL_RAIN, Rogue_Hub_ProfLab_ProfCycleEvos_31
+	case EVO_SPECIFIC_MON_IN_PARTY, Rogue_Hub_ProfLab_ProfCycleEvos_32
+	case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY, Rogue_Hub_ProfLab_ProfCycleEvos_33
+	case EVO_TRADE_SPECIFIC_MON, Rogue_Hub_ProfLab_ProfCycleEvos_34
+	case EVO_LEVEL_NATURE_AMPED, Rogue_Hub_ProfLab_ProfCycleEvos_35
+	case EVO_LEVEL_NATURE_LOW_KEY, Rogue_Hub_ProfLab_ProfCycleEvos_35
+	case EVO_CRITICAL_HITS, Rogue_Hub_ProfLab_ProfCycleEvos_36
+	case EVO_SCRIPT_TRIGGER_DMG, Rogue_Hub_ProfLab_ProfCycleEvos_37
+	case EVO_DARK_SCROLL, Rogue_Hub_ProfLab_ProfCycleEvos_38
+	case EVO_WATER_SCROLL, Rogue_Hub_ProfLab_ProfCycleEvos_38
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_34
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_5:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_0
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_6:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_1
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_7:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_2
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_8:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_3
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_9:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_4
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_10:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_5
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_11:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_6
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_12:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_7
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_13:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_8
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_14:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_9
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_15:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_10
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_16:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_11
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_17:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_12
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_18:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_13
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_19:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_14
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_20:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_15
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_21:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_16
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_22:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_17
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_23:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_18
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_24:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_19
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_25:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_20
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_26:
+	buffermovename STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_21
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_27:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_22
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_28:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_23
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_29:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_24
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_30:
+	bufferitemname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_25
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_31:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_26
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_32:
+	bufferspeciesname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_27
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_33:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_28
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_34:
+	bufferspeciesname STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_29
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_35:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_30
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_36:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_31
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_37:
+	buffernumberstring STR_VAR_3, VAR_0x8007
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_32
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+Rogue_Hub_ProfLab_ProfCycleEvos_38:
+	msgbox Rogue_Hub_ProfLab_ProfCycleEvos_Text_33
+	goto Rogue_Hub_ProfLab_ProfCycleEvos_1
+
+
+Rogue_Hub_ProfLab_ProfShowEvos::
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Hub_ProfLab_ProfShowEvos_1
+	return
+
+Rogue_Hub_ProfLab_ProfShowEvos_1:
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_1
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_Hub_ProfLab_ProfShowEvos_4
+	specialvar VAR_RESULT, Rogue_GetMonEvoCount
+	special BufferMonNickname
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_Hub_ProfLab_ProfShowEvos_7
+	compare VAR_RESULT, 1
+	goto_if_eq Rogue_Hub_ProfLab_ProfShowEvos_8
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_6
+	setvar VAR_0x8005, 0
+	call Rogue_Hub_ProfLab_ProfCycleEvos
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_5, MSGBOX_DEFAULT
+Rogue_Hub_ProfLab_ProfShowEvos_3:
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_Hub_ProfLab_ProfShowEvos_4:
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_2, MSGBOX_DEFAULT
+	goto Rogue_Hub_ProfLab_ProfShowEvos_3
+
+Rogue_Hub_ProfLab_ProfShowEvos_7:
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_3
+	goto Rogue_Hub_ProfLab_ProfShowEvos_3
+
+Rogue_Hub_ProfLab_ProfShowEvos_8:
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_4
+	setvar VAR_0x8005, 0
+	call Rogue_Hub_ProfLab_ProfCycleEvos
+	msgbox Rogue_Hub_ProfLab_ProfShowEvos_Text_5, MSGBOX_DEFAULT
+	goto Rogue_Hub_ProfLab_ProfShowEvos_3
 
 
 Rogue_Hub_ProfLab_TriggerPC::
@@ -285,8 +565,18 @@ Rogue_Hub_ProfLab_Pokeball2_2:
 
 
 Rogue_Hub_ProfLab_SpeakProf_Text_0:
+	.string "BIRCH: Hey {PLAYER}!\n"
+	.string "Hope you're enjoying the adventure so\l"
+	.string "far!$"
+
+Rogue_Hub_ProfLab_SpeakProf_Text_1:
 	.string "BIRCH: Go ahead!\n"
 	.string "Pick a PARTNER POKéMON!$"
+
+Rogue_Hub_ProfLab_SpeakProf_Text_2:
+	.string "BIRCH: OK then!\n"
+	.string "If you ever need an explaination, you\l"
+	.string "know where to find me.$"
 
 Rogue_Hub_ProfLab_ProfExplain_Text_0:
 	.string "BIRCH: Would you like me to explain how\n"
@@ -324,10 +614,176 @@ Rogue_Hub_ProfLab_ProfExplain_Text_2:
 	.string "So go ahead!\n"
 	.string "Explore and have fun!$"
 
-Rogue_Hub_ProfLab_ProfExplain_Text_3:
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_0:
+	.string "{STR_VAR_2}. get high friendship.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_1:
+	.string "{STR_VAR_2}. get high friendship\n"
+	.string "during the day.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_2:
+	.string "{STR_VAR_2}. get high friendship\n"
+	.string "during the night.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_3:
+	.string "{STR_VAR_2}. raise to lvl {STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_4:
+	.string "{STR_VAR_2}. trade.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_5:
+	.string "{STR_VAR_2}. trade whilst holding\n"
+	.string "{STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_6:
+	.string "{STR_VAR_2}. use a {STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_7:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} whilst attack is higher\l"
+	.string "than defence.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_8:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} whilst attack is equal\l"
+	.string "to defence.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_9:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} whilst attack is lower\l"
+	.string "than defence.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_10:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} with a specific\l"
+	.string "personality.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_11:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} with a spare slot in\l"
+	.string "your party available.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_12:
+	.string "{STR_VAR_2}. get high beauty.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_13:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "holding {STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_14:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} when female.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_15:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} when male.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_16:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} during the night.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_17:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} during the day.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_18:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} during dusk.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_19:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "holding {STR_VAR_3} during the day.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_20:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "holding {STR_VAR_3} during the\l"
+	.string "night.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_21:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "knowing {STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_22:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "knowing a FAIRY move.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_23:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "holding {STR_VAR_3} when in ???\l"
+	.string "location.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_24:
+	.string "{STR_VAR_2}. use a {STR_VAR_3}\n"
+	.string "when male.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_25:
+	.string "{STR_VAR_2}. use a {STR_VAR_3}\n"
+	.string "when female.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_26:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} whilst it is raining.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_27:
+	.string "{STR_VAR_2}. raise by a lvl whilst\n"
+	.string "{STR_VAR_3} is in the party.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_28:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} whilst a DARK type\l"
+	.string "POKéMON is in the party.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_29:
+	.string "{STR_VAR_2}. trade for a\n"
+	.string "{STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_30:
+	.string "{STR_VAR_2}. raise to lvl\n"
+	.string "{STR_VAR_3} with a specific nature.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_31:
+	.string "{STR_VAR_2}. deal {STR_VAR_3}\n"
+	.string "critical hits in a single battle.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_32:
+	.string "{STR_VAR_2}. when hp less than\n"
+	.string "{STR_VAR_3} interact with ???.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_33:
+	.string "{STR_VAR_2}. interact with ???.$"
+
+Rogue_Hub_ProfLab_ProfCycleEvos_Text_34:
+	.string "{STR_VAR_2}. UNKNOWN EVO TYPE,\n"
+	.string "{STR_VAR_3}.$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_0:
+	.string "BIRCH: Would you like to check how a\n"
+	.string "POKéMON evolves?$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_1:
+	.string "Who would you like information on?$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_2:
 	.string "BIRCH: OK then!\n"
-	.string "If you ever need an explaination, you\l"
-	.string "know where to find me.$"
+	.string "If you ever need any help, you know\l"
+	.string "where to find me.$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_3:
+	.string "{STR_VAR_1} doesn't appear to\n"
+	.string "currently have access to any\l"
+	.string "evolutions.$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_4:
+	.string "{STR_VAR_1} currently has access to\n"
+	.string "{STR_VAR_2} evolution.$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_5:
+	.string "BIRCH: If you ever need any more help,\n"
+	.string "you know where to find me.$"
+
+Rogue_Hub_ProfLab_ProfShowEvos_Text_6:
+	.string "{STR_VAR_1} currently has access to\n"
+	.string "{STR_VAR_2} evolutions.$"
 
 Rogue_Hub_ProfLab_TriggerPC_Text_0:
 	.string "(I shouldn't use this now)$"

@@ -23,19 +23,36 @@ script Rogue_Hub_ProfLab_OnTransition
 
 script Rogue_Hub_ProfLab_SpeakProf
 {
-    lock
+    lockall
     faceplayer
 
-    if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
     {
-        msgbox(format("BIRCH: Go ahead!\nPick a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+        msgbox(format("BIRCH: Hey {PLAYER}!\nHope you're enjoying the adventure so far!"))
+        call(Rogue_Hub_ProfLab_ProfShowEvos)
     }
     else
     {
-        call(Rogue_Hub_ProfLab_ProfExplain)
+        if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+        {
+            msgbox(format("BIRCH: Go ahead!\nPick a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            call(Rogue_Hub_ProfLab_ProfExplain)
+            if(var(VAR_RESULT) == NO)
+            {
+                call(Rogue_Hub_ProfLab_ProfShowEvos)
+            }
+        }
     }
 
-    release
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("BIRCH: OK then!\nIf you ever need an explaination, you know where to find me."), MSGBOX_DEFAULT)
+    }
+
+    releaseall
 }
 
 script Rogue_Hub_ProfLab_ProfExplain
@@ -47,12 +64,214 @@ script Rogue_Hub_ProfLab_ProfExplain
         msgbox(format("BIRCH: You never know what you're gonna see on an adventure!\pThe routes will swap around, the POKéMON and TRAINERS you encounter will also change!\pWhen you finish your adventure you'll be escorted back to the HUB and we'll restore you BAG and POKéMON back to their original states.\pSo, for example, if you evolved your PARTNER POKéMON whilst on an adventure, it would unevolve when you come back to the HUB."), MSGBOX_DEFAULT)
         msgbox(format("When you return from adventures, you'll get given reward money which you can then spend on anything you'd like in the HUB.\pWhatever you buy or use in the HUB will be permanent.\pSo if you went and bought extra potions in the HUB but used them during an adventure, once you returned you'd find that they've been placed right back in to you BAG.\pThe best way to learn about adventures is to go on many of them!\pSo go ahead!\nExplore and have fun!"), MSGBOX_DEFAULT)
     }
-    else
-    {
-        msgbox(format("BIRCH: OK then!\nIf you ever need an explaination, you know where to find me."), MSGBOX_DEFAULT)
-    }
 
     return
+}
+
+script Rogue_Hub_ProfLab_ProfCycleEvos
+{
+    while(var(VAR_0x8005) < VAR_RESULT)
+    {
+        special(Rogue_GetMonEvoParams)
+        addvar(VAR_0x8005, 1) // Increment now so text below doesn't count from 0
+
+        buffernumberstring(STR_VAR_2, VAR_0x8005)
+
+        switch(var(VAR_0x8006))
+        {
+            case EVO_FRIENDSHIP:
+                msgbox(format("{STR_VAR_2}. get high friendship."))
+
+            case EVO_FRIENDSHIP_DAY:
+                msgbox(format("{STR_VAR_2}. get high friendship during the day."))
+
+            case EVO_FRIENDSHIP_NIGHT:
+                msgbox(format("{STR_VAR_2}. get high friendship during the night."))
+
+            case EVO_LEVEL:
+            case EVO_LEVEL_NINJASK:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox("{STR_VAR_2}. raise to lvl {STR_VAR_3}.")
+
+            case EVO_TRADE:
+                msgbox(format("{STR_VAR_2}. trade."))
+
+            case EVO_TRADE_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. trade whilst holding {STR_VAR_3}."))
+
+            case EVO_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3}."))
+
+            case EVO_LEVEL_ATK_GT_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is higher than defence."))
+
+            case EVO_LEVEL_ATK_EQ_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is equal to defence."))
+
+            case EVO_LEVEL_ATK_LT_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is lower than defence."))
+
+            case EVO_LEVEL_SILCOON:
+            case EVO_LEVEL_CASCOON:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a specific personality."))
+
+            case EVO_LEVEL_SHEDINJA:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a spare slot in your party available."))
+
+            case EVO_BEAUTY:
+                msgbox(format("{STR_VAR_2}. get high beauty."))
+
+            case EVO_LEVEL_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3}."))
+
+
+            // EX methods
+            //
+            case EVO_LEVEL_FEMALE:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} when female."))
+
+            case EVO_LEVEL_MALE:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} when male."))
+
+            case EVO_LEVEL_NIGHT:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during the night."))
+
+            case EVO_LEVEL_DAY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during the day."))
+
+            case EVO_LEVEL_DUSK:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during dusk."))
+
+            case EVO_ITEM_HOLD_DAY:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} during the day."))
+
+            case EVO_ITEM_HOLD_NIGHT:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} during the night."))
+    
+
+            case EVO_MOVE:
+                buffermovename(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst knowing {STR_VAR_3}."))
+    
+            case EVO_MOVE_TYPE:
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst knowing a FAIRY move.")) // Hard coded, as this is only instance
+
+            case EVO_MAPSEC:
+            case EVO_SPECIFIC_MAP:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} when in ??? location."))
+
+
+            case EVO_ITEM_MALE:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3} when male."))
+
+            case EVO_ITEM_FEMALE:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3} when female."))
+
+
+            case EVO_LEVEL_RAIN:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst it is raining."))
+
+            case EVO_SPECIFIC_MON_IN_PARTY:
+                bufferspeciesname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst {STR_VAR_3} is in the party."))
+
+            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst a DARK type POKéMON is in the party."))
+
+            case EVO_TRADE_SPECIFIC_MON:
+                bufferspeciesname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. trade for a {STR_VAR_3}."))
+
+
+            case EVO_LEVEL_NATURE_AMPED:
+            case EVO_LEVEL_NATURE_LOW_KEY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a specific nature."))
+
+            case EVO_CRITICAL_HITS:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. deal {STR_VAR_3} critical hits in a single battle."))
+
+            case EVO_SCRIPT_TRIGGER_DMG:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. when hp less than {STR_VAR_3} interact with ???."))
+    
+            case EVO_DARK_SCROLL:
+            case EVO_WATER_SCROLL:
+                msgbox(format("{STR_VAR_2}. interact with ???."))
+
+            default:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. UNKNOWN EVO TYPE, {STR_VAR_3}."))
+        }
+    }
+}
+
+script Rogue_Hub_ProfLab_ProfShowEvos
+{
+    msgbox(format("BIRCH: Would you like to check how a POKéMON evolves?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Who would you like information on?"))
+        special(ChoosePartyMon)
+        waitstate
+        
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+        {
+            msgbox(format("BIRCH: OK then!\nIf you ever need any help, you know where to find me."), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            specialvar(VAR_RESULT, Rogue_GetMonEvoCount)
+            special(BufferMonNickname)
+
+            if(var(VAR_RESULT) == 0)
+            {
+                msgbox(format("{STR_VAR_1} doesn't appear to currently have access to any evolutions."))
+            }
+            elif(var(VAR_RESULT) == 1)
+            {
+                buffernumberstring(STR_VAR_2, VAR_RESULT)
+                msgbox(format("{STR_VAR_1} currently has access to {STR_VAR_2} evolution."))
+
+                setvar(VAR_0x8005, 0)
+                call(Rogue_Hub_ProfLab_ProfCycleEvos)
+                msgbox(format("BIRCH: If you ever need any more help, you know where to find me."), MSGBOX_DEFAULT)
+            }
+            else
+            {
+                buffernumberstring(STR_VAR_2, VAR_RESULT)
+                msgbox(format("{STR_VAR_1} currently has access to {STR_VAR_2} evolutions."))
+
+                setvar(VAR_0x8005, 0)
+                call(Rogue_Hub_ProfLab_ProfCycleEvos)
+                msgbox(format("BIRCH: If you ever need any more help, you know where to find me."), MSGBOX_DEFAULT)
+            }
+        }
+
+        setvar(VAR_RESULT, YES)
+    }
 }
 
 script Rogue_Hub_ProfLab_TriggerPC
