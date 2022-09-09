@@ -4049,7 +4049,7 @@ static void HandleTurnActionSelectionState(void)
                     else if ((i = IsAbilityPreventingEscape(gActiveBattler)
                               && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_SHED_SHELL))
                     {
-                        BtlController_EmitChoosePokemon(BUFFER_A, ((i - 1) << 4) | PARTY_ACTION_ABILITY_PREVENTS, PARTY_SIZE, gBattleMons[i - 1].ability, gBattleStruct->battlerPartyOrders[gActiveBattler]);
+                        BtlController_EmitChoosePokemon(BUFFER_A, ((i) << 4) | PARTY_ACTION_ABILITY_PREVENTS, PARTY_SIZE, gBattleMons[i].ability, gBattleStruct->battlerPartyOrders[gActiveBattler]);
                     }
                     else
                     {
