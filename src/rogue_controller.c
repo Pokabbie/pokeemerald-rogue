@@ -3128,17 +3128,14 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
     {
-        if(level != 1)
-        {
-            // Team average is something like -2, -1, -1, 0
+        // Team average is something like -2, -1, -1, 0
+        level--;
+
+        if(monIdx == 0)
             level--;
 
-            if(monIdx == 0)
-                level--;
-
-            if(level != 100 && monIdx == totalMonCount - 1)
-                level++;
-        }
+        if(level != 100 && monIdx == totalMonCount - 1)
+            level++;
     }
 
 #ifdef ROGUE_DEBUG
@@ -3794,9 +3791,10 @@ static u8 CalculatePlayerLevel(void)
 
 static u8 CalculateTrainerLevel(u16 trainerNum)
 {
+    u8 level;
     if(IsBossTrainer(trainerNum))
     {
-        return CalculatePlayerLevel();
+        level = CalculatePlayerLevel();
     }
     else
     {
@@ -3821,26 +3819,28 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             // Not boss trainer so must be EXP trainer
-            return prevBossLevel;
+            level = prevBossLevel;
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
-            return nextBossLevel - 5;
+            level = nextBossLevel - 5;
         }
-
-        if(difficultyModifier == 0) // Easy
+        else if(difficultyModifier == 0) // Easy
         {
-            return prevBossLevel;
+            level = prevBossLevel;
         }
         else if(difficultyModifier == 2) // Hard
         {
-            return nextBossLevel - 5;
+            level =  nextBossLevel - 5;
         }
         else
         {
-            return nextBossLevel - 10;
+            level =  nextBossLevel - 10;
         }
     }
+
+    // Trainers shouldn't ever be weaker than this
+    return max(5, level);
 }
 
 static u8 GetRoomTypeDifficulty(void)
