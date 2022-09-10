@@ -16,13 +16,15 @@ const ADVPATH_ROOM_BOSS = 9
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
-    MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_OnLoad
+    //MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_OnLoad
+    MAP_SCRIPT_ON_RESUME: Rogue_AdventurePaths_OnLoad
 }
 
 script Rogue_AdventurePaths_OnLoad
 {
-    special(SpawnCameraObject)
-    applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
+    // If we want to do it, don't do it On load/Resume
+    //special(SpawnCameraObject)
+    //applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
 
     call(Rogue_AdventurePaths_RedrawMap)
 }

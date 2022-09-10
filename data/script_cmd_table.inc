@@ -231,6 +231,9 @@ gScriptCmdTable::
 	.4byte ScrCmd_pokemartwithminprice      @ 0xe4
 	.4byte ScrCmd_rogue_dynamicpokemart     @ 0xe5
 	.4byte ScrCmd_warprespawn               @ 0xe6
+	.4byte ScrCmd_bufferconstantnumberstring @ 0xe7
+	.4byte ScrCmd_checkconstantmoney        @ 0xe8
+	.4byte ScrCmd_removeconstantmoney       @ 0xe9
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

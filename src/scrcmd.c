@@ -1628,6 +1628,16 @@ bool8 ScrCmd_buffernumberstring(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_bufferconstantnumberstring(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u16 num = ScriptReadHalfword(ctx);
+    u8 numDigits = CountDigits(num);
+
+    ConvertIntToDecimalStringN(sScriptStringVars[stringVarIndex], num, STR_CONV_MODE_LEFT_ALIGN, numDigits);
+    return FALSE;
+}
+
 bool8 ScrCmd_bufferstdstring(struct ScriptContext *ctx)
 {
     u8 stringVarIndex = ScriptReadByte(ctx);
@@ -1796,9 +1806,29 @@ bool8 ScrCmd_removemoney(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_removeconstantmoney(struct ScriptContext *ctx)
+{
+    u32 amount = ScriptReadWord(ctx);
+    u8 ignore = ScriptReadByte(ctx);
+
+    if (!ignore)
+        RemoveMoney(&gSaveBlock1Ptr->money, amount);
+    return FALSE;
+}
+
 bool8 ScrCmd_checkmoney(struct ScriptContext *ctx)
 {
     u32 amount = VarGet(ScriptReadWord(ctx));
+    u8 ignore = ScriptReadByte(ctx);
+
+    if (!ignore)
+        gSpecialVar_Result = IsEnoughMoney(&gSaveBlock1Ptr->money, amount);
+    return FALSE;
+}
+
+bool8 ScrCmd_checkconstantmoney(struct ScriptContext *ctx)
+{
+    u32 amount = ScriptReadWord(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)

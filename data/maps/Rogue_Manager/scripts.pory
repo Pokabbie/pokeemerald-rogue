@@ -552,29 +552,29 @@ script Rogue_Heal_PreBoss
         switch(var(VAR_ROGUE_DIFFICULTY))
         {
             case 0:
-                checkmoney(2000)
-                buffernumberstring(STR_VAR_1, 2000)
+                checkconstantmoney(2000)
+                bufferconstantnumberstring(STR_VAR_1, 2000)
             case 1:
-                checkmoney(4000)
-                buffernumberstring(STR_VAR_1, 4000)
+                checkconstantmoney(4000)
+                bufferconstantnumberstring(STR_VAR_1, 4000)
             case 2:
-                checkmoney(8000)
-                buffernumberstring(STR_VAR_1, 8000)
+                checkconstantmoney(8000)
+                bufferconstantnumberstring(STR_VAR_1, 8000)
             case 3:
-                checkmoney(12000)
-                buffernumberstring(STR_VAR_1, 12000)
+                checkconstantmoney(12000)
+                bufferconstantnumberstring(STR_VAR_1, 12000)
             case 4:
-                checkmoney(16000)
-                buffernumberstring(STR_VAR_1, 16000)
+                checkconstantmoney(16000)
+                bufferconstantnumberstring(STR_VAR_1, 16000)
             case 5:
-                checkmoney(20000)
-                buffernumberstring(STR_VAR_1, 20000)
+                checkconstantmoney(20000)
+                bufferconstantnumberstring(STR_VAR_1, 20000)
             case 6:
-                checkmoney(24000)
-                buffernumberstring(STR_VAR_1, 24000)
+                checkconstantmoney(24000)
+                bufferconstantnumberstring(STR_VAR_1, 24000)
             default:
-                checkmoney(32000)
-                buffernumberstring(STR_VAR_1, 32000)
+                checkconstantmoney(32000)
+                bufferconstantnumberstring(STR_VAR_1, 32000)
         }
 
         if(var(VAR_RESULT) == YES)
@@ -586,21 +586,21 @@ script Rogue_Heal_PreBoss
                 switch(var(VAR_ROGUE_DIFFICULTY))
                 {
                     case 0:
-                        removemoney(2000)
+                        removeconstantmoney(2000)
                     case 1:
-                        removemoney(4000)
+                        removeconstantmoney(4000)
                     case 2:
-                        removemoney(8000)
+                        removeconstantmoney(8000)
                     case 3:
-                        removemoney(12000)
+                        removeconstantmoney(12000)
                     case 4:
-                        removemoney(16000)
+                        removeconstantmoney(16000)
                     case 5:
-                        removemoney(20000)
+                        removeconstantmoney(20000)
                     case 6:
-                        removemoney(24000)
+                        removeconstantmoney(24000)
                     default:
-                        removemoney(32000)
+                        removeconstantmoney(32000)
                 }
 
                 call(Common_EventScript_OutOfCenterPartyHeal)
@@ -655,29 +655,29 @@ script Rogue_GymIdentity_PreBoss
         switch(var(VAR_ROGUE_DIFFICULTY))
         {
             case 0:
-                checkmoney(2000)
-                buffernumberstring(STR_VAR_1, 2000)
+                checkconstantmoney(2000)
+                bufferconstantnumberstring(STR_VAR_1, 2000)
             case 1:
-                checkmoney(4000)
-                buffernumberstring(STR_VAR_1, 4000)
+                checkconstantmoney(4000)
+                bufferconstantnumberstring(STR_VAR_1, 4000)
             case 2:
-                checkmoney(8000)
-                buffernumberstring(STR_VAR_1, 8000)
+                checkconstantmoney(8000)
+                bufferconstantnumberstring(STR_VAR_1, 8000)
             case 3:
-                checkmoney(12000)
-                buffernumberstring(STR_VAR_1, 12000)
+                checkconstantmoney(12000)
+                bufferconstantnumberstring(STR_VAR_1, 12000)
             case 4:
-                checkmoney(16000)
-                buffernumberstring(STR_VAR_1, 16000)
+                checkconstantmoney(16000)
+                bufferconstantnumberstring(STR_VAR_1, 16000)
             case 5:
-                checkmoney(20000)
-                buffernumberstring(STR_VAR_1, 20000)
+                checkconstantmoney(20000)
+                bufferconstantnumberstring(STR_VAR_1, 20000)
             case 6:
-                checkmoney(24000)
-                buffernumberstring(STR_VAR_1, 24000)
+                checkconstantmoney(24000)
+                bufferconstantnumberstring(STR_VAR_1, 24000)
             default:
-                checkmoney(32000)
-                buffernumberstring(STR_VAR_1, 32000)
+                checkconstantmoney(32000)
+                bufferconstantnumberstring(STR_VAR_1, 32000)
         }
 
         if(var(VAR_RESULT) == YES)
@@ -689,21 +689,21 @@ script Rogue_GymIdentity_PreBoss
                 switch(var(VAR_ROGUE_DIFFICULTY))
                 {
                     case 0:
-                        removemoney(2000)
+                        removeconstantmoney(2000)
                     case 1:
-                        removemoney(4000)
+                        removeconstantmoney(4000)
                     case 2:
-                        removemoney(8000)
+                        removeconstantmoney(8000)
                     case 3:
-                        removemoney(12000)
+                        removeconstantmoney(12000)
                     case 4:
-                        removemoney(16000)
+                        removeconstantmoney(16000)
                     case 5:
-                        removemoney(20000)
+                        removeconstantmoney(20000)
                     case 6:
-                        removemoney(24000)
+                        removeconstantmoney(24000)
                     default:
-                        removemoney(32000)
+                        removeconstantmoney(32000)
                 }
 
                 updatemoneybox
