@@ -1087,6 +1087,13 @@
 	.2byte \input
 	.endm
 
+	@ Converts the value of input to a decimal string, and writes that string to the specified buffer.
+	.macro bufferconstantnumberstring stringVarId:req, input:req
+	.byte 0xe7
+	stringvar \stringVarId
+	.2byte \input
+	.endm
+
 	@ Writes the given standard string (STDSTRING_*) to the specified buffer. Invalid std string ids are not handled.
 	.macro bufferstdstring stringVarId:req, index:req
 	.byte 0x84
@@ -1193,10 +1200,22 @@
 	.byte \disable
 	.endm
 
+	.macro removeconstantmoney value:req, disable=0
+	.byte 0xe9
+	.4byte \value
+	.byte \disable
+	.endm
+
 	@ Checks if the player has money >= value. VAR_RESULT is set to TRUE if the player has enough money, or FALSE if they do not.
 	@ If 'disable' is set to anything but 0 then this command does nothing.
 	.macro checkmoney value:req, disable=0
 	.byte 0x92
+	.4byte \value
+	.byte \disable
+	.endm
+
+	.macro checkconstantmoney value:req, disable=0
+	.byte 0xe8
 	.4byte \value
 	.byte \disable
 	.endm
