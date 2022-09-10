@@ -1215,6 +1215,14 @@ static void SelectStartMons(void)
 #endif
 }
 
+// Called on NewGame and LoadGame, if new values are added in new releases, put them here
+static void EnsureLoadValuesAreValid()
+{
+    u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+    if(partySize == 0 || partySize > PARTY_SIZE)
+        VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+}
+
 void Rogue_OnNewGame(void)
 {
     SetMoney(&gSaveBlock1Ptr->money, 0);
@@ -1261,6 +1269,8 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
     SelectStartMons();
+
+    EnsureLoadValuesAreValid();
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
@@ -1426,6 +1436,8 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
     }
+
+    EnsureLoadValuesAreValid();
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
