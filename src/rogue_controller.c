@@ -38,7 +38,7 @@
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
 // 8 badges, 4 elite, 2 champion
-#define BOSS_ROOM_COUNT 14
+#define BOSS_COUNT 14
 
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_CurrentTab = 0;
@@ -225,6 +225,11 @@ bool8 Rogue_ForceExpAll(void)
 
 bool8 Rogue_FastBattleAnims(void)
 {
+    if(GetSafariZoneFlag())
+    {
+        return TRUE;
+    }
+
     if(Rogue_IsRunActive() && 
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
         //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
@@ -673,7 +678,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     {
         *waitTime = awaitingMessage ? 8 : 0;
     }
-    else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
+    else if(difficulty < (BOSS_COUNT - 1)) // Go at default speed for final fight
     {
         // Still run faster and default game because it's way too slow :(
         *waitTime = *waitTime / 2;
@@ -691,7 +696,7 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
         else
             return rate * 2 + 1;
     }
-    //else if(difficulty == (BOSS_ROOM_COUNT - 1))
+    //else if(difficulty == (BOSS_COUNT - 1))
     //{
     //    // Go at default speed for final fight
     //    return rate * 2;
@@ -3128,17 +3133,14 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
     {
-        if(level != 1)
-        {
-            // Team average is something like -2, -1, -1, 0
+        // Team average is something like -2, -1, -1, 0
+        level--;
+
+        if(monIdx == 0)
             level--;
 
-            if(monIdx == 0)
-                level--;
-
-            if(level != 100 && monIdx == totalMonCount - 1)
-                level++;
-        }
+        if(level != 100 && monIdx == totalMonCount - 1)
+            level++;
     }
 
 #ifdef ROGUE_DEBUG
@@ -3794,9 +3796,10 @@ static u8 CalculatePlayerLevel(void)
 
 static u8 CalculateTrainerLevel(u16 trainerNum)
 {
+    u8 level;
     if(IsBossTrainer(trainerNum))
     {
-        return CalculatePlayerLevel();
+        level = CalculatePlayerLevel();
     }
     else
     {
@@ -3821,26 +3824,28 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             // Not boss trainer so must be EXP trainer
-            return prevBossLevel;
+            level = prevBossLevel;
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
-            return nextBossLevel - 5;
+            level = nextBossLevel - 5;
         }
-
-        if(difficultyModifier == 0) // Easy
+        else if(difficultyModifier == 0) // Easy
         {
-            return prevBossLevel;
+            level = prevBossLevel;
         }
         else if(difficultyModifier == 2) // Hard
         {
-            return nextBossLevel - 5;
+            level =  nextBossLevel - 5;
         }
         else
         {
-            return nextBossLevel - 10;
+            level =  nextBossLevel - 10;
         }
     }
+
+    // Trainers shouldn't ever be weaker than this
+    return max(5, level);
 }
 
 static u8 GetRoomTypeDifficulty(void)
