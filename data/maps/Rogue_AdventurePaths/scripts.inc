@@ -1,11 +1,9 @@
 Rogue_AdventurePaths_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Rogue_AdventurePaths_OnLoad
+	map_script MAP_SCRIPT_ON_RESUME, Rogue_AdventurePaths_OnLoad
 	.byte 0
 
 
 Rogue_AdventurePaths_OnLoad::
-	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera
 	call Rogue_AdventurePaths_RedrawMap
 	return
 
