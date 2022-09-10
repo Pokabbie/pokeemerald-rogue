@@ -38,7 +38,7 @@
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
 
 // 8 badges, 4 elite, 2 champion
-#define BOSS_ROOM_COUNT 14
+#define BOSS_COUNT 14
 
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_CurrentTab = 0;
@@ -225,6 +225,11 @@ bool8 Rogue_ForceExpAll(void)
 
 bool8 Rogue_FastBattleAnims(void)
 {
+    if(GetSafariZoneFlag())
+    {
+        return TRUE;
+    }
+
     if(Rogue_IsRunActive() && 
         gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
         //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
@@ -673,7 +678,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     {
         *waitTime = awaitingMessage ? 8 : 0;
     }
-    else if(difficulty != (BOSS_ROOM_COUNT - 1)) // Go at default speed for final fight
+    else if(difficulty < (BOSS_COUNT - 1)) // Go at default speed for final fight
     {
         // Still run faster and default game because it's way too slow :(
         *waitTime = *waitTime / 2;
@@ -691,7 +696,7 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
         else
             return rate * 2 + 1;
     }
-    //else if(difficulty == (BOSS_ROOM_COUNT - 1))
+    //else if(difficulty == (BOSS_COUNT - 1))
     //{
     //    // Go at default speed for final fight
     //    return rate * 2;
