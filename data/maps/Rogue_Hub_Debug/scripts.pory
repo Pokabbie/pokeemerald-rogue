@@ -1,0 +1,55 @@
+mapscripts Rogue_Hub_Debug_MapScripts {}
+
+
+script Rogue_Debug_FillPCWithGen
+{
+    lock
+    
+    message(format("Fill PC with GEN?"))
+    waitmessage
+    
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+    }
+    else
+    {
+        multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8004, VAR_RESULT)
+
+            special(RogueDebug_FillGenPC)
+
+            msgbox(format("Done."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED: 
+            msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+
+    }
+
+    release
+}
+
+script Rogue_Debug_AddMoney
+{
+    lock
+
+    addmoney(10000)
+    msgbox(format("Money added."), MSGBOX_DEFAULT)
+
+    release
+}

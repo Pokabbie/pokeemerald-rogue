@@ -291,6 +291,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
       "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_DEBUG",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

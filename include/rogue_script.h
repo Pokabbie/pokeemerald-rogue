@@ -12,4 +12,6 @@ void Rogue_ReducePartySize(void);
 u16 Rogue_GetMonEvoCount(void);
 void Rogue_GetMonEvoParams(void);
 
+void RogueDebug_FillGenPC(void);
+
 #endif
