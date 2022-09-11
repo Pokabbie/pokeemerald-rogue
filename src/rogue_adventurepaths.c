@@ -364,7 +364,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             if(gRogueRun.currentDifficulty >= 8)
             {
                 // Unlikely but not impossible
-                weights[ADVPATH_ROOM_ROUTE] = 200;
+                weights[ADVPATH_ROOM_ROUTE] = 400;
             }
             else
             {
@@ -384,7 +384,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             // If we've reached elite 4 we want to swap odds of none and routes
             if(gRogueRun.currentDifficulty >= 8)
             {
-                weights[ADVPATH_ROOM_NONE] = 1500;
+                weights[ADVPATH_ROOM_NONE] = 1200;
             }
             else
             {
@@ -603,26 +603,40 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
                 // All calm to maximise encounters
                 nodeInfo->roomParams.perType.route.difficulty = 0;
             }
+            else if(gRogueRun.currentDifficulty >= 8)
+            {
+                // Low chance if getting a calm route, but otherwise is difficult
+                switch(RogueRandomRange(6, OVERWORLD_FLAG))
+                {
+                    case 0:
+                        nodeInfo->roomParams.perType.route.difficulty = 0;
+                        break;
+
+                    default:
+                        nodeInfo->roomParams.perType.route.difficulty = 2;
+                        break;
+                };
+            }
             else
             {
-                    switch(RogueRandomRange(6, OVERWORLD_FLAG))
-                    {
-                        case 0:
-                        case 1:
-                            nodeInfo->roomParams.perType.route.difficulty = 0;
-                            break;
+                switch(RogueRandomRange(6, OVERWORLD_FLAG))
+                {
+                    case 0:
+                    case 1:
+                        nodeInfo->roomParams.perType.route.difficulty = 0;
+                        break;
 
-                        case 2:
-                        case 3:
-                        case 4:
-                            nodeInfo->roomParams.perType.route.difficulty = 1;
-                            break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        nodeInfo->roomParams.perType.route.difficulty = 1;
+                        break;
 
-                        //case 5:
-                        default:
-                            nodeInfo->roomParams.perType.route.difficulty = 2;
-                            break;
-                    };
+                    //case 5:
+                    default:
+                        nodeInfo->roomParams.perType.route.difficulty = 2;
+                        break;
+                };
             }
             break;
         }
