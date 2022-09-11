@@ -63,6 +63,20 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
     if(outEvo->targetSpecies != SPECIES_NONE)
     {
+#ifdef ROGUE_EXPANSION
+        if(species == SPECIES_MILCERY && evoIdx == 0)
+        {
+            outEvo->method = EVO_LEVEL;
+            outEvo->param = 20;
+        }
+
+        if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
+        {
+            outEvo->method = EVO_LEVEL;
+            outEvo->param = 34;
+        }
+#endif
+
         switch(outEvo->method)
         {
             case(EVO_BEAUTY):
@@ -118,13 +132,17 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_SPECIFIC_MAP):
-                if(outEvo->param == MAP_PETALBURG_WOODS)
+                if(species == SPECIES_EEVEE)
                 {
-                    outEvo->param = MAP_ROGUE_ROUTE_FOREST0;
+                    outEvo->targetSpecies = 0;
+                    outEvo->method = 0;
+                    outEvo->param = 0;
                 }
-                else if(outEvo->param == MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM)
+                else
                 {
-                    outEvo->method = MAP_ROGUE_ROUTE_CAVE0;
+                    // Crabrawler
+                    outEvo->method = EVO_ITEM;
+                    outEvo->param = ITEM_WATER_STONE;
                 }
                 break;
 
