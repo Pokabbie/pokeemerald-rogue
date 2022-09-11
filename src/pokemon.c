@@ -6632,7 +6632,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_LEVEL_NATURE_AMPED:
-                if (currentEvo.param == heldItem)
+                if (currentEvo.param <= level)
                 {
                     u8 nature = GetNature(mon);
                     switch (nature)
@@ -6650,7 +6650,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     case NATURE_RASH:
                     case NATURE_SASSY:
                     case NATURE_QUIRKY:
-                    targetSpecies = currentEvo.targetSpecies;
+                        targetSpecies = currentEvo.targetSpecies;
                         break;
                     }
                 }
