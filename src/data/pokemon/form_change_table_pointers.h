@@ -3,7 +3,7 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_GIRATINA] = sGiratinaFormChangeTable,
     [SPECIES_GIRATINA_ORIGIN] = sGiratinaFormChangeTable,
     [SPECIES_SHAYMIN] = sShayminFormChangeTable,
-    [SPECIES_SHAYMIN_SKY] = sShayminFormChangeTable,
+    [SPECIES_SHAYMIN_SKY] = sShayminSkyFormChangeTable,
     [SPECIES_ARCEUS] = sArceusFormChangeTable,
     [SPECIES_ARCEUS_FIGHTING] = sArceusFormChangeTable,
     [SPECIES_ARCEUS_FLYING] = sArceusFormChangeTable,
@@ -59,4 +59,8 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_SILVALLY_ROCK] = sSilvallyFormChangeTable,
     [SPECIES_SILVALLY_STEEL] = sSilvallyFormChangeTable,
     [SPECIES_SILVALLY_WATER] = sSilvallyFormChangeTable,
+    [SPECIES_ZACIAN] = sZacianFormChangeTable,
+    [SPECIES_ZACIAN_CROWNED_SWORD] = sZacianFormChangeTable,
+    [SPECIES_ZAMAZENTA] = sZamazentaFormChangeTable,
+    [SPECIES_ZAMAZENTA_CROWNED_SHIELD] = sZamazentaFormChangeTable,
 };

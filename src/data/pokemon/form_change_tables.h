@@ -50,7 +50,12 @@ static const struct FormChange sGiratinaFormChangeTable[] = {
 };
 
 static const struct FormChange sShayminFormChangeTable[] = {
-    {FORM_ITEM_USE_TIME, SPECIES_SHAYMIN_SKY, ITEM_GRACIDEA, DAY},
+    {FORM_ITEM_USE, SPECIES_SHAYMIN_SKY, ITEM_GRACIDEA, SPECIES_SHAYMIN},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sShayminSkyFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_SHAYMIN, ITEM_GRACIDEA, SPECIES_SHAYMIN_SKY},
     {FORM_WITHDRAW, SPECIES_SHAYMIN},
     {FORM_CHANGE_END},
 };
@@ -144,11 +149,12 @@ static const struct FormChange sGenesectFormChangeTable[] = {
 };
 
 static const struct FormChange sHoopaFormChangeTable[] = {
-    // {FORM_ITEM_USE, SPECIES_HOOPA_UNBOUND, ITEM_PRISON_BOTTLE, SPECIES_HOOPA},
+    {FORM_ITEM_USE, SPECIES_HOOPA_UNBOUND, ITEM_PRISON_BOTTLE, SPECIES_HOOPA},
     {FORM_CHANGE_END},
 };
 
 static const struct FormChange sHoopaUnboundFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_HOOPA, ITEM_PRISON_BOTTLE, SPECIES_HOOPA_UNBOUND},
     {FORM_WITHDRAW, SPECIES_HOOPA},
     {FORM_CHANGE_END},
 };
@@ -180,6 +186,18 @@ static const struct FormChange sSilvallyFormChangeTable[] = {
     {FORM_ITEM_HOLD_ABILITY, SPECIES_SILVALLY_DRAGON,   ITEM_DRAGON_MEMORY,   ABILITY_RKS_SYSTEM},
     {FORM_ITEM_HOLD_ABILITY, SPECIES_SILVALLY_DARK,     ITEM_DARK_MEMORY,     ABILITY_RKS_SYSTEM},
     {FORM_ITEM_HOLD_ABILITY, SPECIES_SILVALLY_FAIRY,    ITEM_FAIRY_MEMORY,    ABILITY_RKS_SYSTEM},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sZacianFormChangeTable[] = {
+    {FORM_ITEM_HOLD, SPECIES_ZACIAN, ITEM_NONE},
+    {FORM_ITEM_HOLD, SPECIES_ZACIAN_CROWNED_SWORD, ITEM_RUSTED_SWORD},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sZamazentaFormChangeTable[] = {
+    {FORM_ITEM_HOLD, SPECIES_ZAMAZENTA, ITEM_NONE},
+    {FORM_ITEM_HOLD, SPECIES_ZAMAZENTA_CROWNED_SHIELD, ITEM_RUSTED_SHIELD},
     {FORM_CHANGE_END},
 };
 
