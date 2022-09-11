@@ -4980,6 +4980,16 @@
       "secondary_tileset": "gTileset_BattleFrontier",
       "border_filepath": "data/layouts/Rogue_Hub_AdventureEnterance/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_AdventureEnterance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_DEBUG",
+      "name": "Rogue_Hub_Debug_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Rogue_Hub_Debug/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub_Debug/map.bin"
     }
   ]
 }

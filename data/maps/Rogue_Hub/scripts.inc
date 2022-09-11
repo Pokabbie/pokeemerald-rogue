@@ -33,70 +33,76 @@ RogueHub_OnTransition_6:
 
 
 RogueHub_OnMapLoad::
-	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_le RogueHub_OnMapLoad_2
-	clearflag FLAG_ROGUE_TRAINER0
+	goto_if_set FLAG_ROGUE_DEBUG_DISABLED, RogueHub_OnMapLoad_2
 RogueHub_OnMapLoad_1:
+	compare VAR_LITTLEROOT_INTRO_STATE, 4
+	goto_if_le RogueHub_OnMapLoad_5
+	clearflag FLAG_ROGUE_TRAINER0
+RogueHub_OnMapLoad_4:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
-	goto_if_lt RogueHub_OnMapLoad_6
+	goto_if_lt RogueHub_OnMapLoad_9
 	clearflag FLAG_ROGUE_TRAINER4
-RogueHub_OnMapLoad_5:
+RogueHub_OnMapLoad_8:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
-	goto_if_lt RogueHub_OnMapLoad_10
+	goto_if_lt RogueHub_OnMapLoad_13
 	clearflag FLAG_ROGUE_TRAINER1
-RogueHub_OnMapLoad_9:
+RogueHub_OnMapLoad_12:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
-	goto_if_lt RogueHub_OnMapLoad_14
+	goto_if_lt RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER2
-RogueHub_OnMapLoad_13:
+RogueHub_OnMapLoad_16:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
-	goto_if_lt RogueHub_OnMapLoad_18
+	goto_if_lt RogueHub_OnMapLoad_21
 	clearflag FLAG_ROGUE_TRAINER3
 	clearflag FLAG_ROGUE_TRAINER5
-	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_23
-RogueHub_OnMapLoad_17:
+	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_26
+RogueHub_OnMapLoad_20:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_21
+	goto_if_gt RogueHub_OnMapLoad_24
 	return
 
 RogueHub_OnMapLoad_2:
+	fillmetatile 4, 20, 4, 20, 0x001, FALSE
+	goto RogueHub_OnMapLoad_1
+
+RogueHub_OnMapLoad_5:
 	fillmetatile 31, 10, 40, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER0
 	fillmetatile 41, 20, 48, 25, 0x001, FALSE
-	goto RogueHub_OnMapLoad_1
+	goto RogueHub_OnMapLoad_4
 
-RogueHub_OnMapLoad_6:
+RogueHub_OnMapLoad_9:
 	fillmetatile 1, 3, 14, 10, 0x001, FALSE
 	fillmetatile 1, 11, 12, 11, 0x001, FALSE
 	fillmetatile 1, 12, 6, 12, 0x001, FALSE
 	fillmetatile 31, 21, 37, 26, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER4
-	goto RogueHub_OnMapLoad_5
+	goto RogueHub_OnMapLoad_8
 
-RogueHub_OnMapLoad_10:
+RogueHub_OnMapLoad_13:
 	fillmetatile 22, 12, 27, 16, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER1
-	goto RogueHub_OnMapLoad_9
+	goto RogueHub_OnMapLoad_12
 
-RogueHub_OnMapLoad_14:
+RogueHub_OnMapLoad_17:
 	fillmetatile 42, 14, 48, 19, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER2
-	goto RogueHub_OnMapLoad_13
+	goto RogueHub_OnMapLoad_16
 
-RogueHub_OnMapLoad_18:
+RogueHub_OnMapLoad_21:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
 	setflag FLAG_ROGUE_TRAINER5
 	fillmetatile 22, 8, 24, 8, 0x001, FALSE
-	goto RogueHub_OnMapLoad_17
+	goto RogueHub_OnMapLoad_20
 
-RogueHub_OnMapLoad_21:
+RogueHub_OnMapLoad_24:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 
-RogueHub_OnMapLoad_23:
+RogueHub_OnMapLoad_26:
 	setflag FLAG_ROGUE_TRAINER5
-	goto RogueHub_OnMapLoad_17
+	goto RogueHub_OnMapLoad_20
 
 
 RogueHub_Intro0::

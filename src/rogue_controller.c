@@ -1226,6 +1226,12 @@ static void EnsureLoadValuesAreValid()
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
+#ifdef ROGUE_DEBUG
+    FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
+#else
+    FlagSet(FLAG_ROGUE_DEBUG_DISABLED);
+#endif
 }
 
 void Rogue_OnNewGame(void)

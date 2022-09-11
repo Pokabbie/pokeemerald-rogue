@@ -1,8 +1,8 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
-//#define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
+#define ROGUE_DEBUG
+#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 
 //#define ROGUE_EXPANSION

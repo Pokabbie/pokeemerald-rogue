@@ -69,6 +69,11 @@ script RogueHub_OnMapLoad
 {
     // Turn off buildings that haven't unlocked yet
 
+    if(flag(FLAG_ROGUE_DEBUG_DISABLED))
+    {
+        fillmetatile(4, 20, 4, 20, METATILE_Grass, FALSE)
+    }
+
     // Shop
     if(var(VAR_ROGUE_INTRO_STATE) <= 4) // i.e. has been on an adventure
     {
