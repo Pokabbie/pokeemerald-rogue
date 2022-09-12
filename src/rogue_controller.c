@@ -744,6 +744,9 @@ u8 SpeciesToGen(u16 species)
         case SPECIES_KYUREM_BLACK:
             return 5;
         
+        //case SPECIES_ZYGARDE_COMPLETE:
+        //    return 6;
+
         case SPECIES_NECROZMA_DUSK_MANE:
         case SPECIES_NECROZMA_DAWN_WINGS:
         case SPECIES_NECROZMA_ULTRA:
@@ -758,6 +761,22 @@ u8 SpeciesToGen(u16 species)
         case SPECIES_CALYREX_SHADOW_RIDER:
             return 8;
     }
+
+    // Alternate forms
+    switch(species)
+    {
+        case SPECIES_MEOWSTIC_FEMALE:
+            return 7;
+
+        case SPECIES_INDEEDEE_FEMALE:
+            return 8;
+    }
+
+    if(species >= SPECIES_LYCANROC_MIDNIGHT && species <= SPECIES_LYCANROC_DUSK)
+        return 7;
+
+    if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_ALCREMIE_RAINBOW_SWIRL)
+        return 8;
 #endif
     
     return 0;
@@ -1226,6 +1245,12 @@ static void EnsureLoadValuesAreValid()
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
+#ifdef ROGUE_DEBUG
+    FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
+#else
+    FlagSet(FLAG_ROGUE_DEBUG_DISABLED);
+#endif
 }
 
 void Rogue_OnNewGame(void)

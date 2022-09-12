@@ -4,6 +4,7 @@
 
 #include "event_data.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 
 #include "rogue_baked.h"
@@ -289,4 +290,39 @@ void Rogue_GetMonEvoParams(void)
             }
         }
     }
+}
+
+void RogueDebug_FillGenPC(void)
+{
+#ifdef ROGUE_DEBUG
+    u8 i;
+    u16 species;
+    u16 writeIdx = 0;
+    u16 genId = gSpecialVar_0x8004;
+    struct Pokemon mon;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(SpeciesToGen(species) == genId)
+        {
+            struct Pokemon mon;
+            u16 currIdx = writeIdx++;
+            u16 targetBox = currIdx / IN_BOX_COUNT;
+            u16 boxIndex = currIdx % IN_BOX_COUNT;
+
+            CreateMon(&mon, species, 5, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+
+            SetBoxMonAt(targetBox, boxIndex, &mon.box);
+        }
+    }
+
+    // Clear a box of space
+    for(i = 0; i < IN_BOX_COUNT; ++i)
+    {
+        u16 currIdx = writeIdx++;
+        u16 targetBox = currIdx / IN_BOX_COUNT;
+        u16 boxIndex = currIdx % IN_BOX_COUNT;
+        ZeroBoxMonAt(targetBox, boxIndex);
+    }
+#endif
 }
