@@ -36,6 +36,8 @@ static void ConditionGraph_CalcRightHalf(struct ConditionGraph *);
 static void ConditionGraph_CalcLeftHalf(struct ConditionGraph *);
 static void MoveRelearnerCursorCallback(s32, bool8, struct ListMenu *);
 static void MoveRelearnerDummy(void);
+static void QuestMenuCursorCallback(s32, bool8, struct ListMenu *);
+static void QuestMenuDummy(void);
 static void SetNextConditionSparkle(struct Sprite *);
 static void SpriteCB_ConditionSparkle(struct Sprite *);
 static void ShowAllConditionSparkles(struct Sprite *);
@@ -172,6 +174,91 @@ static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
 {
     .items = NULL,
     .moveCursorFunc = MoveRelearnerCursorCallback,
+    .itemPrintFunc = NULL,
+    .totalItems = 0,
+    .maxShowed = 0,
+    .windowId = 2,
+    .header_X = 0,
+    .item_X = 8,
+    .cursor_X = 0,
+    .upText_Y = 1,
+    .cursorPal = 2,
+    .fillValue = 1,
+    .cursorShadowPal = 3,
+    .lettersSpacing = 0,
+    .itemVerticalPadding = 0,
+    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
+    .fontId = FONT_NORMAL,
+    .cursorKind = 0
+};
+
+
+static const struct WindowTemplate sQuestMenuWindowTemplates[] =
+{
+    {
+        .bg = 1,
+        .tilemapLeft = 1,
+        .tilemapTop = 1,
+        .width = 16,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0xA
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 1,
+        .tilemapTop = 1,
+        .width = 16,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0xCA
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 19,
+        .tilemapTop = 1,
+        .width = 10,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0x18A
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 4,
+        .tilemapTop = 15,
+        .width = 22,
+        .height = 4,
+        .paletteNum = 0xF,
+        .baseBlock = 0x202
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 8,
+        .width = 5,
+        .height = 4,
+        .paletteNum = 0xF,
+        .baseBlock = 0x25A
+    },
+    DUMMY_WIN_TEMPLATE
+};
+
+static const struct WindowTemplate sQuestMenuYesNoMenuTemplate =
+{
+    .bg = 0,
+    .tilemapLeft = 22,
+    .tilemapTop = 8,
+    .width = 5,
+    .height = 4,
+    .paletteNum = 0xF,
+    .baseBlock = 0x25A
+};
+
+
+static const struct ListMenuTemplate sQuestMenuMovesListTemplate =
+{
+    .items = NULL,
+    .moveCursorFunc = QuestMenuCursorCallback,
     .itemPrintFunc = NULL,
     .totalItems = 0,
     .maxShowed = 0,
@@ -874,6 +961,185 @@ bool16 MoveRelearnerRunTextPrinters(void)
 void MoveRelearnerCreateYesNoMenu(void)
 {
     CreateYesNoMenu(&sMoveRelearnerYesNoMenuTemplate, 1, 0xE, 0);
+}
+
+//----------------
+// Quest Menu
+//----------------
+
+void InitQuestMenuWindows(bool8 useContextWindow)
+{
+    u8 i;
+
+    InitWindows(sQuestMenuWindowTemplates);
+    DeactivateAllTextPrinters();
+    LoadUserWindowBorderGfx(0, 1, 0xE0);
+    LoadPalette(gStandardMenuPalette, 0xF0, 0x20);
+
+    for (i = 0; i < ARRAY_COUNT(sQuestMenuWindowTemplates) - 1; i++)
+        FillWindowPixelBuffer(i, PIXEL_FILL(1));
+
+    if (!useContextWindow)
+    {
+        PutWindowTilemap(0);
+        DrawStdFrameWithCustomTileAndPalette(0, 0, 0x1, 0xE);
+    }
+    else
+    {
+        PutWindowTilemap(1);
+        DrawStdFrameWithCustomTileAndPalette(1, 0, 1, 0xE);
+    }
+    PutWindowTilemap(2);
+    PutWindowTilemap(3);
+    DrawStdFrameWithCustomTileAndPalette(2, 0, 1, 0xE);
+    DrawStdFrameWithCustomTileAndPalette(3, 0, 1, 0xE);
+    QuestMenuDummy();
+    ScheduleBgCopyTilemapToVram(1);
+}
+
+static void QuestMenuDummy(void)
+{
+
+}
+
+u8 LoadQuestMenuMovesList(const struct ListMenuItem *items, u16 numChoices)
+{
+    gMultiuseListMenuTemplate = sQuestMenuMovesListTemplate;
+    gMultiuseListMenuTemplate.totalItems = numChoices;
+    gMultiuseListMenuTemplate.items = items;
+
+    if (numChoices < 6)
+        gMultiuseListMenuTemplate.maxShowed = numChoices;
+    else
+        gMultiuseListMenuTemplate.maxShowed = 6;
+
+    return gMultiuseListMenuTemplate.maxShowed;
+}
+
+static void QuestMenuLoadBattleMoveDescription(u32 chosenMove)
+{
+    s32 x;
+    const struct BattleMove *move;
+    u8 buffer[32];
+    const u8 *str;
+
+    FillWindowPixelBuffer(0, PIXEL_FILL(1));
+    str = gText_MoveRelearnerBattleMoves;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerPP;
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 4, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerPower;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x6A);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerAccuracy;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x6A);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
+    if (chosenMove == LIST_CANCEL)
+    {
+        CopyWindowToVram(0, COPYWIN_GFX);
+        return;
+    }
+    move = &gBattleMoves[chosenMove];
+    str = gTypeNames[move->type];
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    x = 4 + GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPP, 0);
+    ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_LEFT_ALIGN, 2);
+    AddTextPrinterParameterized(0, FONT_NORMAL, buffer, x, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    if (move->power < 2)
+    {
+        str = gText_ThreeDashes;
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(buffer, move->power, STR_CONV_MODE_LEFT_ALIGN, 3);
+        str = buffer;
+    }
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 0x6A, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    if (move->accuracy == 0)
+    {
+        str = gText_ThreeDashes;
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(buffer, move->accuracy, STR_CONV_MODE_LEFT_ALIGN, 3);
+        str = buffer;
+    }
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 0x6A, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    str = gMoveDescriptionPointers[chosenMove - 1];
+    AddTextPrinterParameterized(0, FONT_NARROW, str, 0, 0x41, 0, NULL);
+}
+
+static void QuestMenuMenuLoadContestMoveDescription(u32 chosenMove)
+{
+    s32 x;
+    const u8 *str;
+    const struct ContestMove *move;
+
+    //QuestMenuShowHideHearts(chosenMove);
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    str = gText_MoveRelearnerContestMovesTitle;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerAppeal;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerJam;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    if (chosenMove == MENU_NOTHING_CHOSEN)
+    {
+        CopyWindowToVram(1, COPYWIN_GFX);
+        return;
+    }
+
+    move = &gContestMoves[chosenMove];
+    str = gContestMoveTypeTextPointers[move->contestCategory];
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gContestEffectDescriptionPointers[move->effect];
+    AddTextPrinterParameterized(1, FONT_NARROW, str, 0, 0x41, TEXT_SKIP_DRAW, NULL);
+
+    CopyWindowToVram(1, COPYWIN_GFX);
+}
+
+static void QuestMenuCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
+{
+    if (onInit != TRUE)
+        PlaySE(SE_SELECT);
+    QuestMenuLoadBattleMoveDescription(itemIndex);
+    QuestMenuMenuLoadContestMoveDescription(itemIndex);
+}
+
+void QuestMenuPrintText(u8 *str)
+{
+    u8 speed;
+
+    FillWindowPixelBuffer(3, PIXEL_FILL(1));
+    gTextFlags.canABSpeedUpPrint = TRUE;
+    speed = GetPlayerTextSpeedDelay();
+    AddTextPrinterParameterized2(3, FONT_NORMAL, str, speed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, 3);
+}
+
+bool16 QuestMenuRunTextPrinters(void)
+{
+    RunTextPrinters();
+    return IsTextPrinterActive(3);
+}
+
+void QuestMenuCreateYesNoMenu(void)
+{
+    CreateYesNoMenu(&sQuestMenuYesNoMenuTemplate, 1, 0xE, 0);
 }
 
 //----------------

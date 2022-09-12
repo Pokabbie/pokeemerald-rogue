@@ -179,6 +179,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 #else
 
 extern const u8 gText_ItemLinkCable[];
+extern const u8 gText_ItemQuestLog[];
 
 const u8* Rogue_GetItemName(u16 itemId)
 {
@@ -188,6 +189,9 @@ const u8* Rogue_GetItemName(u16 itemId)
     {
         case ITEM_EXP_SHARE:
             return gText_ItemLinkCable;
+        
+        case ITEM_ROOM_1_KEY:
+            return gText_ItemQuestLog;
     }
 
     return gItems[itemId].name;
@@ -198,6 +202,17 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     itemId = SanitizeItemId(itemId);
     memcpy(outItem, &gItems[itemId], sizeof(struct Item));
 
+    // Behaviour edits
+    //
+    switch(itemId)
+    {
+        case ITEM_ROOM_1_KEY: // Quest Log
+            outItem->fieldUseFunc = ItemUseOutOfBattle_QuestLog;
+            break;
+    }
+
+    // Price Edits
+    //
     // Range edits
     if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
     {

@@ -42,6 +42,8 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 
+#include "rogue_questmenu.h"
+
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
 static void Task_CallItemUseOnFieldCallback(u8);
@@ -641,6 +643,36 @@ static void Task_OpenRegisteredPokeblockCase(u8 taskId)
         CleanupOverworldWindowsAndTilemaps();
         OpenPokeblockCase(PBLOCK_CASE_FIELD, CB2_ReturnToField);
         DestroyTask(taskId);
+    }
+}
+
+static void CB2_OpenQuestLogFromBag(void)
+{
+    Rogue_OpenQuestMenu(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredQuestLog(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        Rogue_OpenQuestMenu(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_QuestLog(u8 taskId)
+{
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenQuestLogFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredQuestLog;
     }
 }
 

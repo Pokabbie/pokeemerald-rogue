@@ -16,8 +16,10 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Routing Update");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
+const u8 gText_ItemQuestLog[] = _("Quest Log");
 #else
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
+const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
 
 #ifdef ROGUE_DEBUG
