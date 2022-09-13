@@ -3,10 +3,15 @@ const u8 gText_RogueQuest_Title_None[] = _("NONE");
 const u8 gText_RogueQuest_Desc_None[] = _("-");
 
 const u8 gText_RogueQuest_Title_Testing1[] = _("Test Quest 1");
-const u8 gText_RogueQuest_Desc_Testing1[] = _("TODO Quest Desc 1");
+const u8 gText_RogueQuest_Desc_Testing1[] = _(
+    "A difficult quest in which,\n"
+    "you will have to do things.");
 
 const u8 gText_RogueQuest_Title_Testing2[] = _("Test Quest 2");
-const u8 gText_RogueQuest_Desc_Testing2[] = _("TODO Quest Desc 2");
+const u8 gText_RogueQuest_Desc_Testing2[] = _(
+    "A 2nd difficult quest in,\n"
+    "which you will have to do\n"
+    "things.");
 
 const struct RogueQuestConstants gRogueQuests[ROGUE_QUEST_COUNT] = 
 {

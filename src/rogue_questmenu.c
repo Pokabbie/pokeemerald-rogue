@@ -158,10 +158,6 @@
 
 #define MAX_QUESTS_TO_SHOW (ROGUE_QUEST_COUNT)
 
-#define TEACH_STATE_RELEARN       0
-#define TEACH_STATE_EGG_MOVES     1
-#define TEACH_STATE_TUTOR_MOVES   2
-
 extern const u8 gText_QuestLogBack[];
 
 static EWRAM_DATA struct
@@ -184,7 +180,6 @@ static EWRAM_DATA struct {
     u16 listOffset;
     u16 listRow;
     bool8 showContestInfo;
-    u8 teachMoveState;
 } sQuestMenuMenuSate = {0};
 
 static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -377,8 +372,6 @@ static void VBlankCB_QuestMenu(void)
 
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 {
-    sQuestMenuMenuSate.teachMoveState = TEACH_STATE_EGG_MOVES;
-
     ScriptContext2_Enable();
     SetMainCallback2(CB2_InitQuestMenu);
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
@@ -386,8 +379,9 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 
 static void GatherQuestsToDisplay()
 {
-    sQuestMenuStruct->numMenuChoices = 1;
-    sQuestMenuStruct->questsToDisplay[0] = ROGUE_QUEST_Testing2;
+    sQuestMenuStruct->numMenuChoices = 2;
+    sQuestMenuStruct->questsToDisplay[0] = ROGUE_QUEST_Testing1;
+    sQuestMenuStruct->questsToDisplay[1] = ROGUE_QUEST_Testing2;
 }
 
 static void CB2_InitQuestMenu(void)

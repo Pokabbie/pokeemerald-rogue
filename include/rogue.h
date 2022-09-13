@@ -58,9 +58,10 @@ struct RogueQuestConstants
 
 struct RogueQuestState
 {
-    u8 data : 5;
+    u8 data : 4;
     u8 completionLevel : 2;
-    u8 isValid : 1;
+    u8 isActive : 1;
+    u8 isPinned : 1;
 };
 
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);

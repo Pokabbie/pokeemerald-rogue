@@ -21,6 +21,14 @@ const u8 gText_ItemQuestLog[] = _("Quest Log");
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
+const u8 gText_QuestLogTitleDesc[] = _("Description");
+const u8 gText_QuestLogTitleRewards[] = _("Rewards");
+const u8 gText_QuestLogTitleStatus[] = _("Status:");
+const u8 gText_QuestLogTitleBronze[] = _("BRONZE");
+const u8 gText_QuestLogTitleSilver[] = _("SILVER");
+const u8 gText_QuestLogTitleGold[] = _("GOLD");
+const u8 gText_QuestLogTitleStatusIncomplete[] = _("INCOMPLETE");
+const u8 gText_QuestLogTitleStatusComplete[] = _("COMPLETE");
 const u8 gText_QuestLogBack[] = _("Back");
 
 #ifdef ROGUE_DEBUG
