@@ -48,6 +48,7 @@
 #include "constants/songs.h"
 
 #include "constants/rogue.h"
+#include "rogue.h"
 #include "rogue_controller.h"
 
 // Menu actions
