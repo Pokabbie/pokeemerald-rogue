@@ -13,3 +13,5 @@
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7
+
+#include "rogue_quests.h"

@@ -21,6 +21,7 @@ const u8 gText_ItemQuestLog[] = _("Quest Log");
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
+const u8 gText_QuestLogBack[] = _("Back");
 
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");

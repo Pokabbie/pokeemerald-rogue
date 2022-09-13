@@ -28,6 +28,7 @@
 #include "daycare.h"
 #include "party_menu.h"
 
+#include "rogue.h"
 #include "rogue_questmenu.h"
 
 /*
@@ -155,20 +156,22 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
-#define MAX_RELEARNER_MOVES (MAX_LEVEL_UP_MOVES > 25 ? MAX_LEVEL_UP_MOVES : 25)
+#define MAX_QUESTS_TO_SHOW (ROGUE_QUEST_COUNT)
 
 #define TEACH_STATE_RELEARN       0
 #define TEACH_STATE_EGG_MOVES     1
 #define TEACH_STATE_TUTOR_MOVES   2
 
+extern const u8 gText_QuestLogBack[];
+
 static EWRAM_DATA struct
 {
     u8 state;
     u8 heartSpriteIds[16];                               /*0x001*/
-    u16 movesToLearn[MAX_RELEARNER_MOVES];               /*0x01A*/
+    u16 questsToDisplay[MAX_QUESTS_TO_SHOW];               /*0x01A*/
     u8 partyMon;                                         /*0x044*/
     u8 moveSlot;                                         /*0x045*/
-    struct ListMenuItem menuItems[MAX_RELEARNER_MOVES];  /*0x0E8*/
+    struct ListMenuItem menuItems[MAX_QUESTS_TO_SHOW];  /*0x0E8*/
     u8 numMenuChoices;                                   /*0x110*/
     u8 numToShowAtOnce;                                  /*0x111*/
     u8 moveListMenuTask;                                 /*0x112*/
@@ -350,7 +353,7 @@ static const struct BgTemplate sQuestMenuMenuBackgroundTemplates[] =
 };
 
 static void DoQuestMenuMain(void);
-static void CreateLearnableMovesList(void);
+static void CreateQuestDisplayList(void);
 static void CreateUISprites(void);
 static void CB2_QuestMenuMain(void);
 static void CB2_InitQuestMenu(void);
@@ -381,20 +384,10 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
 }
 
-static void GatherLearnableMoves(struct Pokemon* mon)
+static void GatherQuestsToDisplay()
 {
-    if(sQuestMenuMenuSate.teachMoveState == TEACH_STATE_EGG_MOVES)
-    {
-        sQuestMenuStruct->numMenuChoices = GetEggMoves(mon, sQuestMenuStruct->movesToLearn);
-    }
-    else if(sQuestMenuMenuSate.teachMoveState == TEACH_STATE_TUTOR_MOVES)
-    {
-        sQuestMenuStruct->numMenuChoices = GetTutorMoves(mon, sQuestMenuStruct->movesToLearn);
-    }
-    else // TEACH_STATE_RELEARN
-    {
-        sQuestMenuStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sQuestMenuStruct->movesToLearn);
-    }
+    sQuestMenuStruct->numMenuChoices = 1;
+    sQuestMenuStruct->questsToDisplay[0] = ROGUE_QUEST_Testing2;
 }
 
 static void CB2_InitQuestMenu(void)
@@ -414,7 +407,7 @@ static void CB2_InitQuestMenu(void)
     sQuestMenuMenuSate.listRow = 0;
     sQuestMenuMenuSate.showContestInfo = FALSE;
 
-    CreateLearnableMovesList();
+    CreateQuestDisplayList();
 
     LoadSpriteSheet(&sQuestMenuSpriteSheet);
     LoadSpritePalette(&sQuestMenuPalette);
@@ -439,7 +432,7 @@ static void CB2_InitQuestMenuReturnFromSelectMove(void)
 
     InitQuestMenuBackgroundLayers();
     InitQuestMenuWindows(sQuestMenuMenuSate.showContestInfo);
-    CreateLearnableMovesList();
+    CreateQuestDisplayList();
 
     LoadSpriteSheet(&sQuestMenuSpriteSheet);
     LoadSpritePalette(&sQuestMenuPalette);
@@ -820,7 +813,7 @@ static void HandleInput(bool8 showContest)
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
         RemoveScrollArrows();
-        sQuestMenuStruct->state = MENU_STATE_PRINT_GIVE_UP_PROMPT;
+        sQuestMenuStruct->state = MENU_STATE_FADE_AND_RETURN; //MENU_STATE_PRINT_GIVE_UP_PROMPT;
         StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerGiveUp);
         QuestMenuPrintText(gStringVar4);
         break;
@@ -914,22 +907,22 @@ static void RemoveScrollArrows(void)
     }
 }
 
-static void CreateLearnableMovesList(void)
+static void CreateQuestDisplayList(void)
 {
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    GatherLearnableMoves(&gPlayerParty[sQuestMenuStruct->partyMon]);
+    GatherQuestsToDisplay();
 
     for (i = 0; i < sQuestMenuStruct->numMenuChoices; i++)
     {
-        sQuestMenuStruct->menuItems[i].name = gMoveNames[sQuestMenuStruct->movesToLearn[i]];
-        sQuestMenuStruct->menuItems[i].id = sQuestMenuStruct->movesToLearn[i];
+        sQuestMenuStruct->menuItems[i].name = gRogueQuests[sQuestMenuStruct->questsToDisplay[i]].title;
+        sQuestMenuStruct->menuItems[i].id = sQuestMenuStruct->questsToDisplay[i];
     }
 
     GetMonData(&gPlayerParty[sQuestMenuStruct->partyMon], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);
-    sQuestMenuStruct->menuItems[sQuestMenuStruct->numMenuChoices].name = gText_Cancel;
+    sQuestMenuStruct->menuItems[sQuestMenuStruct->numMenuChoices].name = gText_QuestLogBack;
     sQuestMenuStruct->menuItems[sQuestMenuStruct->numMenuChoices].id = LIST_CANCEL;
     sQuestMenuStruct->numMenuChoices++;
     sQuestMenuStruct->numToShowAtOnce = LoadQuestMenuMovesList(sQuestMenuStruct->menuItems, sQuestMenuStruct->numMenuChoices);

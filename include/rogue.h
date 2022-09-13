@@ -49,6 +49,23 @@ struct RogueAdvPath
     struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 
+struct RogueQuestConstants
+{
+    const u8* title;
+    const u8* desc;
+    const u16 flags;
+};
+
+struct RogueQuestState
+{
+    u8 data : 5;
+    u8 completionLevel : 2;
+    u8 isValid : 1;
+};
+
+//ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
+
+
 struct RogueRunData
 {
     u16 currentRoomIdx;
@@ -157,5 +174,6 @@ extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
+extern const struct RogueQuestConstants gRogueQuests[ROGUE_QUEST_COUNT];
 
 #endif  // GUARD_ROGUE_H

@@ -335,4 +335,5 @@ const union AnimCmd *const gAnims_MonPic[] =
 #include "data/rogue_strings.h"
 #include "data/rogue_species.h"
 #include "data/rogue_presetmons.h"
+#include "data/rogue_quests.h"
 #include "data/rogue_bake_data.h"
