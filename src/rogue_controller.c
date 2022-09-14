@@ -1251,14 +1251,21 @@ static void SelectStartMons(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
+    u16 lastKnownQuestCount = 0;
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
-    if(newGame || saveVersion < 1)
+    if(!newGame)
     {
-        memset(&gRogueQuestData, 0, sizeof(gRogueQuestData));
+        if(saveVersion == 1)
+        {
+            lastKnownQuestCount = QUEST_COUNT; // TODO - Make this a constant on release
+        }
     }
+
+    ResetQuestState(lastKnownQuestCount);
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
@@ -1608,10 +1615,14 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+
+    QuestNotify_BeginAdventure();
 }
 
 static void EndRogueRun(void)
 {
+    QuestNotify_EndAdventure();
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_SET_SEED_ENABLED);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
