@@ -26,6 +26,8 @@
 #include "constants/songs.h"
 #include "gba/io_reg.h"
 
+#include "item.h"
+
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_quest.h"
@@ -1023,16 +1025,17 @@ u8 LoadQuestMenuMovesList(const struct ListMenuItem *items, u16 numChoices)
 extern const u8 gText_QuestLogTitleDesc[];
 extern const u8 gText_QuestLogTitleRewards[];
 extern const u8 gText_QuestLogTitleStatus[];
-extern const u8 gText_QuestLogTitleBronze[];
-extern const u8 gText_QuestLogTitleSilver[];
-extern const u8 gText_QuestLogTitleGold[];
 extern const u8 gText_QuestLogTitleStatusIncomplete[];
 extern const u8 gText_QuestLogTitleStatusComplete[];
+extern const u8 gText_QuestLogTitleStatusCollection[];
+extern const u8 gText_QuestLogTitleStatusCollected[];
+extern const u8 gText_QuestLogTitleRewardMoney[];
 
-static void QuestMenuLoadBattleMoveDescription(u32 chosenQuest)
+static void QuestMenuPreviewDescription(u32 chosenQuest)
 {
     s32 x;
     const struct RogueQuestConstants* quest;
+    struct RogueQuestState questState;
     u8 buffer[32];
     const u8 *str;
 
@@ -1041,7 +1044,7 @@ static void QuestMenuLoadBattleMoveDescription(u32 chosenQuest)
     x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
     AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
 
-    if (chosenQuest == LIST_CANCEL)
+    if (chosenQuest == LIST_CANCEL || !GetQuestState(chosenQuest, &questState))
     {
         CopyWindowToVram(0, COPYWIN_GFX);
         return;
@@ -1050,97 +1053,98 @@ static void QuestMenuLoadBattleMoveDescription(u32 chosenQuest)
     quest = &gRogueQuests[chosenQuest];
 
     str = quest->desc;
-    AddTextPrinterParameterized(0, FONT_NARROW, str, 0, 20, 0, NULL);
+    AddTextPrinterParameterized(0, FONT_NARROW, str, 2, 20, 0, NULL);
 
-    if((quest->flags & ROGUE_QUEST_FLAGS_SINGLE_MEDAL))
-    {
-        str = gText_QuestLogTitleStatus;
-        AddTextPrinterParameterized(0, FONT_SHORT, str, 0, 80, 0, NULL);
+    str = gText_QuestLogTitleStatus;
+    AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 80, 0, NULL);
 
-        if(Rogue_GetQuestCompletionStatus(chosenQuest) == 0)
-            str = gText_QuestLogTitleStatusIncomplete;
-        else
-            str = gText_QuestLogTitleStatusComplete;
-
-        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
-        AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
-    }
+    if(questState.isCompleted)
+        str = gText_QuestLogTitleStatusComplete;
     else
-    {
-        str = gText_QuestLogTitleStatus;
-        AddTextPrinterParameterized(0, FONT_SHORT, str, 0, 80, 0, NULL);
+        str = gText_QuestLogTitleStatusIncomplete;
 
-        switch(Rogue_GetQuestCompletionStatus(chosenQuest))
-        {
-            case 0:
-                str = gText_QuestLogTitleStatusIncomplete;
-                break;
-
-            case 1:
-                str = gText_QuestLogTitleBronze;
-                break;
-
-            case 2:
-                str = gText_QuestLogTitleSilver;
-                break;
-
-            case 3:
-                str = gText_QuestLogTitleGold;
-                break;
-
-            default:
-                str = gText_QuestLogTitleStatus; // Shouldn't happened but at least this will look wrong
-                break;
-
-        }
-
-        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
-        AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
-    }
+    x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+    AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
 }
 
-static void QuestMenuMenuLoadContestMoveDescription(u32 chosenMove)
+static void QuestMenuRewardDescription(u32 chosenQuest)
 {
-    s32 x;
+    s32 x, y;
+    u8 i;
+    const struct RogueQuestConstants* quest;
+    struct RogueQuestState questState;
+    u8 buffer[32];
     const u8 *str;
-    const struct ContestMove *move;
 
-    //QuestMenuShowHideHearts(chosenMove);
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
-    str = gText_MoveRelearnerContestMovesTitle;
+    str = gText_QuestLogTitleRewards;
     x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
     AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
 
-    str = gText_MoveRelearnerAppeal;
-    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
-
-    str = gText_MoveRelearnerJam;
-    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
-
-    if (chosenMove == MENU_NOTHING_CHOSEN)
+    if (chosenQuest == LIST_CANCEL || !GetQuestState(chosenQuest, &questState))
     {
-        CopyWindowToVram(1, COPYWIN_GFX);
+        CopyWindowToVram(0, COPYWIN_GFX);
         return;
     }
 
-    move = &gContestMoves[chosenMove];
-    str = gContestMoveTypeTextPointers[move->contestCategory];
-    AddTextPrinterParameterized(1, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+    quest = &gRogueQuests[chosenQuest];
 
-    str = gContestEffectDescriptionPointers[move->effect];
-    AddTextPrinterParameterized(1, FONT_NARROW, str, 0, 0x41, TEXT_SKIP_DRAW, NULL);
+    y = 0;
 
-    CopyWindowToVram(1, COPYWIN_GFX);
+    for(i = 0; i < ARRAY_COUNT(quest->rewards); ++i)
+    {
+        if(quest->rewards[i].type == QUEST_REWARD_NONE)
+            break;
+
+        
+        if(quest->rewards[i].customText)
+        {
+            str = quest->rewards[i].customText;
+        }
+        else
+        {
+            switch(quest->rewards[i].type)
+            {
+                case QUEST_REWARD_SET_FLAG:
+                case QUEST_REWARD_CLEAR_FLAG:
+                    str = gText_QuestLogTitleDesc;
+                    break;
+
+                case QUEST_REWARD_GIVE_ITEM:
+                    CopyItemNameHandlePlural(quest->rewards[i].params[0], gStringVar1, quest->rewards[i].params[1]);
+                    str = gStringVar1;
+                    break;
+
+                case QUEST_REWARD_GIVE_MONEY:
+                    ConvertUIntToDecimalStringN(gStringVar1, quest->rewards[i].params[0], STR_CONV_MODE_LEFT_ALIGN, 6);
+                    StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardMoney);
+                    str = gStringVar2;
+                    break;
+            }
+        }
+
+        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
+    }
+
+    if(questState.isCompleted)
+    {
+        if(questState.hasPendingRewards)
+            str = gText_QuestLogTitleStatusCollection;
+        else
+            str = gText_QuestLogTitleStatusCollected;
+
+        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+        AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+    }
+
 }
 
 static void QuestMenuCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
-    QuestMenuLoadBattleMoveDescription(itemIndex);
-    QuestMenuMenuLoadContestMoveDescription(itemIndex);
+    QuestMenuPreviewDescription(itemIndex);
+    QuestMenuRewardDescription(itemIndex);
 }
 
 void QuestMenuPrintText(u8 *str)

@@ -34,6 +34,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -48,6 +49,7 @@ EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
 EWRAM_DATA u8 gDebug_TrainerOptionCount = 0;
 
 extern const u8 gText_RogueDebug_Header[];
+extern const u8 gText_RogueDebug_Save[];
 extern const u8 gText_RogueDebug_Room[];
 extern const u8 gText_RogueDebug_BossRoom[];
 extern const u8 gText_RogueDebug_Difficulty[];
@@ -65,6 +67,8 @@ extern const u8 gText_RogueDebug_Y[];
 #endif
 
 // Box save data
+// TODO - We keep this around in EWRAM, but we really don't need to
+// Bag items could be partially saved into the box and the rest only need to be present at save/load time
 struct RogueBoxSaveData
 {
     u32 encryptionKey;
@@ -74,8 +78,8 @@ struct RogueBoxSaveData
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
-    
     struct RogueAdvPath advPath;
+    struct RogueQuestData questData;
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
@@ -121,6 +125,7 @@ EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
+EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
@@ -1052,6 +1057,7 @@ u8* Rogue_GetMiniMenuContent(void)
             strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, gSaveBlock1Ptr->rogueSaveVersion);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
@@ -1240,12 +1246,19 @@ static void SelectStartMons(void)
 #endif
 }
 
+#define ROGUE_SAVE_VERSION 1
+
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
-static void EnsureLoadValuesAreValid()
+static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
+    if(newGame || saveVersion < 1)
+    {
+        memset(&gRogueQuestData, 0, sizeof(gRogueQuestData));
+    }
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
@@ -1301,7 +1314,7 @@ void Rogue_OnNewGame(void)
 
     SelectStartMons();
 
-    EnsureLoadValuesAreValid();
+    EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
@@ -1430,12 +1443,15 @@ void Rogue_OnSaveGame(void)
 {
     u8 i;
 
+    gSaveBlock1Ptr->rogueSaveVersion = ROGUE_SAVE_VERSION;
+
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
 
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
 
     memcpy(&gRogueLocal.saveData.raw.advPath, &gRogueAdvPath, sizeof(gRogueAdvPath));
+    memcpy(&gRogueLocal.saveData.raw.questData, &gRogueQuestData, sizeof(gRogueQuestData));
 
     // Move Hub save data into storage box space
     for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
@@ -1461,6 +1477,7 @@ void Rogue_OnLoadGame(void)
     }
 
     memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
+    memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
     {
@@ -1468,7 +1485,7 @@ void Rogue_OnLoadGame(void)
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
     }
 
-    EnsureLoadValuesAreValid();
+    EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)

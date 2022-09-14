@@ -1,8 +1,7 @@
-#ifndef ROGUE_QUEST_H
-#define ROGUE_QUEST_H
+#ifndef QUEST_H
+#define QUEST_H
 
-u8 Rogue_GetQuestCompletionStatus(u16 questId);
-bool8 Rogue_IsQuestActive(u16 questId);
-bool8 Rogue_IsQuestPinned(u16 questId);
+bool8 GetQuestState(u16 questId, struct RogueQuestState* outState);
+void SetQuestState(u16 questId, struct RogueQuestState* state);
 
 #endif

@@ -3,19 +3,24 @@
 #include "rogue.h"
 #include "rogue_quest.h"
 
-EWRAM_DATA struct RogueQuestState gRogueQuestStates[ROGUE_QUEST_COUNT];
+extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
 
-u8 Rogue_GetQuestCompletionStatus(u16 questId)
+
+bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 {
-    return gRogueQuestStates[questId].completionLevel;
+    if(questId < QUEST_COUNT)
+    {
+        memcpy(outState, &gRogueQuestData.questStates[questId], sizeof(struct RogueQuestState));
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
-bool8 Rogue_IsQuestActive(u16 questId)
+void SetQuestState(u16 questId, struct RogueQuestState* state)
 {
-    return gRogueQuestStates[questId].isActive;
-}
-
-bool8 Rogue_IsQuestPinned(u16 questId)
-{
-    return gRogueQuestStates[questId].isPinned;
+    if(questId < QUEST_COUNT)
+    {
+        memcpy(&gRogueQuestData.questStates[questId], state, sizeof(struct RogueQuestState));
+    }
 }

@@ -1,37 +1,67 @@
-
-const u8 gText_RogueQuest_Title_None[] = _("NONE");
-const u8 gText_RogueQuest_Desc_None[] = _("-");
-
-const u8 gText_RogueQuest_Title_Testing1[] = _("Test Quest 1");
-const u8 gText_RogueQuest_Desc_Testing1[] = _(
-    "A difficult quest in which,\n"
-    "you will have to do things.");
-
-const u8 gText_RogueQuest_Title_Testing2[] = _("Test Quest 2");
-const u8 gText_RogueQuest_Desc_Testing2[] = _(
-    "A 2nd difficult quest in,\n"
-    "which you will have to do\n"
-    "things.");
-
-const struct RogueQuestConstants gRogueQuests[ROGUE_QUEST_COUNT] = 
+const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
 {
-    [ROGUE_QUEST_NONE] = 
+    [QUEST_NONE] = 
     {
-        .title = gText_RogueQuest_Title_None,
-        .desc = gText_RogueQuest_Desc_None,
-        .flags = ROGUE_QUEST_FLAGS_NONE
+        .title = _("-"),
+        .desc = _("-"),
+        .flags = QUEST_FLAGS_NONE
     },
-    [ROGUE_QUEST_Testing1] = 
+    [QUEST_Testing1] = 
     {
-        .title = gText_RogueQuest_Title_Testing1,
-        .desc = gText_RogueQuest_Desc_Testing1,
-        .flags = ROGUE_QUEST_FLAGS_SINGLE_MEDAL | ROGUE_QUEST_FLAGS_REPEATABLE | ROGUE_QUEST_FLAGS_GLOBALALLY_TRACKED
+        .title = _("Test Quest 1"),
+        .desc = _(
+                    "A difficult quest in which,\n"
+                    "you will have to do things."
+                ),
+        .flags = QUEST_FLAGS_REPEATABLE | QUEST_FLAGS_GLOBALALLY_TRACKED,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } 
+        }
+    },
+    [QUEST_Testing2] = 
+    {
+        .title = _("Test Quest 2"),
+        .desc = _(
+                    "A 2nd difficult quest in,\n"
+                    "which you will have to do\n"
+                    "things."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+        }
+    },
 
-    },
-    [ROGUE_QUEST_Testing2] = 
+    [QUEST_Electric_Master] = 
     {
-        .title = gText_RogueQuest_Title_Testing2,
-        .desc = gText_RogueQuest_Desc_Testing2,
-        .flags = ROGUE_QUEST_FLAGS_NONE
+        .title = _("Elec Master"),
+        .desc = _(
+                    "Only use Electric POKéMON\n"
+                    "during an adventure and\n"
+                    "defeat all GYM Leaders."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+        }
+    },
+    [QUEST_Electric_Champion] = 
+    {
+        .title = _("Elec Champion"),
+        .desc = _(
+                    "Only use Electric POKéMON\n"
+                    "during an adventure and\n"
+                    "defeat the Final Champion."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+        }
     },
 };

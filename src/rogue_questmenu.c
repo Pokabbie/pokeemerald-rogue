@@ -156,7 +156,7 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
-#define MAX_QUESTS_TO_SHOW (ROGUE_QUEST_COUNT)
+#define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
 
 extern const u8 gText_QuestLogBack[];
 
@@ -379,9 +379,11 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 
 static void GatherQuestsToDisplay()
 {
-    sQuestMenuStruct->numMenuChoices = 2;
-    sQuestMenuStruct->questsToDisplay[0] = ROGUE_QUEST_Testing1;
-    sQuestMenuStruct->questsToDisplay[1] = ROGUE_QUEST_Testing2;
+    sQuestMenuStruct->numMenuChoices = 4;
+    sQuestMenuStruct->questsToDisplay[0] = QUEST_Testing1;
+    sQuestMenuStruct->questsToDisplay[1] = QUEST_Testing2;
+    sQuestMenuStruct->questsToDisplay[2] = QUEST_Electric_Master;
+    sQuestMenuStruct->questsToDisplay[3] = QUEST_Electric_Champion;
 }
 
 static void CB2_InitQuestMenu(void)
@@ -953,7 +955,7 @@ static void QuestMenuShowHideHearts(s32 moveId)
             {
                 StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i]], 0);
             }
-            gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = FALSE;
+            gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
         }
 
         numHearts = (u8)(gContestEffects[gContestMoves[moveId].effect].jam / 10);
@@ -973,7 +975,7 @@ static void QuestMenuShowHideHearts(s32 moveId)
             {
                 StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]], 2);
             }
-            gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]].invisible = FALSE;
+            gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]].invisible = TRUE;
         }
     }
 }

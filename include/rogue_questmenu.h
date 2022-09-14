@@ -1,5 +1,5 @@
-#ifndef ROGUE_QUEST_MENU_H
-#define ROGUE_QUEST_MENU_H
+#ifndef QUEST_MENU_H
+#define QUEST_MENU_H
 
 typedef void (*RogueQuestMenuCallback)(void);
 
