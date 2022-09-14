@@ -31,6 +31,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_quest.h"
+#include "rogue_questmenu.h"
 
 extern const struct CompressedSpriteSheet gMonFrontPicTable[];
 
@@ -1022,6 +1023,7 @@ u8 LoadQuestMenuMovesList(const struct ListMenuItem *items, u16 numChoices)
     return gMultiuseListMenuTemplate.maxShowed;
 }
 
+extern const u8 gText_QuestLogTitleOverview[];
 extern const u8 gText_QuestLogTitleDesc[];
 extern const u8 gText_QuestLogTitleRewards[];
 extern const u8 gText_QuestLogTitleStatus[];
@@ -1030,6 +1032,19 @@ extern const u8 gText_QuestLogTitleStatusComplete[];
 extern const u8 gText_QuestLogTitleStatusCollection[];
 extern const u8 gText_QuestLogTitleStatusCollected[];
 extern const u8 gText_QuestLogTitleRewardMoney[];
+
+static void QuestMenuOverview(u8 windowId)
+{
+    s32 x;
+    const u8 *str;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    str = gText_QuestLogTitleOverview;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+    
+    CopyWindowToVram(windowId, COPYWIN_GFX);
+}
 
 static void QuestMenuPreviewDescription(u32 chosenQuest)
 {
@@ -1143,8 +1158,17 @@ static void QuestMenuCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu
 {
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
-    QuestMenuPreviewDescription(itemIndex);
-    QuestMenuRewardDescription(itemIndex);
+
+    if(Rogue_IsQuestMenuOverviewActive())
+    {
+        QuestMenuOverview(0);
+        QuestMenuOverview(1);
+    }
+    else
+    {
+        QuestMenuPreviewDescription(itemIndex);
+        QuestMenuRewardDescription(itemIndex);
+    }
 }
 
 void QuestMenuPrintText(u8 *str)

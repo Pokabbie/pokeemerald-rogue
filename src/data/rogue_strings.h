@@ -21,8 +21,12 @@ const u8 gText_ItemQuestLog[] = _("Quest Log");
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
+const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
 const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
 const u8 gText_QuestLogTitleRewards[] = _("REWARDS");
+const u8 gText_QuestLogTitlePinned[] = _("Pinned");
+const u8 gText_QuestLogTitleActive[] = _("Active");
+const u8 gText_QuestLogTitleInactive[] = _("Inactive");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
 const u8 gText_QuestLogTitleStatusIncomplete[] = _("INCOMPLETE");
 const u8 gText_QuestLogTitleStatusComplete[] = _("COMPLETE");

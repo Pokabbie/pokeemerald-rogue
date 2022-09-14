@@ -52,24 +52,24 @@
  * DoQuestMenuMain: MENU_STATE_WAIT_FOR_FADE
  *   - Go to MENU_STATE_IDLE_BATTLE_MODE
  *
- * DoQuestMenuMain: MENU_STATE_SETUP_BATTLE_MODE
+ * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_DESC
  * DoQuestMenuMain: MENU_STATE_IDLE_BATTLE_MODE
  *   - If the player selected a move (pressed A), go to MENU_STATE_PRINT_TEACH_MOVE_PROMPT.
  *   - If the player cancelled (pressed B), go to MENU_STATE_PRINT_GIVE_UP_PROMPT.
  *   - If the player pressed left or right, swap the move display window to contest mode,
- *     and go to MENU_STATE_SETUP_CONTEST_MODE.
+ *     and go to MENU_STATE_SETUP_QUEST_REWARD.
  *
- * DoQuestMenuMain: MENU_STATE_SETUP_CONTEST_MODE
+ * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_REWARD
  * DoQuestMenuMain: MENU_STATE_IDLE_CONTEST_MODE
  *   - If the player selected a move, go to MENU_STATE_PRINT_TEACH_MOVE_PROMPT.
  *   - If the player cancelled, go to MENU_STATE_PRINT_GIVE_UP_PROMPT
  *   - If the player pressed left or right, swap the move display window to battle mode,
- *     and go to MENU_STATE_SETUP_BATTLE_MODE.
+ *     and go to MENU_STATE_SETUP_QUEST_DESC.
  *
  * DoQuestMenuMain: MENU_STATE_PRINT_TEACH_MOVE_PROMPT
  * DoQuestMenuMain: MENU_STATE_TEACH_MOVE_CONFIRM
  *   - Wait for the player to confirm.
- *   - If cancelled, go to either MENU_STATE_SETUP_BATTLE_MODE or MENU_STATE_SETUP_CONTEST_MODE.
+ *   - If cancelled, go to either MENU_STATE_SETUP_QUEST_DESC or MENU_STATE_SETUP_QUEST_REWARD.
  *   - If confirmed and the pokemon had an empty move slot, set VAR_0x8004 to TRUE and go to
  *     MENU_STATE_PRINT_TEXT_THEN_FANFARE.
  *   - If confirmed and the pokemon doesn't have an empty move slot, go to
@@ -103,8 +103,8 @@
  * DoQuestMenuMain: MENU_STATE_PRINT_GIVE_UP_PROMPT
  * DoQuestMenuMain: MENU_STATE_GIVE_UP_CONFIRM
  *   - If the player confirms, go to MENU_STATE_FADE_AND_RETURN, and set VAR_0x8004 to FALSE.
- *   - If the player cancels, go to either MENU_STATE_SETUP_BATTLE_MODE or
- *     MENU_STATE_SETUP_CONTEST_MODE.
+ *   - If the player cancels, go to either MENU_STATE_SETUP_QUEST_DESC or
+ *     MENU_STATE_SETUP_QUEST_REWARD.
  *
  * CB2_InitQuestMenuReturnFromSelectMove:
  *   - Do most of the same stuff as CB2_InitQuestMenu.
@@ -120,9 +120,9 @@
 #define MENU_STATE_FADE_TO_BLACK 0
 #define MENU_STATE_WAIT_FOR_FADE 1
 #define MENU_STATE_UNREACHABLE 2
-#define MENU_STATE_SETUP_BATTLE_MODE 3
+#define MENU_STATE_SETUP_QUEST_DESC 3
 #define MENU_STATE_IDLE_BATTLE_MODE 4
-#define MENU_STATE_SETUP_CONTEST_MODE 5
+#define MENU_STATE_SETUP_QUEST_REWARD 5
 #define MENU_STATE_IDLE_CONTEST_MODE 6
 // State 7 is skipped.
 #define MENU_STATE_PRINT_TEACH_MOVE_PROMPT 8
@@ -156,21 +156,31 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
+#define MENU_PAGE_OVERVIEW 0
+#define MENU_PAGE_PINNED_QUESTS 1
+#define MENU_PAGE_ACTIVE_QUESTS 2
+#define MENU_PAGE_INACTIVE_QUESTS 3
+
 #define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
 
 extern const u8 gText_QuestLogBack[];
+extern const u8 gText_QuestLogTitleOverview[];
+extern const u8 gText_QuestLogTitlePinned[];
+extern const u8 gText_QuestLogTitleActive[];
+extern const u8 gText_QuestLogTitleInactive[];
 
 static EWRAM_DATA struct
 {
     u8 state;
+    u8 currentPage;
     u8 heartSpriteIds[16];                               /*0x001*/
-    u16 questsToDisplay[MAX_QUESTS_TO_SHOW];               /*0x01A*/
+    u16 optionsToDisplay[MAX_QUESTS_TO_SHOW];               /*0x01A*/
     u8 partyMon;                                         /*0x044*/
     u8 moveSlot;                                         /*0x045*/
     struct ListMenuItem menuItems[MAX_QUESTS_TO_SHOW];  /*0x0E8*/
     u8 numMenuChoices;                                   /*0x110*/
     u8 numToShowAtOnce;                                  /*0x111*/
-    u8 moveListMenuTask;                                 /*0x112*/
+    u8 listMenuTask;                                     /*0x112*/
     u8 moveListScrollArrowTask;                          /*0x113*/
     u8 moveDisplayArrowTask;                             /*0x114*/
     u16 scrollOffset;                                    /*0x116*/
@@ -179,14 +189,25 @@ static EWRAM_DATA struct
 static EWRAM_DATA struct {
     u16 listOffset;
     u16 listRow;
-    bool8 showContestInfo;
+    bool8 showQuestRewards;
 } sQuestMenuMenuSate = {0};
+
+
+
+static const u8* const sQuestMenuPageTitles[] =
+{
+    [MENU_PAGE_OVERVIEW] = gText_QuestLogTitleOverview,
+    [MENU_PAGE_PINNED_QUESTS] = gText_QuestLogTitlePinned,
+    [MENU_PAGE_ACTIVE_QUESTS] = gText_QuestLogTitleActive,
+    [MENU_PAGE_INACTIVE_QUESTS] = gText_QuestLogTitleInactive,
+};
 
 static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
 
 // The arrow sprites in this spritesheet aren't used. The scroll-arrow system provides its own
 // arrow sprites.
 static const u8 sQuestMenuSpriteSheetData[] = INCBIN_U8("graphics/interface/ui_learn_move.4bpp");
+
 
 static const struct OamData sHeartSpriteOamData =
 {
@@ -348,7 +369,7 @@ static const struct BgTemplate sQuestMenuMenuBackgroundTemplates[] =
 };
 
 static void DoQuestMenuMain(void);
-static void CreateQuestDisplayList(void);
+static void CreateOptionsDisplayList(void);
 static void CreateUISprites(void);
 static void CB2_QuestMenuMain(void);
 static void CB2_InitQuestMenu(void);
@@ -370,6 +391,11 @@ static void VBlankCB_QuestMenu(void)
     TransferPlttBuffer();
 }
 
+bool8 Rogue_IsQuestMenuOverviewActive(void)
+{
+    return sQuestMenuStruct->currentPage == MENU_PAGE_OVERVIEW;
+}
+
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 {
     ScriptContext2_Enable();
@@ -377,13 +403,28 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
 }
 
-static void GatherQuestsToDisplay()
+static void GatherOptionsToDisplay()
 {
-    sQuestMenuStruct->numMenuChoices = 4;
-    sQuestMenuStruct->questsToDisplay[0] = QUEST_Testing1;
-    sQuestMenuStruct->questsToDisplay[1] = QUEST_Testing2;
-    sQuestMenuStruct->questsToDisplay[2] = QUEST_Electric_Master;
-    sQuestMenuStruct->questsToDisplay[3] = QUEST_Electric_Champion;
+    switch(sQuestMenuStruct->currentPage)
+    {
+        case MENU_PAGE_PINNED_QUESTS:
+        case MENU_PAGE_ACTIVE_QUESTS:
+        case MENU_PAGE_INACTIVE_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 4;
+            sQuestMenuStruct->optionsToDisplay[0] = QUEST_Testing1;
+            sQuestMenuStruct->optionsToDisplay[1] = QUEST_Testing2;
+            sQuestMenuStruct->optionsToDisplay[2] = QUEST_Electric_Master;
+            sQuestMenuStruct->optionsToDisplay[3] = QUEST_Electric_Champion;
+            break;
+            
+         default: // MENU_PAGE_OVERVIEW
+            sQuestMenuStruct->numMenuChoices = 3;
+            sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
+            sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_ACTIVE_QUESTS;
+            sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_INACTIVE_QUESTS;
+            break;
+
+    };
 }
 
 static void CB2_InitQuestMenu(void)
@@ -394,6 +435,7 @@ static void CB2_InitQuestMenu(void)
     ClearScheduledBgCopiesToVram();
     sQuestMenuStruct = AllocZeroed(sizeof(*sQuestMenuStruct));
     sQuestMenuStruct->partyMon = 0;
+    sQuestMenuStruct->currentPage = MENU_PAGE_OVERVIEW; 
     SetVBlankCallback(VBlankCB_QuestMenu);
 
     InitQuestMenuBackgroundLayers();
@@ -401,15 +443,15 @@ static void CB2_InitQuestMenu(void)
 
     sQuestMenuMenuSate.listOffset = 0;
     sQuestMenuMenuSate.listRow = 0;
-    sQuestMenuMenuSate.showContestInfo = FALSE;
+    sQuestMenuMenuSate.showQuestRewards = FALSE;
 
-    CreateQuestDisplayList();
+    CreateOptionsDisplayList();
 
     LoadSpriteSheet(&sQuestMenuSpriteSheet);
     LoadSpritePalette(&sQuestMenuPalette);
     CreateUISprites();
 
-    sQuestMenuStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
+    sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_QuestMenuMain);
 }
@@ -427,16 +469,32 @@ static void CB2_InitQuestMenuReturnFromSelectMove(void)
     SetVBlankCallback(VBlankCB_QuestMenu);
 
     InitQuestMenuBackgroundLayers();
-    InitQuestMenuWindows(sQuestMenuMenuSate.showContestInfo);
-    CreateQuestDisplayList();
+    InitQuestMenuWindows(sQuestMenuMenuSate.showQuestRewards);
+    CreateOptionsDisplayList();
 
     LoadSpriteSheet(&sQuestMenuSpriteSheet);
     LoadSpritePalette(&sQuestMenuPalette);
     CreateUISprites();
 
-    sQuestMenuStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
+    sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_QuestMenuMain);
+}
+
+static void RecreateOptionsForPage(u8 pageId)
+{
+    PutWindowTilemap(0);
+    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
+    sQuestMenuStruct->currentPage = pageId;
+    sQuestMenuMenuSate.showQuestRewards = FALSE;
+    
+    CreateOptionsDisplayList();
+
+    sQuestMenuMenuSate.listOffset = 0;
+    sQuestMenuMenuSate.listRow = 0;
+    
+    DestroyListMenuTask(sQuestMenuStruct->listMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
+    sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
 }
 
 static void InitQuestMenuBackgroundLayers(void)
@@ -488,7 +546,7 @@ static void DoQuestMenuMain(void)
     case MENU_STATE_UNREACHABLE:
         sQuestMenuStruct->state++;
         break;
-    case MENU_STATE_SETUP_BATTLE_MODE:
+    case MENU_STATE_SETUP_QUEST_DESC:
 
         HideHeartSpritesAndShowTeachMoveText(FALSE);
         sQuestMenuStruct->state++;
@@ -497,7 +555,7 @@ static void DoQuestMenuMain(void)
     case MENU_STATE_IDLE_BATTLE_MODE:
         HandleInput(FALSE);
         break;
-    case MENU_STATE_SETUP_CONTEST_MODE:
+    case MENU_STATE_SETUP_QUEST_REWARD:
         ShowTeachMoveText(FALSE);
         sQuestMenuStruct->state++;
         AddScrollArrows();
@@ -531,13 +589,13 @@ static void DoQuestMenuMain(void)
             }
             else if (selection == MENU_B_PRESSED || selection == 1)
             {
-                if (sQuestMenuMenuSate.showContestInfo == FALSE)
+                if (sQuestMenuMenuSate.showQuestRewards == FALSE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
                 }
-                else if (sQuestMenuMenuSate.showContestInfo == TRUE)
+                else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
                 }
             }
         }
@@ -560,13 +618,13 @@ static void DoQuestMenuMain(void)
             }
             else if (selection == -1 || selection == 1)
             {
-                if (sQuestMenuMenuSate.showContestInfo == FALSE)
+                if (sQuestMenuMenuSate.showQuestRewards == FALSE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
                 }
-                else if (sQuestMenuMenuSate.showContestInfo == TRUE)
+                else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
                 }
             }
         }
@@ -620,13 +678,13 @@ static void DoQuestMenuMain(void)
             else if (var == MENU_B_PRESSED || var == 1)
             {
                 // What's the point? It gets set to MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT, anyway.
-                if (sQuestMenuMenuSate.showContestInfo == FALSE)
+                if (sQuestMenuMenuSate.showQuestRewards == FALSE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
                 }
-                else if (sQuestMenuMenuSate.showContestInfo == TRUE)
+                else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
                 {
-                    sQuestMenuStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
+                    sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
                 }
                 sQuestMenuStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
             }
@@ -636,13 +694,13 @@ static void DoQuestMenuMain(void)
         if (!QuestMenuRunTextPrinters())
         {
             FillWindowPixelBuffer(3, 0x11);
-            if (sQuestMenuMenuSate.showContestInfo == FALSE)
+            if (sQuestMenuMenuSate.showQuestRewards == FALSE)
             {
-                sQuestMenuStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
             }
-            else if (sQuestMenuMenuSate.showContestInfo == TRUE)
+            else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
             {
-                sQuestMenuStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
+                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
             }
         }
         break;
@@ -683,11 +741,11 @@ static void DoQuestMenuMain(void)
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         sQuestMenuStruct->state++;
-        if (sQuestMenuMenuSate.showContestInfo == FALSE)
+        if (sQuestMenuMenuSate.showQuestRewards == FALSE)
         {
             HideHeartSpritesAndShowTeachMoveText(TRUE);
         }
-        else if (sQuestMenuMenuSate.showContestInfo == TRUE)
+        else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
         {
             ShowTeachMoveText(TRUE);
         }
@@ -749,7 +807,7 @@ static void DoQuestMenuMain(void)
 static void FreeQuestMenuResources(void)
 {
     RemoveScrollArrows();
-    DestroyListMenuTask(sQuestMenuStruct->moveListMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
+    DestroyListMenuTask(sQuestMenuStruct->listMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
     FreeAllWindowBuffers();
     FREE_AND_SET_NULL(sQuestMenuStruct);
     ResetSpriteData();
@@ -775,10 +833,10 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
     }
 }
 
-static void HandleInput(bool8 showContest)
+static void HandleInput(bool8 showRewards)
 {
-    s32 itemId = ListMenu_ProcessInput(sQuestMenuStruct->moveListMenuTask);
-    ListMenuGetScrollAndRow(sQuestMenuStruct->moveListMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
+    s32 itemId = ListMenu_ProcessInput(sQuestMenuStruct->listMenuTask);
+    ListMenuGetScrollAndRow(sQuestMenuStruct->listMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
 
     switch (itemId)
     {
@@ -788,19 +846,25 @@ static void HandleInput(bool8 showContest)
             break;
         }
 
+        if(Rogue_IsQuestMenuOverviewActive())
+        {
+            // Can't change screen
+            break;
+        }
+
         PlaySE(SE_SELECT);
 
-        if (showContest == FALSE)
+        if (showRewards == FALSE)
         {
             PutWindowTilemap(1);
-            sQuestMenuStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
-            sQuestMenuMenuSate.showContestInfo = TRUE;
+            sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
+            sQuestMenuMenuSate.showQuestRewards = TRUE;
         }
         else
         {
             PutWindowTilemap(0);
-            sQuestMenuStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
-            sQuestMenuMenuSate.showContestInfo = FALSE;
+            sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
+            sQuestMenuMenuSate.showQuestRewards = FALSE;
         }
 
         ScheduleBgCopyTilemapToVram(1);
@@ -808,18 +872,52 @@ static void HandleInput(bool8 showContest)
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
-        RemoveScrollArrows();
-        sQuestMenuStruct->state = MENU_STATE_FADE_AND_RETURN; //MENU_STATE_PRINT_GIVE_UP_PROMPT;
-        StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerGiveUp);
-        QuestMenuPrintText(gStringVar4);
+        
+        if(Rogue_IsQuestMenuOverviewActive())
+        {
+            RemoveScrollArrows();
+            sQuestMenuStruct->state = MENU_STATE_FADE_AND_RETURN; //MENU_STATE_PRINT_GIVE_UP_PROMPT;
+            StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerGiveUp);
+            QuestMenuPrintText(gStringVar4);
+        }
+        else
+        {
+            RecreateOptionsForPage(MENU_PAGE_OVERVIEW);
+        }
         break;
     default:
         PlaySE(SE_SELECT);
-        RemoveScrollArrows();
-        sQuestMenuStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
-        StringCopy(gStringVar2, gMoveNames[itemId]);
-        StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
-        QuestMenuPrintText(gStringVar4);
+
+        if(Rogue_IsQuestMenuOverviewActive())
+        {
+            RecreateOptionsForPage(itemId);
+        }
+        else
+        {
+            if (showRewards == FALSE)
+            {
+                PutWindowTilemap(1);
+                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
+                sQuestMenuMenuSate.showQuestRewards = TRUE;
+            }
+            else
+            {
+                PutWindowTilemap(0);
+                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
+                sQuestMenuMenuSate.showQuestRewards = FALSE;
+            }
+        }
+
+        ScheduleBgCopyTilemapToVram(1);
+        QuestMenuShowHideHearts(GetCurrentSelectedMove());
+
+
+        // Goes to YesNo menu
+        //RemoveScrollArrows();
+        //sQuestMenuStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
+        //StringCopy(gStringVar2, gMoveNames[itemId]);
+        //StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
+        //QuestMenuPrintText(gStringVar4);
         break;
     }
 }
@@ -903,17 +1001,28 @@ static void RemoveScrollArrows(void)
     }
 }
 
-static void CreateQuestDisplayList(void)
+static void CreateOptionsDisplayList(void)
 {
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    GatherQuestsToDisplay();
+    GatherOptionsToDisplay();
 
-    for (i = 0; i < sQuestMenuStruct->numMenuChoices; i++)
+    if(Rogue_IsQuestMenuOverviewActive())
     {
-        sQuestMenuStruct->menuItems[i].name = gRogueQuests[sQuestMenuStruct->questsToDisplay[i]].title;
-        sQuestMenuStruct->menuItems[i].id = sQuestMenuStruct->questsToDisplay[i];
+        for (i = 0; i < sQuestMenuStruct->numMenuChoices; i++)
+        {
+            sQuestMenuStruct->menuItems[i].name = sQuestMenuPageTitles[sQuestMenuStruct->optionsToDisplay[i]];
+            sQuestMenuStruct->menuItems[i].id = sQuestMenuStruct->optionsToDisplay[i];
+        }
+    }
+    else
+    {
+        for (i = 0; i < sQuestMenuStruct->numMenuChoices; i++)
+        {
+            sQuestMenuStruct->menuItems[i].name = gRogueQuests[sQuestMenuStruct->optionsToDisplay[i]].title;
+            sQuestMenuStruct->menuItems[i].id = sQuestMenuStruct->optionsToDisplay[i];
+        }
     }
 
     GetMonData(&gPlayerParty[sQuestMenuStruct->partyMon], MON_DATA_NICKNAME, nickname);
@@ -929,7 +1038,7 @@ static void QuestMenuShowHideHearts(s32 moveId)
     u16 numHearts;
     u16 i;
 
-    if (!sQuestMenuMenuSate.showContestInfo || moveId == LIST_CANCEL)
+    if (!sQuestMenuMenuSate.showQuestRewards || moveId == LIST_CANCEL)
     {
         for (i = 0; i < 16; i++)
         {

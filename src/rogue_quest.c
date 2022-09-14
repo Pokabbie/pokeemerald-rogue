@@ -39,7 +39,7 @@ void SetQuestState(u16 questId, struct RogueQuestState* state)
 
 static void MarkQuestAsComplete(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueQuestData.questStates[i];
+    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
 
     // TODO - handle global & repeatable quests
     if(!state->isCompleted)
