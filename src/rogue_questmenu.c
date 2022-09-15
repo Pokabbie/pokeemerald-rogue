@@ -56,20 +56,20 @@
  *
  * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_DESC
  * DoQuestMenuMain: MENU_STATE_IDLE_BATTLE_MODE
- *   - If the player selected a move (pressed A), go to MENU_STATE_PRINT_TEACH_MOVE_PROMPT.
+ *   - If the player selected a move (pressed A), go to MENU_STATE_PRINT_PIN_QUEST_PROMPT.
  *   - If the player cancelled (pressed B), go to MENU_STATE_PRINT_GIVE_UP_PROMPT.
  *   - If the player pressed left or right, swap the move display window to contest mode,
  *     and go to MENU_STATE_SETUP_QUEST_REWARD.
  *
  * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_REWARD
  * DoQuestMenuMain: MENU_STATE_IDLE_CONTEST_MODE
- *   - If the player selected a move, go to MENU_STATE_PRINT_TEACH_MOVE_PROMPT.
+ *   - If the player selected a move, go to MENU_STATE_PRINT_PIN_QUEST_PROMPT.
  *   - If the player cancelled, go to MENU_STATE_PRINT_GIVE_UP_PROMPT
  *   - If the player pressed left or right, swap the move display window to battle mode,
  *     and go to MENU_STATE_SETUP_QUEST_DESC.
  *
- * DoQuestMenuMain: MENU_STATE_PRINT_TEACH_MOVE_PROMPT
- * DoQuestMenuMain: MENU_STATE_TEACH_MOVE_CONFIRM
+ * DoQuestMenuMain: MENU_STATE_PRINT_PIN_QUEST_PROMPT
+ * DoQuestMenuMain: MENU_STATE_PIN_QUEST_CONFIRM
  *   - Wait for the player to confirm.
  *   - If cancelled, go to either MENU_STATE_SETUP_QUEST_DESC or MENU_STATE_SETUP_QUEST_REWARD.
  *   - If confirmed and the pokemon had an empty move slot, set VAR_0x8004 to TRUE and go to
@@ -127,8 +127,8 @@
 #define MENU_STATE_SETUP_QUEST_REWARD 5
 #define MENU_STATE_IDLE_CONTEST_MODE 6
 // State 7 is skipped.
-#define MENU_STATE_PRINT_TEACH_MOVE_PROMPT 8
-#define MENU_STATE_TEACH_MOVE_CONFIRM 9
+#define MENU_STATE_PRINT_PIN_QUEST_PROMPT 8
+#define MENU_STATE_PIN_QUEST_CONFIRM 9
 // States 10 and 11 are skipped.
 #define MENU_STATE_PRINT_GIVE_UP_PROMPT 12
 #define MENU_STATE_GIVE_UP_CONFIRM 13
@@ -176,6 +176,11 @@ extern const u8 gText_QuestLogTitleInactive[];
 extern const u8 gText_QuestLogTitleComplete[];
 extern const u8 gText_QuestLogTitleTodo[];
 extern const u8 gText_QuestLogTitleRepeatable[];
+
+extern const u8 gText_QuestLogPromptOverview[];
+extern const u8 gText_QuestLogPromptCategory[];
+extern const u8 gText_QuestLogPromptPinQuest[];
+extern const u8 gText_QuestLogPromptUnpinQuest[];
 
 static EWRAM_DATA struct
 {
@@ -391,11 +396,14 @@ static void InitQuestMenuBackgroundLayers(void);
 static void AddScrollArrows(void);
 static void HandleInput(u8);
 static void ShowTeachMoveText(u8);
-static s32 GetCurrentSelectedMove(void);
+static s32 GetCurrentOptionMove(void);
 static void FreeQuestMenuResources(void);
 static void RemoveScrollArrows(void);
 static void QuestMenuShowHideHearts(s32 moveId);
 static void HideHeartSpritesAndShowTeachMoveText(bool8);
+
+static void PrintPromptForCurrentPage();
+static void RecreateOptionsForPage(u8 pageId);
 
 static void VBlankCB_QuestMenu(void)
 {
@@ -538,6 +546,8 @@ static void CB2_InitQuestMenu(void)
     sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_QuestMenuMain);
+
+    PrintPromptForCurrentPage();
 }
 
 static void CB2_InitQuestMenuReturnFromSelectMove(void)
@@ -563,6 +573,26 @@ static void CB2_InitQuestMenuReturnFromSelectMove(void)
     sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_QuestMenuMain);
+}
+
+static void FormatAndPrintText(const u8 *src)
+{
+    StringExpandPlaceholders(gStringVar4, src);
+    FillWindowPixelBuffer(3, 0x11);
+    AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+    //QuestMenuPrintText(gStringVar4);
+}
+
+static void PrintPromptForCurrentPage()
+{
+    if(sQuestMenuStruct->currentPage == MENU_PAGE_OVERVIEW)
+    {
+        FormatAndPrintText(gText_QuestLogPromptOverview);
+    }
+    else
+    {
+        FormatAndPrintText(gText_QuestLogPromptCategory);
+    }
 }
 
 static void RecreateOptionsForPage(u8 pageId)
@@ -592,6 +622,8 @@ static void RecreateOptionsForPage(u8 pageId)
     }
 
     sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
+
+    PrintPromptForCurrentPage();
 }
 
 static void InitQuestMenuBackgroundLayers(void)
@@ -618,12 +650,6 @@ static void CB2_QuestMenuMain(void)
     UpdatePaletteFade();
 }
 
-static void FormatAndPrintText(const u8 *src)
-{
-    StringExpandPlaceholders(gStringVar4, src);
-    QuestMenuPrintText(gStringVar4);
-}
-
 // See the state machine doc at the top of the file.
 static void DoQuestMenuMain(void)
 {
@@ -631,7 +657,6 @@ static void DoQuestMenuMain(void)
     {
     case MENU_STATE_FADE_TO_BLACK:
         sQuestMenuStruct->state++;
-        HideHeartSpritesAndShowTeachMoveText(FALSE);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         break;
     case MENU_STATE_WAIT_FOR_FADE:
@@ -660,31 +685,29 @@ static void DoQuestMenuMain(void)
     case MENU_STATE_IDLE_CONTEST_MODE:
         HandleInput(TRUE);
         break;
-    case MENU_STATE_PRINT_TEACH_MOVE_PROMPT:
+    case MENU_STATE_PRINT_PIN_QUEST_PROMPT:
         if (!QuestMenuRunTextPrinters())
         {
             QuestMenuCreateYesNoMenu();
             sQuestMenuStruct->state++;
         }
         break;
-    case MENU_STATE_TEACH_MOVE_CONFIRM:
+    case MENU_STATE_PIN_QUEST_CONFIRM:
         {
+            struct RogueQuestState state;
+            u16 questId = GetCurrentOptionMove();
             s8 selection = Menu_ProcessInputNoWrapClearOnChoose();
 
-            if (selection == 0)
+            if (selection == 0 && GetQuestState(questId, &state))
             {
-                if (GiveMoveToMon(&gPlayerParty[sQuestMenuStruct->partyMon], GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES)
-                {
-                    FormatAndPrintText(gText_MoveRelearnerPkmnLearnedMove);
-                    gSpecialVar_0x8004 = TRUE;
-                    sQuestMenuStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
-                }
-                else
-                {
-                    sQuestMenuStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
-                }
+                state.isPinned = !state.isPinned;
+                SetQuestState(questId, &state);
             }
-            else if (selection == MENU_B_PRESSED || selection == 1)
+            //else if (selection == MENU_B_PRESSED || selection == 1)
+            //{
+            //}
+            
+            if(selection != MENU_NOTHING_CHOSEN)
             {
                 if (sQuestMenuMenuSate.showQuestRewards == FALSE)
                 {
@@ -694,6 +717,7 @@ static void DoQuestMenuMain(void)
                 {
                     sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
                 }
+                PrintPromptForCurrentPage();
             }
         }
         break;
@@ -753,7 +777,7 @@ static void DoQuestMenuMain(void)
         }
         break;
     case MENU_STATE_PRINT_STOP_TEACHING:
-        StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
+        StringCopy(gStringVar2, gMoveNames[GetCurrentOptionMove()]);
         FormatAndPrintText(gText_MoveRelearnerStopTryingToTeachMove);
         sQuestMenuStruct->state++;
         break;
@@ -811,7 +835,7 @@ static void DoQuestMenuMain(void)
     case MENU_STATE_SHOW_MOVE_SUMMARY_SCREEN:
         if (!gPaletteFade.active)
         {
-            ShowSelectMovePokemonSummaryScreen(gPlayerParty, sQuestMenuStruct->partyMon, gPlayerPartyCount - 1, CB2_InitQuestMenuReturnFromSelectMove, GetCurrentSelectedMove());
+            ShowSelectMovePokemonSummaryScreen(gPlayerParty, sQuestMenuStruct->partyMon, gPlayerPartyCount - 1, CB2_InitQuestMenuReturnFromSelectMove, GetCurrentOptionMove());
             FreeQuestMenuResources();
         }
         break;
@@ -862,8 +886,8 @@ static void DoQuestMenuMain(void)
 
                 StringCopy(gStringVar3, gMoveNames[moveId]);
                 RemoveMonPPBonus(&gPlayerParty[sQuestMenuStruct->partyMon], sQuestMenuStruct->moveSlot);
-                SetMonMoveSlot(&gPlayerParty[sQuestMenuStruct->partyMon], GetCurrentSelectedMove(), sQuestMenuStruct->moveSlot);
-                StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
+                SetMonMoveSlot(&gPlayerParty[sQuestMenuStruct->partyMon], GetCurrentOptionMove(), sQuestMenuStruct->moveSlot);
+                StringCopy(gStringVar2, gMoveNames[GetCurrentOptionMove()]);
                 FormatAndPrintText(gText_MoveRelearnerAndPoof);
                 sQuestMenuStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
                 gSpecialVar_0x8004 = TRUE;
@@ -922,16 +946,17 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
         gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
     }
 
-    if (!onlyHideSprites)
-    {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(3, 0x11);
-        AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
-    }
+    //if (!onlyHideSprites)
+    //{
+    //    StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+    //    FillWindowPixelBuffer(3, 0x11);
+    //    AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+    //}
 }
 
 static void HandleInput(bool8 showRewards)
 {
+    struct RogueQuestState state;
     s32 itemId = ListMenu_ProcessInput(sQuestMenuStruct->listMenuTask);
     ListMenuGetScrollAndRow(sQuestMenuStruct->listMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
 
@@ -965,7 +990,7 @@ static void HandleInput(bool8 showRewards)
         }
 
         ScheduleBgCopyTilemapToVram(1);
-        QuestMenuShowHideHearts(GetCurrentSelectedMove());
+        QuestMenuShowHideHearts(GetCurrentOptionMove());
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
@@ -974,8 +999,6 @@ static void HandleInput(bool8 showRewards)
         {
             RemoveScrollArrows();
             sQuestMenuStruct->state = MENU_STATE_FADE_AND_RETURN; //MENU_STATE_PRINT_GIVE_UP_PROMPT;
-            StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerGiveUp);
-            QuestMenuPrintText(gStringVar4);
         }
         else
         {
@@ -988,38 +1011,26 @@ static void HandleInput(bool8 showRewards)
         if(Rogue_IsQuestMenuOverviewActive())
         {
             RecreateOptionsForPage(itemId);
+
+            ScheduleBgCopyTilemapToVram(1);
+            QuestMenuShowHideHearts(GetCurrentOptionMove());
         }
-        else
+        else if(GetQuestState(itemId, &state))
         {
-            if (showRewards == FALSE)
-            {
-                PutWindowTilemap(1);
-                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
-                sQuestMenuMenuSate.showQuestRewards = TRUE;
-            }
+            // Goes to YesNo menu
+            RemoveScrollArrows();
+            sQuestMenuStruct->state = MENU_STATE_PRINT_PIN_QUEST_PROMPT;
+
+            if(state.isPinned)
+                FormatAndPrintText(gText_QuestLogPromptUnpinQuest);
             else
-            {
-                PutWindowTilemap(0);
-                sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_DESC;
-                sQuestMenuMenuSate.showQuestRewards = FALSE;
-            }
+                FormatAndPrintText(gText_QuestLogPromptPinQuest);
         }
-
-        ScheduleBgCopyTilemapToVram(1);
-        QuestMenuShowHideHearts(GetCurrentSelectedMove());
-
-
-        // Goes to YesNo menu
-        //RemoveScrollArrows();
-        //sQuestMenuStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
-        //StringCopy(gStringVar2, gMoveNames[itemId]);
-        //StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
-        //QuestMenuPrintText(gStringVar4);
         break;
     }
 }
 
-static s32 GetCurrentSelectedMove(void)
+static s32 GetCurrentOptionMove(void)
 {
     return sQuestMenuStruct->menuItems[sQuestMenuMenuSate.listRow + sQuestMenuMenuSate.listOffset].id;
 }
@@ -1032,12 +1043,12 @@ static s32 GetCurrentSelectedMove(void)
 // selected and whenever the display mode changes.
 static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 {
-    if (shouldDoNothingInstead == FALSE)
-    {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(3, 0x11);
-        AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
-    }
+    //if (shouldDoNothingInstead == FALSE)
+    //{
+    //    StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+    //    FillWindowPixelBuffer(3, 0x11);
+    //    AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+    //}
 }
 
 static void CreateUISprites(void)

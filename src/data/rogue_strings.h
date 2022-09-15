@@ -31,12 +31,15 @@ const u8 gText_QuestLogTitleComplete[] = _("Complete");
 const u8 gText_QuestLogTitleTodo[] = _("To do");
 const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
-
 const u8 gText_QuestLogTitleStatusIncomplete[] = _("INCOMPLETE");
 const u8 gText_QuestLogTitleStatusComplete[] = _("COMPLETE");
 const u8 gText_QuestLogTitleStatusCollection[] = _("READY TO COLLECT");
 const u8 gText_QuestLogTitleStatusCollected[] = _("ALREADY COLLECTED");
 const u8 gText_QuestLogTitleRewardMoney[] = _("¥{STR_VAR_1}");
+const u8 gText_QuestLogPromptOverview[] = _("Select a Category");
+const u8 gText_QuestLogPromptCategory[] = _("Select a Quest");
+const u8 gText_QuestLogPromptPinQuest[] = _("Pin this Quest?");
+const u8 gText_QuestLogPromptUnpinQuest[] = _("Unpin this Quest?");
 const u8 gText_QuestLogBack[] = _("Back");
 
 #ifdef ROGUE_DEBUG
