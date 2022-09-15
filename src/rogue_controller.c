@@ -1563,7 +1563,7 @@ static void BeginRogueRun(void)
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
     memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
     
-    VarSet(VAR_ROGUE_DIFFICULTY, 0);
+    VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_REWARD_CANDY, 0);
@@ -2186,7 +2186,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        if(IsBossTrainer(trainerNum))
+        bool8 isBossTrainer = IsBossTrainer(trainerNum);
+
+        if(isBossTrainer)
         {
             u8 nextLevel;
             u8 prevLevel = CalculateBossLevel();
@@ -2250,6 +2252,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
+            QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
         }
     }
@@ -2277,6 +2280,7 @@ void Rogue_Battle_EndWildBattle(void)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
+            QuestNotify_OnWildBattleEnd();
             RemoveAnyFaintedMons(FALSE);
         }
     }

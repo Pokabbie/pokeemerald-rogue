@@ -6,6 +6,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .desc = _("-"),
         .flags = QUEST_FLAGS_NONE
     },
+
     [QUEST_FirstAdventure] = 
     {
         .title = _("To adventure!"),
@@ -13,37 +14,61 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                     "Embark on your first\n"
                     "adventure!"
                 ),
-        .flags = QUEST_FLAGS_REPEATABLE | QUEST_FLAGS_GLOBALALLY_TRACKED,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } } 
         }
     },
-    [QUEST_Testing1] = 
+    [QUEST_GymChallenge] = 
     {
-        .title = _("Test Quest 1"),
+        .title = _("Gym Challenge"),
         .desc = _(
-                    "A difficult quest in which,\n"
-                    "you will have to do things."
+                    "Defeat the first 4\n"
+                    "GYM leaders."
                 ),
-        .flags = QUEST_FLAGS_REPEATABLE | QUEST_FLAGS_GLOBALALLY_TRACKED,
+        .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
         }
     },
-    [QUEST_Testing2] = 
+    [QUEST_GymMaster] = 
     {
-        .title = _("Test Quest 2"),
+        .title = _("Gym Master"),
         .desc = _(
-                    "A 2nd difficult quest in,\n"
-                    "which you will have to do\n"
-                    "things."
+                    "Defeat all 8"
+                    "GYM leaders."
                 ),
-        .flags = QUEST_FLAGS_NONE,
+        .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
+        }
+    },
+    [QUEST_EliteMaster] = 
+    {
+        .title = _("Elite Master"),
+        .desc = _(
+                    "Defeat all of the\n"
+                    "Elite 4."
+                ),
+        .flags = QUEST_FLAGS_REPEATABLE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
+        }
+    },
+    [QUEST_Champion] = 
+    {
+        .title = _("The Champion"),
+        .desc = _(
+                    "Defeat the final\n"
+                    "champion."
+                ),
+        .flags = QUEST_FLAGS_REPEATABLE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
         }
     },
 

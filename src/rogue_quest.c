@@ -1,6 +1,7 @@
 #include "global.h"
 
 #include "rogue.h"
+#include "rogue_controller.h"
 #include "rogue_quest.h"
 
 extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
@@ -8,7 +9,7 @@ extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
 typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
 
 static void UnlockQuest(u16 questId);
-static void MarkQuestAsComplete(u16 questId);
+static void TryMarkQuestAsComplete(u16 questId);
 static void UnlockFollowingQuests(u16 questId);
 
 void ResetQuestState(u16 startQuestId)
@@ -21,7 +22,11 @@ void ResetQuestState(u16 startQuestId)
         memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
     }
 
-    UnlockQuest(QUEST_FirstAdventure);
+    // These quests must always be unlocked
+    for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
+    {
+        UnlockQuest(i);
+    }
 }
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
@@ -48,6 +53,11 @@ bool8 IsQuestRepeatable(u16 questId)
     return (gRogueQuests[questId].flags & QUEST_FLAGS_REPEATABLE) != 0;
 }
 
+bool8 IsQuestGloballyTracked(u16 questId)
+{
+    return (gRogueQuests[questId].flags & QUEST_FLAGS_GLOBALALLY_TRACKED) != 0;
+}
+
 static void UnlockQuest(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
@@ -59,21 +69,26 @@ static void UnlockQuest(u16 questId)
         state->isCompleted = FALSE;
     }
 }
-static void MarkQuestAsComplete(u16 questId)
+static void TryMarkQuestAsComplete(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
 
-    if(!state->isCompleted)
+    if(state->isValid)
     {
-        // First time finishing
-        state->isCompleted = TRUE;
-        state->hasPendingRewards = TRUE;
-        UnlockFollowingQuests(questId);
-    }
-    else if(IsQuestRepeatable(questId))
-    {
-        // Has already completed this once before so has rewards pending
-        state->hasPendingRewards = TRUE;
+        state->isValid = FALSE;
+
+        if(!state->isCompleted)
+        {
+            // First time finishing
+            state->isCompleted = TRUE;
+            state->hasPendingRewards = TRUE;
+            UnlockFollowingQuests(questId);
+        }
+        else if(IsQuestRepeatable(questId))
+        {
+            // Has already completed this once before so has rewards pending
+            state->hasPendingRewards = TRUE;
+        }
     }
 }
 
@@ -81,7 +96,7 @@ static void UnlockFollowingQuests(u16 questId)
 {
     switch(questId)
     {
-        case QUEST_FirstAdventure:
+        case QUEST_GymMaster:
             UnlockQuest(QUEST_Electric_Master);
             UnlockQuest(QUEST_Electric_Champion);
             break;
@@ -115,38 +130,80 @@ static void ForEachActiveQuest(QuestCallback callback)
     }
 }
 
-//u8 isUnlocked : 1;
-//u8 isCompleted : 1;
-//u8 isValid : 1;
-//u8 isPinned : 1;
-//u8 hasPendingRewards : 1;
-
 static void ActivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
 {
-    // TODO - handle global & repeatable quests
-    if(!state->isCompleted)
+    if(state->isUnlocked)
     {
-        state->isValid = TRUE;
+        if(IsQuestRepeatable(questId))
+        {
+            // Don't reactivate quests if we have rewards pending
+            if(!state->hasPendingRewards)
+                state->isValid = TRUE;
+        }
+        else if(!state->isCompleted)
+        {
+            state->isValid = TRUE;
+        }
     }
 }
 
 static void DeactivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
 {
-    // TODO - handle global & repeatable quests
-    if(state->isValid)
+    if(state->isValid && !IsQuestGloballyTracked(questId))
     {
         state->isValid = FALSE;
     }
 }
 
+static void DeactivateQuest(u16 questId)
+{
+    DeactivateQuestIfNeeded(questId, &gRogueQuestData.questStates[questId]);
+}
+
 void QuestNotify_BeginAdventure(void)
 {
     ForEachQuest(ActivateQuestIfNeeded);
+
+    // Handle skip difficulty
+    if(gRogueRun.currentDifficulty > 0)
+    {
+        DeactivateQuest(QUEST_GymChallenge);
+        DeactivateQuest(QUEST_GymMaster);
+    }
+
+    if(gRogueRun.currentDifficulty > 8)
+    {
+        // Can't technically happen atm
+        DeactivateQuest(QUEST_EliteMaster);
+    }
 }
 
 void QuestNotify_EndAdventure(void)
 {
-    ForEachQuest(DeactivateQuestIfNeeded);
+    TryMarkQuestAsComplete(QUEST_FirstAdventure);
 
-    MarkQuestAsComplete(QUEST_FirstAdventure);
+    ForEachQuest(DeactivateQuestIfNeeded);
+}
+
+void QuestNotify_OnWildBattleEnd(void)
+{
+
+}
+
+void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
+{
+    if(isBossTrainer)
+    {
+        if(gRogueRun.currentDifficulty >= 4)
+            TryMarkQuestAsComplete(QUEST_GymChallenge);
+
+        if(gRogueRun.currentDifficulty >= 8)
+            TryMarkQuestAsComplete(QUEST_GymChallenge);
+
+        if(gRogueRun.currentDifficulty >= 12)
+            TryMarkQuestAsComplete(QUEST_EliteMaster);
+
+        if(gRogueRun.currentDifficulty >= 14)
+            TryMarkQuestAsComplete(QUEST_Champion);
+    }
 }

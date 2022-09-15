@@ -16,10 +16,13 @@
 
 #define QUEST_NONE                  0
 #define QUEST_FirstAdventure        1
-#define QUEST_Testing1              2
-#define QUEST_Testing2              3
-#define QUEST_Electric_Master       4
-#define QUEST_Electric_Champion     5
+#define QUEST_GymChallenge          2
+#define QUEST_GymMaster             3
+#define QUEST_EliteMaster           4
+#define QUEST_Champion              5
+
+#define QUEST_Electric_Master       (QUEST_Champion + 1)
+#define QUEST_Electric_Champion     (QUEST_Champion + 2)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_COUNT (QUEST_Electric_Champion + 1)
