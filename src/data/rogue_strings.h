@@ -29,6 +29,7 @@ const u8 gText_QuestLogTitleActive[] = _("In progress");
 const u8 gText_QuestLogTitleInactive[] = _("Inactive");
 const u8 gText_QuestLogTitleComplete[] = _("Complete");
 const u8 gText_QuestLogTitleTodo[] = _("To do");
+const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
 
 const u8 gText_QuestLogTitleStatusIncomplete[] = _("INCOMPLETE");

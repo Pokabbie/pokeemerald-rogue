@@ -164,6 +164,7 @@
 #define MENU_PAGE_INACTIVE_QUESTS 3
 #define MENU_PAGE_COMPLETED_QUESTS 4
 #define MENU_PAGE_TODO_QUESTS 5
+#define MENU_PAGE_REPEATABLE_QUESTS 6
 
 #define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
 
@@ -174,6 +175,7 @@ extern const u8 gText_QuestLogTitleActive[];
 extern const u8 gText_QuestLogTitleInactive[];
 extern const u8 gText_QuestLogTitleComplete[];
 extern const u8 gText_QuestLogTitleTodo[];
+extern const u8 gText_QuestLogTitleRepeatable[];
 
 static EWRAM_DATA struct
 {
@@ -210,6 +212,7 @@ static const u8* const sQuestMenuPageTitles[] =
     [MENU_PAGE_INACTIVE_QUESTS] = gText_QuestLogTitleInactive,
     [MENU_PAGE_COMPLETED_QUESTS] = gText_QuestLogTitleComplete,
     [MENU_PAGE_TODO_QUESTS] = gText_QuestLogTitleTodo,
+    [MENU_PAGE_REPEATABLE_QUESTS] = gText_QuestLogTitleRepeatable,
 };
 
 static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -474,6 +477,17 @@ static void GatherOptionsToDisplay()
                 }
             }
             break;
+
+        case MENU_PAGE_REPEATABLE_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && IsQuestRepeatable(i))
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
             
          default: // MENU_PAGE_OVERVIEW
             if(Rogue_IsRunActive())
@@ -486,10 +500,11 @@ static void GatherOptionsToDisplay()
             }
             else
             {
-                sQuestMenuStruct->numMenuChoices = 3;
+                sQuestMenuStruct->numMenuChoices = 4;
                 sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
                 sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_TODO_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_COMPLETED_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_REPEATABLE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[3] = MENU_PAGE_COMPLETED_QUESTS;
             }
             break;
 
