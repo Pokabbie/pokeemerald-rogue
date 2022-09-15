@@ -25,9 +25,12 @@ const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
 const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
 const u8 gText_QuestLogTitleRewards[] = _("REWARDS");
 const u8 gText_QuestLogTitlePinned[] = _("Pinned");
-const u8 gText_QuestLogTitleActive[] = _("Active");
+const u8 gText_QuestLogTitleActive[] = _("In progress");
 const u8 gText_QuestLogTitleInactive[] = _("Inactive");
+const u8 gText_QuestLogTitleComplete[] = _("Complete");
+const u8 gText_QuestLogTitleTodo[] = _("To do");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
+
 const u8 gText_QuestLogTitleStatusIncomplete[] = _("INCOMPLETE");
 const u8 gText_QuestLogTitleStatusComplete[] = _("COMPLETE");
 const u8 gText_QuestLogTitleStatusCollection[] = _("READY TO COLLECT");

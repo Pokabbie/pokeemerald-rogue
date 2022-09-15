@@ -29,6 +29,8 @@
 #include "party_menu.h"
 
 #include "rogue.h"
+#include "rogue_controller.h"
+#include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
 /*
@@ -160,6 +162,8 @@
 #define MENU_PAGE_PINNED_QUESTS 1
 #define MENU_PAGE_ACTIVE_QUESTS 2
 #define MENU_PAGE_INACTIVE_QUESTS 3
+#define MENU_PAGE_COMPLETED_QUESTS 4
+#define MENU_PAGE_TODO_QUESTS 5
 
 #define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
 
@@ -168,6 +172,8 @@ extern const u8 gText_QuestLogTitleOverview[];
 extern const u8 gText_QuestLogTitlePinned[];
 extern const u8 gText_QuestLogTitleActive[];
 extern const u8 gText_QuestLogTitleInactive[];
+extern const u8 gText_QuestLogTitleComplete[];
+extern const u8 gText_QuestLogTitleTodo[];
 
 static EWRAM_DATA struct
 {
@@ -189,6 +195,8 @@ static EWRAM_DATA struct
 static EWRAM_DATA struct {
     u16 listOffset;
     u16 listRow;
+    u16 prevListOffset;
+    u16 prevListRow;
     bool8 showQuestRewards;
 } sQuestMenuMenuSate = {0};
 
@@ -200,6 +208,8 @@ static const u8* const sQuestMenuPageTitles[] =
     [MENU_PAGE_PINNED_QUESTS] = gText_QuestLogTitlePinned,
     [MENU_PAGE_ACTIVE_QUESTS] = gText_QuestLogTitleActive,
     [MENU_PAGE_INACTIVE_QUESTS] = gText_QuestLogTitleInactive,
+    [MENU_PAGE_COMPLETED_QUESTS] = gText_QuestLogTitleComplete,
+    [MENU_PAGE_TODO_QUESTS] = gText_QuestLogTitleTodo,
 };
 
 static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -405,23 +415,82 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 
 static void GatherOptionsToDisplay()
 {
+    u16 i;
+    struct RogueQuestState state;
+
     switch(sQuestMenuStruct->currentPage)
     {
         case MENU_PAGE_PINNED_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && state.isPinned)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
+
         case MENU_PAGE_ACTIVE_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && state.isValid)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
+
         case MENU_PAGE_INACTIVE_QUESTS:
-            sQuestMenuStruct->numMenuChoices = 4;
-            sQuestMenuStruct->optionsToDisplay[0] = QUEST_Testing1;
-            sQuestMenuStruct->optionsToDisplay[1] = QUEST_Testing2;
-            sQuestMenuStruct->optionsToDisplay[2] = QUEST_Electric_Master;
-            sQuestMenuStruct->optionsToDisplay[3] = QUEST_Electric_Champion;
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && !state.isValid)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
+
+        case MENU_PAGE_COMPLETED_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && state.isCompleted)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
+
+        case MENU_PAGE_TODO_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && !state.isCompleted)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
             break;
             
          default: // MENU_PAGE_OVERVIEW
-            sQuestMenuStruct->numMenuChoices = 3;
-            sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
-            sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_ACTIVE_QUESTS;
-            sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_INACTIVE_QUESTS;
+            if(Rogue_IsRunActive())
+            {
+                sQuestMenuStruct->numMenuChoices = 4;
+                sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_ACTIVE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_INACTIVE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[3] = MENU_PAGE_COMPLETED_QUESTS;
+            }
+            else
+            {
+                sQuestMenuStruct->numMenuChoices = 3;
+                sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_TODO_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_COMPLETED_QUESTS;
+            }
             break;
 
     };
@@ -489,11 +558,24 @@ static void RecreateOptionsForPage(u8 pageId)
     sQuestMenuMenuSate.showQuestRewards = FALSE;
     
     CreateOptionsDisplayList();
-
-    sQuestMenuMenuSate.listOffset = 0;
-    sQuestMenuMenuSate.listRow = 0;
     
     DestroyListMenuTask(sQuestMenuStruct->listMenuTask, &sQuestMenuMenuSate.listOffset, &sQuestMenuMenuSate.listRow);
+
+    if(pageId == MENU_PAGE_OVERVIEW)
+    {
+        // Restore prev menu position
+        sQuestMenuMenuSate.listOffset = sQuestMenuMenuSate.prevListOffset;
+        sQuestMenuMenuSate.listRow = sQuestMenuMenuSate.prevListRow;
+    }
+    else
+    {
+        // Store menu position
+        sQuestMenuMenuSate.prevListOffset = sQuestMenuMenuSate.listOffset;
+        sQuestMenuMenuSate.prevListRow = sQuestMenuMenuSate.listRow;
+        sQuestMenuMenuSate.listOffset = 0;
+        sQuestMenuMenuSate.listRow = 0;
+    }
+
     sQuestMenuStruct->listMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sQuestMenuMenuSate.listOffset, sQuestMenuMenuSate.listRow);
 }
 

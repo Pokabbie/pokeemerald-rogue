@@ -6,6 +6,19 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .desc = _("-"),
         .flags = QUEST_FLAGS_NONE
     },
+    [QUEST_FirstAdventure] = 
+    {
+        .title = _("To adventure!"),
+        .desc = _(
+                    "Embark on your first\n"
+                    "adventure!"
+                ),
+        .flags = QUEST_FLAGS_REPEATABLE | QUEST_FLAGS_GLOBALALLY_TRACKED,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } } 
+        }
+    },
     [QUEST_Testing1] = 
     {
         .title = _("Test Quest 1"),

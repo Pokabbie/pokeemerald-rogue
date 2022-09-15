@@ -6,6 +6,8 @@ void ResetQuestState(u16 startQuestId);
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState);
 void SetQuestState(u16 questId, struct RogueQuestState* state);
 
+bool8 IsQuestRepeatable(u16 questId);
+
 void QuestNotify_BeginAdventure(void);
 void QuestNotify_EndAdventure(void);
 
