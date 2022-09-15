@@ -48,7 +48,7 @@
  *     is called (see sQuestMenuMovesListTemplate). That callback will reload the contest
  *     display and battle display windows for the new move. Both are always loaded in
  *     memory, but only the currently active one is copied to VRAM. The exception to this
- *     is the appeal and jam hearts, which are sprites. QuestMenuShowHideHearts is called
+ *     is the appeal and jam hearts, which are sprites. QuestMenuShowPinSprites is called
  *     while reloading the contest display to control them.
  * DoQuestMenuMain: MENU_STATE_FADE_TO_BLACK
  * DoQuestMenuMain: MENU_STATE_WAIT_FOR_FADE
@@ -186,7 +186,7 @@ static EWRAM_DATA struct
 {
     u8 state;
     u8 currentPage;
-    u8 heartSpriteIds[16];                               /*0x001*/
+    u8 pinSpriteIds[2];                               /*0x001*/
     u16 optionsToDisplay[MAX_QUESTS_TO_SHOW];               /*0x01A*/
     u8 partyMon;                                         /*0x044*/
     u8 moveSlot;                                         /*0x045*/
@@ -227,7 +227,7 @@ static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_lea
 static const u8 sQuestMenuSpriteSheetData[] = INCBIN_U8("graphics/interface/ui_learn_move.4bpp");
 
 
-static const struct OamData sHeartSpriteOamData =
+static const struct OamData sQuestPinOamData =
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -353,11 +353,11 @@ static const union AnimCmd *const sHeartSpriteAnimationCommands[] =
     [JAM_HEART_FULL] = sHeartSprite_JamFullFrame,
 };
 
-static const struct SpriteTemplate sConstestMoveHeartSprite =
+static const struct SpriteTemplate sQuestPinSprite =
 {
     .tileTag = 5525,
     .paletteTag = 5526,
-    .oam = &sHeartSpriteOamData,
+    .oam = &sQuestPinOamData,
     .anims = sHeartSpriteAnimationCommands,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -399,8 +399,7 @@ static void ShowTeachMoveText(u8);
 static s32 GetCurrentOptionMove(void);
 static void FreeQuestMenuResources(void);
 static void RemoveScrollArrows(void);
-static void QuestMenuShowHideHearts(s32 moveId);
-static void HideHeartSpritesAndShowTeachMoveText(bool8);
+static void QuestMenuShowPinSprites(s32 moveId);
 
 static void PrintPromptForCurrentPage();
 static void RecreateOptionsForPage(u8 pageId);
@@ -670,7 +669,7 @@ static void DoQuestMenuMain(void)
         break;
     case MENU_STATE_SETUP_QUEST_DESC:
 
-        HideHeartSpritesAndShowTeachMoveText(FALSE);
+        //HideHeartSpritesAndShowTeachMoveText(FALSE);
         sQuestMenuStruct->state++;
         AddScrollArrows();
         break;
@@ -702,6 +701,8 @@ static void DoQuestMenuMain(void)
             {
                 state.isPinned = !state.isPinned;
                 SetQuestState(questId, &state);
+
+                QuestMenuShowPinSprites(GetCurrentOptionMove());
             }
             //else if (selection == MENU_B_PRESSED || selection == 1)
             //{
@@ -717,6 +718,7 @@ static void DoQuestMenuMain(void)
                 {
                     sQuestMenuStruct->state = MENU_STATE_SETUP_QUEST_REWARD;
                 }
+                
                 PrintPromptForCurrentPage();
             }
         }
@@ -864,7 +866,7 @@ static void DoQuestMenuMain(void)
         sQuestMenuStruct->state++;
         if (sQuestMenuMenuSate.showQuestRewards == FALSE)
         {
-            HideHeartSpritesAndShowTeachMoveText(TRUE);
+            //HideHeartSpritesAndShowTeachMoveText(TRUE);
         }
         else if (sQuestMenuMenuSate.showQuestRewards == TRUE)
         {
@@ -935,25 +937,6 @@ static void FreeQuestMenuResources(void)
     FreeAllSpritePalettes();
 }
 
-// Note: The hearts are already made invisible by QuestMenuShowHideHearts,
-// which is called whenever the cursor in either list changes.
-static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
-{
-    s32 i;
-
-    for (i = 0; i < 16; i++)
-    {
-        gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
-    }
-
-    //if (!onlyHideSprites)
-    //{
-    //    StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-    //    FillWindowPixelBuffer(3, 0x11);
-    //    AddTextPrinterParameterized(3, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
-    //}
-}
-
 static void HandleInput(bool8 showRewards)
 {
     struct RogueQuestState state;
@@ -990,7 +973,6 @@ static void HandleInput(bool8 showRewards)
         }
 
         ScheduleBgCopyTilemapToVram(1);
-        QuestMenuShowHideHearts(GetCurrentOptionMove());
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
@@ -1013,7 +995,6 @@ static void HandleInput(bool8 showRewards)
             RecreateOptionsForPage(itemId);
 
             ScheduleBgCopyTilemapToVram(1);
-            QuestMenuShowHideHearts(GetCurrentOptionMove());
         }
         else if(GetQuestState(itemId, &state))
         {
@@ -1028,6 +1009,8 @@ static void HandleInput(bool8 showRewards)
         }
         break;
     }
+
+    QuestMenuShowPinSprites(GetCurrentOptionMove());
 }
 
 static s32 GetCurrentOptionMove(void)
@@ -1039,7 +1022,7 @@ static s32 GetCurrentOptionMove(void)
 // this was the inverse of HideHeartsAndShowTeachMoveText), but the
 // code was commented out. The bool argument would have been named
 // "justShowHearts." The code for showing/hiding the heards was moved
-// to QuestMenuShowHideHearts, which is called whenever a new move is
+// to QuestMenuShowPinSprites, which is called whenever a new move is
 // selected and whenever the display mode changes.
 static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 {
@@ -1053,30 +1036,21 @@ static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 
 static void CreateUISprites(void)
 {
-    int i;
-
     sQuestMenuStruct->moveDisplayArrowTask = TASK_NONE;
     sQuestMenuStruct->moveListScrollArrowTask = TASK_NONE;
     AddScrollArrows();
 
-    // These are the appeal hearts.
-    for (i = 0; i < 8; i++)
-    {
-        sQuestMenuStruct->heartSpriteIds[i] = CreateSprite(&sConstestMoveHeartSprite, (i - (i / 4) * 4) * 8 + 104, (i / 4) * 8 + 36, 0);
-    }
+    // Unpin sprite
+    sQuestMenuStruct->pinSpriteIds[0] = CreateSprite(&sQuestPinSprite, 15, 15, 0);
+    StartSpriteAnim(&gSprites[sQuestMenuStruct->pinSpriteIds[0]], 2);
 
-    // These are the jam harts.
-    // The animation is used to toggle between full/empty heart sprites.
-    for (i = 0; i < 8; i++)
-    {
-        sQuestMenuStruct->heartSpriteIds[i + 8] = CreateSprite(&sConstestMoveHeartSprite, (i - (i / 4) * 4) * 8 + 104, (i / 4) * 8 + 52, 0);
-        StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]], 2);
-    }
+    // Pin sprite
+    sQuestMenuStruct->pinSpriteIds[1] = CreateSprite(&sQuestPinSprite, 15, 15, 0);
+    StartSpriteAnim(&gSprites[sQuestMenuStruct->pinSpriteIds[1]], 1);
 
-    for (i = 0; i < 16; i++)
-    {
-        gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
-    }
+    
+    gSprites[sQuestMenuStruct->pinSpriteIds[0]].invisible = TRUE;
+    gSprites[sQuestMenuStruct->pinSpriteIds[1]].invisible = TRUE;
 }
 
 static void AddScrollArrows(void)
@@ -1141,58 +1115,30 @@ static void CreateOptionsDisplayList(void)
     sQuestMenuStruct->numToShowAtOnce = LoadQuestMenuMovesList(sQuestMenuStruct->menuItems, sQuestMenuStruct->numMenuChoices);
 }
 
-static void QuestMenuShowHideHearts(s32 moveId)
+static void QuestMenuShowPinSprites(s32 questId)
 {
-    u16 numHearts;
-    u16 i;
+    u8 i;
 
-    if (!sQuestMenuMenuSate.showQuestRewards || moveId == LIST_CANCEL)
+    if(Rogue_IsQuestMenuOverviewActive())
     {
-        for (i = 0; i < 16; i++)
+        for (i = 0; i < ARRAY_COUNT(sQuestMenuStruct->pinSpriteIds); i++)
         {
-            gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
+            gSprites[sQuestMenuStruct->pinSpriteIds[i]].invisible = TRUE;
         }
     }
     else
     {
-        numHearts = (u8)(gContestEffects[gContestMoves[moveId].effect].appeal / 10);
+        struct RogueQuestState state;
 
-        if (numHearts == 0xFF)
+        if(GetQuestState(questId, &state) && state.isPinned)
         {
-            numHearts = 0;
+            gSprites[sQuestMenuStruct->pinSpriteIds[0]].invisible = TRUE;
+            gSprites[sQuestMenuStruct->pinSpriteIds[1]].invisible = FALSE;
         }
-
-        for (i = 0; i < 8; i++)
+        else
         {
-            if (i < numHearts)
-            {
-                StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i]], 1);
-            }
-            else
-            {
-                StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i]], 0);
-            }
-            gSprites[sQuestMenuStruct->heartSpriteIds[i]].invisible = TRUE;
-        }
-
-        numHearts = (u8)(gContestEffects[gContestMoves[moveId].effect].jam / 10);
-
-        if (numHearts == 0xFF)
-        {
-            numHearts = 0;
-        }
-
-        for (i = 0; i < 8; i++)
-        {
-            if (i < numHearts)
-            {
-                StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]], 3);
-            }
-            else
-            {
-                StartSpriteAnim(&gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]], 2);
-            }
-            gSprites[sQuestMenuStruct->heartSpriteIds[i + 8]].invisible = TRUE;
+            gSprites[sQuestMenuStruct->pinSpriteIds[0]].invisible = FALSE;
+            gSprites[sQuestMenuStruct->pinSpriteIds[1]].invisible = TRUE;
         }
     }
 }

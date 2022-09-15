@@ -36,7 +36,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
     {
         .title = _("Gym Master"),
         .desc = _(
-                    "Defeat all 8"
+                    "Defeat all 8\n"
                     "GYM leaders."
                 ),
         .flags = QUEST_FLAGS_REPEATABLE,
