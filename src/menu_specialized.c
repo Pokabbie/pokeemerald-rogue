@@ -1112,9 +1112,9 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
         if(quest->rewards[i].type == QUEST_REWARD_NONE)
             break;
 
-        if(quest->rewards[i].customText)
+        if(quest->rewards[i].previewText)
         {
-            str = quest->rewards[i].customText;
+            str = quest->rewards[i].previewText;
         }
         else
         {
@@ -1151,12 +1151,17 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
     if(questState.isCompleted)
     {
         if(questState.hasPendingRewards)
+        {
             str = gText_QuestLogTitleStatusCollection;
-        else
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
+        else if(!IsQuestRepeatable(chosenQuest))
+        {
             str = gText_QuestLogTitleStatusCollected;
-
-        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
-        AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
     }
 
 }

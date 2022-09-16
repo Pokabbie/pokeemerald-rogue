@@ -6,6 +6,7 @@
 #define QUEST_TITLE_LENGTH 16
 #define QUEST_DESC_LENGTH 84
 
+#define  QUEST_MAX_REWARD_COUNT     3
 
 #define  QUEST_REWARD_NONE          0
 #define  QUEST_REWARD_SET_FLAG      1 // Params(1): flag

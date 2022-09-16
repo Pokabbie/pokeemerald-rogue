@@ -468,9 +468,17 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_COMPLETED_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
+            // Place quests which have pending rewards to the top
             for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
             {
-                if(GetQuestState(i, &state) && state.isCompleted)
+                if(GetQuestState(i, &state) && state.isCompleted && state.hasPendingRewards)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && state.isCompleted && !state.hasPendingRewards)
                 {
                     sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
                 }

@@ -44,6 +44,9 @@ const u8 gText_QuestLogPromptPinQuest[] = _("Pin this Quest?");
 const u8 gText_QuestLogPromptUnpinQuest[] = _("Unpin this Quest?");
 const u8 gText_QuestLogBack[] = _("Back");
 
+const u8 gText_QuestRewardGive[] = _("Recieved {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
+
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Save[] = _("\nSave: ");

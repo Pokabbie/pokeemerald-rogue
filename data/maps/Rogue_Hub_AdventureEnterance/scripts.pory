@@ -113,6 +113,10 @@ script Rogue_Adventure_ScottGift
     releaseall
 }
 
+const VAR_QUEST_REWARD_TYPE = VAR_0x8004
+const VAR_QUEST_REWARD_PARAM0 = VAR_0x8005
+const VAR_QUEST_REWARD_PARAM1 = VAR_0x8006
+
 script Rogue_Adventure_SpeakScott
 {
     lock
@@ -124,7 +128,26 @@ script Rogue_Adventure_SpeakScott
     }
     else
     {
-        msgbox(format("SCOTT: Hey {PLAYER}!\pAdventuring sure is fun huh!"))
+        // Check for quest rewards
+        nextquestreward
+        if(var(VAR_RESULT) == TRUE)
+        {
+            msgbox(format("SCOTT: Hey {PLAYER}!\pI have some Quest Rewards for you!"))
+            while(var(VAR_RESULT) == TRUE)
+            {
+                playse(SE_SHOP)
+                msgbox("{STR_VAR_3}")
+                waitse
+
+                nextquestreward
+            }
+
+            msgbox(format("And that's all for the moment!\pGood luck with your next Adventure champ!"))
+        }
+        else
+        {
+            msgbox(format("SCOTT: Hey {PLAYER}!\pBe sure to come and chat with me once you complete Quests so I can give you your rewards!"))
+        }
     }
 
     release

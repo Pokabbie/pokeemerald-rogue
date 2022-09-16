@@ -1,4 +1,5 @@
-static const u8 gText_UnlocksQuests[] = _("Additional Quests");
+static const u8 gText_PreviewUnlocksBuilding[] = _("New HUB Building");
+static const u8 gText_GiveUnlocksBuilding[] = _("New HUB Building Unlocked!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
 {
@@ -18,7 +19,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } } 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBuilding },
         }
     },
     [QUEST_GymChallenge] = 

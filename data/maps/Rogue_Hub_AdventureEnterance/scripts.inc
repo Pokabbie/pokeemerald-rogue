@@ -92,7 +92,10 @@ Rogue_Adventure_SpeakScott::
 	faceplayer
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
 	goto_if_le Rogue_Adventure_SpeakScott_2
-	msgbox Rogue_Adventure_SpeakScott_Text_1
+	nextquestreward
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Adventure_SpeakScott_5
+	msgbox Rogue_Adventure_SpeakScott_Text_4
 Rogue_Adventure_SpeakScott_1:
 	release
 	return
@@ -100,6 +103,21 @@ Rogue_Adventure_SpeakScott_1:
 Rogue_Adventure_SpeakScott_2:
 	msgbox Rogue_Adventure_SpeakScott_Text_0
 	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_5:
+	msgbox Rogue_Adventure_SpeakScott_Text_1
+Rogue_Adventure_SpeakScott_9:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Adventure_SpeakScott_10
+	msgbox Rogue_Adventure_SpeakScott_Text_3
+	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_10:
+	playse SE_SHOP
+	msgbox Rogue_Adventure_SpeakScott_Text_2
+	waitse
+	nextquestreward
+	goto Rogue_Adventure_SpeakScott_9
 
 
 Rogue_Adventure_ScottIntroMovement0:
@@ -529,7 +547,21 @@ Rogue_Adventure_SpeakScott_Text_0:
 
 Rogue_Adventure_SpeakScott_Text_1:
 	.string "SCOTT: Hey {PLAYER}!\p"
-	.string "Adventuring sure is fun huh!$"
+	.string "I have some Quest Rewards for you!$"
+
+Rogue_Adventure_SpeakScott_Text_2:
+	.string "{STR_VAR_3}$"
+
+Rogue_Adventure_SpeakScott_Text_3:
+	.string "And that's all for the moment!\p"
+	.string "Good luck with your next Adventure\n"
+	.string "champ!$"
+
+Rogue_Adventure_SpeakScott_Text_4:
+	.string "SCOTT: Hey {PLAYER}!\p"
+	.string "Be sure to come and chat with me once\n"
+	.string "you complete Quests so I can give you\l"
+	.string "your rewards!$"
 
 Rogue_Adventure_StatsSign_Text_0:
 	.string "Furthest Progress:\n"

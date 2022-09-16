@@ -11,6 +11,8 @@ bool8 IsQuestRepeatable(u16 questId);
 bool8 IsQuestGloballyTracked(u16 questId);
 bool8 DoesQuestHaveUnlocks(u16 questId);
 
+bool8 GiveNextRewardAndFormat(u8* str);
+
 void QuestNotify_BeginAdventure(void);
 void QuestNotify_EndAdventure(void);
 

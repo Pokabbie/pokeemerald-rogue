@@ -75,7 +75,8 @@ script RogueHub_OnMapLoad
     }
 
     // Shop
-    if(var(VAR_ROGUE_INTRO_STATE) <= 4) // i.e. has been on an adventure
+    questcollected(QUEST_FirstAdventure)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(31, 10, 40, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER0)
@@ -89,7 +90,7 @@ script RogueHub_OnMapLoad
     }
 
     // Safari Zone
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 2)
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
     {
         fillmetatile(1, 3, 14, 10, METATILE_Grass, FALSE)
         fillmetatile(1, 11, 12, 11, METATILE_Grass, FALSE)
@@ -105,7 +106,7 @@ script RogueHub_OnMapLoad
     }
 
     // Bike Shop
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 3)
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
     {
         fillmetatile(22, 12, 27, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER1)
@@ -116,7 +117,7 @@ script RogueHub_OnMapLoad
     }
 
     // Tutor area
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 5)
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
     {
         fillmetatile(42, 14, 48, 19, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER2)
@@ -127,7 +128,7 @@ script RogueHub_OnMapLoad
     }
 
     // Bank
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
+    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
     {
         fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER3)

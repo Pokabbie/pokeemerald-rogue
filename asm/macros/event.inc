@@ -1989,3 +1989,20 @@
 	setvar VAR_0x8006, \item
 	special CreateEventLegalEnemyMon
 	.endm
+
+	@ Checks if a quest has been completed
+	.macro questcompleted questId:req
+	.byte 0xea
+	.2byte \questId
+	.endm
+
+	@ Checks if a quest has been completed and rewards have been collected
+	.macro questcollected questId:req
+	.byte 0xeb
+	.2byte \questId
+	.endm
+
+	@ Fills special vars with the next quest reward params to give to the player
+	.macro nextquestreward
+	.byte 0xec
+	.endm

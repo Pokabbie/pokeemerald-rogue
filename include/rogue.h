@@ -49,17 +49,12 @@ struct RogueAdvPath
     struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
 };
 
-struct RogueQuestRewardNone
-{
-    u8 rewardType;
-    const u8* text;
-};
-
-struct RogueQuestRewards
+struct RogueQuestReward
 {
     u8 type;
     u16 params[2];
-    const u8* customText;
+    const u8* previewText;
+    const u8* giveText;
 };
 
 struct RogueQuestConstants
@@ -67,7 +62,7 @@ struct RogueQuestConstants
     const u8 title[QUEST_TITLE_LENGTH];
     const u8 desc[QUEST_DESC_LENGTH];
     const u16 flags;
-    struct RogueQuestRewards rewards[3];
+    struct RogueQuestReward rewards[QUEST_MAX_REWARD_COUNT];
     const u16 unlockedQuests[38];
 };
 

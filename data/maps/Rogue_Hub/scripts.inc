@@ -35,24 +35,25 @@ RogueHub_OnTransition_6:
 RogueHub_OnMapLoad::
 	goto_if_set FLAG_ROGUE_DEBUG_DISABLED, RogueHub_OnMapLoad_2
 RogueHub_OnMapLoad_1:
-	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_le RogueHub_OnMapLoad_5
+	questcollected QUEST_FirstAdventure
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_5
 	clearflag FLAG_ROGUE_TRAINER0
 RogueHub_OnMapLoad_4:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
-	goto_if_lt RogueHub_OnMapLoad_9
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
+	goto_if_ne RogueHub_OnMapLoad_9
 	clearflag FLAG_ROGUE_TRAINER4
 RogueHub_OnMapLoad_8:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
-	goto_if_lt RogueHub_OnMapLoad_13
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
+	goto_if_ne RogueHub_OnMapLoad_13
 	clearflag FLAG_ROGUE_TRAINER1
 RogueHub_OnMapLoad_12:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
-	goto_if_lt RogueHub_OnMapLoad_17
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
+	goto_if_ne RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_16:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
-	goto_if_lt RogueHub_OnMapLoad_21
+	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
+	goto_if_ne RogueHub_OnMapLoad_21
 	clearflag FLAG_ROGUE_TRAINER3
 	clearflag FLAG_ROGUE_TRAINER5
 	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_26
