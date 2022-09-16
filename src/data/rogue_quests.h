@@ -1,3 +1,5 @@
+static const u8 gText_UnlocksQuests[] = _("Additional Quests");
+
 const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
 {
     [QUEST_NONE] = 
@@ -43,6 +45,10 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
+        },
+        .unlockedQuests = { 
+            QUEST_Electric_Master, 
+            QUEST_Electric_Champion
         }
     },
     [QUEST_EliteMaster] = 

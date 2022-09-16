@@ -68,6 +68,7 @@ struct RogueQuestConstants
     const u8 desc[QUEST_DESC_LENGTH];
     const u16 flags;
     struct RogueQuestRewards rewards[3];
+    const u16 unlockedQuests[38];
 };
 
 struct RogueQuestState
@@ -77,6 +78,7 @@ struct RogueQuestState
     u8 isValid : 1;
     u8 isPinned : 1;
     u8 hasPendingRewards : 1;
+    u8 hasNewMarker : 1;
 };
 
 struct RogueQuestData
@@ -164,16 +166,6 @@ struct SpeciesTable
     const u16* wildSpecies;
     u8 trainerSpeciesCount;
     const u16* trainerSpecies;
-    ///*0x00*/ u8 partyFlags;
-    ///*0x01*/ u8 trainerClass;
-    ///*0x02*/ u8 encounterMusic_gender; // last bit is gender
-    ///*0x03*/ u8 trainerPic;
-    ///*0x04*/ u8 trainerName[12];
-    ///*0x10*/ u16 items[MAX_TRAINER_ITEMS];
-    ///*0x18*/ bool8 doubleBattle;
-    ///*0x1C*/ u32 aiFlags;
-    ///*0x20*/ u8 partySize;
-    ///*0x24*/ union TrainerMonPtr party;
 };
 
 struct RogueMonPreset

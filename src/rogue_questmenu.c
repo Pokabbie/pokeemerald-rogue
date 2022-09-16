@@ -165,6 +165,7 @@
 #define MENU_PAGE_COMPLETED_QUESTS 4
 #define MENU_PAGE_TODO_QUESTS 5
 #define MENU_PAGE_REPEATABLE_QUESTS 6
+#define MENU_PAGE_NEW_QUESTS 7
 
 #define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
 
@@ -176,6 +177,7 @@ extern const u8 gText_QuestLogTitleInactive[];
 extern const u8 gText_QuestLogTitleComplete[];
 extern const u8 gText_QuestLogTitleTodo[];
 extern const u8 gText_QuestLogTitleRepeatable[];
+extern const u8 gText_QuestLogTitleNew[];
 
 extern const u8 gText_QuestLogPromptOverview[];
 extern const u8 gText_QuestLogPromptCategory[];
@@ -218,6 +220,7 @@ static const u8* const sQuestMenuPageTitles[] =
     [MENU_PAGE_COMPLETED_QUESTS] = gText_QuestLogTitleComplete,
     [MENU_PAGE_TODO_QUESTS] = gText_QuestLogTitleTodo,
     [MENU_PAGE_REPEATABLE_QUESTS] = gText_QuestLogTitleRepeatable,
+    [MENU_PAGE_NEW_QUESTS] = gText_QuestLogTitleNew,
 };
 
 static const u16 sQuestMenuPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -495,23 +498,41 @@ static void GatherOptionsToDisplay()
                 }
             }
             break;
+
+        case MENU_PAGE_NEW_QUESTS:
+            sQuestMenuStruct->numMenuChoices = 0;
+            for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+            {
+                if(GetQuestState(i, &state) && state.hasNewMarker)
+                {
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                }
+            }
+            break;
             
          default: // MENU_PAGE_OVERVIEW
+            sQuestMenuStruct->numMenuChoices = 0;
             if(Rogue_IsRunActive())
             {
-                sQuestMenuStruct->numMenuChoices = 4;
-                sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_ACTIVE_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_INACTIVE_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[3] = MENU_PAGE_COMPLETED_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_PINNED_QUESTS;
+
+                if(AnyNewQuests())
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_NEW_QUESTS;
+
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_ACTIVE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_INACTIVE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_COMPLETED_QUESTS;
             }
             else
             {
-                sQuestMenuStruct->numMenuChoices = 4;
-                sQuestMenuStruct->optionsToDisplay[0] = MENU_PAGE_PINNED_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[1] = MENU_PAGE_TODO_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[2] = MENU_PAGE_REPEATABLE_QUESTS;
-                sQuestMenuStruct->optionsToDisplay[3] = MENU_PAGE_COMPLETED_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_PINNED_QUESTS;
+
+                if(AnyNewQuests())
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_NEW_QUESTS;
+
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_TODO_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_REPEATABLE_QUESTS;
+                sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = MENU_PAGE_COMPLETED_QUESTS;
             }
             break;
 
@@ -1129,8 +1150,20 @@ static void QuestMenuShowPinSprites(s32 questId)
     else
     {
         struct RogueQuestState state;
+        bool8 isPinned = FALSE;
 
-        if(GetQuestState(questId, &state) && state.isPinned)
+        if(GetQuestState(questId, &state))
+        {
+            isPinned = state.isPinned;
+            if(state.hasNewMarker)
+            {
+                // This quest has now been viewed
+                state.hasNewMarker = FALSE;
+                SetQuestState(questId, &state);
+            }
+        }
+
+        if(isPinned)
         {
             gSprites[sQuestMenuStruct->pinSpriteIds[0]].invisible = TRUE;
             gSprites[sQuestMenuStruct->pinSpriteIds[1]].invisible = FALSE;

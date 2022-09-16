@@ -8,7 +8,7 @@ extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
 
 typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
 
-static void UnlockQuest(u16 questId);
+static void TryUnlockQuest(u16 questId);
 static void TryMarkQuestAsComplete(u16 questId);
 static void UnlockFollowingQuests(u16 questId);
 
@@ -25,8 +25,25 @@ void ResetQuestState(u16 startQuestId)
     // These quests must always be unlocked
     for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
     {
-        UnlockQuest(i);
+        TryUnlockQuest(i);
     }
+}
+
+bool8 AnyNewQuests(void)
+{
+    u16 i;
+    struct RogueQuestState* state;
+
+    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    {
+        state = &gRogueQuestData.questStates[i];
+        if(state->isUnlocked && state->hasNewMarker)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
@@ -58,7 +75,12 @@ bool8 IsQuestGloballyTracked(u16 questId)
     return (gRogueQuests[questId].flags & QUEST_FLAGS_GLOBALALLY_TRACKED) != 0;
 }
 
-static void UnlockQuest(u16 questId)
+bool8 DoesQuestHaveUnlocks(u16 questId)
+{
+    return gRogueQuests[questId].unlockedQuests[0] != QUEST_NONE;
+}
+
+static void TryUnlockQuest(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
 
@@ -67,6 +89,7 @@ static void UnlockQuest(u16 questId)
         state->isUnlocked = TRUE;
         state->isValid = FALSE;
         state->isCompleted = FALSE;
+        state->hasNewMarker = TRUE;
     }
 }
 static void TryMarkQuestAsComplete(u16 questId)
@@ -94,16 +117,18 @@ static void TryMarkQuestAsComplete(u16 questId)
 
 static void UnlockFollowingQuests(u16 questId)
 {
-    switch(questId)
+    u8 i;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueQuests[questId].unlockedQuests); ++i)
     {
-        case QUEST_GymMaster:
-            UnlockQuest(QUEST_Electric_Master);
-            UnlockQuest(QUEST_Electric_Champion);
+        if(gRogueQuests[questId].unlockedQuests[i] == QUEST_NONE)
             break;
+
+        TryUnlockQuest(gRogueQuests[questId].unlockedQuests[i]);
     }
 }
 
-static void ForEachQuest(QuestCallback callback)
+static void ForEachUnlockedQuest(QuestCallback callback)
 {
     u16 i;
     struct RogueQuestState* state;
@@ -111,7 +136,10 @@ static void ForEachQuest(QuestCallback callback)
     for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
-        callback(i, state);
+        if(state->isUnlocked)
+        {
+            callback(i, state);
+        }
     }
 }
 
@@ -162,7 +190,7 @@ static void DeactivateQuest(u16 questId)
 
 void QuestNotify_BeginAdventure(void)
 {
-    ForEachQuest(ActivateQuestIfNeeded);
+    ForEachUnlockedQuest(ActivateQuestIfNeeded);
 
     // Handle skip difficulty
     if(gRogueRun.currentDifficulty > 0)
@@ -182,7 +210,7 @@ void QuestNotify_EndAdventure(void)
 {
     TryMarkQuestAsComplete(QUEST_FirstAdventure);
 
-    ForEachQuest(DeactivateQuestIfNeeded);
+    ForEachUnlockedQuest(DeactivateQuestIfNeeded);
 }
 
 void QuestNotify_OnWildBattleEnd(void)
@@ -198,7 +226,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
             TryMarkQuestAsComplete(QUEST_GymChallenge);
 
         if(gRogueRun.currentDifficulty >= 8)
-            TryMarkQuestAsComplete(QUEST_GymChallenge);
+            TryMarkQuestAsComplete(QUEST_GymMaster);
 
         if(gRogueRun.currentDifficulty >= 12)
             TryMarkQuestAsComplete(QUEST_EliteMaster);

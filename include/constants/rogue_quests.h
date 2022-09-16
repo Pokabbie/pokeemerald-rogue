@@ -12,6 +12,7 @@
 #define  QUEST_REWARD_CLEAR_FLAG    2 // Params(1): flag
 #define  QUEST_REWARD_GIVE_ITEM     3 // Params(2): item, count
 #define  QUEST_REWARD_GIVE_MONEY    4 // Params(2): amount
+#define  QUEST_REWARD_CUSTOM_TEXT   5 // Params(0)
 
 
 #define QUEST_NONE                  0

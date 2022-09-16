@@ -1032,6 +1032,7 @@ extern const u8 gText_QuestLogTitleStatusComplete[];
 extern const u8 gText_QuestLogTitleStatusCollection[];
 extern const u8 gText_QuestLogTitleStatusCollected[];
 extern const u8 gText_QuestLogTitleRewardMoney[];
+extern const u8 gText_QuestLogTitleQuestUnlocks[];
 
 static void QuestMenuOverview(u8 windowId)
 {
@@ -1111,7 +1112,6 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
         if(quest->rewards[i].type == QUEST_REWARD_NONE)
             break;
 
-        
         if(quest->rewards[i].customText)
         {
             str = quest->rewards[i].customText;
@@ -1138,6 +1138,13 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
             }
         }
 
+        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
+    }
+
+    // Add extra text to indicate new quests are unlockable
+    if(DoesQuestHaveUnlocks(chosenQuest))
+    {
+        str = gText_QuestLogTitleQuestUnlocks;
         AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
     }
 
