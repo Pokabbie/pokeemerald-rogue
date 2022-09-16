@@ -113,8 +113,12 @@ static bool8 QueueTargetRewardQuest()
             {
                 sRewardQuest = i;
                 sRewardParam = 0;
-
+                UnlockFollowingQuests(sRewardQuest);
                 // TODO - Check to see if we have enough space for all of these items
+            }
+            else
+            {
+                ++sRewardParam;
             }
             return TRUE;
         }
@@ -141,7 +145,6 @@ static bool8 QueueNextReward()
         }
         else
         {
-            ++sRewardParam;
             return TRUE;
         }
     }
@@ -168,7 +171,10 @@ static bool8 GiveAndGetNextAnnouncedReward()
                 break;
 
             case QUEST_REWARD_GIVE_ITEM:
-                AddBagItem(reward->params[0], reward->params[1]);
+                if(!AddBagItem(reward->params[0], reward->params[1]))
+                {
+                    AddPCItem(reward->params[0], reward->params[1]);
+                }
                 shouldAnnounce = TRUE;
                 break;
 
@@ -252,9 +258,6 @@ static void TryMarkQuestAsComplete(u16 questId)
             // First time finishing
             state->isCompleted = TRUE;
             state->hasPendingRewards = TRUE;
-
-            // TODO - Unlock quests on collection
-            //UnlockFollowingQuests(questId);
         }
         else if(IsQuestRepeatable(questId))
         {

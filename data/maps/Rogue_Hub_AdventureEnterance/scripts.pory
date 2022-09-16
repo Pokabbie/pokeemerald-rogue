@@ -142,7 +142,16 @@ script Rogue_Adventure_SpeakScott
                 nextquestreward
             }
 
-            msgbox(format("And that's all for the moment!\pGood luck with your next Adventure champ!"))
+            msgbox(format("And that's all for the moment!"))
+
+            // Check if our bag got full
+            checkitemspace(ITEM_REVIVE)
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Looks like you have a full bag there.\pBe sure to check your PC as some rewards may turn up there."))
+            }
+
+            msgbox(format("Good luck with your next Adventure champ!"))
         }
         else
         {

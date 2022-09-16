@@ -95,7 +95,7 @@ Rogue_Adventure_SpeakScott::
 	nextquestreward
 	compare VAR_RESULT, TRUE
 	goto_if_eq Rogue_Adventure_SpeakScott_5
-	msgbox Rogue_Adventure_SpeakScott_Text_4
+	msgbox Rogue_Adventure_SpeakScott_Text_6
 Rogue_Adventure_SpeakScott_1:
 	release
 	return
@@ -110,6 +110,11 @@ Rogue_Adventure_SpeakScott_9:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Rogue_Adventure_SpeakScott_10
 	msgbox Rogue_Adventure_SpeakScott_Text_3
+	checkitemspace ITEM_REVIVE
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_SpeakScott_13
+Rogue_Adventure_SpeakScott_12:
+	msgbox Rogue_Adventure_SpeakScott_Text_5
 	goto Rogue_Adventure_SpeakScott_1
 
 Rogue_Adventure_SpeakScott_10:
@@ -118,6 +123,10 @@ Rogue_Adventure_SpeakScott_10:
 	waitse
 	nextquestreward
 	goto Rogue_Adventure_SpeakScott_9
+
+Rogue_Adventure_SpeakScott_13:
+	msgbox Rogue_Adventure_SpeakScott_Text_4
+	goto Rogue_Adventure_SpeakScott_12
 
 
 Rogue_Adventure_ScottIntroMovement0:
@@ -553,11 +562,18 @@ Rogue_Adventure_SpeakScott_Text_2:
 	.string "{STR_VAR_3}$"
 
 Rogue_Adventure_SpeakScott_Text_3:
-	.string "And that's all for the moment!\p"
+	.string "And that's all for the moment!$"
+
+Rogue_Adventure_SpeakScott_Text_4:
+	.string "Looks like you have a full bag there.\p"
+	.string "Be sure to check your PC as some\n"
+	.string "rewards may turn up there.$"
+
+Rogue_Adventure_SpeakScott_Text_5:
 	.string "Good luck with your next Adventure\n"
 	.string "champ!$"
 
-Rogue_Adventure_SpeakScott_Text_4:
+Rogue_Adventure_SpeakScott_Text_6:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "Be sure to come and chat with me once\n"
 	.string "you complete Quests so I can give you\l"
