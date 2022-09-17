@@ -259,6 +259,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->price = 5000;
     }
+
+    if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+    {
+        outItem->price = 1500;
+    }
 #endif
 
     // Individual items

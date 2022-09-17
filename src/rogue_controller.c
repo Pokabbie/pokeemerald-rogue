@@ -3422,16 +3422,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 10 + 4 * difficulty;
             }
 
             if(Rogue_IsRunActive())
@@ -3452,16 +3444,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 4 + 4 * difficulty;
             }
             else if(difficulty <= 5)
             {
@@ -3485,16 +3469,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 4 + 4 * difficulty;
             }
 
             if(Rogue_IsRunActive())
