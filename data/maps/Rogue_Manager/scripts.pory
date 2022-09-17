@@ -47,7 +47,7 @@ script Rogue_GiveItem_Internal
             finditem(VAR_ITEM_ID_VAL, 1)
         } 
         // ITEM_ABILITY_CAPSULE, ITEM_ABILITY_PATCH
-        if(var(VAR_ITEM_ID_VAL) == 79 || var(VAR_ITEM_ID_VAL) == 80)
+        elif(var(VAR_ITEM_ID_VAL) == 79 || var(VAR_ITEM_ID_VAL) == 80)
         {
             finditem(VAR_ITEM_ID_VAL, 1)
         }

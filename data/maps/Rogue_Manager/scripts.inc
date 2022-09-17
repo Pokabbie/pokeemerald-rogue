@@ -20,39 +20,39 @@ Rogue_GiveItem_Internal_2:
 
 Rogue_GiveItem_Internal_4:
 	compare VAR_0x8001, 250
-	goto_if_ge Rogue_GiveItem_Internal_13
-Rogue_GiveItem_Internal_11:
+	goto_if_ge Rogue_GiveItem_Internal_17
+Rogue_GiveItem_Internal_15:
 	compare VAR_0x8001, 357
-	goto_if_ge Rogue_GiveItem_Internal_10
-Rogue_GiveItem_Internal_7:
+	goto_if_ge Rogue_GiveItem_Internal_14
+Rogue_GiveItem_Internal_12:
 	compare VAR_0x8001, 79
-	goto_if_eq Rogue_GiveItem_Internal_16
+	goto_if_eq Rogue_GiveItem_Internal_9
 	compare VAR_0x8001, 80
-	goto_if_eq Rogue_GiveItem_Internal_16
+	goto_if_eq Rogue_GiveItem_Internal_9
 	finditem VAR_0x8001, 3
+	return
+
+Rogue_GiveItem_Internal_7:
+	finditem VAR_0x8001, 1
 	return
 
 Rogue_GiveItem_Internal_8:
 	finditem VAR_0x8001, 1
-	goto Rogue_GiveItem_Internal_7
+	return
 
 Rogue_GiveItem_Internal_9:
 	finditem VAR_0x8001, 1
-	goto Rogue_GiveItem_Internal_7
-
-Rogue_GiveItem_Internal_10:
-	compare VAR_0x8001, 391
-	goto_if_le Rogue_GiveItem_Internal_9
-	goto Rogue_GiveItem_Internal_7
-
-Rogue_GiveItem_Internal_13:
-	compare VAR_0x8001, 338
-	goto_if_le Rogue_GiveItem_Internal_8
-	goto Rogue_GiveItem_Internal_11
-
-Rogue_GiveItem_Internal_16:
-	finditem VAR_0x8001, 1
 	return
+
+Rogue_GiveItem_Internal_14:
+	compare VAR_0x8001, 391
+	goto_if_le Rogue_GiveItem_Internal_8
+	goto Rogue_GiveItem_Internal_12
+
+Rogue_GiveItem_Internal_17:
+	compare VAR_0x8001, 338
+	goto_if_le Rogue_GiveItem_Internal_7
+	goto Rogue_GiveItem_Internal_15
 
 
 Rogue_QuickSaveRun::
