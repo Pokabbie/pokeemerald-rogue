@@ -537,8 +537,8 @@ Rogue_Heal_PreBoss_2:
 	case 4, Rogue_Heal_PreBoss_15
 	case 5, Rogue_Heal_PreBoss_16
 	case 6, Rogue_Heal_PreBoss_17
-	checkconstantmoney 32000
-	bufferconstantnumberstring STR_VAR_1, 32000
+	checkconstantmoney 24000
+	bufferconstantnumberstring STR_VAR_1, 24000
 Rogue_Heal_PreBoss_9:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Heal_PreBoss_22
@@ -552,38 +552,38 @@ Rogue_Heal_PreBoss_6:
 	goto Rogue_Heal_PreBoss_5
 
 Rogue_Heal_PreBoss_11:
+	checkconstantmoney 1000
+	bufferconstantnumberstring STR_VAR_1, 1000
+	goto Rogue_Heal_PreBoss_9
+
+Rogue_Heal_PreBoss_12:
 	checkconstantmoney 2000
 	bufferconstantnumberstring STR_VAR_1, 2000
 	goto Rogue_Heal_PreBoss_9
 
-Rogue_Heal_PreBoss_12:
+Rogue_Heal_PreBoss_13:
 	checkconstantmoney 4000
 	bufferconstantnumberstring STR_VAR_1, 4000
 	goto Rogue_Heal_PreBoss_9
 
-Rogue_Heal_PreBoss_13:
+Rogue_Heal_PreBoss_14:
 	checkconstantmoney 8000
 	bufferconstantnumberstring STR_VAR_1, 8000
 	goto Rogue_Heal_PreBoss_9
 
-Rogue_Heal_PreBoss_14:
+Rogue_Heal_PreBoss_15:
 	checkconstantmoney 12000
 	bufferconstantnumberstring STR_VAR_1, 12000
 	goto Rogue_Heal_PreBoss_9
 
-Rogue_Heal_PreBoss_15:
+Rogue_Heal_PreBoss_16:
 	checkconstantmoney 16000
 	bufferconstantnumberstring STR_VAR_1, 16000
 	goto Rogue_Heal_PreBoss_9
 
-Rogue_Heal_PreBoss_16:
+Rogue_Heal_PreBoss_17:
 	checkconstantmoney 20000
 	bufferconstantnumberstring STR_VAR_1, 20000
-	goto Rogue_Heal_PreBoss_9
-
-Rogue_Heal_PreBoss_17:
-	checkconstantmoney 24000
-	bufferconstantnumberstring STR_VAR_1, 24000
 	goto Rogue_Heal_PreBoss_9
 
 Rogue_Heal_PreBoss_19:
@@ -607,37 +607,37 @@ Rogue_Heal_PreBoss_25:
 	case 4, Rogue_Heal_PreBoss_33
 	case 5, Rogue_Heal_PreBoss_34
 	case 6, Rogue_Heal_PreBoss_35
-	removeconstantmoney 32000
+	removeconstantmoney 24000
 Rogue_Heal_PreBoss_27:
 	call Common_EventScript_OutOfCenterPartyHeal
 	goto Rogue_Heal_PreBoss_21
 
 Rogue_Heal_PreBoss_29:
-	removeconstantmoney 2000
+	removeconstantmoney 1000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_30:
-	removeconstantmoney 4000
+	removeconstantmoney 2000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_31:
-	removeconstantmoney 8000
+	removeconstantmoney 4000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_32:
-	removeconstantmoney 12000
+	removeconstantmoney 8000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_33:
-	removeconstantmoney 16000
+	removeconstantmoney 12000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_34:
-	removeconstantmoney 20000
+	removeconstantmoney 16000
 	goto Rogue_Heal_PreBoss_27
 
 Rogue_Heal_PreBoss_35:
-	removeconstantmoney 24000
+	removeconstantmoney 20000
 	goto Rogue_Heal_PreBoss_27
 
 
@@ -654,8 +654,8 @@ Rogue_GymIdentity_PreBoss::
 	case 4, Rogue_GymIdentity_PreBoss_10
 	case 5, Rogue_GymIdentity_PreBoss_11
 	case 6, Rogue_GymIdentity_PreBoss_12
-	checkconstantmoney 32000
-	bufferconstantnumberstring STR_VAR_1, 32000
+	checkconstantmoney 24000
+	bufferconstantnumberstring STR_VAR_1, 24000
 Rogue_GymIdentity_PreBoss_4:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_GymIdentity_PreBoss_15
@@ -670,38 +670,38 @@ Rogue_GymIdentity_PreBoss_1:
 	return
 
 Rogue_GymIdentity_PreBoss_6:
+	checkconstantmoney 1000
+	bufferconstantnumberstring STR_VAR_1, 1000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_7:
 	checkconstantmoney 2000
 	bufferconstantnumberstring STR_VAR_1, 2000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_7:
+Rogue_GymIdentity_PreBoss_8:
 	checkconstantmoney 4000
 	bufferconstantnumberstring STR_VAR_1, 4000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_8:
+Rogue_GymIdentity_PreBoss_9:
 	checkconstantmoney 8000
 	bufferconstantnumberstring STR_VAR_1, 8000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_9:
+Rogue_GymIdentity_PreBoss_10:
 	checkconstantmoney 12000
 	bufferconstantnumberstring STR_VAR_1, 12000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_10:
+Rogue_GymIdentity_PreBoss_11:
 	checkconstantmoney 16000
 	bufferconstantnumberstring STR_VAR_1, 16000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_11:
+Rogue_GymIdentity_PreBoss_12:
 	checkconstantmoney 20000
 	bufferconstantnumberstring STR_VAR_1, 20000
-	goto Rogue_GymIdentity_PreBoss_4
-
-Rogue_GymIdentity_PreBoss_12:
-	checkconstantmoney 24000
-	bufferconstantnumberstring STR_VAR_1, 24000
 	goto Rogue_GymIdentity_PreBoss_4
 
 Rogue_GymIdentity_PreBoss_15:
@@ -720,38 +720,38 @@ Rogue_GymIdentity_PreBoss_18:
 	case 4, Rogue_GymIdentity_PreBoss_26
 	case 5, Rogue_GymIdentity_PreBoss_27
 	case 6, Rogue_GymIdentity_PreBoss_28
-	removeconstantmoney 32000
+	removeconstantmoney 24000
 Rogue_GymIdentity_PreBoss_20:
 	updatemoneybox
 	waitse
 	goto Rogue_GymIdentity_PreBoss_14
 
 Rogue_GymIdentity_PreBoss_22:
-	removeconstantmoney 2000
+	removeconstantmoney 1000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_23:
-	removeconstantmoney 4000
+	removeconstantmoney 2000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_24:
-	removeconstantmoney 8000
+	removeconstantmoney 4000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_25:
-	removeconstantmoney 12000
+	removeconstantmoney 8000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_26:
-	removeconstantmoney 16000
+	removeconstantmoney 12000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_27:
-	removeconstantmoney 20000
+	removeconstantmoney 16000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_28:
-	removeconstantmoney 24000
+	removeconstantmoney 20000
 	goto Rogue_GymIdentity_PreBoss_20
 
 
