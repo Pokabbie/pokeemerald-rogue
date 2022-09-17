@@ -1687,7 +1687,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
     // Avoid repeating same encounter 
     do
     {
-        mapIdx = Random() % mapCount;
+        mapIdx = RogueRandomRange(mapCount, FLAG_SET_SEED_WILDMONS);
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
     while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
@@ -1728,7 +1728,7 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
 
-    return RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+    return RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
 }
 
 u8 Rogue_SelectRouteRoom(void)
