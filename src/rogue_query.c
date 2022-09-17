@@ -407,7 +407,7 @@ void RogueQuery_SpeciesIsValid(void)
     {
         if(GetQueryState(species))
         {
-            if(gBaseStats[species].abilities[0] == ABILITY_NONE)
+            if(gBaseStats[species].abilities[0] == ABILITY_NONE || gBaseStats[species].catchRate == 0)
             {
                 SetQueryState(species, FALSE);
             }
