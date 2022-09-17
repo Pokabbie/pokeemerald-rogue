@@ -1687,7 +1687,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
     // Avoid repeating same encounter 
     do
     {
-        mapIdx = Random() % mapCount;
+        mapIdx = RogueRandomRange(mapCount, FLAG_SET_SEED_WILDMONS);
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
     while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
