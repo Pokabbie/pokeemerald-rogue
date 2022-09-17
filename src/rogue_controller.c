@@ -3470,7 +3470,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             else if(Rogue_IsRunActive())
             {
                 if(difficulty <= 7)
-                    itemCapacity = 4 + 4 * difficulty;
+                    itemCapacity = 4 + 2 * difficulty;
             }
 
             if(Rogue_IsRunActive())
@@ -3484,13 +3484,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     if(itemCapacity != 0)
     {
-        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+        //u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        if(maxGen > 3)
-        {
-            // Increase capacity by a little bit to accomadate for extra items when in higher gens
-            itemCapacity += (maxGen - 3) * 2;
-        }
+        //if(maxGen > 3)
+        //{
+        //    // Increase capacity by a little bit to accomadate for extra items when in higher gens
+        //    itemCapacity += (maxGen - 3) * 2;
+        //}
 
         ApplyMartCapacity(itemCapacity);
     }
