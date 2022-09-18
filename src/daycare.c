@@ -642,8 +642,10 @@ u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
         if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
             break;
 
-        eggMoves[i] = gEggMoves[eggMoveIdx + i];
-        numEggMoves++;
+        if(MonKnowsMove(pokemon, gEggMoves[eggMoveIdx + i]))
+            continue;
+
+        eggMoves[numEggMoves++] = gEggMoves[eggMoveIdx + i];
     }
 
     return numEggMoves;

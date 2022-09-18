@@ -6,7 +6,7 @@ void TeachMoveSetContextEggMove(void);
 void TeachMoveSetContextTutorMove(void);
 void TeachMoveFromContext(void);
 void TeachMoveRelearnerMove(void);
-bool8 CanLearnMovesInCurrentContext(struct Pokemon* mon);
+u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon);
 void MoveRelearnerShowHideHearts(s32);
 
 #endif //GUARD_MOVE_RELEARNER_H
