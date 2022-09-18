@@ -155,6 +155,17 @@ bool8 IsQuestGloballyTracked(u16 questId)
     return (gRogueQuests[questId].flags & QUEST_FLAGS_GLOBALALLY_TRACKED) != 0;
 }
 
+bool8 IsQuestActive(u16 questId)
+{
+    struct RogueQuestState state;
+    if (GetQuestState(questId, &state))
+    {
+        return state.isValid;
+    }
+
+    return FALSE;
+}
+
 bool8 DoesQuestHaveUnlocks(u16 questId)
 {
     return gRogueQuests[questId].unlockedQuests[0] != QUEST_NONE;
@@ -298,12 +309,6 @@ bool8 GiveNextRewardAndFormat(u8* str)
     }
 
     return FALSE;
-}
-
-static bool8 IsQuestActive(u16 questId)
-{
-    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
-    return state->isValid;
 }
 
 static void TryUnlockQuest(u16 questId)

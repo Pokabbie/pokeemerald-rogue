@@ -30,6 +30,7 @@
 
 #include "constants/rogue.h"
 #include "rogue.h"
+#include "rogue_controller.h"
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
@@ -1028,6 +1029,7 @@ extern const u8 gText_QuestLogTitleDesc[];
 extern const u8 gText_QuestLogTitleRewards[];
 extern const u8 gText_QuestLogTitleStatus[];
 extern const u8 gText_QuestLogMarkerRepeatable[];
+extern const u8 gText_QuestLogMarkerInactive[];
 extern const u8 gText_QuestLogStatusIncomplete[];
 extern const u8 gText_QuestLogStatusComplete[];
 extern const u8 gText_QuestLogStatusCollection[];
@@ -1112,7 +1114,13 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
     str = gText_QuestLogTitleStatus;
     AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 80, 0, NULL);
 
-    if(IsQuestRepeatable(chosenQuest))
+    if(Rogue_IsRunActive() && !IsQuestActive(chosenQuest))
+    {
+        str = gText_QuestLogMarkerInactive;
+        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+        AddTextPrinterParameterized(0, FONT_SHORT, str, x, 65, 0, NULL);
+    }
+    else if(IsQuestRepeatable(chosenQuest))
     {
         str = gText_QuestLogMarkerRepeatable;
         AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 65, 0, NULL);

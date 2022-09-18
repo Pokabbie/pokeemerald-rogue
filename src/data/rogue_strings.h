@@ -33,6 +33,7 @@ const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
 const u8 gText_QuestLogTitleNew[] = _("New!");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
 const u8 gText_QuestLogMarkerRepeatable[] = _("REPEATABLE");
+const u8 gText_QuestLogMarkerInactive[] = _("INACTIVE");
 const u8 gText_QuestLogStatusIncomplete[] = _("INCOMPLETE");
 const u8 gText_QuestLogStatusComplete[] = _("COMPLETE");
 const u8 gText_QuestLogStatusCollection[] = _("READY TO COLLECT");
