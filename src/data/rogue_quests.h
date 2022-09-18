@@ -122,7 +122,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                 ),
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
         }
     },
@@ -135,7 +135,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                 ),
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
         },
         .unlockedQuests = { 
@@ -152,7 +152,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                 ),
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
         }
     },
@@ -165,7 +165,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                 ),
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 4 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
         }
     },
