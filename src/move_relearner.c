@@ -153,7 +153,7 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
-#define MAX_RELEARNER_MOVES (MAX_LEVEL_UP_MOVES > 25 ? MAX_LEVEL_UP_MOVES : 25)
+#define MAX_RELEARNER_MOVES 50
 
 #define TEACH_STATE_RELEARN       0
 #define TEACH_STATE_EGG_MOVES     1
@@ -421,10 +421,20 @@ static void GatherLearnableMoves(struct Pokemon* mon)
     }
 }
 
-bool8 CanLearnMovesInCurrentContext(struct Pokemon* mon)
+u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon)
 {
-    GatherLearnableMoves(mon);
-    return sMoveRelearnerStruct->numMenuChoices != 0;
+    if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_EGG_MOVES)
+    {
+        return sMoveRelearnerStruct->numMenuChoices = GetEggMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
+    else if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_TUTOR_MOVES)
+    {
+        return sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
+    else // TEACH_STATE_RELEARN
+    {
+        return sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sMoveRelearnerStruct->movesToLearn);
+    }
 }
 
 static void Task_WaitForFadeOut(u8 taskId)
