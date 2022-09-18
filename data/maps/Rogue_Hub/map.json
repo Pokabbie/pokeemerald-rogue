@@ -168,7 +168,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Shop_HeldItems",
-      "flag": "FLAG_ROGUE_TRAINER3"
+      "flag": "FLAG_ROGUE_TRAINER7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_ROGUE_TRAINER3"
+      "flag": "FLAG_ROGUE_TRAINER7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
@@ -233,7 +233,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Shop_BattleEnhancers",
-      "flag": "FLAG_ROGUE_TRAINER3"
+      "flag": "FLAG_ROGUE_TRAINER7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",

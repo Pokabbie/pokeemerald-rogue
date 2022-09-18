@@ -128,12 +128,33 @@ script RogueHub_OnMapLoad
         clearflag(FLAG_ROGUE_TRAINER2)
     }
 
+    // Travelling Shop
+    questcollected(QUEST_ShoppingSpree)
+    if(var(VAR_RESULT) == NO)
+    {
+        // + Travel shop
+        fillmetatile(22, 8, 24, 8, METATILE_Grass, FALSE)
+    
+        setflag(FLAG_ROGUE_TRAINER7)
+        setflag(FLAG_ROGUE_TRAINER5)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER7)
+        clearflag(FLAG_ROGUE_TRAINER5)
+
+        if(flag(FLAG_ROGUE_RARE_ITEM_MART_DISABLED))
+        {
+            setflag(FLAG_ROGUE_TRAINER5)
+        }
+    }
+
     // Bank
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
+    questcollected(QUEST_BigSaver)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER3)
-        setflag(FLAG_ROGUE_TRAINER5)
 
         // + Travel shop
         fillmetatile(22, 8, 24, 8, METATILE_Grass, FALSE)
@@ -141,12 +162,6 @@ script RogueHub_OnMapLoad
     else
     {
         clearflag(FLAG_ROGUE_TRAINER3)
-        clearflag(FLAG_ROGUE_TRAINER5)
-
-        if(flag(FLAG_ROGUE_RARE_ITEM_MART_DISABLED))
-        {
-            setflag(FLAG_ROGUE_TRAINER5)
-        }
     }
 
     // Intro Scott

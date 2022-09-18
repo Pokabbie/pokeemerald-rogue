@@ -9,6 +9,7 @@
 #include "string_util.h"
 
 #include "rogue.h"
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_quest.h"
 
@@ -20,6 +21,7 @@ extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
 
 static EWRAM_DATA u8 sRewardQuest = 0;
 static EWRAM_DATA u8 sRewardParam = 0;
+static EWRAM_DATA u8 sPreviousRouteType = 0;
 
 typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
 
@@ -364,6 +366,8 @@ static void DeactivateQuest(u16 questId)
 
 void QuestNotify_BeginAdventure(void)
 {
+    sPreviousRouteType = 0;
+
     ForEachUnlockedQuest(ActivateQuestIfNeeded);
 
     // Handle skip difficulty
@@ -462,5 +466,55 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 
         if(gRogueRun.currentDifficulty >= 14)
             TryMarkQuestAsComplete(QUEST_Champion);
+    }
+}
+
+void QuestNotify_OnWarp(struct WarpData* warp)
+{
+    if(Rogue_IsRunActive())
+    {
+        // Warped into
+        //switch(gRogueAdvPath.currentRoomType)
+        //{
+        //}
+
+        // Warped out of
+        switch(sPreviousRouteType)
+        {
+            case ADVPATH_ROOM_RESTSTOP:
+                if(IsQuestActive(QUEST_BigSaver))
+                {
+                    if(GetMoney(&gSaveBlock1Ptr->money) >= 50000)
+                        TryMarkQuestAsComplete(QUEST_BigSaver);
+                }
+                break;
+        }
+
+        sPreviousRouteType = gRogueAdvPath.currentRoomType;
+    }
+}
+
+void QuestNotify_OnAddMoney(u32 amount)
+{
+
+}
+
+void QuestNotify_OnRemoveMoney(u32 amount)
+{
+    if(Rogue_IsRunActive())
+    {
+        struct RogueQuestState state;
+
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP)
+        {
+            if(IsQuestActive(QUEST_ShoppingSpree) && GetQuestState(QUEST_ShoppingSpree, &state))
+            {
+                state.data.half += amount;
+                SetQuestState(QUEST_ShoppingSpree, &state);
+
+                if(state.data.half >= 20000)
+                    TryMarkQuestAsComplete(QUEST_ShoppingSpree);
+            }
+        }
     }
 }

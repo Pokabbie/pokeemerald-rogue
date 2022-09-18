@@ -53,14 +53,20 @@ RogueHub_OnMapLoad_12:
 	goto_if_ne RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_16:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
-	goto_if_ne RogueHub_OnMapLoad_21
-	clearflag FLAG_ROGUE_TRAINER3
+	questcollected QUEST_ShoppingSpree
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_21
+	clearflag FLAG_ROGUE_TRAINER7
 	clearflag FLAG_ROGUE_TRAINER5
-	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_26
+	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_28
 RogueHub_OnMapLoad_20:
+	questcollected QUEST_BigSaver
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_25
+	clearflag FLAG_ROGUE_TRAINER3
+RogueHub_OnMapLoad_24:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_24
+	goto_if_gt RogueHub_OnMapLoad_30
 	return
 
 RogueHub_OnMapLoad_2:
@@ -92,19 +98,24 @@ RogueHub_OnMapLoad_17:
 	goto RogueHub_OnMapLoad_16
 
 RogueHub_OnMapLoad_21:
+	fillmetatile 22, 8, 24, 8, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER7
+	setflag FLAG_ROGUE_TRAINER5
+	goto RogueHub_OnMapLoad_20
+
+RogueHub_OnMapLoad_25:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
-	setflag FLAG_ROGUE_TRAINER5
 	fillmetatile 22, 8, 24, 8, 0x001, FALSE
+	goto RogueHub_OnMapLoad_24
+
+RogueHub_OnMapLoad_28:
+	setflag FLAG_ROGUE_TRAINER5
 	goto RogueHub_OnMapLoad_20
 
-RogueHub_OnMapLoad_24:
+RogueHub_OnMapLoad_30:
 	setflag FLAG_ROGUE_TRAINER6
 	return
-
-RogueHub_OnMapLoad_26:
-	setflag FLAG_ROGUE_TRAINER5
-	goto RogueHub_OnMapLoad_20
 
 
 RogueHub_Intro0::

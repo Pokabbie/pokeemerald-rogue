@@ -1,6 +1,8 @@
 static const u8 gText_PreviewUnlocksBuilding[] = _("New HUB Building");
 static const u8 gText_GiveUnlocksShops[] = _("New HUB Unlocks:\nMart & Clothes Shop!");
 static const u8 gText_GiveUnlocksSafari[] = _("New HUB Unlocks:\nSafari Zone & Name Rater!");
+static const u8 gText_GiveUnlocksTravellingMart[] = _("New HUB Unlocks:\nTravelling Mart!");
+static const u8 gText_GiveUnlocksTravellingBank[] = _("New HUB Unlocks:\nBank!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone !");
@@ -27,7 +29,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksShops },
         },
         .unlockedQuests = { 
-            QUEST_Collector1
+            QUEST_Collector1,
+            QUEST_ShoppingSpree
         }
     },
 
@@ -203,6 +206,35 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
+        }
+    },
+
+    [QUEST_ShoppingSpree] = 
+    {
+        .title = _("Shop Spree"),
+        .desc = _(
+                    "Spend at least ¥20000\n"
+                    "In a single visit to any\n"
+                    "REST STOP."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
+        },
+        .unlockedQuests = { 
+            QUEST_BigSaver, 
+        }
+    },
+    [QUEST_BigSaver] = 
+    {
+        .title = _("Big Saver"),
+        .desc = _(
+                    "Exit a REST STOP with\n"
+                    "¥50000 in your pocket."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 1 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
         }
     },
 

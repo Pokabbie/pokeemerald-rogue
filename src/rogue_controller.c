@@ -2065,6 +2065,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
     }
+
+    QuestNotify_OnWarp(warp);
 }
 
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)

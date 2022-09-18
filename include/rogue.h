@@ -68,6 +68,11 @@ struct RogueQuestConstants
 
 struct RogueQuestState
 {
+    union
+    {
+        u8 byte[2];
+        u16 half;
+    } data;
     u8 isUnlocked : 1;
     u8 isCompleted : 1;
     u8 isValid : 1;
