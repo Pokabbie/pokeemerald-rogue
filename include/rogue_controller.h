@@ -49,6 +49,7 @@ void Rogue_SetDefaultOptions(void);
 void Rogue_OnSaveGame(void);
 void Rogue_OnLoadGame(void);
 bool8 Rogue_OnProcessPlayerFieldInput(void);
+bool8 Rogue_IsPartnerMonInTeam(void);
 
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);

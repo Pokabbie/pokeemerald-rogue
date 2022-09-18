@@ -4,6 +4,8 @@ static const u8 gText_GiveUnlocksSafari[] = _("New HUB Unlocks:\nSafari Zone & N
 static const u8 gText_GiveUnlocksTravellingMart[] = _("New HUB Unlocks:\nTravelling Mart!");
 static const u8 gText_GiveUnlocksTravellingBank[] = _("New HUB Unlocks:\nBank!");
 static const u8 gText_GiveUnlocksBikeShop[] = _("New HUB Unlocks:\nBike Shop!");
+static const u8 gText_GiveUnlocksTutors[] = _("New HUB Unlocks:\nMove Tutors!");
+static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
@@ -33,7 +35,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         },
         .unlockedQuests = { 
             QUEST_Collector1,
-            QUEST_ShoppingSpree
+            QUEST_ShoppingSpree,
+            QUEST_NoFainting1
         }
     },
 
@@ -191,7 +194,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                     "entries."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksSafari },
         },
         .unlockedQuests = { 
@@ -207,7 +210,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                     "in your party."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
         }
     },
@@ -250,7 +253,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                     "2 minutes of entering."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBikeShop },
         },
         .unlockedQuests = { 
@@ -266,8 +269,51 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
                     "Route within 1 minute."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBikeShop, .giveText=gText_GiveLegendaryBikeShop },
+        }
+    },
+
+    [QUEST_NoFainting1] = 
+    {
+        .title = _("Care Tactics"),
+        .desc = _(
+                    "Defeat 4 GYM leaders\n"
+                    "without your PARTNER\n"
+                    "POKéMON fainting."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTutors },
+        },
+        .unlockedQuests = { 
+            QUEST_NoFainting2,
+            QUEST_NoFainting3,
+        }
+    },
+    [QUEST_NoFainting2] = 
+    {
+        .title = _("Smart Tactics"),
+        .desc = _(
+                    "Defeat all 8 GYM\n"
+                    "leaders without any\n"
+                    "POKéMON fainting."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksDaycare },
+        }
+    },
+    [QUEST_NoFainting3] = 
+    {
+        .title = _("True Tactics"),
+        .desc = _(
+                    "Defeat an entire\n"
+                    "Adventure without any\n"
+                    "POKéMON fainting."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
         }
     },
 

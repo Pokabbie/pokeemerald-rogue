@@ -50,8 +50,9 @@ RogueHub_OnMapLoad_8:
 	goto_if_eq RogueHub_OnMapLoad_13
 	clearflag FLAG_ROGUE_TRAINER1
 RogueHub_OnMapLoad_12:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
-	goto_if_ne RogueHub_OnMapLoad_17
+	questcollected QUEST_NoFainting1
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_17
 	clearflag FLAG_ROGUE_TRAINER2
 RogueHub_OnMapLoad_16:
 	questcollected QUEST_ShoppingSpree

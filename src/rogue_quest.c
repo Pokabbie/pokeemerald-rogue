@@ -427,12 +427,33 @@ void QuestNotify_BeginAdventure(void)
     {
         DeactivateQuest(QUEST_GymChallenge);
         DeactivateQuest(QUEST_GymMaster);
+        DeactivateQuest(QUEST_NoFainting2);
+        DeactivateQuest(QUEST_NoFainting3);
+    }
+
+    if(gRogueRun.currentDifficulty > 4)
+    {
+        DeactivateQuest(QUEST_NoFainting1);
     }
 
     if(gRogueRun.currentDifficulty > 8)
     {
         // Can't technically happen atm
         DeactivateQuest(QUEST_EliteMaster);
+    }
+}
+
+static void OnEndBattle(void)
+{
+    struct RogueQuestState state;
+
+    if(IsQuestActive(QUEST_NoFainting1) && GetQuestState(QUEST_NoFainting1, &state))
+    {
+        if(Rogue_IsPartnerMonInTeam() == FALSE)
+        {
+            state.isValid = FALSE;
+            SetQuestState(QUEST_NoFainting1, &state);
+        }
     }
 }
 
@@ -454,6 +475,8 @@ void QuestNotify_OnWildBattleEnd(void)
                 TryMarkQuestAsComplete(QUEST_Collector1);
         }
     }
+
+    OnEndBattle();
 }
 
 bool8 IsSpeciesLegendary(u16 species);
@@ -464,6 +487,8 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 
     if(isBossTrainer)
     {
+        u16 relativeDifficulty = gRogueRun.currentDifficulty - VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
         switch(gRogueRun.currentDifficulty)
         {
             case 1:
@@ -489,6 +514,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 break;
             case 8: // Just beat last Gym
                 TryMarkQuestAsComplete(QUEST_Gym8);
+                TryMarkQuestAsComplete(QUEST_NoFainting2);
                 break;
 
             case 12: // Just beat last E4
@@ -505,6 +531,11 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                     }
                 }
                 break;
+
+            case 14: // Just beat final champ
+                TryMarkQuestAsComplete(QUEST_Champion);
+                TryMarkQuestAsComplete(QUEST_NoFainting3);
+                break;
         }
 
         if(gRogueRun.currentDifficulty >= 4)
@@ -516,9 +547,20 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
         if(gRogueRun.currentDifficulty >= 12)
             TryMarkQuestAsComplete(QUEST_EliteMaster);
 
-        if(gRogueRun.currentDifficulty >= 14)
-            TryMarkQuestAsComplete(QUEST_Champion);
+        if(relativeDifficulty == 4)
+        {
+            if(IsQuestActive(QUEST_NoFainting1))
+                TryMarkQuestAsComplete(QUEST_NoFainting1);
+        }
     }
+    
+    OnEndBattle();
+}
+
+void QuestNotify_OnMonFainted()
+{
+    DeactivateQuest(QUEST_NoFainting2);
+    DeactivateQuest(QUEST_NoFainting3);
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)

@@ -1519,6 +1519,36 @@ static u16 GetStartDifficulty(void)
     return 0;
 }
 
+static void GiveMonPartnerRibbon(void)
+{
+    u8 i;
+    bool8 ribbonSet = TRUE;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
+        }
+    }
+}
+
+bool8 Rogue_IsPartnerMonInTeam(void)
+{
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            if(GetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -1604,6 +1634,8 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+
+    GiveMonPartnerRibbon();
 
     QuestNotify_BeginAdventure();
 }
@@ -2094,6 +2126,7 @@ void RemoveAnyFaintedMons(bool8 keepItems)
     bool8 hasValidSpecies;
     u8 read;
     u8 write = 0;
+    bool8 hasMonFainted = FALSE;
 
     for(read = 0; read < PARTY_SIZE; ++read)
     {
@@ -2121,10 +2154,15 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 if(heldItem != ITEM_NONE)
                     AddBagItem(heldItem, 1);
             }
+            else
+                hasMonFainted = TRUE;
 
             ZeroMonData(&gPlayerParty[read]);
         }
     }
+
+    if(hasMonFainted)
+        QuestNotify_OnMonFainted();
 
     gPlayerPartyCount = CalculatePlayerPartyCount();
 }
