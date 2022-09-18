@@ -45,8 +45,9 @@ RogueHub_OnMapLoad_4:
 	goto_if_eq RogueHub_OnMapLoad_9
 	clearflag FLAG_ROGUE_TRAINER4
 RogueHub_OnMapLoad_8:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
-	goto_if_ne RogueHub_OnMapLoad_13
+	questcollected QUEST_Bike1
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_13
 	clearflag FLAG_ROGUE_TRAINER1
 RogueHub_OnMapLoad_12:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
@@ -266,37 +267,60 @@ RogueHub_SpeakBikeShop::
 	copyvar VAR_0x8000, VAR_RESULT
 	checkitem ITEM_MACH_BIKE
 	copyvar VAR_0x8001, VAR_RESULT
-	compare VAR_0x8000, YES
+	questcollected QUEST_Bike2
+	compare VAR_RESULT, YES
 	goto_if_eq RogueHub_SpeakBikeShop_2
+	compare VAR_0x8000, YES
+	goto_if_eq RogueHub_SpeakBikeShop_10
 	compare VAR_0x8001, YES
-	goto_if_eq RogueHub_SpeakBikeShop_3
-	msgbox RogueHub_SpeakBikeShop_Text_1
+	goto_if_eq RogueHub_SpeakBikeShop_11
+	msgbox RogueHub_SpeakBikeShop_Text_3
 	giveitem ITEM_ACRO_BIKE
-	msgbox RogueHub_SpeakBikeShop_Text_2
+	msgbox RogueHub_SpeakBikeShop_Text_4
 RogueHub_SpeakBikeShop_1:
 	release
 	return
 
 RogueHub_SpeakBikeShop_2:
-	bufferitemname STR_VAR_1, ITEM_MACH_BIKE
-	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakBikeShop_7
+	compare VAR_0x8000, NO
+	goto_if_eq RogueHub_SpeakBikeShop_5
+	compare VAR_0x8001, NO
+	goto_if_eq RogueHub_SpeakBikeShop_6
+	msgbox RogueHub_SpeakBikeShop_Text_1, MSGBOX_DEFAULT
 	goto RogueHub_SpeakBikeShop_1
 
-RogueHub_SpeakBikeShop_3:
+RogueHub_SpeakBikeShop_5:
 	bufferitemname STR_VAR_1, ITEM_ACRO_BIKE
-	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakBikeShop_9
+	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_DEFAULT
+	giveitem ITEM_ACRO_BIKE
 	goto RogueHub_SpeakBikeShop_1
 
-RogueHub_SpeakBikeShop_7:
+RogueHub_SpeakBikeShop_6:
+	bufferitemname STR_VAR_1, ITEM_MACH_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_0, MSGBOX_DEFAULT
+	giveitem ITEM_MACH_BIKE
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_10:
+	bufferitemname STR_VAR_1, ITEM_MACH_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakBikeShop_15
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_11:
+	bufferitemname STR_VAR_1, ITEM_ACRO_BIKE
+	msgbox RogueHub_SpeakBikeShop_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_SpeakBikeShop_17
+	goto RogueHub_SpeakBikeShop_1
+
+RogueHub_SpeakBikeShop_15:
 	removeitem ITEM_ACRO_BIKE
 	giveitem ITEM_MACH_BIKE
 	goto RogueHub_SpeakBikeShop_1
 
-RogueHub_SpeakBikeShop_9:
+RogueHub_SpeakBikeShop_17:
 	removeitem ITEM_MACH_BIKE
 	giveitem ITEM_ACRO_BIKE
 	goto RogueHub_SpeakBikeShop_1
@@ -596,10 +620,19 @@ RogueHub_IntroPokabbie_Text_3:
 	.string "come take a look at some point.$"
 
 RogueHub_SpeakBikeShop_Text_0:
+	.string "Whoa {PLAYER}!\p"
+	.string "You're looking much faster now, so here\n"
+	.string "take the {STR_VAR_1}!$"
+
+RogueHub_SpeakBikeShop_Text_1:
+	.string "Hey {PLAYER}!\p"
+	.string "Keep up the quick pace!$"
+
+RogueHub_SpeakBikeShop_Text_2:
 	.string "Do you want to swap to the\n"
 	.string "{STR_VAR_1}?$"
 
-RogueHub_SpeakBikeShop_Text_1:
+RogueHub_SpeakBikeShop_Text_3:
 	.string "Finally!\p"
 	.string "You must be this {PLAYER} I've been\n"
 	.string "told about.\p"
@@ -609,7 +642,7 @@ RogueHub_SpeakBikeShop_Text_1:
 	.string "looking to get rid of.\p"
 	.string "You can have them!$"
 
-RogueHub_SpeakBikeShop_Text_2:
+RogueHub_SpeakBikeShop_Text_4:
 	.string "On second thought...\n"
 	.string "You look like you're struggling to carry\l"
 	.string "that much.\p"

@@ -35,9 +35,11 @@
 #define QUEST_Collector2            (QUEST_Champion + 2)
 #define QUEST_ShoppingSpree         (QUEST_Champion + 3)
 #define QUEST_BigSaver              (QUEST_Champion + 4)
+#define QUEST_Bike1            (QUEST_Champion + 5)
+#define QUEST_Bike2              (QUEST_Champion + 6)
 
-#define QUEST_Electric_Master       (QUEST_BigSaver + 1)
-#define QUEST_Electric_Champion     (QUEST_BigSaver + 2)
+#define QUEST_Electric_Master       (QUEST_Bike2 + 1)
+#define QUEST_Electric_Champion     (QUEST_Bike2 + 2)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_COUNT (QUEST_Electric_Champion + 1)

@@ -1,7 +1,7 @@
 #ifndef QUEST_H
 #define QUEST_H
 
-void ResetQuestState(u16 startQuestId);
+void ResetQuestState(u16 saveVersion);
 bool8 AnyNewQuests(void);
 bool8 AnyQuestRewardsPending(void);
 

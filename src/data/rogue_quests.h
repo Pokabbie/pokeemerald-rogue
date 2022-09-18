@@ -3,9 +3,12 @@ static const u8 gText_GiveUnlocksShops[] = _("New HUB Unlocks:\nMart & Clothes S
 static const u8 gText_GiveUnlocksSafari[] = _("New HUB Unlocks:\nSafari Zone & Name Rater!");
 static const u8 gText_GiveUnlocksTravellingMart[] = _("New HUB Unlocks:\nTravelling Mart!");
 static const u8 gText_GiveUnlocksTravellingBank[] = _("New HUB Unlocks:\nBank!");
+static const u8 gText_GiveUnlocksBikeShop[] = _("New HUB Unlocks:\nBike Shop!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
-static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone !");
+static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
+static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
+static const u8 gText_GiveLegendaryBikeShop[] = _("You can now collect and carry\nboth Bikes!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
 {
@@ -222,7 +225,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
         },
         .unlockedQuests = { 
-            QUEST_BigSaver, 
+            QUEST_BigSaver,
+            QUEST_Bike1,
         }
     },
     [QUEST_BigSaver] = 
@@ -235,6 +239,35 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
+        }
+    },
+    
+    [QUEST_Bike1] = 
+    {
+        .title = _("Can't Stop!"),
+        .desc = _(
+                    "Exit a Tough Route within\n"
+                    "2 minutes of entering."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBikeShop },
+        },
+        .unlockedQuests = { 
+            QUEST_Bike2, 
+        }
+    },
+    [QUEST_Bike2] = 
+    {
+        .title = _("Wont't Stop!"),
+        .desc = _(
+                    "After collecting the 8th\n"
+                    "GYM badge, exit a Tough\n"
+                    "Route within 1 minute."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBikeShop, .giveText=gText_GiveLegendaryBikeShop },
         }
     },
 

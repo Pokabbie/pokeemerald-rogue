@@ -29,20 +29,23 @@ static void TryUnlockQuest(u16 questId);
 static void TryMarkQuestAsComplete(u16 questId);
 static void UnlockFollowingQuests(u16 questId);
 
-void ResetQuestState(u16 startQuestId)
+void ResetQuestState(u16 saveVersion)
 {
     u16 i;
 
-    // Reset the state for any new quests
-    for(i = startQuestId; i < QUEST_COUNT; ++i)
+    if(saveVersion == 0)
     {
-        memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
-    }
+        // Reset the state for any new quests
+        for(i = 0; i < QUEST_COUNT; ++i)
+        {
+            memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
+        }
 
-    // These quests must always be unlocked
-    for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
-    {
-        TryUnlockQuest(i);
+        // These quests must always be unlocked
+        for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
+        {
+            TryUnlockQuest(i);
+        }
     }
 }
 
@@ -522,14 +525,63 @@ void QuestNotify_OnWarp(struct WarpData* warp)
 {
     if(Rogue_IsRunActive())
     {
+        struct RogueQuestState state;
+
         // Warped into
-        //switch(gRogueAdvPath.currentRoomType)
-        //{
-        //}
+        switch(gRogueAdvPath.currentRoomType)
+        {
+            case ADVPATH_ROOM_ROUTE:
+                if(gRogueAdvPath.currentRoomParams.perType.route.difficulty == 2)
+                {
+                    if(IsQuestActive(QUEST_Bike1) && GetQuestState(QUEST_Bike1, &state))
+                    {
+                        state.data.byte[0] = gSaveBlock2Ptr->playTimeHours;
+                        state.data.byte[1] = gSaveBlock2Ptr->playTimeMinutes;
+                        SetQuestState(QUEST_Bike1, &state);
+                    }
+
+                    if(gRogueRun.currentDifficulty >= 8)
+                    {
+                        if(IsQuestActive(QUEST_Bike2) && GetQuestState(QUEST_Bike2, &state))
+                        {
+                            state.data.byte[0] = gSaveBlock2Ptr->playTimeHours;
+                            state.data.byte[1] = gSaveBlock2Ptr->playTimeMinutes;
+                            SetQuestState(QUEST_Bike2, &state);
+                        }
+                    }
+                }
+                break;
+        }
 
         // Warped out of
         switch(sPreviousRouteType)
         {
+            case ADVPATH_ROOM_ROUTE:
+                if(gRogueAdvPath.currentRoomParams.perType.route.difficulty == 2)
+                {
+                    if(IsQuestActive(QUEST_Bike1) && GetQuestState(QUEST_Bike1, &state))
+                    {
+                        u16 startTime = ((u16)state.data.byte[0]) * 60 + ((u16)state.data.byte[1]);
+                        u16 exitTime = ((u16)gSaveBlock2Ptr->playTimeHours) * 60 + ((u16)gSaveBlock2Ptr->playTimeMinutes);
+
+                        if((exitTime - startTime) < 120)
+                            TryMarkQuestAsComplete(QUEST_Bike1);
+                    }
+
+                    if(gRogueRun.currentDifficulty >= 8)
+                    {
+                        if(IsQuestActive(QUEST_Bike2) && GetQuestState(QUEST_Bike2, &state))
+                        {
+                            u16 startTime = ((u16)state.data.byte[0]) * 60 + ((u16)state.data.byte[1]);
+                            u16 exitTime = ((u16)gSaveBlock2Ptr->playTimeHours) * 60 + ((u16)gSaveBlock2Ptr->playTimeMinutes);
+
+                            if((exitTime - startTime) < 60)
+                                TryMarkQuestAsComplete(QUEST_Bike2);
+                        }
+                    }
+                }
+                break;
+
             case ADVPATH_ROOM_RESTSTOP:
                 if(IsQuestActive(QUEST_BigSaver))
                 {

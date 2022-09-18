@@ -107,7 +107,8 @@ script RogueHub_OnMapLoad
     }
 
     // Bike Shop
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
+    questcollected(QUEST_Bike1)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(22, 12, 27, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER1)
@@ -338,35 +339,58 @@ script RogueHub_SpeakBikeShop
     checkitem(ITEM_MACH_BIKE)
     copyvar(VAR_0x8001, VAR_RESULT)
 
-    if(var(VAR_0x8000) == YES) // Has ACRO bike
+    questcollected(QUEST_Bike2)
+    if(var(VAR_RESULT) == YES)
     {
-        bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
-        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
+        if(var(VAR_0x8000) == NO)
         {
-            removeitem(ITEM_ACRO_BIKE)
+            bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
+            msgbox(format("Whoa {PLAYER}!\pYou're looking much faster now, so here take the {STR_VAR_1}!"), MSGBOX_DEFAULT)
+            giveitem(ITEM_ACRO_BIKE)
+        }
+        elif(var(VAR_0x8001) == NO)
+        {
+            bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
+            msgbox(format("Whoa {PLAYER}!\pYou're looking much faster now, so here take the {STR_VAR_1}!"), MSGBOX_DEFAULT)
             giveitem(ITEM_MACH_BIKE)
         }
-    }
-    elif(var(VAR_0x8001) == YES) // Has MACH bike
-    {
-        bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
-        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
+        else
         {
-            removeitem(ITEM_MACH_BIKE)
-            giveitem(ITEM_ACRO_BIKE)
+            msgbox(format("Hey {PLAYER}!\pKeep up the quick pace!"), MSGBOX_DEFAULT)
         }
     }
     else
     {
-        msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
+        if(var(VAR_0x8000) == YES) // Has ACRO bike
+        {
+            bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
+            msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
-        giveitem(ITEM_ACRO_BIKE)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_ACRO_BIKE)
+                giveitem(ITEM_MACH_BIKE)
+            }
+        }
+        elif(var(VAR_0x8001) == YES) // Has MACH bike
+        {
+            bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
+            msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
-        msgbox(format("On second thought...\nYou look like you're struggling to carry that much.\pTell you what. You take that one and if you ever want to swap it out for the other one, let me know"))
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_MACH_BIKE)
+                giveitem(ITEM_ACRO_BIKE)
+            }
+        }
+        else
+        {
+            msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
+
+            giveitem(ITEM_ACRO_BIKE)
+
+            msgbox(format("On second thought...\nYou look like you're struggling to carry that much.\pTell you what. You take that one and if you ever want to swap it out for the other one, let me know"))
+        }
     }
 
     release

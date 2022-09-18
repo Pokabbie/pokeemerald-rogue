@@ -1251,21 +1251,12 @@ static void SelectStartMons(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
-    u16 lastKnownQuestCount = 0;
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
 
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
-    if(!newGame)
-    {
-        if(saveVersion == 1)
-        {
-            lastKnownQuestCount = QUEST_COUNT; // TODO - Make this a constant on release
-        }
-    }
-
-    ResetQuestState(lastKnownQuestCount);
+    ResetQuestState(newGame ? 0 : saveVersion);
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
