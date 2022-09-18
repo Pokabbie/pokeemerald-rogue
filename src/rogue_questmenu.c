@@ -476,11 +476,13 @@ static void GatherOptionsToDisplay()
                     sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
                 }
             }
+            // Invert the quest order, as we're probably going to have more impressive quests in later ID so want to see them first
             for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
             {
-                if(GetQuestState(i, &state) && state.isCompleted && !state.hasPendingRewards)
+                u16 questId = QUEST_COUNT - i;
+                if(GetQuestState(questId, &state) && state.isCompleted && !state.hasPendingRewards)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = questId;
                 }
             }
             break;

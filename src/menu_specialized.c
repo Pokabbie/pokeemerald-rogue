@@ -1027,12 +1027,20 @@ extern const u8 gText_QuestLogTitleOverview[];
 extern const u8 gText_QuestLogTitleDesc[];
 extern const u8 gText_QuestLogTitleRewards[];
 extern const u8 gText_QuestLogTitleStatus[];
-extern const u8 gText_QuestLogTitleStatusIncomplete[];
-extern const u8 gText_QuestLogTitleStatusComplete[];
-extern const u8 gText_QuestLogTitleStatusCollection[];
-extern const u8 gText_QuestLogTitleStatusCollected[];
+extern const u8 gText_QuestLogMarkerRepeatable[];
+extern const u8 gText_QuestLogStatusIncomplete[];
+extern const u8 gText_QuestLogStatusComplete[];
+extern const u8 gText_QuestLogStatusCollection[];
+extern const u8 gText_QuestLogStatusCollected[];
 extern const u8 gText_QuestLogTitleRewardMoney[];
 extern const u8 gText_QuestLogTitleQuestUnlocks[];
+extern const u8 gText_QuestLogOverviewCompleted[];
+extern const u8 gText_QuestLogOverviewUnlocked[];
+extern const u8 gText_QuestLogOverviewRewardsToCollect[];
+
+#ifdef ROGUE_DEBUG
+extern const u8 gText_RogueDebug_Header[];
+#endif
 
 static void QuestMenuOverview(u8 windowId)
 {
@@ -1045,6 +1053,36 @@ static void QuestMenuOverview(u8 windowId)
     AddTextPrinterParameterized(windowId, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
     
     CopyWindowToVram(windowId, COPYWIN_GFX);
+
+    str = gText_QuestLogOverviewCompleted;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 20, 0, NULL);
+
+    ConvertUIntToDecimalStringN(gStringVar1, (GetCompletedQuestCount() * 100) / QUEST_COUNT, STR_CONV_MODE_RIGHT_ALIGN, 6);
+    StringExpandPlaceholders(gStringVar2, gText_Var1Percent);
+    str = gStringVar2;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 20, 0, NULL);
+
+    str = gText_QuestLogOverviewUnlocked;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 35, 0, NULL);
+    
+    ConvertUIntToDecimalStringN(gStringVar1, GetUnlockedQuestCount(), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    str = gStringVar1;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 35, 0, NULL);
+
+#ifdef ROGUE_DEBUG
+    str = gText_RogueDebug_Header;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 65, 0, NULL);
+
+    ConvertUIntToDecimalStringN(gStringVar1, QUEST_COUNT, STR_CONV_MODE_RIGHT_ALIGN, 6);
+    str = gStringVar1;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 65, 0, NULL);
+#endif
+
+    if(AnyQuestRewardsPending())
+    {
+        str = gText_QuestLogOverviewRewardsToCollect;
+        AddTextPrinterParameterized(windowId, FONT_SHORT, str, 2, 80, 0, NULL);
+    }
 }
 
 static void QuestMenuPreviewDescription(u32 chosenQuest)
@@ -1074,10 +1112,16 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
     str = gText_QuestLogTitleStatus;
     AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 80, 0, NULL);
 
+    if(IsQuestRepeatable(chosenQuest))
+    {
+        str = gText_QuestLogMarkerRepeatable;
+        AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 65, 0, NULL);
+    }
+
     if(questState.isCompleted)
-        str = gText_QuestLogTitleStatusComplete;
+        str = gText_QuestLogStatusComplete;
     else
-        str = gText_QuestLogTitleStatusIncomplete;
+        str = gText_QuestLogStatusIncomplete;
 
     x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
     AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
@@ -1148,17 +1192,23 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
         AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
     }
 
+    if(IsQuestRepeatable(chosenQuest))
+    {
+        str = gText_QuestLogMarkerRepeatable;
+        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 80, 0, NULL);
+    }
+
     if(questState.isCompleted)
     {
         if(questState.hasPendingRewards)
         {
-            str = gText_QuestLogTitleStatusCollection;
+            str = gText_QuestLogStatusCollection;
             x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
             AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
         }
         else if(!IsQuestRepeatable(chosenQuest))
         {
-            str = gText_QuestLogTitleStatusCollected;
+            str = gText_QuestLogStatusCollected;
             x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
             AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
         }

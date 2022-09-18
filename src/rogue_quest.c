@@ -15,7 +15,7 @@
 
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
-extern const u8 gText_QuestLogTitleStatusIncomplete[];
+extern const u8 gText_QuestLogStatusIncomplete[];
 
 extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
 
@@ -61,6 +61,55 @@ bool8 AnyNewQuests(void)
     }
 
     return FALSE;
+}
+
+bool8 AnyQuestRewardsPending(void)
+{
+    u16 i;
+    struct RogueQuestState* state;
+
+    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    {
+        state = &gRogueQuestData.questStates[i];
+        if(state->isUnlocked && state->hasPendingRewards)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+u16 GetCompletedQuestCount(void)
+{
+    u16 i;
+    struct RogueQuestState* state;
+    u16 count = 0;
+
+    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    {
+        state = &gRogueQuestData.questStates[i];
+        if(state->isUnlocked && state->isCompleted)
+            ++count;
+    }
+
+    return count;
+}
+
+u16 GetUnlockedQuestCount(void)
+{
+    u16 i;
+    struct RogueQuestState* state;
+    u16 count = 0;
+
+    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    {
+        state = &gRogueQuestData.questStates[i];
+        if(state->isUnlocked)
+            ++count;
+    }
+
+    return count;
 }
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
@@ -238,7 +287,7 @@ bool8 GiveNextRewardAndFormat(u8* str)
                 
                 default:
                     // Just return an obviously broken message
-                    StringCopy(str, gText_QuestLogTitleStatusIncomplete);
+                    StringCopy(str, gText_QuestLogStatusIncomplete);
                     break;
             }
         }
