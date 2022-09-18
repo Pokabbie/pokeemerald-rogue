@@ -1311,7 +1311,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
 
     FlagSet(FLAG_SYS_B_DASH);
@@ -1566,7 +1565,6 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
@@ -2197,40 +2195,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             nextLevel = CalculateBossLevel();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
-            
-            // Just beat last gym leader
-            if(gRogueRun.currentDifficulty == 8)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
-            }
-            // Just beat last elite 4 member
-            else if(gRogueRun.currentDifficulty == 12)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
-            }
-            // Just beat champion
-            else if(gRogueRun.currentDifficulty > 12)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 7500);
-            }
-
-            // Update reward candy only after boss has been defeated
-            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            {
-                if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-                {
-                    // Pretty much max difficulty
-                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 2);
-                }
-                else
-                {
-                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
-                }
-            }
-            else
-            {
-                VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
-            }
         }
 
         // Adjust this after the boss reset

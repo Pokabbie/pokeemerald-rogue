@@ -412,100 +412,18 @@ script Rogue_ReturnAdventureCommon
     }
 
     buffernumberstring(STR_VAR_1, VAR_ROGUE_REWARD_MONEY)
-    buffernumberstring(STR_VAR_2, VAR_ROGUE_REWARD_CANDY)
 
     message(format("You recieve ¥{STR_VAR_1}"))
     playfanfare(MUS_OBTAIN_ITEM)
     waitmessage
     waitfanfare
 
-    if(var(VAR_ROGUE_REWARD_CANDY) != 0)
-    {
-        msgbox(format("and for the BADGE's..."), MSGBOX_DEFAULT)
-        giveitem(ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY)
-
-        // Give HMs if haven't got them
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 1)
-        {
-            checkitem(ITEM_HM01)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM01)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 2)
-        {
-            checkitem(ITEM_HM05_FLASH)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM05_FLASH)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 3)
-        {
-            checkitem(ITEM_HM06_ROCK_SMASH)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM06_ROCK_SMASH)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 4)
-        {
-            checkitem(ITEM_HM04_STRENGTH)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM04_STRENGTH)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 5)
-        {
-            checkitem(ITEM_HM08_DIVE)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM08_DIVE)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 6)
-        {
-            checkitem(ITEM_HM02_FLY)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM02_FLY)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 7)
-        {
-            checkitem(ITEM_HM07_WATERFALL)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM07_WATERFALL)
-            }
-        }
-
-        if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) >= 8)
-        {
-            checkitem(ITEM_HM03_SURF)
-            if(var(VAR_RESULT) == NO)
-            {
-                giveitem(ITEM_HM03_SURF)
-            }
-        }
-
-        if(var(VAR_ROGUE_INTRO_STATE) == 6)
-        {
-            msgbox(format("By levelling up your PARTNER POKéMON, you'll get the option to skip over eariler GYM LEADERs.\pAlthough it does take a lot of levels to do that..."), MSGBOX_DEFAULT)
-        }
-    }
-
     if(var(VAR_ROGUE_INTRO_STATE) == 6)
     {
-        msgbox(format("Since you're back from your first adventure, you should have a look round the HUB!\pYou tend to get fans as you adventure more and some of them may want to move into the HUB and setup some useful facilities."), MSGBOX_DEFAULT)
+        bufferitemname(STR_VAR_2, ITEM_RARE_CANDY)
+
+        msgbox(format("Since you're back from your first adventure, you should speak to Scott and collect any rewards for Quests you've completed."), MSGBOX_DEFAULT)
+        msgbox(format("Quests will often reward you with {STR_VAR_2}.\nBy level up you PARTNER you may be able to skip over GYM badges in future Adventures."), MSGBOX_DEFAULT)
     }
 
     clearflag(FLAG_ROGUE_LEFT_ON_RUN)
