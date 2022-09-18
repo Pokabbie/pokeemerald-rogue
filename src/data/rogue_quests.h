@@ -23,6 +23,96 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBuilding },
         }
     },
+
+    [QUEST_Gym1] = 
+    {
+        .title = _("BADGE 1"),
+        .desc = _(
+                    "Defeat the 1st GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01_CUT, 1 } },
+        }
+    },
+    [QUEST_Gym2] = 
+    {
+        .title = _("BADGE 2"),
+        .desc = _(
+                    "Defeat the 2nd GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05_FLASH, 1 } },
+        }
+    },
+    [QUEST_Gym3] = 
+    {
+        .title = _("BADGE 3"),
+        .desc = _(
+                    "Defeat the 3rd GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06_ROCK_SMASH, 1 } },
+        }
+    },
+    [QUEST_Gym4] = 
+    {
+        .title = _("BADGE 4"),
+        .desc = _(
+                    "Defeat the 4th GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04_STRENGTH, 1 } },
+        }
+    },
+    [QUEST_Gym5] = 
+    {
+        .title = _("BADGE 5"),
+        .desc = _(
+                    "Defeat the 5th GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08_DIVE, 1 } },
+        }
+    },
+    [QUEST_Gym6] = 
+    {
+        .title = _("BADGE 6"),
+        .desc = _(
+                    "Defeat the 6th GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02_FLY, 1 } },
+        }
+    },
+    [QUEST_Gym7] = 
+    {
+        .title = _("BADGE 7"),
+        .desc = _(
+                    "Defeat the 7th GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07_WATERFALL, 1 } },
+        }
+    },
+    [QUEST_Gym8] = 
+    {
+        .title = _("BADGE 8"),
+        .desc = _(
+                    "Defeat the 8th GYM."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03_SURF, 1 } },
+        }
+    },
+
     [QUEST_GymChallenge] = 
     {
         .title = _("Gym Challenge"),

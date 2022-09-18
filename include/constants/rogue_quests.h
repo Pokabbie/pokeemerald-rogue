@@ -18,10 +18,18 @@
 
 #define QUEST_NONE                  0
 #define QUEST_FirstAdventure        1
-#define QUEST_GymChallenge          2
-#define QUEST_GymMaster             3
-#define QUEST_EliteMaster           4
-#define QUEST_Champion              5
+#define QUEST_Gym1                  2
+#define QUEST_Gym2                  3
+#define QUEST_Gym3                  4
+#define QUEST_Gym4                  5
+#define QUEST_Gym5                  6
+#define QUEST_Gym6                  7
+#define QUEST_Gym7                  8
+#define QUEST_Gym8                  9
+#define QUEST_GymChallenge          10
+#define QUEST_GymMaster             11
+#define QUEST_EliteMaster           12
+#define QUEST_Champion              13
 
 #define QUEST_Electric_Master       (QUEST_Champion + 1)
 #define QUEST_Electric_Champion     (QUEST_Champion + 2)

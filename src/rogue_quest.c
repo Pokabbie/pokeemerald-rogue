@@ -374,6 +374,34 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 {
     if(isBossTrainer)
     {
+        switch(gRogueRun.currentDifficulty)
+        {
+            case 1:
+                TryMarkQuestAsComplete(QUEST_Gym1);
+                break;
+            case 2:
+                TryMarkQuestAsComplete(QUEST_Gym2);
+                break;
+            case 3:
+                TryMarkQuestAsComplete(QUEST_Gym3);
+                break;
+            case 4:
+                TryMarkQuestAsComplete(QUEST_Gym4);
+                break;
+            case 5:
+                TryMarkQuestAsComplete(QUEST_Gym5);
+                break;
+            case 6:
+                TryMarkQuestAsComplete(QUEST_Gym6);
+                break;
+            case 7:
+                TryMarkQuestAsComplete(QUEST_Gym7);
+                break;
+            case 8:
+                TryMarkQuestAsComplete(QUEST_Gym8);
+                break;
+        }
+
         if(gRogueRun.currentDifficulty >= 4)
             TryMarkQuestAsComplete(QUEST_GymChallenge);
 
