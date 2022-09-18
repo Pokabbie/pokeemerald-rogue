@@ -873,10 +873,10 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    if(CanLearnMovesInCurrentContext(&gPlayerParty[slot]))
-        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
-    else
+    if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+    else
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
 }
 
 static void DisplayPartyPokemonDataForWirelessMinigame(u8 slot)
@@ -2024,7 +2024,7 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
 
     for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
     {
-        if(CanLearnTutorMove(species, i))
+        if(CanLearnTutorMove(species, i) && !MonKnowsMove(pokemon, GetTutorMove(i)))
         {
             tutorMoves[numTutorMoves++] = GetTutorMove(i);
         }

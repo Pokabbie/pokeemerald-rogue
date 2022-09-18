@@ -18,7 +18,7 @@ Rogue_MiniBoss_OnLoad_1:
 
 
 Rogue_Battle_MiniBoss::
-	lockall
+	lock
 	applymovement OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToBattleField
 	waitmovement 0
 	special SpawnCameraObject
@@ -50,6 +50,7 @@ Rogue_BattleDefeated_MiniBoss_1:
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
+	release
 	return
 
 Rogue_BattleDefeated_MiniBoss_3:

@@ -1,6 +1,6 @@
 
 
-const u8 gText_RogueVersion[] = _("v1.1.1");
+const u8 gText_RogueVersion[] = _("v1.1.2");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX ");

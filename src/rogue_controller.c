@@ -1716,7 +1716,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
     // Avoid repeating same encounter 
     do
     {
-        mapIdx = Random() % mapCount;
+        mapIdx = RogueRandomRange(mapCount, FLAG_SET_SEED_WILDMONS);
         selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
     }
     while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
@@ -1757,7 +1757,7 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
 
-    return RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+    return RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
 }
 
 u8 Rogue_SelectRouteRoom(void)
@@ -3455,16 +3455,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 10 + 4 * difficulty;
             }
 
             if(Rogue_IsRunActive())
@@ -3485,16 +3477,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 4 + 4 * difficulty;
             }
             else if(difficulty <= 5)
             {
@@ -3518,16 +3502,8 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
             else if(Rogue_IsRunActive())
             {
-                if(difficulty <= 0)
-                    itemCapacity = 10;
-                else if(difficulty <= 1)
-                    itemCapacity = 15;
-                else if(difficulty <= 3)
-                    itemCapacity = 20;
-                else if(difficulty <= 5)
-                    itemCapacity = 30;
-                else if(difficulty <= 7)
-                    itemCapacity = 40;
+                if(difficulty <= 7)
+                    itemCapacity = 4 + 1 * difficulty;
             }
 
             if(Rogue_IsRunActive())
@@ -3541,13 +3517,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     if(itemCapacity != 0)
     {
-        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+        //u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        if(maxGen > 3)
-        {
-            // Increase capacity by a little bit to accomadate for extra items when in higher gens
-            itemCapacity += (maxGen - 3) * 2;
-        }
+        //if(maxGen > 3)
+        //{
+        //    // Increase capacity by a little bit to accomadate for extra items when in higher gens
+        //    itemCapacity += (maxGen - 3) * 2;
+        //}
 
         ApplyMartCapacity(itemCapacity);
     }

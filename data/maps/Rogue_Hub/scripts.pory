@@ -405,26 +405,33 @@ script RogueHub_SpeakBank
     showmoneybox(0, 0)
 
     buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
-    msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pWould you like to deposit another ¥500?"), MSGBOX_YESNO)
-    if(var(VAR_RESULT) == YES)
+    if(var(VAR_ROGUE_ADVENTURE_MONEY) >= 25000)
     {
-        checkmoney(500)
-        if(var(VAR_RESULT) == NO)
+        msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pI'm afraid you can't donate any more money at the moment."), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pWould you like to deposit another ¥500?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("I'm afraid you seem to be lacking the required funds currently."), MSGBOX_YESNO)
-        }
-        else
-        {
-            removemoney(500)
-            updatemoneybox
+            checkmoney(500)
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("I'm afraid you seem to be lacking the required funds currently."), MSGBOX_YESNO)
+            }
+            else
+            {
+                removemoney(500)
+                updatemoneybox
 
-            addvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
-            buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
+                addvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
+                buffernumberstring(STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY)
 
-            playse(SE_SHOP)
-            waitse
-            
-            msgbox(format("Thankyou very much!\nYour fund now contains ¥{STR_VAR_2}."), MSGBOX_DEFAULT)
+                playse(SE_SHOP)
+                waitse
+                
+                msgbox(format("Thankyou very much!\nYour fund now contains ¥{STR_VAR_2}."), MSGBOX_DEFAULT)
+            }
         }
     }
     hidemoneybox
