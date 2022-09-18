@@ -31,8 +31,11 @@
 #define QUEST_EliteMaster           12
 #define QUEST_Champion              13
 
-#define QUEST_Electric_Master       (QUEST_Champion + 1)
-#define QUEST_Electric_Champion     (QUEST_Champion + 2)
+#define QUEST_Collector1            (QUEST_Champion + 1)
+#define QUEST_Collector2            (QUEST_Champion + 2)
+
+#define QUEST_Electric_Master       (QUEST_Collector2 + 1)
+#define QUEST_Electric_Champion     (QUEST_Collector2 + 2)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_COUNT (QUEST_Electric_Champion + 1)

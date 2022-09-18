@@ -90,7 +90,8 @@ script RogueHub_OnMapLoad
     }
 
     // Safari Zone
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) != 404)
+    questcollected(QUEST_Collector1)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(1, 3, 14, 10, METATILE_Grass, FALSE)
         fillmetatile(1, 11, 12, 11, METATILE_Grass, FALSE)

@@ -423,7 +423,7 @@ script Rogue_ReturnAdventureCommon
         bufferitemname(STR_VAR_2, ITEM_RARE_CANDY)
 
         msgbox(format("Since you're back from your first adventure, you should speak to Scott and collect any rewards for Quests you've completed."), MSGBOX_DEFAULT)
-        msgbox(format("Quests will often reward you with {STR_VAR_2}.\nBy level up you PARTNER you may be able to skip over GYM badges in future Adventures."), MSGBOX_DEFAULT)
+        msgbox(format("Quests will often reward you with {STR_VAR_2}.\pBy leveling up your PARTNER with these you will gain the option to skip over GYM badges in future Adventures."), MSGBOX_DEFAULT)
     }
 
     clearflag(FLAG_ROGUE_LEFT_ON_RUN)

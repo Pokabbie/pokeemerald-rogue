@@ -8,6 +8,7 @@ bool8 GetQuestState(u16 questId, struct RogueQuestState* outState);
 void SetQuestState(u16 questId, struct RogueQuestState* state);
 
 bool8 IsQuestRepeatable(u16 questId);
+bool8 IsQuestCollected(u16 questId);
 bool8 IsQuestGloballyTracked(u16 questId);
 bool8 DoesQuestHaveUnlocks(u16 questId);
 

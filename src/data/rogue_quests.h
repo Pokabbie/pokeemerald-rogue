@@ -1,5 +1,9 @@
 static const u8 gText_PreviewUnlocksBuilding[] = _("New HUB Building");
-static const u8 gText_GiveUnlocksBuilding[] = _("New HUB Building Unlocked!");
+static const u8 gText_GiveUnlocksShops[] = _("New HUB Unlocks:\nMart & Clothes Shop!");
+static const u8 gText_GiveUnlocksSafari[] = _("New HUB Unlocks:\nSafari Zone & Name Rater!");
+
+static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
+static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone !");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
 {
@@ -20,7 +24,10 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBuilding },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksShops },
+        },
+        .unlockedQuests = { 
+            QUEST_Collector1
         }
     },
 
@@ -167,6 +174,35 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
+        }
+    },
+
+    [QUEST_Collector1] = 
+    {
+        .title = _("Collector"),
+        .desc = _(
+                    "Fill out 15 POKéDEX\n"
+                    "entries."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksSafari },
+        },
+        .unlockedQuests = { 
+            QUEST_Collector2, 
+        }
+    },
+    [QUEST_Collector2] = 
+    {
+        .title = _("Collector +"),
+        .desc = _(
+                    "Defeat the Elite 4\n"
+                    "with a Legendary POKéMON\n"
+                    "in your party."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
         }
     },
 

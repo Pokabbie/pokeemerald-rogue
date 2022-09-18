@@ -3661,9 +3661,8 @@ static void RandomiseSafariWildEncounters(void)
         RogueQuery_SpeciesExcludeCommon();
     }
 
-    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
+    if(!IsQuestCollected(QUEST_Collector2))
     {
-        // Once we've defeated the elite 4, we're going to allow legendaries for fun!
         RogueQuery_SpeciesIsNotLegendary();
     }
 

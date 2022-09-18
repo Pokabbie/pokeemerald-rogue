@@ -1,9 +1,11 @@
 #include "global.h"
 #include "constants/items.h"
 
+#include "battle.h"
 #include "event_data.h"
 #include "item.h"
 #include "money.h"
+#include "pokedex.h"
 #include "string_util.h"
 
 #include "rogue.h"
@@ -81,6 +83,17 @@ void SetQuestState(u16 questId, struct RogueQuestState* state)
 bool8 IsQuestRepeatable(u16 questId)
 {
     return (gRogueQuests[questId].flags & QUEST_FLAGS_REPEATABLE) != 0;
+}
+
+bool8 IsQuestCollected(u16 questId)
+{
+    struct RogueQuestState state;
+    if (GetQuestState(questId, &state))
+    {
+        return state.isCompleted && !state.hasPendingRewards;
+    }
+
+    return FALSE;
 }
 
 bool8 IsQuestGloballyTracked(u16 questId)
@@ -233,6 +246,12 @@ bool8 GiveNextRewardAndFormat(u8* str)
     return FALSE;
 }
 
+static bool8 IsQuestActive(u16 questId)
+{
+    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
+    return state->isValid;
+}
+
 static void TryUnlockQuest(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
@@ -340,6 +359,9 @@ static void DeactivateQuest(u16 questId)
     DeactivateQuestIfNeeded(questId, &gRogueQuestData.questStates[questId]);
 }
 
+// External callbacks
+//
+
 void QuestNotify_BeginAdventure(void)
 {
     ForEachUnlockedQuest(ActivateQuestIfNeeded);
@@ -367,11 +389,23 @@ void QuestNotify_EndAdventure(void)
 
 void QuestNotify_OnWildBattleEnd(void)
 {
-
+    if(gBattleOutcome == B_OUTCOME_CAUGHT)
+    {
+        if(IsQuestActive(QUEST_Collector1))
+        {
+            u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+            if(caughtCount >= 15)
+                TryMarkQuestAsComplete(QUEST_Collector1);
+        }
+    }
 }
+
+bool8 IsSpeciesLegendary(u16 species);
 
 void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 {
+    u8 i;
+
     if(isBossTrainer)
     {
         switch(gRogueRun.currentDifficulty)
@@ -397,8 +431,23 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
             case 7:
                 TryMarkQuestAsComplete(QUEST_Gym7);
                 break;
-            case 8:
+            case 8: // Just beat last Gym
                 TryMarkQuestAsComplete(QUEST_Gym8);
+                break;
+
+            case 12: // Just beat last E4
+                if(IsQuestActive(QUEST_Collector2))
+                {
+                    for(i = 0; i < PARTY_SIZE; ++i)
+                    {
+                        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+                        if(IsSpeciesLegendary(species))
+                        {
+                            TryMarkQuestAsComplete(QUEST_Collector2);
+                            break;
+                        }
+                    }
+                }
                 break;
         }
 

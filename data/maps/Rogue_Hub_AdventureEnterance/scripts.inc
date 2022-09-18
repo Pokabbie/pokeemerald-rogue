@@ -559,10 +559,10 @@ Rogue_ReturnAdventureCommon_Text_5:
 
 Rogue_ReturnAdventureCommon_Text_6:
 	.string "Quests will often reward you with\n"
-	.string "{STR_VAR_2}.\n"
-	.string "By level up you PARTNER you may be able\l"
-	.string "to skip over GYM badges in future\l"
-	.string "Adventures.$"
+	.string "{STR_VAR_2}.\p"
+	.string "By leveling up your PARTNER with these\n"
+	.string "you will gain the option to skip over\l"
+	.string "GYM badges in future Adventures.$"
 
 Rogue_ReturnAdventureCommon_Text_7:
 	.string "Would you like to SAVE your progress?$"

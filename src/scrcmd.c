@@ -2452,15 +2452,8 @@ bool8 ScrCmd_questcompleted(struct ScriptContext *ctx)
 
 bool8 ScrCmd_questcollected(struct ScriptContext *ctx)
 {
-    struct RogueQuestState state;
     u16 index = ScriptReadHalfword(ctx);
-
-    gSpecialVar_Result = FALSE;
-    if (GetQuestState(index, &state))
-    {
-        gSpecialVar_Result = state.isCompleted && !state.hasPendingRewards;
-    }
-
+    gSpecialVar_Result = IsQuestCollected(index);
     return FALSE;
 }
 

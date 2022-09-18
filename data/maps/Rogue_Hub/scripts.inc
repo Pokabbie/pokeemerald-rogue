@@ -40,8 +40,9 @@ RogueHub_OnMapLoad_1:
 	goto_if_eq RogueHub_OnMapLoad_5
 	clearflag FLAG_ROGUE_TRAINER0
 RogueHub_OnMapLoad_4:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
-	goto_if_ne RogueHub_OnMapLoad_9
+	questcollected QUEST_Collector1
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_9
 	clearflag FLAG_ROGUE_TRAINER4
 RogueHub_OnMapLoad_8:
 	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 404
