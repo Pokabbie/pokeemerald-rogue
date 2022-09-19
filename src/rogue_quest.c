@@ -25,8 +25,6 @@ static EWRAM_DATA u8 sPreviousRouteType = 0;
 
 typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
 
-static void TryUnlockQuest(u16 questId);
-static void TryMarkQuestAsComplete(u16 questId);
 static void UnlockFollowingQuests(u16 questId);
 
 void ResetQuestState(u16 saveVersion)
@@ -36,7 +34,7 @@ void ResetQuestState(u16 saveVersion)
     if(saveVersion == 0)
     {
         // Reset the state for any new quests
-        for(i = 0; i < QUEST_COUNT; ++i)
+        for(i = 0; i < QUEST_CAPACITY; ++i)
         {
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
@@ -54,7 +52,7 @@ bool8 AnyNewQuests(void)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->hasNewMarker)
@@ -71,7 +69,7 @@ bool8 AnyQuestRewardsPending(void)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->hasPendingRewards)
@@ -89,7 +87,7 @@ u16 GetCompletedQuestCount(void)
     struct RogueQuestState* state;
     u16 count = 0;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->isCompleted)
@@ -105,7 +103,7 @@ u16 GetUnlockedQuestCount(void)
     struct RogueQuestState* state;
     u16 count = 0;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked)
@@ -117,7 +115,7 @@ u16 GetUnlockedQuestCount(void)
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 {
-    if(questId < QUEST_COUNT)
+    if(questId < QUEST_CAPACITY)
     {
         memcpy(outState, &gRogueQuestData.questStates[questId], sizeof(struct RogueQuestState));
         return outState->isUnlocked;
@@ -128,7 +126,7 @@ bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 
 void SetQuestState(u16 questId, struct RogueQuestState* state)
 {
-    if(questId < QUEST_COUNT)
+    if(questId < QUEST_CAPACITY)
     {
         memcpy(&gRogueQuestData.questStates[questId], state, sizeof(struct RogueQuestState));
     }
@@ -181,7 +179,7 @@ static bool8 QueueTargetRewardQuest()
 {
     u16 i;
     struct RogueQuestState* state;
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
 
@@ -311,7 +309,7 @@ bool8 GiveNextRewardAndFormat(u8* str)
     return FALSE;
 }
 
-static void TryUnlockQuest(u16 questId)
+bool8 TryUnlockQuest(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
 
@@ -321,9 +319,13 @@ static void TryUnlockQuest(u16 questId)
         state->isValid = FALSE;
         state->isCompleted = FALSE;
         state->hasNewMarker = TRUE;
+        return TRUE;
     }
+
+    return FALSE;
 }
-static void TryMarkQuestAsComplete(u16 questId)
+
+bool8 TryMarkQuestAsComplete(u16 questId)
 {
     struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
 
@@ -342,14 +344,31 @@ static void TryMarkQuestAsComplete(u16 questId)
             // Has already completed this once before so has rewards pending
             state->hasPendingRewards = TRUE;
         }
+
+        return TRUE;
     }
+
+    return FALSE;
+}
+
+bool8 TryDeactivateQuest(u16 questId)
+{
+    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
+
+    if(state->isValid)
+    {
+        state->isValid = FALSE;
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 static void UnlockFollowingQuests(u16 questId)
 {
     u8 i;
 
-    for(i = 0; i < ARRAY_COUNT(gRogueQuests[questId].unlockedQuests); ++i)
+    for(i = 0; i < QUEST_MAX_FOLLOWING_QUESTS; ++i)
     {
         if(gRogueQuests[questId].unlockedQuests[i] == QUEST_NONE)
             break;
@@ -363,7 +382,7 @@ static void ForEachUnlockedQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked)
@@ -378,7 +397,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isValid && !state->isCompleted)
@@ -413,13 +432,37 @@ static void DeactivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
     }
 }
 
-static void DeactivateQuest(u16 questId)
-{
-    DeactivateQuestIfNeeded(questId, &gRogueQuestData.questStates[questId]);
-}
-
 // External callbacks
 //
+
+static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
+{
+    struct RogueQuestState state;
+
+    if(IsQuestActive(QUEST_ChaosChampion) && GetQuestState(QUEST_ChaosChampion, &state))
+    {
+        bool8 isRandomanDisabled = FlagGet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+        if(enteringPotentialEncounter)
+        {
+            state.data.half = isRandomanDisabled ? 0 : 1;
+            SetQuestState(QUEST_ChaosChampion, &state);
+        }
+        else if(state.data.half)
+        {
+            if(!isRandomanDisabled)
+            {
+                // Randoman was still active i.e. we didn't use him
+                TryDeactivateQuest(QUEST_ChaosChampion);
+            }
+            else
+            {
+                state.data.half = 0;
+                SetQuestState(QUEST_ChaosChampion, &state);
+            }
+        }
+    }
+}
 
 void QuestNotify_BeginAdventure(void)
 {
@@ -430,22 +473,24 @@ void QuestNotify_BeginAdventure(void)
     // Handle skip difficulty
     if(gRogueRun.currentDifficulty > 0)
     {
-        DeactivateQuest(QUEST_GymChallenge);
-        DeactivateQuest(QUEST_GymMaster);
-        DeactivateQuest(QUEST_NoFainting2);
-        DeactivateQuest(QUEST_NoFainting3);
+        TryDeactivateQuest(QUEST_GymChallenge);
+        TryDeactivateQuest(QUEST_GymMaster);
+        TryDeactivateQuest(QUEST_NoFainting2);
+        TryDeactivateQuest(QUEST_NoFainting3);
     }
 
     if(gRogueRun.currentDifficulty > 4)
     {
-        DeactivateQuest(QUEST_NoFainting1);
+        TryDeactivateQuest(QUEST_NoFainting1);
     }
 
     if(gRogueRun.currentDifficulty > 8)
     {
         // Can't technically happen atm
-        DeactivateQuest(QUEST_EliteMaster);
+        TryDeactivateQuest(QUEST_EliteMaster);
     }
+    
+    UpdateChaosChampion(TRUE);
 }
 
 static void OnEndBattle(void)
@@ -540,6 +585,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
             case 14: // Just beat final champ
                 TryMarkQuestAsComplete(QUEST_Champion);
                 TryMarkQuestAsComplete(QUEST_NoFainting3);
+                TryMarkQuestAsComplete(QUEST_ChaosChampion);
                 break;
         }
 
@@ -564,8 +610,8 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 
 void QuestNotify_OnMonFainted()
 {
-    DeactivateQuest(QUEST_NoFainting2);
-    DeactivateQuest(QUEST_NoFainting3);
+    TryDeactivateQuest(QUEST_NoFainting2);
+    TryDeactivateQuest(QUEST_NoFainting3);
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)
@@ -598,6 +644,10 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                     }
                 }
                 break;
+
+            case ADVPATH_ROOM_RESTSTOP:
+                UpdateChaosChampion(TRUE);
+                break;
         }
 
         // Warped out of
@@ -628,14 +678,11 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                     }
                 }
                 break;
+        }
 
-            case ADVPATH_ROOM_RESTSTOP:
-                if(IsQuestActive(QUEST_BigSaver))
-                {
-                    if(GetMoney(&gSaveBlock1Ptr->money) >= 50000)
-                        TryMarkQuestAsComplete(QUEST_BigSaver);
-                }
-                break;
+        if(gRogueAdvPath.currentRoomType != ADVPATH_ROOM_RESTSTOP)
+        {
+            UpdateChaosChampion(FALSE);
         }
 
         sPreviousRouteType = gRogueAdvPath.currentRoomType;

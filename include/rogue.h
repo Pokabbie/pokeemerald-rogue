@@ -63,7 +63,7 @@ struct RogueQuestConstants
     const u8 desc[QUEST_DESC_LENGTH];
     const u16 flags;
     struct RogueQuestReward rewards[QUEST_MAX_REWARD_COUNT];
-    const u16 unlockedQuests[38];
+    const u16 unlockedQuests[QUEST_MAX_FOLLOWING_QUESTS];
 };
 
 struct RogueQuestState
@@ -83,7 +83,7 @@ struct RogueQuestState
 
 struct RogueQuestData
 {
-    struct RogueQuestState questStates[QUEST_COUNT];
+    struct RogueQuestState questStates[QUEST_CAPACITY];
 };
 
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
@@ -187,6 +187,6 @@ extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
-extern const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1];
+extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 
 #endif  // GUARD_ROGUE_H

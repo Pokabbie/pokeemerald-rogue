@@ -49,8 +49,8 @@ Rogue_Encounter_RestStop_RandomMan_4:
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
 	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
+	completequest QUEST_MrRandoman
 	setflag FLAG_ROGUE_RANDOM_TRADE_DISABLED
-	setflag FLAG_ROGUE_RANDOM_TRADE_USED
 	removeobject 1
 	goto Rogue_Encounter_RestStop_RandomMan_1
 
@@ -73,8 +73,9 @@ Rogue_Encounter_RestStop_RandomMan_6:
 	msgbox Rogue_Encounter_RestStop_RandomMan_Text_4
 	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
+	completequest QUEST_MrRandoman
+	deactivatequest QUEST_ChaosChampion
 	setflag FLAG_ROGUE_RANDOM_TRADE_DISABLED
-	setflag FLAG_ROGUE_RANDOM_TRADE_USED
 	removeobject 1
 	goto Rogue_Encounter_RestStop_RandomMan_1
 

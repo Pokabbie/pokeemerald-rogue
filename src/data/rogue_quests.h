@@ -1,4 +1,5 @@
 static const u8 gText_PreviewUnlocksBuilding[] = _("New HUB Building");
+static const u8 gText_PreviewUnlocksAdventureSetting[] = _("New Adventure Options"); 
 static const u8 gText_GiveUnlocksShops[] = _("New HUB Unlocks:\nMart & Clothes Shop!");
 static const u8 gText_GiveUnlocksSafari[] = _("New HUB Unlocks:\nSafari Zone & Name Rater!");
 static const u8 gText_GiveUnlocksTravellingMart[] = _("New HUB Unlocks:\nTravelling Mart!");
@@ -11,8 +12,9 @@ static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
 static const u8 gText_GiveLegendaryBikeShop[] = _("You can now collect and carry\nboth Bikes!");
+static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
 
-const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1] = 
+const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
 {
     [QUEST_NONE] = 
     {
@@ -36,7 +38,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1] =
         .unlockedQuests = { 
             QUEST_Collector1,
             QUEST_ShoppingSpree,
-            QUEST_NoFainting1
+            QUEST_NoFainting1,
+            QUEST_MrRandoman
         }
     },
 
@@ -308,12 +311,40 @@ const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1] =
     {
         .title = _("True Tactics"),
         .desc = _(
-                    "Defeat an entire\n"
-                    "Adventure without any\n"
-                    "POKéMON fainting."
+                    "Win a full Run\n"
+                    "without any POKéMON\n"
+                    "ever fainting."
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
+        }
+    },
+
+    [QUEST_MrRandoman] = 
+    {
+        .title = _("Mr. Randoman"),
+        .desc = _(
+                    "Trade a POKéMON with\n"
+                    "Mr. Randoman."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksMrRandoStart },
+        },
+        .unlockedQuests = { 
+            QUEST_ChaosChampion,
+        }
+    },
+    [QUEST_ChaosChampion] = 
+    {
+        .title = _("Chaos Champ"),
+        .desc = _(
+                    "Win a full Run, always\n"
+                    "doing a Random Party\n"
+                    "Trade whenever possible."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
         }
     },
 

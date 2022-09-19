@@ -32,7 +32,6 @@ Rogue_HubTransition_RandomMan_2:
 	applymovement 1, Rogue_RestStop_RandomMan_RunAway
 	waitmovement 0
 	setflag FLAG_ROGUE_RANDOM_TRADE_DISABLED
-	setflag FLAG_ROGUE_RANDOM_TRADE_USED
 	removeobject 1
 	goto Rogue_HubTransition_RandomMan_1
 

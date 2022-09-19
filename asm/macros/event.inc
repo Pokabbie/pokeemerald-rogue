@@ -2006,3 +2006,22 @@
 	.macro nextquestreward
 	.byte 0xec
 	.endm
+
+	@ Attempts to unlock the given quest and returns the result
+	.macro unlockquest questId:req
+	.byte 0xed
+	.2byte \questId
+	.endm
+
+	@ Attempts to complete the given quest and returns the result
+	.macro completequest questId:req
+	.byte 0xee
+	.2byte \questId
+	.endm
+
+	@ Attempts to deactive the given quest and returns the result
+	.macro deactivatequest questId:req
+	.byte 0xef
+	.2byte \questId
+	.endm
+	

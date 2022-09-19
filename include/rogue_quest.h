@@ -18,6 +18,9 @@ bool8 IsQuestActive(u16 questId);
 bool8 DoesQuestHaveUnlocks(u16 questId);
 
 bool8 GiveNextRewardAndFormat(u8* str);
+bool8 TryUnlockQuest(u16 questId);
+bool8 TryMarkQuestAsComplete(u16 questId);
+bool8 TryDeactivateQuest(u16 questId);
 
 void QuestNotify_BeginAdventure(void);
 void QuestNotify_EndAdventure(void);

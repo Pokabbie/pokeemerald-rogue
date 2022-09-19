@@ -1637,6 +1637,16 @@ static void BeginRogueRun(void)
 
     GiveMonPartnerRibbon();
 
+    // Enable randoman trader at start
+    if(IsQuestCollected(QUEST_MrRandoman))
+    {
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+    }
+    else
+    {
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+    }
+
     QuestNotify_BeginAdventure();
 }
 
@@ -1902,18 +1912,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         // Warping back to hub must be intentional
         return;
-    }
-    else if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_TRANSITION) && warp->mapNum == MAP_NUM(ROGUE_HUB_TRANSITION))
-    {
-        if(FlagGet(FLAG_ROGUE_RANDOM_TRADE_USED))
-        {
-            // Enable random trader
-            FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-        }
-        else
-        {
-            FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-        }
     }
 
     // Reset preview data

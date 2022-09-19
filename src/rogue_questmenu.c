@@ -167,7 +167,7 @@
 #define MENU_PAGE_REPEATABLE_QUESTS 6
 #define MENU_PAGE_NEW_QUESTS 7
 
-#define MAX_QUESTS_TO_SHOW (QUEST_COUNT)
+#define MAX_QUESTS_TO_SHOW (QUEST_CAPACITY)
 
 extern const u8 gText_QuestLogBack[];
 extern const u8 gText_QuestLogTitleOverview[];
@@ -435,7 +435,7 @@ static void GatherOptionsToDisplay()
     {
         case MENU_PAGE_PINNED_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && state.isPinned)
                 {
@@ -446,7 +446,7 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_ACTIVE_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && state.isValid)
                 {
@@ -457,7 +457,7 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_INACTIVE_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && !state.isValid)
                 {
@@ -469,7 +469,7 @@ static void GatherOptionsToDisplay()
         case MENU_PAGE_COMPLETED_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
             // Place quests which have pending rewards to the top
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && state.isCompleted && state.hasPendingRewards)
                 {
@@ -477,9 +477,9 @@ static void GatherOptionsToDisplay()
                 }
             }
             // Invert the quest order, as we're probably going to have more impressive quests in later ID so want to see them first
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
-                u16 questId = QUEST_COUNT - i;
+                u16 questId = QUEST_CAPACITY - i;
                 if(GetQuestState(questId, &state) && state.isCompleted && !state.hasPendingRewards)
                 {
                     sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = questId;
@@ -489,7 +489,7 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_TODO_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && !state.isCompleted)
                 {
@@ -500,7 +500,7 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_REPEATABLE_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && IsQuestRepeatable(i))
                 {
@@ -511,7 +511,7 @@ static void GatherOptionsToDisplay()
 
         case MENU_PAGE_NEW_QUESTS:
             sQuestMenuStruct->numMenuChoices = 0;
-            for(i = 0; i < QUEST_COUNT; ++i)
+            for(i = 0; i < QUEST_CAPACITY; ++i)
             {
                 if(GetQuestState(i, &state) && state.hasNewMarker)
                 {
