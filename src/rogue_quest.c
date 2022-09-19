@@ -54,7 +54,7 @@ bool8 AnyNewQuests(void)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->hasNewMarker)
@@ -71,7 +71,7 @@ bool8 AnyQuestRewardsPending(void)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->hasPendingRewards)
@@ -89,7 +89,7 @@ u16 GetCompletedQuestCount(void)
     struct RogueQuestState* state;
     u16 count = 0;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked && state->isCompleted)
@@ -105,7 +105,7 @@ u16 GetUnlockedQuestCount(void)
     struct RogueQuestState* state;
     u16 count = 0;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked)
@@ -128,7 +128,7 @@ bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 
 void SetQuestState(u16 questId, struct RogueQuestState* state)
 {
-    if(questId >= QUEST_FIRST && questId < QUEST_COUNT)
+    if(questId < QUEST_COUNT)
     {
         memcpy(&gRogueQuestData.questStates[questId], state, sizeof(struct RogueQuestState));
     }
@@ -181,7 +181,7 @@ static bool8 QueueTargetRewardQuest()
 {
     u16 i;
     struct RogueQuestState* state;
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
 
@@ -363,7 +363,7 @@ static void ForEachUnlockedQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked)
@@ -378,7 +378,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = QUEST_FIRST; i < QUEST_COUNT; ++i)
+    for(i = 0; i < QUEST_COUNT; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isValid && !state->isCompleted)

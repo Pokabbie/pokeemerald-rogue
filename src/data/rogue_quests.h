@@ -12,7 +12,7 @@ static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow app
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
 static const u8 gText_GiveLegendaryBikeShop[] = _("You can now collect and carry\nboth Bikes!");
 
-const struct RogueQuestConstants gRogueQuests[QUEST_COUNT] = 
+const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1] = 
 {
     [QUEST_NONE] = 
     {

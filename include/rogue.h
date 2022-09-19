@@ -187,6 +187,6 @@ extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
-extern const struct RogueQuestConstants gRogueQuests[QUEST_COUNT];
+extern const struct RogueQuestConstants gRogueQuests[QUEST_COUNT + 1];
 
 #endif  // GUARD_ROGUE_H

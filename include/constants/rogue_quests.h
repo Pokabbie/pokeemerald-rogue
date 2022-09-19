@@ -16,20 +16,19 @@
 #define  QUEST_REWARD_CUSTOM_TEXT   5 // Params(0)
 
 
-#define QUEST_NONE                  0
-#define QUEST_FirstAdventure        1
-#define QUEST_Gym1                  2
-#define QUEST_Gym2                  3
-#define QUEST_Gym3                  4
-#define QUEST_Gym4                  5
-#define QUEST_Gym5                  6
-#define QUEST_Gym6                  7
-#define QUEST_Gym7                  8
-#define QUEST_Gym8                  9
-#define QUEST_GymChallenge          10
-#define QUEST_GymMaster             11
-#define QUEST_EliteMaster           12
-#define QUEST_Champion              13
+#define QUEST_FirstAdventure        0
+#define QUEST_Gym1                  1
+#define QUEST_Gym2                  2
+#define QUEST_Gym3                  3
+#define QUEST_Gym4                  4
+#define QUEST_Gym5                  5
+#define QUEST_Gym6                  6
+#define QUEST_Gym7                  7
+#define QUEST_Gym8                  8
+#define QUEST_GymChallenge          9
+#define QUEST_GymMaster             10
+#define QUEST_EliteMaster           11
+#define QUEST_Champion              12
 
 #define QUEST_Collector1            (QUEST_Champion + 1)
 #define QUEST_Collector2            (QUEST_Champion + 2)
@@ -46,4 +45,6 @@
 #define QUEST_Electric_Champion     (QUEST_NoFainting3 + 2)
 
 #define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_COUNT (QUEST_Electric_Champion + 1)
+#define QUEST_LAST QUEST_Electric_Champion
+#define QUEST_COUNT (QUEST_LAST - QUEST_FIRST + 1)
+#define QUEST_NONE  QUEST_COUNT
