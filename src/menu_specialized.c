@@ -1120,7 +1120,8 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
         x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
         AddTextPrinterParameterized(0, FONT_SHORT, str, x, 65, 0, NULL);
     }
-    else if(IsQuestRepeatable(chosenQuest))
+
+    if(IsQuestRepeatable(chosenQuest))
     {
         str = gText_QuestLogMarkerRepeatable;
         AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 65, 0, NULL);
@@ -1200,12 +1201,6 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
         AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
     }
 
-    if(IsQuestRepeatable(chosenQuest))
-    {
-        str = gText_QuestLogMarkerRepeatable;
-        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 80, 0, NULL);
-    }
-
     if(questState.isCompleted)
     {
         if(questState.hasPendingRewards)
@@ -1214,7 +1209,13 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
             x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
             AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
         }
-        else if(!IsQuestRepeatable(chosenQuest))
+        else if(IsQuestRepeatable(chosenQuest))
+        {
+            str = gText_QuestLogMarkerRepeatable;
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
+        else
         {
             str = gText_QuestLogStatusCollected;
             x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;

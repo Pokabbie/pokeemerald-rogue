@@ -37,6 +37,9 @@
 #include "window.h"
 #include "mystery_gift_menu.h"
 
+#include "rogue.h"
+#include "rogue_quest.h"
+
 /*
  * Main menu state machine
  * -----------------------
@@ -2420,18 +2423,15 @@ static void MainMenu_FormatSavegamePokedex(void)
 
 static void MainMenu_FormatSavegameBadges(void)
 {
+    // RogueNote: Display Quests% instead of badges 
     u8 str[0x20];
-    u8 badgeCount = 0;
-    u32 i;
+    u16 questPercentage = (GetCompletedQuestCount() * 100) / QUEST_COUNT;
 
-    for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
-    {
-        if (FlagGet(i))
-            badgeCount++;
-    }
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
-    ConvertIntToDecimalStringN(str, badgeCount, STR_CONV_MODE_LEADING_ZEROS, 1);
+
+    ConvertUIntToDecimalStringN(gStringVar1, questPercentage, STR_CONV_MODE_LEFT_ALIGN, 6);
+    StringExpandPlaceholders(str, gText_Var1Percent);
     AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
 }
 
