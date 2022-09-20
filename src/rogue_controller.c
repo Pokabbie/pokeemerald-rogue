@@ -80,6 +80,7 @@ struct RogueBoxSaveData
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     struct RogueAdvPath advPath;
     struct RogueQuestData questData;
+    struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
@@ -1388,7 +1389,7 @@ static void CopyToPocket(u8 pocket, struct ItemSlot* src)
     }
 }
 
-static void SaveHubInventory(void)
+static void SaveHubStates(void)
 {
     u8 i;
 
@@ -1400,6 +1401,8 @@ static void SaveHubInventory(void)
     {
         ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
     }
+
+    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(0), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
     gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
     CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
@@ -1409,7 +1412,7 @@ static void SaveHubInventory(void)
     CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
 }
 
-static void LoadHubInventory(void)
+static void LoadHubStates(void)
 {
     u8 i;
 
@@ -1424,6 +1427,8 @@ static void LoadHubInventory(void)
             break;
     }
     gPlayerPartyCount = i;
+
+    memcpy(GetBerryTreeInfo(0), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
     CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
     CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
@@ -1560,8 +1565,6 @@ static void BeginRogueRun(void)
         gRngRogueValue = Rogue_GetStartSeed();
     }
 
-    ClearBerryTrees();
-
     gRogueRun.currentRoomIdx = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.currentLevelOffset = 5;
@@ -1589,7 +1592,9 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
-    SaveHubInventory();
+    SaveHubStates();
+
+    ClearBerryTrees();
     RandomiseFishingEncounters();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
@@ -1696,7 +1701,10 @@ static void EndRogueRun(void)
         gSaveBlock2Ptr->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes % 60;
     }
 
-    LoadHubInventory();
+    LoadHubStates();
+
+    // Grow berries based on progress in runs
+    BerryTreeTimeUpdate(60 * 6 * gRogueRun.currentDifficulty);
 }
 
 u8 Rogue_SelectBossRoom(void)

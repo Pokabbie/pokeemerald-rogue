@@ -67,8 +67,9 @@ static void UpdatePerMinute(struct Time *localTime)
     {
         if (minutes >= 0)
         {
-            BerryTreeTimeUpdate(minutes);
-            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
+            // RogueNote: Don't update berries based on clock
+            //BerryTreeTimeUpdate(minutes);
+            //gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
         }
     }
 }
