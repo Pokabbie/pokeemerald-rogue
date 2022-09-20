@@ -156,13 +156,22 @@ script RogueHub_OnMapLoad
     {
         fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER3)
-
-        // + Travel shop
-        fillmetatile(22, 8, 24, 8, METATILE_Grass, FALSE)
     }
     else
     {
         clearflag(FLAG_ROGUE_TRAINER3)
+    }
+
+    // Berry Patch
+    questcollected(QUEST_BerryCollector)
+    if(var(VAR_RESULT) == NO)
+    {
+        fillmetatile(31, 31, 39, 36, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER8)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER8)
     }
 
     // Intro Scott
@@ -480,6 +489,31 @@ script RogueHub_SpeakBank
     {
         msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
     }
+    release
+}
+
+script RogueHub_SpeakBerryMerchant
+{
+    lock
+    faceplayer
+
+    checkitem(ITEM_WAILMER_PAIL)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou're welcome to use them of course!\pAs a matter of fact here's something to get you started!"))
+        giveitem(ITEM_WAILMER_PAIL)
+        msgbox(format("If you ever need any berries, then please do come and speak with me."))
+    }
+    else
+    {
+        message("Hi {PLAYER}!\nWould you like to by some berries?")
+        waitmessage
+
+        rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
+
+        msgbox("Glad to be of help!")
+    }
+
     release
 }
 

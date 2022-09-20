@@ -67,8 +67,13 @@ RogueHub_OnMapLoad_20:
 	goto_if_eq RogueHub_OnMapLoad_25
 	clearflag FLAG_ROGUE_TRAINER3
 RogueHub_OnMapLoad_24:
+	questcollected QUEST_BerryCollector
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_31
+	clearflag FLAG_ROGUE_TRAINER8
+RogueHub_OnMapLoad_30:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_30
+	goto_if_gt RogueHub_OnMapLoad_34
 	return
 
 RogueHub_OnMapLoad_2:
@@ -108,14 +113,18 @@ RogueHub_OnMapLoad_21:
 RogueHub_OnMapLoad_25:
 	fillmetatile 13, 27, 27, 36, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER3
-	fillmetatile 22, 8, 24, 8, 0x001, FALSE
 	goto RogueHub_OnMapLoad_24
 
 RogueHub_OnMapLoad_28:
 	setflag FLAG_ROGUE_TRAINER5
 	goto RogueHub_OnMapLoad_20
 
-RogueHub_OnMapLoad_30:
+RogueHub_OnMapLoad_31:
+	fillmetatile 31, 31, 39, 36, 0x001, FALSE
+	setflag FLAG_ROGUE_TRAINER8
+	goto RogueHub_OnMapLoad_30
+
+RogueHub_OnMapLoad_34:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 
@@ -406,6 +415,27 @@ RogueHub_SpeakBank_11:
 RogueHub_SpeakBank_13:
 	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_YESNO
 	goto RogueHub_SpeakBank_4
+
+
+RogueHub_SpeakBerryMerchant::
+	lock
+	faceplayer
+	checkitem ITEM_WAILMER_PAIL
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_SpeakBerryMerchant_2
+	message RogueHub_SpeakBerryMerchant_Text_2
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_BERRIES
+	msgbox RogueHub_SpeakBerryMerchant_Text_3
+RogueHub_SpeakBerryMerchant_1:
+	release
+	return
+
+RogueHub_SpeakBerryMerchant_2:
+	msgbox RogueHub_SpeakBerryMerchant_Text_0
+	giveitem ITEM_WAILMER_PAIL
+	msgbox RogueHub_SpeakBerryMerchant_Text_1
+	goto RogueHub_SpeakBerryMerchant_1
 
 
 RogueHub_Sign_AdventureSign::
@@ -729,6 +759,24 @@ RogueHub_SpeakBank_Text_7:
 	.string "I see...\n"
 	.string "You know where I am, if you change your\l"
 	.string "mind.$"
+
+RogueHub_SpeakBerryMerchant_Text_0:
+	.string "Oh hello {PLAYER}!\n"
+	.string "I hope you don't mind, but I've setup\l"
+	.string "some berry patches.\p"
+	.string "You're welcome to use them of course!\p"
+	.string "As a matter of fact here's something to\n"
+	.string "get you started!$"
+
+RogueHub_SpeakBerryMerchant_Text_1:
+	.string "If you ever need any berries, then\n"
+	.string "please do come and speak with me.$"
+
+RogueHub_SpeakBerryMerchant_Text_2:
+	.string "Hi {PLAYER}!\nWould you like to by some berries?$"
+
+RogueHub_SpeakBerryMerchant_Text_3:
+	.string "Glad to be of help!$"
 
 RogueHub_Sign_AdventureSign_Text_0:
 	.string "Adventures await beyond this point...$"

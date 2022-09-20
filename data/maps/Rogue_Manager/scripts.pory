@@ -515,6 +515,13 @@ script Rogue_Tutor_MoveDeleteCancel
     release
 }
 
+script Rogue_BerryTree_CheckBerry
+{
+    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        goto(BerryTree_EventScript_CheckSoil)
+    }
+}
 
 // Trainer Blocks
 //

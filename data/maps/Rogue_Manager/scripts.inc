@@ -493,6 +493,15 @@ Rogue_Tutor_MoveDeleteCancel::
 	return
 
 
+Rogue_BerryTree_CheckBerry::
+	goto_if_unset FLAG_ROGUE_RUN_ACTIVE, Rogue_BerryTree_CheckBerry_1
+	return
+
+Rogue_BerryTree_CheckBerry_1:
+	goto BerryTree_EventScript_CheckSoil
+	return
+
+
 Rogue_Battle_PreBoss::
 	lock
 	faceplayer

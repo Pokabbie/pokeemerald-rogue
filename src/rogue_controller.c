@@ -3364,7 +3364,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_ItemsExcludeCommon();
 
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
-    RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+
+    if(itemCategory != ROGUE_SHOP_BERRIES)
+    {
+        RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+    }
 
 #ifdef ROGUE_EXPANSION
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
@@ -3511,6 +3515,15 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 *minSalePrice = 1500;
             else
                 *minSalePrice = 3000;
+            break;
+
+            
+        case ROGUE_SHOP_BERRIES:
+            RogueQuery_ItemsInPocket(POCKET_BERRIES);
+
+            // TODO - Limit based on Quest Rewards
+
+            *minSalePrice = 2000;
             break;
     };
 

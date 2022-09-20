@@ -18,7 +18,9 @@
 #include "data.h"
 #include "party_menu.h"
 
+#include "rogue.h"
 #include "rogue_baked.h"
+#include "rogue_quest.h"
 
 extern u16 gUnknown_0203CF30[];
 
@@ -315,6 +317,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
                     SetBagItemQuantity(&newItems[i].quantity, ownedCount + count);
                     memcpy(itemPocket->itemSlots, newItems, itemPocket->capacity * sizeof(struct ItemSlot));
                     Free(newItems);
+
+                    QuestNotify_OnAddBagItem(itemId, count);
                     return TRUE;
                 }
                 else
@@ -377,6 +381,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
         }
         memcpy(itemPocket->itemSlots, newItems, itemPocket->capacity * sizeof(struct ItemSlot));
         Free(newItems);
+
+        QuestNotify_OnAddBagItem(itemId, count);
         return TRUE;
     }
 }
@@ -439,7 +445,10 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
                 itemPocket->itemSlots[var].itemId = ITEM_NONE;
 
             if (count == 0)
+            {
+                QuestNotify_OnRemoveBagItem(itemId, count);
                 return TRUE;
+            }
         }
 
         for (i = 0; i < itemPocket->capacity; i++)
@@ -462,9 +471,14 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
                     itemPocket->itemSlots[i].itemId = ITEM_NONE;
 
                 if (count == 0)
+                {
+                    QuestNotify_OnRemoveBagItem(itemId, count);
                     return TRUE;
+                }
             }
         }
+
+        QuestNotify_OnRemoveBagItem(itemId, count);
         return TRUE;
     }
 }

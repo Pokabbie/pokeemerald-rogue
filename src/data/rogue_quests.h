@@ -7,6 +7,7 @@ static const u8 gText_GiveUnlocksTravellingBank[] = _("New HUB Unlocks:\nBank!")
 static const u8 gText_GiveUnlocksBikeShop[] = _("New HUB Unlocks:\nBike Shop!");
 static const u8 gText_GiveUnlocksTutors[] = _("New HUB Unlocks:\nMove Tutors!");
 static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
+static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
@@ -39,7 +40,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_Collector1,
             QUEST_ShoppingSpree,
             QUEST_NoFainting1,
-            QUEST_MrRandoman
+            QUEST_MrRandoman,
+            QUEST_BerryCollector
         }
     },
 
@@ -345,6 +347,21 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+        }
+    },
+
+    [QUEST_BerryCollector] = 
+    {
+        .title = _("Forager"),
+        .desc = _(
+                    "Collect 10 different types\n"
+                    "of Berry whilst on an\n"
+                    "Adventure."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ORAN_BERRY, 3 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBerries },
         }
     },
 

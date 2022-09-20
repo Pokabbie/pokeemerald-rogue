@@ -468,7 +468,11 @@ void QuestNotify_BeginAdventure(void)
 {
     sPreviousRouteType = 0;
 
-    ForEachUnlockedQuest(ActivateQuestIfNeeded);
+    // Cannot activate quests on Gauntlet mode
+    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        ForEachUnlockedQuest(ActivateQuestIfNeeded);
+    }
 
     // Handle skip difficulty
     if(gRogueRun.currentDifficulty > 0)
@@ -712,4 +716,34 @@ void QuestNotify_OnRemoveMoney(u32 amount)
             }
         }
     }
+}
+
+void QuestNotify_OnAddBagItem(u16 itemId, u16 count)
+{
+    if(Rogue_IsRunActive())
+    {
+        if(IsQuestActive(QUEST_BerryCollector))
+        {
+            if(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
+            {
+                u16 i;
+                u16 uniqueBerryCount = 0;
+
+                for(i = FIRST_BERRY_INDEX; i <= LAST_BERRY_INDEX; ++i)
+                {
+                    if(CheckBagHasItem(i,1))
+                        ++uniqueBerryCount;
+                }
+
+                if(uniqueBerryCount >= 10)
+                    TryMarkQuestAsComplete(QUEST_BerryCollector);
+            }
+
+        }
+    }
+}
+
+void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count)
+{
+
 }
