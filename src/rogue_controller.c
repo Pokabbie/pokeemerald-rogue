@@ -1944,7 +1944,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
-                if(RogueRandomChance(33, OVERWORLD_FLAG))
+                if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
                 {
                     // Enable random trader
                     FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
