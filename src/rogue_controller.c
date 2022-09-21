@@ -20,6 +20,7 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "palette.h"
+#include "play_time.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -1605,10 +1606,8 @@ static void BeginRogueRun(void)
     gRogueHubData.playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds;
     gRogueHubData.playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks;
 
-    gSaveBlock2Ptr->playTimeHours = 0;
-    gSaveBlock2Ptr->playTimeMinutes = 0;
-    gSaveBlock2Ptr->playTimeSeconds = 0;
-    gSaveBlock2Ptr->playTimeVBlanks = 0;
+    PlayTimeCounter_Reset();
+    PlayTimeCounter_Start();
 
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
