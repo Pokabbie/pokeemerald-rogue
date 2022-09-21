@@ -95,6 +95,7 @@ EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
+EWRAM_DATA static bool8 sBufferedAButton = FALSE;
 
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
@@ -653,8 +654,17 @@ static bool8 HandleStartMenuInput(void)
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON) || sBufferedAButton)
     {
+        // RogueNote: Audio music bug, wait for fanfare music to stop
+        // If we don't do this music can cutout and cause soft-locks on warps
+        if(!WaitFanfare(FALSE))
+        {
+            sBufferedAButton = TRUE;
+            return;
+        }
+
+        sBufferedAButton = FALSE;
         PlaySE(SE_SELECT);
         if (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuPokedexCallback)
         {
