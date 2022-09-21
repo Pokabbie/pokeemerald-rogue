@@ -13,11 +13,7 @@ mapscripts Rogue_Route_Urban1_MapScripts
 
 script Rogue_Route_Urban1_OnFrame0
 {
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_SNOW)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     //if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     //{

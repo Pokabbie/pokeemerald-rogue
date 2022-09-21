@@ -18,10 +18,7 @@ mapscripts Rogue_Encounter_MiniBoss_MapScripts
 
 script Rogue_MiniBoss_OnLoad
 {
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        call(Rogue_MiniBoss_SetWeather)
-    }
+    call(Rogue_SetDesiredWeather)
 
     //setvar(VAR_TEMP_2, 1)
 }
@@ -50,8 +47,7 @@ script Rogue_Battle_MiniBoss
 
 script Rogue_BattleDefeated_MiniBoss
 {
-    setweather(WEATHER_NONE)
-    doweather
+    call(Rogue_ClearWeather)
 
     bufferitemname(STR_VAR_1, VAR_ROGUE_ITEM0)
     bufferitemname(STR_VAR_2, VAR_ROGUE_ITEM1)
@@ -99,6 +95,7 @@ movement MiniBoss_BossToFight {
 
 script Rogue_MiniBoss_SetWeather
 {
+    // TODO - Move this into script
     switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
     {
         case OBJ_EVENT_GFX_MAXIE:

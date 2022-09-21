@@ -7,10 +7,10 @@
 #define WEATHER_RAIN                    3
 #define WEATHER_SNOW                    4   // Unused
 #define WEATHER_RAIN_THUNDERSTORM       5
-#define WEATHER_FOG_HORIZONTAL          6
+#define WEATHER_FOG_HORIZONTAL          6   // Psychic Terrain 
 #define WEATHER_VOLCANIC_ASH            7
 #define WEATHER_SANDSTORM               8
-#define WEATHER_FOG_DIAGONAL            9   // Unused
+#define WEATHER_FOG_DIAGONAL            9   // Misty Terrain
 #define WEATHER_UNDERWATER              10  // Unused
 #define WEATHER_SHADE                   11  // Original name was closer to WEATHER_CLOUDY/OVERCAST
 #define WEATHER_DROUGHT                 12

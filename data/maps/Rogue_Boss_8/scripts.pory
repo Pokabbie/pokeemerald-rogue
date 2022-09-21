@@ -16,11 +16,7 @@ script Rogue_Battle_Boss8
 
     msgbox(format("SIDNEY: A new challenger!"))
 
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_VOLCANIC_ASH)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     applymovement(BOSS_NPC, BossToFightBoss8)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss8)
@@ -35,8 +31,7 @@ script Rogue_Battle_Boss8
 
 script Rogue_BattleDefeated_Boss8
 {
-    setweather(WEATHER_NONE)
-    doweather
+    call(Rogue_ClearWeather)
     
     message(format("{PLAYER} received a ELITE BADGE!"))
     waitmessage()

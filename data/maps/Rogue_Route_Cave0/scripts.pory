@@ -13,11 +13,7 @@ mapscripts Rogue_Route_Cave0_MapScripts
 
 script Rogue_Route_Cave0_OnFrame0
 {
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_SANDSTORM)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     {

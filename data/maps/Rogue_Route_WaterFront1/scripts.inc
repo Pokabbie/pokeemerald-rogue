@@ -13,13 +13,7 @@ Rogue_Route_WaterFront1_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 Rogue_Route_WaterFront1_OnFrame0::
-	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Route_WaterFront1_OnFrame0_2
-Rogue_Route_WaterFront1_OnFrame0_1:
+	call Rogue_SetDesiredWeather
 	setvar VAR_TEMP_1, 1
 	end
-
-Rogue_Route_WaterFront1_OnFrame0_2:
-	setweather WEATHER_FOG_DIAGONAL
-	doweather
-	goto Rogue_Route_WaterFront1_OnFrame0_1
 

@@ -6,6 +6,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
+#include "constants/weather.h"
 #include "data.h"
 
 #include "battle.h"
@@ -1297,7 +1298,6 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
-    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -1305,6 +1305,7 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
@@ -1591,7 +1592,7 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
-    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     SaveHubStates();
 
@@ -1936,14 +1937,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
             VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
 
+        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+
         // We're warping into a valid map
         // We've already set the next room type so adjust the scaling now
         switch(gRogueAdvPath.currentRoomType)
         {
             case ADVPATH_ROOM_RESTSTOP:
             {
-                FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-
                 if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
                 {
                     // Enable random trader
@@ -1977,11 +1978,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
-                }
-                else
-                {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 break;
             }
@@ -1995,15 +1993,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
-                }
-                else
-                {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 break;
             }
@@ -2059,15 +2053,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 else
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 break;
             }

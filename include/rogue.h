@@ -152,6 +152,7 @@ struct RogueEncounterMap
     u16 layout;
     u16 group;
     u16 num;
+    u16 params[3];
 };
 
 struct RogueEncounterData
@@ -188,5 +189,6 @@ extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
+extern const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES];
 
 #endif  // GUARD_ROGUE_H

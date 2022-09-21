@@ -19,13 +19,7 @@ Rogue_Route_Mountain3_OnResume::
 
 
 Rogue_Route_Mountain3_OnFrame0::
-	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Route_Mountain3_OnFrame0_2
-Rogue_Route_Mountain3_OnFrame0_1:
+	call Rogue_SetDesiredWeather
 	setvar VAR_TEMP_1, 1
 	end
-
-Rogue_Route_Mountain3_OnFrame0_2:
-	setweather WEATHER_VOLCANIC_ASH
-	doweather
-	goto Rogue_Route_Mountain3_OnFrame0_1
 

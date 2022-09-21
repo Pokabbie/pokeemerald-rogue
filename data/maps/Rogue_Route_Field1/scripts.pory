@@ -13,11 +13,7 @@ mapscripts Rogue_Route_Field1_MapScripts
 
 script Rogue_Route_Field1_OnFrame0
 {
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_FOG_DIAGONAL)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     {

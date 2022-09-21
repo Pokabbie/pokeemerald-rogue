@@ -13,19 +13,13 @@ Rogue_Route_Field0_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 Rogue_Route_Field0_OnFrame0::
-	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_Route_Field0_OnFrame0_2
+	call Rogue_SetDesiredWeather
+	goto_if_set FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE, Rogue_Route_Field0_OnFrame0_2
 Rogue_Route_Field0_OnFrame0_1:
-	goto_if_set FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE, Rogue_Route_Field0_OnFrame0_5
-Rogue_Route_Field0_OnFrame0_4:
 	setvar VAR_TEMP_1, 1
 	end
 
 Rogue_Route_Field0_OnFrame0_2:
-	setweather WEATHER_SHADE
-	doweather
-	goto Rogue_Route_Field0_OnFrame0_1
-
-Rogue_Route_Field0_OnFrame0_5:
 	lockall
 	special DoSealedChamberShakingEffect_Short
 	waitstate
@@ -33,18 +27,18 @@ Rogue_Route_Field0_OnFrame0_5:
 	delay 10
 	random 2
 	switch VAR_RESULT
-	case 0, Rogue_Route_Field0_OnFrame0_9
-	case 1, Rogue_Route_Field0_OnFrame0_10
-Rogue_Route_Field0_OnFrame0_7:
+	case 0, Rogue_Route_Field0_OnFrame0_6
+	case 1, Rogue_Route_Field0_OnFrame0_7
+Rogue_Route_Field0_OnFrame0_4:
 	releaseall
-	goto Rogue_Route_Field0_OnFrame0_4
+	goto Rogue_Route_Field0_OnFrame0_1
 
-Rogue_Route_Field0_OnFrame0_9:
+Rogue_Route_Field0_OnFrame0_6:
 	setmetatile 32, 69, METATILE_General_CaveEntrance_Top, FALSE
 	setmetatile 32, 70, METATILE_General_CaveEntrance_Bottom, FALSE
-	goto Rogue_Route_Field0_OnFrame0_7
+	goto Rogue_Route_Field0_OnFrame0_4
 
-Rogue_Route_Field0_OnFrame0_10:
+Rogue_Route_Field0_OnFrame0_7:
 	setmetatile 17, 46, 0x282, FALSE
-	goto Rogue_Route_Field0_OnFrame0_7
+	goto Rogue_Route_Field0_OnFrame0_4
 

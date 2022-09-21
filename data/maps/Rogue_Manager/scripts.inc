@@ -108,6 +108,23 @@ Rogue_ReturnToHub::
 	return
 
 
+Rogue_SetDesiredWeather::
+	compare VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE
+	goto_if_ne Rogue_SetDesiredWeather_1
+	return
+
+Rogue_SetDesiredWeather_1:
+	setweather VAR_ROGUE_DESIRED_WEATHER
+	doweather
+	return
+
+
+Rogue_ClearWeather::
+	setweather WEATHER_NONE
+	doweather
+	return
+
+
 Rogue_Common_TurnPlayerNorth::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
