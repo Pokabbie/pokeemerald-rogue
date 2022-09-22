@@ -1963,16 +1963,21 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
     {
+        
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerNum, &trainer);
+        
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 
-        monsCount = gTrainers[trainerNum].partySize;
+        monsCount = trainer.partySize;
 
         Rogue_PreCreateTrainerParty(trainerNum, &useRogueCreateMon, &monsCount);
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         {
-            if (gTrainers[trainerNum].partySize > PARTY_SIZE / 2)
+            if (trainer.partySize > PARTY_SIZE / 2)
                 monsCount = PARTY_SIZE / 2;
         }
 
@@ -1984,21 +1989,21 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 continue;
             }
 
-            if (gTrainers[trainerNum].doubleBattle == TRUE)
+            if (trainer.doubleBattle == TRUE)
                 personalityValue = 0x80;
-            else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
+            else if (trainer.encounterMusic_gender & F_TRAINER_FEMALE)
                 personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
             else
                 personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
 
-            for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
-                nameHash += gTrainers[trainerNum].trainerName[j];
+            for (j = 0; trainer.trainerName[j] != EOS; j++)
+                nameHash += trainer.trainerName[j];
 
-            switch (gTrainers[trainerNum].partyFlags)
+            switch (trainer.partyFlags)
             {
             case 0:
             {
-                const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
+                const struct TrainerMonNoItemDefaultMoves *partyData = trainer.party.NoItemDefaultMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2010,7 +2015,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
-                const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
+                const struct TrainerMonNoItemCustomMoves *partyData = trainer.party.NoItemCustomMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2028,7 +2033,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             }
             case F_TRAINER_PARTY_HELD_ITEM:
             {
-                const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
+                const struct TrainerMonItemDefaultMoves *partyData = trainer.party.ItemDefaultMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2042,7 +2047,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
             {
-                const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
+                const struct TrainerMonItemCustomMoves *partyData = trainer.party.ItemCustomMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2068,7 +2073,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             Rogue_PostCreateTrainerParty(trainerNum, party, monsCount);
         }
 
-        gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
+        gBattleTypeFlags |= trainer.doubleBattle;
     }
 
     return monsCount;
@@ -4960,10 +4965,14 @@ static void HandleEndTurn_BattleWon(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
     {
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
+        switch (trainer.trainerClass)
         {
         case TRAINER_CLASS_ELITE_FOUR:
             PlayBGM(MUS_VICTORY_GYM_LEADER);

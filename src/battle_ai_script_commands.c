@@ -319,9 +319,12 @@ void BattleAI_HandleItemUseBeforeAISetup(u8 defaultScoreMoves)
             }
             else
             {
-                if (gTrainers[gTrainerBattleOpponent_A].items[i] != 0)
+                struct Trainer trainer;
+                Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
+                if (trainer.items[i] != 0)
                 {
-                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = gTrainers[gTrainerBattleOpponent_A].items[i];
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = trainer.items[i];
                     BATTLE_HISTORY->itemsNo++;
                 }
             }
@@ -336,6 +339,11 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     s32 i;
     u8 *data = (u8 *)AI_THINKING_STRUCT;
     u8 moveLimitations;
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+    
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
 
     // Clear AI data.
     for (i = 0; i < sizeof(struct AI_ThinkingStruct); i++)
@@ -393,9 +401,9 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))
         AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_TRY_TO_FAINT;
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
+        AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags | trainerB.aiFlags;
     else
-       AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+       AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
         AI_THINKING_STRUCT->aiFlags |= AI_SCRIPT_DOUBLE_BATTLE; // act smart in doubles and don't attack your partner

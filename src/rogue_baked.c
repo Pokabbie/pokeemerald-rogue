@@ -2,17 +2,21 @@
 // This file is shared between the game src and the offline bake to assist in making 
 // queries and other stuff which can be prepared offline a bit faster
 //
+#include "constants/battle_ai.h"
+#include "constants/items.h"
 #include "constants/pokemon.h"
 #include "constants/species.h"
-#include "constants/items.h"
+#include "constants/trainers.h"
 
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
 #else
 #include "global.h"
+#include "data.h"
 #include "item.h"
 #include "item_use.h"
+#include "string_util.h"
 
 #include "rogue_controller.h"
 #endif
@@ -27,6 +31,9 @@
 //#define ROGUE_BAKE_INVALID
 #define ROGUE_BAKE_VALID
 #endif
+
+extern const u8 gText_TrainerNameChallenger[];
+extern const u8 gText_TrainerNameGrunt[];
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -156,6 +163,142 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #endif
         }
     }
+}
+const u8* Rogue_GetTrainerName(u16 trainerNum)
+{
+    // TODO - Replace name with _("CHALLENGER")
+
+    if(trainerNum >= TRAINER_ROGUE_BREEDER_F && trainerNum <= TRAINER_ROGUE_POSH_M)
+    {
+        return gText_TrainerNameChallenger;
+    }
+
+    if(trainerNum >= TRAINER_ROGUE_MAGMA_F && trainerNum <= TRAINER_ROGUE_AQUA_M)
+    {
+        return gText_TrainerNameGrunt;
+    }
+
+    return gTrainers[trainerNum].trainerName;
+}
+
+void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
+{
+    memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
+
+    // We can do this, but ideally we should fixup to use the method above
+    //StringCopy(outTrainer->trainerName, Rogue_GetTrainerName(trainerNum));
+
+    outTrainer->partyFlags = 0;
+    outTrainer->doubleBattle = FALSE;
+    outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
+
+    // AI_SCRIPT_DOUBLE_BATTLE ?
+
+    switch(trainerNum)
+    {
+        // Std Trainers
+        //
+        case TRAINER_ROGUE_BREEDER_F:
+            outTrainer->trainerClass = TRAINER_CLASS_PKMN_BREEDER;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_POKEMON_BREEDER_F;
+            break;
+        case TRAINER_ROGUE_BREEDER_M:
+            outTrainer->trainerClass = TRAINER_CLASS_PKMN_BREEDER;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_POKEMON_BREEDER_M;
+            break;
+
+        case TRAINER_ROGUE_RICH_F:
+            outTrainer->trainerClass = TRAINER_CLASS_LADY;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_LADY;
+            break;
+        case TRAINER_ROGUE_RICH_M:
+            outTrainer->trainerClass = TRAINER_CLASS_RICH_BOY;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_RICH_BOY;
+            break;
+
+        case TRAINER_ROGUE_COOLTRAINER_F:
+            outTrainer->trainerClass = TRAINER_CLASS_COOLTRAINER;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_COOLTRAINER_F;
+            break;
+        case TRAINER_ROGUE_COOLTRAINER_M:
+            outTrainer->trainerClass = TRAINER_CLASS_COOLTRAINER;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_COOLTRAINER_M;
+            break;
+
+        case TRAINER_ROGUE_POKEFAN_F:
+            outTrainer->trainerClass = TRAINER_CLASS_POKEFAN;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_F;
+            break;
+        case TRAINER_ROGUE_POKEFAN_M:
+            outTrainer->trainerClass = TRAINER_CLASS_POKEFAN;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_M;
+            break;
+
+        case TRAINER_ROGUE_SCHOOL_KID_F:
+            outTrainer->trainerClass = TRAINER_CLASS_SCHOOL_KID;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_SCHOOL_KID_F;
+            break;
+        case TRAINER_ROGUE_SCHOOL_KID_M:
+            outTrainer->trainerClass = TRAINER_CLASS_SCHOOL_KID;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_SCHOOL_KID_M;
+            break;
+            
+        case TRAINER_ROGUE_TUBER_F:
+            outTrainer->trainerClass = TRAINER_CLASS_TUBER_F;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_TUBER_F;
+            break;
+        case TRAINER_ROGUE_TUBER_M:
+            outTrainer->trainerClass = TRAINER_CLASS_TUBER_M;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_TUBER_M;
+            break;
+
+        case TRAINER_ROGUE_POSH_F:
+            outTrainer->trainerClass = TRAINER_CLASS_AROMA_LADY;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_AROMA_LADY;
+            break;
+        case TRAINER_ROGUE_POSH_M:
+            outTrainer->trainerClass = TRAINER_CLASS_GENTLEMAN;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_GENTLEMAN;
+            break;
+            
+        case TRAINER_ROGUE_MAGMA_F:
+            outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_F;
+            break;
+        case TRAINER_ROGUE_MAGMA_M:
+            outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_M;
+            break;
+
+        case TRAINER_ROGUE_AQUA_F:
+            outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_F;
+            break;
+        case TRAINER_ROGUE_AQUA_M:
+            outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
+            break;
+    }
+
+    // TODO
 }
 
 static u16 SanitizeItemId(u16 itemId)

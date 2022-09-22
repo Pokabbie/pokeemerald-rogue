@@ -5913,7 +5913,12 @@ u8 GetTrainerEncounterMusicId(u16 trainerOpponentId)
     else if (InTrainerHillChallenge())
         return GetTrainerEncounterMusicIdInTrainerHill(trainerOpponentId);
     else
-        return TRAINER_ENCOUNTER_MUSIC(trainerOpponentId);
+    {
+        struct Trainer trainer;
+        Rogue_ModifyTrainer(trainerOpponentId, &trainer);
+
+        return TRAINER_ENCOUNTER_MUSIC(trainer.encounterMusic_gender);
+    }
 }
 
 u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
@@ -5952,11 +5957,11 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     return retVal;
 }
 
-#define IS_LEAGUE_BATTLE                                                                \
-    ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)                                           \
-    && (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR    \
-     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER        \
-     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))    \
+#define IS_LEAGUE_BATTLE                                    \
+    ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)               \
+    && (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR    \
+     || trainer.trainerClass == TRAINER_CLASS_LEADER        \
+     || trainer.trainerClass == TRAINER_CLASS_CHAMPION))    \
 
 void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
@@ -5983,8 +5988,10 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
     if (species && species != SPECIES_EGG)
     {
+        struct Trainer trainer;
         u8 friendshipLevel = 0;
         s16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
         if (friendship > 99)
             friendshipLevel++;
@@ -6413,13 +6420,15 @@ u16 GetBattleBGM(void)
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         u8 trainerClass;
+        struct Trainer trainer;
+        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
             trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
         else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
             trainerClass = TRAINER_CLASS_EXPERT;
         else
-            trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
+            trainerClass = trainer.trainerClass;
 
         switch (trainerClass)
         {
@@ -6438,7 +6447,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
-            if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gText_BattleWallyName))
+            if (!StringCompare(trainer.trainerName, gText_BattleWallyName))
                 return MUS_VS_TRAINER;
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
@@ -6738,7 +6747,7 @@ const u8 *GetTrainerPartnerName(void)
     {
         if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
         {
-            return gTrainers[TRAINER_STEVEN].trainerName;
+            return Rogue_GetTrainerName(TRAINER_STEVEN);
         }
         else
         {
@@ -6973,16 +6982,20 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 
 const u8 *GetTrainerClassNameFromId(u16 trainerId)
 {
+    struct Trainer trainer;
     if (trainerId >= TRAINERS_COUNT)
         trainerId = TRAINER_NONE;
-    return gTrainerClassNames[gTrainers[trainerId].trainerClass];
+
+    Rogue_ModifyTrainer(trainerId, &trainer);
+    return gTrainerClassNames[trainer.trainerClass];
 }
 
 const u8 *GetTrainerNameFromId(u16 trainerId)
 {
     if (trainerId >= TRAINERS_COUNT)
         trainerId = TRAINER_NONE;
-    return gTrainers[trainerId].trainerName;
+
+    return Rogue_GetTrainerName(trainerId);
 }
 
 bool8 HasTwoFramesAnimation(u16 species)

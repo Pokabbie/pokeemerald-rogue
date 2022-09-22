@@ -101,30 +101,8 @@
 #define TRAINER_SHANNON                      97
 #define TRAINER_MICHELLE                     98
 #define TRAINER_CAROLINE                     99
-
 #define TRAINER_JULIE                       100
 #define TRAINER_BROOKE_2                    101
-
-// RogueNote: Overwrite from this range TRAINER_CLASS_PKMN_RANGER
-#define TRAINER_ROGUE_BREEDER_F             100
-#define TRAINER_ROGUE_BREEDER_M             101
-#define TRAINER_ROGUE_RICH_F                102
-#define TRAINER_ROGUE_RICH_M                103
-#define TRAINER_ROGUE_COOLTRAINER_F         104
-#define TRAINER_ROGUE_COOLTRAINER_M         105
-#define TRAINER_ROGUE_POKEFAN_F             106
-#define TRAINER_ROGUE_POKEFAN_M             107
-#define TRAINER_ROGUE_SCHOOL_KID_F          108
-#define TRAINER_ROGUE_SCHOOL_KID_M          109
-#define TRAINER_ROGUE_TUBER_F               110
-#define TRAINER_ROGUE_TUBER_M               111
-#define TRAINER_ROGUE_POSH_F                112
-#define TRAINER_ROGUE_POSH_M                113
-#define TRAINER_ROGUE_MAGMA_F               114
-#define TRAINER_ROGUE_MAGMA_M               115
-#define TRAINER_ROGUE_AQUA_F                116
-#define TRAINER_ROGUE_AQUA_M                117
-
 #define TRAINER_BROOKE_3                    102
 #define TRAINER_BROOKE_4                    103
 #define TRAINER_BROOKE_5                    104
@@ -141,8 +119,6 @@
 #define TRAINER_DAPHNE                      115
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
 #define TRAINER_CINDY_2                     117
-
-
 #define TRAINER_BRIANNA                     118
 #define TRAINER_NAOMI                       119
 #define TRAINER_CINDY_3                     120
@@ -880,6 +856,26 @@
 #define TRAINER_LEAF                        852
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
+
+// RogueNote: Overwrite from these trainer ranges
+#define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
+#define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
+#define TRAINER_ROGUE_RICH_F                (TRAINER_JULIE + 2)
+#define TRAINER_ROGUE_RICH_M                (TRAINER_JULIE + 4)
+#define TRAINER_ROGUE_COOLTRAINER_F         (TRAINER_JULIE + 5)
+#define TRAINER_ROGUE_COOLTRAINER_M         (TRAINER_JULIE + 6)
+#define TRAINER_ROGUE_POKEFAN_F             (TRAINER_JULIE + 7)
+#define TRAINER_ROGUE_POKEFAN_M             (TRAINER_JULIE + 8)
+#define TRAINER_ROGUE_SCHOOL_KID_F          (TRAINER_JULIE + 9)
+#define TRAINER_ROGUE_SCHOOL_KID_M          (TRAINER_JULIE + 10)
+#define TRAINER_ROGUE_TUBER_F               (TRAINER_JULIE + 11)
+#define TRAINER_ROGUE_TUBER_M               (TRAINER_JULIE + 12)
+#define TRAINER_ROGUE_POSH_F                (TRAINER_JULIE + 13)
+#define TRAINER_ROGUE_POSH_M                (TRAINER_JULIE + 14)
+#define TRAINER_ROGUE_MAGMA_F               (TRAINER_JULIE + 15)
+#define TRAINER_ROGUE_MAGMA_M               (TRAINER_JULIE + 16)
+#define TRAINER_ROGUE_AQUA_F                (TRAINER_JULIE + 17)
+#define TRAINER_ROGUE_AQUA_M                (TRAINER_JULIE + 18)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -40,6 +40,8 @@
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 // Enough space to hold 2 match info cards worth of trainers and their parties
 #define NUM_INFOCARD_SPRITES ((FRONTIER_PARTY_SIZE + 1) * 4)
 #define NUM_INFOCARD_TRAINERS 2
@@ -6101,19 +6103,30 @@ static void CopyDomeTrainerName(u8 *str, u16 trainerId)
 
 static u8 GetDomeBrainTrainerPicId(void)
 {
-    return gTrainers[TRAINER_TUCKER].trainerPic;
+    struct Trainer trainer;
+
+    Rogue_ModifyTrainer(TRAINER_TUCKER, &trainer);
+
+    return trainer.trainerPic;
 }
 
 static u8 GetDomeBrainTrainerClass(void)
 {
-    return gTrainers[TRAINER_TUCKER].trainerClass;
+    struct Trainer trainer;
+
+    Rogue_ModifyTrainer(TRAINER_TUCKER, &trainer);
+
+    return trainer.trainerClass;
 }
 
 static void CopyDomeBrainTrainerName(u8 *str)
 {
     int i;
+    struct Trainer trainer;
+
+    Rogue_ModifyTrainer(TRAINER_TUCKER, &trainer);
 
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        str[i] = gTrainers[TRAINER_TUCKER].trainerName[i];
+        str[i] = trainer.trainerName[i];
     str[i] = EOS;
 }

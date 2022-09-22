@@ -14,6 +14,8 @@
 #include "strings.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 struct Pokenav_MatchCallMenu
 {
     u16 optionCursorPos;
@@ -332,11 +334,13 @@ bool32 ShouldDrawRematchPokeballIcon(int index)
 int GetMatchCallTrainerPic(int index)
 {
     int headerId;
+    struct Trainer trainer;
     struct Pokenav_MatchCallMenu *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
     if (!state->matchCallEntries[index].isSpecialTrainer)
     {
         index = GetTrainerIdxByRematchIdx(state->matchCallEntries[index].headerId);
-        return gTrainers[index].trainerPic;
+        Rogue_ModifyTrainer(index, &trainer);
+        return trainer.trainerPic;
     }
 
     headerId = state->matchCallEntries[index].headerId;
@@ -344,7 +348,8 @@ int GetMatchCallTrainerPic(int index)
     if (index != REMATCH_TABLE_ENTRIES)
     {
         index = GetTrainerIdxByRematchIdx(index);
-        return gTrainers[index].trainerPic;
+        Rogue_ModifyTrainer(index, &trainer);
+        return trainer.trainerPic;
     }
 
     index = MatchCall_GetOverrideFacilityClass(headerId);
@@ -405,11 +410,11 @@ void BufferMatchCallNameAndDesc(struct PokenavMatchCallEntry *matchCallEntry, u8
     const u8 *className;
     if (!matchCallEntry->isSpecialTrainer)
     {
+        struct Trainer trainer;
         int index = GetTrainerIdxByRematchIdx(matchCallEntry->headerId);
-        const struct Trainer *trainer = &gTrainers[index];
-        int class = trainer->trainerClass;
-        className = gTrainerClassNames[class];
-        trainerName = trainer->trainerName;
+        Rogue_ModifyTrainer(index, &trainer);
+        className = gTrainerClassNames[trainer.trainerClass];
+        trainerName = trainer.trainerName;
     }
     else
     {

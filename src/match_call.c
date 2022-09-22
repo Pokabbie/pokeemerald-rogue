@@ -33,6 +33,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 // In this file only the values normally associated with Battle Pike and Factory are swapped.
 // Note that this is *not* a bug, because they are properly swapped consistently in this file.
 // There would only be an issue if anything in this file interacted with something expecting
@@ -1679,6 +1681,8 @@ static void PopulateTrainerName(int matchCallId, u8 *destStr)
 {
     u32 i;
     u16 trainerId = sMatchCallTrainers[matchCallId].trainerId;
+    const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
     for (i = 0; i < ARRAY_COUNT(sMultiTrainerMatchCallTexts); i++)
     {
         if (sMultiTrainerMatchCallTexts[i].trainerId == trainerId)
@@ -1688,7 +1692,7 @@ static void PopulateTrainerName(int matchCallId, u8 *destStr)
         }
     }
 
-    StringCopy(destStr, gTrainers[trainerId].trainerName);
+    StringCopy(destStr, trainerName);
 }
 
 static void PopulateMapName(int matchCallId, u8 *destStr)
@@ -1792,12 +1796,14 @@ static void PopulateSpeciesFromTrainerParty(int matchCallId, u8 *destStr)
     union TrainerMonPtr party;
     u8 monId;
     const u8 *speciesName;
+    struct Trainer trainer;
 
     trainerId = GetLastBeatenRematchTrainerId(sMatchCallTrainers[matchCallId].trainerId);
-    party = gTrainers[trainerId].party;
-    monId = Random() % gTrainers[trainerId].partySize;
+    Rogue_ModifyTrainer(trainerId, &trainer);
+    party = trainer.party;
+    monId = Random() % trainer.partySize;
 
-    switch (gTrainers[trainerId].partyFlags)
+    switch (trainer.partyFlags)
     {
     case 0:
     default:

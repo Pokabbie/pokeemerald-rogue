@@ -29,6 +29,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
+
 struct BattleWindowText
 {
     u8 fillValue;
@@ -2412,6 +2414,11 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
     u8 text[30];
     u8 multiplayerId;
     s32 i;
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         multiplayerId = gRecordedBattleMultiplayerId;
@@ -2625,7 +2632,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
                     toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
                 else
-                    toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
+                    toCpy = gTrainerClassNames[trainerA.trainerClass];
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
@@ -2662,7 +2669,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
+                    toCpy = Rogue_GetTrainerName(gTrainerBattleOpponent_A);
                 }
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name
@@ -2765,7 +2772,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
                     toCpy = gTrainerClassNames[GetTrainerHillOpponentClass(gTrainerBattleOpponent_B)];
                 else
-                    toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_B].trainerClass];
+                    toCpy = gTrainerClassNames[trainerB.trainerClass];
                 break;
             case B_TXT_TRAINER2_NAME:
                 if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
@@ -2780,7 +2787,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-                    toCpy = gTrainers[gTrainerBattleOpponent_B].trainerName;
+                    toCpy = Rogue_GetTrainerName(gTrainerBattleOpponent_B);
                 }
                 break;
             case B_TXT_TRAINER2_LOSE_TEXT:
