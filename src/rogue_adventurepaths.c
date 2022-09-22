@@ -798,8 +798,11 @@ static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
     }
     else if(gRogueRun.currentDifficulty < 12)
     {
-        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
-        warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
+        u8 type = trainer->incTypes[0];
+
+        warp->mapGroup = gRogueTypeToEliteRoom[type].group;
+        warp->mapNum = gRogueTypeToEliteRoom[type].num;
     }
     else if(gRogueRun.currentDifficulty < 13)
     {

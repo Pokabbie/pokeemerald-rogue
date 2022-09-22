@@ -7,20 +7,19 @@ Rogue_Battle_Boss13::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss13
 	waitmovement 0
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss13_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss13
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13
 	waitmovement 0
 	msgbox Rogue_Battle_Boss13_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_STEVEN, 0, Rogue_Battle_Boss13_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss13_Text_2
 	call Rogue_BattleDefeated_Boss13
 	return
 
 
 Rogue_BattleDefeated_Boss13::
-	setflag FLAG_IS_CHAMPION
-	setflag FLAG_ROGUE_DEFEATED_BOSS13
 	fadescreen FADE_TO_BLACK
 	special GameClear
 	waitstate
@@ -46,7 +45,8 @@ Rogue_Battle_Boss13_Text_0:
 	.string "...\p"
 	.string "...\p"
 	.string "...\p"
-	.string "STEVEN: You did well to make it here...\p"
+	.string "{STR_VAR_1}: You did well to make it\n"
+	.string "here...\p"
 	.string "Now...\p"
 	.string "For one last time...$"
 

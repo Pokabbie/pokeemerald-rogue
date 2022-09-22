@@ -9,6 +9,7 @@ Rogue_Battle_Boss10::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss10
 	waitmovement 0
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss10_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss10
@@ -16,7 +17,7 @@ Rogue_Battle_Boss10::
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox Rogue_Battle_Boss10_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_GLACIA, 0, Rogue_Battle_Boss10_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss10_Text_2
 	call Rogue_BattleDefeated_Boss10
 	return
 
@@ -26,7 +27,6 @@ Rogue_BattleDefeated_Boss10::
 	message Rogue_BattleDefeated_Boss10_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_ROGUE_DEFEATED_BOSS10
 	msgbox Rogue_BattleDefeated_Boss10_Text_1
 	waitmessage
 	special HealPlayerParty
@@ -63,7 +63,7 @@ BossToFightBoss10:
 	step_end
 
 Rogue_Battle_Boss10_Text_0:
-	.string "GLACIA: A new challenger!$"
+	.string "{STR_VAR_1}: A new challenger!$"
 
 Rogue_Battle_Boss10_Text_1:
 	.string "Don't hold back now!$"

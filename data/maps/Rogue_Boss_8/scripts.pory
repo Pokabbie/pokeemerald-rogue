@@ -14,7 +14,8 @@ script Rogue_Battle_Boss8
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss8)
     waitmovement(0)
 
-    msgbox(format("SIDNEY: A new challenger!"))
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    msgbox(format("{STR_VAR_1}: A new challenger!"))
 
     call(Rogue_SetDesiredWeather)
 
@@ -25,7 +26,7 @@ script Rogue_Battle_Boss8
     // Manually kick off the encouter to control the music + avoid the trainer from changing directions
     playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
     msgbox(format("Don't hold back now!"))
-    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_SIDNEY, 0, format("Well fought trainer!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well fought trainer!"))
     call(Rogue_BattleDefeated_Boss8)
 }
 
@@ -36,8 +37,6 @@ script Rogue_BattleDefeated_Boss8
     message(format("{PLAYER} received a ELITE BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
-    //setflag(FLAG_BADGE08_GET)
-    setflag(FLAG_ROGUE_DEFEATED_BOSS08)
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
     special(HealPlayerParty)
