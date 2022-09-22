@@ -27,7 +27,6 @@ Rogue_BattleDefeated_Boss12::
 	message Rogue_BattleDefeated_Boss12_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_ROGUE_DEFEATED_BOSS12
 	playbgm MUS_VICTORY_LEAGUE, FALSE
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_BattleDefeated_Boss12_Text_1

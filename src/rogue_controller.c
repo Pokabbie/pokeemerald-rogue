@@ -1483,7 +1483,7 @@ void Rogue_OnLoadGame(void)
     memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
     memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
 
-    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
@@ -1624,22 +1624,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_BADGE07_GET);
     FlagClear(FLAG_BADGE08_GET);
 
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS03);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS04);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS05);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS06);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS07);
-    
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS08);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS09);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS10);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS11);
-
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+    FlagClear(FLAG_ROGUE_RUN_COMPLETED);
 
     GiveMonPartnerRibbon();
 
@@ -2271,7 +2256,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             if(gRogueRun.currentDifficulty >= BOSS_COUNT)
             {
                 FlagSet(FLAG_IS_CHAMPION);
-                FlagSet(FLAG_ROGUE_DEFEATED_BOSS13);
+                FlagSet(FLAG_ROGUE_RUN_COMPLETED);
             }
         }
 
