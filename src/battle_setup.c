@@ -1152,8 +1152,6 @@ void SetMapVarsToTrainer(void)
 
 const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
-    // RogueNote: mons
-
     InitTrainerBattleVariables();
     sTrainerBattleMode = TrainerBattleLoadArg8(data);
 
@@ -1161,6 +1159,8 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     {
     case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
         TrainerBattleLoadArgs(sOrdinaryNoIntroBattleParams, data);
+        // RogueNote: Expand the trainer var now
+        gTrainerBattleOpponent_A = VarGet(gTrainerBattleOpponent_A);
         return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);

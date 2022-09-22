@@ -103,6 +103,7 @@ struct RogueRunData
     u16 routeHistoryBuffer[5];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
+    u16 bossHistoryBuffer[14];
     u16 wildEncounterHistoryBuffer[3];
 };
 
@@ -152,13 +153,28 @@ struct RogueEncounterMap
     u16 layout;
     u16 group;
     u16 num;
-    u16 params[3];
 };
 
 struct RogueEncounterData
 {
     u8 mapCount;
     const struct RogueEncounterMap* mapTable;
+};
+
+struct RogueTrainerEncounter
+{
+    u16 gfxId;
+    u16 trainerId;
+    u16 victorySetFlag;
+    u16 flags;
+    u16 incTypes[3];
+    u16 excTypes[3];
+};
+
+struct RogueTrainerData
+{
+    u8 count;
+    const struct RogueTrainerEncounter* trainers;
 };
 
 struct SpeciesTable
@@ -186,6 +202,7 @@ extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
+extern const struct RogueTrainerData gRogueBossEncounters;
 extern const struct RogueEncounterData gRouteMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];

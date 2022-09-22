@@ -39,6 +39,13 @@
 // Trainers
 //
 // RogueNote: Overwrite from these trainer ranges
+#define TRAINER_FLAG_NONE           0
+#define TRAINER_FLAG_GYM            (1 << 0)
+#define TRAINER_FLAG_ELITE          (1 << 1)
+#define TRAINER_FLAG_PRE_CHAMP      (1 << 2)
+#define TRAINER_FLAG_FINAL_CHAMP    (1 << 3)
+#define TRAINER_FLAG_HOENN          (1 << 4)
+
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
 #define TRAINER_ROGUE_RICH_F                (TRAINER_JULIE + 2)
