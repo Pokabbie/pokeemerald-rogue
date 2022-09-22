@@ -13,7 +13,7 @@ Rogue_Battle_Boss13::
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13
 	waitmovement 0
 	msgbox Rogue_Battle_Boss13_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STEVEN, 0, Rogue_Battle_Boss13_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_STEVEN, 0, Rogue_Battle_Boss13_Text_2
 	call Rogue_BattleDefeated_Boss13
 	return
 

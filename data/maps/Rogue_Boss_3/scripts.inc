@@ -30,7 +30,7 @@ Rogue_Battle_Boss3::
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
 	msgbox Rogue_Battle_Boss3_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_FLANNERY_1, 0, Rogue_Battle_Boss3_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_FLANNERY, 0, Rogue_Battle_Boss3_Text_2
 	call Rogue_BattleDefeated_Boss3
 	return
 

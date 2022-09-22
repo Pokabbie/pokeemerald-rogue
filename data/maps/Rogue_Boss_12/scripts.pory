@@ -25,7 +25,7 @@ script Rogue_Battle_Boss12
     // Manually kick off the encouter to control the music + avoid the trainer from changing directions
     playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
     msgbox(format("Don't hold back now!"))
-    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_WALLACE, 0, format("Well fought trainer!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_BOSS_WALLACE, 0, format("Well fought trainer!"))
     call(Rogue_BattleDefeated_Boss12)
 }
 

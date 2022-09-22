@@ -857,26 +857,6 @@
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
 
-// RogueNote: Overwrite from these trainer ranges
-#define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
-#define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
-#define TRAINER_ROGUE_RICH_F                (TRAINER_JULIE + 2)
-#define TRAINER_ROGUE_RICH_M                (TRAINER_JULIE + 4)
-#define TRAINER_ROGUE_COOLTRAINER_F         (TRAINER_JULIE + 5)
-#define TRAINER_ROGUE_COOLTRAINER_M         (TRAINER_JULIE + 6)
-#define TRAINER_ROGUE_POKEFAN_F             (TRAINER_JULIE + 7)
-#define TRAINER_ROGUE_POKEFAN_M             (TRAINER_JULIE + 8)
-#define TRAINER_ROGUE_SCHOOL_KID_F          (TRAINER_JULIE + 9)
-#define TRAINER_ROGUE_SCHOOL_KID_M          (TRAINER_JULIE + 10)
-#define TRAINER_ROGUE_TUBER_F               (TRAINER_JULIE + 11)
-#define TRAINER_ROGUE_TUBER_M               (TRAINER_JULIE + 12)
-#define TRAINER_ROGUE_POSH_F                (TRAINER_JULIE + 13)
-#define TRAINER_ROGUE_POSH_M                (TRAINER_JULIE + 14)
-#define TRAINER_ROGUE_MAGMA_F               (TRAINER_JULIE + 15)
-#define TRAINER_ROGUE_MAGMA_M               (TRAINER_JULIE + 16)
-#define TRAINER_ROGUE_AQUA_F                (TRAINER_JULIE + 17)
-#define TRAINER_ROGUE_AQUA_M                (TRAINER_JULIE + 18)
-
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
