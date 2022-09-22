@@ -3038,7 +3038,7 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
     }
     else
     {
-        toCpy = gTrainers[trainerId].trainerName;
+        toCpy = Rogue_GetTrainerName(trainerId);
     }
 
     return toCpy;
@@ -3107,6 +3107,9 @@ static const u8 *BattleStringGetTrainerName(u8 *text, u8 multiplayerId, u8 battl
 static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
 {
     const u8 *toCpy;
+    struct Trainer trainer;
+
+    Rogue_ModifyTrainer(trainerId, &trainer);
 
     if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
         toCpy = gTrainerClassNames[GetSecretBaseTrainerClass()];
@@ -3121,7 +3124,7 @@ static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
     else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
         toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
     else
-        toCpy = gTrainerClassNames[gTrainers[trainerId].trainerClass];
+        toCpy = gTrainerClassNames[trainer.trainerClass];
 
     return toCpy;
 }
@@ -3133,11 +3136,6 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
     u8 text[30];
     u8 multiplayerId;
     s32 i;
-    struct Trainer trainerA;
-    struct Trainer trainerB;
-
-    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
-    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         multiplayerId = gRecordedBattleMultiplayerId;

@@ -134,9 +134,13 @@ void BattleAI_SetupItems(void)
             }
             else
             {
-                if (gTrainers[gTrainerBattleOpponent_A].items[i] != 0)
+                struct Trainer trainer;
+
+                Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
+                if (trainer.items[i] != 0)
                 {
-                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = gTrainers[gTrainerBattleOpponent_A].items[i];
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = trainer.items[i];
                     BATTLE_HISTORY->itemsNo++;
                 }
             }
@@ -168,6 +172,12 @@ static u32 GetWildAiFlags(void)
 
 void BattleAI_SetupFlags(void)
 {
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
+
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         AI_THINKING_STRUCT->aiFlags = GetAiScriptsInRecordedBattle();
     else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
@@ -181,15 +191,15 @@ void BattleAI_SetupFlags(void)
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))
         AI_THINKING_STRUCT->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT;
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
+        AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags | trainerB.aiFlags;
     else
-        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+        AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags;
     
     // check smart wild AI
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_TRAINER)) && IsWildMonSmart())
         AI_THINKING_STRUCT->aiFlags |= GetWildAiFlags();
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS) || gTrainers[gTrainerBattleOpponent_A].doubleBattle)
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS) || trainerA.doubleBattle)
         AI_THINKING_STRUCT->aiFlags |= AI_FLAG_DOUBLE_BATTLE; // Act smart in doubles and don't attack your partner.
 }
 

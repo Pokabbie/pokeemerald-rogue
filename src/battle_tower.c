@@ -1460,7 +1460,11 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        trainerClass = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerClass;
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerId - TRAINER_CUSTOM_PARTNER, &trainer);
+
+        trainerClass = trainer.trainerClass;
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -1547,8 +1551,10 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        for (i = 0; gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i] != EOS; i++)
-            dst[i] = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i];
+        const u8* trainerName = Rogue_GetTrainerName(trainerId - TRAINER_CUSTOM_PARTNER);
+
+        for (i = 0; trainerName[i] != EOS; i++)
+            dst[i] = trainerName[i];
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -3051,30 +3057,34 @@ static void FillPartnerParty(u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerId - TRAINER_CUSTOM_PARTNER, &trainer);
+
         otID = Random32();
 
         for (i = 0; i < 3; i++)
             ZeroMonData(&gPlayerParty[i + 3]);
 
-        for (i = 0; i < 3 && i < gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].partySize; i++)
+        for (i = 0; i < 3 && i < trainer.partySize; i++)
         {
             do
             {
                 j = Random32();
             } while (IsShinyOtIdPersonality(otID, j));
 
-            switch (gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].partyFlags)
+            switch (trainer.partyFlags)
             {
             case 0:
             {
-                const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.NoItemDefaultMoves;
+                const struct TrainerMonNoItemDefaultMoves *partyData = trainer.party.NoItemDefaultMoves;
 
                 CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
-                const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.NoItemCustomMoves;
+                const struct TrainerMonNoItemCustomMoves *partyData = trainer.party.NoItemCustomMoves;
 
                 CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
 
@@ -3087,7 +3097,7 @@ static void FillPartnerParty(u16 trainerId)
             }
             case F_TRAINER_PARTY_HELD_ITEM:
             {
-                const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.ItemDefaultMoves;
+                const struct TrainerMonItemDefaultMoves *partyData = trainer.party.ItemDefaultMoves;
 
                 CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
 
@@ -3096,7 +3106,7 @@ static void FillPartnerParty(u16 trainerId)
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
             {
-                const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.ItemCustomMoves;
+                const struct TrainerMonItemCustomMoves *partyData = trainer.party.ItemCustomMoves;
 
                 CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
 
@@ -3111,7 +3121,7 @@ static void FillPartnerParty(u16 trainerId)
             }
             }
 
-            StringCopy(trainerName, gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName);
+            StringCopy(trainerName, Rogue_GetTrainerName(trainerId - TRAINER_CUSTOM_PARTNER));
             SetMonData(&gPlayerParty[i + 3], MON_DATA_OT_NAME, trainerName);
         }
     }
