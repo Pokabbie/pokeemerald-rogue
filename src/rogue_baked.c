@@ -190,7 +190,11 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
     outTrainer->partyFlags = 0;
     outTrainer->doubleBattle = FALSE;
+#ifdef ROGUE_EXPANSION
+    outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
+#else
     outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
+#endif
 
     // AI_SCRIPT_DOUBLE_BATTLE ?
 
