@@ -1023,7 +1023,7 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
 {
     switch(item->itemId)
     {
-        case ITEM_EXP_SHARE:
+        case ITEM_LINK_CABLE:
         case ITEM_KINGS_ROCK:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:

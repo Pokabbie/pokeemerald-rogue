@@ -8,10 +8,10 @@ script Rogue_Debug_FillPCWithGen
     message(format("Fill PC with GEN?"))
     waitmessage
     
-    checkitem(ITEM_ROOM_1_KEY)
+    checkitem(ITEM_QUEST_LOG)
     if(var(VAR_RESULT) == NO)
     {
-        giveitem(ITEM_ROOM_1_KEY)
+        giveitem(ITEM_QUEST_LOG)
     }
 
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))

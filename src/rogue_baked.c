@@ -94,7 +94,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
             case(EVO_TRADE):
                 outEvo->method = EVO_LEVEL_ITEM;
-                outEvo->param = ITEM_EXP_SHARE; // Link cable
+                outEvo->param = ITEM_LINK_CABLE;
                 break;
             case(EVO_TRADE_ITEM):
                 outEvo->method = EVO_LEVEL_ITEM;
@@ -330,10 +330,10 @@ const u8* Rogue_GetItemName(u16 itemId)
 
     switch(itemId)
     {
-        case ITEM_EXP_SHARE:
+        case ITEM_LINK_CABLE:
             return gText_ItemLinkCable;
         
-        case ITEM_ROOM_1_KEY:
+        case ITEM_QUEST_LOG:
             return gText_ItemQuestLog;
     }
 
@@ -349,7 +349,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     //
     switch(itemId)
     {
-        case ITEM_ROOM_1_KEY: // Quest Log
+        case ITEM_QUEST_LOG: // Quest Log
             outItem->fieldUseFunc = ItemUseOutOfBattle_QuestLog;
             break;
     }
@@ -428,7 +428,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     switch(itemId)
     {
         // Evo item prices
-        case ITEM_EXP_SHARE:
+        case ITEM_LINK_CABLE:
             outItem->price = 2100;
             outItem->holdEffect = 0;//HOLD_EFFECT_NONE;
             break;
