@@ -33,6 +33,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
+
 struct BattleWindowText
 {
     u8 fillValue;
@@ -3131,6 +3133,11 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
     u8 text[30];
     u8 multiplayerId;
     s32 i;
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         multiplayerId = gRecordedBattleMultiplayerId;

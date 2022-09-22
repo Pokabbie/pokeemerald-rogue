@@ -6,7 +6,7 @@ Rogue_Debug_FillPCWithGen::
 	lock
 	message Rogue_Debug_FillPCWithGen_Text_0
 	waitmessage
-	checkitem ITEM_ROOM_1_KEY
+	checkitem ITEM_QUEST_LOG
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Debug_FillPCWithGen_2
 Rogue_Debug_FillPCWithGen_1:
@@ -28,7 +28,7 @@ Rogue_Debug_FillPCWithGen_8:
 	return
 
 Rogue_Debug_FillPCWithGen_2:
-	giveitem ITEM_ROOM_1_KEY
+	giveitem ITEM_QUEST_LOG
 	goto Rogue_Debug_FillPCWithGen_1
 
 Rogue_Debug_FillPCWithGen_5:

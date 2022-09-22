@@ -14,6 +14,10 @@ const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
 const u8 gText_RogueVersionSuffix[] = _(" - The Routing Update");
 #endif
 
+
+const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
+const u8 gText_TrainerNameGrunt[] = _("GRUNT");
+
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");

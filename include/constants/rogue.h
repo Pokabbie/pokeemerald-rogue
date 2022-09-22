@@ -25,4 +25,13 @@
 #define ROGUE_SHOP_RARE_HELD_ITEMS      6
 #define ROGUE_SHOP_BERRIES              7
 
+
+#define ITEM_LINK_CABLE ITEM_EXP_SHARE
+
+#ifdef ROGUE_EXPANSION
+#define ITEM_QUEST_LOG ITEM_KEY_TO_ROOM_1
+#else
+#define ITEM_QUEST_LOG ITEM_ROOM_1_KEY
+#endif
+
 #include "rogue_quests.h"

@@ -38,6 +38,8 @@
 #include "constants/event_objects.h"
 #include "party_menu.h"
 
+#include "rogue_controller.h"
+
 struct FrontierBrainMon
 {
     u16 species;
@@ -2443,39 +2445,48 @@ void SaveGameFrontier(void)
 u8 GetFrontierBrainTrainerPicIndex(void)
 {
     s32 facility;
+    struct Trainer trainer;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
-    return gTrainers[sFrontierBrainTrainerIds[facility]].trainerPic;
+    Rogue_ModifyTrainer(sFrontierBrainTrainerIds[facility], &trainer);
+
+    return trainer.trainerPic;
 }
 
 u8 GetFrontierBrainTrainerClass(void)
 {
     s32 facility;
+    struct Trainer trainer;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
-    return gTrainers[sFrontierBrainTrainerIds[facility]].trainerClass;
+    Rogue_ModifyTrainer(sFrontierBrainTrainerIds[facility], &trainer);
+
+    return trainer.trainerClass;
 }
 
 void CopyFrontierBrainTrainerName(u8 *dst)
 {
     s32 i;
     s32 facility;
+    const u8* trainerName;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
+    trainerName = Rogue_GetTrainerName(sFrontierBrainTrainerIds[facility]);
+
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        dst[i] = gTrainers[sFrontierBrainTrainerIds[facility]].trainerName[i];
+        dst[i] = trainerName[i];
 
     dst[i] = EOS;
 }

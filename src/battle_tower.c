@@ -1452,7 +1452,11 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
-        trainerClass = gTrainers[TRAINER_STEVEN].trainerClass;
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerId, &trainer);
+
+        trainerClass = trainer.trainerClass;
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
@@ -1536,8 +1540,10 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
+        const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
         for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-            dst[i] = gTrainers[TRAINER_STEVEN].trainerName[i];
+            dst[i] = trainerName[i];
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
@@ -3014,6 +3020,8 @@ static void FillPartnerParty(u16 trainerId)
 
     if (trainerId == TRAINER_STEVEN_PARTNER)
     {
+        const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
             do
@@ -3035,7 +3043,7 @@ static void FillPartnerParty(u16 trainerId)
                 SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_HP_EV + j, &sStevenMons[i].evs[j]);
             for (j = 0; j < MAX_MON_MOVES; j++)
                 SetMonMoveSlot(&gPlayerParty[MULTI_PARTY_SIZE + i], sStevenMons[i].moves[j], j);
-            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_STEVEN].trainerName);
+            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, trainerName);
             j = MALE;
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
             CalculateMonStats(&gPlayerParty[MULTI_PARTY_SIZE + i]);
