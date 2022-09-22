@@ -29,11 +29,7 @@ script Rogue_Battle_Boss2
 
     msgbox(format("WATTSON: A new challenger!"))
 
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_RAIN_THUNDERSTORM)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     applymovement(BOSS_NPC, BossToFightBoss2)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss2)
@@ -48,8 +44,7 @@ script Rogue_Battle_Boss2
 
 script Rogue_BattleDefeated_Boss2
 {
-    setweather(WEATHER_NONE)
-    doweather
+    call(Rogue_ClearWeather)
     
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()

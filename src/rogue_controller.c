@@ -6,6 +6,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
+#include "constants/weather.h"
 #include "data.h"
 
 #include "battle.h"
@@ -20,6 +21,7 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "palette.h"
+#include "play_time.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -30,9 +32,11 @@
 #include "string_util.h"
 #include "text.h"
 
+#include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -47,6 +51,7 @@ EWRAM_DATA u8 gDebug_ItemOptionCount = 0;
 EWRAM_DATA u8 gDebug_TrainerOptionCount = 0;
 
 extern const u8 gText_RogueDebug_Header[];
+extern const u8 gText_RogueDebug_Save[];
 extern const u8 gText_RogueDebug_Room[];
 extern const u8 gText_RogueDebug_BossRoom[];
 extern const u8 gText_RogueDebug_Difficulty[];
@@ -64,6 +69,8 @@ extern const u8 gText_RogueDebug_Y[];
 #endif
 
 // Box save data
+// TODO - We keep this around in EWRAM, but we really don't need to
+// Bag items could be partially saved into the box and the rest only need to be present at save/load time
 struct RogueBoxSaveData
 {
     u32 encryptionKey;
@@ -73,8 +80,9 @@ struct RogueBoxSaveData
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
-    
     struct RogueAdvPath advPath;
+    struct RogueQuestData questData;
+    struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
 
 ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
@@ -120,6 +128,7 @@ EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
+EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
@@ -1051,6 +1060,7 @@ u8* Rogue_GetMiniMenuContent(void)
             strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, gSaveBlock1Ptr->rogueSaveVersion);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
@@ -1239,12 +1249,17 @@ static void SelectStartMons(void)
 #endif
 }
 
+#define ROGUE_SAVE_VERSION 1
+
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
-static void EnsureLoadValuesAreValid()
+static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
     u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+
     if(partySize == 0 || partySize > PARTY_SIZE)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
+
+    ResetQuestState(newGame ? 0 : saveVersion);
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
@@ -1283,15 +1298,14 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
-    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
 
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
@@ -1300,7 +1314,7 @@ void Rogue_OnNewGame(void)
 
     SelectStartMons();
 
-    EnsureLoadValuesAreValid();
+    EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
@@ -1377,7 +1391,7 @@ static void CopyToPocket(u8 pocket, struct ItemSlot* src)
     }
 }
 
-static void SaveHubInventory(void)
+static void SaveHubStates(void)
 {
     u8 i;
 
@@ -1389,6 +1403,8 @@ static void SaveHubInventory(void)
     {
         ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
     }
+
+    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(0), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
     gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
     CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
@@ -1398,7 +1414,7 @@ static void SaveHubInventory(void)
     CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
 }
 
-static void LoadHubInventory(void)
+static void LoadHubStates(void)
 {
     u8 i;
 
@@ -1413,6 +1429,8 @@ static void LoadHubInventory(void)
             break;
     }
     gPlayerPartyCount = i;
+
+    memcpy(GetBerryTreeInfo(0), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
     CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
     CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
@@ -1429,12 +1447,15 @@ void Rogue_OnSaveGame(void)
 {
     u8 i;
 
+    gSaveBlock1Ptr->rogueSaveVersion = ROGUE_SAVE_VERSION;
+
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
 
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
 
     memcpy(&gRogueLocal.saveData.raw.advPath, &gRogueAdvPath, sizeof(gRogueAdvPath));
+    memcpy(&gRogueLocal.saveData.raw.questData, &gRogueQuestData, sizeof(gRogueQuestData));
 
     // Move Hub save data into storage box space
     for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
@@ -1460,6 +1481,7 @@ void Rogue_OnLoadGame(void)
     }
 
     memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
+    memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
     {
@@ -1467,7 +1489,7 @@ void Rogue_OnLoadGame(void)
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
     }
 
-    EnsureLoadValuesAreValid();
+    EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
@@ -1504,6 +1526,36 @@ static u16 GetStartDifficulty(void)
     return 0;
 }
 
+static void GiveMonPartnerRibbon(void)
+{
+    u8 i;
+    bool8 ribbonSet = TRUE;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
+        }
+    }
+}
+
+bool8 Rogue_IsPartnerMonInTeam(void)
+{
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            if(GetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -1514,8 +1566,6 @@ static void BeginRogueRun(void)
     {
         gRngRogueValue = Rogue_GetStartSeed();
     }
-
-    ClearBerryTrees();
 
     gRogueRun.currentRoomIdx = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
@@ -1538,14 +1588,15 @@ static void BeginRogueRun(void)
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
     memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
     
-    VarSet(VAR_ROGUE_DIFFICULTY, 0);
+    VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_REWARD_CANDY, 0);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
-    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
-    SaveHubInventory();
+    SaveHubStates();
+
+    ClearBerryTrees();
     RandomiseFishingEncounters();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
@@ -1556,10 +1607,8 @@ static void BeginRogueRun(void)
     gRogueHubData.playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds;
     gRogueHubData.playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks;
 
-    gSaveBlock2Ptr->playTimeHours = 0;
-    gSaveBlock2Ptr->playTimeMinutes = 0;
-    gSaveBlock2Ptr->playTimeSeconds = 0;
-    gSaveBlock2Ptr->playTimeVBlanks = 0;
+    PlayTimeCounter_Reset();
+    PlayTimeCounter_Start();
 
     SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 
@@ -1590,10 +1639,26 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
     FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+
+    GiveMonPartnerRibbon();
+
+    // Enable randoman trader at start
+    if(IsQuestCollected(QUEST_MrRandoman))
+    {
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+    }
+    else
+    {
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+    }
+
+    QuestNotify_BeginAdventure();
 }
 
 static void EndRogueRun(void)
 {
+    QuestNotify_EndAdventure();
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_SET_SEED_ENABLED);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
@@ -1636,7 +1701,10 @@ static void EndRogueRun(void)
         gSaveBlock2Ptr->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes % 60;
     }
 
-    LoadHubInventory();
+    LoadHubStates();
+
+    // Grow berries based on progress in runs
+    BerryTreeTimeUpdate(60 * 6 * gRogueRun.currentDifficulty);
 }
 
 u8 Rogue_SelectBossRoom(void)
@@ -1853,18 +1921,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Warping back to hub must be intentional
         return;
     }
-    else if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_TRANSITION) && warp->mapNum == MAP_NUM(ROGUE_HUB_TRANSITION))
-    {
-        if(FlagGet(FLAG_ROGUE_RANDOM_TRADE_USED))
-        {
-            // Enable random trader
-            FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-        }
-        else
-        {
-            FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-        }
-    }
 
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
@@ -1881,15 +1937,15 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
             VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
 
+        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+
         // We're warping into a valid map
         // We've already set the next room type so adjust the scaling now
         switch(gRogueAdvPath.currentRoomType)
         {
             case ADVPATH_ROOM_RESTSTOP:
             {
-                FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
-
-                if(RogueRandomChance(33, OVERWORLD_FLAG))
+                if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
                 {
                     // Enable random trader
                     FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
@@ -1922,11 +1978,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
-                }
-                else
-                {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 break;
             }
@@ -1940,15 +1993,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
-                }
-                else
-                {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 break;
             }
@@ -2004,15 +2053,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    FlagSet(FLAG_ROGUE_WEATHER_ACTIVE);
+                    // TODO
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 else
                 {
-                    FlagClear(FLAG_ROGUE_WEATHER_ACTIVE);
                 }
                 break;
             }
@@ -2038,6 +2086,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
     }
+
+    QuestNotify_OnWarp(warp);
 }
 
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
@@ -2074,6 +2124,7 @@ void RemoveAnyFaintedMons(bool8 keepItems)
     bool8 hasValidSpecies;
     u8 read;
     u8 write = 0;
+    bool8 hasMonFainted = FALSE;
 
     for(read = 0; read < PARTY_SIZE; ++read)
     {
@@ -2101,10 +2152,15 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 if(heldItem != ITEM_NONE)
                     AddBagItem(heldItem, 1);
             }
+            else
+                hasMonFainted = TRUE;
 
             ZeroMonData(&gPlayerParty[read]);
         }
     }
+
+    if(hasMonFainted)
+        QuestNotify_OnMonFainted();
 
     gPlayerPartyCount = CalculatePlayerPartyCount();
 }
@@ -2157,7 +2213,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        if(IsBossTrainer(trainerNum))
+        bool8 isBossTrainer = IsBossTrainer(trainerNum);
+
+        if(isBossTrainer)
         {
             u8 nextLevel;
             u8 prevLevel = CalculateBossLevel();
@@ -2166,40 +2224,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             nextLevel = CalculateBossLevel();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
-            
-            // Just beat last gym leader
-            if(gRogueRun.currentDifficulty == 8)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
-            }
-            // Just beat last elite 4 member
-            else if(gRogueRun.currentDifficulty == 12)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 5000);
-            }
-            // Just beat champion
-            else if(gRogueRun.currentDifficulty > 12)
-            {
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 7500);
-            }
-
-            // Update reward candy only after boss has been defeated
-            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            {
-                if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-                {
-                    // Pretty much max difficulty
-                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 2);
-                }
-                else
-                {
-                    VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()) + 1);
-                }
-            }
-            else
-            {
-                VarSet(VAR_ROGUE_REWARD_CANDY, (gRogueRun.currentDifficulty - GetStartDifficulty()));
-            }
         }
 
         // Adjust this after the boss reset
@@ -2221,6 +2245,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
+            QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
         }
     }
@@ -2248,6 +2273,7 @@ void Rogue_Battle_EndWildBattle(void)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
+            QuestNotify_OnWildBattleEnd();
             RemoveAnyFaintedMons(FALSE);
         }
     }
@@ -3330,7 +3356,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_ItemsExcludeCommon();
 
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
-    RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+
+    if(itemCategory != ROGUE_SHOP_BERRIES)
+    {
+        RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
+    }
 
 #ifdef ROGUE_EXPANSION
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
@@ -3477,6 +3507,15 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 *minSalePrice = 1500;
             else
                 *minSalePrice = 3000;
+            break;
+
+            
+        case ROGUE_SHOP_BERRIES:
+            RogueQuery_ItemsInPocket(POCKET_BERRIES);
+
+            // TODO - Limit based on Quest Rewards
+
+            *minSalePrice = 2000;
             break;
     };
 
@@ -3664,9 +3703,8 @@ static void RandomiseSafariWildEncounters(void)
         RogueQuery_SpeciesExcludeCommon();
     }
 
-    if(VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY) < 11)
+    if(!IsQuestCollected(QUEST_Collector2))
     {
-        // Once we've defeated the elite 4, we're going to allow legendaries for fun!
         RogueQuery_SpeciesIsNotLegendary();
     }
 

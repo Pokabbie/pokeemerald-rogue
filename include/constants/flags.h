@@ -667,7 +667,7 @@
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_ROGUE_VALID_QUICK_SAVE          0x269
-#define FLAG_ROGUE_WEATHER_ACTIVE            0x26A
+#define FLAG_UNUSED_0x26A                    0x26A
 #define FLAG_ROGUE_EV_GAIN_ENABLED           0x26B
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
@@ -675,7 +675,7 @@
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
 #define FLAG_ROGUE_RANDOM_TRADE_DISABLED     0x271
-#define FLAG_ROGUE_RANDOM_TRADE_USED         0x272
+#define FLAG_UNUSED_0x272                    0x272
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274
 #define FLAG_UNUSED_0x275  0x275

@@ -28,11 +28,7 @@ script Rogue_Battle_Boss6
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss6)
     waitmovement(0)
 
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_FOG_HORIZONTAL)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     msgbox(format("LIZA: Look TATE!\nA new challenger!"))
 
@@ -50,8 +46,7 @@ script Rogue_Battle_Boss6
 
 script Rogue_BattleDefeated_Boss6
 {
-    setweather(WEATHER_NONE)
-    doweather
+    call(Rogue_ClearWeather)
     
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()

@@ -234,6 +234,12 @@ gScriptCmdTable::
 	.4byte ScrCmd_bufferconstantnumberstring @ 0xe7
 	.4byte ScrCmd_checkconstantmoney        @ 0xe8
 	.4byte ScrCmd_removeconstantmoney       @ 0xe9
+	.4byte ScrCmd_questcompleted            @ 0xea
+	.4byte ScrCmd_questcollected            @ 0xeb
+	.4byte ScrCmd_nextquestreward           @ 0xec
+	.4byte ScrCmd_unlockquest               @ 0xed
+	.4byte ScrCmd_completequest             @ 0xee
+	.4byte ScrCmd_deactivatequest           @ 0xef
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

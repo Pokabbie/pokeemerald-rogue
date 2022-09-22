@@ -75,7 +75,8 @@ script RogueHub_OnMapLoad
     }
 
     // Shop
-    if(var(VAR_ROGUE_INTRO_STATE) <= 4) // i.e. has been on an adventure
+    questcollected(QUEST_FirstAdventure)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(31, 10, 40, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER0)
@@ -89,7 +90,8 @@ script RogueHub_OnMapLoad
     }
 
     // Safari Zone
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 2)
+    questcollected(QUEST_Collector1)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(1, 3, 14, 10, METATILE_Grass, FALSE)
         fillmetatile(1, 11, 12, 11, METATILE_Grass, FALSE)
@@ -105,7 +107,8 @@ script RogueHub_OnMapLoad
     }
 
     // Bike Shop
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 3)
+    questcollected(QUEST_Bike1)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(22, 12, 27, 16, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER1)
@@ -116,7 +119,8 @@ script RogueHub_OnMapLoad
     }
 
     // Tutor area
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 5)
+    questcollected(QUEST_NoFainting1)
+    if(var(VAR_RESULT) == NO)
     {
         fillmetatile(42, 14, 48, 19, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER2)
@@ -126,25 +130,48 @@ script RogueHub_OnMapLoad
         clearflag(FLAG_ROGUE_TRAINER2)
     }
 
-    // Bank
-    if(var(VAR_ROGUE_FURTHEST_DIFFICULTY) < 7)
+    // Travelling Shop
+    questcollected(QUEST_ShoppingSpree)
+    if(var(VAR_RESULT) == NO)
     {
-        fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
-        setflag(FLAG_ROGUE_TRAINER3)
-        setflag(FLAG_ROGUE_TRAINER5)
-
-        // + Travel shop
         fillmetatile(22, 8, 24, 8, METATILE_Grass, FALSE)
+    
+        setflag(FLAG_ROGUE_TRAINER7)
+        setflag(FLAG_ROGUE_TRAINER5)
     }
     else
     {
-        clearflag(FLAG_ROGUE_TRAINER3)
+        clearflag(FLAG_ROGUE_TRAINER7)
         clearflag(FLAG_ROGUE_TRAINER5)
 
         if(flag(FLAG_ROGUE_RARE_ITEM_MART_DISABLED))
         {
             setflag(FLAG_ROGUE_TRAINER5)
         }
+    }
+
+    // Bank
+    questcollected(QUEST_BigSaver)
+    if(var(VAR_RESULT) == NO)
+    {
+        fillmetatile(13, 27, 27, 36, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER3)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER3)
+    }
+
+    // Berry Patch
+    questcollected(QUEST_BerryCollector)
+    if(var(VAR_RESULT) == NO)
+    {
+        fillmetatile(31, 31, 39, 36, METATILE_Grass, FALSE)
+        setflag(FLAG_ROGUE_TRAINER8)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER8)
     }
 
     // Intro Scott
@@ -321,35 +348,58 @@ script RogueHub_SpeakBikeShop
     checkitem(ITEM_MACH_BIKE)
     copyvar(VAR_0x8001, VAR_RESULT)
 
-    if(var(VAR_0x8000) == YES) // Has ACRO bike
+    questcollected(QUEST_Bike2)
+    if(var(VAR_RESULT) == YES)
     {
-        bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
-        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
+        if(var(VAR_0x8000) == NO)
         {
-            removeitem(ITEM_ACRO_BIKE)
+            bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
+            msgbox(format("Whoa {PLAYER}!\pYou're looking much faster now, so here take the {STR_VAR_1}!"), MSGBOX_DEFAULT)
+            giveitem(ITEM_ACRO_BIKE)
+        }
+        elif(var(VAR_0x8001) == NO)
+        {
+            bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
+            msgbox(format("Whoa {PLAYER}!\pYou're looking much faster now, so here take the {STR_VAR_1}!"), MSGBOX_DEFAULT)
             giveitem(ITEM_MACH_BIKE)
         }
-    }
-    elif(var(VAR_0x8001) == YES) // Has MACH bike
-    {
-        bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
-        msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
+        else
         {
-            removeitem(ITEM_MACH_BIKE)
-            giveitem(ITEM_ACRO_BIKE)
+            msgbox(format("Hey {PLAYER}!\pKeep up the quick pace!"), MSGBOX_DEFAULT)
         }
     }
     else
     {
-        msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
+        if(var(VAR_0x8000) == YES) // Has ACRO bike
+        {
+            bufferitemname(STR_VAR_1, ITEM_MACH_BIKE)
+            msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
-        giveitem(ITEM_ACRO_BIKE)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_ACRO_BIKE)
+                giveitem(ITEM_MACH_BIKE)
+            }
+        }
+        elif(var(VAR_0x8001) == YES) // Has MACH bike
+        {
+            bufferitemname(STR_VAR_1, ITEM_ACRO_BIKE)
+            msgbox(format("Do you want to swap to the {STR_VAR_1}?"), MSGBOX_YESNO)
 
-        msgbox(format("On second thought...\nYou look like you're struggling to carry that much.\pTell you what. You take that one and if you ever want to swap it out for the other one, let me know"))
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_MACH_BIKE)
+                giveitem(ITEM_ACRO_BIKE)
+            }
+        }
+        else
+        {
+            msgbox(format("Finally!\pYou must be this {PLAYER} I've been told about.\pYou seem a bit slower than I expected...\pI know!\nI have a couple old BIKEs I've been looking to get rid of.\pYou can have them!"))
+
+            giveitem(ITEM_ACRO_BIKE)
+
+            msgbox(format("On second thought...\nYou look like you're struggling to carry that much.\pTell you what. You take that one and if you ever want to swap it out for the other one, let me know"))
+        }
     }
 
     release
@@ -439,6 +489,31 @@ script RogueHub_SpeakBank
     {
         msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
     }
+    release
+}
+
+script RogueHub_SpeakBerryMerchant
+{
+    lock
+    faceplayer
+
+    checkitem(ITEM_WAILMER_PAIL)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou're welcome to use them of course!\pAs a matter of fact here's something to get you started!"))
+        giveitem(ITEM_WAILMER_PAIL)
+        msgbox(format("If you ever need any berries, then please do come and speak with me."))
+    }
+    else
+    {
+        message("Hi {PLAYER}!\nWould you like to by some berries?")
+        waitmessage
+
+        rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
+
+        msgbox("Glad to be of help!")
+    }
+
     release
 }
 

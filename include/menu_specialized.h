@@ -123,6 +123,13 @@ void MoveRelearnerCreateYesNoMenu(void);
 u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
 void InitMoveRelearnerWindows(bool8 useContextWindow);
 
+// Quest Menu
+void QuestMenuPrintText(u8 *str);
+bool16 QuestMenuRunTextPrinters(void);
+void QuestMenuCreateYesNoMenu(void);
+u8 LoadQuestMenuMovesList(const struct ListMenuItem *items, u16 numChoices);
+void InitQuestMenuWindows(bool8 useContextWindow);
+
 // Level up window
 void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bgClr, u8 fgClr, u8 shadowClr);
 void DrawLevelUpWindowPg2(u16 windowId, u16 *currStats, u8 bgClr, u8 fgClr, u8 shadowClr);

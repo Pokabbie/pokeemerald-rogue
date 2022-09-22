@@ -108,6 +108,23 @@ Rogue_ReturnToHub::
 	return
 
 
+Rogue_SetDesiredWeather::
+	compare VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE
+	goto_if_ne Rogue_SetDesiredWeather_1
+	return
+
+Rogue_SetDesiredWeather_1:
+	setweather VAR_ROGUE_DESIRED_WEATHER
+	doweather
+	return
+
+
+Rogue_ClearWeather::
+	setweather WEATHER_NONE
+	doweather
+	return
+
+
 Rogue_Common_TurnPlayerNorth::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
@@ -490,6 +507,15 @@ Rogue_Tutor_MoveDeleteEgg::
 Rogue_Tutor_MoveDeleteCancel::
 	msgbox Rogue_Tutor_MoveDeleteCancel_Text_0, MSGBOX_DEFAULT
 	release
+	return
+
+
+Rogue_BerryTree_CheckBerry::
+	goto_if_unset FLAG_ROGUE_RUN_ACTIVE, Rogue_BerryTree_CheckBerry_1
+	return
+
+Rogue_BerryTree_CheckBerry_1:
+	goto BerryTree_EventScript_CheckSoil
 	return
 
 

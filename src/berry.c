@@ -1582,9 +1582,12 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->stopGrowth)
         {
+            // RogueNote: Don't ever reset tree
             if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
             {
-                *tree = gBlankBerryTree;
+                // RogueNote: Don't ever reset tree
+                //*tree = gBlankBerryTree;
+                continue;
             }
             else
             {

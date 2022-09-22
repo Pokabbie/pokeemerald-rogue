@@ -9,6 +9,7 @@
 #include "strings.h"
 #include "string_util.h"
 
+#include "rogue.h"
 #include "rogue_controller.h"
 
 #include "rogue_adventurepaths.h"

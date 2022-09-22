@@ -11,6 +11,7 @@
 #include "rogue_controller.h"
 #include "rogue_query.h"
 
+#include "rogue.h"
 #include "rogue_script.h"
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)

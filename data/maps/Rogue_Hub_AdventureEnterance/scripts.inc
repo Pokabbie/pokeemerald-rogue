@@ -92,7 +92,10 @@ Rogue_Adventure_SpeakScott::
 	faceplayer
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
 	goto_if_le Rogue_Adventure_SpeakScott_2
-	msgbox Rogue_Adventure_SpeakScott_Text_1
+	nextquestreward
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Adventure_SpeakScott_5
+	msgbox Rogue_Adventure_SpeakScott_Text_6
 Rogue_Adventure_SpeakScott_1:
 	release
 	return
@@ -100,6 +103,30 @@ Rogue_Adventure_SpeakScott_1:
 Rogue_Adventure_SpeakScott_2:
 	msgbox Rogue_Adventure_SpeakScott_Text_0
 	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_5:
+	msgbox Rogue_Adventure_SpeakScott_Text_1
+Rogue_Adventure_SpeakScott_9:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Adventure_SpeakScott_10
+	msgbox Rogue_Adventure_SpeakScott_Text_3
+	checkitemspace ITEM_REVIVE
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_SpeakScott_13
+Rogue_Adventure_SpeakScott_12:
+	msgbox Rogue_Adventure_SpeakScott_Text_5
+	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_10:
+	playse SE_SHOP
+	msgbox Rogue_Adventure_SpeakScott_Text_2
+	waitse
+	nextquestreward
+	goto Rogue_Adventure_SpeakScott_9
+
+Rogue_Adventure_SpeakScott_13:
+	msgbox Rogue_Adventure_SpeakScott_Text_4
+	goto Rogue_Adventure_SpeakScott_12
 
 
 Rogue_Adventure_ScottIntroMovement0:
@@ -352,24 +379,20 @@ Rogue_ReturnAdventureCommon::
 	goto_if_eq Rogue_ReturnAdventureCommon_2
 Rogue_ReturnAdventureCommon_1:
 	buffernumberstring STR_VAR_1, VAR_ROGUE_REWARD_MONEY
-	buffernumberstring STR_VAR_2, VAR_ROGUE_REWARD_CANDY
 	message Rogue_ReturnAdventureCommon_Text_4
 	playfanfare MUS_OBTAIN_ITEM
 	waitmessage
 	waitfanfare
-	compare VAR_ROGUE_REWARD_CANDY, 0
-	goto_if_ne Rogue_ReturnAdventureCommon_5
-Rogue_ReturnAdventureCommon_4:
 	compare VAR_LITTLEROOT_INTRO_STATE, 6
-	goto_if_eq Rogue_ReturnAdventureCommon_8
-Rogue_ReturnAdventureCommon_7:
+	goto_if_eq Rogue_ReturnAdventureCommon_5
+Rogue_ReturnAdventureCommon_4:
 	clearflag FLAG_ROGUE_LEFT_ON_RUN
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
-	msgbox Rogue_ReturnAdventureCommon_Text_8, MSGBOX_YESNO
+	msgbox Rogue_ReturnAdventureCommon_Text_7, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ReturnAdventureCommon_14
-Rogue_ReturnAdventureCommon_13:
-	msgbox Rogue_ReturnAdventureCommon_Text_9, MSGBOX_DEFAULT
+	goto_if_eq Rogue_ReturnAdventureCommon_8
+Rogue_ReturnAdventureCommon_7:
+	msgbox Rogue_ReturnAdventureCommon_Text_8, MSGBOX_DEFAULT
 	releaseall
 	return
 
@@ -382,127 +405,14 @@ Rogue_ReturnAdventureCommon_2:
 	goto Rogue_ReturnAdventureCommon_1
 
 Rogue_ReturnAdventureCommon_5:
+	bufferitemname STR_VAR_2, ITEM_RARE_CANDY
 	msgbox Rogue_ReturnAdventureCommon_Text_5, MSGBOX_DEFAULT
-	giveitem ITEM_RARE_CANDY, VAR_ROGUE_REWARD_CANDY
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 1
-	goto_if_ge Rogue_ReturnAdventureCommon_11
-Rogue_ReturnAdventureCommon_10:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 2
-	goto_if_ge Rogue_ReturnAdventureCommon_17
-Rogue_ReturnAdventureCommon_16:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 3
-	goto_if_ge Rogue_ReturnAdventureCommon_22
-Rogue_ReturnAdventureCommon_21:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 4
-	goto_if_ge Rogue_ReturnAdventureCommon_27
-Rogue_ReturnAdventureCommon_26:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 5
-	goto_if_ge Rogue_ReturnAdventureCommon_32
-Rogue_ReturnAdventureCommon_31:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 6
-	goto_if_ge Rogue_ReturnAdventureCommon_37
-Rogue_ReturnAdventureCommon_36:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 7
-	goto_if_ge Rogue_ReturnAdventureCommon_42
-Rogue_ReturnAdventureCommon_41:
-	compare VAR_ROGUE_FURTHEST_DIFFICULTY, 8
-	goto_if_ge Rogue_ReturnAdventureCommon_47
-Rogue_ReturnAdventureCommon_46:
-	compare VAR_LITTLEROOT_INTRO_STATE, 6
-	goto_if_eq Rogue_ReturnAdventureCommon_51
-	goto Rogue_ReturnAdventureCommon_4
-
-Rogue_ReturnAdventureCommon_8:
-	msgbox Rogue_ReturnAdventureCommon_Text_7, MSGBOX_DEFAULT
-	goto Rogue_ReturnAdventureCommon_7
-
-Rogue_ReturnAdventureCommon_11:
-	checkitem ITEM_HM01
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_19
-	goto Rogue_ReturnAdventureCommon_10
-
-Rogue_ReturnAdventureCommon_14:
-	call Common_EventScript_SaveGame
-	goto Rogue_ReturnAdventureCommon_13
-
-Rogue_ReturnAdventureCommon_17:
-	checkitem ITEM_HM05_FLASH
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_24
-	goto Rogue_ReturnAdventureCommon_16
-
-Rogue_ReturnAdventureCommon_19:
-	giveitem ITEM_HM01
-	goto Rogue_ReturnAdventureCommon_10
-
-Rogue_ReturnAdventureCommon_22:
-	checkitem ITEM_HM06_ROCK_SMASH
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_29
-	goto Rogue_ReturnAdventureCommon_21
-
-Rogue_ReturnAdventureCommon_24:
-	giveitem ITEM_HM05_FLASH
-	goto Rogue_ReturnAdventureCommon_16
-
-Rogue_ReturnAdventureCommon_27:
-	checkitem ITEM_HM04_STRENGTH
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_34
-	goto Rogue_ReturnAdventureCommon_26
-
-Rogue_ReturnAdventureCommon_29:
-	giveitem ITEM_HM06_ROCK_SMASH
-	goto Rogue_ReturnAdventureCommon_21
-
-Rogue_ReturnAdventureCommon_32:
-	checkitem ITEM_HM08_DIVE
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_39
-	goto Rogue_ReturnAdventureCommon_31
-
-Rogue_ReturnAdventureCommon_34:
-	giveitem ITEM_HM04_STRENGTH
-	goto Rogue_ReturnAdventureCommon_26
-
-Rogue_ReturnAdventureCommon_37:
-	checkitem ITEM_HM02_FLY
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_44
-	goto Rogue_ReturnAdventureCommon_36
-
-Rogue_ReturnAdventureCommon_39:
-	giveitem ITEM_HM08_DIVE
-	goto Rogue_ReturnAdventureCommon_31
-
-Rogue_ReturnAdventureCommon_42:
-	checkitem ITEM_HM07_WATERFALL
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_49
-	goto Rogue_ReturnAdventureCommon_41
-
-Rogue_ReturnAdventureCommon_44:
-	giveitem ITEM_HM02_FLY
-	goto Rogue_ReturnAdventureCommon_36
-
-Rogue_ReturnAdventureCommon_47:
-	checkitem ITEM_HM03_SURF
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ReturnAdventureCommon_53
-	goto Rogue_ReturnAdventureCommon_46
-
-Rogue_ReturnAdventureCommon_49:
-	giveitem ITEM_HM07_WATERFALL
-	goto Rogue_ReturnAdventureCommon_41
-
-Rogue_ReturnAdventureCommon_51:
 	msgbox Rogue_ReturnAdventureCommon_Text_6, MSGBOX_DEFAULT
 	goto Rogue_ReturnAdventureCommon_4
 
-Rogue_ReturnAdventureCommon_53:
-	giveitem ITEM_HM03_SURF
-	goto Rogue_ReturnAdventureCommon_46
+Rogue_ReturnAdventureCommon_8:
+	call Common_EventScript_SaveGame
+	goto Rogue_ReturnAdventureCommon_7
 
 
 Rogue_Adventure_ScottIntro_Text_0:
@@ -529,7 +439,28 @@ Rogue_Adventure_SpeakScott_Text_0:
 
 Rogue_Adventure_SpeakScott_Text_1:
 	.string "SCOTT: Hey {PLAYER}!\p"
-	.string "Adventuring sure is fun huh!$"
+	.string "I have some Quest Rewards for you!$"
+
+Rogue_Adventure_SpeakScott_Text_2:
+	.string "{STR_VAR_3}$"
+
+Rogue_Adventure_SpeakScott_Text_3:
+	.string "And that's all for the moment!$"
+
+Rogue_Adventure_SpeakScott_Text_4:
+	.string "Looks like you have a full bag there.\p"
+	.string "Be sure to check your PC as some\n"
+	.string "rewards may turn up there.$"
+
+Rogue_Adventure_SpeakScott_Text_5:
+	.string "Good luck with your next Adventure\n"
+	.string "champ!$"
+
+Rogue_Adventure_SpeakScott_Text_6:
+	.string "SCOTT: Hey {PLAYER}!\p"
+	.string "Be sure to come and chat with me once\n"
+	.string "you complete Quests so I can give you\l"
+	.string "your rewards!$"
 
 Rogue_Adventure_StatsSign_Text_0:
 	.string "Furthest Progress:\n"
@@ -621,27 +552,21 @@ Rogue_ReturnAdventureCommon_Text_4:
 	.string "You recieve ¥{STR_VAR_1}$"
 
 Rogue_ReturnAdventureCommon_Text_5:
-	.string "and for the BADGE's...$"
+	.string "Since you're back from your first\n"
+	.string "adventure, you should speak to Scott\l"
+	.string "and collect any rewards for Quests\l"
+	.string "you've completed.$"
 
 Rogue_ReturnAdventureCommon_Text_6:
-	.string "By levelling up your PARTNER POKéMON,\n"
-	.string "you'll get the option to skip over\l"
-	.string "eariler GYM LEADERs.\p"
-	.string "Although it does take a lot of levels to\n"
-	.string "do that...$"
+	.string "Quests will often reward you with\n"
+	.string "{STR_VAR_2}.\p"
+	.string "By leveling up your PARTNER with these\n"
+	.string "you will gain the option to skip over\l"
+	.string "GYM badges in future Adventures.$"
 
 Rogue_ReturnAdventureCommon_Text_7:
-	.string "Since you're back from your first\n"
-	.string "adventure, you should have a look\l"
-	.string "round the HUB!\p"
-	.string "You tend to get fans as you adventure\n"
-	.string "more and some of them may want to move\l"
-	.string "into the HUB and setup some useful\l"
-	.string "facilities.$"
-
-Rogue_ReturnAdventureCommon_Text_8:
 	.string "Would you like to SAVE your progress?$"
 
-Rogue_ReturnAdventureCommon_Text_9:
+Rogue_ReturnAdventureCommon_Text_8:
 	.string "Come speak to me once you're ready for\n"
 	.string "your next adventure.$"

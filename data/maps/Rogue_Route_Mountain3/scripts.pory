@@ -19,11 +19,7 @@ script Rogue_Route_Mountain3_OnResume
 
 script Rogue_Route_Mountain3_OnFrame0
 {
-    if(flag(FLAG_ROGUE_WEATHER_ACTIVE))
-    {
-        setweather(WEATHER_VOLCANIC_ASH)
-        doweather
-    }
+    call(Rogue_SetDesiredWeather)
 
     //f(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
     //

@@ -34,7 +34,6 @@ script Rogue_HubTransition_RandomMan
         waitmovement(0)
 
         setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-        setflag(FLAG_ROGUE_RANDOM_TRADE_USED)
         removeobject(NPC_RANDOM_MAN)
     }
     else

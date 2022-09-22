@@ -6,39 +6,47 @@ Rogue_Debug_FillPCWithGen::
 	lock
 	message Rogue_Debug_FillPCWithGen_Text_0
 	waitmessage
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_Debug_FillPCWithGen_2
-	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+	checkitem ITEM_ROOM_1_KEY
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Debug_FillPCWithGen_2
 Rogue_Debug_FillPCWithGen_1:
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_Debug_FillPCWithGen_5
+	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+Rogue_Debug_FillPCWithGen_4:
 	switch VAR_RESULT
-	case 0, Rogue_Debug_FillPCWithGen_7
-	case 1, Rogue_Debug_FillPCWithGen_7
-	case 2, Rogue_Debug_FillPCWithGen_7
-	case 3, Rogue_Debug_FillPCWithGen_7
-	case 4, Rogue_Debug_FillPCWithGen_7
-	case 5, Rogue_Debug_FillPCWithGen_7
-	case 6, Rogue_Debug_FillPCWithGen_7
-	case 7, Rogue_Debug_FillPCWithGen_7
-	case MULTI_B_PRESSED, Rogue_Debug_FillPCWithGen_8
-Rogue_Debug_FillPCWithGen_5:
+	case 0, Rogue_Debug_FillPCWithGen_10
+	case 1, Rogue_Debug_FillPCWithGen_10
+	case 2, Rogue_Debug_FillPCWithGen_10
+	case 3, Rogue_Debug_FillPCWithGen_10
+	case 4, Rogue_Debug_FillPCWithGen_10
+	case 5, Rogue_Debug_FillPCWithGen_10
+	case 6, Rogue_Debug_FillPCWithGen_10
+	case 7, Rogue_Debug_FillPCWithGen_10
+	case MULTI_B_PRESSED, Rogue_Debug_FillPCWithGen_11
+Rogue_Debug_FillPCWithGen_8:
 	release
 	return
 
 Rogue_Debug_FillPCWithGen_2:
-	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	giveitem ITEM_ROOM_1_KEY
 	goto Rogue_Debug_FillPCWithGen_1
 
-Rogue_Debug_FillPCWithGen_7:
+Rogue_Debug_FillPCWithGen_5:
+	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	goto Rogue_Debug_FillPCWithGen_4
+
+Rogue_Debug_FillPCWithGen_10:
 	waitse
 	playse SE_PIN
 	addvar VAR_RESULT, 1
 	copyvar VAR_0x8004, VAR_RESULT
 	special RogueDebug_FillGenPC
 	msgbox Rogue_Debug_FillPCWithGen_Text_1, MSGBOX_DEFAULT
-	goto Rogue_Debug_FillPCWithGen_5
+	goto Rogue_Debug_FillPCWithGen_8
 
-Rogue_Debug_FillPCWithGen_8:
+Rogue_Debug_FillPCWithGen_11:
 	msgbox Rogue_Debug_FillPCWithGen_Text_2, MSGBOX_DEFAULT
-	goto Rogue_Debug_FillPCWithGen_5
+	goto Rogue_Debug_FillPCWithGen_8
 
 
 Rogue_Debug_AddMoney::

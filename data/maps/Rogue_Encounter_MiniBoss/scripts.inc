@@ -9,11 +9,7 @@ Rogue_Encounter_MiniBoss_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 
 
 Rogue_MiniBoss_OnLoad::
-	goto_if_set FLAG_ROGUE_WEATHER_ACTIVE, Rogue_MiniBoss_OnLoad_1
-	return
-
-Rogue_MiniBoss_OnLoad_1:
-	call Rogue_MiniBoss_SetWeather
+	call Rogue_SetDesiredWeather
 	return
 
 
@@ -35,8 +31,7 @@ Rogue_Battle_MiniBoss::
 
 
 Rogue_BattleDefeated_MiniBoss::
-	setweather WEATHER_NONE
-	doweather
+	call Rogue_ClearWeather
 	bufferitemname STR_VAR_1, VAR_ROGUE_ITEM0
 	bufferitemname STR_VAR_2, VAR_ROGUE_ITEM1
 	msgbox Rogue_BattleDefeated_MiniBoss_Text_0

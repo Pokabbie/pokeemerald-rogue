@@ -51,6 +51,10 @@
 #include "constants/event_objects.h"
 #include "constants/items.h"
 
+#include "constants/rogue.h"
+#include "rogue.h"
+#include "rogue_quest.h"
+
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
 
@@ -2453,4 +2457,52 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
     DoWhiteFadeWarp();
     ResetInitialPlayerAvatarState();
     return TRUE;
+}
+
+bool8 ScrCmd_questcompleted(struct ScriptContext *ctx)
+{
+    struct RogueQuestState state;
+    u16 index = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = FALSE;
+    if (GetQuestState(index, &state))
+    {
+        gSpecialVar_Result = state.isCompleted;
+    }
+
+    return FALSE;
+}
+
+bool8 ScrCmd_questcollected(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = IsQuestCollected(index);
+    return FALSE;
+}
+
+bool8 ScrCmd_nextquestreward(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = GiveNextRewardAndFormat(gStringVar3);
+    return FALSE;
+}
+
+bool8 ScrCmd_unlockquest(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = TryUnlockQuest(index);
+    return FALSE;
+}
+
+bool8 ScrCmd_completequest(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = TryMarkQuestAsComplete(index);
+    return FALSE;
+}
+
+bool8 ScrCmd_deactivatequest(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = TryDeactivateQuest(index);
+    return FALSE;
 }

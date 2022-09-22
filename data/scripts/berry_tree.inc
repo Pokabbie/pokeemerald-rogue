@@ -2,7 +2,7 @@ BerryTreeScript::
 	special ObjectEventInteractionGetBerryTreeData
 	switch VAR_0x8004
 	case BERRY_STAGE_SPARKLING, BerryTree_EventScript_Sparkling
-	case BERRY_STAGE_NO_BERRY, BerryTree_EventScript_CheckSoil
+	case BERRY_STAGE_NO_BERRY, Rogue_BerryTree_CheckBerry
 	case BERRY_STAGE_PLANTED, BerryTree_EventScript_CheckBerryStage1
 	case BERRY_STAGE_SPROUTED, BerryTree_EventScript_CheckBerryStage2
 	case BERRY_STAGE_TALLER, BerryTree_EventScript_CheckBerryStage3
@@ -19,6 +19,14 @@ BerryTree_EventScript_Sparkling::
 	end
 
 BerryTree_EventScript_CheckSoil::
+	lock
+	faceplayer
+	specialvar VAR_RESULT, PlayerHasBerries
+	goto_if_eq VAR_RESULT, TRUE, BerryTree_EventScript_WantToPlant
+	message BerryTree_Text_ItsSoftLoamySoil
+	waitmessage
+	waitbuttonpress
+	release
 	end
 
 BerryTree_EventScript_WantToPlant::

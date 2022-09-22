@@ -122,6 +122,21 @@ script Rogue_ReturnToHub
     return
 }
 
+script Rogue_SetDesiredWeather
+{
+    if(var(VAR_ROGUE_DESIRED_WEATHER) != WEATHER_NONE)
+    {
+        setweather(VAR_ROGUE_DESIRED_WEATHER)
+        doweather
+    }
+}
+
+script Rogue_ClearWeather
+{
+    setweather(WEATHER_NONE)
+    doweather
+}
+
 // Movement
 //
 script Rogue_Common_TurnPlayerNorth
@@ -515,6 +530,13 @@ script Rogue_Tutor_MoveDeleteCancel
     release
 }
 
+script Rogue_BerryTree_CheckBerry
+{
+    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        goto(BerryTree_EventScript_CheckSoil)
+    }
+}
 
 // Trainer Blocks
 //

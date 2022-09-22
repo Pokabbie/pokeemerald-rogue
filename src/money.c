@@ -10,6 +10,9 @@
 #include "strings.h"
 #include "decompress.h"
 
+#include "rogue.h"
+#include "rogue_quest.h"
+
 #define MAX_MONEY 999999
 
 EWRAM_DATA static u8 sMoneyBoxWindowId = 0;
@@ -105,6 +108,8 @@ void AddMoney(u32* moneyPtr, u32 toAdd)
     }
 
     SetMoney(moneyPtr, toSet);
+
+    QuestNotify_OnAddMoney(toAdd);
 }
 
 void RemoveMoney(u32* moneyPtr, u32 toSub)
@@ -118,6 +123,8 @@ void RemoveMoney(u32* moneyPtr, u32 toSub)
         toSet -= toSub;
 
     SetMoney(moneyPtr, toSet);
+
+    QuestNotify_OnRemoveMoney(toSub);
 }
 
 bool8 IsEnoughForCostInVar0x8005(void)

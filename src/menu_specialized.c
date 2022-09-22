@@ -26,6 +26,14 @@
 #include "constants/songs.h"
 #include "gba/io_reg.h"
 
+#include "item.h"
+
+#include "constants/rogue.h"
+#include "rogue.h"
+#include "rogue_controller.h"
+#include "rogue_quest.h"
+#include "rogue_questmenu.h"
+
 extern const struct CompressedSpriteSheet gMonFrontPicTable[];
 
 EWRAM_DATA static u8 sMailboxWindowIds[MAILBOXWIN_COUNT] = {0};
@@ -36,6 +44,8 @@ static void ConditionGraph_CalcRightHalf(struct ConditionGraph *);
 static void ConditionGraph_CalcLeftHalf(struct ConditionGraph *);
 static void MoveRelearnerCursorCallback(s32, bool8, struct ListMenu *);
 static void MoveRelearnerDummy(void);
+static void QuestMenuCursorCallback(s32, bool8, struct ListMenu *);
+static void QuestMenuDummy(void);
 static void SetNextConditionSparkle(struct Sprite *);
 static void SpriteCB_ConditionSparkle(struct Sprite *);
 static void ShowAllConditionSparkles(struct Sprite *);
@@ -172,6 +182,91 @@ static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
 {
     .items = NULL,
     .moveCursorFunc = MoveRelearnerCursorCallback,
+    .itemPrintFunc = NULL,
+    .totalItems = 0,
+    .maxShowed = 0,
+    .windowId = 2,
+    .header_X = 0,
+    .item_X = 8,
+    .cursor_X = 0,
+    .upText_Y = 1,
+    .cursorPal = 2,
+    .fillValue = 1,
+    .cursorShadowPal = 3,
+    .lettersSpacing = 0,
+    .itemVerticalPadding = 0,
+    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
+    .fontId = FONT_NORMAL,
+    .cursorKind = 0
+};
+
+
+static const struct WindowTemplate sQuestMenuWindowTemplates[] =
+{
+    {
+        .bg = 1,
+        .tilemapLeft = 1,
+        .tilemapTop = 1,
+        .width = 16,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0xA
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 1,
+        .tilemapTop = 1,
+        .width = 16,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0xCA
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 19,
+        .tilemapTop = 1,
+        .width = 10,
+        .height = 12,
+        .paletteNum = 0xF,
+        .baseBlock = 0x18A
+    },
+    {
+        .bg = 1,
+        .tilemapLeft = 4,
+        .tilemapTop = 15,
+        .width = 22,
+        .height = 4,
+        .paletteNum = 0xF,
+        .baseBlock = 0x202
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 8,
+        .width = 5,
+        .height = 4,
+        .paletteNum = 0xF,
+        .baseBlock = 0x25A
+    },
+    DUMMY_WIN_TEMPLATE
+};
+
+static const struct WindowTemplate sQuestMenuYesNoMenuTemplate =
+{
+    .bg = 0,
+    .tilemapLeft = 22,
+    .tilemapTop = 8,
+    .width = 5,
+    .height = 4,
+    .paletteNum = 0xF,
+    .baseBlock = 0x25A
+};
+
+
+static const struct ListMenuTemplate sQuestMenuMovesListTemplate =
+{
+    .items = NULL,
+    .moveCursorFunc = QuestMenuCursorCallback,
     .itemPrintFunc = NULL,
     .totalItems = 0,
     .maxShowed = 0,
@@ -874,6 +969,298 @@ bool16 MoveRelearnerRunTextPrinters(void)
 void MoveRelearnerCreateYesNoMenu(void)
 {
     CreateYesNoMenu(&sMoveRelearnerYesNoMenuTemplate, 1, 0xE, 0);
+}
+
+//----------------
+// Quest Menu
+//----------------
+
+void InitQuestMenuWindows(bool8 useContextWindow)
+{
+    u8 i;
+
+    InitWindows(sQuestMenuWindowTemplates);
+    DeactivateAllTextPrinters();
+    LoadUserWindowBorderGfx(0, 1, 0xE0);
+    LoadPalette(gStandardMenuPalette, 0xF0, 0x20);
+
+    for (i = 0; i < ARRAY_COUNT(sQuestMenuWindowTemplates) - 1; i++)
+        FillWindowPixelBuffer(i, PIXEL_FILL(1));
+
+    if (!useContextWindow)
+    {
+        PutWindowTilemap(0);
+        DrawStdFrameWithCustomTileAndPalette(0, 0, 0x1, 0xE);
+    }
+    else
+    {
+        PutWindowTilemap(1);
+        DrawStdFrameWithCustomTileAndPalette(1, 0, 1, 0xE);
+    }
+    PutWindowTilemap(2);
+    PutWindowTilemap(3);
+    DrawStdFrameWithCustomTileAndPalette(2, 0, 1, 0xE);
+    DrawStdFrameWithCustomTileAndPalette(3, 0, 1, 0xE);
+    QuestMenuDummy();
+    ScheduleBgCopyTilemapToVram(1);
+}
+
+static void QuestMenuDummy(void)
+{
+
+}
+
+u8 LoadQuestMenuMovesList(const struct ListMenuItem *items, u16 numChoices)
+{
+    gMultiuseListMenuTemplate = sQuestMenuMovesListTemplate;
+    gMultiuseListMenuTemplate.totalItems = numChoices;
+    gMultiuseListMenuTemplate.items = items;
+
+    if (numChoices < 6)
+        gMultiuseListMenuTemplate.maxShowed = numChoices;
+    else
+        gMultiuseListMenuTemplate.maxShowed = 6;
+
+    return gMultiuseListMenuTemplate.maxShowed;
+}
+
+extern const u8 gText_QuestLogTitleOverview[];
+extern const u8 gText_QuestLogTitleDesc[];
+extern const u8 gText_QuestLogTitleRewards[];
+extern const u8 gText_QuestLogTitleStatus[];
+extern const u8 gText_QuestLogMarkerRepeatable[];
+extern const u8 gText_QuestLogMarkerInactive[];
+extern const u8 gText_QuestLogStatusIncomplete[];
+extern const u8 gText_QuestLogStatusComplete[];
+extern const u8 gText_QuestLogStatusCollection[];
+extern const u8 gText_QuestLogStatusCollected[];
+extern const u8 gText_QuestLogTitleRewardMoney[];
+extern const u8 gText_QuestLogTitleQuestUnlocks[];
+extern const u8 gText_QuestLogOverviewCompleted[];
+extern const u8 gText_QuestLogOverviewUnlocked[];
+extern const u8 gText_QuestLogOverviewRewardsToCollect[];
+
+#ifdef ROGUE_DEBUG
+extern const u8 gText_RogueDebug_Header[];
+#endif
+
+static void QuestMenuOverview(u8 windowId)
+{
+    s32 x;
+    const u8 *str;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    str = gText_QuestLogTitleOverview;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+    
+    CopyWindowToVram(windowId, COPYWIN_GFX);
+
+    str = gText_QuestLogOverviewCompleted;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 20, 0, NULL);
+
+    ConvertUIntToDecimalStringN(gStringVar1, (GetCompletedQuestCount() * 100) / (QUEST_LAST - QUEST_FIRST), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    StringExpandPlaceholders(gStringVar2, gText_Var1Percent);
+    str = gStringVar2;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 20, 0, NULL);
+
+    str = gText_QuestLogOverviewUnlocked;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 35, 0, NULL);
+    
+    ConvertUIntToDecimalStringN(gStringVar1, GetUnlockedQuestCount(), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    str = gStringVar1;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 35, 0, NULL);
+
+#ifdef ROGUE_DEBUG
+    str = gText_RogueDebug_Header;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 65, 0, NULL);
+
+    ConvertUIntToDecimalStringN(gStringVar1, (QUEST_LAST - QUEST_FIRST), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    str = gStringVar1;
+    AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 65, 0, NULL);
+#endif
+
+    if(AnyQuestRewardsPending())
+    {
+        str = gText_QuestLogOverviewRewardsToCollect;
+        AddTextPrinterParameterized(windowId, FONT_SHORT, str, 2, 80, 0, NULL);
+    }
+}
+
+static void QuestMenuPreviewDescription(u32 chosenQuest)
+{
+    s32 x;
+    const struct RogueQuestConstants* quest;
+    struct RogueQuestState questState;
+    u8 buffer[32];
+    const u8 *str;
+
+    FillWindowPixelBuffer(0, PIXEL_FILL(1));
+    str = gText_QuestLogTitleDesc;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    if (chosenQuest == LIST_CANCEL || !GetQuestState(chosenQuest, &questState))
+    {
+        CopyWindowToVram(0, COPYWIN_GFX);
+        return;
+    }
+
+    quest = &gRogueQuests[chosenQuest];
+
+    str = quest->desc;
+    AddTextPrinterParameterized(0, FONT_NARROW, str, 2, 20, 0, NULL);
+
+    str = gText_QuestLogTitleStatus;
+    AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 80, 0, NULL);
+
+    if(Rogue_IsRunActive() && !IsQuestActive(chosenQuest))
+    {
+        str = gText_QuestLogMarkerInactive;
+        x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+        AddTextPrinterParameterized(0, FONT_SHORT, str, x, 65, 0, NULL);
+    }
+
+    if(IsQuestRepeatable(chosenQuest))
+    {
+        str = gText_QuestLogMarkerRepeatable;
+        AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 65, 0, NULL);
+    }
+
+    if(questState.isCompleted)
+        str = gText_QuestLogStatusComplete;
+    else
+        str = gText_QuestLogStatusIncomplete;
+
+    x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+    AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
+}
+
+static void QuestMenuRewardDescription(u32 chosenQuest)
+{
+    s32 x, y;
+    u8 i;
+    const struct RogueQuestConstants* quest;
+    struct RogueQuestState questState;
+    u8 buffer[32];
+    const u8 *str;
+
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    str = gText_QuestLogTitleRewards;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    if (chosenQuest == LIST_CANCEL || !GetQuestState(chosenQuest, &questState))
+    {
+        CopyWindowToVram(0, COPYWIN_GFX);
+        return;
+    }
+
+    quest = &gRogueQuests[chosenQuest];
+
+    y = 0;
+
+    for(i = 0; i < ARRAY_COUNT(quest->rewards); ++i)
+    {
+        if(quest->rewards[i].type == QUEST_REWARD_NONE)
+            break;
+
+        if(quest->rewards[i].previewText)
+        {
+            str = quest->rewards[i].previewText;
+        }
+        else
+        {
+            switch(quest->rewards[i].type)
+            {
+                case QUEST_REWARD_SET_FLAG:
+                case QUEST_REWARD_CLEAR_FLAG:
+                    str = gText_QuestLogTitleDesc;
+                    break;
+
+                case QUEST_REWARD_GIVE_ITEM:
+                    CopyItemNameHandlePlural(quest->rewards[i].params[0], gStringVar1, quest->rewards[i].params[1]);
+                    str = gStringVar1;
+                    break;
+
+                case QUEST_REWARD_GIVE_MONEY:
+                    ConvertUIntToDecimalStringN(gStringVar1, quest->rewards[i].params[0], STR_CONV_MODE_LEFT_ALIGN, 6);
+                    StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardMoney);
+                    str = gStringVar2;
+                    break;
+            }
+        }
+
+        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
+    }
+
+    // Add extra text to indicate new quests are unlockable
+    if(DoesQuestHaveUnlocks(chosenQuest))
+    {
+        str = gText_QuestLogTitleQuestUnlocks;
+        AddTextPrinterParameterized(1, FONT_SHORT, str, 2, 20 + 15 * i, 0, NULL);
+    }
+
+    if(questState.isCompleted)
+    {
+        if(questState.hasPendingRewards)
+        {
+            str = gText_QuestLogStatusCollection;
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
+        else if(IsQuestRepeatable(chosenQuest))
+        {
+            str = gText_QuestLogMarkerRepeatable;
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
+        else
+        {
+            str = gText_QuestLogStatusCollected;
+            x = GetStringRightAlignXOffset(FONT_SHORT, str, 0x80) - 4;
+            AddTextPrinterParameterized(1, FONT_SHORT, str, x, 80, 0, NULL);
+        }
+    }
+
+}
+
+static void QuestMenuCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
+{
+    if (onInit != TRUE)
+        PlaySE(SE_SELECT);
+
+    if(Rogue_IsQuestMenuOverviewActive())
+    {
+        QuestMenuOverview(0);
+        QuestMenuOverview(1);
+    }
+    else
+    {
+        QuestMenuPreviewDescription(itemIndex);
+        QuestMenuRewardDescription(itemIndex);
+    }
+}
+
+void QuestMenuPrintText(u8 *str)
+{
+    u8 speed;
+
+    FillWindowPixelBuffer(3, PIXEL_FILL(1));
+    gTextFlags.canABSpeedUpPrint = TRUE;
+    speed = GetPlayerTextSpeedDelay();
+    AddTextPrinterParameterized2(3, FONT_NORMAL, str, speed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, 3);
+}
+
+bool16 QuestMenuRunTextPrinters(void)
+{
+    RunTextPrinters();
+    return IsTextPrinterActive(3);
+}
+
+void QuestMenuCreateYesNoMenu(void)
+{
+    CreateYesNoMenu(&sQuestMenuYesNoMenuTemplate, 1, 0xE, 0);
 }
 
 //----------------

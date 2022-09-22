@@ -2,9 +2,11 @@
 #include "constants/event_objects.h"
 #include "constants/layouts.h"
 #include "constants/maps.h"
+#include "constants/weather.h"
 
 #define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
-#define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
+#define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), .params={} }
+#define ENCOUNTER_MAP_PARAMS(id, map, ...) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), .params={ __VA_ARGS__ } }
 
 const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
     {
@@ -212,10 +214,10 @@ const struct RogueEncounterData gRogueRestStopEncounterInfo =
 
 static const struct RogueEncounterMap sRouteMiniBossEncounters[] = 
 {
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_MAXIE, ROGUE_ENCOUNTER_MINI_BOSS),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_ARCHIE, ROGUE_ENCOUNTER_MINI_BOSS),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_WALLY, ROGUE_ENCOUNTER_MINI_BOSS),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_BRENDAN_NORMAL, ROGUE_ENCOUNTER_MINI_BOSS) // Copy party
+    ENCOUNTER_MAP_PARAMS(OBJ_EVENT_GFX_MAXIE, ROGUE_ENCOUNTER_MINI_BOSS, WEATHER_DROUGHT),
+    ENCOUNTER_MAP_PARAMS(OBJ_EVENT_GFX_ARCHIE, ROGUE_ENCOUNTER_MINI_BOSS, WEATHER_DOWNPOUR),
+    ENCOUNTER_MAP_PARAMS(OBJ_EVENT_GFX_WALLY, ROGUE_ENCOUNTER_MINI_BOSS, WEATHER_FOG_DIAGONAL),
+    ENCOUNTER_MAP_PARAMS(OBJ_EVENT_GFX_BRENDAN_NORMAL, ROGUE_ENCOUNTER_MINI_BOSS, WEATHER_UNDERWATER_BUBBLES) // Copy party
 };
 
 const struct RogueEncounterData gRouteMiniBossEncounters = 

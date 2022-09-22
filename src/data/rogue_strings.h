@@ -16,12 +16,45 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Routing Update");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
+const u8 gText_ItemQuestLog[] = _("Quest Log");
 #else
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
+const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
+const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
+const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
+const u8 gText_QuestLogTitleRewards[] = _("REWARDS");
+const u8 gText_QuestLogTitlePinned[] = _("Pinned");
+const u8 gText_QuestLogTitleActive[] = _("In progress");
+const u8 gText_QuestLogTitleInactive[] = _("Inactive");
+const u8 gText_QuestLogTitleComplete[] = _("Complete");
+const u8 gText_QuestLogTitleTodo[] = _("To do");
+const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
+const u8 gText_QuestLogTitleNew[] = _("New!");
+const u8 gText_QuestLogTitleStatus[] = _("Status:");
+const u8 gText_QuestLogMarkerRepeatable[] = _("REPEATABLE");
+const u8 gText_QuestLogMarkerInactive[] = _("INACTIVE");
+const u8 gText_QuestLogStatusIncomplete[] = _("INCOMPLETE");
+const u8 gText_QuestLogStatusComplete[] = _("COMPLETE");
+const u8 gText_QuestLogStatusCollection[] = _("READY TO COLLECT");
+const u8 gText_QuestLogStatusCollected[] = _("ALREADY COLLECTED");
+const u8 gText_QuestLogTitleRewardMoney[] = _("¥{STR_VAR_1}");
+const u8 gText_QuestLogTitleQuestUnlocks[] = _("Unlocks new Quests");
+const u8 gText_QuestLogPromptOverview[] = _("Select a Category");
+const u8 gText_QuestLogPromptCategory[] = _("Select a Quest");
+const u8 gText_QuestLogPromptPinQuest[] = _("Pin this Quest?");
+const u8 gText_QuestLogPromptUnpinQuest[] = _("Unpin this Quest?");
+const u8 gText_QuestLogOverviewCompleted[] = _("Completed:");
+const u8 gText_QuestLogOverviewUnlocked[] = _("Unlocked:");
+const u8 gText_QuestLogOverviewRewardsToCollect[] = _("PENDING REWARDS");
+const u8 gText_QuestLogBack[] = _("Back");
+
+const u8 gText_QuestRewardGive[] = _("Recieved {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
+const u8 gText_RogueDebug_Save[] = _("\nSave: ");
 const u8 gText_RogueDebug_Room[] = _("\nRoom: ");
 const u8 gText_RogueDebug_BossRoom[] = _("\nBossRoom: ");
 const u8 gText_RogueDebug_Difficulty[] = _("\nDfcy: ");
