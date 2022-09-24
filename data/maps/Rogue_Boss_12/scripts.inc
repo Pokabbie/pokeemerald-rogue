@@ -9,6 +9,7 @@ Rogue_Battle_Boss12::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss12
 	waitmovement 0
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss12_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss12
@@ -16,7 +17,7 @@ Rogue_Battle_Boss12::
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
 	msgbox Rogue_Battle_Boss12_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_WALLACE, 0, Rogue_Battle_Boss12_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss12_Text_2
 	call Rogue_BattleDefeated_Boss12
 	return
 
@@ -26,8 +27,8 @@ Rogue_BattleDefeated_Boss12::
 	message Rogue_BattleDefeated_Boss12_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_ROGUE_DEFEATED_BOSS12
 	playbgm MUS_VICTORY_LEAGUE, FALSE
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_BattleDefeated_Boss12_Text_1
 	playbgm MUS_NONE, TRUE
 	msgbox Rogue_BattleDefeated_Boss12_Text_2
@@ -66,7 +67,7 @@ BossToFightBoss12:
 	step_end
 
 Rogue_Battle_Boss12_Text_0:
-	.string "WALLACE: A new challenger!$"
+	.string "{STR_VAR_1}: A new challenger!$"
 
 Rogue_Battle_Boss12_Text_1:
 	.string "Don't hold back now!$"
@@ -78,7 +79,8 @@ Rogue_BattleDefeated_Boss12_Text_0:
 	.string "{PLAYER} received a CHAMPION BADGE!$"
 
 Rogue_BattleDefeated_Boss12_Text_1:
-	.string "WALLACE: Well fought {PLAYER}!\p"
+	.string "{STR_VAR_1}: Well fought\n"
+	.string "{PLAYER}!\p"
 	.string "You showed great skill and prowess, the\n"
 	.string "way you battle alongside your POKéMON!\p"
 	.string "And with that said...\p"

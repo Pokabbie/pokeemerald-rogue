@@ -11,7 +11,73 @@ script Rogue_Battle_Boss0_Hint
     call(Rogue_GymIdentity_PreBoss)
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("A GYM LEADER of the type ROCK awaits..."), MSGBOX_DEFAULT)
+        switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
+        {
+            case TYPE_NONE:
+                bufferstring(STR_VAR_1, "NONE")
+
+            case TYPE_NORMAL:
+                bufferstring(STR_VAR_1, "NORMAL")
+
+            case TYPE_FIGHTING:
+                bufferstring(STR_VAR_1, "FIGHTING")
+
+            case TYPE_FLYING:
+                bufferstring(STR_VAR_1, "FLYING")
+
+            case TYPE_POISON:
+                bufferstring(STR_VAR_1, "POISON")
+
+            case TYPE_GROUND:
+                bufferstring(STR_VAR_1, "GROUND")
+
+            case TYPE_ROCK:
+                bufferstring(STR_VAR_1, "ROCK")
+
+            case TYPE_BUG:
+                bufferstring(STR_VAR_1, "BUG")
+
+            case TYPE_GHOST:
+                bufferstring(STR_VAR_1, "GHOST")
+
+            case TYPE_STEEL:
+                bufferstring(STR_VAR_1, "STEEL")
+
+            case TYPE_MYSTERY:
+                bufferstring(STR_VAR_1, "STRANGE")
+
+            case TYPE_FIRE:
+                bufferstring(STR_VAR_1, "FIRE")
+
+            case TYPE_WATER:
+                bufferstring(STR_VAR_1, "WATER")
+    
+            case TYPE_GRASS:
+                bufferstring(STR_VAR_1, "GRASS")
+    
+            case TYPE_ELECTRIC:
+                bufferstring(STR_VAR_1, "ELECTRIC")
+    
+            case TYPE_PSYCHIC:
+                bufferstring(STR_VAR_1, "PSYCHIC")
+    
+            case TYPE_ICE:
+                bufferstring(STR_VAR_1, "ICE")
+    
+            case TYPE_DRAGON:
+                bufferstring(STR_VAR_1, "DRAGON")
+    
+            case TYPE_DARK:
+                bufferstring(STR_VAR_1, "DARK")
+    
+            case 18: //TYPE_FAIRY
+                bufferstring(STR_VAR_1, "FAIRY")
+
+            default:
+                bufferstring(STR_VAR_1, "???")
+        }
+
+        msgbox(format("A GYM LEADER of the type {STR_VAR_1} awaits..."), MSGBOX_DEFAULT)
     }
 
     release
@@ -27,7 +93,8 @@ script Rogue_Battle_Boss0
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleField)
     waitmovement(0)
 
-    msgbox(format("ROXANNE: A new challenger!"))
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    msgbox(format("{STR_VAR_1}: A new challenger!"))
 
     call(Rogue_SetDesiredWeather)
 
@@ -38,7 +105,7 @@ script Rogue_Battle_Boss0
     // Manually kick off the encouter to control the music + avoid the trainer from changing directions
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     msgbox(format("Don't hold back now!"))
-    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROXANNE_1, 0, format("Well fought trainer!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well fought trainer!"))
     call(Rogue_BattleDefeated_Boss0)
 }
 
@@ -49,8 +116,6 @@ script Rogue_BattleDefeated_Boss0
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
-    setflag(FLAG_BADGE01_GET)
-    setflag(FLAG_ROGUE_DEFEATED_BOSS00)
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
     special(HealPlayerParty)

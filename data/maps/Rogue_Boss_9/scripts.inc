@@ -9,6 +9,7 @@ Rogue_Battle_Boss9::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss9
 	waitmovement 0
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss9_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss9
@@ -16,7 +17,7 @@ Rogue_Battle_Boss9::
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox Rogue_Battle_Boss9_Text_1
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_PHOEBE, 0, Rogue_Battle_Boss9_Text_2
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss9_Text_2
 	call Rogue_BattleDefeated_Boss9
 	return
 
@@ -26,7 +27,6 @@ Rogue_BattleDefeated_Boss9::
 	message Rogue_BattleDefeated_Boss9_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_ROGUE_DEFEATED_BOSS09
 	msgbox Rogue_BattleDefeated_Boss9_Text_1
 	waitmessage
 	special HealPlayerParty
@@ -63,7 +63,7 @@ BossToFightBoss9:
 	step_end
 
 Rogue_Battle_Boss9_Text_0:
-	.string "PHOEBE: A new challenger!$"
+	.string "{STR_VAR_1}: A new challenger!$"
 
 Rogue_Battle_Boss9_Text_1:
 	.string "Don't hold back now!$"

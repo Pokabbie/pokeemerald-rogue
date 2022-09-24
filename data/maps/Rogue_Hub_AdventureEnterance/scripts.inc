@@ -241,9 +241,53 @@ Rogue_Adventure_StartGauntlet_8:
 	goto Rogue_Adventure_StartGauntlet_7
 
 
+Rogue_Adventure_StartRainbow::
+	call Rogue_ResetAdventureFlags
+	lock
+	faceplayer
+	message Rogue_Adventure_StartRainbow_Text_0
+	waitmessage
+	multichoice 20, 6, MULTI_YESNOINFO, NO
+	switch VAR_RESULT
+	case 0, Rogue_Adventure_StartRainbow_3
+	case 1, Rogue_Adventure_StartRainbow_4
+	case 2, Rogue_Adventure_StartRainbow_5
+	case MULTI_B_PRESSED, Rogue_Adventure_StartRainbow_6
+Rogue_Adventure_StartRainbow_1:
+	release
+	return
+
+Rogue_Adventure_StartRainbow_3:
+	call Rogue_ResetAdventureFlags
+	setflag FLAG_ROGUE_RAINBOW_MODE
+	msgbox Rogue_Adventure_StartGauntlet_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Adventure_StartRainbow_8
+Rogue_Adventure_StartRainbow_7:
+	call Rogue_StartAdventureCommon
+	goto Rogue_Adventure_StartRainbow_1
+
+Rogue_Adventure_StartRainbow_4:
+	msgbox Rogue_Adventure_StartStandard_Text_1, MSGBOX_DEFAULT
+	goto Rogue_Adventure_StartRainbow_1
+
+Rogue_Adventure_StartRainbow_5:
+	msgbox Rogue_Adventure_StartRainbow_Text_1, MSGBOX_DEFAULT
+	goto Rogue_Adventure_StartRainbow_1
+
+Rogue_Adventure_StartRainbow_6:
+	msgbox Rogue_Adventure_StartStandard_Text_1, MSGBOX_DEFAULT
+	goto Rogue_Adventure_StartRainbow_1
+
+Rogue_Adventure_StartRainbow_8:
+	setflag FLAG_ROGUE_DOUBLE_BATTLES
+	goto Rogue_Adventure_StartRainbow_7
+
+
 Rogue_ResetAdventureFlags::
 	clearflag FLAG_ROGUE_DOUBLE_BATTLES
 	clearflag FLAG_ROGUE_GAUNTLET_MODE
+	clearflag FLAG_ROGUE_RAINBOW_MODE
 	return
 
 
@@ -502,6 +546,22 @@ Rogue_Adventure_StartGauntlet_Text_2:
 	.string "more POKéMON or items.\p"
 	.string "This is a high stakes mode intended for\n"
 	.string "faster more difficult battles.$"
+
+Rogue_Adventure_StartRainbow_Text_0:
+	.string "Would you like to go on a RAINBOW\n"
+	.string "adventure?$"
+
+Rogue_Adventure_StartRainbow_Text_1:
+	.string "RAINBOW adventures are very similar to\n"
+	.string "a normal adventure.\p"
+	.string "The main difference is that any and all\n"
+	.string "types can appear for Boss fights.\p"
+	.string "For example Wallace could appear as the\n"
+	.string "first GYM leader or ROXANNE could end\l"
+	.string "up being the CHAMPION!\p"
+	.string "You will even encounter Boss trainers\n"
+	.string "sporting types not usually seen in\l"
+	.string "normal adventures.$"
 
 Rogue_StartAdventureCommon_Text_0:
 	.string "Looks like you have too many POKéMON.\p"

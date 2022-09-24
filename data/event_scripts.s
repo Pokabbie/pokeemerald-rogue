@@ -1071,20 +1071,6 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/Rogue_Hub_PokemonCentre/scripts.inc"
 
-	.include "data/maps/Rogue_Boss_1/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_2/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_3/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_4/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_5/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_6/scripts.inc"
-
-	.include "data/maps/Rogue_Boss_7/scripts.inc"
-
 	.include "data/maps/Rogue_Boss_8/scripts.inc"
 
 	.include "data/maps/Rogue_Boss_9/scripts.inc"

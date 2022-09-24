@@ -709,7 +709,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);
     nodeInfo->isBridgeActive = TRUE;
     nodeInfo->roomType = ADVPATH_ROOM_BOSS;
-    nodeInfo->roomParams.roomIdx = Rogue_SelectBossRoom();
+    nodeInfo->roomParams.roomIdx = Rogue_SelectBossEncounter();
 
     for(i = 0; i < totalDistance; ++i)
     {
@@ -791,81 +791,29 @@ void RogueAdv_ApplyAdventureMetatiles()
 
 static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
 {
-    switch(bossId)
+    if(gRogueRun.currentDifficulty < 8)
     {
-        case 0:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
-            break;
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+    }
+    else if(gRogueRun.currentDifficulty < 12)
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
+        u8 type = trainer->incTypes[0];
 
-        case 1:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_1);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_1);
-            break;
-
-        case 2:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_2);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_2);
-            break;
-
-        case 3:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_3);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_3);
-            break;
-
-        case 4:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_4);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_4);
-            break;
-
-        case 5:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_5);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_5);
-            break;
-
-        case 6:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_6);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_6);
-            break;
-
-        case 7:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_7);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_7);
-            break;
-
-
-        case 8:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_8);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_8);
-            break;
-
-        case 9:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_9);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_9);
-            break;
-
-        case 10:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_10);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_10);
-            break;
-
-        case 11:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_11);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_11);
-            break;
-
-
-        case 12:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
-            break;
-
-        //case 13:
-        default:
-            warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
-            warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
-            break;
-    };
+        warp->mapGroup = gRogueTypeToEliteRoom[type].group;
+        warp->mapNum = gRogueTypeToEliteRoom[type].num;
+    }
+    else if(gRogueRun.currentDifficulty < 13)
+    {
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
+    }
+    else if(gRogueRun.currentDifficulty < 14)
+    {
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
+    }
 }
 
 static void ApplyCurrentNodeWarp(struct WarpData *warp)

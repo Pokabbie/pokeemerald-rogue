@@ -273,10 +273,50 @@ script Rogue_Adventure_StartGauntlet
     release
 }
 
+script Rogue_Adventure_StartRainbow
+{
+    call(Rogue_ResetAdventureFlags)
+
+    lock
+    faceplayer
+
+    message(format("Would you like to go on a RAINBOW adventure?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_ResetAdventureFlags)
+            setflag(FLAG_ROGUE_RAINBOW_MODE)
+
+            msgbox(format("Would you like to enable DOUBLE mode for this adventure too?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+            }
+
+            call(Rogue_StartAdventureCommon)
+
+        case 1: // No
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            msgbox(format("RAINBOW adventures are very similar to a normal adventure.\pThe main difference is that any and all types can appear for Boss fights.\pFor example Wallace could appear as the first GYM leader or ROXANNE could end up being the CHAMPION!\pYou will even encounter Boss trainers sporting types not usually seen in normal adventures."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED:
+            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
 script Rogue_ResetAdventureFlags
 {
     clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
     clearflag(FLAG_ROGUE_GAUNTLET_MODE)
+    clearflag(FLAG_ROGUE_RAINBOW_MODE)
 }
 
 script Rogue_StartAdventureCommon

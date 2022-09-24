@@ -1,8 +1,10 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_transition.h"
 #include "battle_transition_frontier.h"
 #include "bg.h"
+#include "data.h"
 #include "decompress.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
@@ -24,6 +26,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+
+#include "rogue_controller.h"
 
 #define PALTAG_UNUSED_MUGSHOT 0x100A
 
@@ -543,15 +547,17 @@ static const TransitionStateFunc sMugshot_Funcs[] =
     Mugshot_End
 };
 
-static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
-{
-    [MUGSHOT_SIDNEY]   = TRAINER_PIC_ELITE_FOUR_SIDNEY,
-    [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
-    [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
-    [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
-    [MUGSHOT_CHAMPION] = TRAINER_PIC_CHAMPION_WALLACE,
-    [MUGSHOT_CHAMPION_STEVEN] = TRAINER_PIC_STEVEN,
-};
+// Handled Dynamically
+//static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
+//{
+//    [MUGSHOT_SIDNEY]   = TRAINER_PIC_ELITE_FOUR_SIDNEY,
+//    [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
+//    [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
+//    [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
+//    [MUGSHOT_CHAMPION] = TRAINER_PIC_CHAMPION_WALLACE,
+//    [MUGSHOT_CHAMPION_STEVEN] = TRAINER_PIC_STEVEN,
+//};
+
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
     [MUGSHOT_SIDNEY] =   {0x200, 0x200},
@@ -2592,10 +2598,14 @@ static void HBlankCB_Mugshots(void)
 
 static void Mugshots_CreateTrainerPics(struct Task *task)
 {
+    struct Trainer trainer;
     struct Sprite *opponentSprite, *playerSprite;
+    // Previous used mugshotId, but now default?
+    s16 mugshotId = 0;//task->tMugshotId;
 
-    s16 mugshotId = task->tMugshotId;
-    task->tOpponentSpriteId = CreateTrainerSprite(sMugshotsTrainerPicIDsTable[mugshotId],
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
+    task->tOpponentSpriteId = CreateTrainerSprite(trainer.trainerPic,
                                                   sMugshotsOpponentCoords[mugshotId][0] - 32,
                                                   sMugshotsOpponentCoords[mugshotId][1] + 42,
                                                   0, gDecompressionBuffer);

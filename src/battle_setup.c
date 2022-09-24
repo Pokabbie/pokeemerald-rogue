@@ -872,20 +872,23 @@ u8 GetTrainerBattleTransition(void)
 
     if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
-        if (gTrainerBattleOpponent_A == TRAINER_SIDNEY)
-            return B_TRANSITION_SIDNEY;
-        if (gTrainerBattleOpponent_A == TRAINER_PHOEBE)
-            return B_TRANSITION_PHOEBE;
-        if (gTrainerBattleOpponent_A == TRAINER_GLACIA)
-            return B_TRANSITION_GLACIA;
-        if (gTrainerBattleOpponent_A == TRAINER_DRAKE)
-            return B_TRANSITION_DRAKE;
+        switch(gRogueRun.currentDifficulty % 4)
+        {
+            case 0:
+                return B_TRANSITION_SIDNEY;
+            case 1:
+                return B_TRANSITION_PHOEBE;
+            case 2:
+                return B_TRANSITION_GLACIA;
+            case 3:
+                return B_TRANSITION_DRAKE;
+        }
         return B_TRANSITION_CHAMPION;
     }
 
     if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
     {
-        if (gTrainerBattleOpponent_A == TRAINER_STEVEN)
+        if (gRogueRun.currentDifficulty >= 13)
             return B_TRANSITION_CHAMPION_STEVEN;
             
         return B_TRANSITION_CHAMPION;
@@ -1174,6 +1177,8 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     {
     case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
         TrainerBattleLoadArgs(sOrdinaryNoIntroBattleParams, data);
+        // RogueNote: Expand the trainer var now
+        gTrainerBattleOpponent_A = VarGet(gTrainerBattleOpponent_A);
         return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);

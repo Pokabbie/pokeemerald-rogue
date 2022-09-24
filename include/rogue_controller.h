@@ -55,7 +55,7 @@ void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
 u8 Rogue_SelectRouteRoom(void);
-u8 Rogue_SelectBossRoom(void);
+u8 Rogue_SelectBossEncounter(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
 u8 Rogue_SelectMiniBossEncounterRoom(void);
 u8 Rogue_SelectWildDenEncounterRoom(void);

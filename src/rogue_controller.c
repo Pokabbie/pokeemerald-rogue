@@ -1483,7 +1483,7 @@ void Rogue_OnLoadGame(void)
     memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
     memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
 
-    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_DEFEATED_BOSS13))
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
         gRogueLocal.hasQuickLoadPending = TRUE;
         //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
@@ -1587,6 +1587,7 @@ static void BeginRogueRun(void)
     memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
     memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
+    memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1623,22 +1624,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_BADGE07_GET);
     FlagClear(FLAG_BADGE08_GET);
 
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS00);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS01);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS02);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS03);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS04);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS05);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS06);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS07);
-    
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS08);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS09);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS10);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS11);
-
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS12);
-    FlagClear(FLAG_ROGUE_DEFEATED_BOSS13);
+    FlagClear(FLAG_ROGUE_RUN_COMPLETED);
 
     GiveMonPartnerRibbon();
 
@@ -1707,39 +1693,83 @@ static void EndRogueRun(void)
     BerryTreeTimeUpdate(60 * 6 * gRogueRun.currentDifficulty);
 }
 
-u8 Rogue_SelectBossRoom(void)
+static u16 GetBossHistoryKey(u16 bossId)
 {
-    u8 bossId = 0;
-    u8 difficulty = gRogueRun.currentDifficulty;
+    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+        return gRogueBossEncounters.trainers[bossId].incTypes[0];
+    else
+        return bossId;
+}
 
-    // TODO - Support refighting gymleaders by wrapping to room selection again
-
-    do
+static bool8 IsBossEnabled(u16 bossId)
+{
+    const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
+    u16 includeFlags = TRAINER_FLAG_NONE;
+    u16 excludeFlags = TRAINER_FLAG_NONE;
+    
+    if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
     {
-        // Gym leaders 0-7
-        if(difficulty <= 7)
+        includeFlags |= TRAINER_FLAG_HOENN;
+
+        if(gRogueRun.currentDifficulty < 8)
+            excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 12)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 13)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 14)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+    }
+
+    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->flags & excludeFlags) != 0)
+    {
+        return FALSE;
+    }
+
+    if(includeFlags == TRAINER_FLAG_NONE || (trainer->flags & includeFlags) != 0)
+    {
+        if(!HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId)))
         {
-            bossId = RogueRandomRange(8, OVERWORLD_FLAG);
-        }
-        // Elite Four 8-11
-        else if(difficulty <= 11)
-        {
-            bossId = 8 + RogueRandomRange(4, OVERWORLD_FLAG);
-        }
-        // Champion 1
-        else if(difficulty == 12) 
-        {
-            bossId = 12;
-            break;
-        }
-        // Champion 2
-        else
-        {
-            bossId = 13;
-            break;
+            return TRUE;
         }
     }
-    while(FlagGet(FLAG_ROGUE_DEFEATED_BOSS00 + bossId));
+
+    return FALSE;
+}
+
+static u8 NextBossId()
+{
+    u16 i;
+    u16 randIdx;
+    u16 enabledBossesCount = 0;
+
+    for(i = 0; i < gRogueBossEncounters.count; ++i)
+    {
+        if(IsBossEnabled(i))
+            ++enabledBossesCount;
+    }
+
+    randIdx = RogueRandomRange(enabledBossesCount, OVERWORLD_FLAG);
+
+    for(i = 0; i < gRogueBossEncounters.count; ++i)
+    {
+        if(IsBossEnabled(i))
+        {
+            if(randIdx == 0)
+                return i;
+            else
+                --randIdx;
+        }
+    }
+
+    return 0;
+}
+
+u8 Rogue_SelectBossEncounter(void)
+{
+    u16 bossId = NextBossId();
+
+    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId));
 
     return bossId;
 }
@@ -1986,18 +2016,25 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_BOSS:
             {
-                gRogueRun.currentLevelOffset = 0;
+                const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
+                gRogueRun.currentLevelOffset = 0;
                 RandomiseEnabledItems();
+
+                VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
+                    // No Weather
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    // TODO
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
             }
@@ -2219,11 +2256,24 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         {
             u8 nextLevel;
             u8 prevLevel = CalculateBossLevel();
+            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
             ++gRogueRun.currentDifficulty;
             nextLevel = CalculateBossLevel();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
+
+            if(trainer->victorySetFlag)
+            {
+                // Set any extra flags
+                FlagSet(trainer->victorySetFlag);
+            }
+
+            if(gRogueRun.currentDifficulty >= BOSS_COUNT)
+            {
+                FlagSet(FLAG_IS_CHAMPION);
+                FlagSet(FLAG_ROGUE_RUN_COMPLETED);
+            }
         }
 
         // Adjust this after the boss reset
@@ -2281,26 +2331,13 @@ void Rogue_Battle_EndWildBattle(void)
 
 static bool8 IsBossTrainer(u16 trainerNum)
 {
-    switch(trainerNum)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        case TRAINER_ROXANNE_1:
-        case TRAINER_BRAWLY_1:
-        case TRAINER_WATTSON_1:
-        case TRAINER_FLANNERY_1:
-        case TRAINER_NORMAN_1:
-        case TRAINER_WINONA_1:
-        case TRAINER_TATE_AND_LIZA_1:
-        case TRAINER_JUAN_1:
-
-        case TRAINER_SIDNEY:
-        case TRAINER_PHOEBE:
-        case TRAINER_GLACIA:
-        case TRAINER_DRAKE:
-
-        case TRAINER_WALLACE:
-        case TRAINER_STEVEN:
+        if(trainerNum == TRAINER_ROGUE_POKEFAN_F)
+            return FALSE;
+        else
             return TRUE;
-    };
+    }
 
     return FALSE;
 }
@@ -2321,19 +2358,10 @@ static bool8 IsMirrorTrainer(u16 trainerNum)
 
 static bool8 IsMiniBossTrainer(u16 trainerNum)
 {
-    switch(trainerNum)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
     {
-        case TRAINER_MAXIE_MAGMA_HIDEOUT:
-        case TRAINER_ARCHIE:
-
-        case TRAINER_WALLY_VR_1:
-
-        case TRAINER_RED:
-        case TRAINER_LEAF:
-        case TRAINER_BRENDAN_PLACEHOLDER:
-        case TRAINER_MAY_PLACEHOLDER:
-            return TRUE;
-    };
+        return TRUE;
+    }
 
     return FALSE;
 }
@@ -2402,90 +2430,58 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         return;
     }
 
-    switch(trainerNum)
+    if(IsBossTrainer(trainerNum))
     {
-        case TRAINER_ROXANNE_1:
-            *forceType = TYPE_ROCK;
-            break;
-        case TRAINER_BRAWLY_1:
-            *forceType = TYPE_FIGHTING;
-            break;
-        case TRAINER_WATTSON_1:
-            *forceType = TYPE_ELECTRIC;
-            break;
-        case TRAINER_FLANNERY_1:
-            *forceType = TYPE_FIRE;
-            break;
-        case TRAINER_NORMAN_1:
-            *forceType = TYPE_NORMAL;
-            *disabledType = TYPE_FLYING; // Too many normal flyings
-            break;
-        case TRAINER_WINONA_1:
-            *forceType = TYPE_FLYING;
-            break;
-        case TRAINER_TATE_AND_LIZA_1:
-            *forceType = TYPE_PSYCHIC;
-            break;
-        case TRAINER_JUAN_1:
-            *forceType = TYPE_WATER;
-            break;
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        case TRAINER_SIDNEY:
-            *forceType = TYPE_DARK;
-            break;
-        case TRAINER_PHOEBE:
-            *forceType = TYPE_GHOST;
-            break;
-        case TRAINER_GLACIA:
-            *forceType = TYPE_ICE;
-            break;
-        case TRAINER_DRAKE:
-            *forceType = TYPE_DRAGON;
-            break;
+        forceType[0] = trainer->incTypes[0];
+        forceType[1] = trainer->incTypes[1];
 
-        case TRAINER_WALLACE:
-            *forceType = TYPE_WATER;
-            break;
-        case TRAINER_STEVEN:
-            *forceType = TYPE_STEEL;
-            break;
+        disabledType[0] = trainer->excTypes[0];
+        disabledType[1] = trainer->excTypes[1];
+    }
+    else
+    {
+        switch(trainerNum)
+        {
+            // Specific trainers
+            case TRAINER_ROGUE_AQUA_F:
+            case TRAINER_ROGUE_AQUA_M:
+                forceType[0] = TYPE_DARK;
 
-        case TRAINER_ROGUE_AQUA_F:
-        case TRAINER_ROGUE_AQUA_M:
-            forceType[0] = TYPE_DARK;
+                if(difficultyLevel > 0)
+                    forceType[1] = TYPE_WATER;
+                break;
 
-            if(difficultyLevel > 0)
-                forceType[1] = TYPE_WATER;
-            break;
+            case TRAINER_ROGUE_MAGMA_F:
+            case TRAINER_ROGUE_MAGMA_M:
+                forceType[0] = TYPE_DARK;
 
-        case TRAINER_ROGUE_MAGMA_F:
-        case TRAINER_ROGUE_MAGMA_M:
-            forceType[0] = TYPE_DARK;
+                if(difficultyLevel > 0)
+                    forceType[1] = TYPE_FIRE;
+                break;
+            
+            // Minibosses
+            case TRAINER_MAXIE_MAGMA_HIDEOUT:
+                forceType[0] = TYPE_FIRE;
+                forceType[1] = TYPE_DARK;
+                break;
 
-            if(difficultyLevel > 0)
-                forceType[1] = TYPE_FIRE;
-            break;
-        
-        // Minibosses
-        case TRAINER_MAXIE_MAGMA_HIDEOUT:
-            forceType[0] = TYPE_FIRE;
-            forceType[1] = TYPE_DARK;
-            break;
+            case TRAINER_ARCHIE:
+                forceType[0] = TYPE_WATER;
+                forceType[1] = TYPE_DARK;
+                break;
 
-        case TRAINER_ARCHIE:
-            forceType[0] = TYPE_WATER;
-            forceType[1] = TYPE_DARK;
-            break;
-
-        case TRAINER_WALLY_VR_1:
-            forceType[0] = TYPE_PSYCHIC;
-#ifdef ROGUE_EXPANSION
-            forceType[1] = TYPE_FAIRY;
-#else
-            forceType[1] = TYPE_GRASS;
-#endif
-            break;
-    };
+            case TRAINER_WALLY_VR_1:
+                forceType[0] = TYPE_PSYCHIC;
+    #ifdef ROGUE_EXPANSION
+                forceType[1] = TYPE_FAIRY;
+    #else
+                forceType[1] = TYPE_GRASS;
+    #endif
+                break;
+        };
+    }
 
     if(IsAnyBossTrainer(trainerNum)) 
     {
