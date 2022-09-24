@@ -22,6 +22,7 @@
 #include "graphics.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
@@ -418,7 +419,7 @@ static void CreateCopyrightBanner(s16 x, s16 y)
     u8 i;
     u8 spriteId;
 
-    x -= 64;
+    x -= 70;
     for (i = 0; i < 5; i++, x += 32)
     {
         spriteId = CreateSprite(&sStartCopyrightBannerSpriteTemplate, x, y, 0);
@@ -729,6 +730,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
 {
     if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(START_BUTTON)))
     {
+        PlayCryInternal(SPECIES_WOBBUFFET, 0, 120, 10, 0);
         FadeOutBGM(4);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
         SetMainCallback2(CB2_GoToMainMenu);
@@ -803,14 +805,25 @@ static void CB2_GoToBerryFixScreen(void)
     }
 }
 
+static s32 ColLerp(s32 a, s32 b, s32 intensity)
+{
+    return a + (b - a) * intensity / 256;
+}
+
 static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
         s32 intensity = Cos(frameNum, 128) + 128;
-        s32 r = 31 - ((intensity * 32 - intensity) / 256);
-        s32 g = 31 - (intensity * 22 / 256);
-        s32 b = 12;
+        // 0, 4, 9
+
+        s32 r = ColLerp(0, 31, intensity);
+        s32 g = ColLerp(3, 31, intensity);
+        s32 b = ColLerp(9, 31, intensity);
+
+        //s32 r = 31 - (intensity);
+        //s32 g = 31 - (intensity * 22 / 256);
+        //s32 b = 31 - ((intensity * 32 - intensity) / 256);
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, 0xEF, sizeof(color));
