@@ -664,6 +664,15 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
 
         if (IsWirelessAdapterConnected())
             tWirelessAdapterConnected = TRUE;
+
+#ifdef ROGUE_FEATURE_SKIP_SAVE_WARNINGS
+        if(gSaveFileStatus == SAVE_STATUS_ERROR)
+        {
+            // Ignore the corruption message
+            gSaveFileStatus = SAVE_STATUS_OK;
+        }
+#endif
+
         switch (gSaveFileStatus)
         {
             case SAVE_STATUS_OK:
@@ -740,6 +749,9 @@ static void Task_MainMenuCheckBattery(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 7);
 
+#ifdef ROGUE_FEATURE_SKIP_SAVE_WARNINGS
+        gTasks[taskId].func = Task_DisplayMainMenu;
+#else
         if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
         {
             gTasks[taskId].func = Task_DisplayMainMenu;
@@ -749,6 +761,7 @@ static void Task_MainMenuCheckBattery(u8 taskId)
             CreateMainMenuErrorWindow(gText_BatteryRunDry);
             gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
         }
+#endif
     }
 }
 

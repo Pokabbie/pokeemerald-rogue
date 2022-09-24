@@ -5,6 +5,7 @@
 //#define ROGUE_EXPANSION
 
 #define ROGUE_FEATURE_ENCOUNTER_PREVIEW
+//#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
