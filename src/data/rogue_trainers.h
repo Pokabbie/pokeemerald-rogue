@@ -168,7 +168,47 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_STEEL, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP,
-    }
+    },
+
+    // Placeholder Rainbow mode bosses for missing types
+    // TODO
+    {
+        .gfxId = OBJ_EVENT_GFX_SCOTT,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_POISON, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_NONE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_SCOTT,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_GROUND, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_NONE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_SCOTT,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_BUG, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_NONE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_SCOTT,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_GRASS, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_NONE,
+    },
+#ifdef ROGUE_EXPANSION
+    {
+        .gfxId = OBJ_EVENT_GFX_SCOTT,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_FAIRY, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_NONE,
+    },
+#endif
 };
 
 const struct RogueTrainerData gRogueBossEncounters = 

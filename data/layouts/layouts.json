@@ -4904,7 +4904,7 @@
     {
       "id": "LAYOUT_ROGUE_HUB_ADVENTURE_ENTERANCE",
       "name": "Rogue_Hub_AdventureEnterance_Layout",
-      "width": 18,
+      "width": 22,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleFrontier",

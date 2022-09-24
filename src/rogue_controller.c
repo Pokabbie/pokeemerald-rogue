@@ -1693,26 +1693,48 @@ static void EndRogueRun(void)
     BerryTreeTimeUpdate(60 * 6 * gRogueRun.currentDifficulty);
 }
 
-static bool8 IsBossEnabled(const struct RogueTrainerEncounter* trainer)
+static u16 GetBossHistoryKey(u16 bossId)
 {
-    u16 checkFlags = TRAINER_FLAG_HOENN;
+    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+        return gRogueBossEncounters.trainers[bossId].incTypes[0];
+    else
+        return bossId;
+}
+
+static bool8 IsBossEnabled(u16 bossId)
+{
+    const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
+    u16 includeFlags = TRAINER_FLAG_NONE;
     u16 excludeFlags = TRAINER_FLAG_NONE;
     
-    if(gRogueRun.currentDifficulty < 8)
-        excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-    else if(gRogueRun.currentDifficulty < 12)
-        excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-    else if(gRogueRun.currentDifficulty < 13)
-        excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
-    else if(gRogueRun.currentDifficulty < 14)
-        excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+    if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+    {
+        includeFlags |= TRAINER_FLAG_HOENN;
 
-    if((trainer->flags & excludeFlags) != 0)
+        if(gRogueRun.currentDifficulty < 8)
+            excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 12)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 13)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
+        else if(gRogueRun.currentDifficulty < 14)
+            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+    }
+
+    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->flags & excludeFlags) != 0)
     {
         return FALSE;
     }
 
-    return (trainer->flags & checkFlags) != 0;
+    if(includeFlags == TRAINER_FLAG_NONE || (trainer->flags & includeFlags) != 0)
+    {
+        if(!HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId)))
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static u8 NextBossId()
@@ -1723,7 +1745,7 @@ static u8 NextBossId()
 
     for(i = 0; i < gRogueBossEncounters.count; ++i)
     {
-        if(IsBossEnabled(&gRogueBossEncounters.trainers[i]))
+        if(IsBossEnabled(i))
             ++enabledBossesCount;
     }
 
@@ -1731,7 +1753,7 @@ static u8 NextBossId()
 
     for(i = 0; i < gRogueBossEncounters.count; ++i)
     {
-        if(IsBossEnabled(&gRogueBossEncounters.trainers[i]))
+        if(IsBossEnabled(i))
         {
             if(randIdx == 0)
                 return i;
@@ -1745,15 +1767,9 @@ static u8 NextBossId()
 
 u8 Rogue_SelectBossEncounter(void)
 {
-    u8 bossId;
+    u16 bossId = NextBossId();
 
-    do
-    {
-        bossId = NextBossId();
-    }
-    while(HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), bossId));
-
-    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), bossId);
+    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId));
 
     return bossId;
 }
