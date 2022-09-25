@@ -100,7 +100,7 @@ struct RogueRunData
     u32 safariShinyPersonality;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[5];
+    u16 routeHistoryBuffer[9];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
     u16 bossHistoryBuffer[14];

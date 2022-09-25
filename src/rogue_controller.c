@@ -2589,7 +2589,7 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
     return FALSE;
 }
 
-static void ApplyTrainerQuery(u16 trainerNum)
+static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAceType)
 {
     // Query for the current trainer team
     RogueQuery_Clear();
@@ -2598,15 +2598,25 @@ static void ApplyTrainerQuery(u16 trainerNum)
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_Exclude(SPECIES_UNOWN);
 
-    if(!gRogueLocal.trainerTemp.allowLedgendaries)
+    if(legendariesOnly)
+        RogueQuery_SpeciesIsLegendary();
+    else if(!gRogueLocal.trainerTemp.allowLedgendaries)
         RogueQuery_SpeciesIsNotLegendary();
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
-        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+        if(useAceType)
+        {
+            if(gRogueLocal.trainerTemp.allowedType[2] != TYPE_NONE)
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[2]); // 1 type
+        }
         else
-            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        {
+            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        }
     }
 
     RogueQuery_TransformToEggSpecies();
@@ -2616,10 +2626,18 @@ static void ApplyTrainerQuery(u16 trainerNum)
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
-        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+        if(useAceType)
+        {
+            if(gRogueLocal.trainerTemp.allowedType[2] != TYPE_NONE)
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[2]); // 1 type
+        }
         else
-            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        {
+            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        }
     }
 
     // Disable types
@@ -2710,7 +2728,7 @@ static void ApplyFallbackTrainerQuery(u16 trainerNum)
     if(hasFallback && !gRogueLocal.trainerTemp.hasAppliedFallback)
     {
         gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-        ApplyTrainerQuery(trainerNum);
+        ApplyTrainerQuery(trainerNum, FALSE, FALSE);
     }
 }
 
@@ -2731,7 +2749,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
         ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.disallowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
 
-        ApplyTrainerQuery(trainerNum);
+        ApplyTrainerQuery(trainerNum, FALSE, FALSE);
 
 #ifdef ROGUE_DEBUG
         gDebug_TrainerOptionCount = RogueQuery_BufferSize();
@@ -3122,32 +3140,33 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
         difficultyLevel = 13;
 
-    // For wallace will will always have at least 1 ledgendary in last slot
-    if(trainerNum == TRAINER_WALLACE)
+    if(isBoss)
     {
-        if(monIdx == 5)
+        bool8 useAceType = FALSE;
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
         {
-            // Requery with just legendaries
-            RogueQuery_Clear();
-            RogueQuery_SpeciesIsValid();
-            RogueQuery_SpeciesExcludeCommon();
-            RogueQuery_SpeciesIsLegendary();
-            RogueQuery_SpeciesOfType(TYPE_WATER);
-            RogueQuery_CollapseSpeciesBuffer();
+            useAceType = TRUE;
         }
-    }
-    // For steven will will always have at least 2 ledgendarys, both in last 2 slots
-    else if(trainerNum == TRAINER_STEVEN)
-    {
-        if(monIdx == 4)
+
+        // Champion
+        if(difficultyLevel == 12)
         {
-            // Requery with just legendaries
-            RogueQuery_Clear();
-            RogueQuery_SpeciesIsValid();
-            RogueQuery_SpeciesExcludeCommon();
-            RogueQuery_SpeciesIsLegendary();
-            RogueQuery_SpeciesOfType(TYPE_PSYCHIC);
-            RogueQuery_CollapseSpeciesBuffer();
+            if(monIdx == 5)
+            {
+                // Force legendaries for last mon
+                ApplyTrainerQuery(trainerNum, TRUE, useAceType);
+            }
+        }
+        // Final champion
+        else if(difficultyLevel == 13)
+        {
+            if(monIdx == 4)
+            {
+                // Force legendaries for last 2
+                ApplyTrainerQuery(trainerNum, TRUE, useAceType);
+            }
         }
     }
 

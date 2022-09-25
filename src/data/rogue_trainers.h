@@ -63,17 +63,17 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .gfxId = OBJ_EVENT_GFX_ROXANNE,
         .trainerId = TRAINER_ROGUE_BOSS_ROXANNE,
         .victorySetFlag = FLAG_BADGE01_GET,
-        .incTypes = { TYPE_ROCK, TYPE_NONE },
+        .incTypes = { TYPE_ROCK, TYPE_NONE, TYPE_STEEL },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRAWLY,
         .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
         .victorySetFlag = FLAG_BADGE02_GET,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
+        .incTypes = { TYPE_FIGHTING, TYPE_NONE, TYPE_DARK  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WATTSON,
@@ -87,17 +87,17 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .gfxId = OBJ_EVENT_GFX_FLANNERY,
         .trainerId = TRAINER_ROGUE_BOSS_FLANNERY,
         .victorySetFlag = FLAG_BADGE04_GET,
-        .incTypes = { TYPE_FIRE, TYPE_NONE  },
+        .incTypes = { TYPE_FIRE, TYPE_NONE, TYPE_GROUND },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_NORMAN,
         .trainerId = TRAINER_ROGUE_BOSS_NORMAN,
         .victorySetFlag = FLAG_BADGE05_GET,
-        .incTypes = { TYPE_NORMAL, TYPE_NONE  },
+        .incTypes = { TYPE_NORMAL, TYPE_NONE, TYPE_DRAGON },
         .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WINONA,
@@ -111,9 +111,9 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .gfxId = OBJ_EVENT_GFX_LIZA,
         .trainerId = TRAINER_ROGUE_BOSS_TATE_AND_LIZA,
         .victorySetFlag = FLAG_BADGE07_GET,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
+        .incTypes = { TYPE_PSYCHIC, TYPE_NONE, TYPE_GHOST  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JUAN,
@@ -128,16 +128,22 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_SIDNEY,
         .trainerId = TRAINER_ROGUE_BOSS_SIDNEY,
+#ifdef ROGUE_EXPANSION
+        .incTypes = { TYPE_DARK, TYPE_NONE, TYPE_FAIRY },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+#else
         .incTypes = { TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+#endif
     },
     {
         .gfxId = OBJ_EVENT_GFX_PHOEBE,
         .trainerId = TRAINER_ROGUE_BOSS_PHOEBE,
-        .incTypes = { TYPE_GHOST, TYPE_NONE },
+        .incTypes = { TYPE_GHOST, TYPE_NONE, TYPE_PSYCHIC },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_GLACIA,
@@ -165,9 +171,9 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_STEVEN,
         .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
-        .incTypes = { TYPE_STEEL, TYPE_NONE },
+        .incTypes = { TYPE_STEEL, TYPE_NONE, TYPE_PSYCHIC },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
 
     // Placeholder Rainbow mode bosses for missing types
