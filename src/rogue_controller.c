@@ -1405,7 +1405,7 @@ static void SaveHubStates(void)
         ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
     }
 
-    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(0), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
     gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
     CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
@@ -1431,7 +1431,7 @@ static void LoadHubStates(void)
     }
     gPlayerPartyCount = i;
 
-    memcpy(GetBerryTreeInfo(0), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(GetBerryTreeInfo(1), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
     CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
     CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
@@ -1691,7 +1691,7 @@ static void EndRogueRun(void)
     LoadHubStates();
 
     // Grow berries based on progress in runs
-    BerryTreeTimeUpdate(60 * 6 * gRogueRun.currentDifficulty);
+    BerryTreeTimeUpdate(90 * gRogueRun.currentRoomIdx);
 }
 
 static u16 GetBossHistoryKey(u16 bossId)
