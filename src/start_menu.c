@@ -642,13 +642,13 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
-    if (JOY_NEW(DPAD_UP))
+    if (JOY_NEW(DPAD_UP) && !sBufferedAButton)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(-1);
     }
 
-    if (JOY_NEW(DPAD_DOWN))
+    if (JOY_NEW(DPAD_DOWN) && !sBufferedAButton)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(1);
@@ -697,6 +697,8 @@ static bool8 HandleStartMenuInput(void)
 
     if (JOY_NEW(START_BUTTON | B_BUTTON))
     {
+        sBufferedAButton = FALSE;
+
         RemoveExtraStartMenuWindows();
         HideStartMenu();
         return TRUE;

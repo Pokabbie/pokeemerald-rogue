@@ -663,6 +663,7 @@ static void Task_OpenRegisteredQuestLog(u8 taskId)
 
 void ItemUseOutOfBattle_QuestLog(u8 taskId)
 {
+    PlaySE(SE_SELECT);
     if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
         gBagMenu->newScreenCallback = CB2_OpenQuestLogFromBag;
