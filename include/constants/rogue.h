@@ -11,7 +11,7 @@
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
 #define ROGUE_ROUTE_COUNT 12
-#define ROGUE_HUB_BERRY_TREE_COUNT 16
+#define ROGUE_HUB_BERRY_TREE_COUNT 20
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7

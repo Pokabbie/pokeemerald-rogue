@@ -166,9 +166,10 @@ script RogueHub_OnMapLoad
     questcollected(QUEST_BerryCollector)
     if(var(VAR_RESULT) == NO)
     {
-        fillmetatile(42, 31, 48, 32, METATILE_Grass, FALSE)
-        fillmetatile(42, 35, 48, 36, METATILE_Grass, FALSE)
-        fillmetatile(42, 39, 48, 40, METATILE_Grass, FALSE)
+        fillmetatile(10, 40, 16, 41, METATILE_Grass, FALSE)
+        fillmetatile(18, 40, 24, 41, METATILE_Grass, FALSE)
+        fillmetatile(26, 40, 32, 41, METATILE_Grass, FALSE)
+        fillmetatile(34, 40, 40, 41, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER8)
     }
     else
