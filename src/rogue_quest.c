@@ -25,7 +25,33 @@ static EWRAM_DATA u8 sPreviousRouteType = 0;
 
 typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
 
+static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
+{
+    [TYPE_NORMAL] = QUEST_NORMAL_Champion,
+    [TYPE_FIGHTING] = QUEST_FIGHTING_Champion,
+    [TYPE_FLYING] = QUEST_FLYING_Champion,
+    [TYPE_POISON] = QUEST_POISON_Champion,
+    [TYPE_GROUND] = QUEST_GROUND_Champion,
+    [TYPE_ROCK] = QUEST_ROCK_Champion,
+    [TYPE_BUG] = QUEST_BUG_Champion,
+    [TYPE_GHOST] = QUEST_GHOST_Champion,
+    [TYPE_STEEL] = QUEST_STEEL_Champion,
+    [TYPE_MYSTERY] = QUEST_NONE,
+    [TYPE_FIRE] = QUEST_FIRE_Champion,
+    [TYPE_WATER] = QUEST_WATER_Champion,
+    [TYPE_GRASS] = QUEST_GRASS_Champion,
+    [TYPE_ELECTRIC] = QUEST_ELECTRIC_Champion,
+    [TYPE_PSYCHIC] = QUEST_PSYCHIC_Champion,
+    [TYPE_ICE] = QUEST_ICE_Champion,
+    [TYPE_DRAGON] = QUEST_DRAGON_Champion,
+    [TYPE_DARK] = QUEST_DARK_Champion,
+#ifdef ROGUE_EXPANSION
+    [TYPE_FAIRY] = QUEST_FAIRY_Champion,
+#endif
+};
+
 static void UnlockFollowingQuests(u16 questId);
+static void UpdateMonoQuests(void);
 
 void ResetQuestState(u16 saveVersion)
 {
@@ -383,7 +409,7 @@ static void ForEachUnlockedQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_CAPACITY; ++i)
+    for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isUnlocked)
@@ -398,7 +424,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     u16 i;
     struct RogueQuestState* state;
 
-    for(i = 0; i < QUEST_CAPACITY; ++i)
+    for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueQuestData.questStates[i];
         if(state->isValid && !state->isCompleted)
@@ -478,10 +504,15 @@ void QuestNotify_BeginAdventure(void)
     // Handle skip difficulty
     if(gRogueRun.currentDifficulty > 0)
     {
+        u16 i;
+
         TryDeactivateQuest(QUEST_GymChallenge);
         TryDeactivateQuest(QUEST_GymMaster);
         TryDeactivateQuest(QUEST_NoFainting2);
         TryDeactivateQuest(QUEST_NoFainting3);
+
+        for(i = TYPE_NORMAL; i < NUMBER_OF_MON_TYPES; ++i)
+            TryDeactivateQuest(TypeToMonoQuest[i]);
     }
 
     if(gRogueRun.currentDifficulty > 4)
@@ -494,8 +525,9 @@ void QuestNotify_BeginAdventure(void)
         // Can't technically happen atm
         TryDeactivateQuest(QUEST_EliteMaster);
     }
-    
+
     UpdateChaosChampion(TRUE);
+    UpdateMonoQuests();
 }
 
 static void OnEndBattle(void)
@@ -510,6 +542,8 @@ static void OnEndBattle(void)
             SetQuestState(QUEST_NoFainting1, &state);
         }
     }
+
+    UpdateMonoQuests();
 }
 
 void QuestNotify_EndAdventure(void)
@@ -535,6 +569,48 @@ void QuestNotify_OnWildBattleEnd(void)
     }
 
     OnEndBattle();
+}
+
+bool8 IsSpeciesType(u16 species, u8 type);
+
+static void UpdateMonoQuests(void)
+{
+    u16 type;
+    u16 questId;
+    u8 i;
+
+    for(type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; ++type)
+    {
+        questId = TypeToMonoQuest[type];
+
+        if(IsQuestActive(questId))
+        {
+            for(i = 0; i < gPlayerPartyCount; ++i)
+            {
+                u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+                if(!IsSpeciesType(species, type))
+                {
+                    TryDeactivateQuest(questId);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+static void CompleteMonoQuests(void)
+{
+    u16 type;
+    u16 questId;
+    u8 i;
+
+    for(type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; ++type)
+    {
+        questId = TypeToMonoQuest[type];
+
+        if(IsQuestActive(questId))
+            TryMarkQuestAsComplete(questId);
+    }
 }
 
 bool8 IsSpeciesLegendary(u16 species);
@@ -594,6 +670,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Champion);
                 TryMarkQuestAsComplete(QUEST_NoFainting3);
                 TryMarkQuestAsComplete(QUEST_ChaosChampion);
+                CompleteMonoQuests();
                 break;
         }
 
@@ -687,6 +764,9 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                 }
                 break;
         }
+
+        // Could've traded by event so update mono quests
+        UpdateMonoQuests();
 
         if(gRogueAdvPath.currentRoomType != ADVPATH_ROOM_RESTSTOP)
         {

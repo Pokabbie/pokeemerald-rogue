@@ -242,7 +242,7 @@ void RogueQuery_CustomItems(QueryCallback query, u16 usrData)
 // Species
 //
 
-static bool8 IsSpeciesType(u16 species, u8 type)
+bool8 IsSpeciesType(u16 species, u8 type)
 {
     return gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
 }
