@@ -273,11 +273,12 @@ static bool8 GiveAndGetNextAnnouncedReward()
 }
 
 
-bool8 GiveNextRewardAndFormat(u8* str)
+bool8 GiveNextRewardAndFormat(u8* str, u8* type)
 {
     if(GiveAndGetNextAnnouncedReward())
     {
         struct RogueQuestReward const* reward = GetCurrentRewardTarget();
+        *type = reward->type;
 
         if(reward->giveText)
         {

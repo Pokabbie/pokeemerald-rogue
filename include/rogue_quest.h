@@ -17,7 +17,7 @@ bool8 IsQuestGloballyTracked(u16 questId);
 bool8 IsQuestActive(u16 questId);
 bool8 DoesQuestHaveUnlocks(u16 questId);
 
-bool8 GiveNextRewardAndFormat(u8* str);
+bool8 GiveNextRewardAndFormat(u8* str, u8* type);
 bool8 TryUnlockQuest(u16 questId);
 bool8 TryMarkQuestAsComplete(u16 questId);
 bool8 TryDeactivateQuest(u16 questId);

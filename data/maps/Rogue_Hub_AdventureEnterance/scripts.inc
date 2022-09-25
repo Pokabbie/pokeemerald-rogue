@@ -118,15 +118,29 @@ Rogue_Adventure_SpeakScott_12:
 	goto Rogue_Adventure_SpeakScott_1
 
 Rogue_Adventure_SpeakScott_10:
+	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
+	goto_if_eq Rogue_Adventure_SpeakScott_16
 	playse SE_SHOP
+Rogue_Adventure_SpeakScott_15:
 	msgbox Rogue_Adventure_SpeakScott_Text_2
+	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
+	goto_if_eq Rogue_Adventure_SpeakScott_20
 	waitse
+Rogue_Adventure_SpeakScott_19:
 	nextquestreward
 	goto Rogue_Adventure_SpeakScott_9
 
 Rogue_Adventure_SpeakScott_13:
 	msgbox Rogue_Adventure_SpeakScott_Text_4
 	goto Rogue_Adventure_SpeakScott_12
+
+Rogue_Adventure_SpeakScott_16:
+	playfanfare MUS_OBTAIN_ITEM
+	goto Rogue_Adventure_SpeakScott_15
+
+Rogue_Adventure_SpeakScott_20:
+	waitfanfare
+	goto Rogue_Adventure_SpeakScott_19
 
 
 Rogue_Adventure_ScottIntroMovement0:

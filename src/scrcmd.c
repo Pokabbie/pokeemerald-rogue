@@ -2459,7 +2459,17 @@ bool8 ScrCmd_questcollected(struct ScriptContext *ctx)
 
 bool8 ScrCmd_nextquestreward(struct ScriptContext *ctx)
 {
-    gSpecialVar_Result = GiveNextRewardAndFormat(gStringVar3);
+    u8 type;
+    if(GiveNextRewardAndFormat(gStringVar3, &type))
+    {
+        gSpecialVar_Result = TRUE;
+        gSpecialVar_0x8000 = type;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+        gSpecialVar_0x8000 = 0;
+    }
     return FALSE;
 }
 
