@@ -4415,7 +4415,7 @@
       "id": "LAYOUT_ROGUE_HUB",
       "name": "Rogue_Hub_Layout",
       "width": 58,
-      "height": 42,
+      "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Hub/border.bin",
@@ -4920,6 +4920,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/Rogue_Hub_Debug/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub_Debug/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HUB_BAKERY",
+      "name": "Rogue_Hub_Bakery_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "border_filepath": "data/layouts/Rogue_Hub_Bakery/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Hub_Bakery/map.bin"
     }
   ]
 }

@@ -72,8 +72,12 @@ RogueHub_OnMapLoad_24:
 	goto_if_eq RogueHub_OnMapLoad_31
 	clearflag FLAG_ROGUE_TRAINER8
 RogueHub_OnMapLoad_30:
+	questcollected QUEST_BerryCollector
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_35
+RogueHub_OnMapLoad_34:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_34
+	goto_if_gt RogueHub_OnMapLoad_38
 	return
 
 RogueHub_OnMapLoad_2:
@@ -120,11 +124,17 @@ RogueHub_OnMapLoad_28:
 	goto RogueHub_OnMapLoad_20
 
 RogueHub_OnMapLoad_31:
-	fillmetatile 31, 31, 39, 36, 0x001, FALSE
+	fillmetatile 42, 31, 48, 32, 0x001, FALSE
+	fillmetatile 42, 35, 48, 36, 0x001, FALSE
+	fillmetatile 42, 39, 48, 40, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER8
 	goto RogueHub_OnMapLoad_30
 
-RogueHub_OnMapLoad_34:
+RogueHub_OnMapLoad_35:
+	fillmetatile 31, 31, 37, 36, 0x001, FALSE
+	goto RogueHub_OnMapLoad_34
+
+RogueHub_OnMapLoad_38:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 
@@ -482,6 +492,11 @@ RogueHub_Sign_ClothesShop::
 	return
 
 
+RogueHub_Sign_Bakery::
+	msgbox RogueHub_Sign_Bakery_Text_0, MSGBOX_SIGN
+	return
+
+
 RogueHub_EnterSafari::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
@@ -804,6 +819,9 @@ RogueHub_Sign_Bank_Text_0:
 
 RogueHub_Sign_ClothesShop_Text_0:
 	.string "CLOTHES SHOP$"
+
+RogueHub_Sign_Bakery_Text_0:
+	.string "BAKERY$"
 
 RogueHub_EnterSafari_Text_0:
 	.string "Welcome to the SAFARI ZONE!\n"

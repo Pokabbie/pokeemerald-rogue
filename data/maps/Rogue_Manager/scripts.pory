@@ -536,6 +536,16 @@ script Rogue_BerryTree_CheckBerry
     {
         goto(BerryTree_EventScript_CheckSoil)
     }
+    return
+}
+
+script Rogue_BerryTree_PickedUpBerry
+{
+    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        waitfanfare
+    }
+    return
 }
 
 // Trainer Blocks

@@ -166,12 +166,24 @@ script RogueHub_OnMapLoad
     questcollected(QUEST_BerryCollector)
     if(var(VAR_RESULT) == NO)
     {
-        fillmetatile(31, 31, 39, 36, METATILE_Grass, FALSE)
+        fillmetatile(42, 31, 48, 32, METATILE_Grass, FALSE)
+        fillmetatile(42, 35, 48, 36, METATILE_Grass, FALSE)
+        fillmetatile(42, 39, 48, 40, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER8)
     }
     else
     {
         clearflag(FLAG_ROGUE_TRAINER8)
+    }
+
+    // Bakery
+    questcollected(QUEST_BerryCollector)
+    if(var(VAR_RESULT) == NO)
+    {
+        fillmetatile(31, 31, 37, 36, METATILE_Grass, FALSE)
+    }
+    else
+    {
     }
 
     // Intro Scott
@@ -567,6 +579,11 @@ script RogueHub_Sign_Bank
 script RogueHub_Sign_ClothesShop
 {
     msgbox(format("CLOTHES SHOP"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_Bakery
+{
+    msgbox(format("BAKERY"), MSGBOX_SIGN)
 }
 
 script RogueHub_EnterSafari

@@ -1,0 +1,208 @@
+const VAR_BERRY_COUNT = VAR_0x8005
+const VAR_COST = VAR_0x8006
+
+const BERRY_BUFF_FRIEND = 0
+const BERRY_BUFF_HP = 1
+const BERRY_BUFF_ATK = 2
+const BERRY_BUFF_DEF = 3
+const BERRY_BUFF_SPATK = 4
+const BERRY_BUFF_SPDEF = 5
+const BERRY_BUFF_SPD = 6
+
+mapscripts Rogue_Hub_Bakery_MapScripts {}
+
+
+script RogueHub_Bakery_Intro
+{
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+
+    msgbox(format("Welcome to the Bakery!\nI specialize in {STR_VAR_2}s, which can{STR_VAR_3} increase your POKéMON's stats.\pWould you like me to bake a {STR_VAR_2} for both you and {STR_VAR_1} to share?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Which type of berry should I used?"))
+
+        fadescreen(FADE_TO_BLACK)
+        special(Bag_ChooseBerry)
+        waitstate
+
+        if(var(VAR_ITEM_ID) == 0)
+        {
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            showmoneybox(0, 0)
+
+            buffernumberstring(STR_VAR_1, VAR_BERRY_COUNT)
+            buffernumberstring(STR_VAR_3, VAR_COST)
+            msgbox(format("For that I'll need {STR_VAR_1} berries.\pAnd it will cost ¥{STR_VAR_3}."))
+
+            checkitem(VAR_ITEM_ID, VAR_BERRY_COUNT)
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Oh.\nYou don't appear to have enough berries."))
+            }
+            else
+            {
+                checkmoney(VAR_COST)
+                if(var(VAR_RESULT) == NO)
+                {
+                    msgbox(format("Oh.\nYou don't appear to have money."))
+                }
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Are you happy for me to take them off your hands, so I can start baking?"), MSGBOX_YESNO)
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                removemoney(VAR_COST)
+                removeitem(VAR_ITEM_ID, VAR_BERRY_COUNT)
+
+                playse(SE_SHOP)
+                waitse
+
+                updatemoneybox
+
+                msgbox(format("Coming right up!"))
+
+                call(Common_EventScript_OutOfCenterPartyHeal)
+
+                special(Rogue_ApplyBerryTreat)
+                special(BufferMonNickname)
+
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(Rogue_CheckBerryTreat)
+                    switch(var(VAR_RESULT))
+                    {
+                        case BERRY_BUFF_FRIEND:
+                            msgbox(format("{STR_VAR_1} got more friendly."))
+
+                        case BERRY_BUFF_HP:
+                            msgbox(format("{STR_VAR_1}'s HP improved."))
+
+                        case BERRY_BUFF_ATK:
+                            msgbox(format("{STR_VAR_1}'s Atk improved."))
+
+                        case BERRY_BUFF_DEF:
+                            msgbox(format("{STR_VAR_1}'s Def improved."))
+
+                        case BERRY_BUFF_SPATK:
+                            msgbox(format("{STR_VAR_1}'s SpAtk improved."))
+
+                        case BERRY_BUFF_SPDEF:
+                            msgbox(format("{STR_VAR_1}'s SpDef improved."))
+
+                        case BERRY_BUFF_SPD:
+                            msgbox(format("{STR_VAR_1}'s Speed improved."))
+                    }
+                }
+                
+                msgbox(format("I hope you and {STR_VAR_1} enjoyed it!\pHope to see you again!"))
+                setvar(VAR_RESULT, YES)
+            }
+
+            closemessage
+            hidemoneybox
+        }
+    }
+    
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("You're of course welcome back, if you change your mind."))
+    }
+}
+
+script RogueHub_Bakery_SpeakChefSlice
+{
+    lock
+    faceplayer
+
+    bufferstring(STR_VAR_2, "Cupcake")
+    bufferstring(STR_VAR_3, " slightly")
+    setvar(VAR_BERRY_COUNT, 4)
+    setvar(VAR_COST, 2000)
+    setvar(VAR_0x8004, 2)
+
+    call(RogueHub_Bakery_Intro)
+
+    release
+}
+
+script RogueHub_Bakery_SpeakChefFull
+{
+    lock
+    faceplayer
+
+    bufferstring(STR_VAR_2, "Pie")
+    bufferstring(STR_VAR_3, "")
+    setvar(VAR_BERRY_COUNT, 8)
+    setvar(VAR_COST, 4000)
+    setvar(VAR_0x8004, 4)
+
+    call(RogueHub_Bakery_Intro)
+
+    release
+}
+
+script RogueHub_Bakery_SpeakBerryCheck
+{
+    lock
+    faceplayer
+
+    msgbox(format("Did you know that different berries change different POKéMON stats when once they've been baked."))
+    msgbox(format("Do you want me to tell you which stat a berry will change?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+        special(Bag_ChooseBerry)
+        waitstate
+
+        if(var(VAR_ITEM_ID) != 0)
+        {
+            special(Rogue_CheckBerryTreat)
+            bufferitemname(STR_VAR_1, VAR_ITEM_ID)
+            switch(var(VAR_RESULT))
+            {
+                case BERRY_BUFF_FRIEND:
+                    msgbox(format("{STR_VAR_1} will make a POKéMON more friendly."))
+
+                case BERRY_BUFF_HP:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's HP."))
+
+                case BERRY_BUFF_ATK:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Atk."))
+
+                case BERRY_BUFF_DEF:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Def."))
+
+                case BERRY_BUFF_SPATK:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's SpAtk."))
+
+                case BERRY_BUFF_SPDEF:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's SpDef."))
+
+                case BERRY_BUFF_SPD:
+                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Speed."))
+            }
+        }
+    }
+
+    release
+}
+
+script RogueHub_Bakery_SpeakIVEVInspector
+{
+    lock
+    faceplayer
+
+    msgbox(format("Did you know you can check a POKéMON's IVs and EVs by pressing A on the POKéMON summary screen?\pModern technology sure is great huh!"))
+
+    release
+}

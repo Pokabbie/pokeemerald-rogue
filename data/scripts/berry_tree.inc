@@ -113,6 +113,7 @@ BerryTree_EventScript_PickBerry::
 	msgbox BerryTree_Text_PickedTheBerry, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
+	call Rogue_BerryTree_PickedUpBerry
 	waitbuttonpress
 	message BerryTree_Text_PutAwayBerry
 	waitmessage
