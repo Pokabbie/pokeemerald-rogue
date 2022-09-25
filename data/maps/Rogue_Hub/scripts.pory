@@ -166,12 +166,25 @@ script RogueHub_OnMapLoad
     questcollected(QUEST_BerryCollector)
     if(var(VAR_RESULT) == NO)
     {
-        fillmetatile(31, 31, 39, 36, METATILE_Grass, FALSE)
+        fillmetatile(10, 40, 16, 41, METATILE_Grass, FALSE)
+        fillmetatile(18, 40, 24, 41, METATILE_Grass, FALSE)
+        fillmetatile(26, 40, 32, 41, METATILE_Grass, FALSE)
+        fillmetatile(34, 40, 40, 41, METATILE_Grass, FALSE)
         setflag(FLAG_ROGUE_TRAINER8)
     }
     else
     {
         clearflag(FLAG_ROGUE_TRAINER8)
+    }
+
+    // Bakery
+    questcollected(QUEST_DenExplorer)
+    if(var(VAR_RESULT) == NO)
+    {
+        fillmetatile(31, 31, 37, 36, METATILE_Grass, FALSE)
+    }
+    else
+    {
     }
 
     // Intro Scott
@@ -497,16 +510,22 @@ script RogueHub_SpeakBerryMerchant
     lock
     faceplayer
 
-    checkitem(ITEM_WAILMER_PAIL)
-    if(var(VAR_RESULT) == NO)
+    if(flag(FLAG_ROGUE_MET_BERRY_MERCHANT) == FALSE)
     {
-        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou're welcome to use them of course!\pAs a matter of fact here's something to get you started!"))
-        giveitem(ITEM_WAILMER_PAIL)
-        msgbox(format("If you ever need any berries, then please do come and speak with me."))
+        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou may be given berries are rewards for completing quest that you're welcome to plant in this field!"))
+
+        //msgbox(format("Here's a little care package to get you started"))
+        //giveitem(ITEM_ORAN_BERRY, 1)
+        //giveitem(ITEM_PECHA_BERRY, 1)
+        //giveitem(ITEM_RAWST_BERRY, 1)
+        
+        msgbox(format("If you ever run out of berries or if you'd like to buy some rather than grow them, then please do come and speak with me."))
+
+        setflag(FLAG_ROGUE_MET_BERRY_MERCHANT)
     }
     else
     {
-        message("Hi {PLAYER}!\nWould you like to by some berries?")
+        message("Hi {PLAYER}!\nWould you like to buy some berries?")
         waitmessage
 
         rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
@@ -561,6 +580,11 @@ script RogueHub_Sign_Bank
 script RogueHub_Sign_ClothesShop
 {
     msgbox(format("CLOTHES SHOP"), MSGBOX_SIGN)
+}
+
+script RogueHub_Sign_Bakery
+{
+    msgbox(format("BAKERY"), MSGBOX_SIGN)
 }
 
 script RogueHub_EnterSafari

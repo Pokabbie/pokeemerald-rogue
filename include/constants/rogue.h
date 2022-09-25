@@ -1,5 +1,5 @@
-#define ROGUE_DEBUG
-#define ROGUE_DEBUG_PAUSE_PANEL
+//#define ROGUE_DEBUG
+//#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
@@ -11,7 +11,7 @@
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
 #define ROGUE_ROUTE_COUNT 12
-#define ROGUE_HUB_BERRY_TREE_COUNT 16
+#define ROGUE_HUB_BERRY_TREE_COUNT 20
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
 #define ROGUE_MAX_ADVPATH_COLUMNS 7
@@ -40,12 +40,13 @@
 // Trainers
 //
 // RogueNote: Overwrite from these trainer ranges
-#define TRAINER_FLAG_NONE           0
-#define TRAINER_FLAG_GYM            (1 << 0)
-#define TRAINER_FLAG_ELITE          (1 << 1)
-#define TRAINER_FLAG_PRE_CHAMP      (1 << 2)
-#define TRAINER_FLAG_FINAL_CHAMP    (1 << 3)
-#define TRAINER_FLAG_HOENN          (1 << 4)
+#define TRAINER_FLAG_NONE                   0
+#define TRAINER_FLAG_GYM                    (1 << 0)
+#define TRAINER_FLAG_ELITE                  (1 << 1)
+#define TRAINER_FLAG_PRE_CHAMP              (1 << 2)
+#define TRAINER_FLAG_FINAL_CHAMP            (1 << 3)
+#define TRAINER_FLAG_HOENN                  (1 << 4)
+#define TRAINER_FLAG_THIRDSLOT_ACE_TYPE     (1 << 5)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
@@ -82,5 +83,16 @@
 
 #define TRAINER_ROGUE_BOSS_WALLACE           TRAINER_WALLACE
 #define TRAINER_ROGUE_BOSS_STEVEN            TRAINER_STEVEN
+
+#define TRAINER_ROGUE_BOSS_LUCY              TRAINER_LUCY
+#define TRAINER_ROGUE_BOSS_BRANDON           TRAINER_BRANDON
+#define TRAINER_ROGUE_BOSS_TUCKER            TRAINER_TUCKER
+#define TRAINER_ROGUE_BOSS_SPENSER           TRAINER_SPENSER
+#define TRAINER_ROGUE_BOSS_ANABEL            TRAINER_ANABEL
+
+#define TRAINER_ROGUE_MINI_BOSS_MAXIE        TRAINER_MAXIE_MAGMA_HIDEOUT
+#define TRAINER_ROGUE_MINI_BOSS_ARCHIE       TRAINER_ARCHIE
+#define TRAINER_ROGUE_MINI_BOSS_WALLY        TRAINER_WALLY_VR_1
+#define TRAINER_ROGUE_MINI_BOSS_MIRROR       TRAINER_BRENDAN_PLACEHOLDER
 
 #include "rogue_quests.h"

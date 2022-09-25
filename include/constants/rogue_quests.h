@@ -43,12 +43,37 @@
 #define QUEST_NoFainting2           (QUEST_Champion + 8)
 #define QUEST_NoFainting3           (QUEST_Champion + 9)
 #define QUEST_BerryCollector        (QUEST_Champion + 10)
-#define QUEST_MrRandoman            (QUEST_Champion + 11)
-#define QUEST_ChaosChampion         (QUEST_Champion + 12)
+#define QUEST_DenExplorer           (QUEST_Champion + 11)
+#define QUEST_MrRandoman            (QUEST_Champion + 12)
+#define QUEST_ChaosChampion         (QUEST_Champion + 13)
 
-#define QUEST_Electric_Master       (QUEST_ChaosChampion + 1)
-#define QUEST_Electric_Champion     (QUEST_ChaosChampion + 2)
+#define QUEST_NORMAL_Champion       (QUEST_ChaosChampion + 1)
+#define QUEST_FIGHTING_Champion     (QUEST_ChaosChampion + 2)
+#define QUEST_FLYING_Champion       (QUEST_ChaosChampion + 3)
+#define QUEST_POISON_Champion       (QUEST_ChaosChampion + 4)
+#define QUEST_GROUND_Champion       (QUEST_ChaosChampion + 5)
+#define QUEST_ROCK_Champion         (QUEST_ChaosChampion + 6)
+#define QUEST_BUG_Champion          (QUEST_ChaosChampion + 7)
+#define QUEST_GHOST_Champion        (QUEST_ChaosChampion + 8)
+#define QUEST_STEEL_Champion        (QUEST_ChaosChampion + 9)
+#define QUEST_FIRE_Champion         (QUEST_ChaosChampion + 10)
+#define QUEST_WATER_Champion        (QUEST_ChaosChampion + 11)
+#define QUEST_GRASS_Champion        (QUEST_ChaosChampion + 12)
+#define QUEST_ELECTRIC_Champion     (QUEST_ChaosChampion + 13)
+#define QUEST_PSYCHIC_Champion      (QUEST_ChaosChampion + 14)
+#define QUEST_ICE_Champion          (QUEST_ChaosChampion + 15)
+#define QUEST_DRAGON_Champion       (QUEST_ChaosChampion + 16)
+#define QUEST_DARK_Champion         (QUEST_ChaosChampion + 17)
+#ifdef ROGUE_EXPANSION
+#define QUEST_FAIRY_Champion        (QUEST_ChaosChampion + 18)
+#endif
 
+#ifdef ROGUE_EXPANSION
 #define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST QUEST_Electric_Champion
+#define QUEST_LAST QUEST_FAIRY_Champion
+#else
+#define QUEST_FIRST QUEST_FirstAdventure
+#define QUEST_LAST QUEST_DARK_Champion
+#endif
+
 #define QUEST_CAPACITY (QUEST_LAST + 1)

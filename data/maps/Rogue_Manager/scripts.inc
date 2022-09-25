@@ -511,12 +511,23 @@ Rogue_Tutor_MoveDeleteCancel::
 
 
 Rogue_BerryTree_CheckBerry::
-	goto_if_unset FLAG_ROGUE_RUN_ACTIVE, Rogue_BerryTree_CheckBerry_1
+	goto_if_unset FLAG_ROGUE_RUN_ACTIVE, Rogue_BerryTree_CheckBerry_2
+Rogue_BerryTree_CheckBerry_1:
 	return
 
-Rogue_BerryTree_CheckBerry_1:
+Rogue_BerryTree_CheckBerry_2:
 	goto BerryTree_EventScript_CheckSoil
+	goto Rogue_BerryTree_CheckBerry_1
+
+
+Rogue_BerryTree_PickedUpBerry::
+	goto_if_unset FLAG_ROGUE_RUN_ACTIVE, Rogue_BerryTree_PickedUpBerry_2
+Rogue_BerryTree_PickedUpBerry_1:
 	return
+
+Rogue_BerryTree_PickedUpBerry_2:
+	waitfanfare
+	goto Rogue_BerryTree_PickedUpBerry_1
 
 
 Rogue_Battle_PreBoss::
@@ -1199,8 +1210,8 @@ Rogue_GymIdentity_PreBoss_Text_4:
 
 Rogue_GymIdentity_PreBoss_Text_5:
 	.string "Oh no!\p"
-	.string "I requires ¥{STR_VAR_1} which is\n"
-	.string "more than what you have!$"
+	.string "It requires ¥{STR_VAR_1} which is\n"
+	.string "more than what I have!$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"

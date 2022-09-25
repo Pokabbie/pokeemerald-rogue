@@ -158,8 +158,8 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
     }
 
 #ifdef ROGUE_DEBUG
-    //*breakChance = 100;
-    //*extraSplitChance = 100;
+    //*breakChance = 0;
+    //*extraSplitChance = 0;
 #endif
 }
 
@@ -517,7 +517,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
     }
 
 #ifdef ROGUE_DEBUG
-    //currScratch->roomType = 1;
+    //currScratch->roomType = ADVPATH_ROOM_NONE;
 #endif
 }
 
@@ -846,8 +846,8 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
                 break;
 
             case ADVPATH_ROOM_MINIBOSS:
-                warp->mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
-                warp->mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_MINI_BOSS);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_MINI_BOSS);
                 break;
 
             case ADVPATH_ROOM_WILD_DEN:

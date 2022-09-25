@@ -1,8 +1,10 @@
 #include "global.h"
 #include "constants/battle.h"
+#include "constants/items.h"
 #include "constants/rogue.h"
 
 #include "event_data.h"
+#include "item_menu.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
@@ -326,4 +328,116 @@ void RogueDebug_FillGenPC(void)
         ZeroBoxMonAt(targetBox, boxIndex);
     }
 #endif
+}
+
+enum BerryTreatBuff
+{
+    BERRY_BUFF_FRIEND,
+    BERRY_BUFF_HP,
+    BERRY_BUFF_ATK,
+    BERRY_BUFF_DEF,
+    BERRY_BUFF_SPATK,
+    BERRY_BUFF_SPDEF,
+    BERRY_BUFF_SPD,
+};
+
+static u8 BerryItemToTreatBuff(u16 berryItem)
+{
+    switch(berryItem)
+    {
+        case ITEM_ORAN_BERRY:
+        case ITEM_SITRUS_BERRY:
+        case ITEM_POMEG_BERRY:
+            return BERRY_BUFF_HP;
+
+        case ITEM_KELPSY_BERRY:
+            return BERRY_BUFF_ATK;
+
+        case ITEM_QUALOT_BERRY:
+            return BERRY_BUFF_DEF;
+
+        case ITEM_HONDEW_BERRY:
+            return BERRY_BUFF_SPATK;
+
+        case ITEM_GREPA_BERRY:
+            return BERRY_BUFF_SPDEF;
+
+        case ITEM_TAMATO_BERRY:
+            return BERRY_BUFF_SPD;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_LIECHI_BERRY:
+            return BERRY_BUFF_ATK;
+
+        case ITEM_GANLON_BERRY:
+            return BERRY_BUFF_DEF;
+
+        case ITEM_PETAYA_BERRY:
+            return BERRY_BUFF_SPATK;
+
+        case ITEM_APICOT_BERRY:
+            return BERRY_BUFF_SPDEF;
+
+        case ITEM_SALAC_BERRY:
+            return BERRY_BUFF_SPD;
+#endif
+        default:
+            return BERRY_BUFF_FRIEND;
+    }
+}
+
+void Rogue_CheckBerryTreat(void)
+{
+    u16 itemId = gSpecialVar_ItemId;
+    gSpecialVar_Result = BerryItemToTreatBuff(itemId);
+}
+
+void Rogue_ApplyBerryTreat(void)
+{
+    u16 itemId = gSpecialVar_ItemId;
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 buffAmount = gSpecialVar_0x8005;
+    u16 berryBuff = BerryItemToTreatBuff(itemId);
+
+    if(berryBuff == BERRY_BUFF_FRIEND)
+    {
+        u16 friendship = GetMonData(&gPlayerParty[monIdx], MON_DATA_FRIENDSHIP);
+
+        if(friendship < MAX_FRIENDSHIP)
+        {
+            gSpecialVar_Result = TRUE;
+
+            friendship += buffAmount * 10;
+            if(friendship > MAX_FRIENDSHIP)
+                friendship = MAX_FRIENDSHIP;
+
+            SetMonData(&gPlayerParty[monIdx], MON_DATA_FRIENDSHIP, &friendship);
+            CalculateMonStats(&gPlayerParty[monIdx]);
+        }
+        else
+        {
+            gSpecialVar_Result = FALSE;
+        }
+    }
+    else
+    {
+        u16 statOffset = berryBuff - 1;
+        u16 ivCount = GetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset);
+
+        if(ivCount < 31)
+        {
+            gSpecialVar_Result = TRUE;
+
+            ivCount += buffAmount;
+            if(ivCount > 31)
+                ivCount = 31;
+
+            SetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset, &ivCount);
+            CalculateMonStats(&gPlayerParty[monIdx]);
+        }
+        else
+        {
+            gSpecialVar_Result = FALSE;
+        }
+    }
 }

@@ -100,10 +100,10 @@ struct RogueRunData
     u32 safariShinyPersonality;
     u16 wildEncounters[6];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[5];
+    u16 routeHistoryBuffer[9];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
-    u16 bossHistoryBuffer[14];
+    u16 bossHistoryBuffer[15];
     u16 wildEncounterHistoryBuffer[3];
 };
 
@@ -203,7 +203,7 @@ extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainerData gRogueBossEncounters;
-extern const struct RogueEncounterData gRouteMiniBossEncounters;
+extern const struct RogueTrainerData gRogueMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 extern const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES];

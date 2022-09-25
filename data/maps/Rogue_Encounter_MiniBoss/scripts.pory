@@ -93,29 +93,6 @@ movement MiniBoss_BossToFight {
     walk_left
 }
 
-script Rogue_MiniBoss_SetWeather
-{
-    // TODO - Move this into script
-    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
-    {
-        case OBJ_EVENT_GFX_MAXIE:
-            setweather(WEATHER_DROUGHT)
-            doweather
-
-        case OBJ_EVENT_GFX_ARCHIE:
-            setweather(WEATHER_RAIN)
-            doweather
-
-        case OBJ_EVENT_GFX_WALLY:
-            setweather(WEATHER_FOG_HORIZONTAL)
-            doweather
-
-        case OBJ_EVENT_GFX_BRENDAN_NORMAL:
-            setweather(WEATHER_UNDERWATER_BUBBLES)
-            doweather
-    }
-}
-
 script Rogue_MiniBoss_IntroSpeech
 {
 }
@@ -124,34 +101,24 @@ script Rogue_MiniBoss_KickOffBattle
 {
     switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
     {
-        case OBJ_EVENT_GFX_MAXIE:
+        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
             msgbox(format("MAXIE: Don't think I'll let you through lightly!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAXIE_MAGMA_HIDEOUT, 0, format("Well that was unexpected..."))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well that was unexpected..."))
 
-        case OBJ_EVENT_GFX_ARCHIE:
+        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
             msgbox(format("ARCHIE: Don't think I'll let you through lightly!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ARCHIE, 0, format("Well that was unexpected..."))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well that was unexpected..."))
 
-        case OBJ_EVENT_GFX_WALLY:
+        case TRAINER_ROGUE_MINI_BOSS_WALLY:
             msgbox(format("WALLY: Oh hey!\nWill you battle with me!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_WALLY_VR_1, 0, format("What a fun fight!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("What a fun fight!"))
 
-        case OBJ_EVENT_GFX_BRENDAN_NORMAL:
+        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             msgbox(format("{PLAYER}: ... ... ..."))
-            checkplayergender
-            switch(var(VAR_RESULT))
-            {
-                case 0: // STYLE_EMR_BRENDAN
-                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_BRENDAN_PLACEHOLDER, 0, format("...!"))
-                case 1: // STYLE_EMR_MAY
-                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAY_PLACEHOLDER, 0, format("...!"))
-                case 2: // STYLE_RED
-                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_RED, 0, format("...!"))
-                case 3: // STYLE_LEAF
-                    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_LEAF, 0, format("...!"))
-            }
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
         
         default:
             msgbox(format("UNEXPECTED TRAINER INDEX"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
     }
 }

@@ -8,6 +8,7 @@ static const u8 gText_GiveUnlocksBikeShop[] = _("New HUB Unlocks:\nBike Shop!");
 static const u8 gText_GiveUnlocksTutors[] = _("New HUB Unlocks:\nMove Tutors!");
 static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
+static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
@@ -53,6 +54,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01_CUT, 1 } },
         }
     },
@@ -64,6 +66,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05_FLASH, 1 } },
         }
     },
@@ -75,6 +78,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06_ROCK_SMASH, 1 } },
         }
     },
@@ -86,6 +90,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04_STRENGTH, 1 } },
         }
     },
@@ -97,6 +102,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08_DIVE, 1 } },
         }
     },
@@ -108,6 +114,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02_FLY, 1 } },
         }
     },
@@ -119,6 +126,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07_WATERFALL, 1 } },
         }
     },
@@ -130,6 +138,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 3 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03_SURF, 1 } },
         }
     },
@@ -160,8 +169,26 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
         },
         .unlockedQuests = { 
-            QUEST_Electric_Master, 
-            QUEST_Electric_Champion
+            QUEST_NORMAL_Champion, 
+            QUEST_FIGHTING_Champion, 
+            QUEST_FLYING_Champion, 
+            QUEST_POISON_Champion, 
+            QUEST_GROUND_Champion, 
+            QUEST_ROCK_Champion, 
+            QUEST_BUG_Champion, 
+            QUEST_GHOST_Champion, 
+            QUEST_STEEL_Champion, 
+            QUEST_FIRE_Champion, 
+            QUEST_WATER_Champion, 
+            QUEST_GRASS_Champion, 
+            QUEST_ELECTRIC_Champion, 
+            QUEST_PSYCHIC_Champion, 
+            QUEST_ICE_Champion, 
+            QUEST_DRAGON_Champion, 
+            QUEST_DARK_Champion, 
+#ifdef ROGUE_EXPANSION
+            QUEST_FAIRY_Champion,
+#endif
         }
     },
     [QUEST_EliteMaster] = 
@@ -259,6 +286,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TAMATO_BERRY, 3 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBikeShop },
         },
         .unlockedQuests = { 
@@ -306,6 +334,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 3 } },
             //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksDaycare },
         }
     },
@@ -318,7 +348,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "ever fainting."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 3 } }
         }
     },
 
@@ -339,14 +370,14 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
     [QUEST_ChaosChampion] = 
     {
-        .title = _("Chaos Champ"),
+        .title = _("Chaos Master"),
         .desc = _(
                     "Win a full Run, always\n"
                     "doing a Random Party\n"
                     "Trade whenever possible."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
         }
     },
 
@@ -362,37 +393,380 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ORAN_BERRY, 3 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBerries },
+        },
+        .unlockedQuests = { 
+            QUEST_DenExplorer
         }
     },
 
-    [QUEST_Electric_Master] = 
+    [QUEST_DenExplorer] = 
     {
-        .title = _("Elec Master"),
+        .title = _("Wild Den"),
         .desc = _(
-                    "Only use Electric POKéMON\n"
-                    "during an adventure and\n"
-                    "defeat all GYM Leaders."
+                    "Capture a POKéMON from\n"
+                    "a Wild Den."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_QUALOT_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_GREPA_BERRY, 3 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBakery },
+        }
+    },
+
+    [QUEST_NORMAL_Champion] = 
+    {
+        .title = _("NORMAL Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "NORMAL POKéMON."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHILAN_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
+#endif
         }
     },
-    [QUEST_Electric_Champion] = 
+    [QUEST_FIGHTING_Champion] = 
     {
-        .title = _("Elec Champion"),
+        .title = _("FIGHT Master"),
         .desc = _(
-                    "Only use Electric POKéMON\n"
-                    "during an adventure and\n"
-                    "defeat the Final Champion."
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "FIGHTING POKéMON."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POTION, 1 } } ,
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15020 } } 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_FIST_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHOPLE_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_BELT, 1 } },
+#endif
         }
     },
+    [QUEST_FLYING_Champion] = 
+    {
+        .title = _("FLYING Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "FLYING POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SKY_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COBA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHARP_BEAK, 1 } },
+#endif
+        }
+    },
+    [QUEST_POISON_Champion] = 
+    {
+        .title = _("POISON Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "POISON POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TOXIC_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KEBIA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POISON_BARB, 1 } },
+#endif
+        }
+    },
+    [QUEST_GROUND_Champion] = 
+    {
+        .title = _("GROUND Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "GROUND POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_EARTH_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHUCA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SOFT_SAND, 1 } },
+#endif
+        }
+    },
+    [QUEST_ROCK_Champion] = 
+    {
+        .title = _("ROCK Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "ROCK POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STONE_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARTI_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HARD_STONE, 1 } },
+#endif
+        }
+    },
+    [QUEST_BUG_Champion] = 
+    {
+        .title = _("BUG Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "BUG POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_INSECT_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TANGA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+#endif
+        }
+    },
+    [QUEST_GHOST_Champion] = 
+    {
+        .title = _("GHOST Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "GHOST POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPOOKY_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KASIB_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPELL_TAG, 1 } },
+#endif
+        }
+    },
+    [QUEST_STEEL_Champion] = 
+    {
+        .title = _("STEEL Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "STEEL POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_IRON_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BABIRI_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_METAL_COAT, 1 } },
+#endif
+        }
+    },
+    [QUEST_FIRE_Champion] = 
+    {
+        .title = _("FIRE Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "FIRE POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_FLAME_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_OCCA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARCOAL, 1 } },
+#endif
+        }
+    },
+    [QUEST_WATER_Champion] = 
+    {
+        .title = _("WATER Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "WATER POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPLASH_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PASSHO_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MYSTIC_WATER, 1 } },
+#endif
+        }
+    },
+    [QUEST_GRASS_Champion] = 
+    {
+        .title = _("GRASS Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "GRASS POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MEADOW_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RINDO_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MIRACLE_SEED, 1 } },
+#endif
+        }
+    },
+    [QUEST_ELECTRIC_Champion] = 
+    {
+        .title = _("ELECTR Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "ELECTRIC POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ZAP_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_WACAN_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MAGNET, 1 } },
+#endif
+        }
+    },
+    [QUEST_PSYCHIC_Champion] = 
+    {
+        .title = _("PSYCHC Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "PSYCHIC POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MIND_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PAYAPA_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TWISTED_SPOON, 1 } },
+#endif
+        }
+    },
+    [QUEST_ICE_Champion] = 
+    {
+        .title = _("ICE Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "ICE POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ICICLE_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_YACHE_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_NEVER_MELT_ICE, 1 } },
+#endif
+        }
+    },
+    [QUEST_DRAGON_Champion] = 
+    {
+        .title = _("DRAGON Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "DRAGON POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DRACO_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HABAN_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DRAGON_FANG, 1 } },
+#endif
+        }
+    },
+    [QUEST_DARK_Champion] = 
+    {
+        .title = _("DARK Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "DARK POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DREAD_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COLBUR_BERRY, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_GLASSES, 1 } },
+#endif
+        }
+    },
+#ifdef ROGUE_EXPANSION
+    [QUEST_FAIRY_Champion] = 
+    {
+        .title = _("FAIRY Master"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever catching and using\n"
+                    "FAIRY POKéMON."
+                ),
+        .flags = QUEST_FLAGS_NONE,
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PIXIE_PLATE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ROSELI_BERRY, 1 } },
+        }
+    },
+#endif
 };
