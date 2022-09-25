@@ -3227,7 +3227,19 @@ static u8 GetCurrentWildEncounterCount()
 
 bool8 Rogue_AllowWildMonItems(void)
 {
-    return !GetSafariZoneFlag();
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+            return FALSE;
+
+        return TRUE;
+    }
+    else if(GetSafariZoneFlag())
+    {
+        return FALSE;
+    }
+
+    return TRUE;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality)
