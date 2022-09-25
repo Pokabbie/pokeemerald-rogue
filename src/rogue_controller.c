@@ -3134,38 +3134,35 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     {
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        // Champion
-        if(difficultyLevel == 12)
+        if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
         {
-            if(monIdx == 5)
+            // Champion
+            if(difficultyLevel == 12)
             {
-                if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+                if(monIdx == 5)
                 {
                     gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
                     gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                }
 
-                // Force legendaries for last mon
-                gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-                gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-                ApplyTrainerQuery(trainerNum, TRUE);
+                    // Force legendaries for last mon
+                    gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                    gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                    ApplyTrainerQuery(trainerNum, TRUE);
+                }
             }
-        }
-        // Final champion
-        else if(difficultyLevel == 13)
-        {
-            if(monIdx == 4)
+            // Final champion
+            else if(difficultyLevel == 13)
             {
-                if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+                if(monIdx == 4)
                 {
                     gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
                     gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                }
 
-                // Force legendaries for last 2
-                gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-                gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-                ApplyTrainerQuery(trainerNum, TRUE);
+                    // Force legendaries for last 2
+                    gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                    gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                    ApplyTrainerQuery(trainerNum, TRUE);
+                }
             }
         }
     }
