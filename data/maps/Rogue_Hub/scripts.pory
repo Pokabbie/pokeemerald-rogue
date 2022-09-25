@@ -178,7 +178,7 @@ script RogueHub_OnMapLoad
     }
 
     // Bakery
-    questcollected(QUEST_BerryCollector)
+    questcollected(QUEST_DenExplorer)
     if(var(VAR_RESULT) == NO)
     {
         fillmetatile(31, 31, 37, 36, METATILE_Grass, FALSE)

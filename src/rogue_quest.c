@@ -528,6 +528,9 @@ void QuestNotify_OnWildBattleEnd(void)
             if(caughtCount >= 15)
                 TryMarkQuestAsComplete(QUEST_Collector1);
         }
+
+        if(IsQuestActive(QUEST_DenExplorer) && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+            TryMarkQuestAsComplete(QUEST_DenExplorer);
     }
 
     OnEndBattle();

@@ -72,7 +72,7 @@ RogueHub_OnMapLoad_24:
 	goto_if_eq RogueHub_OnMapLoad_31
 	clearflag FLAG_ROGUE_TRAINER8
 RogueHub_OnMapLoad_30:
-	questcollected QUEST_BerryCollector
+	questcollected QUEST_DenExplorer
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_OnMapLoad_35
 RogueHub_OnMapLoad_34:
@@ -124,9 +124,10 @@ RogueHub_OnMapLoad_28:
 	goto RogueHub_OnMapLoad_20
 
 RogueHub_OnMapLoad_31:
-	fillmetatile 42, 31, 48, 32, 0x001, FALSE
-	fillmetatile 42, 35, 48, 36, 0x001, FALSE
-	fillmetatile 42, 39, 48, 40, 0x001, FALSE
+	fillmetatile 10, 40, 16, 41, 0x001, FALSE
+	fillmetatile 18, 40, 24, 41, 0x001, FALSE
+	fillmetatile 26, 40, 32, 41, 0x001, FALSE
+	fillmetatile 34, 40, 40, 41, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER8
 	goto RogueHub_OnMapLoad_30
 

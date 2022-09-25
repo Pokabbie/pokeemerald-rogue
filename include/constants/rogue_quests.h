@@ -43,8 +43,9 @@
 #define QUEST_NoFainting2           (QUEST_Champion + 8)
 #define QUEST_NoFainting3           (QUEST_Champion + 9)
 #define QUEST_BerryCollector        (QUEST_Champion + 10)
-#define QUEST_MrRandoman            (QUEST_Champion + 11)
-#define QUEST_ChaosChampion         (QUEST_Champion + 12)
+#define QUEST_DenExplorer           (QUEST_Champion + 11)
+#define QUEST_MrRandoman            (QUEST_Champion + 12)
+#define QUEST_ChaosChampion         (QUEST_Champion + 13)
 
 #define QUEST_Electric_Master       (QUEST_ChaosChampion + 1)
 #define QUEST_Electric_Champion     (QUEST_ChaosChampion + 2)
