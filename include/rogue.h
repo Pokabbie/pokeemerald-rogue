@@ -103,7 +103,7 @@ struct RogueRunData
     u16 routeHistoryBuffer[9];
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[3];
-    u16 bossHistoryBuffer[14];
+    u16 bossHistoryBuffer[15];
     u16 wildEncounterHistoryBuffer[3];
 };
 
