@@ -80,87 +80,38 @@ MiniBoss_BossToFight:
 	walk_left
 	step_end
 
-Rogue_MiniBoss_SetWeather::
-	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
-	case OBJ_EVENT_GFX_MAXIE, Rogue_MiniBoss_SetWeather_2
-	case OBJ_EVENT_GFX_ARCHIE, Rogue_MiniBoss_SetWeather_3
-	case OBJ_EVENT_GFX_WALLY, Rogue_MiniBoss_SetWeather_4
-	case OBJ_EVENT_GFX_BRENDAN_NORMAL, Rogue_MiniBoss_SetWeather_5
-	return
-
-Rogue_MiniBoss_SetWeather_2:
-	setweather WEATHER_DROUGHT
-	doweather
-	return
-
-Rogue_MiniBoss_SetWeather_3:
-	setweather WEATHER_RAIN
-	doweather
-	return
-
-Rogue_MiniBoss_SetWeather_4:
-	setweather WEATHER_FOG_HORIZONTAL
-	doweather
-	return
-
-Rogue_MiniBoss_SetWeather_5:
-	setweather WEATHER_UNDERWATER_BUBBLES
-	doweather
-	return
-
-
 Rogue_MiniBoss_IntroSpeech::
 	return
 
 
 Rogue_MiniBoss_KickOffBattle::
 	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
-	case OBJ_EVENT_GFX_MAXIE, Rogue_MiniBoss_KickOffBattle_2
-	case OBJ_EVENT_GFX_ARCHIE, Rogue_MiniBoss_KickOffBattle_3
-	case OBJ_EVENT_GFX_WALLY, Rogue_MiniBoss_KickOffBattle_4
-	case OBJ_EVENT_GFX_BRENDAN_NORMAL, Rogue_MiniBoss_KickOffBattle_5
+	case TRAINER_ROGUE_MINI_BOSS_MAXIE, Rogue_MiniBoss_KickOffBattle_2
+	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_MiniBoss_KickOffBattle_3
+	case TRAINER_ROGUE_MINI_BOSS_WALLY, Rogue_MiniBoss_KickOffBattle_4
+	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_MiniBoss_KickOffBattle_5
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_7
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
 	return
 
 Rogue_MiniBoss_KickOffBattle_2:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_0
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAXIE_MAGMA_HIDEOUT, 0, Rogue_MiniBoss_KickOffBattle_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_1
 	return
 
 Rogue_MiniBoss_KickOffBattle_3:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_2
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ARCHIE, 0, Rogue_MiniBoss_KickOffBattle_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_1
 	return
 
 Rogue_MiniBoss_KickOffBattle_4:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_3
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_WALLY_VR_1, 0, Rogue_MiniBoss_KickOffBattle_Text_4
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_4
 	return
 
 Rogue_MiniBoss_KickOffBattle_5:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_5
-	checkplayergender
-	switch VAR_RESULT
-	case 0, Rogue_MiniBoss_KickOffBattle_8
-	case 1, Rogue_MiniBoss_KickOffBattle_9
-	case 2, Rogue_MiniBoss_KickOffBattle_10
-	case 3, Rogue_MiniBoss_KickOffBattle_11
-	return
-
-Rogue_MiniBoss_KickOffBattle_8:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_BRENDAN_PLACEHOLDER, 0, Rogue_MiniBoss_KickOffBattle_Text_6
-	return
-
-Rogue_MiniBoss_KickOffBattle_9:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_MAY_PLACEHOLDER, 0, Rogue_MiniBoss_KickOffBattle_Text_6
-	return
-
-Rogue_MiniBoss_KickOffBattle_10:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_RED, 0, Rogue_MiniBoss_KickOffBattle_Text_6
-	return
-
-Rogue_MiniBoss_KickOffBattle_11:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_LEAF, 0, Rogue_MiniBoss_KickOffBattle_Text_6
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
 	return
 
 

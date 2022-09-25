@@ -1802,7 +1802,7 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 
     do
     {
-        bossId = RogueRandomRange(gRouteMiniBossEncounters.mapCount, OVERWORLD_FLAG);
+        bossId = RogueRandomRange(gRogueMiniBossEncounters.count, OVERWORLD_FLAG);
     }
     while(HistoryBufferContains(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId));
 
@@ -2058,11 +2058,15 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_MINIBOSS:
             {
-                u16 encounterId = gRouteMiniBossEncounters.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
+                const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-                RandomiseEnabledItems(); // We only want this for the item content tbf
+                RandomiseEnabledItems(); // We only want this for the item content
+                
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
-                if(encounterId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                // Mirror trainer
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
@@ -2083,22 +2087,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 }
                 else
                 {
-                    VarSet(VAR_OBJ_GFX_ID_0, encounterId);
+                    VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
                 }
-
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, encounterId);
 
                 // Weather
                 if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
+                    // No Weather
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
-                    // TODO
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-                else
-                {
+                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
             }
@@ -2345,16 +2346,7 @@ static bool8 IsBossTrainer(u16 trainerNum)
 
 static bool8 IsMirrorTrainer(u16 trainerNum)
 {
-    switch(trainerNum)
-    {
-        case TRAINER_RED:
-        case TRAINER_LEAF:
-        case TRAINER_BRENDAN_PLACEHOLDER:
-        case TRAINER_MAY_PLACEHOLDER:
-            return TRUE;
-    };
-
-    return FALSE;
+    return trainerNum == TRAINER_ROGUE_MINI_BOSS_MIRROR;
 }
 
 static bool8 IsMiniBossTrainer(u16 trainerNum)
@@ -2441,6 +2433,16 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
     }
+    else if(IsMiniBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        forceType[0] = trainer->incTypes[0];
+        forceType[1] = trainer->incTypes[1];
+
+        disabledType[0] = trainer->excTypes[0];
+        disabledType[1] = trainer->excTypes[1];
+    }
     else
     {
         switch(trainerNum)
@@ -2460,26 +2462,6 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
 
                 if(difficultyLevel > 0)
                     forceType[1] = TYPE_FIRE;
-                break;
-            
-            // Minibosses
-            case TRAINER_MAXIE_MAGMA_HIDEOUT:
-                forceType[0] = TYPE_FIRE;
-                forceType[1] = TYPE_DARK;
-                break;
-
-            case TRAINER_ARCHIE:
-                forceType[0] = TYPE_WATER;
-                forceType[1] = TYPE_DARK;
-                break;
-
-            case TRAINER_WALLY_VR_1:
-                forceType[0] = TYPE_PSYCHIC;
-    #ifdef ROGUE_EXPANSION
-                forceType[1] = TYPE_FAIRY;
-    #else
-                forceType[1] = TYPE_GRASS;
-    #endif
                 break;
         };
     }

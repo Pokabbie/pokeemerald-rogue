@@ -217,18 +217,46 @@ const struct RogueTrainerData gRogueBossEncounters =
     .trainers = sRouteBossEncounters
 };
 
-static const struct RogueEncounterMap sRouteMiniBossEncounters[] = 
+static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] = 
 {
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_MAXIE, ROGUE_ENCOUNTER_MINI_BOSS),//, WEATHER_DROUGHT),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_ARCHIE, ROGUE_ENCOUNTER_MINI_BOSS),//, WEATHER_DOWNPOUR),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_WALLY, ROGUE_ENCOUNTER_MINI_BOSS),//, WEATHER_FOG_DIAGONAL),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_BRENDAN_NORMAL, ROGUE_ENCOUNTER_MINI_BOSS)//, WEATHER_UNDERWATER_BUBBLES) // Copy party
+    {
+        .gfxId = OBJ_EVENT_GFX_MAXIE,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
+        .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
+        .excTypes = { TYPE_WATER, TYPE_NONE },
+        .flags = TRAINER_FLAG_HOENN,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_ARCHIE,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
+        .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
+        .excTypes = { TYPE_FIRE, TYPE_NONE },
+        .flags = TRAINER_FLAG_HOENN,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_WALLY,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_WALLY,
+#ifdef ROGUE_EXPANSION
+        .incTypes = { TYPE_PSYCHIC, TYPE_FAIRY, TYPE_NONE },
+#else
+        .incTypes = { TYPE_PSYCHIC, TYPE_GRASS, TYPE_NONE },
+#endif
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_HOENN,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
+        .incTypes = { TYPE_MYSTERY, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_HOENN,
+    },
 };
 
-const struct RogueEncounterData gRouteMiniBossEncounters = 
+const struct RogueTrainerData gRogueMiniBossEncounters = 
 {
-    .mapCount = ARRAY_COUNT(sRouteMiniBossEncounters),
-    .mapTable = sRouteMiniBossEncounters
+    .count = ARRAY_COUNT(sRouteMiniBossEncounters),
+    .trainers = sRouteMiniBossEncounters
 };
 
 #undef ENCOUNTER_MAP

@@ -178,6 +178,12 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
         return gText_TrainerNameGrunt;
     }
 
+    switch(trainerNum)
+    {
+        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
+            return gSaveBlock2Ptr->playerName;
+    }
+
     return gTrainers[trainerNum].trainerName;
 }
 
@@ -237,6 +243,8 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
     switch(trainerNum)
     {
+        // Bosses
+        //
         case TRAINER_ROGUE_BOSS_ROXANNE:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_ROXANNE;
             break;
@@ -291,6 +299,51 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_BOSS_STEVEN:
             outTrainer->trainerPic = TRAINER_PIC_STEVEN;
+            break;
+
+        // Mini Bosses
+        //
+        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
+            outTrainer->trainerClass = TRAINER_CLASS_MAGMA_LEADER;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA;
+            outTrainer->trainerPic = TRAINER_PIC_MAGMA_LEADER_MAXIE;
+            break;
+
+        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
+            outTrainer->trainerClass = TRAINER_CLASS_AQUA_LEADER;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA;
+            outTrainer->trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE;
+            break;
+
+        case TRAINER_ROGUE_MINI_BOSS_WALLY:
+            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->trainerPic = TRAINER_PIC_WALLY;
+            break;
+
+        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
+            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
+
+            switch(gSaveBlock2Ptr->playerGender)
+            {    
+                case(STYLE_EMR_BRENDAN):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
+                    break;
+                case(STYLE_EMR_MAY):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_MAY;
+                    break;
+
+                case(STYLE_RED):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_RED;
+                    break;
+                case(STYLE_LEAF):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    break;
+            };
             break;
 
         // Std Trainers

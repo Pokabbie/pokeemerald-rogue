@@ -203,7 +203,7 @@ extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainerData gRogueBossEncounters;
-extern const struct RogueEncounterData gRouteMiniBossEncounters;
+extern const struct RogueTrainerData gRogueMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 extern const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES];

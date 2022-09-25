@@ -846,8 +846,8 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
                 break;
 
             case ADVPATH_ROOM_MINIBOSS:
-                warp->mapGroup = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].group;
-                warp->mapNum = gRouteMiniBossEncounters.mapTable[node->roomParams.roomIdx].num;
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_MINI_BOSS);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_MINI_BOSS);
                 break;
 
             case ADVPATH_ROOM_WILD_DEN:
