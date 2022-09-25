@@ -1084,7 +1084,16 @@ u8* Rogue_GetMiniMenuContent(void)
     else
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_ItemCount,  VarGet(VAR_REPEL_STEP_COUNT));
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[0]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[1]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[2]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[3]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[4]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[5]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[6]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[7]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[8]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[9]);
     }
 
     return gStringVar4;
@@ -1739,7 +1748,7 @@ static bool8 IsBossEnabled(u16 bossId)
     return FALSE;
 }
 
-static u8 NextBossId()
+static u16 NextBossId()
 {
     u16 i;
     u16 randIdx;
@@ -1752,19 +1761,20 @@ static u8 NextBossId()
     }
 
     randIdx = RogueRandomRange(enabledBossesCount, OVERWORLD_FLAG);
+    enabledBossesCount = 0;
 
     for(i = 0; i < gRogueBossEncounters.count; ++i)
     {
         if(IsBossEnabled(i))
         {
-            if(randIdx == 0)
+            if(enabledBossesCount == randIdx)
                 return i;
             else
-                --randIdx;
+                ++enabledBossesCount;
         }
     }
 
-    return 0;
+    return gRogueBossEncounters.count - 1;
 }
 
 u8 Rogue_SelectBossEncounter(void)
@@ -4223,9 +4233,12 @@ static void RandomiseBerryTrees(void)
 static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
 {
     u16 i;
+    u16 j;
     for(i = 1; i < capacity; ++i)
     {
-        buffer[i] = buffer[i - 1];
+        // Reverse to avoid stomping on top of old values
+        j = capacity - i - 1;
+        buffer[j] = buffer[j - 1];
     }
 
     buffer[0] = value;
