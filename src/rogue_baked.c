@@ -203,7 +203,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 #endif
 
     // AI_SCRIPT_DOUBLE_BATTLE ?
-    
+
     // Setup bosses/Mini bosses
     switch(trainerNum)
     {
@@ -213,6 +213,8 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
         case TRAINER_ROGUE_BOSS_PHOEBE:
         case TRAINER_ROGUE_BOSS_GLACIA:
+        case TRAINER_ROGUE_BOSS_LUCY:
+        case TRAINER_ROGUE_BOSS_ANABEL:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -230,6 +232,9 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_DRAKE:
         case TRAINER_ROGUE_BOSS_WALLACE:
         case TRAINER_ROGUE_BOSS_STEVEN:
+        case TRAINER_ROGUE_BOSS_BRANDON:
+        case TRAINER_ROGUE_BOSS_TUCKER:
+        case TRAINER_ROGUE_BOSS_SPENSER:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
