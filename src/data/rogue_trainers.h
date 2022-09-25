@@ -166,7 +166,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
         .incTypes = { TYPE_WATER, TYPE_NONE, TYPE_WATER },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_ELITE,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP,
     },
     {
         .gfxId = OBJ_EVENT_GFX_STEVEN,

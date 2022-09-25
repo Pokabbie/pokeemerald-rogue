@@ -53,6 +53,10 @@ void Rogue_RandomisePartyMon(void)
 
         RogueQuery_SpeciesIsValid();
         RogueQuery_SpeciesExcludeCommon();
+
+        if(gRogueRun.currentDifficulty < 2)
+            RogueQuery_SpeciesIsNotLegendary();
+
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
@@ -85,6 +89,10 @@ void Rogue_RandomisePartyMon(void)
 
         RogueQuery_SpeciesIsValid();
         RogueQuery_SpeciesExcludeCommon();
+
+        if(gRogueRun.currentDifficulty < 2)
+            RogueQuery_SpeciesIsNotLegendary();
+
         RogueQuery_TransformToEggSpecies();
 
         // Evolve the species to just below the wild encounter level
