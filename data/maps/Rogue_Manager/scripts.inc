@@ -1199,8 +1199,8 @@ Rogue_GymIdentity_PreBoss_Text_4:
 
 Rogue_GymIdentity_PreBoss_Text_5:
 	.string "Oh no!\p"
-	.string "I requires ¥{STR_VAR_1} which is\n"
-	.string "more than what you have!$"
+	.string "It requires ¥{STR_VAR_1} which is\n"
+	.string "more than what I have!$"
 
 Rogue_Battle_BreederF_Text_0:
 	.string "Let's battle!$"

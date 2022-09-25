@@ -734,7 +734,7 @@ script Rogue_GymIdentity_PreBoss
         }
         else
         {
-            msgbox(format("Oh no!\pI requires ¥{STR_VAR_1} which is more than what you have!"), MSGBOX_DEFAULT)
+            msgbox(format("Oh no!\pIt requires ¥{STR_VAR_1} which is more than what I have!"), MSGBOX_DEFAULT)
         }
 
         hidemoneybox

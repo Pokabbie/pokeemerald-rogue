@@ -1312,6 +1312,7 @@ void Rogue_OnNewGame(void)
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
+    ClearBerryTrees();
     SelectStartMons();
 
     EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
@@ -3507,11 +3508,35 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
             
         case ROGUE_SHOP_BERRIES:
-            RogueQuery_ItemsInPocket(POCKET_BERRIES);
+            {
+                // Include berries from collected quests
+                u16 i, j;
+                RogueQuery_ItemsExcludeRange(ITEM_NONE, ITEMS_COUNT);
 
-            // TODO - Limit based on Quest Rewards
+                for(i = 0; i < QUEST_CAPACITY; ++i)
+                {
+                    if(IsQuestCollected(i))
+                    {
+                        for(j = 0; j < QUEST_MAX_REWARD_COUNT; ++j)
+                        {
+                            if(gRogueQuests[i].rewards[j].type == QUEST_REWARD_NONE)
+                            {
+                                break;
+                            }
+                            else if(gRogueQuests[i].rewards[j].type == QUEST_REWARD_GIVE_ITEM)
+                            {
+                                u16 itemId = gRogueQuests[i].rewards[j].params[0];
+                                if(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
+                                {
+                                    RogueQuery_Include(itemId);
+                                }
+                            }
+                        }
+                    }
+                }
 
-            *minSalePrice = 2000;
+                *minSalePrice = 2000;
+            }
             break;
     };
 

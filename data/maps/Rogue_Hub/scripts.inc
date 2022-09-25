@@ -420,9 +420,7 @@ RogueHub_SpeakBank_13:
 RogueHub_SpeakBerryMerchant::
 	lock
 	faceplayer
-	checkitem ITEM_WAILMER_PAIL
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakBerryMerchant_2
+	goto_if_unset FLAG_ROGUE_MET_BERRY_MERCHANT, RogueHub_SpeakBerryMerchant_2
 	message RogueHub_SpeakBerryMerchant_Text_2
 	waitmessage
 	rogue_dynamicpokemart ROGUE_SHOP_BERRIES
@@ -433,8 +431,8 @@ RogueHub_SpeakBerryMerchant_1:
 
 RogueHub_SpeakBerryMerchant_2:
 	msgbox RogueHub_SpeakBerryMerchant_Text_0
-	giveitem ITEM_WAILMER_PAIL
 	msgbox RogueHub_SpeakBerryMerchant_Text_1
+	setflag FLAG_ROGUE_MET_BERRY_MERCHANT
 	goto RogueHub_SpeakBerryMerchant_1
 
 
@@ -764,16 +762,18 @@ RogueHub_SpeakBerryMerchant_Text_0:
 	.string "Oh hello {PLAYER}!\n"
 	.string "I hope you don't mind, but I've setup\l"
 	.string "some berry patches.\p"
-	.string "You're welcome to use them of course!\p"
-	.string "As a matter of fact here's something to\n"
-	.string "get you started!$"
+	.string "You may be given berries are rewards\n"
+	.string "for completing quest that you're\l"
+	.string "welcome to plant in this field!$"
 
 RogueHub_SpeakBerryMerchant_Text_1:
-	.string "If you ever need any berries, then\n"
-	.string "please do come and speak with me.$"
+	.string "If you ever run out of berries or if\n"
+	.string "you'd like to buy some rather than grow\l"
+	.string "them, then please do come and speak\l"
+	.string "with me.$"
 
 RogueHub_SpeakBerryMerchant_Text_2:
-	.string "Hi {PLAYER}!\nWould you like to by some berries?$"
+	.string "Hi {PLAYER}!\nWould you like to buy some berries?$"
 
 RogueHub_SpeakBerryMerchant_Text_3:
 	.string "Glad to be of help!$"
