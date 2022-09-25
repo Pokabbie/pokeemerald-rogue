@@ -640,7 +640,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         {
             if(IsBossTrainer(trainerNum))
             {
-                // Keep default calc
+                u8 difficulty = gRogueRun.currentDifficulty;
+                *money = (difficulty + 1) * 500;
             }
             else
             {
