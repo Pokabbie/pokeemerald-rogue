@@ -95,6 +95,7 @@ struct RogueTrainerTemp
     bool8 allowItemEvos;
     bool8 allowLedgendaries;
     bool8 hasAppliedFallback;
+    u8 queryMonOffset;
     bool8 hasUsedLeftovers;
     bool8 hasUsedShellbell;
 #ifdef ROGUE_EXPANSION
@@ -2589,7 +2590,7 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
     return FALSE;
 }
 
-static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAceType)
+static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
 {
     // Query for the current trainer team
     RogueQuery_Clear();
@@ -2605,18 +2606,10 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAc
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
-        if(useAceType)
-        {
-            if(gRogueLocal.trainerTemp.allowedType[2] != TYPE_NONE)
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[2]); // 1 type
-        }
+        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
         else
-        {
-            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
-        }
+            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
     }
 
     RogueQuery_TransformToEggSpecies();
@@ -2626,18 +2619,10 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAc
 
     if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
     {
-        if(useAceType)
-        {
-            if(gRogueLocal.trainerTemp.allowedType[2] != TYPE_NONE)
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[2]); // 1 type
-        }
+        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
         else
-        {
-            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
-        }
+            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
     }
 
     // Disable types
@@ -2649,7 +2634,7 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAc
             RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
     }
 
-    if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_MAXIE_MAGMA_HIDEOUT)
+    if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_ROGUE_MINI_BOSS_MAXIE)
     {
         RogueQuery_Include(SPECIES_GROUDON);
     }
@@ -2657,7 +2642,7 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly, bool8 useAc
     RogueQuery_CollapseSpeciesBuffer();
 }
 
-static void ApplyFallbackTrainerQuery(u16 trainerNum)
+static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
 {
     bool8 hasFallback = FALSE;
 
@@ -2728,8 +2713,11 @@ static void ApplyFallbackTrainerQuery(u16 trainerNum)
     if(hasFallback && !gRogueLocal.trainerTemp.hasAppliedFallback)
     {
         gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-        ApplyTrainerQuery(trainerNum, FALSE, FALSE);
+        ApplyTrainerQuery(trainerNum, FALSE);
+        return TRUE;
     }
+
+    return FALSE;
 }
 
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
@@ -2749,7 +2737,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
         ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.disallowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
 
-        ApplyTrainerQuery(trainerNum, FALSE, FALSE);
+        ApplyTrainerQuery(trainerNum, FALSE);
 
 #ifdef ROGUE_DEBUG
         gDebug_TrainerOptionCount = RogueQuery_BufferSize();
@@ -2822,6 +2810,7 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
     u16 species;
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
+    u16 queryCheckIdx = (monIdx - gRogueLocal.trainerTemp.queryMonOffset);
     
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS && !isBoss)
@@ -2835,11 +2824,15 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
     }
 
-    if(monIdx >= queryCount)
+    if(queryCheckIdx >= queryCount)
     {
         // Apply the fallback query (If we have one)
         // This will allow for secondary types if we've exhausted the primary one
-        ApplyFallbackTrainerQuery(trainerNum);
+        if(ApplyFallbackTrainerQuery(trainerNum))
+        {
+            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+            queryCheckIdx = 0;
+        }
     }
 
     // Prevent duplicates, if possible
@@ -2849,7 +2842,7 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
         species = RogueQuery_BufferPtr()[randIdx];
     }
-    while(PartyContainsSpecies(party, monIdx, species) && monIdx < queryCount);
+    while(PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
 
     return species;
 }
@@ -3137,26 +3130,25 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     bool8 isBoss = IsBossTrainer(trainerNum);
     struct Pokemon *mon = &party[monIdx];
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        difficultyLevel = 13;
-
     if(isBoss)
     {
-        bool8 useAceType = FALSE;
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
-        {
-            useAceType = TRUE;
-        }
 
         // Champion
         if(difficultyLevel == 12)
         {
             if(monIdx == 5)
             {
+                if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+                {
+                    gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                }
+
                 // Force legendaries for last mon
-                ApplyTrainerQuery(trainerNum, TRUE, useAceType);
+                gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                ApplyTrainerQuery(trainerNum, TRUE);
             }
         }
         // Final champion
@@ -3164,11 +3156,22 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         {
             if(monIdx == 4)
             {
+                if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+                {
+                    gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                }
+
                 // Force legendaries for last 2
-                ApplyTrainerQuery(trainerNum, TRUE, useAceType);
+                gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                ApplyTrainerQuery(trainerNum, TRUE);
             }
         }
     }
+
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        difficultyLevel = 13;
 
     species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
     level = CalculateTrainerLevel(trainerNum);
