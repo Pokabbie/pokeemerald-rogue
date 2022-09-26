@@ -43,7 +43,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_ShoppingSpree,
             QUEST_NoFainting1,
             QUEST_MrRandoman,
-            QUEST_BerryCollector
+            QUEST_BerryCollector,
+            QUEST_WobFate
         }
     },
 
@@ -410,6 +411,23 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
+        }
+    },
+
+    [QUEST_WobFate] = 
+    {
+        .title = _("Fate"),
+        .desc = _(
+                    "Have a POKéMON faint whilst\n"
+                    "fighting a wild Wobbuffet."
+                ),
+        .rewards = { 
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_CAPSULE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_PATCH, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+#endif
         }
     },
 

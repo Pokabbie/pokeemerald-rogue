@@ -599,6 +599,7 @@ void QuestNotify_OnWildBattleEnd(void)
         if(IsQuestActive(QUEST_DenExplorer) && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
             TryMarkQuestAsComplete(QUEST_DenExplorer);
     }
+    //
 
     OnEndBattle();
 }
@@ -729,6 +730,18 @@ void QuestNotify_OnMonFainted()
 {
     TryDeactivateQuest(QUEST_NoFainting2);
     TryDeactivateQuest(QUEST_NoFainting3);
+
+    if(IsQuestActive(QUEST_WobFate))
+    {
+        bool8 isTrainerBattle = (gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0;
+        if(!isTrainerBattle)
+        {
+            u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+
+            if(species == SPECIES_WOBBUFFET)
+                TryMarkQuestAsComplete(QUEST_WobFate);
+        }
+    }
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)

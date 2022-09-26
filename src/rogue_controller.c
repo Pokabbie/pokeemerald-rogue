@@ -2323,6 +2323,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
         }
+        else
+        {
+            QuestNotify_OnMonFainted();
+        }
     }
 }
 
@@ -2350,6 +2354,10 @@ void Rogue_Battle_EndWildBattle(void)
         {
             QuestNotify_OnWildBattleEnd();
             RemoveAnyFaintedMons(FALSE);
+        }
+        else
+        {
+            QuestNotify_OnMonFainted();
         }
     }
 }
