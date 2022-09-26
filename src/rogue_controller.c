@@ -1623,7 +1623,18 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
 
-    SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        ClearBag();
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+        CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]); // Keep key items
+        SetMoney(&gSaveBlock1Ptr->money, 0);
+    }
+    else
+    {
+        SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+    }
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
 

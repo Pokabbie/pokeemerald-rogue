@@ -78,6 +78,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Adventure_StartRainbow",
       "flag": "FLAG_ROGUE_TRAINER0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 0,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Adventure_SpeakBasicBag",
+      "flag": "FLAG_ROGUE_TRAINER1"
     }
   ],
   "warp_events": [
