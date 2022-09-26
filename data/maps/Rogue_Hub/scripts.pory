@@ -597,39 +597,43 @@ script RogueHub_EnterSafari
     msgbox(format("Welcome to the SAFARI ZONE!\nWould like to enter?"), MSGBOX_YESNO)
 
     setvar(VAR_0x8000, 0)
-    setvar(VAR_0x8000, 0)
+    setvar(VAR_0x8001, 0)
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Would you like to limit which GENERATION of POKéMON will be wandering about for you to catch?"), MSGBOX_YESNO)
-
+        questcollected(QUEST_Collector2)
         if(var(VAR_RESULT) == YES)
         {
-            message(format("Which GENERATION would you like to enable?"))
-            waitmessage
-            
-            if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
+            msgbox(format("You can choose to either have POKéMON from every GENERATION appear or select a specific GENERATION to catch from.\pWould you like to limit to a single GENERATION?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
             {
-                multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+                message(format("Which GENERATION would you like to enable?"))
+                waitmessage
+                
+                if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
+                {
+                    multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+                }
+                else
+                {
+                    multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+                }
+
+                switch(var(VAR_RESULT))
+                {
+                    case MULTI_B_PRESSED: 
+                        setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
+                    
+                    default:
+                        copyvar(VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT)
+                        addvar(VAR_ROGUE_SAFARI_GENERATION, 1)
+                }
             }
             else
             {
-                multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+                setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
             }
-
-            switch(var(VAR_RESULT))
-            {
-                case MULTI_B_PRESSED: 
-                    setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
-                
-                default:
-                    copyvar(VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT)
-                    addvar(VAR_ROGUE_SAFARI_GENERATION, 1)
-            }
-        }
-        else
-        {
-            setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
         }
 
         bufferitemname(STR_VAR_1, ITEM_SAFARI_BALL)

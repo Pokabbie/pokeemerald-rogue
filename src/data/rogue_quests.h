@@ -10,10 +10,11 @@ static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
 
-static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
-static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
+static const u8 gText_PreviewUnlocksLegendarySafari[] = _("Safari Upgrade");
+static const u8 gText_GiveLegendarySafari[] = _("New Safari Upgrade:\nLegendary POKéMON can now appear!");
+static const u8 gText_GiveSafariLimiter[] = _("New Safari Upgrade:\nYou can now filter by GENERATION!");
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
-static const u8 gText_GiveLegendaryBikeShop[] = _("You can now collect and carry\nboth Bikes!");
+static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou can now carry both Bikes at once!");
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
@@ -248,12 +249,25 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksSafari },
         },
         .unlockedQuests = { 
-            QUEST_Collector2, 
+            QUEST_Collector2,
+            QUEST_CollectorLegend,
         }
     },
     [QUEST_Collector2] = 
     {
         .title = _("Collector +"),
+        .desc = _(
+                    "Fill out 100 POKéDEX\n"
+                    "entries."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
+        }
+    },
+    [QUEST_CollectorLegend] = 
+    {
+        .title = _("Collector X"),
         .desc = _(
                     "Defeat the Elite 4\n"
                     "with a Legendary POKéMON\n"

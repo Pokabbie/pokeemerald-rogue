@@ -5,6 +5,7 @@
 
 #include "event_data.h"
 #include "item_menu.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
@@ -320,6 +321,9 @@ void RogueDebug_FillGenPC(void)
             u16 currIdx = writeIdx++;
             u16 targetBox = currIdx / IN_BOX_COUNT;
             u16 boxIndex = currIdx % IN_BOX_COUNT;
+
+            GetSetPokedexFlag(species, FLAG_SET_SEEN);
+            GetSetPokedexFlag(species, FLAG_SET_CAUGHT);
 
             CreateMon(&mon, species, 5, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 

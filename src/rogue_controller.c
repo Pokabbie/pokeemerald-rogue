@@ -3748,7 +3748,7 @@ static void RandomiseSafariWildEncounters(void)
         RogueQuery_SpeciesExcludeCommon();
     }
 
-    if(!IsQuestCollected(QUEST_Collector2))
+    if(!IsQuestCollected(QUEST_CollectorLegend))
     {
         RogueQuery_SpeciesIsNotLegendary();
     }

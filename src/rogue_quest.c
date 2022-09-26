@@ -559,6 +559,20 @@ static void OnEndBattle(void)
 {
     struct RogueQuestState state;
 
+    if(IsQuestActive(QUEST_Collector1))
+    {
+        u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        if(caughtCount >= 15)
+            TryMarkQuestAsComplete(QUEST_Collector1);
+    }
+
+    if(IsQuestActive(QUEST_Collector2))
+    {
+        u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        if(caughtCount >= 100)
+            TryMarkQuestAsComplete(QUEST_Collector2);
+    }
+
     if(IsQuestActive(QUEST_NoFainting1) && GetQuestState(QUEST_NoFainting1, &state))
     {
         if(Rogue_IsPartnerMonInTeam() == FALSE)
@@ -582,13 +596,6 @@ void QuestNotify_OnWildBattleEnd(void)
 {
     if(gBattleOutcome == B_OUTCOME_CAUGHT)
     {
-        if(IsQuestActive(QUEST_Collector1))
-        {
-            u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
-            if(caughtCount >= 15)
-                TryMarkQuestAsComplete(QUEST_Collector1);
-        }
-
         if(IsQuestActive(QUEST_DenExplorer) && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
             TryMarkQuestAsComplete(QUEST_DenExplorer);
     }
@@ -677,14 +684,14 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 break;
 
             case 12: // Just beat last E4
-                if(IsQuestActive(QUEST_Collector2))
+                if(IsQuestActive(QUEST_CollectorLegend))
                 {
                     for(i = 0; i < PARTY_SIZE; ++i)
                     {
                         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
                         if(IsSpeciesLegendary(species))
                         {
-                            TryMarkQuestAsComplete(QUEST_Collector2);
+                            TryMarkQuestAsComplete(QUEST_CollectorLegend);
                             break;
                         }
                     }
