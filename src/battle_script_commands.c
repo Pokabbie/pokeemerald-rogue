@@ -9618,7 +9618,7 @@ static void Cmd_various(void)
 
         if (GetBattlerAbility(gActiveBattler) == ABILITY_MIMICRY)
         {
-            TryToApplyMimicry(gActiveBattler, TRUE);
+            TryToApplyMimicry(gActiveBattler);
             isMimicryDone = TRUE;
         }
         if (!isMimicryDone)
