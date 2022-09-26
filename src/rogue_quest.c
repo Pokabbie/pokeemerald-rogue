@@ -52,6 +52,9 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 
 static void UnlockFollowingQuests(u16 questId);
 static void UpdateMonoQuests(void);
+static void ForEachUnlockedQuest(QuestCallback callback);
+static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
+static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
 
 void ResetQuestState(u16 saveVersion)
 {
@@ -66,10 +69,12 @@ void ResetQuestState(u16 saveVersion)
         }
 
         // These quests must always be unlocked
-        for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
+        for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
         {
             TryUnlockQuest(i);
         }
+
+        ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
 
@@ -434,7 +439,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     }
 }
 
-static void ActivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
+static void TryActivateQuestInternal(u16 questId, struct RogueQuestState* state)
 {
     if(state->isUnlocked)
     {
@@ -451,9 +456,29 @@ static void ActivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
     }
 }
 
-static void DeactivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
+static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
 {
-    if(state->isValid && !IsQuestGloballyTracked(questId))
+    bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
+
+    if(!activeInHub || IsQuestGloballyTracked(questId))
+    {
+        TryActivateQuestInternal(questId, state);
+    }
+    else
+    {
+        state->isValid = FALSE;
+    }
+}
+
+static void ActivateHubQuests(u16 questId, struct RogueQuestState* state)
+{
+    bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
+
+    if(activeInHub || IsQuestGloballyTracked(questId))
+    {
+        TryActivateQuestInternal(questId, state);
+    }
+    else
     {
         state->isValid = FALSE;
     }
@@ -498,7 +523,7 @@ void QuestNotify_BeginAdventure(void)
     // Cannot activate quests on Gauntlet mode
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        ForEachUnlockedQuest(ActivateQuestIfNeeded);
+        ForEachUnlockedQuest(ActivateAdventureQuests);
     }
 
     // Handle skip difficulty
@@ -550,7 +575,7 @@ void QuestNotify_EndAdventure(void)
 {
     TryMarkQuestAsComplete(QUEST_FirstAdventure);
 
-    ForEachUnlockedQuest(DeactivateQuestIfNeeded);
+    ForEachUnlockedQuest(ActivateHubQuests);
 }
 
 void QuestNotify_OnWildBattleEnd(void)

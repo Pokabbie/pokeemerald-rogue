@@ -167,28 +167,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
-        },
-        .unlockedQuests = { 
-            QUEST_NORMAL_Champion, 
-            QUEST_FIGHTING_Champion, 
-            QUEST_FLYING_Champion, 
-            QUEST_POISON_Champion, 
-            QUEST_GROUND_Champion, 
-            QUEST_ROCK_Champion, 
-            QUEST_BUG_Champion, 
-            QUEST_GHOST_Champion, 
-            QUEST_STEEL_Champion, 
-            QUEST_FIRE_Champion, 
-            QUEST_WATER_Champion, 
-            QUEST_GRASS_Champion, 
-            QUEST_ELECTRIC_Champion, 
-            QUEST_PSYCHIC_Champion, 
-            QUEST_ICE_Champion, 
-            QUEST_DRAGON_Champion, 
-            QUEST_DARK_Champion, 
-#ifdef ROGUE_EXPANSION
-            QUEST_FAIRY_Champion,
-#endif
         }
     },
     [QUEST_EliteMaster] = 
@@ -215,6 +193,46 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
+        },
+        .unlockedQuests = { 
+            QUEST_NORMAL_Champion, 
+            QUEST_FIGHTING_Champion, 
+            QUEST_FLYING_Champion, 
+            QUEST_POISON_Champion, 
+            QUEST_GROUND_Champion, 
+            QUEST_ROCK_Champion, 
+            QUEST_BUG_Champion, 
+            QUEST_GHOST_Champion, 
+            QUEST_STEEL_Champion, 
+            QUEST_FIRE_Champion, 
+            QUEST_WATER_Champion, 
+            QUEST_GRASS_Champion, 
+            QUEST_ELECTRIC_Champion, 
+            QUEST_PSYCHIC_Champion, 
+            QUEST_ICE_Champion, 
+            QUEST_DRAGON_Champion, 
+            QUEST_DARK_Champion, 
+#ifdef ROGUE_EXPANSION
+            QUEST_FAIRY_Champion,
+#endif
+        }
+    },
+    
+    [QUEST_MeetPokabbie] = 
+    {
+        .title = _("Post Game"),
+        .desc = _(
+                    "Meet ??? in ??? to activate\n"
+                    "post-game content."
+                ),
+        .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
+        .rewards = {
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+#else
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+#endif
         }
     },
 

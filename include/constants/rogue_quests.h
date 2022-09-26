@@ -1,7 +1,8 @@
 
 #define QUEST_FLAGS_NONE                  0
 #define QUEST_FLAGS_REPEATABLE            (1 << 0) // By default quest are only completable once
-#define QUEST_FLAGS_GLOBALALLY_TRACKED    (1 << 1) // By default quests are only completable once
+#define QUEST_FLAGS_GLOBALALLY_TRACKED    (1 << 1) // unused currently
+#define QUEST_FLAGS_ACTIVE_IN_HUB         (1 << 2) // currently means ONLY active during hub phase
 
 #define QUEST_TITLE_LENGTH 16
 #define QUEST_DESC_LENGTH 84
@@ -31,21 +32,22 @@
 #define QUEST_GymMaster             11
 #define QUEST_EliteMaster           12
 #define QUEST_Champion              13
+#define QUEST_MeetPokabbie          14
 
-#define QUEST_Collector1            (QUEST_Champion + 1)
-#define QUEST_Collector2            (QUEST_Champion + 2)
-#define QUEST_ShoppingSpree         (QUEST_Champion + 3)
-#define QUEST_BigSaver              (QUEST_Champion + 4)
-#define QUEST_Bike1                 (QUEST_Champion + 5)
-#define QUEST_Bike2                 (QUEST_Champion + 6)
-#define QUEST_Bike2                 (QUEST_Champion + 6)
-#define QUEST_NoFainting1           (QUEST_Champion + 7)
-#define QUEST_NoFainting2           (QUEST_Champion + 8)
-#define QUEST_NoFainting3           (QUEST_Champion + 9)
-#define QUEST_BerryCollector        (QUEST_Champion + 10)
-#define QUEST_DenExplorer           (QUEST_Champion + 11)
-#define QUEST_MrRandoman            (QUEST_Champion + 12)
-#define QUEST_ChaosChampion         (QUEST_Champion + 13)
+#define QUEST_Collector1            (QUEST_MeetPokabbie + 1)
+#define QUEST_Collector2            (QUEST_MeetPokabbie + 2)
+#define QUEST_ShoppingSpree         (QUEST_MeetPokabbie + 3)
+#define QUEST_BigSaver              (QUEST_MeetPokabbie + 4)
+#define QUEST_Bike1                 (QUEST_MeetPokabbie + 5)
+#define QUEST_Bike2                 (QUEST_MeetPokabbie + 6)
+#define QUEST_Bike2                 (QUEST_MeetPokabbie + 6)
+#define QUEST_NoFainting1           (QUEST_MeetPokabbie + 7)
+#define QUEST_NoFainting2           (QUEST_MeetPokabbie + 8)
+#define QUEST_NoFainting3           (QUEST_MeetPokabbie + 9)
+#define QUEST_BerryCollector        (QUEST_MeetPokabbie + 10)
+#define QUEST_DenExplorer           (QUEST_MeetPokabbie + 11)
+#define QUEST_MrRandoman            (QUEST_MeetPokabbie + 12)
+#define QUEST_ChaosChampion         (QUEST_MeetPokabbie + 13)
 
 #define QUEST_NORMAL_Champion       (QUEST_ChaosChampion + 1)
 #define QUEST_FIGHTING_Champion     (QUEST_ChaosChampion + 2)

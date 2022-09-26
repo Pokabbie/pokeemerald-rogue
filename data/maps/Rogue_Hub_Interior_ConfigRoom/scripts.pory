@@ -180,6 +180,7 @@ script Rogue_ConfigRoom_MeetPokabbie
         msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
     }
 
+    completequest(QUEST_MeetPokabbie)
     setflag(FLAG_ROGUE_MET_POKABBIE)
     setvar(VAR_TEMP_1, 1)
 

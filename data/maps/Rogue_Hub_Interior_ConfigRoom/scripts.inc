@@ -154,6 +154,7 @@ Rogue_ConfigRoom_MeetPokabbie::
 	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_6
 	msgbox Rogue_ConfigRoom_MeetPokabbie_Text_1
 Rogue_ConfigRoom_MeetPokabbie_1:
+	completequest QUEST_MeetPokabbie
 	setflag FLAG_ROGUE_MET_POKABBIE
 	setvar VAR_TEMP_1, 1
 	releaseall
