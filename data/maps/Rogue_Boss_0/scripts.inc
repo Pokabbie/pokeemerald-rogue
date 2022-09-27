@@ -144,12 +144,102 @@ Rogue_BattleDefeated_Boss0::
 	message Rogue_BattleDefeated_Boss0_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
+	switch VAR_ROGUE_DIFFICULTY
+	case 0, Rogue_BattleDefeated_Boss0_3
+	case 1, Rogue_BattleDefeated_Boss0_4
+	case 2, Rogue_BattleDefeated_Boss0_5
+	case 3, Rogue_BattleDefeated_Boss0_6
+	case 4, Rogue_BattleDefeated_Boss0_7
+	case 5, Rogue_BattleDefeated_Boss0_8
+	case 6, Rogue_BattleDefeated_Boss0_9
+	case 7, Rogue_BattleDefeated_Boss0_10
+Rogue_BattleDefeated_Boss0_1:
 	msgbox Rogue_BattleDefeated_Boss0_Text_1
 	waitmessage
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	return
+
+Rogue_BattleDefeated_Boss0_3:
+	checkitem ITEM_HM01
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_11
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_4:
+	checkitem ITEM_HM05_FLASH
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_13
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_5:
+	checkitem ITEM_HM06_ROCK_SMASH
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_15
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_6:
+	checkitem ITEM_HM04_STRENGTH
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_17
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_7:
+	checkitem ITEM_HM08_DIVE
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_19
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_8:
+	checkitem ITEM_HM02_FLY
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_21
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_9:
+	checkitem ITEM_HM07_WATERFALL
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_23
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_10:
+	checkitem ITEM_HM03_SURF
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_Boss0_25
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_11:
+	giveitem ITEM_HM01
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_13:
+	giveitem ITEM_HM05_FLASH
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_15:
+	giveitem ITEM_HM06_ROCK_SMASH
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_17:
+	giveitem ITEM_HM04_STRENGTH
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_19:
+	giveitem ITEM_HM08_DIVE
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_21:
+	giveitem ITEM_HM02_FLY
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_23:
+	giveitem ITEM_HM07_WATERFALL
+	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_25:
+	giveitem ITEM_HM03_SURF
+	goto Rogue_BattleDefeated_Boss0_1
 
 
 PlayerToBattleField:
