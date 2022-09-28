@@ -4246,6 +4246,14 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
                 effect++;
             }
+            else if (GetCurrentWeather() == WEATHER_LEAVES && !(gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN))
+            {
+                // overworld weather started rain, so just do electric terrain anim
+                gFieldStatuses = (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
+                gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+                BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
+                effect++;
+            }
             #endif
             break;
         case ABILITYEFFECT_SWITCH_IN_WEATHER:
