@@ -101,6 +101,16 @@ struct AdvEventScratch
     u8 nextRoomType;
 };
 
+struct AdvMapScratch
+{
+    u8 legendaryCount;
+    u8 wildDenCount;
+    u8 gameShowCount;
+    u8 graveYardCount;
+    struct AdvEventScratch* readNodes;
+    struct AdvEventScratch* writeNodes;
+};
+
 static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* breakChance, u8* extraSplitChance)
 {
     *breakChance = 0;
@@ -163,7 +173,7 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
 #endif
 }
 
-static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct AdvEventScratch* readScratch, struct AdvEventScratch* writeScratch)
+static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct AdvMapScratch* scratch)
 {
     u8 i;
     u8 breakChance;
@@ -203,11 +213,11 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
 
                     nodeInfo = GetNodeInfo(columnIdx, i);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx, i + 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i + 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i + 1].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i);
                     nodeInfo->isLadderActive = TRUE;
@@ -221,11 +231,11 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
 
                     nodeInfo = GetNodeInfo(columnIdx, i);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx, i - 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i - 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i - 1].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
                     nodeInfo->isLadderActive = TRUE;
@@ -240,18 +250,18 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                     // ==|
                     nodeInfo = GetNodeInfo(columnIdx, i - 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i - 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i - 1].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx, i + 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i + 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i + 1].nextRoomType = nextRoomType;
 
                     // 3rd bridge might appear on occasion
                     if(RogueRandomChance(extraChance, OVERWORLD_FLAG))
                     {
                         nodeInfo = GetNodeInfo(columnIdx, i);
                         nodeInfo->isBridgeActive = TRUE;
-                        writeScratch[i].nextRoomType = nextRoomType;
+                        scratch->writeNodes[i].nextRoomType = nextRoomType;
                     }
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
@@ -286,7 +296,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                 {
                     nodeInfo = GetNodeInfo(columnIdx, i - 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i - 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i - 1].nextRoomType = nextRoomType;
                     
                     nodeInfo = GetNodeInfo(columnIdx + 1, i - 1);
                     nodeInfo->isLadderActive = TRUE;
@@ -296,7 +306,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                 {
                     nodeInfo = GetNodeInfo(columnIdx, i + 1);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i + 1].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i + 1].nextRoomType = nextRoomType;
 
                     nodeInfo = GetNodeInfo(columnIdx + 1, i);
                     nodeInfo->isLadderActive = TRUE;
@@ -306,7 +316,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
                 {
                     nodeInfo = GetNodeInfo(columnIdx, i);
                     nodeInfo->isBridgeActive = TRUE;
-                    writeScratch[i].nextRoomType = nextRoomType;
+                    scratch->writeNodes[i].nextRoomType = nextRoomType;
                 }
             }
         }
@@ -314,7 +324,7 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount, struct Adv
 
 }
 
-static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
+static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScratch* scratch, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
 {
     u16 weights[ADVPATH_ROOM_COUNT];
     u16 totalWeight;
@@ -340,7 +350,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         // We should only be here for the first loop, as we should have no other encounters
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_RESTSTOP] = 1000;
+            weights[ADVPATH_ROOM_RESTSTOP] = 1500;
         }
         else
         {
@@ -390,14 +400,18 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             else
             {
                 // Unlikely but not impossible
-                weights[ADVPATH_ROOM_NONE] = 200;
+                weights[ADVPATH_ROOM_NONE] = min(50 * (gRogueRun.currentDifficulty + 1), 200);
             }
         }
 
         // Rest stops
         if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_RESTSTOP] = 1000;
+            weights[ADVPATH_ROOM_RESTSTOP] = 1500;
+        }
+        else if(gRogueRun.currentDifficulty == 0)
+        {
+            weights[ADVPATH_ROOM_RESTSTOP] = 0;
         }
         else
         {
@@ -417,9 +431,9 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         else
         {
             weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 600);
-            weights[ADVPATH_ROOM_GAMESHOW] = min(20 * gRogueRun.currentDifficulty, 600);
-            weights[ADVPATH_ROOM_GRAVEYARD] = min(10 * gRogueRun.currentDifficulty, 200);
+            weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
+            weights[ADVPATH_ROOM_GAMESHOW] = 330 - min(30 * gRogueRun.currentDifficulty, 300);
+            weights[ADVPATH_ROOM_GRAVEYARD] = 220 - min(20 * gRogueRun.currentDifficulty, 200);
 
             if(gRogueRun.currentDifficulty == 0)
             {
@@ -433,7 +447,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             else
             {
                 // Otherwise the chances are just quite low
-                weights[ADVPATH_ROOM_LEGENDARY] = 50;
+                weights[ADVPATH_ROOM_LEGENDARY] = 100;
             }
         }
 
@@ -442,19 +456,21 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
             // Impossible in first column
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
-        if(nodeX == 0 || currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+
+        // Less likely in first column and/or last
+        if(nodeX == 0)
         {
-            // Less likely in first column or last
             weights[ADVPATH_ROOM_MINIBOSS] /= 2;
             weights[ADVPATH_ROOM_LEGENDARY] /= 2;
             weights[ADVPATH_ROOM_WILD_DEN] /= 2;
-            weights[ADVPATH_ROOM_GAMESHOW] /= 2;
-            weights[ADVPATH_ROOM_GRAVEYARD] /= 2;
         }
-
-        if(gRogueRun.currentDifficulty <= 3)
+        if(currScratch->nextRoomType == ADVPATH_ROOM_BOSS)
         {
-            weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+            weights[ADVPATH_ROOM_MINIBOSS] /= 3;
+            weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+            weights[ADVPATH_ROOM_WILD_DEN] /= 3;
+            weights[ADVPATH_ROOM_GAMESHOW] /= 4;
+            weights[ADVPATH_ROOM_GRAVEYARD] /= 4;
         }
 
         // Now we've applied the default weights for this column, consider what out next encounter is
@@ -495,6 +511,32 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
         }
     }
 
+    // We have limited number of certain encounters
+    
+    if(scratch->legendaryCount >= 2)
+    {
+        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+    }
+    else if(scratch->legendaryCount >= 1)
+    {
+        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+    }
+
+    if(scratch->wildDenCount >= 2)
+    {
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+    }
+
+    if(scratch->gameShowCount >= 2)
+    {
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+    }
+
+    if(scratch->graveYardCount >= 2)
+    {
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+    }
+
     totalWeight = 0;
     for(i = 0; i < ADVPATH_ROOM_COUNT; ++i)
     {
@@ -521,10 +563,9 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvEventSc
 #endif
 }
 
-static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nodeInfo, struct AdvEventScratch* prevScratch, struct AdvEventScratch* currScratch)
+static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nodeInfo, struct AdvMapScratch* scratch)
 {
     u16 temp;
-    nodeInfo->roomType = currScratch->roomType;
 
     switch(nodeInfo->roomType)
     {
@@ -644,7 +685,7 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
     }
 }
 
-static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct AdvEventScratch* readScratch, struct AdvEventScratch* writeScratch)
+static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct AdvMapScratch* scratch)
 {
     struct RogueAdvPathNode* nodeInfo;
     u8 i;
@@ -654,8 +695,31 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct A
         nodeInfo = GetNodeInfo(columnIdx, i);
         if(nodeInfo->isBridgeActive)
         {
-            ChooseNewEvent(columnIdx, i, columnCount, &readScratch[i], &writeScratch[i]);
-            CreateEventParams(columnIdx, i, nodeInfo, &readScratch[i], &writeScratch[i]);
+            ChooseNewEvent(columnIdx, i, columnCount, scratch, &scratch->readNodes[i], &scratch->writeNodes[i]);
+
+            // Post event choose
+            nodeInfo->roomType = scratch->writeNodes[i].roomType;
+            
+            switch(nodeInfo->roomType)
+            {
+                case ADVPATH_ROOM_LEGENDARY:
+                    ++scratch->legendaryCount;
+                    break;
+
+                case ADVPATH_ROOM_WILD_DEN:
+                    ++scratch->wildDenCount;
+                    break;
+
+                case ADVPATH_ROOM_GAMESHOW:
+                    ++scratch->gameShowCount;
+                    break;
+
+                case ADVPATH_ROOM_GRAVEYARD:
+                    ++scratch->graveYardCount;
+                    break;
+            }
+
+            CreateEventParams(columnIdx, i, nodeInfo, scratch);
         }
     }
 }
@@ -677,6 +741,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     u8 i;
     u8 totalDistance;
     u8 minY, maxY;
+    struct AdvMapScratch scratch;
     struct AdvEventScratch rowEventScratchA[MAX_PATH_ROWS];
     struct AdvEventScratch rowEventScratchB[MAX_PATH_ROWS];
 
@@ -685,6 +750,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         // Path is still valid
         return FALSE;
     }
+
+    memset(&scratch, 0, sizeof(scratch));
 
     SetRogueSeedForPath();
 
@@ -713,13 +780,13 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
     for(i = 0; i < totalDistance; ++i)
     {
-        struct AdvEventScratch* readScratch = (i == 0 ? &rowEventScratchA[0] : &rowEventScratchB[0]);
-        struct AdvEventScratch* writeScratch =  (i == 0 ? &rowEventScratchB[0] : &rowEventScratchA[0]);
+        scratch.readNodes = (i == 0 ? &rowEventScratchA[0] : &rowEventScratchB[0]);
+        scratch.writeNodes =  (i == 0 ? &rowEventScratchB[0] : &rowEventScratchA[0]);
 
-        memset(writeScratch, 0, sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
+        memset(scratch.writeNodes, 0, sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
 
-        GenerateAdventureColumnPath(totalDistance - i - 1, totalDistance, readScratch, writeScratch);
-        GenerateAdventureColumnEvents(totalDistance - i - 1, totalDistance, readScratch, writeScratch);
+        GenerateAdventureColumnPath(totalDistance - i - 1, totalDistance, &scratch);
+        GenerateAdventureColumnEvents(totalDistance - i - 1, totalDistance, &scratch);
     }
 
     minY = MAX_PATH_ROWS;
