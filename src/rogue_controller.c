@@ -2032,8 +2032,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                 {
-                    // TODO
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
+                    u16 chosenType = gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
+                    u16 weatherType = gRogueTypeWeatherTable[chosenType];
+
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
             }
