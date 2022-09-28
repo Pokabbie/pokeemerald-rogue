@@ -417,32 +417,13 @@ script RogueHub_SpeakBikeShop
 
     release
 }
+
 script RogueHub_SpeakSafariWelcome
 {
     lock
     faceplayer
 
     msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed POKéMON and let them roam freely!\pAs a thanks for providing the POKéMON data for us, we'll allow you to enter and capture a few POKéMON of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
-
-    release
-}
-
-
-script RogueHub_SpeakFisherman
-{
-    lock
-    faceplayer
-
-    checkitem(ITEM_SUPER_ROD)
-    if(var(VAR_RESULT) == YES)
-    {
-        msgbox(format("Hope that SUPER ROD is doing good work for you!"), MSGBOX_DEFAULT)
-    }
-    else
-    {
-        msgbox(format("Oh you're that TRAINER I keep hearing about!\pYou know, if you find yourself short on WATER POKéMON you can always use a FISHING ROD\pWhat!?\nYou don't have one!\pHere, you should take this one!"), MSGBOX_DEFAULT)
-        giveitem(ITEM_SUPER_ROD)
-    }
 
     release
 }

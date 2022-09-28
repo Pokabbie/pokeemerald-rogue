@@ -350,6 +350,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SUPER_ROD, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTutors },
         },
         .unlockedQuests = { 

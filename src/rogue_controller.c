@@ -2561,14 +2561,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         }
         else if(difficultyLevel == 1)
         {
-            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 1 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
@@ -2581,7 +2581,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }

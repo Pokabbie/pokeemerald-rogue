@@ -355,23 +355,6 @@ RogueHub_SpeakSafariWelcome::
 	return
 
 
-RogueHub_SpeakFisherman::
-	lock
-	faceplayer
-	checkitem ITEM_SUPER_ROD
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakFisherman_2
-	msgbox RogueHub_SpeakFisherman_Text_1, MSGBOX_DEFAULT
-	giveitem ITEM_SUPER_ROD
-RogueHub_SpeakFisherman_1:
-	release
-	return
-
-RogueHub_SpeakFisherman_2:
-	msgbox RogueHub_SpeakFisherman_Text_0, MSGBOX_DEFAULT
-	goto RogueHub_SpeakFisherman_1
-
-
 RogueHub_SpeakBank::
 	lock
 	faceplayer
@@ -711,20 +694,6 @@ RogueHub_SpeakSafariWelcome_Text_0:
 	.string "and capture a few POKéMON of your\l"
 	.string "choosing which you may then use as a\l"
 	.string "PARTNER in future adventures!$"
-
-RogueHub_SpeakFisherman_Text_0:
-	.string "Hope that SUPER ROD is doing good work\n"
-	.string "for you!$"
-
-RogueHub_SpeakFisherman_Text_1:
-	.string "Oh you're that TRAINER I keep hearing\n"
-	.string "about!\p"
-	.string "You know, if you find yourself short on\n"
-	.string "WATER POKéMON you can always use a\l"
-	.string "FISHING ROD\p"
-	.string "What!?\n"
-	.string "You don't have one!\p"
-	.string "Here, you should take this one!$"
 
 RogueHub_SpeakBank_Text_0:
 	.string "Why hello!\n"
