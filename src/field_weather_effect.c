@@ -19,6 +19,7 @@ EWRAM_DATA static u16 sUnusedWeatherRelated = 0;
 
 const u16 gCloudsWeatherPalette[] = INCBIN_U16("graphics/weather/cloud.gbapal");
 const u16 gSandstormWeatherPalette[] = INCBIN_U16("graphics/weather/sandstorm.gbapal");
+const u16 gLeavesWeatherPalette[] = INCBIN_U16("graphics/weather/leaves.gbapal");
 const u8 gWeatherFogDiagonalTiles[] = INCBIN_U8("graphics/weather/fog_diagonal.4bpp");
 const u8 gWeatherFogHorizontalTiles[] = INCBIN_U8("graphics/weather/fog_horizontal.4bpp");
 const u8 gWeatherCloudTiles[] = INCBIN_U8("graphics/weather/cloud.4bpp");
@@ -28,6 +29,7 @@ const u8 gWeatherBubbleTiles[] = INCBIN_U8("graphics/weather/bubble.4bpp");
 const u8 gWeatherAshTiles[] = INCBIN_U8("graphics/weather/ash.4bpp");
 const u8 gWeatherRainTiles[] = INCBIN_U8("graphics/weather/rain.4bpp");
 const u8 gWeatherSandstormTiles[] = INCBIN_U8("graphics/weather/sandstorm.4bpp");
+const u8 gWeatherLeavesTiles[] = INCBIN_U8("graphics/weather/leaves.4bpp");
 
 //------------------------------------------------------------------------------
 // WEATHER_SUNNY_CLOUDS
@@ -2230,6 +2232,317 @@ static void UpdateSandstormSwirlSprite(struct Sprite *sprite)
 #undef tRadiusCounter
 #undef tEntranceDelay
 
+
+//------------------------------------------------------------------------------
+// WEATHER_LEAVES
+//------------------------------------------------------------------------------
+
+static void UpdateLeavesWaveIndex(void);
+static void UpdateLeavesMovement(void);
+static void CreateLeavesSprites(void);
+static void CreateSwirlLeavesSprites(void);
+static void DestroyLeavesSprites(void);
+static void UpdateLeavesSprite(struct Sprite *);
+static void WaitLeavesSwirlSpriteEntrance(struct Sprite *);
+static void UpdateLeavesSwirlSprite(struct Sprite *);
+
+#define MIN_Leaves_WAVE_INDEX 0x20
+
+void Leaves_InitVars(void)
+{
+    gWeatherPtr->initStep = 0;
+    gWeatherPtr->weatherGfxLoaded = 0;
+    gWeatherPtr->gammaTargetIndex = 0;
+    gWeatherPtr->gammaStepDelay = 20;
+    if (!gWeatherPtr->leavesSpritesCreated)
+    {
+        gWeatherPtr->leavesXOffset = gWeatherPtr->leavesYOffset = 0;
+        gWeatherPtr->leavesWaveIndex = 8;
+        gWeatherPtr->leavesWaveCounter = 0;
+        // Dead code. How does the compiler not optimize this out?
+        if (gWeatherPtr->leavesWaveIndex >= 0x80 - MIN_Leaves_WAVE_INDEX)
+            gWeatherPtr->leavesWaveIndex = 0x80 - gWeatherPtr->leavesWaveIndex;
+
+        Weather_SetBlendCoeffs(0, 16);
+    }
+}
+
+void Leaves_InitAll(void)
+{
+    Leaves_InitVars();
+    while (!gWeatherPtr->weatherGfxLoaded)
+        Leaves_Main();
+}
+
+void Leaves_Main(void)
+{
+    UpdateLeavesMovement();
+    UpdateLeavesWaveIndex();
+    if (gWeatherPtr->leavesWaveIndex >= 0x80 - MIN_Leaves_WAVE_INDEX)
+        gWeatherPtr->leavesWaveIndex = MIN_Leaves_WAVE_INDEX;
+
+    switch (gWeatherPtr->initStep)
+    {
+    case 0:
+        CreateLeavesSprites();
+        CreateSwirlLeavesSprites();
+        gWeatherPtr->initStep++;
+        break;
+    case 1:
+        Weather_SetTargetBlendCoeffs(16, 0, 0);
+        gWeatherPtr->initStep++;
+        break;
+    case 2:
+        if (Weather_UpdateBlend())
+        {
+            gWeatherPtr->weatherGfxLoaded = TRUE;
+            gWeatherPtr->initStep++;
+        }
+        break;
+    }
+}
+
+bool8 Leaves_Finish(void)
+{
+    UpdateLeavesMovement();
+    UpdateLeavesWaveIndex();
+    switch (gWeatherPtr->finishStep)
+    {
+    case 0:
+        Weather_SetTargetBlendCoeffs(0, 16, 0);
+        gWeatherPtr->finishStep++;
+        break;
+    case 1:
+        if (Weather_UpdateBlend())
+            gWeatherPtr->finishStep++;
+        break;
+    case 2:
+        DestroyLeavesSprites();
+        gWeatherPtr->finishStep++;
+        break;
+    default:
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+static void UpdateLeavesWaveIndex(void)
+{
+    if (gWeatherPtr->leavesWaveCounter++ > 4)
+    {
+        gWeatherPtr->leavesWaveIndex++;
+        gWeatherPtr->leavesWaveCounter = 0;
+    }
+}
+
+static void UpdateLeavesMovement(void)
+{
+    gWeatherPtr->leavesXOffset -= gSineTable[gWeatherPtr->leavesWaveIndex] / 2;
+    gWeatherPtr->leavesYOffset += gSineTable[gWeatherPtr->leavesWaveIndex];
+    gWeatherPtr->leavesBaseSpritesX = (gSpriteCoordOffsetX + (gWeatherPtr->leavesXOffset >> 8)) & 0xFF;
+    gWeatherPtr->leavesPosY = (gSpriteCoordOffsetY + (gWeatherPtr->leavesYOffset >> 8)) & 0xFF;
+}
+
+static void DestroyLeavesSprites(void)
+{
+    u16 i;
+
+    if (gWeatherPtr->leavesSpritesCreated)
+    {
+        for (i = 0; i < NUM_LEAVES_SPRITES; i++)
+        {
+            if (gWeatherPtr->sprites.s2.leavesSprites1[i])
+                DestroySprite(gWeatherPtr->sprites.s2.leavesSprites1[i]);
+        }
+
+        gWeatherPtr->leavesSpritesCreated = FALSE;
+        FreeSpriteTilesByTag(GFXTAG_LEAVES);
+    }
+
+    if (gWeatherPtr->leavesSwirlSpritesCreated)
+    {
+        for (i = 0; i < NUM_SWIRL_LEAVES_SPRITES; i++)
+        {
+            if (gWeatherPtr->sprites.s2.leavesSprites2[i] != NULL)
+                DestroySprite(gWeatherPtr->sprites.s2.leavesSprites2[i]);
+        }
+
+        gWeatherPtr->leavesSwirlSpritesCreated = FALSE;
+    }
+}
+
+static const struct OamData sLeavesSpriteOamData =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
+static const union AnimCmd sLeavesSpriteAnimCmd0[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLeavesSpriteAnimCmd1[] =
+{
+    ANIMCMD_FRAME(64, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLeavesSpriteAnimCmds[] =
+{
+    sLeavesSpriteAnimCmd0,
+    sLeavesSpriteAnimCmd1,
+};
+
+static const struct SpriteTemplate sLeavesSpriteTemplate =
+{
+    .tileTag = GFXTAG_LEAVES,
+    .paletteTag = PALTAG_WEATHER_2,
+    .oam = &sLeavesSpriteOamData,
+    .anims = sLeavesSpriteAnimCmds,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateLeavesSprite,
+};
+
+static const struct SpriteSheet sLeavesSpriteSheet =
+{
+    .data = gWeatherLeavesTiles,
+    .size = sizeof(gWeatherLeavesTiles),
+    .tag = GFXTAG_LEAVES,
+};
+
+// Regular Leaves sprites
+#define tSpriteColumn  data[0]
+#define tSpriteRow     data[1]
+
+// Swirly Leaves sprites
+#define tRadius        data[0]
+#define tWaveIndex     data[1]
+#define tRadiusCounter data[2]
+#define tEntranceDelay data[3]
+
+static void CreateLeavesSprites(void)
+{
+    u16 i;
+    u8 spriteId;
+
+    if (!gWeatherPtr->leavesSpritesCreated)
+    {
+        LoadSpriteSheet(&sLeavesSpriteSheet);
+        LoadCustomWeatherSpritePalette(gLeavesWeatherPalette);
+        for (i = 0; i < NUM_LEAVES_SPRITES; i++)
+        {
+            spriteId = CreateSpriteAtEnd(&sLeavesSpriteTemplate, 0, (i / 5) * 64, 1);
+            if (spriteId != MAX_SPRITES)
+            {
+                gWeatherPtr->sprites.s2.leavesSprites1[i] = &gSprites[spriteId];
+                gWeatherPtr->sprites.s2.leavesSprites1[i]->tSpriteColumn = i % 5;
+                gWeatherPtr->sprites.s2.leavesSprites1[i]->tSpriteRow = i / 5;
+            }
+            else
+            {
+                gWeatherPtr->sprites.s2.leavesSprites1[i] = NULL;
+            }
+        }
+
+        gWeatherPtr->leavesSpritesCreated = TRUE;
+    }
+}
+
+static const u16 sLeavesSwirlEntranceDelays[] = {0, 120, 80, 160, 40, 0};
+
+static void CreateSwirlLeavesSprites(void)
+{
+    u16 i;
+    u8 spriteId;
+
+    if (!gWeatherPtr->leavesSwirlSpritesCreated)
+    {
+        for (i = 0; i < NUM_SWIRL_LEAVES_SPRITES; i++)
+        {
+            spriteId = CreateSpriteAtEnd(&sLeavesSpriteTemplate, i * 48 + 24, 208, 1);
+            if (spriteId != MAX_SPRITES)
+            {
+                gWeatherPtr->sprites.s2.leavesSprites2[i] = &gSprites[spriteId];
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->oam.size = ST_OAM_SIZE_2;
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->tSpriteRow = i * 51;
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->tRadius = 8;
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->tRadiusCounter = 0;
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->data[4] = 0x6730; // unused value
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->tEntranceDelay = sLeavesSwirlEntranceDelays[i];
+                StartSpriteAnim(gWeatherPtr->sprites.s2.leavesSprites2[i], 1);
+                CalcCenterToCornerVec(gWeatherPtr->sprites.s2.leavesSprites2[i], SPRITE_SHAPE(32x32), SPRITE_SIZE(32x32), ST_OAM_AFFINE_OFF);
+                gWeatherPtr->sprites.s2.leavesSprites2[i]->callback = WaitLeavesSwirlSpriteEntrance;
+            }
+            else
+            {
+                gWeatherPtr->sprites.s2.leavesSprites2[i] = NULL;
+            }
+
+            gWeatherPtr->leavesSwirlSpritesCreated = TRUE;
+        }
+    }
+}
+
+static void UpdateLeavesSprite(struct Sprite *sprite)
+{
+    sprite->y2 = gWeatherPtr->leavesPosY;
+    sprite->x = gWeatherPtr->leavesBaseSpritesX + 32 + sprite->tSpriteColumn * 64;
+    if (sprite->x > 271)
+    {
+        sprite->x = gWeatherPtr->leavesBaseSpritesX + 480 - (4 - sprite->tSpriteColumn) * 64;
+        sprite->x &= 0x1FF;
+    }
+}
+
+static void WaitLeavesSwirlSpriteEntrance(struct Sprite *sprite)
+{
+    if (--sprite->tEntranceDelay == -1)
+        sprite->callback = UpdateLeavesSwirlSprite;
+}
+
+static void UpdateLeavesSwirlSprite(struct Sprite *sprite)
+{
+    u32 x, y;
+
+    if (--sprite->y < -48)
+    {
+        sprite->y = 208;
+        sprite->tRadius = 4;
+    }
+
+    x = sprite->tRadius * gSineTable[sprite->tWaveIndex];
+    y = sprite->tRadius * gSineTable[sprite->tWaveIndex + 0x40];
+    sprite->x2 = x >> 8;
+    sprite->y2 = y >> 8;
+    sprite->tWaveIndex = (sprite->tWaveIndex + 10) & 0xFF;
+    if (++sprite->tRadiusCounter > 8)
+    {
+        sprite->tRadiusCounter = 0;
+        sprite->tRadius++;
+    }
+}
+
+#undef tSpriteColumn
+#undef tSpriteRow
+
+#undef tRadius
+#undef tWaveIndex
+#undef tRadiusCounter
+#undef tEntranceDelay
+
+
 //------------------------------------------------------------------------------
 // WEATHER_SHADE
 //------------------------------------------------------------------------------
@@ -2602,6 +2915,7 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_DOWNPOUR:           return WEATHER_DOWNPOUR;
     case WEATHER_UNDERWATER_BUBBLES: return WEATHER_UNDERWATER_BUBBLES;
     case WEATHER_ABNORMAL:           return WEATHER_ABNORMAL;
+    case WEATHER_LEAVES:             return WEATHER_LEAVES;
     case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
     case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
     default:                         return WEATHER_NONE;

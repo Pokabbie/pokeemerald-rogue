@@ -2131,6 +2131,10 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             }
         };
 
+#ifdef ROGUE_DEBUG
+        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
+#endif
+
         
         // Ensure we have all badges by this point
         if(gRogueRun.currentDifficulty >= 8)
