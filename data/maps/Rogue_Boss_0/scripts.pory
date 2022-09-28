@@ -116,6 +116,66 @@ script Rogue_BattleDefeated_Boss0
     message(format("{PLAYER} received a GYM BADGE!"))
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
+
+    switch(var(VAR_ROGUE_DIFFICULTY))
+    {
+        case 0:
+            checkitem(ITEM_HM01)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM01)
+            }
+
+        case 1:
+            checkitem(ITEM_HM05_FLASH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM05_FLASH)
+            }
+
+        case 2:
+            checkitem(ITEM_HM06_ROCK_SMASH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM06_ROCK_SMASH)
+            }
+
+        case 3:
+            checkitem(ITEM_HM04_STRENGTH)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM04_STRENGTH)
+            }
+
+        case 4:
+            checkitem(ITEM_HM08_DIVE)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM08_DIVE)
+            }
+
+        case 5:
+            checkitem(ITEM_HM02_FLY)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM02_FLY)
+            }
+
+        case 6:
+            checkitem(ITEM_HM07_WATERFALL)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM07_WATERFALL)
+            }
+
+        case 7:
+            checkitem(ITEM_HM03_SURF)
+            if(var(VAR_RESULT) == NO)
+            {
+                giveitem(ITEM_HM03_SURF)
+            }
+    }
+
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
     special(HealPlayerParty)

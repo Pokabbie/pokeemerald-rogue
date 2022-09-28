@@ -52,6 +52,9 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 
 static void UnlockFollowingQuests(u16 questId);
 static void UpdateMonoQuests(void);
+static void ForEachUnlockedQuest(QuestCallback callback);
+static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
+static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
 
 void ResetQuestState(u16 saveVersion)
 {
@@ -66,10 +69,12 @@ void ResetQuestState(u16 saveVersion)
         }
 
         // These quests must always be unlocked
-        for(i = QUEST_FirstAdventure; i <= QUEST_Champion; ++i)
+        for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
         {
             TryUnlockQuest(i);
         }
+
+        ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
 
@@ -434,7 +439,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     }
 }
 
-static void ActivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
+static void TryActivateQuestInternal(u16 questId, struct RogueQuestState* state)
 {
     if(state->isUnlocked)
     {
@@ -451,9 +456,29 @@ static void ActivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
     }
 }
 
-static void DeactivateQuestIfNeeded(u16 questId, struct RogueQuestState* state)
+static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
 {
-    if(state->isValid && !IsQuestGloballyTracked(questId))
+    bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
+
+    if(!activeInHub || IsQuestGloballyTracked(questId))
+    {
+        TryActivateQuestInternal(questId, state);
+    }
+    else
+    {
+        state->isValid = FALSE;
+    }
+}
+
+static void ActivateHubQuests(u16 questId, struct RogueQuestState* state)
+{
+    bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
+
+    if(activeInHub || IsQuestGloballyTracked(questId))
+    {
+        TryActivateQuestInternal(questId, state);
+    }
+    else
     {
         state->isValid = FALSE;
     }
@@ -498,7 +523,7 @@ void QuestNotify_BeginAdventure(void)
     // Cannot activate quests on Gauntlet mode
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        ForEachUnlockedQuest(ActivateQuestIfNeeded);
+        ForEachUnlockedQuest(ActivateAdventureQuests);
     }
 
     // Handle skip difficulty
@@ -534,6 +559,20 @@ static void OnEndBattle(void)
 {
     struct RogueQuestState state;
 
+    if(IsQuestActive(QUEST_Collector1))
+    {
+        u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        if(caughtCount >= 15)
+            TryMarkQuestAsComplete(QUEST_Collector1);
+    }
+
+    if(IsQuestActive(QUEST_Collector2))
+    {
+        u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        if(caughtCount >= 100)
+            TryMarkQuestAsComplete(QUEST_Collector2);
+    }
+
     if(IsQuestActive(QUEST_NoFainting1) && GetQuestState(QUEST_NoFainting1, &state))
     {
         if(Rogue_IsPartnerMonInTeam() == FALSE)
@@ -550,23 +589,17 @@ void QuestNotify_EndAdventure(void)
 {
     TryMarkQuestAsComplete(QUEST_FirstAdventure);
 
-    ForEachUnlockedQuest(DeactivateQuestIfNeeded);
+    ForEachUnlockedQuest(ActivateHubQuests);
 }
 
 void QuestNotify_OnWildBattleEnd(void)
 {
     if(gBattleOutcome == B_OUTCOME_CAUGHT)
     {
-        if(IsQuestActive(QUEST_Collector1))
-        {
-            u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
-            if(caughtCount >= 15)
-                TryMarkQuestAsComplete(QUEST_Collector1);
-        }
-
         if(IsQuestActive(QUEST_DenExplorer) && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
             TryMarkQuestAsComplete(QUEST_DenExplorer);
     }
+    //
 
     OnEndBattle();
 }
@@ -652,14 +685,14 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 break;
 
             case 12: // Just beat last E4
-                if(IsQuestActive(QUEST_Collector2))
+                if(IsQuestActive(QUEST_CollectorLegend))
                 {
                     for(i = 0; i < PARTY_SIZE; ++i)
                     {
                         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
                         if(IsSpeciesLegendary(species))
                         {
-                            TryMarkQuestAsComplete(QUEST_Collector2);
+                            TryMarkQuestAsComplete(QUEST_CollectorLegend);
                             break;
                         }
                     }
@@ -697,6 +730,18 @@ void QuestNotify_OnMonFainted()
 {
     TryDeactivateQuest(QUEST_NoFainting2);
     TryDeactivateQuest(QUEST_NoFainting3);
+
+    if(IsQuestActive(QUEST_WobFate))
+    {
+        bool8 isTrainerBattle = (gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0;
+        if(!isTrainerBattle)
+        {
+            u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+
+            if(species == SPECIES_WOBBUFFET)
+                TryMarkQuestAsComplete(QUEST_WobFate);
+        }
+    }
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)

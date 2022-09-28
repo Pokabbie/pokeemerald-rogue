@@ -691,8 +691,8 @@ Rogue_GymIdentity_PreBoss::
 	case 4, Rogue_GymIdentity_PreBoss_10
 	case 5, Rogue_GymIdentity_PreBoss_11
 	case 6, Rogue_GymIdentity_PreBoss_12
-	checkconstantmoney 24000
-	bufferconstantnumberstring STR_VAR_1, 24000
+	checkconstantmoney 8000
+	bufferconstantnumberstring STR_VAR_1, 8000
 Rogue_GymIdentity_PreBoss_4:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_GymIdentity_PreBoss_15
@@ -717,28 +717,28 @@ Rogue_GymIdentity_PreBoss_7:
 	goto Rogue_GymIdentity_PreBoss_4
 
 Rogue_GymIdentity_PreBoss_8:
+	checkconstantmoney 3000
+	bufferconstantnumberstring STR_VAR_1, 3000
+	goto Rogue_GymIdentity_PreBoss_4
+
+Rogue_GymIdentity_PreBoss_9:
 	checkconstantmoney 4000
 	bufferconstantnumberstring STR_VAR_1, 4000
 	goto Rogue_GymIdentity_PreBoss_4
 
-Rogue_GymIdentity_PreBoss_9:
-	checkconstantmoney 8000
-	bufferconstantnumberstring STR_VAR_1, 8000
-	goto Rogue_GymIdentity_PreBoss_4
-
 Rogue_GymIdentity_PreBoss_10:
-	checkconstantmoney 12000
-	bufferconstantnumberstring STR_VAR_1, 12000
+	checkconstantmoney 5000
+	bufferconstantnumberstring STR_VAR_1, 5000
 	goto Rogue_GymIdentity_PreBoss_4
 
 Rogue_GymIdentity_PreBoss_11:
-	checkconstantmoney 16000
-	bufferconstantnumberstring STR_VAR_1, 16000
+	checkconstantmoney 6000
+	bufferconstantnumberstring STR_VAR_1, 6000
 	goto Rogue_GymIdentity_PreBoss_4
 
 Rogue_GymIdentity_PreBoss_12:
-	checkconstantmoney 20000
-	bufferconstantnumberstring STR_VAR_1, 20000
+	checkconstantmoney 7000
+	bufferconstantnumberstring STR_VAR_1, 7000
 	goto Rogue_GymIdentity_PreBoss_4
 
 Rogue_GymIdentity_PreBoss_15:
@@ -757,7 +757,7 @@ Rogue_GymIdentity_PreBoss_18:
 	case 4, Rogue_GymIdentity_PreBoss_26
 	case 5, Rogue_GymIdentity_PreBoss_27
 	case 6, Rogue_GymIdentity_PreBoss_28
-	removeconstantmoney 24000
+	removeconstantmoney 8000
 Rogue_GymIdentity_PreBoss_20:
 	updatemoneybox
 	waitse
@@ -772,23 +772,23 @@ Rogue_GymIdentity_PreBoss_23:
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_24:
-	removeconstantmoney 4000
+	removeconstantmoney 3000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_25:
-	removeconstantmoney 8000
+	removeconstantmoney 4000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_26:
-	removeconstantmoney 12000
+	removeconstantmoney 5000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_27:
-	removeconstantmoney 16000
+	removeconstantmoney 6000
 	goto Rogue_GymIdentity_PreBoss_20
 
 Rogue_GymIdentity_PreBoss_28:
-	removeconstantmoney 20000
+	removeconstantmoney 7000
 	goto Rogue_GymIdentity_PreBoss_20
 
 

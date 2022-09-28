@@ -82,6 +82,12 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             outEvo->method = EVO_LEVEL;
             outEvo->param = 34;
         }
+
+        if(species == SPECIES_MELTAN && evoIdx == 0)
+        {
+            outEvo->method = EVO_LEVEL_ITEM;
+            outEvo->param = ITEM_METAL_COAT;
+        }
 #endif
 
         switch(outEvo->method)

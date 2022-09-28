@@ -1623,7 +1623,18 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
 
-    SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        ClearBag();
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+        CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]); // Keep key items
+        SetMoney(&gSaveBlock1Ptr->money, 0);
+    }
+    else
+    {
+        SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+    }
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
 
@@ -2021,8 +2032,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                 {
-                    // TODO
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
+                    u16 chosenType = gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
+                    u16 weatherType = gRogueTypeWeatherTable[chosenType];
+
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
             }
@@ -2116,6 +2130,10 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 break;
             }
         };
+
+#ifdef ROGUE_DEBUG
+        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
+#endif
 
         
         // Ensure we have all badges by this point
@@ -2312,6 +2330,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
         }
+        else
+        {
+            QuestNotify_OnMonFainted();
+        }
     }
 }
 
@@ -2339,6 +2361,10 @@ void Rogue_Battle_EndWildBattle(void)
         {
             QuestNotify_OnWildBattleEnd();
             RemoveAnyFaintedMons(FALSE);
+        }
+        else
+        {
+            QuestNotify_OnMonFainted();
         }
     }
 }
@@ -2542,14 +2568,14 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         }
         else if(difficultyLevel == 1)
         {
-            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
         else if(difficultyLevel == 2)
         {
-            *monsCount = 1 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = FALSE;
             *allowLedgendaries = FALSE;
         }
@@ -2562,7 +2588,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
             *allowItemEvos = TRUE;
             *allowLedgendaries = TRUE;
         }
@@ -3748,7 +3774,7 @@ static void RandomiseSafariWildEncounters(void)
         RogueQuery_SpeciesExcludeCommon();
     }
 
-    if(!IsQuestCollected(QUEST_Collector2))
+    if(!IsQuestCollected(QUEST_CollectorLegend))
     {
         RogueQuery_SpeciesIsNotLegendary();
     }

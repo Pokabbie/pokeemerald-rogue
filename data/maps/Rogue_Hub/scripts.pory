@@ -417,32 +417,13 @@ script RogueHub_SpeakBikeShop
 
     release
 }
+
 script RogueHub_SpeakSafariWelcome
 {
     lock
     faceplayer
 
     msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed POKéMON and let them roam freely!\pAs a thanks for providing the POKéMON data for us, we'll allow you to enter and capture a few POKéMON of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
-
-    release
-}
-
-
-script RogueHub_SpeakFisherman
-{
-    lock
-    faceplayer
-
-    checkitem(ITEM_SUPER_ROD)
-    if(var(VAR_RESULT) == YES)
-    {
-        msgbox(format("Hope that SUPER ROD is doing good work for you!"), MSGBOX_DEFAULT)
-    }
-    else
-    {
-        msgbox(format("Oh you're that TRAINER I keep hearing about!\pYou know, if you find yourself short on WATER POKéMON you can always use a FISHING ROD\pWhat!?\nYou don't have one!\pHere, you should take this one!"), MSGBOX_DEFAULT)
-        giveitem(ITEM_SUPER_ROD)
-    }
 
     release
 }
@@ -597,39 +578,43 @@ script RogueHub_EnterSafari
     msgbox(format("Welcome to the SAFARI ZONE!\nWould like to enter?"), MSGBOX_YESNO)
 
     setvar(VAR_0x8000, 0)
-    setvar(VAR_0x8000, 0)
+    setvar(VAR_0x8001, 0)
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Would you like to limit which GENERATION of POKéMON will be wandering about for you to catch?"), MSGBOX_YESNO)
-
+        questcollected(QUEST_Collector2)
         if(var(VAR_RESULT) == YES)
         {
-            message(format("Which GENERATION would you like to enable?"))
-            waitmessage
-            
-            if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
+            msgbox(format("You can choose to either have POKéMON from every GENERATION appear or select a specific GENERATION to catch from.\pWould you like to limit to a single GENERATION?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
             {
-                multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+                message(format("Which GENERATION would you like to enable?"))
+                waitmessage
+                
+                if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
+                {
+                    multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+                }
+                else
+                {
+                    multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+                }
+
+                switch(var(VAR_RESULT))
+                {
+                    case MULTI_B_PRESSED: 
+                        setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
+                    
+                    default:
+                        copyvar(VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT)
+                        addvar(VAR_ROGUE_SAFARI_GENERATION, 1)
+                }
             }
             else
             {
-                multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+                setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
             }
-
-            switch(var(VAR_RESULT))
-            {
-                case MULTI_B_PRESSED: 
-                    setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
-                
-                default:
-                    copyvar(VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT)
-                    addvar(VAR_ROGUE_SAFARI_GENERATION, 1)
-            }
-        }
-        else
-        {
-            setvar(VAR_ROGUE_SAFARI_GENERATION, 0)
         }
 
         bufferitemname(STR_VAR_1, ITEM_SAFARI_BALL)

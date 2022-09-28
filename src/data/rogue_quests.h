@@ -10,10 +10,11 @@ static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
 
-static const u8 gText_PreviewUnlocksLegendarySafari[] = _("SAFARI Upgrade");
-static const u8 gText_GiveLegendarySafari[] = _("Legendary POKéMON can\nnow appear in the Safari Zone!");
+static const u8 gText_PreviewUnlocksLegendarySafari[] = _("Safari Upgrade");
+static const u8 gText_GiveLegendarySafari[] = _("New Safari Upgrade:\nLegendary POKéMON can now appear!");
+static const u8 gText_GiveSafariLimiter[] = _("New Safari Upgrade:\nYou can now filter by GENERATION!");
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
-static const u8 gText_GiveLegendaryBikeShop[] = _("You can now collect and carry\nboth Bikes!");
+static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou can now carry both Bikes at once!");
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
@@ -42,7 +43,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_ShoppingSpree,
             QUEST_NoFainting1,
             QUEST_MrRandoman,
-            QUEST_BerryCollector
+            QUEST_BerryCollector,
+            QUEST_WobFate
         }
     },
 
@@ -167,28 +169,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
-        },
-        .unlockedQuests = { 
-            QUEST_NORMAL_Champion, 
-            QUEST_FIGHTING_Champion, 
-            QUEST_FLYING_Champion, 
-            QUEST_POISON_Champion, 
-            QUEST_GROUND_Champion, 
-            QUEST_ROCK_Champion, 
-            QUEST_BUG_Champion, 
-            QUEST_GHOST_Champion, 
-            QUEST_STEEL_Champion, 
-            QUEST_FIRE_Champion, 
-            QUEST_WATER_Champion, 
-            QUEST_GRASS_Champion, 
-            QUEST_ELECTRIC_Champion, 
-            QUEST_PSYCHIC_Champion, 
-            QUEST_ICE_Champion, 
-            QUEST_DRAGON_Champion, 
-            QUEST_DARK_Champion, 
-#ifdef ROGUE_EXPANSION
-            QUEST_FAIRY_Champion,
-#endif
         }
     },
     [QUEST_EliteMaster] = 
@@ -215,6 +195,46 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
+        },
+        .unlockedQuests = { 
+            QUEST_NORMAL_Champion, 
+            QUEST_FIGHTING_Champion, 
+            QUEST_FLYING_Champion, 
+            QUEST_POISON_Champion, 
+            QUEST_GROUND_Champion, 
+            QUEST_ROCK_Champion, 
+            QUEST_BUG_Champion, 
+            QUEST_GHOST_Champion, 
+            QUEST_STEEL_Champion, 
+            QUEST_FIRE_Champion, 
+            QUEST_WATER_Champion, 
+            QUEST_GRASS_Champion, 
+            QUEST_ELECTRIC_Champion, 
+            QUEST_PSYCHIC_Champion, 
+            QUEST_ICE_Champion, 
+            QUEST_DRAGON_Champion, 
+            QUEST_DARK_Champion, 
+#ifdef ROGUE_EXPANSION
+            QUEST_FAIRY_Champion,
+#endif
+        }
+    },
+    
+    [QUEST_MeetPokabbie] = 
+    {
+        .title = _("Post Game"),
+        .desc = _(
+                    "Meet ??? in ??? to activate\n"
+                    "post-game content."
+                ),
+        .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
+        .rewards = {
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+#else
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+#endif
         }
     },
 
@@ -230,12 +250,25 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksSafari },
         },
         .unlockedQuests = { 
-            QUEST_Collector2, 
+            QUEST_Collector2,
+            QUEST_CollectorLegend,
         }
     },
     [QUEST_Collector2] = 
     {
         .title = _("Collector +"),
+        .desc = _(
+                    "Fill out 100 POKéDEX\n"
+                    "entries."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
+        }
+    },
+    [QUEST_CollectorLegend] = 
+    {
+        .title = _("Collector X"),
         .desc = _(
                     "Defeat the Elite 4\n"
                     "with a Legendary POKéMON\n"
@@ -317,6 +350,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SUPER_ROD, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTutors },
         },
         .unlockedQuests = { 
@@ -377,7 +411,24 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "Trade whenever possible."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } }
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_CAPSULE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_PATCH, 1 } },
+#else
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+#endif
+        }
+    },
+
+    [QUEST_WobFate] = 
+    {
+        .title = _("Fate"),
+        .desc = _(
+                    "Have a POKéMON faint whilst\n"
+                    "fighting a wild Wobbuffet."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
         }
     },
 

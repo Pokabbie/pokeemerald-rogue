@@ -355,23 +355,6 @@ RogueHub_SpeakSafariWelcome::
 	return
 
 
-RogueHub_SpeakFisherman::
-	lock
-	faceplayer
-	checkitem ITEM_SUPER_ROD
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakFisherman_2
-	msgbox RogueHub_SpeakFisherman_Text_1, MSGBOX_DEFAULT
-	giveitem ITEM_SUPER_ROD
-RogueHub_SpeakFisherman_1:
-	release
-	return
-
-RogueHub_SpeakFisherman_2:
-	msgbox RogueHub_SpeakFisherman_Text_0, MSGBOX_DEFAULT
-	goto RogueHub_SpeakFisherman_1
-
-
 RogueHub_SpeakBank::
 	lock
 	faceplayer
@@ -505,7 +488,7 @@ RogueHub_EnterSafari::
 	showmoneybox 0, 0
 	msgbox RogueHub_EnterSafari_Text_0, MSGBOX_YESNO
 	setvar VAR_0x8000, 0
-	setvar VAR_0x8000, 0
+	setvar VAR_0x8001, 0
 	compare VAR_RESULT, YES
 	goto_if_eq RogueHub_EnterSafari_2
 RogueHub_EnterSafari_1:
@@ -516,20 +499,19 @@ RogueHub_EnterSafari_4:
 	return
 
 RogueHub_EnterSafari_2:
-	msgbox RogueHub_EnterSafari_Text_1, MSGBOX_YESNO
+	questcollected QUEST_Collector2
 	compare VAR_RESULT, YES
 	goto_if_eq RogueHub_EnterSafari_8
-	setvar VAR_ROGUE_SAFARI_GENERATION, 0
 RogueHub_EnterSafari_7:
 	bufferitemname STR_VAR_1, ITEM_SAFARI_BALL
 	message RogueHub_EnterSafari_Text_3
 	waitmessage
 	multichoice 20, 6, MULTI_MECHADOLL1_Q1, NO
 	switch VAR_RESULT
-	case 0, RogueHub_EnterSafari_12
-	case 1, RogueHub_EnterSafari_13
-	case 2, RogueHub_EnterSafari_14
-	case MULTI_B_PRESSED, RogueHub_EnterSafari_15
+	case 0, RogueHub_EnterSafari_11
+	case 1, RogueHub_EnterSafari_12
+	case 2, RogueHub_EnterSafari_13
+	case MULTI_B_PRESSED, RogueHub_EnterSafari_14
 	goto RogueHub_EnterSafari_1
 
 RogueHub_EnterSafari_5:
@@ -541,49 +523,56 @@ RogueHub_EnterSafari_5:
 	goto RogueHub_EnterSafari_4
 
 RogueHub_EnterSafari_8:
-	message RogueHub_EnterSafari_Text_2
-	waitmessage
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_EnterSafari_19
-RogueHub_EnterSafari_18:
-	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
-RogueHub_EnterSafari_16:
-	switch VAR_RESULT
-	case MULTI_B_PRESSED, RogueHub_EnterSafari_23
-	copyvar VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT
-	addvar VAR_ROGUE_SAFARI_GENERATION, 1
+	msgbox RogueHub_EnterSafari_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_EnterSafari_15
+	setvar VAR_ROGUE_SAFARI_GENERATION, 0
 	goto RogueHub_EnterSafari_7
 
-RogueHub_EnterSafari_12:
+RogueHub_EnterSafari_11:
 	setvar VAR_0x8000, 3
 	setvar VAR_0x8001, 1000
 	call RogueHub_EnterSafari1
 	goto RogueHub_EnterSafari_1
 
-RogueHub_EnterSafari_13:
+RogueHub_EnterSafari_12:
 	setvar VAR_0x8000, 6
 	setvar VAR_0x8001, 1800
 	call RogueHub_EnterSafari1
 	goto RogueHub_EnterSafari_1
 
-RogueHub_EnterSafari_14:
+RogueHub_EnterSafari_13:
 	setvar VAR_0x8000, 9
 	setvar VAR_0x8001, 2500
 	call RogueHub_EnterSafari1
 	goto RogueHub_EnterSafari_1
 
-RogueHub_EnterSafari_15:
+RogueHub_EnterSafari_14:
 	setvar VAR_RESULT, NO
 	goto RogueHub_EnterSafari_1
 
-RogueHub_EnterSafari_17:
-	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
-	goto RogueHub_EnterSafari_16
+RogueHub_EnterSafari_15:
+	message RogueHub_EnterSafari_Text_2
+	waitmessage
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_EnterSafari_21
+RogueHub_EnterSafari_20:
+	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+RogueHub_EnterSafari_18:
+	switch VAR_RESULT
+	case MULTI_B_PRESSED, RogueHub_EnterSafari_25
+	copyvar VAR_ROGUE_SAFARI_GENERATION, VAR_RESULT
+	addvar VAR_ROGUE_SAFARI_GENERATION, 1
+	goto RogueHub_EnterSafari_7
 
 RogueHub_EnterSafari_19:
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_EnterSafari_17
+	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
 	goto RogueHub_EnterSafari_18
 
-RogueHub_EnterSafari_23:
+RogueHub_EnterSafari_21:
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_EnterSafari_19
+	goto RogueHub_EnterSafari_20
+
+RogueHub_EnterSafari_25:
 	setvar VAR_ROGUE_SAFARI_GENERATION, 0
 	goto RogueHub_EnterSafari_7
 
@@ -706,20 +695,6 @@ RogueHub_SpeakSafariWelcome_Text_0:
 	.string "choosing which you may then use as a\l"
 	.string "PARTNER in future adventures!$"
 
-RogueHub_SpeakFisherman_Text_0:
-	.string "Hope that SUPER ROD is doing good work\n"
-	.string "for you!$"
-
-RogueHub_SpeakFisherman_Text_1:
-	.string "Oh you're that TRAINER I keep hearing\n"
-	.string "about!\p"
-	.string "You know, if you find yourself short on\n"
-	.string "WATER POKéMON you can always use a\l"
-	.string "FISHING ROD\p"
-	.string "What!?\n"
-	.string "You don't have one!\p"
-	.string "Here, you should take this one!$"
-
 RogueHub_SpeakBank_Text_0:
 	.string "Why hello!\n"
 	.string "You must be {PLAYER} if I'm not\l"
@@ -829,9 +804,12 @@ RogueHub_EnterSafari_Text_0:
 	.string "Would like to enter?$"
 
 RogueHub_EnterSafari_Text_1:
-	.string "Would you like to limit which GENERATION\n"
-	.string "of POKéMON will be wandering about for\l"
-	.string "you to catch?$"
+	.string "You can choose to either have POKéMON\n"
+	.string "from every GENERATION appear or\l"
+	.string "select a specific GENERATION to catch\l"
+	.string "from.\p"
+	.string "Would you like to limit to a single\n"
+	.string "GENERATION?$"
 
 RogueHub_EnterSafari_Text_2:
 	.string "Which GENERATION would you like to\n"

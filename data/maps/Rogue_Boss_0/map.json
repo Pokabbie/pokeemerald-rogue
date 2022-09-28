@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Battle_Boss0_Hint",
-      "flag": "FLAG_ROGUE_HARD_TRAINERS"
+      "flag": "0"
     }
   ],
   "warp_events": [

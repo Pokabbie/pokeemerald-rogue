@@ -7184,6 +7184,13 @@ static void Cmd_atknameinbuff1(void)
 
 static void Cmd_drawlvlupbox(void)
 {
+    if(TRUE)
+    {
+        // RogueNote: lvl up box is skipped
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
     if (gBattleScripting.drawlvlupboxState == 0)
     {
         // If the Pokémon getting exp is not in-battle then

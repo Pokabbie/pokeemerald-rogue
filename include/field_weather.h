@@ -11,6 +11,7 @@ enum {
     GFXTAG_ASH,
     GFXTAG_FOG_D,
     GFXTAG_SANDSTORM,
+    GFXTAG_LEAVES,
     GFXTAG_BUBBLE,
     GFXTAG_RAIN,
 };
@@ -37,6 +38,8 @@ struct Weather
             struct Sprite *fogDSprites[NUM_FOG_DIAGONAL_SPRITES];
             struct Sprite *sandstormSprites1[NUM_SANDSTORM_SPRITES];
             struct Sprite *sandstormSprites2[NUM_SWIRL_SANDSTORM_SPRITES];
+            struct Sprite *leavesSprites1[NUM_LEAVES_SPRITES];
+            struct Sprite *leavesSprites2[NUM_SWIRL_LEAVES_SPRITES];
         } s2;
     } sprites;
     u8 gammaShifts[19][32];
@@ -102,6 +105,16 @@ struct Weather
     u16 sandstormWaveCounter;
     u8 sandstormSpritesCreated;
     u8 sandstormSwirlSpritesCreated;
+    // Leaves
+    u32 leavesXOffset;
+    u32 leavesYOffset;
+    u16 leavesUnused;
+    u16 leavesBaseSpritesX;
+    u16 leavesPosY;
+    u16 leavesWaveIndex;
+    u16 leavesWaveCounter;
+    u8 leavesSpritesCreated;
+    u8 leavesSwirlSpritesCreated;
     // Diagonal fog
     u16 fogDBaseSpritesX;
     u16 fogDPosY;
@@ -202,6 +215,10 @@ void Sandstorm_InitVars(void);
 void Sandstorm_Main(void);
 void Sandstorm_InitAll(void);
 bool8 Sandstorm_Finish(void);
+void Leaves_InitVars(void);
+void Leaves_Main(void);
+void Leaves_InitAll(void);
+bool8 Leaves_Finish(void);
 void FogDiagonal_InitVars(void);
 void FogDiagonal_Main(void);
 void FogDiagonal_InitAll(void);

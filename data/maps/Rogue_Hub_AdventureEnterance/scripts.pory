@@ -41,6 +41,16 @@ script Rogue_Adventure_WarpState0
 
 script Rogue_Adventure_RedrawMap
 {
+    // Basic bag NPC
+    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
+    {
+        setflag(FLAG_ROGUE_TRAINER1)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER1)
+    }
+
     // Hide hidden rooms
     if(flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS) || flag(FLAG_ROGUE_MET_POKABBIE) && !flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS))
     {
@@ -186,6 +196,36 @@ movement Rogue_Adventure_ScottIntroMovement0
 
     walk_left * 2
     walk_down * 2
+}
+
+script Rogue_Adventure_SpeakBasicBag
+{
+    lock
+    faceplayer
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
+            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        }
+    }
+    else
+    {
+        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
+        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
+            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        }
+    }
+
+    release
 }
 
 script Rogue_Adventure_StatsSign
