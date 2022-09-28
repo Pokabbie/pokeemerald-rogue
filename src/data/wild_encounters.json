@@ -12722,7 +12722,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 5,
