@@ -477,6 +477,7 @@ script Rogue_StartAdventureCommon
             setflag(FLAG_ROGUE_LEFT_ON_RUN)
             setrespawn(HEAL_LOCATION_ROGUE_HUB)
             warp(MAP_ROGUE_HUB_TRANSITION, 0)
+            waitstate
         }
         else
         {
@@ -525,13 +526,26 @@ script Rogue_ReturnAdventureCommon
     clearflag(FLAG_ROGUE_LEFT_ON_RUN)
     setvar(VAR_ROGUE_INTRO_STATE, 7)
 
+
+    if(flag(FLAG_SET_SEED_ENABLED))
+    {
+        msgbox(format("Would you like to keep the same SEED enabled for your next Adventure?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("OK.\nI'll remember the same SEED then."), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            msgbox(format("OK.\nThe SEED will be removed for the next Adventure."), MSGBOX_DEFAULT)
+            clearflag(FLAG_SET_SEED_ENABLED)
+        }
+    }
     
     msgbox(format("Would you like to SAVE your progress?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)
     {
         call(Common_EventScript_SaveGame)
     }
-
     msgbox(format("Come speak to me once you're ready for your next adventure."), MSGBOX_DEFAULT)
     releaseall
 }

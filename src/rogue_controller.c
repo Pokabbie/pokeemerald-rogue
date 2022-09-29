@@ -1669,7 +1669,6 @@ static void EndRogueRun(void)
     QuestNotify_EndAdventure();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
-    FlagClear(FLAG_SET_SEED_ENABLED);
     VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     //gRogueRun.currentRoomIdx = 0;

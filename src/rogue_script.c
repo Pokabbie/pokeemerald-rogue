@@ -36,6 +36,17 @@ bool8 Rogue_CheckPartyHasRoomForMon(void)
     return TRUE;
 }
 
+void Rogue_SeedRandomGenerators(void)
+{
+    u32 startSeed = gRngRogueValue;
+
+    RogueRandom();
+    SeedRng(RogueRandom());
+    SeedRng2(RogueRandom());
+
+    gRngRogueValue = startSeed;
+}
+
 void Rogue_RandomisePartyMon(void)
 {
     u8 monIdx = gSpecialVar_0x8004;
