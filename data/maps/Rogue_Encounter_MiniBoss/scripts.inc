@@ -45,6 +45,7 @@ Rogue_BattleDefeated_MiniBoss_1:
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
+	waitstate
 	release
 	return
 
