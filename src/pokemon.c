@@ -7414,6 +7414,25 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
     }
 }
 
+u8 CalcMonHiddenPowerType(struct Pokemon *mon)
+{
+    u8 typeBits  = ((GetMonData(mon, MON_DATA_HP_IV, 0) & 1) << 0)
+                 | ((GetMonData(mon, MON_DATA_ATK_IV, 0) & 1) << 1)
+                 | ((GetMonData(mon, MON_DATA_DEF_IV, 0) & 1) << 2)
+                 | ((GetMonData(mon, MON_DATA_SPEED_IV, 0) & 1) << 3)
+                 | ((GetMonData(mon, MON_DATA_SPATK_IV, 0) & 1) << 4)
+                 | ((GetMonData(mon, MON_DATA_SPDEF_IV, 0) & 1) << 5);
+
+    // Subtract 3 instead of 1 below because 2 types are excluded (TYPE_NORMAL and TYPE_MYSTERY)
+    // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
+    u8 type = ((NUMBER_OF_MON_TYPES - 3) * typeBits) / 63 + 1;
+    if (type >= TYPE_MYSTERY)
+        type++;
+
+    //type |= F_DYNAMIC_TYPE_1 | F_DYNAMIC_TYPE_2;
+    return type;
+}
+
 u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
 {
     return CanSpeciesLearnTMHM(GetMonData(mon, MON_DATA_SPECIES2, 0), tm);
@@ -7434,6 +7453,24 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
             return TRUE;
         else if(gTMHMLearnsets[species][i] == ITEM_TMHM_COUNT)
             break;
+    }
+
+    return FALSE;
+}
+
+bool8 CanSpeciesLearnMoveByLevelup(u16 species, u16 move)
+{
+    int i;
+
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    {
+        u16 checkMove = gLevelUpLearnsets[species][i].move;
+
+        if (checkMove == LEVEL_UP_END)
+            break;
+
+        if(checkMove == move)
+            return TRUE;
     }
 
     return FALSE;

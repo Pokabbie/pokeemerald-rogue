@@ -149,6 +149,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 metLocation; // 0x9
         u8 metLevel; // 0xA
         u8 metGame; // 0xB
+        u8 hiddenPowerType;
         u32 pid; // 0xC
         u32 exp; // 0x10
         u16 moves[MAX_MON_MOVES]; // 0x14
@@ -1507,6 +1508,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->item = GetMonData(mon, MON_DATA_HELD_ITEM);
         sum->pid = GetMonData(mon, MON_DATA_PERSONALITY);
         sum->sanity = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
+        sum->hiddenPowerType = CalcMonHiddenPowerType(mon);
 
         if (sum->sanity)
             sum->isEgg = TRUE;
@@ -4054,7 +4056,9 @@ static void SetMoveTypeIcons(void)
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (summary->moves[i] != MOVE_NONE)
+        if (summary->moves[i] == MOVE_HIDDEN_POWER)
+            SetTypeSpritePosAndPal(summary->hiddenPowerType, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+        else if (summary->moves[i] != MOVE_NONE)
             SetTypeSpritePosAndPal(gBattleMoves[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
         else
             SetSpriteInvisibility(i + SPRITE_ARR_ID_TYPE, TRUE);
@@ -4082,8 +4086,15 @@ static void SetNewMoveTypeIcon(void)
     }
     else
     {
+        struct PokeSummary *summary = &sMonSummaryScreen->summary;
+
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-            SetTypeSpritePosAndPal(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, SPRITE_ARR_ID_TYPE + 4);
+        {
+            if (sMonSummaryScreen->newMove == MOVE_HIDDEN_POWER)
+                SetTypeSpritePosAndPal(summary->hiddenPowerType, 85, 96, SPRITE_ARR_ID_TYPE + 4);
+            else
+                SetTypeSpritePosAndPal(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, SPRITE_ARR_ID_TYPE + 4);
+        }
         else
             SetTypeSpritePosAndPal(NUMBER_OF_MON_TYPES + gContestMoves[sMonSummaryScreen->newMove].contestCategory, 85, 96, SPRITE_ARR_ID_TYPE + 4);
     }

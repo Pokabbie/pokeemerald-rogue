@@ -2018,12 +2018,25 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
 {
     u16 tutorMoveIdx;
     u16 numTutorMoves;
+    u16 move;
     u16 species;
     u16 i;
 
     numTutorMoves = 0;
     tutorMoveIdx = 0;
     species = GetMonData(pokemon, MON_DATA_SPECIES);
+
+    // Place out generated moves ahead of the default ones
+    for(i = 0; i < gPresetMonTable[species].movesCount; ++i)
+    {
+        move = gPresetMonTable[species].moves[i];
+
+        // If we can't learn this and there isn't a TM for it, allow teaching via tutor
+        if(!CanSpeciesLearnMoveByLevelup(species, move) && BattleMoveIdToItemId(move) == 0)
+        {
+            tutorMoves[numTutorMoves++] = move;
+        }
+    }
 
     for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
     {

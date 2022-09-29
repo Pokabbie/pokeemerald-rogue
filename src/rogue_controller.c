@@ -3208,6 +3208,139 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
 
     move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
     SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
+
+    if(preset->hiddenPowerType != TYPE_NONE)
+    {
+        u16 value;
+        bool8 ivStatsOdd[6];
+
+        #define oddHP ivStatsOdd[0]
+        #define oddAtk ivStatsOdd[1]
+        #define oddDef ivStatsOdd[2]
+        #define oddSpeed ivStatsOdd[3]
+        #define oddSpAtk ivStatsOdd[4]
+        #define oddSpDef ivStatsOdd[5]
+
+        oddHP = TRUE;
+        oddAtk = TRUE;
+        oddDef = TRUE;
+        oddSpeed = TRUE;
+        oddSpAtk = TRUE;
+        oddSpDef = TRUE;
+
+        switch(preset->hiddenPowerType)
+        {
+            case TYPE_FIGHTING:
+                oddDef = FALSE;
+                oddSpeed = FALSE;
+                oddSpAtk = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_FLYING:
+                oddSpeed = FALSE;
+                oddSpAtk = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_POISON:
+                oddDef = FALSE;
+                oddSpAtk = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_GROUND:
+                oddSpAtk = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_ROCK:
+                oddDef = FALSE;
+                oddSpeed = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_BUG:
+                oddSpeed = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_GHOST:
+                oddAtk = FALSE;
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_STEEL:
+                oddSpDef = FALSE;
+                break;
+
+            case TYPE_FIRE:
+                oddAtk = FALSE;
+                oddSpeed = FALSE;
+                oddSpAtk = FALSE;
+                break;
+
+            case TYPE_WATER:
+                oddSpeed = FALSE;
+                oddSpAtk = FALSE;
+                break;
+
+            case TYPE_GRASS:
+                oddHP = FALSE;
+                oddSpAtk = FALSE;
+                break;
+
+            case TYPE_ELECTRIC:
+                oddSpAtk = FALSE;
+                break;
+
+            case TYPE_PSYCHIC:
+                oddHP = FALSE;
+                oddSpeed = FALSE;
+                break;
+
+            case TYPE_ICE:
+                oddSpeed = FALSE;
+                break;
+
+            case TYPE_DRAGON:
+                oddHP = FALSE;
+                break;
+
+            case TYPE_DARK:
+                break;
+        }
+
+        #undef oddHP
+        #undef oddAtk
+        #undef oddDef
+        #undef oddSpeed
+        #undef oddSpAtk
+        #undef oddSpDef
+
+        for(i = 0; i < 6; ++i)
+        {
+            value = GetMonData(mon, MON_DATA_HP_IV + i);
+
+            if((value % 2) == 0) // Current IV is even
+            {
+                if(ivStatsOdd[i]) // Wants to be odd
+                {
+                    if(value == 0)
+                        value = 1;
+                    else
+                        --value;
+                }
+            }
+            else // Current IV is odd
+            {
+                if(!ivStatsOdd[i]) // Wants to be even
+                    --value;
+            }
+
+            SetMonData(mon, MON_DATA_HP_IV + i, &value);
+        }
+    }
 }
 
 
@@ -3667,6 +3800,57 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     }
 
     return RogueQuery_BufferPtr();
+}
+
+static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
+{
+    u16 i;
+    u16 randIdx;
+    u32 startSeed = gRngRogueValue;
+
+    while(*count > capacity)
+    {
+        
+        if(Rogue_IsRunActive())
+            randIdx = RogueRandom() % *count;
+        else
+            randIdx = 0; // Always take from the front, as that's where the "good moves" are
+
+        --*count;
+
+        for(i = randIdx; i < *count; ++i)
+        {
+            moves[i] = moves[i + 1];
+        }
+    }
+
+    gRngRogueValue = startSeed;
+}
+
+void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves)
+{
+    if(tutorType != 0) // TEACH_STATE_RELEARN
+    {
+        u16 difficulty;
+        u16 capacity = 0; // MAX is 0
+    
+        if(Rogue_IsRunActive())
+            difficulty = gRogueRun.currentDifficulty;
+        else
+            difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
+
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            difficulty = 13;
+
+        if(difficulty < 8)
+            capacity = 3 + difficulty * 1;
+
+
+        if(capacity != 0)
+        {
+            ApplyTutorMoveCapacity(count, moves, capacity);
+        }
+    }
 }
 
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)

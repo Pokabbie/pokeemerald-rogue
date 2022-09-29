@@ -28,6 +28,8 @@
 #include "daycare.h"
 #include "party_menu.h"
 
+#include "rogue_controller.h"
+
 /*
  * Move relearner state machine
  * ------------------------
@@ -419,6 +421,8 @@ static void GatherLearnableMoves(struct Pokemon* mon)
     {
         sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sMoveRelearnerStruct->movesToLearn);
     }
+
+    Rogue_ModifyTutorMoves(sMoveRelearnerMenuSate.teachMoveState, &sMoveRelearnerStruct->numMenuChoices, sMoveRelearnerStruct->movesToLearn);
 }
 
 u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon)
