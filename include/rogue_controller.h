@@ -76,5 +76,6 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
+void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves);
 
 #endif

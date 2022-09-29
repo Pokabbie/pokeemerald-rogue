@@ -6324,6 +6324,24 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
     }
 }
 
+bool8 CanSpeciesLearnMoveByLevelup(u16 species, u16 move)
+{
+    int i;
+
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    {
+        u16 checkMove = gLevelUpLearnsets[species][i].move;
+
+        if (checkMove == LEVEL_UP_END)
+            break;
+
+        if(checkMove == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[4];

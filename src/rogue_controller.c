@@ -3669,6 +3669,57 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     return RogueQuery_BufferPtr();
 }
 
+static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
+{
+    u16 i;
+    u16 randIdx;
+    u32 startSeed = gRngRogueValue;
+
+    while(*count > capacity)
+    {
+        
+        if(Rogue_IsRunActive())
+            randIdx = RogueRandom() % *count;
+        else
+            randIdx = 0; // Always take from the front, as that's where the "good moves" are
+
+        --*count;
+
+        for(i = randIdx; i < *count; ++i)
+        {
+            moves[i] = moves[i + 1];
+        }
+    }
+
+    gRngRogueValue = startSeed;
+}
+
+void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves)
+{
+    if(tutorType != 0) // TEACH_STATE_RELEARN
+    {
+        u16 difficulty;
+        u16 capacity = 0; // MAX is 0
+    
+        if(Rogue_IsRunActive())
+            difficulty = gRogueRun.currentDifficulty;
+        else
+            difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
+
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            difficulty = 13;
+
+        if(difficulty < 8)
+            capacity = 3 + difficulty * 1;
+
+
+        if(capacity != 0)
+        {
+            ApplyTutorMoveCapacity(count, moves, capacity);
+        }
+    }
+}
+
 static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
 {
     u8 i;
