@@ -826,6 +826,44 @@ void RogueQuery_SpeciesIsNotLegendary(void)
     }
 }
 
+void RogueQuery_SpeciesIncludeMonFlags(u16 flags)
+{
+    u16 species;
+
+    if(flags == MON_FLAG_NONE)
+        return;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if((gPresetMonTable[species].flags & flags) == 0)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesExcludeMonFlags(u16 flags)
+{
+    u16 species;
+
+    if(flags == MON_FLAG_NONE)
+        return;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if((gPresetMonTable[species].flags & flags) != 0)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
 // Items
 //
 
