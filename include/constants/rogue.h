@@ -95,4 +95,22 @@
 #define TRAINER_ROGUE_MINI_BOSS_WALLY        TRAINER_WALLY_VR_1
 #define TRAINER_ROGUE_MINI_BOSS_MIRROR       TRAINER_BRENDAN_PLACEHOLDER
 
+// Mon Preset flags
+//
+#define MON_FLAG_NONE                   0
+#define MON_FLAG_STRONG                 (1 << 0)
+#define MON_FLAG_DOUBLES                (1 << 1)
+
+// These's are the category names fed in by the Showdown presets
+#ifdef ROGUE_EXPANSION
+
+#else
+#define MON_FLAGS_UBERS         MON_FLAG_NONE
+#define MON_FLAGS_OU            MON_FLAG_NONE
+#define MON_FLAGS_UU            MON_FLAG_NONE
+#define MON_FLAGS_NU            MON_FLAG_NONE
+#define MON_FLAGS_DOUBLESOU     MON_FLAG_NONE
+#define MON_FLAGS_1V1           MON_FLAG_NONE
+#endif
+
 #include "rogue_quests.h"
