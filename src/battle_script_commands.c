@@ -8852,6 +8852,7 @@ static void Cmd_recoverbasedonsunlight(void)
 
 static void Cmd_hiddenpowercalc(void)
 {
+    // RogueNote: Duplicated in CalcMonHiddenPowerType
     u8 powerBits = ((gBattleMons[gBattlerAttacker].hpIV & 2) >> 1)
                  | ((gBattleMons[gBattlerAttacker].attackIV & 2) << 0)
                  | ((gBattleMons[gBattlerAttacker].defenseIV & 2) << 1)
