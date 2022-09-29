@@ -21,6 +21,21 @@ script Rogue_HubTransition_RandomMan
 
     if(var(VAR_RESULT) == YES)
     {
+        if(flag(FLAG_SET_SEED_ENABLED))
+        {
+            msgbox(format("Oh you have SEEDED mode on do ya?\pDid you want this trade to be for a SEEDED POKéMON too?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Okidoke!\nOne SEEDED POKéMON coming up!"), MSGBOX_DEFAULT)
+                special(Rogue_SeedRandomGenerators)
+            }
+            else
+            {
+                msgbox(format("Okidoke!\nOne surpise POKéMON coming up!"), MSGBOX_DEFAULT)
+            }
+        }
+
         setvar(VAR_0x8004, 255)
 
         fadescreen(FADE_TO_BLACK)

@@ -455,6 +455,7 @@ Rogue_StartAdventureCommon_42:
 	setflag FLAG_ROGUE_LEFT_ON_RUN
 	setrespawn HEAL_LOCATION_ROGUE_HUB
 	warp MAP_ROGUE_HUB_TRANSITION, 0
+	waitstate
 	return
 
 Rogue_StartAdventureCommon_40:
@@ -483,11 +484,13 @@ Rogue_ReturnAdventureCommon_1:
 Rogue_ReturnAdventureCommon_4:
 	clearflag FLAG_ROGUE_LEFT_ON_RUN
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
-	msgbox Rogue_ReturnAdventureCommon_Text_7, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ReturnAdventureCommon_8
+	goto_if_set FLAG_SET_SEED_ENABLED, Rogue_ReturnAdventureCommon_8
 Rogue_ReturnAdventureCommon_7:
-	msgbox Rogue_ReturnAdventureCommon_Text_8, MSGBOX_DEFAULT
+	msgbox Rogue_ReturnAdventureCommon_Text_10, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ReturnAdventureCommon_11
+Rogue_ReturnAdventureCommon_10:
+	msgbox Rogue_ReturnAdventureCommon_Text_11, MSGBOX_DEFAULT
 	releaseall
 	return
 
@@ -506,7 +509,19 @@ Rogue_ReturnAdventureCommon_5:
 	goto Rogue_ReturnAdventureCommon_4
 
 Rogue_ReturnAdventureCommon_8:
+	msgbox Rogue_ReturnAdventureCommon_Text_7, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ReturnAdventureCommon_13
+	msgbox Rogue_ReturnAdventureCommon_Text_9, MSGBOX_DEFAULT
+	clearflag FLAG_SET_SEED_ENABLED
+	goto Rogue_ReturnAdventureCommon_7
+
+Rogue_ReturnAdventureCommon_11:
 	call Common_EventScript_SaveGame
+	goto Rogue_ReturnAdventureCommon_10
+
+Rogue_ReturnAdventureCommon_13:
+	msgbox Rogue_ReturnAdventureCommon_Text_8, MSGBOX_DEFAULT
 	goto Rogue_ReturnAdventureCommon_7
 
 
@@ -705,8 +720,21 @@ Rogue_ReturnAdventureCommon_Text_6:
 	.string "GYM badges in future Adventures.$"
 
 Rogue_ReturnAdventureCommon_Text_7:
-	.string "Would you like to SAVE your progress?$"
+	.string "Would you like to keep the same SEED\n"
+	.string "enabled for your next Adventure?$"
 
 Rogue_ReturnAdventureCommon_Text_8:
+	.string "OK.\n"
+	.string "I'll remember the same SEED then.$"
+
+Rogue_ReturnAdventureCommon_Text_9:
+	.string "OK.\n"
+	.string "The SEED will be removed for the next\l"
+	.string "Adventure.$"
+
+Rogue_ReturnAdventureCommon_Text_10:
+	.string "Would you like to SAVE your progress?$"
+
+Rogue_ReturnAdventureCommon_Text_11:
 	.string "Come speak to me once you're ready for\n"
 	.string "your next adventure.$"

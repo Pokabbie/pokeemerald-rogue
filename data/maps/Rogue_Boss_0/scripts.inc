@@ -159,6 +159,7 @@ Rogue_BattleDefeated_Boss0_1:
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
+	waitstate
 	return
 
 Rogue_BattleDefeated_Boss0_3:
