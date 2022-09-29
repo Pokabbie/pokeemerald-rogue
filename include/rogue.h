@@ -189,13 +189,18 @@ struct RogueMonPreset
 {
     u16 heldItem;
     u16 abilityNum;
+    u16 hiddenPowerType;
+    u16 flags;
     u16 moves[MAX_MON_MOVES];
 };
 
 struct RogueMonPresetCollection
 {
+    u16 flags;
     u16 presetCount;
+    u16 movesCount;
     const struct RogueMonPreset* presets;
+    const u16* moves;
 };
 
 extern const struct SpeciesTable gRogueSpeciesTable[];

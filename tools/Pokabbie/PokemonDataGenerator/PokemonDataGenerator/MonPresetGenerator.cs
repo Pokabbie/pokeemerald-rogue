@@ -14,7 +14,9 @@ namespace PokemonDataGenerator
 	{
 		private class PokemonPreset
 		{
+			public List<string> CategorySources = new List<string>();
 			public List<string> Moves = new List<string>();
+			public string HiddenPowerType = "NONE";
 			public string Ability;
 			public string Item;
 
@@ -22,12 +24,35 @@ namespace PokemonDataGenerator
 			{
 				get => Moves.Where((m) => m.StartsWith("Hidden Power", StringComparison.CurrentCultureIgnoreCase)).Any();
 			}
+
+			public bool IsCompatible(PokemonPreset otherPreset)
+			{
+				return HiddenPowerType == otherPreset.HiddenPowerType
+					&& Ability == otherPreset.Ability
+					&& Item == otherPreset.Item
+					&& Enumerable.SequenceEqual(Moves, otherPreset.Moves);
+			}
 		}
 
 		private class PokemonData
 		{
 			public string PokemonName;
 			public List<PokemonPreset> Presets = new List<PokemonPreset>();
+
+			public void AppendPreset(string category, PokemonPreset preset)
+			{
+				foreach (var otherPreset in Presets)
+				{ 
+					if(otherPreset.IsCompatible(preset))
+					{
+						otherPreset.CategorySources.Add(category);
+						return;
+					}
+				}
+
+				preset.CategorySources.Add(category);
+				Presets.Add(preset);
+			}
 		}
 
 		private static Dictionary<string, PokemonData> s_PerPokemonData = new Dictionary<string, PokemonData>();
@@ -82,6 +107,9 @@ namespace PokemonDataGenerator
 				if (categoryKvp.Key.EndsWith("hackmons", StringComparison.CurrentCultureIgnoreCase) ||
 					categoryKvp.Key.EndsWith("cap", StringComparison.CurrentCultureIgnoreCase))
 					continue;
+
+				string categoryName = categoryKvp.Key.Substring("genX".Length);
+				Console.WriteLine($"Including: '{categoryName}'");
 
 				// There is stats too, although they don't seem to be as populated?
 				var entries = (JObject)(category.ContainsKey("dex") ? category["dex"] : category["stats"]);
@@ -144,6 +172,7 @@ namespace PokemonDataGenerator
 							string moveString = move.ToString();
 							if (moveString.StartsWith("Hidden Power", StringComparison.CurrentCultureIgnoreCase)) // Not tracking the Hidden power type
 							{
+								preset.HiddenPowerType = moveString.Substring("Hidden Power".Length).Trim().ToUpper();
 								moveString = "Hidden Power";
 							}
 							else if (useGen3Format)
@@ -187,7 +216,7 @@ namespace PokemonDataGenerator
 							}
 						}
 
-						pokemonData.Presets.Add(preset);
+						pokemonData.AppendPreset(categoryName, preset);
 					}
 				}
 			}
@@ -218,16 +247,27 @@ namespace PokemonDataGenerator
 				//	presets = presets.Where((p) => !p.ContainsHiddenPower);
 				//}
 
+				HashSet<string> containedCategories = new HashSet<string>();
+				HashSet<string> containedMoves = new HashSet<string>();
+
 				foreach (var preset in pokemon.Presets)
 				{
+					foreach (var c in preset.CategorySources)
+						containedCategories.Add(c);
+					foreach (var m in preset.Moves)
+						containedMoves.Add(m);
+
 					upperBlock.AppendLine("\t{");
+
+					upperBlock.AppendLine($"\t\t.flags = {string.Join(" | ", preset.CategorySources.Select(str => FormatKeyword("MON_FLAGS_" + str)))},");
+					
+					upperBlock.AppendLine($"\t\t.hiddenPowerType = TYPE_{FormatKeyword(preset.HiddenPowerType)},");
 
 					if (preset.Ability == null || preset.Ability.Equals("No Ability", StringComparison.CurrentCultureIgnoreCase))
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_NONE,");
 					else
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_{FormatKeyword(preset.Ability)},");
-
-					if (preset.Item == null)
+										if (preset.Item == null)
 						upperBlock.AppendLine($"\t\t.heldItem = ITEM_NONE,");
 					else
 						upperBlock.AppendLine($"\t\t.heldItem = ITEM_{FormatKeyword(preset.Item)},");
@@ -253,9 +293,23 @@ namespace PokemonDataGenerator
 				upperBlock.AppendLine("};");
 				upperBlock.AppendLine("");
 
+				// Moveset
+				upperBlock.AppendLine($"static const u16 sRoguePresets_{FormatKeyword(pokemon.PokemonName)}_Moveset[] = ");
+				upperBlock.AppendLine("{");
+				foreach(var move in containedMoves)
+					upperBlock.AppendLine($"\tMOVE_{FormatKeyword(move)},");
+
+				upperBlock.AppendLine("};");
+				upperBlock.AppendLine("");
+
+
+
 				lowerBlock.AppendLine($"\t[SPECIES_{FormatKeyword(pokemon.PokemonName)}] = {{");
+				lowerBlock.AppendLine($"\t\t.flags = {string.Join(" | ", containedCategories.Select(str => FormatKeyword("MON_FLAGS_" + str)))},");
 				lowerBlock.AppendLine($"\t\t.presetCount = ARRAY_COUNT(sRoguePresets_{FormatKeyword(pokemon.PokemonName)}),");
-				lowerBlock.AppendLine($"\t\t.presets = sRoguePresets_{FormatKeyword(pokemon.PokemonName)}");
+				lowerBlock.AppendLine($"\t\t.presets = sRoguePresets_{FormatKeyword(pokemon.PokemonName)},");
+				lowerBlock.AppendLine($"\t\t.movesCount = ARRAY_COUNT(sRoguePresets_{FormatKeyword(pokemon.PokemonName)}_Moveset),");
+				lowerBlock.AppendLine($"\t\t.moves = sRoguePresets_{FormatKeyword(pokemon.PokemonName)}_Moveset,");
 				lowerBlock.AppendLine("\t},");
 				lowerBlock.AppendLine("");
 			}
