@@ -94,6 +94,7 @@ struct RogueTrainerTemp
     u8 disallowedType[2];
     bool8 allowItemEvos;
     bool8 allowLedgendaries;
+    bool8 preferStrongPresets;
     bool8 hasAppliedFallback;
     u8 queryMonOffset;
     bool8 hasUsedLeftovers;
@@ -2450,7 +2451,7 @@ static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
     gRngRogueValue = seed + trainerNum * 3 + offset * 7;
 }
 
-static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bool8* allowItemEvos, bool8* allowLedgendaries, u8* monsCount)
+static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8* monsCount)
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
 
@@ -2508,44 +2509,58 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
         if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
         {
             *monsCount = 6;
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
         }
         else if(difficultyLevel == 0)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel == 1)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 5 : 4;
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel == 2)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 4;
-            *allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel <= 5)
         {
             *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 5;
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel <= 6) 
         {
             *monsCount = 6;
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+            gRogueLocal.trainerTemp.preferStrongPresets = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
+        }
+        else if(difficultyLevel <= 7) // From last gym leader we can see ledgendaries
+        {
+            *monsCount = 6;
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
         }
         else // From last gym leader we can see ledgendaries
         {
             *monsCount = 6;
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
         }
     }
     else
@@ -2555,49 +2570,61 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, bo
             // EXP trainer
             *monsCount = 1;
             *forceType = TYPE_NORMAL;
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel == 0)
         {
             *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel == 1)
         {
             *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             *forceType = TYPE_NORMAL;
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel == 2)
         {
             *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel <= 7)
         {
             *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
-            *allowItemEvos = FALSE;
-            *allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
+            gRogueLocal.trainerTemp.allowLedgendaries = FALSE;
+            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
         }
         else if(difficultyLevel <= 11)
         {
             // Elite 4
             *monsCount = 2 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
         }
         else
         {
             // Champion
             *monsCount = 3 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
-            *allowItemEvos = TRUE;
-            *allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
+            gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
+            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
         }
+    }
+
+    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
     }
 
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
@@ -2669,6 +2696,19 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
         else
             RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
     }
+
+#ifdef ROGUE_EXPANSION
+    // Isn't worth doing for Vanilla
+    if(gRogueLocal.trainerTemp.preferStrongPresets)
+    {
+        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+        if(maxGen > 3)
+        { 
+            RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
+        }
+    }
+#endif
 
     if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_ROGUE_MINI_BOSS_MAXIE)
     {
@@ -2760,6 +2800,17 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
+         bool8 preferStrongPresets;
+        bool8 isAnyBoss = IsAnyBossTrainer(trainerNum);
+        u8 difficultyLevel = gRogueRun.currentDifficulty;
+
+        if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+            preferStrongPresets = FALSE;
+        else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            preferStrongPresets = FALSE;
+        else
+            preferStrongPresets = isAnyBoss && difficultyLevel >= 8;
+
         // Reset trainer temp
         memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
         gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
@@ -2771,7 +2822,11 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
 
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
-        ConfigureTrainer(trainerNum, &gRogueLocal.trainerTemp.allowedType[0], &gRogueLocal.trainerTemp.disallowedType[0], &gRogueLocal.trainerTemp.allowItemEvos, &gRogueLocal.trainerTemp.allowLedgendaries, monsCount);
+        ConfigureTrainer(trainerNum, 
+            &gRogueLocal.trainerTemp.allowedType[0], 
+            &gRogueLocal.trainerTemp.disallowedType[0], 
+            monsCount
+        );
 
         ApplyTrainerQuery(trainerNum, FALSE);
 
