@@ -103,14 +103,49 @@
 
 // These's are the category names fed in by the Showdown presets
 #ifdef ROGUE_EXPANSION
+#define MON_FLAGS_GEN7UBERS                 MON_FLAG_NONE
+#define MON_FLAGS_GEN7OU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7UU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7RU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7NU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7PU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7ZU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7LC                    MON_FLAG_NONE
+#define MON_FLAGS_GEN7DOUBLESOU             MON_FLAG_NONE
+#define MON_FLAGS_GEN7BATTLESPOTSINGLES     MON_FLAG_NONE
+#define MON_FLAGS_GEN7BATTLESPOTDOUBLES     MON_FLAG_NONE
+#define MON_FLAGS_GEN7VGC2017               MON_FLAG_NONE
+#define MON_FLAGS_GEN7VGC2018               MON_FLAG_NONE
+#define MON_FLAGS_GEN71V1                   MON_FLAG_NONE
+#define MON_FLAGS_GEN7ANYTHINGGOES          MON_FLAG_NONE
+#define MON_FLAGS_GEN7LETSGOOU              MON_FLAG_NONE
+#define MON_FLAGS_GEN7MONOTYPE              MON_FLAG_NONE
+
+#define MON_FLAGS_GEN8UBERS                 MON_FLAG_NONE
+#define MON_FLAGS_GEN8OU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8UU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8RU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8NU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8PU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8ZU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8LC                    MON_FLAG_NONE
+#define MON_FLAGS_GEN8NATIONALDEX           MON_FLAG_NONE
+#define MON_FLAGS_GEN8DOUBLESOU             MON_FLAG_NONE
+#define MON_FLAGS_GEN8BATTLESTADIUMSINGLES  MON_FLAG_NONE
+#define MON_FLAGS_GEN8VGC2020               MON_FLAG_NONE
+#define MON_FLAGS_GEN81V1                   MON_FLAG_NONE
+#define MON_FLAGS_GEN8ANYTHINGGOES          MON_FLAG_NONE
+#define MON_FLAGS_GEN8NATIONALDEXAG         MON_FLAG_NONE
+#define MON_FLAGS_GEN8MONOTYPE              MON_FLAG_NONE
 
 #else
-#define MON_FLAGS_UBERS         MON_FLAG_NONE
-#define MON_FLAGS_OU            MON_FLAG_NONE
-#define MON_FLAGS_UU            MON_FLAG_NONE
-#define MON_FLAGS_NU            MON_FLAG_NONE
-#define MON_FLAGS_DOUBLESOU     MON_FLAG_NONE
-#define MON_FLAGS_1V1           MON_FLAG_NONE
+#define MON_FLAGS_GEN3UBERS         MON_FLAG_NONE
+#define MON_FLAGS_GEN3OU            MON_FLAG_NONE
+#define MON_FLAGS_GEN3UU            MON_FLAG_NONE
+#define MON_FLAGS_GEN3NU            MON_FLAG_NONE
+#define MON_FLAGS_GEN3DOUBLESOU     MON_FLAG_NONE
+#define MON_FLAGS_GEN31V1           MON_FLAG_NONE
 #endif
+
 
 #include "rogue_quests.h"

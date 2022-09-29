@@ -108,7 +108,7 @@ namespace PokemonDataGenerator
 					categoryKvp.Key.EndsWith("cap", StringComparison.CurrentCultureIgnoreCase))
 					continue;
 
-				string categoryName = categoryKvp.Key.Substring("genX".Length);
+				string categoryName = categoryKvp.Key;
 				Console.WriteLine($"Including: '{categoryName}'");
 
 				// There is stats too, although they don't seem to be as populated?
