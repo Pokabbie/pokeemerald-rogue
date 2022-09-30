@@ -70,6 +70,7 @@ static void UnlockDefaultQuests()
 
     TryUnlockQuest(QUEST_Collector1);
     TryUnlockQuest(QUEST_ShoppingSpree);
+    TryUnlockQuest(QUEST_Bike1);
     TryUnlockQuest(QUEST_NoFainting1);
     TryUnlockQuest(QUEST_MrRandoman);
     TryUnlockQuest(QUEST_BerryCollector);

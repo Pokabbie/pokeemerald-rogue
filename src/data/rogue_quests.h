@@ -295,8 +295,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
         },
         .unlockedQuests = { 
-            QUEST_BigSaver,
-            QUEST_Bike1,
+            QUEST_BigSaver
         }
     },
     [QUEST_BigSaver] = 

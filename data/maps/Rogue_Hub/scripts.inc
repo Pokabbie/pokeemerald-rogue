@@ -609,6 +609,63 @@ RogueHub_EnterSafari1_4:
 	return
 
 
+RogueHub_HintSafariShinies::
+	lock
+	faceplayer
+	msgbox RogueHub_HintSafariShinies_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintQuickRun1::
+	lockall
+	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
+	releaseall
+	return
+
+
+RogueHub_HintQuickRun2::
+	lockall
+	msgbox RogueHub_HintQuickRun2_Text_0, MSGBOX_DEFAULT
+	releaseall
+	return
+
+
+RogueHub_HintHMUsage::
+	lock
+	msgbox RogueHub_HintHMUsage_Text_0, MSGBOX_DEFAULT
+	faceplayer
+	msgbox RogueHub_HintHMUsage_Text_1, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintRouteAdjectives::
+	lock
+	faceplayer
+	msgbox RogueHub_HintRouteAdjectives_Text_0, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_HintRouteAdjectives_2
+RogueHub_HintRouteAdjectives_1:
+	release
+	return
+
+RogueHub_HintRouteAdjectives_2:
+	msgbox RogueHub_HintRouteAdjectives_Text_2, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_3, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_4, MSGBOX_DEFAULT
+	goto RogueHub_HintRouteAdjectives_1
+
+
+RogueHub_HintHubRespawns::
+	lock
+	faceplayer
+	msgbox RogueHub_HintHubRespawns_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -836,3 +893,72 @@ RogueHub_EnterSafari1_Text_2:
 
 RogueHub_EnterSafari1_Text_3:
 	.string "Have fun!$"
+
+RogueHub_HintSafariShinies_Text_0:
+	.string "The Safari Zone have some very\n"
+	.string "dedicated staff!\p"
+	.string "They even keep track of the last few\n"
+	.string "shiny POKéMON you've caught whilst on\l"
+	.string "an Adventure!\p"
+	.string "So if you catch a shiny whilst on an\n"
+	.string "Adventure you'll be able to find it in\l"
+	.string "the Safari Zone super easy!$"
+
+RogueHub_HintQuickRun1_Text_0:
+	.string "I'm double tapping B to run super fast!\p"
+	.string "Same as if you want to escape from Wild\n"
+	.string "POKéMON faster!\p"
+	.string "So fast!$"
+
+RogueHub_HintQuickRun2_Text_0:
+	.string "Get back here!\n"
+	.string "B B B B B B!$"
+
+RogueHub_HintHMUsage_Text_0:
+	.string "If only I had a surf HM...$"
+
+RogueHub_HintHMUsage_Text_1:
+	.string "You don't even need to teach them to\n"
+	.string "your POKéMON to use them anymore!\p"
+	.string "IF ONLY I COULD SURF!$"
+
+RogueHub_HintRouteAdjectives_Text_0:
+	.string "I took me a while, but I finally figured\n"
+	.string "out what the route names mean!$"
+
+RogueHub_HintRouteAdjectives_Text_1:
+	.string "Do you want me to tell you?$"
+
+RogueHub_HintRouteAdjectives_Text_2:
+	.string "Route names are split into 2\n"
+	.string "adjectives.\p"
+	.string "The Difficulty and the Type Hint.$"
+
+RogueHub_HintRouteAdjectives_Text_3:
+	.string "There are 3 difficulties.\n"
+	.string "Calm, Average and Tough.\p"
+	.string "Calm routes have more wild POKéMON,\n"
+	.string "fewer items and the Trainers aren't as\l"
+	.string "skilled.\p"
+	.string "Tough routes have few wild POKéMON, but\n"
+	.string "more items and the Trainers are more\l"
+	.string "skilled.\p"
+	.string "Average routes are the middle ground\n"
+	.string "for both of those.$"
+
+RogueHub_HintRouteAdjectives_Text_4:
+	.string "The 2nd Adjective is the Type Hint, so\n"
+	.string "it gives you an idea of what types of\l"
+	.string "wild POKéMON might turn up on a route.\p"
+	.string "For example a WARM route will have\n"
+	.string "chance of having wild FIRE type\l"
+	.string "POKéMON.\p"
+	.string "Though it doesn't mean that the route\n"
+	.string "will always be home to that type.\p"
+	.string "It's just that its more likely to than\n"
+	.string "the other routes.$"
+
+RogueHub_HintHubRespawns_Text_0:
+	.string "I got lost and ended up back in the HUB.\p"
+	.string "I'm not really sure how that works, but\n"
+	.string "it sure is convenient!$"

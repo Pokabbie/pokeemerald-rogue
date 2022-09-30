@@ -691,3 +691,71 @@ script RogueHub_EnterSafari1
     }
 }
 
+script RogueHub_HintSafariShinies
+{
+    lock
+    faceplayer
+
+    msgbox(format("The Safari Zone have some very dedicated staff!\pThey even keep track of the last few shiny POKéMON you've caught whilst on an Adventure!\pSo if you catch a shiny whilst on an Adventure you'll be able to find it in the Safari Zone super easy!"), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_HintQuickRun1
+{
+    lockall
+
+    msgbox(format("I'm double tapping B to run super fast!\pSame as if you want to escape from Wild POKéMON faster!\pSo fast!"), MSGBOX_DEFAULT)
+
+    releaseall
+}
+
+script RogueHub_HintQuickRun2
+{
+    lockall
+
+    msgbox(format("Get back here!\nB B B B B B!"), MSGBOX_DEFAULT)
+
+    releaseall
+}
+
+script RogueHub_HintHMUsage
+{
+    lock
+
+    msgbox(format("If only I had a surf HM..."), MSGBOX_DEFAULT)
+    faceplayer
+    msgbox(format("You don't even need to teach them to your POKéMON to use them anymore!\pIF ONLY I COULD SURF!"), MSGBOX_DEFAULT)
+
+
+    release
+}
+
+script RogueHub_HintRouteAdjectives
+{
+    lock
+    faceplayer
+
+    msgbox(format("I took me a while, but I finally figured out what the route names mean!"), MSGBOX_DEFAULT)
+    msgbox(format("Do you want me to tell you?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Route names are split into 2 adjectives.\pThe Difficulty and the Type Hint."), MSGBOX_DEFAULT)
+        msgbox(format("There are 3 difficulties.\nCalm, Average and Tough.\pCalm routes have more wild POKéMON, fewer items and the Trainers aren't as skilled.\pTough routes have few wild POKéMON, but more items and the Trainers are more skilled.\pAverage routes are the middle ground for both of those."), MSGBOX_DEFAULT)
+        msgbox(format("The 2nd Adjective is the Type Hint, so it gives you an idea of what types of wild POKéMON might turn up on a route.\pFor example a WARM route will have chance of having wild FIRE type POKéMON.\pThough it doesn't mean that the route will always be home to that type.\pIt's just that its more likely to than the other routes."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+
+script RogueHub_HintHubRespawns
+{
+    lock
+    faceplayer
+
+    msgbox(format("I got lost and ended up back in the HUB.\pI'm not really sure how that works, but it sure is convenient!"), MSGBOX_DEFAULT)
+
+    release
+}
