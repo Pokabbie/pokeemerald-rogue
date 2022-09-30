@@ -22,6 +22,7 @@
 #include "party_menu.h"
 #include "palette.h"
 #include "play_time.h"
+#include "player_pc.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -1263,6 +1264,31 @@ static void SelectStartMons(void)
 
 #define ROGUE_SAVE_VERSION 1
 
+
+static void ClearPokemonHeldItems(void)
+{
+    struct BoxPokemon* boxMon;
+    u16 boxId, boxPosition;
+    u16 itemId = ITEM_NONE;
+
+    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    {
+        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        {
+            boxMon = GetBoxedMonPtr(boxId, boxPosition);
+
+            if(GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE)
+                SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &itemId);
+        }
+    }
+
+    for(boxId = 0; boxId < gPlayerPartyCount; ++boxId)
+    {
+        if(GetMonData(&gPlayerParty[boxId], MON_DATA_SPECIES) != SPECIES_NONE)
+                SetMonData(&gPlayerParty[boxId], MON_DATA_HELD_ITEM, &itemId);
+    }
+}
+
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
@@ -1272,6 +1298,30 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     ResetQuestState(newGame ? 0 : saveVersion);
+
+    // Loading existing save
+    if(!newGame)
+    {
+        if(saveVersion == 0)
+        {
+            // Soft reset for Quest update
+            FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
+            FlagClear(FLAG_ROGUE_MET_POKABBIE);
+
+            VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
+            VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
+
+            ClearBerryTrees();
+            SetMoney(&gSaveBlock1Ptr->money, 0);
+            gSaveBlock1Ptr->registeredItem = 0;
+            ClearBag();
+            NewGameInitPCItems();
+            ClearPokemonHeldItems();
+            AddBagItem(ITEM_POKE_BALL, 5);
+            AddBagItem(ITEM_POTION, 1);
+        }
+    }
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
@@ -1909,7 +1959,7 @@ static void ResetSpecialEncounterStates(void)
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
 }
 
-static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
 {
     u8 i;
     u16 s;
@@ -1983,7 +2033,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         ++gRogueRun.currentRoomIdx;
 
-        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 300);
+        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
 
         if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
@@ -2058,7 +2108,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     // No Weather
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
-                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
+                {
+                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                }
+                else if(gRogueRun.currentDifficulty > 2)
                 {
                     u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
@@ -2132,7 +2187,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         };
 
 #ifdef ROGUE_DEBUG
-        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
+        //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
 #endif
 
         
@@ -2822,8 +2877,6 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 
         if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
             preferStrongPresets = FALSE;
-        else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            preferStrongPresets = FALSE;
         else
             preferStrongPresets = isAnyBoss && difficultyLevel >= 8;
 
@@ -3416,7 +3469,27 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-        fixedIV = MAX_PER_STAT_IVS;
+    {
+        if(isBoss)
+        {
+            if(difficultyLevel >= 12)
+                fixedIV = 31;
+            else if(difficultyLevel >= 8)
+                fixedIV = 21;
+            else if(difficultyLevel >= 6)
+                fixedIV = 19;
+            else if(difficultyLevel >= 3)
+                fixedIV = 15;
+            else if(difficultyLevel >= 1)
+                fixedIV = 11;
+            else
+                fixedIV = 5;
+        }
+        else
+        {
+            fixedIV = (difficultyLevel > 8) ? 13 : 5;
+        }
+    }
     else
         fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 
@@ -3674,7 +3747,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsInPocket(POCKET_TM_HM);
             RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
 
-
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
                 // Do nothing
@@ -3707,7 +3779,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 1000;
+                *minSalePrice = 1500;
             else
                 *minSalePrice = 1500;
 
@@ -3734,7 +3806,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 1000;
+                *minSalePrice = 1500;
             else
                 *minSalePrice = 2000;
             break;

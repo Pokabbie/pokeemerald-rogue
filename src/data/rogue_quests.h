@@ -39,11 +39,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksShops },
         },
         .unlockedQuests = { 
-            QUEST_Collector1,
-            QUEST_ShoppingSpree,
-            QUEST_NoFainting1,
-            QUEST_MrRandoman,
-            QUEST_BerryCollector,
             QUEST_WobFate
         }
     },
@@ -194,7 +189,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } } 
         },
         .unlockedQuests = { 
             QUEST_NORMAL_Champion, 
@@ -235,7 +230,14 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 #else
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
 #endif
+        },
+#ifdef ROGUE_EXPANSION
+        .unlockedQuests = { 
+            QUEST_ShayminItem,
+            QUEST_HoopaItem,
+            QUEST_NatureItem
         }
+#endif
     },
 
     [QUEST_Collector1] = 
@@ -431,6 +433,73 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
         }
     },
+
+    [QUEST_Hardcore] = 
+    {
+        .title = _("Hardcore"),
+        .desc = _(
+                    "Win a full Run, without\n"
+                    "using any items in battles.\n"
+                    "(Excluding POKéBALLs)"
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+        }
+    },
+    [QUEST_Hardcore2] = 
+    {
+        .title = _("Hardcore +"),
+        .desc = _(
+                    "Win a full Run, without\n"
+                    "using any items in battles\n"
+                    "with Hard Trainers set."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+        }
+    },
+#ifdef ROGUE_EXPANSION
+    [QUEST_ShayminItem] = 
+    {
+        .title = _("Gratitude"),
+        .desc = _(
+                    "Reach the final champion\n"
+                    "with a Shaymin in your\n"
+                    "party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_GRACIDEA, 1 } },
+        }
+    },
+    [QUEST_HoopaItem] = 
+    {
+        .title = _("Mischief"),
+        .desc = _(
+                    "Reach the final champion\n"
+                    "with a Hoopa in your\n"
+                    "party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PRISON_BOTTLE, 1 } },
+        }
+    },
+    [QUEST_NatureItem] = 
+    {
+        .title = _("'Of Nature"),
+        .desc = _(
+                    "Reach the final champion\n"
+                    "with any of the 'Forces of\n"
+                    "Nature' in your party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_REVEAL_GLASS, 1 } },
+        }
+    },
+
+#define QUEST_ShayminItem           (QUEST_Hardcore2 + 1)
+#define QUEST_HoopaItem             (QUEST_Hardcore3 + 2)
+#define QUEST_NatureItem            (QUEST_Hardcore3 + 3)
+#endif
 
     [QUEST_BerryCollector] = 
     {

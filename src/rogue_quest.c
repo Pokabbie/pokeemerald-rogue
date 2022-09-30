@@ -56,6 +56,23 @@ static void ForEachUnlockedQuest(QuestCallback callback);
 static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
 static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
 
+static void UnlockDefaultQuests()
+{
+    u16 i;
+    for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
+    {
+        TryUnlockQuest(i);
+    }
+
+    TryUnlockQuest(QUEST_Collector1);
+    TryUnlockQuest(QUEST_ShoppingSpree);
+    TryUnlockQuest(QUEST_NoFainting1);
+    TryUnlockQuest(QUEST_MrRandoman);
+    TryUnlockQuest(QUEST_BerryCollector);
+    TryUnlockQuest(QUEST_Hardcore);
+    TryUnlockQuest(QUEST_Hardcore2);
+}
+
 void ResetQuestState(u16 saveVersion)
 {
     u16 i;
@@ -68,12 +85,14 @@ void ResetQuestState(u16 saveVersion)
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
 
-        // These quests must always be unlocked
-        for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
-        {
-            TryUnlockQuest(i);
-        }
+        ForEachUnlockedQuest(ActivateHubQuests);
+    }
 
+    // Always make sure default quests are unlocked
+    UnlockDefaultQuests();
+
+    if(saveVersion == 0)
+    {
         ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
@@ -535,6 +554,8 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_GymMaster);
         TryDeactivateQuest(QUEST_NoFainting2);
         TryDeactivateQuest(QUEST_NoFainting3);
+        TryDeactivateQuest(QUEST_Hardcore);
+        TryDeactivateQuest(QUEST_Hardcore2);
 
         for(i = TYPE_NORMAL; i < NUMBER_OF_MON_TYPES; ++i)
             TryDeactivateQuest(TypeToMonoQuest[i]);
@@ -550,6 +571,9 @@ void QuestNotify_BeginAdventure(void)
         // Can't technically happen atm
         TryDeactivateQuest(QUEST_EliteMaster);
     }
+
+    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+        TryDeactivateQuest(QUEST_Hardcore2);
 
     UpdateChaosChampion(TRUE);
     UpdateMonoQuests();
@@ -605,6 +629,7 @@ void QuestNotify_OnWildBattleEnd(void)
 }
 
 bool8 IsSpeciesType(u16 species, u8 type);
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void)
 {
@@ -703,6 +728,8 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Champion);
                 TryMarkQuestAsComplete(QUEST_NoFainting3);
                 TryMarkQuestAsComplete(QUEST_ChaosChampion);
+                TryMarkQuestAsComplete(QUEST_Hardcore);
+                TryMarkQuestAsComplete(QUEST_Hardcore2);
                 CompleteMonoQuests();
                 break;
         }
@@ -778,6 +805,30 @@ void QuestNotify_OnWarp(struct WarpData* warp)
             case ADVPATH_ROOM_RESTSTOP:
                 UpdateChaosChampion(TRUE);
                 break;
+
+            case ADVPATH_ROOM_BOSS:
+#ifdef ROGUE_EXPANSION
+                // About to face final champ
+                if(gRogueRun.currentDifficulty == 13)
+                {
+                    if(IsQuestActive(QUEST_ShayminItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
+                        TryMarkQuestAsComplete(QUEST_ShayminItem);
+
+                    if(IsQuestActive(QUEST_HoopaItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_HOOPA))
+                        TryMarkQuestAsComplete(QUEST_HoopaItem);
+
+                    if(IsQuestActive(QUEST_NatureItem))
+                    {
+                        if(PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_TORNADUS)
+                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_THUNDURUS)
+                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_LANDORUS)
+                        )
+                            TryMarkQuestAsComplete(QUEST_NatureItem);
+                    }
+                }
+#endif
+
+                break;
         }
 
         // Warped out of
@@ -849,30 +900,40 @@ void QuestNotify_OnRemoveMoney(u32 amount)
 
 void QuestNotify_OnAddBagItem(u16 itemId, u16 count)
 {
-    if(Rogue_IsRunActive())
+    if(IsQuestActive(QUEST_BerryCollector))
     {
-        if(IsQuestActive(QUEST_BerryCollector))
+        if(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
         {
-            if(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
+            u16 i;
+            u16 uniqueBerryCount = 0;
+
+            for(i = FIRST_BERRY_INDEX; i <= LAST_BERRY_INDEX; ++i)
             {
-                u16 i;
-                u16 uniqueBerryCount = 0;
-
-                for(i = FIRST_BERRY_INDEX; i <= LAST_BERRY_INDEX; ++i)
-                {
-                    if(CheckBagHasItem(i,1))
-                        ++uniqueBerryCount;
-                }
-
-                if(uniqueBerryCount >= 10)
-                    TryMarkQuestAsComplete(QUEST_BerryCollector);
+                if(CheckBagHasItem(i,1))
+                    ++uniqueBerryCount;
             }
 
+            if(uniqueBerryCount >= 10)
+                TryMarkQuestAsComplete(QUEST_BerryCollector);
         }
+
     }
 }
 
 void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count)
 {
 
+}
+
+void QuestNotify_OnUseBattleItem(u16 itemId)
+{
+    bool8 isPokeball = itemId >= FIRST_BALL && itemId <= LAST_BALL;
+    if(!isPokeball)
+    {
+        if(IsQuestActive(QUEST_Hardcore))
+            TryDeactivateQuest(QUEST_Hardcore);
+
+        if(IsQuestActive(QUEST_Hardcore2))
+            TryDeactivateQuest(QUEST_Hardcore2);
+    }
 }

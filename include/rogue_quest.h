@@ -36,4 +36,6 @@ void QuestNotify_OnRemoveMoney(u32 amount);
 void QuestNotify_OnAddBagItem(u16 itemId, u16 count);
 void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count);
 
+void QuestNotify_OnUseBattleItem(u16 itemId);
+
 #endif
