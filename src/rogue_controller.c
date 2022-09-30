@@ -2108,7 +2108,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     // No Weather
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                 }
-                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
+                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
+                {
+                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                }
+                else if(gRogueRun.currentDifficulty > 2)
                 {
                     u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
@@ -2182,7 +2187,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         };
 
 #ifdef ROGUE_DEBUG
-        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
+        //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
 #endif
 
         
@@ -2872,8 +2877,6 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 
         if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
             preferStrongPresets = FALSE;
-        else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            preferStrongPresets = FALSE;
         else
             preferStrongPresets = isAnyBoss && difficultyLevel >= 8;
 
@@ -3466,7 +3469,27 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
     if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-        fixedIV = MAX_PER_STAT_IVS;
+    {
+        if(isBoss)
+        {
+            if(difficultyLevel >= 12)
+                fixedIV = 31;
+            else if(difficultyLevel >= 8)
+                fixedIV = 21;
+            else if(difficultyLevel >= 6)
+                fixedIV = 19;
+            else if(difficultyLevel >= 3)
+                fixedIV = 15;
+            else if(difficultyLevel >= 1)
+                fixedIV = 11;
+            else
+                fixedIV = 5;
+        }
+        else
+        {
+            fixedIV = (difficultyLevel > 8) ? 13 : 5;
+        }
+    }
     else
         fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
 

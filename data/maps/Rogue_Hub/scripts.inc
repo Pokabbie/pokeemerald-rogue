@@ -220,23 +220,23 @@ RogueHub_IntroPokabbie::
 
 RogueHub_IntroPokabbie_1:
 	lockall
-	showobjectat 15, MAP_ROGUE_HUB
+	showobjectat 14, MAP_ROGUE_HUB
 	msgbox RogueHub_IntroPokabbie_Text_0, MSGBOX_NPC
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	applymovement 15, RogueHub_Pokabbie_Enter
+	applymovement 14, RogueHub_Pokabbie_Enter
 	waitmovement 0
 	msgbox RogueHub_IntroPokabbie_Text_1, MSGBOX_NPC
-	applymovement 15, RogueHub_Pokabbie_Spin
+	applymovement 14, RogueHub_Pokabbie_Spin
 	waitmovement 0
 	msgbox RogueHub_IntroPokabbie_Text_2, MSGBOX_NPC
 	msgbox RogueHub_IntroPokabbie_Text_3, MSGBOX_NPC
-	applymovement 15, RogueHub_Pokabbie_Spin
+	applymovement 14, RogueHub_Pokabbie_Spin
 	waitmovement 0
-	applymovement 15, RogueHub_Pokabbie_Exit
+	applymovement 14, RogueHub_Pokabbie_Exit
 	waitmovement 0
 	setflag FLAG_ROGUE_UNCOVERRED_POKABBIE
 	setflag FLAG_TEMP_8
-	removeobject 15
+	removeobject 14
 	releaseall
 	return
 

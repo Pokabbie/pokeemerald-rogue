@@ -34,7 +34,7 @@ const METATILE_DirtTopRight = 0x089
 //const METATILE_DirtTopRight = 0x11A
 
 const NPC_INTRO_SCOTT = 2
-const NPC_POKABBIE = 15
+const NPC_POKABBIE = 14
 
 mapscripts Rogue_Hub_MapScripts
 {
