@@ -42,7 +42,7 @@ Rogue_Encounter_GameShow_DropBoxes::
 
 
 Rogue_Encounter_GameShow_NextRound::
-	compare VAR_TEMP_1, 5
+	compare VAR_TEMP_1, 4
 	goto_if_ge Rogue_Encounter_GameShow_NextRound_1
 	addvar VAR_TEMP_1, 1
 	buffernumberstring STR_VAR_1, VAR_TEMP_1
@@ -73,19 +73,20 @@ Rogue_Encounter_GameShow_DisplayGood::
 	playse SE_DING_DONG
 	waitse
 	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_0, MSGBOX_DEFAULT
-	random 5
+	random 6
 	switch VAR_RESULT
 	case 0, Rogue_Encounter_GameShow_DisplayGood_3
 	case 1, Rogue_Encounter_GameShow_DisplayGood_4
 	case 2, Rogue_Encounter_GameShow_DisplayGood_5
 	case 3, Rogue_Encounter_GameShow_DisplayGood_6
 	case 4, Rogue_Encounter_GameShow_DisplayGood_7
+	case 5, Rogue_Encounter_GameShow_DisplayGood_8
 Rogue_Encounter_GameShow_DisplayGood_1:
 	call Rogue_Encounter_GameShow_NextRound
 	return
 
 Rogue_Encounter_GameShow_DisplayGood_3:
-	addmoney 20000
+	addmoney 10000
 	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_1, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
@@ -110,16 +111,16 @@ Rogue_Encounter_GameShow_DisplayGood_6:
 	random 10
 	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_4, MSGBOX_DEFAULT
 	switch VAR_RESULT
-	case 0, Rogue_Encounter_GameShow_DisplayGood_9
-	case 1, Rogue_Encounter_GameShow_DisplayGood_10
-	case 2, Rogue_Encounter_GameShow_DisplayGood_11
-	case 3, Rogue_Encounter_GameShow_DisplayGood_12
-	case 4, Rogue_Encounter_GameShow_DisplayGood_13
-	case 5, Rogue_Encounter_GameShow_DisplayGood_14
-	case 6, Rogue_Encounter_GameShow_DisplayGood_15
-	case 7, Rogue_Encounter_GameShow_DisplayGood_16
-	case 8, Rogue_Encounter_GameShow_DisplayGood_17
-	case 9, Rogue_Encounter_GameShow_DisplayGood_18
+	case 0, Rogue_Encounter_GameShow_DisplayGood_10
+	case 1, Rogue_Encounter_GameShow_DisplayGood_11
+	case 2, Rogue_Encounter_GameShow_DisplayGood_12
+	case 3, Rogue_Encounter_GameShow_DisplayGood_13
+	case 4, Rogue_Encounter_GameShow_DisplayGood_14
+	case 5, Rogue_Encounter_GameShow_DisplayGood_15
+	case 6, Rogue_Encounter_GameShow_DisplayGood_16
+	case 7, Rogue_Encounter_GameShow_DisplayGood_17
+	case 8, Rogue_Encounter_GameShow_DisplayGood_18
+	case 9, Rogue_Encounter_GameShow_DisplayGood_19
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_7:
@@ -127,43 +128,48 @@ Rogue_Encounter_GameShow_DisplayGood_7:
 	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_5, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_9:
-	giveitem ITEM_MAX_POTION, 3
+Rogue_Encounter_GameShow_DisplayGood_8:
+	addmoney 5000
+	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_6, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_10:
-	giveitem ITEM_FULL_RESTORE, 3
+	giveitem ITEM_MAX_POTION, 3
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_11:
-	giveitem ITEM_MASTER_BALL, 1
+	giveitem ITEM_FULL_RESTORE, 3
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_12:
-	giveitem ITEM_TM26_EARTHQUAKE, 1
+	giveitem ITEM_MASTER_BALL, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_13:
-	giveitem ITEM_TM15_HYPER_BEAM, 1
+	giveitem ITEM_TM26_EARTHQUAKE, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_14:
-	giveitem ITEM_TM14_BLIZZARD, 1
+	giveitem ITEM_TM15_HYPER_BEAM, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_15:
-	giveitem ITEM_TM38_FIRE_BLAST, 1
+	giveitem ITEM_TM14_BLIZZARD, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_16:
-	giveitem ITEM_TM25_THUNDER, 1
+	giveitem ITEM_TM38_FIRE_BLAST, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_17:
-	giveitem ITEM_POKE_BALL, 50
+	giveitem ITEM_TM25_THUNDER, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_18:
+	giveitem ITEM_PREMIER_BALL, 50
+	goto Rogue_Encounter_GameShow_DisplayGood_1
+
+Rogue_Encounter_GameShow_DisplayGood_19:
 	giveitem ITEM_ULTRA_BALL, 20
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
@@ -182,13 +188,13 @@ Rogue_Encounter_GameShow_DisplayBad::
 	case 5, Rogue_Encounter_GameShow_DisplayBad_8
 	case 6, Rogue_Encounter_GameShow_DisplayBad_9
 	case 7, Rogue_Encounter_GameShow_DisplayBad_10
-	case 8, Rogue_Encounter_GameShow_DisplayBad_11
+	case 8, Rogue_Encounter_GameShow_DisplayBad_10
 Rogue_Encounter_GameShow_DisplayBad_1:
 	call Rogue_Encounter_GameShow_NextRound
 	return
 
 Rogue_Encounter_GameShow_DisplayBad_3:
-	removemoney 20000
+	removemoney 10000
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_1, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
@@ -231,11 +237,11 @@ Rogue_Encounter_GameShow_DisplayBad_7:
 	copyvar VAR_0x8005, VAR_RESULT
 	special Rogue_ApplyStatusToMon
 	switch VAR_0x8005
-	case 0, Rogue_Encounter_GameShow_DisplayBad_13
-	case 1, Rogue_Encounter_GameShow_DisplayBad_14
-	case 2, Rogue_Encounter_GameShow_DisplayBad_15
-	case 3, Rogue_Encounter_GameShow_DisplayBad_16
-	case 4, Rogue_Encounter_GameShow_DisplayBad_17
+	case 0, Rogue_Encounter_GameShow_DisplayBad_12
+	case 1, Rogue_Encounter_GameShow_DisplayBad_13
+	case 2, Rogue_Encounter_GameShow_DisplayBad_14
+	case 3, Rogue_Encounter_GameShow_DisplayBad_15
+	case 4, Rogue_Encounter_GameShow_DisplayBad_16
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
 Rogue_Encounter_GameShow_DisplayBad_8:
@@ -244,11 +250,11 @@ Rogue_Encounter_GameShow_DisplayBad_8:
 	copyvar VAR_0x8005, VAR_RESULT
 	special Rogue_ApplyStatusToMon
 	switch VAR_0x8005
-	case 0, Rogue_Encounter_GameShow_DisplayBad_19
-	case 1, Rogue_Encounter_GameShow_DisplayBad_20
-	case 2, Rogue_Encounter_GameShow_DisplayBad_21
-	case 3, Rogue_Encounter_GameShow_DisplayBad_22
-	case 4, Rogue_Encounter_GameShow_DisplayBad_23
+	case 0, Rogue_Encounter_GameShow_DisplayBad_18
+	case 1, Rogue_Encounter_GameShow_DisplayBad_19
+	case 2, Rogue_Encounter_GameShow_DisplayBad_20
+	case 3, Rogue_Encounter_GameShow_DisplayBad_21
+	case 4, Rogue_Encounter_GameShow_DisplayBad_22
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
 Rogue_Encounter_GameShow_DisplayBad_9:
@@ -261,48 +267,43 @@ Rogue_Encounter_GameShow_DisplayBad_10:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_16, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_11:
-	removemoney 10000
-	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_17, MSGBOX_DEFAULT
-	goto Rogue_Encounter_GameShow_DisplayBad_1
-
-Rogue_Encounter_GameShow_DisplayBad_13:
+Rogue_Encounter_GameShow_DisplayBad_12:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_5, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_14:
+Rogue_Encounter_GameShow_DisplayBad_13:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_6, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_15:
+Rogue_Encounter_GameShow_DisplayBad_14:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_7, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_16:
+Rogue_Encounter_GameShow_DisplayBad_15:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_8, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_17:
+Rogue_Encounter_GameShow_DisplayBad_16:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_9, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_19:
+Rogue_Encounter_GameShow_DisplayBad_18:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_10, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_20:
+Rogue_Encounter_GameShow_DisplayBad_19:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_11, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_21:
+Rogue_Encounter_GameShow_DisplayBad_20:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_12, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_22:
+Rogue_Encounter_GameShow_DisplayBad_21:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_13, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
-Rogue_Encounter_GameShow_DisplayBad_23:
+Rogue_Encounter_GameShow_DisplayBad_22:
 	msgbox Rogue_Encounter_GameShow_DisplayBad_Text_14, MSGBOX_DEFAULT
 	goto Rogue_Encounter_GameShow_DisplayBad_1
 
@@ -409,7 +410,7 @@ Rogue_Encounter_GameShow_DisplayGood_Text_0:
 	.string "Well chosen!$"
 
 Rogue_Encounter_GameShow_DisplayGood_Text_1:
-	.string "You just got an extra ¥20000!$"
+	.string "You just got an extra ¥10000!$"
 
 Rogue_Encounter_GameShow_DisplayGood_Text_2:
 	.string "{STR_VAR_1} just got a bit stronger!$"
@@ -425,11 +426,14 @@ Rogue_Encounter_GameShow_DisplayGood_Text_5:
 	.string "All of your POKéMON all just got all\n"
 	.string "healed up!$"
 
+Rogue_Encounter_GameShow_DisplayGood_Text_6:
+	.string "You just got an extra ¥5000!$"
+
 Rogue_Encounter_GameShow_DisplayBad_Text_0:
 	.string "Oh no...$"
 
 Rogue_Encounter_GameShow_DisplayBad_Text_1:
-	.string "You just lost ¥20000.$"
+	.string "You just lost ¥10000.$"
 
 Rogue_Encounter_GameShow_DisplayBad_Text_2:
 	.string "{STR_VAR_1} just got a bit weaker.$"
@@ -477,9 +481,6 @@ Rogue_Encounter_GameShow_DisplayBad_Text_15:
 
 Rogue_Encounter_GameShow_DisplayBad_Text_16:
 	.string "You just lost ¥1000.$"
-
-Rogue_Encounter_GameShow_DisplayBad_Text_17:
-	.string "You just lost ¥10000.$"
 
 Rogue_Encounter_GameShow_ChooseLeft_Text_0:
 	.string "So you pick the LEFT?$"
