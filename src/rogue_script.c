@@ -359,16 +359,16 @@ enum BerryTreatBuff
     BERRY_BUFF_HP,
     BERRY_BUFF_ATK,
     BERRY_BUFF_DEF,
+    BERRY_BUFF_SPD,
     BERRY_BUFF_SPATK,
     BERRY_BUFF_SPDEF,
-    BERRY_BUFF_SPD,
 };
 
 static u8 BerryItemToTreatBuff(u16 berryItem)
 {
     switch(berryItem)
     {
-        case ITEM_ORAN_BERRY:
+        //case ITEM_ORAN_BERRY:
         case ITEM_SITRUS_BERRY:
         case ITEM_POMEG_BERRY:
             return BERRY_BUFF_HP;
@@ -386,6 +386,7 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
             return BERRY_BUFF_SPDEF;
 
         case ITEM_TAMATO_BERRY:
+        case ITEM_SALAC_BERRY:
             return BERRY_BUFF_SPD;
 
 #ifdef ROGUE_EXPANSION
@@ -400,9 +401,6 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
 
         case ITEM_APICOT_BERRY:
             return BERRY_BUFF_SPDEF;
-
-        case ITEM_SALAC_BERRY:
-            return BERRY_BUFF_SPD;
 #endif
         default:
             return BERRY_BUFF_FRIEND;
@@ -417,8 +415,8 @@ void Rogue_CheckBerryTreat(void)
 
 void Rogue_ApplyBerryTreat(void)
 {
-    u16 itemId = gSpecialVar_ItemId;
     u16 monIdx = gSpecialVar_0x8004;
+    u16 itemId = gSpecialVar_ItemId;
     u16 buffAmount = gSpecialVar_0x8005;
     u16 berryBuff = BerryItemToTreatBuff(itemId);
 
