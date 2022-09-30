@@ -231,7 +231,7 @@ script Rogue_Adventure_SpeakBasicBag
 script Rogue_Adventure_StatsSign
 {
     buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note for the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
+    msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note from the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
 }
 
 

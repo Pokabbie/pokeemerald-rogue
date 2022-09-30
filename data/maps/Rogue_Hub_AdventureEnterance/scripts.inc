@@ -604,7 +604,7 @@ Rogue_Adventure_SpeakBasicBag_Text_4:
 Rogue_Adventure_StatsSign_Text_0:
 	.string "Furthest Progress:\n"
 	.string "Gained {STR_VAR_1} BADGES...\p"
-	.string "A note for the dev..\p"
+	.string "A note from the dev..\p"
 	.string "-Run stats to come in a future update!$"
 
 Rogue_Adventure_StartStandard_Text_0:

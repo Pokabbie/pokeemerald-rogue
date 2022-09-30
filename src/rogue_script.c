@@ -362,13 +362,14 @@ enum BerryTreatBuff
     BERRY_BUFF_SPD,
     BERRY_BUFF_SPATK,
     BERRY_BUFF_SPDEF,
+    BERRY_BUFF_WEAKEN,
 };
 
 static u8 BerryItemToTreatBuff(u16 berryItem)
 {
     switch(berryItem)
     {
-        //case ITEM_ORAN_BERRY:
+        case ITEM_ORAN_BERRY:
         case ITEM_SITRUS_BERRY:
         case ITEM_POMEG_BERRY:
             return BERRY_BUFF_HP;
@@ -388,6 +389,9 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
         case ITEM_TAMATO_BERRY:
         case ITEM_SALAC_BERRY:
             return BERRY_BUFF_SPD;
+
+        case ITEM_LEPPA_BERRY:
+            return BERRY_BUFF_WEAKEN;
 
 #ifdef ROGUE_EXPANSION
         case ITEM_LIECHI_BERRY:
@@ -439,6 +443,32 @@ void Rogue_ApplyBerryTreat(void)
         {
             gSpecialVar_Result = FALSE;
         }
+    }
+    else if(berryBuff == BERRY_BUFF_WEAKEN)
+    {
+        u16 statOffset;
+        u16 ivCount;
+
+        gSpecialVar_Result = FALSE;
+
+        for(statOffset = 0; statOffset < 6; ++statOffset)
+        {
+            u16 ivCount = GetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset);
+
+            if(ivCount != 0)
+            {
+                gSpecialVar_Result = TRUE;
+
+                if(ivCount < buffAmount)
+                    ivCount = 0;
+                else
+                    ivCount -= buffAmount;
+
+                SetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset, &ivCount);
+            }
+        }
+
+        CalculateMonStats(&gPlayerParty[monIdx]);
     }
     else
     {

@@ -7,6 +7,7 @@ const BERRY_BUFF_DEF = 3
 const BERRY_BUFF_SPD = 4
 const BERRY_BUFF_SPATK = 5
 const BERRY_BUFF_SPDEF = 6
+const BERRY_BUFF_WEAKEN = 7
 
 mapscripts Rogue_Hub_Bakery_MapScripts {}
 
@@ -26,7 +27,7 @@ script RogueHub_Bakery_SpeakChef_ApplyTreat
         msgbox(format("Coming right up!"))
 
         fadescreen(FADE_TO_BLACK)
-        playfanfare(MUS_RG_HEAL)
+        playfanfare(MUS_HEAL)
         waitfanfare
         fadescreen(FADE_FROM_BLACK)
 
@@ -54,9 +55,13 @@ script RogueHub_Bakery_SpeakChef_ApplyTreat
 
             case BERRY_BUFF_SPD:
                 msgbox(format("{STR_VAR_1}'s Speed improved."))
+
+            case BERRY_BUFF_WEAKEN:
+                msgbox(format("{STR_VAR_1} got weaker."))
         }
 
         msgbox(format("I hope you and {STR_VAR_1} enjoyed it!\pHope to see you again!"))
+        setvar(VAR_RESULT, YES)
     }
     else
     {
@@ -247,6 +252,9 @@ script RogueHub_Bakery_SpeakBerryCheck
 
                 case BERRY_BUFF_SPD:
                     msgbox(format("{STR_VAR_1} will improve a POKéMON's Speed."))
+
+                case BERRY_BUFF_WEAKEN:
+                    msgbox(format("{STR_VAR_1} will make a POKéMON weaker."))
             }
         }
     }

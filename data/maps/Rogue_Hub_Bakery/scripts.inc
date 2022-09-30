@@ -7,7 +7,7 @@ RogueHub_Bakery_SpeakChef_ApplyTreat::
 	compare VAR_RESULT, YES
 	goto_if_eq RogueHub_Bakery_SpeakChef_ApplyTreat_1
 	special BufferMonNickname
-	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_9
+	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_10
 	return
 
 RogueHub_Bakery_SpeakChef_ApplyTreat_1:
@@ -16,7 +16,7 @@ RogueHub_Bakery_SpeakChef_ApplyTreat_1:
 	updatemoneybox
 	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_0
 	fadescreen FADE_TO_BLACK
-	playfanfare MUS_RG_HEAL
+	playfanfare MUS_HEAL
 	waitfanfare
 	fadescreen FADE_FROM_BLACK
 	special BufferMonNickname
@@ -29,8 +29,10 @@ RogueHub_Bakery_SpeakChef_ApplyTreat_1:
 	case 5, RogueHub_Bakery_SpeakChef_ApplyTreat_10
 	case 6, RogueHub_Bakery_SpeakChef_ApplyTreat_11
 	case 4, RogueHub_Bakery_SpeakChef_ApplyTreat_12
+	case 7, RogueHub_Bakery_SpeakChef_ApplyTreat_13
 RogueHub_Bakery_SpeakChef_ApplyTreat_4:
-	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_8
+	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_9
+	setvar VAR_RESULT, YES
 	return
 
 RogueHub_Bakery_SpeakChef_ApplyTreat_6:
@@ -59,6 +61,10 @@ RogueHub_Bakery_SpeakChef_ApplyTreat_11:
 
 RogueHub_Bakery_SpeakChef_ApplyTreat_12:
 	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_7
+	goto RogueHub_Bakery_SpeakChef_ApplyTreat_4
+
+RogueHub_Bakery_SpeakChef_ApplyTreat_13:
+	msgbox RogueHub_Bakery_SpeakChef_ApplyTreat_Text_8
 	goto RogueHub_Bakery_SpeakChef_ApplyTreat_4
 
 
@@ -240,6 +246,7 @@ RogueHub_Bakery_SpeakBerryCheck_4:
 	case 5, RogueHub_Bakery_SpeakBerryCheck_11
 	case 6, RogueHub_Bakery_SpeakBerryCheck_12
 	case 4, RogueHub_Bakery_SpeakBerryCheck_13
+	case 7, RogueHub_Bakery_SpeakBerryCheck_14
 	goto RogueHub_Bakery_SpeakBerryCheck_1
 
 RogueHub_Bakery_SpeakBerryCheck_7:
@@ -268,6 +275,10 @@ RogueHub_Bakery_SpeakBerryCheck_12:
 
 RogueHub_Bakery_SpeakBerryCheck_13:
 	msgbox RogueHub_Bakery_SpeakBerryCheck_Text_8
+	goto RogueHub_Bakery_SpeakBerryCheck_1
+
+RogueHub_Bakery_SpeakBerryCheck_14:
+	msgbox RogueHub_Bakery_SpeakBerryCheck_Text_9
 	goto RogueHub_Bakery_SpeakBerryCheck_1
 
 
@@ -304,11 +315,14 @@ RogueHub_Bakery_SpeakChef_ApplyTreat_Text_7:
 	.string "{STR_VAR_1}'s Speed improved.$"
 
 RogueHub_Bakery_SpeakChef_ApplyTreat_Text_8:
+	.string "{STR_VAR_1} got weaker.$"
+
+RogueHub_Bakery_SpeakChef_ApplyTreat_Text_9:
 	.string "I hope you and {STR_VAR_1} enjoyed\n"
 	.string "it!\p"
 	.string "Hope to see you again!$"
 
-RogueHub_Bakery_SpeakChef_ApplyTreat_Text_9:
+RogueHub_Bakery_SpeakChef_ApplyTreat_Text_10:
 	.string "Oh.\p"
 	.string "{STR_VAR_1} looks too full to eat\n"
 	.string "this.$"
@@ -392,6 +406,10 @@ RogueHub_Bakery_SpeakBerryCheck_Text_7:
 RogueHub_Bakery_SpeakBerryCheck_Text_8:
 	.string "{STR_VAR_1} will improve a POKéMON's\n"
 	.string "Speed.$"
+
+RogueHub_Bakery_SpeakBerryCheck_Text_9:
+	.string "{STR_VAR_1} will make a POKéMON\n"
+	.string "weaker.$"
 
 RogueHub_Bakery_SpeakIVEVInspector_Text_0:
 	.string "Did you know you can check a POKéMON's\n"
