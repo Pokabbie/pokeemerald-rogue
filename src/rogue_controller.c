@@ -22,6 +22,7 @@
 #include "party_menu.h"
 #include "palette.h"
 #include "play_time.h"
+#include "player_pc.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -1263,6 +1264,31 @@ static void SelectStartMons(void)
 
 #define ROGUE_SAVE_VERSION 1
 
+
+static void ClearPokemonHeldItems(void)
+{
+    struct BoxPokemon* boxMon;
+    u16 boxId, boxPosition;
+    u16 itemId = ITEM_NONE;
+
+    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    {
+        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        {
+            boxMon = GetBoxedMonPtr(boxId, boxPosition);
+
+            if(GetBoxMonData(boxMon, MON_DATA_SPECIES) != SPECIES_NONE)
+                SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &itemId);
+        }
+    }
+
+    for(boxId = 0; boxId < gPlayerPartyCount; ++boxId)
+    {
+        if(GetMonData(&gPlayerParty[boxId], MON_DATA_SPECIES) != SPECIES_NONE)
+                SetMonData(&gPlayerParty[boxId], MON_DATA_HELD_ITEM, &itemId);
+    }
+}
+
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
@@ -1272,6 +1298,30 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
         VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     ResetQuestState(newGame ? 0 : saveVersion);
+
+    // Loading existing save
+    if(!newGame)
+    {
+        if(saveVersion == 0)
+        {
+            // Soft reset for Quest update
+            FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
+            FlagClear(FLAG_ROGUE_MET_POKABBIE);
+
+            VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
+            VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
+
+            ClearBerryTrees();
+            SetMoney(&gSaveBlock1Ptr->money, 0);
+            gSaveBlock1Ptr->registeredItem = 0;
+            ClearBag();
+            NewGameInitPCItems();
+            ClearPokemonHeldItems();
+            AddBagItem(ITEM_POKE_BALL, 5);
+            AddBagItem(ITEM_POTION, 1);
+        }
+    }
 
 #ifdef ROGUE_DEBUG
     FlagClear(FLAG_ROGUE_DEBUG_DISABLED);
