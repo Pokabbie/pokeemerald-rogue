@@ -8,7 +8,7 @@
 #define QUEST_DESC_LENGTH 84
 
 #define  QUEST_MAX_REWARD_COUNT     3
-#define  QUEST_MAX_FOLLOWING_QUESTS 38
+#define  QUEST_MAX_FOLLOWING_QUESTS 24
 
 #define  QUEST_REWARD_NONE          0
 #define  QUEST_REWARD_SET_FLAG      1 // Params(1): flag
@@ -49,26 +49,28 @@
 #define QUEST_MrRandoman            (QUEST_MeetPokabbie + 13)
 #define QUEST_ChaosChampion         (QUEST_MeetPokabbie + 14)
 #define QUEST_WobFate               (QUEST_MeetPokabbie + 15)
+#define QUEST_Hardcore              (QUEST_MeetPokabbie + 16)
+#define QUEST_Hardcore2             (QUEST_MeetPokabbie + 17)
 
-#define QUEST_NORMAL_Champion       (QUEST_WobFate + 1)
-#define QUEST_FIGHTING_Champion     (QUEST_WobFate + 2)
-#define QUEST_FLYING_Champion       (QUEST_WobFate + 3)
-#define QUEST_POISON_Champion       (QUEST_WobFate + 4)
-#define QUEST_GROUND_Champion       (QUEST_WobFate + 5)
-#define QUEST_ROCK_Champion         (QUEST_WobFate + 6)
-#define QUEST_BUG_Champion          (QUEST_WobFate + 7)
-#define QUEST_GHOST_Champion        (QUEST_WobFate + 8)
-#define QUEST_STEEL_Champion        (QUEST_WobFate + 9)
-#define QUEST_FIRE_Champion         (QUEST_WobFate + 10)
-#define QUEST_WATER_Champion        (QUEST_WobFate + 11)
-#define QUEST_GRASS_Champion        (QUEST_WobFate + 12)
-#define QUEST_ELECTRIC_Champion     (QUEST_WobFate + 13)
-#define QUEST_PSYCHIC_Champion      (QUEST_WobFate + 14)
-#define QUEST_ICE_Champion          (QUEST_WobFate + 15)
-#define QUEST_DRAGON_Champion       (QUEST_WobFate + 16)
-#define QUEST_DARK_Champion         (QUEST_WobFate + 17)
+#define QUEST_NORMAL_Champion       (QUEST_Hardcore2 + 1)
+#define QUEST_FIGHTING_Champion     (QUEST_Hardcore2 + 2)
+#define QUEST_FLYING_Champion       (QUEST_Hardcore2 + 3)
+#define QUEST_POISON_Champion       (QUEST_Hardcore2 + 4)
+#define QUEST_GROUND_Champion       (QUEST_Hardcore2 + 5)
+#define QUEST_ROCK_Champion         (QUEST_Hardcore2 + 6)
+#define QUEST_BUG_Champion          (QUEST_Hardcore2 + 7)
+#define QUEST_GHOST_Champion        (QUEST_Hardcore2 + 8)
+#define QUEST_STEEL_Champion        (QUEST_Hardcore2 + 9)
+#define QUEST_FIRE_Champion         (QUEST_Hardcore2 + 10)
+#define QUEST_WATER_Champion        (QUEST_Hardcore2 + 11)
+#define QUEST_GRASS_Champion        (QUEST_Hardcore2 + 12)
+#define QUEST_ELECTRIC_Champion     (QUEST_Hardcore2 + 13)
+#define QUEST_PSYCHIC_Champion      (QUEST_Hardcore2 + 14)
+#define QUEST_ICE_Champion          (QUEST_Hardcore2 + 15)
+#define QUEST_DRAGON_Champion       (QUEST_Hardcore2 + 16)
+#define QUEST_DARK_Champion         (QUEST_Hardcore2 + 17)
 #ifdef ROGUE_EXPANSION
-#define QUEST_FAIRY_Champion        (QUEST_WobFate + 18)
+#define QUEST_FAIRY_Champion        (QUEST_Hardcore2 + 18)
 #endif
 
 #ifdef ROGUE_EXPANSION

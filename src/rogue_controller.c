@@ -1983,7 +1983,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     {
         ++gRogueRun.currentRoomIdx;
 
-        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 300);
+        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
 
         if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
             VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);

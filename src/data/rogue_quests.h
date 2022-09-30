@@ -44,7 +44,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_NoFainting1,
             QUEST_MrRandoman,
             QUEST_BerryCollector,
-            QUEST_WobFate
+            QUEST_WobFate,
+            QUEST_Hardcore,
+            QUEST_Hardcore2
         }
     },
 
@@ -194,7 +196,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 15000 } } 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } } 
         },
         .unlockedQuests = { 
             QUEST_NORMAL_Champion, 
@@ -426,6 +428,31 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .desc = _(
                     "Have a POKéMON faint whilst\n"
                     "fighting a wild Wobbuffet."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+        }
+    },
+
+    [QUEST_Hardcore] = 
+    {
+        .title = _("Hardcore"),
+        .desc = _(
+                    "Win a full Run, without\n"
+                    "using any items in battles.\n"
+                    "(Excluding POKéBALLs)"
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+        }
+    },
+    [QUEST_Hardcore2] = 
+    {
+        .title = _("Ultra Hardcore"),
+        .desc = _(
+                    "Win a full Run, without\n"
+                    "using any items in battles\n"
+                    "with Hard Trainers set."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },

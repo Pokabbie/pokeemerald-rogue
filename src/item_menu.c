@@ -52,6 +52,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_quest.h"
+
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
 
@@ -1989,6 +1991,8 @@ static void ItemMenu_UseInBattle(u8 taskId)
     {
         RemoveContextWindow();
         ItemId_GetBattleFunc(gSpecialVar_ItemId)(taskId);
+
+        QuestNotify_OnUseBattleItem(gSpecialVar_ItemId);
     }
 }
 
