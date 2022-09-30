@@ -54,8 +54,8 @@
 
 #ifdef ROGUE_EXPANSION
 #define QUEST_ShayminItem           (QUEST_Hardcore2 + 1)
-#define QUEST_HoopaItem             (QUEST_Hardcore3 + 2)
-#define QUEST_NatureItem            (QUEST_Hardcore3 + 3)
+#define QUEST_HoopaItem             (QUEST_Hardcore2 + 2)
+#define QUEST_NatureItem            (QUEST_Hardcore2 + 3)
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
 #define BASIC_QUEST_BLOCK_LAST QUEST_Hardcore2

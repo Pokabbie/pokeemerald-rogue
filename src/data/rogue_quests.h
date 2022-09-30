@@ -495,10 +495,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_REVEAL_GLASS, 1 } },
         }
     },
-
-#define QUEST_ShayminItem           (QUEST_Hardcore2 + 1)
-#define QUEST_HoopaItem             (QUEST_Hardcore3 + 2)
-#define QUEST_NatureItem            (QUEST_Hardcore3 + 3)
 #endif
 
     [QUEST_BerryCollector] = 
