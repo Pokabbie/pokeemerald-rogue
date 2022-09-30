@@ -25,11 +25,7 @@
 #include "rogue_baked.h"
 #include "rogue_controller.h"
 
-#ifdef ROGUE_EXPANSION
-#define QUERY_BUFFER_COUNT 256
-#else
 #define QUERY_BUFFER_COUNT 128
-#endif
 #define QUERY_NUM_SPECIES NUM_SPECIES
 
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, QUERY_NUM_SPECIES))
