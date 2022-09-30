@@ -617,6 +617,33 @@ RogueHub_HintSafariShinies::
 	return
 
 
+RogueHub_ListSafariShinies::
+	lock
+	setvar VAR_0x8004, 0
+	msgbox RogueHub_ListSafariShinies_Text_0, MSGBOX_DEFAULT
+	special Rogue_GetBufferedShinySpecies
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_eq RogueHub_ListSafariShinies_2
+RogueHub_ListSafariShinies_6:
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_ne RogueHub_ListSafariShinies_7
+	msgbox RogueHub_ListSafariShinies_Text_3, MSGBOX_DEFAULT
+RogueHub_ListSafariShinies_1:
+	release
+	return
+
+RogueHub_ListSafariShinies_2:
+	msgbox RogueHub_ListSafariShinies_Text_1, MSGBOX_DEFAULT
+	goto RogueHub_ListSafariShinies_1
+
+RogueHub_ListSafariShinies_7:
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	msgbox RogueHub_ListSafariShinies_Text_2, MSGBOX_DEFAULT
+	addvar VAR_0x8004, 1
+	special Rogue_GetBufferedShinySpecies
+	goto RogueHub_ListSafariShinies_6
+
+
 RogueHub_HintQuickRun1::
 	lockall
 	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
@@ -902,7 +929,23 @@ RogueHub_HintSafariShinies_Text_0:
 	.string "an Adventure!\p"
 	.string "So if you catch a shiny whilst on an\n"
 	.string "Adventure you'll be able to find it in\l"
-	.string "the Safari Zone super easy!$"
+	.string "the Safari Zone super easy!\p"
+	.string "If you've forgotten what those shinies\n"
+	.string "are, go check the list behind me.\p"
+	.string "What dedicated staff!$"
+
+RogueHub_ListSafariShinies_Text_0:
+	.string "It reads...\p"
+	.string "Shiny Breeding Programme:$"
+
+RogueHub_ListSafariShinies_Text_1:
+	.string "No programs currently active.$"
+
+RogueHub_ListSafariShinies_Text_2:
+	.string "-{STR_VAR_1}$"
+
+RogueHub_ListSafariShinies_Text_3:
+	.string "That's the end of the list.$"
 
 RogueHub_HintQuickRun1_Text_0:
 	.string "I'm double tapping B to run super fast!\p"

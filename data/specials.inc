@@ -186,6 +186,7 @@ gSpecials::
 	def_special RogueDebug_FillGenPC
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
+	def_special Rogue_GetBufferedShinySpecies
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams

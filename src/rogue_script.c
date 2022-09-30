@@ -462,3 +462,25 @@ void Rogue_ApplyBerryTreat(void)
         }
     }
 }
+
+void Rogue_GetBufferedShinySpecies(void)
+{
+    u16 i;
+    u16 offset = gSpecialVar_0x8004;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.safariShinyBuffer); ++i)
+    {
+        if(gRogueRun.safariShinyBuffer[i] != (u16)-1)
+        {
+            if(offset == 0)
+            {
+                gSpecialVar_Result = gRogueRun.safariShinyBuffer[i];
+                return;
+            }
+            else
+                --offset;
+        }
+    }
+
+    gSpecialVar_Result = SPECIES_NONE;
+}
