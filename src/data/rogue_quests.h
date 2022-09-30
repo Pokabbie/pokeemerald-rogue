@@ -436,7 +436,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 
     [QUEST_Hardcore] = 
     {
-        .title = _("Hardcore"),
+        .title = _("Extreme Mode"),
         .desc = _(
                     "Win a full Run, without\n"
                     "using any items in battles.\n"
@@ -448,11 +448,23 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
     [QUEST_Hardcore2] = 
     {
-        .title = _("Hardcore +"),
+        .title = _("Hardcore Mode"),
         .desc = _(
                     "Win a full Run, without\n"
                     "using any items in battles\n"
                     "with Hard Trainers set."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+        }
+    },
+    [QUEST_Hardcore3] = 
+    {
+        .title = _("Insane Mode"),
+        .desc = _(
+                    "Win a full Run, with no\n"
+                    "items in battles, Hard\n"
+                    "Trainers & no Legendaries."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },

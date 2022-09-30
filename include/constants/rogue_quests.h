@@ -51,14 +51,15 @@
 #define QUEST_WobFate               (QUEST_MeetPokabbie + 15)
 #define QUEST_Hardcore              (QUEST_MeetPokabbie + 16)
 #define QUEST_Hardcore2             (QUEST_MeetPokabbie + 17)
+#define QUEST_Hardcore3             (QUEST_MeetPokabbie + 18)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_ShayminItem           (QUEST_Hardcore2 + 1)
-#define QUEST_HoopaItem             (QUEST_Hardcore2 + 2)
-#define QUEST_NatureItem            (QUEST_Hardcore2 + 3)
+#define QUEST_ShayminItem           (QUEST_Hardcore3 + 1)
+#define QUEST_HoopaItem             (QUEST_Hardcore3 + 2)
+#define QUEST_NatureItem            (QUEST_Hardcore3 + 3)
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
-#define BASIC_QUEST_BLOCK_LAST QUEST_Hardcore2
+#define BASIC_QUEST_BLOCK_LAST QUEST_Hardcore3
 #endif
 
 #define QUEST_NORMAL_Champion       (BASIC_QUEST_BLOCK_LAST + 1)

@@ -50,6 +50,10 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 #endif
 };
 
+bool8 IsSpeciesType(u16 species, u8 type);
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
+bool8 IsSpeciesLegendary(u16 species);
+
 static void UnlockFollowingQuests(u16 questId);
 static void UpdateMonoQuests(void);
 static void ForEachUnlockedQuest(QuestCallback callback);
@@ -71,6 +75,7 @@ static void UnlockDefaultQuests()
     TryUnlockQuest(QUEST_BerryCollector);
     TryUnlockQuest(QUEST_Hardcore);
     TryUnlockQuest(QUEST_Hardcore2);
+    TryUnlockQuest(QUEST_Hardcore3);
 }
 
 void ResetQuestState(u16 saveVersion)
@@ -556,6 +561,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_NoFainting3);
         TryDeactivateQuest(QUEST_Hardcore);
         TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
 
         for(i = TYPE_NORMAL; i < NUMBER_OF_MON_TYPES; ++i)
             TryDeactivateQuest(TypeToMonoQuest[i]);
@@ -573,7 +579,10 @@ void QuestNotify_BeginAdventure(void)
     }
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    {
         TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
+    }
 
     UpdateChaosChampion(TRUE);
     UpdateMonoQuests();
@@ -606,6 +615,21 @@ static void OnEndBattle(void)
         }
     }
 
+    if(IsQuestActive(QUEST_Hardcore3))
+    {
+        u16 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(IsSpeciesLegendary(species))
+            {
+                TryDeactivateQuest(QUEST_Hardcore3);
+                break;
+            }
+        }
+    }
+
     UpdateMonoQuests();
 }
 
@@ -627,9 +651,6 @@ void QuestNotify_OnWildBattleEnd(void)
 
     OnEndBattle();
 }
-
-bool8 IsSpeciesType(u16 species, u8 type);
-bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void)
 {
@@ -670,8 +691,6 @@ static void CompleteMonoQuests(void)
             TryMarkQuestAsComplete(questId);
     }
 }
-
-bool8 IsSpeciesLegendary(u16 species);
 
 void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 {
@@ -935,5 +954,8 @@ void QuestNotify_OnUseBattleItem(u16 itemId)
 
         if(IsQuestActive(QUEST_Hardcore2))
             TryDeactivateQuest(QUEST_Hardcore2);
+
+        if(IsQuestActive(QUEST_Hardcore3))
+            TryDeactivateQuest(QUEST_Hardcore3);
     }
 }
