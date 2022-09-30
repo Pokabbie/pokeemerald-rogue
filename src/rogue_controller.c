@@ -2620,6 +2620,22 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8
             gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
             gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
         }
+
+        // We fill up the buffer with too many mons, so in higher gen count we're going to randomally select types for trainers to use
+        if(forceType[0] == TYPE_NONE)
+        {
+            forceType[0] = RogueRandomRange(NUMBER_OF_MON_TYPES, FLAG_SET_SEED_TRAINERS);
+            forceType[1] = RogueRandomRange(NUMBER_OF_MON_TYPES, FLAG_SET_SEED_TRAINERS);
+
+            // Normal types techincally most likely
+            if(forceType[0] == TYPE_MYSTERY)
+                forceType[0] = TYPE_NORMAL;
+            if(forceType[1] == TYPE_MYSTERY)
+                forceType[1] = TYPE_NORMAL;
+
+            if(forceType[0] == forceType[1])
+                forceType[1] = TYPE_NONE;
+        }
     }
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
