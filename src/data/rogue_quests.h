@@ -39,14 +39,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksShops },
         },
         .unlockedQuests = { 
-            QUEST_Collector1,
-            QUEST_ShoppingSpree,
-            QUEST_NoFainting1,
-            QUEST_MrRandoman,
-            QUEST_BerryCollector,
-            QUEST_WobFate,
-            QUEST_Hardcore,
-            QUEST_Hardcore2
+            QUEST_WobFate
         }
     },
 
@@ -443,19 +436,19 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "(Excluding POKéBALLs)"
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
         }
     },
     [QUEST_Hardcore2] = 
     {
-        .title = _("Ultra Hardcore"),
+        .title = _("Hardcore +"),
         .desc = _(
                     "Win a full Run, without\n"
                     "using any items in battles\n"
                     "with Hard Trainers set."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
         }
     },
 

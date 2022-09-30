@@ -56,6 +56,23 @@ static void ForEachUnlockedQuest(QuestCallback callback);
 static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
 static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
 
+static void UnlockDefaultQuests()
+{
+    u16 i;
+    for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
+    {
+        TryUnlockQuest(i);
+    }
+
+    TryUnlockQuest(QUEST_Collector1);
+    TryUnlockQuest(QUEST_ShoppingSpree);
+    TryUnlockQuest(QUEST_NoFainting1);
+    TryUnlockQuest(QUEST_MrRandoman);
+    TryUnlockQuest(QUEST_BerryCollector);
+    TryUnlockQuest(QUEST_Hardcore);
+    TryUnlockQuest(QUEST_Hardcore2);
+}
+
 void ResetQuestState(u16 saveVersion)
 {
     u16 i;
@@ -68,12 +85,14 @@ void ResetQuestState(u16 saveVersion)
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
 
-        // These quests must always be unlocked
-        for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
-        {
-            TryUnlockQuest(i);
-        }
+        ForEachUnlockedQuest(ActivateHubQuests);
+    }
 
+    // Always make sure default quests are unlocked
+    UnlockDefaultQuests();
+
+    if(saveVersion == 0)
+    {
         ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
