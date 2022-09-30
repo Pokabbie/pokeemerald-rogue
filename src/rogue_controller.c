@@ -3674,7 +3674,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             RogueQuery_ItemsInPocket(POCKET_TM_HM);
             RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
 
-
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
                 // Do nothing
@@ -3707,7 +3706,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 1000;
+                *minSalePrice = 1500;
             else
                 *minSalePrice = 1500;
 
@@ -3734,7 +3733,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             }
 
             if(Rogue_IsRunActive())
-                *minSalePrice = 1000;
+                *minSalePrice = 1500;
             else
                 *minSalePrice = 2000;
             break;
