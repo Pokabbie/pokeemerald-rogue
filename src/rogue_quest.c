@@ -629,6 +629,7 @@ void QuestNotify_OnWildBattleEnd(void)
 }
 
 bool8 IsSpeciesType(u16 species, u8 type);
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void)
 {
@@ -803,6 +804,30 @@ void QuestNotify_OnWarp(struct WarpData* warp)
 
             case ADVPATH_ROOM_RESTSTOP:
                 UpdateChaosChampion(TRUE);
+                break;
+
+            case ADVPATH_ROOM_BOSS:
+#ifdef ROGUE_EXPANSION
+                // About to face final champ
+                if(gRogueRun.currentDifficulty == 13)
+                {
+                    if(IsQuestActive(QUEST_ShayminItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
+                        TryMarkQuestAsComplete(QUEST_ShayminItem);
+
+                    if(IsQuestActive(QUEST_HoopaItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_HOOPA))
+                        TryMarkQuestAsComplete(QUEST_HoopaItem);
+
+                    if(IsQuestActive(QUEST_NatureItem))
+                    {
+                        if(PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_TORNADUS)
+                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_THUNDURUS)
+                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_LANDORUS)
+                        )
+                            TryMarkQuestAsComplete(QUEST_NatureItem);
+                    }
+                }
+#endif
+
                 break;
         }
 

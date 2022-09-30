@@ -1959,7 +1959,7 @@ static void ResetSpecialEncounterStates(void)
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
 }
 
-static bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
 {
     u8 i;
     u16 s;
