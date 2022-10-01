@@ -25,6 +25,7 @@ const u8 gText_ItemQuestLog[] = _("Quest Log");
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 #endif
+const u8 gText_ItemQuestLogDesc[] = _("A digital log for\ntracking Quests\nand their rewards.");
 const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
 const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
 const u8 gText_QuestLogTitleRewards[] = _("REWARDS");

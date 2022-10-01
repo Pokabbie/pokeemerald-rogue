@@ -169,6 +169,11 @@ u16 GetUnlockedQuestCount(void)
     return count;
 }
 
+u8 GetCompletedQuestPerc(void)
+{
+    return (GetCompletedQuestCount() * 100) / (QUEST_CAPACITY - 1);
+}
+
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 {
     if(questId < QUEST_CAPACITY)

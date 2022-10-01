@@ -1059,7 +1059,7 @@ static void QuestMenuOverview(u8 windowId)
     str = gText_QuestLogOverviewCompleted;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 20, 0, NULL);
 
-    ConvertUIntToDecimalStringN(gStringVar1, (GetCompletedQuestCount() * 100) / (QUEST_LAST - QUEST_FIRST), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    ConvertUIntToDecimalStringN(gStringVar1, GetCompletedQuestPerc(), STR_CONV_MODE_RIGHT_ALIGN, 6);
     StringExpandPlaceholders(gStringVar2, gText_Var1Percent);
     str = gStringVar2;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 20, 0, NULL);
@@ -1075,7 +1075,7 @@ static void QuestMenuOverview(u8 windowId)
     str = gText_RogueDebug_Header;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 65, 0, NULL);
 
-    ConvertUIntToDecimalStringN(gStringVar1, (QUEST_LAST - QUEST_FIRST), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    ConvertUIntToDecimalStringN(gStringVar1, QUEST_CAPACITY - 1, STR_CONV_MODE_RIGHT_ALIGN, 6);
     str = gStringVar1;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 65, 0, NULL);
 #endif

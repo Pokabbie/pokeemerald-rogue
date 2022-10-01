@@ -7,6 +7,7 @@ bool8 AnyQuestRewardsPending(void);
 
 u16 GetCompletedQuestCount(void);
 u16 GetUnlockedQuestCount(void);
+u8 GetCompletedQuestPerc(void);
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState);
 void SetQuestState(u16 questId, struct RogueQuestState* state);
