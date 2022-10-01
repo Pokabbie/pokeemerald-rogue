@@ -433,7 +433,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "fighting a wild Wobbuffet."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_WYNAUT, 7, TRUE } },
         }
     },
 
@@ -447,6 +448,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MAGIKARP, 7, TRUE } },
         }
     },
     [QUEST_Hardcore2] = 
@@ -459,6 +461,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DITTO, 7, TRUE } },
         }
     },
     [QUEST_Hardcore3] = 
@@ -471,6 +474,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
         }
     },
 
@@ -484,8 +488,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_PIKACHU, 5, TRUE } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 5, TRUE } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_PIKACHU, 7, TRUE } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 7, TRUE } },
         }
     },
 #ifdef ROGUE_EXPANSION
