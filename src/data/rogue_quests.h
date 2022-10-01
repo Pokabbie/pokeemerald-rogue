@@ -306,7 +306,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "¥50000 in your pocket."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 5 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
         }
     },

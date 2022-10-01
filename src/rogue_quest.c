@@ -884,6 +884,11 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                     }
                 }
                 break;
+
+            case ADVPATH_ROOM_RESTSTOP:
+                if(IsQuestActive(QUEST_BigSaver) && GetMoney(&gSaveBlock1Ptr->money) >= 50000)
+                    TryMarkQuestAsComplete(QUEST_BigSaver);
+                break;
         }
 
         // Could've traded by event so update mono quests

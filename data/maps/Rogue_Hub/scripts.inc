@@ -365,14 +365,19 @@ RogueHub_SpeakBank_1:
 	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
 	compare VAR_ROGUE_ADVENTURE_MONEY, 25000
 	goto_if_ge RogueHub_SpeakBank_5
-	msgbox RogueHub_SpeakBank_Text_4, MSGBOX_YESNO
+	message RogueHub_SpeakBank_Text_4
+	waitmessage
+	multichoice 20, 6, MULTI_YESNOINFO, NO
+	switch VAR_RESULT
+	case 0, RogueHub_SpeakBank_10
+	case 1, RogueHub_SpeakBank_11
+	case 2, RogueHub_SpeakBank_12
+	case MULTI_B_PRESSED, RogueHub_SpeakBank_13
+RogueHub_SpeakBank_8:
 	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakBank_11
+	goto_if_eq RogueHub_SpeakBank_14
 RogueHub_SpeakBank_4:
 	hidemoneybox
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakBank_9
-RogueHub_SpeakBank_8:
 	release
 	return
 
@@ -389,25 +394,40 @@ RogueHub_SpeakBank_5:
 	msgbox RogueHub_SpeakBank_Text_3, MSGBOX_DEFAULT
 	goto RogueHub_SpeakBank_4
 
-RogueHub_SpeakBank_9:
-	msgbox RogueHub_SpeakBank_Text_7, MSGBOX_DEFAULT
+RogueHub_SpeakBank_10:
+	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakBank_8
 
 RogueHub_SpeakBank_11:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_12:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_1, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_13:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_14:
 	checkmoney 500
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakBank_13
+	goto_if_eq RogueHub_SpeakBank_16
 	removemoney 500
 	updatemoneybox
 	addvar VAR_ROGUE_ADVENTURE_MONEY, 500
 	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
 	playse SE_SHOP
 	waitse
-	msgbox RogueHub_SpeakBank_Text_6, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakBank_Text_7, MSGBOX_DEFAULT
 	goto RogueHub_SpeakBank_4
 
-RogueHub_SpeakBank_13:
-	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_YESNO
+RogueHub_SpeakBank_16:
+	msgbox RogueHub_SpeakBank_Text_6, MSGBOX_YESNO
 	goto RogueHub_SpeakBank_4
 
 
@@ -815,23 +835,21 @@ RogueHub_SpeakBank_Text_3:
 	.string "money at the moment.$"
 
 RogueHub_SpeakBank_Text_4:
-	.string "Your fund currently has\n"
-	.string "¥{STR_VAR_2}.\p"
-	.string "Would you like to deposit another ¥500?$"
+	.string "Your fund currently has ¥{STR_VAR_2}.\nWould you like to deposit another ¥500?$"
 
 RogueHub_SpeakBank_Text_5:
-	.string "I'm afraid you seem to be lacking the\n"
-	.string "required funds currently.$"
-
-RogueHub_SpeakBank_Text_6:
-	.string "Thankyou very much!\n"
-	.string "Your fund now contains\l"
-	.string "¥{STR_VAR_2}.$"
-
-RogueHub_SpeakBank_Text_7:
 	.string "I see...\n"
 	.string "You know where I am, if you change your\l"
 	.string "mind.$"
+
+RogueHub_SpeakBank_Text_6:
+	.string "I'm afraid you seem to be lacking the\n"
+	.string "required funds currently.$"
+
+RogueHub_SpeakBank_Text_7:
+	.string "Thankyou very much!\n"
+	.string "Your fund now contains\l"
+	.string "¥{STR_VAR_2}.$"
 
 RogueHub_SpeakBerryMerchant_Text_0:
 	.string "Oh hello {PLAYER}!\n"
