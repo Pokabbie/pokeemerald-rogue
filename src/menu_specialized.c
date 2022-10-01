@@ -1035,6 +1035,8 @@ extern const u8 gText_QuestLogStatusComplete[];
 extern const u8 gText_QuestLogStatusCollection[];
 extern const u8 gText_QuestLogStatusCollected[];
 extern const u8 gText_QuestLogTitleRewardMoney[];
+extern const u8 gText_QuestLogTitleRewardPokemon[];
+extern const u8 gText_QuestLogTitleRewardShinyPokemon[];
 extern const u8 gText_QuestLogTitleQuestUnlocks[];
 extern const u8 gText_QuestLogOverviewCompleted[];
 extern const u8 gText_QuestLogOverviewUnlocked[];
@@ -1186,6 +1188,16 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
                 case QUEST_REWARD_GIVE_MONEY:
                     ConvertUIntToDecimalStringN(gStringVar1, quest->rewards[i].params[0], STR_CONV_MODE_LEFT_ALIGN, 6);
                     StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardMoney);
+                    str = gStringVar2;
+                    break;
+    
+                case QUEST_REWARD_GIVE_POKEMON:
+                    StringCopy(gStringVar1, gSpeciesNames[quest->rewards[i].params[0]]);
+                    
+                    if(quest->rewards[i].params[2] == TRUE)
+                        StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardShinyPokemon);
+                    else
+                        StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardPokemon);
                     str = gStringVar2;
                     break;
             }

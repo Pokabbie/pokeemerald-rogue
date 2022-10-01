@@ -233,13 +233,14 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
 #endif
         },
-#ifdef ROGUE_EXPANSION
         .unlockedQuests = { 
+            QUEST_KantoMode,
+#ifdef ROGUE_EXPANSION
             QUEST_ShayminItem,
             QUEST_HoopaItem,
             QUEST_NatureItem
-        }
 #endif
+        }
     },
 
     [QUEST_Collector1] = 
@@ -470,6 +471,21 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+        }
+    },
+
+    [QUEST_KantoMode] = 
+    {
+        .title = _("Kanto Style"),
+        .desc = _(
+                    "Defeat the final\n"
+                    "champion with the GEN\n"
+                    "limit set to 1."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_PIKACHU, 5, TRUE } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 5, TRUE } },
         }
     },
 #ifdef ROGUE_EXPANSION

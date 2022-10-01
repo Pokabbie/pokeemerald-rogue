@@ -2196,6 +2196,28 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     CalculateMonStats(mon);
 }
 
+void CreateMonForcedShiny(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 otIdType, u32 fixedOtId)
+{
+    u32 lhs;
+    u32 personality;
+    u32 OtId;
+
+    if(otIdType == OT_ID_PLAYER_ID)
+    {
+        OtId = gSaveBlock2Ptr->playerTrainerId[0]
+              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+    }
+    
+    // Attempt first to calculate a valid shiny PID
+    // By setting to 0 and then generating a value for the low half which will end up being used as the shiny value
+    lhs = HIHALF(OtId) ^ LOHALF(OtId);
+    personality = ((lhs << 16) & 0xFFFF0000) + ((Random() % SHINY_ODDS) & 0xFFFF);
+
+    CreateMon(mon, species, level, fixedIV, TRUE, personality, otIdType, fixedOtId);
+}
+
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u8 speciesName[POKEMON_NAME_LENGTH + 1];

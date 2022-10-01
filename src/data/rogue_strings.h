@@ -44,6 +44,8 @@ const u8 gText_QuestLogStatusComplete[] = _("COMPLETE");
 const u8 gText_QuestLogStatusCollection[] = _("READY TO COLLECT");
 const u8 gText_QuestLogStatusCollected[] = _("ALREADY COLLECTED");
 const u8 gText_QuestLogTitleRewardMoney[] = _("¥{STR_VAR_1}");
+const u8 gText_QuestLogTitleRewardPokemon[] = _("{STR_VAR_1}");
+const u8 gText_QuestLogTitleRewardShinyPokemon[] = _("Shiny {STR_VAR_1}");
 const u8 gText_QuestLogTitleQuestUnlocks[] = _("Unlocks new Quests");
 const u8 gText_QuestLogPromptOverview[] = _("Select a Category");
 const u8 gText_QuestLogPromptCategory[] = _("Select a Quest");
@@ -55,6 +57,8 @@ const u8 gText_QuestLogOverviewRewardsToCollect[] = _("PENDING REWARDS");
 const u8 gText_QuestLogBack[] = _("Back");
 
 const u8 gText_QuestRewardGive[] = _("Recieved {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveMon[] = _("Recieved a {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveShinyMon[] = _("Recieved a Shiny {STR_VAR_1}!");
 const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
 #ifdef ROGUE_DEBUG

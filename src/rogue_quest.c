@@ -3,6 +3,7 @@
 
 #include "battle.h"
 #include "event_data.h"
+#include "data.h"
 #include "item.h"
 #include "money.h"
 #include "pokedex.h"
@@ -15,6 +16,8 @@
 
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
+extern const u8 gText_QuestRewardGiveMon[];
+extern const u8 gText_QuestRewardGiveShinyMon[];
 extern const u8 gText_QuestLogStatusIncomplete[];
 
 extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
@@ -77,6 +80,19 @@ static void UnlockDefaultQuests()
     TryUnlockQuest(QUEST_Hardcore);
     TryUnlockQuest(QUEST_Hardcore2);
     TryUnlockQuest(QUEST_Hardcore3);
+
+#ifdef ROGUE_DEBUG
+    // Make sure following quests are unlocked
+    // TODO - For future versions we'll need to make sure this happens for any newly added quests
+    {
+        u16 i;
+        for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
+        {
+            if(IsQuestCollected(i))
+                TryUnlockQuest(i);
+        }
+    }
+#endif
 }
 
 void ResetQuestState(u16 saveVersion)
@@ -320,6 +336,17 @@ static bool8 GiveAndGetNextAnnouncedReward()
                 shouldAnnounce = TRUE;
                 break;
 
+            case QUEST_REWARD_GIVE_POKEMON:
+                // Force shiny
+                if(reward->params[2] == TRUE)
+                    CreateMonForcedShiny(&gEnemyParty[0], reward->params[0], reward->params[1], USE_RANDOM_IVS, OT_ID_PLAYER_ID, 0);
+                else 
+                    CreateMon(&gEnemyParty[0], reward->params[0], reward->params[1], USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+                GiveMonToPlayer(&gEnemyParty[0]);
+                shouldAnnounce = TRUE;
+                break;
+
             //case QUEST_REWARD_CUSTOM_TEXT:
             //    break;
         }
@@ -357,6 +384,15 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type)
                 case QUEST_REWARD_GIVE_MONEY:
                     ConvertUIntToDecimalStringN(gStringVar1, reward->params[0], STR_CONV_MODE_LEFT_ALIGN, 7);
                     StringExpandPlaceholders(str, gText_QuestRewardGiveMoney);
+                    break;
+
+                case QUEST_REWARD_GIVE_POKEMON:
+                    StringCopy(gStringVar1, gSpeciesNames[reward->params[0]]);
+
+                    if(reward->params[2] == TRUE)
+                        StringExpandPlaceholders(str, gText_QuestRewardGiveShinyMon);
+                    else
+                        StringExpandPlaceholders(str, gText_QuestRewardGiveMon);
                     break;
                 
                 default:
@@ -595,6 +631,11 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore3);
     }
 
+    if(VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT) != 1)
+    {
+        TryDeactivateQuest(QUEST_KantoMode);
+    }
+
     UpdateChaosChampion(TRUE);
     UpdateMonoQuests();
 }
@@ -760,6 +801,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_ChaosChampion);
                 TryMarkQuestAsComplete(QUEST_Hardcore);
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
+                TryMarkQuestAsComplete(QUEST_KantoMode);
                 CompleteMonoQuests();
                 break;
         }
