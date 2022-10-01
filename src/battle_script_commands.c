@@ -63,6 +63,7 @@
 #include "rogue_controller.h"
 #include "rogue_script.h"
 #include "rogue_baked.h"
+#include "rogue_quest.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -8661,6 +8662,11 @@ static void Cmd_various(void)
             if (megaSpecies == SPECIES_NONE)
             {
                 megaSpecies = GetWishMegaEvolutionSpecies(gBattleStruct->mega.evolvedSpecies[gActiveBattler], gBattleMons[gActiveBattler].moves[0], gBattleMons[gActiveBattler].moves[1], gBattleMons[gActiveBattler].moves[2], gBattleMons[gActiveBattler].moves[3]);
+            }
+
+            if(GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+            {
+                QuestNotify_OnMegaEvolve(gBattleMons[gActiveBattler].species);
             }
 
             gBattleMons[gActiveBattler].species = megaSpecies;

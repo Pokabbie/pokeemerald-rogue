@@ -48,6 +48,7 @@
 
 #include "constants/rogue.h"
 #include "rogue_baked.h"
+#include "rogue_quest.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -302,6 +303,9 @@ void HandleAction_UseMove(void)
     if (gBattleStruct->zmove.toBeUsed[gBattlerAttacker] != MOVE_NONE && !IS_MOVE_STATUS(gCurrentMove))
     {
         gCurrentMove = gBattleStruct->zmove.toBeUsed[gBattlerAttacker];
+
+        if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+            QuestNotify_OnZMoveUsed(gCurrentMove);
     }
 
     if (gBattleMons[gBattlerAttacker].hp != 0)
