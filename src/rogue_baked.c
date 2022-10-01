@@ -52,6 +52,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         // Invalid evo
         outEvo->targetSpecies = SPECIES_NONE;
         outEvo->method = 0;
+        return;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -88,6 +89,31 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         {
             outEvo->method = EVO_LEVEL_ITEM;
             outEvo->param = ITEM_METAL_COAT;
+        }
+
+        if(species == SPECIES_EXEGGCUTE && evoIdx == 1)
+        {
+            outEvo->method = EVO_LEVEL_ITEM;
+            outEvo->param = ITEM_DRAGON_SCALE;
+        }
+
+        if(species == SPECIES_MIME_JR && evoIdx == 1)
+        {
+            outEvo->method = EVO_ITEM;
+            outEvo->param = ITEM_ICE_STONE;
+        }
+
+        if(species == SPECIES_KOFFING && evoIdx == 1)
+        {
+            outEvo->method = EVO_ITEM;
+            outEvo->param = ITEM_GALARICA_CUFF;
+            outEvo->targetSpecies = SPECIES_WEEZING_GALARIAN;
+        }
+
+        if(species == SPECIES_PIKACHU && evoIdx == 1)
+        {
+            outEvo->method = EVO_ITEM;
+            outEvo->param = ITEM_SHINY_STONE;
         }
 #endif
 
@@ -169,6 +195,14 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 #endif
         }
+    }
+
+    // Check that the new mon is still active
+    if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
+    {
+        // Invalid evo
+        outEvo->targetSpecies = SPECIES_NONE;
+        outEvo->method = 0;
     }
 }
 const u8* Rogue_GetTrainerName(u16 trainerNum)
