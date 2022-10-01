@@ -3067,7 +3067,7 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     else if(presetCount != 0)
     {
         const struct RogueMonPreset* currPreset;
-        randOffset = RogueRandomRange(presetCount, randFlag);
+        randOffset = presetCount == 1 ? 0 : RogueRandomRange(presetCount, randFlag);
 
         // Work from random offset and attempt to find the best preset which slots into this team
         // If none is found, we will use the last option and adjust below
@@ -3196,6 +3196,11 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
 
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
 {
+#ifdef ROGUE_EXPANSION
+    u16 const abilityCount = 3;
+#else
+    u16 const abilityCount = 2;
+#endif
     u16 i;
     u16 move;
     u16 heldItem;
@@ -3216,11 +3221,7 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
     if(preset->abilityNum != ABILITY_NONE)
     {
         // We need to set the ability index
-#ifdef ROGUE_EXPANSION
-        for(i; i < 3; ++i) // 3 to include hidden ability
-#else
-        for(i; i < 2; ++i)
-#endif
+        for(i = 0; i < abilityCount; ++i)
         {
             SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
 
@@ -3231,7 +3232,7 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
             }
         }
 
-        if(i == 4)
+        if(i >= abilityCount)
         {
             // We failed to set it, so fall back to default
             i = 0;
