@@ -511,6 +511,7 @@ struct BattleSpriteInfo
 {
     u16 invisible:1; // 0x1
     u16 lowHpSong:1; // 0x2
+    u16 lowHpSongHeard:1;
     u16 behindSubstitute:1; // 0x4
     u16 flag_x8:1; // 0x8
     u16 hpNumbersNoBars:1; // 0x10
