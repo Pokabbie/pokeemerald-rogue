@@ -47,6 +47,14 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
 
+    // Any species alterations
+#ifdef ROGUE_EXPANSION
+    if(species == SPECIES_KOFFING && evoIdx == 1)
+    {
+        outEvo->targetSpecies = SPECIES_WEEZING_GALARIAN;
+    }
+#endif
+
     if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
     {
         // Invalid evo
@@ -107,7 +115,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         {
             outEvo->method = EVO_ITEM;
             outEvo->param = ITEM_GALARICA_CUFF;
-            outEvo->targetSpecies = SPECIES_WEEZING_GALARIAN;
         }
 
         if(species == SPECIES_PIKACHU && evoIdx == 1)
@@ -195,14 +202,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 #endif
         }
-    }
-
-    // Check that the new mon is still active
-    if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
-    {
-        // Invalid evo
-        outEvo->targetSpecies = SPECIES_NONE;
-        outEvo->method = 0;
     }
 }
 const u8* Rogue_GetTrainerName(u16 trainerNum)
