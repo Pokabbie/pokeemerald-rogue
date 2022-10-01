@@ -1028,3 +1028,25 @@ void QuestNotify_OnUseBattleItem(u16 itemId)
             TryDeactivateQuest(QUEST_Hardcore3);
     }
 }
+
+void QuestNotify_OnMegaEvolve(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    if(gRogueRun.currentDifficulty >= 13)
+    {
+        if(IsQuestActive(QUEST_MegaEvo))
+            TryMarkQuestAsComplete(QUEST_MegaEvo);
+    }
+#endif
+}
+
+void QuestNotify_OnZMoveUsed(u16 move)
+{
+#ifdef ROGUE_EXPANSION
+    if(gRogueRun.currentDifficulty >= 13)
+    {
+        if(IsQuestActive(QUEST_ZMove))
+            TryMarkQuestAsComplete(QUEST_ZMove);
+    }
+#endif
+}
