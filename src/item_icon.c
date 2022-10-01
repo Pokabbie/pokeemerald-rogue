@@ -13,6 +13,8 @@ EWRAM_DATA u8 *gItemIcon4x4Buffer = NULL;
 // const rom data
 #include "data/item_icon_table.h"
 
+#include "rogue_baked.h"
+
 static const struct OamData sOamData_ItemIcon =
 {
     .y = 0,
@@ -164,5 +166,5 @@ const void *GetItemIconPicOrPalette(u16 itemId, u8 which)
     else if (itemId >= ITEMS_COUNT)
         itemId = 0;
 
-    return gItemIconTable[itemId][which];
+    return Rogue_GetItemIconPicOrPalette(itemId, which);
 }

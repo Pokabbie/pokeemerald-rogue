@@ -35,6 +35,15 @@ script Rogue_Adventure_WarpState0
         call(Rogue_Adventure_ScottIntro)
         setvar(VAR_ROGUE_INTRO_STATE, 5)
     }
+    else
+    {
+        checkitem(ITEM_QUEST_LOG)
+        
+        if(var(VAR_RESULT) == NO)
+        {
+            call(Rogue_Adventure_ScottOldSaveQuestLog)
+        }
+    }
 
     setvar(VAR_RETURN_STATE, 1)
 }
@@ -64,6 +73,12 @@ script Rogue_Adventure_RedrawMap
     }
 }
 
+script Rogue_Adventure_ScottGiveQuestLog
+{
+    giveitem(ITEM_QUEST_LOG, 1)
+    msgbox(format("That log has a lot of optional Quests for you do complete whilst you're out on an Adventure.\pCompleting Quests can give you some nice rewards too.\pOnce complete any come and chat to me and I'll give your rewards."))
+}
+
 script Rogue_Adventure_ScottIntro
 {
     lockall
@@ -71,7 +86,27 @@ script Rogue_Adventure_ScottIntro
     applymovement(NPC_INTRO_SCOTT, Rogue_Adventure_ScottIntroMovement0)
     waitmovement(0)
 
-    msgbox(format("SCOTT: Hey {PLAYER}!\pLooks like you got yourself a partner POKéMON, so you're all ready to go on an adventure!\pJust go chat to the nurse over there and you can start exploring!"))
+    msgbox(format("SCOTT: Hey {PLAYER}!\pLooks like you got yourself a partner POKéMON, so you're all ready to go on an Adventure!\pBefore you head off you should take this."))
+
+    call(Rogue_Adventure_ScottGiveQuestLog)
+
+    msgbox(format("Looks like you're all good to go now!\pJust go chat to the nurse over there and you can start exploring!"))
+
+    releaseall
+}
+
+script Rogue_Adventure_ScottOldSaveQuestLog
+{
+    lockall
+
+    applymovement(NPC_INTRO_SCOTT, Rogue_Adventure_ScottIntroMovement0)
+    waitmovement(0)
+
+    msgbox(format("SCOTT: Hey {PLAYER}!\pBefore you head off your next Adventure, you should take this."))
+
+    call(Rogue_Adventure_ScottGiveQuestLog)
+
+    msgbox(format("Looks like you're all good to go now!"))
 
     releaseall
 }
@@ -86,38 +121,14 @@ script Rogue_Adventure_ScottGift
 
     // Give extra key items
     msgbox(format("SCOTT: Oh hey {PLAYER}!\nPOKABBIE has gone and added some extra modes here for you to try!"), MSGBOX_DEFAULT)
-    
-    // Give extra key items
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+
+    checkitem(ITEM_QUEST_LOG)
+    if(var(VAR_RESULT) == NO)
     {
-        msgbox(format("She's actually left me a bunch of items to give to you too!"), MSGBOX_DEFAULT)
-    
-        // ITEM_ROTOM_CATALOG
-        //giveitem(694)
+        msgbox(format("Before you head off your next Adventure, you should also take this."))
+        call(Rogue_Adventure_ScottGiveQuestLog)
 
-        // ITEM_GRACIDEA
-        giveitem(695)
-
-        // ITEM_REVEAL_GLASS
-        giveitem(696)
-
-        // ITEM_DNA_SPLICERS
-        //giveitem(697)
-
-        // ITEM_ZYGARDE_CUBE
-        //giveitem(698)
-
-        // ITEM_PRISON_BOTTLE
-        giveitem(699)
-
-        // ITEM_N_SOLARIZER
-        //giveitem(700)
-
-        // ITEM_N_LUNARIZER
-        //giveitem(701)
-
-        // ITEM_REINS_OF_UNITY
-        //giveitem(702)
+        msgbox(format("Looks like you're all good to go now!"))
     }
 
     releaseall
@@ -132,7 +143,15 @@ script Rogue_Adventure_SpeakScott
     lock
     faceplayer
 
-    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
+    checkitem(ITEM_QUEST_LOG)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("SCOTT: Hey {PLAYER}!\pBefore you head off your next Adventure, you should also take this."))
+        call(Rogue_Adventure_ScottGiveQuestLog)
+
+        msgbox(format("Looks like you're all good to go now!"))
+    }
+    elif(var(VAR_ROGUE_INTRO_STATE) <= 5)
     {
         msgbox(format("SCOTT: Hey {PLAYER}!\pJust go chat to the nurse over there and you can start exploring!"))
     }
@@ -198,42 +217,11 @@ movement Rogue_Adventure_ScottIntroMovement0
     walk_down * 2
 }
 
-script Rogue_Adventure_SpeakBasicBag
-{
-    lock
-    faceplayer
-
-    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-    else
-    {
-        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
-        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-
-    release
-}
-
 script Rogue_Adventure_StatsSign
 {
     buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
-    msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note for the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
+    msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note from the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
 }
-
 
 script Rogue_Adventure_StartStandard
 {

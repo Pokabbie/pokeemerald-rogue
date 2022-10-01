@@ -749,18 +749,18 @@ static void Task_MainMenuCheckBattery(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 7);
 
-#ifdef ROGUE_FEATURE_SKIP_SAVE_WARNINGS
+#if 1 //def ROGUE_FEATURE_SKIP_SAVE_WARNINGS
         gTasks[taskId].func = Task_DisplayMainMenu;
 #else
-        if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
-        {
-            gTasks[taskId].func = Task_DisplayMainMenu;
-        }
-        else
-        {
-            CreateMainMenuErrorWindow(gText_BatteryRunDry);
-            gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
-        }
+        //if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
+        //{
+        //    gTasks[taskId].func = Task_DisplayMainMenu;
+        //}
+        //else
+        //{
+        //    CreateMainMenuErrorWindow(gText_BatteryRunDry);
+        //    gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
+        //}
 #endif
     }
 }
@@ -2438,7 +2438,7 @@ static void MainMenu_FormatSavegameBadges(void)
 {
     // RogueNote: Display Quests% instead of badges 
     u8 str[0x20];
-    u16 questPercentage = (GetCompletedQuestCount() * 100) / (QUEST_LAST - QUEST_FIRST);
+    u16 questPercentage = GetCompletedQuestPerc();
 
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);

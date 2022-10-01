@@ -14,6 +14,7 @@
 #else
 #include "global.h"
 #include "data.h"
+#include "graphics.h"
 #include "item.h"
 #include "item_use.h"
 #include "string_util.h"
@@ -484,6 +485,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
 extern const u8 gText_ItemLinkCable[];
 extern const u8 gText_ItemQuestLog[];
+extern const u8 gText_ItemQuestLogDesc[];
+
+extern const u32 *const gItemIconTable[][2];
 
 const u8* Rogue_GetItemName(u16 itemId)
 {
@@ -501,6 +505,17 @@ const u8* Rogue_GetItemName(u16 itemId)
     return gItems[itemId].name;
 }
 
+const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
+{
+    switch(itemId)
+    {
+        case ITEM_QUEST_LOG:
+            return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+    }
+
+    return gItemIconTable[itemId][which];
+}
+
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
     itemId = SanitizeItemId(itemId);
@@ -512,6 +527,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         case ITEM_QUEST_LOG: // Quest Log
             outItem->fieldUseFunc = ItemUseOutOfBattle_QuestLog;
+            outItem->description = gText_ItemQuestLogDesc;
             break;
     }
 

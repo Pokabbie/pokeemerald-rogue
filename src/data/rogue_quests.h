@@ -16,6 +16,8 @@ static const u8 gText_GiveSafariLimiter[] = _("New Safari Upgrade:\nYou can now 
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
 static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou can now carry both Bikes at once!");
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
+static const u8 gText_PreviewUnlocksTutorUpgrade[] = _("Tutors Upgrade");
+static const u8 gText_GiveTutorUpgrade[] = _("HUB Tutors will now offer more moves!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
 {
@@ -51,7 +53,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01_CUT, 1 } },
         }
     },
@@ -63,7 +65,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05_FLASH, 1 } },
         }
     },
@@ -75,7 +77,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06_ROCK_SMASH, 1 } },
         }
     },
@@ -87,7 +89,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04_STRENGTH, 1 } },
         }
     },
@@ -99,7 +101,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08_DIVE, 1 } },
         }
     },
@@ -111,7 +113,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02_FLY, 1 } },
         }
     },
@@ -123,7 +125,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07_WATERFALL, 1 } },
         }
     },
@@ -135,7 +137,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03_SURF, 1 } },
         }
     },
@@ -225,19 +227,20 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
         .rewards = {
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 3 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
 #else
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
 #endif
         },
-#ifdef ROGUE_EXPANSION
         .unlockedQuests = { 
+            QUEST_KantoMode,
+#ifdef ROGUE_EXPANSION
             QUEST_ShayminItem,
             QUEST_HoopaItem,
             QUEST_NatureItem
-        }
 #endif
+        }
     },
 
     [QUEST_Collector1] = 
@@ -295,8 +298,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
         },
         .unlockedQuests = { 
-            QUEST_BigSaver,
-            QUEST_Bike1,
+            QUEST_BigSaver
         }
     },
     [QUEST_BigSaver] = 
@@ -307,7 +309,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "¥50000 in your pocket."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 5 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
         }
     },
@@ -321,7 +323,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TAMATO_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TAMATO_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBikeShop },
         },
         .unlockedQuests = { 
@@ -370,9 +372,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 3 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 3 } },
-            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksDaycare },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 1 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
         }
     },
     [QUEST_NoFainting3] = 
@@ -385,7 +387,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 3 } }
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 1 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
         }
     },
 
@@ -430,13 +433,14 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "fighting a wild Wobbuffet."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 3000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_WYNAUT, 7, TRUE } },
         }
     },
 
     [QUEST_Hardcore] = 
     {
-        .title = _("Hardcore"),
+        .title = _("Extreme Mode"),
         .desc = _(
                     "Win a full Run, without\n"
                     "using any items in battles.\n"
@@ -444,11 +448,12 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MAGIKARP, 7, TRUE } },
         }
     },
     [QUEST_Hardcore2] = 
     {
-        .title = _("Hardcore +"),
+        .title = _("Hardcore Mode"),
         .desc = _(
                     "Win a full Run, without\n"
                     "using any items in battles\n"
@@ -456,8 +461,51 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DITTO, 7, TRUE } },
         }
     },
+    [QUEST_Hardcore3] = 
+    {
+        .title = _("Insane Mode"),
+        .desc = _(
+                    "Win a full Run, with no\n"
+                    "items in battles, Hard\n"
+                    "Trainers & no Legendaries."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
+        }
+    },
+
+    [QUEST_KantoMode] = 
+    {
+        .title = _("Kanto Style"),
+        .desc = _(
+                    "Defeat the final\n"
+                    "champion with the GEN\n"
+                    "limit set to 1."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_PIKACHU, 7, TRUE } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 7, TRUE } },
+        }
+    },
+    [QUEST_OrreMode] = 
+    {
+        .title = _("Orre Style"),
+        .desc = _(
+                    "Reach the final champion\n"
+                    "in DOUBLES with an ESPEON\n"
+                    "& UMBREON in your party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_EEVEE, 7, TRUE } },
+        }
+    },
+
 #ifdef ROGUE_EXPANSION
     [QUEST_ShayminItem] = 
     {
@@ -507,7 +555,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ORAN_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ORAN_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBerries },
         },
         .unlockedQuests = { 
@@ -523,8 +571,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "a Wild Den."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_QUALOT_BERRY, 3 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_GREPA_BERRY, 3 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_QUALOT_BERRY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_GREPA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBakery },
         }
     },

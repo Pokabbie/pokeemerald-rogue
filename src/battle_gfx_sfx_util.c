@@ -1045,16 +1045,35 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
 
     if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED)
     {
-        if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
+        if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSongHeard)
         {
-            if (!gBattleSpritesDataPtr->battlerData[battlerId ^ BIT_FLANK].lowHpSong)
-                PlaySE(SE_LOW_HEALTH);
-            gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong = 1;
+            if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
+            {
+                if (!gBattleSpritesDataPtr->battlerData[battlerId ^ BIT_FLANK].lowHpSong)
+                    PlaySE(SE_LOW_HEALTH);
+                gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong = 1;
+            }
+            gBattleSpritesDataPtr->battlerData[battlerId].lowHpSongHeard = 1;
+        }
+        else
+        {
+            if (!IsDoubleBattle())
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                return;
+            }
+            if (IsDoubleBattle() && !gBattleSpritesDataPtr->battlerData[battlerId ^ BIT_FLANK].lowHpSong)
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                return;
+            }
         }
     }
     else
     {
         gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong = 0;
+        gBattleSpritesDataPtr->battlerData[battlerId].lowHpSongHeard = 0;
+
         if (!IsDoubleBattle())
         {
             m4aSongNumStop(SE_LOW_HEALTH);
@@ -1073,8 +1092,12 @@ void BattleStopLowHpSound(void)
     u8 playerBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
     gBattleSpritesDataPtr->battlerData[playerBattler].lowHpSong = 0;
+    gBattleSpritesDataPtr->battlerData[playerBattler].lowHpSongHeard = 0;
     if (IsDoubleBattle())
+    {
         gBattleSpritesDataPtr->battlerData[playerBattler ^ BIT_FLANK].lowHpSong = 0;
+        gBattleSpritesDataPtr->battlerData[playerBattler ^ BIT_FLANK].lowHpSongHeard = 0;
+    }
 
     m4aSongNumStop(SE_LOW_HEALTH);
 }

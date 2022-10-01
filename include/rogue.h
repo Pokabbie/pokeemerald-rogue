@@ -52,7 +52,7 @@ struct RogueAdvPath
 struct RogueQuestReward
 {
     u8 type;
-    u16 params[2];
+    u16 params[3];
     const u8* previewText;
     const u8* giveText;
 };

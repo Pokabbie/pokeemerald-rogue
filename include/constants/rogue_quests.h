@@ -7,7 +7,7 @@
 #define QUEST_TITLE_LENGTH 16
 #define QUEST_DESC_LENGTH 84
 
-#define  QUEST_MAX_REWARD_COUNT     3
+#define  QUEST_MAX_REWARD_COUNT     4
 #define  QUEST_MAX_FOLLOWING_QUESTS 24
 
 #define  QUEST_REWARD_NONE          0
@@ -16,6 +16,7 @@
 #define  QUEST_REWARD_GIVE_ITEM     3 // Params(2): item, count
 #define  QUEST_REWARD_GIVE_MONEY    4 // Params(2): amount
 #define  QUEST_REWARD_CUSTOM_TEXT   5 // Params(0)
+#define  QUEST_REWARD_GIVE_POKEMON  6 // Params(3): species, lvl, forceShiny
 
 
 #define QUEST_NONE                  0 // Have to keep 0 as NONE so memzero works
@@ -51,14 +52,17 @@
 #define QUEST_WobFate               (QUEST_MeetPokabbie + 15)
 #define QUEST_Hardcore              (QUEST_MeetPokabbie + 16)
 #define QUEST_Hardcore2             (QUEST_MeetPokabbie + 17)
+#define QUEST_Hardcore3             (QUEST_MeetPokabbie + 18)
+#define QUEST_KantoMode             (QUEST_MeetPokabbie + 19)
+#define QUEST_OrreMode              (QUEST_MeetPokabbie + 20)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_ShayminItem           (QUEST_Hardcore2 + 1)
-#define QUEST_HoopaItem             (QUEST_Hardcore2 + 2)
-#define QUEST_NatureItem            (QUEST_Hardcore2 + 3)
+#define QUEST_ShayminItem           (QUEST_OrreMode + 1)
+#define QUEST_HoopaItem             (QUEST_OrreMode + 2)
+#define QUEST_NatureItem            (QUEST_OrreMode + 3)
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
-#define BASIC_QUEST_BLOCK_LAST QUEST_Hardcore2
+#define BASIC_QUEST_BLOCK_LAST QUEST_OrreMode
 #endif
 
 #define QUEST_NORMAL_Champion       (BASIC_QUEST_BLOCK_LAST + 1)

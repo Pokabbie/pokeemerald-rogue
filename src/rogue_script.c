@@ -359,9 +359,10 @@ enum BerryTreatBuff
     BERRY_BUFF_HP,
     BERRY_BUFF_ATK,
     BERRY_BUFF_DEF,
+    BERRY_BUFF_SPD,
     BERRY_BUFF_SPATK,
     BERRY_BUFF_SPDEF,
-    BERRY_BUFF_SPD,
+    BERRY_BUFF_WEAKEN,
 };
 
 static u8 BerryItemToTreatBuff(u16 berryItem)
@@ -386,7 +387,11 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
             return BERRY_BUFF_SPDEF;
 
         case ITEM_TAMATO_BERRY:
+        case ITEM_SALAC_BERRY:
             return BERRY_BUFF_SPD;
+
+        case ITEM_LEPPA_BERRY:
+            return BERRY_BUFF_WEAKEN;
 
 #ifdef ROGUE_EXPANSION
         case ITEM_LIECHI_BERRY:
@@ -400,9 +405,6 @@ static u8 BerryItemToTreatBuff(u16 berryItem)
 
         case ITEM_APICOT_BERRY:
             return BERRY_BUFF_SPDEF;
-
-        case ITEM_SALAC_BERRY:
-            return BERRY_BUFF_SPD;
 #endif
         default:
             return BERRY_BUFF_FRIEND;
@@ -417,8 +419,8 @@ void Rogue_CheckBerryTreat(void)
 
 void Rogue_ApplyBerryTreat(void)
 {
-    u16 itemId = gSpecialVar_ItemId;
     u16 monIdx = gSpecialVar_0x8004;
+    u16 itemId = gSpecialVar_ItemId;
     u16 buffAmount = gSpecialVar_0x8005;
     u16 berryBuff = BerryItemToTreatBuff(itemId);
 
@@ -442,6 +444,32 @@ void Rogue_ApplyBerryTreat(void)
             gSpecialVar_Result = FALSE;
         }
     }
+    else if(berryBuff == BERRY_BUFF_WEAKEN)
+    {
+        u16 statOffset;
+        u16 ivCount;
+
+        gSpecialVar_Result = FALSE;
+
+        for(statOffset = 0; statOffset < 6; ++statOffset)
+        {
+            u16 ivCount = GetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset);
+
+            if(ivCount != 0)
+            {
+                gSpecialVar_Result = TRUE;
+
+                if(ivCount < buffAmount)
+                    ivCount = 0;
+                else
+                    ivCount -= buffAmount;
+
+                SetMonData(&gPlayerParty[monIdx], MON_DATA_HP_IV + statOffset, &ivCount);
+            }
+        }
+
+        CalculateMonStats(&gPlayerParty[monIdx]);
+    }
     else
     {
         u16 statOffset = berryBuff - 1;
@@ -463,4 +491,26 @@ void Rogue_ApplyBerryTreat(void)
             gSpecialVar_Result = FALSE;
         }
     }
+}
+
+void Rogue_GetBufferedShinySpecies(void)
+{
+    u16 i;
+    u16 offset = gSpecialVar_0x8004;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.safariShinyBuffer); ++i)
+    {
+        if(gRogueRun.safariShinyBuffer[i] != (u16)-1)
+        {
+            if(offset == 0)
+            {
+                gSpecialVar_Result = gRogueRun.safariShinyBuffer[i];
+                return;
+            }
+            else
+                --offset;
+        }
+    }
+
+    gSpecialVar_Result = SPECIES_NONE;
 }

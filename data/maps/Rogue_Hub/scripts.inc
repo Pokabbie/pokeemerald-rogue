@@ -365,14 +365,19 @@ RogueHub_SpeakBank_1:
 	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
 	compare VAR_ROGUE_ADVENTURE_MONEY, 25000
 	goto_if_ge RogueHub_SpeakBank_5
-	msgbox RogueHub_SpeakBank_Text_4, MSGBOX_YESNO
+	message RogueHub_SpeakBank_Text_4
+	waitmessage
+	multichoice 20, 6, MULTI_YESNOINFO, NO
+	switch VAR_RESULT
+	case 0, RogueHub_SpeakBank_10
+	case 1, RogueHub_SpeakBank_11
+	case 2, RogueHub_SpeakBank_12
+	case MULTI_B_PRESSED, RogueHub_SpeakBank_13
+RogueHub_SpeakBank_8:
 	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_SpeakBank_11
+	goto_if_eq RogueHub_SpeakBank_14
 RogueHub_SpeakBank_4:
 	hidemoneybox
-	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakBank_9
-RogueHub_SpeakBank_8:
 	release
 	return
 
@@ -389,25 +394,40 @@ RogueHub_SpeakBank_5:
 	msgbox RogueHub_SpeakBank_Text_3, MSGBOX_DEFAULT
 	goto RogueHub_SpeakBank_4
 
-RogueHub_SpeakBank_9:
-	msgbox RogueHub_SpeakBank_Text_7, MSGBOX_DEFAULT
+RogueHub_SpeakBank_10:
+	setvar VAR_RESULT, YES
 	goto RogueHub_SpeakBank_8
 
 RogueHub_SpeakBank_11:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_12:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_1, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_13:
+	setvar VAR_RESULT, NO
+	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_DEFAULT
+	goto RogueHub_SpeakBank_8
+
+RogueHub_SpeakBank_14:
 	checkmoney 500
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_SpeakBank_13
+	goto_if_eq RogueHub_SpeakBank_16
 	removemoney 500
 	updatemoneybox
 	addvar VAR_ROGUE_ADVENTURE_MONEY, 500
 	buffernumberstring STR_VAR_2, VAR_ROGUE_ADVENTURE_MONEY
 	playse SE_SHOP
 	waitse
-	msgbox RogueHub_SpeakBank_Text_6, MSGBOX_DEFAULT
+	msgbox RogueHub_SpeakBank_Text_7, MSGBOX_DEFAULT
 	goto RogueHub_SpeakBank_4
 
-RogueHub_SpeakBank_13:
-	msgbox RogueHub_SpeakBank_Text_5, MSGBOX_YESNO
+RogueHub_SpeakBank_16:
+	msgbox RogueHub_SpeakBank_Text_6, MSGBOX_YESNO
 	goto RogueHub_SpeakBank_4
 
 
@@ -609,6 +629,90 @@ RogueHub_EnterSafari1_4:
 	return
 
 
+RogueHub_HintSafariShinies::
+	lock
+	faceplayer
+	msgbox RogueHub_HintSafariShinies_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_ListSafariShinies::
+	lock
+	setvar VAR_0x8004, 0
+	msgbox RogueHub_ListSafariShinies_Text_0, MSGBOX_DEFAULT
+	special Rogue_GetBufferedShinySpecies
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_eq RogueHub_ListSafariShinies_2
+RogueHub_ListSafariShinies_6:
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_ne RogueHub_ListSafariShinies_7
+	msgbox RogueHub_ListSafariShinies_Text_3, MSGBOX_DEFAULT
+RogueHub_ListSafariShinies_1:
+	release
+	return
+
+RogueHub_ListSafariShinies_2:
+	msgbox RogueHub_ListSafariShinies_Text_1, MSGBOX_DEFAULT
+	goto RogueHub_ListSafariShinies_1
+
+RogueHub_ListSafariShinies_7:
+	bufferspeciesname STR_VAR_1, VAR_RESULT
+	msgbox RogueHub_ListSafariShinies_Text_2, MSGBOX_DEFAULT
+	addvar VAR_0x8004, 1
+	special Rogue_GetBufferedShinySpecies
+	goto RogueHub_ListSafariShinies_6
+
+
+RogueHub_HintQuickRun1::
+	lockall
+	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
+	releaseall
+	return
+
+
+RogueHub_HintQuickRun2::
+	lockall
+	msgbox RogueHub_HintQuickRun2_Text_0, MSGBOX_DEFAULT
+	releaseall
+	return
+
+
+RogueHub_HintHMUsage::
+	lock
+	msgbox RogueHub_HintHMUsage_Text_0, MSGBOX_DEFAULT
+	faceplayer
+	msgbox RogueHub_HintHMUsage_Text_1, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintRouteAdjectives::
+	lock
+	faceplayer
+	msgbox RogueHub_HintRouteAdjectives_Text_0, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_HintRouteAdjectives_2
+RogueHub_HintRouteAdjectives_1:
+	release
+	return
+
+RogueHub_HintRouteAdjectives_2:
+	msgbox RogueHub_HintRouteAdjectives_Text_2, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_3, MSGBOX_DEFAULT
+	msgbox RogueHub_HintRouteAdjectives_Text_4, MSGBOX_DEFAULT
+	goto RogueHub_HintRouteAdjectives_1
+
+
+RogueHub_HintHubRespawns::
+	lock
+	faceplayer
+	msgbox RogueHub_HintHubRespawns_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -731,23 +835,21 @@ RogueHub_SpeakBank_Text_3:
 	.string "money at the moment.$"
 
 RogueHub_SpeakBank_Text_4:
-	.string "Your fund currently has\n"
-	.string "¥{STR_VAR_2}.\p"
-	.string "Would you like to deposit another ¥500?$"
+	.string "Your fund currently has ¥{STR_VAR_2}.\nWould you like to deposit another ¥500?$"
 
 RogueHub_SpeakBank_Text_5:
-	.string "I'm afraid you seem to be lacking the\n"
-	.string "required funds currently.$"
-
-RogueHub_SpeakBank_Text_6:
-	.string "Thankyou very much!\n"
-	.string "Your fund now contains\l"
-	.string "¥{STR_VAR_2}.$"
-
-RogueHub_SpeakBank_Text_7:
 	.string "I see...\n"
 	.string "You know where I am, if you change your\l"
 	.string "mind.$"
+
+RogueHub_SpeakBank_Text_6:
+	.string "I'm afraid you seem to be lacking the\n"
+	.string "required funds currently.$"
+
+RogueHub_SpeakBank_Text_7:
+	.string "Thankyou very much!\n"
+	.string "Your fund now contains\l"
+	.string "¥{STR_VAR_2}.$"
 
 RogueHub_SpeakBerryMerchant_Text_0:
 	.string "Oh hello {PLAYER}!\n"
@@ -836,3 +938,88 @@ RogueHub_EnterSafari1_Text_2:
 
 RogueHub_EnterSafari1_Text_3:
 	.string "Have fun!$"
+
+RogueHub_HintSafariShinies_Text_0:
+	.string "The Safari Zone have some very\n"
+	.string "dedicated staff!\p"
+	.string "They even keep track of the last few\n"
+	.string "shiny POKéMON you've caught whilst on\l"
+	.string "an Adventure!\p"
+	.string "So if you catch a shiny whilst on an\n"
+	.string "Adventure you'll be able to find it in\l"
+	.string "the Safari Zone super easy!\p"
+	.string "If you've forgotten what those shinies\n"
+	.string "are, go check the list behind me.\p"
+	.string "What dedicated staff!$"
+
+RogueHub_ListSafariShinies_Text_0:
+	.string "It reads...\p"
+	.string "Shiny Breeding Programme:$"
+
+RogueHub_ListSafariShinies_Text_1:
+	.string "No programs currently active.$"
+
+RogueHub_ListSafariShinies_Text_2:
+	.string "-{STR_VAR_1}$"
+
+RogueHub_ListSafariShinies_Text_3:
+	.string "That's the end of the list.$"
+
+RogueHub_HintQuickRun1_Text_0:
+	.string "I'm double tapping B to run super fast!\p"
+	.string "Same as if you want to escape from Wild\n"
+	.string "POKéMON faster!\p"
+	.string "So fast!$"
+
+RogueHub_HintQuickRun2_Text_0:
+	.string "Get back here!\n"
+	.string "B B B B B B!$"
+
+RogueHub_HintHMUsage_Text_0:
+	.string "If only I had a surf HM...$"
+
+RogueHub_HintHMUsage_Text_1:
+	.string "You don't even need to teach them to\n"
+	.string "your POKéMON to use them anymore!\p"
+	.string "IF ONLY I COULD SURF!$"
+
+RogueHub_HintRouteAdjectives_Text_0:
+	.string "I took me a while, but I finally figured\n"
+	.string "out what the route names mean!$"
+
+RogueHub_HintRouteAdjectives_Text_1:
+	.string "Do you want me to tell you?$"
+
+RogueHub_HintRouteAdjectives_Text_2:
+	.string "Route names are split into 2\n"
+	.string "adjectives.\p"
+	.string "The Difficulty and the Type Hint.$"
+
+RogueHub_HintRouteAdjectives_Text_3:
+	.string "There are 3 difficulties.\n"
+	.string "Calm, Average and Tough.\p"
+	.string "Calm routes have more wild POKéMON,\n"
+	.string "fewer items and the Trainers aren't as\l"
+	.string "skilled.\p"
+	.string "Tough routes have few wild POKéMON, but\n"
+	.string "more items and the Trainers are more\l"
+	.string "skilled.\p"
+	.string "Average routes are the middle ground\n"
+	.string "for both of those.$"
+
+RogueHub_HintRouteAdjectives_Text_4:
+	.string "The 2nd Adjective is the Type Hint, so\n"
+	.string "it gives you an idea of what types of\l"
+	.string "wild POKéMON might turn up on a route.\p"
+	.string "For example a WARM route will have\n"
+	.string "chance of having wild FIRE type\l"
+	.string "POKéMON.\p"
+	.string "Though it doesn't mean that the route\n"
+	.string "will always be home to that type.\p"
+	.string "It's just that its more likely to than\n"
+	.string "the other routes.$"
+
+RogueHub_HintHubRespawns_Text_0:
+	.string "I got lost and ended up back in the HUB.\p"
+	.string "I'm not really sure how that works, but\n"
+	.string "it sure is convenient!$"

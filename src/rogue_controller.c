@@ -3923,16 +3923,24 @@ void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves)
         u16 capacity = 0; // MAX is 0
     
         if(Rogue_IsRunActive())
+        {
             difficulty = gRogueRun.currentDifficulty;
+
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                difficulty = 13;
+
+            if(difficulty < 8)
+                capacity = 3 + difficulty * 1;
+        }
         else
-            difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
+        {
+            capacity = 5;
 
-        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            difficulty = 13;
-
-        if(difficulty < 8)
-            capacity = 3 + difficulty * 1;
-
+            if(IsQuestCollected(QUEST_NoFainting2) && IsQuestCollected(QUEST_NoFainting3))
+                capacity = 0;
+            else if(IsQuestCollected(QUEST_NoFainting2) || IsQuestCollected(QUEST_NoFainting3))
+                capacity += 5;
+        }
 
         if(capacity != 0)
         {

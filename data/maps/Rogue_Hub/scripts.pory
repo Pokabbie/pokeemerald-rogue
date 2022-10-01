@@ -438,7 +438,7 @@ script RogueHub_SpeakBank
         // Tutorial
         msgbox(format("Why hello!\nYou must be {PLAYER} if I'm not mistaken?\pWonderful!\nYou see I'm rather useful when it comes to managing money and I was hoping to setup an ADVENTURE FUND for yourself."), MSGBOX_DEFAULT)
         msgbox(format("What's an ADVENTURE FUND?\nIn essence, if you donate your HUB MONEY to myself, I will invest it on your behalf and then every time you head out on another adventure, I will give you some extra money to start with.\pSo rather than having to start with ¥0, by donating money to myself, you can start with ¥1000, ¥2000, ¥10000!\pThe sky is the limit really!\nOr rather I guess the limit would be your HUB MONEY."), MSGBOX_DEFAULT)
-    
+
         msgbox(format("Here, let me get you started with a gift.\pI shall add ¥500 to your ADVENTURE FUND out of my own pocket!"), MSGBOX_DEFAULT)
         setvar(VAR_ROGUE_ADVENTURE_MONEY, 500)
         playse(SE_SHOP)
@@ -454,7 +454,29 @@ script RogueHub_SpeakBank
     }
     else
     {
-        msgbox(format("Your fund currently has ¥{STR_VAR_2}.\pWould you like to deposit another ¥500?"), MSGBOX_YESNO)
+        message("Your fund currently has ¥{STR_VAR_2}.\nWould you like to deposit another ¥500?")
+        waitmessage
+
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                setvar(VAR_RESULT, YES)
+
+            case 1: // No
+                setvar(VAR_RESULT, NO)
+                msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
+
+            case 2: // Info
+                setvar(VAR_RESULT, NO)
+                msgbox(format("What's an ADVENTURE FUND?\nIn essence, if you donate your HUB MONEY to myself, I will invest it on your behalf and then every time you head out on another adventure, I will give you some extra money to start with.\pSo rather than having to start with ¥0, by donating money to myself, you can start with ¥1000, ¥2000, ¥10000!\pThe sky is the limit really!\nOr rather I guess the limit would be your HUB MONEY."), MSGBOX_DEFAULT)
+
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+                msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
+        }
+
         if(var(VAR_RESULT) == YES)
         {
             checkmoney(500)
@@ -478,11 +500,6 @@ script RogueHub_SpeakBank
         }
     }
     hidemoneybox
-
-    if(var(VAR_RESULT) == NO)
-    {
-        msgbox(format("I see...\nYou know where I am, if you change your mind."), MSGBOX_DEFAULT)
-    }
     release
 }
 
@@ -691,3 +708,100 @@ script RogueHub_EnterSafari1
     }
 }
 
+script RogueHub_HintSafariShinies
+{
+    lock
+    faceplayer
+
+    msgbox(format("The Safari Zone have some very dedicated staff!\pThey even keep track of the last few shiny POKéMON you've caught whilst on an Adventure!\pSo if you catch a shiny whilst on an Adventure you'll be able to find it in the Safari Zone super easy!\pIf you've forgotten what those shinies are, go check the list behind me.\pWhat dedicated staff!"), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_ListSafariShinies
+{
+    lock
+
+    setvar(VAR_0x8004, 0)
+    msgbox(format("It reads...\pShiny Breeding Programme:"), MSGBOX_DEFAULT)
+
+    special(Rogue_GetBufferedShinySpecies)
+    if(var(VAR_RESULT) == SPECIES_NONE)
+    {
+        msgbox(format("No programs currently active."), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        while(var(VAR_RESULT) != SPECIES_NONE)
+        {
+            bufferspeciesname(STR_VAR_1, VAR_RESULT)
+            msgbox(format("-{STR_VAR_1}"), MSGBOX_DEFAULT)
+
+            addvar(VAR_0x8004, 1)
+            special(Rogue_GetBufferedShinySpecies)
+        }
+
+        msgbox(format("That's the end of the list."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script RogueHub_HintQuickRun1
+{
+    lockall
+
+    msgbox(format("I'm double tapping B to run super fast!\pSame as if you want to escape from Wild POKéMON faster!\pSo fast!"), MSGBOX_DEFAULT)
+
+    releaseall
+}
+
+script RogueHub_HintQuickRun2
+{
+    lockall
+
+    msgbox(format("Get back here!\nB B B B B B!"), MSGBOX_DEFAULT)
+
+    releaseall
+}
+
+script RogueHub_HintHMUsage
+{
+    lock
+
+    msgbox(format("If only I had a surf HM..."), MSGBOX_DEFAULT)
+    faceplayer
+    msgbox(format("You don't even need to teach them to your POKéMON to use them anymore!\pIF ONLY I COULD SURF!"), MSGBOX_DEFAULT)
+
+
+    release
+}
+
+script RogueHub_HintRouteAdjectives
+{
+    lock
+    faceplayer
+
+    msgbox(format("I took me a while, but I finally figured out what the route names mean!"), MSGBOX_DEFAULT)
+    msgbox(format("Do you want me to tell you?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Route names are split into 2 adjectives.\pThe Difficulty and the Type Hint."), MSGBOX_DEFAULT)
+        msgbox(format("There are 3 difficulties.\nCalm, Average and Tough.\pCalm routes have more wild POKéMON, fewer items and the Trainers aren't as skilled.\pTough routes have few wild POKéMON, but more items and the Trainers are more skilled.\pAverage routes are the middle ground for both of those."), MSGBOX_DEFAULT)
+        msgbox(format("The 2nd Adjective is the Type Hint, so it gives you an idea of what types of wild POKéMON might turn up on a route.\pFor example a WARM route will have chance of having wild FIRE type POKéMON.\pThough it doesn't mean that the route will always be home to that type.\pIt's just that its more likely to than the other routes."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+
+script RogueHub_HintHubRespawns
+{
+    lock
+    faceplayer
+
+    msgbox(format("I got lost and ended up back in the HUB.\pI'm not really sure how that works, but it sure is convenient!"), MSGBOX_DEFAULT)
+
+    release
+}

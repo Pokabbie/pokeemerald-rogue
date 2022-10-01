@@ -10,10 +10,13 @@ Rogue_Hub_AdventureEnterance_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 Rogue_Adventure_WarpState0::
 	goto_if_set FLAG_ROGUE_LEFT_ON_RUN, Rogue_Adventure_WarpState0_2
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_WarpState0_6
-Rogue_Adventure_WarpState0_5:
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_WarpState0_7
+Rogue_Adventure_WarpState0_6:
 	compare VAR_LITTLEROOT_INTRO_STATE, 4
 	goto_if_eq Rogue_Adventure_WarpState0_4
+	checkitem ITEM_QUEST_LOG
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_WarpState0_13
 Rogue_Adventure_WarpState0_1:
 	setvar VAR_TEMP_0, 1
 	return
@@ -25,7 +28,7 @@ Rogue_Adventure_WarpState0_2:
 Rogue_Adventure_WarpState0_3:
 	call Rogue_Adventure_ScottGift
 	compare VAR_LITTLEROOT_INTRO_STATE, 4
-	goto_if_eq Rogue_Adventure_WarpState0_10
+	goto_if_eq Rogue_Adventure_WarpState0_11
 	goto Rogue_Adventure_WarpState0_1
 
 Rogue_Adventure_WarpState0_4:
@@ -33,12 +36,16 @@ Rogue_Adventure_WarpState0_4:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	goto Rogue_Adventure_WarpState0_1
 
-Rogue_Adventure_WarpState0_6:
+Rogue_Adventure_WarpState0_7:
 	goto_if_unset FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_WarpState0_3
-	goto Rogue_Adventure_WarpState0_5
+	goto Rogue_Adventure_WarpState0_6
 
-Rogue_Adventure_WarpState0_10:
+Rogue_Adventure_WarpState0_11:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	goto Rogue_Adventure_WarpState0_1
+
+Rogue_Adventure_WarpState0_13:
+	call Rogue_Adventure_ScottOldSaveQuestLog
 	goto Rogue_Adventure_WarpState0_1
 
 
@@ -67,11 +74,30 @@ Rogue_Adventure_RedrawMap_9:
 	goto Rogue_Adventure_RedrawMap_6
 
 
+Rogue_Adventure_ScottGiveQuestLog::
+	giveitem ITEM_QUEST_LOG, 1
+	msgbox Rogue_Adventure_ScottGiveQuestLog_Text_0
+	return
+
+
 Rogue_Adventure_ScottIntro::
 	lockall
 	applymovement 1, Rogue_Adventure_ScottIntroMovement0
 	waitmovement 0
 	msgbox Rogue_Adventure_ScottIntro_Text_0
+	call Rogue_Adventure_ScottGiveQuestLog
+	msgbox Rogue_Adventure_ScottIntro_Text_1
+	releaseall
+	return
+
+
+Rogue_Adventure_ScottOldSaveQuestLog::
+	lockall
+	applymovement 1, Rogue_Adventure_ScottIntroMovement0
+	waitmovement 0
+	msgbox Rogue_Adventure_ScottOldSaveQuestLog_Text_0
+	call Rogue_Adventure_ScottGiveQuestLog
+	msgbox Rogue_Adventure_ScottOldSaveQuestLog_Text_1
 	releaseall
 	return
 
@@ -82,73 +108,83 @@ Rogue_Adventure_ScottGift::
 	applymovement 1, Rogue_Adventure_ScottIntroMovement0
 	waitmovement 0
 	msgbox Rogue_Adventure_ScottGift_Text_0, MSGBOX_DEFAULT
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_Adventure_ScottGift_2
+	checkitem ITEM_QUEST_LOG
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_ScottGift_2
 Rogue_Adventure_ScottGift_1:
 	releaseall
 	return
 
 Rogue_Adventure_ScottGift_2:
-	msgbox Rogue_Adventure_ScottGift_Text_1, MSGBOX_DEFAULT
-	giveitem 695
-	giveitem 696
-	giveitem 699
+	msgbox Rogue_Adventure_ScottGift_Text_1
+	call Rogue_Adventure_ScottGiveQuestLog
+	msgbox Rogue_Adventure_ScottOldSaveQuestLog_Text_1
 	goto Rogue_Adventure_ScottGift_1
 
 
 Rogue_Adventure_SpeakScott::
 	lock
 	faceplayer
+	checkitem ITEM_QUEST_LOG
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_SpeakScott_2
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_le Rogue_Adventure_SpeakScott_2
+	goto_if_le Rogue_Adventure_SpeakScott_3
 	nextquestreward
 	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Adventure_SpeakScott_5
-	msgbox Rogue_Adventure_SpeakScott_Text_6
+	goto_if_eq Rogue_Adventure_SpeakScott_7
+	msgbox Rogue_Adventure_SpeakScott_Text_7
 Rogue_Adventure_SpeakScott_1:
 	release
 	return
 
 Rogue_Adventure_SpeakScott_2:
 	msgbox Rogue_Adventure_SpeakScott_Text_0
+	call Rogue_Adventure_ScottGiveQuestLog
+	msgbox Rogue_Adventure_ScottOldSaveQuestLog_Text_1
 	goto Rogue_Adventure_SpeakScott_1
 
-Rogue_Adventure_SpeakScott_5:
+Rogue_Adventure_SpeakScott_3:
 	msgbox Rogue_Adventure_SpeakScott_Text_1
-Rogue_Adventure_SpeakScott_9:
+	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_7:
+	msgbox Rogue_Adventure_SpeakScott_Text_2
+Rogue_Adventure_SpeakScott_11:
 	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Adventure_SpeakScott_10
-	msgbox Rogue_Adventure_SpeakScott_Text_3
+	goto_if_eq Rogue_Adventure_SpeakScott_12
+	msgbox Rogue_Adventure_SpeakScott_Text_4
 	checkitemspace ITEM_REVIVE
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Adventure_SpeakScott_13
-Rogue_Adventure_SpeakScott_12:
-	msgbox Rogue_Adventure_SpeakScott_Text_5
+	goto_if_eq Rogue_Adventure_SpeakScott_15
+Rogue_Adventure_SpeakScott_14:
+	msgbox Rogue_Adventure_SpeakScott_Text_6
 	goto Rogue_Adventure_SpeakScott_1
 
-Rogue_Adventure_SpeakScott_10:
+Rogue_Adventure_SpeakScott_12:
 	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
-	goto_if_eq Rogue_Adventure_SpeakScott_16
+	goto_if_eq Rogue_Adventure_SpeakScott_18
 	playse SE_SHOP
-Rogue_Adventure_SpeakScott_15:
-	msgbox Rogue_Adventure_SpeakScott_Text_2
+Rogue_Adventure_SpeakScott_17:
+	msgbox Rogue_Adventure_SpeakScott_Text_3
 	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
-	goto_if_eq Rogue_Adventure_SpeakScott_20
+	goto_if_eq Rogue_Adventure_SpeakScott_22
 	waitse
-Rogue_Adventure_SpeakScott_19:
+Rogue_Adventure_SpeakScott_21:
 	nextquestreward
-	goto Rogue_Adventure_SpeakScott_9
+	goto Rogue_Adventure_SpeakScott_11
 
-Rogue_Adventure_SpeakScott_13:
-	msgbox Rogue_Adventure_SpeakScott_Text_4
-	goto Rogue_Adventure_SpeakScott_12
+Rogue_Adventure_SpeakScott_15:
+	msgbox Rogue_Adventure_SpeakScott_Text_5
+	goto Rogue_Adventure_SpeakScott_14
 
-Rogue_Adventure_SpeakScott_16:
+Rogue_Adventure_SpeakScott_18:
 	playfanfare MUS_OBTAIN_ITEM
-	goto Rogue_Adventure_SpeakScott_15
+	goto Rogue_Adventure_SpeakScott_17
 
-Rogue_Adventure_SpeakScott_20:
+Rogue_Adventure_SpeakScott_22:
 	waitfanfare
-	goto Rogue_Adventure_SpeakScott_19
+	goto Rogue_Adventure_SpeakScott_21
 
 
 Rogue_Adventure_ScottIntroMovement0:
@@ -160,35 +196,6 @@ Rogue_Adventure_ScottIntroMovement0:
 	walk_down
 	walk_down
 	step_end
-
-Rogue_Adventure_SpeakBasicBag::
-	lock
-	faceplayer
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_Adventure_SpeakBasicBag_2
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_2
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_3, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Adventure_SpeakBasicBag_7
-Rogue_Adventure_SpeakBasicBag_1:
-	release
-	return
-
-Rogue_Adventure_SpeakBasicBag_2:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Adventure_SpeakBasicBag_5
-	goto Rogue_Adventure_SpeakBasicBag_1
-
-Rogue_Adventure_SpeakBasicBag_5:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_1, MSGBOX_DEFAULT
-	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_Adventure_SpeakBasicBag_1
-
-Rogue_Adventure_SpeakBasicBag_7:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_4, MSGBOX_DEFAULT
-	setflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_Adventure_SpeakBasicBag_1
-
 
 Rogue_Adventure_StatsSign::
 	buffernumberstring STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY
@@ -525,13 +532,35 @@ Rogue_ReturnAdventureCommon_13:
 	goto Rogue_ReturnAdventureCommon_7
 
 
+Rogue_Adventure_ScottGiveQuestLog_Text_0:
+	.string "That log has a lot of optional Quests\n"
+	.string "for you do complete whilst you're out\l"
+	.string "on an Adventure.\p"
+	.string "Completing Quests can give you some\n"
+	.string "nice rewards too.\p"
+	.string "Once complete any come and chat to me\n"
+	.string "and I'll give your rewards.$"
+
 Rogue_Adventure_ScottIntro_Text_0:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "Looks like you got yourself a partner\n"
 	.string "POKéMON, so you're all ready to go on an\l"
-	.string "adventure!\p"
+	.string "Adventure!\p"
+	.string "Before you head off you should take\n"
+	.string "this.$"
+
+Rogue_Adventure_ScottIntro_Text_1:
+	.string "Looks like you're all good to go now!\p"
 	.string "Just go chat to the nurse over there\n"
 	.string "and you can start exploring!$"
+
+Rogue_Adventure_ScottOldSaveQuestLog_Text_0:
+	.string "SCOTT: Hey {PLAYER}!\p"
+	.string "Before you head off your next\n"
+	.string "Adventure, you should take this.$"
+
+Rogue_Adventure_ScottOldSaveQuestLog_Text_1:
+	.string "Looks like you're all good to go now!$"
 
 Rogue_Adventure_ScottGift_Text_0:
 	.string "SCOTT: Oh hey {PLAYER}!\n"
@@ -539,72 +568,48 @@ Rogue_Adventure_ScottGift_Text_0:
 	.string "extra modes here for you to try!$"
 
 Rogue_Adventure_ScottGift_Text_1:
-	.string "She's actually left me a bunch of items\n"
-	.string "to give to you too!$"
+	.string "Before you head off your next\n"
+	.string "Adventure, you should also take this.$"
 
 Rogue_Adventure_SpeakScott_Text_0:
+	.string "SCOTT: Hey {PLAYER}!\p"
+	.string "Before you head off your next\n"
+	.string "Adventure, you should also take this.$"
+
+Rogue_Adventure_SpeakScott_Text_1:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "Just go chat to the nurse over there\n"
 	.string "and you can start exploring!$"
 
-Rogue_Adventure_SpeakScott_Text_1:
+Rogue_Adventure_SpeakScott_Text_2:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "I have some Quest Rewards for you!$"
 
-Rogue_Adventure_SpeakScott_Text_2:
+Rogue_Adventure_SpeakScott_Text_3:
 	.string "{STR_VAR_3}$"
 
-Rogue_Adventure_SpeakScott_Text_3:
+Rogue_Adventure_SpeakScott_Text_4:
 	.string "And that's all for the moment!$"
 
-Rogue_Adventure_SpeakScott_Text_4:
+Rogue_Adventure_SpeakScott_Text_5:
 	.string "Looks like you have a full bag there.\p"
 	.string "Be sure to check your PC as some\n"
 	.string "rewards may turn up there.$"
 
-Rogue_Adventure_SpeakScott_Text_5:
+Rogue_Adventure_SpeakScott_Text_6:
 	.string "Good luck with your next Adventure\n"
 	.string "champ!$"
 
-Rogue_Adventure_SpeakScott_Text_6:
+Rogue_Adventure_SpeakScott_Text_7:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "Be sure to come and chat with me once\n"
 	.string "you complete Quests so I can give you\l"
 	.string "your rewards!$"
 
-Rogue_Adventure_SpeakBasicBag_Text_0:
-	.string "Would you like to disable the BASIC\n"
-	.string "BAG?$"
-
-Rogue_Adventure_SpeakBasicBag_Text_1:
-	.string "OK. You'll no longer have the BASIC BAG\n"
-	.string "when going on Adventures.$"
-
-Rogue_Adventure_SpeakBasicBag_Text_2:
-	.string "Hi {PLAYER}!\p"
-	.string "I can give you the BASIC BAG instead of\n"
-	.string "your current one if you'd like.\p"
-	.string "When you leave on an Adventure with a\n"
-	.string "BASIC BAG you will have your BAG and\l"
-	.string "MONEY reset so you will have none of\l"
-	.string "the new upgrades you've gotten in the\l"
-	.string "HUB.\p"
-	.string "This isn't permanent of course...\n"
-	.string "You will be given back you current\l"
-	.string "contents once you return back to the\l"
-	.string "HUB as per usual.$"
-
-Rogue_Adventure_SpeakBasicBag_Text_3:
-	.string "Would you like to enable the BASIC BAG?$"
-
-Rogue_Adventure_SpeakBasicBag_Text_4:
-	.string "OK. You'll be given the BASIC BAG when\n"
-	.string "going on Adventures.$"
-
 Rogue_Adventure_StatsSign_Text_0:
 	.string "Furthest Progress:\n"
 	.string "Gained {STR_VAR_1} BADGES...\p"
-	.string "A note for the dev..\p"
+	.string "A note from the dev..\p"
 	.string "-Run stats to come in a future update!$"
 
 Rogue_Adventure_StartStandard_Text_0:

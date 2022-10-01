@@ -3,6 +3,7 @@
 
 #include "battle.h"
 #include "event_data.h"
+#include "data.h"
 #include "item.h"
 #include "money.h"
 #include "pokedex.h"
@@ -15,6 +16,8 @@
 
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
+extern const u8 gText_QuestRewardGiveMon[];
+extern const u8 gText_QuestRewardGiveShinyMon[];
 extern const u8 gText_QuestLogStatusIncomplete[];
 
 extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
@@ -50,6 +53,10 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 #endif
 };
 
+bool8 IsSpeciesType(u16 species, u8 type);
+bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
+bool8 IsSpeciesLegendary(u16 species);
+
 static void UnlockFollowingQuests(u16 questId);
 static void UpdateMonoQuests(void);
 static void ForEachUnlockedQuest(QuestCallback callback);
@@ -66,11 +73,26 @@ static void UnlockDefaultQuests()
 
     TryUnlockQuest(QUEST_Collector1);
     TryUnlockQuest(QUEST_ShoppingSpree);
+    TryUnlockQuest(QUEST_Bike1);
     TryUnlockQuest(QUEST_NoFainting1);
     TryUnlockQuest(QUEST_MrRandoman);
     TryUnlockQuest(QUEST_BerryCollector);
     TryUnlockQuest(QUEST_Hardcore);
     TryUnlockQuest(QUEST_Hardcore2);
+    TryUnlockQuest(QUEST_Hardcore3);
+
+#ifdef ROGUE_DEBUG
+    // Make sure following quests are unlocked
+    // TODO - For future versions we'll need to make sure this happens for any newly added quests
+    {
+        u16 i;
+        for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
+        {
+            if(IsQuestCollected(i))
+                TryUnlockQuest(i);
+        }
+    }
+#endif
 }
 
 void ResetQuestState(u16 saveVersion)
@@ -161,6 +183,11 @@ u16 GetUnlockedQuestCount(void)
     }
 
     return count;
+}
+
+u8 GetCompletedQuestPerc(void)
+{
+    return (GetCompletedQuestCount() * 100) / (QUEST_CAPACITY - 1);
 }
 
 bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
@@ -309,6 +336,17 @@ static bool8 GiveAndGetNextAnnouncedReward()
                 shouldAnnounce = TRUE;
                 break;
 
+            case QUEST_REWARD_GIVE_POKEMON:
+                // Force shiny
+                if(reward->params[2] == TRUE)
+                    CreateMonForcedShiny(&gEnemyParty[0], reward->params[0], reward->params[1], USE_RANDOM_IVS, OT_ID_PLAYER_ID, 0);
+                else 
+                    CreateMon(&gEnemyParty[0], reward->params[0], reward->params[1], USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+                GiveMonToPlayer(&gEnemyParty[0]);
+                shouldAnnounce = TRUE;
+                break;
+
             //case QUEST_REWARD_CUSTOM_TEXT:
             //    break;
         }
@@ -346,6 +384,15 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type)
                 case QUEST_REWARD_GIVE_MONEY:
                     ConvertUIntToDecimalStringN(gStringVar1, reward->params[0], STR_CONV_MODE_LEFT_ALIGN, 7);
                     StringExpandPlaceholders(str, gText_QuestRewardGiveMoney);
+                    break;
+
+                case QUEST_REWARD_GIVE_POKEMON:
+                    StringCopy(gStringVar1, gSpeciesNames[reward->params[0]]);
+
+                    if(reward->params[2] == TRUE)
+                        StringExpandPlaceholders(str, gText_QuestRewardGiveShinyMon);
+                    else
+                        StringExpandPlaceholders(str, gText_QuestRewardGiveMon);
                     break;
                 
                 default:
@@ -389,6 +436,8 @@ bool8 TryMarkQuestAsComplete(u16 questId)
             // First time finishing
             state->isCompleted = TRUE;
             state->hasPendingRewards = TRUE;
+
+            FlagSet(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE);
         }
         else if(IsQuestRepeatable(questId))
         {
@@ -537,6 +586,9 @@ static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
 
 void QuestNotify_BeginAdventure(void)
 {
+    FlagClear(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE);
+    FlagClear(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE);
+
     sPreviousRouteType = 0;
 
     // Cannot activate quests on Gauntlet mode
@@ -556,6 +608,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_NoFainting3);
         TryDeactivateQuest(QUEST_Hardcore);
         TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
 
         for(i = TYPE_NORMAL; i < NUMBER_OF_MON_TYPES; ++i)
             TryDeactivateQuest(TypeToMonoQuest[i]);
@@ -573,7 +626,20 @@ void QuestNotify_BeginAdventure(void)
     }
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    {
         TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
+    }
+
+    if(!FlagGet(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        TryDeactivateQuest(QUEST_OrreMode);
+    }
+
+    if(VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT) != 1)
+    {
+        TryDeactivateQuest(QUEST_KantoMode);
+    }
 
     UpdateChaosChampion(TRUE);
     UpdateMonoQuests();
@@ -606,6 +672,21 @@ static void OnEndBattle(void)
         }
     }
 
+    if(IsQuestActive(QUEST_Hardcore3))
+    {
+        u16 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(IsSpeciesLegendary(species))
+            {
+                TryDeactivateQuest(QUEST_Hardcore3);
+                break;
+            }
+        }
+    }
+
     UpdateMonoQuests();
 }
 
@@ -627,9 +708,6 @@ void QuestNotify_OnWildBattleEnd(void)
 
     OnEndBattle();
 }
-
-bool8 IsSpeciesType(u16 species, u8 type);
-bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void)
 {
@@ -670,8 +748,6 @@ static void CompleteMonoQuests(void)
             TryMarkQuestAsComplete(questId);
     }
 }
-
-bool8 IsSpeciesLegendary(u16 species);
 
 void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 {
@@ -730,6 +806,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_ChaosChampion);
                 TryMarkQuestAsComplete(QUEST_Hardcore);
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
+                TryMarkQuestAsComplete(QUEST_KantoMode);
                 CompleteMonoQuests();
                 break;
         }
@@ -807,10 +884,16 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                 break;
 
             case ADVPATH_ROOM_BOSS:
-#ifdef ROGUE_EXPANSION
                 // About to face final champ
                 if(gRogueRun.currentDifficulty == 13)
                 {
+                    if(IsQuestActive(QUEST_OrreMode) 
+                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_ESPEON)
+                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_UMBREON)
+                    )
+                        TryMarkQuestAsComplete(QUEST_OrreMode);
+
+#ifdef ROGUE_EXPANSION
                     if(IsQuestActive(QUEST_ShayminItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
                         TryMarkQuestAsComplete(QUEST_ShayminItem);
 
@@ -825,8 +908,8 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                         )
                             TryMarkQuestAsComplete(QUEST_NatureItem);
                     }
-                }
 #endif
+                }
 
                 break;
         }
@@ -858,6 +941,11 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                         }
                     }
                 }
+                break;
+
+            case ADVPATH_ROOM_RESTSTOP:
+                if(IsQuestActive(QUEST_BigSaver) && GetMoney(&gSaveBlock1Ptr->money) >= 50000)
+                    TryMarkQuestAsComplete(QUEST_BigSaver);
                 break;
         }
 
@@ -935,5 +1023,8 @@ void QuestNotify_OnUseBattleItem(u16 itemId)
 
         if(IsQuestActive(QUEST_Hardcore2))
             TryDeactivateQuest(QUEST_Hardcore2);
+
+        if(IsQuestActive(QUEST_Hardcore3))
+            TryDeactivateQuest(QUEST_Hardcore3);
     }
 }
