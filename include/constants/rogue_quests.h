@@ -57,9 +57,13 @@
 #define QUEST_OrreMode              (QUEST_MeetPokabbie + 20)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_ShayminItem           (QUEST_OrreMode + 1)
-#define QUEST_HoopaItem             (QUEST_OrreMode + 2)
-#define QUEST_NatureItem            (QUEST_OrreMode + 3)
+#define QUEST_MegaEvo               (QUEST_OrreMode + 1)
+#define QUEST_ZMove                 (QUEST_OrreMode + 2)
+
+#define QUEST_ShayminItem           (QUEST_OrreMode + 3)
+#define QUEST_HoopaItem             (QUEST_OrreMode + 4)
+#define QUEST_NatureItem            (QUEST_OrreMode + 5)
+
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
 #define BASIC_QUEST_BLOCK_LAST QUEST_OrreMode

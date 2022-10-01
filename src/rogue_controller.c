@@ -3824,6 +3824,16 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 if(difficulty <= 7)
                     itemCapacity = 4 + 1 * difficulty;
             }
+            else
+            {
+#ifdef ROGUE_EXPANSION
+                if(!IsQuestCollected(QUEST_MegaEvo))
+                    RogueQuery_ItemsExcludeRange(ITEM_VENUSAURITE, ITEM_DIANCITE);
+
+                if(!IsQuestCollected(QUEST_ZMove))
+                    RogueQuery_ItemsExcludeRange(ITEM_NORMALIUM_Z, ITEM_ULTRANECROZIUM_Z);
+#endif
+            }
 
             if(Rogue_IsRunActive())
                 *minSalePrice = 1500;

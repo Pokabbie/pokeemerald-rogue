@@ -18,6 +18,9 @@ static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou c
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
 static const u8 gText_PreviewUnlocksTutorUpgrade[] = _("Tutors Upgrade");
 static const u8 gText_GiveTutorUpgrade[] = _("HUB Tutors will now offer more moves!");
+static const u8 gText_PreviewUnlocksTravelShopUpgrade[] = _("Travelling Mart Upgrade");
+static const u8 gText_GiveTravelShopMegas[] = _("Travelling Mart will now stock\nMega stones!");
+static const u8 gText_GiveTravelShopZMoves[] = _("Travelling Mart will now stock\nZ Crystals!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
 {
@@ -236,6 +239,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .unlockedQuests = { 
             QUEST_KantoMode,
 #ifdef ROGUE_EXPANSION
+            QUEST_MegaEvo,
+            QUEST_ZMove,
             QUEST_ShayminItem,
             QUEST_HoopaItem,
             QUEST_NatureItem
@@ -507,6 +512,30 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
 
 #ifdef ROGUE_EXPANSION
+    [QUEST_MegaEvo] = 
+    {
+        .title = _("Mega Evolution"),
+        .desc = _(
+                    "In the final champion\n"
+                    "battle Mega Evolve a\n"
+                    "POKéMON."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopMegas },
+        }
+    },
+    [QUEST_ZMove] = 
+    {
+        .title = _("Z Power"),
+        .desc = _(
+                    "In the final champion\n"
+                    "battle use a Z-Move."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_GiveTravelShopZMoves, .giveText=gText_GiveTravelShopZMoves },
+        }
+    },
+
     [QUEST_ShayminItem] = 
     {
         .title = _("Gratitude"),
