@@ -197,35 +197,6 @@ Rogue_Adventure_ScottIntroMovement0:
 	walk_down
 	step_end
 
-Rogue_Adventure_SpeakBasicBag::
-	lock
-	faceplayer
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_Adventure_SpeakBasicBag_2
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_2
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_3, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Adventure_SpeakBasicBag_7
-Rogue_Adventure_SpeakBasicBag_1:
-	release
-	return
-
-Rogue_Adventure_SpeakBasicBag_2:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Adventure_SpeakBasicBag_5
-	goto Rogue_Adventure_SpeakBasicBag_1
-
-Rogue_Adventure_SpeakBasicBag_5:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_1, MSGBOX_DEFAULT
-	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_Adventure_SpeakBasicBag_1
-
-Rogue_Adventure_SpeakBasicBag_7:
-	msgbox Rogue_Adventure_SpeakBasicBag_Text_4, MSGBOX_DEFAULT
-	setflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_Adventure_SpeakBasicBag_1
-
-
 Rogue_Adventure_StatsSign::
 	buffernumberstring STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY
 	msgbox Rogue_Adventure_StatsSign_Text_0, MSGBOX_SIGN
@@ -634,35 +605,6 @@ Rogue_Adventure_SpeakScott_Text_7:
 	.string "Be sure to come and chat with me once\n"
 	.string "you complete Quests so I can give you\l"
 	.string "your rewards!$"
-
-Rogue_Adventure_SpeakBasicBag_Text_0:
-	.string "Would you like to disable the BASIC\n"
-	.string "BAG?$"
-
-Rogue_Adventure_SpeakBasicBag_Text_1:
-	.string "OK. You'll no longer have the BASIC BAG\n"
-	.string "when going on Adventures.$"
-
-Rogue_Adventure_SpeakBasicBag_Text_2:
-	.string "Hi {PLAYER}!\p"
-	.string "I can give you the BASIC BAG instead of\n"
-	.string "your current one if you'd like.\p"
-	.string "When you leave on an Adventure with a\n"
-	.string "BASIC BAG you will have your BAG and\l"
-	.string "MONEY reset so you will have none of\l"
-	.string "the new upgrades you've gotten in the\l"
-	.string "HUB.\p"
-	.string "This isn't permanent of course...\n"
-	.string "You will be given back you current\l"
-	.string "contents once you return back to the\l"
-	.string "HUB as per usual.$"
-
-Rogue_Adventure_SpeakBasicBag_Text_3:
-	.string "Would you like to enable the BASIC BAG?$"
-
-Rogue_Adventure_SpeakBasicBag_Text_4:
-	.string "OK. You'll be given the BASIC BAG when\n"
-	.string "going on Adventures.$"
 
 Rogue_Adventure_StatsSign_Text_0:
 	.string "Furthest Progress:\n"

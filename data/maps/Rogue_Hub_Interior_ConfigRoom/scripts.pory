@@ -3,6 +3,7 @@ const OBJ_POKABBIE_ID =  4
 
 const VAR_FLAG_STATE = VAR_0x8000
 const VAR_CONFIG_ITEM = VAR_0x8000
+const FLAG_SEED_APPLY_MOVEMENT = FLAG_TEMP_2
 
 const METATILE_BikeShop_Button_Red = 0x23E
 
@@ -27,7 +28,54 @@ script Rogue_ConfigRoom_TalkAssistant
     {
         msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and POKéMON.\pI can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
     }
+
+    clearflag(FLAG_SEED_APPLY_MOVEMENT)
     call(Rogue_ConfigRoom_TalkAssistantInternal)
+    release
+}
+
+script Rogue_ConfigRoom_SpeakSeedMode
+{
+    lock
+    faceplayer
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        msgbox(format("ASSISTANT: I can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
+    }
+
+    clearflag(FLAG_SEED_APPLY_MOVEMENT)
+    call(Rogue_ConfigRoom_TalkAssistantInternal)
+    release
+}
+
+
+script Rogue_ConfigRoom_SpeakBasicBag
+{
+    lock
+    faceplayer
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
+            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        }
+    }
+    else
+    {
+        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
+        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
+            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        }
+    }
+
     release
 }
 
@@ -40,9 +88,13 @@ script Rogue_ConfigRoom_TalkAssistantInternal
         {
             msgbox(format("ASSISTANT: OK.\nI'll disable SEEDED mode"), MSGBOX_DEFAULT)
             clearflag(FLAG_SET_SEED_ENABLED)
-            applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
-            applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
-            waitmovement(0)
+
+            if(flag(FLAG_SEED_APPLY_MOVEMENT))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                waitmovement(0)
+            }
         }
     }
     else
@@ -62,16 +114,22 @@ script Rogue_ConfigRoom_TalkAssistantInternal
             else
             {
                 msgbox(format("ASSISTANT: Oh.\nSpeak to me if you ever want to enable SEEDED mode"), MSGBOX_DEFAULT)
-                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
-                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
-                waitmovement(0)
+                if(flag(FLAG_SEED_APPLY_MOVEMENT))
+                {
+                    applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                    applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                    waitmovement(0)
+                }
             }
         }
         else
         {
-            applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
-            applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
-            waitmovement(0)
+            if(flag(FLAG_SEED_APPLY_MOVEMENT))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                waitmovement(0)
+            }
         }
     }
 }
@@ -86,6 +144,8 @@ script Rogue_ConfigRoom_WalkAboveAssistant
         applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookUp)
         applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_LookDown)
         waitmovement(0)
+
+        setflag(FLAG_SEED_APPLY_MOVEMENT)
         call(Rogue_ConfigRoom_TalkAssistantInternal)
     }
 
@@ -101,6 +161,8 @@ script Rogue_ConfigRoom_WalkBelowAssistant
         applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookDown)
         applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_LookUp)
         waitmovement(0)
+
+        setflag(FLAG_SEED_APPLY_MOVEMENT)
         call(Rogue_ConfigRoom_TalkAssistantInternal)
     }
 

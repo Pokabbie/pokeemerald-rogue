@@ -217,42 +217,11 @@ movement Rogue_Adventure_ScottIntroMovement0
     walk_down * 2
 }
 
-script Rogue_Adventure_SpeakBasicBag
-{
-    lock
-    faceplayer
-
-    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-    else
-    {
-        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
-        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-
-    release
-}
-
 script Rogue_Adventure_StatsSign
 {
     buffernumberstring(STR_VAR_1, VAR_ROGUE_FURTHEST_DIFFICULTY)
     msgbox(format("Furthest Progress:\nGained {STR_VAR_1} BADGES...\pA note from the dev..\p-Run stats to come in a future update!"), MSGBOX_SIGN)
 }
-
 
 script Rogue_Adventure_StartStandard
 {

@@ -32,6 +32,9 @@
 #include "constants/mauville_old_man.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/rogue.h"
+
+#include "rogue_controller.h"
 
 static EWRAM_DATA struct EasyChatScreen *sEasyChatScreen = NULL;
 static EWRAM_DATA struct EasyChatScreenControl *sScreenControl = NULL;
@@ -1433,6 +1436,11 @@ static void ExitEasyChatScreen(MainCallback callback)
     FreeEasyChatScreenWordData();
     FreeAllWindowBuffers();
     SetMainCallback2(callback);
+}
+
+static bool8 CanPokemonBeShown(u16 species)
+{
+    return IsGenEnabled(SpeciesToGen(species));
 }
 
 void ShowEasyChatScreen(void)
@@ -5516,8 +5524,7 @@ static u16 GetRandomUnlockedEasyChatPokemon(void)
     numWords = gEasyChatGroups[EC_GROUP_POKEMON].numWords;
     for (i = 0; i < numWords; i++)
     {
-        u16 dexNum = SpeciesToNationalPokedexNum(*species);
-        if (GetSetPokedexFlag(dexNum, FLAG_GET_SEEN))
+        if (CanPokemonBeShown(*species))
         {
             if (index)
                 index--;
@@ -5781,10 +5788,10 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
     switch (groupId)
     {
     case EC_GROUP_POKEMON:
-        return GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
+        return CanPokemonBeShown(wordIndex);
     case EC_GROUP_POKEMON_NATIONAL:
         if (IsRestrictedWordSpecies(wordIndex))
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
+            CanPokemonBeShown(wordIndex);
         return TRUE;
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:

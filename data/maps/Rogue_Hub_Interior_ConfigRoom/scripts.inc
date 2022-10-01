@@ -16,6 +16,7 @@ Rogue_ConfigRoom_TalkAssistant::
 	faceplayer
 	goto_if_unset FLAG_SET_SEED_ENABLED, Rogue_ConfigRoom_TalkAssistant_2
 Rogue_ConfigRoom_TalkAssistant_1:
+	clearflag FLAG_TEMP_2
 	call Rogue_ConfigRoom_TalkAssistantInternal
 	release
 	return
@@ -25,14 +26,56 @@ Rogue_ConfigRoom_TalkAssistant_2:
 	goto Rogue_ConfigRoom_TalkAssistant_1
 
 
+Rogue_ConfigRoom_SpeakSeedMode::
+	lock
+	faceplayer
+	goto_if_unset FLAG_SET_SEED_ENABLED, Rogue_ConfigRoom_SpeakSeedMode_2
+Rogue_ConfigRoom_SpeakSeedMode_1:
+	clearflag FLAG_TEMP_2
+	call Rogue_ConfigRoom_TalkAssistantInternal
+	release
+	return
+
+Rogue_ConfigRoom_SpeakSeedMode_2:
+	msgbox Rogue_ConfigRoom_SpeakSeedMode_Text_0, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_SpeakSeedMode_1
+
+
+Rogue_ConfigRoom_SpeakBasicBag::
+	lock
+	faceplayer
+	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_SpeakBasicBag_2
+	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_2
+	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_SpeakBasicBag_7
+Rogue_ConfigRoom_SpeakBasicBag_1:
+	release
+	return
+
+Rogue_ConfigRoom_SpeakBasicBag_2:
+	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_SpeakBasicBag_5
+	goto Rogue_ConfigRoom_SpeakBasicBag_1
+
+Rogue_ConfigRoom_SpeakBasicBag_5:
+	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_1, MSGBOX_DEFAULT
+	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
+	goto Rogue_ConfigRoom_SpeakBasicBag_1
+
+Rogue_ConfigRoom_SpeakBasicBag_7:
+	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_4, MSGBOX_DEFAULT
+	setflag FLAG_ROGUE_FORCE_BASIC_BAG
+	goto Rogue_ConfigRoom_SpeakBasicBag_1
+
+
 Rogue_ConfigRoom_TalkAssistantInternal::
 	goto_if_set FLAG_SET_SEED_ENABLED, Rogue_ConfigRoom_TalkAssistantInternal_1
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_ConfigRoom_TalkAssistantInternal_6
-	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
-	applymovement 1, ConfigRoom_LookLeft
-	waitmovement 0
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_TalkAssistantInternal_14
 	return
 
 Rogue_ConfigRoom_TalkAssistantInternal_1:
@@ -44,9 +87,7 @@ Rogue_ConfigRoom_TalkAssistantInternal_1:
 Rogue_ConfigRoom_TalkAssistantInternal_4:
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_1, MSGBOX_DEFAULT
 	clearflag FLAG_SET_SEED_ENABLED
-	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
-	applymovement 1, ConfigRoom_LookLeft
-	waitmovement 0
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_TalkAssistantInternal_9
 	return
 
 Rogue_ConfigRoom_TalkAssistantInternal_6:
@@ -54,16 +95,32 @@ Rogue_ConfigRoom_TalkAssistantInternal_6:
 	setvar VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE
 	call Common_ShowEasyChatScreen
 	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_ConfigRoom_TalkAssistantInternal_9
+	goto_if_eq Rogue_ConfigRoom_TalkAssistantInternal_11
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_5, MSGBOX_DEFAULT
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_TalkAssistantInternal_16
+	return
+
+Rogue_ConfigRoom_TalkAssistantInternal_9:
 	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
 	applymovement 1, ConfigRoom_LookLeft
 	waitmovement 0
 	return
 
-Rogue_ConfigRoom_TalkAssistantInternal_9:
+Rogue_ConfigRoom_TalkAssistantInternal_11:
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_4, MSGBOX_DEFAULT
 	setflag FLAG_SET_SEED_ENABLED
+	return
+
+Rogue_ConfigRoom_TalkAssistantInternal_14:
+	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
+	applymovement 1, ConfigRoom_LookLeft
+	waitmovement 0
+	return
+
+Rogue_ConfigRoom_TalkAssistantInternal_16:
+	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft
+	applymovement 1, ConfigRoom_LookLeft
+	waitmovement 0
 	return
 
 
@@ -79,6 +136,7 @@ Rogue_ConfigRoom_WalkAboveAssistant_2:
 	applymovement 1, ConfigRoom_LookUp
 	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_LookDown
 	waitmovement 0
+	setflag FLAG_TEMP_2
 	call Rogue_ConfigRoom_TalkAssistantInternal
 	goto Rogue_ConfigRoom_WalkAboveAssistant_1
 
@@ -94,6 +152,7 @@ Rogue_ConfigRoom_WalkBelowAssistant_2:
 	applymovement 1, ConfigRoom_LookDown
 	applymovement OBJ_EVENT_ID_PLAYER, ConfigRoom_LookUp
 	waitmovement 0
+	setflag FLAG_TEMP_2
 	call Rogue_ConfigRoom_TalkAssistantInternal
 	goto Rogue_ConfigRoom_WalkBelowAssistant_1
 
@@ -889,6 +948,39 @@ Rogue_ConfigRoom_TalkAssistant_Text_0:
 	.string "and POKéMON.\p"
 	.string "I can enabled SEEDED mode for your\n"
 	.string "next adventure, if you'd like?$"
+
+Rogue_ConfigRoom_SpeakSeedMode_Text_0:
+	.string "ASSISTANT: I can enabled SEEDED mode\n"
+	.string "for your next adventure, if you'd like?$"
+
+Rogue_ConfigRoom_SpeakBasicBag_Text_0:
+	.string "Would you like to disable the BASIC\n"
+	.string "BAG?$"
+
+Rogue_ConfigRoom_SpeakBasicBag_Text_1:
+	.string "OK. You'll no longer have the BASIC BAG\n"
+	.string "when going on Adventures.$"
+
+Rogue_ConfigRoom_SpeakBasicBag_Text_2:
+	.string "Hi {PLAYER}!\p"
+	.string "I can give you the BASIC BAG instead of\n"
+	.string "your current one if you'd like.\p"
+	.string "When you leave on an Adventure with a\n"
+	.string "BASIC BAG you will have your BAG and\l"
+	.string "MONEY reset so you will have none of\l"
+	.string "the new upgrades you've gotten in the\l"
+	.string "HUB.\p"
+	.string "This isn't permanent of course...\n"
+	.string "You will be given back you current\l"
+	.string "contents once you return back to the\l"
+	.string "HUB as per usual.$"
+
+Rogue_ConfigRoom_SpeakBasicBag_Text_3:
+	.string "Would you like to enable the BASIC BAG?$"
+
+Rogue_ConfigRoom_SpeakBasicBag_Text_4:
+	.string "OK. You'll be given the BASIC BAG when\n"
+	.string "going on Adventures.$"
 
 Rogue_ConfigRoom_TalkAssistantInternal_Text_0:
 	.string "ASSISTANT: Do you want to disable\n"
