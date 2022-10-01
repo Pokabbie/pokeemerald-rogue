@@ -143,7 +143,15 @@ script Rogue_Adventure_SpeakScott
     lock
     faceplayer
 
-    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
+    checkitem(ITEM_QUEST_LOG)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("SCOTT: Hey {PLAYER}!\pBefore you head off your next Adventure, you should also take this."))
+        call(Rogue_Adventure_ScottGiveQuestLog)
+
+        msgbox(format("Looks like you're all good to go now!"))
+    }
+    elif(var(VAR_ROGUE_INTRO_STATE) <= 5)
     {
         msgbox(format("SCOTT: Hey {PLAYER}!\pJust go chat to the nurse over there and you can start exploring!"))
     }

@@ -125,57 +125,66 @@ Rogue_Adventure_ScottGift_2:
 Rogue_Adventure_SpeakScott::
 	lock
 	faceplayer
+	checkitem ITEM_QUEST_LOG
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Adventure_SpeakScott_2
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_le Rogue_Adventure_SpeakScott_2
+	goto_if_le Rogue_Adventure_SpeakScott_3
 	nextquestreward
 	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Adventure_SpeakScott_5
-	msgbox Rogue_Adventure_SpeakScott_Text_6
+	goto_if_eq Rogue_Adventure_SpeakScott_7
+	msgbox Rogue_Adventure_SpeakScott_Text_7
 Rogue_Adventure_SpeakScott_1:
 	release
 	return
 
 Rogue_Adventure_SpeakScott_2:
 	msgbox Rogue_Adventure_SpeakScott_Text_0
+	call Rogue_Adventure_ScottGiveQuestLog
+	msgbox Rogue_Adventure_ScottOldSaveQuestLog_Text_1
 	goto Rogue_Adventure_SpeakScott_1
 
-Rogue_Adventure_SpeakScott_5:
+Rogue_Adventure_SpeakScott_3:
 	msgbox Rogue_Adventure_SpeakScott_Text_1
-Rogue_Adventure_SpeakScott_9:
+	goto Rogue_Adventure_SpeakScott_1
+
+Rogue_Adventure_SpeakScott_7:
+	msgbox Rogue_Adventure_SpeakScott_Text_2
+Rogue_Adventure_SpeakScott_11:
 	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Adventure_SpeakScott_10
-	msgbox Rogue_Adventure_SpeakScott_Text_3
+	goto_if_eq Rogue_Adventure_SpeakScott_12
+	msgbox Rogue_Adventure_SpeakScott_Text_4
 	checkitemspace ITEM_REVIVE
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Adventure_SpeakScott_13
-Rogue_Adventure_SpeakScott_12:
-	msgbox Rogue_Adventure_SpeakScott_Text_5
+	goto_if_eq Rogue_Adventure_SpeakScott_15
+Rogue_Adventure_SpeakScott_14:
+	msgbox Rogue_Adventure_SpeakScott_Text_6
 	goto Rogue_Adventure_SpeakScott_1
 
-Rogue_Adventure_SpeakScott_10:
+Rogue_Adventure_SpeakScott_12:
 	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
-	goto_if_eq Rogue_Adventure_SpeakScott_16
+	goto_if_eq Rogue_Adventure_SpeakScott_18
 	playse SE_SHOP
-Rogue_Adventure_SpeakScott_15:
-	msgbox Rogue_Adventure_SpeakScott_Text_2
+Rogue_Adventure_SpeakScott_17:
+	msgbox Rogue_Adventure_SpeakScott_Text_3
 	compare VAR_0x8000, QUEST_REWARD_CUSTOM_TEXT
-	goto_if_eq Rogue_Adventure_SpeakScott_20
+	goto_if_eq Rogue_Adventure_SpeakScott_22
 	waitse
-Rogue_Adventure_SpeakScott_19:
+Rogue_Adventure_SpeakScott_21:
 	nextquestreward
-	goto Rogue_Adventure_SpeakScott_9
+	goto Rogue_Adventure_SpeakScott_11
 
-Rogue_Adventure_SpeakScott_13:
-	msgbox Rogue_Adventure_SpeakScott_Text_4
-	goto Rogue_Adventure_SpeakScott_12
+Rogue_Adventure_SpeakScott_15:
+	msgbox Rogue_Adventure_SpeakScott_Text_5
+	goto Rogue_Adventure_SpeakScott_14
 
-Rogue_Adventure_SpeakScott_16:
+Rogue_Adventure_SpeakScott_18:
 	playfanfare MUS_OBTAIN_ITEM
-	goto Rogue_Adventure_SpeakScott_15
+	goto Rogue_Adventure_SpeakScott_17
 
-Rogue_Adventure_SpeakScott_20:
+Rogue_Adventure_SpeakScott_22:
 	waitfanfare
-	goto Rogue_Adventure_SpeakScott_19
+	goto Rogue_Adventure_SpeakScott_21
 
 
 Rogue_Adventure_ScottIntroMovement0:
@@ -593,29 +602,34 @@ Rogue_Adventure_ScottGift_Text_1:
 
 Rogue_Adventure_SpeakScott_Text_0:
 	.string "SCOTT: Hey {PLAYER}!\p"
-	.string "Just go chat to the nurse over there\n"
-	.string "and you can start exploring!$"
+	.string "Before you head off your next\n"
+	.string "Adventure, you should also take this.$"
 
 Rogue_Adventure_SpeakScott_Text_1:
 	.string "SCOTT: Hey {PLAYER}!\p"
-	.string "I have some Quest Rewards for you!$"
+	.string "Just go chat to the nurse over there\n"
+	.string "and you can start exploring!$"
 
 Rogue_Adventure_SpeakScott_Text_2:
-	.string "{STR_VAR_3}$"
+	.string "SCOTT: Hey {PLAYER}!\p"
+	.string "I have some Quest Rewards for you!$"
 
 Rogue_Adventure_SpeakScott_Text_3:
-	.string "And that's all for the moment!$"
+	.string "{STR_VAR_3}$"
 
 Rogue_Adventure_SpeakScott_Text_4:
+	.string "And that's all for the moment!$"
+
+Rogue_Adventure_SpeakScott_Text_5:
 	.string "Looks like you have a full bag there.\p"
 	.string "Be sure to check your PC as some\n"
 	.string "rewards may turn up there.$"
 
-Rogue_Adventure_SpeakScott_Text_5:
+Rogue_Adventure_SpeakScott_Text_6:
 	.string "Good luck with your next Adventure\n"
 	.string "champ!$"
 
-Rogue_Adventure_SpeakScott_Text_6:
+Rogue_Adventure_SpeakScott_Text_7:
 	.string "SCOTT: Hey {PLAYER}!\p"
 	.string "Be sure to come and chat with me once\n"
 	.string "you complete Quests so I can give you\l"
