@@ -16,6 +16,8 @@ static const u8 gText_GiveSafariLimiter[] = _("New Safari Upgrade:\nYou can now 
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
 static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou can now carry both Bikes at once!");
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
+static const u8 gText_PreviewUnlocksTutorUpgrade[] = _("Tutors Upgrade");
+static const u8 gText_GiveTutorUpgrade[] = _("HUB Tutors will now offer more moves!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
 {
@@ -371,7 +373,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 1 } },
-            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksDaycare },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
         }
     },
     [QUEST_NoFainting3] = 
@@ -384,7 +386,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 1 } }
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 1 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
         }
     },
 
