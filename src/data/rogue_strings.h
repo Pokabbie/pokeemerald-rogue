@@ -1,6 +1,6 @@
 
 
-const u8 gText_RogueVersion[] = _("v1.1.2");
+const u8 gText_RogueVersion[] = _("v1.2");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX ");
@@ -11,7 +11,7 @@ const u8 gText_RogueVersionPrefix[] = _("Vanilla ");
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _(" - The Routing Update");
+const u8 gText_RogueVersionSuffix[] = _(" - (PRE-RELEASE)");
 #endif
 
 
