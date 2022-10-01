@@ -105,6 +105,7 @@ Rogue_RetireFromRun_2:
 
 Rogue_ReturnToHub::
 	warprespawn
+	waitstate
 	return
 
 

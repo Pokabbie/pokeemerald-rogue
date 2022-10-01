@@ -154,7 +154,9 @@ Rogue_BattleDefeated_Boss0::
 	case 6, Rogue_BattleDefeated_Boss0_9
 	case 7, Rogue_BattleDefeated_Boss0_10
 Rogue_BattleDefeated_Boss0_1:
-	msgbox Rogue_BattleDefeated_Boss0_Text_1
+	goto_if_unset FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE, Rogue_BattleDefeated_Boss0_13
+Rogue_BattleDefeated_Boss0_11:
+	msgbox Rogue_BattleDefeated_Boss0_Text_2
 	waitmessage
 	special HealPlayerParty
 	special RemoveCameraObject
@@ -165,82 +167,97 @@ Rogue_BattleDefeated_Boss0_1:
 Rogue_BattleDefeated_Boss0_3:
 	checkitem ITEM_HM01
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_11
+	goto_if_eq Rogue_BattleDefeated_Boss0_16
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_4:
 	checkitem ITEM_HM05_FLASH
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_13
+	goto_if_eq Rogue_BattleDefeated_Boss0_18
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_5:
 	checkitem ITEM_HM06_ROCK_SMASH
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_15
+	goto_if_eq Rogue_BattleDefeated_Boss0_20
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_6:
 	checkitem ITEM_HM04_STRENGTH
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_17
+	goto_if_eq Rogue_BattleDefeated_Boss0_22
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_7:
 	checkitem ITEM_HM08_DIVE
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_19
+	goto_if_eq Rogue_BattleDefeated_Boss0_24
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_8:
 	checkitem ITEM_HM02_FLY
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_21
+	goto_if_eq Rogue_BattleDefeated_Boss0_26
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_9:
 	checkitem ITEM_HM07_WATERFALL
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_23
+	goto_if_eq Rogue_BattleDefeated_Boss0_28
 	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_10:
 	checkitem ITEM_HM03_SURF
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_BattleDefeated_Boss0_25
+	goto_if_eq Rogue_BattleDefeated_Boss0_30
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_11:
+Rogue_BattleDefeated_Boss0_12:
+	msgbox Rogue_BattleDefeated_Boss0_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_BattleDefeated_Boss0_32
+	setflag FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE
+	goto Rogue_BattleDefeated_Boss0_11
+
+Rogue_BattleDefeated_Boss0_13:
+	goto_if_set FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE, Rogue_BattleDefeated_Boss0_12
+	goto Rogue_BattleDefeated_Boss0_11
+
+Rogue_BattleDefeated_Boss0_16:
 	giveitem ITEM_HM01
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_13:
+Rogue_BattleDefeated_Boss0_18:
 	giveitem ITEM_HM05_FLASH
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_15:
+Rogue_BattleDefeated_Boss0_20:
 	giveitem ITEM_HM06_ROCK_SMASH
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_17:
+Rogue_BattleDefeated_Boss0_22:
 	giveitem ITEM_HM04_STRENGTH
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_19:
+Rogue_BattleDefeated_Boss0_24:
 	giveitem ITEM_HM08_DIVE
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_21:
+Rogue_BattleDefeated_Boss0_26:
 	giveitem ITEM_HM02_FLY
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_23:
+Rogue_BattleDefeated_Boss0_28:
 	giveitem ITEM_HM07_WATERFALL
 	goto Rogue_BattleDefeated_Boss0_1
 
-Rogue_BattleDefeated_Boss0_25:
+Rogue_BattleDefeated_Boss0_30:
 	giveitem ITEM_HM03_SURF
 	goto Rogue_BattleDefeated_Boss0_1
+
+Rogue_BattleDefeated_Boss0_32:
+	call Rogue_ReturnToHub
+	return
 
 
 PlayerToBattleField:
@@ -353,4 +370,10 @@ Rogue_BattleDefeated_Boss0_Text_0:
 	.string "{PLAYER} received a GYM BADGE!$"
 
 Rogue_BattleDefeated_Boss0_Text_1:
+	.string "Looks like you have some Quests to\n"
+	.string "collect!\p"
+	.string "Would you like to RETIRE from this\n"
+	.string "Adventure and return to the HUB?$"
+
+Rogue_BattleDefeated_Boss0_Text_2:
 	.string "Good luck in your future battles!$"

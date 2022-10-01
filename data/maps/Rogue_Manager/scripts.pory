@@ -119,6 +119,7 @@ script Rogue_RetireFromRun
 script Rogue_ReturnToHub
 {
     warprespawn
+    waitstate
     return
 }
 

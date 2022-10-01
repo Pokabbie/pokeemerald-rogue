@@ -400,6 +400,8 @@ bool8 TryMarkQuestAsComplete(u16 questId)
             // First time finishing
             state->isCompleted = TRUE;
             state->hasPendingRewards = TRUE;
+
+            FlagSet(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE);
         }
         else if(IsQuestRepeatable(questId))
         {
@@ -548,6 +550,9 @@ static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
 
 void QuestNotify_BeginAdventure(void)
 {
+    FlagClear(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE);
+    FlagClear(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE);
+
     sPreviousRouteType = 0;
 
     // Cannot activate quests on Gauntlet mode
