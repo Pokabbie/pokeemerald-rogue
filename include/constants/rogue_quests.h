@@ -54,14 +54,15 @@
 #define QUEST_Hardcore2             (QUEST_MeetPokabbie + 17)
 #define QUEST_Hardcore3             (QUEST_MeetPokabbie + 18)
 #define QUEST_KantoMode             (QUEST_MeetPokabbie + 19)
+#define QUEST_OrreMode              (QUEST_MeetPokabbie + 20)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_ShayminItem           (QUEST_KantoMode + 1)
-#define QUEST_HoopaItem             (QUEST_KantoMode + 2)
-#define QUEST_NatureItem            (QUEST_KantoMode + 3)
+#define QUEST_ShayminItem           (QUEST_OrreMode + 1)
+#define QUEST_HoopaItem             (QUEST_OrreMode + 2)
+#define QUEST_NatureItem            (QUEST_OrreMode + 3)
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
-#define BASIC_QUEST_BLOCK_LAST QUEST_KantoMode
+#define BASIC_QUEST_BLOCK_LAST QUEST_OrreMode
 #endif
 
 #define QUEST_NORMAL_Champion       (BASIC_QUEST_BLOCK_LAST + 1)

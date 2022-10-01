@@ -492,6 +492,20 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 7, TRUE } },
         }
     },
+    [QUEST_OrreMode] = 
+    {
+        .title = _("Orre Style"),
+        .desc = _(
+                    "Reach the final champion\n"
+                    "in DOUBLES with an ESPEON\n"
+                    "& UMBREON in your party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_EEVEE, 7, TRUE } },
+        }
+    },
+
 #ifdef ROGUE_EXPANSION
     [QUEST_ShayminItem] = 
     {

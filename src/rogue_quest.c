@@ -631,6 +631,11 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore3);
     }
 
+    if(!FlagGet(FLAG_ROGUE_DOUBLE_BATTLES))
+    {
+        TryDeactivateQuest(QUEST_OrreMode);
+    }
+
     if(VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT) != 1)
     {
         TryDeactivateQuest(QUEST_KantoMode);
@@ -879,10 +884,16 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                 break;
 
             case ADVPATH_ROOM_BOSS:
-#ifdef ROGUE_EXPANSION
                 // About to face final champ
                 if(gRogueRun.currentDifficulty == 13)
                 {
+                    if(IsQuestActive(QUEST_OrreMode) 
+                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_ESPEON)
+                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_UMBREON)
+                    )
+                        TryMarkQuestAsComplete(QUEST_OrreMode);
+
+#ifdef ROGUE_EXPANSION
                     if(IsQuestActive(QUEST_ShayminItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
                         TryMarkQuestAsComplete(QUEST_ShayminItem);
 
@@ -897,8 +908,8 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                         )
                             TryMarkQuestAsComplete(QUEST_NatureItem);
                     }
-                }
 #endif
+                }
 
                 break;
         }
