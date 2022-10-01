@@ -749,18 +749,18 @@ static void Task_MainMenuCheckBattery(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 7);
 
-#ifdef ROGUE_FEATURE_SKIP_SAVE_WARNINGS
+#if 1 //def ROGUE_FEATURE_SKIP_SAVE_WARNINGS
         gTasks[taskId].func = Task_DisplayMainMenu;
 #else
-        if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
-        {
-            gTasks[taskId].func = Task_DisplayMainMenu;
-        }
-        else
-        {
-            CreateMainMenuErrorWindow(gText_BatteryRunDry);
-            gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
-        }
+        //if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
+        //{
+        //    gTasks[taskId].func = Task_DisplayMainMenu;
+        //}
+        //else
+        //{
+        //    CreateMainMenuErrorWindow(gText_BatteryRunDry);
+        //    gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
+        //}
 #endif
     }
 }
