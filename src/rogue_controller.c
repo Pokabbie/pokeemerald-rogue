@@ -1867,25 +1867,66 @@ u8 Rogue_SelectBossEncounter(void)
     return bossId;
 }
 
-u8 Rogue_SelectLegendaryEncounterRoom(void)
+static bool8 IsLegendaryEnabled(u16 legendaryId)
 {
-    u8 mapCount;
-    u8 mapIdx;
-    const struct RogueEncounterMap* selectedMap = NULL;
+    u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
 
-    mapCount = gRogueLegendaryEncounterInfo.mapCount;
-
-    // Avoid repeating same encounter 
-    do
+    if(!IsGenEnabled(SpeciesToGen(species)))
     {
-        mapIdx = RogueRandomRange(mapCount, FLAG_SET_SEED_WILDMONS);
-        selectedMap = &gRogueLegendaryEncounterInfo.mapTable[mapIdx];
+        return FALSE;
     }
-    while(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx) || !IsGenEnabled(SpeciesToGen(selectedMap->encounterId)) );
 
-    HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), mapIdx);
+    if(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId))
+    {
+        return FALSE;
+    }
+  
+    return TRUE;
+}
 
-    return mapIdx;
+static u16 NextLegendaryId()
+{
+    u16 i;
+    u16 randIdx;
+    u16 enabledLegendariesCount = 0;
+
+    for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
+    {
+        if(IsLegendaryEnabled(i))
+            ++enabledLegendariesCount;
+    }
+
+    if(enabledLegendariesCount == 0)
+    {
+        // We've exhausted all enabled legendary options, so we're going to wipe the buffer and try again
+        memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
+        return NextLegendaryId();
+    }
+
+    randIdx = RogueRandomRange(enabledLegendariesCount, OVERWORLD_FLAG);
+    enabledLegendariesCount = 0;
+
+    for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
+    {
+        if(IsLegendaryEnabled(i))
+        {
+            if(enabledLegendariesCount == randIdx)
+                return i;
+            else
+                ++enabledLegendariesCount;
+        }
+    }
+
+    return gRogueLegendaryEncounterInfo.mapCount - 1;
+}
+
+u8 Rogue_SelectLegendaryEncounterRoom(void)
+{    
+    u16 legendaryId = NextLegendaryId();
+
+    HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId);
+
+    return legendaryId;
 }
 
 u8 Rogue_SelectMiniBossEncounterRoom(void)
@@ -3446,9 +3487,11 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(isBoss)
     {
+        // Only apply ace types if we have enough mons to consider it
+        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        if((trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+        if(maxGen >= 3 && (trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
         {
             // Champion
             if(difficultyLevel == 12)
