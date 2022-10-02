@@ -273,6 +273,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
         }
     },
@@ -428,6 +429,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 #else
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
 #endif
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_SMEARGLE, 7, TRUE } },
         }
     },
 
