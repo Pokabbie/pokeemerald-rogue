@@ -452,6 +452,27 @@ void RogueQuery_SpeciesExcludeCommon(void)
             }
         }
     }
+
+#ifdef ROGUE_EXPANSION
+    // We can only evolve into these forms, they will never spawn otherwise
+    RogueQuery_SpeciesExcludeRange(SPECIES_ALCREMIE_RUBY_CREAM, SPECIES_ALCREMIE_RAINBOW_SWIRL);
+#endif
+}
+
+void RogueQuery_SpeciesExcludeRange(u16 fromId, u16 toId)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(species >= fromId && species <= toId)
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
 }
 
 void RogueQuery_SpeciesInPokedex(void)
