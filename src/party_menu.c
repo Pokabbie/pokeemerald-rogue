@@ -2037,7 +2037,7 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
 
     for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
     {
-        if(CanLearnTutorMove(species, i) && !MonKnowsMove(pokemon, GetTutorMove(i)))
+        if(CanLearnTutorMove(species, i))
         {
             tutorMoves[numTutorMoves++] = GetTutorMove(i);
         }
