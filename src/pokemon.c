@@ -3203,6 +3203,10 @@ void CreateMonForcedShiny(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
     }
+    else if (otIdType == OT_ID_PRESET)
+    {
+        OtId = fixedOtId;
+    }
     
     // Attempt first to calculate a valid shiny PID
     // By setting to 0 and then generating a value for the low half which will end up being used as the shiny value
@@ -3286,7 +3290,11 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = ITEM_POKE_BALL;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
-    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+
+    {
+        u16 gender = gSaveBlock2Ptr->playerGender % 2;
+        SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gender);
+    }
 
     if (fixedIV < USE_RANDOM_IVS)
     {

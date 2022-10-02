@@ -273,6 +273,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
         }
     },
@@ -299,7 +300,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "REST STOP."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 2 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
         },
         .unlockedQuests = { 
@@ -314,7 +315,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "¥50000 in your pocket."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 5 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 3 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
         }
     },
@@ -337,7 +339,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
     [QUEST_Bike2] = 
     {
-        .title = _("Wont't Stop!"),
+        .title = _("Won't Stop!"),
         .desc = _(
                     "After collecting the 8th\n"
                     "GYM badge, exit a Tough\n"
@@ -427,6 +429,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 #else
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
 #endif
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_SMEARGLE, 7, TRUE } },
         }
     },
 

@@ -119,11 +119,20 @@ script Rogue_BattleDefeated_Boss0
 
     if(flag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE) == FALSE && flag(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE))
     {
-        msgbox(format("Looks like you have some Quests to collect!\pWould you like to RETIRE from this Adventure and return to the HUB?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
+        msgbox(format("Looks like you have some Quests to collect!\pYou can either continue this Adventure or Retire and collect them now.\pWould you like to continue this Adventure?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO)
         {
-            call(Rogue_ReturnToHub)
-            return
+            msgbox(format("So you want to Retire and return to the HUB?"), MSGBOX_YESNO)
+        
+            if(var(VAR_RESULT) == YES)
+            {
+                call(Rogue_ReturnToHub)
+                return
+            }
+            else
+            {
+                setflag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE)
+            }
         }
         else
         {
