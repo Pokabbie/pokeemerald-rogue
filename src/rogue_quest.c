@@ -417,6 +417,29 @@ bool8 TryUnlockQuest(u16 questId)
         state->isValid = FALSE;
         state->isCompleted = FALSE;
         state->hasNewMarker = TRUE;
+
+        if(questId == QUEST_Collector1)
+        {
+            // Instant complete
+            u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+            if(caughtCount >= 15)
+            {
+                state->isValid = TRUE;
+                TryMarkQuestAsComplete(QUEST_Collector1);
+            }
+        }
+
+        if(questId == QUEST_Collector2)
+        {
+            // Instant complete
+            u16 caughtCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+            if(caughtCount >= 100)
+            {
+                state->isValid = TRUE;
+                TryMarkQuestAsComplete(QUEST_Collector2);
+            }
+        }
+
         return TRUE;
     }
 
