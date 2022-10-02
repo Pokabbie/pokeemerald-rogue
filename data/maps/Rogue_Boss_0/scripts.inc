@@ -156,7 +156,7 @@ Rogue_BattleDefeated_Boss0_1:
 	case 6, Rogue_BattleDefeated_Boss0_14
 	case 7, Rogue_BattleDefeated_Boss0_15
 Rogue_BattleDefeated_Boss0_6:
-	msgbox Rogue_BattleDefeated_Boss0_Text_2
+	msgbox Rogue_BattleDefeated_Boss0_Text_3
 	waitmessage
 	special HealPlayerParty
 	special RemoveCameraObject
@@ -166,7 +166,7 @@ Rogue_BattleDefeated_Boss0_6:
 
 Rogue_BattleDefeated_Boss0_2:
 	msgbox Rogue_BattleDefeated_Boss0_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
+	compare VAR_RESULT, NO
 	goto_if_eq Rogue_BattleDefeated_Boss0_16
 	setflag FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE
 	goto Rogue_BattleDefeated_Boss0_1
@@ -224,8 +224,11 @@ Rogue_BattleDefeated_Boss0_15:
 	goto Rogue_BattleDefeated_Boss0_6
 
 Rogue_BattleDefeated_Boss0_16:
-	call Rogue_ReturnToHub
-	return
+	msgbox Rogue_BattleDefeated_Boss0_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_BattleDefeated_Boss0_35
+	setflag FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE
+	goto Rogue_BattleDefeated_Boss0_1
 
 Rogue_BattleDefeated_Boss0_19:
 	giveitem ITEM_HM01
@@ -258,6 +261,10 @@ Rogue_BattleDefeated_Boss0_31:
 Rogue_BattleDefeated_Boss0_33:
 	giveitem ITEM_HM03_SURF
 	goto Rogue_BattleDefeated_Boss0_6
+
+Rogue_BattleDefeated_Boss0_35:
+	call Rogue_ReturnToHub
+	return
 
 
 PlayerToBattleField:
@@ -372,8 +379,14 @@ Rogue_BattleDefeated_Boss0_Text_0:
 Rogue_BattleDefeated_Boss0_Text_1:
 	.string "Looks like you have some Quests to\n"
 	.string "collect!\p"
-	.string "Would you like to RETIRE from this\n"
-	.string "Adventure and return to the HUB?$"
+	.string "You can either continue this Adventure\n"
+	.string "or Retire and collect them now.\p"
+	.string "Would you like to continue this\n"
+	.string "Adventure?$"
 
 Rogue_BattleDefeated_Boss0_Text_2:
+	.string "So you want to Retire and return to the\n"
+	.string "HUB?$"
+
+Rogue_BattleDefeated_Boss0_Text_3:
 	.string "Good luck in your future battles!$"
