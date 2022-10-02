@@ -339,7 +339,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
     [QUEST_Bike2] = 
     {
-        .title = _("Wont't Stop!"),
+        .title = _("Won't Stop!"),
         .desc = _(
                     "After collecting the 8th\n"
                     "GYM badge, exit a Tough\n"
