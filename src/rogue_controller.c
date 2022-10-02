@@ -2212,8 +2212,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
         
         // Update VARs
-        VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
-        VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
     }
@@ -2368,6 +2366,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
             }
+
+            VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         }
 
         // Adjust this after the boss reset
