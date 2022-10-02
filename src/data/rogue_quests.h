@@ -299,7 +299,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "REST STOP."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 2 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingMart },
         },
         .unlockedQuests = { 
@@ -314,7 +314,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "¥50000 in your pocket."
                 ),
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 5 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 3 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksTravellingBank },
         }
     },
