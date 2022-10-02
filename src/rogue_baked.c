@@ -81,10 +81,60 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     if(outEvo->targetSpecies != SPECIES_NONE)
     {
 #ifdef ROGUE_EXPANSION
-        if(species == SPECIES_MILCERY && evoIdx == 0)
+        if(species == SPECIES_MILCERY)
         {
-            outEvo->method = EVO_LEVEL;
-            outEvo->param = 20;
+            switch(outEvo->targetSpecies)
+            {
+                case SPECIES_ALCREMIE:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_PECHA_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_RUBY_CREAM:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_PERSIM_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_MATCHA_CREAM:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_RAWST_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_MINT_CREAM:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_CHERI_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_LEMON_CREAM:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_ASPEAR_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_SALTED_CREAM:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_CHESTO_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_RUBY_SWIRL:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_LEPPA_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_CARAMEL_SWIRL:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_SITRUS_BERRY;
+                    break;
+
+                case SPECIES_ALCREMIE_RAINBOW_SWIRL:
+                    outEvo->method = EVO_LEVEL_ITEM;
+                    outEvo->param = ITEM_SALAC_BERRY;
+                    break;
+
+                default:
+                    outEvo->targetSpecies = SPECIES_NONE;
+                    outEvo->method = 0;
+                    break;
+            }
         }
 
         if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
