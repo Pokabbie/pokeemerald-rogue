@@ -450,6 +450,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_COSMOEM]               = {{EVO_LEVEL_DAY, 53, SPECIES_SOLGALEO},
                                        {EVO_LEVEL_NIGHT, 53, SPECIES_LUNALA}},
     [SPECIES_POIPOLE]               = {{EVO_MOVE, MOVE_DRAGON_PULSE, SPECIES_NAGANADEL}},
+    [SPECIES_MELTAN]                = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_MELMETAL}},
     [SPECIES_GROOKEY]               = {{EVO_LEVEL, 16, SPECIES_THWACKEY}},
     [SPECIES_THWACKEY]              = {{EVO_LEVEL, 35, SPECIES_RILLABOOM}},
     [SPECIES_SCORBUNNY]             = {{EVO_LEVEL, 16, SPECIES_RABOOT}},
