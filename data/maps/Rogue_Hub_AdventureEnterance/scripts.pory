@@ -366,7 +366,12 @@ script Rogue_ResetAdventureFlags
 script Rogue_StartAdventureCommon
 {
     getpartysize
-    if(flag(FLAG_ROGUE_DOUBLE_BATTLES))
+
+    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        // You can carry 6 mons into gauntlet mode
+    }
+    elif(flag(FLAG_ROGUE_DOUBLE_BATTLES))
     {
         if(var(VAR_RESULT) > 2)
         {

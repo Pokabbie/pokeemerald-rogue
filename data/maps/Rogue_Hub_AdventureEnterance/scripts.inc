@@ -351,127 +351,131 @@ Rogue_ResetAdventureFlags::
 
 Rogue_StartAdventureCommon::
 	getpartysize
-	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_StartAdventureCommon_2
+	goto_if_set FLAG_ROGUE_GAUNTLET_MODE, Rogue_StartAdventureCommon_2
+	goto_if_set FLAG_ROGUE_DOUBLE_BATTLES, Rogue_StartAdventureCommon_3
 	compare VAR_RESULT, 1
-	goto_if_gt Rogue_StartAdventureCommon_10
+	goto_if_gt Rogue_StartAdventureCommon_12
 	setvar VAR_RESULT, YES
 Rogue_StartAdventureCommon_1:
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_StartAdventureCommon_5
+	goto_if_eq Rogue_StartAdventureCommon_7
 	return
 
 Rogue_StartAdventureCommon_2:
+	goto Rogue_StartAdventureCommon_1
+
+Rogue_StartAdventureCommon_3:
 	compare VAR_RESULT, 2
-	goto_if_gt Rogue_StartAdventureCommon_7
+	goto_if_gt Rogue_StartAdventureCommon_9
 	setvar VAR_RESULT, YES
 	goto Rogue_StartAdventureCommon_1
 
-Rogue_StartAdventureCommon_5:
+Rogue_StartAdventureCommon_7:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
 	specialvar VAR_RESULT, GetLeadMonLevel
-	goto_if_unset FLAG_SET_SEED_ENABLED, Rogue_StartAdventureCommon_15
-Rogue_StartAdventureCommon_13:
+	goto_if_unset FLAG_SET_SEED_ENABLED, Rogue_StartAdventureCommon_17
+Rogue_StartAdventureCommon_15:
 	compare VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto_if_ne Rogue_StartAdventureCommon_19
-Rogue_StartAdventureCommon_18:
+	goto_if_ne Rogue_StartAdventureCommon_21
+Rogue_StartAdventureCommon_20:
 	call Common_EventScript_SaveGame
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_StartAdventureCommon_37
+	goto_if_eq Rogue_StartAdventureCommon_39
 	msgbox Rogue_StartAdventureCommon_Text_5, MSGBOX_DEFAULT
 	return
 
-Rogue_StartAdventureCommon_7:
+Rogue_StartAdventureCommon_9:
 	msgbox Rogue_StartAdventureCommon_Text_0, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto Rogue_StartAdventureCommon_1
 
-Rogue_StartAdventureCommon_10:
+Rogue_StartAdventureCommon_12:
 	msgbox Rogue_StartAdventureCommon_Text_1, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
 	goto Rogue_StartAdventureCommon_1
 
-Rogue_StartAdventureCommon_14:
+Rogue_StartAdventureCommon_16:
 	compare VAR_RESULT, 85
-	goto_if_gt Rogue_StartAdventureCommon_21
-	compare VAR_RESULT, 75
-	goto_if_gt Rogue_StartAdventureCommon_22
-	compare VAR_RESULT, 65
 	goto_if_gt Rogue_StartAdventureCommon_23
-	compare VAR_RESULT, 55
+	compare VAR_RESULT, 75
 	goto_if_gt Rogue_StartAdventureCommon_24
-	compare VAR_RESULT, 45
+	compare VAR_RESULT, 65
 	goto_if_gt Rogue_StartAdventureCommon_25
-	compare VAR_RESULT, 35
+	compare VAR_RESULT, 55
 	goto_if_gt Rogue_StartAdventureCommon_26
-	compare VAR_RESULT, 25
+	compare VAR_RESULT, 45
 	goto_if_gt Rogue_StartAdventureCommon_27
-	compare VAR_RESULT, 15
+	compare VAR_RESULT, 35
 	goto_if_gt Rogue_StartAdventureCommon_28
-	goto Rogue_StartAdventureCommon_13
+	compare VAR_RESULT, 25
+	goto_if_gt Rogue_StartAdventureCommon_29
+	compare VAR_RESULT, 15
+	goto_if_gt Rogue_StartAdventureCommon_30
+	goto Rogue_StartAdventureCommon_15
 
-Rogue_StartAdventureCommon_15:
-	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, Rogue_StartAdventureCommon_14
-	goto Rogue_StartAdventureCommon_13
+Rogue_StartAdventureCommon_17:
+	goto_if_unset FLAG_ROGUE_GAUNTLET_MODE, Rogue_StartAdventureCommon_16
+	goto Rogue_StartAdventureCommon_15
 
-Rogue_StartAdventureCommon_19:
+Rogue_StartAdventureCommon_21:
 	msgbox Rogue_StartAdventureCommon_Text_2, MSGBOX_DEFAULT
 	buffernumberstring STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY
 	msgbox Rogue_StartAdventureCommon_Text_3, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_StartAdventureCommon_40
-	goto Rogue_StartAdventureCommon_18
-
-Rogue_StartAdventureCommon_21:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
-	goto Rogue_StartAdventureCommon_13
-
-Rogue_StartAdventureCommon_22:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
-	goto Rogue_StartAdventureCommon_13
+	goto_if_eq Rogue_StartAdventureCommon_42
+	goto Rogue_StartAdventureCommon_20
 
 Rogue_StartAdventureCommon_23:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 8
+	goto Rogue_StartAdventureCommon_15
 
 Rogue_StartAdventureCommon_24:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 7
+	goto Rogue_StartAdventureCommon_15
 
 Rogue_StartAdventureCommon_25:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 6
+	goto Rogue_StartAdventureCommon_15
 
 Rogue_StartAdventureCommon_26:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 5
+	goto Rogue_StartAdventureCommon_15
 
 Rogue_StartAdventureCommon_27:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 4
+	goto Rogue_StartAdventureCommon_15
 
 Rogue_StartAdventureCommon_28:
-	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
-	goto Rogue_StartAdventureCommon_13
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 3
+	goto Rogue_StartAdventureCommon_15
 
-Rogue_StartAdventureCommon_37:
+Rogue_StartAdventureCommon_29:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 2
+	goto Rogue_StartAdventureCommon_15
+
+Rogue_StartAdventureCommon_30:
+	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 1
+	goto Rogue_StartAdventureCommon_15
+
+Rogue_StartAdventureCommon_39:
 	msgbox Rogue_StartAdventureCommon_Text_4, MSGBOX_DEFAULT
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_eq Rogue_StartAdventureCommon_43
+	goto_if_eq Rogue_StartAdventureCommon_45
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
-Rogue_StartAdventureCommon_42:
+Rogue_StartAdventureCommon_44:
 	setflag FLAG_ROGUE_LEFT_ON_RUN
 	setrespawn HEAL_LOCATION_ROGUE_HUB
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	waitstate
 	return
 
-Rogue_StartAdventureCommon_40:
+Rogue_StartAdventureCommon_42:
 	setvar VAR_ROGUE_SKIP_TO_DIFFICULTY, 0
-	goto Rogue_StartAdventureCommon_18
+	goto Rogue_StartAdventureCommon_20
 
-Rogue_StartAdventureCommon_43:
+Rogue_StartAdventureCommon_45:
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-	goto Rogue_StartAdventureCommon_42
+	goto Rogue_StartAdventureCommon_44
 
 
 Rogue_ReturnAdventureCommon::
