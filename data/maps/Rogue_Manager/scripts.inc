@@ -1055,11 +1055,11 @@ Rogue_QuickSaveLoad_Text_0:
 	.string "Adventure has been reloaded.$"
 
 Rogue_QuickSaveVersionWarning_Text_0:
-	.string "Invalid Patching Detected!\p"
-	.string "Make sure to save in the HUB outside\n"
-	.string "area before upgrading to a new patch.\p"
+	.string "Invalid Save Location Detected!\p"
+	.string "When upgrading to a new patch, make\n"
+	.string "sure to save in the HUB outdoor area.\p"
 	.string "Please revert to the older patch and\n"
-	.string "resave a valid location.$"
+	.string "re-save in a valid location.$"
 
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"
