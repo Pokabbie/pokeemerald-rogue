@@ -117,6 +117,20 @@ script Rogue_BattleDefeated_Boss0
     waitmessage()
     call(Common_EventScript_PlayGymBadgeFanfare)
 
+    if(flag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE) == FALSE && flag(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE))
+    {
+        msgbox(format("Looks like you have some Quests to collect!\pWould you like to RETIRE from this Adventure and return to the HUB?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Rogue_ReturnToHub)
+            return
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE)
+        }
+    }
+
     switch(var(VAR_ROGUE_DIFFICULTY))
     {
         case 0:
@@ -174,20 +188,6 @@ script Rogue_BattleDefeated_Boss0
             {
                 giveitem(ITEM_HM03_SURF)
             }
-    }
-
-    if(flag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE) == FALSE && flag(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE))
-    {
-        msgbox(format("Looks like you have some Quests to collect!\pWould you like to RETIRE from this Adventure and return to the HUB?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
-        {
-            call(Rogue_ReturnToHub)
-            return
-        }
-        else
-        {
-            setflag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE)
-        }
     }
 
     msgbox(format("Good luck in your future battles!"))

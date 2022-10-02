@@ -492,9 +492,9 @@ script Rogue_ReturnAdventureCommon
         msgbox(format("Whenever you return from an adventure\nyou earn rewards based on how well you did."), MSGBOX_DEFAULT)
 
         buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX)
-        buffernumberstring(STR_VAR_2, VAR_ROGUE_DIFFICULTY)
+        //buffernumberstring(STR_VAR_2, VAR_ROGUE_DIFFICULTY)
 
-        msgbox(format("Lets have a look now...\pYou managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n{STR_VAR_1} routes...{PAUSE 15}\pand you recieved {STR_VAR_2} BADGES...{PAUSE 15}"), MSGBOX_DEFAULT)
+        msgbox(format("Lets have a look now...\pYou managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n{STR_VAR_1} routes...{PAUSE 15}"), MSGBOX_DEFAULT)
         
         //turnobject(NPC_INTRO_SCOTT, DIR_EAST)
         msgbox(format("So hmm...\nYour rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}."), MSGBOX_DEFAULT)

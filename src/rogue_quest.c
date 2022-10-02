@@ -99,7 +99,7 @@ void ResetQuestState(u16 saveVersion)
 {
     u16 i;
 
-    if(saveVersion == 0)
+    if(saveVersion == 0 || saveVersion == 1)
     {
         // Reset the state for any new quests
         for(i = 0; i < QUEST_CAPACITY; ++i)
@@ -113,7 +113,7 @@ void ResetQuestState(u16 saveVersion)
     // Always make sure default quests are unlocked
     UnlockDefaultQuests();
 
-    if(saveVersion == 0)
+    if(saveVersion == 0 || saveVersion == 1)
     {
         ForEachUnlockedQuest(ActivateHubQuests);
     }

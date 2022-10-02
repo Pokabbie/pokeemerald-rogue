@@ -89,6 +89,20 @@ Rogue_QuickSaveLoad_2:
 	goto Rogue_QuickSaveLoad_1
 
 
+Rogue_QuickSaveVersionWarning::
+	lockall
+	setvar VAR_RESULT, YES
+Rogue_QuickSaveVersionWarning_2:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_QuickSaveVersionWarning_3
+	releaseall
+	return
+
+Rogue_QuickSaveVersionWarning_3:
+	msgbox Rogue_QuickSaveVersionWarning_Text_0
+	goto Rogue_QuickSaveVersionWarning_2
+
+
 Rogue_RetireFromRun::
 	lockall
 	msgbox Rogue_RetireFromRun_Text_0, MSGBOX_YESNO
@@ -1039,6 +1053,13 @@ Rogue_PostBattle_Internal_Text_0:
 
 Rogue_QuickSaveLoad_Text_0:
 	.string "Adventure has been reloaded.$"
+
+Rogue_QuickSaveVersionWarning_Text_0:
+	.string "Invalid Patching Detected!\p"
+	.string "Make sure to save in the HUB outside\n"
+	.string "area before upgrading to a new patch.\p"
+	.string "Please revert to the older patch and\n"
+	.string "resave a valid location.$"
 
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"

@@ -508,7 +508,6 @@ Rogue_ReturnAdventureCommon_10:
 Rogue_ReturnAdventureCommon_2:
 	msgbox Rogue_ReturnAdventureCommon_Text_1, MSGBOX_DEFAULT
 	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX
-	buffernumberstring STR_VAR_2, VAR_ROGUE_DIFFICULTY
 	msgbox Rogue_ReturnAdventureCommon_Text_2, MSGBOX_DEFAULT
 	msgbox Rogue_ReturnAdventureCommon_Text_3, MSGBOX_DEFAULT
 	goto Rogue_ReturnAdventureCommon_1
@@ -704,9 +703,7 @@ Rogue_ReturnAdventureCommon_Text_1:
 Rogue_ReturnAdventureCommon_Text_2:
 	.string "Lets have a look now...\p"
 	.string "You managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n"
-	.string "{STR_VAR_1} routes...{PAUSE 15}\p"
-	.string "and you recieved {STR_VAR_2}\n"
-	.string "BADGES...{PAUSE 15}$"
+	.string "{STR_VAR_1} routes...{PAUSE 15}$"
 
 Rogue_ReturnAdventureCommon_Text_3:
 	.string "So hmm...\n"

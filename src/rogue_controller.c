@@ -116,6 +116,7 @@ struct RouteMonPreview
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
+    bool8 hasSaveWarningPending;
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
     
@@ -1268,7 +1269,7 @@ static void SelectStartMons(void)
 #endif
 }
 
-#define ROGUE_SAVE_VERSION 1
+#define ROGUE_SAVE_VERSION 2
 
 
 static void ClearPokemonHeldItems(void)
@@ -1308,9 +1309,9 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
     // Loading existing save
     if(!newGame)
     {
-        if(saveVersion == 0)
+        if(saveVersion == 0 || saveVersion == 1)
         {
-            // Soft reset for Quest update
+            // Soft reset for Quest update (Old save and Pre-release saves)
             FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
             FlagClear(FLAG_ROGUE_MET_POKABBIE);
             FlagClear(FLAG_IS_CHAMPION);
@@ -1512,6 +1513,7 @@ static void LoadHubStates(void)
 }
 
 extern const u8 Rogue_QuickSaveLoad[];
+extern const u8 Rogue_QuickSaveVersionWarning[];
 
 void Rogue_OnSaveGame(void)
 {
@@ -1556,7 +1558,11 @@ void Rogue_OnLoadGame(void)
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
         gRogueLocal.hasQuickLoadPending = TRUE;
-        //ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+    }
+
+    if(Rogue_IsRunActive() && gSaveBlock1Ptr->rogueSaveVersion != ROGUE_SAVE_VERSION)
+    {
+        gRogueLocal.hasSaveWarningPending = TRUE;
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
@@ -1565,7 +1571,13 @@ void Rogue_OnLoadGame(void)
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
 #ifndef ROGUE_DEBUG
-    if(gRogueLocal.hasQuickLoadPending)
+    if(gRogueLocal.hasSaveWarningPending)
+    {
+        gRogueLocal.hasSaveWarningPending = FALSE;
+        ScriptContext1_SetupScript(Rogue_QuickSaveVersionWarning);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
@@ -2212,8 +2224,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
         
         // Update VARs
-        VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
-        VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
         VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
     }
@@ -2368,6 +2378,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
             }
+
+            VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
         }
 
         // Adjust this after the boss reset

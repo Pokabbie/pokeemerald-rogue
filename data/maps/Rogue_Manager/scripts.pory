@@ -103,6 +103,19 @@ script Rogue_QuickSaveLoad
     releaseall
 }
 
+script Rogue_QuickSaveVersionWarning
+{
+    lockall
+
+    setvar(VAR_RESULT, YES)
+    while(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Invalid Patching Detected!\pMake sure to save in the HUB outside area before upgrading to a new patch.\pPlease revert to the older patch and resave a valid location."))
+    }
+
+    releaseall
+}
+
 script Rogue_RetireFromRun
 {
     lockall
