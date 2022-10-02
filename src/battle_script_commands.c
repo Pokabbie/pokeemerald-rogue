@@ -6813,7 +6813,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
 
     if (trainerId == TRAINER_SECRET_BASE)
     {
-        moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
+        moneyReward = 20 * gBattleResources->secretBase->party.levels[0];
     }
     else
     {
@@ -6857,14 +6857,16 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
         }
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
+            moneyReward = 4 * lastMonLevel  * gTrainerMoneyTable[i].value;
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * 2 * gTrainerMoneyTable[i].value;
+            moneyReward = 4 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
         else
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
+            moneyReward = 4 * lastMonLevel * gTrainerMoneyTable[i].value;
     }
 
-    return moneyReward;
+    Rogue_ModifyBattleWinnings(trainerId, &moneyReward);
+
+    return moneyReward * gBattleStruct->moneyMultiplier;
 }
 
 static void Cmd_getmoneyreward(void)
@@ -6878,7 +6880,6 @@ static void Cmd_getmoneyreward(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-        Rogue_ModifyBattleWinnings(gTrainerBattleOpponent_A, &money);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else
