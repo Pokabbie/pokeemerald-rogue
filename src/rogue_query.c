@@ -978,6 +978,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     {
         RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
         RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
+        RogueQuery_ItemsExcludeRange(ITEM_MACHO_BRACE, ITEM_POWER_ANKLET);
     }
 #else
     if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))

@@ -797,6 +797,12 @@ u8 SpeciesToGen(u16 species)
 
 u8 ItemToGen(u16 item)
 {
+    if(!Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    {
+        // We want all items to appear in the hub, so long as we've unlocked the expanded mode
+        return 1;
+    }
+
 #ifdef ROGUE_EXPANSION
     if(item >= ITEM_FLAME_PLATE && item <= ITEM_PIXIE_PLATE)
         return 4;
@@ -1307,6 +1313,7 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
             // Soft reset for Quest update
             FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
             FlagClear(FLAG_ROGUE_MET_POKABBIE);
+            FlagClear(FLAG_IS_CHAMPION);
 
             VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
