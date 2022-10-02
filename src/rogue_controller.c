@@ -797,6 +797,12 @@ u8 SpeciesToGen(u16 species)
 
 u8 ItemToGen(u16 item)
 {
+    if(!Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    {
+        // We want all items to appear in the hub, so long as we've unlocked the expanded mode
+        return 1;
+    }
+
 #ifdef ROGUE_EXPANSION
     if(item >= ITEM_FLAME_PLATE && item <= ITEM_PIXIE_PLATE)
         return 4;
@@ -1307,6 +1313,7 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
             // Soft reset for Quest update
             FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
             FlagClear(FLAG_ROGUE_MET_POKABBIE);
+            FlagClear(FLAG_IS_CHAMPION);
 
             VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -3926,7 +3933,7 @@ static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
     gRngRogueValue = startSeed;
 }
 
-void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves)
+void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves)
 {
     if(tutorType != 0) // TEACH_STATE_RELEARN
     {
@@ -3956,6 +3963,23 @@ void Rogue_ModifyTutorMoves(u8 tutorType, u8* count, u16* moves)
         if(capacity != 0)
         {
             ApplyTutorMoveCapacity(count, moves, capacity);
+        }
+
+        
+        // Remove moves we already know (We want to do this after capacity so the randomisation is consistent)
+        {
+            u16 readIdx;
+            u16 writeIdx = 0;
+
+            for(readIdx = 0; readIdx < *count; ++readIdx)
+            {
+                if(!MonKnowsMove(mon, moves[readIdx]))
+                {
+                    moves[writeIdx++] = moves[readIdx];
+                }
+            }
+
+            *count = writeIdx;
         }
     }
 }
