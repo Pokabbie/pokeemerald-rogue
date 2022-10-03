@@ -362,6 +362,7 @@ Rogue_StartAdventureCommon_1:
 	return
 
 Rogue_StartAdventureCommon_2:
+	setvar VAR_RESULT, YES
 	goto Rogue_StartAdventureCommon_1
 
 Rogue_StartAdventureCommon_3:
@@ -648,7 +649,8 @@ Rogue_Adventure_StartGauntlet_Text_2:
 	.string "back to back with no chance to get any\l"
 	.string "more POKéMON or items.\p"
 	.string "This is a high stakes mode intended for\n"
-	.string "faster more difficult battles.$"
+	.string "faster more difficult battles,\l"
+	.string "although Quests are disabled.$"
 
 Rogue_Adventure_StartRainbow_Text_0:
 	.string "Would you like to go on a RAINBOW\n"

@@ -147,14 +147,14 @@ Rogue_BattleDefeated_Boss0::
 	goto_if_unset FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE, Rogue_BattleDefeated_Boss0_3
 Rogue_BattleDefeated_Boss0_1:
 	switch VAR_ROGUE_DIFFICULTY
-	case 0, Rogue_BattleDefeated_Boss0_8
-	case 1, Rogue_BattleDefeated_Boss0_9
-	case 2, Rogue_BattleDefeated_Boss0_10
-	case 3, Rogue_BattleDefeated_Boss0_11
-	case 4, Rogue_BattleDefeated_Boss0_12
-	case 5, Rogue_BattleDefeated_Boss0_13
-	case 6, Rogue_BattleDefeated_Boss0_14
-	case 7, Rogue_BattleDefeated_Boss0_15
+	case 1, Rogue_BattleDefeated_Boss0_8
+	case 2, Rogue_BattleDefeated_Boss0_9
+	case 3, Rogue_BattleDefeated_Boss0_10
+	case 4, Rogue_BattleDefeated_Boss0_11
+	case 5, Rogue_BattleDefeated_Boss0_12
+	case 6, Rogue_BattleDefeated_Boss0_13
+	case 7, Rogue_BattleDefeated_Boss0_14
+	case 8, Rogue_BattleDefeated_Boss0_15
 Rogue_BattleDefeated_Boss0_6:
 	msgbox Rogue_BattleDefeated_Boss0_Text_3
 	waitmessage

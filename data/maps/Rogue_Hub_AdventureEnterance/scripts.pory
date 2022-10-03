@@ -308,7 +308,7 @@ script Rogue_Adventure_StartGauntlet
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
 
         case 2: // Info
-            msgbox(format("In GAUNTLET adventures, you will get given a few routes to capture POKéMON and collect items.\pAfter that you will fight every BOSS back to back with no chance to get any more POKéMON or items.\pThis is a high stakes mode intended for faster more difficult battles."), MSGBOX_DEFAULT)
+            msgbox(format("In GAUNTLET adventures, you will get given a few routes to capture POKéMON and collect items.\pAfter that you will fight every BOSS back to back with no chance to get any more POKéMON or items.\pThis is a high stakes mode intended for faster more difficult battles, although Quests are disabled."), MSGBOX_DEFAULT)
 
         case MULTI_B_PRESSED:
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
@@ -370,6 +370,7 @@ script Rogue_StartAdventureCommon
     if(flag(FLAG_ROGUE_GAUNTLET_MODE))
     {
         // You can carry 6 mons into gauntlet mode
+        setvar(VAR_RESULT, YES)
     }
     elif(flag(FLAG_ROGUE_DOUBLE_BATTLES))
     {
