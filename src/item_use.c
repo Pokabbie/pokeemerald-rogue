@@ -663,6 +663,11 @@ static void Task_OpenRegisteredQuestLog(u8 taskId)
 
 void ItemUseOutOfBattle_QuestLog(u8 taskId)
 {
+    if(!WaitFanfare(FALSE))
+    {
+        return;
+    }
+
     PlaySE(SE_SELECT);
     if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {

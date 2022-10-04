@@ -4441,7 +4441,7 @@ static bool8 RogueRandomChanceItem()
             chance = min(100, chance + 25);
     }
 
-    return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static bool8 RogueRandomChanceBerry()
