@@ -365,6 +365,17 @@ script Rogue_ResetAdventureFlags
 
 script Rogue_StartAdventureCommon
 {
+    special(Rogue_AnyNewQuestsPending)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("Before you head out, I should mention, Scott was looking for you.\pHe mentioned something about having some new Quest ready to unlock?\pDo you still want to continue?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO)
+        {
+            return
+        }
+    }
+
     getpartysize
 
     if(flag(FLAG_ROGUE_GAUNTLET_MODE))

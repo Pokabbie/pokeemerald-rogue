@@ -4,6 +4,7 @@
 void ResetQuestState(u16 saveVersion);
 bool8 AnyNewQuests(void);
 bool8 AnyQuestRewardsPending(void);
+bool8 AnyNewQuestsPending(void);
 
 u16 GetCompletedQuestCount(void);
 u16 GetUnlockedQuestCount(void);

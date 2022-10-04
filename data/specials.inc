@@ -187,6 +187,7 @@ gSpecials::
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_GetBufferedShinySpecies
+	def_special Rogue_AnyNewQuestsPending
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams
