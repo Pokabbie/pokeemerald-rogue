@@ -1269,8 +1269,8 @@ static void SelectStartMons(void)
 #endif
 }
 
-#define ROGUE_SAVE_VERSION 2
-
+#define ROGUE_SAVE_VERSION 2    // The version to use for tracking/updating internal save game data
+#define ROGUE_COMPAT_VERSION 1  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 static void ClearPokemonHeldItems(void)
 {
@@ -1520,6 +1520,7 @@ void Rogue_OnSaveGame(void)
     u8 i;
 
     gSaveBlock1Ptr->rogueSaveVersion = ROGUE_SAVE_VERSION;
+    gSaveBlock1Ptr->rogueCompatVersion = ROGUE_COMPAT_VERSION;
 
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
 
@@ -1560,7 +1561,7 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
 
-    if(Rogue_IsRunActive() && gSaveBlock1Ptr->rogueSaveVersion != ROGUE_SAVE_VERSION)
+    if(Rogue_IsRunActive() && gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
     {
         gRogueLocal.hasSaveWarningPending = TRUE;
     }
@@ -1570,13 +1571,13 @@ void Rogue_OnLoadGame(void)
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
-#ifndef ROGUE_DEBUG
     if(gRogueLocal.hasSaveWarningPending)
     {
         gRogueLocal.hasSaveWarningPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionWarning);
         return TRUE;
     }
+#ifndef ROGUE_DEBUG
     else if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
@@ -4440,7 +4441,7 @@ static bool8 RogueRandomChanceItem()
             chance = min(100, chance + 25);
     }
 
-    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static bool8 RogueRandomChanceBerry()
