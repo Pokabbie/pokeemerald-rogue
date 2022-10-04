@@ -2003,6 +2003,19 @@ static u16 GetTutorMove(u8 tutor)
     return gTutorMoves[tutor];
 }
 
+static bool8 IsTutorMove(u16 move)
+{
+    u16 i;
+
+    for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
+    {
+        if(gTutorMoves[i] == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 CanLearnTutorMove(u16 species, u8 tutor)
 {
     if (sTutorLearnsets[species] & (1 << tutor))
@@ -2029,7 +2042,7 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
         move = gPresetMonTable[species].moves[i];
 
         // If we can't learn this and there isn't a TM for it, allow teaching via tutor
-        if(!CanSpeciesLearnMoveByLevelup(species, move) && BattleMoveIdToItemId(move) == 0)
+        if(!CanSpeciesLearnMoveByLevelup(species, move) && BattleMoveIdToItemId(move) == 0 && !IsTutorMove(move))
         {
             tutorMoves[numTutorMoves++] = move;
         }
