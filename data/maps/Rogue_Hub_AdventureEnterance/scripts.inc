@@ -555,8 +555,8 @@ Rogue_Adventure_ScottGiveQuestLog_Text_0:
 	.string "on an Adventure.\p"
 	.string "Completing Quests can give you some\n"
 	.string "nice rewards too.\p"
-	.string "Once complete any come and chat to me\n"
-	.string "and I'll give your rewards.$"
+	.string "Once you complete any, come and chat to\n"
+	.string "me and I'll give your rewards.$"
 
 Rogue_Adventure_ScottIntro_Text_0:
 	.string "SCOTT: Hey {PLAYER}!\p"
