@@ -16,6 +16,7 @@
 
 #include "rogue.h"
 #include "rogue_script.h"
+#include "rogue_quest.h"
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
 {
@@ -513,4 +514,9 @@ void Rogue_GetBufferedShinySpecies(void)
     }
 
     gSpecialVar_Result = SPECIES_NONE;
+}
+
+void Rogue_AnyNewQuestsPending(void)
+{
+    gSpecialVar_Result = AnyNewQuestsPending();
 }

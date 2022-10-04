@@ -153,6 +153,23 @@ bool8 AnyQuestRewardsPending(void)
     return FALSE;
 }
 
+bool8 AnyNewQuestsPending(void)
+{
+    u16 i;
+    struct RogueQuestState* state;
+
+    for(i = 0; i < QUEST_CAPACITY; ++i)
+    {
+        state = &gRogueQuestData.questStates[i];
+        if(state->isUnlocked && state->hasPendingRewards && DoesQuestHaveUnlocks(i))
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 u16 GetCompletedQuestCount(void)
 {
     u16 i;
@@ -747,7 +764,7 @@ static void UpdateMonoQuests(void)
             for(i = 0; i < gPlayerPartyCount; ++i)
             {
                 u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-                if(!IsSpeciesType(species, type))
+                if(species != SPECIES_NONE && !IsSpeciesType(species, type))
                 {
                     TryDeactivateQuest(questId);
                     break;

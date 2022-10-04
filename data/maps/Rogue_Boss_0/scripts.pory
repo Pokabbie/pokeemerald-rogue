@@ -140,58 +140,59 @@ script Rogue_BattleDefeated_Boss0
         }
     }
 
+    // Difficulty has just increase so this is eqv to new badge count
     switch(var(VAR_ROGUE_DIFFICULTY))
     {
-        case 0:
+        case 1:
             checkitem(ITEM_HM01)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM01)
             }
 
-        case 1:
+        case 2:
             checkitem(ITEM_HM05_FLASH)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM05_FLASH)
             }
 
-        case 2:
+        case 3:
             checkitem(ITEM_HM06_ROCK_SMASH)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM06_ROCK_SMASH)
             }
 
-        case 3:
+        case 4:
             checkitem(ITEM_HM04_STRENGTH)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM04_STRENGTH)
             }
 
-        case 4:
+        case 5:
             checkitem(ITEM_HM08_DIVE)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM08_DIVE)
             }
 
-        case 5:
+        case 6:
             checkitem(ITEM_HM02_FLY)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM02_FLY)
             }
 
-        case 6:
+        case 7:
             checkitem(ITEM_HM07_WATERFALL)
             if(var(VAR_RESULT) == NO)
             {
                 giveitem(ITEM_HM07_WATERFALL)
             }
 
-        case 7:
+        case 8:
             checkitem(ITEM_HM03_SURF)
             if(var(VAR_RESULT) == NO)
             {
