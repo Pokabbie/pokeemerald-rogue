@@ -655,7 +655,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
             u8 difficulty = gRogueRun.currentDifficulty;
-            *money = (difficulty + 1) * 1000;
+            *money = (difficulty + 1) * 1500;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
@@ -1270,7 +1270,7 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 2    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 1  // The version to bump every time there is a patch so players cannot patch incorrectly
+#define ROGUE_COMPAT_VERSION 2  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 static void ClearPokemonHeldItems(void)
 {
@@ -2987,17 +2987,20 @@ static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
 #ifdef ROGUE_EXPANSION
-    u8 writeSlot = monsCount - 1;
-    u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
-
-    // Try to move mega/z user to back of party
-    // TODO - Identify setup user and move them to front of party
-    while(writeSlot != 0 && ((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
+    if(!IsMirrorTrainer(trainerNum))
     {
-        SwapMons(0, writeSlot, party);
+        u8 writeSlot = monsCount - 1;
+        u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
 
-        item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
-        --writeSlot;
+        // Try to move mega/z user to back of party
+        // TODO - Identify setup user and move them to front of party
+        while(writeSlot != 0 && ((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
+        {
+            SwapMons(0, writeSlot, party);
+
+            item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
+            --writeSlot;
+        }
     }
 #endif
 
@@ -4364,7 +4367,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
-            level = nextBossLevel - 5;
+            level = nextBossLevel - 3;
         }
         else if(difficultyModifier == 0) // Easy
         {
