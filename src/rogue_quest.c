@@ -719,7 +719,7 @@ static void OnEndBattle(void)
         for(i = 0; i < PARTY_SIZE; ++i)
         {
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-            if(IsSpeciesLegendary(species))
+            if(species != SPECIES_NONE && IsSpeciesLegendary(species))
             {
                 TryDeactivateQuest(QUEST_Hardcore3);
                 break;
@@ -846,6 +846,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_ChaosChampion);
                 TryMarkQuestAsComplete(QUEST_Hardcore);
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
+                TryMarkQuestAsComplete(QUEST_Hardcore3);
                 TryMarkQuestAsComplete(QUEST_KantoMode);
                 CompleteMonoQuests();
                 break;
