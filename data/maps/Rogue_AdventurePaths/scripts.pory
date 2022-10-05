@@ -62,7 +62,7 @@ script Rogue_AdventurePaths_InteractNodeInternal
             msgbox(format("It's a... Game Show?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_GRAVEYARD:
-            msgbox(format("It's a Grave Yard?\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's a Graveyard?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))

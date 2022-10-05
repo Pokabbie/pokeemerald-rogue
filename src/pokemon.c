@@ -3827,7 +3827,7 @@ void CreateEventLegalEnemyMon(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         moveId = GetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + i);
-        if(moveId == MOVE_ROAR)
+        if(moveId == MOVE_ROAR || moveId == MOVE_TELEPORT)
         {
             moveId = MOVE_HIDDEN_POWER;
             SetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + i, &moveId);

@@ -223,7 +223,7 @@ Rogue_AdventurePaths_InteractNodeInternal_Text_3:
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_4:
-	.string "It's a Grave Yard?\n"
+	.string "It's a Graveyard?\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_5:
