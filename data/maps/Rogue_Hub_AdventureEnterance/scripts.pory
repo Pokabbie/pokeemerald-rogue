@@ -151,10 +151,6 @@ script Rogue_Adventure_SpeakScott
 
         msgbox(format("Looks like you're all good to go now!"))
     }
-    elif(var(VAR_ROGUE_INTRO_STATE) <= 5)
-    {
-        msgbox(format("SCOTT: Hey {PLAYER}!\pJust go chat to the nurse over there and you can start exploring!"))
-    }
     else
     {
         // Check for quest rewards
@@ -197,6 +193,10 @@ script Rogue_Adventure_SpeakScott
             }
 
             msgbox(format("Good luck with your next Adventure champ!"))
+        }
+        elif(var(VAR_ROGUE_INTRO_STATE) <= 5)
+        {
+            msgbox(format("SCOTT: Hey {PLAYER}!\pJust go chat to the nurse over there and you can start exploring!"))
         }
         else
         {
