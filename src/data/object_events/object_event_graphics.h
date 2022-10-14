@@ -417,3 +417,11 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
+
+// Kanto reused palettes
+const u16 gObjectEventPal_Kanto_NPC_Blue[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_blue.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_Green[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_green.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_Pink[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_pink.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_White[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_white.gbapal");
+
+const u32 gObjectEventPic_Kanto_Blue[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blue.4bpp");

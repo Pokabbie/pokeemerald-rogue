@@ -5127,6 +5127,7 @@ extern const u16 gObjectEventPal_Red_0_3[];
 extern const u16 gObjectEventPal_Red_1_3[];
 extern const u16 gObjectEventPal_Red_2_3[];
 extern const u16 gObjectEventPal_Red_3_3[];
+extern const u16 gObjectEventPal_Kanto_Blue[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];

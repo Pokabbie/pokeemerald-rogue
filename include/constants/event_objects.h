@@ -254,7 +254,9 @@
 #define OBJ_EVENT_GFX_RED_FIELD_MOVE             247
 #define OBJ_EVENT_GFX_RED_FISHING                248
 
-#define NUM_OBJ_EVENT_GFX                        249
+#define OBJ_EVENT_GFX_KANTO_BLUE                 249
+
+#define NUM_OBJ_EVENT_GFX                        250
 
 
 // These are dynamic object gfx ids.
