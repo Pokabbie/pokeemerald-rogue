@@ -254,8 +254,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedAcroBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurfing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFishing;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blue;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Agatha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blaine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Brock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Bruno;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Erika;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Giovanni; 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Koga;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Lance;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Lorelei;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_LtSurge;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Misty;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_ProfOak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Sabrina;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -509,7 +522,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RED_FIELD_MOVE] =           &gObjectEventGraphicsInfo_RedFieldMove,
     [OBJ_EVENT_GFX_RED_FISHING] =              &gObjectEventGraphicsInfo_RedFishing,
 
+    [OBJ_EVENT_GFX_KANTO_AGATHA] =             &gObjectEventGraphicsInfo_Kanto_Agatha,
+    [OBJ_EVENT_GFX_KANTO_BLAINE] =             &gObjectEventGraphicsInfo_Kanto_Blaine,
     [OBJ_EVENT_GFX_KANTO_BLUE] =               &gObjectEventGraphicsInfo_Kanto_Blue,
+    [OBJ_EVENT_GFX_KANTO_BROCK] =              &gObjectEventGraphicsInfo_Kanto_Brock,
+    [OBJ_EVENT_GFX_KANTO_BRUNO] =              &gObjectEventGraphicsInfo_Kanto_Bruno,
+    [OBJ_EVENT_GFX_KANTO_ERIKA] =              &gObjectEventGraphicsInfo_Kanto_Erika,
+    [OBJ_EVENT_GFX_KANTO_GIOVANNI] =           &gObjectEventGraphicsInfo_Kanto_Giovanni,
+    [OBJ_EVENT_GFX_KANTO_KOGA] =               &gObjectEventGraphicsInfo_Kanto_Koga,
+    [OBJ_EVENT_GFX_KANTO_LANCE] =              &gObjectEventGraphicsInfo_Kanto_Lance,
+    [OBJ_EVENT_GFX_KANTO_LORELEI] =            &gObjectEventGraphicsInfo_Kanto_Lorelei,
+    [OBJ_EVENT_GFX_KANTO_LTSURGE] =            &gObjectEventGraphicsInfo_Kanto_LtSurge,
+    [OBJ_EVENT_GFX_KANTO_MISTY] =              &gObjectEventGraphicsInfo_Kanto_Misty,
+    [OBJ_EVENT_GFX_KANTO_PROFOAK] =            &gObjectEventGraphicsInfo_Kanto_ProfOak,
+    [OBJ_EVENT_GFX_KANTO_SABRINA] =            &gObjectEventGraphicsInfo_Kanto_Sabrina,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

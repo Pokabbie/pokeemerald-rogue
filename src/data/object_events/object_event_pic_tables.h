@@ -2380,6 +2380,30 @@ static const struct SpriteFrameImage sPicTable_RubySapphireMay[] = {
     overworld_frame(gObjectEventPic_RubySapphireMayRunning, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Kanto_Agatha[] = {
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Agatha, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Blaine[] = {
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Blaine, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_Kanto_Blue[] = {
     overworld_frame(gObjectEventPic_Kanto_Blue, 2, 4, 0),
     overworld_frame(gObjectEventPic_Kanto_Blue, 2, 4, 1),
@@ -2390,4 +2414,136 @@ static const struct SpriteFrameImage sPicTable_Kanto_Blue[] = {
     overworld_frame(gObjectEventPic_Kanto_Blue, 2, 4, 6),
     overworld_frame(gObjectEventPic_Kanto_Blue, 2, 4, 7),
     overworld_frame(gObjectEventPic_Kanto_Blue, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Brock[] = {
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Brock, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Bruno[] = {
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Bruno, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Erika[] = {
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Erika, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Giovanni[] = {
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kanto_Giovanni, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Koga[] = {
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Koga, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Lance[] = {
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Lance, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Lorelei[] = {
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Lorelei, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_LtSurge[] = {
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_LtSurge, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Misty[] = {
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Misty, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_ProfOak[] = {
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kanto_ProfOak, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Kanto_Sabrina[] = {
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kanto_Sabrina, 2, 4, 2),
 };

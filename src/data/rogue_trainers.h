@@ -59,6 +59,7 @@ const struct RogueEncounterMap gRogueTypeToEliteRoom[NUMBER_OF_MON_TYPES] =
 static const struct RogueTrainerEncounter sRouteBossEncounters[] = 
 {
     // Hoenn Gyms
+    //
     {
         .gfxId = OBJ_EVENT_GFX_ROXANNE,
         .trainerId = TRAINER_ROGUE_BOSS_ROXANNE,
@@ -157,7 +158,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_DRAKE,
         .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_DRAGON },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE | TRAINER_FLAG_ELITE,
+        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
     },
 
     // Hoenn Champs
@@ -175,6 +176,121 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
     },
+
+    // Kanto Gyms
+    //
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE01_GET,
+        .incTypes = { TYPE_ROCK, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE02_GET,
+        .incTypes = { TYPE_WATER, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE03_GET,
+        .incTypes = { TYPE_ELECTRIC, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE04_GET,
+        .incTypes = { TYPE_GRASS, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE05_GET,
+        .incTypes = { TYPE_POISON, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE06_GET,
+        .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE07_GET,
+        .incTypes = { TYPE_FIRE, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .victorySetFlag = FLAG_BADGE08_GET,
+        .incTypes = { TYPE_GROUND, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+    },
+
+    // Kanto Elite 4
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_LORELEI,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .incTypes = { TYPE_ICE, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .incTypes = { TYPE_GHOST, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
+        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .incTypes = { TYPE_DRAGON, TYPE_NONE  },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+    },
+
+    // Kanto Champs
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BLUE,
+        .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
+        .incTypes = { TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
+        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .incTypes = { TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
+    },
+
+    // Kanto Champs
 
     // Placeholder Rainbow mode bosses for missing types
     {

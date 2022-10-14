@@ -1802,7 +1802,8 @@ static bool8 IsBossEnabled(u16 bossId)
     
     if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
     {
-        includeFlags |= TRAINER_FLAG_HOENN;
+        //includeFlags |= TRAINER_FLAG_HOENN;
+        includeFlags |= TRAINER_FLAG_KANTO; // TODO
 
         if(gRogueRun.currentDifficulty < 8)
             excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
