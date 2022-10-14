@@ -1204,7 +1204,7 @@ static void BufferTypeAdjective(u8 type)
             break;
 
         case TYPE_GRASS:
-            StringCopy(gStringVar1, gText_AdjWater);
+            StringCopy(gStringVar1, gText_AdjGrass);
             break;
 
         case TYPE_ELECTRIC:
@@ -1220,7 +1220,7 @@ static void BufferTypeAdjective(u8 type)
             break;
 
         case TYPE_DRAGON:
-            StringCopy(gStringVar1, gText_AdjIce);
+            StringCopy(gStringVar1, gText_AdjDragon);
             break;
 
         case TYPE_DARK:
