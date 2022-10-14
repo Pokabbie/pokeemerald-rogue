@@ -241,20 +241,20 @@
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
 
-// RogueNote: overwritten sprites
-#define OBJ_EVENT_GFX_LEAF_MACH_BIKE               OBJ_EVENT_GFX_PICHU_DOLL
-#define OBJ_EVENT_GFX_LEAF_ACRO_BIKE               OBJ_EVENT_GFX_PIKACHU_DOLL
-#define OBJ_EVENT_GFX_LEAF_SURFING                 OBJ_EVENT_GFX_MARILL_DOLL
-#define OBJ_EVENT_GFX_LEAF_FIELD_MOVE              OBJ_EVENT_GFX_TOGEPI_DOLL
-#define OBJ_EVENT_GFX_LEAF_FISHING                 OBJ_EVENT_GFX_CYNDAQUIL_DOLL
+// RogueNote: new sprites
+#define OBJ_EVENT_GFX_LEAF_MACH_BIKE             239
+#define OBJ_EVENT_GFX_LEAF_ACRO_BIKE             240
+#define OBJ_EVENT_GFX_LEAF_SURFING               241
+#define OBJ_EVENT_GFX_LEAF_FIELD_MOVE            242
+#define OBJ_EVENT_GFX_LEAF_FISHING               243
 
-#define OBJ_EVENT_GFX_RED_MACH_BIKE               OBJ_EVENT_GFX_CHIKORITA_DOLL
-#define OBJ_EVENT_GFX_RED_ACRO_BIKE               OBJ_EVENT_GFX_TOTODILE_DOLL
-#define OBJ_EVENT_GFX_RED_SURFING                 OBJ_EVENT_GFX_JIGGLYPUFF_DOLL
-#define OBJ_EVENT_GFX_RED_FIELD_MOVE              OBJ_EVENT_GFX_MEOWTH_DOLL
-#define OBJ_EVENT_GFX_RED_FISHING                 OBJ_EVENT_GFX_CLEFAIRY_DOLL
+#define OBJ_EVENT_GFX_RED_MACH_BIKE              244
+#define OBJ_EVENT_GFX_RED_ACRO_BIKE              245
+#define OBJ_EVENT_GFX_RED_SURFING                246
+#define OBJ_EVENT_GFX_RED_FIELD_MOVE             247
+#define OBJ_EVENT_GFX_RED_FISHING                248
 
-#define NUM_OBJ_EVENT_GFX                        239
+#define NUM_OBJ_EVENT_GFX                        249
 
 
 // These are dynamic object gfx ids.
