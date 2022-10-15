@@ -1,0 +1,20 @@
+mapscripts Rogue_Route_Kanto_Mountain0_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerEast
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_TEMP_1, 0: Rogue_Route_Kanto_Mountain0_OnFrame0
+        //VAR_TEMP_1, 1: Rogue_Route_Urban0_OnFrame1
+    ]
+}
+
+script Rogue_Route_Kanto_Mountain0_OnFrame0
+{
+    call(Rogue_SetDesiredWeather)
+
+    setvar(VAR_TEMP_1, 1)
+    end
+}

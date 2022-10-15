@@ -36,6 +36,23 @@
 extern const u8 gText_TrainerNameChallenger[];
 extern const u8 gText_TrainerNameGrunt[];
 
+extern const u8 gText_TrainerName_Brock[];
+extern const u8 gText_TrainerName_Misty[];
+extern const u8 gText_TrainerName_LtSurge[];
+extern const u8 gText_TrainerName_Erika[];
+extern const u8 gText_TrainerName_Koga[];
+extern const u8 gText_TrainerName_Sabrina[];
+extern const u8 gText_TrainerName_Blaine[];
+extern const u8 gText_TrainerName_Giovanni[];
+
+extern const u8 gText_TrainerName_Lorelei[];
+extern const u8 gText_TrainerName_Bruno[];
+extern const u8 gText_TrainerName_Agatha[];
+extern const u8 gText_TrainerName_Lance[];
+
+extern const u8 gText_TrainerName_Blue[];
+extern const u8 gText_TrainerName_ProfOak[];
+
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 #ifdef ROGUE_BAKE_VALID
@@ -272,6 +289,37 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
     {
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             return gSaveBlock2Ptr->playerName;
+            
+        case TRAINER_ROGUE_BOSS_BROCK:
+            return gText_TrainerName_Brock;
+        case TRAINER_ROGUE_BOSS_MISTY:
+            return gText_TrainerName_Misty;
+        case TRAINER_ROGUE_BOSS_LTSURGE:
+            return gText_TrainerName_LtSurge;
+        case TRAINER_ROGUE_BOSS_ERIKA:
+            return gText_TrainerName_Erika;
+        case TRAINER_ROGUE_BOSS_KOGA:
+            return gText_TrainerName_Koga;
+        case TRAINER_ROGUE_BOSS_SABRINA:
+            return gText_TrainerName_Sabrina;
+        case TRAINER_ROGUE_BOSS_BLAINE:
+            return gText_TrainerName_Blaine;
+        case TRAINER_ROGUE_BOSS_GIOVANNI:
+            return gText_TrainerName_Giovanni;
+
+        case TRAINER_ROGUE_BOSS_LORELEI:
+            return gText_TrainerName_Lorelei;
+        case TRAINER_ROGUE_BOSS_BRUNO:
+            return gText_TrainerName_Bruno;
+        case TRAINER_ROGUE_BOSS_AGATHA:
+            return gText_TrainerName_Agatha;
+        case TRAINER_ROGUE_BOSS_LANCE:
+            return gText_TrainerName_Lance;
+
+        case TRAINER_ROGUE_BOSS_BLUE:
+            return gText_TrainerName_Blue;
+        case TRAINER_ROGUE_BOSS_PROFOAK:
+            return gText_TrainerName_ProfOak;
     }
 
     return gTrainers[trainerNum].trainerName;
@@ -334,6 +382,43 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
             outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
             break;
+
+        // Kanto Ver.
+        case TRAINER_ROGUE_BOSS_MISTY:
+        case TRAINER_ROGUE_BOSS_ERIKA:
+        case TRAINER_ROGUE_BOSS_SABRINA:
+        case TRAINER_ROGUE_BOSS_LORELEI:
+        case TRAINER_ROGUE_BOSS_AGATHA:
+        case TRAINER_ROGUE_BOSS_BLUE:
+        case TRAINER_ROGUE_BOSS_PROFOAK:
+            if(gRogueRun.currentDifficulty >= 12)
+                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
+            else if(gRogueRun.currentDifficulty >= 8)
+                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            else
+                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
+
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+            break;
+
+        case TRAINER_ROGUE_BOSS_BROCK:
+        case TRAINER_ROGUE_BOSS_LTSURGE:
+        case TRAINER_ROGUE_BOSS_KOGA:
+        case TRAINER_ROGUE_BOSS_BLAINE:
+        case TRAINER_ROGUE_BOSS_GIOVANNI:
+        case TRAINER_ROGUE_BOSS_BRUNO:
+        case TRAINER_ROGUE_BOSS_LANCE:
+            if(gRogueRun.currentDifficulty >= 12)
+                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
+            else if(gRogueRun.currentDifficulty >= 8)
+                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            else
+                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
+
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+            break;
     }
 
     switch(trainerNum)
@@ -343,31 +428,24 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_ROXANNE:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_ROXANNE;
             break;
-
         case TRAINER_ROGUE_BOSS_BRAWLY:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_BRAWLY;
             break;
-
         case TRAINER_ROGUE_BOSS_WATTSON:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_WATTSON;
             break;
-
         case TRAINER_ROGUE_BOSS_FLANNERY:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_FLANNERY;
             break;
-
         case TRAINER_ROGUE_BOSS_NORMAN:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_NORMAN;
             break;
-
         case TRAINER_ROGUE_BOSS_WINONA:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_WINONA;
             break;
-
         case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_TATE_AND_LIZA;
             break;
-
         case TRAINER_ROGUE_BOSS_JUAN:
             outTrainer->trainerPic = TRAINER_PIC_LEADER_JUAN;
             break;
@@ -375,15 +453,12 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_SIDNEY:
             outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_SIDNEY;
             break;
-
         case TRAINER_ROGUE_BOSS_PHOEBE:
             outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_PHOEBE;
             break;
-
         case TRAINER_ROGUE_BOSS_GLACIA:
             outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_GLACIA;
             break;
-
         case TRAINER_ROGUE_BOSS_DRAKE:
             outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE;
             break;
@@ -391,7 +466,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_WALLACE:
             outTrainer->trainerPic = TRAINER_PIC_CHAMPION_WALLACE;
             break;
-
         case TRAINER_ROGUE_BOSS_STEVEN:
             outTrainer->trainerPic = TRAINER_PIC_STEVEN;
             break;
@@ -439,6 +513,53 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                     outTrainer->trainerPic = TRAINER_PIC_LEAF;
                     break;
             };
+            break;
+
+        // Kanto
+        //
+        case TRAINER_ROGUE_BOSS_BROCK:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            break;
+        case TRAINER_ROGUE_BOSS_MISTY:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_MISTY;
+            break;
+        case TRAINER_ROGUE_BOSS_LTSURGE:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_LTSURGE;
+            break;
+        case TRAINER_ROGUE_BOSS_ERIKA:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_ERIKA;
+            break;
+        case TRAINER_ROGUE_BOSS_KOGA:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_KOGA;
+            break;
+        case TRAINER_ROGUE_BOSS_SABRINA:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_SABRINA;
+            break;
+        case TRAINER_ROGUE_BOSS_BLAINE:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_BLAINE;
+            break;
+        case TRAINER_ROGUE_BOSS_GIOVANNI:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_GIOVANNI;
+            break;
+
+        case TRAINER_ROGUE_BOSS_LORELEI:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_LORELEI;
+            break;
+        case TRAINER_ROGUE_BOSS_BRUNO:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_BRUNO;
+            break;
+        case TRAINER_ROGUE_BOSS_AGATHA:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_AGATHA;
+            break;
+        case TRAINER_ROGUE_BOSS_LANCE:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_LANCE;
+            break;
+
+        case TRAINER_ROGUE_BOSS_BLUE:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_BLUE;
+            break;
+        case TRAINER_ROGUE_BOSS_PROFOAK:
+            outTrainer->trainerPic = TRAINER_PIC_KANTO_PROFOAK;
             break;
 
         // Std Trainers
@@ -542,8 +663,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
             break;
     }
-
-    // TODO
 }
 
 static u16 SanitizeItemId(u16 itemId)

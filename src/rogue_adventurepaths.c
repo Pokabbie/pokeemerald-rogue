@@ -903,8 +903,8 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
                 break;
 
             case ADVPATH_ROOM_ROUTE:
-                warp->mapGroup = gRogueRouteTable[node->roomParams.roomIdx].map.group;
-                warp->mapNum = gRogueRouteTable[node->roomParams.roomIdx].map.num;
+                warp->mapGroup = gRogueRouteTable.routes[node->roomParams.roomIdx].map.group;
+                warp->mapNum = gRogueRouteTable.routes[node->roomParams.roomIdx].map.num;
                 break;
 
             case ADVPATH_ROOM_LEGENDARY:
@@ -1253,7 +1253,7 @@ void RogueAdv_GetNodeParams()
         {
             case ADVPATH_ROOM_ROUTE:
                 gSpecialVar_ScriptNodeParam1 = node->roomParams.perType.route.difficulty;
-                BufferTypeAdjective(gRogueRouteTable[node->roomParams.roomIdx].wildTypeTable[(nodeX + nodeY) % 3]);
+                BufferTypeAdjective(gRogueRouteTable.routes[node->roomParams.roomIdx].wildTypeTable[(nodeX + nodeY) % 3]);
                 break;
         }
     }

@@ -1,6 +1,6 @@
-//#define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
-//#define ROGUE_DEBUG_STEAL_TEAM
+#define ROGUE_DEBUG
+#define ROGUE_DEBUG_PAUSE_PANEL
+#define ROGUE_DEBUG_STEAL_TEAM
 
 #define ROGUE_EXPANSION
 
@@ -10,7 +10,6 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_ROUTE_COUNT 12
 #define ROGUE_HUB_BERRY_TREE_COUNT 20
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
@@ -37,16 +36,26 @@
 #define ITEM_QUEST_LOG ITEM_ROOM_1_KEY
 #endif
 
+// Routes
+//
+#define ROUTE_FLAG_NONE                   0
+#define ROUTE_FLAG_HOENN                  (1 << 1)
+#define ROUTE_FLAG_KANTO                  (1 << 2)
+
 // Trainers
 //
-// RogueNote: Overwrite from these trainer ranges
 #define TRAINER_FLAG_NONE                   0
 #define TRAINER_FLAG_GYM                    (1 << 0)
 #define TRAINER_FLAG_ELITE                  (1 << 1)
 #define TRAINER_FLAG_PRE_CHAMP              (1 << 2)
 #define TRAINER_FLAG_FINAL_CHAMP            (1 << 3)
 #define TRAINER_FLAG_HOENN                  (1 << 4)
-#define TRAINER_FLAG_THIRDSLOT_ACE_TYPE     (1 << 5)
+#define TRAINER_FLAG_KANTO                  (1 << 5)
+
+#define PARTY_FLAG_NONE                     0
+#define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
+#define PARTY_FLAG_CUSTOM_QUERY             (1 << 2)
+#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 3)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
@@ -67,6 +76,9 @@
 #define TRAINER_ROGUE_AQUA_F                (TRAINER_JULIE + 17)
 #define TRAINER_ROGUE_AQUA_M                (TRAINER_JULIE + 18)
 
+// Bosses
+//
+// Hoenn
 #define TRAINER_ROGUE_BOSS_ROXANNE           TRAINER_ROXANNE_1
 #define TRAINER_ROGUE_BOSS_BRAWLY            TRAINER_BRAWLY_1
 #define TRAINER_ROGUE_BOSS_WATTSON           TRAINER_WATTSON_1
@@ -84,12 +96,33 @@
 #define TRAINER_ROGUE_BOSS_WALLACE           TRAINER_WALLACE
 #define TRAINER_ROGUE_BOSS_STEVEN            TRAINER_STEVEN
 
+// Extra/Brains
 #define TRAINER_ROGUE_BOSS_LUCY              TRAINER_LUCY
 #define TRAINER_ROGUE_BOSS_BRANDON           TRAINER_BRANDON
 #define TRAINER_ROGUE_BOSS_TUCKER            TRAINER_TUCKER
 #define TRAINER_ROGUE_BOSS_SPENSER           TRAINER_SPENSER
 #define TRAINER_ROGUE_BOSS_ANABEL            TRAINER_ANABEL
 
+// Kanto
+#define TRAINER_ROGUE_BOSS_BROCK            TRAINER_ROXANNE_2
+#define TRAINER_ROGUE_BOSS_MISTY            TRAINER_BRAWLY_2
+#define TRAINER_ROGUE_BOSS_LTSURGE          TRAINER_WATTSON_2
+#define TRAINER_ROGUE_BOSS_ERIKA            TRAINER_FLANNERY_2
+#define TRAINER_ROGUE_BOSS_KOGA             TRAINER_NORMAN_2
+#define TRAINER_ROGUE_BOSS_SABRINA          TRAINER_WINONA_2
+#define TRAINER_ROGUE_BOSS_BLAINE           TRAINER_TATE_AND_LIZA_2
+#define TRAINER_ROGUE_BOSS_GIOVANNI         TRAINER_JUAN_2
+
+#define TRAINER_ROGUE_BOSS_LORELEI          TRAINER_ANDRES_1
+#define TRAINER_ROGUE_BOSS_BRUNO            TRAINER_CORY_1
+#define TRAINER_ROGUE_BOSS_AGATHA           TRAINER_PABLO_1
+#define TRAINER_ROGUE_BOSS_LANCE            TRAINER_KOJI_1
+
+#define TRAINER_ROGUE_BOSS_BLUE             TRAINER_CRISTIN_1
+#define TRAINER_ROGUE_BOSS_PROFOAK          TRAINER_FERNANDO_1
+
+// Minibosses
+//
 #define TRAINER_ROGUE_MINI_BOSS_MAXIE        TRAINER_MAXIE_MAGMA_HIDEOUT
 #define TRAINER_ROGUE_MINI_BOSS_ARCHIE       TRAINER_ARCHIE
 #define TRAINER_ROGUE_MINI_BOSS_WALLY        TRAINER_WALLY_VR_1

@@ -140,11 +140,18 @@ struct RogueRouteMap
     u16 num;
 };
 
-struct RogueRouteData
+struct RogueRouteEncounter
 {
     u8 dropRarity;
+    u16 mapFlags;
     struct RogueRouteMap map;
     const u8 wildTypeTable[3];
+};
+
+struct RogueRouteData
+{
+    u8 routeCount;
+    const struct RogueRouteEncounter* routes;
 };
 
 struct RogueEncounterMap
@@ -166,7 +173,10 @@ struct RogueTrainerEncounter
     u16 gfxId;
     u16 trainerId;
     u16 victorySetFlag;
-    u16 flags;
+    u16 trainerFlags;
+    u16 partyFlags;
+    u16 querySpeciesCount;
+    const u16* querySpecies;
     u16 incTypes[3];
     u16 excTypes[3];
 };
@@ -204,14 +214,14 @@ struct RogueMonPresetCollection
 };
 
 extern const struct SpeciesTable gRogueSpeciesTable[];
-extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
+extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainerData gRogueBossEncounters;
 extern const struct RogueTrainerData gRogueMiniBossEncounters;
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
-extern const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES];
-extern const struct RogueEncounterMap gRogueTypeToEliteRoom[NUMBER_OF_MON_TYPES];
+extern const u8 gRogueTypeWeatherTable[];
+extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
 
 #endif  // GUARD_ROGUE_H

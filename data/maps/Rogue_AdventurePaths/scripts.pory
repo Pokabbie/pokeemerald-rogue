@@ -44,8 +44,6 @@ script Rogue_AdventurePaths_InteractNodeInternal
     lock
     special(RogueAdv_GetNodeParams)
 
-    //ROGUE_ROUTE_COUNT
-
     switch(var(VAR_NODE_PARAM0))
     {
         case ADVPATH_ROOM_BOSS:

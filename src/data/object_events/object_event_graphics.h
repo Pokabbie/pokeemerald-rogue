@@ -432,3 +432,24 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
+
+// Kanto reused palettes
+const u16 gObjectEventPal_Kanto_NPC_Blue[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_blue.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_Green[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_green.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_Pink[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_pink.gbapal");
+const u16 gObjectEventPal_Kanto_NPC_White[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_white.gbapal");
+
+const u32 gObjectEventPic_Kanto_Agatha[] = INCBIN_U32("graphics/object_events/pics/people/kanto/agatha.4bpp");
+const u32 gObjectEventPic_Kanto_Blaine[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blaine.4bpp");
+const u32 gObjectEventPic_Kanto_Blue[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blue.4bpp");
+const u32 gObjectEventPic_Kanto_Brock[] = INCBIN_U32("graphics/object_events/pics/people/kanto/brock.4bpp");
+const u32 gObjectEventPic_Kanto_Bruno[] = INCBIN_U32("graphics/object_events/pics/people/kanto/bruno.4bpp");
+const u32 gObjectEventPic_Kanto_Erika[] = INCBIN_U32("graphics/object_events/pics/people/kanto/erika.4bpp");
+const u32 gObjectEventPic_Kanto_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/kanto/giovanni.4bpp");
+const u32 gObjectEventPic_Kanto_Koga[] = INCBIN_U32("graphics/object_events/pics/people/kanto/koga.4bpp");
+const u32 gObjectEventPic_Kanto_Lance[] = INCBIN_U32("graphics/object_events/pics/people/kanto/lance.4bpp");
+const u32 gObjectEventPic_Kanto_Lorelei[] = INCBIN_U32("graphics/object_events/pics/people/kanto/lorelei.4bpp");
+const u32 gObjectEventPic_Kanto_LtSurge[] = INCBIN_U32("graphics/object_events/pics/people/kanto/lt_surge.4bpp");
+const u32 gObjectEventPic_Kanto_Misty[] = INCBIN_U32("graphics/object_events/pics/people/kanto/misty.4bpp");
+const u32 gObjectEventPic_Kanto_ProfOak[] = INCBIN_U32("graphics/object_events/pics/people/kanto/prof_oak.4bpp");
+const u32 gObjectEventPic_Kanto_Sabrina[] = INCBIN_U32("graphics/object_events/pics/people/kanto/sabrina.4bpp");

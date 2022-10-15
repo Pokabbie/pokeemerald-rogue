@@ -140,26 +140,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HotSpringsOldWoman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSTidal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SubmarineShadow;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafMachBike;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafAcroBike;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafSurfing;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFieldMove;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFishing;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PichuDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PikachuDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarillDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TogepiDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyndaquilDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedMachBike;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedAcroBike;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurfing;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFishing;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChikoritaDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TotodileDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JigglypuffDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MeowthDoll;
-//const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ClefairyDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PichuDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PikachuDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarillDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TogepiDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyndaquilDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChikoritaDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TotodileDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JigglypuffDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MeowthDoll;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ClefairyDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DittoDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SmoochumDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TreeckoDoll;
@@ -254,7 +244,31 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Storyteller;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafMachBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafAcroBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafSurfing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFieldMove;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFishing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedMachBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedAcroBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurfing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFishing;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Agatha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blaine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Brock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Bruno;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Erika;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Giovanni; 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Koga;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Lance;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Lorelei;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_LtSurge;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Misty;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_ProfOak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Sabrina;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -399,16 +413,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN] =    &gObjectEventGraphicsInfo_HotSpringsOldWoman,
     [OBJ_EVENT_GFX_SS_TIDAL] =                 &gObjectEventGraphicsInfo_SSTidal,
     [OBJ_EVENT_GFX_SUBMARINE_SHADOW] =         &gObjectEventGraphicsInfo_SubmarineShadow,
-    [OBJ_EVENT_GFX_LEAF_MACH_BIKE] =           &gObjectEventGraphicsInfo_LeafMachBike,
-    [OBJ_EVENT_GFX_LEAF_ACRO_BIKE] =           &gObjectEventGraphicsInfo_LeafAcroBike,
-    [OBJ_EVENT_GFX_LEAF_SURFING] =             &gObjectEventGraphicsInfo_LeafSurfing,
-    [OBJ_EVENT_GFX_LEAF_FIELD_MOVE] =          &gObjectEventGraphicsInfo_LeafFieldMove,
-    [OBJ_EVENT_GFX_LEAF_FISHING] =             &gObjectEventGraphicsInfo_LeafFishing,
-    [OBJ_EVENT_GFX_RED_MACH_BIKE] =            &gObjectEventGraphicsInfo_RedMachBike,
-    [OBJ_EVENT_GFX_RED_ACRO_BIKE] =            &gObjectEventGraphicsInfo_RedAcroBike,
-    [OBJ_EVENT_GFX_RED_SURFING] =              &gObjectEventGraphicsInfo_RedSurfing,
-    [OBJ_EVENT_GFX_RED_FIELD_MOVE] =           &gObjectEventGraphicsInfo_RedFieldMove,
-    [OBJ_EVENT_GFX_RED_FISHING] =              &gObjectEventGraphicsInfo_RedFishing,
+    [OBJ_EVENT_GFX_PICHU_DOLL] =               &gObjectEventGraphicsInfo_PichuDoll,
+    [OBJ_EVENT_GFX_PIKACHU_DOLL] =             &gObjectEventGraphicsInfo_PikachuDoll,
+    [OBJ_EVENT_GFX_MARILL_DOLL] =              &gObjectEventGraphicsInfo_MarillDoll,
+    [OBJ_EVENT_GFX_TOGEPI_DOLL] =              &gObjectEventGraphicsInfo_TogepiDoll,
+    [OBJ_EVENT_GFX_CYNDAQUIL_DOLL] =           &gObjectEventGraphicsInfo_CyndaquilDoll,
+    [OBJ_EVENT_GFX_CHIKORITA_DOLL] =           &gObjectEventGraphicsInfo_ChikoritaDoll,
+    [OBJ_EVENT_GFX_TOTODILE_DOLL] =            &gObjectEventGraphicsInfo_TotodileDoll,
+    [OBJ_EVENT_GFX_JIGGLYPUFF_DOLL] =          &gObjectEventGraphicsInfo_JigglypuffDoll,
+    [OBJ_EVENT_GFX_MEOWTH_DOLL] =              &gObjectEventGraphicsInfo_MeowthDoll,
+    [OBJ_EVENT_GFX_CLEFAIRY_DOLL] =            &gObjectEventGraphicsInfo_ClefairyDoll,
     [OBJ_EVENT_GFX_DITTO_DOLL] =               &gObjectEventGraphicsInfo_DittoDoll,
     [OBJ_EVENT_GFX_SMOOCHUM_DOLL] =            &gObjectEventGraphicsInfo_SmoochumDoll,
     [OBJ_EVENT_GFX_TREECKO_DOLL] =             &gObjectEventGraphicsInfo_TreeckoDoll,
@@ -496,6 +510,32 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
+
+    [OBJ_EVENT_GFX_LEAF_MACH_BIKE] =           &gObjectEventGraphicsInfo_LeafMachBike,
+    [OBJ_EVENT_GFX_LEAF_ACRO_BIKE] =           &gObjectEventGraphicsInfo_LeafAcroBike,
+    [OBJ_EVENT_GFX_LEAF_SURFING] =             &gObjectEventGraphicsInfo_LeafSurfing,
+    [OBJ_EVENT_GFX_LEAF_FIELD_MOVE] =          &gObjectEventGraphicsInfo_LeafFieldMove,
+    [OBJ_EVENT_GFX_LEAF_FISHING] =             &gObjectEventGraphicsInfo_LeafFishing,
+    [OBJ_EVENT_GFX_RED_MACH_BIKE] =            &gObjectEventGraphicsInfo_RedMachBike,
+    [OBJ_EVENT_GFX_RED_ACRO_BIKE] =            &gObjectEventGraphicsInfo_RedAcroBike,
+    [OBJ_EVENT_GFX_RED_SURFING] =              &gObjectEventGraphicsInfo_RedSurfing,
+    [OBJ_EVENT_GFX_RED_FIELD_MOVE] =           &gObjectEventGraphicsInfo_RedFieldMove,
+    [OBJ_EVENT_GFX_RED_FISHING] =              &gObjectEventGraphicsInfo_RedFishing,
+
+    [OBJ_EVENT_GFX_KANTO_AGATHA] =             &gObjectEventGraphicsInfo_Kanto_Agatha,
+    [OBJ_EVENT_GFX_KANTO_BLAINE] =             &gObjectEventGraphicsInfo_Kanto_Blaine,
+    [OBJ_EVENT_GFX_KANTO_BLUE] =               &gObjectEventGraphicsInfo_Kanto_Blue,
+    [OBJ_EVENT_GFX_KANTO_BROCK] =              &gObjectEventGraphicsInfo_Kanto_Brock,
+    [OBJ_EVENT_GFX_KANTO_BRUNO] =              &gObjectEventGraphicsInfo_Kanto_Bruno,
+    [OBJ_EVENT_GFX_KANTO_ERIKA] =              &gObjectEventGraphicsInfo_Kanto_Erika,
+    [OBJ_EVENT_GFX_KANTO_GIOVANNI] =           &gObjectEventGraphicsInfo_Kanto_Giovanni,
+    [OBJ_EVENT_GFX_KANTO_KOGA] =               &gObjectEventGraphicsInfo_Kanto_Koga,
+    [OBJ_EVENT_GFX_KANTO_LANCE] =              &gObjectEventGraphicsInfo_Kanto_Lance,
+    [OBJ_EVENT_GFX_KANTO_LORELEI] =            &gObjectEventGraphicsInfo_Kanto_Lorelei,
+    [OBJ_EVENT_GFX_KANTO_LTSURGE] =            &gObjectEventGraphicsInfo_Kanto_LtSurge,
+    [OBJ_EVENT_GFX_KANTO_MISTY] =              &gObjectEventGraphicsInfo_Kanto_Misty,
+    [OBJ_EVENT_GFX_KANTO_PROFOAK] =            &gObjectEventGraphicsInfo_Kanto_ProfOak,
+    [OBJ_EVENT_GFX_KANTO_SABRINA] =            &gObjectEventGraphicsInfo_Kanto_Sabrina,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

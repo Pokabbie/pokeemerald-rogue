@@ -207,6 +207,11 @@ void RogueQuery_Exclude(u16 idx)
     SetQueryState(idx, FALSE);
 }
 
+void RogueQuery_ExcludeAll(void)
+{
+    memset(&gRogueQueryBits[0], 0, sizeof(bool8) * ARRAY_COUNT(gRogueQueryBits));
+}
+
 void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData)
 {
     u16 species;

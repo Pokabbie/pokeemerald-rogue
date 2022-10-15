@@ -111,6 +111,24 @@
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
 
+// RogueNote: Extra trainer pics
+#define TRAINER_PIC_KANTO_BROCK           93
+#define TRAINER_PIC_KANTO_MISTY           94
+#define TRAINER_PIC_KANTO_LTSURGE         95
+#define TRAINER_PIC_KANTO_ERIKA           96
+#define TRAINER_PIC_KANTO_KOGA            97
+#define TRAINER_PIC_KANTO_SABRINA         98
+#define TRAINER_PIC_KANTO_BLAINE          99
+#define TRAINER_PIC_KANTO_GIOVANNI        100
+
+#define TRAINER_PIC_KANTO_LORELEI         101
+#define TRAINER_PIC_KANTO_BRUNO           102
+#define TRAINER_PIC_KANTO_AGATHA          103
+#define TRAINER_PIC_KANTO_LANCE           104
+
+#define TRAINER_PIC_KANTO_BLUE            105
+#define TRAINER_PIC_KANTO_PROFOAK         106
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -375,5 +393,6 @@
 // Pokémon.
 #define F_TRAINER_PARTY_CUSTOM_MOVESET (1 << 0)
 #define F_TRAINER_PARTY_HELD_ITEM      (1 << 1)
+#define F_TRAINER_PARTY_KANTO_MUS      (1 << 2)
 
 #endif  // GUARD_TRAINERS_H

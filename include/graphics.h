@@ -6855,6 +6855,24 @@ extern const u32 gTrainerFrontPic_Leaf[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
 
+extern const u32 gTrainerFrontPic_LeaderBrock[];
+extern const u32 gTrainerFrontPic_LeaderMisty[];
+extern const u32 gTrainerFrontPic_LeaderLtSurge[];
+extern const u32 gTrainerFrontPic_LeaderErika[];
+extern const u32 gTrainerFrontPic_LeaderKoga[];
+extern const u32 gTrainerFrontPic_LeaderSabrina[];
+extern const u32 gTrainerFrontPic_LeaderBlaine[];
+extern const u32 gTrainerFrontPic_LeaderGiovanni[];
+
+extern const u32 gTrainerFrontPic_EliteFourLorelei[];
+extern const u32 gTrainerFrontPic_EliteFourBruno[];
+extern const u32 gTrainerFrontPic_EliteFourAgatha[];
+extern const u32 gTrainerFrontPic_EliteFourLance[];
+
+extern const u32 gTrainerFrontPic_ChampionBlue[];
+extern const u32 gTrainerFrontPic_ChampionProfOak[];
+
+
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
 extern const u32 gTrainerPalette_PokemonBreederF[];
@@ -7011,6 +7029,24 @@ extern const u32 gTrainerPalette_Red_Back_3_3[];
 #define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
+
+
+extern const u32 gTrainerPalette_LeaderBrock[];
+extern const u32 gTrainerPalette_LeaderMisty[];
+extern const u32 gTrainerPalette_LeaderLtSurge[];
+extern const u32 gTrainerPalette_LeaderErika[];
+extern const u32 gTrainerPalette_LeaderKoga[];
+extern const u32 gTrainerPalette_LeaderSabrina[];
+extern const u32 gTrainerPalette_LeaderBlaine[];
+extern const u32 gTrainerPalette_LeaderGiovanni[];
+
+extern const u32 gTrainerPalette_EliteFourLorelei[];
+extern const u32 gTrainerPalette_EliteFourBruno[];
+extern const u32 gTrainerPalette_EliteFourAgatha[];
+extern const u32 gTrainerPalette_EliteFourLance[];
+
+extern const u32 gTrainerPalette_ChampionBlue[];
+extern const u32 gTrainerPalette_ChampionProfOak[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -10170,6 +10206,7 @@ extern const u16 gObjectEventPal_Red_0_3[];
 extern const u16 gObjectEventPal_Red_1_3[];
 extern const u16 gObjectEventPal_Red_2_3[];
 extern const u16 gObjectEventPal_Red_3_3[];
+extern const u16 gObjectEventPal_Kanto_Blue[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];

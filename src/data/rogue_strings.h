@@ -19,6 +19,24 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
 const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
 const u8 gText_TrainerNameGrunt[] = _("GRUNT");
 
+const u8 gText_TrainerName_Brock[] = _("BROCK");
+const u8 gText_TrainerName_Misty[] = _("MISTY");
+const u8 gText_TrainerName_LtSurge[] = _("LT. SURGE");
+const u8 gText_TrainerName_Erika[] = _("ERIKA");
+const u8 gText_TrainerName_Koga[] = _("KOGA");
+const u8 gText_TrainerName_Sabrina[] = _("SABRINA");
+const u8 gText_TrainerName_Blaine[] = _("BLAINE");
+const u8 gText_TrainerName_Giovanni[] = _("GIOVANNI");
+
+const u8 gText_TrainerName_Lorelei[] = _("LORELEI");
+const u8 gText_TrainerName_Bruno[] = _("BRUNO");
+const u8 gText_TrainerName_Agatha[] = _("AGATHA");
+const u8 gText_TrainerName_Lance[] = _("LANCE");
+
+const u8 gText_TrainerName_Blue[] = _("BLUE");
+const u8 gText_TrainerName_ProfOak[] = _("PROF. OAK");
+
+
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");

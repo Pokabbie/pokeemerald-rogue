@@ -241,51 +241,59 @@
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
 
-// RogueNote: overwritten sprites
-#define OBJ_EVENT_GFX_LEAF_MACH_BIKE               OBJ_EVENT_GFX_PICHU_DOLL
-#define OBJ_EVENT_GFX_LEAF_ACRO_BIKE               OBJ_EVENT_GFX_PIKACHU_DOLL
-#define OBJ_EVENT_GFX_LEAF_SURFING                 OBJ_EVENT_GFX_MARILL_DOLL
-#define OBJ_EVENT_GFX_LEAF_FIELD_MOVE              OBJ_EVENT_GFX_TOGEPI_DOLL
-#define OBJ_EVENT_GFX_LEAF_FISHING                 OBJ_EVENT_GFX_CYNDAQUIL_DOLL
-
-#define OBJ_EVENT_GFX_RED_MACH_BIKE               OBJ_EVENT_GFX_CHIKORITA_DOLL
-#define OBJ_EVENT_GFX_RED_ACRO_BIKE               OBJ_EVENT_GFX_TOTODILE_DOLL
-#define OBJ_EVENT_GFX_RED_SURFING                 OBJ_EVENT_GFX_JIGGLYPUFF_DOLL
-#define OBJ_EVENT_GFX_RED_FIELD_MOVE              OBJ_EVENT_GFX_MEOWTH_DOLL
-#define OBJ_EVENT_GFX_RED_FISHING                 OBJ_EVENT_GFX_CLEFAIRY_DOLL
-
-// NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
-//
-// Object event graphics ids are 1 byte in size (max value of 255), and the dynamic
-// graphics ids that start after NUM_OBJ_EVENT_GFX reach this limit. No graphics id
-// uses the value 239 itself, so removing the "+ 1" in OBJ_EVENT_GFX_VARS would
-// allow increasing NUM_OBJ_EVENT_GFX to 240. There are also a handful of unused
-// object graphics that can be removed. If more graphics are needed, anything that
-// stores graphics ids will need to be increased in size. See wiki entry below:
-// https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        239
-
+#define NUM_ORIG_OBJ_EVENT_GFX                   239
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
 // More info about them in include/constants/vars.h
-#define OBJ_EVENT_GFX_VARS   (NUM_OBJ_EVENT_GFX + 1)
-#define OBJ_EVENT_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0) // 240
-#define OBJ_EVENT_GFX_VAR_1  (OBJ_EVENT_GFX_VARS + 0x1)
-#define OBJ_EVENT_GFX_VAR_2  (OBJ_EVENT_GFX_VARS + 0x2)
-#define OBJ_EVENT_GFX_VAR_3  (OBJ_EVENT_GFX_VARS + 0x3)
-#define OBJ_EVENT_GFX_VAR_4  (OBJ_EVENT_GFX_VARS + 0x4)
-#define OBJ_EVENT_GFX_VAR_5  (OBJ_EVENT_GFX_VARS + 0x5)
-#define OBJ_EVENT_GFX_VAR_6  (OBJ_EVENT_GFX_VARS + 0x6)
-#define OBJ_EVENT_GFX_VAR_7  (OBJ_EVENT_GFX_VARS + 0x7)
-#define OBJ_EVENT_GFX_VAR_8  (OBJ_EVENT_GFX_VARS + 0x8)
-#define OBJ_EVENT_GFX_VAR_9  (OBJ_EVENT_GFX_VARS + 0x9)
-#define OBJ_EVENT_GFX_VAR_A  (OBJ_EVENT_GFX_VARS + 0xA)
-#define OBJ_EVENT_GFX_VAR_B  (OBJ_EVENT_GFX_VARS + 0xB)
-#define OBJ_EVENT_GFX_VAR_C  (OBJ_EVENT_GFX_VARS + 0xC)
-#define OBJ_EVENT_GFX_VAR_D  (OBJ_EVENT_GFX_VARS + 0xD)
-#define OBJ_EVENT_GFX_VAR_E  (OBJ_EVENT_GFX_VARS + 0xE)
-#define OBJ_EVENT_GFX_VAR_F  (OBJ_EVENT_GFX_VARS + 0xF) // 255
+#define OBJ_EVENT_GFX_VAR_FIRST   (NUM_ORIG_OBJ_EVENT_GFX + 1)
+#define OBJ_EVENT_GFX_VAR_0  (OBJ_EVENT_GFX_VAR_FIRST + 0x0) // 240
+#define OBJ_EVENT_GFX_VAR_1  (OBJ_EVENT_GFX_VAR_FIRST + 0x1)
+#define OBJ_EVENT_GFX_VAR_2  (OBJ_EVENT_GFX_VAR_FIRST + 0x2)
+#define OBJ_EVENT_GFX_VAR_3  (OBJ_EVENT_GFX_VAR_FIRST + 0x3)
+#define OBJ_EVENT_GFX_VAR_4  (OBJ_EVENT_GFX_VAR_FIRST + 0x4)
+#define OBJ_EVENT_GFX_VAR_5  (OBJ_EVENT_GFX_VAR_FIRST + 0x5)
+#define OBJ_EVENT_GFX_VAR_6  (OBJ_EVENT_GFX_VAR_FIRST + 0x6)
+#define OBJ_EVENT_GFX_VAR_7  (OBJ_EVENT_GFX_VAR_FIRST + 0x7)
+#define OBJ_EVENT_GFX_VAR_8  (OBJ_EVENT_GFX_VAR_FIRST + 0x8)
+#define OBJ_EVENT_GFX_VAR_9  (OBJ_EVENT_GFX_VAR_FIRST + 0x9)
+#define OBJ_EVENT_GFX_VAR_A  (OBJ_EVENT_GFX_VAR_FIRST + 0xA)
+#define OBJ_EVENT_GFX_VAR_B  (OBJ_EVENT_GFX_VAR_FIRST + 0xB)
+#define OBJ_EVENT_GFX_VAR_C  (OBJ_EVENT_GFX_VAR_FIRST + 0xC)
+#define OBJ_EVENT_GFX_VAR_D  (OBJ_EVENT_GFX_VAR_FIRST + 0xD)
+#define OBJ_EVENT_GFX_VAR_E  (OBJ_EVENT_GFX_VAR_FIRST + 0xE)
+#define OBJ_EVENT_GFX_VAR_F  (OBJ_EVENT_GFX_VAR_FIRST + 0xF) // 255
+#define OBJ_EVENT_GFX_VAR_LAST   OBJ_EVENT_GFX_VAR_F
+
+// RogueNote: Additional GFX, just gonna put them after this to avoid shifting the OG IDs about
+#define OBJ_EVENT_GFX_LEAF_MACH_BIKE             (OBJ_EVENT_GFX_VAR_F + 1)
+#define OBJ_EVENT_GFX_LEAF_ACRO_BIKE             (OBJ_EVENT_GFX_VAR_F + 2)
+#define OBJ_EVENT_GFX_LEAF_SURFING               (OBJ_EVENT_GFX_VAR_F + 3)
+#define OBJ_EVENT_GFX_LEAF_FIELD_MOVE            (OBJ_EVENT_GFX_VAR_F + 4)
+#define OBJ_EVENT_GFX_LEAF_FISHING               (OBJ_EVENT_GFX_VAR_F + 5)
+
+#define OBJ_EVENT_GFX_RED_MACH_BIKE              (OBJ_EVENT_GFX_VAR_F + 6)
+#define OBJ_EVENT_GFX_RED_ACRO_BIKE              (OBJ_EVENT_GFX_VAR_F + 7)
+#define OBJ_EVENT_GFX_RED_SURFING                (OBJ_EVENT_GFX_VAR_F + 8)
+#define OBJ_EVENT_GFX_RED_FIELD_MOVE             (OBJ_EVENT_GFX_VAR_F + 9)
+#define OBJ_EVENT_GFX_RED_FISHING                (OBJ_EVENT_GFX_VAR_F + 10)
+
+#define OBJ_EVENT_GFX_KANTO_AGATHA               (OBJ_EVENT_GFX_VAR_F + 11)
+#define OBJ_EVENT_GFX_KANTO_BLAINE               (OBJ_EVENT_GFX_VAR_F + 12)
+#define OBJ_EVENT_GFX_KANTO_BLUE                 (OBJ_EVENT_GFX_VAR_F + 13)
+#define OBJ_EVENT_GFX_KANTO_BROCK                (OBJ_EVENT_GFX_VAR_F + 14)
+#define OBJ_EVENT_GFX_KANTO_BRUNO                (OBJ_EVENT_GFX_VAR_F + 15)
+#define OBJ_EVENT_GFX_KANTO_ERIKA                (OBJ_EVENT_GFX_VAR_F + 16)
+#define OBJ_EVENT_GFX_KANTO_GIOVANNI             (OBJ_EVENT_GFX_VAR_F + 17)
+#define OBJ_EVENT_GFX_KANTO_KOGA                 (OBJ_EVENT_GFX_VAR_F + 18)
+#define OBJ_EVENT_GFX_KANTO_LANCE                (OBJ_EVENT_GFX_VAR_F + 19)
+#define OBJ_EVENT_GFX_KANTO_LORELEI              (OBJ_EVENT_GFX_VAR_F + 20)
+#define OBJ_EVENT_GFX_KANTO_LTSURGE              (OBJ_EVENT_GFX_VAR_F + 21)
+#define OBJ_EVENT_GFX_KANTO_MISTY                (OBJ_EVENT_GFX_VAR_F + 22)
+#define OBJ_EVENT_GFX_KANTO_PROFOAK              (OBJ_EVENT_GFX_VAR_F + 23)
+#define OBJ_EVENT_GFX_KANTO_SABRINA              (OBJ_EVENT_GFX_VAR_F + 24)
+
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 25)
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1

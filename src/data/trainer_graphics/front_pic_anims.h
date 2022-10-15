@@ -370,6 +370,10 @@ static const union AnimCmd *const sAnims_RubySapphireMay[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Kanto[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -465,4 +469,21 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_LEAF] = sAnims_Leaf,
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
+
+    [TRAINER_PIC_KANTO_BROCK] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_MISTY] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_LTSURGE] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_ERIKA] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_KOGA] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_SABRINA] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_BLAINE] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_GIOVANNI] = sAnims_Kanto,
+    
+    [TRAINER_PIC_KANTO_LORELEI] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_BRUNO] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_AGATHA] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_LANCE] = sAnims_Kanto,
+
+    [TRAINER_PIC_KANTO_BLUE] = sAnims_Kanto,
+    [TRAINER_PIC_KANTO_PROFOAK] = sAnims_Kanto,
 };
