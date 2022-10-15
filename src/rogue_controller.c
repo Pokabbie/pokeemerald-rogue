@@ -2947,13 +2947,13 @@ static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
         case TYPE_GHOST:
             hasFallback = TRUE;
             gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
             break;
 
         case TYPE_DRAGON:
             hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FLYING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
             break;
 
         case TYPE_FIRE:

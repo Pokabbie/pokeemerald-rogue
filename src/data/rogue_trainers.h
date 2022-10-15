@@ -139,7 +139,25 @@ static const u16 sQuerySpecies_Kanto[] =
     SPECIES_MOLTRES,
     SPECIES_DRATINI,
     SPECIES_MEWTWO,
-    SPECIES_MEW
+    SPECIES_MEW,
+#ifdef ROGUE_EXPANSION
+    SPECIES_RATTATA_ALOLAN,
+    SPECIES_SANDSHREW_ALOLAN,
+    SPECIES_VULPIX_ALOLAN,
+    SPECIES_DIGLETT_ALOLAN,
+    SPECIES_MEOWTH_ALOLAN,
+    SPECIES_GEODUDE_ALOLAN,
+    SPECIES_GRIMER_ALOLAN,
+
+    SPECIES_MEOWTH_GALARIAN,
+    SPECIES_PONYTA_GALARIAN,
+    SPECIES_SLOWPOKE_GALARIAN,
+    SPECIES_FARFETCHD_GALARIAN,
+    SPECIES_MR_MIME_GALARIAN,
+    SPECIES_ARTICUNO_GALARIAN,
+    SPECIES_ZAPDOS_GALARIAN,
+    SPECIES_MOLTRES_GALARIAN,
+#endif
 };
 
 static const u16 sQuerySpecies_Blue[] =
@@ -417,7 +435,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
         .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_GHOST, TYPE_POISON, TYPE_NONE  },
+        .incTypes = { TYPE_GHOST, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
@@ -427,7 +445,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
         .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_FLYING, TYPE_NONE  },
+        .incTypes = { TYPE_DRAGON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
