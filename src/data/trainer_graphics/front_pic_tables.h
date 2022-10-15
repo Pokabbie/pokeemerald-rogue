@@ -93,6 +93,23 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_LEAF] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_KANTO_BROCK] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_MISTY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_LTSURGE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_ERIKA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_KOGA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_SABRINA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_BLAINE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_GIOVANNI] = {.size = 8, .y_offset = 1},
+    
+    [TRAINER_PIC_KANTO_LORELEI] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_BRUNO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_AGATHA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_LANCE] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_KANTO_BLUE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KANTO_PROFOAK] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -192,6 +209,23 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(LEAF, gTrainerFrontPic_Leaf, 0x800),
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan, 0x800),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, 0x800),
+
+    TRAINER_SPRITE(KANTO_BROCK, gTrainerFrontPic_LeaderBrock, 0x800),
+    TRAINER_SPRITE(KANTO_MISTY, gTrainerFrontPic_LeaderMisty, 0x800),
+    TRAINER_SPRITE(KANTO_LTSURGE, gTrainerFrontPic_LeaderLtSurge, 0x800),
+    TRAINER_SPRITE(KANTO_ERIKA, gTrainerFrontPic_LeaderErika, 0x800),
+    TRAINER_SPRITE(KANTO_KOGA, gTrainerFrontPic_LeaderKoga, 0x800),
+    TRAINER_SPRITE(KANTO_SABRINA, gTrainerFrontPic_LeaderSabrina, 0x800),
+    TRAINER_SPRITE(KANTO_BLAINE, gTrainerFrontPic_LeaderBlaine, 0x800),
+    TRAINER_SPRITE(KANTO_GIOVANNI, gTrainerFrontPic_LeaderGiovanni, 0x800),
+
+    TRAINER_SPRITE(KANTO_LORELEI, gTrainerFrontPic_EliteFourLorelei, 0x800),
+    TRAINER_SPRITE(KANTO_BRUNO, gTrainerFrontPic_EliteFourBruno, 0x800),
+    TRAINER_SPRITE(KANTO_AGATHA, gTrainerFrontPic_EliteFourAgatha, 0x800),
+    TRAINER_SPRITE(KANTO_LANCE, gTrainerFrontPic_EliteFourLance, 0x800),
+
+    TRAINER_SPRITE(KANTO_BLUE, gTrainerFrontPic_ChampionBlue, 0x800),
+    TRAINER_SPRITE(KANTO_PROFOAK, gTrainerFrontPic_ChampionProfOak, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -291,4 +325,21 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(LEAF, gTrainerPalette_Leaf_Front_0_0),
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
+
+    TRAINER_PAL(KANTO_BROCK, gTrainerPalette_LeaderBrock),
+    TRAINER_PAL(KANTO_MISTY, gTrainerPalette_LeaderMisty),
+    TRAINER_PAL(KANTO_LTSURGE, gTrainerPalette_LeaderLtSurge),
+    TRAINER_PAL(KANTO_ERIKA, gTrainerPalette_LeaderErika),
+    TRAINER_PAL(KANTO_KOGA, gTrainerPalette_LeaderKoga),
+    TRAINER_PAL(KANTO_SABRINA, gTrainerPalette_LeaderSabrina),
+    TRAINER_PAL(KANTO_BLAINE, gTrainerPalette_LeaderBlaine),
+    TRAINER_PAL(KANTO_GIOVANNI, gTrainerPalette_LeaderGiovanni),
+
+    TRAINER_PAL(KANTO_LORELEI, gTrainerPalette_EliteFourLorelei),
+    TRAINER_PAL(KANTO_BRUNO, gTrainerPalette_EliteFourBruno),
+    TRAINER_PAL(KANTO_AGATHA, gTrainerPalette_EliteFourAgatha),
+    TRAINER_PAL(KANTO_LANCE, gTrainerPalette_EliteFourLance),
+
+    TRAINER_PAL(KANTO_BLUE, gTrainerPalette_ChampionBlue),
+    TRAINER_PAL(KANTO_PROFOAK, gTrainerPalette_ChampionProfOak),
 };

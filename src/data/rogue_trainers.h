@@ -181,7 +181,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     //
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BROCK,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
         .victorySetFlag = FLAG_BADGE01_GET,
         .incTypes = { TYPE_ROCK, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -189,7 +189,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_MISTY,
         .victorySetFlag = FLAG_BADGE02_GET,
         .incTypes = { TYPE_WATER, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -197,7 +197,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_LTSURGE,
         .victorySetFlag = FLAG_BADGE03_GET,
         .incTypes = { TYPE_ELECTRIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -205,7 +205,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_ERIKA,
         .victorySetFlag = FLAG_BADGE04_GET,
         .incTypes = { TYPE_GRASS, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -213,7 +213,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_KOGA,
         .victorySetFlag = FLAG_BADGE05_GET,
         .incTypes = { TYPE_POISON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -221,7 +221,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_SABRINA,
         .victorySetFlag = FLAG_BADGE06_GET,
         .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -229,7 +229,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_BLAINE,
         .victorySetFlag = FLAG_BADGE07_GET,
         .incTypes = { TYPE_FIRE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -237,7 +237,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_GIOVANNI,
         .victorySetFlag = FLAG_BADGE08_GET,
         .incTypes = { TYPE_GROUND, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -247,28 +247,28 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     // Kanto Elite 4
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LORELEI,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
         .incTypes = { TYPE_ICE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_BRUNO,
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
         .incTypes = { TYPE_GHOST, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
+        .trainerId = TRAINER_ROGUE_BOSS_LANCE,
         .incTypes = { TYPE_DRAGON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
@@ -277,14 +277,14 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     // Kanto Champs
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BLUE,
-        .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
+        .trainerId = TRAINER_ROGUE_BOSS_BLUE,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
-        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
+        .trainerId = TRAINER_ROGUE_BOSS_PROFOAK,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
