@@ -93,6 +93,8 @@ struct RogueTrainerTemp
     u32 seedToRestore;
     u8 allowedType[2];
     u8 disallowedType[2];
+    u16 customQuerySpeciesCount;
+    const u16* customQuerySpecies;
     bool8 allowItemEvos;
     bool8 allowLedgendaries;
     bool8 preferStrongPresets;
@@ -1815,12 +1817,12 @@ static bool8 IsBossEnabled(u16 bossId)
             excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
     }
 
-    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->flags & excludeFlags) != 0)
+    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
     {
         return FALSE;
     }
 
-    if(includeFlags == TRAINER_FLAG_NONE || (trainer->flags & includeFlags) != 0)
+    if(includeFlags == TRAINER_FLAG_NONE || (trainer->trainerFlags & includeFlags) != 0)
     {
         if(!HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId)))
         {
@@ -2570,9 +2572,11 @@ static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
     gRngRogueValue = seed + trainerNum * 3 + offset * 7;
 }
 
-static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8* monsCount)
+static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8* forceType = &gRogueLocal.trainerTemp.allowedType[0];
+    u8* disabledType = &gRogueLocal.trainerTemp.disallowedType[0];
 
     if(IsMirrorTrainer(trainerNum))
     {
@@ -2589,6 +2593,12 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8
 
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
+
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        {
+            gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
+            gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+        }
     }
     else if(IsMiniBossTrainer(trainerNum))
     {
@@ -2599,6 +2609,12 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8
 
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
+
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        {
+            gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
+            gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+        }
     }
     else
     {
@@ -2680,6 +2696,26 @@ static void ConfigureTrainer(u16 trainerNum, u8* forceType, u8* disabledType, u8
             gRogueLocal.trainerTemp.allowItemEvos = TRUE;
             gRogueLocal.trainerTemp.allowLedgendaries = TRUE;
             gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
+        }
+        
+        // We don't want to use strong presets
+        if(IsBossTrainer(trainerNum))
+        {
+            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+            if((trainer->partyFlags & PARTY_FLAG_STRONG_PRESETS_IGNORE) != 0)
+            {
+                gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
+            }
+        }
+        else if(IsMiniBossTrainer(trainerNum))
+        {
+            const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+            if((trainer->partyFlags & PARTY_FLAG_STRONG_PRESETS_IGNORE) != 0)
+            {
+                gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
+            }
         }
     }
     else
@@ -2793,21 +2829,46 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
     // Query for the current trainer team
     RogueQuery_Clear();
 
-    RogueQuery_SpeciesIsValid();
-    RogueQuery_SpeciesExcludeCommon();
-    RogueQuery_Exclude(SPECIES_UNOWN);
-
-    if(legendariesOnly)
-        RogueQuery_SpeciesIsLegendary();
-    else if(!gRogueLocal.trainerTemp.allowLedgendaries)
-        RogueQuery_SpeciesIsNotLegendary();
-
-    if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+    if(gRogueLocal.trainerTemp.customQuerySpeciesCount)
     {
-        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-        else
-            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        // Trainer has provided it's own initial query set
+        u16 i;
+
+        RogueQuery_ExcludeAll();
+
+        for(i = 0; i < gRogueLocal.trainerTemp.customQuerySpeciesCount; ++i)
+        {
+            RogueQuery_Include(gRogueLocal.trainerTemp.customQuerySpecies[i]);
+        }
+
+        RogueQuery_SpeciesExcludeCommon();
+
+        if(legendariesOnly)
+            RogueQuery_SpeciesIsLegendary();
+        else if(!gRogueLocal.trainerTemp.allowLedgendaries)
+            RogueQuery_SpeciesIsNotLegendary();
+
+        // We ignore the first type check, as we're using a smaller subset anyway
+        // which are likely all egg species so we only care about the check at the end
+    }
+    else
+    {
+        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesExcludeCommon();
+        RogueQuery_Exclude(SPECIES_UNOWN);
+
+        if(legendariesOnly)
+            RogueQuery_SpeciesIsLegendary();
+        else if(!gRogueLocal.trainerTemp.allowLedgendaries)
+            RogueQuery_SpeciesIsNotLegendary();
+
+        if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+        {
+            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        }
     }
 
     RogueQuery_TransformToEggSpecies();
@@ -2935,14 +2996,8 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
 {
     if(Rogue_IsRunActive())
     {
-         bool8 preferStrongPresets;
         bool8 isAnyBoss = IsAnyBossTrainer(trainerNum);
         u8 difficultyLevel = gRogueRun.currentDifficulty;
-
-        if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-            preferStrongPresets = FALSE;
-        else
-            preferStrongPresets = isAnyBoss && difficultyLevel >= 8;
 
         // Reset trainer temp
         memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
@@ -2955,11 +3010,7 @@ void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* m
         gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
 
         SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
-        ConfigureTrainer(trainerNum, 
-            &gRogueLocal.trainerTemp.allowedType[0], 
-            &gRogueLocal.trainerTemp.disallowedType[0], 
-            monsCount
-        );
+        ConfigureTrainer(trainerNum, monsCount);
 
         ApplyTrainerQuery(trainerNum, FALSE);
 
@@ -3497,7 +3548,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        if(maxGen >= 3 && (trainer->flags & TRAINER_FLAG_THIRDSLOT_ACE_TYPE) != 0)
+        if(maxGen >= 3 && (trainer->partyFlags & PARTY_FLAG_THIRDSLOT_ACE_TYPE) != 0)
         {
             // Champion
             if(difficultyLevel == 12)

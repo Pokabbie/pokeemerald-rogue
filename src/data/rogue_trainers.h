@@ -6,8 +6,9 @@
 
 #define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
 
-const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES] = 
+const u8 gRogueTypeWeatherTable[] = 
 {
+    [TYPE_NONE] = WEATHER_NONE,
     [TYPE_NORMAL] = WEATHER_NONE,
     [TYPE_FIGHTING] = WEATHER_SUNNY,
     [TYPE_FLYING] = WEATHER_NONE,
@@ -31,8 +32,9 @@ const u8 gRogueTypeWeatherTable[NUMBER_OF_MON_TYPES] =
 #endif
 };
 
-const struct RogueEncounterMap gRogueTypeToEliteRoom[NUMBER_OF_MON_TYPES] = 
+const struct RogueEncounterMap gRogueTypeToEliteRoom[] = 
 {
+    [TYPE_NONE] = ENCOUNTER_MAP(0, ROGUE_BOSS_11),
     [TYPE_NORMAL] = ENCOUNTER_MAP(0, ROGUE_BOSS_8),
     [TYPE_FIGHTING] = ENCOUNTER_MAP(0, ROGUE_BOSS_8),
     [TYPE_FLYING] = ENCOUNTER_MAP(0, ROGUE_BOSS_8),
@@ -56,6 +58,119 @@ const struct RogueEncounterMap gRogueTypeToEliteRoom[NUMBER_OF_MON_TYPES] =
 #endif
 };
 
+// Kinda a gross way of doing it, but was the simplest without hacking it in elsewhere
+static const u16 sQuerySpecies_Kanto[] =
+{
+    SPECIES_BULBASAUR,
+    SPECIES_CHARMANDER,
+    SPECIES_SQUIRTLE,
+    SPECIES_CATERPIE,
+    SPECIES_WEEDLE,
+    SPECIES_PIDGEY,
+    SPECIES_RATTATA,
+    SPECIES_SPEAROW,
+    SPECIES_EKANS,
+    SPECIES_PIKACHU,
+    SPECIES_SANDSHREW,
+    SPECIES_NIDORAN_F,
+    SPECIES_NIDORAN_M,
+    SPECIES_CLEFAIRY,
+    SPECIES_VULPIX,
+    SPECIES_JIGGLYPUFF,
+    SPECIES_ZUBAT,
+    SPECIES_ODDISH,
+    SPECIES_PARAS,
+    SPECIES_VENONAT,
+    SPECIES_DIGLETT,
+    SPECIES_MEOWTH,
+    SPECIES_PSYDUCK,
+    SPECIES_MANKEY,
+    SPECIES_GROWLITHE,
+    SPECIES_POLIWAG,
+    SPECIES_ABRA,
+    SPECIES_MACHOP,
+    SPECIES_BELLSPROUT,
+    SPECIES_TENTACOOL,
+    SPECIES_GEODUDE,
+    SPECIES_PONYTA,
+    SPECIES_SLOWPOKE,
+    SPECIES_MAGNEMITE,
+    SPECIES_FARFETCHD,
+    SPECIES_DODUO,
+    SPECIES_SEEL,
+    SPECIES_GRIMER,
+    SPECIES_SHELLDER,
+    SPECIES_GASTLY,
+    SPECIES_ONIX,
+    SPECIES_DROWZEE,
+    SPECIES_KRABBY,
+    SPECIES_VOLTORB,
+    SPECIES_EXEGGCUTE,
+    SPECIES_CUBONE,
+    SPECIES_HITMONLEE,
+    SPECIES_HITMONCHAN,
+    SPECIES_LICKITUNG,
+    SPECIES_KOFFING,
+    SPECIES_RHYHORN,
+    SPECIES_CHANSEY,
+    SPECIES_TANGELA,
+    SPECIES_KANGASKHAN,
+    SPECIES_HORSEA,
+    SPECIES_GOLDEEN,
+    SPECIES_STARYU,
+    SPECIES_MR_MIME,
+    SPECIES_SCYTHER,
+    SPECIES_JYNX,
+    SPECIES_ELECTABUZZ,
+    SPECIES_MAGMAR,
+    SPECIES_PINSIR,
+    SPECIES_TAUROS,
+    SPECIES_MAGIKARP,
+    SPECIES_LAPRAS,
+    SPECIES_DITTO,
+    SPECIES_EEVEE,
+    SPECIES_PORYGON,
+    SPECIES_OMANYTE,
+    SPECIES_KABUTO,
+    SPECIES_AERODACTYL,
+    SPECIES_SNORLAX,
+    SPECIES_ARTICUNO,
+    SPECIES_ZAPDOS,
+    SPECIES_MOLTRES,
+    SPECIES_DRATINI,
+    SPECIES_MEWTWO,
+    SPECIES_MEW
+};
+
+static const u16 sQuerySpecies_Blue[] =
+{
+    SPECIES_PIKACHU,
+    SPECIES_NIDORAN_M,
+    SPECIES_NIDORAN_F,
+    SPECIES_CLEFAIRY,
+    SPECIES_VULPIX,
+    SPECIES_ODDISH,
+    SPECIES_GROWLITHE,
+    SPECIES_POLIWAG,
+    SPECIES_ABRA,
+    SPECIES_MACHOP,
+    SPECIES_GEODUDE,
+    SPECIES_GASTLY,
+    SPECIES_EXEGGCUTE,
+    SPECIES_RHYHORN,
+    SPECIES_HORSEA,
+    SPECIES_MEWTWO,
+    SPECIES_STARYU,
+    SPECIES_SCYTHER,
+    SPECIES_JYNX,
+    SPECIES_ELECTABUZZ,
+    SPECIES_MAGMAR,
+    SPECIES_EEVEE,
+    SPECIES_ONIX,
+    SPECIES_MAGNEMITE,
+    SPECIES_SLOWPOKE
+};
+
 static const struct RogueTrainerEncounter sRouteBossEncounters[] = 
 {
     // Hoenn Gyms
@@ -66,7 +181,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE01_GET,
         .incTypes = { TYPE_ROCK, TYPE_NONE, TYPE_STEEL },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRAWLY,
@@ -74,7 +190,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE02_GET,
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WATTSON,
@@ -82,7 +198,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE03_GET,
         .incTypes = { TYPE_ELECTRIC, TYPE_NONE, TYPE_ELECTRIC },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_FLANNERY,
@@ -90,7 +207,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE04_GET,
         .incTypes = { TYPE_FIRE, TYPE_NONE, TYPE_FIRE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_NORMAN,
@@ -98,7 +216,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE05_GET,
         .incTypes = { TYPE_NORMAL, TYPE_NONE, TYPE_DRAGON },
         .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WINONA,
@@ -106,7 +225,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE06_GET,
         .incTypes = { TYPE_FLYING, TYPE_NONE, TYPE_FLYING  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_LIZA,
@@ -114,7 +234,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE07_GET,
         .incTypes = { TYPE_PSYCHIC, TYPE_NONE, TYPE_PSYCHIC  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JUAN,
@@ -122,7 +243,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE08_GET,
         .incTypes = { TYPE_WATER, TYPE_NONE, TYPE_WATER  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
 
     // Hoenn Elite
@@ -132,11 +254,12 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
 #ifdef ROGUE_EXPANSION
         .incTypes = { TYPE_DARK, TYPE_NONE, TYPE_FAIRY },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
 #else
         .incTypes = { TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
 #endif
     },
     {
@@ -144,21 +267,22 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_PHOEBE,
         .incTypes = { TYPE_GHOST, TYPE_NONE, TYPE_PSYCHIC },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_GLACIA,
         .trainerId = TRAINER_ROGUE_BOSS_GLACIA,
         .incTypes = { TYPE_ICE, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_DRAKE,
         .trainerId = TRAINER_ROGUE_BOSS_DRAKE,
         .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_DRAGON },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
     },
 
     // Hoenn Champs
@@ -167,14 +291,15 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
         .incTypes = { TYPE_WATER, TYPE_NONE, TYPE_WATER },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP,
     },
     {
         .gfxId = OBJ_EVENT_GFX_STEVEN,
         .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
         .incTypes = { TYPE_STEEL, TYPE_NONE, TYPE_PSYCHIC },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
 
     // Kanto Gyms
@@ -185,7 +310,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE01_GET,
         .incTypes = { TYPE_ROCK, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
@@ -193,7 +321,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE02_GET,
         .incTypes = { TYPE_WATER, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
@@ -201,7 +332,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE03_GET,
         .incTypes = { TYPE_ELECTRIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
@@ -209,7 +343,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE04_GET,
         .incTypes = { TYPE_GRASS, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
@@ -217,7 +354,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE05_GET,
         .incTypes = { TYPE_POISON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
@@ -225,7 +365,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE06_GET,
         .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
@@ -233,7 +376,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE07_GET,
         .incTypes = { TYPE_FIRE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
@@ -241,7 +387,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .victorySetFlag = FLAG_BADGE08_GET,
         .incTypes = { TYPE_GROUND, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
 
     // Kanto Elite 4
@@ -250,28 +399,40 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
         .incTypes = { TYPE_ICE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
         .trainerId = TRAINER_ROGUE_BOSS_BRUNO,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
+        .incTypes = { TYPE_FIGHTING, TYPE_GROUND, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
         .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_GHOST, TYPE_NONE  },
+        .incTypes = { TYPE_GHOST, TYPE_POISON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
         .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE  },
+        .incTypes = { TYPE_DRAGON, TYPE_FLYING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
 
     // Kanto Champs
@@ -280,17 +441,21 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_BLUE,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
+        .querySpecies = sQuerySpecies_Blue,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Blue),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
         .trainerId = TRAINER_ROGUE_BOSS_PROFOAK,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
+        .querySpecies = sQuerySpecies_Kanto,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
-
-    // Kanto Champs
 
     // Placeholder Rainbow mode bosses for missing types
     {
@@ -298,28 +463,29 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_LUCY,
         .incTypes = { TYPE_POISON, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_NONE,
+        .trainerFlags = TRAINER_FLAG_NONE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRANDON,
         .trainerId = TRAINER_ROGUE_BOSS_BRANDON,
         .incTypes = { TYPE_GROUND, TYPE_NONE, TYPE_GROUND },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_NONE | TRAINER_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_NONE,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_TUCKER,
         .trainerId = TRAINER_ROGUE_BOSS_TUCKER,
         .incTypes = { TYPE_BUG, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_NONE,
+        .trainerFlags = TRAINER_FLAG_NONE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_SPENSER,
         .trainerId = TRAINER_ROGUE_BOSS_SPENSER,
         .incTypes = { TYPE_GRASS, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_NONE,
+        .trainerFlags = TRAINER_FLAG_NONE,
     },
 #ifdef ROGUE_EXPANSION
     {
@@ -327,7 +493,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_ANABEL,
         .incTypes = { TYPE_FAIRY, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_NONE,
+        .trainerFlags = TRAINER_FLAG_NONE,
     },
 #endif
 };
@@ -345,14 +511,14 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
         .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_WATER, TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN,
     },
     {
         .gfxId = OBJ_EVENT_GFX_ARCHIE,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
         .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_FIRE, TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WALLY,
@@ -363,14 +529,14 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .incTypes = { TYPE_PSYCHIC, TYPE_GRASS, TYPE_NONE },
 #endif
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
         .incTypes = { TYPE_MYSTERY, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .flags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN,
     },
 };
 

@@ -51,7 +51,11 @@
 #define TRAINER_FLAG_FINAL_CHAMP            (1 << 3)
 #define TRAINER_FLAG_HOENN                  (1 << 4)
 #define TRAINER_FLAG_KANTO                  (1 << 5)
-#define TRAINER_FLAG_THIRDSLOT_ACE_TYPE     (1 << 6)
+
+#define PARTY_FLAG_NONE                     0
+#define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
+#define PARTY_FLAG_CUSTOM_QUERY             (1 << 2)
+#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 3)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
