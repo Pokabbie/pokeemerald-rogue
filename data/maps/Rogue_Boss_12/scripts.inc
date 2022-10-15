@@ -15,7 +15,7 @@ Rogue_Battle_Boss12::
 	applymovement 1, BossToFightBoss12
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12
 	waitmovement 0
-	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
 	msgbox Rogue_Battle_Boss12_Text_1
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss12_Text_2
 	call Rogue_BattleDefeated_Boss12
