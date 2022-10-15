@@ -7,30 +7,39 @@
 #define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
 #define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
 
-const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
+
+static const struct RogueRouteEncounter sRogueRouteTable[] = {
+    // Hoenn
+    //
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_FIELD0),
         .wildTypeTable = { TYPE_GRASS, TYPE_NORMAL, TYPE_FLYING }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_FIELD1),
         .wildTypeTable = { TYPE_ELECTRIC, TYPE_STEEL, TYPE_ICE }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .dropRarity = 1,
         .map = ROUTE_MAP(ROGUE_ROUTE_FOREST0),
         .wildTypeTable = { TYPE_BUG, TYPE_GHOST, TYPE_POISON }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .dropRarity = 2,
         .map = ROUTE_MAP(ROGUE_ROUTE_CAVE0),
         .wildTypeTable = { TYPE_ROCK, TYPE_ICE, TYPE_DRAGON }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN0),
         .wildTypeTable = { TYPE_GROUND, TYPE_FIRE, TYPE_FIGHTING }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN1),
 #ifdef ROGUE_EXPANSION
         .wildTypeTable = { TYPE_FAIRY, TYPE_DARK, TYPE_PSYCHIC }
@@ -39,33 +48,62 @@ const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT] = {
 #endif
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN2),
         .wildTypeTable = { TYPE_GROUND, TYPE_GHOST, TYPE_FIRE }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_MOUNTAIN3),
         .wildTypeTable = { TYPE_ROCK, TYPE_DRAGON, TYPE_POISON }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT0),
         .wildTypeTable = { TYPE_WATER, TYPE_FLYING, TYPE_GRASS }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_WATER_FRONT1),
         .wildTypeTable = { TYPE_NORMAL, TYPE_FIGHTING, TYPE_DARK }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_URBAN0),
         .wildTypeTable = { TYPE_STEEL, TYPE_ELECTRIC, TYPE_PSYCHIC }
     },
     {
+        .mapFlags = ROUTE_FLAG_HOENN,
         .map = ROUTE_MAP(ROGUE_ROUTE_URBAN1),
 #ifdef ROGUE_EXPANSION
         .wildTypeTable = { TYPE_FAIRY, TYPE_ICE, TYPE_BUG }
 #else
         .wildTypeTable = { TYPE_WATER, TYPE_ICE, TYPE_BUG }
 #endif
-    }
+    },
+
+    // Kanto
+    //
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_FIELD0),
+        .wildTypeTable = { TYPE_NORMAL, TYPE_FLYING, TYPE_GRASS }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_MOUNTAIN0),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_FAIRY }
+#else
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_STEEL }
+#endif
+    },
+};
+
+const struct RogueRouteData gRogueRouteTable = 
+{
+    .routeCount = ARRAY_COUNT(sRogueRouteTable),
+    .routes = sRogueRouteTable,
 };
 
 static const struct RogueEncounterMap sRouteMapsSpecial[] = 

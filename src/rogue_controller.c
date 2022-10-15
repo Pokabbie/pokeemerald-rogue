@@ -1968,11 +1968,12 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
 u8 Rogue_SelectRouteRoom(void)
 {
     u8 mapIdx;
+    u8 routeCount = gRogueRouteTable.routeCount;
 
     // Don't replay recent routes
     do
     {
-        mapIdx = RogueRandomRange(ROGUE_ROUTE_COUNT, OVERWORLD_FLAG);
+        mapIdx = RogueRandomRange(routeCount, OVERWORLD_FLAG);
     }
     while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), mapIdx));
 
@@ -2144,8 +2145,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                 {
-                    u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
-                    u16 chosenType = gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
+                    u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
+                    u16 chosenType = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
                     u16 weatherType = gRogueTypeWeatherTable[chosenType];
 
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
@@ -4087,12 +4088,12 @@ static void RandomiseWildEncounters(void)
     RogueQuery_SpeciesIsValid();
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable));
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
     RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable[gRogueRun.currentRouteIndex].wildTypeTable));
+    RogueQuery_SpeciesOfTypes(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();
 
@@ -4522,7 +4523,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
     u8 difficultyModifier = GetRoomTypeDifficulty();
-    u8 dropRarity = gRogueRouteTable[gRogueRun.currentRouteIndex].dropRarity;
+    u8 dropRarity = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {

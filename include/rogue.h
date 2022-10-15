@@ -140,11 +140,18 @@ struct RogueRouteMap
     u16 num;
 };
 
-struct RogueRouteData
+struct RogueRouteEncounter
 {
     u8 dropRarity;
+    u16 mapFlags;
     struct RogueRouteMap map;
     const u8 wildTypeTable[3];
+};
+
+struct RogueRouteData
+{
+    u8 routeCount;
+    const struct RogueRouteEncounter* routes;
 };
 
 struct RogueEncounterMap
@@ -204,7 +211,7 @@ struct RogueMonPresetCollection
 };
 
 extern const struct SpeciesTable gRogueSpeciesTable[];
-extern const struct RogueRouteData gRogueRouteTable[ROGUE_ROUTE_COUNT];
+extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainerData gRogueBossEncounters;

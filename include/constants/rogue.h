@@ -10,7 +10,6 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_ROUTE_COUNT 12
 #define ROGUE_HUB_BERRY_TREE_COUNT 20
 
 #define ROGUE_MAX_ADVPATH_ROWS 7
@@ -37,9 +36,14 @@
 #define ITEM_QUEST_LOG ITEM_ROOM_1_KEY
 #endif
 
+// Routes
+//
+#define ROUTE_FLAG_NONE                   0
+#define ROUTE_FLAG_HOENN                  (1 << 1)
+#define ROUTE_FLAG_KANTO                  (1 << 2)
+
 // Trainers
 //
-// RogueNote: Overwrite from these trainer ranges
 #define TRAINER_FLAG_NONE                   0
 #define TRAINER_FLAG_GYM                    (1 << 0)
 #define TRAINER_FLAG_ELITE                  (1 << 1)
