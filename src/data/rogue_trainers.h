@@ -417,7 +417,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
         .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_GHOST, TYPE_POISON, TYPE_NONE  },
+        .incTypes = { TYPE_GHOST, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
@@ -427,7 +427,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
         .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_FLYING, TYPE_NONE  },
+        .incTypes = { TYPE_DRAGON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
