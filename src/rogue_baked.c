@@ -399,6 +399,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
             break;
 
         case TRAINER_ROGUE_BOSS_BROCK:
@@ -416,6 +417,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
             break;
     }
 
@@ -661,8 +663,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
             break;
     }
-
-    // TODO
 }
 
 static u16 SanitizeItemId(u16 itemId)
