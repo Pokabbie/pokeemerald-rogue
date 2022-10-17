@@ -322,6 +322,42 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Rogue_ConfigRoom_MeetPokabbie"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_KantoRoutes"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_KantoBosses"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_HoennRoutes"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_ConfigRoom_Button_HoennBosses"
     }
   ],
   "bg_events": [

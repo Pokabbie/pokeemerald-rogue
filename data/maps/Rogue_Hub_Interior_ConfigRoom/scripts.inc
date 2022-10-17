@@ -543,6 +543,18 @@ Rogue_ConfigRoom_RedrawMap_44:
 	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_49
 	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_48:
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_53
+	setmetatile 15, 20, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_52:
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_57
+	setmetatile 15, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_56:
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_61
+	setmetatile 19, 20, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_60:
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_65
+	setmetatile 19, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_64:
 	special DrawWholeMapView
 	return
 
@@ -607,6 +619,22 @@ Rogue_ConfigRoom_RedrawMap_45:
 Rogue_ConfigRoom_RedrawMap_49:
 	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_48
+
+Rogue_ConfigRoom_RedrawMap_53:
+	setmetatile 15, 20, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_52
+
+Rogue_ConfigRoom_RedrawMap_57:
+	setmetatile 15, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_56
+
+Rogue_ConfigRoom_RedrawMap_61:
+	setmetatile 19, 20, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_60
+
+Rogue_ConfigRoom_RedrawMap_65:
+	setmetatile 19, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_64
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -932,6 +960,138 @@ Rogue_ConfigRoom_Button_SeedBosses_10:
 	goto Rogue_ConfigRoom_Button_SeedBosses_9
 
 
+Rogue_ConfigRoom_Button_KantoRoutes::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_KantoRoutes_Text_0
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_Button_KantoRoutes_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_KantoRoutes_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_KantoRoutes_7
+	case 1, Rogue_ConfigRoom_Button_KantoRoutes_8
+Rogue_ConfigRoom_Button_KantoRoutes_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_KantoRoutes_10
+Rogue_ConfigRoom_Button_KantoRoutes_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_KantoRoutes_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_1
+
+Rogue_ConfigRoom_Button_KantoRoutes_7:
+	setflag FLAG_ROGUE_KANTO_ROUTES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_5
+
+Rogue_ConfigRoom_Button_KantoRoutes_8:
+	clearflag FLAG_ROGUE_KANTO_ROUTES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_5
+
+Rogue_ConfigRoom_Button_KantoRoutes_10:
+	msgbox Rogue_ConfigRoom_Button_KantoRoutes_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_KantoRoutes_9
+
+
+Rogue_ConfigRoom_Button_KantoBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_KantoBosses_Text_0
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_Button_KantoBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_KantoBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_KantoBosses_7
+	case 1, Rogue_ConfigRoom_Button_KantoBosses_8
+Rogue_ConfigRoom_Button_KantoBosses_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_KantoBosses_10
+Rogue_ConfigRoom_Button_KantoBosses_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_KantoBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_KantoBosses_1
+
+Rogue_ConfigRoom_Button_KantoBosses_7:
+	setflag FLAG_ROGUE_KANTO_BOSSES
+	goto Rogue_ConfigRoom_Button_KantoBosses_5
+
+Rogue_ConfigRoom_Button_KantoBosses_8:
+	clearflag FLAG_ROGUE_KANTO_BOSSES
+	goto Rogue_ConfigRoom_Button_KantoBosses_5
+
+Rogue_ConfigRoom_Button_KantoBosses_10:
+	msgbox Rogue_ConfigRoom_Button_KantoBosses_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_KantoBosses_9
+
+
+Rogue_ConfigRoom_Button_HoennRoutes::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HoennRoutes_Text_0
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_Button_HoennRoutes_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_HoennRoutes_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_HoennRoutes_7
+	case 1, Rogue_ConfigRoom_Button_HoennRoutes_8
+Rogue_ConfigRoom_Button_HoennRoutes_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_HoennRoutes_10
+Rogue_ConfigRoom_Button_HoennRoutes_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_HoennRoutes_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_1
+
+Rogue_ConfigRoom_Button_HoennRoutes_7:
+	setflag FLAG_ROGUE_HOENN_ROUTES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_5
+
+Rogue_ConfigRoom_Button_HoennRoutes_8:
+	clearflag FLAG_ROGUE_HOENN_ROUTES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_5
+
+Rogue_ConfigRoom_Button_HoennRoutes_10:
+	msgbox Rogue_ConfigRoom_Button_HoennRoutes_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_HoennRoutes_9
+
+
+Rogue_ConfigRoom_Button_HoennBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HoennBosses_Text_0
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_Button_HoennBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_HoennBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_HoennBosses_7
+	case 1, Rogue_ConfigRoom_Button_HoennBosses_8
+Rogue_ConfigRoom_Button_HoennBosses_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_HoennBosses_10
+Rogue_ConfigRoom_Button_HoennBosses_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_HoennBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_HoennBosses_1
+
+Rogue_ConfigRoom_Button_HoennBosses_7:
+	setflag FLAG_ROGUE_HOENN_BOSSES
+	goto Rogue_ConfigRoom_Button_HoennBosses_5
+
+Rogue_ConfigRoom_Button_HoennBosses_8:
+	clearflag FLAG_ROGUE_HOENN_BOSSES
+	goto Rogue_ConfigRoom_Button_HoennBosses_5
+
+Rogue_ConfigRoom_Button_HoennBosses_10:
+	msgbox Rogue_ConfigRoom_Button_HoennBosses_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_HoennBosses_9
+
+
 Rogue_ConfigRoom_TalkLanette_Text_0:
 	.string "LANETTE: Hi {PLAYER}!\p"
 	.string "This is the CONFIG LAB!\p"
@@ -1192,3 +1352,35 @@ Rogue_ConfigRoom_Button_SeedBosses_Text_1:
 	.string "If disabled GYM LEADER teams will be\n"
 	.string "completely RANDOM and not linked to\l"
 	.string "the SEED.$"
+
+Rogue_ConfigRoom_Button_KantoRoutes_Text_0:
+	.string "KANTO ROUTES$"
+
+Rogue_ConfigRoom_Button_KantoRoutes_Text_1:
+	.string "When enabled you may start to\n"
+	.string "encounter routes from the Kanto\l"
+	.string "region during adventures.$"
+
+Rogue_ConfigRoom_Button_KantoBosses_Text_0:
+	.string "KANTO LEADERS$"
+
+Rogue_ConfigRoom_Button_KantoBosses_Text_1:
+	.string "When enabled, leaders from the Kanto\n"
+	.string "region may start appearing for Mighty\l"
+	.string "trainer battles.$"
+
+Rogue_ConfigRoom_Button_HoennRoutes_Text_0:
+	.string "HOENN ROUTES$"
+
+Rogue_ConfigRoom_Button_HoennRoutes_Text_1:
+	.string "When enabled you may start to\n"
+	.string "encounter routes from the Hoenn\l"
+	.string "region during adventures.$"
+
+Rogue_ConfigRoom_Button_HoennBosses_Text_0:
+	.string "HOENN LEADERS$"
+
+Rogue_ConfigRoom_Button_HoennBosses_Text_1:
+	.string "When enabled, leaders from the Hoenn\n"
+	.string "region may start appearing for Mighty\l"
+	.string "trainer battles.$"

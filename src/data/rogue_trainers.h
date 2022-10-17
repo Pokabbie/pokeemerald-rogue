@@ -176,6 +176,9 @@ static const u16 sQuerySpecies_Blue[] =
     SPECIES_EXEGGCUTE,
     SPECIES_RHYHORN,
     SPECIES_HORSEA,
+    SPECIES_ARTICUNO,
+    SPECIES_ZAPDOS,
+    SPECIES_MOLTRES,
     SPECIES_MEWTWO,
     SPECIES_STARYU,
     SPECIES_SCYTHER,
@@ -537,7 +540,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
         .querySpecies = sQuerySpecies_ProfOak,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_ProfOak),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
 
     // Placeholder Rainbow mode bosses for missing types

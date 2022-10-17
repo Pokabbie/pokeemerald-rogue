@@ -1271,7 +1271,7 @@ static void SelectStartMons(void)
 #endif
 }
 
-#define ROGUE_SAVE_VERSION 2    // The version to use for tracking/updating internal save game data
+#define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
 #define ROGUE_COMPAT_VERSION 2  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 static void ClearPokemonHeldItems(void)
@@ -1331,6 +1331,16 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
             AddBagItem(ITEM_POKE_BALL, 5);
             AddBagItem(ITEM_POTION, 1);
         }
+    }
+
+    // v1.3 new values
+    if(newGame || saveVersion < 3)
+    {
+        FlagSet(FLAG_ROGUE_HOENN_ROUTES);
+        FlagSet(FLAG_ROGUE_HOENN_BOSSES);
+
+        FlagClear(FLAG_ROGUE_KANTO_ROUTES);
+        FlagClear(FLAG_ROGUE_KANTO_BOSSES);
     }
 
 #ifdef ROGUE_DEBUG
@@ -1804,8 +1814,17 @@ static bool8 IsBossEnabled(u16 bossId)
     
     if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
     {
-        //includeFlags |= TRAINER_FLAG_HOENN;
-        includeFlags |= TRAINER_FLAG_KANTO; // TODO
+        if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
+            includeFlags |= TRAINER_FLAG_HOENN;
+
+        if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
+            includeFlags |= TRAINER_FLAG_KANTO;
+
+        // Use the custom fallback set >:3
+        if(includeFlags == TRAINER_FLAG_NONE)
+        {
+            includeFlags |= TRAINER_FLAG_FALLBACK_REGION;
+        }
 
         if(gRogueRun.currentDifficulty < 8)
             excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
@@ -1815,6 +1834,10 @@ static bool8 IsBossEnabled(u16 bossId)
             excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
         else if(gRogueRun.currentDifficulty < 14)
             excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+    }
+    else
+    {
+        excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
     }
 
     if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
@@ -1967,21 +1990,83 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     return RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
 }
 
+static bool8 IsRouteEnabled(u16 routeId)
+{
+    const struct RogueRouteEncounter* route = &gRogueRouteTable.routes[routeId];
+    u16 includeFlags = ROUTE_FLAG_NONE;
+    u16 excludeFlags = ROUTE_FLAG_NONE;
+    
+    if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
+        includeFlags |= ROUTE_FLAG_HOENN;
+
+    if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
+        includeFlags |= ROUTE_FLAG_KANTO;
+
+    // Use the custom fallback set >:3
+    if(includeFlags == ROUTE_FLAG_NONE)
+    {
+        includeFlags |= ROUTE_FLAG_FALLBACK_REGION;
+    }
+
+    if(excludeFlags != ROUTE_FLAG_NONE && (route->mapFlags & excludeFlags) != 0)
+    {
+        return FALSE;
+    }
+
+    if(includeFlags == ROUTE_FLAG_NONE || (route->mapFlags & includeFlags) != 0)
+    {
+        if(!HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), routeId))
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static u16 NextRouteId()
+{
+    u16 i;
+    u16 randIdx;
+    u16 enabledRoutesCount = 0;
+
+    for(i = 0; i < gRogueRouteTable.routeCount; ++i)
+    {
+        if(IsRouteEnabled(i))
+            ++enabledRoutesCount;
+    }
+
+    if(enabledRoutesCount == 0)
+    {
+        // We've exhausted all enabled route options, so we're going to wipe the buffer and try again
+        memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
+        return NextRouteId();
+    }
+
+    randIdx = RogueRandomRange(enabledRoutesCount, OVERWORLD_FLAG);
+    enabledRoutesCount = 0;
+
+    for(i = 0; i < gRogueRouteTable.routeCount; ++i)
+    {
+        if(IsRouteEnabled(i))
+        {
+            if(enabledRoutesCount == randIdx)
+                return i;
+            else
+                ++enabledRoutesCount;
+        }
+    }
+
+    return gRogueRouteTable.routeCount - 1;
+}
+
 u8 Rogue_SelectRouteRoom(void)
 {
-    u8 mapIdx;
-    u8 routeCount = gRogueRouteTable.routeCount;
+    u16 routeId = NextRouteId();
 
-    // Don't replay recent routes
-    do
-    {
-        mapIdx = RogueRandomRange(routeCount, OVERWORLD_FLAG);
-    }
-    while(HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), mapIdx));
+    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), routeId);
 
-    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), mapIdx);
-
-    return mapIdx;
+    return routeId;
 }
 
 static void ResetSpecialEncounterStates(void)

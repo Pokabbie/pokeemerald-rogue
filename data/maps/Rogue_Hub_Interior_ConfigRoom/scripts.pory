@@ -647,6 +647,59 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(16,8, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    // Expansion Room
+    //
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    //if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    //{
+    //    setmetatile(17,20, METATILE_BikeShop_Button_Green, FALSE)
+    //}
+    //else
+    //{
+    //    setmetatile(17,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    //}
+    //if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    //{
+    //    setmetatile(17,22, METATILE_BikeShop_Button_Green, FALSE)
+    //}
+    //else
+    //{
+    //    setmetatile(17,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    //}
+    
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
     special(DrawWholeMapView)
     return
 }
@@ -953,6 +1006,135 @@ script Rogue_ConfigRoom_Button_SeedBosses
     {
         // Print Info
         msgbox(format("If disabled GYM LEADER teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_KantoRoutes
+{
+    bufferstring(STR_VAR_1, format("KANTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Kanto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_KantoBosses
+{
+    bufferstring(STR_VAR_1, format("KANTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennRoutes
+{
+    bufferstring(STR_VAR_1, format("HOENN ROUTES"))
+
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Hoenn region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennBosses
+{
+    bufferstring(STR_VAR_1, format("HOENN LEADERS"))
+
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Hoenn region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
