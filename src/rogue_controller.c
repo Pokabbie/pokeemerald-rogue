@@ -1996,10 +1996,10 @@ static bool8 IsRouteEnabled(u16 routeId)
     u16 includeFlags = ROUTE_FLAG_NONE;
     u16 excludeFlags = ROUTE_FLAG_NONE;
     
-    if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
+    if(FlagGet(FLAG_ROGUE_HOENN_ROUTES))
         includeFlags |= ROUTE_FLAG_HOENN;
 
-    if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
+    if(FlagGet(FLAG_ROGUE_KANTO_ROUTES))
         includeFlags |= ROUTE_FLAG_KANTO;
 
     // Use the custom fallback set >:3

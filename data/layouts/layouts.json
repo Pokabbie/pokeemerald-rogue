@@ -4950,6 +4950,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_CHAOS0",
+      "name": "Rogue_Route_Chaos0_Layout",
+      "width": 78,
+      "height": 76,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Route_Chaos0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Chaos0/map.bin"
     }
   ]
 }

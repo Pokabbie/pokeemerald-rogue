@@ -103,6 +103,43 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .wildTypeTable = { TYPE_WATER, TYPE_PSYCHIC, TYPE_STEEL }
 #endif
     },
+
+    // Fallback
+    //
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_NORMAL, TYPE_GROUND, TYPE_WATER }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_DRAGON, TYPE_BUG }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_FLYING, TYPE_STEEL, TYPE_FAIRY }
+#else
+        .wildTypeTable = { TYPE_FLYING, TYPE_STEEL, TYPE_FIGHTING }
+#endif
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_POISON, TYPE_ELECTRIC, TYPE_ICE }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_ROCK, TYPE_FIRE, TYPE_GHOST }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_DARK, TYPE_WATER, TYPE_FLYING }
+    },
 };
 
 const struct RogueRouteData gRogueRouteTable = 
