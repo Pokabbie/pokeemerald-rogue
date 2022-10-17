@@ -582,6 +582,126 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_NONE,
     },
 #endif
+
+
+    // Fallback set
+    //
+    // gyms
+    {
+        .gfxId = OBJ_EVENT_GFX_ROXANNE,
+        .trainerId = TRAINER_ROGUE_BOSS_ROXANNE,
+        .victorySetFlag = FLAG_BADGE01_GET,
+        .incTypes = { TYPE_WATER, TYPE_FLYING, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_MAXIE,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
+        .victorySetFlag = FLAG_BADGE02_GET,
+        .incTypes = { TYPE_DRAGON, TYPE_DARK, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_ARCHIE,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
+        .victorySetFlag = FLAG_BADGE03_GET,
+        .incTypes = { TYPE_GRASS, TYPE_FIRE, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_ANABEL,
+        .trainerId = TRAINER_ROGUE_BOSS_ANABEL,
+        .victorySetFlag = FLAG_BADGE04_GET,
+        .incTypes = { TYPE_PSYCHIC, TYPE_FIGHTING, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BLUE,
+        .trainerId = TRAINER_ROGUE_BOSS_BLUE,
+        .victorySetFlag = FLAG_BADGE05_GET,
+        .incTypes = { TYPE_GHOST, TYPE_BUG, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
+        .trainerId = TRAINER_ROGUE_BOSS_BLAINE,
+        .victorySetFlag = FLAG_BADGE06_GET,
+        .incTypes = { TYPE_NORMAL, TYPE_GHOST, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_DRAKE,
+        .trainerId = TRAINER_ROGUE_BOSS_DRAKE,
+        .victorySetFlag = FLAG_BADGE07_GET,
+        .incTypes = { TYPE_STEEL, TYPE_ROCK, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
+        .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
+        .victorySetFlag = FLAG_BADGE08_GET,
+        .incTypes = { TYPE_POISON, TYPE_WATER, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
+    },
+
+    // Elite 4
+    {
+        .gfxId = OBJ_EVENT_GFX_NORMAN,
+        .trainerId = TRAINER_ROGUE_BOSS_NORMAN,
+        .incTypes = { TYPE_STEEL, TYPE_DRAGON, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_TUCKER,
+        .trainerId = TRAINER_ROGUE_BOSS_TUCKER,
+#ifdef ROGUE_EXPANSION
+        .incTypes = { TYPE_POISON, TYPE_FAIRY, TYPE_NONE },
+#else
+        .incTypes = { TYPE_POISON, TYPE_DARK, TYPE_NONE },
+#endif
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .trainerId = TRAINER_ROGUE_BOSS_LUCY,
+        .incTypes = { TYPE_WATER, TYPE_FIRE, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
+        .trainerId = TRAINER_ROGUE_BOSS_SABRINA,
+        .incTypes = { TYPE_STEEL, TYPE_ICE, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+    },
+
+    // Champions
+    {
+        .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
+        .incTypes = { TYPE_MYSTERY, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_PRE_CHAMP,
+        .partyFlags = PARTY_FLAG_MIRROR_SPECIES,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
+        .trainerId = TRAINER_ROGUE_BOSS_PROFOAK,
+        .incTypes = { TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_FINAL_CHAMP
+    },
 };
 
 const struct RogueTrainerData gRogueBossEncounters = 
@@ -597,14 +717,14 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
         .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_WATER, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
     },
     {
         .gfxId = OBJ_EVENT_GFX_ARCHIE,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
         .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_FIRE, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WALLY,
@@ -615,14 +735,15 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .incTypes = { TYPE_PSYCHIC, TYPE_GRASS, TYPE_NONE },
 #endif
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
         .incTypes = { TYPE_MYSTERY, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
+        .partyFlags = PARTY_FLAG_MIRROR_EXACT,
     },
 };
 

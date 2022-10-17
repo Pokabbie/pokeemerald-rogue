@@ -2248,7 +2248,51 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 gRogueRun.currentLevelOffset = 0;
                 RandomiseEnabledItems();
 
-                VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
+                // Mirror trainer
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                {
+                    switch(gSaveBlock2Ptr->playerGender)
+                    {
+                        case(STYLE_EMR_BRENDAN):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            break;
+                        case(STYLE_EMR_MAY):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            break;
+
+                        case(STYLE_RED):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            break;
+                        case(STYLE_LEAF):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                    };
+                }
+                // Rival Trainer
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                {
+                    switch(gSaveBlock2Ptr->playerGender)
+                    {
+                        case(STYLE_EMR_BRENDAN):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            break;
+                        case(STYLE_EMR_MAY):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            break;
+
+                        case(STYLE_RED):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                        case(STYLE_LEAF):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            break;
+                    };
+                }
+                else
+                {
+                    VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
+                }
+
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
@@ -2313,6 +2357,26 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                             break;
                         case(STYLE_LEAF):
                             VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                    };
+                }
+                // Rival Trainer
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                {
+                    switch(gSaveBlock2Ptr->playerGender)
+                    {
+                        case(STYLE_EMR_BRENDAN):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            break;
+                        case(STYLE_EMR_MAY):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            break;
+
+                        case(STYLE_RED):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            break;
+                        case(STYLE_LEAF):
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
                             break;
                     };
                 }
@@ -2588,11 +2652,6 @@ static bool8 IsBossTrainer(u16 trainerNum)
     return FALSE;
 }
 
-static bool8 IsMirrorTrainer(u16 trainerNum)
-{
-    return trainerNum == TRAINER_ROGUE_MINI_BOSS_MIRROR;
-}
-
 static bool8 IsMiniBossTrainer(u16 trainerNum)
 {
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
@@ -2663,15 +2722,16 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     u8* forceType = &gRogueLocal.trainerTemp.allowedType[0];
     u8* disabledType = &gRogueLocal.trainerTemp.disallowedType[0];
 
-    if(IsMirrorTrainer(trainerNum))
-    {
-        *monsCount = gPlayerPartyCount;
-        return;
-    }
-
     if(IsBossTrainer(trainerNum))
     {
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        // Mirror trainer uses custom logic
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            *monsCount = gPlayerPartyCount;
+            return;
+        }
 
         forceType[0] = trainer->incTypes[0];
         forceType[1] = trainer->incTypes[1];
@@ -2688,6 +2748,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     else if(IsMiniBossTrainer(trainerNum))
     {
         const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        // Mirror trainer uses custom logic
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            *monsCount = gPlayerPartyCount;
+            return;
+        }
 
         forceType[0] = trainer->incTypes[0];
         forceType[1] = trainer->incTypes[1];
@@ -2978,18 +3045,18 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
             RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
     }
 
-#ifdef ROGUE_EXPANSION
+//#ifdef ROGUE_EXPANSION
     // Isn't worth doing for Vanilla
     if(gRogueLocal.trainerTemp.preferStrongPresets)
     {
         u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        if(maxGen > 3)
+        if(maxGen >= 3)
         { 
             RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
         }
     }
-#endif
+//#endif
 
     if(gRogueLocal.trainerTemp.allowLedgendaries && trainerNum == TRAINER_ROGUE_MINI_BOSS_MAXIE)
     {
@@ -3125,7 +3192,7 @@ static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
 #ifdef ROGUE_EXPANSION
-    if(!IsMirrorTrainer(trainerNum))
+    //if(!IsMirrorTrainer(trainerNum))
     {
         u8 writeSlot = monsCount - 1;
         u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
@@ -3182,9 +3249,25 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         return SPECIES_CHANSEY;
     }
 
-    if(IsMirrorTrainer(trainerNum))
+    if(IsBossTrainer(trainerNum))
     {
-        return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        // Mirror trainer species
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+        }
+    }
+    else if(IsMiniBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        // Mirror trainer uses custom logic
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+        }
     }
 
     if(queryCheckIdx >= queryCount)
@@ -3251,10 +3334,30 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     u8 randOffset;
     u8 i;
     bool8 isPresetValid;
+    bool8 exactMirrorPlayer = FALSE;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
     
-    if(IsMirrorTrainer(trainerNum))
+    if(IsBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_EXACT) != 0)
+        {
+            exactMirrorPlayer = TRUE;
+        }
+    }
+    else if(IsMiniBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_EXACT) != 0)
+        {
+            exactMirrorPlayer = TRUE;
+        }
+    }
+
+    if(exactMirrorPlayer)
     {
         // Populate mon preset based on exact same team
         outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);

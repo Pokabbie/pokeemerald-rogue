@@ -36,6 +36,11 @@ const u8 gText_TrainerName_Lance[] = _("LANCE");
 const u8 gText_TrainerName_Blue[] = _("BLUE");
 const u8 gText_TrainerName_ProfOak[] = _("PROF. OAK");
 
+const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
+const u8 gText_TrainerName_May[] = _("MAY");
+const u8 gText_TrainerName_Red[] = _("RED");
+const u8 gText_TrainerName_Leaf[] = _("GREEN");
+
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");

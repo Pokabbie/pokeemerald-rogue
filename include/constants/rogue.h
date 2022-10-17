@@ -59,6 +59,9 @@
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
 #define PARTY_FLAG_CUSTOM_QUERY             (1 << 2)
 #define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 3)
+#define PARTY_FLAG_MIRROR_EXACT             (1 << 4)
+#define PARTY_FLAG_MIRROR_SPECIES           (1 << 5)
+#define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
@@ -130,6 +133,7 @@
 #define TRAINER_ROGUE_MINI_BOSS_ARCHIE       TRAINER_ARCHIE
 #define TRAINER_ROGUE_MINI_BOSS_WALLY        TRAINER_WALLY_VR_1
 #define TRAINER_ROGUE_MINI_BOSS_MIRROR       TRAINER_BRENDAN_PLACEHOLDER
+#define TRAINER_ROGUE_MINI_BOSS_RIVAL        TRAINER_MAY_PLACEHOLDER
 
 // Mon Preset flags
 //
@@ -142,7 +146,7 @@
 #define MON_FLAGS_GEN7UBERS                 MON_FLAG_STRONG
 #define MON_FLAGS_GEN7OU                    MON_FLAG_STRONG
 #define MON_FLAGS_GEN7UU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN7RU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN7RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7ZU                    MON_FLAG_NONE
@@ -160,7 +164,7 @@
 #define MON_FLAGS_GEN8UBERS                 MON_FLAG_STRONG
 #define MON_FLAGS_GEN8OU                    MON_FLAG_STRONG
 #define MON_FLAGS_GEN8UU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN8RU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN8RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8ZU                    MON_FLAG_NONE
@@ -178,7 +182,7 @@
 
 #define MON_FLAGS_GEN3UBERS                 MON_FLAG_STRONG
 #define MON_FLAGS_GEN3OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN3UU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN3UU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
 #define MON_FLAGS_GEN31V1                   MON_FLAG_STRONG

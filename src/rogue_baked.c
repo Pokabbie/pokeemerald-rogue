@@ -53,6 +53,11 @@ extern const u8 gText_TrainerName_Lance[];
 extern const u8 gText_TrainerName_Blue[];
 extern const u8 gText_TrainerName_ProfOak[];
 
+extern const u8 gText_TrainerName_Brendan[];
+extern const u8 gText_TrainerName_May[];
+extern const u8 gText_TrainerName_Red[];
+extern const u8 gText_TrainerName_Leaf[];
+
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 #ifdef ROGUE_BAKE_VALID
@@ -289,6 +294,23 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
     {
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             return gSaveBlock2Ptr->playerName;
+
+        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
+        {
+            switch(gSaveBlock2Ptr->playerGender)
+            {
+                case(STYLE_EMR_BRENDAN):
+                    return gText_TrainerName_May;
+                case(STYLE_EMR_MAY):
+                    return gText_TrainerName_Brendan;
+
+                case(STYLE_RED):
+                    return gText_TrainerName_Leaf;
+                case(STYLE_LEAF):
+                    return gText_TrainerName_Red;
+            };
+            break;
+        }
             
         case TRAINER_ROGUE_BOSS_BROCK:
             return gText_TrainerName_Brock;
@@ -511,6 +533,31 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 case(STYLE_LEAF):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
                     outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    break;
+            };
+            break;
+            
+        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
+            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
+
+            switch(gSaveBlock2Ptr->playerGender)
+            {    
+                case(STYLE_EMR_BRENDAN):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_MAY;
+                    break;
+                case(STYLE_EMR_MAY):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
+                    break;
+
+                case(STYLE_RED):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    break;
+                case(STYLE_LEAF):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_RED;
                     break;
             };
             break;
