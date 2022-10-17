@@ -4940,6 +4940,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Mountain0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Mountain0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_URBAN0",
+      "name": "Rogue_Route_Kanto_Urban0_Layout",
+      "width": 93,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/map.bin"
     }
   ]
 }

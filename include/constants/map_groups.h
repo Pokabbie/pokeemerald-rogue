@@ -645,6 +645,7 @@
 #define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON  (50 | (34 << 8))
 #define MAP_ROGUE_ROUTE_KANTO_FIELD0        (51 | (34 << 8))
 #define MAP_ROGUE_ROUTE_KANTO_MOUNTAIN0     (52 | (34 << 8))
+#define MAP_ROGUE_ROUTE_KANTO_URBAN0        (53 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

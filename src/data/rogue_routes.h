@@ -92,10 +92,15 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
     {
         .mapFlags = ROUTE_FLAG_KANTO,
         .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_MOUNTAIN0),
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_ELECTRIC }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_URBAN0),
 #ifdef ROGUE_EXPANSION
-        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_FAIRY }
+        .wildTypeTable = { TYPE_WATER, TYPE_PSYCHIC, TYPE_FAIRY }
 #else
-        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_STEEL }
+        .wildTypeTable = { TYPE_WATER, TYPE_PSYCHIC, TYPE_STEEL }
 #endif
     },
 };
