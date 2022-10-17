@@ -701,7 +701,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     //
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_FALKNER,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_FALKNER,
         .victorySetFlag = FLAG_BADGE01_GET,
         .incTypes = { TYPE_FLYING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -712,7 +712,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_BUGSY,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_BUGSY,
         .victorySetFlag = FLAG_BADGE02_GET,
         .incTypes = { TYPE_BUG, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -723,7 +723,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_WHITNEY,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_WHITNEY,
         .victorySetFlag = FLAG_BADGE03_GET,
         .incTypes = { TYPE_NORMAL, TYPE_NONE  },
         .excTypes = { TYPE_FLYING, TYPE_NONE },
@@ -734,7 +734,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_MORTY,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_MORTY,
         .victorySetFlag = FLAG_BADGE04_GET,
         .incTypes = { TYPE_GHOST, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -745,7 +745,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CHUCK,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_CHUCK,
         .victorySetFlag = FLAG_BADGE05_GET,
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -756,7 +756,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_JASMINE,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_JASMINE,
         .victorySetFlag = FLAG_BADGE06_GET,
         .incTypes = { TYPE_STEEL, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -767,7 +767,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_PRYCE,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
         .victorySetFlag = FLAG_BADGE07_GET,
         .incTypes = { TYPE_ICE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -778,7 +778,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CLAIR,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
+        .trainerId = TRAINER_ROGUE_BOSS_CLAIR,
         .victorySetFlag = FLAG_BADGE08_GET,
         .incTypes = { TYPE_DRAGON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
@@ -791,7 +791,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     // Johto Elite 4
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_WILL,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
+        .trainerId = TRAINER_ROGUE_BOSS_WILL,
         .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
@@ -801,7 +801,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
+        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_KOGA,
         .incTypes = { TYPE_POISON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
@@ -811,7 +811,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
+        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_BRUNO,
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
@@ -821,7 +821,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_KAREN,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
+        .trainerId = TRAINER_ROGUE_BOSS_KAREN,
         .incTypes = { TYPE_DARK, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
@@ -833,7 +833,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     // Johto Champs
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
-        .trainerId = TRAINER_ROGUE_BOSS_BLUE,
+        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_LANCE,
         .incTypes = { TYPE_DRAGON, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP,
@@ -842,8 +842,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_MAY_NORMAL,
-        .trainerId = TRAINER_ROGUE_BOSS_BLUE,
+        .gfxId = OBJ_EVENT_GFX_RED,
+        .trainerId = TRAINER_ROGUE_BOSS_RED,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP,
