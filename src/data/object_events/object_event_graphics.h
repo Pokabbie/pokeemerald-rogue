@@ -424,6 +424,17 @@ const u16 gObjectEventPal_Kanto_NPC_Green[] = INCBIN_U16("graphics/object_events
 const u16 gObjectEventPal_Kanto_NPC_Pink[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_pink.gbapal");
 const u16 gObjectEventPal_Kanto_NPC_White[] = INCBIN_U16("graphics/object_events/palettes/kanto/npc_white.gbapal");
 
+const u16 gObjectEventPal_Johto_NPC_Bugsy[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_bugsy.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Chuck[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_chuck.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Clair[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_clair.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Falkner[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_falkner.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Jasmine[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_jasmine.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Karen[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_karen.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Morty[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_morty.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Pryce[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_pryce.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Whitney[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_whitney.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Will[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_will.gbapal");
+
 const u32 gObjectEventPic_Kanto_Agatha[] = INCBIN_U32("graphics/object_events/pics/people/kanto/agatha.4bpp");
 const u32 gObjectEventPic_Kanto_Blaine[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blaine.4bpp");
 const u32 gObjectEventPic_Kanto_Blue[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blue.4bpp");
@@ -438,3 +449,14 @@ const u32 gObjectEventPic_Kanto_LtSurge[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_Kanto_Misty[] = INCBIN_U32("graphics/object_events/pics/people/kanto/misty.4bpp");
 const u32 gObjectEventPic_Kanto_ProfOak[] = INCBIN_U32("graphics/object_events/pics/people/kanto/prof_oak.4bpp");
 const u32 gObjectEventPic_Kanto_Sabrina[] = INCBIN_U32("graphics/object_events/pics/people/kanto/sabrina.4bpp");
+
+const u32 gObjectEventPic_Johto_Bugsy[] = INCBIN_U32("graphics/object_events/pics/people/johto/bugsy.4bpp");
+const u32 gObjectEventPic_Johto_Chuck[] = INCBIN_U32("graphics/object_events/pics/people/johto/chuck.4bpp");
+const u32 gObjectEventPic_Johto_Clair[] = INCBIN_U32("graphics/object_events/pics/people/johto/clair.4bpp");
+const u32 gObjectEventPic_Johto_Falkner[] = INCBIN_U32("graphics/object_events/pics/people/johto/falkner.4bpp");
+const u32 gObjectEventPic_Johto_Jasmine[] = INCBIN_U32("graphics/object_events/pics/people/johto/jasmine.4bpp");
+const u32 gObjectEventPic_Johto_Karen[] = INCBIN_U32("graphics/object_events/pics/people/johto/karen.4bpp");
+const u32 gObjectEventPic_Johto_Morty[] = INCBIN_U32("graphics/object_events/pics/people/johto/morty.4bpp");
+const u32 gObjectEventPic_Johto_Pryce[] = INCBIN_U32("graphics/object_events/pics/people/johto/pryce.4bpp");
+const u32 gObjectEventPic_Johto_Whitney[] = INCBIN_U32("graphics/object_events/pics/people/johto/whitney.4bpp");
+const u32 gObjectEventPic_Johto_Will[] = INCBIN_U32("graphics/object_events/pics/people/johto/will.4bpp");

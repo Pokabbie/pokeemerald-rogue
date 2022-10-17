@@ -444,6 +444,18 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_KANTO_NPC_GREEN         0x1125
 #define OBJ_EVENT_PAL_TAG_KANTO_NPC_PINK          0x1126
 #define OBJ_EVENT_PAL_TAG_KANTO_NPC_WHITE         0x1127
+
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_BUGSY         0x1127
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_CHUCK         0x1128
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_CLAIR         0x1129
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_FALKNER       0x112A
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_JASMINE       0x112B
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_KAREN         0x112C
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_MORTY         0x112D
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_PRYCE         0x112E
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY       0x112F
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL          0x1130
+
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -494,6 +506,16 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kanto_NPC_Green,       OBJ_EVENT_PAL_TAG_KANTO_NPC_GREEN},
     {gObjectEventPal_Kanto_NPC_Pink,        OBJ_EVENT_PAL_TAG_KANTO_NPC_PINK},
     {gObjectEventPal_Kanto_NPC_White,       OBJ_EVENT_PAL_TAG_KANTO_NPC_WHITE},
+    {gObjectEventPal_Johto_NPC_Bugsy,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_BUGSY},
+    {gObjectEventPal_Johto_NPC_Chuck,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_CHUCK},
+    {gObjectEventPal_Johto_NPC_Clair,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_CLAIR},
+    {gObjectEventPal_Johto_NPC_Falkner,     OBJ_EVENT_PAL_TAG_JOHTO_NPC_FALKNER},
+    {gObjectEventPal_Johto_NPC_Jasmine,     OBJ_EVENT_PAL_TAG_JOHTO_NPC_JASMINE},
+    {gObjectEventPal_Johto_NPC_Karen,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_KAREN},
+    {gObjectEventPal_Johto_NPC_Morty,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_MORTY},
+    {gObjectEventPal_Johto_NPC_Pryce,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_PRYCE},
+    {gObjectEventPal_Johto_NPC_Whitney,     OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY},
+    {gObjectEventPal_Johto_NPC_Will,        OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL},
     {},
 };
 

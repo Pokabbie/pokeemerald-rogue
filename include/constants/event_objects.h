@@ -293,7 +293,18 @@
 #define OBJ_EVENT_GFX_KANTO_PROFOAK              (OBJ_EVENT_GFX_VAR_F + 23)
 #define OBJ_EVENT_GFX_KANTO_SABRINA              (OBJ_EVENT_GFX_VAR_F + 24)
 
-#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 25)
+#define OBJ_EVENT_GFX_JOHTO_BUGSY                (OBJ_EVENT_GFX_VAR_F + 25)
+#define OBJ_EVENT_GFX_JOHTO_CLAIR                (OBJ_EVENT_GFX_VAR_F + 26)
+#define OBJ_EVENT_GFX_JOHTO_CHUCK                (OBJ_EVENT_GFX_VAR_F + 27)
+#define OBJ_EVENT_GFX_JOHTO_FALKNER              (OBJ_EVENT_GFX_VAR_F + 28)
+#define OBJ_EVENT_GFX_JOHTO_JASMINE              (OBJ_EVENT_GFX_VAR_F + 29)
+#define OBJ_EVENT_GFX_JOHTO_KAREN                (OBJ_EVENT_GFX_VAR_F + 30)
+#define OBJ_EVENT_GFX_JOHTO_MORTY                (OBJ_EVENT_GFX_VAR_F + 31)
+#define OBJ_EVENT_GFX_JOHTO_PRYCE                (OBJ_EVENT_GFX_VAR_F + 32)
+#define OBJ_EVENT_GFX_JOHTO_WHITNEY              (OBJ_EVENT_GFX_VAR_F + 33)
+#define OBJ_EVENT_GFX_JOHTO_WILL                 (OBJ_EVENT_GFX_VAR_F + 34)
+
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 35)
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1
