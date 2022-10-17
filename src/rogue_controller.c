@@ -1341,6 +1341,8 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 
         FlagClear(FLAG_ROGUE_KANTO_ROUTES);
         FlagClear(FLAG_ROGUE_KANTO_BOSSES);
+        FlagClear(FLAG_ROGUE_JOHTO_ROUTES);
+        FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
     }
 
 #ifdef ROGUE_DEBUG
@@ -1820,6 +1822,9 @@ static bool8 IsBossEnabled(u16 bossId)
         if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
             includeFlags |= TRAINER_FLAG_KANTO;
 
+        if(FlagGet(FLAG_ROGUE_JOHTO_BOSSES))
+            includeFlags |= TRAINER_FLAG_JOHTO;
+
         // Use the custom fallback set >:3
         if(includeFlags == TRAINER_FLAG_NONE)
         {
@@ -2001,6 +2006,9 @@ static bool8 IsRouteEnabled(u16 routeId)
 
     if(FlagGet(FLAG_ROGUE_KANTO_ROUTES))
         includeFlags |= ROUTE_FLAG_KANTO;
+
+    if(FlagGet(FLAG_ROGUE_JOHTO_ROUTES))
+        includeFlags |= ROUTE_FLAG_JOHTO;
 
     // Use the custom fallback set >:3
     if(includeFlags == ROUTE_FLAG_NONE)

@@ -666,22 +666,22 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(15,22, METATILE_BikeShop_Button_Pressed, FALSE)
     }
     
-    //if(flag(FLAG_ROGUE_JOHTO_ROUTES))
-    //{
-    //    setmetatile(17,20, METATILE_BikeShop_Button_Green, FALSE)
-    //}
-    //else
-    //{
-    //    setmetatile(17,20, METATILE_BikeShop_Button_Pressed, FALSE)
-    //}
-    //if(flag(FLAG_ROGUE_JOHTO_BOSSES))
-    //{
-    //    setmetatile(17,22, METATILE_BikeShop_Button_Green, FALSE)
-    //}
-    //else
-    //{
-    //    setmetatile(17,22, METATILE_BikeShop_Button_Pressed, FALSE)
-    //}
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
     
     if(flag(FLAG_ROGUE_HOENN_ROUTES))
     {
@@ -1071,6 +1071,71 @@ script Rogue_ConfigRoom_Button_KantoBosses
     {
         // Print Info
         msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_JohtoRoutes
+{
+    bufferstring(STR_VAR_1, format("JOHTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Johto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_JohtoBosses
+{
+    bufferstring(STR_VAR_1, format("JOHTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Johto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

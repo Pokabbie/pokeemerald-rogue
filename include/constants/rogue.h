@@ -41,7 +41,8 @@
 #define ROUTE_FLAG_NONE                   0
 #define ROUTE_FLAG_HOENN                  (1 << 1)
 #define ROUTE_FLAG_KANTO                  (1 << 2)
-#define ROUTE_FLAG_FALLBACK_REGION        (1 << 3) // If the player unselects all route expansions, use this custom fallback set
+#define ROUTE_FLAG_JOHTO                  (1 << 3)
+#define ROUTE_FLAG_FALLBACK_REGION        (1 << 4) // If the player unselects all route expansions, use this custom fallback set
 
 // Trainers
 //
@@ -52,8 +53,9 @@
 #define TRAINER_FLAG_FINAL_CHAMP            (1 << 3)
 #define TRAINER_FLAG_HOENN                  (1 << 4)
 #define TRAINER_FLAG_KANTO                  (1 << 5)
-#define TRAINER_FLAG_FALLBACK_REGION        (1 << 6) // If the player unselects all boss expansions, use this custom fallback set
-#define TRAINER_FLAG_RAINBOW_EXCLUDE        (1 << 7)
+#define TRAINER_FLAG_JOHTO                  (1 << 6)
+#define TRAINER_FLAG_FALLBACK_REGION        (1 << 7) // If the player unselects all boss expansions, use this custom fallback set
+#define TRAINER_FLAG_RAINBOW_EXCLUDE        (1 << 8)
 
 #define PARTY_FLAG_NONE                     0
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
