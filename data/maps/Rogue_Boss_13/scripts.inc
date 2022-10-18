@@ -7,7 +7,21 @@ Rogue_Battle_Boss13::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss13
 	waitmovement 0
+	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_RED
+	goto_if_eq Rogue_Battle_Boss13_2
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
+	msgbox Rogue_Battle_Boss13_Text_3
+	call Rogue_SetDesiredWeather
+	applymovement 1, BossToFightBoss13
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13
+	waitmovement 0
+	msgbox Rogue_Battle_Boss13_Text_4
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss13_Text_5
+Rogue_Battle_Boss13_1:
+	call Rogue_BattleDefeated_Boss13
+	return
+
+Rogue_Battle_Boss13_2:
 	msgbox Rogue_Battle_Boss13_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss13
@@ -15,8 +29,7 @@ Rogue_Battle_Boss13::
 	waitmovement 0
 	msgbox Rogue_Battle_Boss13_Text_1
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_Battle_Boss13_Text_2
-	call Rogue_BattleDefeated_Boss13
-	return
+	goto Rogue_Battle_Boss13_1
 
 
 Rogue_BattleDefeated_Boss13::
@@ -44,14 +57,25 @@ BossToFightBoss13:
 Rogue_Battle_Boss13_Text_0:
 	.string "...\p"
 	.string "...\p"
+	.string "...$"
+
+Rogue_Battle_Boss13_Text_1:
+	.string "!$"
+
+Rogue_Battle_Boss13_Text_2:
+	.string "...!$"
+
+Rogue_Battle_Boss13_Text_3:
+	.string "...\p"
+	.string "...\p"
 	.string "...\p"
 	.string "{STR_VAR_1}: You did well to make it\n"
 	.string "here...\p"
 	.string "Now...\p"
 	.string "For one last time...$"
 
-Rogue_Battle_Boss13_Text_1:
+Rogue_Battle_Boss13_Text_4:
 	.string "Let's battle!$"
 
-Rogue_Battle_Boss13_Text_2:
+Rogue_Battle_Boss13_Text_5:
 	.string "Congratulations {PLAYER}!$"

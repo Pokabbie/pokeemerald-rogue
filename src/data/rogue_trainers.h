@@ -870,8 +870,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_TUCKER,
-        .trainerId = TRAINER_ROGUE_BOSS_TUCKER,
+        .gfxId = OBJ_EVENT_GFX_JOHTO_PRYCE,
+        .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
         .incTypes = { TYPE_BUG, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_NONE,
@@ -971,8 +971,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_TUCKER,
-        .trainerId = TRAINER_ROGUE_BOSS_TUCKER,
+        .gfxId = OBJ_EVENT_GFX_JOHTO_JASMINE,
+        .trainerId = TRAINER_ROGUE_BOSS_JASMINE,
 #ifdef ROGUE_EXPANSION
         .incTypes = { TYPE_POISON, TYPE_FAIRY, TYPE_NONE },
 #else

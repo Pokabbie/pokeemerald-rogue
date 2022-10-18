@@ -4960,6 +4960,16 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Route_Chaos0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Chaos0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_FIELD0",
+      "name": "Rogue_Route_Johto_Field0_Layout",
+      "width": 36,
+      "height": 120,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_Field0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Field0/map.bin"
     }
   ]
 }

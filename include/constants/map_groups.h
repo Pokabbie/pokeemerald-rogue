@@ -647,6 +647,7 @@
 #define MAP_ROGUE_ROUTE_KANTO_FIELD0        (52 | (34 << 8))
 #define MAP_ROGUE_ROUTE_KANTO_MOUNTAIN0     (53 | (34 << 8))
 #define MAP_ROGUE_ROUTE_KANTO_URBAN0        (54 | (34 << 8))
+#define MAP_ROGUE_ROUTE_JOHTO_FIELD0        (55 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

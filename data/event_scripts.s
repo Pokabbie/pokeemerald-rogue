@@ -1165,3 +1165,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Kanto_Urban0/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Chaos0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Field0/scripts.inc"
