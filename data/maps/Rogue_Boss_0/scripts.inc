@@ -129,7 +129,7 @@ Rogue_Battle_Boss0::
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss0_Text_0
 	call Rogue_SetDesiredWeather
-	applymovement 5, BossToFight
+	applymovement 3, BossToFight
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerToFight
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE

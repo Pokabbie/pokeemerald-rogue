@@ -4465,7 +4465,7 @@
       "id": "LAYOUT_ROGUE_BOSS_0",
       "name": "Rogue_Boss_0_Layout",
       "width": 24,
-      "height": 21,
+      "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/Rogue_Boss_0/border.bin",
