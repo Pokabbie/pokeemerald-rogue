@@ -486,4 +486,16 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 
     [TRAINER_PIC_KANTO_BLUE] = sAnims_Kanto,
     [TRAINER_PIC_KANTO_PROFOAK] = sAnims_Kanto,
+
+    [TRAINER_PIC_JOHTO_FALKNER] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_BUGSY] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_WHITNEY] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_MORTY] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_CHUCK] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_JASMINE] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_PRYCE] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_CLAIR] = sAnims_Kanto,
+
+    [TRAINER_PIC_JOHTO_WILL] = sAnims_Kanto,
+    [TRAINER_PIC_JOHTO_KAREN] = sAnims_Kanto,
 };

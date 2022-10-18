@@ -712,32 +712,32 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         // Johto
         //
         case TRAINER_ROGUE_BOSS_FALKNER:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_FALKNER;
             break;
         case TRAINER_ROGUE_BOSS_BUGSY:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_BUGSY;
             break;
         case TRAINER_ROGUE_BOSS_WHITNEY:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_WHITNEY;
             break;
         case TRAINER_ROGUE_BOSS_MORTY:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_MORTY;
             break;
         case TRAINER_ROGUE_BOSS_CHUCK:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_CHUCK;
             break;
         case TRAINER_ROGUE_BOSS_JASMINE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_JASMINE;
             break;
         case TRAINER_ROGUE_BOSS_PRYCE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_PRYCE;
             break;
         case TRAINER_ROGUE_BOSS_CLAIR:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_CLAIR;
             break;
 
         case TRAINER_ROGUE_BOSS_WILL:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_WILL;
             break;
         case TRAINER_ROGUE_BOSS_JOHTO_KOGA:
             outTrainer->trainerPic = TRAINER_PIC_KANTO_KOGA;
@@ -746,7 +746,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             outTrainer->trainerPic = TRAINER_PIC_KANTO_BRUNO;
             break;
         case TRAINER_ROGUE_BOSS_KAREN:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_KAREN;
             break;
 
         case TRAINER_ROGUE_BOSS_JOHTO_LANCE:

@@ -396,3 +396,34 @@ const u32 gTrainerPalette_ChampionBlue[] = INCBIN_U32("graphics/trainers/palette
 
 const u32 gTrainerFrontPic_ChampionProfOak[] = INCBIN_U32("graphics/trainers/front_pics/kanto/professor_oak_front_pic.4bpp.lz");
 const u32 gTrainerPalette_ChampionProfOak[] = INCBIN_U32("graphics/trainers/palettes/kanto/professor_oak.gbapal.lz");
+
+
+const u32 gTrainerFrontPic_LeaderFalkner[] = INCBIN_U32("graphics/trainers/front_pics/johto/falkner_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderFalkner[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_falkner.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderBugsy[] = INCBIN_U32("graphics/trainers/front_pics/johto/bugsy_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderBugsy[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_bugsy.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderWhitney[] = INCBIN_U32("graphics/trainers/front_pics/johto/whitney_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderWhitney[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_whitney.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderMorty[] = INCBIN_U32("graphics/trainers/front_pics/johto/morty_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderMorty[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_morty.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderChuck[] = INCBIN_U32("graphics/trainers/front_pics/johto/chuck_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderChuck[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_chuck.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderJasmine[] = INCBIN_U32("graphics/trainers/front_pics/johto/jasmine_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderJasmine[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_jasmine.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderPryce[] = INCBIN_U32("graphics/trainers/front_pics/johto/pryce_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderPryce[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_pryce.gbapal.lz");
+
+const u32 gTrainerFrontPic_LeaderClair[] = INCBIN_U32("graphics/trainers/front_pics/johto/clair_front_pic.4bpp.lz");
+const u32 gTrainerPalette_LeaderClair[] = INCBIN_U32("graphics/trainers/palettes/johto/leader_clair.gbapal.lz");
+
+const u32 gTrainerFrontPic_EliteFourWill[] = INCBIN_U32("graphics/trainers/front_pics/johto/will_front_pic.4bpp.lz");
+const u32 gTrainerPalette_EliteFourWill[] = INCBIN_U32("graphics/trainers/palettes/johto/elite_will.gbapal.lz");
+
+const u32 gTrainerFrontPic_EliteFourKaren[] = INCBIN_U32("graphics/trainers/front_pics/johto/karen_front_pic.4bpp.lz");
+const u32 gTrainerPalette_EliteFourKaren[] = INCBIN_U32("graphics/trainers/palettes/johto/elite_karen.gbapal.lz");
