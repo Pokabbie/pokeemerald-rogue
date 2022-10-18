@@ -531,36 +531,40 @@ Rogue_ConfigRoom_RedrawMap_24:
 	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_32
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_30:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_37
-	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_37
+	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_38
+	setmetatile 5, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_36:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_41
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_43
+	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_42:
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_47
 	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_40:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_45
+Rogue_ConfigRoom_RedrawMap_46:
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_51
 	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_44:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_49
+Rogue_ConfigRoom_RedrawMap_50:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_55
 	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_48:
-	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_53
+Rogue_ConfigRoom_RedrawMap_54:
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_59
 	setmetatile 15, 20, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_52:
-	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_57
+Rogue_ConfigRoom_RedrawMap_58:
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_63
 	setmetatile 15, 22, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_56:
-	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_RedrawMap_61
+Rogue_ConfigRoom_RedrawMap_62:
+	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_RedrawMap_67
 	setmetatile 17, 20, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_60:
-	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_RedrawMap_65
+Rogue_ConfigRoom_RedrawMap_66:
+	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_RedrawMap_71
 	setmetatile 17, 22, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_64:
-	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_69
+Rogue_ConfigRoom_RedrawMap_70:
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_75
 	setmetatile 19, 20, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_68:
-	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_73
+Rogue_ConfigRoom_RedrawMap_74:
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_79
 	setmetatile 19, 22, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_72:
+Rogue_ConfigRoom_RedrawMap_78:
 	special DrawWholeMapView
 	return
 
@@ -611,44 +615,52 @@ Rogue_ConfigRoom_RedrawMap_32:
 	goto Rogue_ConfigRoom_RedrawMap_30
 
 Rogue_ConfigRoom_RedrawMap_37:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 5, 5, 0x23E, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_36
 
-Rogue_ConfigRoom_RedrawMap_41:
+Rogue_ConfigRoom_RedrawMap_38:
+	setmetatile 5, 5, METATILE_BikeShop_Button_Blue, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_36
+
+Rogue_ConfigRoom_RedrawMap_43:
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_42
+
+Rogue_ConfigRoom_RedrawMap_47:
 	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_40
+	goto Rogue_ConfigRoom_RedrawMap_46
 
-Rogue_ConfigRoom_RedrawMap_45:
+Rogue_ConfigRoom_RedrawMap_51:
 	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_44
+	goto Rogue_ConfigRoom_RedrawMap_50
 
-Rogue_ConfigRoom_RedrawMap_49:
+Rogue_ConfigRoom_RedrawMap_55:
 	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_48
+	goto Rogue_ConfigRoom_RedrawMap_54
 
-Rogue_ConfigRoom_RedrawMap_53:
+Rogue_ConfigRoom_RedrawMap_59:
 	setmetatile 15, 20, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_52
+	goto Rogue_ConfigRoom_RedrawMap_58
 
-Rogue_ConfigRoom_RedrawMap_57:
+Rogue_ConfigRoom_RedrawMap_63:
 	setmetatile 15, 22, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_56
+	goto Rogue_ConfigRoom_RedrawMap_62
 
-Rogue_ConfigRoom_RedrawMap_61:
+Rogue_ConfigRoom_RedrawMap_67:
 	setmetatile 17, 20, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_60
+	goto Rogue_ConfigRoom_RedrawMap_66
 
-Rogue_ConfigRoom_RedrawMap_65:
+Rogue_ConfigRoom_RedrawMap_71:
 	setmetatile 17, 22, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_64
+	goto Rogue_ConfigRoom_RedrawMap_70
 
-Rogue_ConfigRoom_RedrawMap_69:
+Rogue_ConfigRoom_RedrawMap_75:
 	setmetatile 19, 20, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_68
+	goto Rogue_ConfigRoom_RedrawMap_74
 
-Rogue_ConfigRoom_RedrawMap_73:
+Rogue_ConfigRoom_RedrawMap_79:
 	setmetatile 19, 22, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_72
+	goto Rogue_ConfigRoom_RedrawMap_78
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -840,6 +852,52 @@ Rogue_ConfigRoom_Button_ItemDifficulty_11:
 Rogue_ConfigRoom_Button_ItemDifficulty_13:
 	msgbox Rogue_ConfigRoom_Button_ItemDifficulty_Text_1, MSGBOX_DEFAULT
 	goto Rogue_ConfigRoom_Button_ItemDifficulty_12
+
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_0
+	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_2
+	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_3
+	setvar VAR_0x8000, 1
+Rogue_ConfigRoom_Button_LegendaryDifficulty_1:
+	call Rogue_ConfigRoom_PreEAHButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_LegendaryDifficulty_9
+	case 1, Rogue_ConfigRoom_Button_LegendaryDifficulty_10
+	case 2, Rogue_ConfigRoom_Button_LegendaryDifficulty_11
+Rogue_ConfigRoom_Button_LegendaryDifficulty_7:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_LegendaryDifficulty_13
+Rogue_ConfigRoom_Button_LegendaryDifficulty_12:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_2:
+	setvar VAR_0x8000, 0
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_1
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_3:
+	setvar VAR_0x8000, 2
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_1
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_9:
+	setflag FLAG_ROGUE_EASY_LEGENDARIES
+	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_10:
+	clearflag FLAG_ROGUE_EASY_LEGENDARIES
+	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_11:
+	clearflag FLAG_ROGUE_EASY_LEGENDARIES
+	setflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_13:
+	msgbox Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_12
 
 
 Rogue_ConfigRoom_Button_SeedItems::
@@ -1399,6 +1457,21 @@ Rogue_ConfigRoom_Button_ItemDifficulty_Text_1:
 	.string "Increases/Decrease the rate at which\n"
 	.string "items will appear and money trainers\l"
 	.string "give$"
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_0:
+	.string "LEGENDARY ENCOUNTERS$"
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_1:
+	.string "Adjust the rate and quality of\n"
+	.string "Legendary encounters may appear.\p"
+	.string "Easy makes sure any Legendaries may\n"
+	.string "appear fairly frequently.\p"
+	.string "Average will result in few legendarty\n"
+	.string "encounters and the quality of those\l"
+	.string "legendaries will get stronger the\l"
+	.string "further into a run you are.\p"
+	.string "Hard will result in few encounters and\n"
+	.string "stronger Legendaries will not appear.$"
 
 Rogue_ConfigRoom_Button_SeedItems_Text_0:
 	.string "SEED ITEMS$"

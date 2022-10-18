@@ -688,8 +688,8 @@
 #define FLAG_ROGUE_KANTO_BOSSES              0x27C
 #define FLAG_ROGUE_JOHTO_ROUTES              0x27D
 #define FLAG_ROGUE_JOHTO_BOSSES              0x27E
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
+#define FLAG_ROGUE_EASY_LEGENDARIES          0x27F
+#define FLAG_ROGUE_HARD_LEGENDARIES          0x280
 #define FLAG_UNUSED_0x281  0x281 // Unused Flag
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag

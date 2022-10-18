@@ -1902,10 +1902,33 @@ u8 Rogue_SelectBossEncounter(void)
 static bool8 IsLegendaryEnabled(u16 legendaryId)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
+    bool8 allowStrongSpecies = FALSE;
 
     if(!IsGenEnabled(SpeciesToGen(species)))
     {
         return FALSE;
+    }
+
+    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        allowStrongSpecies = TRUE;
+    }
+    else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        allowStrongSpecies = FALSE;
+    }
+    else
+    {
+        allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
+    }
+
+    if(!allowStrongSpecies)
+    {
+        if((gPresetMonTable[species].flags & MON_FLAG_STRONG) == 0)
+        {
+            // We're not allowed this encounter as it's too strong
+            return FALSE;
+        }
     }
 
     if(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId))

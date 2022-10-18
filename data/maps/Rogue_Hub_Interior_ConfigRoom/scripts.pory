@@ -608,6 +608,19 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
 
     // SEED settings
     //
@@ -879,6 +892,46 @@ script Rogue_ConfigRoom_Button_ItemDifficulty
     {
         // Print Info
         msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_LegendaryDifficulty
+{
+    bufferstring(STR_VAR_1, format("LEGENDARY ENCOUNTERS"))
+
+    if(flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            setflag(FLAG_ROGUE_HARD_LEGENDARIES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust the rate and quality of Legendary encounters may appear.\pEasy makes sure any Legendaries may appear fairly frequently.\pAverage will result in few Legendary encounters and the quality of those Legendaries will get stronger the further into a run you are.\pHard will result in few encounters and stronger Legendaries will not appear."), MSGBOX_DEFAULT)
     }
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
