@@ -13411,7 +13411,7 @@
           "map": "MAP_ROGUE_ROUTE_CHAOS0",
           "base_label": "gRogue_Route_Chaos00",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 5,
