@@ -48,37 +48,6 @@ script Rogue_ConfigRoom_SpeakSeedMode
     release
 }
 
-
-script Rogue_ConfigRoom_SpeakBasicBag
-{
-    lock
-    faceplayer
-
-    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-    else
-    {
-        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
-        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-
-    release
-}
-
 script Rogue_ConfigRoom_TalkAssistantInternal
 {
     if(flag(FLAG_SET_SEED_ENABLED) == TRUE)
@@ -581,6 +550,15 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
 
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {
@@ -811,6 +789,38 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
     {
         // Print Info
         msgbox(format("When enabled POKéMON will gain EVs at an accelerated rate.\pWhen disabled POKéMON will gain no EVs."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_BasicBag
+{
+    bufferstring(STR_VAR_1, format("BAG WIPE"))
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        case 1:
+            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If enabled, when embarking on an Adventure the contents of your bag will be wiped and you will be given the starter items instead.\pKey items are the only pocket which will remain untouched."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
