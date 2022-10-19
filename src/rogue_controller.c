@@ -1902,6 +1902,7 @@ u8 Rogue_SelectBossEncounter(void)
 static bool8 IsLegendaryEnabled(u16 legendaryId)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
     bool8 allowStrongSpecies = FALSE;
 
     if(!IsGenEnabled(SpeciesToGen(species)))
@@ -1922,9 +1923,10 @@ static bool8 IsLegendaryEnabled(u16 legendaryId)
         allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
     }
 
+
     if(!allowStrongSpecies)
     {
-        if((gPresetMonTable[species].flags & MON_FLAG_STRONG) == 0)
+        if((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0)
         {
             // We're not allowed this encounter as it's too strong
             return FALSE;

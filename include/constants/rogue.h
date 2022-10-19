@@ -158,49 +158,50 @@
 // Mon Preset flags
 //
 #define MON_FLAG_NONE                   0
-#define MON_FLAG_STRONG                 (1 << 0)
+#define MON_FLAG_STRONG                 (1 << 0) // Used to filter for E4/Champ fights
 #define MON_FLAG_DOUBLES                (1 << 1)
+#define MON_FLAG_STRONG_WILD            (1 << 2) // Used to filter for early legendary encounters
 
 // These's are the category names fed in by the Showdown presets
 #ifdef ROGUE_EXPANSION
-#define MON_FLAGS_GEN7UBERS                 MON_FLAG_STRONG
-#define MON_FLAGS_GEN7OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN7UU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN7UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7OU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7UU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN7RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7LC                    MON_FLAG_NONE
-#define MON_FLAGS_GEN7DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
+#define MON_FLAGS_GEN7DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN7BATTLESPOTSINGLES     MON_FLAG_NONE
 #define MON_FLAGS_GEN7BATTLESPOTDOUBLES     MON_FLAG_DOUBLES
-#define MON_FLAGS_GEN7VGC2017               MON_FLAG_STRONG
-#define MON_FLAGS_GEN7VGC2018               MON_FLAG_STRONG
+#define MON_FLAGS_GEN7VGC2017               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7VGC2018               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN71V1                   MON_FLAG_NONE
 #define MON_FLAGS_GEN7ANYTHINGGOES          MON_FLAG_NONE
 #define MON_FLAGS_GEN7LETSGOOU              MON_FLAG_NONE
-#define MON_FLAGS_GEN7MONOTYPE              MON_FLAG_STRONG
+#define MON_FLAGS_GEN7MONOTYPE              MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 
-#define MON_FLAGS_GEN8UBERS                 MON_FLAG_STRONG
-#define MON_FLAGS_GEN8OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN8UU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN8UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN8OU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN8UU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN8RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8LC                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8NATIONALDEX           MON_FLAG_NONE
-#define MON_FLAGS_GEN8DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
+#define MON_FLAGS_GEN8DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN8BATTLESTADIUMSINGLES  MON_FLAG_NONE
-#define MON_FLAGS_GEN8VGC2020               MON_FLAG_STRONG
+#define MON_FLAGS_GEN8VGC2020               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN81V1                   MON_FLAG_NONE
 #define MON_FLAGS_GEN8ANYTHINGGOES          MON_FLAG_NONE
 #define MON_FLAGS_GEN8NATIONALDEXAG         MON_FLAG_NONE
-#define MON_FLAGS_GEN8MONOTYPE              MON_FLAG_STRONG
+#define MON_FLAGS_GEN8MONOTYPE              MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 
 #else
 
-#define MON_FLAGS_GEN3UBERS                 MON_FLAG_STRONG
+#define MON_FLAGS_GEN3UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN3OU                    MON_FLAG_STRONG
 #define MON_FLAGS_GEN3UU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE

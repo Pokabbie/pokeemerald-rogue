@@ -439,15 +439,26 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             {
                 weights[ADVPATH_ROOM_LEGENDARY] = 0;
             }
-            else if((gRogueRun.currentDifficulty % 4) == 0)
+            else if((gRogueRun.currentDifficulty % 5) == 0)
             {
-                // Every 4 badges chances get really high
+                // Every 5 badges chances get really high
                 weights[ADVPATH_ROOM_LEGENDARY] = 600;
             }
             else
             {
                 // Otherwise the chances are just quite low
-                weights[ADVPATH_ROOM_LEGENDARY] = 100;
+                if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 100;
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 0;
+                }
+                else 
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
+                }
             }
         }
 
@@ -513,13 +524,9 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
 
     // We have limited number of certain encounters
     
-    if(scratch->legendaryCount >= 2)
+    if(scratch->legendaryCount >= 1)
     {
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
-    }
-    else if(scratch->legendaryCount >= 1)
-    {
-        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
     }
 
     if(scratch->wildDenCount >= 2)
