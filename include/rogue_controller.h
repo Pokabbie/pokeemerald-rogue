@@ -75,6 +75,10 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 
+
+void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);
+bool8 Rogue_GiveLabEncounterMon(u16 index);
+
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
 void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves);
 

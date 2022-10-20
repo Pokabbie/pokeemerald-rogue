@@ -11,8 +11,9 @@ const ADVPATH_ROOM_MINIBOSS = 4
 const ADVPATH_ROOM_WILD_DEN = 5
 const ADVPATH_ROOM_GAMESHOW = 6
 const ADVPATH_ROOM_GRAVEYARD = 7
+const ADVPATH_ROOM_LAB = 8
 // ADVPATH_ROOM_COUNT
-const ADVPATH_ROOM_BOSS = 9
+const ADVPATH_ROOM_BOSS = 10
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
@@ -61,6 +62,9 @@ script Rogue_AdventurePaths_InteractNodeInternal
 
         case ADVPATH_ROOM_GRAVEYARD:
             msgbox(format("It's a Graveyard?\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_LAB:
+            msgbox(format("It's a POKéMON Lab.\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))

@@ -2668,3 +2668,7 @@ static const struct SpriteFrameImage sPicTable_Johto_Will[] = {
     overworld_frame(gObjectEventPic_Johto_Will, 2, 4, 2),
     overworld_frame(gObjectEventPic_Johto_Will, 2, 4, 2),
 };
+
+static const struct SpriteFrameImage sPicTable_PC[] = {
+    obj_frame_tiles(gObjectEventPic_PC),
+};

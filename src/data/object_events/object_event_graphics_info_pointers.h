@@ -281,6 +281,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Pryce;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Whitney;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Will;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -558,6 +560,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JOHTO_PRYCE] =              &gObjectEventGraphicsInfo_Johto_Pryce,
     [OBJ_EVENT_GFX_JOHTO_WHITNEY] =            &gObjectEventGraphicsInfo_Johto_Whitney,
     [OBJ_EVENT_GFX_JOHTO_WILL] =               &gObjectEventGraphicsInfo_Johto_Will,
+
+    [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

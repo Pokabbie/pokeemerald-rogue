@@ -11,6 +11,7 @@ enum RogueAdvPathRoomType
     ADVPATH_ROOM_WILD_DEN,
     ADVPATH_ROOM_GAMESHOW,
     ADVPATH_ROOM_GRAVEYARD,
+    ADVPATH_ROOM_LAB,
     ADVPATH_ROOM_COUNT,
 
     // Special cases are excluded from count

@@ -460,3 +460,5 @@ const u32 gObjectEventPic_Johto_Morty[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Johto_Pryce[] = INCBIN_U32("graphics/object_events/pics/people/johto/pryce.4bpp");
 const u32 gObjectEventPic_Johto_Whitney[] = INCBIN_U32("graphics/object_events/pics/people/johto/whitney.4bpp");
 const u32 gObjectEventPic_Johto_Will[] = INCBIN_U32("graphics/object_events/pics/people/johto/will.4bpp");
+
+const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");

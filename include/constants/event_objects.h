@@ -304,7 +304,9 @@
 #define OBJ_EVENT_GFX_JOHTO_WHITNEY              (OBJ_EVENT_GFX_VAR_F + 33)
 #define OBJ_EVENT_GFX_JOHTO_WILL                 (OBJ_EVENT_GFX_VAR_F + 34)
 
-#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 35)
+#define OBJ_EVENT_GFX_PC                         (OBJ_EVENT_GFX_VAR_F + 35)
+
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 36)
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1

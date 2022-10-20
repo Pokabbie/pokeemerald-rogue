@@ -180,6 +180,7 @@ gSpecials::
 	def_special Rogue_RandomisePartyMon
 	def_special Rogue_AlterMonIVs
 	def_special Rogue_ApplyStatusToMon
+	def_special Rogue_ReleaseMonInSlot
 	def_special Rogue_ReducePartySize
 	def_special Rogue_GetMonEvoCount
 	def_special Rogue_GetMonEvoParams
@@ -188,6 +189,8 @@ gSpecials::
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_GetBufferedShinySpecies
 	def_special Rogue_AnyNewQuestsPending
+	def_special Rogue_BufferLabMonName
+	def_special Rogue_GiveLabMon
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams

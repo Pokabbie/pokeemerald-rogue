@@ -1,0 +1,152 @@
+const NPC_BIRCH = 1
+const FLAG_SELECTED_MON = FLAG_TEMP_4
+
+mapscripts Rogue_Encounter_Lab_MapScripts {}
+
+
+script Rogue_Encounter_Lab_SpeakProf
+{
+    lockall
+    faceplayer
+
+    if(flag(FLAG_SELECTED_MON))
+    {
+        msgbox(format("BIRCH: Hey {PLAYER}!\pDon't worry!\nI'll try my best to track down any more POKéMON that faint!"))
+    }
+    else
+    {
+        msgbox(format("BIRCH: Hey {PLAYER}!\nI managed to catch some of the POKéMON that had fainted!\pI wanted to give you all of them back, but I got told that would make the Adventures 'Too Easy' whatever that means..."))
+    }
+
+    releaseall
+}
+
+script Rogue_Encounter_Lab_PokeballCommon
+{
+    if(flag(FLAG_SELECTED_MON) == FALSE)
+    {
+        turnobject(NPC_BIRCH, DIR_WEST)
+
+        showmonpic(VAR_0x8001, 10, 3)
+        playmoncry(VAR_0x8001, CRY_MODE_NORMAL)
+        waitmoncry
+
+        //bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        special(Rogue_BufferLabMonName)
+
+        msgbox(format("BIRCH: You'd like to take {STR_VAR_1}?"), MSGBOX_YESNO)
+        hidemonpic
+
+        if(var(VAR_RESULT) == YES)
+        {
+            specialvar(VAR_0x8000, CalculatePlayerPartyCount)
+            
+            if(var(VAR_0x8000) >= VAR_ROGUE_MAX_PARTY_SIZE)
+            {
+                msgbox(format("Oh it looks like you're going to need to release a POKéMON to make room."))
+                //fadescreen(FADE_TO_BLACK)
+                special(ChoosePartyMon)
+                waitstate
+
+                if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+                {
+                    setvar(VAR_RESULT, NO)
+                    return
+                }
+                else
+                {
+                    special(Rogue_ReleaseMonInSlot)
+                }
+            }
+
+            setvar(VAR_RESULT, YES)
+            return
+        }
+    }
+    else
+    {
+        //bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        special(Rogue_BufferLabMonName)
+        msgbox(format("(Poor {STR_VAR_1}...)\p(Must be lonely...)"))
+    }
+
+    setvar(VAR_RESULT, NO)
+    return
+}
+
+script Rogue_Encounter_Lab_Pokeball_GiveMon
+{
+    //bufferspeciesname(STR_VAR_1, VAR_0x8001)
+    special(Rogue_BufferLabMonName)
+
+    special(Rogue_GiveLabMon)
+    removeobject(VAR_LAST_TALKED)
+
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(format("{PLAYER} obtained {STR_VAR_1}."))
+    waitmessage
+    waitfanfare
+
+    msgbox(format("BIRCH: TODO"))
+}
+
+
+script Rogue_Encounter_Lab_Pokeball0
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    setvar(VAR_0x8002, 0)
+    call(Rogue_Encounter_Lab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        setvar(VAR_0x8002, 0)
+        call(Rogue_Encounter_Lab_Pokeball_GiveMon)
+
+        setflag(FLAG_SELECTED_MON)
+        setflag(FLAG_TEMP_1)
+    }
+
+    release
+}
+
+script Rogue_Encounter_Lab_Pokeball1
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+    setvar(VAR_0x8002, 1)
+    call(Rogue_Encounter_Lab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+        setvar(VAR_0x8002, 1)
+        call(Rogue_Encounter_Lab_Pokeball_GiveMon)
+
+        setflag(FLAG_SELECTED_MON)
+        setflag(FLAG_TEMP_2)
+    }
+
+    release
+}
+
+script Rogue_Encounter_Lab_Pokeball2
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+    setvar(VAR_0x8002, 2)
+    call(Rogue_Encounter_Lab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        copyvar(VAR_0x8001, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+        setvar(VAR_0x8002, 2)
+        call(Rogue_Encounter_Lab_Pokeball_GiveMon)
+
+        setflag(FLAG_SELECTED_MON)
+        setflag(FLAG_TEMP_3)
+    }
+
+    release
+}

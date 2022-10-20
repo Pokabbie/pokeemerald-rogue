@@ -4970,6 +4970,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Route_Johto_Field0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Field0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_LAB",
+      "name": "Rogue_Encounter_Lab_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Encounter_Lab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Lab/map.bin"
     }
   ]
 }

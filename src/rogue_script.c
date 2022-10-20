@@ -9,6 +9,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "string_util.h"
 
 #include "rogue_baked.h"
 #include "rogue_controller.h"
@@ -226,6 +227,16 @@ void Rogue_ApplyStatusToMon(void)
     else
     {
         SetMonData(&gPlayerParty[monIdx], MON_DATA_STATUS, &statusAilment);
+    }
+}
+
+void Rogue_ReleaseMonInSlot(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        RemoveMonAtSlot(monIdx, TRUE, TRUE);
     }
 }
 
@@ -519,4 +530,16 @@ void Rogue_GetBufferedShinySpecies(void)
 void Rogue_AnyNewQuestsPending(void)
 {
     gSpecialVar_Result = AnyNewQuestsPending();
+}
+
+void Rogue_BufferLabMonName(void)
+{
+    u16 index = gSpecialVar_0x8002;
+    Rogue_CopyLabEncounterMonNickname(index, gStringVar1);
+}
+
+void Rogue_GiveLabMon(void)
+{
+    u16 index = gSpecialVar_0x8002;
+    gSpecialVar_Result = Rogue_GiveLabEncounterMon(index);
 }

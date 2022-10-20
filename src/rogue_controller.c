@@ -69,6 +69,8 @@ extern const u8 gText_RogueDebug_X[];
 extern const u8 gText_RogueDebug_Y[];
 #endif
 
+#define LAB_MON_COUNT 3
+
 // Box save data
 // TODO - We keep this around in EWRAM, but we really don't need to
 // Bag items could be partially saved into the box and the rest only need to be present at save/load time
@@ -81,6 +83,7 @@ struct RogueBoxSaveData
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+    struct Pokemon faintedLabMons[LAB_MON_COUNT];
     struct RogueAdvPath advPath;
     struct RogueQuestData questData;
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
@@ -1653,6 +1656,33 @@ bool8 Rogue_IsPartnerMonInTeam(void)
     return FALSE;
 }
 
+static void ResetFaintedLabMonAtSlot(u16 slot)
+{
+    u16 species;
+
+    struct Pokemon* mon = &gRogueLocal.saveData.raw.faintedLabMons[slot];
+
+    if(slot == VarGet(VAR_STARTER_MON))
+    {
+        species = SPECIES_SUNKERN;
+    }
+    else
+    {
+        species = VarGet(VAR_ROGUE_STARTER0 + slot);
+    }
+
+    CreateMonWithNature(mon, species, 7, USE_RANDOM_IVS, Random() % NUM_NATURES);
+}
+
+static void InitialiseFaintedLabMons(void)
+{
+    u16 i;
+    for(i = 0; i < LAB_MON_COUNT; ++i)
+    {
+        ResetFaintedLabMonAtSlot(i);
+    }
+}
+
 static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -1696,6 +1726,7 @@ static void BeginRogueRun(void)
 
     ClearBerryTrees();
     RandomiseFishingEncounters();
+    InitialiseFaintedLabMons();
 
     gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
     //gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
@@ -2431,6 +2462,14 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 }
                 break;
             }
+
+            case ADVPATH_ROOM_LAB:
+            {
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[0], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[1], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[2], MON_DATA_SPECIES));
+                break;
+            }
         };
 
 #ifdef ROGUE_DEBUG
@@ -2459,6 +2498,50 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     QuestNotify_OnWarp(warp);
 }
 
+static void PushFaintedMonToLab(struct Pokemon* srcMon)
+{
+    u16 temp;
+    struct Pokemon* destMon;
+    u16 i = Random() % (LAB_MON_COUNT + 1);
+    
+    if(i >= LAB_MON_COUNT)
+    {
+        // Ignore this fainted mon
+        return;
+    }
+
+    destMon = &gRogueLocal.saveData.raw.faintedLabMons[i];
+    CopyMon(destMon, srcMon, sizeof(*destMon));
+
+    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 10;
+    SetMonData(destMon, MON_DATA_HP, &temp);
+
+    // TODO - Maybe we make fainted mons weaker?
+}
+
+void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)
+{
+    if(index < LAB_MON_COUNT)
+    {
+        GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[index], MON_DATA_NICKNAME, dst);
+        StringGet_Nickname(dst);
+    }
+}
+
+bool8 Rogue_GiveLabEncounterMon(u16 index)
+{
+    if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
+    {
+        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLocal.saveData.raw.faintedLabMons[index], sizeof(gPlayerParty[gPlayerPartyCount]));
+
+        gPlayerPartyCount = CalculatePlayerPartyCount();
+        ResetFaintedLabMonAtSlot(index);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
 {
     if(slot < gPlayerPartyCount)
@@ -2481,6 +2564,8 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
                     if(heldItem != ITEM_NONE)
                         AddBagItem(heldItem, 1);
                 }
+
+                PushFaintedMonToLab(&gPlayerParty[slot]);
 
                 ZeroMonData(&gPlayerParty[slot]);
             }
@@ -2523,6 +2608,8 @@ void RemoveAnyFaintedMons(bool8 keepItems)
             }
             else
                 hasMonFainted = TRUE;
+
+            PushFaintedMonToLab(&gPlayerParty[read]);
 
             ZeroMonData(&gPlayerParty[read]);
         }
