@@ -36,6 +36,8 @@
 extern const u8 gText_TrainerNameChallenger[];
 extern const u8 gText_TrainerNameGrunt[];
 
+extern const u8 gText_TrainerName_TateLiza[];
+
 extern const u8 gText_TrainerName_Brock[];
 extern const u8 gText_TrainerName_Misty[];
 extern const u8 gText_TrainerName_LtSurge[];
@@ -324,7 +326,10 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
             };
             break;
         }
-            
+
+        case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
+            return gText_TrainerName_TateLiza;
+
         case TRAINER_ROGUE_BOSS_BROCK:
             return gText_TrainerName_Brock;
         case TRAINER_ROGUE_BOSS_MISTY:

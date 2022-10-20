@@ -19,6 +19,8 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
 const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
 const u8 gText_TrainerNameGrunt[] = _("GRUNT");
 
+const u8 gText_TrainerName_TateLiza[] = _("LIZA");
+
 const u8 gText_TrainerName_Brock[] = _("BROCK");
 const u8 gText_TrainerName_Misty[] = _("MISTY");
 const u8 gText_TrainerName_LtSurge[] = _("LT. SURGE");
