@@ -58,9 +58,13 @@ const u8 gText_TrainerName_Karen[] = _("KAREN");
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");
+const u8 gText_ItemShoppingCharm[] = _("Shopping Charm");
+const u8 gText_ItemShoppingCurse[] = _("Shopping Curse");
 #else
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
+const u8 gText_ItemShoppingCharm[] = _("SHOPPING CHARM");
+const u8 gText_ItemShoppingCurse[] = _("SHOPPING CURSE");
 #endif
 const u8 gText_ItemQuestLogDesc[] = _("A digital log for\ntracking Quests\nand their rewards.");
 const u8 gText_QuestLogTitleOverview[] = _("QUESTS");

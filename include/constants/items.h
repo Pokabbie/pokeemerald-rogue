@@ -477,7 +477,10 @@
 #define ITEM_MAGMA_EMBLEM 375
 #define ITEM_OLD_SEA_MAP 376
 
-#define ITEMS_COUNT 377
+#define ITEM_SHOPPING_CHARM 377
+#define ITEM_SHOPPING_CURSE 378
+
+#define ITEMS_COUNT 379
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

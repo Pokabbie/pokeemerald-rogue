@@ -887,6 +887,8 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
 extern const u8 gText_ItemLinkCable[];
 extern const u8 gText_ItemQuestLog[];
+extern const u8 gText_ItemShoppingCharm[];
+extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemQuestLogDesc[];
 
 extern const u32 *const gItemIconTable[][2];
@@ -902,6 +904,12 @@ const u8* Rogue_GetItemName(u16 itemId)
         
         case ITEM_QUEST_LOG:
             return gText_ItemQuestLog;
+
+        case ITEM_SHOPPING_CHARM:
+            return gText_ItemShoppingCharm;
+
+        case ITEM_SHOPPING_CURSE:
+            return gText_ItemShoppingCurse;
     }
 
     return gItems[itemId].name;
@@ -913,6 +921,12 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     {
         case ITEM_QUEST_LOG:
             return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+
+        case ITEM_SHOPPING_CHARM:
+            return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+
+        case ITEM_SHOPPING_CURSE:
+            return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
     }
 
     return gItemIconTable[itemId][which];
@@ -922,6 +936,35 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
     itemId = SanitizeItemId(itemId);
     memcpy(outItem, &gItems[itemId], sizeof(struct Item));
+
+    // Full edits
+    //
+    switch(itemId)
+    {
+        case ITEM_SHOPPING_CHARM:
+            outItem->itemId = ITEM_SHOPPING_CHARM;
+            outItem->price = 0;
+            //outItem->description = sMachBikeDesc;
+            outItem->importance = 1;
+            outItem->registrability = TRUE;
+            outItem->pocket = POCKET_KEY_ITEMS;
+            outItem->type = ITEM_USE_FIELD;
+            //outItem->fieldUseFunc = ItemUseOutOfBattle_Bike;
+            //outItem->secondaryId = MACH_BIKE;
+            break;
+
+        case ITEM_SHOPPING_CURSE:
+            outItem->itemId = ITEM_SHOPPING_CURSE;
+            outItem->price = 0;
+            //outItem->description = sMachBikeDesc;
+            outItem->importance = 1;
+            outItem->registrability = TRUE;
+            outItem->pocket = POCKET_KEY_ITEMS;
+            outItem->type = ITEM_USE_FIELD;
+            //outItem->fieldUseFunc = ItemUseOutOfBattle_Bike;
+            //outItem->secondaryId = MACH_BIKE;
+            break;
+    }
 
     // Behaviour edits
     //
