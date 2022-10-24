@@ -238,6 +238,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         },
         .unlockedQuests = { 
             QUEST_KantoMode,
+            QUEST_OrreMode,
 #ifdef ROGUE_EXPANSION
             QUEST_MegaEvo,
             QUEST_ZMove,
