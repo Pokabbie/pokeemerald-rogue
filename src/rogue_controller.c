@@ -1833,10 +1833,14 @@ static void EndRogueRun(void)
 
 static u16 GetBossHistoryKey(u16 bossId)
 {
-    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
-        return gRogueBossEncounters.trainers[bossId].incTypes[0];
-    else
-        return bossId;
+    //if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+    //    return gRogueBossEncounters.trainers[bossId].incTypes[0];
+    //else
+    //    return bossId;
+
+    // We're gonna always use the trainer's assigned type to prevent dupes
+    // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
+    return gRogueBossEncounters.trainers[bossId].incTypes[0];
 }
 
 static bool8 IsBossEnabled(u16 bossId)
@@ -2686,6 +2690,20 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             {
                 // Set any extra flags
                 FlagSet(trainer->victorySetFlag);
+            }
+
+            // Clear the history buffer, as we track based on types
+            // In rainbow mode, the type can only appear once though
+            if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+            {
+                    switch(gRogueRun.currentDifficulty)
+                    {
+                        case 8:
+                        case 12:
+                        case 13:
+                            memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+                            break;
+                    }
             }
 
             if(gRogueRun.currentDifficulty >= BOSS_COUNT)
