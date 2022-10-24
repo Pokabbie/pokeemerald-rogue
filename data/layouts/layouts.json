@@ -4980,6 +4980,16 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/Rogue_Encounter_Lab/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Lab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_FOREST0",
+      "name": "Rogue_Route_Kanto_Forest0_Layout",
+      "width": 54,
+      "height": 64,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/map.bin"
     }
   ]
 }

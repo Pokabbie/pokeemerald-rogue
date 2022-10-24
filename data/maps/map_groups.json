@@ -35,7 +35,8 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_Rogue"
+    "gMapGroup_RogueHub",
+    "gMapGroup_RogueRun"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -623,7 +624,7 @@
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
   ],
-  "gMapGroup_Rogue": [
+  "gMapGroup_RogueHub": [
     "Rogue_Manager",
     "Rogue_Hub",
     "Rogue_HubTransition",
@@ -633,17 +634,10 @@
     "Rogue_Hub_PokemonCentre",
     "Rogue_Hub_AdventureEnterance",
     "Rogue_Hub_Bakery",
-    "Rogue_Hub_Debug",
+    "Rogue_Hub_Debug"
+  ],
+  "gMapGroup_RogueRun": [
     "Rogue_AdventurePaths",
-    "Rogue_Encounter_RestStop",
-    "Rogue_Encounter_Healing",
-    "Rogue_Encounter_Shops",
-    "Rogue_Encounter_Tutors",
-    "Rogue_Encounter_MiniBoss",
-    "Rogue_Encounter_Den",
-    "Rogue_Encounter_GameShow",
-    "Rogue_Encounter_Graveyard",
-    "Rogue_Encounter_Lab",
     "Rogue_Route_Field0",
     "Rogue_Route_Field1",
     "Rogue_Route_Forest0",
@@ -657,6 +651,12 @@
     "Rogue_Route_WaterFront1",
     "Rogue_Route_Urban0",
     "Rogue_Route_Urban1",
+    "Rogue_Route_Kanto_Field0",
+    "Rogue_Route_Kanto_Mountain0",
+    "Rogue_Route_Kanto_Urban0",
+    "Rogue_Route_Kanto_Forest0",
+    "Rogue_Route_Johto_Field0",
+    "Rogue_Route_Chaos0",
     "Rogue_Boss_0",
     "Rogue_Boss_8",
     "Rogue_Boss_9",
@@ -664,6 +664,15 @@
     "Rogue_Boss_11",
     "Rogue_Boss_12",
     "Rogue_Boss_13",
+    "Rogue_Encounter_RestStop",
+    "Rogue_Encounter_Healing",
+    "Rogue_Encounter_Shops",
+    "Rogue_Encounter_Tutors",
+    "Rogue_Encounter_MiniBoss",
+    "Rogue_Encounter_Den",
+    "Rogue_Encounter_GameShow",
+    "Rogue_Encounter_Graveyard",
+    "Rogue_Encounter_Lab",
     "Rogue_SouthernIsland_Latios",
     "Rogue_SouthernIsland_Latias",
     "Rogue_Special_Articuno",
@@ -675,11 +684,6 @@
     "Rogue_Special_Suicune",
     "Rogue_Special_Celebi",
     "Rogue_Special_Jirachi",
-    "Rogue_Special_GenericWildMon",
-    "Rogue_Route_Chaos0",
-    "Rogue_Route_Kanto_Field0",
-    "Rogue_Route_Kanto_Mountain0",
-    "Rogue_Route_Kanto_Urban0",
-    "Rogue_Route_Johto_Field0"
+    "Rogue_Special_GenericWildMon"
   ]
 }
