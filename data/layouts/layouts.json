@@ -4584,10 +4584,10 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_FOREST1",
       "name": "Rogue_Route_Forest1_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 48,
+      "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Route_Forest1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Forest1/map.bin"
     },
@@ -4990,6 +4990,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_CAVE0",
+      "name": "Rogue_Route_Kanto_Cave0_Layout",
+      "width": 109,
+      "height": 45,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/map.bin"
     }
   ]
 }
