@@ -280,30 +280,15 @@ Rogue_Tutor_MoveRelearn::
 	faceplayer
 	msgbox Rogue_Tutor_MoveRelearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_MoveRelearn_Text_1, MSGBOX_YESNO
+	msgbox Rogue_Tutor_MoveRelearn_Text_1, MSGBOX_DEFAULT
 	hidemoneybox
+	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_MoveRelearn_2
 Rogue_Tutor_MoveRelearn_1:
-	checkmoney 1000
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_MoveRelearn_5
-Rogue_Tutor_MoveRelearn_4:
-	special ChooseMonForMoveRelearner
-	waitstate
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_eq Rogue_Tutor_MoveRelearn_8
-Rogue_Tutor_MoveRelearn_7:
-	special IsSelectedMonEgg
-	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Tutor_MoveRelearn_11
-Rogue_Tutor_MoveRelearn_10:
-	special TeachMoveFromContext
-	waitstate
-	compare VAR_0x8004, 0
-	goto_if_eq Rogue_Tutor_MoveRelearn_14
-Rogue_Tutor_MoveRelearn_13:
-	removemoney 1000
+Rogue_Tutor_MoveRelearn_5:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Tutor_MoveRelearn_6
 	release
 	return
 
@@ -311,21 +296,46 @@ Rogue_Tutor_MoveRelearn_2:
 	goto Rogue_Tutor_MoveRelearnCancel
 	goto Rogue_Tutor_MoveRelearn_1
 
-Rogue_Tutor_MoveRelearn_5:
-	goto Rogue_Tutor_NotEnoughMoney
-	goto Rogue_Tutor_MoveRelearn_4
-
+Rogue_Tutor_MoveRelearn_6:
+	checkmoney 1000
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Tutor_MoveRelearn_9
 Rogue_Tutor_MoveRelearn_8:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_MoveRelearn_7
-
+	special ChooseMonForMoveRelearner
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_Tutor_MoveRelearn_12
 Rogue_Tutor_MoveRelearn_11:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_MoveRelearn_10
-
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Tutor_MoveRelearn_15
 Rogue_Tutor_MoveRelearn_14:
+	special TeachMoveFromContext
+	waitstate
+	showmoneybox 0, 0
+	compare VAR_0x8006, 0
+	goto_if_ne Rogue_Tutor_MoveRelearn_17
+	setvar VAR_RESULT, YES
+	goto Rogue_Tutor_MoveRelearn_5
+
+Rogue_Tutor_MoveRelearn_9:
+	goto Rogue_Tutor_NotEnoughMoney
+	goto Rogue_Tutor_MoveRelearn_8
+
+Rogue_Tutor_MoveRelearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_MoveRelearn_13
+	goto Rogue_Tutor_MoveRelearn_11
+
+Rogue_Tutor_MoveRelearn_15:
+	goto Rogue_Tutor_MoveRelearnCancel
+	goto Rogue_Tutor_MoveRelearn_14
+
+Rogue_Tutor_MoveRelearn_17:
+	removemoney 1000
+	updatemoneybox
+	playse SE_SHOP
+	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
+	goto Rogue_Tutor_MoveRelearn_5
 
 
 Rogue_Tutor_EggMoveLearn::
@@ -334,30 +344,15 @@ Rogue_Tutor_EggMoveLearn::
 	faceplayer
 	msgbox Rogue_Tutor_EggMoveLearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_EggMoveLearn_Text_1, MSGBOX_YESNO
+	msgbox Rogue_Tutor_EggMoveLearn_Text_1, MSGBOX_DEFAULT
 	hidemoneybox
+	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_EggMoveLearn_2
 Rogue_Tutor_EggMoveLearn_1:
-	checkmoney 2000
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_EggMoveLearn_5
-Rogue_Tutor_EggMoveLearn_4:
-	special ChooseMonForMoveRelearner
-	waitstate
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_eq Rogue_Tutor_EggMoveLearn_8
-Rogue_Tutor_EggMoveLearn_7:
-	special IsSelectedMonEgg
-	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Tutor_EggMoveLearn_11
-Rogue_Tutor_EggMoveLearn_10:
-	special TeachMoveFromContext
-	waitstate
-	compare VAR_0x8004, 0
-	goto_if_eq Rogue_Tutor_EggMoveLearn_14
-Rogue_Tutor_EggMoveLearn_13:
-	removemoney 2000
+Rogue_Tutor_EggMoveLearn_5:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Tutor_EggMoveLearn_6
 	release
 	return
 
@@ -365,21 +360,46 @@ Rogue_Tutor_EggMoveLearn_2:
 	goto Rogue_Tutor_MoveRelearnCancel
 	goto Rogue_Tutor_EggMoveLearn_1
 
-Rogue_Tutor_EggMoveLearn_5:
-	goto Rogue_Tutor_NotEnoughMoneyKind
-	goto Rogue_Tutor_EggMoveLearn_4
-
+Rogue_Tutor_EggMoveLearn_6:
+	checkmoney 2000
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Tutor_EggMoveLearn_9
 Rogue_Tutor_EggMoveLearn_8:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_EggMoveLearn_7
-
+	special ChooseMonForMoveRelearner
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_Tutor_EggMoveLearn_12
 Rogue_Tutor_EggMoveLearn_11:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_EggMoveLearn_10
-
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Tutor_EggMoveLearn_15
 Rogue_Tutor_EggMoveLearn_14:
+	special TeachMoveFromContext
+	waitstate
+	showmoneybox 0, 0
+	compare VAR_0x8006, 0
+	goto_if_ne Rogue_Tutor_EggMoveLearn_17
+	setvar VAR_RESULT, YES
+	goto Rogue_Tutor_EggMoveLearn_5
+
+Rogue_Tutor_EggMoveLearn_9:
+	goto Rogue_Tutor_NotEnoughMoneyKind
+	goto Rogue_Tutor_EggMoveLearn_8
+
+Rogue_Tutor_EggMoveLearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_EggMoveLearn_13
+	goto Rogue_Tutor_EggMoveLearn_11
+
+Rogue_Tutor_EggMoveLearn_15:
+	goto Rogue_Tutor_MoveRelearnCancel
+	goto Rogue_Tutor_EggMoveLearn_14
+
+Rogue_Tutor_EggMoveLearn_17:
+	removemoney 2000
+	updatemoneybox
+	playse SE_SHOP
+	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
+	goto Rogue_Tutor_EggMoveLearn_5
 
 
 Rogue_Tutor_TutorMoveLearn::
@@ -388,30 +408,15 @@ Rogue_Tutor_TutorMoveLearn::
 	faceplayer
 	msgbox Rogue_Tutor_TutorMoveLearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_TutorMoveLearn_Text_1, MSGBOX_YESNO
+	msgbox Rogue_Tutor_TutorMoveLearn_Text_1, MSGBOX_DEFAULT
 	hidemoneybox
+	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_TutorMoveLearn_2
 Rogue_Tutor_TutorMoveLearn_1:
-	checkmoney 3000
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_TutorMoveLearn_5
-Rogue_Tutor_TutorMoveLearn_4:
-	special ChooseMonForMoveRelearner
-	waitstate
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_eq Rogue_Tutor_TutorMoveLearn_8
-Rogue_Tutor_TutorMoveLearn_7:
-	special IsSelectedMonEgg
-	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Tutor_TutorMoveLearn_11
-Rogue_Tutor_TutorMoveLearn_10:
-	special TeachMoveFromContext
-	waitstate
-	compare VAR_0x8004, 0
-	goto_if_eq Rogue_Tutor_TutorMoveLearn_14
-Rogue_Tutor_TutorMoveLearn_13:
-	removemoney 3000
+Rogue_Tutor_TutorMoveLearn_5:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Tutor_TutorMoveLearn_6
 	release
 	return
 
@@ -419,37 +424,65 @@ Rogue_Tutor_TutorMoveLearn_2:
 	goto Rogue_Tutor_MoveRelearnCancel
 	goto Rogue_Tutor_TutorMoveLearn_1
 
-Rogue_Tutor_TutorMoveLearn_5:
-	goto Rogue_Tutor_NotEnoughMoney
-	goto Rogue_Tutor_TutorMoveLearn_4
-
+Rogue_Tutor_TutorMoveLearn_6:
+	checkmoney 3000
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Tutor_TutorMoveLearn_9
 Rogue_Tutor_TutorMoveLearn_8:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_TutorMoveLearn_7
-
+	special ChooseMonForMoveRelearner
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_Tutor_TutorMoveLearn_12
 Rogue_Tutor_TutorMoveLearn_11:
-	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_TutorMoveLearn_10
-
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Rogue_Tutor_TutorMoveLearn_15
 Rogue_Tutor_TutorMoveLearn_14:
+	special TeachMoveFromContext
+	waitstate
+	showmoneybox 0, 0
+	compare VAR_0x8006, 0
+	goto_if_ne Rogue_Tutor_TutorMoveLearn_17
+	setvar VAR_RESULT, YES
+	goto Rogue_Tutor_TutorMoveLearn_5
+
+Rogue_Tutor_TutorMoveLearn_9:
+	goto Rogue_Tutor_NotEnoughMoney
+	goto Rogue_Tutor_TutorMoveLearn_8
+
+Rogue_Tutor_TutorMoveLearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
-	goto Rogue_Tutor_TutorMoveLearn_13
+	goto Rogue_Tutor_TutorMoveLearn_11
+
+Rogue_Tutor_TutorMoveLearn_15:
+	goto Rogue_Tutor_MoveRelearnCancel
+	goto Rogue_Tutor_TutorMoveLearn_14
+
+Rogue_Tutor_TutorMoveLearn_17:
+	removemoney 3000
+	updatemoneybox
+	playse SE_SHOP
+	msgbox Rogue_Tutor_TutorMoveLearn_Text_2, MSGBOX_YESNO
+	goto Rogue_Tutor_TutorMoveLearn_5
 
 
 Rogue_Tutor_NotEnoughMoneyKind::
 	msgbox Rogue_Tutor_NotEnoughMoneyKind_Text_0, MSGBOX_DEFAULT
+	setvar VAR_RESULT, NO
 	release
 	return
 
 
 Rogue_Tutor_NotEnoughMoney::
 	msgbox Rogue_Tutor_NotEnoughMoney_Text_0, MSGBOX_DEFAULT
+	setvar VAR_RESULT, NO
 	release
 	return
 
 
 Rogue_Tutor_MoveRelearnCancel::
 	msgbox Rogue_Tutor_MoveRelearnCancel_Text_0, MSGBOX_DEFAULT
+	setvar VAR_RESULT, NO
 	release
 	return
 
@@ -1124,6 +1157,10 @@ Rogue_Tutor_MoveRelearn_Text_1:
 	.string "Would you like me to teach your POKéMON\n"
 	.string "a move for ¥1000?$"
 
+Rogue_Tutor_MoveRelearn_Text_2:
+	.string "Do you want me to teach another\n"
+	.string "POKéMON?$"
+
 Rogue_Tutor_EggMoveLearn_Text_0:
 	.string "I'm the EGG MOVE TUTOR.\p"
 	.string "I can teach POKéMON moves if you'd\n"
@@ -1142,6 +1179,10 @@ Rogue_Tutor_TutorMoveLearn_Text_0:
 Rogue_Tutor_TutorMoveLearn_Text_1:
 	.string "Want me to teach your POKéMON a move\n"
 	.string "for ¥3000?$"
+
+Rogue_Tutor_TutorMoveLearn_Text_2:
+	.string "You wanna get me to teach anymore\n"
+	.string "POKéMON?$"
 
 Rogue_Tutor_NotEnoughMoneyKind_Text_0:
 	.string "I'm afraid you don't have enough money.\p"

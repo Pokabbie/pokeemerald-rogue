@@ -461,6 +461,8 @@ static void CB2_InitLearnMove(void)
     sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
     SetVBlankCallback(VBlankCB_MoveRelearner);
 
+    gSpecialVar_0x8006 = FALSE;
+
     InitMoveRelearnerBackgroundLayers();
     InitMoveRelearnerWindows(FALSE);
 
@@ -490,6 +492,8 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
     sMoveRelearnerStruct->moveSlot = gSpecialVar_0x8005;
     SetVBlankCallback(VBlankCB_MoveRelearner);
+
+    gSpecialVar_0x8006 = FALSE;
 
     InitMoveRelearnerBackgroundLayers();
     InitMoveRelearnerWindows(sMoveRelearnerMenuSate.showContestInfo);
@@ -586,12 +590,12 @@ static void DoMoveRelearnerMain(void)
                 if (GiveMoveToMon(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES)
                 {
                     FormatAndPrintText(gText_MoveRelearnerPkmnLearnedMove);
-                    gSpecialVar_0x8004 = TRUE;
+                    gSpecialVar_0x8006 = TRUE;
                     sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
                 }
                 else
                 {
-                    sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
+                    sMoveRelearnerStruct->state = MENU_STATE_PRINT_WHICH_MOVE_PROMPT;
                 }
             }
             else if (selection == MENU_B_PRESSED || selection == 1)
@@ -608,11 +612,13 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_GIVE_UP_PROMPT:
-        if (!MoveRelearnerRunTextPrinters())
-        {
-            MoveRelearnerCreateYesNoMenu();
-            sMoveRelearnerStruct->state++;
-        }
+        // Skip prompt
+        sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
+        //if (!MoveRelearnerRunTextPrinters())
+        //{
+        //    MoveRelearnerCreateYesNoMenu();
+        //    sMoveRelearnerStruct->state++;
+        //}
         break;
     case MENU_STATE_GIVE_UP_CONFIRM:
         {
@@ -620,7 +626,7 @@ static void DoMoveRelearnerMain(void)
 
             if (selection == 0)
             {
-                gSpecialVar_0x8004 = FALSE;
+                gSpecialVar_0x8006 = FALSE;
                 sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
             }
             else if (selection == -1 || selection == 1)
@@ -693,7 +699,7 @@ static void DoMoveRelearnerMain(void)
                 {
                     sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
                 }
-                sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
+                sMoveRelearnerStruct->state = MENU_STATE_PRINT_WHICH_MOVE_PROMPT; // RogueNote: this may not be correct?
             }
         }
         break;
@@ -776,7 +782,7 @@ static void DoMoveRelearnerMain(void)
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
                 FormatAndPrintText(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
-                gSpecialVar_0x8004 = TRUE;
+                gSpecialVar_0x8006 = TRUE;
             }
         }
         break;
@@ -785,13 +791,13 @@ static void DoMoveRelearnerMain(void)
         {
             FormatAndPrintText(gText_MoveRelearnerPkmnForgotMoveAndLearnedNew);
             sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
-            PlayFanfare(MUS_LEVEL_UP);
+            //PlayFanfare(MUS_LEVEL_UP);
         }
         break;
     case MENU_STATE_PRINT_TEXT_THEN_FANFARE:
         if (!MoveRelearnerRunTextPrinters())
         {
-            PlayFanfare(MUS_LEVEL_UP);
+            //PlayFanfare(MUS_LEVEL_UP);
             sMoveRelearnerStruct->state = MENU_STATE_WAIT_FOR_FANFARE;
         }
         break;
