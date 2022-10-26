@@ -7,6 +7,28 @@ mapscripts Rogue_HubTransition_MapScripts
     [
         VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
     ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_TEMP_1, 0: Rogue_HubTransition_OnEnter
+    ]
+}
+
+script Rogue_HubTransition_OnEnter
+{
+    lock
+
+    if(flag(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
+    {
+        msgbox(format("Strong Legendary clause activated..."))
+    }
+    elif(flag(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
+    {
+        msgbox(format("Basic Legendary clause activated..."))
+    }
+
+    release
+    setvar(VAR_TEMP_1, 1)
+    end
 }
 
 script Rogue_HubTransition_RandomMan

@@ -690,8 +690,8 @@
 #define FLAG_ROGUE_JOHTO_BOSSES              0x27E
 #define FLAG_ROGUE_EASY_LEGENDARIES          0x27F
 #define FLAG_ROGUE_HARD_LEGENDARIES          0x280
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
+#define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
+#define FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES  0x282
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
 #define FLAG_UNUSED_0x285  0x285 // Unused Flag

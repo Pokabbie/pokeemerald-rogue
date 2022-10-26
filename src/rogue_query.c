@@ -852,6 +852,48 @@ void RogueQuery_SpeciesIsNotLegendary(void)
     }
 }
 
+void RogueQuery_SpeciesIsNotWeakLegendary(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(IsSpeciesLegendary(species))
+            {
+                bool8 isStrong = ((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0);
+
+                if(!isStrong)
+                {
+                    SetQueryState(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueQuery_SpeciesIsNotStrongLegendary(void)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(IsSpeciesLegendary(species))
+            {
+                bool8 isStrong = ((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0);
+
+                if(isStrong)
+                {
+                    SetQueryState(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
 void RogueQuery_SpeciesIncludeMonFlags(u16 flags)
 {
     u16 species;
