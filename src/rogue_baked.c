@@ -433,6 +433,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             break;
 
         case TRAINER_ROGUE_BOSS_BRAWLY:
+        case TRAINER_ROGUE_BOSS_WATTSON:
         case TRAINER_ROGUE_BOSS_NORMAN:
         case TRAINER_ROGUE_BOSS_JUAN:
         case TRAINER_ROGUE_BOSS_SIDNEY:
