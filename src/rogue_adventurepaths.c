@@ -107,6 +107,7 @@ struct AdvMapScratch
     u8 wildDenCount;
     u8 gameShowCount;
     u8 graveYardCount;
+    u8 labCount;
     struct AdvEventScratch* readNodes;
     struct AdvEventScratch* writeNodes;
 };
@@ -164,6 +165,11 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
         case ADVPATH_ROOM_GRAVEYARD:
             *breakChance = 2;
             *extraSplitChance = 50;
+            break;
+
+        case ADVPATH_ROOM_LAB:
+            *breakChance = 2;
+            *extraSplitChance = 0;
             break;
     }
 
@@ -359,6 +365,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             weights[ADVPATH_ROOM_WILD_DEN] = 250;
             weights[ADVPATH_ROOM_GAMESHOW] = 70;
             weights[ADVPATH_ROOM_GRAVEYARD] = 70;
+            weights[ADVPATH_ROOM_LAB] = 0;
         }
     }
     else
@@ -427,6 +434,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             weights[ADVPATH_ROOM_WILD_DEN] = 40;
             weights[ADVPATH_ROOM_GAMESHOW] = 0;
             weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+            weights[ADVPATH_ROOM_LAB] = 0;
         }
         else
         {
@@ -434,20 +442,32 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
             weights[ADVPATH_ROOM_GAMESHOW] = 330 - min(30 * gRogueRun.currentDifficulty, 300);
             weights[ADVPATH_ROOM_GRAVEYARD] = 220 - min(20 * gRogueRun.currentDifficulty, 200);
+            weights[ADVPATH_ROOM_LAB] = 3000;//min(20 * gRogueRun.currentDifficulty, 100);
 
             if(gRogueRun.currentDifficulty == 0)
             {
                 weights[ADVPATH_ROOM_LEGENDARY] = 0;
             }
-            else if((gRogueRun.currentDifficulty % 4) == 0)
+            else if((gRogueRun.currentDifficulty % 5) == 0)
             {
-                // Every 4 badges chances get really high
+                // Every 5 badges chances get really high
                 weights[ADVPATH_ROOM_LEGENDARY] = 600;
             }
             else
             {
                 // Otherwise the chances are just quite low
-                weights[ADVPATH_ROOM_LEGENDARY] = 100;
+                if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 100;
+                }
+                else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 0;
+                }
+                else 
+                {
+                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
+                }
             }
         }
 
@@ -471,6 +491,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             weights[ADVPATH_ROOM_WILD_DEN] /= 3;
             weights[ADVPATH_ROOM_GAMESHOW] /= 4;
             weights[ADVPATH_ROOM_GRAVEYARD] /= 4;
+            weights[ADVPATH_ROOM_LAB] /= 2;
         }
 
         // Now we've applied the default weights for this column, consider what out next encounter is
@@ -487,6 +508,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
                 weights[ADVPATH_ROOM_LEGENDARY] = 0;
                 weights[ADVPATH_ROOM_MINIBOSS] = 0;
                 weights[ADVPATH_ROOM_GRAVEYARD] *= 2;
+                weights[ADVPATH_ROOM_LAB] *= 2;
                 break;
 
             case ADVPATH_ROOM_GAMESHOW:
@@ -495,6 +517,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
 
             case ADVPATH_ROOM_GRAVEYARD:
                 weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+                break;
+
+            case ADVPATH_ROOM_LAB:
+                weights[ADVPATH_ROOM_LAB] = 0;
                 break;
 
             case ADVPATH_ROOM_RESTSTOP:
@@ -513,13 +539,9 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
 
     // We have limited number of certain encounters
     
-    if(scratch->legendaryCount >= 2)
+    if(scratch->legendaryCount >= 1)
     {
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
-    }
-    else if(scratch->legendaryCount >= 1)
-    {
-        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
     }
 
     if(scratch->wildDenCount >= 2)
@@ -535,6 +557,11 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
     if(scratch->graveYardCount >= 2)
     {
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+    }
+
+    if(scratch->labCount >= 1)
+    {
+        weights[ADVPATH_ROOM_LAB] = 0;
     }
 
     totalWeight = 0;
@@ -636,6 +663,9 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
         case ADVPATH_ROOM_GRAVEYARD:
             break;
 
+        case ADVPATH_ROOM_LAB:
+            break;
+
         case ADVPATH_ROOM_ROUTE:
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
@@ -716,6 +746,10 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct A
 
                 case ADVPATH_ROOM_GRAVEYARD:
                     ++scratch->graveYardCount;
+                    break;
+
+                case ADVPATH_ROOM_LAB:
+                    ++scratch->labCount;
                     break;
             }
 
@@ -931,6 +965,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
                 warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GRAVEYARD);
                 warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GRAVEYARD);
                 break;
+
+            case ADVPATH_ROOM_LAB:
+                warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_LAB);
+                warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_LAB);
+                break;
         }
         
         // Now we've interacted hide this node
@@ -996,7 +1035,7 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             return OBJ_EVENT_GFX_TRICK_HOUSE_STATUE;
 
         case ADVPATH_ROOM_MINIBOSS:
-            return OBJ_EVENT_GFX_NOLAND; //OBJ_EVENT_GFX_WALLY; // ?? OBJ_EVENT_GFX_YOUNGSTER
+            return OBJ_EVENT_GFX_NOLAND;
 
         case ADVPATH_ROOM_WILD_DEN:
             return OBJ_EVENT_GFX_GRASS_CUSHION;
@@ -1006,6 +1045,9 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 
         case ADVPATH_ROOM_GRAVEYARD:
             return OBJ_EVENT_GFX_HEX_MANIAC;
+
+        case ADVPATH_ROOM_LAB:
+            return OBJ_EVENT_GFX_PC;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?

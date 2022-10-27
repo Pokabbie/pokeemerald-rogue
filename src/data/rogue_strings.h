@@ -19,6 +19,8 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
 const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
 const u8 gText_TrainerNameGrunt[] = _("GRUNT");
 
+const u8 gText_TrainerName_TateLiza[] = _("LIZA");
+
 const u8 gText_TrainerName_Brock[] = _("BROCK");
 const u8 gText_TrainerName_Misty[] = _("MISTY");
 const u8 gText_TrainerName_LtSurge[] = _("LT. SURGE");
@@ -36,13 +38,33 @@ const u8 gText_TrainerName_Lance[] = _("LANCE");
 const u8 gText_TrainerName_Blue[] = _("BLUE");
 const u8 gText_TrainerName_ProfOak[] = _("PROF. OAK");
 
+const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
+const u8 gText_TrainerName_May[] = _("MAY");
+const u8 gText_TrainerName_Red[] = _("RED");
+const u8 gText_TrainerName_Leaf[] = _("GREEN");
+
+const u8 gText_TrainerName_Falkner[] = _("FALKNER");
+const u8 gText_TrainerName_Bugsy[] = _("BUGSY");
+const u8 gText_TrainerName_Whitney[] = _("WHITNEY");
+const u8 gText_TrainerName_Morty[] = _("MORTY");
+const u8 gText_TrainerName_Chuck[] = _("CHUCK");
+const u8 gText_TrainerName_Jasmine[] = _("JASMINE");
+const u8 gText_TrainerName_Pryce[] = _("PRYCE");
+const u8 gText_TrainerName_Clair[] = _("CLAIR");
+
+const u8 gText_TrainerName_Will[] = _("WILL");
+const u8 gText_TrainerName_Karen[] = _("KAREN");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");
+const u8 gText_ItemShoppingCharm[] = _("Shopping Charm");
+const u8 gText_ItemShoppingCurse[] = _("Shopping Curse");
 #else
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
+const u8 gText_ItemShoppingCharm[] = _("SHOPPING CHARM");
+const u8 gText_ItemShoppingCurse[] = _("SHOPPING CURSE");
 #endif
 const u8 gText_ItemQuestLogDesc[] = _("A digital log for\ntracking Quests\nand their rewards.");
 const u8 gText_QuestLogTitleOverview[] = _("QUESTS");

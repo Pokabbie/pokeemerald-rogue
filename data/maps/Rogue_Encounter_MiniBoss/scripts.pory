@@ -118,6 +118,10 @@ script Rogue_MiniBoss_KickOffBattle
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             msgbox(format("{PLAYER}: ... ... ..."))
             trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
+
+        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
+            msgbox(format("Show me everything you got!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
         
         default:
             msgbox(format("UNEXPECTED TRAINER INDEX"))

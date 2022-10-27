@@ -682,16 +682,16 @@
 #define FLAG_ROGUE_FORCE_BASIC_BAG           0x276
 #define FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE     0x277
 #define FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE  0x278
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
+#define FLAG_ROGUE_HOENN_ROUTES              0x279
+#define FLAG_ROGUE_HOENN_BOSSES              0x27A
+#define FLAG_ROGUE_KANTO_ROUTES              0x27B
+#define FLAG_ROGUE_KANTO_BOSSES              0x27C
+#define FLAG_ROGUE_JOHTO_ROUTES              0x27D
+#define FLAG_ROGUE_JOHTO_BOSSES              0x27E
+#define FLAG_ROGUE_EASY_LEGENDARIES          0x27F
+#define FLAG_ROGUE_HARD_LEGENDARIES          0x280
+#define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
+#define FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES  0x282
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
 #define FLAG_UNUSED_0x285  0x285 // Unused Flag

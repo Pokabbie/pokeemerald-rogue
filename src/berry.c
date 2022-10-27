@@ -1557,16 +1557,16 @@ static bool32 BerryTreeGrow(struct BerryTree *tree)
     case BERRY_STAGE_TALLER:
         tree->stage++;
         break;
-    case BERRY_STAGE_BERRIES:
-        tree->watered1 = 0;
-        tree->watered2 = 0;
-        tree->watered3 = 0;
-        tree->watered4 = 0;
-        tree->berryYield = 0;
-        tree->stage = BERRY_STAGE_SPROUTED;
-        if (++tree->regrowthCount == 10)
-            *tree = gBlankBerryTree;
-        break;
+    //case BERRY_STAGE_BERRIES:
+    //    tree->watered1 = 0;
+    //    tree->watered2 = 0;
+    //    tree->watered3 = 0;
+    //    tree->watered4 = 0;
+    //    tree->berryYield = 0;
+    //    tree->stage = BERRY_STAGE_SPROUTED;
+    //    if (++tree->regrowthCount == 10)
+    //        *tree = gBlankBerryTree;
+    //    break;
     }
     return TRUE;
 }

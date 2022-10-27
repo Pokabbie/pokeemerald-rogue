@@ -129,6 +129,18 @@
 #define TRAINER_PIC_KANTO_BLUE            105
 #define TRAINER_PIC_KANTO_PROFOAK         106
 
+#define TRAINER_PIC_JOHTO_FALKNER         107
+#define TRAINER_PIC_JOHTO_BUGSY           108
+#define TRAINER_PIC_JOHTO_WHITNEY         109
+#define TRAINER_PIC_JOHTO_MORTY           110
+#define TRAINER_PIC_JOHTO_CHUCK           111
+#define TRAINER_PIC_JOHTO_JASMINE         112
+#define TRAINER_PIC_JOHTO_PRYCE           113
+#define TRAINER_PIC_JOHTO_CLAIR           114
+
+#define TRAINER_PIC_JOHTO_WILL            115
+#define TRAINER_PIC_JOHTO_KAREN           116
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -394,5 +406,6 @@
 #define F_TRAINER_PARTY_CUSTOM_MOVESET (1 << 0)
 #define F_TRAINER_PARTY_HELD_ITEM      (1 << 1)
 #define F_TRAINER_PARTY_KANTO_MUS      (1 << 2)
+#define F_TRAINER_PARTY_JOHTO_MUS      (1 << 3)
 
 #endif  // GUARD_TRAINERS_H

@@ -110,6 +110,19 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 
     [TRAINER_PIC_KANTO_BLUE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_KANTO_PROFOAK] = {.size = 8, .y_offset = 1},
+
+    
+    [TRAINER_PIC_JOHTO_FALKNER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_BUGSY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_WHITNEY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_MORTY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_CHUCK] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_JASMINE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_PRYCE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_CLAIR] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_JOHTO_WILL] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JOHTO_KAREN] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -226,6 +239,18 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
     TRAINER_SPRITE(KANTO_BLUE, gTrainerFrontPic_ChampionBlue, 0x800),
     TRAINER_SPRITE(KANTO_PROFOAK, gTrainerFrontPic_ChampionProfOak, 0x800),
+
+    TRAINER_SPRITE(JOHTO_FALKNER, gTrainerFrontPic_LeaderFalkner, 0x800),
+    TRAINER_SPRITE(JOHTO_BUGSY, gTrainerFrontPic_LeaderBugsy, 0x800),
+    TRAINER_SPRITE(JOHTO_WHITNEY, gTrainerFrontPic_LeaderWhitney, 0x800),
+    TRAINER_SPRITE(JOHTO_MORTY, gTrainerFrontPic_LeaderMorty, 0x800),
+    TRAINER_SPRITE(JOHTO_CHUCK, gTrainerFrontPic_LeaderChuck, 0x800),
+    TRAINER_SPRITE(JOHTO_JASMINE, gTrainerFrontPic_LeaderJasmine, 0x800),
+    TRAINER_SPRITE(JOHTO_PRYCE, gTrainerFrontPic_LeaderPryce, 0x800),
+    TRAINER_SPRITE(JOHTO_CLAIR, gTrainerFrontPic_LeaderClair, 0x800),
+
+    TRAINER_SPRITE(JOHTO_WILL, gTrainerFrontPic_EliteFourWill, 0x800),
+    TRAINER_SPRITE(JOHTO_KAREN, gTrainerFrontPic_EliteFourKaren, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -342,4 +367,16 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 
     TRAINER_PAL(KANTO_BLUE, gTrainerPalette_ChampionBlue),
     TRAINER_PAL(KANTO_PROFOAK, gTrainerPalette_ChampionProfOak),
+
+    TRAINER_PAL(JOHTO_FALKNER, gTrainerPalette_LeaderFalkner),
+    TRAINER_PAL(JOHTO_BUGSY, gTrainerPalette_LeaderBugsy),
+    TRAINER_PAL(JOHTO_WHITNEY, gTrainerPalette_LeaderWhitney),
+    TRAINER_PAL(JOHTO_MORTY, gTrainerPalette_LeaderMorty),
+    TRAINER_PAL(JOHTO_CHUCK, gTrainerPalette_LeaderChuck),
+    TRAINER_PAL(JOHTO_JASMINE, gTrainerPalette_LeaderJasmine),
+    TRAINER_PAL(JOHTO_PRYCE, gTrainerPalette_LeaderPryce),
+    TRAINER_PAL(JOHTO_CLAIR, gTrainerPalette_LeaderClair),
+
+    TRAINER_PAL(JOHTO_WILL, gTrainerPalette_EliteFourWill),
+    TRAINER_PAL(JOHTO_KAREN, gTrainerPalette_EliteFourKaren),
 };

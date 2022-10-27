@@ -91,7 +91,8 @@ Rogue_MiniBoss_KickOffBattle::
 	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_MiniBoss_KickOffBattle_3
 	case TRAINER_ROGUE_MINI_BOSS_WALLY, Rogue_MiniBoss_KickOffBattle_4
 	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_MiniBoss_KickOffBattle_5
-	msgbox Rogue_MiniBoss_KickOffBattle_Text_7
+	case TRAINER_ROGUE_MINI_BOSS_RIVAL, Rogue_MiniBoss_KickOffBattle_6
+	msgbox Rogue_MiniBoss_KickOffBattle_Text_8
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
 	return
 
@@ -112,6 +113,11 @@ Rogue_MiniBoss_KickOffBattle_4:
 
 Rogue_MiniBoss_KickOffBattle_5:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_5
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
+	return
+
+Rogue_MiniBoss_KickOffBattle_6:
+	msgbox Rogue_MiniBoss_KickOffBattle_Text_7
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
 	return
 
@@ -149,4 +155,7 @@ Rogue_MiniBoss_KickOffBattle_Text_6:
 	.string "...!$"
 
 Rogue_MiniBoss_KickOffBattle_Text_7:
+	.string "Show me everything you got!$"
+
+Rogue_MiniBoss_KickOffBattle_Text_8:
 	.string "UNEXPECTED TRAINER INDEX$"

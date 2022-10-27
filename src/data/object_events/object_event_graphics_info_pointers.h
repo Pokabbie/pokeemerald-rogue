@@ -270,6 +270,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Misty;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_ProfOak;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Sabrina;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Bugsy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Clair;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Chuck;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Falkner;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Jasmine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Karen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Morty;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Pryce;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Whitney;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Will;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -536,6 +549,19 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KANTO_MISTY] =              &gObjectEventGraphicsInfo_Kanto_Misty,
     [OBJ_EVENT_GFX_KANTO_PROFOAK] =            &gObjectEventGraphicsInfo_Kanto_ProfOak,
     [OBJ_EVENT_GFX_KANTO_SABRINA] =            &gObjectEventGraphicsInfo_Kanto_Sabrina,
+
+    [OBJ_EVENT_GFX_JOHTO_BUGSY] =              &gObjectEventGraphicsInfo_Johto_Bugsy,
+    [OBJ_EVENT_GFX_JOHTO_CLAIR] =              &gObjectEventGraphicsInfo_Johto_Clair,
+    [OBJ_EVENT_GFX_JOHTO_CHUCK] =              &gObjectEventGraphicsInfo_Johto_Chuck,
+    [OBJ_EVENT_GFX_JOHTO_FALKNER] =            &gObjectEventGraphicsInfo_Johto_Falkner,
+    [OBJ_EVENT_GFX_JOHTO_JASMINE] =            &gObjectEventGraphicsInfo_Johto_Jasmine,
+    [OBJ_EVENT_GFX_JOHTO_KAREN] =              &gObjectEventGraphicsInfo_Johto_Karen,
+    [OBJ_EVENT_GFX_JOHTO_MORTY] =              &gObjectEventGraphicsInfo_Johto_Morty,
+    [OBJ_EVENT_GFX_JOHTO_PRYCE] =              &gObjectEventGraphicsInfo_Johto_Pryce,
+    [OBJ_EVENT_GFX_JOHTO_WHITNEY] =            &gObjectEventGraphicsInfo_Johto_Whitney,
+    [OBJ_EVENT_GFX_JOHTO_WILL] =               &gObjectEventGraphicsInfo_Johto_Will,
+
+    [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

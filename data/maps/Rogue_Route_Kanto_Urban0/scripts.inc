@@ -1,0 +1,19 @@
+Rogue_Route_Kanto_Urban0_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Rogue_Route_Kanto_Urban0_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rogue_Route_Kanto_Urban0_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	.byte 0
+
+Rogue_Route_Kanto_Urban0_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_1, 0, Rogue_Common_TurnPlayerNorth
+	.2byte 0
+
+Rogue_Route_Kanto_Urban0_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 0, Rogue_Route_Kanto_Urban0_OnFrame0
+	.2byte 0
+
+
+Rogue_Route_Kanto_Urban0_OnFrame0::
+	call Rogue_SetDesiredWeather
+	setvar VAR_TEMP_1, 1
+	end
+

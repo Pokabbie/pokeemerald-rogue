@@ -42,6 +42,8 @@ void RogueQuery_EvolveSpecies(u8 level, bool8 itemEvos);
 void RogueQuery_EvolveSpeciesAndKeepPreEvo(u8 level, bool8 itemEvos);
 void RogueQuery_SpeciesIsLegendary(void);
 void RogueQuery_SpeciesIsNotLegendary(void);
+void RogueQuery_SpeciesIsNotWeakLegendary(void);
+void RogueQuery_SpeciesIsNotStrongLegendary(void);
 void RogueQuery_SpeciesIncludeMonFlags(u16 flags);
 void RogueQuery_SpeciesExcludeMonFlags(u16 flags);
 

@@ -92,11 +92,69 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
     {
         .mapFlags = ROUTE_FLAG_KANTO,
         .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_MOUNTAIN0),
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_ELECTRIC }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_URBAN0),
+        .wildTypeTable = { TYPE_WATER, TYPE_PSYCHIC, TYPE_STEEL }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .dropRarity = 1,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_FOREST0),
+        .wildTypeTable = { TYPE_BUG, TYPE_POISON, TYPE_DARK }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .dropRarity = 2,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_CAVE0),
+        .wildTypeTable = { TYPE_GROUND, TYPE_PSYCHIC, TYPE_GHOST }
+    },
+
+    // Johto
+    //
+    {
+        .mapFlags = ROUTE_FLAG_JOHTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_JOHTO_FIELD0),
+        .wildTypeTable = { TYPE_ELECTRIC, TYPE_GRASS, TYPE_DARK }
+    },
+
+    // Fallback
+    //
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_NORMAL, TYPE_GROUND, TYPE_WATER }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_FIGHTING, TYPE_DRAGON, TYPE_BUG }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
 #ifdef ROGUE_EXPANSION
-        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_FAIRY }
+        .wildTypeTable = { TYPE_FLYING, TYPE_STEEL, TYPE_FAIRY }
 #else
-        .wildTypeTable = { TYPE_FIGHTING, TYPE_ROCK, TYPE_STEEL }
+        .wildTypeTable = { TYPE_FLYING, TYPE_STEEL, TYPE_FIGHTING }
 #endif
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_POISON, TYPE_ELECTRIC, TYPE_ICE }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_ROCK, TYPE_FIRE, TYPE_GHOST }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_FALLBACK_REGION,
+        .map = ROUTE_MAP(ROGUE_ROUTE_CHAOS0),
+        .wildTypeTable = { TYPE_DARK, TYPE_WATER, TYPE_FLYING }
     },
 };
 

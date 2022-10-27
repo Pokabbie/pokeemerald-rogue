@@ -7625,6 +7625,20 @@ u16 GetBattleBGM(void)
                     return MUS_RG_VS_TRAINER;
             }
         }
+        else if((trainer.partyFlags & F_TRAINER_PARTY_JOHTO_MUS) != 0)
+        {
+            switch (trainerClass)
+            {
+                case TRAINER_CLASS_LEADER:
+                    return MUS_HG_VS_GYM_LEADER;
+                case TRAINER_CLASS_ELITE_FOUR:
+                    return MUS_HG_VS_GYM_LEADER;
+                case TRAINER_CLASS_CHAMPION:
+                    return MUS_HG_VS_CHAMPION;
+                default:
+                    return MUS_HG_VS_TRAINER;
+            }
+        }
         else
         {
             switch (trainerClass)

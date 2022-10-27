@@ -66,6 +66,7 @@ static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
 static void UnlockDefaultQuests()
 {
     u16 i;
+
     for(i = QUEST_FirstAdventure; i <= QUEST_MeetPokabbie; ++i)
     {
         TryUnlockQuest(i);
@@ -81,9 +82,7 @@ static void UnlockDefaultQuests()
     TryUnlockQuest(QUEST_Hardcore2);
     TryUnlockQuest(QUEST_Hardcore3);
 
-#ifdef ROGUE_DEBUG
     // Make sure following quests are unlocked
-    // TODO - For future versions we'll need to make sure this happens for any newly added quests
     {
         u16 i;
         for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
@@ -92,7 +91,6 @@ static void UnlockDefaultQuests()
                 TryUnlockQuest(i);
         }
     }
-#endif
 }
 
 void ResetQuestState(u16 saveVersion)
@@ -106,8 +104,6 @@ void ResetQuestState(u16 saveVersion)
         {
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
-
-        ForEachUnlockedQuest(ActivateHubQuests);
     }
 
     // Always make sure default quests are unlocked

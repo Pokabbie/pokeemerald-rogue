@@ -4465,7 +4465,7 @@
       "id": "LAYOUT_ROGUE_BOSS_0",
       "name": "Rogue_Boss_0_Layout",
       "width": 24,
-      "height": 21,
+      "height": 24,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/Rogue_Boss_0/border.bin",
@@ -4554,7 +4554,7 @@
     {
       "id": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
       "name": "Rogue_Hub_Interior_ConfigRoom_Layout",
-      "width": 18,
+      "width": 26,
       "height": 25,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BikeShop",
@@ -4584,10 +4584,10 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_FOREST1",
       "name": "Rogue_Route_Forest1_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 48,
+      "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Route_Forest1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Forest1/map.bin"
     },
@@ -4940,6 +4940,66 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Mountain0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Mountain0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_URBAN0",
+      "name": "Rogue_Route_Kanto_Urban0_Layout",
+      "width": 93,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Urban0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_CHAOS0",
+      "name": "Rogue_Route_Chaos0_Layout",
+      "width": 78,
+      "height": 76,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Route_Chaos0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Chaos0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_FIELD0",
+      "name": "Rogue_Route_Johto_Field0_Layout",
+      "width": 36,
+      "height": 120,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_Field0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Field0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_LAB",
+      "name": "Rogue_Encounter_Lab_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Encounter_Lab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Lab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_FOREST0",
+      "name": "Rogue_Route_Kanto_Forest0_Layout",
+      "width": 54,
+      "height": 64,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_CAVE0",
+      "name": "Rogue_Route_Kanto_Cave0_Layout",
+      "width": 109,
+      "height": 45,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/map.bin"
     }
   ]
 }

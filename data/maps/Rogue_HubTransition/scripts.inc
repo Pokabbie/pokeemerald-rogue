@@ -1,10 +1,33 @@
 Rogue_HubTransition_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 	map_script_2 VAR_TEMP_1, 0, Rogue_Common_TurnPlayerNorth
 	.2byte 0
+
+Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 0, Rogue_HubTransition_OnEnter
+	.2byte 0
+
+
+Rogue_HubTransition_OnEnter::
+	lock
+	goto_if_set FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES, Rogue_HubTransition_OnEnter_2
+	goto_if_set FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES, Rogue_HubTransition_OnEnter_3
+Rogue_HubTransition_OnEnter_1:
+	release
+	setvar VAR_TEMP_1, 1
+	end
+
+Rogue_HubTransition_OnEnter_2:
+	msgbox Rogue_HubTransition_OnEnter_Text_0
+	goto Rogue_HubTransition_OnEnter_1
+
+Rogue_HubTransition_OnEnter_3:
+	msgbox Rogue_HubTransition_OnEnter_Text_1
+	goto Rogue_HubTransition_OnEnter_1
 
 
 Rogue_HubTransition_RandomMan::
@@ -49,6 +72,12 @@ Rogue_HubTransition_RandomMan_8:
 	special Rogue_SeedRandomGenerators
 	goto Rogue_HubTransition_RandomMan_5
 
+
+Rogue_HubTransition_OnEnter_Text_0:
+	.string "Strong Legendary clause activated...$"
+
+Rogue_HubTransition_OnEnter_Text_1:
+	.string "Basic Legendary clause activated...$"
 
 Rogue_HubTransition_RandomMan_Text_0:
 	.string "WAHEY!\p"

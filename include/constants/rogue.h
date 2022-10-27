@@ -41,6 +41,8 @@
 #define ROUTE_FLAG_NONE                   0
 #define ROUTE_FLAG_HOENN                  (1 << 1)
 #define ROUTE_FLAG_KANTO                  (1 << 2)
+#define ROUTE_FLAG_JOHTO                  (1 << 3)
+#define ROUTE_FLAG_FALLBACK_REGION        (1 << 4) // If the player unselects all route expansions, use this custom fallback set
 
 // Trainers
 //
@@ -51,11 +53,17 @@
 #define TRAINER_FLAG_FINAL_CHAMP            (1 << 3)
 #define TRAINER_FLAG_HOENN                  (1 << 4)
 #define TRAINER_FLAG_KANTO                  (1 << 5)
+#define TRAINER_FLAG_JOHTO                  (1 << 6)
+#define TRAINER_FLAG_FALLBACK_REGION        (1 << 7) // If the player unselects all boss expansions, use this custom fallback set
+#define TRAINER_FLAG_RAINBOW_EXCLUDE        (1 << 8)
 
 #define PARTY_FLAG_NONE                     0
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
 #define PARTY_FLAG_CUSTOM_QUERY             (1 << 2)
 #define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 3)
+#define PARTY_FLAG_MIRROR_EXACT             (1 << 4)
+#define PARTY_FLAG_MIRROR_SPECIES           (1 << 5)
+#define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
@@ -121,63 +129,83 @@
 #define TRAINER_ROGUE_BOSS_BLUE             TRAINER_CRISTIN_1
 #define TRAINER_ROGUE_BOSS_PROFOAK          TRAINER_FERNANDO_1
 
+// Johto
+#define TRAINER_ROGUE_BOSS_FALKNER          TRAINER_ROXANNE_3
+#define TRAINER_ROGUE_BOSS_BUGSY            TRAINER_BRAWLY_3
+#define TRAINER_ROGUE_BOSS_WHITNEY          TRAINER_WATTSON_3
+#define TRAINER_ROGUE_BOSS_MORTY            TRAINER_FLANNERY_3
+#define TRAINER_ROGUE_BOSS_CHUCK            TRAINER_NORMAN_3
+#define TRAINER_ROGUE_BOSS_JASMINE          TRAINER_WINONA_3
+#define TRAINER_ROGUE_BOSS_PRYCE            TRAINER_TATE_AND_LIZA_3
+#define TRAINER_ROGUE_BOSS_CLAIR            TRAINER_JUAN_3
+
+#define TRAINER_ROGUE_BOSS_WILL             TRAINER_ANDRES_2
+#define TRAINER_ROGUE_BOSS_JOHTO_KOGA       TRAINER_CORY_2
+#define TRAINER_ROGUE_BOSS_JOHTO_BRUNO      TRAINER_PABLO_2
+#define TRAINER_ROGUE_BOSS_KAREN            TRAINER_KOJI_2
+
+#define TRAINER_ROGUE_BOSS_JOHTO_LANCE      TRAINER_CRISTIN_2
+#define TRAINER_ROGUE_BOSS_RED              TRAINER_FERNANDO_2
+
 // Minibosses
 //
 #define TRAINER_ROGUE_MINI_BOSS_MAXIE        TRAINER_MAXIE_MAGMA_HIDEOUT
 #define TRAINER_ROGUE_MINI_BOSS_ARCHIE       TRAINER_ARCHIE
 #define TRAINER_ROGUE_MINI_BOSS_WALLY        TRAINER_WALLY_VR_1
 #define TRAINER_ROGUE_MINI_BOSS_MIRROR       TRAINER_BRENDAN_PLACEHOLDER
+#define TRAINER_ROGUE_MINI_BOSS_RIVAL        TRAINER_MAY_PLACEHOLDER
 
 // Mon Preset flags
 //
 #define MON_FLAG_NONE                   0
-#define MON_FLAG_STRONG                 (1 << 0)
+#define MON_FLAG_STRONG                 (1 << 0) // Used to filter for E4/Champ fights
 #define MON_FLAG_DOUBLES                (1 << 1)
+#define MON_FLAG_STRONG_WILD            (1 << 2) // Used to filter for early legendary encounters
 
 // These's are the category names fed in by the Showdown presets
 #ifdef ROGUE_EXPANSION
-#define MON_FLAGS_GEN7UBERS                 MON_FLAG_STRONG
-#define MON_FLAGS_GEN7OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN7UU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN7RU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN7UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7OU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7UU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN7LC                    MON_FLAG_NONE
-#define MON_FLAGS_GEN7DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
+#define MON_FLAGS_GEN7DOUBLESOU             MON_FLAG_DOUBLES | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN7BATTLESPOTSINGLES     MON_FLAG_NONE
 #define MON_FLAGS_GEN7BATTLESPOTDOUBLES     MON_FLAG_DOUBLES
-#define MON_FLAGS_GEN7VGC2017               MON_FLAG_STRONG
-#define MON_FLAGS_GEN7VGC2018               MON_FLAG_STRONG
+#define MON_FLAGS_GEN7VGC2017               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN7VGC2018               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN71V1                   MON_FLAG_NONE
 #define MON_FLAGS_GEN7ANYTHINGGOES          MON_FLAG_NONE
 #define MON_FLAGS_GEN7LETSGOOU              MON_FLAG_NONE
-#define MON_FLAGS_GEN7MONOTYPE              MON_FLAG_STRONG
+#define MON_FLAGS_GEN7MONOTYPE              MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 
-#define MON_FLAGS_GEN8UBERS                 MON_FLAG_STRONG
-#define MON_FLAGS_GEN8OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN8UU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN8RU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN8UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN8OU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN8UU                    MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
+#define MON_FLAGS_GEN8RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8LC                    MON_FLAG_NONE
 #define MON_FLAGS_GEN8NATIONALDEX           MON_FLAG_NONE
-#define MON_FLAGS_GEN8DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
+#define MON_FLAGS_GEN8DOUBLESOU             MON_FLAG_DOUBLES | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN8BATTLESTADIUMSINGLES  MON_FLAG_NONE
-#define MON_FLAGS_GEN8VGC2020               MON_FLAG_STRONG
+#define MON_FLAGS_GEN8VGC2020               MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN81V1                   MON_FLAG_NONE
 #define MON_FLAGS_GEN8ANYTHINGGOES          MON_FLAG_NONE
 #define MON_FLAGS_GEN8NATIONALDEXAG         MON_FLAG_NONE
-#define MON_FLAGS_GEN8MONOTYPE              MON_FLAG_STRONG
+#define MON_FLAGS_GEN8MONOTYPE              MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 
 #else
 
-#define MON_FLAGS_GEN3UBERS                 MON_FLAG_STRONG
+#define MON_FLAGS_GEN3UBERS                 MON_FLAG_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN3OU                    MON_FLAG_STRONG
-#define MON_FLAGS_GEN3UU                    MON_FLAG_STRONG
+#define MON_FLAGS_GEN3UU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE
-#define MON_FLAGS_GEN3DOUBLESOU             MON_FLAG_STRONG | MON_FLAG_DOUBLES
+#define MON_FLAGS_GEN3DOUBLESOU             MON_FLAG_DOUBLES
 #define MON_FLAGS_GEN31V1                   MON_FLAG_STRONG
 #endif
 

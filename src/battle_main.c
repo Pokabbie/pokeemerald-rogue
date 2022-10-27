@@ -5007,6 +5007,19 @@ static void HandleEndTurn_BattleWon(void)
                     break;
             }
         }
+        else if((trainer.partyFlags & F_TRAINER_PARTY_JOHTO_MUS) != 0)
+        {
+            switch (trainer.trainerClass)
+            {
+                case TRAINER_CLASS_LEADER:
+                case TRAINER_CLASS_ELITE_FOUR:
+                    PlayBGM(MUS_HG_VICTORY_GYM_LEADER);
+                    break;
+                default:
+                    PlayBGM(MUS_HG_VICTORY_TRAINER);
+                    break;
+            }
+        }
         else
         {
             switch (trainer.trainerClass)

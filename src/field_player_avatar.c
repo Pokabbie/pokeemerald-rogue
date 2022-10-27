@@ -1424,7 +1424,7 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
     objectEventId = SpawnSpecialObjectEvent(&playerObjEventTemplate);
     objectEvent = &gObjectEvents[objectEventId];
     objectEvent->isPlayer = TRUE;
-    objectEvent->warpArrowSpriteId = CreateWarpArrowSprite();
+    objectEvent->warpArrowSpriteId = CreateWarpArrowSprite(); // aaaaaa
     ObjectEventTurn(objectEvent, direction);
     ClearPlayerAvatarInfo();
     gPlayerAvatar.runningState = NOT_MOVING;

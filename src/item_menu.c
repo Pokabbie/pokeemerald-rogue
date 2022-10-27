@@ -67,6 +67,8 @@
                             max(BAG_KEYITEMS_COUNT,          \
                                 BAG_POKEBALLS_COUNT))))) + 1)
 
+// RogueNote: TODO - Modify pocket structure
+
 // Up to 8 item slots can be visible at a time
 #define MAX_ITEMS_SHOWN 8
 
@@ -307,7 +309,7 @@ static const u8 sContextMenuItems_TmHmPocket[] = {
 };
 
 static const u8 sContextMenuItems_BerriesPocket[] = {
-    ACTION_CHECK_TAG,   ACTION_DUMMY,
+    //ACTION_CHECK_TAG,   ACTION_DUMMY,
     ACTION_USE,         ACTION_GIVE,
     ACTION_TOSS,        ACTION_CANCEL
 };

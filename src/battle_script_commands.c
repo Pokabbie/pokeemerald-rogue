@@ -1186,10 +1186,10 @@ static const u16 sPickupItems[] =
     ITEM_HYPER_POTION,
     ITEM_RARE_CANDY,
     ITEM_PROTEIN,
-    ITEM_REVIVE,
+    //ITEM_REVIVE,
     ITEM_HP_UP,
     ITEM_FULL_RESTORE,
-    ITEM_MAX_REVIVE,
+    //ITEM_MAX_REVIVE,
     ITEM_PP_UP,
     ITEM_MAX_ELIXIR,
 };

@@ -41,35 +41,6 @@ Rogue_ConfigRoom_SpeakSeedMode_2:
 	goto Rogue_ConfigRoom_SpeakSeedMode_1
 
 
-Rogue_ConfigRoom_SpeakBasicBag::
-	lock
-	faceplayer
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_SpeakBasicBag_2
-	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_2
-	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_3, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_SpeakBasicBag_7
-Rogue_ConfigRoom_SpeakBasicBag_1:
-	release
-	return
-
-Rogue_ConfigRoom_SpeakBasicBag_2:
-	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_SpeakBasicBag_5
-	goto Rogue_ConfigRoom_SpeakBasicBag_1
-
-Rogue_ConfigRoom_SpeakBasicBag_5:
-	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_1, MSGBOX_DEFAULT
-	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_ConfigRoom_SpeakBasicBag_1
-
-Rogue_ConfigRoom_SpeakBasicBag_7:
-	msgbox Rogue_ConfigRoom_SpeakBasicBag_Text_4, MSGBOX_DEFAULT
-	setflag FLAG_ROGUE_FORCE_BASIC_BAG
-	goto Rogue_ConfigRoom_SpeakBasicBag_1
-
-
 Rogue_ConfigRoom_TalkAssistantInternal::
 	goto_if_set FLAG_SET_SEED_ENABLED, Rogue_ConfigRoom_TalkAssistantInternal_1
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_2, MSGBOX_YESNO
@@ -523,26 +494,51 @@ Rogue_ConfigRoom_RedrawMap_16:
 	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_21
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_20:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_25
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_26
-	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_RedrawMap_25
+	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_24:
-	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_31
-	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_32
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_29
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_30
+	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+Rogue_ConfigRoom_RedrawMap_28:
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_35
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_36
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
-Rogue_ConfigRoom_RedrawMap_30:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_37
-	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_36:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_41
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_34:
+	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_41
+	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_42
+	setmetatile 5, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_40:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_45
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_47
+	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_46:
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_51
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_50:
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_55
 	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_44:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_49
+Rogue_ConfigRoom_RedrawMap_54:
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_59
 	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_48:
+Rogue_ConfigRoom_RedrawMap_58:
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_63
+	setmetatile 15, 20, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_62:
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_67
+	setmetatile 15, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_66:
+	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_RedrawMap_71
+	setmetatile 17, 20, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_70:
+	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_RedrawMap_75
+	setmetatile 17, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_74:
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_79
+	setmetatile 19, 20, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_78:
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_83
+	setmetatile 19, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_82:
 	special DrawWholeMapView
 	return
 
@@ -577,36 +573,72 @@ Rogue_ConfigRoom_RedrawMap_21:
 	goto Rogue_ConfigRoom_RedrawMap_20
 
 Rogue_ConfigRoom_RedrawMap_25:
+	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_24
+
+Rogue_ConfigRoom_RedrawMap_29:
 	setmetatile 1, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_24
+	goto Rogue_ConfigRoom_RedrawMap_28
 
-Rogue_ConfigRoom_RedrawMap_26:
+Rogue_ConfigRoom_RedrawMap_30:
 	setmetatile 1, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_24
+	goto Rogue_ConfigRoom_RedrawMap_28
 
-Rogue_ConfigRoom_RedrawMap_31:
+Rogue_ConfigRoom_RedrawMap_35:
 	setmetatile 3, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_30
+	goto Rogue_ConfigRoom_RedrawMap_34
 
-Rogue_ConfigRoom_RedrawMap_32:
+Rogue_ConfigRoom_RedrawMap_36:
 	setmetatile 3, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_30
-
-Rogue_ConfigRoom_RedrawMap_37:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_36
+	goto Rogue_ConfigRoom_RedrawMap_34
 
 Rogue_ConfigRoom_RedrawMap_41:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 5, 5, 0x23E, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_40
 
-Rogue_ConfigRoom_RedrawMap_45:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_44
+Rogue_ConfigRoom_RedrawMap_42:
+	setmetatile 5, 5, METATILE_BikeShop_Button_Blue, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_40
 
-Rogue_ConfigRoom_RedrawMap_49:
+Rogue_ConfigRoom_RedrawMap_47:
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_46
+
+Rogue_ConfigRoom_RedrawMap_51:
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_50
+
+Rogue_ConfigRoom_RedrawMap_55:
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_54
+
+Rogue_ConfigRoom_RedrawMap_59:
 	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_48
+	goto Rogue_ConfigRoom_RedrawMap_58
+
+Rogue_ConfigRoom_RedrawMap_63:
+	setmetatile 15, 20, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_62
+
+Rogue_ConfigRoom_RedrawMap_67:
+	setmetatile 15, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_66
+
+Rogue_ConfigRoom_RedrawMap_71:
+	setmetatile 17, 20, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_70
+
+Rogue_ConfigRoom_RedrawMap_75:
+	setmetatile 17, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_74
+
+Rogue_ConfigRoom_RedrawMap_79:
+	setmetatile 19, 20, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_78
+
+Rogue_ConfigRoom_RedrawMap_83:
+	setmetatile 19, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_82
 
 
 Rogue_ConfigRoom_Button_ExpAll::
@@ -708,6 +740,39 @@ Rogue_ConfigRoom_Button_EVGainEnabled_10:
 	goto Rogue_ConfigRoom_Button_EVGainEnabled_9
 
 
+Rogue_ConfigRoom_Button_BasicBag::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_BasicBag_Text_0
+	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_Button_BasicBag_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_BasicBag_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_BasicBag_7
+	case 1, Rogue_ConfigRoom_Button_BasicBag_8
+Rogue_ConfigRoom_Button_BasicBag_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_BasicBag_10
+Rogue_ConfigRoom_Button_BasicBag_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_BasicBag_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_BasicBag_1
+
+Rogue_ConfigRoom_Button_BasicBag_7:
+	setflag FLAG_ROGUE_FORCE_BASIC_BAG
+	goto Rogue_ConfigRoom_Button_BasicBag_5
+
+Rogue_ConfigRoom_Button_BasicBag_8:
+	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
+	goto Rogue_ConfigRoom_Button_BasicBag_5
+
+Rogue_ConfigRoom_Button_BasicBag_10:
+	msgbox Rogue_ConfigRoom_Button_BasicBag_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_BasicBag_9
+
+
 Rogue_ConfigRoom_Button_TrainerDifficulty::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0
 	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_Button_TrainerDifficulty_2
@@ -798,6 +863,52 @@ Rogue_ConfigRoom_Button_ItemDifficulty_11:
 Rogue_ConfigRoom_Button_ItemDifficulty_13:
 	msgbox Rogue_ConfigRoom_Button_ItemDifficulty_Text_1, MSGBOX_DEFAULT
 	goto Rogue_ConfigRoom_Button_ItemDifficulty_12
+
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_0
+	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_2
+	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_3
+	setvar VAR_0x8000, 1
+Rogue_ConfigRoom_Button_LegendaryDifficulty_1:
+	call Rogue_ConfigRoom_PreEAHButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_LegendaryDifficulty_9
+	case 1, Rogue_ConfigRoom_Button_LegendaryDifficulty_10
+	case 2, Rogue_ConfigRoom_Button_LegendaryDifficulty_11
+Rogue_ConfigRoom_Button_LegendaryDifficulty_7:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_LegendaryDifficulty_13
+Rogue_ConfigRoom_Button_LegendaryDifficulty_12:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_2:
+	setvar VAR_0x8000, 0
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_1
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_3:
+	setvar VAR_0x8000, 2
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_1
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_9:
+	setflag FLAG_ROGUE_EASY_LEGENDARIES
+	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_10:
+	clearflag FLAG_ROGUE_EASY_LEGENDARIES
+	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_11:
+	clearflag FLAG_ROGUE_EASY_LEGENDARIES
+	setflag FLAG_ROGUE_HARD_LEGENDARIES
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_13:
+	msgbox Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_12
 
 
 Rogue_ConfigRoom_Button_SeedItems::
@@ -932,6 +1043,204 @@ Rogue_ConfigRoom_Button_SeedBosses_10:
 	goto Rogue_ConfigRoom_Button_SeedBosses_9
 
 
+Rogue_ConfigRoom_Button_KantoRoutes::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_KantoRoutes_Text_0
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_Button_KantoRoutes_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_KantoRoutes_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_KantoRoutes_7
+	case 1, Rogue_ConfigRoom_Button_KantoRoutes_8
+Rogue_ConfigRoom_Button_KantoRoutes_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_KantoRoutes_10
+Rogue_ConfigRoom_Button_KantoRoutes_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_KantoRoutes_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_1
+
+Rogue_ConfigRoom_Button_KantoRoutes_7:
+	setflag FLAG_ROGUE_KANTO_ROUTES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_5
+
+Rogue_ConfigRoom_Button_KantoRoutes_8:
+	clearflag FLAG_ROGUE_KANTO_ROUTES
+	goto Rogue_ConfigRoom_Button_KantoRoutes_5
+
+Rogue_ConfigRoom_Button_KantoRoutes_10:
+	msgbox Rogue_ConfigRoom_Button_KantoRoutes_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_KantoRoutes_9
+
+
+Rogue_ConfigRoom_Button_KantoBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_KantoBosses_Text_0
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_Button_KantoBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_KantoBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_KantoBosses_7
+	case 1, Rogue_ConfigRoom_Button_KantoBosses_8
+Rogue_ConfigRoom_Button_KantoBosses_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_KantoBosses_10
+Rogue_ConfigRoom_Button_KantoBosses_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_KantoBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_KantoBosses_1
+
+Rogue_ConfigRoom_Button_KantoBosses_7:
+	setflag FLAG_ROGUE_KANTO_BOSSES
+	goto Rogue_ConfigRoom_Button_KantoBosses_5
+
+Rogue_ConfigRoom_Button_KantoBosses_8:
+	clearflag FLAG_ROGUE_KANTO_BOSSES
+	goto Rogue_ConfigRoom_Button_KantoBosses_5
+
+Rogue_ConfigRoom_Button_KantoBosses_10:
+	msgbox Rogue_ConfigRoom_Button_KantoBosses_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_KantoBosses_9
+
+
+Rogue_ConfigRoom_Button_JohtoRoutes::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_JohtoRoutes_Text_0
+	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_Button_JohtoRoutes_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_JohtoRoutes_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_JohtoRoutes_7
+	case 1, Rogue_ConfigRoom_Button_JohtoRoutes_8
+Rogue_ConfigRoom_Button_JohtoRoutes_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_JohtoRoutes_10
+Rogue_ConfigRoom_Button_JohtoRoutes_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_JohtoRoutes_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_JohtoRoutes_1
+
+Rogue_ConfigRoom_Button_JohtoRoutes_7:
+	setflag FLAG_ROGUE_JOHTO_ROUTES
+	goto Rogue_ConfigRoom_Button_JohtoRoutes_5
+
+Rogue_ConfigRoom_Button_JohtoRoutes_8:
+	clearflag FLAG_ROGUE_JOHTO_ROUTES
+	goto Rogue_ConfigRoom_Button_JohtoRoutes_5
+
+Rogue_ConfigRoom_Button_JohtoRoutes_10:
+	msgbox Rogue_ConfigRoom_Button_JohtoRoutes_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_JohtoRoutes_9
+
+
+Rogue_ConfigRoom_Button_JohtoBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_JohtoBosses_Text_0
+	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_Button_JohtoBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_JohtoBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_JohtoBosses_7
+	case 1, Rogue_ConfigRoom_Button_JohtoBosses_8
+Rogue_ConfigRoom_Button_JohtoBosses_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_JohtoBosses_10
+Rogue_ConfigRoom_Button_JohtoBosses_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_JohtoBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_JohtoBosses_1
+
+Rogue_ConfigRoom_Button_JohtoBosses_7:
+	setflag FLAG_ROGUE_JOHTO_BOSSES
+	goto Rogue_ConfigRoom_Button_JohtoBosses_5
+
+Rogue_ConfigRoom_Button_JohtoBosses_8:
+	clearflag FLAG_ROGUE_JOHTO_BOSSES
+	goto Rogue_ConfigRoom_Button_JohtoBosses_5
+
+Rogue_ConfigRoom_Button_JohtoBosses_10:
+	msgbox Rogue_ConfigRoom_Button_JohtoBosses_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_JohtoBosses_9
+
+
+Rogue_ConfigRoom_Button_HoennRoutes::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HoennRoutes_Text_0
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_Button_HoennRoutes_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_HoennRoutes_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_HoennRoutes_7
+	case 1, Rogue_ConfigRoom_Button_HoennRoutes_8
+Rogue_ConfigRoom_Button_HoennRoutes_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_HoennRoutes_10
+Rogue_ConfigRoom_Button_HoennRoutes_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_HoennRoutes_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_1
+
+Rogue_ConfigRoom_Button_HoennRoutes_7:
+	setflag FLAG_ROGUE_HOENN_ROUTES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_5
+
+Rogue_ConfigRoom_Button_HoennRoutes_8:
+	clearflag FLAG_ROGUE_HOENN_ROUTES
+	goto Rogue_ConfigRoom_Button_HoennRoutes_5
+
+Rogue_ConfigRoom_Button_HoennRoutes_10:
+	msgbox Rogue_ConfigRoom_Button_HoennRoutes_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_HoennRoutes_9
+
+
+Rogue_ConfigRoom_Button_HoennBosses::
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_HoennBosses_Text_0
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_Button_HoennBosses_2
+	setvar VAR_0x8000, NO
+Rogue_ConfigRoom_Button_HoennBosses_1:
+	call Rogue_ConfigRoom_PreButtonInternal
+	switch VAR_0x8000
+	case 0, Rogue_ConfigRoom_Button_HoennBosses_7
+	case 1, Rogue_ConfigRoom_Button_HoennBosses_8
+Rogue_ConfigRoom_Button_HoennBosses_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_Button_HoennBosses_10
+Rogue_ConfigRoom_Button_HoennBosses_9:
+	call Rogue_ConfigRoom_PostButtonInternal
+	return
+
+Rogue_ConfigRoom_Button_HoennBosses_2:
+	setvar VAR_0x8000, YES
+	goto Rogue_ConfigRoom_Button_HoennBosses_1
+
+Rogue_ConfigRoom_Button_HoennBosses_7:
+	setflag FLAG_ROGUE_HOENN_BOSSES
+	goto Rogue_ConfigRoom_Button_HoennBosses_5
+
+Rogue_ConfigRoom_Button_HoennBosses_8:
+	clearflag FLAG_ROGUE_HOENN_BOSSES
+	goto Rogue_ConfigRoom_Button_HoennBosses_5
+
+Rogue_ConfigRoom_Button_HoennBosses_10:
+	msgbox Rogue_ConfigRoom_Button_HoennBosses_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Button_HoennBosses_9
+
+
 Rogue_ConfigRoom_TalkLanette_Text_0:
 	.string "LANETTE: Hi {PLAYER}!\p"
 	.string "This is the CONFIG LAB!\p"
@@ -952,35 +1261,6 @@ Rogue_ConfigRoom_TalkAssistant_Text_0:
 Rogue_ConfigRoom_SpeakSeedMode_Text_0:
 	.string "ASSISTANT: I can enabled SEEDED mode\n"
 	.string "for your next adventure, if you'd like?$"
-
-Rogue_ConfigRoom_SpeakBasicBag_Text_0:
-	.string "Would you like to disable the BASIC\n"
-	.string "BAG?$"
-
-Rogue_ConfigRoom_SpeakBasicBag_Text_1:
-	.string "OK. You'll no longer have the BASIC BAG\n"
-	.string "when going on Adventures.$"
-
-Rogue_ConfigRoom_SpeakBasicBag_Text_2:
-	.string "Hi {PLAYER}!\p"
-	.string "I can give you the BASIC BAG instead of\n"
-	.string "your current one if you'd like.\p"
-	.string "When you leave on an Adventure with a\n"
-	.string "BASIC BAG you will have your BAG and\l"
-	.string "MONEY reset so you will have none of\l"
-	.string "the new upgrades you've gotten in the\l"
-	.string "HUB.\p"
-	.string "This isn't permanent of course...\n"
-	.string "You will be given back you current\l"
-	.string "contents once you return back to the\l"
-	.string "HUB as per usual.$"
-
-Rogue_ConfigRoom_SpeakBasicBag_Text_3:
-	.string "Would you like to enable the BASIC BAG?$"
-
-Rogue_ConfigRoom_SpeakBasicBag_Text_4:
-	.string "OK. You'll be given the BASIC BAG when\n"
-	.string "going on Adventures.$"
 
 Rogue_ConfigRoom_TalkAssistantInternal_Text_0:
 	.string "ASSISTANT: Do you want to disable\n"
@@ -1140,6 +1420,17 @@ Rogue_ConfigRoom_Button_EVGainEnabled_Text_1:
 	.string "an accelerated rate.\p"
 	.string "When disabled POKéMON will gain no EVs.$"
 
+Rogue_ConfigRoom_Button_BasicBag_Text_0:
+	.string "BAG WIPE$"
+
+Rogue_ConfigRoom_Button_BasicBag_Text_1:
+	.string "If enabled, when embarking on an\n"
+	.string "Adventure the contents of your bag\l"
+	.string "will be wiped and you will be given the\l"
+	.string "starter items instead.\p"
+	.string "Key items are the only pocket which will\n"
+	.string "remain untouched.$"
+
 Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0:
 	.string "TRAINER DIFFICULTY$"
 
@@ -1159,6 +1450,21 @@ Rogue_ConfigRoom_Button_ItemDifficulty_Text_1:
 	.string "Increases/Decrease the rate at which\n"
 	.string "items will appear and money trainers\l"
 	.string "give$"
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_0:
+	.string "LEGENDARY ENCOUNTERS$"
+
+Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_1:
+	.string "Adjust the rate and quality of\n"
+	.string "Legendary encounters may appear.\p"
+	.string "Easy makes sure any Legendaries may\n"
+	.string "appear fairly frequently.\p"
+	.string "Average will result in few Legendary\n"
+	.string "encounters and the quality of those\l"
+	.string "Legendaries will get stronger the\l"
+	.string "further into a run you are.\p"
+	.string "Hard will result in few encounters and\n"
+	.string "stronger Legendaries will not appear.$"
 
 Rogue_ConfigRoom_Button_SeedItems_Text_0:
 	.string "SEED ITEMS$"
@@ -1192,3 +1498,51 @@ Rogue_ConfigRoom_Button_SeedBosses_Text_1:
 	.string "If disabled GYM LEADER teams will be\n"
 	.string "completely RANDOM and not linked to\l"
 	.string "the SEED.$"
+
+Rogue_ConfigRoom_Button_KantoRoutes_Text_0:
+	.string "KANTO ROUTES$"
+
+Rogue_ConfigRoom_Button_KantoRoutes_Text_1:
+	.string "When enabled you may start to\n"
+	.string "encounter routes from the Kanto\l"
+	.string "region during adventures.$"
+
+Rogue_ConfigRoom_Button_KantoBosses_Text_0:
+	.string "KANTO LEADERS$"
+
+Rogue_ConfigRoom_Button_KantoBosses_Text_1:
+	.string "When enabled, leaders from the Kanto\n"
+	.string "region may start appearing for Mighty\l"
+	.string "trainer battles.$"
+
+Rogue_ConfigRoom_Button_JohtoRoutes_Text_0:
+	.string "JOHTO ROUTES$"
+
+Rogue_ConfigRoom_Button_JohtoRoutes_Text_1:
+	.string "When enabled you may start to\n"
+	.string "encounter routes from the Johto\l"
+	.string "region during adventures.$"
+
+Rogue_ConfigRoom_Button_JohtoBosses_Text_0:
+	.string "JOHTO LEADERS$"
+
+Rogue_ConfigRoom_Button_JohtoBosses_Text_1:
+	.string "When enabled, leaders from the Johto\n"
+	.string "region may start appearing for Mighty\l"
+	.string "trainer battles.$"
+
+Rogue_ConfigRoom_Button_HoennRoutes_Text_0:
+	.string "HOENN ROUTES$"
+
+Rogue_ConfigRoom_Button_HoennRoutes_Text_1:
+	.string "When enabled you may start to\n"
+	.string "encounter routes from the Hoenn\l"
+	.string "region during adventures.$"
+
+Rogue_ConfigRoom_Button_HoennBosses_Text_0:
+	.string "HOENN LEADERS$"
+
+Rogue_ConfigRoom_Button_HoennBosses_Text_1:
+	.string "When enabled, leaders from the Hoenn\n"
+	.string "region may start appearing for Mighty\l"
+	.string "trainer battles.$"

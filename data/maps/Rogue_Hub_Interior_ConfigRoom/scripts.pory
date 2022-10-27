@@ -48,37 +48,6 @@ script Rogue_ConfigRoom_SpeakSeedMode
     release
 }
 
-
-script Rogue_ConfigRoom_SpeakBasicBag
-{
-    lock
-    faceplayer
-
-    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        msgbox(format("Would you like to disable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll no longer have the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-    else
-    {
-        msgbox(format("Hi {PLAYER}!\pI can give you the BASIC BAG instead of your current one if you'd like.\pWhen you leave on an Adventure with a BASIC BAG you will have your BAG and MONEY reset so you will have none of the new upgrades you've gotten in the HUB.\pThis isn't permanent of course...\nYou will be given back you current contents once you return back to the HUB as per usual."))
-        msgbox(format("Would you like to enable the BASIC BAG?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("OK. You'll be given the BASIC BAG when going on Adventures."), MSGBOX_DEFAULT)
-            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
-        }
-    }
-
-    release
-}
-
 script Rogue_ConfigRoom_TalkAssistantInternal
 {
     if(flag(FLAG_SET_SEED_ENABLED) == TRUE)
@@ -581,6 +550,15 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
 
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {
@@ -606,6 +584,19 @@ script Rogue_ConfigRoom_RedrawMap
     else
     {
         setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Green, FALSE)
     }
 
 
@@ -645,6 +636,59 @@ script Rogue_ConfigRoom_RedrawMap
     else
     {
         setmetatile(16,8, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    // Expansion Room
+    //
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
     special(DrawWholeMapView)
@@ -750,6 +794,38 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
+script Rogue_ConfigRoom_Button_BasicBag
+{
+    bufferstring(STR_VAR_1, format("BAG WIPE"))
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        case 1:
+            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If enabled, when embarking on an Adventure the contents of your bag will be wiped and you will be given the starter items instead.\pKey items are the only pocket which will remain untouched."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
 script Rogue_ConfigRoom_Button_TrainerDifficulty
 {
     bufferstring(STR_VAR_1, format("TRAINER DIFFICULTY"))
@@ -826,6 +902,46 @@ script Rogue_ConfigRoom_Button_ItemDifficulty
     {
         // Print Info
         msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_LegendaryDifficulty
+{
+    bufferstring(STR_VAR_1, format("LEGENDARY ENCOUNTERS"))
+
+    if(flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            setflag(FLAG_ROGUE_HARD_LEGENDARIES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust the rate and quality of Legendary encounters may appear.\pEasy makes sure any Legendaries may appear fairly frequently.\pAverage will result in few Legendary encounters and the quality of those Legendaries will get stronger the further into a run you are.\pHard will result in few encounters and stronger Legendaries will not appear."), MSGBOX_DEFAULT)
     }
     call(Rogue_ConfigRoom_PostButtonInternal)
 }
@@ -953,6 +1069,200 @@ script Rogue_ConfigRoom_Button_SeedBosses
     {
         // Print Info
         msgbox(format("If disabled GYM LEADER teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_KantoRoutes
+{
+    bufferstring(STR_VAR_1, format("KANTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Kanto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_KantoBosses
+{
+    bufferstring(STR_VAR_1, format("KANTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_JohtoRoutes
+{
+    bufferstring(STR_VAR_1, format("JOHTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Johto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_JohtoBosses
+{
+    bufferstring(STR_VAR_1, format("JOHTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Johto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennRoutes
+{
+    bufferstring(STR_VAR_1, format("HOENN ROUTES"))
+
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Hoenn region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennBosses
+{
+    bufferstring(STR_VAR_1, format("HOENN LEADERS"))
+
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Hoenn region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
