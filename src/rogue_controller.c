@@ -689,6 +689,17 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
                     *money = *money / 2;
             }
         }
+
+        // Snap/Floor to multiple of ten
+        if(*money > 100)
+        {
+            *money /= 10;
+            *money *= 10;
+        }
+        else
+        {
+            *money = 100;
+        }
     }
 }
 
