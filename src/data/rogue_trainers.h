@@ -706,9 +706,9 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_FLYING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
+        //.querySpecies = sQuerySpecies_Johto,
+        //.querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
+        //.partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_BUGSY,
@@ -717,9 +717,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_BUG, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_WHITNEY,
@@ -728,9 +725,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_NORMAL, TYPE_NONE  },
         .excTypes = { TYPE_FLYING, TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_MORTY,
@@ -739,9 +733,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_GHOST, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CHUCK,
@@ -750,9 +741,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_JASMINE,
@@ -761,9 +749,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_STEEL, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_PRYCE,
@@ -772,9 +757,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_ICE, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CLAIR,
@@ -783,9 +765,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_DRAGON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
 
     // Johto Elite 4
@@ -795,9 +774,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
@@ -805,9 +781,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_POISON, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
@@ -815,9 +788,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_KAREN,
@@ -825,9 +795,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_DARK, TYPE_NONE  },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
 
     // Johto Champs
@@ -837,9 +804,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_DRAGON, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_RED,
@@ -847,9 +811,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP,
-        .querySpecies = sQuerySpecies_Johto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Johto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
     },
     
 
