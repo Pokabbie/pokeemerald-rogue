@@ -494,35 +494,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_WHITNEY:
         case TRAINER_ROGUE_BOSS_JASMINE:
         case TRAINER_ROGUE_BOSS_CLAIR:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
-            break;
-
-        case TRAINER_ROGUE_BOSS_FALKNER:
-        case TRAINER_ROGUE_BOSS_BUGSY:
-        case TRAINER_ROGUE_BOSS_MORTY:
-        case TRAINER_ROGUE_BOSS_CHUCK:
-        case TRAINER_ROGUE_BOSS_PRYCE:
-        case TRAINER_ROGUE_BOSS_RED:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
-            break;
-
-        // Johto E4 Ver. - Just separating these out so we don't use kanto music for E4, in future this could be ignore for johto music
         case TRAINER_ROGUE_BOSS_KAREN:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
@@ -532,8 +503,15 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
             break;
 
+        case TRAINER_ROGUE_BOSS_FALKNER:
+        case TRAINER_ROGUE_BOSS_BUGSY:
+        case TRAINER_ROGUE_BOSS_MORTY:
+        case TRAINER_ROGUE_BOSS_CHUCK:
+        case TRAINER_ROGUE_BOSS_PRYCE:
+        case TRAINER_ROGUE_BOSS_RED:
         case TRAINER_ROGUE_BOSS_WILL:
         case TRAINER_ROGUE_BOSS_JOHTO_KOGA:
         case TRAINER_ROGUE_BOSS_JOHTO_BRUNO:
@@ -546,6 +524,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
             break;
     }
 
