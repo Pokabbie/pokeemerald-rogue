@@ -4168,24 +4168,27 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
-    u16 presetIndex;
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u8 presetCount = gPresetMonTable[species].presetCount;
-    u16 statA = (Random() % 6);
-    u16 statB = (statA + 1 + (Random() % 5)) % 6;
-    u16 temp = 31;
-
-    if(presetCount != 0)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        presetIndex = Random() % presetCount;
-        ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+        u16 presetIndex;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        u8 presetCount = gPresetMonTable[species].presetCount;
+        u16 statA = (Random() % 6);
+        u16 statB = (statA + 1 + (Random() % 5)) % 6;
+        u16 temp = 31;
+
+        if(presetCount != 0)
+        {
+            presetIndex = Random() % presetCount;
+            ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+        }
+
+        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+        temp = 0;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
     }
-
-    SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-    SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-    temp = 0;
-    SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
 }
 
 static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
