@@ -2220,6 +2220,8 @@ static void ResetSpecialEncounterStates(void)
     // Ho-oh + Lugia
     FlagClear(FLAG_CAUGHT_HO_OH);
     FlagClear(FLAG_CAUGHT_LUGIA);
+    FlagClear(FLAG_DEFEATED_HO_OH);
+    FlagClear(FLAG_DEFEATED_LUGIA);
 
     // Regis
     FlagClear(FLAG_DEFEATED_REGICE);
