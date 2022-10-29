@@ -1029,6 +1029,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Individual items
     switch(itemId)
     {
+        case ITEM_ESCAPE_ROPE:
+            outItem->price = 25000;
+            break;
+
         // Evo item prices
         case ITEM_LINK_CABLE:
             outItem->price = 2100;

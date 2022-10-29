@@ -1006,6 +1006,27 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
     }
 }
 
+bool8 RogueAdv_CanUseEscapeRope(void)
+{
+    if(!gRogueAdvPath.isOverviewActive)
+    {
+        // We are in transition i.e. just started the run
+        if(gRogueAdvPath.currentColumnCount == 0)
+            return FALSE;
+        
+        switch(gRogueAdvPath.currentRoomType)
+        {
+            case ADVPATH_ROOM_BOSS:
+                return FALSE;
+
+            default:
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
 {
     switch(nodeInfo->roomType)

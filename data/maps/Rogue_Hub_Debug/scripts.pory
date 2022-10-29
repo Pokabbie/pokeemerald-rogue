@@ -50,12 +50,56 @@ script Rogue_Debug_FillPCWithGen
     release
 }
 
+script Rogue_Debug_ClearQuests
+{
+    lock
+
+    msgbox(format("ClearQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_ClearQuests)
+    }
+
+    release
+}
+
+script Rogue_Debug_CompleteAvaliableQuests
+{
+    lock
+
+    msgbox(format("CompleteAvaliableQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_CompleteAvaliableQuests)
+    }
+
+    release
+}
+
+script Rogue_Debug_CollectAllQuests
+{
+    lock
+
+    msgbox(format("CollectAllQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_CollectAllQuests)
+    }
+
+    release
+}
+
 script Rogue_Debug_AddMoney
 {
     lock
 
     addmoney(10000)
-    msgbox(format("Money added."), MSGBOX_DEFAULT)
+    msgbox(format("Money + Candies added."), MSGBOX_DEFAULT)
+
+    giveitem(ITEM_RARE_CANDY, 99)
 
     release
 }

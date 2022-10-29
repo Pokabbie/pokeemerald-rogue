@@ -19,6 +19,10 @@
 #include "rogue_script.h"
 #include "rogue_quest.h"
 
+#ifdef ROGUE_DEBUG
+extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
+#endif
+
 bool8 Rogue_CheckPartyHasRoomForMon(void)
 {
     if(Rogue_IsRunActive())
@@ -361,6 +365,72 @@ void RogueDebug_FillGenPC(void)
         u16 targetBox = currIdx / IN_BOX_COUNT;
         u16 boxIndex = currIdx % IN_BOX_COUNT;
         ZeroBoxMonAt(targetBox, boxIndex);
+    }
+#endif
+}
+
+void RogueDebug_ClearQuests(void)
+{
+#ifdef ROGUE_DEBUG
+    ResetQuestState(0);
+#endif
+}
+
+void RogueDebug_CompleteAvaliableQuests(void)
+{
+#ifdef ROGUE_DEBUG
+    u16 i;
+    u16 questId;
+    struct RogueQuestState* state;
+
+    for(i = 0; i < QUEST_CAPACITY; ++i)
+    {
+        // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
+        questId = QUEST_CAPACITY - i - 1;
+
+        state = &gRogueQuestData.questStates[questId];
+
+        if(state->isUnlocked && !state->isCompleted)
+        {
+            state->isValid = FALSE;
+            state->isCompleted = TRUE;
+            state->hasPendingRewards = TRUE;
+        }
+    }
+#endif
+}
+
+void RogueDebug_CollectAllQuests(void)
+{
+#ifdef ROGUE_DEBUG
+    bool8 shouldLoop;
+    u16 i;
+    u16 questId;
+    struct RogueQuestState* state;
+
+    shouldLoop = TRUE;
+
+    while(shouldLoop)
+    {
+        shouldLoop = FALSE;
+
+        for(i = 0; i < QUEST_CAPACITY; ++i)
+        {
+            // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
+            questId = QUEST_CAPACITY - i - 1;
+
+            state = &gRogueQuestData.questStates[questId];
+
+            if(state->isUnlocked && (!state->isCompleted || state->hasPendingRewards))
+            {
+                state->isValid = FALSE;
+                state->isCompleted = TRUE;
+                state->hasPendingRewards = FALSE;
+
+                UnlockFollowingQuests(questId);
+                shouldLoop = TRUE;
+            }
+        }
     }
 #endif
 }

@@ -19,7 +19,7 @@
 // Items
 //
 #define ROGUE_SHOP_NONE                 0
-#define ROGUE_SHOP_MEDICINE             1
+#define ROGUE_SHOP_GENERAL              1
 #define ROGUE_SHOP_BALLS                2
 #define ROGUE_SHOP_TMS                  3
 #define ROGUE_SHOP_BATTLE_ENHANCERS     4

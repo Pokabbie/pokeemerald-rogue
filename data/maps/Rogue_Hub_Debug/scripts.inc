@@ -49,10 +49,53 @@ Rogue_Debug_FillPCWithGen_11:
 	goto Rogue_Debug_FillPCWithGen_8
 
 
+Rogue_Debug_ClearQuests::
+	lock
+	msgbox Rogue_Debug_ClearQuests_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Debug_ClearQuests_2
+Rogue_Debug_ClearQuests_1:
+	release
+	return
+
+Rogue_Debug_ClearQuests_2:
+	special RogueDebug_ClearQuests
+	goto Rogue_Debug_ClearQuests_1
+
+
+Rogue_Debug_CompleteAvaliableQuests::
+	lock
+	msgbox Rogue_Debug_CompleteAvaliableQuests_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Debug_CompleteAvaliableQuests_2
+Rogue_Debug_CompleteAvaliableQuests_1:
+	release
+	return
+
+Rogue_Debug_CompleteAvaliableQuests_2:
+	special RogueDebug_CompleteAvaliableQuests
+	goto Rogue_Debug_CompleteAvaliableQuests_1
+
+
+Rogue_Debug_CollectAllQuests::
+	lock
+	msgbox Rogue_Debug_CollectAllQuests_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Debug_CollectAllQuests_2
+Rogue_Debug_CollectAllQuests_1:
+	release
+	return
+
+Rogue_Debug_CollectAllQuests_2:
+	special RogueDebug_CollectAllQuests
+	goto Rogue_Debug_CollectAllQuests_1
+
+
 Rogue_Debug_AddMoney::
 	lock
 	addmoney 10000
 	msgbox Rogue_Debug_AddMoney_Text_0, MSGBOX_DEFAULT
+	giveitem ITEM_RARE_CANDY, 99
 	release
 	return
 
@@ -68,5 +111,14 @@ Rogue_Debug_FillPCWithGen_Text_2:
 	.string "Come chat to me if you ever change your\l"
 	.string "mind.$"
 
+Rogue_Debug_ClearQuests_Text_0:
+	.string "ClearQuests$"
+
+Rogue_Debug_CompleteAvaliableQuests_Text_0:
+	.string "CompleteAvaliableQuests$"
+
+Rogue_Debug_CollectAllQuests_Text_0:
+	.string "CollectAllQuests$"
+
 Rogue_Debug_AddMoney_Text_0:
-	.string "Money added.$"
+	.string "Money + Candies added.$"

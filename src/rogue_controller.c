@@ -194,6 +194,14 @@ static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
             gRogueRun.safariShinyBuffer[i] = (u16)-1;
             return gRogueRun.safariShinyPersonality;
         }
+#ifdef ROGUE_EXPANSION
+        // Support shiny buffering for alternate forms
+        else if(GET_BASE_SPECIES_ID(gRogueRun.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
+        {
+            gRogueRun.safariShinyBuffer[i] = (u16)-1;
+            return gRogueRun.safariShinyPersonality;
+        }
+#endif
     }
 
     return 0;
@@ -2220,6 +2228,8 @@ static void ResetSpecialEncounterStates(void)
     // Ho-oh + Lugia
     FlagClear(FLAG_CAUGHT_HO_OH);
     FlagClear(FLAG_CAUGHT_LUGIA);
+    FlagClear(FLAG_DEFEATED_HO_OH);
+    FlagClear(FLAG_DEFEATED_LUGIA);
 
     // Regis
     FlagClear(FLAG_DEFEATED_REGICE);
@@ -4243,14 +4253,22 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     switch(itemCategory)
     {
-        case ROGUE_SHOP_MEDICINE:
+        case ROGUE_SHOP_GENERAL:
             RogueQuery_ItemsMedicine();
+
+            RogueQuery_Include(ITEM_REPEL);
+            RogueQuery_Include(ITEM_SUPER_REPEL);
+            RogueQuery_Include(ITEM_MAX_REPEL);
 
             RogueQuery_ItemsInPriceRange(10, 300 + difficulty * 400);
 
             if(difficulty < 4)
             {
                 RogueQuery_Exclude(ITEM_FULL_HEAL);
+            }
+            else
+            {
+                RogueQuery_Include(ITEM_ESCAPE_ROPE);
             }
 
             RogueQuery_Exclude(ITEM_FRESH_WATER);

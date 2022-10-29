@@ -963,7 +963,6 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_Exclude(ITEM_REVIVAL_HERB);
     RogueQuery_Exclude(ITEM_REVIVE);
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
-    RogueQuery_Exclude(ITEM_ESCAPE_ROPE);
     RogueQuery_Exclude(ITEM_RARE_CANDY);
     RogueQuery_Exclude(ITEM_HEART_SCALE);
 
