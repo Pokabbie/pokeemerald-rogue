@@ -194,6 +194,14 @@ static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
             gRogueRun.safariShinyBuffer[i] = (u16)-1;
             return gRogueRun.safariShinyPersonality;
         }
+#ifdef ROGUE_EXPANSION
+        // Support shiny buffering for alternate forms
+        else if(GET_BASE_SPECIES_ID(gRogueRun.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
+        {
+            gRogueRun.safariShinyBuffer[i] = (u16)-1;
+            return gRogueRun.safariShinyPersonality;
+        }
+#endif
     }
 
     return 0;
