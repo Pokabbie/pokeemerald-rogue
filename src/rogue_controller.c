@@ -2741,6 +2741,17 @@ static bool32 DidPlayerRun(u32 battleOutcome)
     }
 }
 
+static bool32 DidPlayerCatch(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_CAUGHT:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -2830,11 +2841,15 @@ void Rogue_Battle_EndWildBattle(void)
                 levelOffsetDelta = 5;
             }
 
-            // Every trainer battle drops level cap slightly
-            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            // Don't increase the level caps if we only caught the mon
+            if(!DidPlayerCatch(gBattleOutcome))
+            {
+                // Every trainer battle drops level cap slightly
+                if(gRogueRun.currentLevelOffset < levelOffsetDelta)
+                    gRogueRun.currentLevelOffset = 0;
+                else
+                    gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
