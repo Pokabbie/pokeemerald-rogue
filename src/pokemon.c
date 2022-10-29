@@ -3051,7 +3051,7 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     }
 }
 
-bool8 IsCurentMonLearnMoveValid(u16 species, u8 level, bool8 includeEvoMoves)
+bool8 IsCurrentMonLearnMoveValid(u16 species, u8 level, bool8 includeEvoMoves)
 {
     return (gLevelUpLearnsets[species][sLearningMoveTableID].level == level) || (includeEvoMoves && gLevelUpLearnsets[species][sLearningMoveTableID].level == 0);
 }
@@ -3070,7 +3070,7 @@ static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, b
     {
         sLearningMoveTableID = 0;
 
-        while (!IsCurentMonLearnMoveValid(species, level, includeEvoMoves))
+        while (!IsCurrentMonLearnMoveValid(species, level, includeEvoMoves))
         {
             sLearningMoveTableID++;
             if (gLevelUpLearnsets[species][sLearningMoveTableID].move == LEVEL_UP_END)
@@ -3078,11 +3078,14 @@ static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, b
         }
     }
 
-    if (IsCurentMonLearnMoveValid(species, level, includeEvoMoves))
+    if (IsCurrentMonLearnMoveValid(species, level, includeEvoMoves))
     {
         gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
-        sLearningMoveTableID++;
-        retVal = GiveMoveToMon(mon, gMoveToLearn);
+        if(gMoveToLearn != LEVEL_UP_END)
+        {
+            sLearningMoveTableID++;
+            retVal = GiveMoveToMon(mon, gMoveToLearn);
+        }
     }
 
     return retVal;

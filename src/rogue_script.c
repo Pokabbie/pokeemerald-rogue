@@ -421,7 +421,7 @@ void RogueDebug_CollectAllQuests(void)
 
             state = &gRogueQuestData.questStates[questId];
 
-            if(state->isUnlocked && !state->isCompleted)
+            if(state->isUnlocked && (!state->isCompleted || state->hasPendingRewards))
             {
                 state->isValid = FALSE;
                 state->isCompleted = TRUE;
