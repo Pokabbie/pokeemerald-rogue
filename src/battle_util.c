@@ -9681,6 +9681,10 @@ bool32 CanBattlerGetOrLoseItem(u8 battlerId, u16 itemId)
     else if (holdEffect == HOLD_EFFECT_Z_CRYSTAL)
         return FALSE;
 #endif
+    else if (GET_BASE_SPECIES_ID(species) == SPECIES_ZACIAN && itemId == ITEM_RUSTED_SWORD)
+        return FALSE;
+    else if (GET_BASE_SPECIES_ID(species) == SPECIES_ZAMAZENTA && itemId == ITEM_RUSTED_SHIELD)
+        return FALSE;
     else
         return TRUE;
 }
