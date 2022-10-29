@@ -1364,9 +1364,10 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
         FlagSet(FLAG_ROGUE_HOENN_ROUTES);
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
 
-        FlagClear(FLAG_ROGUE_KANTO_ROUTES);
+        FlagSet(FLAG_ROGUE_KANTO_ROUTES);
+        FlagSet(FLAG_ROGUE_JOHTO_ROUTES);
+
         FlagClear(FLAG_ROGUE_KANTO_BOSSES);
-        FlagClear(FLAG_ROGUE_JOHTO_ROUTES);
         FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
     }
 
@@ -1418,6 +1419,10 @@ void Rogue_OnNewGame(void)
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
+
+    // Reset shiny safari
+    gRogueRun.safairShinyBufferHead = 0;
+    memset(&gRogueRun.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.safariShinyBuffer));
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
