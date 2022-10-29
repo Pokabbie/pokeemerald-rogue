@@ -739,7 +739,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             break;
 
         case TRAINER_ROGUE_BOSS_RED:
-            outTrainer->trainerPic = TRAINER_PIC_RED;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_RED;
             break;
 
         // Std Trainers

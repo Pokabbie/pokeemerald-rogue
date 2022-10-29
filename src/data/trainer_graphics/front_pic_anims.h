@@ -498,4 +498,6 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 
     [TRAINER_PIC_JOHTO_WILL] = sAnims_Kanto,
     [TRAINER_PIC_JOHTO_KAREN] = sAnims_Kanto,
+
+    [TRAINER_PIC_JOHTO_RED] = sAnims_Kanto,
 };

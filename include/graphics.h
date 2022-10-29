@@ -2992,6 +2992,8 @@ extern const u32 gTrainerFrontPic_LeaderClair[];
 extern const u32 gTrainerFrontPic_EliteFourWill[];
 extern const u32 gTrainerFrontPic_EliteFourKaren[];
 
+extern const u32 gTrainerFrontPic_ChampionRed[];
+
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -3179,6 +3181,8 @@ extern const u32 gTrainerPalette_LeaderClair[];
 
 extern const u32 gTrainerPalette_EliteFourWill[];
 extern const u32 gTrainerPalette_EliteFourKaren[];
+
+extern const u32 gTrainerPalette_ChampionRed[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -5189,6 +5193,7 @@ extern const u16 gObjectEventPal_Red_1_3[];
 extern const u16 gObjectEventPal_Red_2_3[];
 extern const u16 gObjectEventPal_Red_3_3[];
 extern const u16 gObjectEventPal_Kanto_Blue[];
+extern const u16 gObjectEventPal_Johto_NPC_Red[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];
