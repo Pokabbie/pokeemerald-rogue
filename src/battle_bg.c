@@ -800,9 +800,18 @@ void DrawMainBattleBackground(void)
             }
             else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
             {
-                LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-                LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
-                LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
+                if(gRogueRun.currentDifficulty >= 13)
+                {
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_StadiumSteven, 0x20, 0x60);
+                }
+                else
+                {
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
+                }
                 return;
             }
         }
@@ -1378,7 +1387,14 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 }
                 else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
                 {
-                    LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
+                    if(gRogueRun.currentDifficulty >= 13)
+                    {
+                        LoadCompressedPalette(gBattleTerrainPalette_StadiumSteven, 0x20, 0x60);
+                    }
+                    else
+                    {
+                        LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
+                    }
                     break;
                 }
             }

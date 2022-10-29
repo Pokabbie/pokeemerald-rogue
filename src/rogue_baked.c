@@ -1030,7 +1030,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     switch(itemId)
     {
         case ITEM_ESCAPE_ROPE:
-            outItem->price = 10000;
+            outItem->price = 25000;
             break;
 
         // Evo item prices

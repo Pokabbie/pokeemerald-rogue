@@ -4980,6 +4980,9 @@ static void HandleEndTurn_BattleWon(void)
                 case TRAINER_CLASS_ELITE_FOUR:
                     PlayBGM(MUS_RG_VICTORY_GYM_LEADER);
                     break;
+                case TRAINER_CLASS_CHAMPION:
+                    PlayBGM(MUS_VICTORY_LEAGUE);
+                    break;
                 default:
                     PlayBGM(MUS_RG_VICTORY_TRAINER);
                     break;
@@ -4992,6 +4995,9 @@ static void HandleEndTurn_BattleWon(void)
                 case TRAINER_CLASS_LEADER:
                 case TRAINER_CLASS_ELITE_FOUR:
                     PlayBGM(MUS_HG_VICTORY_GYM_LEADER);
+                    break;
+                case TRAINER_CLASS_CHAMPION:
+                    PlayBGM(MUS_VICTORY_LEAGUE);
                     break;
                 default:
                     PlayBGM(MUS_HG_VICTORY_TRAINER);
