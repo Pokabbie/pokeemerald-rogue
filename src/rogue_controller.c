@@ -1364,9 +1364,10 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
         FlagSet(FLAG_ROGUE_HOENN_ROUTES);
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
 
-        FlagClear(FLAG_ROGUE_KANTO_ROUTES);
+        FlagSet(FLAG_ROGUE_KANTO_ROUTES);
+        FlagSet(FLAG_ROGUE_JOHTO_ROUTES);
+
         FlagClear(FLAG_ROGUE_KANTO_BOSSES);
-        FlagClear(FLAG_ROGUE_JOHTO_ROUTES);
         FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
     }
 
@@ -1418,6 +1419,10 @@ void Rogue_OnNewGame(void)
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
+
+    // Reset shiny safari
+    gRogueRun.safairShinyBufferHead = 0;
+    memset(&gRogueRun.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.safariShinyBuffer));
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
@@ -2736,6 +2741,17 @@ static bool32 DidPlayerRun(u32 battleOutcome)
     }
 }
 
+static bool32 DidPlayerCatch(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_CAUGHT:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -2825,11 +2841,15 @@ void Rogue_Battle_EndWildBattle(void)
                 levelOffsetDelta = 5;
             }
 
-            // Every trainer battle drops level cap slightly
-            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            // Don't increase the level caps if we only caught the mon
+            if(!DidPlayerCatch(gBattleOutcome))
+            {
+                // Every trainer battle drops level cap slightly
+                if(gRogueRun.currentLevelOffset < levelOffsetDelta)
+                    gRogueRun.currentLevelOffset = 0;
+                else
+                    gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -4168,24 +4188,27 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
-    u16 presetIndex;
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u8 presetCount = gPresetMonTable[species].presetCount;
-    u16 statA = (Random() % 6);
-    u16 statB = (statA + 1 + (Random() % 5)) % 6;
-    u16 temp = 31;
-
-    if(presetCount != 0)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
     {
-        presetIndex = Random() % presetCount;
-        ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+        u16 presetIndex;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        u8 presetCount = gPresetMonTable[species].presetCount;
+        u16 statA = (Random() % 6);
+        u16 statB = (statA + 1 + (Random() % 5)) % 6;
+        u16 temp = 31;
+
+        if(presetCount != 0)
+        {
+            presetIndex = Random() % presetCount;
+            ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+        }
+
+        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+        temp = 0;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
     }
-
-    SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-    SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-    temp = 0;
-    SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
 }
 
 static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
@@ -5064,6 +5087,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_HEART_SCALE);
 #endif
         RogueQuery_Include(ITEM_MASTER_BALL);
+        RogueQuery_Include(ITEM_ESCAPE_ROPE);
     }
     else
     {
