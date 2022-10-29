@@ -34,6 +34,12 @@ script Rogue_GiveItem_Internal
         return
     }
 
+    if(var(VAR_ITEM_ID_VAL) == ITEM_ESCAPE_ROPE)
+    {
+        finditem(VAR_ITEM_ID_VAL, 1)
+        return
+    }
+
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
         // ITEM_FIRE_MEMORY -> ITEM_DIANCITE

@@ -5072,6 +5072,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_HEART_SCALE);
 #endif
         RogueQuery_Include(ITEM_MASTER_BALL);
+        RogueQuery_Include(ITEM_ESCAPE_ROPE);
     }
     else
     {
