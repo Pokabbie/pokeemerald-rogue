@@ -57,7 +57,7 @@ bool8 IsSpeciesType(u16 species, u8 type);
 bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 bool8 IsSpeciesLegendary(u16 species);
 
-static void UnlockFollowingQuests(u16 questId);
+
 static void UpdateMonoQuests(void);
 static void ForEachUnlockedQuest(QuestCallback callback);
 static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
@@ -88,7 +88,7 @@ static void UnlockDefaultQuests()
         for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
         {
             if(IsQuestCollected(i))
-                TryUnlockQuest(i);
+                UnlockFollowingQuests(i);
         }
     }
 }
@@ -500,7 +500,7 @@ bool8 TryDeactivateQuest(u16 questId)
     return FALSE;
 }
 
-static void UnlockFollowingQuests(u16 questId)
+void UnlockFollowingQuests(u16 questId)
 {
     u8 i;
 

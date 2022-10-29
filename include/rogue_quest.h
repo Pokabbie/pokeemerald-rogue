@@ -23,6 +23,7 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type);
 bool8 TryUnlockQuest(u16 questId);
 bool8 TryMarkQuestAsComplete(u16 questId);
 bool8 TryDeactivateQuest(u16 questId);
+void UnlockFollowingQuests(u16 questId);
 
 void QuestNotify_BeginAdventure(void);
 void QuestNotify_EndAdventure(void);
