@@ -189,7 +189,7 @@ Rogue_Shop_Medicine::
 	faceplayer
 	message Rogue_Shop_Medicine_Text_0
 	waitmessage
-	rogue_dynamicpokemart ROGUE_SHOP_MEDICINE
+	rogue_dynamicpokemart ROGUE_SHOP_GENERAL
 	msgbox Rogue_Shop_Balls_Text_1
 	release
 	return
@@ -1105,7 +1105,7 @@ Rogue_Shop_Balls_Text_1:
 	.string "Come again soon!$"
 
 Rogue_Shop_Medicine_Text_0:
-	.string "Welcome to the MEDICINE Shop!$"
+	.string "Welcome to the GENERAL Shop!$"
 
 Rogue_Shop_TMs_Text_0:
 	.string "Welcome to the TM Shop!$"

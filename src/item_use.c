@@ -42,6 +42,8 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 
+#include "rogue_adventurepaths.h"
+#include "rogue_controller.h"
 #include "rogue_questmenu.h"
 
 static void SetUpItemUseCallback(u8);
@@ -952,10 +954,13 @@ static void ItemUseOnFieldCB_EscapeRope(u8 taskId)
 
 bool8 CanUseDigOrEscapeRopeOnCurMap(void)
 {
-    if (gMapHeader.allowEscaping)
-        return TRUE;
-    else
-        return FALSE;
+    // RogueNote: Only allow escape rope in specific encoutners
+    if(Rogue_IsRunActive())
+    {
+        return RogueAdv_CanUseEscapeRope();
+    }
+
+    return FALSE;
 }
 
 void ItemUseOutOfBattle_EscapeRope(u8 taskId)

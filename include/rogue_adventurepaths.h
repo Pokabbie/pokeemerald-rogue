@@ -12,6 +12,7 @@ void RogueAdv_ApplyAdventureMetatiles();
 void RogueAdv_UpdateObjectGFX();
 
 u8 RogueAdv_OverrideNextWarp(struct WarpData *warp);
+bool8 RogueAdv_CanUseEscapeRope(void);
 
 void RogueAdv_GetNodeParams();
 void RogueAdv_ExecuteNodeAction();

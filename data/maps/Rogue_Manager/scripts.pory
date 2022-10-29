@@ -208,10 +208,10 @@ script Rogue_Shop_Medicine
 {    
     lock
     faceplayer
-    message("Welcome to the MEDICINE Shop!")
+    message("Welcome to the GENERAL Shop!")
     waitmessage
 
-    rogue_dynamicpokemart(ROGUE_SHOP_MEDICINE)
+    rogue_dynamicpokemart(ROGUE_SHOP_GENERAL)
 
     msgbox("Come again soon!")
     release

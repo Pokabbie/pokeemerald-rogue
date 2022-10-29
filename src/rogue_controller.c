@@ -4253,14 +4253,22 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
     switch(itemCategory)
     {
-        case ROGUE_SHOP_MEDICINE:
+        case ROGUE_SHOP_GENERAL:
             RogueQuery_ItemsMedicine();
+
+            RogueQuery_Include(ITEM_REPEL);
+            RogueQuery_Include(ITEM_SUPER_REPEL);
+            RogueQuery_Include(ITEM_MAX_REPEL);
 
             RogueQuery_ItemsInPriceRange(10, 300 + difficulty * 400);
 
             if(difficulty < 4)
             {
                 RogueQuery_Exclude(ITEM_FULL_HEAL);
+            }
+            else
+            {
+                RogueQuery_Include(ITEM_ESCAPE_ROPE);
             }
 
             RogueQuery_Exclude(ITEM_FRESH_WATER);
