@@ -49,6 +49,7 @@
 #include "constants/rogue.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
+#include "rogue_charms.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -7215,7 +7216,31 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
         }
         break;
     case ITEMEFFECT_KINGSROCK:
+    {
         // Occur on each hit of a multi-strike move
+        bool8 shouldFlinch = FALSE;
+
+        if(gBattleMoveDamage != 0)
+        {
+            u16 extraFlinchChance = 0;
+
+            if(GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+                extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
+            else
+                extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);
+
+            if(extraFlinchChance)
+            {
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && (Random() % 100) < extraFlinchChance
+                    && gBattleMons[gBattlerTarget].hp)
+                {
+                    shouldFlinch = TRUE;
+                }
+            }
+        }
+
         switch (atkHoldEffect)
         {
         case HOLD_EFFECT_FLINCH:
@@ -7230,10 +7255,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 && gBattleMoves[gCurrentMove].flags & FLAG_KINGS_ROCK_AFFECTED
                 && gBattleMons[gBattlerTarget].hp)
             {
-                gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
-                BattleScriptPushCursor();
-                SetMoveEffect(FALSE, 0);
-                BattleScriptPop();
+                shouldFlinch = TRUE;
             }
             break;
         case HOLD_EFFECT_BLUNDER_POLICY:
@@ -7250,7 +7272,17 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             }
             break;
         }
+
+        if(shouldFlinch)
+        {
+            gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
+            BattleScriptPushCursor();
+            SetMoveEffect(FALSE, 0);
+            BattleScriptPop();
+        }
+
         break;
+    }
     case ITEMEFFECT_LIFEORB_SHELLBELL:
         // Occur after the final hit of a multi-strike move
         switch (atkHoldEffect)
@@ -7433,7 +7465,6 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     RecordItemEffectBattle(battlerId, HOLD_EFFECT_ROCKY_HELMET);
                 }
                 break;
-            case HOLD_EFFECT_KEE_BERRY:  // consume and boost defense if used physical move
                 effect = DamagedStatBoostBerryEffect(battlerId, STAT_DEF, SPLIT_PHYSICAL);
                 break;
             case HOLD_EFFECT_MARANGA_BERRY:  // consume and boost sp. defense if used special move
@@ -7448,12 +7479,10 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                   && CanStealItem(gBattlerAttacker, gBattlerTarget, gBattleMons[gBattlerTarget].item)
                   && gBattleMons[gBattlerAttacker].item == ITEM_NONE)
                 {
-                    // No sticky hold checks.
+                gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_FLINCH;
                     gEffectBattler = battlerId; // gEffectBattler = target
                     StealTargetItem(gBattlerAttacker, gBattlerTarget);  // Attacker takes target's barb
                     BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_StickyBarbTransfer;
-                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             }

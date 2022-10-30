@@ -823,23 +823,23 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             
         case TRAINER_ROGUE_MAGMA_F:
             outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA;
             outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_F;
             break;
         case TRAINER_ROGUE_MAGMA_M:
             outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE | TRAINER_ENCOUNTER_MUSIC_MAGMA;
             outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_M;
             break;
 
         case TRAINER_ROGUE_AQUA_F:
             outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA;
             outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_F;
             break;
         case TRAINER_ROGUE_AQUA_M:
             outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE | TRAINER_ENCOUNTER_MUSIC_AQUA;
             outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
             break;
     }

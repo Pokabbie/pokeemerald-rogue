@@ -1,5 +1,5 @@
-#ifndef QUEST_H
-#define QUEST_H
+#ifndef ROGUE_QUEST_H
+#define ROGUE_QUEST_H
 
 void ResetQuestState(u16 saveVersion);
 bool8 AnyNewQuests(void);
