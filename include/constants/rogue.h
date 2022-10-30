@@ -27,7 +27,7 @@
 #define ROGUE_SHOP_RARE_HELD_ITEMS      6
 #define ROGUE_SHOP_BERRIES              7
 
-
+// Old replacement-style items
 #define ITEM_LINK_CABLE ITEM_EXP_SHARE
 
 #ifdef ROGUE_EXPANSION
@@ -35,6 +35,10 @@
 #else
 #define ITEM_QUEST_LOG ITEM_ROOM_1_KEY
 #endif
+
+
+#define ITEM_SHOPPING_CHARM ITEM_ROGUE_ITEM0
+#define ITEM_SHOPPING_CURSE ITEM_ROGUE_ITEM1
 
 // Routes
 //
