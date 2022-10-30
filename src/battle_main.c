@@ -3268,6 +3268,11 @@ void FaintClearSetData(void)
             }
         }
     }
+
+    // Clear Z-Move data
+    gBattleStruct->zmove.active = FALSE;
+    gBattleStruct->zmove.toBeUsed[gActiveBattler] = MOVE_NONE;
+    gBattleStruct->zmove.effect = EFFECT_HIT;
 }
 
 static void DoBattleIntro(void)
