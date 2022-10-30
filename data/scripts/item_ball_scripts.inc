@@ -418,6 +418,46 @@ NewMauville_Inside_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
 
+AbandonedShip_Rooms_1F_EventScript_ItemHarborMail::
+	finditem ITEM_HARBOR_MAIL
+	end
+
+AbandonedShip_Rooms_B1F_EventScript_ItemEscapeRope::
+	finditem ITEM_ESCAPE_ROPE
+	end
+
+AbandonedShip_Rooms2_B1F_EventScript_ItemDiveBall::
+	finditem ITEM_DIVE_BALL
+	end
+
+AbandonedShip_Room_B1F_EventScript_ItemTM13::
+	finditem ITEM_TM13
+	end
+
+AbandonedShip_Rooms2_1F_EventScript_ItemRevive::
+	finditem ITEM_REVIVE
+	end
+
+AbandonedShip_CaptainsOffice_EventScript_ItemStorageKey::
+	finditem ITEM_STORAGE_KEY
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemLuxuryBall::
+	finditem ITEM_LUXURY_BALL
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemScanner::
+	finditem ITEM_SCANNER
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemWaterStone::
+	finditem ITEM_WATER_STONE
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemTM18::
+	finditem ITEM_TM18
+	end
+
 ScorchedSlab_EventScript_ItemTM11::
 	finditem ITEM_TM11
 	end
