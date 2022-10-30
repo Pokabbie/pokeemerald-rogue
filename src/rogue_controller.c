@@ -2611,7 +2611,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     destMon = &gRogueLocal.saveData.raw.faintedLabMons[i];
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
-    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 10;
+    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
     SetMonData(destMon, MON_DATA_HP, &temp);
 
     // TODO - Maybe we make fainted mons weaker?
