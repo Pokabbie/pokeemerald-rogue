@@ -33,7 +33,7 @@ u16 GetCharmValue(u8 effectType)
             break;
 
         case EFFECT_FLINCH_CHANCE:
-            return min(GetItemCountInBag(ITEM_FLINCH_CHARM), 10) * 10;
+            return min(GetItemCountInBag(ITEM_FLINCH_CHARM), 9) * 10;
 
         case EFFECT_CRIT_CHANCE:
             count = GetItemCountInBag(ITEM_CRIT_CHARM);
@@ -44,6 +44,9 @@ u16 GetCharmValue(u8 effectType)
                 return 2 + (count - 1);
             }
             break;
+
+        case EFFECT_SHED_SKIN_CHANCE:
+            return min(GetItemCountInBag(ITEM_SHED_SKIN_CHARM), 5) * 20;
     }
 
     return 0;
@@ -59,7 +62,7 @@ u16 GetCurseValue(u8 effectType)
             break;
 
         case EFFECT_FLINCH_CHANCE:
-            return min(GetItemCountInBag(ITEM_FLINCH_CURSE), 10) * 10;
+            return min(GetItemCountInBag(ITEM_FLINCH_CURSE), 9) * 10;
 
         case EFFECT_CRIT_CHANCE:
             count = GetItemCountInBag(ITEM_CRIT_CURSE);
@@ -70,6 +73,9 @@ u16 GetCurseValue(u8 effectType)
                 return 2 + (count - 1);
             }
             break;
+
+        case EFFECT_SHED_SKIN_CHANCE:
+            return min(GetItemCountInBag(ITEM_SHED_SKIN_CURSE), 5) * 20;
     }
 
     return 0;

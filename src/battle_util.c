@@ -4713,7 +4713,24 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
     case ABILITYEFFECT_ENDTURN: // 1
         if (gBattleMons[battler].hp != 0)
         {
+            bool8 applyShedSkin = FALSE;
+            u8 extraShedSkinChance = 0;
+
             gBattlerAttacker = battler;
+            
+            if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                extraShedSkinChance = GetCurseValue(EFFECT_SHED_SKIN_CHANCE);
+            else
+                extraShedSkinChance = GetCharmValue(EFFECT_SHED_SKIN_CHANCE);
+
+            if(extraShedSkinChance)
+            {
+                if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 100) < extraShedSkinChance)
+                {
+                    applyShedSkin = TRUE;
+                }
+            }
+
             switch (gLastUsedAbility)
             {
             case ABILITY_HARVEST:
@@ -4748,31 +4765,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
                  && gBattleMons[battler].status1 & STATUS1_ANY)
                 {
-                    goto ABILITY_HEAL_MON_STATUS;
+                    applyShedSkin = TRUE;
                 }
                 break;
             case ABILITY_SHED_SKIN:
                 if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 3) == 0)
                 {
-                ABILITY_HEAL_MON_STATUS:
-                    if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_BURN)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_FREEZE)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
-
-                    gBattleMons[battler].status1 = 0;
-                    gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
-                    gBattleScripting.battler = gActiveBattler = battler;
-                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
-                    BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
-                    MarkBattlerForControllerExec(gActiveBattler);
-                    effect++;
+                    applyShedSkin = TRUE;
                 }
                 break;
             case ABILITY_SPEED_BOOST:
@@ -4907,6 +4906,28 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     effect++;
                 }
                 break;
+            }
+
+            if(applyShedSkin)
+            {
+                if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                if (gBattleMons[battler].status1 & STATUS1_FREEZE)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+
+                gBattleMons[battler].status1 = 0;
+                gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                gBattleScripting.battler = gActiveBattler = battler;
+                BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+                BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                MarkBattlerForControllerExec(gActiveBattler);
+                effect++;
             }
         }
         break;
