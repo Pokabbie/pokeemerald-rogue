@@ -1138,17 +1138,10 @@ u8* Rogue_GetMiniMenuContent(void)
     //
     else
     {
+
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[0]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[1]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[2]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[3]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[4]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[5]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[6]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[7]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[8]);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, gRogueRun.bossHistoryBuffer[9]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[0]);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[1]);
     }
 
     return gStringVar4;
@@ -2850,6 +2843,25 @@ void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
+        // Update encounter tracker
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+        {
+            u8 i;
+            //u16 wildSpecies = gBattleMons[gActiveBattler].species;
+            u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+            //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+            {
+                if(gRogueRun.wildEncounters[i] == wildSpecies)
+                {
+                    gRogueLocal.encounterPreview[i].isVisible = TRUE;
+                }
+
+            }
+        }
+#endif
+
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
             u8 levelOffsetDelta = 2;
@@ -4186,8 +4198,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
                 *species = gRogueRun.wildEncounters[randIdx];
             }
             while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
-
-            gRogueLocal.encounterPreview[randIdx].isVisible = TRUE;
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
