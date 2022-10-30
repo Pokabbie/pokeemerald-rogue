@@ -1852,6 +1852,116 @@
       "blockdata_filepath": "data/layouts/NewMauville_Inside/map.bin"
     },
     {
+      "id": "LAYOUT_ABANDONED_SHIP_DECK",
+      "name": "AbandonedShip_Deck_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/AbandonedShip_Deck/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Deck/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_CORRIDORS_1F",
+      "name": "AbandonedShip_Corridors_1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Corridors_1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_ROOMS_1F",
+      "name": "AbandonedShip_Rooms_1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Rooms_1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_CORRIDORS_B1F",
+      "name": "AbandonedShip_Corridors_B1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Corridors_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_ROOMS_B1F",
+      "name": "AbandonedShip_Rooms_B1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Rooms_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_B1F",
+      "name": "AbandonedShip_Rooms2_B1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_UNDERWATER1",
+      "name": "AbandonedShip_Underwater1_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Underwater1/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Underwater1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_ROOM_B1F",
+      "name": "AbandonedShip_Room_B1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Room_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Room_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_1F",
+      "name": "AbandonedShip_Rooms2_1F_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Rooms2_1F/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_CAPTAINS_OFFICE",
+      "name": "AbandonedShip_CaptainsOffice_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/AbandonedShip_CaptainsOffice/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_CaptainsOffice/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_UNDERWATER2",
+      "name": "AbandonedShip_Underwater2_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_Underwater2/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_Underwater2/map.bin"
+    },
+    {
       "id": "LAYOUT_SECRET_BASE_RED_CAVE1",
       "name": "SecretBase_RedCave1_Layout",
       "width": 11,
@@ -2772,6 +2882,16 @@
       "blockdata_filepath": "data/layouts/GraniteCave_StevensRoom/map.bin"
     },
     {
+      "id": "LAYOUT_ABANDONED_SHIP_HIDDEN_FLOOR_CORRIDORS",
+      "name": "AbandonedShip_HiddenFloorCorridors_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_HiddenFloorCorridors/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_HiddenFloorCorridors/map.bin"
+    },
+    {
       "id": "LAYOUT_SOUTHERN_ISLAND_EXTERIOR",
       "name": "SouthernIsland_Exterior_Layout",
       "width": 33,
@@ -2970,6 +3090,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SootopolisCity_House3/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ABANDONED_SHIP_HIDDEN_FLOOR_ROOMS",
+      "name": "AbandonedShip_HiddenFloorRooms_Layout",
+      "width": 1,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/AbandonedShip_HiddenFloorRooms/border.bin",
+      "blockdata_filepath": "data/layouts/AbandonedShip_HiddenFloorRooms/map.bin"
     },
     {
       "id": "LAYOUT_SCORCHED_SLAB",
