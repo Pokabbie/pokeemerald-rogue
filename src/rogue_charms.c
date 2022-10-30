@@ -25,6 +25,8 @@ bool8 IsCurseActive(u8 effectType)
 
 u16 GetCharmValue(u8 effectType)
 {
+    u16 count;
+
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
@@ -32,6 +34,16 @@ u16 GetCharmValue(u8 effectType)
 
         case EFFECT_FLINCH_CHANCE:
             return min(GetItemCountInBag(ITEM_FLINCH_CHARM), 10) * 10;
+
+        case EFFECT_CRIT_CHANCE:
+            count = GetItemCountInBag(ITEM_CRIT_CHARM);
+
+            if(count != 0)
+            {
+                // Free focus energy + extra stages
+                return 2 + (count - 1);
+            }
+            break;
     }
 
     return 0;
@@ -39,6 +51,8 @@ u16 GetCharmValue(u8 effectType)
 
 u16 GetCurseValue(u8 effectType)
 {
+    u16 count;
+
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
@@ -46,6 +60,16 @@ u16 GetCurseValue(u8 effectType)
 
         case EFFECT_FLINCH_CHANCE:
             return min(GetItemCountInBag(ITEM_FLINCH_CURSE), 10) * 10;
+
+        case EFFECT_CRIT_CHANCE:
+            count = GetItemCountInBag(ITEM_CRIT_CURSE);
+
+            if(count != 0)
+            {
+                // Free focus energy + extra stages
+                return 2 + (count - 1);
+            }
+            break;
     }
 
     return 0;
