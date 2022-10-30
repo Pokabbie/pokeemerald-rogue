@@ -67,8 +67,8 @@ Rogue_Encounter_Lab_Pokeball_GiveMon::
 	waitmessage
 	waitfanfare
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_1
-	giveitem ITEM_SHOPPING_CURSE, 2
-	giveitem ITEM_SHOPPING_CHARM, 1
+	giveitem ITEM_SHOP_PRICE_CURSE, 2
+	giveitem ITEM_SHOP_PRICE_CHARM, 1
 	return
 
 

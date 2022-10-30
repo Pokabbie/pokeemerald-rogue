@@ -40,6 +40,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
@@ -556,7 +557,20 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
 
 static u16 Mart_GetItemPrice(u16 itemId)
 {
-    return max(ItemId_GetPrice(itemId), sMartInfo.minPrice);
+    s16 totalPerc = 0;
+    u32 basePrice = max(ItemId_GetPrice(itemId), sMartInfo.minPrice);
+
+    u16 decValue = GetCharmValue(EFFECT_SHOP_PRICE);
+    u16 incValue = GetCurseValue(EFFECT_SHOP_PRICE);
+
+    totalPerc = 100 + incValue;
+    if(decValue > totalPerc)
+        totalPerc = 0;
+    else
+        totalPerc -= decValue;
+
+    // Can only go down to 50$
+    return max(50, (basePrice * totalPerc) / 100);
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)

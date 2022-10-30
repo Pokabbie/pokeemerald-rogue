@@ -30,7 +30,7 @@ u16 GetCharmValue(u8 effectType)
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
-            break;
+            return GetItemCountInBag(ITEM_SHOP_PRICE_CHARM) * 20;
 
         case EFFECT_FLINCH_CHANCE:
             return min(GetItemCountInBag(ITEM_FLINCH_CHARM), 9) * 10;
@@ -59,7 +59,7 @@ u16 GetCurseValue(u8 effectType)
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
-            break;
+            return GetItemCountInBag(ITEM_SHOP_PRICE_CURSE) * 20;
 
         case EFFECT_FLINCH_CHANCE:
             return min(GetItemCountInBag(ITEM_FLINCH_CURSE), 9) * 10;

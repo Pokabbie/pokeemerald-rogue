@@ -890,10 +890,10 @@ const u8* Rogue_GetItemName(u16 itemId)
             return gText_ItemQuestLog;
 
 
-        case ITEM_SHOPPING_CHARM:
+        case ITEM_SHOP_PRICE_CHARM:
             return gText_ItemShoppingCharm;
 
-        case ITEM_SHOPPING_CURSE:
+        case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
     }
 
@@ -945,7 +945,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // TODO - Custom desc
     switch(itemId)
     {
-        case ITEM_SHOPPING_CHARM:
+        case ITEM_SHOP_PRICE_CHARM:
             outItem->description = gText_ItemPlaceholderDesc;
             break;
     }
