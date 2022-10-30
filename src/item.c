@@ -196,6 +196,28 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     return FALSE;
 }
 
+u16 GetItemCountInBag(u16 itemId)
+{
+    u8 i;
+    u8 pocket;
+    u16 count = 0;
+
+    if (ItemId_GetPocket(itemId) == 0)
+        return count;
+    
+    pocket = ItemId_GetPocket(itemId) - 1;
+
+    // Check for item slots that contain the item
+    for (i = 0; i < gBagPockets[pocket].capacity; i++)
+    {
+        if (gBagPockets[pocket].itemSlots[i].itemId == itemId)
+        {            
+            count += GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+        }
+    }
+    return count;
+}
+
 bool8 HasAtLeastOneBerry(void)
 {
     u16 i;

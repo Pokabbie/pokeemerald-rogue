@@ -36,6 +36,8 @@
 #include "constants/species.h"
 #include "constants/weather.h"
 
+#include "rogue_charms.h"
+
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
 are actually part of battle_main.c. They needed to be moved to this file in order to
@@ -3760,6 +3762,28 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
     case ITEMEFFECT_KINGSROCK_SHELLBELL:
         if (gBattleMoveDamage)
         {
+            bool8 shouldFlinch = FALSE;
+            u16 extraFlinchChance = 0;
+
+            if(GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+                extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
+            else
+                extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);
+
+            // Fake out style?
+            //gDisableStructs[gBattlerAttacker].isFirstTurn
+
+            if(extraFlinchChance)
+            {
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && (Random() % 100) < extraFlinchChance
+                    && gBattleMons[gBattlerTarget].hp)
+                {
+                    shouldFlinch = TRUE;
+                }
+            }
+
             switch (atkHoldEffect)
             {
             case HOLD_EFFECT_FLINCH:
@@ -3769,10 +3793,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     && gBattleMoves[gCurrentMove].flags & FLAG_KINGS_ROCK_AFFECTED
                     && gBattleMons[gBattlerTarget].hp)
                 {
-                    gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_FLINCH;
-                    BattleScriptPushCursor();
-                    SetMoveEffect(FALSE, 0);
-                    BattleScriptPop();
+                    shouldFlinch = TRUE;
                 }
                 break;
             case HOLD_EFFECT_SHELL_BELL:
@@ -3795,6 +3816,14 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     effect++;
                 }
                 break;
+            }
+
+            if (shouldFlinch)
+            {
+                gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_FLINCH;
+                BattleScriptPushCursor();
+                SetMoveEffect(FALSE, 0);
+                BattleScriptPop();
             }
         }
         break;
