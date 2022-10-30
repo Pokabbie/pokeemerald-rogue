@@ -5,6 +5,7 @@ enum RogueCharmEffects
 {
     EFFECT_SHOP_PRICE,
     EFFECT_FLINCH_CHANCE,
+    EFFECT_CRIT_CHANCE,
 };
 
 bool8 IsCharmActive(u8 effectType);

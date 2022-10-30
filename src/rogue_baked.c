@@ -889,6 +889,7 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_QUEST_LOG:
             return gText_ItemQuestLog;
 
+
         case ITEM_SHOPPING_CHARM:
             return gText_ItemShoppingCharm;
 
@@ -905,12 +906,18 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     {
         case ITEM_QUEST_LOG:
             return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+    }
 
-        case ITEM_SHOPPING_CHARM:
-            return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+    if(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
+    {
+        // Charm icon
+        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+    }
 
-        case ITEM_SHOPPING_CURSE:
-            return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+    if(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE)
+    {
+        // Curse icon
+        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
     }
 
     return gItemIconTable[itemId][which];
@@ -921,30 +928,25 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     itemId = SanitizeItemId(itemId);
     memcpy(outItem, &gItems[itemId], sizeof(struct Item));
 
-    // Full edits
+    // Charm/Curse items
     //
+    if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+    {
+        outItem->itemId = itemId;
+        outItem->price = 0;
+        outItem->description = gText_ItemPlaceholderDesc;
+        outItem->importance = 0;
+        outItem->registrability = FALSE;
+        outItem->pocket = POCKET_KEY_ITEMS;
+        outItem->type = ITEM_USE_FIELD;
+        outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
+    }
+
+    // TODO - Custom desc
     switch(itemId)
     {
         case ITEM_SHOPPING_CHARM:
-            outItem->itemId = ITEM_SHOPPING_CHARM;
-            outItem->price = 0;
             outItem->description = gText_ItemPlaceholderDesc;
-            outItem->importance = 0;
-            outItem->registrability = FALSE;
-            outItem->pocket = POCKET_KEY_ITEMS;
-            outItem->type = ITEM_USE_FIELD;
-            outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
-            break;
-
-        case ITEM_SHOPPING_CURSE:
-            outItem->itemId = ITEM_SHOPPING_CURSE;
-            outItem->price = 0;
-            outItem->description = gText_ItemPlaceholderDesc;
-            outItem->importance = 0;
-            outItem->registrability = FALSE;
-            outItem->pocket = POCKET_KEY_ITEMS;
-            outItem->type = ITEM_USE_FIELD;
-            outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
             break;
     }
 
