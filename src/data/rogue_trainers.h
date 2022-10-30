@@ -806,7 +806,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_RED,
+        .gfxId = OBJ_EVENT_GFX_JOHTO_RED,
         .trainerId = TRAINER_ROGUE_BOSS_RED,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },

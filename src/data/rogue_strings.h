@@ -16,6 +16,8 @@ const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
 #endif
 
 
+// Trainers
+//
 const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
 const u8 gText_TrainerNameGrunt[] = _("GRUNT");
 
@@ -55,6 +57,8 @@ const u8 gText_TrainerName_Clair[] = _("CLAIR");
 const u8 gText_TrainerName_Will[] = _("WILL");
 const u8 gText_TrainerName_Karen[] = _("KAREN");
 
+// Items
+//
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");
@@ -66,7 +70,28 @@ const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 const u8 gText_ItemShoppingCharm[] = _("SHOPPING CHARM");
 const u8 gText_ItemShoppingCurse[] = _("SHOPPING CURSE");
 #endif
-const u8 gText_ItemQuestLogDesc[] = _("A digital log for\ntracking Quests\nand their rewards.");
+
+const u8 gText_ItemPlaceholderDesc[] = _(
+    "Placeholder\n"
+    "TODO");
+
+const u8 gText_ItemLinkCableDesc[] = _(
+    "Makes certain\n"
+    "species of POKéMON\n"
+    "evolve when held.");
+
+const u8 gText_EscapeRopeDesc[] = _(
+    "Use to escape\n"
+    "instantly from\n"
+    "some encounters.");
+
+const u8 gText_ItemQuestLogDesc[] = _(
+    "A digital log for\n"
+    "tracking Quests\n"
+    "and their rewards.");
+
+// Quest Log
+//
 const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
 const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
 const u8 gText_QuestLogTitleRewards[] = _("REWARDS");
@@ -102,6 +127,8 @@ const u8 gText_QuestRewardGiveMon[] = _("Recieved a {STR_VAR_1}!");
 const u8 gText_QuestRewardGiveShinyMon[] = _("Recieved a Shiny {STR_VAR_1}!");
 const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
+// Debug
+//
 #ifdef ROGUE_DEBUG
 const u8 gText_RogueDebug_Header[] = _("ROGUE DEBUG");
 const u8 gText_RogueDebug_Save[] = _("\nSave: ");

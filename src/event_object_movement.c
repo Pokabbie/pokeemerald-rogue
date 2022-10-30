@@ -455,6 +455,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_PRYCE         0x112F
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY       0x1130
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL          0x1131
+#define OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED           0x1132
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
@@ -516,6 +517,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Johto_NPC_Pryce,       OBJ_EVENT_PAL_TAG_JOHTO_NPC_PRYCE},
     {gObjectEventPal_Johto_NPC_Whitney,     OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY},
     {gObjectEventPal_Johto_NPC_Will,        OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL},
+    {gObjectEventPal_Johto_NPC_Red,         OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED},
     {},
 };
 

@@ -251,6 +251,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
     TRAINER_SPRITE(JOHTO_WILL, gTrainerFrontPic_EliteFourWill, 0x800),
     TRAINER_SPRITE(JOHTO_KAREN, gTrainerFrontPic_EliteFourKaren, 0x800),
+
+    TRAINER_SPRITE(JOHTO_RED, gTrainerFrontPic_ChampionRed, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -379,4 +381,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 
     TRAINER_PAL(JOHTO_WILL, gTrainerPalette_EliteFourWill),
     TRAINER_PAL(JOHTO_KAREN, gTrainerPalette_EliteFourKaren),
+
+    TRAINER_PAL(JOHTO_RED, gTrainerPalette_ChampionRed),
 };

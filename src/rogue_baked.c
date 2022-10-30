@@ -739,7 +739,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             break;
 
         case TRAINER_ROGUE_BOSS_RED:
-            outTrainer->trainerPic = TRAINER_PIC_RED;
+            outTrainer->trainerPic = TRAINER_PIC_JOHTO_RED;
             break;
 
         // Std Trainers
@@ -869,7 +869,11 @@ extern const u8 gText_ItemLinkCable[];
 extern const u8 gText_ItemQuestLog[];
 extern const u8 gText_ItemShoppingCharm[];
 extern const u8 gText_ItemShoppingCurse[];
+
+extern const u8 gText_ItemPlaceholderDesc[];
 extern const u8 gText_ItemQuestLogDesc[];
+extern const u8 gText_EscapeRopeDesc[];
+extern const u8 gText_ItemLinkCableDesc[];
 
 extern const u32 *const gItemIconTable[][2];
 
@@ -903,10 +907,10 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
             return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
 
         case ITEM_SHOPPING_CHARM:
-            return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+            return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
 
         case ITEM_SHOPPING_CURSE:
-            return which == 0 ? gItemIcon_FameChecker : gItemIconPalette_FameChecker;
+            return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
     }
 
     return gItemIconTable[itemId][which];
@@ -924,25 +928,23 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_SHOPPING_CHARM:
             outItem->itemId = ITEM_SHOPPING_CHARM;
             outItem->price = 0;
-            //outItem->description = sMachBikeDesc;
-            outItem->importance = 1;
-            outItem->registrability = TRUE;
+            outItem->description = gText_ItemPlaceholderDesc;
+            outItem->importance = 0;
+            outItem->registrability = FALSE;
             outItem->pocket = POCKET_KEY_ITEMS;
             outItem->type = ITEM_USE_FIELD;
-            //outItem->fieldUseFunc = ItemUseOutOfBattle_Bike;
-            //outItem->secondaryId = MACH_BIKE;
+            outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
             break;
 
         case ITEM_SHOPPING_CURSE:
             outItem->itemId = ITEM_SHOPPING_CURSE;
             outItem->price = 0;
-            //outItem->description = sMachBikeDesc;
-            outItem->importance = 1;
-            outItem->registrability = TRUE;
+            outItem->description = gText_ItemPlaceholderDesc;
+            outItem->importance = 0;
+            outItem->registrability = FALSE;
             outItem->pocket = POCKET_KEY_ITEMS;
             outItem->type = ITEM_USE_FIELD;
-            //outItem->fieldUseFunc = ItemUseOutOfBattle_Bike;
-            //outItem->secondaryId = MACH_BIKE;
+            outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
             break;
     }
 
@@ -1031,12 +1033,14 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         case ITEM_ESCAPE_ROPE:
             outItem->price = 25000;
+            outItem->description = gText_EscapeRopeDesc;
             break;
 
         // Evo item prices
         case ITEM_LINK_CABLE:
             outItem->price = 2100;
             outItem->holdEffect = 0;//HOLD_EFFECT_NONE;
+            outItem->description = gText_ItemLinkCableDesc;
             break;
 
         case ITEM_NUGGET:

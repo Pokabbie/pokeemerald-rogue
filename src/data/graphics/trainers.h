@@ -427,3 +427,6 @@ const u32 gTrainerPalette_EliteFourWill[] = INCBIN_U32("graphics/trainers/palett
 
 const u32 gTrainerFrontPic_EliteFourKaren[] = INCBIN_U32("graphics/trainers/front_pics/johto/karen_front_pic.4bpp.lz");
 const u32 gTrainerPalette_EliteFourKaren[] = INCBIN_U32("graphics/trainers/palettes/johto/elite_karen.gbapal.lz");
+
+const u32 gTrainerFrontPic_ChampionRed[] = INCBIN_U32("graphics/trainers/front_pics/johto/red_front_pic.4bpp.lz");
+const u32 gTrainerPalette_ChampionRed[] = INCBIN_U32("graphics/trainers/palettes/johto/champion_red.gbapal.lz");

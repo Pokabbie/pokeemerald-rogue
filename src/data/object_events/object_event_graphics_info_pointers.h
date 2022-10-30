@@ -280,6 +280,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Morty;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Pryce;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Whitney;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Will;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Red;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 
@@ -560,6 +561,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JOHTO_PRYCE] =              &gObjectEventGraphicsInfo_Johto_Pryce,
     [OBJ_EVENT_GFX_JOHTO_WHITNEY] =            &gObjectEventGraphicsInfo_Johto_Whitney,
     [OBJ_EVENT_GFX_JOHTO_WILL] =               &gObjectEventGraphicsInfo_Johto_Will,
+    [OBJ_EVENT_GFX_JOHTO_RED] =                &gObjectEventGraphicsInfo_Johto_Red,
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
 };

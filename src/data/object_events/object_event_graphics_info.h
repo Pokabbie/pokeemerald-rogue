@@ -281,4 +281,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Pryce = {TAG
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Whitney = {TAG_NONE, OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Johto_Whitney, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Will = {TAG_NONE, OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Johto_Will, gDummySpriteAffineAnimTable};
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Red = {TAG_NONE, OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Johto_Red, gDummySpriteAffineAnimTable};
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC = {TAG_NONE, OBJ_EVENT_PAL_TAG_NPC_4, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 5, SHADOW_SIZE_M, TRUE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Inanimate, sPicTable_PC, gDummySpriteAffineAnimTable};
