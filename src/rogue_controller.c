@@ -35,6 +35,7 @@
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -163,6 +164,8 @@ static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
+
+static void RandomiseCharmItems(void);
 
 static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
 static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
@@ -2552,9 +2555,17 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_LAB:
             {
+                RandomiseCharmItems();
+
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[0], MON_DATA_SPECIES));
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[1], MON_DATA_SPECIES));
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[2], MON_DATA_SPECIES));
+                break;
+            }
+
+            case ADVPATH_ROOM_GRAVEYARD:
+            {
+                RandomiseCharmItems();
                 break;
             }
         };
@@ -5204,6 +5215,29 @@ static void RandomiseEnabledItems(void)
     }
 
     RandomiseItemContent(difficultyLevel);
+}
+
+static void RandomiseCharmItems(void)
+{
+    u16 itemBuffer[5];
+
+    // Charm Items
+    Rogue_SelectCharmItems(itemBuffer, 5);
+
+    VarSet(VAR_ROGUE_ITEM0, itemBuffer[0]);
+    VarSet(VAR_ROGUE_ITEM1, itemBuffer[1]);
+    VarSet(VAR_ROGUE_ITEM2, itemBuffer[2]);
+    VarSet(VAR_ROGUE_ITEM3, itemBuffer[3]);
+    VarSet(VAR_ROGUE_ITEM4, itemBuffer[4]);
+
+    // Curse Items
+    Rogue_SelectCurseItems(itemBuffer, 5);
+
+    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0]);
+    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1]);
+    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2]);
+    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3]);
+    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4]);
 }
 
 #define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY

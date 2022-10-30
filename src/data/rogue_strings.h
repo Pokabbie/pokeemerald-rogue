@@ -62,13 +62,32 @@ const u8 gText_TrainerName_Karen[] = _("KAREN");
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");
-const u8 gText_ItemShoppingCharm[] = _("Shopping Charm");
-const u8 gText_ItemShoppingCurse[] = _("Shopping Curse");
+
+const u8 gText_ItemShoppingCharm[] = _("Shop Price Charm");
+const u8 gText_ItemFlinchCharm[] = _("Flinch Charm");
+const u8 gText_ItemCritCharm[] = _("Crit Charm");
+const u8 gText_ItemShedSkinCharm[] = _("Shed Skin Charm");
+
+const u8 gText_ItemShoppingCurse[] = _("Shop Price Curse");
+const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
+const u8 gText_ItemCritCurse[] = _("Crit Curse");
+const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
+
 #else
+
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
-const u8 gText_ItemShoppingCharm[] = _("SHOPPING CHARM");
-const u8 gText_ItemShoppingCurse[] = _("SHOPPING CURSE");
+
+const u8 gText_ItemShoppingCharm[] = _("SHOP PRICE CHARM");
+const u8 gText_ItemFlinchCharm[] = _("FLINCH CHARM");
+const u8 gText_ItemCritCharm[] = _("CRIT CHARM");
+const u8 gText_ItemShedSkinCharm[] = _("SHED SKIN CHARM");
+
+const u8 gText_ItemShoppingCurse[] = _("SHOP PRICE CURSE");
+const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
+const u8 gText_ItemCritCurse[] = _("CRIT CURSE");
+const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
+
 #endif
 
 const u8 gText_ItemPlaceholderDesc[] = _(

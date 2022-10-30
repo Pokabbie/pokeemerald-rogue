@@ -867,8 +867,16 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
 extern const u8 gText_ItemLinkCable[];
 extern const u8 gText_ItemQuestLog[];
+
 extern const u8 gText_ItemShoppingCharm[];
+extern const u8 gText_ItemFlinchCharm[];
+extern const u8 gText_ItemCritCharm[];
+extern const u8 gText_ItemShedSkinCharm[];
+
 extern const u8 gText_ItemShoppingCurse[];
+extern const u8 gText_ItemFlinchCurse[];
+extern const u8 gText_ItemCritCurse[];
+extern const u8 gText_ItemShedSkinCurse[];
 
 extern const u8 gText_ItemPlaceholderDesc[];
 extern const u8 gText_ItemQuestLogDesc[];
@@ -893,8 +901,27 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_SHOP_PRICE_CHARM:
             return gText_ItemShoppingCharm;
 
+        case ITEM_FLINCH_CHARM:
+            return gText_ItemFlinchCharm;
+
+        case ITEM_CRIT_CHARM:
+            return gText_ItemCritCharm;
+
+        case ITEM_SHED_SKIN_CHARM:
+            return gText_ItemShedSkinCharm;
+
+
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
+
+        case ITEM_FLINCH_CURSE:
+            return gText_ItemFlinchCurse;
+
+        case ITEM_CRIT_CURSE:
+            return gText_ItemCritCurse;
+
+        case ITEM_SHED_SKIN_CURSE:
+            return gText_ItemShedSkinCurse;
     }
 
     return gItems[itemId].name;

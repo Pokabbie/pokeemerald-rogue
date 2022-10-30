@@ -1,13 +1,8 @@
 #include "global.h"
 #include "constants/items.h"
 
-//#include "battle.h"
-//#include "event_data.h"
-//#include "data.h"
 #include "item.h"
-//#include "money.h"
-//#include "pokedex.h"
-//#include "string_util.h"
+#include "random.h"
 
 #include "rogue.h"
 #include "rogue_controller.h"
@@ -79,4 +74,45 @@ u16 GetCurseValue(u8 effectType)
     }
 
     return 0;
+}
+
+static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)
+{
+    u16 i;
+
+    for(i = 0; i < count; ++i)
+    {
+        if(buffer[i] == value)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void SelectCharmItemInternal(u16* outBuffer, u16 outCount, u16 firstItem, u16 lastItem)
+{
+    u16 i;
+    u16 itemId;
+    u16 itemCount = (lastItem - firstItem + 1);
+
+    for(i = 0; i < outCount; ++i)
+    {
+        do
+        {
+            itemId = firstItem + Random() % itemCount;
+        }
+        while(i < itemCount && BufferContainsValue(outBuffer, i, itemId));
+
+        outBuffer[i] = itemId;
+    }
+}
+
+void Rogue_SelectCharmItems(u16* outBuffer, u16 count)
+{
+    SelectCharmItemInternal(outBuffer, count, FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
+}
+
+void Rogue_SelectCurseItems(u16* outBuffer, u16 count)
+{
+    SelectCharmItemInternal(outBuffer, count, FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
 }

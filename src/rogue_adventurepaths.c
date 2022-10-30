@@ -440,9 +440,19 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
         {
             weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
             weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_GAMESHOW] = 330 - min(30 * gRogueRun.currentDifficulty, 300);
-            weights[ADVPATH_ROOM_GRAVEYARD] = 220 - min(20 * gRogueRun.currentDifficulty, 200);
-            weights[ADVPATH_ROOM_LAB] = 3000;//min(20 * gRogueRun.currentDifficulty, 100);
+            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 60);
+
+            // These should start trading with each other deeper into the run
+            if(gRogueRun.currentDifficulty < 8)
+            {
+                weights[ADVPATH_ROOM_GAMESHOW] = 320 - 40 * min(8, gRogueRun.currentDifficulty);
+                weights[ADVPATH_ROOM_GRAVEYARD] = 10;
+            }
+            else
+            {
+                weights[ADVPATH_ROOM_GAMESHOW] = 10;
+                weights[ADVPATH_ROOM_GRAVEYARD] = 330 - 30 * min(5, gRogueRun.currentDifficulty - 8);
+            }
 
             if(gRogueRun.currentDifficulty == 0)
             {
