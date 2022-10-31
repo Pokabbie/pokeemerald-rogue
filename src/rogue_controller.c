@@ -72,18 +72,23 @@ extern const u8 gText_RogueDebug_Y[];
 
 #define LAB_MON_COUNT 3
 
+#define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
+                            max(BAG_BERRIES_COUNT,           \
+                            max(BAG_ITEMS_COUNT,             \
+                            max(BAG_KEYITEMS_COUNT,          \
+                                BAG_POKEBALLS_COUNT))))) + 1)
+
+#define TOTAL_POCKET_ITEM_COUNT (BAG_TMHM_COUNT + BAG_BERRIES_COUNT + BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + 1)
+
+// RogueNote: TODO - Modify pocket structure
+
 // Box save data
 // TODO - We keep this around in EWRAM, but we really don't need to
 // Bag items could be partially saved into the box and the rest only need to be present at save/load time
 struct RogueBoxSaveData
 {
-    u32 encryptionKey;
     struct Pokemon playerParty[PARTY_SIZE];
-    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+    struct ItemSlot bagItems[TOTAL_POCKET_ITEM_COUNT];
     struct Pokemon faintedLabMons[LAB_MON_COUNT];
     struct RogueAdvPath advPath;
     struct RogueQuestData questData;
@@ -1498,34 +1503,34 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
-static void CopyFromPocket(u8 pocket, struct ItemSlot* dst)
+static void AppendItemsFromPocket(u8 pocket, struct ItemSlot* dst, u16* index)
 {
     u16 i;
+    u16 writeIdx;
+    u16 itemId;
     u16 count = gBagPockets[pocket].capacity;
 
     // Use getters to avoid encryption
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+    for (i = 0; i < count; i++)
     {
-        dst[i].itemId = gBagPockets[pocket].itemSlots[i].itemId;
-        dst[i].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
-    }
-}
+        writeIdx = *index;
+        itemId = gBagPockets[pocket].itemSlots[i].itemId;
 
-static void CopyToPocket(u8 pocket, struct ItemSlot* src)
-{
-    u16 i;
-    u16 count = gBagPockets[pocket].capacity;
+        if(itemId != ITEM_NONE)
+        {
+            dst[writeIdx].itemId = itemId;
+            dst[writeIdx].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
 
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-    {
-        gBagPockets[pocket].itemSlots[i].itemId = src[i].itemId;
-        SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, src[i].quantity);
+            *index = writeIdx + 1;
+        }
     }
 }
 
 static void SaveHubStates(void)
 {
     u8 i;
+    u16 bagItemIdx;
+    u16 pocketId;
 
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
@@ -1538,17 +1543,23 @@ static void SaveHubStates(void)
 
     memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
-    gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
-    CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
-    CopyFromPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
-    CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
-    CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
-    CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+    // Put all items into a single big list
+    bagItemIdx = 0;
+
+    for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
+        AppendItemsFromPocket(pocketId, &gRogueLocal.saveData.raw.bagItems[0], &bagItemIdx);
+
+    for(; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    {
+        gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId = ITEM_NONE;
+        gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity = 0;
+    }
 }
 
 static void LoadHubStates(void)
 {
     u8 i;
+    u16 bagItemIdx;
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
@@ -1564,13 +1575,23 @@ static void LoadHubStates(void)
 
     memcpy(GetBerryTreeInfo(1), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
-    CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
-    CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
-    CopyToPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
-    CopyToPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
-    CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+    // Restore the bag by just clearing and adding everything back to it
+    ClearBag();
 
-    //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
+    for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    {
+        const u16 itemId = gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId;
+        const u16 quantity = gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity;
+
+        if(itemId != ITEM_NONE && quantity != 0)
+        {
+            // Fix for multiple HMs bug
+            if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                AddBagItem(itemId, 1);
+            else
+                AddBagItem(itemId, quantity);
+        }
+    }
 }
 
 extern const u8 Rogue_QuickSaveLoad[];
@@ -1819,11 +1840,29 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
     {
+        u16 bagItemIdx;
+        
         ClearBag();
+
+        // Add default items
         AddBagItem(ITEM_POKE_BALL, 5);
         AddBagItem(ITEM_POTION, 1);
-        CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]); // Keep key items
         SetMoney(&gSaveBlock1Ptr->money, 0);
+
+        // Add back some of the items we want to keep
+        for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+        {
+            const u16 itemId = gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId;
+            const u16 quantity = gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                if(GetPocketByItemId(itemId) == POCKET_KEY_ITEMS)
+                    AddBagItem(itemId, quantity);
+                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                    AddBagItem(itemId, quantity);
+            }
+        }
     }
     else
     {
