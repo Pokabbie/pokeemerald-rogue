@@ -4775,6 +4775,7 @@ static void RandomiseSafariWildEncounters(void)
 
     RogueQuery_SafariTypeForMap();
     RogueQuery_TransformToEggSpecies();
+    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off if needed
 
     if(targetGen != 0)
     {
