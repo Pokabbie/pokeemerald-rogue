@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CONTEST_JUDGE",
-      "x": 10,
-      "y": 11,
+      "x": 7,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 4,
-      "y": 10,
+      "y": 14,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 4,
+      "x": 12,
       "y": 14,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -56,7 +56,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 12,
-      "y": 14,
+      "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
