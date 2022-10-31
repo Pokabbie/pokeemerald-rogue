@@ -806,6 +806,31 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_RegionOrNational[] =
+{
+    {gText_Regional},
+    {gText_National},
+};
+
+static const struct MenuAction MultichoiceList_RegionUpToHoenn[] =
+{
+    {gText_RegionKanto},
+    {gText_RegionJohto},
+    {gText_RegionHoenn},
+};
+
+static const struct MenuAction MultichoiceList_RegionFull[] =
+{
+    {gText_RegionKanto},
+    {gText_RegionJohto},
+    {gText_RegionHoenn},
+    {gText_RegionSinnoh},
+    {gText_RegionUnova},
+    {gText_RegionKalos},
+    {gText_RegionAlola},
+    {gText_RegionGalar},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -933,6 +958,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_REGION_OR_NATIONAL]         = MULTICHOICE(MultichoiceList_RegionOrNational),
+    [MULTI_REGION_UPTO_HOENN]          = MULTICHOICE(MultichoiceList_RegionUpToHoenn),
+    [MULTI_REGION_FULL]                = MULTICHOICE(MultichoiceList_RegionFull),
 };
 
 const u8 *const gStdStrings[] =

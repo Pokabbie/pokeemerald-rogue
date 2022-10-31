@@ -15,4 +15,7 @@ bool8 IsCurseActive(u8 effectType);
 u16 GetCharmValue(u8 effectType);
 u16 GetCurseValue(u8 effectType);
 
+void Rogue_SelectCharmItems(u16* outBuffer, u16 count);
+void Rogue_SelectCurseItems(u16* outBuffer, u16 count);
+
 #endif

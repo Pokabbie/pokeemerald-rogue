@@ -35,6 +35,7 @@
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -163,6 +164,8 @@ static void ResetTrainerBattles(void);
 static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
+
+static void RandomiseCharmItems(void);
 
 static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
 static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
@@ -1372,6 +1375,8 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
     // v1.3 new values
     if(newGame || saveVersion < 3)
     {
+        VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
+
         FlagSet(FLAG_ROGUE_HOENN_ROUTES);
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
 
@@ -2552,9 +2557,17 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
             case ADVPATH_ROOM_LAB:
             {
+                RandomiseCharmItems();
+
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[0], MON_DATA_SPECIES));
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[1], MON_DATA_SPECIES));
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[2], MON_DATA_SPECIES));
+                break;
+            }
+
+            case ADVPATH_ROOM_GRAVEYARD:
+            {
+                RandomiseCharmItems();
                 break;
             }
         };
@@ -2600,7 +2613,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     destMon = &gRogueLocal.saveData.raw.faintedLabMons[i];
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
-    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 10;
+    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
     SetMonData(destMon, MON_DATA_HP, &temp);
 
     // TODO - Maybe we make fainted mons weaker?
@@ -3182,7 +3195,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 2 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             gRogueLocal.trainerTemp.allowItemEvos = TRUE;
             gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
             gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
@@ -3191,7 +3204,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         else
         {
             // Champion
-            *monsCount = 3 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             gRogueLocal.trainerTemp.allowItemEvos = TRUE;
             gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
             gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
@@ -3345,12 +3358,13 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
     }
 
 //#ifdef ROGUE_EXPANSION
-    // Isn't worth doing for Vanilla
     if(gRogueLocal.trainerTemp.preferStrongPresets)
     {
         u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+        u16 targetDex = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
 
-        if(maxGen >= 3)
+        // Regional dex and national mode gen prior to gen 2 has strong mons disabled
+        if(targetDex == 0 && maxGen >= 3)
         { 
             RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
         }
@@ -4745,6 +4759,10 @@ static void RandomiseSafariWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
     u8 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+    // Temporarily remove the gen limit for the safari encounters
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
 
     // Query for the current zone
     RogueQuery_Clear();
@@ -4764,6 +4782,7 @@ static void RandomiseSafariWildEncounters(void)
 
     RogueQuery_SafariTypeForMap();
     RogueQuery_TransformToEggSpecies();
+    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off if needed
 
     if(targetGen != 0)
     {
@@ -4773,6 +4792,9 @@ static void RandomiseSafariWildEncounters(void)
     RogueQuery_SafariTypeForMap();
 
     RogueQuery_CollapseSpeciesBuffer();
+
+    // Restore the gen limit
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
 
     {
         u8 i;
@@ -5204,6 +5226,29 @@ static void RandomiseEnabledItems(void)
     }
 
     RandomiseItemContent(difficultyLevel);
+}
+
+static void RandomiseCharmItems(void)
+{
+    u16 itemBuffer[5];
+
+    // Charm Items
+    Rogue_SelectCharmItems(itemBuffer, 5);
+
+    VarSet(VAR_ROGUE_ITEM0, itemBuffer[0]);
+    VarSet(VAR_ROGUE_ITEM1, itemBuffer[1]);
+    VarSet(VAR_ROGUE_ITEM2, itemBuffer[2]);
+    VarSet(VAR_ROGUE_ITEM3, itemBuffer[3]);
+    VarSet(VAR_ROGUE_ITEM4, itemBuffer[4]);
+
+    // Curse Items
+    Rogue_SelectCurseItems(itemBuffer, 5);
+
+    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0]);
+    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1]);
+    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2]);
+    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3]);
+    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4]);
 }
 
 #define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY

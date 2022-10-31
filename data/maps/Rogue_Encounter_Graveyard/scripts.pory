@@ -5,7 +5,7 @@ mapscripts Rogue_Encounter_Graveyard_MapScripts
 
 }
 
-script Rogue_Graveyard_ResurectionOption
+script Rogue_Graveyard_ResurectionOption_UNUSED
 {
     lock
     if(flag(FLAG_USED_ENCOUNTER))
