@@ -4756,6 +4756,10 @@ static void RandomiseSafariWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
     u8 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+    // Temporarily remove the gen limit for the safari encounters
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
 
     // Query for the current zone
     RogueQuery_Clear();
@@ -4785,6 +4789,9 @@ static void RandomiseSafariWildEncounters(void)
     RogueQuery_SafariTypeForMap();
 
     RogueQuery_CollapseSpeciesBuffer();
+
+    // Restore the gen limit
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
 
     {
         u8 i;
