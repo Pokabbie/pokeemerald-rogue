@@ -403,6 +403,39 @@ bool8 IsSpeciesLegendary(u16 species)
     return FALSE;
 }
 
+bool8 IsLegendaryEnabled(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    u16 eggSpecies =  Rogue_GetEggSpecies(GET_BASE_SPECIES_ID(species));
+#else
+    u16 eggSpecies =  Rogue_GetEggSpecies(species);
+#endif
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+
+    // Use a specific regional dex (Ignore previous state)
+    if(dexLimit != 0)
+    {
+        u16 i;
+        u16 checkSpecies;
+        const u16 targetDex = dexLimit - 1;
+
+        for(i = 0; i < gRegionalDexSpeciesCount[targetDex]; ++i)
+        {
+            checkSpecies = gRegionalDexSpecies[targetDex][i];
+
+            if(eggSpecies == Rogue_GetEggSpecies(checkSpecies))
+                return TRUE;
+        }
+
+        return FALSE;
+    }
+    // Using national mode gen limiter
+    else
+    {
+        return IsGenEnabled(SpeciesToGen(species));
+    }
+}
+
 void RogueQuery_SpeciesIsValid(void)
 {
     // Handle for ?? species mainly
@@ -464,6 +497,9 @@ void RogueQuery_SpeciesExcludeCommon(void)
             species = gRegionalDexSpecies[targetDex][i];
             SetQueryState(Rogue_GetEggSpecies(species), TRUE);
         }
+
+        // Re-apply to remove any invalid mons
+        RogueQuery_SpeciesIsValid();
     }
     // Using national mode gen limiter
     else

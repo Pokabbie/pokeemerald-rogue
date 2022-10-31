@@ -142,6 +142,7 @@ EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
+bool8 IsLegendaryEnabled(u16 species);
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
@@ -2020,13 +2021,14 @@ u8 Rogue_SelectBossEncounter(void)
     return bossId;
 }
 
-static bool8 IsLegendaryEnabled(u16 legendaryId)
+static bool8 IsLegendaryEncounterEnabled(u16 legendaryId)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
     bool8 allowStrongSpecies = FALSE;
 
-    if(!IsGenEnabled(SpeciesToGen(species)))
+
+    if(!IsLegendaryEnabled(species))
     {
         return FALSE;
     }
@@ -2070,7 +2072,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEnabled(i))
+        if(IsLegendaryEncounterEnabled(i))
             ++enabledLegendariesCount;
     }
 
@@ -2086,7 +2088,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEnabled(i))
+        if(IsLegendaryEncounterEnabled(i))
         {
             if(enabledLegendariesCount == randIdx)
                 return i;
@@ -4758,10 +4760,12 @@ static void RogueQuery_SafariTypeForMap()
 static void RandomiseSafariWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
-    u8 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
     // Temporarily remove the gen limit for the safari encounters
+    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
 
     // Query for the current zone
@@ -4794,6 +4798,7 @@ static void RandomiseSafariWildEncounters(void)
     RogueQuery_CollapseSpeciesBuffer();
 
     // Restore the gen limit
+    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, dexLimit);
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
 
     {
