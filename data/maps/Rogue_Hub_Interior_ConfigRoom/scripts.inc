@@ -312,45 +312,176 @@ Rogue_ConfigRoom_DynamaxBag_2:
 	goto Rogue_ConfigRoom_DynamaxBag_1
 
 
+Rogue_ConfigRoom_BufferRegionName::
+	switch VAR_ROGUE_REGION_DEX_LIMIT
+	case 1, Rogue_ConfigRoom_BufferRegionName_2
+	case 2, Rogue_ConfigRoom_BufferRegionName_3
+	case 3, Rogue_ConfigRoom_BufferRegionName_4
+	case 4, Rogue_ConfigRoom_BufferRegionName_5
+	case 5, Rogue_ConfigRoom_BufferRegionName_6
+	case 6, Rogue_ConfigRoom_BufferRegionName_7
+	case 7, Rogue_ConfigRoom_BufferRegionName_8
+	case 8, Rogue_ConfigRoom_BufferRegionName_9
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_8
+	return
+
+Rogue_ConfigRoom_BufferRegionName_2:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_0
+	return
+
+Rogue_ConfigRoom_BufferRegionName_3:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_1
+	return
+
+Rogue_ConfigRoom_BufferRegionName_4:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_2
+	return
+
+Rogue_ConfigRoom_BufferRegionName_5:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_3
+	return
+
+Rogue_ConfigRoom_BufferRegionName_6:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_4
+	return
+
+Rogue_ConfigRoom_BufferRegionName_7:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_5
+	return
+
+Rogue_ConfigRoom_BufferRegionName_8:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_6
+	return
+
+Rogue_ConfigRoom_BufferRegionName_9:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_7
+	return
+
+
+Rogue_ConfigRoom_AdjustWildGens_Regional::
+	message Rogue_ConfigRoom_AdjustWildGens_Regional_Text_0
+	waitmessage
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_AdjustWildGens_Regional_2
+	multichoice 20, 6, MULTI_REGION_UPTO_HOENN, NO
+Rogue_ConfigRoom_AdjustWildGens_Regional_1:
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 1, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 2, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 3, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 4, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 5, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 6, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case 7, Rogue_ConfigRoom_AdjustWildGens_Regional_6
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_AdjustWildGens_Regional_7
+	return
+
+Rogue_ConfigRoom_AdjustWildGens_Regional_2:
+	multichoice 20, 0, MULTI_REGION_FULL, NO
+	goto Rogue_ConfigRoom_AdjustWildGens_Regional_1
+
+Rogue_ConfigRoom_AdjustWildGens_Regional_6:
+	waitse
+	playse SE_PIN
+	addvar VAR_RESULT, 1
+	copyvar VAR_ROGUE_REGION_DEX_LIMIT, VAR_RESULT
+	copyvar VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT
+	call Rogue_ConfigRoom_BufferRegionName
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Regional_Text_1, MSGBOX_DEFAULT
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_ConfigRoom_AdjustWildGens_Regional_7:
+	setvar VAR_RESULT, NO
+	return
+
+
+Rogue_ConfigRoom_AdjustWildGens_National::
+	message Rogue_ConfigRoom_AdjustWildGens_National_Text_0
+	waitmessage
+	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_AdjustWildGens_National_2
+	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+Rogue_ConfigRoom_AdjustWildGens_National_1:
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 1, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 2, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 3, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 4, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 5, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 6, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case 7, Rogue_ConfigRoom_AdjustWildGens_National_6
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_AdjustWildGens_National_7
+	return
+
+Rogue_ConfigRoom_AdjustWildGens_National_2:
+	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	goto Rogue_ConfigRoom_AdjustWildGens_National_1
+
+Rogue_ConfigRoom_AdjustWildGens_National_6:
+	waitse
+	playse SE_PIN
+	addvar VAR_RESULT, 1
+	copyvar VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT
+	setvar VAR_ROGUE_REGION_DEX_LIMIT, 0
+	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
+	msgbox Rogue_ConfigRoom_AdjustWildGens_National_Text_1, MSGBOX_DEFAULT
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_ConfigRoom_AdjustWildGens_National_7:
+	setvar VAR_RESULT, NO
+	return
+
+
 Rogue_ConfigRoom_AdjustWildGens::
 	lock
 	faceplayer
 	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_0, MSGBOX_DEFAULT
 	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
-	message Rogue_ConfigRoom_AdjustWildGens_Text_1
-	waitmessage
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_AdjustWildGens_2
-	multichoice 20, 6, MULTI_GENERATIONS_UPTO3, NO
+	compare VAR_ROGUE_REGION_DEX_LIMIT, 0
+	goto_if_eq Rogue_ConfigRoom_AdjustWildGens_2
+	call Rogue_ConfigRoom_BufferRegionName
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_2, MSGBOX_YESNO
 Rogue_ConfigRoom_AdjustWildGens_1:
-	switch VAR_RESULT
-	case 0, Rogue_ConfigRoom_AdjustWildGens_7
-	case 1, Rogue_ConfigRoom_AdjustWildGens_7
-	case 2, Rogue_ConfigRoom_AdjustWildGens_7
-	case 3, Rogue_ConfigRoom_AdjustWildGens_7
-	case 4, Rogue_ConfigRoom_AdjustWildGens_7
-	case 5, Rogue_ConfigRoom_AdjustWildGens_7
-	case 6, Rogue_ConfigRoom_AdjustWildGens_7
-	case 7, Rogue_ConfigRoom_AdjustWildGens_7
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_AdjustWildGens_8
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_AdjustWildGens_6
 Rogue_ConfigRoom_AdjustWildGens_5:
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_AdjustWildGens_9
+Rogue_ConfigRoom_AdjustWildGens_8:
 	release
 	return
 
 Rogue_ConfigRoom_AdjustWildGens_2:
-	multichoice 20, 0, MULTI_GENERATIONS_UPTO8, NO
+	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_1, MSGBOX_YESNO
 	goto Rogue_ConfigRoom_AdjustWildGens_1
 
-Rogue_ConfigRoom_AdjustWildGens_7:
-	waitse
-	playse SE_PIN
-	addvar VAR_RESULT, 1
-	copyvar VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT
-	buffernumberstring STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT
-	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_2, MSGBOX_DEFAULT
+Rogue_ConfigRoom_AdjustWildGens_6:
+	message Rogue_ConfigRoom_AdjustWildGens_Text_3
+	waitmessage
+	multichoice 20, 8, MULTI_REGION_OR_NATIONAL, NO
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_AdjustWildGens_12
+	case 1, Rogue_ConfigRoom_AdjustWildGens_13
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_AdjustWildGens_14
 	goto Rogue_ConfigRoom_AdjustWildGens_5
 
-Rogue_ConfigRoom_AdjustWildGens_8:
-	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_3, MSGBOX_DEFAULT
+Rogue_ConfigRoom_AdjustWildGens_9:
+	msgbox Rogue_ConfigRoom_AdjustWildGens_Text_4, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_AdjustWildGens_8
+
+Rogue_ConfigRoom_AdjustWildGens_12:
+	call Rogue_ConfigRoom_AdjustWildGens_Regional
+	goto Rogue_ConfigRoom_AdjustWildGens_5
+
+Rogue_ConfigRoom_AdjustWildGens_13:
+	call Rogue_ConfigRoom_AdjustWildGens_National
+	goto Rogue_ConfigRoom_AdjustWildGens_5
+
+Rogue_ConfigRoom_AdjustWildGens_14:
+	setvar VAR_RESULT, NO
 	goto Rogue_ConfigRoom_AdjustWildGens_5
 
 
@@ -359,9 +490,9 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreButtonInternal_Text_2
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_BufferRegionName_Text_8
 Rogue_ConfigRoom_PreButtonInternal_1:
-	message Rogue_ConfigRoom_PreButtonInternal_Text_3
+	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO_2, NO
 	switch VAR_RESULT
@@ -408,9 +539,9 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_PreButtonInternal_Text_2
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_BufferRegionName_Text_8
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
-	message Rogue_ConfigRoom_PreButtonInternal_Text_3
+	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
 	multichoice 20, 4, MULTI_EASY_AVERAGE_HARD_INFO, NO
 	switch VAR_RESULT
@@ -1353,6 +1484,49 @@ Rogue_ConfigRoom_ItemBag_Text_2:
 	.string "The {STR_VAR_1} was placed back\n"
 	.string "into the bag.$"
 
+Rogue_ConfigRoom_BufferRegionName_Text_0:
+	.string "KANTO$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_1:
+	.string "JOHTO$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_2:
+	.string "HOENN$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_3:
+	.string "SINNOH$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_4:
+	.string "UNOVA$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_5:
+	.string "KALOS$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_6:
+	.string "ALOLA$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_7:
+	.string "GALAR$"
+
+Rogue_ConfigRoom_BufferRegionName_Text_8:
+	.string "???$"
+
+Rogue_ConfigRoom_AdjustWildGens_Regional_Text_0:
+	.string "Which REGION's DEX would you like to\n"
+	.string "use?$"
+
+Rogue_ConfigRoom_AdjustWildGens_Regional_Text_1:
+	.string "Now you will encounter POKéMON from the\n"
+	.string "{STR_VAR_1} REGIONAL DEX.$"
+
+Rogue_ConfigRoom_AdjustWildGens_National_Text_0:
+	.string "What generation limit would you like to\n"
+	.string "use?$"
+
+Rogue_ConfigRoom_AdjustWildGens_National_Text_1:
+	.string "Now you will encounter POKéMON upto\n"
+	.string "GENERATION {STR_VAR_1}.$"
+
 Rogue_ConfigRoom_AdjustWildGens_Text_0:
 	.string "Hi there {PLAYER}!\p"
 	.string "I can adjust the enabled GENERATIONs\n"
@@ -1360,14 +1534,19 @@ Rogue_ConfigRoom_AdjustWildGens_Text_0:
 	.string "types of POKéMON you'll encounter.$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_1:
-	.string "GEN {STR_VAR_1} is the current max.\n"
-	.string "What should it be changed to?$"
+	.string "You're currently using NATIONAL mode\n"
+	.string "up to GEN {STR_VAR_1}.\p"
+	.string "Would you like to change it?$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_2:
-	.string "Now you will encounter POKéMON upto\n"
-	.string "GENERATION {STR_VAR_1}.$"
+	.string "You're currently using {STR_VAR_1}\n"
+	.string "REGIONAL mode.\p"
+	.string "Would you like to change it?$"
 
 Rogue_ConfigRoom_AdjustWildGens_Text_3:
+	.string "Which mode would you like to use?$"
+
+Rogue_ConfigRoom_AdjustWildGens_Text_4:
 	.string "No worries!\n"
 	.string "Come chat to me if you ever change your\l"
 	.string "mind.$"
@@ -1379,9 +1558,6 @@ Rogue_ConfigRoom_PreButtonInternal_Text_1:
 	.string "ON$"
 
 Rogue_ConfigRoom_PreButtonInternal_Text_2:
-	.string "???$"
-
-Rogue_ConfigRoom_PreButtonInternal_Text_3:
 	.string "{STR_VAR_1} is currently\n"
 	.string "'{STR_VAR_2}'$"
 

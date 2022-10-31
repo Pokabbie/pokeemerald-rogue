@@ -345,14 +345,74 @@ script Rogue_ConfigRoom_DynamaxBag
     release
 }
 
-script Rogue_ConfigRoom_AdjustWildGens
+script Rogue_ConfigRoom_BufferRegionName 
 {
-    lock
-    faceplayer
-    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of POKéMON you'll encounter."), MSGBOX_DEFAULT)
+    switch(var(VAR_ROGUE_REGION_DEX_LIMIT))
+    {
+        case 1:
+            bufferstring(STR_VAR_1, "KANTO")
+        case 2:
+            bufferstring(STR_VAR_1, "JOHTO")
+        case 3:
+            bufferstring(STR_VAR_1, "HOENN")
+        case 4:
+            bufferstring(STR_VAR_1, "SINNOH")
+        case 5:
+            bufferstring(STR_VAR_1, "UNOVA")
+        case 6:
+            bufferstring(STR_VAR_1, "KALOS")
+        case 7:
+            bufferstring(STR_VAR_1, "ALOLA")
+        case 8:
+            bufferstring(STR_VAR_1, "GALAR")
+        default:
+            bufferstring(STR_VAR_1, "???")
+    }
+}
 
-    buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
-    message(format("GEN {STR_VAR_1} is the current max.\nWhat should it be changed to?"))
+script Rogue_ConfigRoom_AdjustWildGens_Regional
+{
+    message(format("Which REGION's DEX would you like to use?"))
+    waitmessage
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_REGION_FULL, NO)
+    }
+    else
+    {
+        multichoice(20, 6, MULTI_REGION_UPTO_HOENN, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_ROGUE_REGION_DEX_LIMIT, VAR_RESULT)
+            copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT) // Use the same gen limit
+            
+            call(Rogue_ConfigRoom_BufferRegionName)
+            msgbox(format("Now you will encounter POKéMON from the {STR_VAR_1} REGIONAL DEX."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
+
+        case MULTI_B_PRESSED: 
+            setvar(VAR_RESULT, NO)
+    }
+}
+
+script Rogue_ConfigRoom_AdjustWildGens_National
+{
+    message(format("What generation limit would you like to use?"))
     waitmessage
 
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
@@ -376,14 +436,61 @@ script Rogue_ConfigRoom_AdjustWildGens
         case 7:
             waitse
             playse(SE_PIN)
+
             addvar(VAR_RESULT, 1)
             copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT)
+            setvar(VAR_ROGUE_REGION_DEX_LIMIT, 0) // No regional dex
+
             buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
             msgbox(format("Now you will encounter POKéMON upto GENERATION {STR_VAR_1}."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
 
         case MULTI_B_PRESSED: 
-            msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, NO)
+    }
+}
 
+script Rogue_ConfigRoom_AdjustWildGens
+{
+    lock
+    faceplayer
+    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of POKéMON you'll encounter."), MSGBOX_DEFAULT)
+
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+    if(var(VAR_ROGUE_REGION_DEX_LIMIT) == 0)
+    {
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+        msgbox(format("You're currently using NATIONAL mode up to GEN {STR_VAR_1}.\pWould you like to change it?"), MSGBOX_YESNO)
+    }
+    else
+    {
+        call(Rogue_ConfigRoom_BufferRegionName)
+        msgbox(format("You're currently using {STR_VAR_1} REGIONAL mode.\pWould you like to change it?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        message(format("Which mode would you like to use?"))
+        waitmessage
+        multichoice(20, 8, MULTI_REGION_OR_NATIONAL, NO)
+        
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                call(Rogue_ConfigRoom_AdjustWildGens_Regional)
+
+            case 1:
+                call(Rogue_ConfigRoom_AdjustWildGens_National)
+
+            case MULTI_B_PRESSED: 
+                setvar(VAR_RESULT, NO)
+        }
+    }
+
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
     }
 
     release

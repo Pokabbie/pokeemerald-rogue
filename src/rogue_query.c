@@ -34,6 +34,8 @@ EWRAM_DATA u16 gRogueQueryBufferSize = 0;
 EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
+extern const u16* const gRegionalDexSpecies[];
+extern u16 gRegionalDexSpeciesCount[];
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 static void SetQueryState(u16 elem, bool8 state)
@@ -446,14 +448,34 @@ void RogueQuery_SpeciesIsValid(void)
 void RogueQuery_SpeciesExcludeCommon(void)
 {
     u16 species;
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    // Use a specific regional dex (Ignore previous state)
+    if(dexLimit != 0)
     {
-        if(GetQueryState(species))
+        u16 i;
+        const u16 targetDex = dexLimit - 1;
+        
+        RogueQuery_ExcludeAll();
+
+        for(i = 0; i < gRegionalDexSpeciesCount[targetDex]; ++i)
         {
-            if(!IsGenEnabled(SpeciesToGen(species)))
+            species = gRegionalDexSpecies[targetDex][i];
+            SetQueryState(Rogue_GetEggSpecies(species), TRUE);
+        }
+    }
+    // Using national mode gen limiter
+    else
+    {
+        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+        {
+            if(GetQueryState(species))
             {
-                SetQueryState(species, FALSE);
+                if(!IsGenEnabled(SpeciesToGen(species)))
+                {
+                    SetQueryState(species, FALSE);
+                }
             }
         }
     }

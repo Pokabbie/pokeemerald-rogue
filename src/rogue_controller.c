@@ -1375,6 +1375,8 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
     // v1.3 new values
     if(newGame || saveVersion < 3)
     {
+        VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
+
         FlagSet(FLAG_ROGUE_HOENN_ROUTES);
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
 
@@ -3356,12 +3358,13 @@ static void ApplyTrainerQuery(u16 trainerNum, bool8 legendariesOnly)
     }
 
 //#ifdef ROGUE_EXPANSION
-    // Isn't worth doing for Vanilla
     if(gRogueLocal.trainerTemp.preferStrongPresets)
     {
         u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+        u16 targetDex = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
 
-        if(maxGen >= 3)
+        // Regional dex and national mode gen prior to gen 2 has strong mons disabled
+        if(targetDex == 0 && maxGen >= 3)
         { 
             RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
         }
