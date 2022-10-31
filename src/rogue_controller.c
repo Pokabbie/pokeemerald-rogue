@@ -3193,7 +3193,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         else if(difficultyLevel <= 11)
         {
             // Elite 4
-            *monsCount = 2 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
             gRogueLocal.trainerTemp.allowItemEvos = TRUE;
             gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
             gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
@@ -3202,7 +3202,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         else
         {
             // Champion
-            *monsCount = 3 + RogueRandomRange(4, FLAG_SET_SEED_TRAINERS);
+            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
             gRogueLocal.trainerTemp.allowItemEvos = TRUE;
             gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
             gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
