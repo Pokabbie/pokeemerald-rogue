@@ -82,20 +82,12 @@ extern const u8 gText_RogueDebug_Y[];
 
 // RogueNote: TODO - Modify pocket structure
 
-// Box save data
-// TODO - We keep this around in EWRAM, but we really don't need to
-// Bag items could be partially saved into the box and the rest only need to be present at save/load time
-struct RogueBoxSaveData
+struct RogueBoxHubData
 {
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[TOTAL_POCKET_ITEM_COUNT];
-    struct Pokemon faintedLabMons[LAB_MON_COUNT];
-    struct RogueAdvPath advPath;
-    struct RogueQuestData questData;
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
-
-ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
 
 struct RogueTrainerTemp
 {
@@ -125,26 +117,27 @@ struct RouteMonPreview
     bool8 isVisible;
 };
 
+// Temp data only ever stored in RAM
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     bool8 hasSaveWarningPending;
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
-    
-    // We encode all our save data as box data :D
-    union
-    {
-        struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
-        struct RogueBoxSaveData raw;
-    } saveData;
+};
+
+struct RogueLabEncounterData
+{
+    struct Pokemon party[LAB_MON_COUNT];
 };
 
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
+EWRAM_DATA struct RogueBoxHubData gRogueBoxHubData = {}; // Anything that's too large to fit in the above struct
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
+EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
 bool8 IsLegendaryEnabled(u16 species);
@@ -1526,6 +1519,26 @@ static void AppendItemsFromPocket(u8 pocket, struct ItemSlot* dst, u16* index)
     }
 }
 
+static void* GetBoxDataPtr(size_t offset)
+{
+    void* baseAddr = &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT][0];
+    return baseAddr + offset;
+}
+
+static size_t SerializeBoxData(size_t offset, void* src, size_t size)
+{
+    void* addr = GetBoxDataPtr(offset);
+    memcpy(addr, src, size);
+    return offset + size;
+}
+
+static size_t DeserializeBoxData(size_t offset, void* dst, size_t size)
+{
+    void* addr = GetBoxDataPtr(offset);
+    memcpy(dst, addr, size);
+    return offset + size;
+}
+
 static void SaveHubStates(void)
 {
     u8 i;
@@ -1534,25 +1547,25 @@ static void SaveHubStates(void)
 
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
-        CopyMon(&gRogueLocal.saveData.raw.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
+        CopyMon(&gRogueBoxHubData.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
     }
     for(; i < PARTY_SIZE; ++i)
     {
-        ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
+        ZeroMonData(&gRogueBoxHubData.playerParty[i]);
     }
 
-    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(&gRogueBoxHubData.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
     // Put all items into a single big list
     bagItemIdx = 0;
 
     for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
-        AppendItemsFromPocket(pocketId, &gRogueLocal.saveData.raw.bagItems[0], &bagItemIdx);
+        AppendItemsFromPocket(pocketId, &gRogueBoxHubData.bagItems[0], &bagItemIdx);
 
     for(; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
     {
-        gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId = ITEM_NONE;
-        gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity = 0;
+        gRogueBoxHubData.bagItems[bagItemIdx].itemId = ITEM_NONE;
+        gRogueBoxHubData.bagItems[bagItemIdx].quantity = 0;
     }
 }
 
@@ -1563,7 +1576,7 @@ static void LoadHubStates(void)
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
-        CopyMon(&gPlayerParty[i], &gRogueLocal.saveData.raw.playerParty[i], sizeof(gPlayerParty[i]));
+        CopyMon(&gPlayerParty[i], &gRogueBoxHubData.playerParty[i], sizeof(gPlayerParty[i]));
     }
 
     for(i = 0; i < PARTY_SIZE; ++i)
@@ -1573,15 +1586,15 @@ static void LoadHubStates(void)
     }
     gPlayerPartyCount = i;
 
-    memcpy(GetBerryTreeInfo(1), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(GetBerryTreeInfo(1), &gRogueBoxHubData.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();
 
     for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
     {
-        const u16 itemId = gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId;
-        const u16 quantity = gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity;
+        const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
+        const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
 
         if(itemId != ITEM_NONE && quantity != 0)
         {
@@ -1609,13 +1622,16 @@ void Rogue_OnSaveGame(void)
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
 
-    memcpy(&gRogueLocal.saveData.raw.advPath, &gRogueAdvPath, sizeof(gRogueAdvPath));
-    memcpy(&gRogueLocal.saveData.raw.questData, &gRogueQuestData, sizeof(gRogueQuestData));
-
-    // Move Hub save data into storage box space
-    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
     {
-        memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+        size_t offset = 0;
+
+        // Serialize more global data
+        offset += SerializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+
+        // Serialize temporary per-run data
+        offset += SerializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+        offset += SerializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+        offset += SerializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
     }
 }
 
@@ -1629,14 +1645,17 @@ void Rogue_OnLoadGame(void)
     memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
     memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
 
-    // Move Hub save data out of storage box space
-    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
     {
-        memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
-    }
+        size_t offset = 0;
 
-    memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
-    memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
+        // Serialize more global data
+        offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+
+        // Serialize temporary per-run data
+        offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+        offset += DeserializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+        offset += DeserializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+    }
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
@@ -1725,7 +1744,7 @@ static void ResetFaintedLabMonAtSlot(u16 slot)
 {
     u16 species;
 
-    struct Pokemon* mon = &gRogueLocal.saveData.raw.faintedLabMons[slot];
+    struct Pokemon* mon = &gRogueLabEncounterData.party[slot];
 
     if(slot == VarGet(VAR_STARTER_MON))
     {
@@ -1852,8 +1871,8 @@ static void BeginRogueRun(void)
         // Add back some of the items we want to keep
         for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
         {
-            const u16 itemId = gRogueLocal.saveData.raw.bagItems[bagItemIdx].itemId;
-            const u16 quantity = gRogueLocal.saveData.raw.bagItems[bagItemIdx].quantity;
+            const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
+            const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
 
             if(itemId != ITEM_NONE && quantity != 0)
             {
@@ -2600,9 +2619,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 RandomiseCharmItems();
 
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[0], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[1], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[2], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLabEncounterData.party[0], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLabEncounterData.party[1], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLabEncounterData.party[2], MON_DATA_SPECIES));
                 break;
             }
 
@@ -2651,7 +2670,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
         return;
     }
 
-    destMon = &gRogueLocal.saveData.raw.faintedLabMons[i];
+    destMon = &gRogueLabEncounterData.party[i];
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
     temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
@@ -2664,7 +2683,7 @@ void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)
 {
     if(index < LAB_MON_COUNT)
     {
-        GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[index], MON_DATA_NICKNAME, dst);
+        GetMonData(&gRogueLabEncounterData.party[index], MON_DATA_NICKNAME, dst);
         StringGet_Nickname(dst);
     }
 }
@@ -2673,7 +2692,7 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
 {
     if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
     {
-        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLocal.saveData.raw.faintedLabMons[index], sizeof(gPlayerParty[gPlayerPartyCount]));
+        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLabEncounterData.party[index], sizeof(gPlayerParty[gPlayerPartyCount]));
 
         gPlayerPartyCount = CalculatePlayerPartyCount();
         ResetFaintedLabMonAtSlot(index);
