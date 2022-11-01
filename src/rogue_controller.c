@@ -1648,13 +1648,35 @@ void Rogue_OnLoadGame(void)
     {
         size_t offset = 0;
 
-        // Serialize more global data
-        offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+        // Pre 1.3
+        if(gSaveBlock1Ptr->rogueSaveVersion < 3)
+        {
+#ifdef ROGUE_EXPANSION
+            const u16 questCount = 58;
+#else
+            const u16 questCount = 52;
+#endif
 
-        // Serialize temporary per-run data
-        offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
-        offset += DeserializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
-        offset += DeserializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+            // This was a very chaotically organised struct, so skip over most thingg
+            // as that's just hub data to restore and we can't load previous versions whilst in a run
+            offset += sizeof(u32); // encryptionKey
+            offset += sizeof(struct Pokemon) * PARTY_SIZE; // playerParty
+            offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
+            offset += sizeof(struct RogueAdvPath); // advPath
+
+            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+        }
+        else
+        {
+            // Serialize more global data
+            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData)); 
+            // Don't have to worry about keeping track of quest count here as it reads into run space and the new quests will be wiped on first load
+
+            // Serialize temporary per-run data
+            offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+            offset += DeserializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+            offset += DeserializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+        }
     }
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
