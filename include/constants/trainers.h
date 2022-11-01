@@ -142,6 +142,8 @@
 
 #define TRAINER_PIC_JOHTO_RED             117
 
+#define TRAINER_PIC_POKABBIE              118
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

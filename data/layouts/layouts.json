@@ -4535,7 +4535,7 @@
       "id": "LAYOUT_ROGUE_BOSS_13",
       "name": "Rogue_Boss_13_Layout",
       "width": 17,
-      "height": 25,
+      "height": 31,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Boss_13/border.bin",
