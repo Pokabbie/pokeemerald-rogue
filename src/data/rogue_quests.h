@@ -28,7 +28,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("-"),
         .desc = _("-"),
-        .flags = QUEST_FLAGS_NONE
+        .flags = QUEST_FLAGS_NONE,
+        .sortIndex = 0,
     },
 
     [QUEST_FirstAdventure] = 
@@ -519,6 +520,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_MegaEvo] = 
     {
         .title = _("Mega Evolution"),
+        .sortIndex = 1,
         .desc = _(
                     "In the final champion\n"
                     "battle Mega Evolve a\n"
@@ -531,6 +533,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ZMove] = 
     {
         .title = _("Z Power"),
+        .sortIndex = 1,
         .desc = _(
                     "In the final champion\n"
                     "battle use a Z-Move."
@@ -543,6 +546,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ShayminItem] = 
     {
         .title = _("Gratitude"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with a Shaymin in your\n"
@@ -555,6 +559,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_HoopaItem] = 
     {
         .title = _("Mischief"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with a Hoopa in your\n"
@@ -567,6 +572,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_NatureItem] = 
     {
         .title = _("'Of Nature"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with any of the 'Forces of\n"
@@ -613,6 +619,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_NORMAL_Champion] = 
     {
         .title = _("NORMAL Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -633,6 +640,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FIGHTING_Champion] = 
     {
         .title = _("FIGHT Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -653,6 +661,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FLYING_Champion] = 
     {
         .title = _("FLYING Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -673,6 +682,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_POISON_Champion] = 
     {
         .title = _("POISON Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -693,6 +703,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GROUND_Champion] = 
     {
         .title = _("GROUND Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -713,6 +724,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ROCK_Champion] = 
     {
         .title = _("ROCK Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -733,6 +745,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_BUG_Champion] = 
     {
         .title = _("BUG Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -752,6 +765,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GHOST_Champion] = 
     {
         .title = _("GHOST Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -772,6 +786,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_STEEL_Champion] = 
     {
         .title = _("STEEL Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -792,6 +807,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FIRE_Champion] = 
     {
         .title = _("FIRE Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -812,6 +828,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_WATER_Champion] = 
     {
         .title = _("WATER Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -832,6 +849,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GRASS_Champion] = 
     {
         .title = _("GRASS Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -852,6 +870,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ELECTRIC_Champion] = 
     {
         .title = _("ELECTR Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -872,6 +891,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_PSYCHIC_Champion] = 
     {
         .title = _("PSYCHC Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -892,6 +912,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ICE_Champion] = 
     {
         .title = _("ICE Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -912,6 +933,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_DRAGON_Champion] = 
     {
         .title = _("DRAGON Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -932,6 +954,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_DARK_Champion] = 
     {
         .title = _("DARK Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -953,6 +976,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FAIRY_Champion] = 
     {
         .title = _("FAIRY Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
