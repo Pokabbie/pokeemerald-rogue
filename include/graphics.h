@@ -6886,6 +6886,8 @@ extern const u32 gTrainerFrontPic_EliteFourKaren[];
 
 extern const u32 gTrainerFrontPic_ChampionRed[];
 
+extern const u32 gTrainerFrontPic_Pokabbie[];
+
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -7075,6 +7077,8 @@ extern const u32 gTrainerPalette_EliteFourWill[];
 extern const u32 gTrainerPalette_EliteFourKaren[];
 
 extern const u32 gTrainerPalette_ChampionRed[];
+
+extern const u32 gTrainerPalette_Pokabbie[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];

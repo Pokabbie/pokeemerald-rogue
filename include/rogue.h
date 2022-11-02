@@ -62,6 +62,7 @@ struct RogueQuestConstants
 {
     const u8 title[QUEST_TITLE_LENGTH];
     const u8 desc[QUEST_DESC_LENGTH];
+    const u8 sortIndex;
     const u16 flags;
     struct RogueQuestReward rewards[QUEST_MAX_REWARD_COUNT];
     const u16 unlockedQuests[QUEST_MAX_FOLLOWING_QUESTS];

@@ -426,6 +426,52 @@ void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
 }
 
+static s8 CompareQuests(u16 questA, u16 questB, bool8 invertSortPri)
+{
+    struct RogueQuestState stateA;
+    struct RogueQuestState stateB;
+
+    if(!GetQuestState(questA, &stateA) || !GetQuestState(questB, &stateB))
+        return 0;
+
+    if(stateA.hasPendingRewards != stateB.hasPendingRewards)
+    {
+        // Pending rewards always show first
+        return stateA.hasPendingRewards ? 1 : -1;
+    }
+
+    if(gRogueQuests[questA].sortIndex < gRogueQuests[questB].sortIndex)
+        return invertSortPri ? -1 : 1;
+    else if(gRogueQuests[questB].sortIndex < gRogueQuests[questA].sortIndex)
+        return invertSortPri ? 1 : -1;
+
+    if(invertSortPri)
+        return questA < questB ? -1 : 1;
+    else
+        return questA < questB ? 1 : -1;
+}
+
+static void AppendQuestToDisplay(u16 currQuest, bool8 invertSortPri)
+{
+    // Insert sort
+    u16 i;
+
+    for(i = 0; i < sQuestMenuStruct->numMenuChoices; ++i)
+    {
+        u16 compQuest = sQuestMenuStruct->optionsToDisplay[i];
+
+        // Higher pri, so swap
+        if(CompareQuests(currQuest, compQuest, invertSortPri) > 0)
+        {
+            sQuestMenuStruct->optionsToDisplay[i] = currQuest;
+            currQuest = compQuest;
+        }
+    }
+
+    // (re)insert the last quest
+    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = currQuest;
+}
+
 static void GatherOptionsToDisplay()
 {
     u16 i;
@@ -439,7 +485,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && state.isPinned)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;
@@ -450,7 +496,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && state.isValid)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;
@@ -461,7 +507,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && !state.isValid)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;
@@ -471,18 +517,9 @@ static void GatherOptionsToDisplay()
             // Place quests which have pending rewards to the top
             for(i = 0; i < QUEST_CAPACITY; ++i)
             {
-                if(GetQuestState(i, &state) && state.isCompleted && state.hasPendingRewards)
+                if(GetQuestState(i, &state) && state.isCompleted)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
-                }
-            }
-            // Invert the quest order, as we're probably going to have more impressive quests in later ID so want to see them first
-            for(i = 0; i < QUEST_CAPACITY; ++i)
-            {
-                u16 questId = QUEST_CAPACITY - i;
-                if(GetQuestState(questId, &state) && state.isCompleted && !state.hasPendingRewards)
-                {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = questId;
+                    AppendQuestToDisplay(i, TRUE);
                 }
             }
             break;
@@ -493,7 +530,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && !state.isCompleted)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;
@@ -504,7 +541,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && IsQuestRepeatable(i))
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;
@@ -515,7 +552,7 @@ static void GatherOptionsToDisplay()
             {
                 if(GetQuestState(i, &state) && state.hasNewMarker)
                 {
-                    sQuestMenuStruct->optionsToDisplay[sQuestMenuStruct->numMenuChoices++] = i;
+                    AppendQuestToDisplay(i, FALSE);
                 }
             }
             break;

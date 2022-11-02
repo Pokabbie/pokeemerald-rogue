@@ -1,4 +1,5 @@
 const BOSS_NPC = 1
+const DITTO_NPC = 2
 
 mapscripts Rogue_Boss_13_MapScripts
 {
@@ -27,6 +28,31 @@ script Rogue_Battle_Boss13
         //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
         msgbox(format("!"))
         trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
+    }
+    // Special case for Pokabbie
+    elif(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_POKABBIE)
+    {
+        buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        msgbox(format("...\p...\p...\pPOKABBIE: You did well to make it here..."))
+
+        call(Rogue_SetDesiredWeather)
+
+        applymovement(BOSS_NPC, BossToFightBoss13)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13)
+        waitmovement(0)
+
+
+        msgbox(format("Oh!\nIt's {PLAYER}!\pMy bad, I thought you were someone else.\pWhat's that?\pWe should battle?\pDon't be silly!\pI'm not the one you'll be battling..."))
+
+        playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
+        waitmoncry
+
+        applymovement(DITTO_NPC, DittoToFightBoss13)
+        waitmovement(0)
+
+        // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+        //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Congratulations {PLAYER}!"))
     }
     else
     {
@@ -65,4 +91,8 @@ movement PlayerToFightBoss13 {
 
 movement BossToFightBoss13 {
     face_down
+}
+
+movement DittoToFightBoss13 {
+    walk_faster_down * 4
 }

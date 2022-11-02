@@ -28,7 +28,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("-"),
         .desc = _("-"),
-        .flags = QUEST_FLAGS_NONE
+        .flags = QUEST_FLAGS_NONE,
+        .sortIndex = 0,
     },
 
     [QUEST_FirstAdventure] = 
@@ -239,12 +240,20 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .unlockedQuests = { 
             QUEST_KantoMode,
             QUEST_OrreMode,
+            QUEST_JohtoMode,
+            QUEST_HoennMode,
 #ifdef ROGUE_EXPANSION
+            QUEST_SinnohMode,
+            QUEST_UnovaMode,
+            QUEST_KalosMode,
+            QUEST_AlolaMode,
+            QUEST_GalarMode,
+
             QUEST_MegaEvo,
             QUEST_ZMove,
             QUEST_ShayminItem,
             QUEST_HoopaItem,
-            QUEST_NatureItem
+            QUEST_NatureItem,
 #endif
         }
     },
@@ -491,10 +500,13 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("Kanto Style"),
         .desc = _(
-                    "Defeat the final\n"
-                    "champion with the GEN\n"
-                    "limit set to 1."
+                    "Enable only KANTO BOSSES\n"
+                    "and REGIONAL DEX and"
+                    "win a full standard run."
                 ),
+        .unlockedQuests = { 
+            QUEST_GlitchMode,
+        },
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_PIKACHU, 7, TRUE } },
@@ -515,10 +527,119 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         }
     },
 
+    [QUEST_JohtoMode] = 
+    {
+        .title = _("Johto Style"),
+        .desc = _(
+                    "Enable only JOHTO BOSSES\n"
+                    "and REGIONAL DEX and\n"
+                    "win a full standard run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MARILL, 7, TRUE } },
+        }
+    },
+    [QUEST_HoennMode] = 
+    {
+        .title = _("Hoenn Rainbow"),
+        .desc = _(
+                    "Enable only HOENN BOSSES\n"
+                    "and REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RALTS, 7, TRUE } },
+        }
+    },
+
+    [QUEST_GlitchMode] = 
+    {
+        .title = _("Glitch Style"),
+        .desc = _(
+                    "Enable only NONE BOSSES\n"
+                    "and FULL NATIONAL DEX and\n"
+                    "win a full standard run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_UNOWN, 7, TRUE } },
+        }
+    },
+#ifdef ROGUE_EXPANSION
+    [QUEST_SinnohMode] = 
+    {
+        .title = _("Sinnoh Rainbow"),
+        .desc = _(
+                    "Enable the SINNOH\n"
+                    "REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DRIFLOON, 7, TRUE } },
+        }
+    },
+    [QUEST_UnovaMode] = 
+    {
+        .title = _("Unova Rainbow"),
+        .desc = _(
+                    "Enable the UNOVA\n"
+                    "REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_YAMASK, 7, TRUE } },
+        }
+    },
+    [QUEST_KalosMode] = 
+    {
+        .title = _("Kalos Rainbow"),
+        .desc = _(
+                    "Enable the KALOS\n"
+                    "REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_ESPURR, 7, TRUE } },
+        }
+    },
+    [QUEST_AlolaMode] = 
+    {
+        .title = _("Alola Rainbow"),
+        .desc = _(
+                    "Enable the ALOLA\n"
+                    "REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_ROCKRUFF, 7, TRUE } },
+        }
+    },
+    [QUEST_GalarMode] = 
+    {
+        .title = _("Galar Rainbow"),
+        .desc = _(
+                    "Enable the GALAR\n"
+                    "REGIONAL DEX and win\n"
+                    "a full RAINBOW run."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_HATENNA, 7, TRUE } },
+        }
+    },
+#endif
+
 #ifdef ROGUE_EXPANSION
     [QUEST_MegaEvo] = 
     {
         .title = _("Mega Evolution"),
+        .sortIndex = 1,
         .desc = _(
                     "In the final champion\n"
                     "battle Mega Evolve a\n"
@@ -531,6 +652,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ZMove] = 
     {
         .title = _("Z Power"),
+        .sortIndex = 1,
         .desc = _(
                     "In the final champion\n"
                     "battle use a Z-Move."
@@ -543,6 +665,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ShayminItem] = 
     {
         .title = _("Gratitude"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with a Shaymin in your\n"
@@ -555,6 +678,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_HoopaItem] = 
     {
         .title = _("Mischief"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with a Hoopa in your\n"
@@ -567,6 +691,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_NatureItem] = 
     {
         .title = _("'Of Nature"),
+        .sortIndex = 1,
         .desc = _(
                     "Reach the final champion\n"
                     "with any of the 'Forces of\n"
@@ -613,6 +738,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_NORMAL_Champion] = 
     {
         .title = _("NORMAL Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -633,6 +759,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FIGHTING_Champion] = 
     {
         .title = _("FIGHT Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -653,6 +780,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FLYING_Champion] = 
     {
         .title = _("FLYING Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -673,6 +801,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_POISON_Champion] = 
     {
         .title = _("POISON Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -693,6 +822,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GROUND_Champion] = 
     {
         .title = _("GROUND Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -713,6 +843,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ROCK_Champion] = 
     {
         .title = _("ROCK Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -733,6 +864,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_BUG_Champion] = 
     {
         .title = _("BUG Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -752,6 +884,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GHOST_Champion] = 
     {
         .title = _("GHOST Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -772,6 +905,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_STEEL_Champion] = 
     {
         .title = _("STEEL Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -792,6 +926,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FIRE_Champion] = 
     {
         .title = _("FIRE Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -812,6 +947,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_WATER_Champion] = 
     {
         .title = _("WATER Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -832,6 +968,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GRASS_Champion] = 
     {
         .title = _("GRASS Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -852,6 +989,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ELECTRIC_Champion] = 
     {
         .title = _("ELECTR Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -872,6 +1010,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_PSYCHIC_Champion] = 
     {
         .title = _("PSYCHC Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -892,6 +1031,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_ICE_Champion] = 
     {
         .title = _("ICE Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -912,6 +1052,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_DRAGON_Champion] = 
     {
         .title = _("DRAGON Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -932,6 +1073,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_DARK_Champion] = 
     {
         .title = _("DARK Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"
@@ -953,6 +1095,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_FAIRY_Champion] = 
     {
         .title = _("FAIRY Master"),
+        .sortIndex = 255,
         .desc = _(
                     "Win a full Run, only\n"
                     "ever catching and using\n"

@@ -4535,7 +4535,7 @@
       "id": "LAYOUT_ROGUE_BOSS_13",
       "name": "Rogue_Boss_13_Layout",
       "width": 17,
-      "height": 25,
+      "height": 31,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Boss_13/border.bin",
@@ -4574,10 +4574,10 @@
     {
       "id": "LAYOUT_ROGUE_ENCOUNTER_REST_STOP",
       "name": "Rogue_Encounter_RestStop_Layout",
-      "width": 48,
-      "height": 30,
+      "width": 22,
+      "height": 21,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Encounter_RestStop/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_RestStop/map.bin"
     },

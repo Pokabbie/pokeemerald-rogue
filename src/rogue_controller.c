@@ -72,25 +72,22 @@ extern const u8 gText_RogueDebug_Y[];
 
 #define LAB_MON_COUNT 3
 
-// Box save data
-// TODO - We keep this around in EWRAM, but we really don't need to
-// Bag items could be partially saved into the box and the rest only need to be present at save/load time
-struct RogueBoxSaveData
+#define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
+                            max(BAG_BERRIES_COUNT,           \
+                            max(BAG_ITEMS_COUNT,             \
+                            max(BAG_KEYITEMS_COUNT,          \
+                                BAG_POKEBALLS_COUNT))))) + 1)
+
+#define TOTAL_POCKET_ITEM_COUNT (BAG_TMHM_COUNT + BAG_BERRIES_COUNT + BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + 1)
+
+// RogueNote: TODO - Modify pocket structure
+
+struct RogueBoxHubData
 {
-    u32 encryptionKey;
     struct Pokemon playerParty[PARTY_SIZE];
-    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
-    struct Pokemon faintedLabMons[LAB_MON_COUNT];
-    struct RogueAdvPath advPath;
-    struct RogueQuestData questData;
+    struct ItemSlot bagItems[TOTAL_POCKET_ITEM_COUNT];
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
-
-ROGUE_STATIC_ASSERT(sizeof(struct RogueBoxSaveData) <= sizeof(struct BoxPokemon) * LEFTOVER_BOXES_COUNT * IN_BOX_COUNT, RogueBoxSaveData);
 
 struct RogueTrainerTemp
 {
@@ -120,28 +117,30 @@ struct RouteMonPreview
     bool8 isVisible;
 };
 
+// Temp data only ever stored in RAM
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     bool8 hasSaveWarningPending;
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
-    
-    // We encode all our save data as box data :D
-    union
-    {
-        struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
-        struct RogueBoxSaveData raw;
-    } saveData;
+};
+
+struct RogueLabEncounterData
+{
+    struct Pokemon party[LAB_MON_COUNT];
 };
 
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
+EWRAM_DATA struct RogueBoxHubData gRogueBoxHubData = {}; // Anything that's too large to fit in the above struct
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
+EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
+bool8 IsLegendaryEnabled(u16 species);
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
@@ -395,7 +394,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
             // Want to make legendaries hard to catch than other mons in the area
-            difficulty += 2;
+            difficulty += 1;
         }
 
         if(difficulty <= 1) // First 2 badges
@@ -1497,61 +1496,87 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
-static void CopyFromPocket(u8 pocket, struct ItemSlot* dst)
+static void AppendItemsFromPocket(u8 pocket, struct ItemSlot* dst, u16* index)
 {
     u16 i;
+    u16 writeIdx;
+    u16 itemId;
     u16 count = gBagPockets[pocket].capacity;
 
     // Use getters to avoid encryption
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
+    for (i = 0; i < count; i++)
     {
-        dst[i].itemId = gBagPockets[pocket].itemSlots[i].itemId;
-        dst[i].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+        writeIdx = *index;
+        itemId = gBagPockets[pocket].itemSlots[i].itemId;
+
+        if(itemId != ITEM_NONE)
+        {
+            dst[writeIdx].itemId = itemId;
+            dst[writeIdx].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+
+            *index = writeIdx + 1;
+        }
     }
 }
 
-static void CopyToPocket(u8 pocket, struct ItemSlot* src)
+static void* GetBoxDataPtr(size_t offset)
 {
-    u16 i;
-    u16 count = gBagPockets[pocket].capacity;
+    void* baseAddr = &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT][0];
+    return baseAddr + offset;
+}
 
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-    {
-        gBagPockets[pocket].itemSlots[i].itemId = src[i].itemId;
-        SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, src[i].quantity);
-    }
+static size_t SerializeBoxData(size_t offset, void* src, size_t size)
+{
+    void* addr = GetBoxDataPtr(offset);
+    memcpy(addr, src, size);
+    return offset + size;
+}
+
+static size_t DeserializeBoxData(size_t offset, void* dst, size_t size)
+{
+    void* addr = GetBoxDataPtr(offset);
+    memcpy(dst, addr, size);
+    return offset + size;
 }
 
 static void SaveHubStates(void)
 {
     u8 i;
+    u16 bagItemIdx;
+    u16 pocketId;
 
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
-        CopyMon(&gRogueLocal.saveData.raw.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
+        CopyMon(&gRogueBoxHubData.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
     }
     for(; i < PARTY_SIZE; ++i)
     {
-        ZeroMonData(&gRogueLocal.saveData.raw.playerParty[i]);
+        ZeroMonData(&gRogueBoxHubData.playerParty[i]);
     }
 
-    memcpy(&gRogueLocal.saveData.raw.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(&gRogueBoxHubData.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
-    gRogueLocal.saveData.raw.encryptionKey = gSaveBlock2Ptr->encryptionKey;
-    CopyFromPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
-    CopyFromPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
-    CopyFromPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
-    CopyFromPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
-    CopyFromPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+    // Put all items into a single big list
+    bagItemIdx = 0;
+
+    for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
+        AppendItemsFromPocket(pocketId, &gRogueBoxHubData.bagItems[0], &bagItemIdx);
+
+    for(; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    {
+        gRogueBoxHubData.bagItems[bagItemIdx].itemId = ITEM_NONE;
+        gRogueBoxHubData.bagItems[bagItemIdx].quantity = 0;
+    }
 }
 
 static void LoadHubStates(void)
 {
     u8 i;
+    u16 bagItemIdx;
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
-        CopyMon(&gPlayerParty[i], &gRogueLocal.saveData.raw.playerParty[i], sizeof(gPlayerParty[i]));
+        CopyMon(&gPlayerParty[i], &gRogueBoxHubData.playerParty[i], sizeof(gPlayerParty[i]));
     }
 
     for(i = 0; i < PARTY_SIZE; ++i)
@@ -1561,15 +1586,25 @@ static void LoadHubStates(void)
     }
     gPlayerPartyCount = i;
 
-    memcpy(GetBerryTreeInfo(1), &gRogueLocal.saveData.raw.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
+    memcpy(GetBerryTreeInfo(1), &gRogueBoxHubData.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
-    CopyToPocket(ITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_Items[0]);
-    CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]);
-    CopyToPocket(BALLS_POCKET, &gRogueLocal.saveData.raw.bagPocket_PokeBalls[0]);
-    CopyToPocket(TMHM_POCKET, &gRogueLocal.saveData.raw.bagPocket_TMHM[0]);
-    CopyToPocket(BERRIES_POCKET, &gRogueLocal.saveData.raw.bagPocket_Berries[0]);
+    // Restore the bag by just clearing and adding everything back to it
+    ClearBag();
 
-    //ApplyNewEncryptionKeyToBagItems(gRogueLocal.saveData.raw.encryptionKey);
+    for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    {
+        const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
+        const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
+
+        if(itemId != ITEM_NONE && quantity != 0)
+        {
+            // Fix for multiple HMs bug
+            if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                AddBagItem(itemId, 1);
+            else
+                AddBagItem(itemId, quantity);
+        }
+    }
 }
 
 extern const u8 Rogue_QuickSaveLoad[];
@@ -1587,13 +1622,16 @@ void Rogue_OnSaveGame(void)
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
     memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
 
-    memcpy(&gRogueLocal.saveData.raw.advPath, &gRogueAdvPath, sizeof(gRogueAdvPath));
-    memcpy(&gRogueLocal.saveData.raw.questData, &gRogueQuestData, sizeof(gRogueQuestData));
-
-    // Move Hub save data into storage box space
-    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
     {
-        memcpy(&gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], &gRogueLocal.saveData.boxes[i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
+        size_t offset = 0;
+
+        // Serialize more global data
+        offset += SerializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+
+        // Serialize temporary per-run data
+        offset += SerializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+        offset += SerializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+        offset += SerializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
     }
 }
 
@@ -1607,14 +1645,39 @@ void Rogue_OnLoadGame(void)
     memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
     memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
 
-    // Move Hub save data out of storage box space
-    for(i = 0; i < LEFTOVER_BOXES_COUNT; ++i)
     {
-        memcpy(&gRogueLocal.saveData.boxes[i][0], &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT + i][0], sizeof(struct BoxPokemon) * IN_BOX_COUNT);
-    }
+        size_t offset = 0;
 
-    memcpy(&gRogueAdvPath, &gRogueLocal.saveData.raw.advPath, sizeof(gRogueAdvPath));
-    memcpy(&gRogueQuestData, &gRogueLocal.saveData.raw.questData, sizeof(gRogueQuestData));
+        // Pre 1.3
+        if(gSaveBlock1Ptr->rogueSaveVersion < 3)
+        {
+#ifdef ROGUE_EXPANSION
+            const u16 questCount = 58;
+#else
+            const u16 questCount = 52;
+#endif
+
+            // This was a very chaotically organised struct, so skip over most thingg
+            // as that's just hub data to restore and we can't load previous versions whilst in a run
+            offset += sizeof(u32); // encryptionKey
+            offset += sizeof(struct Pokemon) * PARTY_SIZE; // playerParty
+            offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
+            offset += sizeof(struct RogueAdvPath); // advPath
+
+            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+        }
+        else
+        {
+            // Serialize more global data
+            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData)); 
+            // Don't have to worry about keeping track of quest count here as it reads into run space and the new quests will be wiped on first load
+
+            // Serialize temporary per-run data
+            offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+            offset += DeserializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+            offset += DeserializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+        }
+    }
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
@@ -1703,7 +1766,7 @@ static void ResetFaintedLabMonAtSlot(u16 slot)
 {
     u16 species;
 
-    struct Pokemon* mon = &gRogueLocal.saveData.raw.faintedLabMons[slot];
+    struct Pokemon* mon = &gRogueLabEncounterData.party[slot];
 
     if(slot == VarGet(VAR_STARTER_MON))
     {
@@ -1818,11 +1881,29 @@ static void BeginRogueRun(void)
 
     if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
     {
+        u16 bagItemIdx;
+        
         ClearBag();
+
+        // Add default items
         AddBagItem(ITEM_POKE_BALL, 5);
         AddBagItem(ITEM_POTION, 1);
-        CopyToPocket(KEYITEMS_POCKET, &gRogueLocal.saveData.raw.bagPocket_KeyItems[0]); // Keep key items
         SetMoney(&gSaveBlock1Ptr->money, 0);
+
+        // Add back some of the items we want to keep
+        for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+        {
+            const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
+            const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                if(GetPocketByItemId(itemId) == POCKET_KEY_ITEMS)
+                    AddBagItem(itemId, quantity);
+                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                    AddBagItem(itemId, quantity);
+            }
+        }
     }
     else
     {
@@ -2020,13 +2101,14 @@ u8 Rogue_SelectBossEncounter(void)
     return bossId;
 }
 
-static bool8 IsLegendaryEnabled(u16 legendaryId)
+static bool8 IsLegendaryEncounterEnabled(u16 legendaryId)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
     bool8 allowStrongSpecies = FALSE;
 
-    if(!IsGenEnabled(SpeciesToGen(species)))
+
+    if(!IsLegendaryEnabled(species))
     {
         return FALSE;
     }
@@ -2070,7 +2152,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEnabled(i))
+        if(IsLegendaryEncounterEnabled(i))
             ++enabledLegendariesCount;
     }
 
@@ -2086,7 +2168,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEnabled(i))
+        if(IsLegendaryEncounterEnabled(i))
         {
             if(enabledLegendariesCount == randIdx)
                 return i;
@@ -2559,9 +2641,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 RandomiseCharmItems();
 
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[0], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[1], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[2], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLabEncounterData.party[0], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLabEncounterData.party[1], MON_DATA_SPECIES));
+                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLabEncounterData.party[2], MON_DATA_SPECIES));
                 break;
             }
 
@@ -2610,7 +2692,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
         return;
     }
 
-    destMon = &gRogueLocal.saveData.raw.faintedLabMons[i];
+    destMon = &gRogueLabEncounterData.party[i];
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
     temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
@@ -2623,7 +2705,7 @@ void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)
 {
     if(index < LAB_MON_COUNT)
     {
-        GetMonData(&gRogueLocal.saveData.raw.faintedLabMons[index], MON_DATA_NICKNAME, dst);
+        GetMonData(&gRogueLabEncounterData.party[index], MON_DATA_NICKNAME, dst);
         StringGet_Nickname(dst);
     }
 }
@@ -2632,7 +2714,7 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
 {
     if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
     {
-        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLocal.saveData.raw.faintedLabMons[index], sizeof(gPlayerParty[gPlayerPartyCount]));
+        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLabEncounterData.party[index], sizeof(gPlayerParty[gPlayerPartyCount]));
 
         gPlayerPartyCount = CalculatePlayerPartyCount();
         ResetFaintedLabMonAtSlot(index);
@@ -3551,6 +3633,117 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
 
+static void ApplyCounterTrainerQuery(u16 trainerNum, bool8 isBoss, u8 monIdx)
+{
+    u16 baseType = TYPE_NONE;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        
+        u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+
+        if(gBaseStats[species].type2 != TYPE_NONE)
+        {
+            baseType = RogueRandomRange(2, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS) == 0 ? gBaseStats[species].type1 : gBaseStats[species].type2;
+        }
+        else
+        {
+            baseType = gBaseStats[species].type1;
+        }
+    }
+
+    gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+
+    gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
+    gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
+
+    switch(baseType)
+    {
+        case TYPE_NORMAL:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            break;
+        case TYPE_FIGHTING:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FLYING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+            break;
+        case TYPE_FLYING:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_ROCK;
+            break;
+        case TYPE_POISON:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+            break;
+        case TYPE_GROUND:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_ROCK:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_BUG:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
+            break;
+        case TYPE_GHOST:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_DARK;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NORMAL;
+            break;
+        case TYPE_STEEL:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FIRE;
+            break;
+        case TYPE_FIRE:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GROUND;
+            break;
+        case TYPE_WATER:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_GRASS:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
+            break;
+        case TYPE_ELECTRIC:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            break;
+        case TYPE_PSYCHIC:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
+            break;
+        case TYPE_ICE:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
+            break;
+        case TYPE_DRAGON:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ICE;
+#ifdef ROGUE_EXPANSION
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FAIRY;
+#endif
+            break;
+        case TYPE_DARK:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            break;
+#ifdef ROGUE_EXPANSION
+        case TYPE_FAIRY:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
+            break;
+#endif
+        default:
+            gRogueLocal.trainerTemp.allowedType[0] = RogueRandomRange(NUMBER_OF_MON_TYPES, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+
+            if(gRogueLocal.trainerTemp.allowedType[0] == TYPE_MYSTERY)
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+            break;
+    };
+
+    ApplyTrainerQuery(trainerNum, FALSE);
+}
+
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
@@ -3574,6 +3767,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         {
             return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
         }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
+        }
     }
     else if(IsMiniBossTrainer(trainerNum))
     {
@@ -3583,6 +3781,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
         {
             return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+        }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
         }
     }
 
@@ -4758,10 +4961,12 @@ static void RogueQuery_SafariTypeForMap()
 static void RandomiseSafariWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
-    u8 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
     // Temporarily remove the gen limit for the safari encounters
+    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
 
     // Query for the current zone
@@ -4794,6 +4999,7 @@ static void RandomiseSafariWildEncounters(void)
     RogueQuery_CollapseSpeciesBuffer();
 
     // Restore the gen limit
+    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, dexLimit);
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
 
     {

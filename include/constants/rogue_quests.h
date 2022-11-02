@@ -91,11 +91,26 @@
 #endif
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST QUEST_FAIRY_Champion
+#define QUEST_TYPE_Last             QUEST_FAIRY_Champion
 #else
-#define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST QUEST_DARK_Champion
+#define QUEST_TYPE_Last             QUEST_DARK_Champion
 #endif
+
+#define QUEST_JohtoMode             (QUEST_TYPE_Last + 1)
+#define QUEST_HoennMode             (QUEST_TYPE_Last + 2)
+#define QUEST_GlitchMode            (QUEST_TYPE_Last + 3)
+#ifdef ROGUE_EXPANSION
+#define QUEST_SinnohMode            (QUEST_TYPE_Last + 4)
+#define QUEST_UnovaMode             (QUEST_TYPE_Last + 5)
+#define QUEST_KalosMode             (QUEST_TYPE_Last + 6)
+#define QUEST_AlolaMode             (QUEST_TYPE_Last + 7)
+#define QUEST_GalarMode             (QUEST_TYPE_Last + 8)
+#define QUEST_GlitchMode            (QUEST_TYPE_Last + 9)
+#endif
+
+#define QUEST_RegionMode_Last       QUEST_GlitchMode
+
+#define QUEST_FIRST QUEST_FirstAdventure
+#define QUEST_LAST QUEST_RegionMode_Last
 
 #define QUEST_CAPACITY (QUEST_LAST + 1)

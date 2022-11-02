@@ -72,6 +72,8 @@ extern const u8 gText_TrainerName_Clair[];
 extern const u8 gText_TrainerName_Will[];
 extern const u8 gText_TrainerName_Karen[];
 
+extern const u8 gText_TrainerName_Pokabbie[];
+
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -389,6 +391,9 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 
         case TRAINER_ROGUE_BOSS_RED:
             return gText_TrainerName_Red;
+
+        case TRAINER_ROGUE_BOSS_POKABBIE:
+            return gText_TrainerName_Pokabbie;
     }
 
     return gTrainers[trainerNum].trainerName;
@@ -459,8 +464,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_SABRINA:
         case TRAINER_ROGUE_BOSS_LORELEI:
         case TRAINER_ROGUE_BOSS_AGATHA:
-        case TRAINER_ROGUE_BOSS_BLUE:
-        case TRAINER_ROGUE_BOSS_PROFOAK:
+        case TRAINER_ROGUE_BOSS_POKABBIE:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -479,6 +483,8 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_GIOVANNI:
         case TRAINER_ROGUE_BOSS_BRUNO:
         case TRAINER_ROGUE_BOSS_LANCE:
+        case TRAINER_ROGUE_BOSS_BLUE:
+        case TRAINER_ROGUE_BOSS_PROFOAK:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -740,6 +746,10 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_BOSS_RED:
             outTrainer->trainerPic = TRAINER_PIC_JOHTO_RED;
+            break;
+
+        case TRAINER_ROGUE_BOSS_POKABBIE:
+            outTrainer->trainerPic = TRAINER_PIC_POKABBIE;
             break;
 
         // Std Trainers

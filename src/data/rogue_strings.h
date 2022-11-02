@@ -43,7 +43,7 @@ const u8 gText_TrainerName_ProfOak[] = _("PROF. OAK");
 const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
 const u8 gText_TrainerName_Red[] = _("RED");
-const u8 gText_TrainerName_Leaf[] = _("GREEN");
+const u8 gText_TrainerName_Leaf[] = _("LEAF");
 
 const u8 gText_TrainerName_Falkner[] = _("FALKNER");
 const u8 gText_TrainerName_Bugsy[] = _("BUGSY");
@@ -56,6 +56,8 @@ const u8 gText_TrainerName_Clair[] = _("CLAIR");
 
 const u8 gText_TrainerName_Will[] = _("WILL");
 const u8 gText_TrainerName_Karen[] = _("KAREN");
+
+const u8 gText_TrainerName_Pokabbie[] = _("POKABBIE'S DITTO");
 
 // Items
 //

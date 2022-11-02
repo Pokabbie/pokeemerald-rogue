@@ -99,10 +99,23 @@ void ResetQuestState(u16 saveVersion)
 
     if(saveVersion == 0 || saveVersion == 1)
     {
+        // Clear these flags here, as they are quest related so we want to make sure they're setup correctly
+        FlagClear(FLAG_ROGUE_MET_POKABBIE);
+        FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
+
         // Reset the state for any new quests
         for(i = 0; i < QUEST_CAPACITY; ++i)
         {
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
+        }
+    }
+    else
+    {
+        // v1.3 new values
+        if(saveVersion < 3)
+        {
+            for(i = QUEST_JohtoMode; i < QUEST_CAPACITY; ++i)
+                memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
     }
 
@@ -646,6 +659,18 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
 
+        TryDeactivateQuest(QUEST_KantoMode);
+        TryDeactivateQuest(QUEST_JohtoMode);
+        TryDeactivateQuest(QUEST_HoennMode);
+        TryDeactivateQuest(QUEST_GlitchMode);
+#ifdef ROGUE_EXPANSION
+        TryDeactivateQuest(QUEST_SinnohMode);
+        TryDeactivateQuest(QUEST_UnovaMode);
+        TryDeactivateQuest(QUEST_KalosMode);
+        TryDeactivateQuest(QUEST_AlolaMode);
+        TryDeactivateQuest(QUEST_GalarMode);
+#endif
+
         for(i = TYPE_NORMAL; i < NUMBER_OF_MON_TYPES; ++i)
             TryDeactivateQuest(TypeToMonoQuest[i]);
     }
@@ -672,9 +697,55 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_OrreMode);
     }
 
-    if(VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT) != 1)
     {
-        TryDeactivateQuest(QUEST_KantoMode);
+        bool8 rainbowMode = FlagGet(FLAG_ROGUE_RAINBOW_MODE);
+        u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+        u16 genLimit = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+        bool8 kantoBosses = FlagGet(FLAG_ROGUE_KANTO_BOSSES);
+        bool8 johtoBosses = FlagGet(FLAG_ROGUE_JOHTO_BOSSES);
+        bool8 hoennBosses = FlagGet(FLAG_ROGUE_HOENN_BOSSES);
+
+        bool8 justKantoBosses = kantoBosses && !johtoBosses && !hoennBosses;
+        bool8 justJohtoBosses = !kantoBosses && johtoBosses && !hoennBosses;
+        bool8 glitchBosses = !kantoBosses && !johtoBosses && !hoennBosses;
+
+        // Equiv to dex limit
+        if(dexLimit == 0 && genLimit == 1)
+            dexLimit = 1;
+
+        if(rainbowMode || dexLimit != 1 || !justKantoBosses)
+            TryDeactivateQuest(QUEST_KantoMode);
+
+        if(rainbowMode || dexLimit != 2 || !justJohtoBosses)
+            TryDeactivateQuest(QUEST_JohtoMode);
+
+        if(!rainbowMode || dexLimit != 3)
+            TryDeactivateQuest(QUEST_HoennMode);
+
+#ifdef ROGUE_EXPANSION
+        if(rainbowMode || dexLimit != 0 || genLimit != 8 || !glitchBosses)
+#else
+        if(rainbowMode || dexLimit != 0 || genLimit != 3 || !glitchBosses)
+#endif
+            TryDeactivateQuest(QUEST_GlitchMode);
+
+#ifdef ROGUE_EXPANSION
+        if(!rainbowMode || dexLimit != 4)
+            TryDeactivateQuest(QUEST_SinnohMode);
+
+        if(!rainbowMode || dexLimit != 5)
+            TryDeactivateQuest(QUEST_UnovaMode);
+
+        if(!rainbowMode || dexLimit != 6)
+            TryDeactivateQuest(QUEST_KalosMode);
+
+        if(!rainbowMode || dexLimit != 7)
+            TryDeactivateQuest(QUEST_AlolaMode);
+
+        if(!rainbowMode || dexLimit != 8)
+            TryDeactivateQuest(QUEST_GalarMode);
+#endif
     }
 
     UpdateChaosChampion(TRUE);
@@ -843,7 +914,19 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Hardcore);
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
                 TryMarkQuestAsComplete(QUEST_Hardcore3);
+
                 TryMarkQuestAsComplete(QUEST_KantoMode);
+                TryMarkQuestAsComplete(QUEST_JohtoMode);
+                TryMarkQuestAsComplete(QUEST_HoennMode);
+                TryMarkQuestAsComplete(QUEST_GlitchMode);
+#ifdef ROGUE_EXPANSION
+                TryMarkQuestAsComplete(QUEST_SinnohMode);
+                TryMarkQuestAsComplete(QUEST_UnovaMode);
+                TryMarkQuestAsComplete(QUEST_KalosMode);
+                TryMarkQuestAsComplete(QUEST_AlolaMode);
+                TryMarkQuestAsComplete(QUEST_GalarMode);
+#endif
+
                 CompleteMonoQuests();
                 break;
         }

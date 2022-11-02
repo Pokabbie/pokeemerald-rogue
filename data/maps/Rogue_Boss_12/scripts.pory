@@ -14,21 +14,43 @@ script Rogue_Battle_Boss12
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss12)
     waitmovement(0)
 
-    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
-    msgbox(format("{STR_VAR_1}: A new challenger!"))
 
-    call(Rogue_SetDesiredWeather)
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED)
+    {
+        buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        msgbox(format("{STR_VAR_1}: ... ... ..."))
 
-    applymovement(BOSS_NPC, BossToFightBoss12)
-    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12)
-    waitmovement(0)
-    
-    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
-    //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
-    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    msgbox(format("Don't hold back now!"))
-    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well fought trainer!"))
-    call(Rogue_BattleDefeated_Boss12)
+        call(Rogue_SetDesiredWeather)
+
+        applymovement(BOSS_NPC, BossToFightBoss12)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12)
+        waitmovement(0)
+        
+        // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+        //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+        playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+        msgbox(format("!"))
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
+        call(Rogue_BattleDefeated_Boss12)
+    }
+    else
+    {
+        buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        msgbox(format("{STR_VAR_1}: A new challenger!"))
+
+        call(Rogue_SetDesiredWeather)
+
+        applymovement(BOSS_NPC, BossToFightBoss12)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12)
+        waitmovement(0)
+        
+        // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+        //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+        playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+        msgbox(format("Don't hold back now!"))
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well fought trainer!"))
+        call(Rogue_BattleDefeated_Boss12)
+    }
 }
 
 script Rogue_BattleDefeated_Boss12
@@ -41,9 +63,20 @@ script Rogue_BattleDefeated_Boss12
 
     playbgm(MUS_VICTORY_LEAGUE, FALSE)
     buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
-    msgbox(format("{STR_VAR_1}: Well fought {PLAYER}!\pYou showed great skill and prowess, the way you battle alongside your POKéMON!\pAnd with that said...\pI hearby declare you..\nA POKéMON CHAMPION!"))
-    playbgm(MUS_NONE, TRUE)
-    msgbox(format("Is what I would've said...\pI'm afraid another battle awaits before you may be bestowed that title...\pGood luck!"))
+    
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED)
+    {
+        msgbox(format("{STR_VAR_1}: ... ... ...\p... ... ..."))
+        playbgm(MUS_NONE, TRUE)
+        msgbox(format("... ... ...\p!"))
+    }
+    else
+    {
+        msgbox(format("{STR_VAR_1}: Well fought {PLAYER}!\pYou showed great skill and prowess, the way you battle alongside your POKéMON!\pAnd with that said...\pI hearby declare you..\nA POKéMON CHAMPION!"))
+        playbgm(MUS_NONE, TRUE)
+        msgbox(format("Is what I would've said...\pI'm afraid another battle awaits before you may be bestowed that title...\pGood luck!"))
+    }
+
     waitmessage()
     special(HealPlayerParty)
     special(RemoveCameraObject)
