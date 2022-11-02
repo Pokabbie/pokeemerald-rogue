@@ -12309,7 +12309,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DRAGON_DARTS] =
     {
-        .effect = EFFECT_MULTI_HIT, //TODO
+        .effect = EFFECT_DOUBLE_HIT,
         .power = 50,
         .type = TYPE_DRAGON,
         .accuracy = 100,
