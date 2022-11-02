@@ -490,16 +490,9 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_SIDNEY,
         .trainerId = TRAINER_ROGUE_BOSS_SIDNEY,
-#ifdef ROGUE_EXPANSION
-        .incTypes = { TYPE_DARK, TYPE_NONE, TYPE_FAIRY },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-#else
         .incTypes = { TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_NONE },
         .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-#endif
     },
     {
         .gfxId = OBJ_EVENT_GFX_PHOEBE,
