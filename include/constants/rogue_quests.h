@@ -105,10 +105,13 @@
 #define QUEST_KalosMode             (QUEST_TYPE_Last + 6)
 #define QUEST_AlolaMode             (QUEST_TYPE_Last + 7)
 #define QUEST_GalarMode             (QUEST_TYPE_Last + 8)
-#define QUEST_GlitchMode            (QUEST_TYPE_Last + 9)
 #endif
 
+#ifdef ROGUE_EXPANSION
+#define QUEST_RegionMode_Last       QUEST_GalarMode
+#else
 #define QUEST_RegionMode_Last       QUEST_GlitchMode
+#endif
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_LAST QUEST_RegionMode_Last
