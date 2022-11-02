@@ -2362,6 +2362,21 @@ bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
     return FALSE;
 }
 
+bool8 PartyContainsLegendary(struct Pokemon *party, u8 partyCount)
+{
+    u8 i;
+    u16 s;
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+        if(IsSpeciesLegendary(s))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
@@ -4262,13 +4277,18 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             {
                 if(monIdx == 5)
                 {
-                    gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
-                    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                    // We are tryign to ace type our default type, but we already contain a legendary
+                    // Can cause soft locks depending on type/gen so just turn off this feature
+                    if(trainer->incTypes[0] == trainer->incTypes[2] && !PartyContainsLegendary(party, monIdx))
+                    {
+                        gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                        gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
 
-                    // Force legendaries for last mon
-                    gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-                    gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-                    ApplyTrainerQuery(trainerNum, TRUE);
+                        // Force legendaries for last mon
+                        gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                        gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                        ApplyTrainerQuery(trainerNum, TRUE);
+                    }
                 }
             }
             // Final champion
@@ -4276,13 +4296,18 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             {
                 if(monIdx == 4)
                 {
-                    gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
-                    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                    // We are tryign to ace type our default type, but we already contain a legendary
+                    // Can cause soft locks depending on type/gen so just turn off this feature
+                    if(trainer->incTypes[0] == trainer->incTypes[2] && !PartyContainsLegendary(party, monIdx))
+                    {
+                        gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                        gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
 
-                    // Force legendaries for last 2
-                    gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-                    gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-                    ApplyTrainerQuery(trainerNum, TRUE);
+                        // Force legendaries for last 2
+                        gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
+                        gRogueLocal.trainerTemp.queryMonOffset = monIdx;
+                        ApplyTrainerQuery(trainerNum, TRUE);
+                    }
                 }
             }
         }
