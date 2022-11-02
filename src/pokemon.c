@@ -7455,7 +7455,8 @@ u8 CalcMonHiddenPowerType(struct Pokemon *mon)
 
     // Subtract 3 instead of 1 below because 2 types are excluded (TYPE_NORMAL and TYPE_MYSTERY)
     // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
-    u8 type = ((NUMBER_OF_MON_TYPES - 3) * typeBits) / 63 + 1;
+    // Don't use NUMBER_OF_MON_TYPES here as we can't have a fairy hidden power
+    u8 type = ((18 - 3) * typeBits) / 63 + 1;
     if (type >= TYPE_MYSTERY)
         type++;
 
