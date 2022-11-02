@@ -971,7 +971,8 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_POKABBIE,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_FINAL_CHAMP
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_FINAL_CHAMP,
+        .partyFlags = PARTY_FLAG_COUNTER_TYPINGS,
     },
 };
 

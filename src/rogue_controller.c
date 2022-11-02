@@ -3633,6 +3633,117 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
 }
 
+static void ApplyCounterTrainerQuery(u16 trainerNum, bool8 isBoss, u8 monIdx)
+{
+    u16 baseType = TYPE_NONE;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        
+        u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+
+        if(gBaseStats[species].type2 != TYPE_NONE)
+        {
+            baseType = RogueRandomRange(2, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS) == 0 ? gBaseStats[species].type1 : gBaseStats[species].type2;
+        }
+        else
+        {
+            baseType = gBaseStats[species].type1;
+        }
+    }
+
+    gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+
+    gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
+    gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
+
+    switch(baseType)
+    {
+        case TYPE_NORMAL:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            break;
+        case TYPE_FIGHTING:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FLYING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+            break;
+        case TYPE_FLYING:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_ROCK;
+            break;
+        case TYPE_POISON:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+            break;
+        case TYPE_GROUND:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_ROCK:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_BUG:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
+            break;
+        case TYPE_GHOST:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_DARK;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NORMAL;
+            break;
+        case TYPE_STEEL:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FIRE;
+            break;
+        case TYPE_FIRE:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GROUND;
+            break;
+        case TYPE_WATER:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
+            break;
+        case TYPE_GRASS:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
+            break;
+        case TYPE_ELECTRIC:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+            break;
+        case TYPE_PSYCHIC:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
+            break;
+        case TYPE_ICE:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
+            break;
+        case TYPE_DRAGON:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ICE;
+#ifdef ROGUE_EXPANSION
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FAIRY;
+#endif
+            break;
+        case TYPE_DARK:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+            break;
+#ifdef ROGUE_EXPANSION
+        case TYPE_FAIRY:
+            gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
+            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
+            break;
+#endif
+        default:
+            gRogueLocal.trainerTemp.allowedType[0] = RogueRandomRange(NUMBER_OF_MON_TYPES, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+
+            if(gRogueLocal.trainerTemp.allowedType[0] == TYPE_MYSTERY)
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+            break;
+    };
+
+    ApplyTrainerQuery(trainerNum, FALSE);
+}
+
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
@@ -3656,6 +3767,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         {
             return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
         }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
+        }
     }
     else if(IsMiniBossTrainer(trainerNum))
     {
@@ -3665,6 +3781,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
         {
             return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
+        }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
         }
     }
 
