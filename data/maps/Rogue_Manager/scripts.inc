@@ -318,14 +318,15 @@ Rogue_Tutor_MoveRelearn_11:
 Rogue_Tutor_MoveRelearn_14:
 	special TeachMoveFromContext
 	waitstate
-	showmoneybox 0, 0
 	compare VAR_0x8006, 0
 	goto_if_ne Rogue_Tutor_MoveRelearn_17
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_MoveRelearn_5
 
 Rogue_Tutor_MoveRelearn_9:
+	showmoneybox 0, 0
 	goto Rogue_Tutor_NotEnoughMoney
+	hidemoneybox
 	goto Rogue_Tutor_MoveRelearn_8
 
 Rogue_Tutor_MoveRelearn_12:
@@ -338,9 +339,10 @@ Rogue_Tutor_MoveRelearn_15:
 
 Rogue_Tutor_MoveRelearn_17:
 	removemoney 1000
-	updatemoneybox
 	playse SE_SHOP
+	showmoneybox 0, 0
 	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
+	hidemoneybox
 	goto Rogue_Tutor_MoveRelearn_5
 
 
@@ -382,14 +384,15 @@ Rogue_Tutor_EggMoveLearn_11:
 Rogue_Tutor_EggMoveLearn_14:
 	special TeachMoveFromContext
 	waitstate
-	showmoneybox 0, 0
 	compare VAR_0x8006, 0
 	goto_if_ne Rogue_Tutor_EggMoveLearn_17
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_EggMoveLearn_5
 
 Rogue_Tutor_EggMoveLearn_9:
+	showmoneybox 0, 0
 	goto Rogue_Tutor_NotEnoughMoneyKind
+	hidemoneybox
 	goto Rogue_Tutor_EggMoveLearn_8
 
 Rogue_Tutor_EggMoveLearn_12:
@@ -404,7 +407,9 @@ Rogue_Tutor_EggMoveLearn_17:
 	removemoney 2000
 	updatemoneybox
 	playse SE_SHOP
+	showmoneybox 0, 0
 	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
+	hidemoneybox
 	goto Rogue_Tutor_EggMoveLearn_5
 
 
@@ -446,14 +451,15 @@ Rogue_Tutor_TutorMoveLearn_11:
 Rogue_Tutor_TutorMoveLearn_14:
 	special TeachMoveFromContext
 	waitstate
-	showmoneybox 0, 0
 	compare VAR_0x8006, 0
 	goto_if_ne Rogue_Tutor_TutorMoveLearn_17
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_TutorMoveLearn_5
 
 Rogue_Tutor_TutorMoveLearn_9:
+	showmoneybox 0, 0
 	goto Rogue_Tutor_NotEnoughMoney
+	hidemoneybox
 	goto Rogue_Tutor_TutorMoveLearn_8
 
 Rogue_Tutor_TutorMoveLearn_12:
@@ -468,7 +474,9 @@ Rogue_Tutor_TutorMoveLearn_17:
 	removemoney 3000
 	updatemoneybox
 	playse SE_SHOP
+	showmoneybox 0, 0
 	msgbox Rogue_Tutor_TutorMoveLearn_Text_2, MSGBOX_YESNO
+	hidemoneybox
 	goto Rogue_Tutor_TutorMoveLearn_5
 
 

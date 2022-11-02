@@ -338,7 +338,9 @@ script Rogue_Tutor_MoveRelearn
         checkmoney(1000)
         if(var(VAR_RESULT) == NO)
         {
+            showmoneybox(0, 0)
             goto(Rogue_Tutor_NotEnoughMoney)
+            hidemoneybox
         }
 
         special(ChooseMonForMoveRelearner)
@@ -360,16 +362,15 @@ script Rogue_Tutor_MoveRelearn
         special(TeachMoveFromContext)
         waitstate
 
-        showmoneybox(0, 0)
-
         // Always loop here to make batch teaching less tedious
         if(var(VAR_0x8006) != 0)
         {
             removemoney(1000)
-            updatemoneybox
             playse(SE_SHOP)
 
+            showmoneybox(0, 0)
             msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
+            hidemoneybox
         }
         else
         {
@@ -403,7 +404,9 @@ script Rogue_Tutor_EggMoveLearn
         checkmoney(2000)
         if(var(VAR_RESULT) == NO)
         {
+            showmoneybox(0, 0)
             goto(Rogue_Tutor_NotEnoughMoneyKind)
+            hidemoneybox
         }
 
         special(ChooseMonForMoveRelearner)
@@ -425,8 +428,6 @@ script Rogue_Tutor_EggMoveLearn
         special(TeachMoveFromContext)
         waitstate
 
-        showmoneybox(0, 0)
-
         // Always loop here to make batch teaching less tedious
         if(var(VAR_0x8006) != 0)
         {
@@ -434,7 +435,9 @@ script Rogue_Tutor_EggMoveLearn
             updatemoneybox
             playse(SE_SHOP)
 
+            showmoneybox(0, 0)
             msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
+            hidemoneybox
         }
         else
         {
@@ -467,8 +470,10 @@ script Rogue_Tutor_TutorMoveLearn
     {
         checkmoney(3000)
         if(var(VAR_RESULT) == NO)
-        {
+        {            
+            showmoneybox(0, 0)
             goto(Rogue_Tutor_NotEnoughMoney)
+            hidemoneybox
         }
 
         special(ChooseMonForMoveRelearner)
@@ -490,8 +495,6 @@ script Rogue_Tutor_TutorMoveLearn
         special(TeachMoveFromContext)
         waitstate
 
-        showmoneybox(0, 0)
-
         // Always loop here to make batch teaching less tedious
         if(var(VAR_0x8006) != 0)
         {
@@ -499,7 +502,9 @@ script Rogue_Tutor_TutorMoveLearn
             updatemoneybox
             playse(SE_SHOP)
 
+            showmoneybox(0, 0)
             msgbox(format("You wanna get me to teach anymore POKéMON?"), MSGBOX_YESNO)
+            hidemoneybox
         }
         else
         {

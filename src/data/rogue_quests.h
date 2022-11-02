@@ -501,7 +501,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("Kanto Style"),
         .desc = _(
                     "Enable only KANTO BOSSES\n"
-                    "and REGIONAL DEX and"
+                    "and REGIONAL DEX and\n"
                     "win a full standard run."
                 ),
         .unlockedQuests = { 

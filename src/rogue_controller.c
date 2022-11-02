@@ -3657,7 +3657,7 @@ static void ApplyCounterTrainerQuery(u16 trainerNum, bool8 isBoss, u8 monIdx)
         
         u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
 
-        if(gBaseStats[species].type2 != TYPE_NONE)
+        if(gBaseStats[species].type1 != gBaseStats[species].type2)
         {
             baseType = RogueRandomRange(2, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS) == 0 ? gBaseStats[species].type1 : gBaseStats[species].type2;
         }
