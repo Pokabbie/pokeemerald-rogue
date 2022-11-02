@@ -112,8 +112,9 @@
 #else
 #define QUEST_RegionMode_Last       QUEST_GlitchMode
 #endif
+#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 1)
 
 #define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST QUEST_RegionMode_Last
+#define QUEST_LAST QUEST_Hardcore4
 
 #define QUEST_CAPACITY (QUEST_LAST + 1)

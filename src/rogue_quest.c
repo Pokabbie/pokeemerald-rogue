@@ -631,6 +631,20 @@ static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
             }
         }
     }
+
+    if(IsQuestActive(QUEST_Hardcore4))
+    {
+        // Only care about the very first check
+        if(VarGet(VAR_ROGUE_CURRENT_ROOM_IDX) == 0)
+        {
+            bool8 isRandomanDisabled = FlagGet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+            if(!enteringPotentialEncounter && !isRandomanDisabled)
+            {
+                TryDeactivateQuest(QUEST_Hardcore4);
+            }
+        }
+    }
 }
 
 void QuestNotify_BeginAdventure(void)
@@ -658,6 +672,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore);
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
+        TryDeactivateQuest(QUEST_Hardcore4);
 
         TryDeactivateQuest(QUEST_KantoMode);
         TryDeactivateQuest(QUEST_JohtoMode);
@@ -690,6 +705,12 @@ void QuestNotify_BeginAdventure(void)
     {
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
+        TryDeactivateQuest(QUEST_Hardcore4);
+    }
+
+    if(!FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG) || !FlagGet(FLAG_ROGUE_HARD_ITEMS) || FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED) || FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+    {
+        TryDeactivateQuest(QUEST_Hardcore4);
     }
 
     if(!FlagGet(FLAG_ROGUE_DOUBLE_BATTLES))
@@ -779,7 +800,7 @@ static void OnEndBattle(void)
         }
     }
 
-    if(IsQuestActive(QUEST_Hardcore3))
+    if(IsQuestActive(QUEST_Hardcore3) || IsQuestActive(QUEST_Hardcore4))
     {
         u16 i;
 
@@ -789,6 +810,7 @@ static void OnEndBattle(void)
             if(species != SPECIES_NONE && IsSpeciesLegendary(species))
             {
                 TryDeactivateQuest(QUEST_Hardcore3);
+                TryDeactivateQuest(QUEST_Hardcore4);
                 break;
             }
         }
@@ -914,6 +936,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Hardcore);
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
                 TryMarkQuestAsComplete(QUEST_Hardcore3);
+                TryMarkQuestAsComplete(QUEST_Hardcore4);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);
                 TryMarkQuestAsComplete(QUEST_JohtoMode);
@@ -1146,6 +1169,9 @@ void QuestNotify_OnUseBattleItem(u16 itemId)
 
         if(IsQuestActive(QUEST_Hardcore3))
             TryDeactivateQuest(QUEST_Hardcore3);
+
+        if(IsQuestActive(QUEST_Hardcore4))
+            TryDeactivateQuest(QUEST_Hardcore4);
     }
 }
 
