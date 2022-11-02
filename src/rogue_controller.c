@@ -394,7 +394,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
             // Want to make legendaries hard to catch than other mons in the area
-            difficulty += 2;
+            difficulty += 1;
         }
 
         if(difficulty <= 1) // First 2 badges
