@@ -569,12 +569,6 @@ extern const u8 SecretBase_EventScript_InitDecorations[];
 extern const u8 SecretBase_EventScript_PutAwayDecoration[];
 extern const u8 SecretBase_EventScript_SetDecoration[];
 
-// Battle Pyramid.
-extern const u8 BattlePyramid_Retire[];
-extern const u8 BattlePyramid_WarpToNextFloor[];
-extern const u8 BattlePyramid_TrainerBattle[];
-extern const u8 BattlePyramid_FindItemBall[];
-
 // fldeff misc
 extern const u8 SecretBase_EventScript_CaveUseSecretPower[];
 extern const u8 SecretBase_EventScript_TreeUseSecretPower[];
@@ -586,7 +580,6 @@ extern const u8 TrainerHill_EventScript_TrainerBattle[];
 // Item Use
 extern const u8 BerryTree_EventScript_ItemUsePlantBerry[];
 extern const u8 BerryTree_EventScript_ItemUseWailmerPail[];
-extern const u8 BattleFrontier_OutsideEast_EventScript_WaterSudowoodo[];
 
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 

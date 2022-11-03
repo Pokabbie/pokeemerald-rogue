@@ -739,12 +739,7 @@ static void ItemUseOnFieldCB_Berry(u8 taskId)
 
 void ItemUseOutOfBattle_WailmerPail(u8 taskId)
 {
-    if (TryToWaterSudowoodo() == TRUE)
-    {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_WailmerPailSudowoodo;
-        SetUpItemUseOnFieldCallback(taskId);
-    }
-    else if (TryToWaterBerryTree() == TRUE)
+    if (TryToWaterBerryTree() == TRUE)
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_WailmerPailBerry;
         SetUpItemUseOnFieldCallback(taskId);
@@ -778,8 +773,6 @@ static bool8 TryToWaterSudowoodo(void)
 
 static void ItemUseOnFieldCB_WailmerPailSudowoodo(u8 taskId)
 {
-    ScriptContext2_Enable();
-    ScriptContext1_SetupScript(BattleFrontier_OutsideEast_EventScript_WaterSudowoodo);
     DestroyTask(taskId);
 }
 

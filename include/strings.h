@@ -1887,7 +1887,7 @@ extern const u8 BattleDome_Text_TrainerWonOutrightByDefault[];
 extern const u8 BattleDome_Text_TrainerWonNoMoves[];
 extern const u8 BattleDome_Text_TrainerWonOutrightNoMoves[];
 
-// Battle Pyramid.
+// Battle Pyramid. old text still referenced elsewhere, so just blacking out for time being
 extern const u8 BattlePyramid_Text_ExitHintUp1[];
 extern const u8 BattlePyramid_Text_ExitHintLeft1[];
 extern const u8 BattlePyramid_Text_ExitHintRight1[];
