@@ -813,35 +813,6 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     
 
     // Placeholder Rainbow mode bosses for missing types
-    {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
-        .trainerId = TRAINER_ROGUE_BOSS_LUCY,
-        .incTypes = { TYPE_POISON, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_NONE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRANDON,
-        .trainerId = TRAINER_ROGUE_BOSS_BRANDON,
-        .incTypes = { TYPE_GROUND, TYPE_NONE, TYPE_GROUND },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_NONE,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_PRYCE,
-        .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
-        .incTypes = { TYPE_BUG, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_NONE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_SPENSER,
-        .trainerId = TRAINER_ROGUE_BOSS_SPENSER,
-        .incTypes = { TYPE_GRASS, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_NONE,
-    },
 #ifdef ROGUE_EXPANSION
     {
         .gfxId = OBJ_EVENT_GFX_ANABEL,
@@ -980,6 +951,8 @@ const struct RogueTrainerData gRogueBossEncounters =
     .trainers = sRouteBossEncounters
 };
 
+#define TRAINER_FLAG_MINI_BOSS (TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO | TRAINER_FLAG_JOHTO)
+
 static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] = 
 {
     {
@@ -987,34 +960,90 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
         .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_WATER, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
         .gfxId = OBJ_EVENT_GFX_ARCHIE,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
         .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
         .excTypes = { TYPE_FIRE, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
         .gfxId = OBJ_EVENT_GFX_WALLY,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_WALLY,
-#ifdef ROGUE_EXPANSION
-        .incTypes = { TYPE_PSYCHIC, TYPE_FAIRY, TYPE_NONE },
-#else
-        .incTypes = { TYPE_PSYCHIC, TYPE_GRASS, TYPE_NONE },
-#endif
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
+        .incTypes = { TYPE_PSYCHIC, TYPE_NORMAL, TYPE_NONE },
+        .excTypes = { TYPE_FLYING, TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
         .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
         .incTypes = { TYPE_MYSTERY, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO,
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
         .partyFlags = PARTY_FLAG_MIRROR_EXACT,
     },
+    {
+        .gfxId = OBJ_EVENT_GFX_MAY_NORMAL,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_RIVAL,
+        .incTypes = { TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+        .partyFlags = PARTY_FLAG_COUNTER_TYPINGS,
+    },
+
+    {
+        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_LUCY,
+        .incTypes = { TYPE_POISON, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_BRANDON,
+        .incTypes = { TYPE_GROUND, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_TUCKER,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_TUCKER,
+        .incTypes = { TYPE_BUG, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_SPENSER,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_SPENSER,
+        .incTypes = { TYPE_GRASS, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_GRETA,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_GRETA,
+        .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+    {
+        .gfxId = OBJ_EVENT_GFX_NOLAND,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_NOLAND,
+        .incTypes = { TYPE_ICE, TYPE_DRAGON, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+#ifdef ROGUE_EXPANSION
+    {
+        .gfxId = OBJ_EVENT_GFX_ANABEL,
+        .trainerId = TRAINER_ROGUE_MINI_BOSS_ANABEL,
+        .incTypes = { TYPE_FAIRY, TYPE_NONE },
+        .excTypes = { TYPE_NONE },
+        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
+    },
+#endif
 };
 
 const struct RogueTrainerData gRogueMiniBossEncounters = 

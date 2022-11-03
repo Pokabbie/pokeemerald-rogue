@@ -3605,7 +3605,39 @@ static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
 #ifdef ROGUE_EXPANSION
-    //if(!IsMirrorTrainer(trainerNum))
+    bool8 reorganiseParty = TRUE;
+
+    if(IsBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            reorganiseParty = FALSE;
+        }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            reorganiseParty = FALSE;
+        }
+    }
+    else if(IsMiniBossTrainer(trainerNum))
+    {
+        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
+        {
+            reorganiseParty = FALSE;
+        }
+
+        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
+        {
+            reorganiseParty = FALSE;
+        }
+    }
+
+
+    if(reorganiseParty)
     {
         u8 writeSlot = monsCount - 1;
         u16 item = GetMonData(&party[0], MON_DATA_HELD_ITEM);
@@ -3652,9 +3684,9 @@ static void ApplyCounterTrainerQuery(u16 trainerNum, bool8 isBoss, u8 monIdx)
 {
     u16 baseType = TYPE_NONE;
 
-    if(monIdx < gPlayerPartyCount)
+    monIdx %= gPlayerPartyCount;
+
     {
-        
         u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
 
         if(gBaseStats[species].type1 != gBaseStats[species].type2)

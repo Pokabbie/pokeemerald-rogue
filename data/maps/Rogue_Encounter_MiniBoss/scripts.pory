@@ -101,30 +101,29 @@ script Rogue_MiniBoss_IntroSpeech
 
 script Rogue_MiniBoss_KickOffBattle
 {
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+
     switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
     {
         case TRAINER_ROGUE_MINI_BOSS_MAXIE:
-            msgbox(format("MAXIE: Don't think I'll let you through lightly!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well that was unexpected..."))
-
         case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
-            msgbox(format("ARCHIE: Don't think I'll let you through lightly!"))
+            msgbox(format("{STR_VAR_1}: Don't think I'll let you through lightly!"))
             trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well that was unexpected..."))
 
         case TRAINER_ROGUE_MINI_BOSS_WALLY:
-            msgbox(format("WALLY: Oh hey!\nWill you battle with me!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("What a fun fight!"))
+            msgbox(format("{STR_VAR_1}: Oh hey!\nWill you battle with me!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("What a fun battle!"))
 
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             msgbox(format("{PLAYER}: ... ... ..."))
             trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
 
         case TRAINER_ROGUE_MINI_BOSS_RIVAL:
-            msgbox(format("Show me everything you got!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
+            msgbox(format("{STR_VAR_1}: I've think I've crafted the best team! Let me show you!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Wow! I didn't expect that!"))
         
         default:
-            msgbox(format("UNEXPECTED TRAINER INDEX"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
+            msgbox(format("{STR_VAR_1}: Show me everything you got!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well colour me impressed!"))
     }
 }

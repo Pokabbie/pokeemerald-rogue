@@ -86,14 +86,15 @@ Rogue_MiniBoss_IntroSpeech::
 
 
 Rogue_MiniBoss_KickOffBattle::
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	case TRAINER_ROGUE_MINI_BOSS_MAXIE, Rogue_MiniBoss_KickOffBattle_2
-	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_MiniBoss_KickOffBattle_3
-	case TRAINER_ROGUE_MINI_BOSS_WALLY, Rogue_MiniBoss_KickOffBattle_4
-	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_MiniBoss_KickOffBattle_5
-	case TRAINER_ROGUE_MINI_BOSS_RIVAL, Rogue_MiniBoss_KickOffBattle_6
+	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_MiniBoss_KickOffBattle_2
+	case TRAINER_ROGUE_MINI_BOSS_WALLY, Rogue_MiniBoss_KickOffBattle_3
+	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_MiniBoss_KickOffBattle_4
+	case TRAINER_ROGUE_MINI_BOSS_RIVAL, Rogue_MiniBoss_KickOffBattle_5
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_8
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_9
 	return
 
 Rogue_MiniBoss_KickOffBattle_2:
@@ -103,22 +104,17 @@ Rogue_MiniBoss_KickOffBattle_2:
 
 Rogue_MiniBoss_KickOffBattle_3:
 	msgbox Rogue_MiniBoss_KickOffBattle_Text_2
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_1
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_3
 	return
 
 Rogue_MiniBoss_KickOffBattle_4:
-	msgbox Rogue_MiniBoss_KickOffBattle_Text_3
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_4
+	msgbox Rogue_MiniBoss_KickOffBattle_Text_4
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_5
 	return
 
 Rogue_MiniBoss_KickOffBattle_5:
-	msgbox Rogue_MiniBoss_KickOffBattle_Text_5
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
-	return
-
-Rogue_MiniBoss_KickOffBattle_6:
-	msgbox Rogue_MiniBoss_KickOffBattle_Text_7
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_6
+	msgbox Rogue_MiniBoss_KickOffBattle_Text_6
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, Rogue_MiniBoss_KickOffBattle_Text_7
 	return
 
 
@@ -131,31 +127,35 @@ Rogue_BattleDefeated_MiniBoss_Text_1:
 	.string "L: {STR_VAR_1}, R: {STR_VAR_2}$"
 
 Rogue_MiniBoss_KickOffBattle_Text_0:
-	.string "MAXIE: Don't think I'll let you through\n"
-	.string "lightly!$"
+	.string "{STR_VAR_1}: Don't think I'll let you\n"
+	.string "through lightly!$"
 
 Rogue_MiniBoss_KickOffBattle_Text_1:
 	.string "Well that was unexpected...$"
 
 Rogue_MiniBoss_KickOffBattle_Text_2:
-	.string "ARCHIE: Don't think I'll let you through\n"
-	.string "lightly!$"
-
-Rogue_MiniBoss_KickOffBattle_Text_3:
-	.string "WALLY: Oh hey!\n"
+	.string "{STR_VAR_1}: Oh hey!\n"
 	.string "Will you battle with me!$"
 
-Rogue_MiniBoss_KickOffBattle_Text_4:
-	.string "What a fun fight!$"
+Rogue_MiniBoss_KickOffBattle_Text_3:
+	.string "What a fun battle!$"
 
-Rogue_MiniBoss_KickOffBattle_Text_5:
+Rogue_MiniBoss_KickOffBattle_Text_4:
 	.string "{PLAYER}: ... ... ...$"
 
-Rogue_MiniBoss_KickOffBattle_Text_6:
+Rogue_MiniBoss_KickOffBattle_Text_5:
 	.string "...!$"
 
+Rogue_MiniBoss_KickOffBattle_Text_6:
+	.string "{STR_VAR_1}: I've think I've crafted\n"
+	.string "the best team! Let me show you!$"
+
 Rogue_MiniBoss_KickOffBattle_Text_7:
-	.string "Show me everything you got!$"
+	.string "Wow! I didn't expect that!$"
 
 Rogue_MiniBoss_KickOffBattle_Text_8:
-	.string "UNEXPECTED TRAINER INDEX$"
+	.string "{STR_VAR_1}: Show me everything you\n"
+	.string "got!$"
+
+Rogue_MiniBoss_KickOffBattle_Text_9:
+	.string "Well colour me impressed!$"

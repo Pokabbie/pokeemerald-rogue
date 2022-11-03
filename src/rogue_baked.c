@@ -37,6 +37,7 @@ extern const u8 gText_TrainerNameChallenger[];
 extern const u8 gText_TrainerNameGrunt[];
 
 extern const u8 gText_TrainerName_TateLiza[];
+extern const u8 gText_TrainerName_Anabel[];
 
 extern const u8 gText_TrainerName_Brock[];
 extern const u8 gText_TrainerName_Misty[];
@@ -332,6 +333,9 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
         case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
             return gText_TrainerName_TateLiza;
 
+        case TRAINER_ROGUE_BOSS_ANABEL:
+            return gText_TrainerName_Anabel;
+
         case TRAINER_ROGUE_BOSS_BROCK:
             return gText_TrainerName_Brock;
         case TRAINER_ROGUE_BOSS_MISTY:
@@ -425,7 +429,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
         case TRAINER_ROGUE_BOSS_PHOEBE:
         case TRAINER_ROGUE_BOSS_GLACIA:
-        case TRAINER_ROGUE_BOSS_LUCY:
+        //case TRAINER_ROGUE_BOSS_LUCY:
         case TRAINER_ROGUE_BOSS_ANABEL:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
@@ -445,9 +449,9 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_DRAKE:
         case TRAINER_ROGUE_BOSS_WALLACE:
         case TRAINER_ROGUE_BOSS_STEVEN:
-        case TRAINER_ROGUE_BOSS_BRANDON:
-        case TRAINER_ROGUE_BOSS_TUCKER:
-        case TRAINER_ROGUE_BOSS_SPENSER:
+        //case TRAINER_ROGUE_BOSS_BRANDON:
+        //case TRAINER_ROGUE_BOSS_TUCKER:
+        //case TRAINER_ROGUE_BOSS_SPENSER:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -750,6 +754,11 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_BOSS_POKABBIE:
             outTrainer->trainerPic = TRAINER_PIC_POKABBIE;
+            break;
+
+        // Extra trainer
+        case TRAINER_ROGUE_BOSS_ANABEL:
+            outTrainer->trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL;
             break;
 
         // Std Trainers
