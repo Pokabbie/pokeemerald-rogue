@@ -2605,6 +2605,12 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
 
     Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
+    if(trainer.trainerPic == TRAINER_PIC_POKABBIE)
+    {
+        // Hack to use a different pic, just for the transition
+        trainer.trainerPic = TRAINER_PIC_POKABBIE_DITTO;
+    }
+
     task->tOpponentSpriteId = CreateTrainerSprite(trainer.trainerPic,
                                                   sMugshotsOpponentCoords[mugshotId][0] - 32,
                                                   sMugshotsOpponentCoords[mugshotId][1] + 42,

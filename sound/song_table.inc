@@ -617,6 +617,12 @@ gSongTable::
 	song mus_hg_vs_champion, 0, 0
 	song mus_hg_victory_trainer, 0, 0
 	song mus_hg_victory_gym_leader, 0, 0
+	song mus_hg_route29, 0, 0
+	song mus_hg_route30, 0, 0
+	song mus_hg_route34, 0, 0
+	song mus_hg_route38, 0, 0
+	song mus_hg_route42, 0, 0
+	song mus_hg_route47, 0, 0
 
 	.align 2
 dummy_song_header:

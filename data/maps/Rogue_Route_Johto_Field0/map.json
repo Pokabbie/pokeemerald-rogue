@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ROUTE_JOHTO_FIELD0",
   "name": "Rogue_Route_Johto_Field0",
   "layout": "LAYOUT_ROGUE_ROUTE_JOHTO_FIELD0",
-  "music": "MUS_RG_SEVII_123",
+  "music": "MUS_HG_ROUTE34",
   "region_map_section": "MAPSEC_SPECIAL_AREA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

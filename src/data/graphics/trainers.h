@@ -432,4 +432,5 @@ const u32 gTrainerFrontPic_ChampionRed[] = INCBIN_U32("graphics/trainers/front_p
 const u32 gTrainerPalette_ChampionRed[] = INCBIN_U32("graphics/trainers/palettes/johto/champion_red.gbapal.lz");
 
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
+const u32 gTrainerFrontPic_PokabbieDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_ditto_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Pokabbie[] = INCBIN_U32("graphics/trainers/palettes/pokabbie.gbapal.lz");

@@ -518,7 +518,6 @@ extern const u8 EventScript_PC[];
 extern const u8 EventScript_TestSignpostMsg[];
 extern const u8 EventScript_HiddenItemScript[];
 extern const u8 EventScript_TV[];
-extern const u8 EventScript_ClosedSootopolisDoor[];
 extern const u8 SkyPillar_Outside_EventScript_ClosedDoor[];
 extern const u8 EventScript_CableBoxResults[];
 extern const u8 EventScript_PokeBlockFeeder[];
@@ -546,7 +545,6 @@ extern const u8 EventScript_FieldPoison[];
 extern const u8 EventScript_EggHatch[];
 extern const u8 AbnormalWeather_EventScript_EndEventAndCleanup_1[];
 extern const u8 IslandCave_EventScript_OpenRegiEntrance[];
-extern const u8 MauvilleCity_EventScript_RegisterWallyCall[];
 extern const u8 Route119_EventScript_ScottWonAtFortreeGymCall[];
 extern const u8 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall[];
 extern const u8 RustboroCity_Gym_EventScript_RegisterRoxanne[];
@@ -569,12 +567,6 @@ extern const u8 SecretBase_EventScript_InitDecorations[];
 extern const u8 SecretBase_EventScript_PutAwayDecoration[];
 extern const u8 SecretBase_EventScript_SetDecoration[];
 
-// Battle Pyramid.
-extern const u8 BattlePyramid_Retire[];
-extern const u8 BattlePyramid_WarpToNextFloor[];
-extern const u8 BattlePyramid_TrainerBattle[];
-extern const u8 BattlePyramid_FindItemBall[];
-
 // fldeff misc
 extern const u8 SecretBase_EventScript_CaveUseSecretPower[];
 extern const u8 SecretBase_EventScript_TreeUseSecretPower[];
@@ -586,7 +578,6 @@ extern const u8 TrainerHill_EventScript_TrainerBattle[];
 // Item Use
 extern const u8 BerryTree_EventScript_ItemUsePlantBerry[];
 extern const u8 BerryTree_EventScript_ItemUseWailmerPail[];
-extern const u8 BattleFrontier_OutsideEast_EventScript_WaterSudowoodo[];
 
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 

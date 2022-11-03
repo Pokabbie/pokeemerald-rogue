@@ -507,12 +507,12 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
         .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE  },
+        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_FLYING },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_QUERY | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
     },
 
     // Kanto Champs
@@ -601,10 +601,10 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .gfxId = OBJ_EVENT_GFX_JOHTO_CLAIR,
         .trainerId = TRAINER_ROGUE_BOSS_CLAIR,
         .victorySetFlag = FLAG_BADGE08_GET,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_DRAGON },
+        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_WATER },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_WEATHER,
+        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
     },
 
     // Johto Elite 4
@@ -644,7 +644,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_JOHTO_LANCE,
         .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_FLYING },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_DISABLE_WEATHER,
         .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
     },
     {
@@ -761,7 +761,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
         .incTypes = { TYPE_FIRE, TYPE_WATER, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CHUCK,

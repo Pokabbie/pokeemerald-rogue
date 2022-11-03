@@ -2566,8 +2566,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
-                // Weather
-                if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                {
+                    // No Weather
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                }
+
+                // Set weather type
+                if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
+                {
+                    // No Weather
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                }
+                else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
                     // No Weather
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
@@ -2575,11 +2586,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
                 {
                     u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 else if(gRogueRun.currentDifficulty > 2)
                 {
                     u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
@@ -2655,8 +2674,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
                 }
 
-                // Weather
-                if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                // Set weather type
+                if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
+                {
+                    // No Weather
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                }
+                else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
                 {
                     // No Weather
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
@@ -2664,6 +2688,10 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
                 {
                     u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                 }
                 break;
@@ -3501,74 +3529,104 @@ static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
 {
     bool8 hasFallback = FALSE;
 
-    switch(gRogueLocal.trainerTemp.allowedType[0])
+    // Apply a custom fallback but only once
+    if(!gRogueLocal.trainerTemp.hasAppliedFallback)
     {
-        case TYPE_DARK:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
-            break;
+        if(IsBossTrainer(trainerNum))
+        {
+            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        case TYPE_PSYCHIC:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE) != 0)
+            {
+                gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                hasFallback = TRUE;
+            }
+        }
+        else if(IsMiniBossTrainer(trainerNum))
+        {
+            const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
-        case TYPE_STEEL:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_DRAGON;
-            break;
+            if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE) != 0)
+            {
+                gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                hasFallback = TRUE;
+            }
+        }
+    }
 
-        case TYPE_FIGHTING:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+    if(!hasFallback)
+    {
+        switch(gRogueLocal.trainerTemp.allowedType[0])
+        {
+            case TYPE_DARK:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
+                break;
 
-        case TYPE_GHOST:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
-            break;
+            case TYPE_PSYCHIC:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
 
-        case TYPE_DRAGON:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FLYING;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            case TYPE_STEEL:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_DRAGON;
+                break;
 
-        case TYPE_FIRE:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            case TYPE_FIGHTING:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
 
-        case TYPE_FLYING:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_NORMAL;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            case TYPE_GHOST:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
+                break;
 
-        case TYPE_ICE:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
-            gRogueLocal
-            .trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            case TYPE_DRAGON:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_WATER;
+                break;
 
-        case TYPE_NORMAL:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GHOST;
-            break;
+            case TYPE_FIRE:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
 
-        default:
-            hasFallback = TRUE;
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-            break;
+            case TYPE_FLYING:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NORMAL;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
+
+            case TYPE_ICE:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
+                gRogueLocal
+                .trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
+
+            case TYPE_NORMAL:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_GHOST;
+                break;
+
+            default:
+                hasFallback = TRUE;
+                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
+                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
+                break;
+        }
     }
 
     if(hasFallback && !gRogueLocal.trainerTemp.hasAppliedFallback)
@@ -3646,11 +3704,6 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
         score -= 10;
     }
 
-    if(IsSpeciesLegendary(species))
-    {
-        score -= 10;
-    }
-
     // Early pri moves
     //
     if(MonKnowsMove(mon, MOVE_FAKE_OUT))
@@ -3685,14 +3738,15 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
         score += 1;
     }
 
-    if(MonKnowsMove(mon, MOVE_SUBSTITUTE))
-    {
-        score += 1;
-    }
-
     if(MonKnowsMove(mon, MOVE_BATON_PASS))
     {
         score += 1;
+
+        // Only prioritse sub if we want to baton pass out
+        if(MonKnowsMove(mon, MOVE_SUBSTITUTE))
+        {
+            score += 1;
+        }
     }
 
 #ifdef ROGUE_EXPANSION
@@ -4781,7 +4835,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             {
                 RogueQuery_Exclude(ITEM_FULL_HEAL);
             }
-            else
+            else if(Rogue_IsRunActive())
             {
                 RogueQuery_Include(ITEM_ESCAPE_ROPE);
             }

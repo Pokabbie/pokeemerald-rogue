@@ -804,6 +804,24 @@ $(MID_SUBDIR)/mus_hg_victory_trainer.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_victory_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V100
 
+$(MID_SUBDIR)/mus_hg_route29.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V063
+
+$(MID_SUBDIR)/mus_hg_route30.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V093
+
+$(MID_SUBDIR)/mus_hg_route34.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V092
+
+$(MID_SUBDIR)/mus_hg_route38.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V083
+
+$(MID_SUBDIR)/mus_hg_route42.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V085
+	
+$(MID_SUBDIR)/mus_hg_route47.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V073
+
 $(MID_SUBDIR)/se_a.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G128 -V095 -P4
 

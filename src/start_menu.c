@@ -959,7 +959,6 @@ static bool8 BattlePyramidRetireCallback(void)
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ScriptUnfreezeObjectEvents();
         ScriptContext2_Disable();
-        ScriptContext1_SetupScript(BattlePyramid_Retire);
         return TRUE;
     }
 

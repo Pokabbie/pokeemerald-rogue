@@ -12,73 +12,17 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 3,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_Exit"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    }
+  "connections": 0,
+  "object_events": [
+
   ],
-  "bg_events": []
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }
