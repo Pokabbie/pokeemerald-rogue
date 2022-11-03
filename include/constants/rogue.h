@@ -1,6 +1,6 @@
 #define ROGUE_DEBUG
 //#define ROGUE_DEBUG_PAUSE_PANEL
-//#define ROGUE_DEBUG_STEAL_TEAM
+#define ROGUE_DEBUG_STEAL_TEAM
 
 //#define ROGUE_EXPANSION
 
@@ -81,6 +81,7 @@
 #define PARTY_FLAG_MIRROR_EXACT             (1 << 4)
 #define PARTY_FLAG_MIRROR_SPECIES           (1 << 5)
 #define PARTY_FLAG_COUNTER_TYPINGS          (1 << 6)
+#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 7)
 #define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
