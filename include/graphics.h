@@ -2995,6 +2995,7 @@ extern const u32 gTrainerFrontPic_EliteFourKaren[];
 extern const u32 gTrainerFrontPic_ChampionRed[];
 
 extern const u32 gTrainerFrontPic_Pokabbie[];
+extern const u32 gTrainerFrontPic_PokabbieDitto[];
 
 
 extern const u32 gTrainerPalette_Hiker[];

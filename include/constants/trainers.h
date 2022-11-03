@@ -143,6 +143,7 @@
 #define TRAINER_PIC_JOHTO_RED             117
 
 #define TRAINER_PIC_POKABBIE              118
+#define TRAINER_PIC_POKABBIE_DITTO        119 // Just used for battle transition
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
