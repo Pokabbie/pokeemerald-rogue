@@ -4995,7 +4995,7 @@
       "id": "LAYOUT_ROGUE_ROUTE_KANTO_CAVE0",
       "name": "Rogue_Route_Kanto_Cave0_Layout",
       "width": 109,
-      "height": 45,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/border.bin",
