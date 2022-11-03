@@ -50,27 +50,6 @@ Route104_EventScript_Rival::
 	goto Route104_EventScript_RivalEncounter
 
 Route104_EventScript_RivalTrigger::
-	lockall
-	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
-	setvar VAR_RUSTBORO_CITY_STATE, 8
-	setvar VAR_ROUTE104_STATE, 2
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	delay 10
-	addobject LOCALID_RIVAL
-	clearflag FLAG_HIDE_ROUTE_104_RIVAL
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBackUp
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Route104_Movement_RivalExitBrineysCottage
-	waitmovement 0
-	delay 20
-	setvar VAR_0x8008, 0
-	call RustboroCity_EventScript_PlayRivalMusic
-	playse SE_PIN
-	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Common_Movement_Delay48
-	waitmovement 0
 	goto Route104_EventScript_RivalEncounter
 
 @ Unused, shares script with Rustboro encounter instead
@@ -347,80 +326,21 @@ Route104_EventScript_Girl2::
 	end
 
 Route104_EventScript_SailToDewford::
-	setobjectsubpriority LOCALID_BRINEY_R104, MAP_ROUTE104, 0
-	setobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE104, 0
-	applymovement LOCALID_BRINEY_R104, Route104_Movement_BrineyBoardBoat
-	waitmovement 0
-	removeobject LOCALID_BRINEY_R104
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBoardBoat
-	waitmovement 0
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_ROUTE104
-	call Common_EventScript_PlayBrineysBoatMusic
-	goto_if_set FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordNoCall
-	goto_if_unset FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordDadCalls
 	end
 
 Route104_EventScript_SailToDewfordNoCall::
-	applymovement LOCALID_BOAT_R104, Route104_Movement_SailToDewford
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_SailToDewford
-	waitmovement 0
 	goto Route104_EventScript_ArriveInDewford
 
 Route104_EventScript_SailToDewfordDadCalls::
-	applymovement LOCALID_BOAT_R104, Route104_Movement_SailToDewfordBeforeDadCalls
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_SailToDewfordBeforeDadCalls
-	waitmovement 0
-	pokenavcall Route104_Text_DadPokenavCall
-	waitmessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox Route104_Text_RegisteredDadInPokenav, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_NORMAN_MATCH_CALL
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_SailToDewfordAfterDadCalls
-	applymovement LOCALID_BOAT_R104, Route104_Movement_SailToDewfordAfterDadCalls, MAP_ROUTE104
-	waitmovement LOCALID_BOAT_R104, MAP_ROUTE104
-	waitmovement 0
 	goto Route104_EventScript_ArriveInDewford
 
 Route104_EventScript_ArriveInDewford::
-	delay 50
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerExitBoat
-	waitmovement 0
-	call Common_EventScript_StopBrineysBoatMusic
-	showobjectat OBJ_EVENT_ID_PLAYER, MAP_DEWFORD_TOWN
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerMoveForBriney
-	waitmovement 0
-	setobjectxyperm LOCALID_BRINEY_DEWFORD, 12, 8
-	addobject LOCALID_BRINEY_DEWFORD
-	setobjectsubpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN, 0
-	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
-	applymovement LOCALID_BRINEY_DEWFORD, Route104_Movement_BrineyExitBoat
-	waitmovement 0
-	addobject LOCALID_BOAT_DEWFORD
-	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
-	call Common_EventScript_StopBrineysBoatMusic
-	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
-	hideobjectat LOCALID_BOAT_R104, MAP_ROUTE104
-	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
-	resetobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE104
-	resetobjectsubpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN
-	copyobjectxytoperm LOCALID_BRINEY_DEWFORD
-	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_DeliverLetterReminder
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_LandedInDewford
 	end
 
 Route104_EventScript_DeliverLetterReminder::
-	msgbox Route104_Text_LandedInDewfordDeliverLetter, MSGBOX_DEFAULT
-	releaseall
 	end
 
 Route104_EventScript_LandedInDewford::
-	msgbox DewfordTown_Text_BrineyLandedInDewford, MSGBOX_DEFAULT
-	releaseall
 	end
 
 Route104_Movement_SailToDewfordBeforeDadCalls:
