@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "up",
-      "offset": -20,
+      "offset": -7,
       "map": "MAP_ROUTE121"
     },
     {
@@ -28,13 +28,7 @@
 
   ],
   "warp_events": [
-    {
-      "x": 22,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_MT_PYRE_1F",
-      "dest_warp_id": 0
-    }
+
   ],
   "coord_events": [
 

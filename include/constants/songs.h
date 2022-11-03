@@ -554,6 +554,8 @@
 #define MUS_HG_ROUTE42              620
 #define MUS_HG_ROUTE47              621
 
+#define MUS_DP_VS_CHAMPION          622
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF

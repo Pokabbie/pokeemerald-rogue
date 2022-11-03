@@ -754,6 +754,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_BOSS_POKABBIE:
             outTrainer->trainerPic = TRAINER_PIC_POKABBIE;
+            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS; // Overwrite value set from above
             break;
 
         // Extra trainer
