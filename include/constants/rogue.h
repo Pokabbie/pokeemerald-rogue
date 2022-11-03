@@ -73,15 +73,18 @@
 #define TRAINER_FLAG_JOHTO                  (1 << 6)
 #define TRAINER_FLAG_FALLBACK_REGION        (1 << 7) // If the player unselects all boss expansions, use this custom fallback set
 #define TRAINER_FLAG_RAINBOW_EXCLUDE        (1 << 8)
+#define TRAINER_FLAG_DISABLE_WEATHER        (1 << 9)
+#define TRAINER_FLAG_THIRDSLOT_WEATHER      (1 << 10)
 
 #define PARTY_FLAG_NONE                     0
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
-#define PARTY_FLAG_CUSTOM_QUERY             (1 << 2)
-#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 3)
-#define PARTY_FLAG_MIRROR_EXACT             (1 << 4)
-#define PARTY_FLAG_MIRROR_SPECIES           (1 << 5)
-#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 6)
-#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 7)
+#define PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE  (1 << 2)
+#define PARTY_FLAG_CUSTOM_QUERY             (1 << 3)
+#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 4)
+#define PARTY_FLAG_MIRROR_EXACT             (1 << 5)
+#define PARTY_FLAG_MIRROR_SPECIES           (1 << 6)
+#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 7)
+#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 8)
 #define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
