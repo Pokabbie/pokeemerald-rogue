@@ -761,7 +761,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
         .incTypes = { TYPE_FIRE, TYPE_WATER, TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
     },
     {
         .gfxId = OBJ_EVENT_GFX_JOHTO_CHUCK,
