@@ -411,5 +411,6 @@
 #define F_TRAINER_PARTY_HELD_ITEM      (1 << 1)
 #define F_TRAINER_PARTY_KANTO_MUS      (1 << 2)
 #define F_TRAINER_PARTY_JOHTO_MUS      (1 << 3)
+#define F_TRAINER_PARTY_SINNOH_MUS     (1 << 4)
 
 #endif  // GUARD_TRAINERS_H

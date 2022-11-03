@@ -6528,6 +6528,16 @@ u16 GetBattleBGM(void)
                     return MUS_HG_VS_TRAINER;
             }
         }
+        else if((trainer.partyFlags & F_TRAINER_PARTY_SINNOH_MUS) != 0)
+        {
+            switch (trainerClass)
+            {
+                case TRAINER_CLASS_CHAMPION:
+                    return MUS_DP_VS_CHAMPION;
+                default:
+                    return MUS_HG_VS_TRAINER;
+            }
+        }
         else
         {
             switch (trainerClass)

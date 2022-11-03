@@ -793,10 +793,10 @@ $(MID_SUBDIR)/mus_hg_vs_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V095 -P1
 
 $(MID_SUBDIR)/mus_hg_vs_gym_leader.s: %.s: %.mid
-	$(MID) $< $@ -E -R0 -G229 -V095 -P1
+	$(MID) $< $@ -E -R0 -G229 -V098 -P1
 
 $(MID_SUBDIR)/mus_hg_vs_champion.s: %.s: %.mid
-	$(MID) $< $@ -E -R0 -G229 -V095 -P1
+	$(MID) $< $@ -E -R0 -G229 -V098 -P1
 
 $(MID_SUBDIR)/mus_hg_victory_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V100
@@ -821,6 +821,9 @@ $(MID_SUBDIR)/mus_hg_route42.s: %.s: %.mid
 	
 $(MID_SUBDIR)/mus_hg_route47.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V073
+	
+$(MID_SUBDIR)/mus_dp_vs_champion.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
 
 $(MID_SUBDIR)/se_a.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G128 -V095 -P4
