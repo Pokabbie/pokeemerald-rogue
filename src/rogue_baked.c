@@ -1080,7 +1080,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     switch(itemId)
     {
         case ITEM_ESCAPE_ROPE:
-            outItem->price = 25000;
+            outItem->price = 7500;
             outItem->description = gText_EscapeRopeDesc;
             break;
 

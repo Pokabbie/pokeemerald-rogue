@@ -4781,7 +4781,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             {
                 RogueQuery_Exclude(ITEM_FULL_HEAL);
             }
-            else
+            else if(Rogue_IsRunActive())
             {
                 RogueQuery_Include(ITEM_ESCAPE_ROPE);
             }
