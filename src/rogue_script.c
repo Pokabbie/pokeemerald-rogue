@@ -11,6 +11,7 @@
 #include "random.h"
 #include "string_util.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
@@ -64,7 +65,7 @@ void Rogue_RandomisePartyMon(void)
         u16 queryCount;
         u16 species;
         u16 heldItem;
-        u8 targetlevel = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);
+        u8 targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);
 
         // Query for the current route type
         RogueQuery_Clear();
@@ -84,7 +85,7 @@ void Rogue_RandomisePartyMon(void)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
-            targetlevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
             species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
@@ -99,7 +100,7 @@ void Rogue_RandomisePartyMon(void)
     {
         u16 queryCount;
         u16 species;
-        u8 targetlevel = GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
+        u8 targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
         u16 heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
         // Query for the current route type

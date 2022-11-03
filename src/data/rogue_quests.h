@@ -493,6 +493,22 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
+        },
+        .unlockedQuests = { 
+            QUEST_Hardcore4,
+        },
+    },
+    [QUEST_Hardcore4] = 
+    {
+        .title = _("Please Stop..."),
+        .desc = _(
+                    "Insane Mode rules + Hard\n"
+                    "Items, Bag Wipe, EVs off\n"
+                    "Overlvl off, Random Starter."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RAYQUAZA, 7, TRUE } },
         }
     },
 

@@ -596,7 +596,8 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
     }
 
 #ifdef ROGUE_DEBUG
-    //currScratch->roomType = ADVPATH_ROOM_NONE;
+    if(currScratch->roomType != ADVPATH_ROOM_BOSS)
+        currScratch->roomType = ADVPATH_ROOM_NONE;
 #endif
 }
 
