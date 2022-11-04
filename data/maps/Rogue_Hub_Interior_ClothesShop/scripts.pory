@@ -58,7 +58,7 @@ script Rogue_Hub_Clothes_ChangeStyle1
     
     message(format("Which clothing style option would you like to swap to?"))
     waitmessage
-    multichoice(20, 4, MULTI_STYLE2_CHOICE, NO)
+    multichoice(20, 2, MULTI_STYLE2_CHOICE, NO)
 
     switch(var(VAR_RESULT))
     {

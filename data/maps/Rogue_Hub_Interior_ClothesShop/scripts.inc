@@ -50,7 +50,7 @@ Rogue_Hub_Clothes_ChangeStyle1::
 	msgbox Rogue_Hub_Clothes_ChangeStyle1_Text_0
 	message Rogue_Hub_Clothes_ChangeStyle1_Text_1
 	waitmessage
-	multichoice 20, 4, MULTI_STYLE2_CHOICE, NO
+	multichoice 20, 2, MULTI_STYLE2_CHOICE, NO
 	switch VAR_RESULT
 	case MULTI_B_PRESSED, Rogue_Hub_Clothes_ChangeStyle1_3
 	copyvar VAR_0x8006, VAR_RESULT
