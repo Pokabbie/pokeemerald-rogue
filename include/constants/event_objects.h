@@ -307,7 +307,12 @@
 
 #define OBJ_EVENT_GFX_PC                         (OBJ_EVENT_GFX_VAR_F + 36)
 
-#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 37)
+#define OBJ_EVENT_GFX_BRENDAN_ALT                (OBJ_EVENT_GFX_VAR_F + 37)
+#define OBJ_EVENT_GFX_MAY_ALT                    (OBJ_EVENT_GFX_VAR_F + 38)
+#define OBJ_EVENT_GFX_RED_ALT                    (OBJ_EVENT_GFX_VAR_F + 39)
+#define OBJ_EVENT_GFX_LEAF_ALT                   (OBJ_EVENT_GFX_VAR_F + 40)
+
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 41)
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1

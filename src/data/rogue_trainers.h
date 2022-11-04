@@ -822,7 +822,7 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_BRENDAN_NORMAL,
+        .gfxId = OBJ_EVENT_GFX_BRENDAN_ALT,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
         .incTypes = { TYPE_MYSTERY, TYPE_NONE },
         .excTypes = { TYPE_NONE },
@@ -830,7 +830,7 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .partyFlags = PARTY_FLAG_MIRROR_EXACT,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_MAY_NORMAL,
+        .gfxId = OBJ_EVENT_GFX_MAY_ALT,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_RIVAL,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },

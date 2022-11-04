@@ -2519,42 +2519,42 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 RandomiseEnabledItems();
 
                 // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                     };
                 }
                 // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                     };
                 }
@@ -2630,42 +2630,42 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
                 // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                     };
                 }
                 // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                     };
                 }
