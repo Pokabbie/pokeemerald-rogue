@@ -26,16 +26,13 @@ script Rogue_Hub_Clothes_ChangeStyle0
 
     switch(var(VAR_RESULT))
     {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-            copyvar(VAR_0x8006, VAR_RESULT)
-            setvar(VAR_RESULT, YES)
-
         case MULTI_B_PRESSED:
             msgbox(format("Hello!\nI can help with adjusting your appearance"))
             setvar(VAR_RESULT, NO)
+
+        default:
+            copyvar(VAR_0x8006, VAR_RESULT)
+            setvar(VAR_RESULT, YES)
     }
 
     if(var(VAR_RESULT) == YES)
@@ -61,20 +58,17 @@ script Rogue_Hub_Clothes_ChangeStyle1
     
     message(format("Which clothing style option would you like to swap to?"))
     waitmessage
-    multichoice(20, 4, MULTI_STYLE_CHOICE, NO)
+    multichoice(20, 4, MULTI_STYLE2_CHOICE, NO)
 
     switch(var(VAR_RESULT))
     {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-            copyvar(VAR_0x8006, VAR_RESULT)
-            setvar(VAR_RESULT, YES)
-
         case MULTI_B_PRESSED:
             msgbox(format("Hello!\nI can help with adjusting your appearance"))
             setvar(VAR_RESULT, NO)
+
+        default:
+            copyvar(VAR_0x8006, VAR_RESULT)
+            setvar(VAR_RESULT, YES)
     }
 
     if(var(VAR_RESULT) == YES)

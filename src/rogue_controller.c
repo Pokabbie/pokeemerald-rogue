@@ -482,72 +482,32 @@ const u16* Rogue_ModifyPallete16(const u16* input)
 
     if(input == &gObjectEventPal_Brendan_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     if(input == &gObjectEventPal_May_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_May, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Shared palettes between red and leaf
     if(input == &gObjectEventPal_Red_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gObjectEventPal_Johto_NPC_Red[0])
     {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gObjectEventPal_Red_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gObjectEventPal_Red_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gObjectEventPal_Red_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gObjectEventPal_Red_3_0;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     return input;
@@ -559,22 +519,9 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_Brendan_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Must swap for compressed version
@@ -586,51 +533,24 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_May_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_May, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     if(input == &gTrainerPalette_Red_Front_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
     
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gTrainerPalette_ChampionRed[0])
     {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gTrainerPalette_Red_Front_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gTrainerPalette_Red_Front_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gTrainerPalette_Red_Front_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gTrainerPalette_Red_Front_3_0;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Palette is shared with red
@@ -640,22 +560,9 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_Red_Back_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Back, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Must swap for compressed version
