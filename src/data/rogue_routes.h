@@ -97,7 +97,11 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
     {
         .mapFlags = ROUTE_FLAG_KANTO,
         .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_URBAN0),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_WATER, TYPE_FAIRY, TYPE_STEEL }
+#else
         .wildTypeTable = { TYPE_WATER, TYPE_PSYCHIC, TYPE_STEEL }
+#endif
     },
     {
         .mapFlags = ROUTE_FLAG_KANTO,
@@ -109,7 +113,12 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .mapFlags = ROUTE_FLAG_KANTO,
         .dropRarity = 2,
         .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_CAVE0),
-        .wildTypeTable = { TYPE_GROUND, TYPE_PSYCHIC, TYPE_GHOST }
+        .wildTypeTable = { TYPE_GROUND, TYPE_FIRE, TYPE_DRAGON }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_KANTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_KANTO_URBAN1),
+        .wildTypeTable = { TYPE_GHOST, TYPE_ICE, TYPE_PSYCHIC }
     },
 
     // Johto

@@ -5000,6 +5000,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Cave0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_KANTO_URBAN1",
+      "name": "Rogue_Route_Kanto_Urban1_Layout",
+      "width": 96,
+      "height": 64,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Kanto_Urban1/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Kanto_Urban1/map.bin"
     }
   ]
 }
