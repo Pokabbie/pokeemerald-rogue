@@ -110,6 +110,8 @@ namespace VariantGenerator
 					PaletteProfile outputProfile = PaletteProfile.CollapseProfiles(baseProfile, style0Profiles[i], style1Profiles[j]);
 
 					string outputPath = Path.Combine(dir, $"{i + 1}_{j + 1}.pal");
+
+					//File.Delete(outputPath);
 					outputProfile.WriteToFile(outputPath);
 				}
 			}

@@ -145,6 +145,9 @@
 
 #define TRAINER_PIC_POKABBIE              118
 #define TRAINER_PIC_POKABBIE_DITTO        119 // Just used for battle transition
+#define TRAINER_PIC_GLITCH_KATE           120
+#define TRAINER_PIC_GLITCH_TAILS          121
+#define TRAINER_PIC_GLITCH_ERMA           122
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

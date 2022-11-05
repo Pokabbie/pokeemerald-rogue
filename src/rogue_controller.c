@@ -96,6 +96,7 @@ struct RogueTrainerTemp
     u8 disallowedType[2];
     u16 customQuerySpeciesCount;
     const u16* customQuerySpecies;
+    bool8 customQueryProvidesOutput;
     bool8 allowItemEvos;
     bool8 allowWeakLegendaries;
     bool8 allowStrongLegendaries;
@@ -482,72 +483,32 @@ const u16* Rogue_ModifyPallete16(const u16* input)
 
     if(input == &gObjectEventPal_Brendan_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_Brendan, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     if(input == &gObjectEventPal_May_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_May, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_May, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_May, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Shared palettes between red and leaf
     if(input == &gObjectEventPal_Red_0_0[0])
     {
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 0);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 1);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 2);
-        PLAYER_STYLE(gObjectEventPal_Red, 0, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 1, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 2, 3);
-        PLAYER_STYLE(gObjectEventPal_Red, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gObjectEventPal_Johto_NPC_Red[0])
     {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gObjectEventPal_Red_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gObjectEventPal_Red_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gObjectEventPal_Red_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gObjectEventPal_Red_3_0;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     return input;
@@ -559,22 +520,9 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_Brendan_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Brendan, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Must swap for compressed version
@@ -586,51 +534,24 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_May_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_May, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_May, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_May, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     if(input == &gTrainerPalette_Red_Front_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Front, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
     
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gTrainerPalette_ChampionRed[0])
     {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gTrainerPalette_Red_Front_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gTrainerPalette_Red_Front_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gTrainerPalette_Red_Front_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gTrainerPalette_Red_Front_3_0;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Palette is shared with red
@@ -640,22 +561,9 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
     if(input == &gTrainerPalette_Red_Back_0_0[0])
     {
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 0);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 1);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 2);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 0, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 1, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 2, 3);
-        PLAYER_STYLE(gTrainerPalette_Red_Back, 3, 3);
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Back, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Must swap for compressed version
@@ -2009,7 +1917,13 @@ static u16 GetBossHistoryKey(u16 bossId)
 
     // We're gonna always use the trainer's assigned type to prevent dupes
     // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-    return gRogueBossEncounters.trainers[bossId].incTypes[0];
+    u16 type = gRogueBossEncounters.trainers[bossId].incTypes[0];
+
+    // None type trainers are unqiue, so we don't care about the type repeat
+    if(type == TYPE_NONE)
+        return bossId;
+
+    return type;
 }
 
 static bool8 IsBossEnabled(u16 bossId)
@@ -2047,6 +1961,10 @@ static bool8 IsBossEnabled(u16 bossId)
     else
     {
         excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
+
+        // Don't use special trainers for rainbow mode
+        if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
+            return FALSE;
     }
 
     if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
@@ -2519,42 +2437,42 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 RandomiseEnabledItems();
 
                 // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                     };
                 }
                 // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                     };
                 }
@@ -2630,42 +2548,42 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
 
                 // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_NORMAL)
+                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                     };
                 }
                 // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_NORMAL)
+                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
                 {
                     switch(gSaveBlock2Ptr->playerGender)
                     {
                         case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
                             break;
                         case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
                             break;
 
                         case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                             break;
                         case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED);
+                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
                             break;
                     };
                 }
@@ -2994,28 +2912,33 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     }
 }
 
+static void Battle_UpdateEncounterTracker(void)
+{
+    // Update encounter tracker (For both in run and safari)
+#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    {
+        u8 i;
+        //u16 wildSpecies = gBattleMons[gActiveBattler].species;
+        u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+        //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+        {
+            if(gRogueRun.wildEncounters[i] == wildSpecies)
+            {
+                gRogueLocal.encounterPreview[i].isVisible = TRUE;
+            }
+
+        }
+    }
+#endif
+}
+
 void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
-        // Update encounter tracker
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
-        {
-            u8 i;
-            //u16 wildSpecies = gBattleMons[gActiveBattler].species;
-            u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
-            //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-
-            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-            {
-                if(gRogueRun.wildEncounters[i] == wildSpecies)
-                {
-                    gRogueLocal.encounterPreview[i].isVisible = TRUE;
-                }
-
-            }
-        }
-#endif
+        Battle_UpdateEncounterTracker();
 
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
@@ -3047,6 +2970,11 @@ void Rogue_Battle_EndWildBattle(void)
             QuestNotify_OnMonFainted();
         }
     }
+}
+
+void Rogue_Safari_EndWildBattle(void)
+{
+    Battle_UpdateEncounterTracker();
 }
 
 static bool8 IsBossTrainer(u16 trainerNum)
@@ -3149,10 +3077,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
 
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
             gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
             gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
         }
     }
     else if(IsMiniBossTrainer(trainerNum))
@@ -3172,10 +3101,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
 
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
             gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
             gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
         }
     }
     else
@@ -3413,6 +3343,8 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 
 static void ApplyTrainerQuery(u16 trainerNum)
 {
+    bool8 skipToEnd = TRUE;
+
     // Query for the current trainer team
     RogueQuery_Clear();
 
@@ -3448,6 +3380,11 @@ static void ApplyTrainerQuery(u16 trainerNum)
                 RogueQuery_SpeciesIsNotWeakLegendary();
         }
 
+        if(gRogueLocal.trainerTemp.customQueryProvidesOutput)
+        {
+            skipToEnd = TRUE;
+        }
+
         // We ignore the first type check, as we're using a smaller subset anyway
         // which are likely all egg species so we only care about the check at the end
     }
@@ -3478,26 +3415,29 @@ static void ApplyTrainerQuery(u16 trainerNum)
         }
     }
 
-    RogueQuery_TransformToEggSpecies();
-
-    // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
-
-    if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+    if(!skipToEnd)
     {
-        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-        else
-            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
-    }
+        RogueQuery_TransformToEggSpecies();
 
-    // Disable types
-    if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
-    {
-        if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
-        else
-            RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
+
+        if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+        {
+            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        }
+
+        // Disable types
+        if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
+        {
+            if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
+        }
     }
 
 //#ifdef ROGUE_EXPANSION

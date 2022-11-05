@@ -73,6 +73,10 @@ extern const u8 gText_TrainerName_Clair[];
 extern const u8 gText_TrainerName_Will[];
 extern const u8 gText_TrainerName_Karen[];
 
+extern const u8 gText_TrainerName_Kate[];
+extern const u8 gText_TrainerName_Raven[];
+extern const u8 gText_TrainerName_Erma[];
+extern const u8 gText_TrainerName_Tails[];
 extern const u8 gText_TrainerName_Pokabbie[];
 
 
@@ -396,6 +400,18 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
         case TRAINER_ROGUE_BOSS_RED:
             return gText_TrainerName_Red;
 
+        case TRAINER_ROGUE_BOSS_KATE:
+            return gText_TrainerName_Kate;
+
+        case TRAINER_ROGUE_BOSS_RAVEN:
+            return gText_TrainerName_Raven;
+
+        case TRAINER_ROGUE_BOSS_ERMA:
+            return gText_TrainerName_Erma;
+
+        case TRAINER_ROGUE_BOSS_TAILS:
+            return gText_TrainerName_Tails;
+
         case TRAINER_ROGUE_BOSS_POKABBIE:
             return gText_TrainerName_Pokabbie;
     }
@@ -468,7 +484,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_SABRINA:
         case TRAINER_ROGUE_BOSS_LORELEI:
         case TRAINER_ROGUE_BOSS_AGATHA:
-        case TRAINER_ROGUE_BOSS_POKABBIE:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -477,7 +492,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+            outTrainer->partyFlags = F_TRAINER_PARTY_KANTO_MUS;
             break;
 
         case TRAINER_ROGUE_BOSS_BROCK:
@@ -497,7 +512,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+            outTrainer->partyFlags = F_TRAINER_PARTY_KANTO_MUS;
             break;
 
         // Johto Ver.
@@ -513,7 +528,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
+            outTrainer->partyFlags = F_TRAINER_PARTY_JOHTO_MUS;
             break;
 
         case TRAINER_ROGUE_BOSS_FALKNER:
@@ -534,7 +549,36 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                 outTrainer->trainerClass = TRAINER_CLASS_LEADER;
 
             outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
+            outTrainer->partyFlags = F_TRAINER_PARTY_JOHTO_MUS;
+            break;
+
+        // Kanto Ver.
+        case TRAINER_ROGUE_BOSS_KATE:
+        case TRAINER_ROGUE_BOSS_RAVEN:
+        case TRAINER_ROGUE_BOSS_POKABBIE:
+            if(gRogueRun.currentDifficulty >= 12)
+                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
+            else if(gRogueRun.currentDifficulty >= 8)
+                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            else
+                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
+
+            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
+            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS;
+            break;
+
+        // Glitch Ver.
+        case TRAINER_ROGUE_BOSS_ERMA:
+        case TRAINER_ROGUE_BOSS_TAILS:
+            if(gRogueRun.currentDifficulty >= 12)
+                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
+            else if(gRogueRun.currentDifficulty >= 8)
+                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            else
+                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
+
+            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS;
             break;
     }
 
@@ -752,9 +796,25 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             outTrainer->trainerPic = TRAINER_PIC_JOHTO_RED;
             break;
 
+
+        case TRAINER_ROGUE_BOSS_KATE:
+            outTrainer->trainerPic = TRAINER_PIC_GLITCH_KATE;
+            break;
+
+        case TRAINER_ROGUE_BOSS_RAVEN:
+            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_F;
+            break;
+
+        case TRAINER_ROGUE_BOSS_ERMA:
+            outTrainer->trainerPic = TRAINER_PIC_GLITCH_ERMA;
+            break;
+
+        case TRAINER_ROGUE_BOSS_TAILS:
+            outTrainer->trainerPic = TRAINER_PIC_GLITCH_TAILS;
+            break;
+
         case TRAINER_ROGUE_BOSS_POKABBIE:
             outTrainer->trainerPic = TRAINER_PIC_POKABBIE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS; // Overwrite value set from above
             break;
 
         // Extra trainer

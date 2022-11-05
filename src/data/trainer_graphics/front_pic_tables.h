@@ -128,6 +128,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 
     [TRAINER_PIC_POKABBIE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_POKABBIE_DITTO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GLITCH_KATE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GLITCH_TAILS] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GLITCH_ERMA] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -261,6 +264,9 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
     TRAINER_SPRITE(POKABBIE, gTrainerFrontPic_Pokabbie, 0x800),
     TRAINER_SPRITE(POKABBIE_DITTO, gTrainerFrontPic_PokabbieDitto, 0x800),
+    TRAINER_SPRITE(GLITCH_KATE, gTrainerFrontPic_GlitchKate, 0x800),
+    TRAINER_SPRITE(GLITCH_TAILS, gTrainerFrontPic_GlitchTails, 0x800),
+    TRAINER_SPRITE(GLITCH_ERMA, gTrainerFrontPic_GlitchErma, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -394,4 +400,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 
     TRAINER_PAL(POKABBIE, gTrainerPalette_Pokabbie),
     TRAINER_PAL(POKABBIE_DITTO, gTrainerPalette_Pokabbie),
+    TRAINER_PAL(GLITCH_KATE, gTrainerPalette_GlitchKate),
+    TRAINER_PAL(GLITCH_TAILS, gTrainerPalette_GlitchTails),
+    TRAINER_PAL(GLITCH_ERMA, gTrainerPalette_GlitchErma),
 };

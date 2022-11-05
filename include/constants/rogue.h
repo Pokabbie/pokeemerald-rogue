@@ -79,13 +79,15 @@
 #define PARTY_FLAG_NONE                     0
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
 #define PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE  (1 << 2)
-#define PARTY_FLAG_CUSTOM_QUERY             (1 << 3)
-#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 4)
-#define PARTY_FLAG_MIRROR_EXACT             (1 << 5)
-#define PARTY_FLAG_MIRROR_SPECIES           (1 << 6)
-#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 7)
-#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 8)
+#define PARTY_FLAG_CUSTOM_INPUT_QUERY       (1 << 3) // Provides list of baby mons to feed into the generator
+#define PARTY_FLAG_CUSTOM_FINAL_QUERY       (1 << 4) // Provideds the final list of mons to pick from
+#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 5)
+#define PARTY_FLAG_MIRROR_EXACT             (1 << 6)
+#define PARTY_FLAG_MIRROR_SPECIES           (1 << 7)
+#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 8)
+#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 9)
 #define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
+#define PARTY_FLAG_CUSTOM_QUERY_ANY         (PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_CUSTOM_FINAL_QUERY)
 
 #define TRAINER_ROGUE_BREEDER_F             (TRAINER_JULIE + 0)
 #define TRAINER_ROGUE_BREEDER_M             (TRAINER_JULIE + 1)
@@ -165,7 +167,13 @@
 #define TRAINER_ROGUE_BOSS_JOHTO_LANCE      TRAINER_CRISTIN_2
 #define TRAINER_ROGUE_BOSS_RED              TRAINER_FERNANDO_2
 
-#define TRAINER_ROGUE_BOSS_POKABBIE         TRAINER_SAWYER_2
+// Glitch
+#define TRAINER_ROGUE_BOSS_KATE             TRAINER_ANDRES_3
+#define TRAINER_ROGUE_BOSS_TAILS            TRAINER_CORY_3
+#define TRAINER_ROGUE_BOSS_RAVEN            TRAINER_PABLO_3
+#define TRAINER_ROGUE_BOSS_ERMA             TRAINER_KOJI_3
+
+#define TRAINER_ROGUE_BOSS_POKABBIE         TRAINER_CRISTIN_3
 
 // Minibosses
 //
@@ -237,5 +245,33 @@
 #define MON_FLAGS_GEN31V1                   MON_FLAG_STRONG
 #endif
 
+// Character customisation
+// This works for everything but the actual input strings, so make sure to increase those to match
+//
+#define FOREACH_VISUAL_PRESETS(callback) \
+    callback(0, 0) \
+    callback(0, 1) \
+    callback(0, 2) \
+    callback(0, 3) \
+    callback(0, 4) \
+    callback(0, 5) \
+    callback(1, 0) \
+    callback(1, 1) \
+    callback(1, 2) \
+    callback(1, 3) \
+    callback(1, 4) \
+    callback(1, 5) \
+    callback(2, 0) \
+    callback(2, 1) \
+    callback(2, 2) \
+    callback(2, 3) \
+    callback(2, 4) \
+    callback(2, 5) \
+    callback(3, 0) \
+    callback(3, 1) \
+    callback(3, 2) \
+    callback(3, 3) \
+    callback(3, 4) \
+    callback(3, 5)
 
 #include "rogue_quests.h"

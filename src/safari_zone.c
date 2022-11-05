@@ -12,6 +12,8 @@
 #include "constants/game_stat.h"
 #include "field_screen_effect.h"
 
+#include "rogue_controller.h"
+
 struct PokeblockFeeder
 {
     /*0x00*/ s16 x;
@@ -96,6 +98,8 @@ void SafariZoneRetirePrompt(void)
 
 void CB2_EndSafariBattle(void)
 {
+    Rogue_Safari_EndWildBattle();
+
     sSafariZonePkblkUses += gBattleResults.pokeblockThrows;
     if (gBattleOutcome == B_OUTCOME_CAUGHT)
         sSafariZoneCaughtMons++;

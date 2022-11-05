@@ -222,6 +222,7 @@ static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8);
 static void Task_NewGameBirchSpeech_ChooseGender(u8);
 static void NewGameBirchSpeech_ShowGenderMenu(void);
 static void NewGameBirchSpeech_ShowStyle3Menu(void);
+static void NewGameBirchSpeech_ShowStyle4Menu(void);
 static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void);
 static void NewGameBirchSpeech_ClearGenderWindow(u8, u8);
 static void Task_NewGameBirchSpeech_WhatsYourName(u8);
@@ -484,6 +485,15 @@ static const struct MenuAction sMenuActions_Styles[4] = {
     {gText_BirchStyleB, NULL},
     {gText_BirchStyleC, NULL},
     {gText_BirchStyleD, NULL},
+};
+
+static const struct MenuAction sMenuActions_Styles2[4] = {
+    {gText_BirchStyleA, NULL},
+    {gText_BirchStyleB, NULL},
+    {gText_BirchStyleC, NULL},
+    {gText_BirchStyleD, NULL},
+    //{gText_BirchStyleE, NULL},
+    //{gText_BirchStyleF, NULL},
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -1582,9 +1592,13 @@ static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8 taskId)
         {
             NewGameBirchSpeech_ShowGenderMenu();
         }
-        else
+        else if(gTasks[taskId].tStyleSelectId == 1)
         {
             NewGameBirchSpeech_ShowStyle3Menu();
+        }
+        else
+        {
+            NewGameBirchSpeech_ShowStyle4Menu();
         }
 
         gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseGender;
@@ -2354,6 +2368,16 @@ static void NewGameBirchSpeech_ShowStyle3Menu(void)
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
     PrintMenuTable(1, ARRAY_COUNT(sMenuActions_Styles), sMenuActions_Styles);
     InitMenuInUpperLeftCornerNormal(1, ARRAY_COUNT(sMenuActions_Styles), 0);
+    PutWindowTilemap(1);
+    CopyWindowToVram(1, COPYWIN_FULL);
+}
+
+static void NewGameBirchSpeech_ShowStyle4Menu(void)
+{
+    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[1], 0xF3);
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    PrintMenuTable(1, ARRAY_COUNT(sMenuActions_Styles2), sMenuActions_Styles2);
+    InitMenuInUpperLeftCornerNormal(1, ARRAY_COUNT(sMenuActions_Styles2), 0);
     PutWindowTilemap(1);
     CopyWindowToVram(1, COPYWIN_FULL);
 }

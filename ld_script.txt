@@ -1264,6 +1264,7 @@ SECTIONS {
         sound/songs/midi/mus_hg_route38.o(.rodata);
         sound/songs/midi/mus_hg_route42.o(.rodata);
         sound/songs/midi/mus_hg_route47.o(.rodata);
+        sound/songs/midi/mus_dp_vs_elite_four.o(.rodata);
         sound/songs/midi/mus_dp_vs_champion.o(.rodata);
     } =0
 

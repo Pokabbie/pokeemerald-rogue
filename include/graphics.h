@@ -6888,7 +6888,9 @@ extern const u32 gTrainerFrontPic_ChampionRed[];
 
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieDitto[];
-
+extern const u32 gTrainerFrontPic_GlitchKate[];
+extern const u32 gTrainerFrontPic_GlitchTails[];
+extern const u32 gTrainerFrontPic_GlitchErma[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -6961,38 +6963,25 @@ extern const u32 gTrainerPalette_Twins[];
 extern const u32 gTrainerPalette_Sailor[];
 extern const u32 gTrainerPalette_MagmaAdmin[];
 extern const u32 gTrainerPalette_Wally[];
-extern const u32 gTrainerPalette_Brendan_0_0[];
-extern const u32 gTrainerPalette_Brendan_1_0[];
-extern const u32 gTrainerPalette_Brendan_2_0[];
-extern const u32 gTrainerPalette_Brendan_3_0[];
-extern const u32 gTrainerPalette_Brendan_0_1[];
-extern const u32 gTrainerPalette_Brendan_1_1[];
-extern const u32 gTrainerPalette_Brendan_2_1[];
-extern const u32 gTrainerPalette_Brendan_3_1[];
-extern const u32 gTrainerPalette_Brendan_0_2[];
-extern const u32 gTrainerPalette_Brendan_1_2[];
-extern const u32 gTrainerPalette_Brendan_2_2[];
-extern const u32 gTrainerPalette_Brendan_3_2[];
-extern const u32 gTrainerPalette_Brendan_0_3[];
-extern const u32 gTrainerPalette_Brendan_1_3[];
-extern const u32 gTrainerPalette_Brendan_2_3[];
-extern const u32 gTrainerPalette_Brendan_3_3[];
-extern const u32 gTrainerPalette_May_0_0[];
-extern const u32 gTrainerPalette_May_1_0[];
-extern const u32 gTrainerPalette_May_2_0[];
-extern const u32 gTrainerPalette_May_3_0[];
-extern const u32 gTrainerPalette_May_0_1[];
-extern const u32 gTrainerPalette_May_1_1[];
-extern const u32 gTrainerPalette_May_2_1[];
-extern const u32 gTrainerPalette_May_3_1[];
-extern const u32 gTrainerPalette_May_0_2[];
-extern const u32 gTrainerPalette_May_1_2[];
-extern const u32 gTrainerPalette_May_2_2[];
-extern const u32 gTrainerPalette_May_3_2[];
-extern const u32 gTrainerPalette_May_0_3[];
-extern const u32 gTrainerPalette_May_1_3[];
-extern const u32 gTrainerPalette_May_2_3[];
-extern const u32 gTrainerPalette_May_3_3[];
+
+#define BRENDAN_PALETTE(x, y) extern const u32 gTrainerPalette_Brendan_ ## x ## _ ## y[];
+FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
+#undef BRENDAN_PALETTE
+
+#define MAY_PALETTE(x, y) extern const u32 gTrainerPalette_May_ ## x ## _ ## y[];
+FOREACH_VISUAL_PRESETS(MAY_PALETTE)
+#undef MAY_PALETTE
+
+#define RED_PALETTE(x, y) \
+extern const u32 gTrainerPalette_Red_Front_ ## x ## _ ## y[]; \
+extern const u32 gTrainerPalette_Red_Back_ ## x ## _ ## y[]; 
+FOREACH_VISUAL_PRESETS(RED_PALETTE)
+#undef RED_PALETTE
+
+// Share palette for now
+#define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
+#define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
+
 extern const u32 gTrainerPalette_BugCatcher[];
 extern const u32 gTrainerPalette_PokemonRangerM[];
 extern const u32 gTrainerPalette_PokemonRangerF[];
@@ -7009,41 +6998,6 @@ extern const u32 gTrainerPalette_ArenaTycoonGreta[];
 extern const u32 gTrainerPalette_FactoryHeadNoland[];
 extern const u32 gTrainerPalette_PikeQueenLucy[];
 extern const u32 gTrainerPalette_PyramidKingBrandon[];
-extern const u32 gTrainerPalette_Red_Front_0_0[];
-extern const u32 gTrainerPalette_Red_Front_1_0[];
-extern const u32 gTrainerPalette_Red_Front_2_0[];
-extern const u32 gTrainerPalette_Red_Front_3_0[];
-extern const u32 gTrainerPalette_Red_Front_0_1[];
-extern const u32 gTrainerPalette_Red_Front_1_1[];
-extern const u32 gTrainerPalette_Red_Front_2_1[];
-extern const u32 gTrainerPalette_Red_Front_3_1[];
-extern const u32 gTrainerPalette_Red_Front_0_2[];
-extern const u32 gTrainerPalette_Red_Front_1_2[];
-extern const u32 gTrainerPalette_Red_Front_2_2[];
-extern const u32 gTrainerPalette_Red_Front_3_2[];
-extern const u32 gTrainerPalette_Red_Front_0_3[];
-extern const u32 gTrainerPalette_Red_Front_1_3[];
-extern const u32 gTrainerPalette_Red_Front_2_3[];
-extern const u32 gTrainerPalette_Red_Front_3_3[];
-extern const u32 gTrainerPalette_Red_Back_0_0[];
-extern const u32 gTrainerPalette_Red_Back_1_0[];
-extern const u32 gTrainerPalette_Red_Back_2_0[];
-extern const u32 gTrainerPalette_Red_Back_3_0[];
-extern const u32 gTrainerPalette_Red_Back_0_1[];
-extern const u32 gTrainerPalette_Red_Back_1_1[];
-extern const u32 gTrainerPalette_Red_Back_2_1[];
-extern const u32 gTrainerPalette_Red_Back_3_1[];
-extern const u32 gTrainerPalette_Red_Back_0_2[];
-extern const u32 gTrainerPalette_Red_Back_1_2[];
-extern const u32 gTrainerPalette_Red_Back_2_2[];
-extern const u32 gTrainerPalette_Red_Back_3_2[];
-extern const u32 gTrainerPalette_Red_Back_0_3[];
-extern const u32 gTrainerPalette_Red_Back_1_3[];
-extern const u32 gTrainerPalette_Red_Back_2_3[];
-extern const u32 gTrainerPalette_Red_Back_3_3[];
-// Share palette for now
-#define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
-#define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
@@ -7080,6 +7034,9 @@ extern const u32 gTrainerPalette_EliteFourKaren[];
 extern const u32 gTrainerPalette_ChampionRed[];
 
 extern const u32 gTrainerPalette_Pokabbie[];
+extern const u32 gTrainerPalette_GlitchKate[];
+extern const u32 gTrainerPalette_GlitchTails[];
+extern const u32 gTrainerPalette_GlitchErma[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -10190,56 +10147,20 @@ extern const u8 gFrontierFactorySelectMenu_Tilemap[];
 extern const u16 gFrontierFactorySelectMenu_Pal[];
 
 // Object event pals
-extern const u16 gObjectEventPal_Brendan_0_0[];
-extern const u16 gObjectEventPal_Brendan_1_0[];
-extern const u16 gObjectEventPal_Brendan_2_0[];
-extern const u16 gObjectEventPal_Brendan_3_0[];
-extern const u16 gObjectEventPal_Brendan_0_1[];
-extern const u16 gObjectEventPal_Brendan_1_1[];
-extern const u16 gObjectEventPal_Brendan_2_1[];
-extern const u16 gObjectEventPal_Brendan_3_1[];
-extern const u16 gObjectEventPal_Brendan_0_2[];
-extern const u16 gObjectEventPal_Brendan_1_2[];
-extern const u16 gObjectEventPal_Brendan_2_2[];
-extern const u16 gObjectEventPal_Brendan_3_2[];
-extern const u16 gObjectEventPal_Brendan_0_3[];
-extern const u16 gObjectEventPal_Brendan_1_3[];
-extern const u16 gObjectEventPal_Brendan_2_3[];
-extern const u16 gObjectEventPal_Brendan_3_3[];
-extern const u16 gObjectEventPal_May_0_0[];
-extern const u16 gObjectEventPal_May_1_0[];
-extern const u16 gObjectEventPal_May_2_0[];
-extern const u16 gObjectEventPal_May_3_0[];
-extern const u16 gObjectEventPal_May_0_1[];
-extern const u16 gObjectEventPal_May_1_1[];
-extern const u16 gObjectEventPal_May_2_1[];
-extern const u16 gObjectEventPal_May_3_1[];
-extern const u16 gObjectEventPal_May_0_2[];
-extern const u16 gObjectEventPal_May_1_2[];
-extern const u16 gObjectEventPal_May_2_2[];
-extern const u16 gObjectEventPal_May_3_2[];
-extern const u16 gObjectEventPal_May_0_3[];
-extern const u16 gObjectEventPal_May_1_3[];
-extern const u16 gObjectEventPal_May_2_3[];
-extern const u16 gObjectEventPal_May_3_3[];
+#define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];
+FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
+#undef BRENDAN_PALETTE
+
+#define MAY_PALETTE(x, y) extern const u16 gObjectEventPal_May_ ## x ## _ ## y [];
+FOREACH_VISUAL_PRESETS(MAY_PALETTE)
+#undef MAY_PALETTE
+
+#define RED_PALETTE(x, y) extern const u16 gObjectEventPal_Red_ ## x ## _ ## y [];
+FOREACH_VISUAL_PRESETS(RED_PALETTE)
+#undef RED_PALETTE
+
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
-extern const u16 gObjectEventPal_Red_0_0[];
-extern const u16 gObjectEventPal_Red_1_0[];
-extern const u16 gObjectEventPal_Red_2_0[];
-extern const u16 gObjectEventPal_Red_3_0[];
-extern const u16 gObjectEventPal_Red_0_1[];
-extern const u16 gObjectEventPal_Red_1_1[];
-extern const u16 gObjectEventPal_Red_2_1[];
-extern const u16 gObjectEventPal_Red_3_1[];
-extern const u16 gObjectEventPal_Red_0_2[];
-extern const u16 gObjectEventPal_Red_1_2[];
-extern const u16 gObjectEventPal_Red_2_2[];
-extern const u16 gObjectEventPal_Red_3_2[];
-extern const u16 gObjectEventPal_Red_0_3[];
-extern const u16 gObjectEventPal_Red_1_3[];
-extern const u16 gObjectEventPal_Red_2_3[];
-extern const u16 gObjectEventPal_Red_3_3[];
 extern const u16 gObjectEventPal_Kanto_Blue[];
 extern const u16 gObjectEventPal_Johto_NPC_Red[];
 
