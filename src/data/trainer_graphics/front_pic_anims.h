@@ -503,4 +503,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 
     [TRAINER_PIC_POKABBIE] = sAnims_Kanto,
     [TRAINER_PIC_POKABBIE_DITTO] = sAnims_Kanto,
+    [TRAINER_PIC_GLITCH_KATE] = sAnims_Kanto,
+    [TRAINER_PIC_GLITCH_TAILS] = sAnims_Kanto,
+    [TRAINER_PIC_GLITCH_ERMA] = sAnims_Kanto,
 };

@@ -496,4 +496,10 @@ const u32 gObjectEventPic_Johto_Whitney[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_Johto_Will[] = INCBIN_U32("graphics/object_events/pics/people/johto/will.4bpp");
 const u32 gObjectEventPic_Johto_Red[] = INCBIN_U32("graphics/object_events/pics/people/johto/red.4bpp");
 
+const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
+const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
+
+const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_kate.gbapal");
+const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_erma.gbapal");
+
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");

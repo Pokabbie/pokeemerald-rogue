@@ -96,6 +96,7 @@ struct RogueTrainerTemp
     u8 disallowedType[2];
     u16 customQuerySpeciesCount;
     const u16* customQuerySpecies;
+    bool8 customQueryProvidesOutput;
     bool8 allowItemEvos;
     bool8 allowWeakLegendaries;
     bool8 allowStrongLegendaries;
@@ -1916,7 +1917,13 @@ static u16 GetBossHistoryKey(u16 bossId)
 
     // We're gonna always use the trainer's assigned type to prevent dupes
     // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-    return gRogueBossEncounters.trainers[bossId].incTypes[0];
+    u16 type = gRogueBossEncounters.trainers[bossId].incTypes[0];
+
+    // None type trainers are unqiue, so we don't care about the type repeat
+    if(type == TYPE_NONE)
+        return bossId;
+
+    return type;
 }
 
 static bool8 IsBossEnabled(u16 bossId)
@@ -1954,6 +1961,10 @@ static bool8 IsBossEnabled(u16 bossId)
     else
     {
         excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
+
+        // Don't use special trainers for rainbow mode
+        if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
+            return FALSE;
     }
 
     if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
@@ -3066,10 +3077,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
 
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
             gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
             gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
         }
     }
     else if(IsMiniBossTrainer(trainerNum))
@@ -3089,10 +3101,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         disabledType[0] = trainer->excTypes[0];
         disabledType[1] = trainer->excTypes[1];
 
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY) != 0)
+        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
             gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
             gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
         }
     }
     else
@@ -3330,6 +3343,8 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 
 static void ApplyTrainerQuery(u16 trainerNum)
 {
+    bool8 skipToEnd = TRUE;
+
     // Query for the current trainer team
     RogueQuery_Clear();
 
@@ -3365,6 +3380,11 @@ static void ApplyTrainerQuery(u16 trainerNum)
                 RogueQuery_SpeciesIsNotWeakLegendary();
         }
 
+        if(gRogueLocal.trainerTemp.customQueryProvidesOutput)
+        {
+            skipToEnd = TRUE;
+        }
+
         // We ignore the first type check, as we're using a smaller subset anyway
         // which are likely all egg species so we only care about the check at the end
     }
@@ -3395,26 +3415,29 @@ static void ApplyTrainerQuery(u16 trainerNum)
         }
     }
 
-    RogueQuery_TransformToEggSpecies();
-
-    // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
-
-    if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+    if(!skipToEnd)
     {
-        if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-        else
-            RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
-    }
+        RogueQuery_TransformToEggSpecies();
 
-    // Disable types
-    if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
-    {
-        if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
-            RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
-        else
-            RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
+
+        if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
+        {
+            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
+        }
+
+        // Disable types
+        if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
+        {
+            if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
+                RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
+            else
+                RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
+        }
     }
 
 //#ifdef ROGUE_EXPANSION

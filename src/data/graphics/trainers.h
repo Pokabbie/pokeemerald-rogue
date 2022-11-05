@@ -469,3 +469,12 @@ const u32 gTrainerPalette_ChampionRed[] = INCBIN_U32("graphics/trainers/palettes
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
 const u32 gTrainerFrontPic_PokabbieDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_ditto_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Pokabbie[] = INCBIN_U32("graphics/trainers/palettes/pokabbie.gbapal.lz");
+
+const u32 gTrainerFrontPic_GlitchKate[] = INCBIN_U32("graphics/trainers/front_pics/glitch/kate_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GlitchKate[] = INCBIN_U32("graphics/trainers/palettes/glitch/elite_kate.gbapal.lz");
+
+const u32 gTrainerFrontPic_GlitchTails[] = INCBIN_U32("graphics/trainers/front_pics/glitch/tails_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GlitchTails[] = INCBIN_U32("graphics/trainers/palettes/glitch/elite_tails.gbapal.lz");
+
+const u32 gTrainerFrontPic_GlitchErma[] = INCBIN_U32("graphics/trainers/front_pics/glitch/erma_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GlitchErma[] = INCBIN_U32("graphics/trainers/palettes/glitch/elite_erma.gbapal.lz");
