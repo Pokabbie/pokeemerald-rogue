@@ -473,11 +473,11 @@ Rogue_ConfigRoom_AdjustWildGens_9:
 	goto Rogue_ConfigRoom_AdjustWildGens_8
 
 Rogue_ConfigRoom_AdjustWildGens_12:
-	call Rogue_ConfigRoom_AdjustWildGens_Regional
+	call Rogue_ConfigRoom_AdjustWildGens_National
 	goto Rogue_ConfigRoom_AdjustWildGens_5
 
 Rogue_ConfigRoom_AdjustWildGens_13:
-	call Rogue_ConfigRoom_AdjustWildGens_National
+	call Rogue_ConfigRoom_AdjustWildGens_Regional
 	goto Rogue_ConfigRoom_AdjustWildGens_5
 
 Rogue_ConfigRoom_AdjustWildGens_14:
