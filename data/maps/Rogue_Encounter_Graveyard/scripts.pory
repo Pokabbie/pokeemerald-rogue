@@ -128,7 +128,7 @@ script Rogue_Graveyard_SelectOption_Internal {
         msgbox(format("???: One... price..."), MSGBOX_DEFAULT)
 
         // Give curse item which isn't one of the charm options
-        giveitem(VAR_ROGUE_ITEM7, 1)
+        giveitem(VAR_ROGUE_ITEM9, 1)
 
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Leave)
         waitmovement(0)

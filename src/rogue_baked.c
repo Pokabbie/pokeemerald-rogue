@@ -966,11 +966,13 @@ extern const u8 gText_ItemShoppingCharm[];
 extern const u8 gText_ItemFlinchCharm[];
 extern const u8 gText_ItemCritCharm[];
 extern const u8 gText_ItemShedSkinCharm[];
+extern const u8 gText_ItemWildIVCharm[];
 
 extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemFlinchCurse[];
 extern const u8 gText_ItemCritCurse[];
 extern const u8 gText_ItemShedSkinCurse[];
+extern const u8 gText_ItemWildIVCurse[];
 
 extern const u8 gText_ItemPlaceholderDesc[];
 extern const u8 gText_ItemQuestLogDesc[];
@@ -1004,6 +1006,9 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_SHED_SKIN_CHARM:
             return gText_ItemShedSkinCharm;
 
+        case ITEM_WILD_IV_CHARM:
+            return gText_ItemWildIVCharm;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
@@ -1016,6 +1021,9 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_SHED_SKIN_CURSE:
             return gText_ItemShedSkinCurse;
+
+        case ITEM_WILD_IV_CURSE:
+            return gText_ItemWildIVCurse;
     }
 
     return gItems[itemId].name;

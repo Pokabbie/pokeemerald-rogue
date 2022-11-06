@@ -460,6 +460,46 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
             // Only store most recent personality, as u32s are costly and this is the easiest way to ensure shinies
             gRogueRun.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
         }
+
+        // Apply charms to IVs
+        {
+            u16 i;
+            u16 value;
+
+            u16 ivInc = GetCharmValue(EFFECT_WILD_IV_RATE);
+            u16 ivDec = GetCurseValue(EFFECT_WILD_IV_RATE);
+
+            if(ivInc > ivDec)
+            {
+                ivInc = ivInc - ivDec;
+                ivDec = 0;
+            }
+            else
+            {
+                ivDec = ivDec - ivInc;
+                ivInc = 0;
+            }
+
+            ivInc = min(ivInc, 31);
+            ivDec = min(ivDec, 31);
+
+            for(i = 0; i < 6; ++i)
+            {
+                value = GetMonData(mon, MON_DATA_HP_IV + i);
+
+                if(ivInc != 0)
+                {
+                    value = max(ivInc, value);
+                }
+
+                if(ivDec != 0)
+                {
+                    value = min(31 - ivDec, value);
+                }
+
+                SetMonData(mon, MON_DATA_HP_IV + i, &value);
+            }
+        }
     }
 }
 

@@ -32,16 +32,20 @@ u16 GetCharmValue(u8 effectType)
 
         case EFFECT_CRIT_CHANCE:
             count = GetItemCountInBag(ITEM_CRIT_CHARM);
+            return count;
 
-            if(count != 0)
-            {
-                // Free focus energy + extra stages
-                return 2 + (count - 1);
-            }
+            //if(count != 0)
+            //{
+            //    // Free focus energy + extra stages
+            //    return 2 + (count - 1);
+            //}
             break;
 
         case EFFECT_SHED_SKIN_CHANCE:
             return min(GetItemCountInBag(ITEM_SHED_SKIN_CHARM), 5) * 20;
+
+        case EFFECT_WILD_IV_RATE:
+            return GetItemCountInBag(ITEM_WILD_IV_CHARM) * 10;
     }
 
     return 0;
@@ -61,16 +65,20 @@ u16 GetCurseValue(u8 effectType)
 
         case EFFECT_CRIT_CHANCE:
             count = GetItemCountInBag(ITEM_CRIT_CURSE);
+            return count;
 
-            if(count != 0)
-            {
-                // Free focus energy + extra stages
-                return 2 + (count - 1);
-            }
+            //if(count != 0)
+            //{
+            //    // Free focus energy + extra stages
+            //    return 2 + (count - 1);
+            //}
             break;
 
         case EFFECT_SHED_SKIN_CHANCE:
             return min(GetItemCountInBag(ITEM_SHED_SKIN_CURSE), 5) * 20;
+
+        case EFFECT_WILD_IV_RATE:
+            return GetItemCountInBag(ITEM_WILD_IV_CURSE) * 10;
     }
 
     return 0;
