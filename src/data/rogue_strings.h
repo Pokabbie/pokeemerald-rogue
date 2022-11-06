@@ -76,6 +76,7 @@ const u8 gText_ItemCritCharm[] = _("Crit Charm");
 const u8 gText_ItemShedSkinCharm[] = _("Shed Skin Charm");
 const u8 gText_ItemWildIVCharm[] = _("Strength Charm");
 const u8 gText_ItemCatchingCharm[] = _("Catching Charm");
+const u8 gText_ItemGraceCharm[] = _("Serene Grace Charm");
 
 const u8 gText_ItemShoppingCurse[] = _("Shop Price Curse");
 const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
@@ -83,6 +84,7 @@ const u8 gText_ItemCritCurse[] = _("Crit Curse");
 const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
 const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
+const u8 gText_ItemGraceCurse[] = _("Serene Grace Curse");
 
 #else
 
@@ -95,6 +97,7 @@ const u8 gText_ItemCritCharm[] = _("CRIT CHARM");
 const u8 gText_ItemShedSkinCharm[] = _("SHED SKIN CHARM");
 const u8 gText_ItemWildIVCharm[] = _("STRENGTH CHARM");
 const u8 gText_ItemCatchingCharm[] = _("CATCHING CHARM");
+const u8 gText_ItemGraceCharm[] = _("SERENE GRACE CHARM");
 
 const u8 gText_ItemShoppingCurse[] = _("SHOP PRICE CURSE");
 const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
@@ -102,6 +105,7 @@ const u8 gText_ItemCritCurse[] = _("CRIT CURSE");
 const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
 const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
+const u8 gText_ItemGraceCurse[] = _("SERENE GRACE CURSE");
 
 #endif
 

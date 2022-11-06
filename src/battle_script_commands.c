@@ -2893,11 +2893,17 @@ void SetMoveEffect(bool8 primary, u8 certain)
 static void Cmd_seteffectwithchance(void)
 {
     u32 percentChance;
+    u32 multiplier = 100;
 
     if (gBattleMons[gBattlerAttacker].ability == ABILITY_SERENE_GRACE)
-        percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance * 2;
+        multiplier += 100;
+
+    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+        multiplier += GetCurseValue(EFFECT_SERENE_GRACE_CHANCE);
     else
-        percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
+        multiplier += GetCharmValue(EFFECT_SERENE_GRACE_CHANCE);
+
+    percentChance = (gBattleMoves[gCurrentMove].secondaryEffectChance * multiplier) / 100;
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_CERTAIN
         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
