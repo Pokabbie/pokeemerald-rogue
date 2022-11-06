@@ -325,6 +325,7 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 
     switch(trainerNum)
     {
+        case TRAINER_ROGUE_BOSS_MIRROR:
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             return gSaveBlock2Ptr->playerName;
 
@@ -495,6 +496,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_SABRINA:
         case TRAINER_ROGUE_BOSS_LORELEI:
         case TRAINER_ROGUE_BOSS_AGATHA:
+        case TRAINER_ROGUE_BOSS_MIRROR:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -664,6 +666,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
+        case TRAINER_ROGUE_BOSS_MIRROR:
 
             switch(gSaveBlock2Ptr->playerGender)
             {    

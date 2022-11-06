@@ -9,6 +9,8 @@ Rogue_Battle_Boss13::
 	waitmovement 0
 	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_RED
 	goto_if_eq Rogue_Battle_Boss13_2
+	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_MIRROR
+	goto_if_eq Rogue_Battle_Boss13_2
 	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_POKABBIE
 	goto_if_eq Rogue_Battle_Boss13_3
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
@@ -24,6 +26,7 @@ Rogue_Battle_Boss13_1:
 	return
 
 Rogue_Battle_Boss13_2:
+	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss13_Text_0
 	call Rogue_SetDesiredWeather
 	applymovement 1, BossToFightBoss13
@@ -79,7 +82,7 @@ DittoToFightBoss13:
 	step_end
 
 Rogue_Battle_Boss13_Text_0:
-	.string "...\p"
+	.string "{STR_VAR_1}: ...\p"
 	.string "...\p"
 	.string "...$"
 

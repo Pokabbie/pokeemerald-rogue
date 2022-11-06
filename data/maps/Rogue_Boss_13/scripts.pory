@@ -14,9 +14,10 @@ script Rogue_Battle_Boss13
     waitmovement(0)
 
     // Special case for Red
-    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED)
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED || var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_MIRROR)
     {
-        msgbox(format("...\p...\p..."))
+        buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        msgbox(format("{STR_VAR_1}: ...\p...\p..."))
 
         call(Rogue_SetDesiredWeather)
 
