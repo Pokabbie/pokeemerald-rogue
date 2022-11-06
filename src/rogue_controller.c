@@ -1104,7 +1104,8 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
-            u8 paletteOffset = i;
+            //u8 paletteOffset = i;
+            u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
 
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
