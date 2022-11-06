@@ -2180,6 +2180,7 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 u8 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 queryCount;
+    u16 species;
 
     RogueQuery_Clear();
 
@@ -2193,7 +2194,13 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
 
-    return RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
+    do
+    {
+        species = RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
+    }
+    while(species == SPECIES_NONE);
+
+    return species;
 }
 
 static bool8 IsRouteEnabled(u16 routeId)
