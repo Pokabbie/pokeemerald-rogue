@@ -3695,13 +3695,13 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
 #ifdef ROGUE_EXPANSION
     if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
     {
-        score -= 10;
+        score -= 20;
     }
 #endif
 
     if(IsSpeciesLegendary(species))
     {
-        score -= 10;
+        score -= 20;
     }
 
     // Early pri moves
@@ -3797,6 +3797,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
     bool8 reorganiseParty = TRUE;
+    bool8 clampLeadScore = FALSE;
 
     if(IsBossTrainer(trainerNum))
     {
@@ -3828,25 +3829,43 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     }
     else
     {
-        // Basic trainers don't care and can do whatever with their team order
-        reorganiseParty = FALSE;
+        // Always reoganise hard trainers
+        if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+        {
+            // Basic trainers don't care and can do whatever with their team order
+            reorganiseParty = FALSE;
+        }
     }
 
     if(reorganiseParty)
     {
         u16 i;
+        s16 scoreA, scoreB;
         bool8 anySwaps;
         u16 sortLength = monsCount - 1;
+
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && !FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty < 8)
+        {
+            // Prior to E4 we don't want to force forward the best lead mon#
+            // We just want to push final mons to the back
+            clampLeadScore = TRUE;
+        }
 
         // Bubble sort party
         while(sortLength != 0)
         {
             anySwaps = FALSE;
 
-            for(i = 0; i < sortLength; ++i)
+            for(i = 0; i < monsCount - 1; ++i)
             {
-                s16 scoreA = CalulcateMonSortScore(&party[i]);
-                s16 scoreB = CalulcateMonSortScore(&party[i + 1]);
+                scoreA = CalulcateMonSortScore(&party[i]);
+                scoreB = CalulcateMonSortScore(&party[i + 1]);
+
+                if(clampLeadScore)
+                {
+                    scoreA = min(scoreA, 0);
+                    scoreB = min(scoreB, 0);
+                }
                 
                 if(scoreB > scoreA)
                 {
