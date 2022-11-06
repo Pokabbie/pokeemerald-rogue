@@ -913,6 +913,11 @@ static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
         u8 type = trainer->incTypes[0];
 
+        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+        {
+            type = trainer->incTypes[2];
+        }
+
         warp->mapGroup = gRogueTypeToEliteRoom[type].group;
         warp->mapNum = gRogueTypeToEliteRoom[type].num;
     }
