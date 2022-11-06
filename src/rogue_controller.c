@@ -5074,7 +5074,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             {
                 // Include berries from collected quests
                 u16 i, j;
-                RogueQuery_ItemsExcludeRange(ITEM_NONE, ITEMS_COUNT);
+                RogueQuery_ExcludeAll();
 
                 for(i = 0; i < QUEST_CAPACITY; ++i)
                 {
@@ -5100,6 +5100,23 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
                 *minSalePrice = 2000;
             }
+            break;
+
+            
+        case ROGUE_SHOP_CHARMS:
+            {
+                // Include berries from collected quests
+                u16 i, j;
+                RogueQuery_ExcludeAll();
+
+                #ifdef ROGUE_DEBUG
+                // Normally we only can buy curse items
+                RogueQuery_IncludeRange(FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
+                #endif
+
+                RogueQuery_IncludeRange(FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
+            }
+            *minSalePrice = 0;
             break;
     };
 

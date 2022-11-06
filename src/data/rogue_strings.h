@@ -70,44 +70,45 @@ const u8 gText_TrainerName_Pokabbie[] = _("POKABBIE'S DITTO");
 const u8 gText_ItemLinkCable[] = _("Link Cable");
 const u8 gText_ItemQuestLog[] = _("Quest Log");
 
-const u8 gText_ItemShoppingCharm[] = _("Shop Price Charm");
+const u8 gText_ItemShoppingCharm[] = _("Discount Charm");
 const u8 gText_ItemFlinchCharm[] = _("Flinch Charm");
 const u8 gText_ItemCritCharm[] = _("Crit Charm");
 const u8 gText_ItemShedSkinCharm[] = _("Shed Skin Charm");
 const u8 gText_ItemWildIVCharm[] = _("Strength Charm");
 const u8 gText_ItemCatchingCharm[] = _("Catching Charm");
-const u8 gText_ItemGraceCharm[] = _("Serene Grace Charm");
+const u8 gText_ItemGraceCharm[] = _("Grace Charm");
 
-const u8 gText_ItemShoppingCurse[] = _("Shop Price Curse");
+const u8 gText_ItemShoppingCurse[] = _("Discount Curse");
 const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
 const u8 gText_ItemCritCurse[] = _("Crit Curse");
 const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
 const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
-const u8 gText_ItemGraceCurse[] = _("Serene Grace Curse");
+const u8 gText_ItemGraceCurse[] = _("Grace Curse");
 
 #else
 
 const u8 gText_ItemLinkCable[] = _("LINK CABLE");
 const u8 gText_ItemQuestLog[] = _("QUEST LOG");
 
-const u8 gText_ItemShoppingCharm[] = _("SHOP PRICE CHARM");
+const u8 gText_ItemShoppingCharm[] = _("DISCOUNT CHARM");
 const u8 gText_ItemFlinchCharm[] = _("FLINCH CHARM");
 const u8 gText_ItemCritCharm[] = _("CRIT CHARM");
 const u8 gText_ItemShedSkinCharm[] = _("SHED SKIN CHARM");
 const u8 gText_ItemWildIVCharm[] = _("STRENGTH CHARM");
 const u8 gText_ItemCatchingCharm[] = _("CATCHING CHARM");
-const u8 gText_ItemGraceCharm[] = _("SERENE GRACE CHARM");
+const u8 gText_ItemGraceCharm[] = _("GRACE CHARM");
 
-const u8 gText_ItemShoppingCurse[] = _("SHOP PRICE CURSE");
+const u8 gText_ItemShoppingCurse[] = _("DISCOUNT CURSE");
 const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
 const u8 gText_ItemCritCurse[] = _("CRIT CURSE");
 const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
 const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
-const u8 gText_ItemGraceCurse[] = _("SERENE GRACE CURSE");
+const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
 
 #endif
+
 
 const u8 gText_ItemPlaceholderDesc[] = _(
     "Placeholder\n"
@@ -127,6 +128,75 @@ const u8 gText_ItemQuestLogDesc[] = _(
     "A digital log for\n"
     "tracking Quests\n"
     "and their rewards.");
+
+
+const u8 sItemShoppingCharmDesc[] = _(
+    "Shop prices are\n"
+    "reduced by 20%");
+
+const u8 sItemFlinchCharmDesc[] = _(
+    "Friendly moves\n"
+    "have an extra 10%\n"
+    "chance to flinch.");
+
+const u8 sItemCritCharmDesc[] = _(
+    "Friendly POKéMON\n"
+    "have an extra stage\n"
+    "for crit rate.");
+
+const u8 sItemShedSkinCharmDesc[] = _(
+    "Friendly POKéMON\n"
+    "have a 20% chance\n"
+    "to cure status.");
+
+const u8 sItemWildIVCharmDesc[] = _(
+    "Caught POKéMON are\n"
+    "slightly stronger.");
+
+const u8 sItemCatchingCharmDesc[] = _(
+    "BALL effectiveness\n"
+    "is increased by\n"
+    "100%.");
+
+const u8 sItemGraceCharmDesc[] = _(
+    "Friendly moves\n"
+    "have an extra 75%\n"
+    "for extra effects.");
+    
+    
+const u8 sItemShoppingCurseDesc[] = _(
+    "Shop prices are\n"
+    "increased by 20%");
+
+
+const u8 sItemFlinchCurseDesc[] = _(
+    "Opponent moves\n"
+    "have an extra 10%\n"
+    "chance to flinch.");
+
+const u8 sItemCritCurseDesc[] = _(
+    "Opponent POKéMON\n"
+    "have an extra stage\n"
+    "for crit rate.");
+
+const u8 sItemShedSkinCurseDesc[] = _(
+    "Opponent POKéMON\n"
+    "have a 20% chance\n"
+    "to cure status.");
+
+const u8 sItemWildIVCurseDesc[] = _(
+    "Caught POKéMON are\n"
+    "slightly weaker.");
+
+const u8 sItemCatchingCurseDesc[] = _(
+    "BALL effectiveness\n"
+    "is decreased by\n"
+    "50%.");
+
+const u8 sItemGraceCurseDesc[] = _(
+    "Opponent moves\n"
+    "have an extra 75%\n"
+    "for extra effects.");
 
 // Quest Log
 //

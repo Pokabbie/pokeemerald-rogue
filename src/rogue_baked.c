@@ -978,6 +978,22 @@ extern const u8 gText_ItemWildIVCurse[];
 extern const u8 gText_ItemCatchingCurse[];
 extern const u8 gText_ItemGraceCurse[];
 
+extern const u8 sItemShoppingCharmDesc[];
+extern const u8 sItemFlinchCharmDesc[];
+extern const u8 sItemCritCharmDesc[];
+extern const u8 sItemShedSkinCharmDesc[];
+extern const u8 sItemWildIVCharmDesc[];
+extern const u8 sItemCatchingCharmDesc[];
+extern const u8 sItemGraceCharmDesc[];
+
+extern const u8 sItemShoppingCurseDesc[];
+extern const u8 sItemFlinchCurseDesc[];
+extern const u8 sItemCritCurseDesc[];
+extern const u8 sItemShedSkinCurseDesc[];
+extern const u8 sItemWildIVCurseDesc[];
+extern const u8 sItemCatchingCurseDesc[];
+extern const u8 sItemGraceCurseDesc[];
+
 extern const u8 gText_ItemPlaceholderDesc[];
 extern const u8 gText_ItemQuestLogDesc[];
 extern const u8 gText_EscapeRopeDesc[];
@@ -1084,14 +1100,68 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->registrability = FALSE;
         outItem->pocket = POCKET_KEY_ITEMS;
         outItem->type = ITEM_USE_FIELD;
+        outItem->holdEffect = 0;
         outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
     }
 
-    // TODO - Custom desc
+    // Custom desc for charms/curses
     switch(itemId)
     {
         case ITEM_SHOP_PRICE_CHARM:
-            outItem->description = gText_ItemPlaceholderDesc;
+            outItem->description = sItemShoppingCharmDesc;
+            break;
+
+        case ITEM_FLINCH_CHARM:
+            outItem->description = sItemFlinchCharmDesc;
+            break;
+
+        case ITEM_CRIT_CHARM:
+            outItem->description = sItemCritCharmDesc;
+            break;
+
+        case ITEM_SHED_SKIN_CHARM:
+            outItem->description = sItemShedSkinCharmDesc;
+            break;
+
+        case ITEM_WILD_IV_CHARM:
+            outItem->description = sItemWildIVCharmDesc;
+            break;
+
+        case ITEM_CATCHING_CHARM:
+            outItem->description = sItemCatchingCharmDesc;
+            break;
+
+        case ITEM_GRACE_CHARM:
+            outItem->description = sItemGraceCharmDesc;
+            break;
+
+
+        case ITEM_SHOP_PRICE_CURSE:
+            outItem->description = sItemShoppingCurseDesc;
+            break;
+
+        case ITEM_FLINCH_CURSE:
+            outItem->description = sItemFlinchCurseDesc;
+            break;
+
+        case ITEM_CRIT_CURSE:
+            outItem->description = sItemCritCurseDesc;
+            break;
+
+        case ITEM_SHED_SKIN_CURSE:
+            outItem->description = sItemShedSkinCurseDesc;
+            break;
+
+        case ITEM_WILD_IV_CURSE:
+            outItem->description = sItemWildIVCurseDesc;
+            break;
+
+        case ITEM_CATCHING_CURSE:
+            outItem->description = sItemCatchingCurseDesc;
+            break;
+
+        case ITEM_GRACE_CURSE:
+            outItem->description = sItemGraceCurseDesc;
             break;
     }
 

@@ -184,8 +184,8 @@ Rogue_Encounter_Lab_Pokeball_GiveMon_Text_0:
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_Text_1:
 	.string "BIRCH: Sometimes the POKéMON manage\n"
-	.string "to pickup some items before I manage\l"
-	.string "to catch them$"
+	.string "to pickup some items before I catch\l"
+	.string "them$"
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_Text_2:
 	.string "And would you look at that!\p"

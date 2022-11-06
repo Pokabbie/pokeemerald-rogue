@@ -86,7 +86,7 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId)
             return itemCount * 10;
 
         case EFFECT_SERENE_GRACE_CHANCE:
-            return itemCount * 50;
+            return itemCount * 75;
     }
 
     return itemCount;

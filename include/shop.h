@@ -6,6 +6,7 @@ extern EWRAM_DATA struct ItemSlot gMartPurchaseHistory[3];
 enum
 {
     MART_TYPE_NORMAL, // normal mart
+    MART_TYPE_PURCHASE_ONLY, // normal mart, but can only buy
     MART_TYPE_DECOR,
     MART_TYPE_DECOR2,
 };
