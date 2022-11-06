@@ -5152,21 +5152,23 @@ Move_FOUL_PLAY:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET @Black colour
 	monbg ANIM_TARGET
+	fadetobg BG_DARK
+	waitbgfadein
 	setalpha 12, 8
 	launchtemplate gHorizontalLungeSpriteTemplate 0x2 0x2 0x4 0x4
 	delay 0x6
 	launchtemplate gFoulPlayImpactTemplate 0x2 0x4 0x0 0x0 0x1 0x1
 	launchtask AnimTask_ShakeMon 0x2 0x5 0x1 0x3 0x0 0x6 0x1
 	playsewithpan SE_M_VITAL_THROW SOUND_PAN_TARGET
-	launchtask AnimTask_BlendBattleAnimPal, 0xa, 0x5, (ANIM_PAL_BG | ANIM_PAL_ALL_BATTLERS), 0x3, 0xa, 0x0, 0x0
 	launchtemplate gFoulPlayRingTemplate 0x3 0x4 0x0 0x0 0x100 0x0
 	delay 0x8
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	launchtask AnimTask_BlendBattleAnimPal, 0xa, 0x5, (ANIM_PAL_BG | ANIM_PAL_ALL_BATTLERS), 0x3, 0xa, 0x0, 0x0
 	launchtemplate gFoulPlayRingTemplate 0x3 0x4 0x0 0x0 0x100 0x0
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	restorebg
+	waitbgfadein
 	end
 
 Move_SIMPLE_BEAM:
