@@ -244,6 +244,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
 #ifdef ROGUE_EXPANSION
+            case(EVO_SPECIFIC_MON_IN_PARTY):
+                outEvo->method = EVO_LEVEL;
+                outEvo->param = 20;
+                break;
+
             case(EVO_ITEM_HOLD_DAY):
             case(EVO_ITEM_HOLD_NIGHT):
                 outEvo->method = EVO_LEVEL_ITEM;
@@ -269,7 +274,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_TRADE_SPECIFIC_MON):
-                outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
+                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->param = ITEM_LINK_CABLE;
+                break;
+
+            case(EVO_LEVEL_RAIN):
+            case(EVO_LEVEL_DARK_TYPE_MON_IN_PARTY):
+                outEvo->method = EVO_LEVEL;
                 break;
 
             case(EVO_SPECIFIC_MAP):
