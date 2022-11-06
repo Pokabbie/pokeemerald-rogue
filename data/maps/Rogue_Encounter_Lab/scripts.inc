@@ -66,13 +66,15 @@ Rogue_Encounter_Lab_Pokeball_GiveMon::
 	message Rogue_Encounter_Lab_Pokeball_GiveMon_Text_0
 	waitmessage
 	waitfanfare
-	compare VAR_ROGUE_DIFFICULTY, 8
+	compare VAR_ROGUE_DIFFICULTY, 12
 	goto_if_ge Rogue_Encounter_Lab_Pokeball_GiveMon_2
+	compare VAR_ROGUE_DIFFICULTY, 8
+	goto_if_ge Rogue_Encounter_Lab_Pokeball_GiveMon_3
 	random 3
 Rogue_Encounter_Lab_Pokeball_GiveMon_1:
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_1
 	compare VAR_RESULT, 0
-	goto_if_eq Rogue_Encounter_Lab_Pokeball_GiveMon_5
+	goto_if_eq Rogue_Encounter_Lab_Pokeball_GiveMon_7
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_3
 	return
 
@@ -80,7 +82,11 @@ Rogue_Encounter_Lab_Pokeball_GiveMon_2:
 	setvar VAR_RESULT, 0
 	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
 
-Rogue_Encounter_Lab_Pokeball_GiveMon_5:
+Rogue_Encounter_Lab_Pokeball_GiveMon_3:
+	random 2
+	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
+
+Rogue_Encounter_Lab_Pokeball_GiveMon_7:
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_2
 	finditem VAR_ROGUE_ITEM5, 1
 	return
@@ -188,4 +194,4 @@ Rogue_Encounter_Lab_Pokeball_GiveMon_Text_2:
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_Text_3:
 	.string "It doesn't look like {STR_VAR_1} had\n"
-	.string "one though...$"
+	.string "one though.$"

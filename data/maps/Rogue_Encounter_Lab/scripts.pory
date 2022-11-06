@@ -87,12 +87,19 @@ script Rogue_Encounter_Lab_Pokeball_GiveMon
     waitmessage
     waitfanfare
 
-    if(var(VAR_ROGUE_DIFFICULTY) >= 8)
+    if(var(VAR_ROGUE_DIFFICULTY) >= 12)
     {
+        // Always give curse during champ segment
         setvar(VAR_RESULT, 0)
+    }
+    elif(var(VAR_ROGUE_DIFFICULTY) >= 8)
+    {
+        // 50% chance of curse
+        random(2)
     }
     else
     {
+        // 33% chance of curse
         random(3)
     }
 
@@ -104,7 +111,7 @@ script Rogue_Encounter_Lab_Pokeball_GiveMon
     }
     else
     {
-        msgbox(format("It doesn't look like {STR_VAR_1} had one though..."))
+        msgbox(format("It doesn't look like {STR_VAR_1} had one though."))
     }
 }
 
