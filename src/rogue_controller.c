@@ -5776,13 +5776,15 @@ static void RandomiseCharmItems(void)
     VarSet(VAR_ROGUE_ITEM4, itemBuffer[4]);
 
     // Curse Items
-    Rogue_SelectCurseItems(itemBuffer, 5);
+    //Rogue_SelectCurseItems(itemBuffer, 5);
+    // Rather than select the charms, we're just going to fill with the inverted version of the curses
+    // This lets us gaurentee that the slot is unique if we pick a different index
 
-    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0]);
-    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1]);
-    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2]);
-    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3]);
-    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4]);
+    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0] + ITEM_CHARM_CURSE_OFFSET);
+    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1] + ITEM_CHARM_CURSE_OFFSET);
+    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2] + ITEM_CHARM_CURSE_OFFSET);
+    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3] + ITEM_CHARM_CURSE_OFFSET);
+    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4] + ITEM_CHARM_CURSE_OFFSET);
 }
 
 #define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY

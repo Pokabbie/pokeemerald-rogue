@@ -1081,7 +1081,7 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             return OBJ_EVENT_GFX_CONTEST_JUDGE;
 
         case ADVPATH_ROOM_GRAVEYARD:
-            return OBJ_EVENT_GFX_HEX_MANIAC;
+            return OBJ_EVENT_GFX_DEVIL_MAN;
 
         case ADVPATH_ROOM_LAB:
             return OBJ_EVENT_GFX_PC;

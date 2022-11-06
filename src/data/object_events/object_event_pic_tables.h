@@ -2708,3 +2708,15 @@ static const struct SpriteFrameImage sPicTable_Glitch_Erma[] = {
 static const struct SpriteFrameImage sPicTable_PC[] = {
     obj_frame_tiles(gObjectEventPic_PC),
 };
+
+static const struct SpriteFrameImage sPicTable_DevilMan[] = {
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 0),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 1),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 2),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 3),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 4),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 5),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 6),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 7),
+    overworld_frame(gObjectEventPic_DevilMan, 2, 4, 8),
+};

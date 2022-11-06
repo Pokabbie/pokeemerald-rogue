@@ -306,17 +306,18 @@
 #define OBJ_EVENT_GFX_JOHTO_RED                  (OBJ_EVENT_GFX_VAR_F + 35)
 
 #define OBJ_EVENT_GFX_PC                         (OBJ_EVENT_GFX_VAR_F + 36)
+#define OBJ_EVENT_GFX_DEVIL_MAN                  (OBJ_EVENT_GFX_VAR_F + 37)
 
-#define OBJ_EVENT_GFX_BRENDAN_ALT                (OBJ_EVENT_GFX_VAR_F + 37)
-#define OBJ_EVENT_GFX_MAY_ALT                    (OBJ_EVENT_GFX_VAR_F + 38)
-#define OBJ_EVENT_GFX_RED_ALT                    (OBJ_EVENT_GFX_VAR_F + 39)
-#define OBJ_EVENT_GFX_LEAF_ALT                   (OBJ_EVENT_GFX_VAR_F + 40)
+#define OBJ_EVENT_GFX_BRENDAN_ALT                (OBJ_EVENT_GFX_VAR_F + 38)
+#define OBJ_EVENT_GFX_MAY_ALT                    (OBJ_EVENT_GFX_VAR_F + 39)
+#define OBJ_EVENT_GFX_RED_ALT                    (OBJ_EVENT_GFX_VAR_F + 40)
+#define OBJ_EVENT_GFX_LEAF_ALT                   (OBJ_EVENT_GFX_VAR_F + 41)
 
-#define OBJ_EVENT_GFX_GLITCH_KATE                (OBJ_EVENT_GFX_VAR_F + 41)
-#define OBJ_EVENT_GFX_GLITCH_ERMA                (OBJ_EVENT_GFX_VAR_F + 42)
+#define OBJ_EVENT_GFX_GLITCH_KATE                (OBJ_EVENT_GFX_VAR_F + 42)
+#define OBJ_EVENT_GFX_GLITCH_ERMA                (OBJ_EVENT_GFX_VAR_F + 43)
 //#define OBJ_EVENT_GFX_GLITCH_RAVEN               (OBJ_EVENT_GFX_VAR_F + 11)
 
-#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 43)
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_VAR_F + 44)
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1
