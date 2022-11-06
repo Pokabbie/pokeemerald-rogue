@@ -81,11 +81,12 @@
 #define PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE  (1 << 2)
 #define PARTY_FLAG_CUSTOM_INPUT_QUERY       (1 << 3) // Provides list of baby mons to feed into the generator
 #define PARTY_FLAG_CUSTOM_FINAL_QUERY       (1 << 4) // Provideds the final list of mons to pick from
-#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 5)
-#define PARTY_FLAG_MIRROR_EXACT             (1 << 6)
-#define PARTY_FLAG_MIRROR_SPECIES           (1 << 7)
-#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 8)
-#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 9)
+#define PARTY_FLAG_REGION_DEX_DISABLE_QUERY (1 << 5) // Custom query will be ignored when a regional dex is active
+#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 6)
+#define PARTY_FLAG_MIRROR_EXACT             (1 << 7)
+#define PARTY_FLAG_MIRROR_SPECIES           (1 << 8)
+#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 9)
+#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 10)
 #define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
 #define PARTY_FLAG_CUSTOM_QUERY_ANY         (PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_CUSTOM_FINAL_QUERY)
 

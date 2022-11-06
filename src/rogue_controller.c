@@ -3079,9 +3079,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
 
         if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
-            gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
-            gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
-            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
+            // Disable query if regional dex is active
+            if(VarGet(VAR_ROGUE_REGION_DEX_LIMIT) == 0 || !(trainer->partyFlags & PARTY_FLAG_REGION_DEX_DISABLE_QUERY) != 0)
+            {
+                gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
+                gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+                gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
+            }
         }
     }
     else if(IsMiniBossTrainer(trainerNum))
@@ -3103,9 +3107,13 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
 
         if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
         {
-            gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
-            gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
-            gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
+            // Disable query if regional dex is active
+            if(VarGet(VAR_ROGUE_REGION_DEX_LIMIT) == 0 || !(trainer->partyFlags & PARTY_FLAG_REGION_DEX_DISABLE_QUERY) != 0)
+            {
+                gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
+                gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
+                gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
+            }
         }
     }
     else
@@ -3343,7 +3351,7 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 
 static void ApplyTrainerQuery(u16 trainerNum)
 {
-    bool8 skipToEnd = TRUE;
+    bool8 skipToEnd = FALSE;
 
     // Query for the current trainer team
     RogueQuery_Clear();
