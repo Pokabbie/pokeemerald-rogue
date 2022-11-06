@@ -88,7 +88,7 @@ Rogue_Encounter_Lab_Pokeball_GiveMon_3:
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_7:
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_2
-	finditem VAR_ROGUE_ITEM5, 1
+	finditem VAR_ROGUE_ITEM10, 1
 	return
 
 

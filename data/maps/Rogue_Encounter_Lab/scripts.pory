@@ -107,7 +107,7 @@ script Rogue_Encounter_Lab_Pokeball_GiveMon
     if(var(VAR_RESULT) == 0)
     {
         msgbox(format("And would you look at that!\pIt looks like {STR_VAR_1} is holding something!"))
-        finditem(VAR_ROGUE_ITEM5, 1)
+        finditem(VAR_ROGUE_ITEM10, 1)
     }
     else
     {

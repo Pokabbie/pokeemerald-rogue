@@ -91,10 +91,11 @@ Rogue_Graveyard_SelectOption_Internal_2:
 	removeobject 1, MAP_ROGUE_ENCOUNTER_GRAVEYARD
 	removeobject 2, MAP_ROGUE_ENCOUNTER_GRAVEYARD
 	removeobject 3, MAP_ROGUE_ENCOUNTER_GRAVEYARD
+	special DoSealedChamberShakingEffect_Long
 	applymovement 4, Graveyard_Devil_Eyes
-	waitmovement 0
 	msgbox Rogue_Graveyard_SelectOption_Internal_Text_1, MSGBOX_DEFAULT
-	giveitem VAR_ROGUE_ITEM9, 1
+	waitmovement 0
+	giveitem VAR_ROGUE_ITEM10, 1
 	applymovement 4, Graveyard_Devil_Leave
 	waitmovement 0
 	removeobject 4, MAP_ROGUE_ENCOUNTER_GRAVEYARD

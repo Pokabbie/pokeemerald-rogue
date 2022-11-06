@@ -122,13 +122,15 @@ script Rogue_Graveyard_SelectOption_Internal {
         removeobject(NPC_BALL_1, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
         removeobject(NPC_BALL_2, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
 
+        special(DoSealedChamberShakingEffect_Long)
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Eyes)
-        waitmovement(0)
 
         msgbox(format("???: One... price..."), MSGBOX_DEFAULT)
 
+        waitmovement(0)
+
         // Give curse item which isn't one of the charm options
-        giveitem(VAR_ROGUE_ITEM9, 1)
+        giveitem(VAR_ROGUE_ITEM10, 1)
 
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Leave)
         waitmovement(0)

@@ -425,6 +425,29 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         {
             // Elite 4 back to normal catch rates
         }
+
+        // Apply charms
+        {
+            u16 rateInc = GetCharmValue(EFFECT_CATCH_RATE);
+            u16 rateDec = GetCurseValue(EFFECT_CATCH_RATE);
+            
+            if(rateInc > rateDec)
+            {
+                rateInc = rateInc - rateDec;
+                rateDec = 0;
+            }
+            else
+            {
+                rateDec = rateDec - rateInc;
+                rateInc = 0;
+            }
+
+            if(rateInc != 0)
+                *ballMultiplier = *ballMultiplier * (1 + rateInc);
+
+            if(rateDec != 0)
+                *ballMultiplier = max(*ballMultiplier / (1 + rateDec), 1);
+        }
 #endif
 
         // Equiv to Snorlax
@@ -5804,27 +5827,18 @@ static void RandomiseEnabledItems(void)
 
 static void RandomiseCharmItems(void)
 {
-    u16 itemBuffer[5];
+    u16 tempBuffer[5];
+    u16 tempBufferCount = 0;
 
     // Charm Items
-    Rogue_SelectCharmItems(itemBuffer, 5);
-
-    VarSet(VAR_ROGUE_ITEM0, itemBuffer[0]);
-    VarSet(VAR_ROGUE_ITEM1, itemBuffer[1]);
-    VarSet(VAR_ROGUE_ITEM2, itemBuffer[2]);
-    VarSet(VAR_ROGUE_ITEM3, itemBuffer[3]);
-    VarSet(VAR_ROGUE_ITEM4, itemBuffer[4]);
+    VarSet(VAR_ROGUE_ITEM0, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
+    VarSet(VAR_ROGUE_ITEM1, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
+    VarSet(VAR_ROGUE_ITEM2, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
 
     // Curse Items
-    //Rogue_SelectCurseItems(itemBuffer, 5);
-    // Rather than select the charms, we're just going to fill with the inverted version of the curses
-    // This lets us gaurentee that the slot is unique if we pick a different index
-
-    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0] + ITEM_CHARM_CURSE_OFFSET);
-    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1] + ITEM_CHARM_CURSE_OFFSET);
-    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2] + ITEM_CHARM_CURSE_OFFSET);
-    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3] + ITEM_CHARM_CURSE_OFFSET);
-    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4] + ITEM_CHARM_CURSE_OFFSET);
+    VarSet(VAR_ROGUE_ITEM10, Rogue_NextCurseItem(tempBuffer, tempBufferCount++));
+    //VarSet(VAR_ROGUE_ITEM11, Rogue_NextCurseItem(tempBuffer, 4));
+    //VarSet(VAR_ROGUE_ITEM12, Rogue_NextCurseItem(tempBuffer, 5));
 }
 
 #define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY
