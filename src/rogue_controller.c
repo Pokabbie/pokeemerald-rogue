@@ -1906,6 +1906,58 @@ static void EndRogueRun(void)
 
     // Grow berries based on progress in runs
     BerryTreeTimeUpdate(90 * gRogueRun.currentRoomIdx);
+
+    // Bug Fix
+    // In past version the bag could glitch out and people could lose access to HMs, so we're going to forcefully give them back here
+    {
+        if(IsQuestCollected(QUEST_Gym1))
+        {
+            if(!CheckBagHasItem(ITEM_HM01_CUT, 1))
+                AddBagItem(ITEM_HM01_CUT, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym2))
+        {
+            if(!CheckBagHasItem(ITEM_HM05_FLASH, 1))
+                AddBagItem(ITEM_HM05_FLASH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym3))
+        {
+            if(!CheckBagHasItem(ITEM_HM06_ROCK_SMASH, 1))
+                AddBagItem(ITEM_HM06_ROCK_SMASH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym4))
+        {
+            if(!CheckBagHasItem(ITEM_HM04_STRENGTH, 1))
+                AddBagItem(ITEM_HM04_STRENGTH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym5))
+        {
+            if(!CheckBagHasItem(ITEM_HM08_DIVE, 1))
+                AddBagItem(ITEM_HM08_DIVE, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym6))
+        {
+            if(!CheckBagHasItem(ITEM_HM02_FLY, 1))
+                AddBagItem(ITEM_HM02_FLY, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym7))
+        {
+            if(!CheckBagHasItem(ITEM_HM07_WATERFALL, 1))
+                AddBagItem(ITEM_HM07_WATERFALL, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym8))
+        {
+            if(!CheckBagHasItem(ITEM_HM03_SURF, 1))
+                AddBagItem(ITEM_HM03_SURF, 1);
+        }
+    }
 }
 
 static u16 GetBossHistoryKey(u16 bossId)
@@ -1921,7 +1973,7 @@ static u16 GetBossHistoryKey(u16 bossId)
 
     // None type trainers are unqiue, so we don't care about the type repeat
     if(type == TYPE_NONE)
-        return bossId;
+        return NUMBER_OF_MON_TYPES + bossId;
 
     return type;
 }
