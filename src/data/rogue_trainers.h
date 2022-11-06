@@ -310,7 +310,7 @@ static const u16 sQuerySpecies_Kate[] =
     SPECIES_GARBODOR,
     SPECIES_AMOONGUSS,
     SPECIES_JELLICENT,
-    SPECIES_CHANGELURE,
+    SPECIES_CHANDELURE,
     SPECIES_HAXORUS,
     SPECIES_BISHARP,
     SPECIES_GOLURK,
@@ -388,7 +388,7 @@ static const u16 sQuerySpecies_Erma[] =
     SPECIES_JIRACHI,
 
 #ifdef ROGUE_EXPANSION
-    SPECIES_SANDLASH_ALOLAN,
+    SPECIES_SANDSLASH_ALOLAN,
     SPECIES_NINETALES_ALOLAN,
     SPECIES_RAPIDASH_GALARIAN,
 
@@ -396,11 +396,11 @@ static const u16 sQuerySpecies_Erma[] =
     SPECIES_LUXRAY,
     SPECIES_ROSERADE,
     SPECIES_RAMPARDOS,
-    SPECIES_VESPIQUEEN,
+    SPECIES_VESPIQUEN,
     SPECIES_PACHIRISU,
     SPECIES_LOPUNNY,
     SPECIES_MISMAGIUS,
-    SPECIES_SPRITOMB,
+    SPECIES_SPIRITOMB,
     SPECIES_GARCHOMP,
     SPECIES_DRAPION,
     SPECIES_MAGNEZONE,
@@ -424,12 +424,12 @@ static const u16 sQuerySpecies_Erma[] =
     SPECIES_ZOROARK,
     SPECIES_EMOLGA,
     SPECIES_FERROTHORN,
-    SPECIES_ELEKTROSS,
+    SPECIES_EELEKTROSS,
     SPECIES_CHANDELURE,
     SPECIES_MIENSHAO,
     SPECIES_BISHARP,
     SPECIES_HYDREIGON,
-    SPECIES_VOLCARON,
+    SPECIES_VOLCARONA,
     SPECIES_RESHIRAM,
     SPECIES_MELOETTA,
 
@@ -598,7 +598,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
@@ -609,7 +609,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
@@ -620,7 +620,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
@@ -631,7 +631,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
@@ -642,7 +642,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
@@ -653,7 +653,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
@@ -664,7 +664,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
@@ -675,7 +675,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
 
     // Kanto Elite 4
@@ -687,7 +687,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
@@ -697,7 +697,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
@@ -707,7 +707,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
@@ -717,7 +717,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
         .querySpecies = sQuerySpecies_Kanto,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
     },
 
     // Kanto Champs
@@ -729,7 +729,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
         .querySpecies = sQuerySpecies_Blue,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Blue),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE | PARTY_FLAG_UNIQUE_COVERAGE,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE | PARTY_FLAG_UNIQUE_COVERAGE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
@@ -739,7 +739,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
         .querySpecies = sQuerySpecies_ProfOak,
         .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_ProfOak),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_UNIQUE_COVERAGE,
+        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_UNIQUE_COVERAGE,
     },
 
     // Johto gyms
