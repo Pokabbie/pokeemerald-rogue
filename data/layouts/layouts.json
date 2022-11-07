@@ -4574,8 +4574,8 @@
     {
       "id": "LAYOUT_ROGUE_ENCOUNTER_REST_STOP",
       "name": "Rogue_Encounter_RestStop_Layout",
-      "width": 22,
-      "height": 21,
+      "width": 24,
+      "height": 22,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Encounter_RestStop/border.bin",
