@@ -113,7 +113,8 @@
 #define QUEST_RegionMode_Last       QUEST_GlitchMode
 #endif
 #define QUEST_DevilDeal             (QUEST_RegionMode_Last + 1)
-#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 2)
+#define QUEST_LegendOnly            (QUEST_RegionMode_Last + 2)
+#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 3)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_LAST QUEST_Hardcore4

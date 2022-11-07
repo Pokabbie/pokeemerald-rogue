@@ -299,6 +299,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
+        },
+        .unlockedQuests = { 
+            QUEST_LegendOnly
         }
     },
 
@@ -455,6 +458,20 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksCurseStart },
         },
+    },
+    
+    [QUEST_LegendOnly] = 
+    {
+        .title = _("Apotheosis"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever using legendary\n"
+                    "POKéMON."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksCurseStart },
+        }
     },
 
     [QUEST_WobFate] = 
