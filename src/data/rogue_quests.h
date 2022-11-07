@@ -9,6 +9,7 @@ static const u8 gText_GiveUnlocksTutors[] = _("New HUB Unlocks:\nMove Tutors!");
 static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
+static const u8 gText_GiveUnlocksBallSwitch[] = _("New HUB Unlocks:\nPOKé BALL swapper!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("Safari Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("New Safari Upgrade:\nLegendary POKéMON can now appear!");
@@ -469,8 +470,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "POKéMON."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksCurseStart },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBallSwitch },
         }
     },
 

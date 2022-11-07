@@ -576,6 +576,14 @@ void Rogue_ApplyBerryTreat(void)
     }
 }
 
+void Rogue_ChangeMonBall(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+    u16 itemId = gSpecialVar_ItemId;
+
+    SetMonData(&gPlayerParty[monIdx], MON_DATA_POKEBALL, &itemId);
+}
+
 void Rogue_GetBufferedShinySpecies(void)
 {
     u16 i;

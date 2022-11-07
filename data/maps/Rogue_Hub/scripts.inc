@@ -76,8 +76,13 @@ RogueHub_OnMapLoad_30:
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_OnMapLoad_35
 RogueHub_OnMapLoad_34:
+	questcollected QUEST_LegendOnly
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_39
+	clearflag FLAG_ROGUE_TRAINER9
+RogueHub_OnMapLoad_38:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_38
+	goto_if_gt RogueHub_OnMapLoad_42
 	return
 
 RogueHub_OnMapLoad_2:
@@ -135,7 +140,11 @@ RogueHub_OnMapLoad_35:
 	fillmetatile 31, 31, 37, 36, 0x001, FALSE
 	goto RogueHub_OnMapLoad_34
 
-RogueHub_OnMapLoad_38:
+RogueHub_OnMapLoad_39:
+	setflag FLAG_ROGUE_TRAINER9
+	goto RogueHub_OnMapLoad_38
+
+RogueHub_OnMapLoad_42:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 
@@ -664,6 +673,43 @@ RogueHub_ListSafariShinies_7:
 	goto RogueHub_ListSafariShinies_6
 
 
+RogueHub_ChangeMonBall::
+	lock
+	faceplayer
+	setvar VAR_0x8004, 0
+	special BufferMonNickname
+	msgbox RogueHub_ChangeMonBall_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_ChangeMonBall_2
+RogueHub_ChangeMonBall_1:
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_ChangeMonBall_5
+RogueHub_ChangeMonBall_4:
+	release
+	return
+
+RogueHub_ChangeMonBall_2:
+	msgbox RogueHub_ChangeMonBall_Text_1
+	fadescreen FADE_TO_BLACK
+	special Bag_ChooseBall
+	waitstate
+	compare VAR_ITEM_ID, 0
+	goto_if_eq RogueHub_ChangeMonBall_7
+	removeitem VAR_ITEM_ID, 1
+	special Rogue_ChangeMonBall
+	msgbox RogueHub_ChangeMonBall_Text_2, MSGBOX_DEFAULT
+	setvar VAR_RESULT, YES
+	goto RogueHub_ChangeMonBall_1
+
+RogueHub_ChangeMonBall_5:
+	msgbox RogueHub_ChangeMonBall_Text_3, MSGBOX_DEFAULT
+	goto RogueHub_ChangeMonBall_4
+
+RogueHub_ChangeMonBall_7:
+	setvar VAR_RESULT, NO
+	goto RogueHub_ChangeMonBall_1
+
+
 RogueHub_HintQuickRun1::
 	lockall
 	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
@@ -964,6 +1010,21 @@ RogueHub_ListSafariShinies_Text_2:
 
 RogueHub_ListSafariShinies_Text_3:
 	.string "That's the end of the list.$"
+
+RogueHub_ChangeMonBall_Text_0:
+	.string "Well hey there!\p"
+	.string "I can change the POKéBALL of\n"
+	.string "{STR_VAR_1} if you'd like?$"
+
+RogueHub_ChangeMonBall_Text_1:
+	.string "Which type of BALL should I change it\n"
+	.string "to?$"
+
+RogueHub_ChangeMonBall_Text_2:
+	.string "And it's done!$"
+
+RogueHub_ChangeMonBall_Text_3:
+	.string "Oh... OK...$"
 
 RogueHub_HintQuickRun1_Text_0:
 	.string "I'm double tapping B to run super fast!\p"
