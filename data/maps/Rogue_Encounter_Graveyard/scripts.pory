@@ -136,6 +136,8 @@ script Rogue_Graveyard_SelectOption_Internal {
         waitmovement(0)
 
         removeobject(NPC_DEVIL_MAN, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
+
+        completequest(QUEST_DevilDeal)
     }
 
     releaseall

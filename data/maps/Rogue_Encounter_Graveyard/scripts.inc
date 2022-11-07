@@ -99,6 +99,7 @@ Rogue_Graveyard_SelectOption_Internal_2:
 	applymovement 4, Graveyard_Devil_Leave
 	waitmovement 0
 	removeobject 4, MAP_ROGUE_ENCOUNTER_GRAVEYARD
+	completequest QUEST_DevilDeal
 	goto Rogue_Graveyard_SelectOption_Internal_1
 
 

@@ -11,6 +11,7 @@ mapscripts Rogue_HubTransition_MapScripts
     [
         VAR_TEMP_1, 0: Rogue_HubTransition_OnEnter
     ]
+    MAP_SCRIPT_ON_LOAD: Rogue_HubTransition_OnLoad
 }
 
 script Rogue_HubTransition_OnEnter
@@ -29,6 +30,15 @@ script Rogue_HubTransition_OnEnter
     release
     setvar(VAR_TEMP_1, 1)
     end
+}
+
+script Rogue_HubTransition_OnLoad
+{
+    questcollected(QUEST_DevilDeal)
+    if(var(VAR_RESULT) == NO)
+    {
+        setflag(FLAG_TEMP_1)
+    }
 }
 
 script Rogue_HubTransition_RandomMan

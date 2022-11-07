@@ -1,4 +1,5 @@
 Rogue_HubTransition_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Rogue_HubTransition_OnLoad
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
@@ -28,6 +29,17 @@ Rogue_HubTransition_OnEnter_2:
 Rogue_HubTransition_OnEnter_3:
 	msgbox Rogue_HubTransition_OnEnter_Text_1
 	goto Rogue_HubTransition_OnEnter_1
+
+
+Rogue_HubTransition_OnLoad::
+	questcollected QUEST_DevilDeal
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_HubTransition_OnLoad_1
+	return
+
+Rogue_HubTransition_OnLoad_1:
+	setflag FLAG_TEMP_1
+	return
 
 
 Rogue_HubTransition_RandomMan::
