@@ -5045,6 +5045,20 @@ static bool32 TryKnockOffBattleScript(u32 battlerDef)
     return FALSE;
 }
 
+static u32 GetNextTarget(u32 moveTarget)
+{
+    u32 i;
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        if (i != gBattlerAttacker
+            && IsBattlerAlive(i)
+            && !(gBattleStruct->targetsDone[gBattlerAttacker] & gBitTable[i])
+            && (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) || moveTarget == MOVE_TARGET_FOES_AND_ALLY))
+                break;
+    }
+    return i;
+}
+
 static void Cmd_moveend(void)
 {
     s32 i;
@@ -5437,6 +5451,7 @@ static void Cmd_moveend(void)
              && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
                 gProtectStructs[gBattlerAttacker].targetAffected = TRUE;
         
+            gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[gBattlerTarget];
             if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
                 && gBattleTypeFlags & BATTLE_TYPE_DOUBLE
                 && !gProtectStructs[gBattlerAttacker].chargingTurn
@@ -5444,28 +5459,12 @@ static void Cmd_moveend(void)
                     || moveTarget == MOVE_TARGET_FOES_AND_ALLY)
                 && !(gHitMarker & HITMARKER_NO_ATTACKSTRING))
             {
-                u8 battlerId;
+                u32 nextTarget = GetNextTarget(moveTarget);
+                gHitMarker |= HITMARKER_NO_PPDEDUCT;
 
-                if (moveTarget == MOVE_TARGET_FOES_AND_ALLY)
+                if (nextTarget != MAX_BATTLERS_COUNT)
                 {
-                    gHitMarker |= HITMARKER_NO_PPDEDUCT;
-                    for (battlerId = gBattlerTarget + 1; battlerId < gBattlersCount; battlerId++)
-                    {
-                        if (battlerId == gBattlerAttacker)
-                            continue;
-                        if (IsBattlerAlive(battlerId))
-                            break;
-                    }
-                }
-                else
-                {
-                    battlerId = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerTarget)));
-                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                }
-
-                if (IsBattlerAlive(battlerId))
-                {
-                    gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = battlerId; // Fix for moxie spread moves
+                    gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget; // Fix for moxie spread moves
                     gBattleScripting.moveendState = 0;
                     MoveValuesCleanUp();
                     gBattleScripting.moveEffect = gBattleScripting.savedMoveEffect;
@@ -5473,11 +5472,31 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
                     return;
                 }
-                else
+                // Check if the move used was actually a bounced move. If so, we need to go back to the original attacker and make sure, its move hits all 2 or 3 pokemon.
+                else if (gProtectStructs[gBattlerAttacker].usesBouncedMove)
                 {
-                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                    gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
+                    u8 originalBounceTarget = gBattlerAttacker;
+                    gBattlerAttacker = gBattleStruct->attackerBeforeBounce;
+                    gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[originalBounceTarget];
+                    gBattleStruct->targetsDone[originalBounceTarget] = 0;
+
+                    nextTarget = GetNextTarget(moveTarget);
+                    if (nextTarget != MAX_BATTLERS_COUNT)
+                    {
+                        // We found another target for the original move user.
+                        gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget;
+                        gBattleScripting.moveendState = 0;
+                        gBattleScripting.animTurn = 0;
+                        gBattleScripting.animTargetsHit = 0;
+                        MoveValuesCleanUp();
+                        BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
+                        gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
+                        return;
+                    }
                 }
+
+                gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+                gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
             }
             RecordLastUsedMoveBy(gBattlerAttacker, gCurrentMove);
             gBattleScripting.moveendState++;
@@ -5691,6 +5710,7 @@ static void Cmd_moveend(void)
                 CancelMultiTurnMoves(gBattlerAttacker); // Cancel it
             #endif
 
+            gBattleStruct->targetsDone[gBattlerAttacker] = 0;
             gProtectStructs[gBattlerAttacker].usesBouncedMove = FALSE;
             gProtectStructs[gBattlerAttacker].targetAffected = FALSE;
             gBattleStruct->ateBoost[gBattlerAttacker] = 0;
@@ -8113,6 +8133,7 @@ static void Cmd_various(void)
         CancelMultiTurnMoves(gActiveBattler);
         break;
     case VARIOUS_SET_MAGIC_COAT_TARGET:
+        gBattleStruct->attackerBeforeBounce = gActiveBattler;
         gBattlerAttacker = gBattlerTarget;
         side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
         if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove))
