@@ -6667,15 +6667,17 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
         return &gMonPaletteTable[species];
 }
 
-bool32 IsHMMove2(u16 move)
+bool32 IsHMMove2_LearnReplaceCheck(u16 move)
 {
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i++] == move)
-            return TRUE;
-    }
+    // RogueNote: Always allow teach over
     return FALSE;
+    //int i = 0;
+    //while (sHMMoves[i] != HM_MOVES_END)
+    //{
+    //    if (sHMMoves[i++] == move)
+    //        return TRUE;
+    //}
+    //return FALSE;
 }
 
 bool32 CanUseHMMove2(u16 move)
