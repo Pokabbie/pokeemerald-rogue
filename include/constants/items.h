@@ -856,7 +856,7 @@
 // Charms
 #define ITEM_OVAL_CHARM 690
 #define ITEM_SHINY_CHARM 691
-#define ITEM_CATCHING_CHARM 692
+#define ITEM_CATCHING_CHARM_OLD 692
 #define ITEM_EXP_CHARM 693
 
 // Form-changing Key Items

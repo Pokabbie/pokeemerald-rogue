@@ -14489,8 +14489,8 @@ static bool32 CriticalCapture(u32 odds)
         else
             odds = (odds * 250) / 100;
 
-        #ifdef ITEM_CATCHING_CHARM
-        if (CheckBagHasItem(ITEM_CATCHING_CHARM, 1))
+        #ifdef ITEM_CATCHING_CHARM_OLD
+        if (CheckBagHasItem(ITEM_CATCHING_CHARM_OLD, 1))
             odds = (odds * (100 + B_CATCHING_CHARM_BOOST)) / 100;
         #endif
 

@@ -9165,10 +9165,10 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_CATCHING_CHARM] =
+    [ITEM_CATCHING_CHARM_OLD] =
     {
         .name = _("CatchngCharm"),
-        .itemId = ITEM_CATCHING_CHARM,
+        .itemId = ITEM_CATCHING_CHARM_OLD,
         .price = 0,
         .importance = 1,
         .description = sCatchingCharmDesc,

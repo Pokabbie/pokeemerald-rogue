@@ -733,7 +733,7 @@ const u32 *const gItemIconTable[][2] =
     // Charms
     [ITEM_OVAL_CHARM] = {gItemIcon_OvalCharm, gItemIconPalette_OvalCharm},
     [ITEM_SHINY_CHARM] = {gItemIcon_ShinyCharm, gItemIconPalette_ShinyCharm},
-    [ITEM_CATCHING_CHARM] = {gItemIcon_CatchingCharm, gItemIconPalette_CatchingCharm},
+    [ITEM_CATCHING_CHARM_OLD] = {gItemIcon_CatchingCharm, gItemIconPalette_CatchingCharm},
     [ITEM_EXP_CHARM] = {gItemIcon_ExpCharm, gItemIconPalette_ExpCharm},
     // Form-changing Key Items
     [ITEM_ROTOM_CATALOG] = {gItemIcon_RotomCatalog, gItemIconPalette_RotomCatalog},
