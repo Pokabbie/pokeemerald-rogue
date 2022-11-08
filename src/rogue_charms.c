@@ -8,6 +8,90 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 
+static u16 EffectToCharmItem(u8 effectType)
+{
+    switch(effectType)
+    {
+        case EFFECT_SHOP_PRICE:
+            return ITEM_SHOP_PRICE_CHARM;
+
+        case EFFECT_FLINCH_CHANCE:
+            return ITEM_FLINCH_CHARM;
+
+        case EFFECT_CRIT_CHANCE:
+            return ITEM_CRIT_CHARM;
+
+        case EFFECT_SHED_SKIN_CHANCE:
+            return ITEM_SHED_SKIN_CHARM;
+
+        case EFFECT_WILD_IV_RATE:
+            return ITEM_WILD_IV_CHARM;
+
+        case EFFECT_CATCH_RATE:
+            return ITEM_CATCHING_CHARM;
+
+        case EFFECT_SERENE_GRACE_CHANCE:
+            return ITEM_GRACE_CHARM;
+    }
+
+    return ITEM_NONE;
+}
+
+static u16 EffectToCurseItem(u8 effectType)
+{
+    switch(effectType)
+    {
+        case EFFECT_SHOP_PRICE:
+            return ITEM_SHOP_PRICE_CURSE;
+
+        case EFFECT_FLINCH_CHANCE:
+            return ITEM_FLINCH_CURSE;
+
+        case EFFECT_CRIT_CHANCE:
+            return ITEM_CRIT_CURSE;
+
+        case EFFECT_SHED_SKIN_CHANCE:
+            return ITEM_SHED_SKIN_CURSE;
+
+        case EFFECT_WILD_IV_RATE:
+            return ITEM_WILD_IV_CURSE;
+
+        case EFFECT_CATCH_RATE:
+            return ITEM_CATCHING_CURSE;
+
+        case EFFECT_SERENE_GRACE_CHANCE:
+            return ITEM_GRACE_CURSE;
+    }
+
+    return ITEM_NONE;
+}
+
+static u16 CalcValueInternal(u8 effectType, u16 itemId)
+{
+    u16 itemCount = (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId));
+
+    // Custom rate scaling
+    switch(effectType)
+    {
+        case EFFECT_SHOP_PRICE:
+            return itemCount * 20;
+
+        case EFFECT_FLINCH_CHANCE:
+            return min(itemCount, 9) * 10;
+
+        case EFFECT_SHED_SKIN_CHANCE:
+            return min(itemCount, 5) * 20;
+
+        case EFFECT_WILD_IV_RATE:
+            return itemCount * 10;
+
+        case EFFECT_SERENE_GRACE_CHANCE:
+            return itemCount * 75;
+    }
+
+    return itemCount;
+}
+
 bool8 IsCharmActive(u8 effectType)
 {
     return GetCharmValue(effectType) != 0;
@@ -20,60 +104,12 @@ bool8 IsCurseActive(u8 effectType)
 
 u16 GetCharmValue(u8 effectType)
 {
-    u16 count;
-
-    switch(effectType)
-    {
-        case EFFECT_SHOP_PRICE:
-            return GetItemCountInBag(ITEM_SHOP_PRICE_CHARM) * 20;
-
-        case EFFECT_FLINCH_CHANCE:
-            return min(GetItemCountInBag(ITEM_FLINCH_CHARM), 9) * 10;
-
-        case EFFECT_CRIT_CHANCE:
-            count = GetItemCountInBag(ITEM_CRIT_CHARM);
-
-            if(count != 0)
-            {
-                // Free focus energy + extra stages
-                return 2 + (count - 1);
-            }
-            break;
-
-        case EFFECT_SHED_SKIN_CHANCE:
-            return min(GetItemCountInBag(ITEM_SHED_SKIN_CHARM), 5) * 20;
-    }
-
-    return 0;
+    return CalcValueInternal(effectType, EffectToCharmItem(effectType));
 }
 
 u16 GetCurseValue(u8 effectType)
 {
-    u16 count;
-
-    switch(effectType)
-    {
-        case EFFECT_SHOP_PRICE:
-            return GetItemCountInBag(ITEM_SHOP_PRICE_CURSE) * 20;
-
-        case EFFECT_FLINCH_CHANCE:
-            return min(GetItemCountInBag(ITEM_FLINCH_CURSE), 9) * 10;
-
-        case EFFECT_CRIT_CHANCE:
-            count = GetItemCountInBag(ITEM_CRIT_CURSE);
-
-            if(count != 0)
-            {
-                // Free focus energy + extra stages
-                return 2 + (count - 1);
-            }
-            break;
-
-        case EFFECT_SHED_SKIN_CHANCE:
-            return min(GetItemCountInBag(ITEM_SHED_SKIN_CURSE), 5) * 20;
-    }
-
-    return 0;
+    return CalcValueInternal(effectType, EffectToCurseItem(effectType));
 }
 
 static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)
@@ -89,30 +125,36 @@ static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)
     return FALSE;
 }
 
-static void SelectCharmItemInternal(u16* outBuffer, u16 outCount, u16 firstItem, u16 lastItem)
+u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount)
 {
-    u16 i;
+    u8 effectType;
     u16 itemId;
-    u16 itemCount = (lastItem - firstItem + 1);
 
-    for(i = 0; i < outCount; ++i)
+    do
     {
-        do
-        {
-            itemId = firstItem + Random() % itemCount;
-        }
-        while(i < itemCount && BufferContainsValue(outBuffer, i, itemId));
-
-        outBuffer[i] = itemId;
+        effectType = Random() % EFFECT_COUNT;
+        itemId = EffectToCharmItem(effectType);
     }
+    while(itemId == ITEM_NONE || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
+
+    historyBuffer[historyBufferCount] = effectType;
+
+    return itemId;
 }
 
-void Rogue_SelectCharmItems(u16* outBuffer, u16 count)
+u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount)
 {
-    SelectCharmItemInternal(outBuffer, count, FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
-}
+    u8 effectType;
+    u16 itemId;
 
-void Rogue_SelectCurseItems(u16* outBuffer, u16 count)
-{
-    SelectCharmItemInternal(outBuffer, count, FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
+    do
+    {
+        effectType = Random() % EFFECT_COUNT;
+        itemId = EffectToCurseItem(effectType);
+    }
+    while(itemId == ITEM_NONE || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
+
+    historyBuffer[historyBufferCount] = effectType;
+
+    return itemId;
 }

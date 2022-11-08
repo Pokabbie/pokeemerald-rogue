@@ -1930,3 +1930,10 @@ const u32 gItemIcon_Gem[] = INCBIN_U32("graphics/items/icons/gem.4bpp.lz");
 const u32 gItemIconPalette_Ruby[] = INCBIN_U32("graphics/items/icon_palettes/ruby.gbapal.lz");
 
 const u32 gItemIconPalette_Sapphire[] = INCBIN_U32("graphics/items/icon_palettes/sapphire.gbapal.lz");
+
+
+const u32 gItemIcon_RogueCharm[] = INCBIN_U32("graphics/items/icons/rogue_charm.4bpp.lz");
+const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palettes/rogue_charm.gbapal.lz");
+
+const u32 gItemIcon_RogueCurse[] = INCBIN_U32("graphics/items/icons/rogue_curse.4bpp.lz");
+const u32 gItemIconPalette_RogueCurse[] = INCBIN_U32("graphics/items/icon_palettes/rogue_curse.gbapal.lz");

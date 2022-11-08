@@ -520,9 +520,6 @@ static const struct MenuAction MultichoiceList_BattleMode[] =
 {
     {gText_SingleBattle},
     {gText_DoubleBattle},
-    {gText_MultiBattle},
-    {gText_Info2},
-    {gText_Exit},
 };
 
 static const struct MenuAction MultichoiceList_LinkServicesNoRecord[] =
@@ -818,8 +815,8 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
 
 static const struct MenuAction MultichoiceList_RegionOrNational[] =
 {
-    {gText_Regional},
     {gText_National},
+    {gText_Regional},
 };
 
 static const struct MenuAction MultichoiceList_RegionUpToHoenn[] =
@@ -839,6 +836,12 @@ static const struct MenuAction MultichoiceList_RegionFull[] =
     {gText_RegionKalos},
     {gText_RegionAlola},
     {gText_RegionGalar},
+};
+
+static const struct MenuAction MultichoiceList_FullOrSkip[] =
+{
+    {gText_FullRun},
+    {gText_SkipAhead},
 };
 
 static const struct MenuAction MultichoiceList_Exit[] =
@@ -863,7 +866,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BASE_PC_WITH_REGISTRY]      = MULTICHOICE(MultichoiceList_BasePCWithRegistry),
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
-    [MULTI_UNUSED_9]                   = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_FULL_OR_SKIP]               = MULTICHOICE(MultichoiceList_FullOrSkip),
     [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),

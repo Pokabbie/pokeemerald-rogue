@@ -15,7 +15,7 @@ script Rogue_Battle_Boss12
     waitmovement(0)
 
 
-    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED)
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED || var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_MIRROR)
     {
         buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
         msgbox(format("{STR_VAR_1}: ... ... ..."))
@@ -64,7 +64,7 @@ script Rogue_BattleDefeated_Boss12
     playbgm(MUS_VICTORY_LEAGUE, FALSE)
     buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
     
-    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED)
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_RED || var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA) == TRAINER_ROGUE_BOSS_MIRROR)
     {
         msgbox(format("{STR_VAR_1}: ... ... ...\p... ... ..."))
         playbgm(MUS_NONE, TRUE)

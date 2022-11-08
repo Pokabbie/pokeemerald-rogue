@@ -11,6 +11,8 @@ Rogue_Battle_Boss12::
 	waitmovement 0
 	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_RED
 	goto_if_eq Rogue_Battle_Boss12_1
+	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_MIRROR
+	goto_if_eq Rogue_Battle_Boss12_1
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	msgbox Rogue_Battle_Boss12_Text_3
 	call Rogue_SetDesiredWeather
@@ -45,6 +47,8 @@ Rogue_BattleDefeated_Boss12::
 	playbgm MUS_VICTORY_LEAGUE, FALSE
 	buffertrainername STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
 	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_RED
+	goto_if_eq Rogue_BattleDefeated_Boss12_2
+	compare VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, TRAINER_ROGUE_BOSS_MIRROR
 	goto_if_eq Rogue_BattleDefeated_Boss12_2
 	msgbox Rogue_BattleDefeated_Boss12_Text_3
 	playbgm MUS_NONE, TRUE

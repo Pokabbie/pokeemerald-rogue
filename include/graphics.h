@@ -8593,6 +8593,11 @@ extern const u32 gItemIcon_Gem[];
 extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
 
+extern const u32 gItemIcon_RogueCharm[];
+extern const u32 gItemIconPalette_RogueCharm[];
+extern const u32 gItemIcon_RogueCurse[];
+extern const u32 gItemIconPalette_RogueCurse[];
+
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
 

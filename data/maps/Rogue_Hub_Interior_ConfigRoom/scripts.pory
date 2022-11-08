@@ -477,10 +477,10 @@ script Rogue_ConfigRoom_AdjustWildGens
         switch(var(VAR_RESULT))
         {
             case 0:
-                call(Rogue_ConfigRoom_AdjustWildGens_Regional)
+                call(Rogue_ConfigRoom_AdjustWildGens_National)
 
             case 1:
-                call(Rogue_ConfigRoom_AdjustWildGens_National)
+                call(Rogue_ConfigRoom_AdjustWildGens_Regional)
 
             case MULTI_B_PRESSED: 
                 setvar(VAR_RESULT, NO)

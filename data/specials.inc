@@ -60,6 +60,7 @@ gSpecials::
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
+	def_special Bag_ChooseBall
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -190,6 +191,7 @@ gSpecials::
 	def_special RogueDebug_CollectAllQuests
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
+	def_special Rogue_ChangeMonBall
 	def_special Rogue_GetBufferedShinySpecies
 	def_special Rogue_AnyNewQuestsPending
 	def_special Rogue_BufferLabMonName

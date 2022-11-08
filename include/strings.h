@@ -1112,6 +1112,8 @@ extern const u8 gText_RegionUnova[];
 extern const u8 gText_RegionKalos[];
 extern const u8 gText_RegionAlola[];
 extern const u8 gText_RegionGalar[];
+extern const u8 gText_FullRun[];
+extern const u8 gText_SkipAhead[];
 extern const u8 gText_SwapOne[];
 extern const u8 gText_SwapAll[];
 extern const u8 gText_Challenge[];

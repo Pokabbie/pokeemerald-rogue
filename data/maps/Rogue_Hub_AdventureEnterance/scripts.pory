@@ -69,7 +69,7 @@ script Rogue_Adventure_RedrawMap
     else
     {
         setflag(FLAG_ROGUE_TRAINER0)
-        fillmetatile(9, 0, 17, 8, METATILE_Background, TRUE)
+        fillmetatile(10, 0, 17, 8, METATILE_Background, TRUE)
     }
 }
 
@@ -246,38 +246,6 @@ script Rogue_Adventure_StartStandard
     release
 }
 
-script Rogue_Adventure_StartDoubles
-{
-    call(Rogue_ResetAdventureFlags)
-
-    lock
-    faceplayer
-
-    message(format("Would you like to go on a DOUBLEs adventure?"))
-    waitmessage
-
-    multichoice(20, 6, MULTI_YESNOINFO, NO)
-
-    switch(var(VAR_RESULT))
-    {
-        case 0: // Yes
-            call(Rogue_ResetAdventureFlags)
-            setflag(FLAG_ROGUE_DOUBLE_BATTLES)
-            call(Rogue_StartAdventureCommon)
-
-        case 1: // No
-            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
-
-        case 2: // Info
-            msgbox(format("The adventure uses the same settings as the standard mode, however all TRAINER battles will forced to be DOUBLE battles."), MSGBOX_DEFAULT)
-
-        case MULTI_B_PRESSED:
-            msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
-    }
-
-    release
-}
-
 script Rogue_Adventure_StartGauntlet
 {
     call(Rogue_ResetAdventureFlags)
@@ -295,13 +263,6 @@ script Rogue_Adventure_StartGauntlet
         case 0: // Yes
             call(Rogue_ResetAdventureFlags)
             setflag(FLAG_ROGUE_GAUNTLET_MODE)
-
-            msgbox(format("Would you like to enable DOUBLE mode for this adventure too?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                setflag(FLAG_ROGUE_DOUBLE_BATTLES)
-            }
-
             call(Rogue_StartAdventureCommon)
 
         case 1: // No
@@ -334,20 +295,13 @@ script Rogue_Adventure_StartRainbow
         case 0: // Yes
             call(Rogue_ResetAdventureFlags)
             setflag(FLAG_ROGUE_RAINBOW_MODE)
-
-            msgbox(format("Would you like to enable DOUBLE mode for this adventure too?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                setflag(FLAG_ROGUE_DOUBLE_BATTLES)
-            }
-
             call(Rogue_StartAdventureCommon)
 
         case 1: // No
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
 
         case 2: // Info
-            msgbox(format("RAINBOW adventures are very similar to a normal adventure.\pThe main difference is that any and all types can appear for Boss fights.\pFor example Wallace could appear as the first GYM leader or ROXANNE could end up being the CHAMPION!\pYou will even encounter Boss trainers sporting types not usually seen in normal adventures."), MSGBOX_DEFAULT)
+            msgbox(format("RAINBOW adventures are very similar to a normal adventure.\pThe main difference is that any and all types can appear for Boss fights.\pFor example Wallace could appear as the first GYM leader or ROXANNE could end up being the CHAMPION!\pYou will even encounter Boss trainers sporting types not usually seen in normal adventures.\pIn this mode trainers from all regions will be enabled.\nIn other words your settings in the Config Lab will be ignored."), MSGBOX_DEFAULT)
 
         case MULTI_B_PRESSED:
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
@@ -373,6 +327,29 @@ script Rogue_StartAdventureCommon
         if(var(VAR_RESULT) == NO)
         {
             return
+        }
+    }
+
+    // Enable double battles (post game feature)
+    if(flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        message(format("Which battle-style would you like to play?"))
+        waitmessage
+
+        multichoice(20, 8, MULTI_BATTLE_MODE, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Singles
+                clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
+                setvar(VAR_RESULT, YES)
+
+            case 1: // Dobules
+                setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+                setvar(VAR_RESULT, YES)
+
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
         }
     }
 
@@ -455,11 +432,23 @@ script Rogue_StartAdventureCommon
             msgbox(format("You've leveled up your PARTNER enough to skip ahead!"), MSGBOX_DEFAULT)
 
             buffernumberstring(STR_VAR_1, VAR_ROGUE_SKIP_TO_DIFFICULTY)
+            
+            message(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"))
+            waitmessage
+            
+            multichoice(20, 8, MULTI_FULL_OR_SKIP, NO)
 
-            msgbox(format("Would you like to skip ahead and start at BADGE {STR_VAR_1}?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == NO)
+            switch(var(VAR_RESULT))
             {
-                setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+                case 0: // Full Run
+                    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+                    setvar(VAR_RESULT, YES)
+
+                case 1: // Skip Ahead (Already set to correct value)
+                    setvar(VAR_RESULT, YES)
+
+                case MULTI_B_PRESSED:
+                    setvar(VAR_RESULT, NO)
             }
         }
 

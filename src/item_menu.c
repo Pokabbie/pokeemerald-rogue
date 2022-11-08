@@ -581,6 +581,12 @@ void CB2_ChooseBerry(void)
     GoToBagMenu(ITEMMENULOCATION_BERRY_TREE, BERRIES_POCKET, CB2_ReturnToFieldContinueScript);
 }
 
+void CB2_ChooseBall(void)
+{
+    // Don't know if this menulocation type needs changing, but it seems to work
+    GoToBagMenu(ITEMMENULOCATION_BERRY_TREE, BALLS_POCKET, CB2_ReturnToFieldContinueScript);
+}
+
 // Choosing berry for Berry Blender or Berry Crush
 void ChooseBerryForMachine(void (*exitCallback)(void))
 {

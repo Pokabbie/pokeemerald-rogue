@@ -9,6 +9,7 @@ static const u8 gText_GiveUnlocksTutors[] = _("New HUB Unlocks:\nMove Tutors!");
 static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
+static const u8 gText_GiveUnlocksBallSwitch[] = _("New HUB Unlocks:\nPOKé BALL swapper!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("Safari Upgrade");
 static const u8 gText_GiveLegendarySafari[] = _("New Safari Upgrade:\nLegendary POKéMON can now appear!");
@@ -16,6 +17,7 @@ static const u8 gText_GiveSafariLimiter[] = _("New Safari Upgrade:\nYou can now 
 static const u8 gText_PreviewUnlocksBikeShop[] = _("Bike Shop Upgrade");
 static const u8 gText_GiveLegendaryBikeShop[] = _("New Bike Shop Upgrade:\nYou can now carry both Bikes at once!");
 static const u8 gText_PreviewUnlocksMrRandoStart[] = _("Mr. Randoman will now offer a free\ntrade at the start of Adventures!");
+static const u8 gText_PreviewUnlocksCurseStart[] = _("Curse shop avaliable at the start of\nAdventures!");
 static const u8 gText_PreviewUnlocksTutorUpgrade[] = _("Tutors Upgrade");
 static const u8 gText_GiveTutorUpgrade[] = _("HUB Tutors will now offer more moves!");
 static const u8 gText_PreviewUnlocksTravelShopUpgrade[] = _("Travelling Mart Upgrade");
@@ -298,6 +300,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
+        },
+        .unlockedQuests = { 
+            QUEST_LegendOnly
         }
     },
 
@@ -422,6 +427,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         },
         .unlockedQuests = { 
             QUEST_ChaosChampion,
+            QUEST_DevilDeal,
         }
     },
     [QUEST_ChaosChampion] = 
@@ -440,6 +446,32 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
 #endif
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_SMEARGLE, 7, TRUE } },
+        }
+    },
+    [QUEST_DevilDeal] = 
+    {
+        .title = _("Devil Deal"),
+        .desc = _(
+                    "Make a deal with...\n"
+                    "a devil?"
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksCurseStart },
+        },
+    },
+    
+    [QUEST_LegendOnly] = 
+    {
+        .title = _("Apotheosis"),
+        .desc = _(
+                    "Win a full Run, only\n"
+                    "ever using legendary\n"
+                    "POKéMON."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksBuilding, .giveText=gText_GiveUnlocksBallSwitch },
         }
     },
 

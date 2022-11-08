@@ -244,6 +244,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
 #ifdef ROGUE_EXPANSION
+            case(EVO_SPECIFIC_MON_IN_PARTY):
+                outEvo->method = EVO_LEVEL;
+                outEvo->param = 20;
+                break;
+
             case(EVO_ITEM_HOLD_DAY):
             case(EVO_ITEM_HOLD_NIGHT):
                 outEvo->method = EVO_LEVEL_ITEM;
@@ -269,7 +274,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_TRADE_SPECIFIC_MON):
-                outEvo->method = EVO_SPECIFIC_MON_IN_PARTY;
+                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->param = ITEM_LINK_CABLE;
+                break;
+
+            case(EVO_LEVEL_RAIN):
+            case(EVO_LEVEL_DARK_TYPE_MON_IN_PARTY):
+                outEvo->method = EVO_LEVEL;
                 break;
 
             case(EVO_SPECIFIC_MAP):
@@ -314,6 +325,7 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 
     switch(trainerNum)
     {
+        case TRAINER_ROGUE_BOSS_MIRROR:
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             return gSaveBlock2Ptr->playerName;
 
@@ -484,6 +496,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         case TRAINER_ROGUE_BOSS_SABRINA:
         case TRAINER_ROGUE_BOSS_LORELEI:
         case TRAINER_ROGUE_BOSS_AGATHA:
+        case TRAINER_ROGUE_BOSS_MIRROR:
             if(gRogueRun.currentDifficulty >= 12)
                 outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
             else if(gRogueRun.currentDifficulty >= 8)
@@ -653,6 +666,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         case TRAINER_ROGUE_MINI_BOSS_MIRROR:
             outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
+        case TRAINER_ROGUE_BOSS_MIRROR:
 
             switch(gSaveBlock2Ptr->playerGender)
             {    
@@ -952,11 +966,33 @@ extern const u8 gText_ItemShoppingCharm[];
 extern const u8 gText_ItemFlinchCharm[];
 extern const u8 gText_ItemCritCharm[];
 extern const u8 gText_ItemShedSkinCharm[];
+extern const u8 gText_ItemWildIVCharm[];
+extern const u8 gText_ItemCatchingCharm[];
+extern const u8 gText_ItemGraceCharm[];
 
 extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemFlinchCurse[];
 extern const u8 gText_ItemCritCurse[];
 extern const u8 gText_ItemShedSkinCurse[];
+extern const u8 gText_ItemWildIVCurse[];
+extern const u8 gText_ItemCatchingCurse[];
+extern const u8 gText_ItemGraceCurse[];
+
+extern const u8 sItemShoppingCharmDesc[];
+extern const u8 sItemFlinchCharmDesc[];
+extern const u8 sItemCritCharmDesc[];
+extern const u8 sItemShedSkinCharmDesc[];
+extern const u8 sItemWildIVCharmDesc[];
+extern const u8 sItemCatchingCharmDesc[];
+extern const u8 sItemGraceCharmDesc[];
+
+extern const u8 sItemShoppingCurseDesc[];
+extern const u8 sItemFlinchCurseDesc[];
+extern const u8 sItemCritCurseDesc[];
+extern const u8 sItemShedSkinCurseDesc[];
+extern const u8 sItemWildIVCurseDesc[];
+extern const u8 sItemCatchingCurseDesc[];
+extern const u8 sItemGraceCurseDesc[];
 
 extern const u8 gText_ItemPlaceholderDesc[];
 extern const u8 gText_ItemQuestLogDesc[];
@@ -990,6 +1026,15 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_SHED_SKIN_CHARM:
             return gText_ItemShedSkinCharm;
 
+        case ITEM_WILD_IV_CHARM:
+            return gText_ItemWildIVCharm;
+
+        case ITEM_CATCHING_CHARM:
+            return gText_ItemCatchingCharm;
+
+        case ITEM_GRACE_CHARM:
+            return gText_ItemGraceCharm;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
@@ -1002,6 +1047,15 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_SHED_SKIN_CURSE:
             return gText_ItemShedSkinCurse;
+
+        case ITEM_WILD_IV_CURSE:
+            return gText_ItemWildIVCurse;
+
+        case ITEM_CATCHING_CURSE:
+            return gText_ItemCatchingCurse;
+
+        case ITEM_GRACE_CURSE:
+            return gText_ItemGraceCurse;
     }
 
     return gItems[itemId].name;
@@ -1018,13 +1072,13 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     if(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
     {
         // Charm icon
-        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+        return which == 0 ? gItemIcon_RogueCharm : gItemIconPalette_RogueCharm;
     }
 
     if(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE)
     {
         // Curse icon
-        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+        return which == 0 ? gItemIcon_RogueCurse : gItemIconPalette_RogueCurse;
     }
 
     return gItemIconTable[itemId][which];
@@ -1046,14 +1100,68 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->registrability = FALSE;
         outItem->pocket = POCKET_KEY_ITEMS;
         outItem->type = ITEM_USE_FIELD;
+        outItem->holdEffect = 0;
         outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
     }
 
-    // TODO - Custom desc
+    // Custom desc for charms/curses
     switch(itemId)
     {
         case ITEM_SHOP_PRICE_CHARM:
-            outItem->description = gText_ItemPlaceholderDesc;
+            outItem->description = sItemShoppingCharmDesc;
+            break;
+
+        case ITEM_FLINCH_CHARM:
+            outItem->description = sItemFlinchCharmDesc;
+            break;
+
+        case ITEM_CRIT_CHARM:
+            outItem->description = sItemCritCharmDesc;
+            break;
+
+        case ITEM_SHED_SKIN_CHARM:
+            outItem->description = sItemShedSkinCharmDesc;
+            break;
+
+        case ITEM_WILD_IV_CHARM:
+            outItem->description = sItemWildIVCharmDesc;
+            break;
+
+        case ITEM_CATCHING_CHARM:
+            outItem->description = sItemCatchingCharmDesc;
+            break;
+
+        case ITEM_GRACE_CHARM:
+            outItem->description = sItemGraceCharmDesc;
+            break;
+
+
+        case ITEM_SHOP_PRICE_CURSE:
+            outItem->description = sItemShoppingCurseDesc;
+            break;
+
+        case ITEM_FLINCH_CURSE:
+            outItem->description = sItemFlinchCurseDesc;
+            break;
+
+        case ITEM_CRIT_CURSE:
+            outItem->description = sItemCritCurseDesc;
+            break;
+
+        case ITEM_SHED_SKIN_CURSE:
+            outItem->description = sItemShedSkinCurseDesc;
+            break;
+
+        case ITEM_WILD_IV_CURSE:
+            outItem->description = sItemWildIVCurseDesc;
+            break;
+
+        case ITEM_CATCHING_CURSE:
+            outItem->description = sItemCatchingCurseDesc;
+            break;
+
+        case ITEM_GRACE_CURSE:
+            outItem->description = sItemGraceCurseDesc;
             break;
     }
 

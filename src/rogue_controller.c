@@ -425,6 +425,29 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         {
             // Elite 4 back to normal catch rates
         }
+
+        // Apply charms
+        {
+            u16 rateInc = GetCharmValue(EFFECT_CATCH_RATE);
+            u16 rateDec = GetCurseValue(EFFECT_CATCH_RATE);
+            
+            if(rateInc > rateDec)
+            {
+                rateInc = rateInc - rateDec;
+                rateDec = 0;
+            }
+            else
+            {
+                rateDec = rateDec - rateInc;
+                rateInc = 0;
+            }
+
+            if(rateInc != 0)
+                *ballMultiplier = *ballMultiplier * (1 + rateInc);
+
+            if(rateDec != 0)
+                *ballMultiplier = max(*ballMultiplier / (1 + rateDec), 1);
+        }
 #endif
 
         // Equiv to Snorlax
@@ -459,6 +482,46 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
 
             // Only store most recent personality, as u32s are costly and this is the easiest way to ensure shinies
             gRogueRun.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+        }
+
+        // Apply charms to IVs
+        {
+            u16 i;
+            u16 value;
+
+            u16 ivInc = GetCharmValue(EFFECT_WILD_IV_RATE);
+            u16 ivDec = GetCurseValue(EFFECT_WILD_IV_RATE);
+
+            if(ivInc > ivDec)
+            {
+                ivInc = ivInc - ivDec;
+                ivDec = 0;
+            }
+            else
+            {
+                ivDec = ivDec - ivInc;
+                ivInc = 0;
+            }
+
+            ivInc = min(ivInc, 31);
+            ivDec = min(ivDec, 31);
+
+            for(i = 0; i < 6; ++i)
+            {
+                value = GetMonData(mon, MON_DATA_HP_IV + i);
+
+                if(ivInc != 0)
+                {
+                    value = max(ivInc, value);
+                }
+
+                if(ivDec != 0)
+                {
+                    value = min(31 - ivDec, value);
+                }
+
+                SetMonData(mon, MON_DATA_HP_IV + i, &value);
+            }
         }
     }
 }
@@ -1104,7 +1167,8 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
-            u8 paletteOffset = i;
+            //u8 paletteOffset = i;
+            u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
 
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
@@ -1906,6 +1970,58 @@ static void EndRogueRun(void)
 
     // Grow berries based on progress in runs
     BerryTreeTimeUpdate(90 * gRogueRun.currentRoomIdx);
+
+    // Bug Fix
+    // In past version the bag could glitch out and people could lose access to HMs, so we're going to forcefully give them back here
+    {
+        if(IsQuestCollected(QUEST_Gym1))
+        {
+            if(!CheckBagHasItem(ITEM_HM01_CUT, 1))
+                AddBagItem(ITEM_HM01_CUT, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym2))
+        {
+            if(!CheckBagHasItem(ITEM_HM05_FLASH, 1))
+                AddBagItem(ITEM_HM05_FLASH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym3))
+        {
+            if(!CheckBagHasItem(ITEM_HM06_ROCK_SMASH, 1))
+                AddBagItem(ITEM_HM06_ROCK_SMASH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym4))
+        {
+            if(!CheckBagHasItem(ITEM_HM04_STRENGTH, 1))
+                AddBagItem(ITEM_HM04_STRENGTH, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym5))
+        {
+            if(!CheckBagHasItem(ITEM_HM08_DIVE, 1))
+                AddBagItem(ITEM_HM08_DIVE, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym6))
+        {
+            if(!CheckBagHasItem(ITEM_HM02_FLY, 1))
+                AddBagItem(ITEM_HM02_FLY, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym7))
+        {
+            if(!CheckBagHasItem(ITEM_HM07_WATERFALL, 1))
+                AddBagItem(ITEM_HM07_WATERFALL, 1);
+        }
+
+        if(IsQuestCollected(QUEST_Gym8))
+        {
+            if(!CheckBagHasItem(ITEM_HM03_SURF, 1))
+                AddBagItem(ITEM_HM03_SURF, 1);
+        }
+    }
 }
 
 static u16 GetBossHistoryKey(u16 bossId)
@@ -1921,7 +2037,7 @@ static u16 GetBossHistoryKey(u16 bossId)
 
     // None type trainers are unqiue, so we don't care about the type repeat
     if(type == TYPE_NONE)
-        return bossId;
+        return NUMBER_OF_MON_TYPES + bossId;
 
     return type;
 }
@@ -2127,6 +2243,7 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
 u8 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 queryCount;
+    u16 species;
 
     RogueQuery_Clear();
 
@@ -2140,7 +2257,13 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
 
-    return RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
+    do
+    {
+        species = RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
+    }
+    while(species == SPECIES_NONE);
+
+    return species;
 }
 
 static bool8 IsRouteEnabled(u16 routeId)
@@ -3643,13 +3766,13 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
 #ifdef ROGUE_EXPANSION
     if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
     {
-        score -= 10;
+        score -= 20;
     }
 #endif
 
     if(IsSpeciesLegendary(species))
     {
-        score -= 10;
+        score -= 20;
     }
 
     // Early pri moves
@@ -3745,6 +3868,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
     bool8 reorganiseParty = TRUE;
+    bool8 clampLeadScore = FALSE;
 
     if(IsBossTrainer(trainerNum))
     {
@@ -3776,25 +3900,43 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
     }
     else
     {
-        // Basic trainers don't care and can do whatever with their team order
-        reorganiseParty = FALSE;
+        // Always reoganise hard trainers
+        if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+        {
+            // Basic trainers don't care and can do whatever with their team order
+            reorganiseParty = FALSE;
+        }
     }
 
     if(reorganiseParty)
     {
         u16 i;
+        s16 scoreA, scoreB;
         bool8 anySwaps;
         u16 sortLength = monsCount - 1;
+
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && !FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty < 8)
+        {
+            // Prior to E4 we don't want to force forward the best lead mon#
+            // We just want to push final mons to the back
+            clampLeadScore = TRUE;
+        }
 
         // Bubble sort party
         while(sortLength != 0)
         {
             anySwaps = FALSE;
 
-            for(i = 0; i < sortLength; ++i)
+            for(i = 0; i < monsCount - 1; ++i)
             {
-                s16 scoreA = CalulcateMonSortScore(&party[i]);
-                s16 scoreB = CalulcateMonSortScore(&party[i + 1]);
+                scoreA = CalulcateMonSortScore(&party[i]);
+                scoreB = CalulcateMonSortScore(&party[i + 1]);
+
+                if(clampLeadScore)
+                {
+                    scoreA = min(scoreA, 0);
+                    scoreB = min(scoreB, 0);
+                }
                 
                 if(scoreB > scoreA)
                 {
@@ -4932,7 +5074,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             {
                 // Include berries from collected quests
                 u16 i, j;
-                RogueQuery_ItemsExcludeRange(ITEM_NONE, ITEMS_COUNT);
+                RogueQuery_ExcludeAll();
 
                 for(i = 0; i < QUEST_CAPACITY; ++i)
                 {
@@ -4958,6 +5100,23 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
                 *minSalePrice = 2000;
             }
+            break;
+
+            
+        case ROGUE_SHOP_CHARMS:
+            {
+                // Include berries from collected quests
+                u16 i, j;
+                RogueQuery_ExcludeAll();
+
+                #ifdef ROGUE_DEBUG
+                // Normally we only can buy curse items
+                RogueQuery_IncludeRange(FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
+                #endif
+
+                RogueQuery_IncludeRange(FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
+            }
+            *minSalePrice = 0;
             break;
     };
 
@@ -5685,25 +5844,18 @@ static void RandomiseEnabledItems(void)
 
 static void RandomiseCharmItems(void)
 {
-    u16 itemBuffer[5];
+    u16 tempBuffer[5];
+    u16 tempBufferCount = 0;
 
     // Charm Items
-    Rogue_SelectCharmItems(itemBuffer, 5);
-
-    VarSet(VAR_ROGUE_ITEM0, itemBuffer[0]);
-    VarSet(VAR_ROGUE_ITEM1, itemBuffer[1]);
-    VarSet(VAR_ROGUE_ITEM2, itemBuffer[2]);
-    VarSet(VAR_ROGUE_ITEM3, itemBuffer[3]);
-    VarSet(VAR_ROGUE_ITEM4, itemBuffer[4]);
+    VarSet(VAR_ROGUE_ITEM0, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
+    VarSet(VAR_ROGUE_ITEM1, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
+    VarSet(VAR_ROGUE_ITEM2, Rogue_NextCharmItem(tempBuffer, tempBufferCount++));
 
     // Curse Items
-    Rogue_SelectCurseItems(itemBuffer, 5);
-
-    VarSet(VAR_ROGUE_ITEM5, itemBuffer[0]);
-    VarSet(VAR_ROGUE_ITEM6, itemBuffer[1]);
-    VarSet(VAR_ROGUE_ITEM7, itemBuffer[2]);
-    VarSet(VAR_ROGUE_ITEM8, itemBuffer[3]);
-    VarSet(VAR_ROGUE_ITEM9, itemBuffer[4]);
+    VarSet(VAR_ROGUE_ITEM10, Rogue_NextCurseItem(tempBuffer, tempBufferCount++));
+    //VarSet(VAR_ROGUE_ITEM11, Rogue_NextCurseItem(tempBuffer, 4));
+    //VarSet(VAR_ROGUE_ITEM12, Rogue_NextCurseItem(tempBuffer, 5));
 }
 
 #define FIRST_USELESS_BERRY_INDEX ITEM_RAZZ_BERRY

@@ -564,7 +564,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
     }
 
-    if(scratch->graveYardCount >= 2)
+    if(scratch->graveYardCount >= 1)
     {
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
@@ -1081,7 +1081,7 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             return OBJ_EVENT_GFX_CONTEST_JUDGE;
 
         case ADVPATH_ROOM_GRAVEYARD:
-            return OBJ_EVENT_GFX_HEX_MANIAC;
+            return OBJ_EVENT_GFX_DEVIL_MAN;
 
         case ADVPATH_ROOM_LAB:
             return OBJ_EVENT_GFX_PC;

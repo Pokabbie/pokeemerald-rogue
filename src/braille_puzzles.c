@@ -122,7 +122,7 @@ void DoSealedChamberShakingEffect_Long(void)
     gTasks[taskId].tShakeCounter = 0;
     gTasks[taskId].tVerticalPan = 2;
     gTasks[taskId].tDelay = 5;
-    gTasks[taskId].tNumShakes = 50;
+    gTasks[taskId].tNumShakes = 5;
     SetCameraPanningCallback(0);
 }
 

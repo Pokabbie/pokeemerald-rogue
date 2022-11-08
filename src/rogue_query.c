@@ -204,6 +204,15 @@ void RogueQuery_Include(u16 idx)
     SetQueryState(idx, TRUE);
 }
 
+void RogueQuery_IncludeRange(u16 fromId, u16 toId)
+{
+    u16 i;
+    for(i = fromId; i <= toId; ++i)
+    {
+        SetQueryState(i, TRUE);
+    }
+}
+
 void RogueQuery_Exclude(u16 idx)
 {
     SetQueryState(idx, FALSE);

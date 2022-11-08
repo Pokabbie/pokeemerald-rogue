@@ -673,6 +673,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
+        TryDeactivateQuest(QUEST_LegendOnly);
 
         TryDeactivateQuest(QUEST_KantoMode);
         TryDeactivateQuest(QUEST_JohtoMode);
@@ -800,18 +801,24 @@ static void OnEndBattle(void)
         }
     }
 
-    if(IsQuestActive(QUEST_Hardcore3) || IsQuestActive(QUEST_Hardcore4))
+    if(IsQuestActive(QUEST_Hardcore3) || IsQuestActive(QUEST_Hardcore4) || IsQuestActive(QUEST_LegendOnly))
     {
         u16 i;
 
         for(i = 0; i < PARTY_SIZE; ++i)
         {
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-            if(species != SPECIES_NONE && IsSpeciesLegendary(species))
+            if(species != SPECIES_NONE)
             {
-                TryDeactivateQuest(QUEST_Hardcore3);
-                TryDeactivateQuest(QUEST_Hardcore4);
-                break;
+                if(IsSpeciesLegendary(species))
+                {
+                    TryDeactivateQuest(QUEST_Hardcore3);
+                    TryDeactivateQuest(QUEST_Hardcore4);
+                }
+                else
+                {
+                    TryDeactivateQuest(QUEST_LegendOnly);
+                }
             }
         }
     }
@@ -937,6 +944,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
                 TryMarkQuestAsComplete(QUEST_Hardcore3);
                 TryMarkQuestAsComplete(QUEST_Hardcore4);
+                TryMarkQuestAsComplete(QUEST_LegendOnly);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);
                 TryMarkQuestAsComplete(QUEST_JohtoMode);

@@ -1,3 +1,12 @@
+const NPC_DEVIL_MAN = 4
+const NPC_BALL_0 = 1
+const NPC_BALL_1 = 2
+const NPC_BALL_2 = 3
+
+const VAR_ENTERED_GRAVEYARD = VAR_TEMP_0
+const VAR_ITEM_INDEX = VAR_0x8000
+const VAR_ITEM_ID_VAL = VAR_0x8001
+
 const FLAG_USED_ENCOUNTER = FLAG_TEMP_1
 
 mapscripts Rogue_Encounter_Graveyard_MapScripts 
@@ -75,4 +84,95 @@ script Rogue_Graveyard_ResurectionOption_UNUSED
         }
     }
     release
+}
+
+script Rogue_Graveyard_EnterTrigger
+{
+    lock
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, Graveyard_CameraInitialFocus)
+    waitmovement(0)
+
+    msgbox(format("???: One... choice..."), MSGBOX_DEFAULT)
+
+    applymovement(OBJ_EVENT_ID_CAMERA, Graveyard_CameraInitialUnfocus)
+    waitmovement(0)
+    special(RemoveCameraObject)
+
+    setvar(VAR_ENTERED_GRAVEYARD, 1)
+    release
+}
+
+script Rogue_Graveyard_SelectOption_Internal {
+    lockall
+
+    bufferitemname(STR_VAR_1, VAR_ITEM_ID_VAL)
+    
+    msgbox(format("Choose {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        // Remove choice
+        finditem(VAR_ITEM_ID_VAL, 1)
+
+        playse(SE_THUNDER)
+
+        removeobject(NPC_BALL_0, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
+        removeobject(NPC_BALL_1, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
+        removeobject(NPC_BALL_2, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
+
+        special(DoSealedChamberShakingEffect_Long)
+        applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Eyes)
+
+        msgbox(format("???: One... price..."), MSGBOX_DEFAULT)
+
+        waitmovement(0)
+
+        // Give curse item which isn't one of the charm options
+        giveitem(VAR_ROGUE_ITEM10, 1)
+
+        applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Leave)
+        waitmovement(0)
+
+        removeobject(NPC_DEVIL_MAN, MAP_ROGUE_ENCOUNTER_GRAVEYARD)
+
+        completequest(QUEST_DevilDeal)
+    }
+
+    releaseall
+}
+
+script Rogue_Graveyard_SelectOption0 
+{
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
+    call(Rogue_Graveyard_SelectOption_Internal)
+}
+
+script Rogue_Graveyard_SelectOption1
+{
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM1)
+    call(Rogue_Graveyard_SelectOption_Internal)
+}
+
+script Rogue_Graveyard_SelectOption2
+{
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM2)
+    call(Rogue_Graveyard_SelectOption_Internal)
+}
+
+movement Graveyard_CameraInitialFocus {
+    walk_up * 3
+}
+
+movement Graveyard_CameraInitialUnfocus {
+    walk_fast_down * 3
+}
+
+movement Graveyard_Devil_Eyes {
+    face_left
+}
+
+movement Graveyard_Devil_Leave {
+    walk_fast_up * 4
 }

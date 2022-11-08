@@ -275,6 +275,19 @@ script Rogue_Shop_RareHeldItems
     release
 }
 
+script Rogue_Shop_Charms
+{
+    lock
+    faceplayer
+    message("Welcome...\pWould you... like to adjust your fate...?")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
+
+    msgbox("Yes... of course...")
+    release
+}
+
 script RogueSafari_Sign_South
 {
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
