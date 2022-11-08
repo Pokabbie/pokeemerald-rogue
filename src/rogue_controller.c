@@ -704,7 +704,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             *money /= 10;
             *money *= 10;
         }
-        else
+        else if(*money != 0)
         {
             *money = 100;
         }
