@@ -4710,7 +4710,27 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
         }
     }
     else
-        fixedIV = isBoss && difficultyLevel >= 3 ? 11 : 0;
+    {
+        if(isBoss)
+        {
+            if(difficultyLevel >= 6)
+                fixedIV = 16;
+            else if(difficultyLevel >= 6)
+                fixedIV = 11;
+            else if(difficultyLevel >= 5)
+                fixedIV = 10;
+            else if(difficultyLevel >= 4)
+                fixedIV = 8;
+            else if(difficultyLevel >= 3)
+                fixedIV = 6;
+            else
+                fixedIV = 0;
+        }
+        else
+        {
+            fixedIV = 0;
+        }
+    }
 
     if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
     {
