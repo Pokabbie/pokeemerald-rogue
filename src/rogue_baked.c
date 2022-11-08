@@ -1072,13 +1072,13 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     if(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
     {
         // Charm icon
-        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+        return which == 0 ? gItemIcon_RogueCharm : gItemIconPalette_RogueCharm;
     }
 
     if(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE)
     {
         // Curse icon
-        return which == 0 ? gItemIcon_RainbowPass : gItemIconPalette_RainbowPass;
+        return which == 0 ? gItemIcon_RogueCurse : gItemIconPalette_RogueCurse;
     }
 
     return gItemIconTable[itemId][which];

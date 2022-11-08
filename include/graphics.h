@@ -3938,6 +3938,11 @@ extern const u32 gItemIconPalette_MagmaEmblem[];
 extern const u32 gItemIcon_OldSeaMap[];
 extern const u32 gItemIconPalette_OldSeaMap[];
 
+extern const u32 gItemIcon_RogueCharm[];
+extern const u32 gItemIconPalette_RogueCharm[];
+extern const u32 gItemIcon_RogueCurse[];
+extern const u32 gItemIconPalette_RogueCurse[];
+
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
 

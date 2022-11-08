@@ -736,3 +736,10 @@ const u32 gItemIconPalette_MagmaEmblem[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_OldSeaMap[] = INCBIN_U32("graphics/items/icons/old_sea_map.4bpp.lz");
 const u32 gItemIconPalette_OldSeaMap[] = INCBIN_U32("graphics/items/icon_palettes/old_sea_map.gbapal.lz");
+
+
+const u32 gItemIcon_RogueCharm[] = INCBIN_U32("graphics/items/icons/rogue_charm.4bpp.lz");
+const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palettes/rogue_charm.gbapal.lz");
+
+const u32 gItemIcon_RogueCurse[] = INCBIN_U32("graphics/items/icons/rogue_curse.4bpp.lz");
+const u32 gItemIconPalette_RogueCurse[] = INCBIN_U32("graphics/items/icon_palettes/rogue_curse.gbapal.lz");

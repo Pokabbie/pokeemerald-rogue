@@ -564,7 +564,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
     }
 
-    if(scratch->graveYardCount >= 2)
+    if(scratch->graveYardCount >= 1)
     {
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
     }
