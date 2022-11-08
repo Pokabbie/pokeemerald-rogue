@@ -82,6 +82,7 @@ Rogue_QuickSaveRun_2:
 Rogue_QuickSaveLoad::
 	lockall
 	goto_if_set FLAG_ROGUE_VALID_QUICK_SAVE, Rogue_QuickSaveLoad_2
+	msgbox Rogue_QuickSaveLoad_Text_1
 	call Rogue_ReturnToHub
 Rogue_QuickSaveLoad_1:
 	releaseall
@@ -1111,6 +1112,10 @@ Rogue_PostBattle_Internal_Text_0:
 
 Rogue_QuickSaveLoad_Text_0:
 	.string "Adventure has been reloaded.$"
+
+Rogue_QuickSaveLoad_Text_1:
+	.string "This save has already been reloaded.\p"
+	.string "Retiring from Adventure...$"
 
 Rogue_QuickSaveVersionWarning_Text_0:
 	.string "Invalid Save Location Detected!\p"

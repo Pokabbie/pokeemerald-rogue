@@ -147,6 +147,7 @@ bool8 IsLegendaryEnabled(u16 species);
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
+static bool8 IsAnyBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
@@ -264,12 +265,18 @@ bool8 Rogue_FastBattleAnims(void)
         return TRUE;
     }
 
-    if(Rogue_IsRunActive() && 
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
+    if(Rogue_IsRunActive())
     {
+        // Force fast anims for non-bosses
+        if(IsAnyBossTrainer(gTrainerBattleOpponent_A))
+            return FALSE;
+
         return TRUE;
+        //if(
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
+        ////gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS))
+        //    return TRUE;
     }
 
     return FALSE;
@@ -5571,7 +5578,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             // Not boss trainer so must be EXP trainer
-            level = prevBossLevel;
+            level = 10;
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {

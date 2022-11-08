@@ -103,6 +103,7 @@ script Rogue_QuickSaveLoad
     }
     else
     {
+        msgbox(format("This save has already been reloaded.\pRetiring from Adventure..."))
         call(Rogue_ReturnToHub)
     }
 
