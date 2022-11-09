@@ -2098,9 +2098,14 @@ static bool8 IsBossEnabled(u16 bossId)
     {
         excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
 
-        // Don't use special trainers for rainbow mode
-        if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
-            return FALSE;
+        if(gRogueRun.currentDifficulty >= 13)
+            includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
+        else
+        {
+            // Don't use special trainers for rainbow mode
+            if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
+                return FALSE;
+        }
     }
 
     if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
@@ -4157,12 +4162,15 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
 
     if(IsBossTrainer(trainerNum))
     {
+        bool8 preferAceMode = FALSE;
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        preferAceMode = (gRogueRun.currentDifficulty == 12 && monIdx == 5) || (gRogueRun.currentDifficulty >= 13 && monIdx == 4);
 
         if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_ACE_TYPE) != 0) // Ace type
         {
             // Pre champ final mon and final champ last 2 mons
-            if((gRogueRun.currentDifficulty == 12 && monIdx == 5) || (gRogueRun.currentDifficulty >= 13 && monIdx == 4))
+            if(preferAceMode)
             {
                 bool8 executeAceQuery = TRUE;
 
@@ -4190,12 +4198,16 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         }
         else if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0) // Counter type
         {
+            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
+
             ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
             queryCheckIdx = 0;
             gRogueLocal.trainerTemp.queryMonOffset = monIdx;
         }
         else if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0) // Unique type
         {
+            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
+
             ApplyUniqueCoverageTrainerQuery(trainerNum, isBoss, party, monIdx);
             gRogueLocal.trainerTemp.queryMonOffset = monIdx;
             queryCheckIdx = 0;

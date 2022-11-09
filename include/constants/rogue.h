@@ -84,6 +84,7 @@
 #define TRAINER_FLAG_RAINBOW_EXCLUDE        (1 << 8)
 #define TRAINER_FLAG_DISABLE_WEATHER        (1 << 9)
 #define TRAINER_FLAG_THIRDSLOT_WEATHER      (1 << 10)
+#define TRAINER_FLAG_RAINBOW_CHAMP          (1 << 11)
 
 #define PARTY_FLAG_NONE                     0
 #define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)

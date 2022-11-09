@@ -972,7 +972,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_RED,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_RAINBOW_CHAMP,
         .partyFlags = PARTY_FLAG_UNIQUE_COVERAGE,
     },
     
