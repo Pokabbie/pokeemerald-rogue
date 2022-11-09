@@ -576,9 +576,13 @@ const u16* Rogue_ModifyPallete16(const u16* input)
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gObjectEventPal_Johto_NPC_Red[0])
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        if(gSaveBlock2Ptr->playerStyle0 == 0) return gObjectEventPal_Red_0_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 1) return gObjectEventPal_Red_1_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 2) return gObjectEventPal_Red_2_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 3) return gObjectEventPal_Red_3_0;
+        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
+        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        //#undef PALETTE_FUNC
     }
 
     return input;
@@ -619,9 +623,13 @@ const u32* Rogue_ModifyPallete32(const u32* input)
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gTrainerPalette_ChampionRed[0])
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        if(gSaveBlock2Ptr->playerStyle0 == 0) return gTrainerPalette_Red_Front_0_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 1) return gTrainerPalette_Red_Front_1_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 2) return gTrainerPalette_Red_Front_2_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 3) return gTrainerPalette_Red_Front_3_0;
+        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
+        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        //#undef PALETTE_FUNC
     }
 
     // Palette is shared with red
