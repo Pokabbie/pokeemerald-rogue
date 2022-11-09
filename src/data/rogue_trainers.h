@@ -1179,7 +1179,7 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .gfxId = OBJ_EVENT_GFX_BRANDON,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_BRANDON,
         .incTypes = { TYPE_GROUND, TYPE_NONE },
         .excTypes = { TYPE_NONE },

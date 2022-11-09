@@ -729,8 +729,13 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
     else if(difficulty < (BOSS_COUNT - 1)) // Go at default speed for final fight
     {
-        // Still run faster and default game because it's way too slow :(
-        *waitTime = *waitTime / 2;
+        
+        if(IsMiniBossTrainer(gTrainerBattleOpponent_A))
+            // Go faster, but not quite gym leader slow
+            *waitTime = *waitTime / 4;
+        else
+            // Still run faster and default game because it's way too slow :(
+            *waitTime = *waitTime / 2;
     }
 }
 
