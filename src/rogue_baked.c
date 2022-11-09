@@ -1249,7 +1249,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     switch(itemId)
     {
         case ITEM_ESCAPE_ROPE:
-            outItem->price = 7500;
+            outItem->price = 6000;
             outItem->description = gText_EscapeRopeDesc;
             break;
 
@@ -1286,8 +1286,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             break;
     
 #ifdef ROGUE_EXPANSION
+        case ITEM_ABILITY_CAPSULE:
+            outItem->price = 3000;
+            break;
+
         case ITEM_ABILITY_PATCH:
-            outItem->price = 10000;
+            outItem->price = 6000;
             break;
 
         case ITEM_RUSTED_SWORD:
