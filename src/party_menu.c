@@ -5848,12 +5848,13 @@ void ChooseMonForInBattleItem(void)
 
 static u8 GetPartyMenuActionsTypeInBattle(struct Pokemon *mon)
 {
+    if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
+        return ACTIONS_RELEASE;
+
     if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(mon, MON_DATA_IS_EGG) == FALSE)
     {
         if (gPartyMenu.action == PARTY_ACTION_SEND_OUT)
             return ACTIONS_SEND_OUT;
-        if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
-            return ACTIONS_RELEASE;
         if (!(gBattleTypeFlags & BATTLE_TYPE_ARENA))
             return ACTIONS_SHIFT;
     }
