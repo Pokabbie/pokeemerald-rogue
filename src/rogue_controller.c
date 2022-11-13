@@ -435,6 +435,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
 
         // Apply charms
         {
+            u32 perc;
             u16 rateInc = GetCharmValue(EFFECT_CATCH_RATE);
             u16 rateDec = GetCurseValue(EFFECT_CATCH_RATE);
             
@@ -449,11 +450,19 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
                 rateInc = 0;
             }
 
-            if(rateInc != 0)
-                *ballMultiplier = *ballMultiplier * (1 + rateInc);
+            perc = 100;
 
-            if(rateDec != 0)
-                *ballMultiplier = max(*ballMultiplier / (1 + rateDec), 1);
+            if(rateInc > 0)
+            {
+                perc = 100 + rateInc;
+            }
+            else if(rateDec > 0)
+            {
+                perc = (rateDec > 100 ? 0 : 100 - rateDec);
+            }
+
+            if(perc != 100)
+                *ballMultiplier = ((u32)*ballMultiplier * perc) / 100;
         }
 #endif
 

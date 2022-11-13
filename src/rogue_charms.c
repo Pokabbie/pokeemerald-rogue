@@ -72,9 +72,9 @@ static u16 EffectToCurseItem(u8 effectType)
     return ITEM_NONE;
 }
 
-static u16 CalcValueInternal(u8 effectType, u16 itemId)
+static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 {
-    u16 itemCount = (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId));
+    u32 itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
 
     // Custom rate scaling
     switch(effectType)
@@ -83,16 +83,19 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId)
             return itemCount * 20;
 
         case EFFECT_FLINCH_CHANCE:
-            return min(itemCount, 9) * 10;
+            return min(itemCount * (isCurse ? 5 : 10), 90);
 
         case EFFECT_SHED_SKIN_CHANCE:
-            return min(itemCount, 5) * 20;
+            return min(itemCount * (isCurse ? 15 : 20), 100);
 
         case EFFECT_WILD_IV_RATE:
             return itemCount * 10;
+            
+        case EFFECT_CATCH_RATE:
+            return itemCount * (isCurse ? 25 : 100);
 
         case EFFECT_SERENE_GRACE_CHANCE:
-            return itemCount * 75;
+            return itemCount * (isCurse ? 50 : 75);
     }
 
     return itemCount;
@@ -110,12 +113,12 @@ bool8 IsCurseActive(u8 effectType)
 
 u16 GetCharmValue(u8 effectType)
 {
-    return CalcValueInternal(effectType, EffectToCharmItem(effectType));
+    return CalcValueInternal(effectType, EffectToCharmItem(effectType), FALSE);
 }
 
 u16 GetCurseValue(u8 effectType)
 {
-    return CalcValueInternal(effectType, EffectToCurseItem(effectType));
+    return CalcValueInternal(effectType, EffectToCurseItem(effectType), TRUE);
 }
 
 static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)

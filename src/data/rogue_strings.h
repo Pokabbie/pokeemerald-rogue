@@ -173,7 +173,7 @@ const u8 sItemShoppingCurseDesc[] = _(
 
 const u8 sItemFlinchCurseDesc[] = _(
     "Opponent moves\n"
-    "have an extra 10%\n"
+    "have an extra 5%\n"
     "chance to flinch.");
 
 const u8 sItemCritCurseDesc[] = _(
@@ -183,7 +183,7 @@ const u8 sItemCritCurseDesc[] = _(
 
 const u8 sItemShedSkinCurseDesc[] = _(
     "Opponent POKéMON\n"
-    "have a 20% chance\n"
+    "have a 15% chance\n"
     "to cure status.");
 
 const u8 sItemWildIVCurseDesc[] = _(
@@ -193,11 +193,11 @@ const u8 sItemWildIVCurseDesc[] = _(
 const u8 sItemCatchingCurseDesc[] = _(
     "BALL effectiveness\n"
     "is decreased by\n"
-    "50%.");
+    "25%.");
 
 const u8 sItemGraceCurseDesc[] = _(
     "Opponent moves\n"
-    "have an extra 75%\n"
+    "have an extra 50%\n"
     "for extra effects.");
 
 const u8 sItemPartyCurseDesc[] = _(
