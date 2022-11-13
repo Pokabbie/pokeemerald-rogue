@@ -854,6 +854,9 @@ u8 ItemToGen(u16 item)
     if(item >= ITEM_FIRE_MEMORY && item <= ITEM_FAIRY_MEMORY)
         return 7;
 
+    if(item >= ITEM_RED_NECTAR && item <= ITEM_PURPLE_NECTAR)
+        return 7;
+
     // Mega stones are gonna be gen'd by the mons as we already feature toggle them based on key items
     if(item >= ITEM_VENUSAURITE && item <= ITEM_MEWTWONITE_Y)
         return 1;
