@@ -679,7 +679,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
             u8 difficulty = gRogueRun.currentDifficulty;
-            *money = (difficulty + 1) * 1500;
+            *money = (difficulty + 1) * 1000;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
@@ -2263,6 +2263,68 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
     HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId);
 
     return bossId;
+}
+
+
+
+void Rogue_SelectMiniBossRewardMons()
+{
+    u16 indexA, indexB;
+    u32 startSeed = gRngRogueValue;
+    u8 partySize = CalculateEnemyPartyCount();
+
+    if(partySize == 1)
+    {
+        indexA = 0;
+        indexB = 0;
+    }
+    else if(partySize == 2)
+    {
+        indexA = 0;
+        indexB = 1;
+    }
+    else
+    {
+        u8 i;
+        u16 species;
+
+        // Select first index
+        indexA = RogueRandomRange(partySize, FLAG_SET_SEED_TRAINERS);
+
+        for(i = 0; i < partySize; ++i)
+        {
+            species = GetMonData(&gEnemyParty[indexA], MON_DATA_SPECIES);
+
+            // Accept first non legendary
+            if(!IsSpeciesLegendary(species))
+                break;
+            
+            indexA = (indexA + 1) % partySize;
+        }
+
+        // Select 2nd index
+        indexB = RogueRandomRange(partySize, FLAG_SET_SEED_TRAINERS);
+
+        for(i = 0; i < partySize; ++i)
+        {
+            species = GetMonData(&gEnemyParty[indexB], MON_DATA_SPECIES);
+
+            // Avoid duplicate index
+            if(indexB != indexA)
+            {
+                // Accept first non legendary
+                if(!IsSpeciesLegendary(species))
+                    break;
+            }
+            
+            indexB = (indexB + 1) % partySize;
+        }
+    }
+
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gEnemyParty[indexA], MON_DATA_SPECIES));
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gEnemyParty[indexB], MON_DATA_SPECIES));
+
+    gRngRogueValue = startSeed;
 }
 
 u8 Rogue_SelectWildDenEncounterRoom(void)
@@ -4891,11 +4953,69 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
             ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
         }
 
+        // Bump 2 of the IVs to max
         SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
         SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
 
+        // Clear held item
         temp = 0;
         SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+    }
+}
+
+void Rogue_ModifyScriptMon(struct Pokemon* mon)
+{
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    {
+        u32 temp;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        u16 statA = (Random() % 6);
+        u16 statB = (statA + 1 + (Random() % 5)) % 6;
+
+        // Apply the miniboss preset for this mon
+        {
+            u8 i;
+            u8 target;
+            u8 partySize = CalculateEnemyPartyCount();
+
+            // Find the matching species
+            for(i = 0; i < partySize; ++i)
+            {
+                if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
+                    break;
+            }
+
+            target = i;
+
+            if(target != partySize)
+            {
+                struct RogueMonPreset customPreset;
+                customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
+                customPreset.abilityNum = GetMonData(&gEnemyParty[target], MON_DATA_ABILITY_NUM);
+
+                for(i = 0; i < MAX_MON_MOVES; ++i)
+                    customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+
+                ApplyMonPreset(mon, CalculatePlayerLevel(), &customPreset);
+            }
+        }
+
+        // Bump 2 of the IVs to max
+        temp = 31;
+        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+        // Clear held item
+        temp = 0;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+
+        // Set to the correct level
+        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, CalculatePlayerLevel());
+        SetMonData(mon, MON_DATA_EXP, &temp);
+        CalculateMonStats(mon);
+
+        temp = GetMonData(mon, MON_DATA_LEVEL);
+        SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
     }
 }
 

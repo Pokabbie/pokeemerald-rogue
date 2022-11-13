@@ -107,6 +107,7 @@ struct AdvMapScratch
     u8 wildDenCount;
     u8 gameShowCount;
     u8 graveYardCount;
+    u8 minibossCount;
     u8 labCount;
     struct AdvEventScratch* readNodes;
     struct AdvEventScratch* writeNodes;
@@ -584,6 +585,11 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
         weights[ADVPATH_ROOM_WILD_DEN] = 0;
     }
 
+    if(scratch->minibossCount >= 2)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
+    }
+
     if(scratch->gameShowCount >= 2)
     {
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
@@ -774,6 +780,10 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct A
 
                 case ADVPATH_ROOM_WILD_DEN:
                     ++scratch->wildDenCount;
+                    break;
+
+                case ADVPATH_ROOM_MINIBOSS:
+                    ++scratch->minibossCount;
                     break;
 
                 case ADVPATH_ROOM_GAMESHOW:

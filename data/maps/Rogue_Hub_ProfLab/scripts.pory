@@ -446,6 +446,7 @@ script Rogue_Hub_ProfLab_PokeballCommon
             msgbox(format("BIRCH: Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
             if(var(VAR_RESULT) == YES)
             {
+                call(Common_EventScript_GetGiftMonPartySlot)
                 call(Common_EventScript_NameReceivedPartyMon)
             }
             

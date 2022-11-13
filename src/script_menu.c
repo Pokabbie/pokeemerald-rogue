@@ -101,7 +101,8 @@ static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreB
 
     for (i = 0; i < count; i++)
     {
-        width = DisplayTextAndGetWidth(actions[i].text, width);
+        StringExpandPlaceholders(gStringVar4, actions[i].text);
+        width = DisplayTextAndGetWidth(gStringVar4, width);
     }
 
     newWidth = ConvertPixelWidthToTileWidth(width);
@@ -265,7 +266,8 @@ bool8 ScriptMenu_MultichoiceGrid(u8 left, u8 top, u8 multichoiceId, bool8 ignore
 
         for (i = 0; i < sMultichoiceLists[multichoiceId].count; i++)
         {
-            width = DisplayTextAndGetWidth(sMultichoiceLists[multichoiceId].list[i].text, width);
+            StringExpandPlaceholders(gStringVar4, sMultichoiceLists[multichoiceId].list[i].text);
+            width = DisplayTextAndGetWidth(gStringVar4, width);
         }
 
         newWidth = ConvertPixelWidthToTileWidth(width);

@@ -71,6 +71,9 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);
+
+    Rogue_ModifyScriptMon(&mon);
+
     sentToPc = GiveMonToPlayer(&mon);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
 

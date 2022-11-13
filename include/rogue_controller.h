@@ -60,6 +60,8 @@ u8 Rogue_SelectLegendaryEncounterRoom(void);
 u8 Rogue_SelectMiniBossEncounterRoom(void);
 u8 Rogue_SelectWildDenEncounterRoom(void);
 
+void Rogue_SelectMiniBossRewardMons();
+
 void Rogue_Battle_StartTrainerBattle(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);
 //void Rogue_Battle_StartWildBattle(void);
@@ -75,6 +77,7 @@ bool8 Rogue_AllowWildMonItems(void);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
+void Rogue_ModifyScriptMon(struct Pokemon* mon);
 
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);

@@ -45,36 +45,123 @@ script Rogue_Battle_MiniBoss
     call(Rogue_BattleDefeated_MiniBoss)
 }
 
-script Rogue_BattleDefeated_MiniBoss
+script Rogue_MiniBoss_CheckPartySize
 {
-    call(Rogue_ClearWeather)
+    specialvar(VAR_TEMP_1, CalculatePlayerPartyCount)
+    
+    if(var(VAR_TEMP_1) >= VAR_ROGUE_MAX_PARTY_SIZE)
+    {
+        msgbox(format("It looks like you're going to need to release a POKéMON to make room."))
+        //fadescreen(FADE_TO_BLACK)
+        special(ChoosePartyMon)
+        waitstate
 
-    bufferitemname(STR_VAR_1, VAR_ROGUE_ITEM0)
-    bufferitemname(STR_VAR_2, VAR_ROGUE_ITEM1)
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+        {
+            setvar(VAR_RESULT, NO)
+            return
+        }
+        else
+        {
+            special(Rogue_ReleaseMonInSlot)
+        }
+    }
 
-    msgbox(format("I've got {STR_VAR_1} in my LEFT hand\nand {STR_VAR_2} in my right."))
+    setvar(VAR_RESULT, YES)
+    return
+}
 
-    message(format("Which do you want to take?\nL: {STR_VAR_1}, R: {STR_VAR_2}"))
+script Rogue_BattleDefeated_GiveMon
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
+        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
+            message(format("Will you take one of these POKéMON with you?"))
+
+        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
+            message(format("... ... ...!"))
+
+        default:
+            message(format("Would you like to take one of these POKéMON with you?"))
+    }
     waitmessage
-    multichoice(17, 6, MULTI_RIGHTLEFT, TRUE)
+
+    special(Rogue_ChooseMiniBossRewardMons)
+    bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+    bufferspeciesname(STR_VAR_2, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+
+    multichoice(17, 6, MULTI_EXPAND2_EXIT, FALSE)
 
     switch(var(VAR_RESULT))
     {
         case 0:
-            setvar(VAR_ITEM_INDEX, 0)
-            copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
-            call(Rogue_GiveItem_Internal)
+            copyvar(VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+            call(Rogue_MiniBoss_CheckPartySize)
+
         case 1:
-            setvar(VAR_ITEM_INDEX, 1)
-            copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM1)
-            call(Rogue_GiveItem_Internal)
+            copyvar(VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+            call(Rogue_MiniBoss_CheckPartySize)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, NO)
     }
+    
+    if(var(VAR_RESULT) == YES)
+    {
+        givemon(VAR_TEMP_0, 1)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_0)
+
+        playfanfare(MUS_OBTAIN_ITEM)
+        message(format("{PLAYER} obtained a {STR_VAR_1}."))
+        waitmessage
+        waitfanfare
+
+        msgbox(format("Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+    }
+    else
+    {
+        msgbox(format("Are you sure?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == NO)
+        {
+            call(Rogue_BattleDefeated_GiveMon)
+        }
+    }
+}
+
+script Rogue_BattleDefeated_MiniBoss
+{
+    call(Rogue_ClearWeather)
+
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
+    {
+        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
+        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
+            msgbox(format("I suppose I should give you some rewards for your lucky performance..."), MSGBOX_DEFAULT)
+
+        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
+            msgbox(format("... ... ...?"), MSGBOX_DEFAULT)
+
+        default:
+            msgbox(format("I've got a few rewards for you."), MSGBOX_DEFAULT)
+    }
+
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
+    call(Rogue_GiveItem_Internal)
+
+    call(Rogue_BattleDefeated_GiveMon)
 
     special(HealPlayerParty)
     special(RemoveCameraObject)
     warp(MAP_ROGUE_HUB_TRANSITION, 0)
     waitstate
-
+    
     release
 }
 

@@ -622,3 +622,8 @@ void Rogue_GiveLabMon(void)
     u16 index = gSpecialVar_0x8002;
     gSpecialVar_Result = Rogue_GiveLabEncounterMon(index);
 }
+
+void Rogue_ChooseMiniBossRewardMons(void)
+{
+    Rogue_SelectMiniBossRewardMons();
+}

@@ -1604,7 +1604,11 @@ void PrintMenuTable(u8 windowId, u8 itemCount, const struct MenuAction *menuActi
     u32 i;
 
     for (i = 0; i < itemCount; i++)
-        AddTextPrinterParameterized(windowId, 1, menuActions[i].text, 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+    {
+        StringExpandPlaceholders(gStringVar4, menuActions[i].text);
+
+        AddTextPrinterParameterized(windowId, 1, gStringVar4, 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+    }
 
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
@@ -1664,11 +1668,18 @@ void CreateYesNoMenu(const struct WindowTemplate *window, u16 baseTileNum, u8 pa
 void PrintMenuGridTable(u8 windowId, u8 optionWidth, u8 columns, u8 rows, const struct MenuAction *menuActions)
 {
     u32 i, j;
+    const u8* text;
 
     for (i = 0; i < rows; i++)
     {
         for (j = 0; j < columns; j++)
-            AddTextPrinterParameterized(windowId, 1, menuActions[(i * columns) + j].text, (optionWidth * j) + 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+        {
+            text = menuActions[(i * columns) + j].text;
+
+            StringExpandPlaceholders(gStringVar4, text);
+
+            AddTextPrinterParameterized(windowId, 1, gStringVar4, (optionWidth * j) + 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+        }
     }
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }

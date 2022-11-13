@@ -500,6 +500,7 @@ Rogue_Hub_ProfLab_PokeballCommon_7:
 	return
 
 Rogue_Hub_ProfLab_PokeballCommon_8:
+	call Common_EventScript_GetGiftMonPartySlot
 	call Common_EventScript_NameReceivedPartyMon
 	goto Rogue_Hub_ProfLab_PokeballCommon_7
 
