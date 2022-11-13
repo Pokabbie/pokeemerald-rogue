@@ -107,6 +107,7 @@ struct AdvMapScratch
     u8 wildDenCount;
     u8 gameShowCount;
     u8 graveYardCount;
+    u8 minibossCount;
     u8 labCount;
     struct AdvEventScratch* readNodes;
     struct AdvEventScratch* writeNodes;
@@ -443,7 +444,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 60);
 
             // These should start trading with each other deeper into the run
-            if(gRogueRun.currentDifficulty < 8)
+            if(gRogueRun.currentDifficulty < 6)
             {
                 weights[ADVPATH_ROOM_GAMESHOW] = 320 - 40 * min(8, gRogueRun.currentDifficulty);
                 weights[ADVPATH_ROOM_GRAVEYARD] = 10;
@@ -451,32 +452,48 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
             else
             {
                 weights[ADVPATH_ROOM_GAMESHOW] = 10;
-                weights[ADVPATH_ROOM_GRAVEYARD] = 330 - 30 * min(5, gRogueRun.currentDifficulty - 8);
+                weights[ADVPATH_ROOM_GRAVEYARD] = 330 - 30 * min(5, gRogueRun.currentDifficulty - 6);
             }
 
-            if(gRogueRun.currentDifficulty == 0)
+            if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
             {
-                weights[ADVPATH_ROOM_LEGENDARY] = 0;
-            }
-            else if((gRogueRun.currentDifficulty % 5) == 0)
-            {
-                // Every 5 badges chances get really high
-                weights[ADVPATH_ROOM_LEGENDARY] = 600;
-            }
-            else
-            {
-                // Otherwise the chances are just quite low
-                if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-                {
+                if((gRogueRun.currentDifficulty % 4) == 0)
+                    // Every 4 badges chances get really high
+                    weights[ADVPATH_ROOM_LEGENDARY] = 600;
+                else
+                    // Otherwise the chances are just quite low
                     weights[ADVPATH_ROOM_LEGENDARY] = 100;
-                }
-                else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-                {
+            }
+            else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
+            {
+                if((gRogueRun.currentDifficulty % 5) == 0)
+                    // Every 5 badges chances get really high
+                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
+                else
+                    // Otherwise impossible
                     weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            }
+            else 
+            {
+                // Pre E4 settings
+                if(gRogueRun.currentDifficulty < 8)
+                {
+                    if((gRogueRun.currentDifficulty % 3) == 0)
+                        // Every 5 badges chances get really high
+                        weights[ADVPATH_ROOM_LEGENDARY] = 800;
+                    else
+                        // Otherwise the chances are just quite low
+                        weights[ADVPATH_ROOM_LEGENDARY] = 20;
                 }
+                // E4 settings
                 else 
                 {
-                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
+                    if((gRogueRun.currentDifficulty % 9) == 0)
+                        // Shortly in we have chance to get an uber legendary
+                        weights[ADVPATH_ROOM_LEGENDARY] = 800;
+                    else
+                        // Otherwise the chances are just quite low
+                        weights[ADVPATH_ROOM_LEGENDARY] = 20;
                 }
             }
         }
@@ -512,10 +529,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
                 weights[ADVPATH_ROOM_NONE] = 0;
                 weights[ADVPATH_ROOM_WILD_DEN] = 0;
                 weights[ADVPATH_ROOM_LEGENDARY] = 0;
+                weights[ADVPATH_ROOM_MINIBOSS] *= 2;
                 break;
 
             case ADVPATH_ROOM_MINIBOSS:
-                weights[ADVPATH_ROOM_LEGENDARY] = 0;
                 weights[ADVPATH_ROOM_MINIBOSS] = 0;
                 weights[ADVPATH_ROOM_GRAVEYARD] *= 2;
                 weights[ADVPATH_ROOM_LAB] *= 2;
@@ -548,15 +565,29 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
     }
 
     // We have limited number of certain encounters
-    
-    if(scratch->legendaryCount >= 1)
+    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
     {
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        if(scratch->legendaryCount >= 2)
+        {
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+    }
+    else
+    {
+        if(scratch->legendaryCount >= 1)
+        {
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
     }
 
     if(scratch->wildDenCount >= 2)
     {
         weights[ADVPATH_ROOM_WILD_DEN] = 0;
+    }
+
+    if(scratch->minibossCount >= 2)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
     }
 
     if(scratch->gameShowCount >= 2)
@@ -749,6 +780,10 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount, struct A
 
                 case ADVPATH_ROOM_WILD_DEN:
                     ++scratch->wildDenCount;
+                    break;
+
+                case ADVPATH_ROOM_MINIBOSS:
+                    ++scratch->minibossCount;
                     break;
 
                 case ADVPATH_ROOM_GAMESHOW:

@@ -30,18 +30,107 @@ Rogue_Battle_MiniBoss::
 	return
 
 
+Rogue_MiniBoss_CheckPartySize::
+	specialvar VAR_TEMP_1, CalculatePlayerPartyCount
+	compare VAR_TEMP_1, VAR_ROGUE_MAX_PARTY_SIZE
+	goto_if_ge Rogue_MiniBoss_CheckPartySize_2
+Rogue_MiniBoss_CheckPartySize_1:
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_MiniBoss_CheckPartySize_2:
+	msgbox Rogue_MiniBoss_CheckPartySize_Text_0
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Rogue_MiniBoss_CheckPartySize_4
+	special Rogue_ReleaseMonInSlot
+	goto Rogue_MiniBoss_CheckPartySize_1
+
+Rogue_MiniBoss_CheckPartySize_4:
+	setvar VAR_RESULT, NO
+	return
+
+
+Rogue_BattleDefeated_GiveMon::
+	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
+	case TRAINER_ROGUE_MINI_BOSS_MAXIE, Rogue_BattleDefeated_GiveMon_3
+	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_BattleDefeated_GiveMon_3
+	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_BattleDefeated_GiveMon_4
+	message Rogue_BattleDefeated_GiveMon_Text_2
+Rogue_BattleDefeated_GiveMon_1:
+	waitmessage
+	special Rogue_ChooseMiniBossRewardMons
+	bufferspeciesname STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
+	bufferspeciesname STR_VAR_2, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
+	multichoice 17, 6, MULTI_EXPAND2_EXIT, FALSE
+	switch VAR_RESULT
+	case 0, Rogue_BattleDefeated_GiveMon_8
+	case 1, Rogue_BattleDefeated_GiveMon_9
+	case MULTI_B_PRESSED, Rogue_BattleDefeated_GiveMon_10
+Rogue_BattleDefeated_GiveMon_6:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_BattleDefeated_GiveMon_11
+	msgbox Rogue_BattleDefeated_GiveMon_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_BattleDefeated_GiveMon_16
+	return
+
+Rogue_BattleDefeated_GiveMon_3:
+	message Rogue_BattleDefeated_GiveMon_Text_0
+	goto Rogue_BattleDefeated_GiveMon_1
+
+Rogue_BattleDefeated_GiveMon_4:
+	message Rogue_BattleDefeated_GiveMon_Text_1
+	goto Rogue_BattleDefeated_GiveMon_1
+
+Rogue_BattleDefeated_GiveMon_8:
+	copyvar VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
+	call Rogue_MiniBoss_CheckPartySize
+	goto Rogue_BattleDefeated_GiveMon_6
+
+Rogue_BattleDefeated_GiveMon_9:
+	copyvar VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
+	call Rogue_MiniBoss_CheckPartySize
+	goto Rogue_BattleDefeated_GiveMon_6
+
+Rogue_BattleDefeated_GiveMon_10:
+	setvar VAR_RESULT, NO
+	goto Rogue_BattleDefeated_GiveMon_6
+
+Rogue_BattleDefeated_GiveMon_11:
+	givemon VAR_TEMP_0, 1
+	bufferspeciesname STR_VAR_1, VAR_TEMP_0
+	playfanfare MUS_OBTAIN_ITEM
+	message Rogue_BattleDefeated_GiveMon_Text_3
+	waitmessage
+	waitfanfare
+	msgbox Rogue_BattleDefeated_GiveMon_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_BattleDefeated_GiveMon_14
+	return
+
+Rogue_BattleDefeated_GiveMon_14:
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	return
+
+Rogue_BattleDefeated_GiveMon_16:
+	call Rogue_BattleDefeated_GiveMon
+	return
+
+
 Rogue_BattleDefeated_MiniBoss::
 	call Rogue_ClearWeather
-	bufferitemname STR_VAR_1, VAR_ROGUE_ITEM0
-	bufferitemname STR_VAR_2, VAR_ROGUE_ITEM1
-	msgbox Rogue_BattleDefeated_MiniBoss_Text_0
-	message Rogue_BattleDefeated_MiniBoss_Text_1
-	waitmessage
-	multichoice 17, 6, MULTI_RIGHTLEFT, TRUE
-	switch VAR_RESULT
-	case 0, Rogue_BattleDefeated_MiniBoss_3
-	case 1, Rogue_BattleDefeated_MiniBoss_4
+	switch VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
+	case TRAINER_ROGUE_MINI_BOSS_MAXIE, Rogue_BattleDefeated_MiniBoss_3
+	case TRAINER_ROGUE_MINI_BOSS_ARCHIE, Rogue_BattleDefeated_MiniBoss_3
+	case TRAINER_ROGUE_MINI_BOSS_MIRROR, Rogue_BattleDefeated_MiniBoss_4
+	msgbox Rogue_BattleDefeated_MiniBoss_Text_2, MSGBOX_DEFAULT
 Rogue_BattleDefeated_MiniBoss_1:
+	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
+	call Rogue_GiveItem_Internal
+	call Rogue_BattleDefeated_GiveMon
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
@@ -50,15 +139,11 @@ Rogue_BattleDefeated_MiniBoss_1:
 	return
 
 Rogue_BattleDefeated_MiniBoss_3:
-	setvar VAR_0x8000, 0
-	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
-	call Rogue_GiveItem_Internal
+	msgbox Rogue_BattleDefeated_MiniBoss_Text_0, MSGBOX_DEFAULT
 	goto Rogue_BattleDefeated_MiniBoss_1
 
 Rogue_BattleDefeated_MiniBoss_4:
-	setvar VAR_0x8000, 1
-	copyvar VAR_0x8001, VAR_ROGUE_ITEM1
-	call Rogue_GiveItem_Internal
+	msgbox Rogue_BattleDefeated_MiniBoss_Text_1, MSGBOX_DEFAULT
 	goto Rogue_BattleDefeated_MiniBoss_1
 
 
@@ -118,13 +203,40 @@ Rogue_MiniBoss_KickOffBattle_5:
 	return
 
 
+Rogue_MiniBoss_CheckPartySize_Text_0:
+	.string "It looks like you're going to need to\n"
+	.string "release a POKéMON to make room.$"
+
+Rogue_BattleDefeated_GiveMon_Text_0:
+	.string "Will you take one of these POKéMON with\n"
+	.string "you?$"
+
+Rogue_BattleDefeated_GiveMon_Text_1:
+	.string "... ... ...!$"
+
+Rogue_BattleDefeated_GiveMon_Text_2:
+	.string "Would you like to take one of these\n"
+	.string "POKéMON with you?$"
+
+Rogue_BattleDefeated_GiveMon_Text_3:
+	.string "{PLAYER} obtained a {STR_VAR_1}.$"
+
+Rogue_BattleDefeated_GiveMon_Text_4:
+	.string "Would you like to give {STR_VAR_1} a\n"
+	.string "nickname?$"
+
+Rogue_BattleDefeated_GiveMon_Text_5:
+	.string "Are you sure?$"
+
 Rogue_BattleDefeated_MiniBoss_Text_0:
-	.string "I've got {STR_VAR_1} in my LEFT hand\n"
-	.string "and {STR_VAR_2} in my right.$"
+	.string "I suppose I should give you some\n"
+	.string "rewards for your lucky performance...$"
 
 Rogue_BattleDefeated_MiniBoss_Text_1:
-	.string "Which do you want to take?\n"
-	.string "L: {STR_VAR_1}, R: {STR_VAR_2}$"
+	.string "... ... ...?$"
+
+Rogue_BattleDefeated_MiniBoss_Text_2:
+	.string "I've got a few rewards for you.$"
 
 Rogue_MiniBoss_KickOffBattle_Text_0:
 	.string "{STR_VAR_1}: Don't think I'll let you\n"

@@ -972,7 +972,7 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .trainerId = TRAINER_ROGUE_BOSS_RED,
         .incTypes = { TYPE_NONE },
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_RAINBOW_CHAMP,
         .partyFlags = PARTY_FLAG_UNIQUE_COVERAGE,
     },
     
@@ -1179,7 +1179,7 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
         .trainerFlags = TRAINER_FLAG_MINI_BOSS,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .gfxId = OBJ_EVENT_GFX_BRANDON,
         .trainerId = TRAINER_ROGUE_MINI_BOSS_BRANDON,
         .incTypes = { TYPE_GROUND, TYPE_NONE },
         .excTypes = { TYPE_NONE },

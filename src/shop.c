@@ -1024,7 +1024,7 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     ScheduleBgCopyTilemapToVram(0);
 
     if(sShopData->totalCost == 0)
-        maxQuantity = 99;
+        maxQuantity = 999;
     else
         maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
 

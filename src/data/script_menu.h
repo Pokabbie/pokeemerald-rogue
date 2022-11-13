@@ -844,6 +844,13 @@ static const struct MenuAction MultichoiceList_FullOrSkip[] =
     {gText_SkipAhead},
 };
 
+static const struct MenuAction MultichoiceList_Expand2Exit[] =
+{
+    {gText_StrVar1},
+    {gText_StrVar2},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -867,7 +874,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_FULL_OR_SKIP]               = MULTICHOICE(MultichoiceList_FullOrSkip),
-    [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_EXPAND2_EXIT]               = MULTICHOICE(MultichoiceList_Expand2Exit),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),

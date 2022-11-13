@@ -196,6 +196,7 @@ gSpecials::
 	def_special Rogue_AnyNewQuestsPending
 	def_special Rogue_BufferLabMonName
 	def_special Rogue_GiveLabMon
+	def_special Rogue_ChooseMiniBossRewardMons
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams

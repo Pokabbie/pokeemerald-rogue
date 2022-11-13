@@ -82,6 +82,7 @@ Rogue_QuickSaveRun_2:
 Rogue_QuickSaveLoad::
 	lockall
 	goto_if_set FLAG_ROGUE_VALID_QUICK_SAVE, Rogue_QuickSaveLoad_2
+	msgbox Rogue_QuickSaveLoad_Text_1
 	call Rogue_ReturnToHub
 Rogue_QuickSaveLoad_1:
 	releaseall
@@ -606,18 +607,30 @@ Rogue_BerryTree_PickedUpBerry_2:
 Rogue_Battle_PreBoss::
 	lock
 	faceplayer
-	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP
-	msgbox Rogue_Battle_PreBoss_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_Battle_PreBoss_2
-	msgbox Rogue_Battle_PreBoss_Text_2, MSGBOX_DEFAULT
+	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_Battle_PreBoss_2
 Rogue_Battle_PreBoss_1:
+	goto_if_set FLAG_TEMP_1A, Rogue_Battle_PreBoss_5
+	buffernumberstring STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP
+	msgbox Rogue_Battle_PreBoss_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Battle_PreBoss_8
+	msgbox Rogue_Battle_PreBoss_Text_2, MSGBOX_DEFAULT
+Rogue_Battle_PreBoss_4:
 	release
 	return
 
 Rogue_Battle_PreBoss_2:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, Rogue_Battle_PreBoss_Text_1
+	clearflag FLAG_TEMP_1A
 	goto Rogue_Battle_PreBoss_1
+
+Rogue_Battle_PreBoss_5:
+	msgbox Rogue_Battle_PreBoss_Text_0, MSGBOX_DEFAULT
+	goto Rogue_Battle_PreBoss_4
+
+Rogue_Battle_PreBoss_8:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, Rogue_Battle_PreBoss_Text_0
+	setflag FLAG_TEMP_1A
+	goto Rogue_Battle_PreBoss_4
 
 
 Rogue_Heal_PreBoss::
@@ -1112,6 +1125,10 @@ Rogue_PostBattle_Internal_Text_0:
 Rogue_QuickSaveLoad_Text_0:
 	.string "Adventure has been reloaded.$"
 
+Rogue_QuickSaveLoad_Text_1:
+	.string "This save has already been reloaded.\p"
+	.string "Retiring from Adventure...$"
+
 Rogue_QuickSaveVersionWarning_Text_0:
 	.string "Invalid Save Location Detected!\p"
 	.string "When upgrading to a new patch, make\n"
@@ -1247,12 +1264,12 @@ Rogue_Tutor_MoveDeleteCancel_Text_0:
 	.string "Oh.. OK then.$"
 
 Rogue_Battle_PreBoss_Text_0:
+	.string "Good luck with the big battle!$"
+
+Rogue_Battle_PreBoss_Text_1:
 	.string "I can help you level up if you'd like.\p"
 	.string "Lvl. {STR_VAR_1} is the current cap.\n"
 	.string "Would you like to battle?$"
-
-Rogue_Battle_PreBoss_Text_1:
-	.string "Good luck with the big battle!$"
 
 Rogue_Battle_PreBoss_Text_2:
 	.string "Let me know if you change your mind.$"

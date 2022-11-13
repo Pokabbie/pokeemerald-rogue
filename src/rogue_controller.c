@@ -147,6 +147,7 @@ bool8 IsLegendaryEnabled(u16 species);
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
+static bool8 IsAnyBossTrainer(u16 trainerNum);
 
 static u8 CalculateBossLevel(void);
 static u8 CalculatePlayerLevel(void);
@@ -264,12 +265,18 @@ bool8 Rogue_FastBattleAnims(void)
         return TRUE;
     }
 
-    if(Rogue_IsRunActive() && 
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-        gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS)
+    if(Rogue_IsRunActive())
     {
+        // Force fast anims for non-bosses
+        if(IsAnyBossTrainer(gTrainerBattleOpponent_A))
+            return FALSE;
+
         return TRUE;
+        //if(
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
+        ////gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS))
+        //    return TRUE;
     }
 
     return FALSE;
@@ -569,9 +576,13 @@ const u16* Rogue_ModifyPallete16(const u16* input)
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gObjectEventPal_Johto_NPC_Red[0])
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        if(gSaveBlock2Ptr->playerStyle0 == 0) return gObjectEventPal_Red_0_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 1) return gObjectEventPal_Red_1_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 2) return gObjectEventPal_Red_2_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 3) return gObjectEventPal_Red_3_0;
+        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
+        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        //#undef PALETTE_FUNC
     }
 
     return input;
@@ -612,9 +623,13 @@ const u32* Rogue_ModifyPallete32(const u32* input)
     // Custom palette for Champion Red (Always have default clothes but matching apperance)
     if(input == &gTrainerPalette_ChampionRed[0])
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        if(gSaveBlock2Ptr->playerStyle0 == 0) return gTrainerPalette_Red_Front_0_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 1) return gTrainerPalette_Red_Front_1_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 2) return gTrainerPalette_Red_Front_2_0;
+        if(gSaveBlock2Ptr->playerStyle0 == 3) return gTrainerPalette_Red_Front_3_0;
+        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
+        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        //#undef PALETTE_FUNC
     }
 
     // Palette is shared with red
@@ -664,7 +679,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
             u8 difficulty = gRogueRun.currentDifficulty;
-            *money = (difficulty + 1) * 1500;
+            *money = (difficulty + 1) * 1000;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
         {
@@ -697,7 +712,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             *money /= 10;
             *money *= 10;
         }
-        else
+        else if(*money != 0)
         {
             *money = 100;
         }
@@ -714,8 +729,13 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
     else if(difficulty < (BOSS_COUNT - 1)) // Go at default speed for final fight
     {
-        // Still run faster and default game because it's way too slow :(
-        *waitTime = *waitTime / 2;
+        
+        if(IsMiniBossTrainer(gTrainerBattleOpponent_A))
+            // Go faster, but not quite gym leader slow
+            *waitTime = *waitTime / 4;
+        else
+            // Still run faster and default game because it's way too slow :(
+            *waitTime = *waitTime / 2;
     }
 }
 
@@ -2078,9 +2098,14 @@ static bool8 IsBossEnabled(u16 bossId)
     {
         excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
 
-        // Don't use special trainers for rainbow mode
-        if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
-            return FALSE;
+        if(gRogueRun.currentDifficulty >= 13)
+            includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
+        else
+        {
+            // Don't use special trainers for rainbow mode
+            if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
+                return FALSE;
+        }
     }
 
     if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
@@ -2238,6 +2263,68 @@ u8 Rogue_SelectMiniBossEncounterRoom(void)
     HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId);
 
     return bossId;
+}
+
+
+
+void Rogue_SelectMiniBossRewardMons()
+{
+    u16 indexA, indexB;
+    u32 startSeed = gRngRogueValue;
+    u8 partySize = CalculateEnemyPartyCount();
+
+    if(partySize == 1)
+    {
+        indexA = 0;
+        indexB = 0;
+    }
+    else if(partySize == 2)
+    {
+        indexA = 0;
+        indexB = 1;
+    }
+    else
+    {
+        u8 i;
+        u16 species;
+
+        // Select first index
+        indexA = RogueRandomRange(partySize, FLAG_SET_SEED_TRAINERS);
+
+        for(i = 0; i < partySize; ++i)
+        {
+            species = GetMonData(&gEnemyParty[indexA], MON_DATA_SPECIES);
+
+            // Accept first non legendary
+            if(!IsSpeciesLegendary(species))
+                break;
+            
+            indexA = (indexA + 1) % partySize;
+        }
+
+        // Select 2nd index
+        indexB = RogueRandomRange(partySize, FLAG_SET_SEED_TRAINERS);
+
+        for(i = 0; i < partySize; ++i)
+        {
+            species = GetMonData(&gEnemyParty[indexB], MON_DATA_SPECIES);
+
+            // Avoid duplicate index
+            if(indexB != indexA)
+            {
+                // Accept first non legendary
+                if(!IsSpeciesLegendary(species))
+                    break;
+            }
+            
+            indexB = (indexB + 1) % partySize;
+        }
+    }
+
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gEnemyParty[indexA], MON_DATA_SPECIES));
+    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gEnemyParty[indexB], MON_DATA_SPECIES));
+
+    gRngRogueValue = startSeed;
 }
 
 u8 Rogue_SelectWildDenEncounterRoom(void)
@@ -3009,7 +3096,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            u8 levelOffsetDelta = 2;
+            u8 levelOffsetDelta = 3;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
@@ -3065,7 +3152,7 @@ void Rogue_Battle_EndWildBattle(void)
 
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            u8 levelOffsetDelta = 2;
+            u8 levelOffsetDelta = 3;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
@@ -4137,12 +4224,15 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
 
     if(IsBossTrainer(trainerNum))
     {
+        bool8 preferAceMode = FALSE;
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+        preferAceMode = (gRogueRun.currentDifficulty == 12 && monIdx == 5) || (gRogueRun.currentDifficulty >= 13 && monIdx == 4);
 
         if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_ACE_TYPE) != 0) // Ace type
         {
             // Pre champ final mon and final champ last 2 mons
-            if((gRogueRun.currentDifficulty == 12 && monIdx == 5) || (gRogueRun.currentDifficulty >= 13 && monIdx == 4))
+            if(preferAceMode)
             {
                 bool8 executeAceQuery = TRUE;
 
@@ -4170,12 +4260,16 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         }
         else if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0) // Counter type
         {
+            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
+
             ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
             queryCheckIdx = 0;
             gRogueLocal.trainerTemp.queryMonOffset = monIdx;
         }
         else if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0) // Unique type
         {
+            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
+
             ApplyUniqueCoverageTrainerQuery(trainerNum, isBoss, party, monIdx);
             gRogueLocal.trainerTemp.queryMonOffset = monIdx;
             queryCheckIdx = 0;
@@ -4859,11 +4953,69 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
             ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
         }
 
+        // Bump 2 of the IVs to max
         SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
         SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
 
+        // Clear held item
         temp = 0;
         SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+    }
+}
+
+void Rogue_ModifyScriptMon(struct Pokemon* mon)
+{
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    {
+        u32 temp;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        u16 statA = (Random() % 6);
+        u16 statB = (statA + 1 + (Random() % 5)) % 6;
+
+        // Apply the miniboss preset for this mon
+        {
+            u8 i;
+            u8 target;
+            u8 partySize = CalculateEnemyPartyCount();
+
+            // Find the matching species
+            for(i = 0; i < partySize; ++i)
+            {
+                if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
+                    break;
+            }
+
+            target = i;
+
+            if(target != partySize)
+            {
+                struct RogueMonPreset customPreset;
+                customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
+                customPreset.abilityNum = GetMonData(&gEnemyParty[target], MON_DATA_ABILITY_NUM);
+
+                for(i = 0; i < MAX_MON_MOVES; ++i)
+                    customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+
+                ApplyMonPreset(mon, CalculatePlayerLevel(), &customPreset);
+            }
+        }
+
+        // Bump 2 of the IVs to max
+        temp = 31;
+        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+        // Clear held item
+        temp = 0;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+
+        // Set to the correct level
+        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, CalculatePlayerLevel());
+        SetMonData(mon, MON_DATA_EXP, &temp);
+        CalculateMonStats(mon);
+
+        temp = GetMonData(mon, MON_DATA_LEVEL);
+        SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
     }
 }
 
@@ -5571,11 +5723,11 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             // Not boss trainer so must be EXP trainer
-            level = prevBossLevel;
+            level = 5;
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
-            level = nextBossLevel - 3;
+            level = CalculatePlayerLevel() - 5;
         }
         else if(difficultyModifier == 0) // Easy
         {

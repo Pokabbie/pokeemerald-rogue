@@ -83,6 +83,8 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
         CalculateMonStats(&mon);
     }
 
+    Rogue_ModifyScriptMon(&mon);
+
     sentToPc = GiveMonToPlayer(&mon);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
 
