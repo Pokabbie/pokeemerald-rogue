@@ -3096,7 +3096,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            u8 levelOffsetDelta = 2;
+            u8 levelOffsetDelta = 3;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
@@ -3152,7 +3152,7 @@ void Rogue_Battle_EndWildBattle(void)
 
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            u8 levelOffsetDelta = 2;
+            u8 levelOffsetDelta = 3;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
@@ -5723,11 +5723,11 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             // Not boss trainer so must be EXP trainer
-            level = 10;
+            level = 5;
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
-            level = nextBossLevel - 3;
+            level = CalculatePlayerLevel() - 5;
         }
         else if(difficultyModifier == 0) // Easy
         {
