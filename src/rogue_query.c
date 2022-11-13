@@ -1032,6 +1032,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_Exclude(ITEM_MAX_REVIVE);
     RogueQuery_Exclude(ITEM_RARE_CANDY);
     RogueQuery_Exclude(ITEM_HEART_SCALE);
+    RogueQuery_Exclude(ITEM_LUCKY_EGG);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);
