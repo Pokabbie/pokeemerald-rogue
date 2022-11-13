@@ -540,7 +540,7 @@ void HandleAction_UseItem(void)
     {
         gBattlescriptCurrInstr = BattleScript_BallThrow;
     }
-    else if (gLastUsedItem == ITEM_POKE_DOLL || gLastUsedItem == ITEM_FLUFFY_TAIL)
+    else if (gLastUsedItem == ITEM_POKE_DOLL || gLastUsedItem == ITEM_FLUFFY_TAIL || gLastUsedItem == ITEM_POKE_TOY)
     {
         gBattlescriptCurrInstr = gBattlescriptsForRunningByItem[0]; // BattleScript_RunByUsingItem
     }
