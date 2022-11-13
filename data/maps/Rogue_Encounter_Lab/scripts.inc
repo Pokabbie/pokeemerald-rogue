@@ -37,8 +37,9 @@ Rogue_Encounter_Lab_PokeballCommon_2:
 	goto Rogue_Encounter_Lab_PokeballCommon_1
 
 Rogue_Encounter_Lab_PokeballCommon_5:
-	specialvar VAR_0x8000, CalculatePlayerPartyCount
-	compare VAR_0x8000, VAR_ROGUE_MAX_PARTY_SIZE
+	specialvar VAR_TEMP_0, CalculatePlayerPartyCount
+	specialvar VAR_TEMP_1, Rogue_CalcMaxPartySize
+	compare VAR_TEMP_0, VAR_TEMP_1
 	goto_if_ge Rogue_Encounter_Lab_PokeballCommon_8
 Rogue_Encounter_Lab_PokeballCommon_7:
 	setvar VAR_RESULT, YES

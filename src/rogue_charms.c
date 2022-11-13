@@ -32,6 +32,9 @@ static u16 EffectToCharmItem(u8 effectType)
 
         case EFFECT_SERENE_GRACE_CHANCE:
             return ITEM_GRACE_CHARM;
+
+        // Unused
+        // EFFECT_PARTY_SIZE
     }
 
     return ITEM_NONE;
@@ -61,6 +64,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_SERENE_GRACE_CHANCE:
             return ITEM_GRACE_CURSE;
+
+        case EFFECT_PARTY_SIZE:
+            return ITEM_PARTY_CURSE;
     }
 
     return ITEM_NONE;
@@ -125,6 +131,25 @@ static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)
     return FALSE;
 }
 
+u16 Rogue_GetMaxPartySize(void)
+{
+    u16 count = min(GetCurseValue(EFFECT_PARTY_SIZE), PARTY_SIZE - 1);
+    return PARTY_SIZE - count;
+}
+
+bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
+{
+    // These effects cannot be given out during runs
+    //
+    switch(effectType)
+    {
+        case EFFECT_PARTY_SIZE:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount)
 {
     u8 effectType;
@@ -135,7 +160,7 @@ u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount)
         effectType = Random() % EFFECT_COUNT;
         itemId = EffectToCharmItem(effectType);
     }
-    while(itemId == ITEM_NONE || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
+    while(itemId == ITEM_NONE || IsEffectDisabled(effectType, FALSE) || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
 
     historyBuffer[historyBufferCount] = effectType;
 
@@ -152,7 +177,7 @@ u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount)
         effectType = Random() % EFFECT_COUNT;
         itemId = EffectToCurseItem(effectType);
     }
-    while(itemId == ITEM_NONE || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
+    while(itemId == ITEM_NONE || IsEffectDisabled(effectType, TRUE) || BufferContainsValue(historyBuffer, historyBufferCount, effectType));
 
     historyBuffer[historyBufferCount] = effectType;
 

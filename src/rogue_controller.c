@@ -1336,11 +1336,6 @@ static void ClearPokemonHeldItems(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
-    u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
-
-    if(partySize == 0 || partySize > PARTY_SIZE)
-        VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
-
     ResetQuestState(newGame ? 0 : saveVersion);
 
     // Loading existing save
@@ -1856,7 +1851,6 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     SaveHubStates();
@@ -1949,7 +1943,6 @@ static void EndRogueRun(void)
     QuestNotify_EndAdventure();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
-    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     //gRogueRun.currentRoomIdx = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;

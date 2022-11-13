@@ -39,9 +39,10 @@ script Rogue_Encounter_Lab_PokeballCommon
 
         if(var(VAR_RESULT) == YES)
         {
-            specialvar(VAR_0x8000, CalculatePlayerPartyCount)
+            specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+            specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
             
-            if(var(VAR_0x8000) >= VAR_ROGUE_MAX_PARTY_SIZE)
+            if(var(VAR_TEMP_0) >= VAR_TEMP_1)
             {
                 msgbox(format("Oh it looks like you're going to need to release a POKéMON to make room."))
                 //fadescreen(FADE_TO_BLACK)

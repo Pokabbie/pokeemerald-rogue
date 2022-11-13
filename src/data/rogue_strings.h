@@ -85,6 +85,7 @@ const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
 const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
 const u8 gText_ItemGraceCurse[] = _("Grace Curse");
+const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
 
 #else
 
@@ -106,6 +107,7 @@ const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
 const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
 const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
+const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
 
 #endif
 
@@ -197,6 +199,11 @@ const u8 sItemGraceCurseDesc[] = _(
     "Opponent moves\n"
     "have an extra 75%\n"
     "for extra effects.");
+
+const u8 sItemPartyCurseDesc[] = _(
+    "The maximum number\n"
+    "of POKéMON in your\n"
+    "party is reduced.");
 
 // Quest Log
 //
