@@ -114,7 +114,9 @@
 #endif
 #define QUEST_DevilDeal             (QUEST_RegionMode_Last + 1)
 #define QUEST_LegendOnly            (QUEST_RegionMode_Last + 2)
-#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 3)
+#define QUEST_Cursed1               (QUEST_RegionMode_Last + 3)
+#define QUEST_Cursed2               (QUEST_RegionMode_Last + 4)
+#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 5)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_LAST QUEST_Hardcore4

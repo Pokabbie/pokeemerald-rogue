@@ -459,6 +459,35 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksCurseStart },
         },
+        .unlockedQuests = { 
+            QUEST_Cursed1,
+            QUEST_Cursed2,
+        }
+    },
+
+    [QUEST_Cursed1] = 
+    {
+        .title = _("Cursed Path"),
+        .desc = _(
+                    "Accept 1 of every\n"
+                    "Curse and complete a\n"
+                    "full run."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+        },
+    },
+    [QUEST_Cursed2] = 
+    {
+        .title = _("Iron Mono"),
+        .desc = _(
+                    "Accept 5 Capacity\n"
+                    "Curses and complete a\n"
+                    "full run."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+        },
     },
     
     [QUEST_LegendOnly] = 
