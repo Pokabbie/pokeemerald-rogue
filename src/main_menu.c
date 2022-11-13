@@ -425,6 +425,7 @@ static const u8 sTextColor_Version[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE
 extern const u8 gText_RogueVersion[];
 extern const u8 gText_RogueVersionPrefix[];
 extern const u8 gText_RogueVersionSuffix[];
+extern const u8 gText_RogueVersionSpacer[];
 
 static const struct BgTemplate sMainMenuBgTemplates[] = {
     {
@@ -828,7 +829,9 @@ static void Task_DisplayMainMenu(u8 taskId)
         
         // Setup version text
         StringCopy(gStringVar1, gText_RogueVersionPrefix);
+        StringAppend(gStringVar1, gText_Space2);
         StringAppend(gStringVar1, gText_RogueVersion);
+        StringAppend(gStringVar1, gText_RogueVersionSpacer);
         StringAppend(gStringVar1, gText_RogueVersionSuffix);
 
         switch (gTasks[taskId].tMenuType)

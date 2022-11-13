@@ -4,15 +4,17 @@
 const u8 gText_RogueVersion[] = _("v1.2.1");
 
 #ifdef ROGUE_EXPANSION
-const u8 gText_RogueVersionPrefix[] = _("EX ");
+const u8 gText_RogueVersionPrefix[] = _("EX");
 #else
-const u8 gText_RogueVersionPrefix[] = _("Vanilla ");
+const u8 gText_RogueVersionPrefix[] = _("Vanilla");
 #endif
 
+const u8 gText_RogueVersionSpacer[] = _(" - ");
+
 #ifdef ROGUE_DEBUG
-const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
+const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
+const u8 gText_RogueVersionSuffix[] = _("The Questing Update");
 #endif
 
 

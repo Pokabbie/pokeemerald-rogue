@@ -233,6 +233,10 @@ script RogueHub_Intro0
 
         setvar(VAR_ROGUE_INTRO_STATE, 3)
         setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+
+        // Give version notice
+        call(Rogue_QuickSaveVersionUpdateMessage)
+
         releaseall
     }
 

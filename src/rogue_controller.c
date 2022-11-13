@@ -124,6 +124,7 @@ struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     bool8 hasSaveWarningPending;
+    bool8 hasVersionUpdateMsgPending;
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
 };
@@ -1397,6 +1398,7 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 void Rogue_OnNewGame(void)
 {
     SetMoney(&gSaveBlock1Ptr->money, 0);
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
@@ -1610,6 +1612,7 @@ static void LoadHubStates(void)
 
 extern const u8 Rogue_QuickSaveLoad[];
 extern const u8 Rogue_QuickSaveVersionWarning[];
+extern const u8 Rogue_QuickSaveVersionUpdate[];
 
 void Rogue_OnSaveGame(void)
 {
@@ -1685,9 +1688,12 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
 
-    if(Rogue_IsRunActive() && gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
+    if(gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
     {
-        gRogueLocal.hasSaveWarningPending = TRUE;
+        if(Rogue_IsRunActive())
+            gRogueLocal.hasSaveWarningPending = TRUE;
+        else
+            gRogueLocal.hasVersionUpdateMsgPending = TRUE;
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
@@ -1699,6 +1705,12 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         gRogueLocal.hasSaveWarningPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionWarning);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasVersionUpdateMsgPending)
+    {
+        gRogueLocal.hasVersionUpdateMsgPending = FALSE;
+        ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
 #ifndef ROGUE_DEBUG

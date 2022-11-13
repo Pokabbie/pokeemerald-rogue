@@ -270,6 +270,8 @@ void ExecuteTruckSequence(void)
     CreateTask(Task_HandleTruckSequence, 0xA);
 }
 
+//extern const u8 Rogue_NewGameVersionUpdate[];
+
 void EndTruckSequence(u8 taskId)
 {
     if (!FuncIsActiveTask(Task_HandleTruckSequence))
@@ -277,6 +279,9 @@ void EndTruckSequence(u8 taskId)
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_TOP,      gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX1_X_OFFSET, BOX1_Y_OFFSET);
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_BOTTOM_L, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX2_X_OFFSET, BOX2_Y_OFFSET);
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_BOTTOM_R, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX3_X_OFFSET, BOX3_Y_OFFSET);
+
+        // Display Version update message
+        //ScriptContext1_SetupScript(Rogue_NewGameVersionUpdate);
     }
 }
 

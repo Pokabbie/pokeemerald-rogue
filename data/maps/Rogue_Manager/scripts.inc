@@ -110,6 +110,23 @@ Rogue_QuickSaveVersionWarning_3:
 	goto Rogue_QuickSaveVersionWarning_2
 
 
+Rogue_QuickSaveVersionUpdateMessage::
+	bufferstring STR_VAR_1, gText_RogueVersion
+	bufferstring STR_VAR_2, gText_RogueVersionPrefix
+	bufferstring STR_VAR_3, gText_RogueVersionSuffix
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_0
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_1
+	return
+
+
+Rogue_QuickSaveVersionUpdate::
+	lockall
+	call Rogue_QuickSaveVersionUpdateMessage
+	warp MAP_ROGUE_HUB, 8
+	releaseall
+	return
+
+
 Rogue_RetireFromRun::
 	lockall
 	msgbox Rogue_RetireFromRun_Text_0, MSGBOX_YESNO
@@ -1135,6 +1152,21 @@ Rogue_QuickSaveVersionWarning_Text_0:
 	.string "sure to save in the HUB outdoor area.\p"
 	.string "Please revert to the older patch and\n"
 	.string "re-save in a valid location.$"
+
+Rogue_QuickSaveVersionUpdateMessage_Text_0:
+	.string "Welcome to...\n"
+	.string "Emerald Rogue {STR_VAR_2}!\n"
+	.string "{STR_VAR_1} {STR_VAR_3}\p"
+	.string "Always remember to download from the\n"
+	.string "official sources:\p"
+	.string "PokeCommunity (posted by Pokabbie) or\n"
+	.string "Discord\p"
+	.string "For guides, bug reporting and previews,\n"
+	.string "feel free to join the official Discord:\p"
+	.string "https://discord.gg/XGyB9gTb8E$"
+
+Rogue_QuickSaveVersionUpdateMessage_Text_1:
+	.string "I hope you enjoy Emerald Rogue!$"
 
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"

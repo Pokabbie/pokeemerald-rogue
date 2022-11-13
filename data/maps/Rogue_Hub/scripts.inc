@@ -171,6 +171,7 @@ RogueHub_Intro0_2:
 	setobjectxyperm 2, 29, 6
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
+	call Rogue_QuickSaveVersionUpdateMessage
 	releaseall
 	goto RogueHub_Intro0_1
 
