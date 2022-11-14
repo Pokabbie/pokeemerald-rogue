@@ -75,6 +75,7 @@
 
 #include "move_relearner.h"
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 
 
 #define PARTY_PAL_SELECTED     (1 << 0)
@@ -972,7 +973,7 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
 
 static bool8 RenderPartyMenuBoxes(void)
 {
-    u8 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
+    u8 partySize = max(gPlayerPartyCount, Rogue_GetMaxPartySize());
     
     RenderPartyMenuBox(sPartyMenuInternal->data[0]);
     if (++sPartyMenuInternal->data[0] == partySize)
@@ -6351,12 +6352,13 @@ void ChooseMonForInBattleItem(void)
 
 static u8 GetPartyMenuActionsTypeInBattle(struct Pokemon *mon)
 {
+    if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
+        return ACTIONS_RELEASE;
+
     if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(mon, MON_DATA_IS_EGG) == FALSE)
     {
         if (gPartyMenu.action == PARTY_ACTION_SEND_OUT)
             return ACTIONS_SEND_OUT;
-        if (gPartyMenu.action == PARTY_ACTION_CHOOSE_RELEASE)
-            return ACTIONS_RELEASE;
         if (!(gBattleTypeFlags & BATTLE_TYPE_ARENA))
             return ACTIONS_SHIFT;
     }

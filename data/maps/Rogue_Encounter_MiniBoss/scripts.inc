@@ -32,7 +32,8 @@ Rogue_Battle_MiniBoss::
 
 Rogue_MiniBoss_CheckPartySize::
 	specialvar VAR_TEMP_1, CalculatePlayerPartyCount
-	compare VAR_TEMP_1, VAR_ROGUE_MAX_PARTY_SIZE
+	specialvar VAR_TEMP_2, Rogue_CalcMaxPartySize
+	compare VAR_TEMP_1, VAR_TEMP_2
 	goto_if_ge Rogue_MiniBoss_CheckPartySize_2
 Rogue_MiniBoss_CheckPartySize_1:
 	setvar VAR_RESULT, YES

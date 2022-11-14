@@ -4,15 +4,17 @@
 const u8 gText_RogueVersion[] = _("v1.2.1");
 
 #ifdef ROGUE_EXPANSION
-const u8 gText_RogueVersionPrefix[] = _("EX ");
+const u8 gText_RogueVersionPrefix[] = _("EX");
 #else
-const u8 gText_RogueVersionPrefix[] = _("Vanilla ");
+const u8 gText_RogueVersionPrefix[] = _("Vanilla");
 #endif
 
+const u8 gText_RogueVersionSpacer[] = _(" - ");
+
 #ifdef ROGUE_DEBUG
-const u8 gText_RogueVersionSuffix[] = _(" (DEBUG)");
+const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _(" - The Questing Update");
+const u8 gText_RogueVersionSuffix[] = _("The Questing Update");
 #endif
 
 
@@ -85,6 +87,8 @@ const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
 const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
 const u8 gText_ItemGraceCurse[] = _("Grace Curse");
+const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
+const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
 
 #else
 
@@ -106,6 +110,8 @@ const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
 const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
 const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
+const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
+const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
 
 #endif
 
@@ -171,7 +177,7 @@ const u8 sItemShoppingCurseDesc[] = _(
 
 const u8 sItemFlinchCurseDesc[] = _(
     "Opponent moves\n"
-    "have an extra 10%\n"
+    "have an extra 5%\n"
     "chance to flinch.");
 
 const u8 sItemCritCurseDesc[] = _(
@@ -181,7 +187,7 @@ const u8 sItemCritCurseDesc[] = _(
 
 const u8 sItemShedSkinCurseDesc[] = _(
     "Opponent POKéMON\n"
-    "have a 20% chance\n"
+    "have a 15% chance\n"
     "to cure status.");
 
 const u8 sItemWildIVCurseDesc[] = _(
@@ -191,12 +197,23 @@ const u8 sItemWildIVCurseDesc[] = _(
 const u8 sItemCatchingCurseDesc[] = _(
     "BALL effectiveness\n"
     "is decreased by\n"
-    "50%.");
+    "25%.");
 
 const u8 sItemGraceCurseDesc[] = _(
     "Opponent moves\n"
-    "have an extra 75%\n"
+    "have an extra 50%\n"
     "for extra effects.");
+
+const u8 sItemPartyCurseDesc[] = _(
+    "The maximum number\n"
+    "of POKéMON in your\n"
+    "party is reduced.");
+
+const u8 sItemEverstoneCurseDesc[] = _(
+    "LVL UP Evolutions\n"
+    "become LVL whilst\n"
+    "holding LINK CABLE.");
+
 
 // Quest Log
 //

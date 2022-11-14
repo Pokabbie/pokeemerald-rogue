@@ -643,6 +643,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_BAKERY",
       "dest_warp_id": 0
+    },
+    {
+      "x": 29,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_DEBUG",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

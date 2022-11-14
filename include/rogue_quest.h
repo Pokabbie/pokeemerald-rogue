@@ -32,6 +32,7 @@ void QuestNotify_OnWildBattleEnd(void);
 void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer);
 void QuestNotify_OnMonFainted(void);
 
+void QuestNotify_OnExitHubTransition(void);
 void QuestNotify_OnWarp(struct WarpData* warp);
 void QuestNotify_OnAddMoney(u32 amount);
 void QuestNotify_OnRemoveMoney(u32 amount);

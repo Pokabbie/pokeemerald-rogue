@@ -142,6 +142,7 @@ gSpecials::
 	def_special CompareLotadSize
 	def_special TryPutNameRaterShowOnTheAir
 	def_special BufferMonNickname
+	def_special ChangePlayerNickname
 	def_special IsMonOTIDNotPlayers
 	def_special BufferTrendyPhraseString
 	def_special IsTrendyPhraseBoring
@@ -182,7 +183,7 @@ gSpecials::
 	def_special Rogue_AlterMonIVs
 	def_special Rogue_ApplyStatusToMon
 	def_special Rogue_ReleaseMonInSlot
-	def_special Rogue_ReducePartySize
+	def_special Rogue_CalcMaxPartySize
 	def_special Rogue_GetMonEvoCount
 	def_special Rogue_GetMonEvoParams
 	def_special RogueDebug_FillGenPC

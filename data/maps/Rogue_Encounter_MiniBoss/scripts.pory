@@ -48,8 +48,9 @@ script Rogue_Battle_MiniBoss
 script Rogue_MiniBoss_CheckPartySize
 {
     specialvar(VAR_TEMP_1, CalculatePlayerPartyCount)
+    specialvar(VAR_TEMP_2, Rogue_CalcMaxPartySize)
     
-    if(var(VAR_TEMP_1) >= VAR_ROGUE_MAX_PARTY_SIZE)
+    if(var(VAR_TEMP_1) >= VAR_TEMP_2)
     {
         msgbox(format("It looks like you're going to need to release a POKéMON to make room."))
         //fadescreen(FADE_TO_BLACK)

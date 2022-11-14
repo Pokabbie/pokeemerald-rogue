@@ -3071,4 +3071,26 @@ extern const u8 gText_Easy[];
 extern const u8 gText_Average[];
 extern const u8 gText_Hard[];
 
+extern const u8 gText_HiddenMoves1[];
+extern const u8 gText_HiddenMoves2[];
+extern const u8 gText_HiddenMoves3[];
+extern const u8 gText_HiddenMoves4[];
+extern const u8 gText_HiddenMoves5[];
+extern const u8 gText_HiddenMoves6[];
+extern const u8 gText_HiddenMoves7[];
+extern const u8 gText_HiddenMoves8[];
+extern const u8 gText_HiddenMoves9[];
+extern const u8 gText_HiddenMoves10[];
+extern const u8 gText_HiddenMoves11[];
+extern const u8 gText_HiddenMoves12[];
+extern const u8 gText_HiddenMoves13[];
+extern const u8 gText_HiddenMoves14[];
+extern const u8 gText_HiddenMoves15[];
+extern const u8 gText_HiddenMoves16[];
+extern const u8 gText_HiddenMoves17[];
+extern const u8 gText_HiddenMoves18[];
+extern const u8 gText_HiddenMoves19[];
+extern const u8 gText_HiddenMoves20[];
+extern const u8 gText_HiddenMoves20plus[];
+
 #endif // GUARD_STRINGS_H

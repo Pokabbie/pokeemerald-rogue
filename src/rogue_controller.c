@@ -124,6 +124,7 @@ struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
     bool8 hasSaveWarningPending;
+    bool8 hasVersionUpdateMsgPending;
     struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
 };
@@ -156,6 +157,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
+static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 static u8 GetCurrentWildEncounterCount(void);
@@ -435,6 +437,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
 
         // Apply charms
         {
+            u32 perc;
             u16 rateInc = GetCharmValue(EFFECT_CATCH_RATE);
             u16 rateDec = GetCurseValue(EFFECT_CATCH_RATE);
             
@@ -449,11 +452,19 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
                 rateInc = 0;
             }
 
-            if(rateInc != 0)
-                *ballMultiplier = *ballMultiplier * (1 + rateInc);
+            perc = 100;
 
-            if(rateDec != 0)
-                *ballMultiplier = max(*ballMultiplier / (1 + rateDec), 1);
+            if(rateInc > 0)
+            {
+                perc = 100 + rateInc;
+            }
+            else if(rateDec > 0)
+            {
+                perc = (rateDec > 100 ? 0 : 100 - rateDec);
+            }
+
+            if(perc != 100)
+                *ballMultiplier = ((u32)*ballMultiplier * perc) / 100;
         }
 #endif
 
@@ -852,6 +863,9 @@ u8 ItemToGen(u16 item)
         return 5;
 
     if(item >= ITEM_FIRE_MEMORY && item <= ITEM_FAIRY_MEMORY)
+        return 7;
+
+    if(item >= ITEM_RED_NECTAR && item <= ITEM_PURPLE_NECTAR)
         return 7;
 
     // Mega stones are gonna be gen'd by the mons as we already feature toggle them based on key items
@@ -1333,11 +1347,6 @@ static void ClearPokemonHeldItems(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
-    u16 partySize = VarGet(VAR_ROGUE_MAX_PARTY_SIZE);
-
-    if(partySize == 0 || partySize > PARTY_SIZE)
-        VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
-
     ResetQuestState(newGame ? 0 : saveVersion);
 
     // Loading existing save
@@ -1390,6 +1399,7 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 void Rogue_OnNewGame(void)
 {
     SetMoney(&gSaveBlock1Ptr->money, 0);
+    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
@@ -1603,6 +1613,7 @@ static void LoadHubStates(void)
 
 extern const u8 Rogue_QuickSaveLoad[];
 extern const u8 Rogue_QuickSaveVersionWarning[];
+extern const u8 Rogue_QuickSaveVersionUpdate[];
 
 void Rogue_OnSaveGame(void)
 {
@@ -1678,9 +1689,12 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
 
-    if(Rogue_IsRunActive() && gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
+    if(gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
     {
-        gRogueLocal.hasSaveWarningPending = TRUE;
+        if(Rogue_IsRunActive())
+            gRogueLocal.hasSaveWarningPending = TRUE;
+        else
+            gRogueLocal.hasVersionUpdateMsgPending = TRUE;
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
@@ -1692,6 +1706,12 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         gRogueLocal.hasSaveWarningPending = FALSE;
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionWarning);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasVersionUpdateMsgPending)
+    {
+        gRogueLocal.hasVersionUpdateMsgPending = FALSE;
+        ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
 #ifndef ROGUE_DEBUG
@@ -1853,7 +1873,6 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
-    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     SaveHubStates();
@@ -1946,7 +1965,6 @@ static void EndRogueRun(void)
     QuestNotify_EndAdventure();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
-    VarSet(VAR_ROGUE_MAX_PARTY_SIZE, PARTY_SIZE);
 
     //gRogueRun.currentRoomIdx = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
@@ -2577,292 +2595,302 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
-    if(Rogue_IsRunActive() && RogueAdv_OverrideNextWarp(warp) == ROGUE_WARP_TO_ROOM)
+    if(Rogue_IsRunActive())
     {
-        ++gRogueRun.currentRoomIdx;
+        u8 warpType = RogueAdv_OverrideNextWarp(warp);
 
-        VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
-
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
-
-        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
-
-        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-
-        // We're warping into a valid map
-        // We've already set the next room type so adjust the scaling now
-        switch(gRogueAdvPath.currentRoomType)
+        if(warpType == ROGUE_WARP_TO_ADVPATH)
         {
-            case ADVPATH_ROOM_RESTSTOP:
-            {
-                if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
-                {
-                    // Enable random trader
-                    FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-                }
-                else
-                {
-                    FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-                }
-                break;
-            }
-
-            case ADVPATH_ROOM_ROUTE:
-            {
-                u8 weatherChance = 5 + 20 * gRogueAdvPath.currentRoomParams.perType.route.difficulty;
-
-                gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
-
-                // Legacy feature legendaries were on random routes (Just keep them in as debug shortcut)
-                #ifdef ROGUE_DEBUG
-                    FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                #else
-                    FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                #endif
-
-                RandomiseWildEncounters();
-                ResetTrainerBattles();
-                RandomiseEnabledTrainers();
-                RandomiseEnabledItems();
-                RandomiseBerryTrees();
-
-                if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
-                {
-                    u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
-                    u16 chosenType = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
-                    u16 weatherType = gRogueTypeWeatherTable[chosenType];
-
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                }
-                break;
-            }
-
-            case ADVPATH_ROOM_BOSS:
-            {
-                const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-                gRogueRun.currentLevelOffset = 0;
-                RandomiseEnabledItems();
-
-                // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
-                {
-                    switch(gSaveBlock2Ptr->playerGender)
-                    {
-                        case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                            break;
-                        case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                            break;
-
-                        case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                            break;
-                        case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                            break;
-                    };
-                }
-                // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
-                {
-                    switch(gSaveBlock2Ptr->playerGender)
-                    {
-                        case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                            break;
-                        case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                            break;
-
-                        case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                            break;
-                        case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                            break;
-                    };
-                }
-                else
-                {
-                    VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
-                }
-
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
-
-                if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                {
-                    // No Weather
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-
-                // Set weather type
-                if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
-                {
-                    // No Weather
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-                else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-                {
-                    // No Weather
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
-                {
-                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                }
-                else if(gRogueRun.currentDifficulty > 2)
-                {
-                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                }
-                break;
-            }
-
-            case ADVPATH_ROOM_LEGENDARY:
-            {
-                ResetSpecialEncounterStates();
-                ResetTrainerBattles();
-                RandomiseEnabledTrainers();
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
-                break;
-            }
-
-            case ADVPATH_ROOM_WILD_DEN:
-            {
-                ResetSpecialEncounterStates();
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.roomIdx);
-                break;
-            }
-
-            case ADVPATH_ROOM_MINIBOSS:
-            {
-                const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-                RandomiseEnabledItems(); // We only want this for the item content
-                
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
-
-                // Mirror trainer
-                if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
-                {
-                    switch(gSaveBlock2Ptr->playerGender)
-                    {
-                        case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                            break;
-                        case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                            break;
-
-                        case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                            break;
-                        case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                            break;
-                    };
-                }
-                // Rival Trainer
-                else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
-                {
-                    switch(gSaveBlock2Ptr->playerGender)
-                    {
-                        case(STYLE_EMR_BRENDAN):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                            break;
-                        case(STYLE_EMR_MAY):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                            break;
-
-                        case(STYLE_RED):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                            break;
-                        case(STYLE_LEAF):
-                            VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                            break;
-                    };
-                }
-                else
-                {
-                    VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
-                }
-
-                // Set weather type
-                if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
-                {
-                    // No Weather
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-                else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-                {
-                    // No Weather
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                }
-                else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
-                {
-                    u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                        weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                }
-                break;
-            }
-
-            case ADVPATH_ROOM_LAB:
-            {
-                RandomiseCharmItems();
-
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLabEncounterData.party[0], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLabEncounterData.party[1], MON_DATA_SPECIES));
-                VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLabEncounterData.party[2], MON_DATA_SPECIES));
-                break;
-            }
-
-            case ADVPATH_ROOM_GRAVEYARD:
-            {
-                RandomiseCharmItems();
-                break;
-            }
-        };
-
-#ifdef ROGUE_DEBUG
-        //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
-#endif
-
-        
-        // Ensure we have all badges by this point
-        if(gRogueRun.currentDifficulty >= 8)
-        {
-            FlagSet(FLAG_BADGE01_GET);
-            FlagSet(FLAG_BADGE02_GET);
-            FlagSet(FLAG_BADGE03_GET);
-            FlagSet(FLAG_BADGE04_GET);
-            FlagSet(FLAG_BADGE05_GET);
-            FlagSet(FLAG_BADGE06_GET);
-            FlagSet(FLAG_BADGE07_GET);
-            FlagSet(FLAG_BADGE08_GET);
+            if(gRogueRun.currentRoomIdx == 0)
+                QuestNotify_OnExitHubTransition();
         }
-        
-        // Update VARs
-        VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
-        VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
+        else if(warpType == ROGUE_WARP_TO_ROOM)
+        {
+            ++gRogueRun.currentRoomIdx;
+
+            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
+
+            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
+
+            if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
+
+            VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+
+            // We're warping into a valid map
+            // We've already set the next room type so adjust the scaling now
+            switch(gRogueAdvPath.currentRoomType)
+            {
+                case ADVPATH_ROOM_RESTSTOP:
+                {
+                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
+                    {
+                        // Enable random trader
+                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+                    }
+                    else
+                    {
+                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+                    }
+                    break;
+                }
+
+                case ADVPATH_ROOM_ROUTE:
+                {
+                    u8 weatherChance = 5 + 20 * gRogueAdvPath.currentRoomParams.perType.route.difficulty;
+
+                    gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
+
+                    // Legacy feature legendaries were on random routes (Just keep them in as debug shortcut)
+                    #ifdef ROGUE_DEBUG
+                        FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+                    #else
+                        FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+                    #endif
+
+                    RandomiseWildEncounters();
+                    ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
+                    RandomiseEnabledItems();
+                    RandomiseBerryTrees();
+
+                    if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
+                    {
+                        u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
+                        u16 chosenType = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
+                        u16 weatherType = gRogueTypeWeatherTable[chosenType];
+
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                    }
+                    break;
+                }
+
+                case ADVPATH_ROOM_BOSS:
+                {
+                    const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+                    gRogueRun.currentLevelOffset = 0;
+                    RandomiseEnabledItems();
+
+                    // Mirror trainer
+                    if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
+                    {
+                        switch(gSaveBlock2Ptr->playerGender)
+                        {
+                            case(STYLE_EMR_BRENDAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
+                                break;
+                            case(STYLE_EMR_MAY):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
+                                break;
+
+                            case(STYLE_RED):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+                            case(STYLE_LEAF):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
+                                break;
+                        };
+                    }
+                    // Rival Trainer
+                    else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
+                    {
+                        switch(gSaveBlock2Ptr->playerGender)
+                        {
+                            case(STYLE_EMR_BRENDAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
+                                break;
+                            case(STYLE_EMR_MAY):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
+                                break;
+
+                            case(STYLE_RED):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
+                                break;
+                            case(STYLE_LEAF):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+                        };
+                    }
+                    else
+                    {
+                        VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
+                    }
+
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
+
+                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                    {
+                        // No Weather
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    }
+
+                    // Set weather type
+                    if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
+                    {
+                        // No Weather
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    }
+                    else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                    {
+                        // No Weather
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    }
+                    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
+                    {
+                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                    }
+                    else if(gRogueRun.currentDifficulty > 2)
+                    {
+                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                    }
+                    break;
+                }
+
+                case ADVPATH_ROOM_LEGENDARY:
+                {
+                    ResetSpecialEncounterStates();
+                    ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                    break;
+                }
+
+                case ADVPATH_ROOM_WILD_DEN:
+                {
+                    ResetSpecialEncounterStates();
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.roomIdx);
+                    break;
+                }
+
+                case ADVPATH_ROOM_MINIBOSS:
+                {
+                    const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+                    RandomiseEnabledItems(); // We only want this for the item content
+                    
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
+
+                    // Mirror trainer
+                    if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
+                    {
+                        switch(gSaveBlock2Ptr->playerGender)
+                        {
+                            case(STYLE_EMR_BRENDAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
+                                break;
+                            case(STYLE_EMR_MAY):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
+                                break;
+
+                            case(STYLE_RED):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+                            case(STYLE_LEAF):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
+                                break;
+                        };
+                    }
+                    // Rival Trainer
+                    else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
+                    {
+                        switch(gSaveBlock2Ptr->playerGender)
+                        {
+                            case(STYLE_EMR_BRENDAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
+                                break;
+                            case(STYLE_EMR_MAY):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
+                                break;
+
+                            case(STYLE_RED):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
+                                break;
+                            case(STYLE_LEAF):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+                        };
+                    }
+                    else
+                    {
+                        VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
+                    }
+
+                    // Set weather type
+                    if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
+                    {
+                        // No Weather
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    }
+                    else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+                    {
+                        // No Weather
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    }
+                    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
+                    {
+                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
+
+                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
+                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
+
+                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
+                    }
+                    break;
+                }
+
+                case ADVPATH_ROOM_LAB:
+                {
+                    RandomiseCharmItems();
+
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLabEncounterData.party[0], MON_DATA_SPECIES));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLabEncounterData.party[1], MON_DATA_SPECIES));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLabEncounterData.party[2], MON_DATA_SPECIES));
+                    break;
+                }
+
+                case ADVPATH_ROOM_GRAVEYARD:
+                {
+                    RandomiseCharmItems();
+                    break;
+                }
+            };
+
+    #ifdef ROGUE_DEBUG
+            //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
+    #endif
+
+            
+            // Ensure we have all badges by this point
+            if(gRogueRun.currentDifficulty >= 8)
+            {
+                FlagSet(FLAG_BADGE01_GET);
+                FlagSet(FLAG_BADGE02_GET);
+                FlagSet(FLAG_BADGE03_GET);
+                FlagSet(FLAG_BADGE04_GET);
+                FlagSet(FLAG_BADGE05_GET);
+                FlagSet(FLAG_BADGE06_GET);
+                FlagSet(FLAG_BADGE07_GET);
+                FlagSet(FLAG_BADGE08_GET);
+            }
+            
+            // Update VARs
+            VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
+            VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
+        }
     }
 
     QuestNotify_OnWarp(warp);
@@ -4543,6 +4571,64 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     return FALSE;
 }
 
+static bool8 MonPresetHasChoiceItem(struct RogueMonPreset* preset)
+{
+    return preset->heldItem == ITEM_CHOICE_BAND
+#ifdef ROGUE_EXPANSION
+        || preset->heldItem == ITEM_CHOICE_SPECS
+        || preset->heldItem == ITEM_CHOICE_SCARF
+#endif
+    ;
+}
+
+static u8 MonPresetCountMoves(struct RogueMonPreset* preset)
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        if(preset->moves[i] != MOVE_NONE)
+            ++count;
+    }
+
+    return count;
+}
+
+static bool8 MonPresetReplaceMove(struct RogueMonPreset* preset, u16 fromMove, u16 toMove)
+{
+    u8 i;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        if(preset->moves[i] == fromMove)
+            preset->moves[i] == toMove;
+    }
+}
+
+static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
+{
+#ifndef ROGUE_EXPANSION
+    // Vanilla only: AI can't use trick
+    if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
+        preset->allowMissingMoves = TRUE;
+#endif
+
+    // Edge case to handle scarfed ditto
+    if(MonPresetHasChoiceItem(preset) && (MonPresetCountMoves(preset) > 2))
+    {
+        // Need to make sure this mon only has attacking moves
+        u8 i = 0;
+        preset->allowMissingMoves = TRUE;
+
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            if(gBattleMoves[preset->moves[i]].power == 0)
+                preset->moves[i] = MOVE_NONE;
+        }
+    }
+}
+
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
 {
 #ifdef ROGUE_EXPANSION
@@ -4612,16 +4698,29 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
         }
     }
 
-    // Try to re-teach initial moves to fill out last slots
-    for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+    if(preset->allowMissingMoves)
     {
-        move = initialMonMoves[i]; 
-
-        if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+        // Fill the remainer slots with empty moves
+        for (i = writeMoveIdx; i < MAX_MON_MOVES; i++)
         {
-            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
-            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
-            ++writeMoveIdx;
+            move = MOVE_NONE; 
+            SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+            SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+        }
+    }
+    else
+    {
+        // Try to re-teach initial moves to fill out last slots
+        for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+        {
+            move = initialMonMoves[i]; 
+
+            if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+            {
+                SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+                SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+                ++writeMoveIdx;
+            }
         }
     }
 
@@ -4846,7 +4945,10 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 #endif
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
+    {
+        ModifyTrainerMonPreset(&preset);
         ApplyMonPreset(mon, level, &preset);
+    }
 }
 
 static u8 GetCurrentWildEncounterCount()
@@ -5342,12 +5444,13 @@ static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
     gRngRogueValue = startSeed;
 }
 
-void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves)
+void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves)
 {
     if(tutorType != 0) // TEACH_STATE_RELEARN
     {
         u16 difficulty;
         u16 capacity = 0; // MAX is 0
+        u8 startCount = *count;
     
         if(Rogue_IsRunActive())
         {
@@ -5374,6 +5477,7 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* m
             ApplyTutorMoveCapacity(count, moves, capacity);
         }
 
+        *hiddenCount = startCount - *count;
         
         // Remove moves we already know (We want to do this after capacity so the randomisation is consistent)
         {

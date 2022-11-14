@@ -673,6 +673,8 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
+        TryDeactivateQuest(QUEST_Cursed1);
+        TryDeactivateQuest(QUEST_Cursed2);
         TryDeactivateQuest(QUEST_LegendOnly);
 
         TryDeactivateQuest(QUEST_KantoMode);
@@ -771,7 +773,6 @@ void QuestNotify_BeginAdventure(void)
     }
 
     UpdateChaosChampion(TRUE);
-    UpdateMonoQuests();
 }
 
 static void OnEndBattle(void)
@@ -944,6 +945,8 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Hardcore2);
                 TryMarkQuestAsComplete(QUEST_Hardcore3);
                 TryMarkQuestAsComplete(QUEST_Hardcore4);
+                TryMarkQuestAsComplete(QUEST_Cursed1);
+                TryMarkQuestAsComplete(QUEST_Cursed2);
                 TryMarkQuestAsComplete(QUEST_LegendOnly);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);
@@ -997,6 +1000,27 @@ void QuestNotify_OnMonFainted()
                 TryMarkQuestAsComplete(QUEST_WobFate);
         }
     }
+}
+
+void QuestNotify_OnExitHubTransition(void)
+{
+    u16 i;
+
+    // Could've traded by event so update mono quests
+    UpdateMonoQuests();
+
+    // Check for all curse items
+    for(i = FIRST_ITEM_CURSE; i != LAST_ITEM_CURSE + 1; ++i)
+    {
+        if(!CheckBagHasItem(i, 1))
+        {
+            TryDeactivateQuest(QUEST_Cursed1);
+            break;
+        }
+    }
+    
+    if(!CheckBagHasItem(ITEM_PARTY_CURSE, 5))
+        TryDeactivateQuest(QUEST_Cursed2);
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)

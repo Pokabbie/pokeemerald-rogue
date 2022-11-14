@@ -84,6 +84,6 @@ void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);
 bool8 Rogue_GiveLabEncounterMon(u16 index);
 
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice);
-void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves);
+void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves);
 
 #endif

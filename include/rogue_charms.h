@@ -11,6 +11,10 @@ enum RogueCharmEffects
     EFFECT_CATCH_RATE,
     EFFECT_SERENE_GRACE_CHANCE,
 
+    // Curse only
+    EFFECT_PARTY_SIZE,
+    EFFECT_EVERSTONE_EVOS,
+
     EFFECT_COUNT,
 };
 
@@ -19,6 +23,8 @@ bool8 IsCurseActive(u8 effectType);
 
 u16 GetCharmValue(u8 effectType);
 u16 GetCurseValue(u8 effectType);
+
+u16 Rogue_GetMaxPartySize(void);
 
 u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount);
 u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount);
