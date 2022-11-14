@@ -53,7 +53,7 @@ script Rogue_Graveyard_SelectOption_Internal {
         special(DoSealedChamberShakingEffect_Long)
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Eyes)
 
-        msgbox(format("???: One... price..."), MSGBOX_DEFAULT)
+        msgbox(format("???: The price this time shall be..."), MSGBOX_DEFAULT)
 
         waitmovement(0)
 

@@ -5444,12 +5444,13 @@ static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
     gRngRogueValue = startSeed;
 }
 
-void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves)
+void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves)
 {
     if(tutorType != 0) // TEACH_STATE_RELEARN
     {
         u16 difficulty;
         u16 capacity = 0; // MAX is 0
+        u8 startCount = *count;
     
         if(Rogue_IsRunActive())
         {
@@ -5476,6 +5477,7 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* m
             ApplyTutorMoveCapacity(count, moves, capacity);
         }
 
+        *hiddenCount = startCount - *count;
         
         // Remove moves we already know (We want to do this after capacity so the randomisation is consistent)
         {

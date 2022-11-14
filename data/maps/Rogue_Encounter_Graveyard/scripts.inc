@@ -92,4 +92,4 @@ Rogue_Graveyard_SelectOption_Internal_Text_0:
 	.string "Choose {STR_VAR_1}?$"
 
 Rogue_Graveyard_SelectOption_Internal_Text_1:
-	.string "???: One... price...$"
+	.string "???: The price this time shall be...$"

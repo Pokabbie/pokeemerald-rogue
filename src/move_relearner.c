@@ -170,6 +170,7 @@ static EWRAM_DATA struct
     u8 moveSlot;                                         /*0x045*/
     struct ListMenuItem menuItems[MAX_RELEARNER_MOVES];  /*0x0E8*/
     u8 numMenuChoices;                                   /*0x110*/
+    u8 numMenuHiddenChoices;                             /*0x110*/
     u8 numToShowAtOnce;                                  /*0x111*/
     u8 moveListMenuTask;                                 /*0x112*/
     u8 moveListScrollArrowTask;                          /*0x113*/
@@ -422,7 +423,7 @@ static void GatherLearnableMoves(struct Pokemon* mon)
         sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sMoveRelearnerStruct->movesToLearn);
     }
 
-    Rogue_ModifyTutorMoves(mon, sMoveRelearnerMenuSate.teachMoveState, &sMoveRelearnerStruct->numMenuChoices, sMoveRelearnerStruct->movesToLearn);
+    Rogue_ModifyTutorMoves(mon, sMoveRelearnerMenuSate.teachMoveState, &sMoveRelearnerStruct->numMenuChoices, &sMoveRelearnerStruct->numMenuHiddenChoices, sMoveRelearnerStruct->movesToLearn);
 }
 
 u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon)
@@ -989,6 +990,43 @@ static void CreateLearnableMovesList(void)
 
     GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);
+
+    if(sMoveRelearnerStruct->numMenuHiddenChoices != 0)
+    {
+        // STR_VARs are used heavily here so it's easiest to just hard code these
+        u8 index;
+        const u8* const hiddenMoveTexts[] = 
+        {
+            gText_HiddenMoves1,
+            gText_HiddenMoves2,
+            gText_HiddenMoves3,
+            gText_HiddenMoves4,
+            gText_HiddenMoves5,
+            gText_HiddenMoves6,
+            gText_HiddenMoves7,
+            gText_HiddenMoves8,
+            gText_HiddenMoves9,
+            gText_HiddenMoves10,
+            gText_HiddenMoves11,
+            gText_HiddenMoves12,
+            gText_HiddenMoves13,
+            gText_HiddenMoves14,
+            gText_HiddenMoves15,
+            gText_HiddenMoves16,
+            gText_HiddenMoves17,
+            gText_HiddenMoves18,
+            gText_HiddenMoves19,
+            gText_HiddenMoves20,
+            gText_HiddenMoves20plus,
+        };
+
+        index = min(sMoveRelearnerStruct->numMenuHiddenChoices - 1, ARRAY_COUNT(hiddenMoveTexts) - 1);
+
+        sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].name = hiddenMoveTexts[index];
+        sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].id = LIST_CANCEL;
+        sMoveRelearnerStruct->numMenuChoices++;
+    }
+
     sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].name = gText_Cancel;
     sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].id = LIST_CANCEL;
     sMoveRelearnerStruct->numMenuChoices++;
