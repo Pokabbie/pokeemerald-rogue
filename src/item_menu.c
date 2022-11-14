@@ -997,7 +997,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
         }
         else
         {
-            if(ItemId_GetImportance(itemId) == FALSE)
+            if(ItemId_GetImportance(itemId) == FALSE || itemQuantity > 1)
             {
                 // Print item quantity
                 ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);

@@ -35,6 +35,7 @@ static u16 EffectToCharmItem(u8 effectType)
 
         // Unused
         // EFFECT_PARTY_SIZE
+        // EFFECT_EVERSTONE_EVOS
     }
 
     return ITEM_NONE;
@@ -67,6 +68,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_PARTY_SIZE:
             return ITEM_PARTY_CURSE;
+        
+        case EFFECT_EVERSTONE_EVOS:
+            return ITEM_EVERSTONE_CURSE;
     }
 
     return ITEM_NONE;

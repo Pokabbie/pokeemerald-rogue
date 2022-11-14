@@ -13,6 +13,7 @@ enum RogueCharmEffects
 
     // Curse only
     EFFECT_PARTY_SIZE,
+    EFFECT_EVERSTONE_EVOS,
 
     EFFECT_COUNT,
 };

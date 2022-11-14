@@ -88,6 +88,7 @@ const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
 const u8 gText_ItemGraceCurse[] = _("Grace Curse");
 const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
+const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
 
 #else
 
@@ -110,6 +111,7 @@ const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
 const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
 const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
+const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
 
 #endif
 
@@ -206,6 +208,12 @@ const u8 sItemPartyCurseDesc[] = _(
     "The maximum number\n"
     "of POKéMON in your\n"
     "party is reduced.");
+
+const u8 sItemEverstoneCurseDesc[] = _(
+    "LVL UP Evolutions\n"
+    "become LVL whilst\n"
+    "holding LINK CABLE.");
+
 
 // Quest Log
 //
