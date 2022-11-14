@@ -1064,6 +1064,9 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Ignore fossils for now
     RogueQuery_ItemsExcludeRange(ITEM_HELIX_FOSSIL, ITEM_FOSSILIZED_DINO);
 
+    // Ignore sweets, as they are not used
+    RogueQuery_ItemsExcludeRange(ITEM_STRAWBERRY_SWEET, ITEM_RIBBON_SWEET);
+
     switch(maxGen)
     {
         case 1:
