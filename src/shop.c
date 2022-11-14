@@ -1024,13 +1024,13 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     ScheduleBgCopyTilemapToVram(0);
 
     if(sShopData->totalCost == 0)
-        maxQuantity = 999;
+        maxQuantity = MAX_SHOP_ITEM_CAPACITY;
     else
         maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
 
-    if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
+    if (maxQuantity > MAX_SHOP_ITEM_CAPACITY)
     {
-        sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY;
+        sShopData->maxQuantity = MAX_SHOP_ITEM_CAPACITY;
     }
     else
     {
@@ -1060,7 +1060,7 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             ClearWindowTilemap(3);
             PutWindowTilemap(1);
             CopyItemName(tItemId, gStringVar1);
-            ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);
+            ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, SHOP_ITEM_CAPACITY_DIGITS);
             ConvertIntToDecimalStringN(gStringVar3, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
             BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, BuyMenuConfirmPurchase);
         }
@@ -1178,7 +1178,7 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
 
     FillWindowPixelBuffer(4, PIXEL_FILL(1));
     PrintMoneyAmount(4, 38, 1, sShopData->totalCost, TEXT_SKIP_DRAW);
-    ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, BAG_ITEM_CAPACITY_DIGITS);
+    ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, SHOP_ITEM_CAPACITY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     BuyMenuPrint(4, gStringVar4, 0, 1, 0, 0);
 }
