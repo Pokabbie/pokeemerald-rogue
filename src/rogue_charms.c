@@ -40,6 +40,7 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_PARTY_SIZE
         // EFFECT_EVERSTONE_EVOS
         // EFFECT_BATTLE_ITEM_BAN
+        // EFFECT_SPECIES_CLAUSE
     }
 
     return ITEM_NONE;
@@ -82,6 +83,9 @@ static u16 EffectToCurseItem(u8 effectType)
         
         case EFFECT_BATTLE_ITEM_BAN:
             return ITEM_BATTLE_ITEM_CURSE;
+        
+        case EFFECT_SPECIES_CLAUSE:
+            return ITEM_SPECIES_CLAUSE_CURSE;
     }
 
     return ITEM_NONE;
@@ -166,6 +170,13 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
     {
         case EFFECT_PARTY_SIZE:
             return TRUE;
+
+        // Disable these effects, once we already have one (They don't stack)
+        case EFFECT_EVERSTONE_EVOS:
+        case EFFECT_BATTLE_ITEM_BAN:
+        case EFFECT_SPECIES_CLAUSE:
+            if(isCurse)
+                return CheckBagHasItem(EffectToCurseItem(effectType), 1);
     }
 
     return FALSE;

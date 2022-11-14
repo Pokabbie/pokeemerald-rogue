@@ -1020,11 +1020,17 @@ void QuestNotify_OnExitHubTransition(void)
     if(!CheckBagHasItem(ITEM_PARTY_CURSE, 5))
         TryDeactivateQuest(QUEST_Cursed2);
 
-        
+
     if(!CheckBagHasItem(ITEM_BATTLE_ITEM_CURSE, 1))
     {
         TryDeactivateQuest(QUEST_Hardcore);
         TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
+        TryDeactivateQuest(QUEST_Hardcore4);
+    }
+
+    if(!CheckBagHasItem(ITEM_SPECIES_CLAUSE_CURSE, 1))
+    {
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
     }

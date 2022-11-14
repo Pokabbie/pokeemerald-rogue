@@ -525,7 +525,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .sortIndex = 5,
         .desc = _(
                     "Win a full Run, with\n"
-                    "Item Ban Curse."
+                    "Embargo Curse."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },

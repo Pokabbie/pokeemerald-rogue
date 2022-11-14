@@ -993,6 +993,7 @@ extern const u8 gText_ItemEncounterCurse[];
 extern const u8 gText_ItemPartyCurse[];
 extern const u8 gText_ItemEverstoneCurse[];
 extern const u8 gText_ItemBattleItemCurse[];
+extern const u8 gText_ItemSpeciesClauseCurse[];
 
 
 extern const u8 sItemShoppingCharmDesc[];
@@ -1015,6 +1016,7 @@ extern const u8 sItemEncounterCurseDesc[];
 extern const u8 sItemPartyCurseDesc[];
 extern const u8 sItemEverstoneCurseDesc[];
 extern const u8 sItemBattleItemCurseDesc[];
+extern const u8 sItemSpeciesClauseCurseDesc[];
 
 
 extern const u8 gText_ItemPlaceholderDesc[];
@@ -1094,6 +1096,9 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_BATTLE_ITEM_CURSE:
             return gText_ItemBattleItemCurse;
+
+        case ITEM_SPECIES_CLAUSE_CURSE:
+            return gText_ItemSpeciesClauseCurse;
     }
 
     return gItems[itemId].name;
@@ -1222,6 +1227,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_BATTLE_ITEM_CURSE:
             outItem->description = sItemBattleItemCurseDesc;
+            break;
+
+        case ITEM_SPECIES_CLAUSE_CURSE:
+            outItem->description = sItemSpeciesClauseCurseDesc;
             break;
     }
 

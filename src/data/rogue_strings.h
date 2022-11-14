@@ -91,7 +91,8 @@ const u8 gText_ItemGraceCurse[] = _("Grace Curse");
 const u8 gText_ItemEncounterCurse[] = _("Wild Curse");
 const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
 const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
-const u8 gText_ItemBattleItemCurse[] = _("Item Ban Curse");
+const u8 gText_ItemBattleItemCurse[] = _("Embargo Curse");
+const u8 gText_ItemSpeciesClauseCurse[] = _("Species Curse");
 
 #else
 
@@ -117,7 +118,8 @@ const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
 const u8 gText_ItemEncounterCurse[] = _("WILD CURSE");
 const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
 const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
-const u8 gText_ItemBattleItemCurse[] = _("ITEM BAN CURSE");
+const u8 gText_ItemBattleItemCurse[] = _("EMBARGO CURSE");
+const u8 gText_ItemSpeciesClauseCurse[] = _("SPECIES CURSE");
 
 #endif
 
@@ -233,6 +235,11 @@ const u8 sItemBattleItemCurseDesc[] = _(
     "Items cannot be\n"
     "used in battle.\n"
     "(Except POKéBALLS)");
+
+const u8 sItemSpeciesClauseCurseDesc[] = _(
+    "POKéMON can't be\n"
+    "caught if species\n"
+    "in party already.");
 
 
 // Quest Log

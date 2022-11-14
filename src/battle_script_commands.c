@@ -9865,6 +9865,43 @@ static void Cmd_removelightscreenreflect(void) // brick break
     gBattlescriptCurrInstr++;
 }
 
+static bool8 PartyContainsSpecies(u16 checkSpecies)
+{
+    u16 i;
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {        
+#ifdef ROGUE_EXPANSION
+        u16 species = GET_BASE_SPECIES_ID(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES));
+#else
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+#endif
+        if(species != SPECIES_NONE && species == checkSpecies)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static bool8 CurseBlocksPokeball(void)
+{
+    if(IsCurseActive(EFFECT_SPECIES_CLAUSE))
+    {
+#ifdef ROGUE_EXPANSION
+        u16 species = GET_BASE_SPECIES_ID(gBattleMons[gBattlerTarget].species);
+#else
+        u16 species = gBattleMons[gBattlerTarget].species;
+#endif
+
+        if(PartyContainsSpecies(species))
+            return TRUE;
+
+    }
+
+    return FALSE;
+}
+
 static void Cmd_handleballthrow(void)
 {
     u16 ballMultiplier = 0;
@@ -9886,6 +9923,12 @@ static void Cmd_handleballthrow(void)
         BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_WallyBallThrow;
+    }
+    else if(CurseBlocksPokeball())
+    {
+        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_ExternalBallBlock;
     }
     else
     {
