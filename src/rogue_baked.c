@@ -980,6 +980,7 @@ extern const u8 gText_ItemShedSkinCharm[];
 extern const u8 gText_ItemWildIVCharm[];
 extern const u8 gText_ItemCatchingCharm[];
 extern const u8 gText_ItemGraceCharm[];
+extern const u8 gText_ItemEncounterCharm[];
 
 extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemFlinchCurse[];
@@ -988,6 +989,7 @@ extern const u8 gText_ItemShedSkinCurse[];
 extern const u8 gText_ItemWildIVCurse[];
 extern const u8 gText_ItemCatchingCurse[];
 extern const u8 gText_ItemGraceCurse[];
+extern const u8 gText_ItemEncounterCurse[];
 extern const u8 gText_ItemPartyCurse[];
 extern const u8 gText_ItemEverstoneCurse[];
 
@@ -999,6 +1001,7 @@ extern const u8 sItemShedSkinCharmDesc[];
 extern const u8 sItemWildIVCharmDesc[];
 extern const u8 sItemCatchingCharmDesc[];
 extern const u8 sItemGraceCharmDesc[];
+extern const u8 sItemEncounterCharmDesc[];
 
 extern const u8 sItemShoppingCurseDesc[];
 extern const u8 sItemFlinchCurseDesc[];
@@ -1007,6 +1010,7 @@ extern const u8 sItemShedSkinCurseDesc[];
 extern const u8 sItemWildIVCurseDesc[];
 extern const u8 sItemCatchingCurseDesc[];
 extern const u8 sItemGraceCurseDesc[];
+extern const u8 sItemEncounterCurseDesc[];
 extern const u8 sItemPartyCurseDesc[];
 extern const u8 sItemEverstoneCurseDesc[];
 
@@ -1052,6 +1056,9 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_GRACE_CHARM:
             return gText_ItemGraceCharm;
 
+        case ITEM_WILD_ENCOUNTER_CHARM:
+            return gText_ItemEncounterCharm;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
@@ -1073,6 +1080,9 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_GRACE_CURSE:
             return gText_ItemGraceCurse;
+
+        case ITEM_WILD_ENCOUNTER_CURSE:
+            return gText_ItemEncounterCurse;
 
         case ITEM_PARTY_CURSE:
             return gText_ItemPartyCurse;
@@ -1158,6 +1168,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->description = sItemGraceCharmDesc;
             break;
 
+        case ITEM_WILD_ENCOUNTER_CHARM:
+            outItem->description = sItemEncounterCharmDesc;
+            break;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             outItem->description = sItemShoppingCurseDesc;
@@ -1185,6 +1199,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_GRACE_CURSE:
             outItem->description = sItemGraceCurseDesc;
+            break;
+
+        case ITEM_WILD_ENCOUNTER_CURSE:
+            outItem->description = sItemEncounterCurseDesc;
             break;
 
         case ITEM_PARTY_CURSE:
