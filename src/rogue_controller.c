@@ -1209,20 +1209,14 @@ void Rogue_CreateMiniMenuExtraGFX(void)
                 gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
                 LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
-                if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, 14 + i * 32, 72, oamPriority, paletteOffset);
-                else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, oamPriority, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i % 3) * 32), 72 + (i / 3) * 32, oamPriority, paletteOffset);
             }
             else
             {
                 gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
                 LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
-                if(i < 3)
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, 14 + i * 32, 72, 0, paletteOffset);
-                else
-                    gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i - 3) * 32), 72 + 32, 0, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i % 3) * 32), 72 + (i / 3) * 32, 0, paletteOffset);
             }
 
             // Have to grey out icon as I can't figure out why custom palette offsets still seem to be stomping over each other
@@ -4953,10 +4947,14 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
 static u8 GetCurrentWildEncounterCount()
 {    
-    u16 count = ARRAY_COUNT(gRogueRun.wildEncounters);
+    u16 count = 6;
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
-    if(!GetSafariZoneFlag())
+    if(GetSafariZoneFlag())
+    {
+        count = 6;
+    }
+    else
     {
         u8 difficultyModifier = GetRoomTypeDifficulty();
         if(difficultyModifier == 2) // Hard route
@@ -4969,6 +4967,22 @@ static u8 GetCurrentWildEncounterCount()
             // Slightly less encounters
             count = 4;
         }
+
+        // Apply charms
+        {
+            u16 decValue = GetCurseValue(EFFECT_WILD_ENCOUNTER_COUNT);
+
+            count += GetCharmValue(EFFECT_WILD_ENCOUNTER_COUNT);
+
+            if(decValue > count)
+                count = 0;
+            else
+                count -= decValue;
+        }
+
+        // Clamp
+        count = max(count, 1);
+        count = min(count, ARRAY_COUNT(gRogueRun.wildEncounters));
     }
 
     return count;

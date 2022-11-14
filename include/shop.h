@@ -39,7 +39,7 @@ struct ShopData
     /*0x2004*/ u16 itemsShowed;
     /*0x2006*/ u16 selectedRow;
     /*0x2008*/ u16 scrollOffset;
-    /*0x200A*/ u8 maxQuantity;
+    /*0x200A*/ u16 maxQuantity;
     /*0x200B*/ u8 scrollIndicatorsTaskId;
     /*0x200C*/ u8 iconSlot;
     /*0x200D*/ u8 itemSpriteIds[2];

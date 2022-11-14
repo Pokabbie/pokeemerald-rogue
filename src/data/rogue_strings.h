@@ -79,6 +79,7 @@ const u8 gText_ItemShedSkinCharm[] = _("Shed Skin Charm");
 const u8 gText_ItemWildIVCharm[] = _("Strength Charm");
 const u8 gText_ItemCatchingCharm[] = _("Catching Charm");
 const u8 gText_ItemGraceCharm[] = _("Grace Charm");
+const u8 gText_ItemEncounterCharm[] = _("Wild Charm");
 
 const u8 gText_ItemShoppingCurse[] = _("Discount Curse");
 const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
@@ -87,8 +88,10 @@ const u8 gText_ItemShedSkinCurse[] = _("Shed Skin Curse");
 const u8 gText_ItemWildIVCurse[] = _("Strength Curse");
 const u8 gText_ItemCatchingCurse[] = _("Catching Curse");
 const u8 gText_ItemGraceCurse[] = _("Grace Curse");
+const u8 gText_ItemEncounterCurse[] = _("Wild Curse");
 const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
 const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
+const u8 gText_ItemBattleItemCurse[] = _("Item Ban Curse");
 
 #else
 
@@ -102,6 +105,7 @@ const u8 gText_ItemShedSkinCharm[] = _("SHED SKIN CHARM");
 const u8 gText_ItemWildIVCharm[] = _("STRENGTH CHARM");
 const u8 gText_ItemCatchingCharm[] = _("CATCHING CHARM");
 const u8 gText_ItemGraceCharm[] = _("GRACE CHARM");
+const u8 gText_ItemEncounterCharm[] = _("WILD CHARM");
 
 const u8 gText_ItemShoppingCurse[] = _("DISCOUNT CURSE");
 const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
@@ -110,8 +114,10 @@ const u8 gText_ItemShedSkinCurse[] = _("SHED SKIN CURSE");
 const u8 gText_ItemWildIVCurse[] = _("STRENGTH CURSE");
 const u8 gText_ItemCatchingCurse[] = _("CATCHING CURSE");
 const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
+const u8 gText_ItemEncounterCurse[] = _("WILD CURSE");
 const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
 const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
+const u8 gText_ItemBattleItemCurse[] = _("ITEM BAN CURSE");
 
 #endif
 
@@ -168,6 +174,11 @@ const u8 sItemGraceCharmDesc[] = _(
     "Friendly moves\n"
     "have an extra 75%\n"
     "for extra effects.");
+
+const u8 sItemEncounterCharmDesc[] = _(
+    "Routes contain 2\n"
+    "additional wild\n"
+    "POKéMON.");
     
     
 const u8 sItemShoppingCurseDesc[] = _(
@@ -204,6 +215,10 @@ const u8 sItemGraceCurseDesc[] = _(
     "have an extra 50%\n"
     "for extra effects.");
 
+const u8 sItemEncounterCurseDesc[] = _(
+    "Routes contain 1\n"
+    "less wild POKéMON.");
+
 const u8 sItemPartyCurseDesc[] = _(
     "The maximum number\n"
     "of POKéMON in your\n"
@@ -213,6 +228,11 @@ const u8 sItemEverstoneCurseDesc[] = _(
     "LVL UP Evolutions\n"
     "become LVL whilst\n"
     "holding LINK CABLE.");
+
+const u8 sItemBattleItemCurseDesc[] = _(
+    "Items cannot be\n"
+    "used in battle.\n"
+    "(Except POKéBALLS)");
 
 
 // Quest Log

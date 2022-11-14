@@ -817,13 +817,13 @@ bool8 AddPyramidBagItem(u16 itemId, u16 count)
 
     for (i = 0; i < PYRAMID_BAG_ITEMS_COUNT; i++)
     {
-        if (newItems[i] == itemId && newQuantities[i] < MAX_BAG_ITEM_CAPACITY)
+        if (newItems[i] == itemId && newQuantities[i] < MAX_PYRAMID_BAG_ITEM_CAPACITY)
         {
             newQuantities[i] += count;
-            if (newQuantities[i] > MAX_BAG_ITEM_CAPACITY)
+            if (newQuantities[i] > MAX_PYRAMID_BAG_ITEM_CAPACITY)
             {
-                count = newQuantities[i] - MAX_BAG_ITEM_CAPACITY;
-                newQuantities[i] = MAX_BAG_ITEM_CAPACITY;
+                count = newQuantities[i] - MAX_PYRAMID_BAG_ITEM_CAPACITY;
+                newQuantities[i] = MAX_PYRAMID_BAG_ITEM_CAPACITY;
             }
             else
             {
@@ -843,10 +843,10 @@ bool8 AddPyramidBagItem(u16 itemId, u16 count)
             {
                 newItems[i] = itemId;
                 newQuantities[i] = count;
-                if (newQuantities[i] > MAX_BAG_ITEM_CAPACITY)
+                if (newQuantities[i] > MAX_PYRAMID_BAG_ITEM_CAPACITY)
                 {
-                    count = newQuantities[i] - MAX_BAG_ITEM_CAPACITY;
-                    newQuantities[i] = MAX_BAG_ITEM_CAPACITY;
+                    count = newQuantities[i] - MAX_PYRAMID_BAG_ITEM_CAPACITY;
+                    newQuantities[i] = MAX_PYRAMID_BAG_ITEM_CAPACITY;
                 }
                 else
                 {

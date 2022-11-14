@@ -980,6 +980,7 @@ extern const u8 gText_ItemShedSkinCharm[];
 extern const u8 gText_ItemWildIVCharm[];
 extern const u8 gText_ItemCatchingCharm[];
 extern const u8 gText_ItemGraceCharm[];
+extern const u8 gText_ItemEncounterCharm[];
 
 extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemFlinchCurse[];
@@ -988,8 +989,10 @@ extern const u8 gText_ItemShedSkinCurse[];
 extern const u8 gText_ItemWildIVCurse[];
 extern const u8 gText_ItemCatchingCurse[];
 extern const u8 gText_ItemGraceCurse[];
+extern const u8 gText_ItemEncounterCurse[];
 extern const u8 gText_ItemPartyCurse[];
 extern const u8 gText_ItemEverstoneCurse[];
+extern const u8 gText_ItemBattleItemCurse[];
 
 
 extern const u8 sItemShoppingCharmDesc[];
@@ -999,6 +1002,7 @@ extern const u8 sItemShedSkinCharmDesc[];
 extern const u8 sItemWildIVCharmDesc[];
 extern const u8 sItemCatchingCharmDesc[];
 extern const u8 sItemGraceCharmDesc[];
+extern const u8 sItemEncounterCharmDesc[];
 
 extern const u8 sItemShoppingCurseDesc[];
 extern const u8 sItemFlinchCurseDesc[];
@@ -1007,8 +1011,10 @@ extern const u8 sItemShedSkinCurseDesc[];
 extern const u8 sItemWildIVCurseDesc[];
 extern const u8 sItemCatchingCurseDesc[];
 extern const u8 sItemGraceCurseDesc[];
+extern const u8 sItemEncounterCurseDesc[];
 extern const u8 sItemPartyCurseDesc[];
 extern const u8 sItemEverstoneCurseDesc[];
+extern const u8 sItemBattleItemCurseDesc[];
 
 
 extern const u8 gText_ItemPlaceholderDesc[];
@@ -1052,6 +1058,9 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_GRACE_CHARM:
             return gText_ItemGraceCharm;
 
+        case ITEM_WILD_ENCOUNTER_CHARM:
+            return gText_ItemEncounterCharm;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
@@ -1074,11 +1083,17 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_GRACE_CURSE:
             return gText_ItemGraceCurse;
 
+        case ITEM_WILD_ENCOUNTER_CURSE:
+            return gText_ItemEncounterCurse;
+
         case ITEM_PARTY_CURSE:
             return gText_ItemPartyCurse;
 
         case ITEM_EVERSTONE_CURSE:
             return gText_ItemEverstoneCurse;
+
+        case ITEM_BATTLE_ITEM_CURSE:
+            return gText_ItemBattleItemCurse;
     }
 
     return gItems[itemId].name;
@@ -1125,6 +1140,8 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->type = ITEM_USE_FIELD;
         outItem->holdEffect = 0;
         outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
+        outItem->battleUsage = 0;
+        outItem->battleUseFunc = 0;
     }
 
     // Custom desc for charms/curses
@@ -1158,6 +1175,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->description = sItemGraceCharmDesc;
             break;
 
+        case ITEM_WILD_ENCOUNTER_CHARM:
+            outItem->description = sItemEncounterCharmDesc;
+            break;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             outItem->description = sItemShoppingCurseDesc;
@@ -1187,12 +1208,20 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->description = sItemGraceCurseDesc;
             break;
 
+        case ITEM_WILD_ENCOUNTER_CURSE:
+            outItem->description = sItemEncounterCurseDesc;
+            break;
+
         case ITEM_PARTY_CURSE:
             outItem->description = sItemPartyCurseDesc;
             break;
 
         case ITEM_EVERSTONE_CURSE:
             outItem->description = sItemEverstoneCurseDesc;
+            break;
+
+        case ITEM_BATTLE_ITEM_CURSE:
+            outItem->description = sItemBattleItemCurseDesc;
             break;
     }
 
@@ -1359,6 +1388,17 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_MASTER_BALL:
             outItem->price = 50000;
             break;
+    }
+
+    // Check we're not a charm/curse otherwise we can get infinite loops here
+    if(!(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
+    && !(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+    {
+        if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+        {
+            outItem->battleUsage = 0;
+            outItem->battleUseFunc = 0;
+        }
     }
 }
 #endif
