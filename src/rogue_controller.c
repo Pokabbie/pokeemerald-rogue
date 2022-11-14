@@ -157,6 +157,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
+static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 static u8 GetCurrentWildEncounterCount(void);
@@ -4570,6 +4571,64 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     return FALSE;
 }
 
+static bool8 MonPresetHasChoiceItem(struct RogueMonPreset* preset)
+{
+    return preset->heldItem == ITEM_CHOICE_BAND
+#ifdef ROGUE_EXPANSION
+        || preset->heldItem == ITEM_CHOICE_SPECS
+        || preset->heldItem == ITEM_CHOICE_SCARF
+#endif
+    ;
+}
+
+static u8 MonPresetCountMoves(struct RogueMonPreset* preset)
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        if(preset->moves[i] != MOVE_NONE)
+            ++count;
+    }
+
+    return count;
+}
+
+static bool8 MonPresetReplaceMove(struct RogueMonPreset* preset, u16 fromMove, u16 toMove)
+{
+    u8 i;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        if(preset->moves[i] == fromMove)
+            preset->moves[i] == toMove;
+    }
+}
+
+static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
+{
+#ifndef ROGUE_EXPANSION
+    // Vanilla only: AI can't use trick
+    if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
+        preset->allowMissingMoves = TRUE;
+#endif
+
+    // Edge case to handle scarfed ditto
+    if(MonPresetHasChoiceItem(preset) && (MonPresetCountMoves(preset) > 2))
+    {
+        // Need to make sure this mon only has attacking moves
+        u8 i = 0;
+        preset->allowMissingMoves = TRUE;
+
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            if(gBattleMoves[preset->moves[i]].power == 0)
+                preset->moves[i] = MOVE_NONE;
+        }
+    }
+}
+
 static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
 {
 #ifdef ROGUE_EXPANSION
@@ -4639,16 +4698,29 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
         }
     }
 
-    // Try to re-teach initial moves to fill out last slots
-    for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+    if(preset->allowMissingMoves)
     {
-        move = initialMonMoves[i]; 
-
-        if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+        // Fill the remainer slots with empty moves
+        for (i = writeMoveIdx; i < MAX_MON_MOVES; i++)
         {
-            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
-            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
-            ++writeMoveIdx;
+            move = MOVE_NONE; 
+            SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+            SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+        }
+    }
+    else
+    {
+        // Try to re-teach initial moves to fill out last slots
+        for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+        {
+            move = initialMonMoves[i]; 
+
+            if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+            {
+                SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+                SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+                ++writeMoveIdx;
+            }
         }
     }
 
@@ -4873,7 +4945,10 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 #endif
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
+    {
+        ModifyTrainerMonPreset(&preset);
         ApplyMonPreset(mon, level, &preset);
+    }
 }
 
 static u8 GetCurrentWildEncounterCount()

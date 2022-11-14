@@ -199,6 +199,7 @@ struct SpeciesTable
 
 struct RogueMonPreset
 {
+    bool8 allowMissingMoves;
     u16 heldItem;
     u16 abilityNum;
     u16 hiddenPowerType;
