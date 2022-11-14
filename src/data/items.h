@@ -9208,6 +9208,7 @@ const struct Item gItems[] =
         .name = _("Gracidea"),
         .itemId = ITEM_GRACIDEA,
         .price = 0,
+        .importance = 1,
         .description = sGracideaDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9225,6 +9226,7 @@ const struct Item gItems[] =
         .name = _("Reveal Glass"),
         .itemId = ITEM_REVEAL_GLASS,
         .price = 0,
+        .importance = 1,
         .description = sRevealGlassDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9242,6 +9244,7 @@ const struct Item gItems[] =
         .name = _("DNA Splicers"),
         .itemId = ITEM_DNA_SPLICERS,
         .price = 0,
+        .importance = 1,
         .description = sDNASplicersDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9271,6 +9274,7 @@ const struct Item gItems[] =
         .name = _("Prison Bottle"),
         .itemId = ITEM_PRISON_BOTTLE,
         .price = 0,
+        .importance = 1,
         .description = sPrisonBottleDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9288,6 +9292,7 @@ const struct Item gItems[] =
         .name = _("N-Solarizer"),
         .itemId = ITEM_N_SOLARIZER,
         .price = 0,
+        .importance = 1,
         .description = sNSolarizerDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9305,6 +9310,7 @@ const struct Item gItems[] =
         .name = _("N-Lunarizer"),
         .itemId = ITEM_N_LUNARIZER,
         .price = 0,
+        .importance = 1,
         .description = sNLunarizerDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9322,6 +9328,7 @@ const struct Item gItems[] =
         .name = _("ReinsOfUnity"),
         .itemId = ITEM_REINS_OF_UNITY,
         .price = 0,
+        .importance = 1,
         .description = sReinsOfUnityDesc,
         .pocket = POCKET_KEY_ITEMS,
         #ifdef POKEMON_EXPANSION
@@ -9365,6 +9372,7 @@ const struct Item gItems[] =
         .name = _("Dynamax Band"),
         .itemId = ITEM_DYNAMAX_BAND,
         .price = 0,
+        .importance = 1,
         .description = sDynamaxBandDesc,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
