@@ -992,6 +992,7 @@ extern const u8 gText_ItemGraceCurse[];
 extern const u8 gText_ItemEncounterCurse[];
 extern const u8 gText_ItemPartyCurse[];
 extern const u8 gText_ItemEverstoneCurse[];
+extern const u8 gText_ItemBattleItemCurse[];
 
 
 extern const u8 sItemShoppingCharmDesc[];
@@ -1013,6 +1014,7 @@ extern const u8 sItemGraceCurseDesc[];
 extern const u8 sItemEncounterCurseDesc[];
 extern const u8 sItemPartyCurseDesc[];
 extern const u8 sItemEverstoneCurseDesc[];
+extern const u8 sItemBattleItemCurseDesc[];
 
 
 extern const u8 gText_ItemPlaceholderDesc[];
@@ -1089,6 +1091,9 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_EVERSTONE_CURSE:
             return gText_ItemEverstoneCurse;
+
+        case ITEM_BATTLE_ITEM_CURSE:
+            return gText_ItemBattleItemCurse;
     }
 
     return gItems[itemId].name;
@@ -1135,6 +1140,8 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->type = ITEM_USE_FIELD;
         outItem->holdEffect = 0;
         outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
+        outItem->battleUsage = 0;
+        outItem->battleUseFunc = 0;
     }
 
     // Custom desc for charms/curses
@@ -1211,6 +1218,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_EVERSTONE_CURSE:
             outItem->description = sItemEverstoneCurseDesc;
+            break;
+
+        case ITEM_BATTLE_ITEM_CURSE:
+            outItem->description = sItemBattleItemCurseDesc;
             break;
     }
 
@@ -1377,6 +1388,17 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_MASTER_BALL:
             outItem->price = 50000;
             break;
+    }
+
+    // Check we're not a charm/curse otherwise we can get infinite loops here
+    if(!(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
+    && !(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+    {
+        if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+        {
+            outItem->battleUsage = 0;
+            outItem->battleUseFunc = 0;
+        }
     }
 }
 #endif

@@ -77,10 +77,8 @@ static void UnlockDefaultQuests()
     TryUnlockQuest(QUEST_Bike1);
     TryUnlockQuest(QUEST_NoFainting1);
     TryUnlockQuest(QUEST_MrRandoman);
+    TryUnlockQuest(QUEST_DevilDeal);
     TryUnlockQuest(QUEST_BerryCollector);
-    TryUnlockQuest(QUEST_Hardcore);
-    TryUnlockQuest(QUEST_Hardcore2);
-    TryUnlockQuest(QUEST_Hardcore3);
 
     // Make sure following quests are unlocked
     {
@@ -1021,6 +1019,15 @@ void QuestNotify_OnExitHubTransition(void)
     
     if(!CheckBagHasItem(ITEM_PARTY_CURSE, 5))
         TryDeactivateQuest(QUEST_Cursed2);
+
+        
+    if(!CheckBagHasItem(ITEM_BATTLE_ITEM_CURSE, 1))
+    {
+        TryDeactivateQuest(QUEST_Hardcore);
+        TryDeactivateQuest(QUEST_Hardcore2);
+        TryDeactivateQuest(QUEST_Hardcore3);
+        TryDeactivateQuest(QUEST_Hardcore4);
+    }
 }
 
 void QuestNotify_OnWarp(struct WarpData* warp)
@@ -1190,21 +1197,21 @@ void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count)
 
 void QuestNotify_OnUseBattleItem(u16 itemId)
 {
-    bool8 isPokeball = itemId >= FIRST_BALL && itemId <= LAST_BALL;
-    if(!isPokeball)
-    {
-        if(IsQuestActive(QUEST_Hardcore))
-            TryDeactivateQuest(QUEST_Hardcore);
-
-        if(IsQuestActive(QUEST_Hardcore2))
-            TryDeactivateQuest(QUEST_Hardcore2);
-
-        if(IsQuestActive(QUEST_Hardcore3))
-            TryDeactivateQuest(QUEST_Hardcore3);
-
-        if(IsQuestActive(QUEST_Hardcore4))
-            TryDeactivateQuest(QUEST_Hardcore4);
-    }
+    //bool8 isPokeball = itemId >= FIRST_BALL && itemId <= LAST_BALL;
+    //if(!isPokeball)
+    //{
+    //    if(IsQuestActive(QUEST_Hardcore))
+    //        TryDeactivateQuest(QUEST_Hardcore);
+//
+    //    if(IsQuestActive(QUEST_Hardcore2))
+    //        TryDeactivateQuest(QUEST_Hardcore2);
+//
+    //    if(IsQuestActive(QUEST_Hardcore3))
+    //        TryDeactivateQuest(QUEST_Hardcore3);
+//
+    //    if(IsQuestActive(QUEST_Hardcore4))
+    //        TryDeactivateQuest(QUEST_Hardcore4);
+    //}
 }
 
 void QuestNotify_OnMegaEvolve(u16 species)

@@ -91,6 +91,7 @@ const u8 gText_ItemGraceCurse[] = _("Grace Curse");
 const u8 gText_ItemEncounterCurse[] = _("Wild Curse");
 const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
 const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
+const u8 gText_ItemBattleItemCurse[] = _("Item Ban Curse");
 
 #else
 
@@ -116,6 +117,7 @@ const u8 gText_ItemGraceCurse[] = _("GRACE CURSE");
 const u8 gText_ItemEncounterCurse[] = _("WILD CURSE");
 const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
 const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
+const u8 gText_ItemBattleItemCurse[] = _("ITEM BAN CURSE");
 
 #endif
 
@@ -226,6 +228,11 @@ const u8 sItemEverstoneCurseDesc[] = _(
     "LVL UP Evolutions\n"
     "become LVL whilst\n"
     "holding LINK CABLE.");
+
+const u8 sItemBattleItemCurseDesc[] = _(
+    "Items cannot be\n"
+    "used in battle.\n"
+    "(Except POKéBALLS)");
 
 
 // Quest Log
