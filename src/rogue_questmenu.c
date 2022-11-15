@@ -1052,6 +1052,7 @@ static void HandleInput(bool8 showRewards)
         }
         else
         {
+            RemoveScrollArrows();
             RecreateOptionsForPage(MENU_PAGE_OVERVIEW);
         }
         break;
@@ -1125,7 +1126,8 @@ static void AddScrollArrows(void)
 {
     if (sQuestMenuStruct->moveDisplayArrowTask == TASK_NONE)
     {
-        sQuestMenuStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sQuestMenuStruct->scrollOffset);
+        if(!Rogue_IsQuestMenuOverviewActive())
+            sQuestMenuStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sQuestMenuStruct->scrollOffset);
     }
 
     if (sQuestMenuStruct->moveListScrollArrowTask == TASK_NONE)
