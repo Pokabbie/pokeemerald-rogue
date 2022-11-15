@@ -32,6 +32,117 @@ RogueHub_OnTransition_6:
 	goto RogueHub_OnTransition_5
 
 
+RogueHub_CheckAnyPlateQuestsCollected::
+	goto_if_unset FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_CheckAnyPlateQuestsCollected_2
+	questcollected QUEST_NORMAL_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_5
+	questcollected QUEST_FIGHTING_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_8
+	questcollected QUEST_FLYING_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_11
+	questcollected QUEST_POISON_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_14
+	questcollected QUEST_GROUND_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_17
+	questcollected QUEST_ROCK_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_20
+	questcollected QUEST_BUG_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_23
+	questcollected QUEST_GHOST_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_26
+	questcollected QUEST_STEEL_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_29
+	questcollected QUEST_FIRE_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_32
+	questcollected QUEST_WATER_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_35
+	questcollected QUEST_GRASS_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_38
+	questcollected QUEST_ELECTRIC_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_41
+	questcollected QUEST_PSYCHIC_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_44
+	questcollected QUEST_ICE_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_47
+	questcollected QUEST_DRAGON_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_50
+	questcollected QUEST_DARK_Champion
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CheckAnyPlateQuestsCollected_52
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_2:
+	setvar VAR_RESULT, NO
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_5:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_8:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_11:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_14:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_17:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_20:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_23:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_26:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_29:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_32:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_35:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_38:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_41:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_44:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_47:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_50:
+	return
+
+RogueHub_CheckAnyPlateQuestsCollected_52:
+	return
+
+
 RogueHub_OnMapLoad::
 	goto_if_set FLAG_ROGUE_DEBUG_DISABLED, RogueHub_OnMapLoad_2
 RogueHub_OnMapLoad_1:
@@ -60,7 +171,12 @@ RogueHub_OnMapLoad_16:
 	goto_if_eq RogueHub_OnMapLoad_21
 	clearflag FLAG_ROGUE_TRAINER7
 	clearflag FLAG_ROGUE_TRAINER5
-	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_28
+	goto_if_set FLAG_ROGUE_RARE_ITEM_MART_DISABLED, RogueHub_OnMapLoad_29
+RogueHub_OnMapLoad_28:
+	call RogueHub_CheckAnyPlateQuestsCollected
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_35
+	clearflag FLAG_ROGUE_TRAINER10
 RogueHub_OnMapLoad_20:
 	questcollected QUEST_BigSaver
 	compare VAR_RESULT, NO
@@ -69,20 +185,20 @@ RogueHub_OnMapLoad_20:
 RogueHub_OnMapLoad_24:
 	questcollected QUEST_BerryCollector
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_OnMapLoad_31
+	goto_if_eq RogueHub_OnMapLoad_32
 	clearflag FLAG_ROGUE_TRAINER8
-RogueHub_OnMapLoad_30:
+RogueHub_OnMapLoad_31:
 	questcollected QUEST_DenExplorer
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_OnMapLoad_35
-RogueHub_OnMapLoad_34:
+	goto_if_eq RogueHub_OnMapLoad_39
+RogueHub_OnMapLoad_38:
 	questcollected QUEST_LegendOnly
 	compare VAR_RESULT, NO
-	goto_if_eq RogueHub_OnMapLoad_39
+	goto_if_eq RogueHub_OnMapLoad_43
 	clearflag FLAG_ROGUE_TRAINER9
-RogueHub_OnMapLoad_38:
+RogueHub_OnMapLoad_42:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_42
+	goto_if_gt RogueHub_OnMapLoad_46
 	return
 
 RogueHub_OnMapLoad_2:
@@ -124,27 +240,31 @@ RogueHub_OnMapLoad_25:
 	setflag FLAG_ROGUE_TRAINER3
 	goto RogueHub_OnMapLoad_24
 
-RogueHub_OnMapLoad_28:
+RogueHub_OnMapLoad_29:
 	setflag FLAG_ROGUE_TRAINER5
-	goto RogueHub_OnMapLoad_20
+	goto RogueHub_OnMapLoad_28
 
-RogueHub_OnMapLoad_31:
+RogueHub_OnMapLoad_32:
 	fillmetatile 10, 40, 16, 41, 0x001, FALSE
 	fillmetatile 18, 40, 24, 41, 0x001, FALSE
 	fillmetatile 26, 40, 32, 41, 0x001, FALSE
 	fillmetatile 34, 40, 40, 41, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER8
-	goto RogueHub_OnMapLoad_30
+	goto RogueHub_OnMapLoad_31
 
 RogueHub_OnMapLoad_35:
-	fillmetatile 31, 31, 37, 36, 0x001, FALSE
-	goto RogueHub_OnMapLoad_34
+	setflag FLAG_ROGUE_TRAINER10
+	goto RogueHub_OnMapLoad_20
 
 RogueHub_OnMapLoad_39:
-	setflag FLAG_ROGUE_TRAINER9
+	fillmetatile 31, 31, 37, 36, 0x001, FALSE
 	goto RogueHub_OnMapLoad_38
 
-RogueHub_OnMapLoad_42:
+RogueHub_OnMapLoad_43:
+	setflag FLAG_ROGUE_TRAINER9
+	goto RogueHub_OnMapLoad_42
+
+RogueHub_OnMapLoad_46:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 

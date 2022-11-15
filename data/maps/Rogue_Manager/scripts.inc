@@ -263,6 +263,17 @@ Rogue_Shop_RareHeldItems::
 	return
 
 
+Rogue_Shop_RarePlates::
+	lock
+	faceplayer
+	message Rogue_Shop_RarePlates_Text_0
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_RARE_PLATES
+	msgbox Rogue_Shop_Balls_Text_1
+	release
+	return
+
+
 Rogue_Shop_Charms::
 	lock
 	faceplayer
@@ -1192,6 +1203,9 @@ Rogue_Shop_HeldItems_Text_0:
 
 Rogue_Shop_RareHeldItems_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.$"
+
+Rogue_Shop_RarePlates_Text_0:
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock TYPE BASED ITEMS.$"
 
 Rogue_Shop_Charms_Text_0:
 	.string "Welcome...\pWould you... like to adjust your fate...?$"

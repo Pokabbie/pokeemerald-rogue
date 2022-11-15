@@ -13712,7 +13712,7 @@ static bool8 PartyContainsSpecies(u16 checkSpecies)
 {
     u16 i;
     for(i = 0; i < gPlayerPartyCount; ++i)
-    {        
+    {
 #ifdef ROGUE_EXPANSION
         u16 species = GET_BASE_SPECIES_ID(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES));
 #else
