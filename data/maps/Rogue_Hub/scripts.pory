@@ -252,6 +252,7 @@ script RogueHub_OnMapLoad
     
         setflag(FLAG_ROGUE_TRAINER7)
         setflag(FLAG_ROGUE_TRAINER5)
+        setflag(FLAG_ROGUE_TRAINER10)
     }
     else
     {

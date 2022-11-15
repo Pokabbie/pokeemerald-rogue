@@ -233,6 +233,7 @@ RogueHub_OnMapLoad_21:
 	fillmetatile 22, 8, 24, 8, 0x001, FALSE
 	setflag FLAG_ROGUE_TRAINER7
 	setflag FLAG_ROGUE_TRAINER5
+	setflag FLAG_ROGUE_TRAINER10
 	goto RogueHub_OnMapLoad_20
 
 RogueHub_OnMapLoad_25:
