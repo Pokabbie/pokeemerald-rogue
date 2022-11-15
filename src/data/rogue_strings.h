@@ -93,6 +93,7 @@ const u8 gText_ItemPartyCurse[] = _("Capacity Curse");
 const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
 const u8 gText_ItemBattleItemCurse[] = _("Embargo Curse");
 const u8 gText_ItemSpeciesClauseCurse[] = _("Species Curse");
+const u8 gText_ItemItemShuffleCurse[] = _("Shuffle Curse");
 
 #else
 
@@ -120,6 +121,7 @@ const u8 gText_ItemPartyCurse[] = _("CAPACITY CURSE");
 const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
 const u8 gText_ItemBattleItemCurse[] = _("EMBARGO CURSE");
 const u8 gText_ItemSpeciesClauseCurse[] = _("SPECIES CURSE");
+const u8 gText_ItemItemShuffleCurse[] = _("SHUFFLE CURSE");
 
 #endif
 
@@ -240,6 +242,11 @@ const u8 sItemSpeciesClauseCurseDesc[] = _(
     "POKéMON can't be\n"
     "caught if species\n"
     "in party already.");
+
+const u8 sItemItemShuffleCurseDesc[] = _(
+    "Entering a Battle\n"
+    "will shuffle Held\n"
+    "Items between {PKMN}.");
 
 
 // Quest Log

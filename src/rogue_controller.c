@@ -162,6 +162,9 @@ static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonP
 
 static u8 GetCurrentWildEncounterCount(void);
 
+static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
+static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
+
 static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void RandomiseFishingEncounters(void);
@@ -3564,6 +3567,18 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     }
 }
 
+void Rogue_PreBattleSetup(void)
+{
+    if(IsCurseActive(EFFECT_ITEM_SHUFFLE))
+    {
+        u16 i;
+        u8 size = CalculatePlayerPartyCount();
+
+        for(i = 0; i < size; ++i)
+            SwapMonItems(i, Random() % size, gPlayerParty);
+    }
+}
+
 bool8 Rogue_OverrideTrainerItems(u16* items)
 {
     if(Rogue_IsRunActive())
@@ -3862,6 +3877,18 @@ static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
 
         CopyMon(&party[aIdx], &party[bIdx], sizeof(struct Pokemon));
         CopyMon(&party[bIdx], &tempMon, sizeof(struct Pokemon));
+    }
+}
+
+static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
+{
+    if(aIdx != bIdx)
+    {
+        u16 itemA = GetMonData(&party[aIdx], MON_DATA_HELD_ITEM);
+        u16 itemB = GetMonData(&party[bIdx], MON_DATA_HELD_ITEM);
+
+        SetMonData(&party[aIdx], MON_DATA_HELD_ITEM, &itemB);
+        SetMonData(&party[bIdx], MON_DATA_HELD_ITEM, &itemA);
     }
 }
 
