@@ -5368,10 +5368,13 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 if(difficulty <= 7)
                     itemCapacity = 4 + 4 * difficulty;
             }
-            else if(difficulty <= 5)
+            else
             {
-                // Remove contents 
-                RogueQuery_ItemsInPriceRange(10, 11);
+                if(difficulty <= 5)
+                {
+                    // Remove contents 
+                    RogueQuery_ItemsInPriceRange(10, 11);
+                }
                 
 #ifdef ROGUE_EXPANSION
                 if(IsQuestCollected(QUEST_FIRE_Champion))
