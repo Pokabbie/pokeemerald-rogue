@@ -1594,7 +1594,12 @@ Rogue_ConfigRoom_Button_EVGainEnabled_Text_0:
 Rogue_ConfigRoom_Button_EVGainEnabled_Text_1:
 	.string "When enabled POKéMON will gain EVs at\n"
 	.string "an accelerated rate.\p"
-	.string "When disabled POKéMON will gain no EVs.$"
+	.string "When disabled POKéMON will gain no EVs\n"
+	.string "and you PARTNER will have theirs set to\l"
+	.string "0 when starting a run.\p"
+	.string "This will only affect you; trainers will\n"
+	.string "never have EVs regardless of whether\l"
+	.string "this is toggled on or off.$"
 
 Rogue_ConfigRoom_Button_BasicBag_Text_0:
 	.string "BAG WIPE$"
