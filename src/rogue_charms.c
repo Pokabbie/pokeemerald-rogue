@@ -41,6 +41,7 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_EVERSTONE_EVOS
         // EFFECT_BATTLE_ITEM_BAN
         // EFFECT_SPECIES_CLAUSE
+        // EFFECT_ITEM_SHUFFLE
     }
 
     return ITEM_NONE;
@@ -86,6 +87,9 @@ static u16 EffectToCurseItem(u8 effectType)
         
         case EFFECT_SPECIES_CLAUSE:
             return ITEM_SPECIES_CLAUSE_CURSE;
+        
+        case EFFECT_ITEM_SHUFFLE:
+            return ITEM_ITEM_SHUFFLE_CURSE;
     }
 
     return ITEM_NONE;
@@ -175,6 +179,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_EVERSTONE_EVOS:
         case EFFECT_BATTLE_ITEM_BAN:
         case EFFECT_SPECIES_CLAUSE:
+        case EFFECT_ITEM_SHUFFLE:
             if(isCurse)
                 return CheckBagHasItem(EffectToCurseItem(effectType), 1);
     }
