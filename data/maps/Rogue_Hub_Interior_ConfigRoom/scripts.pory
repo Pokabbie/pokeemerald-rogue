@@ -895,7 +895,7 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled POKéMON will gain EVs at an accelerated rate.\pWhen disabled POKéMON will gain no EVs."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled POKéMON will gain EVs at an accelerated rate.\pWhen disabled POKéMON will gain no EVs and you PARTNER will have theirs set to 0 when starting a run.\pThis will only affect you; trainers will never have EVs regardless of whether this is toggled on or off."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

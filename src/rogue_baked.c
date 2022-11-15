@@ -1323,6 +1323,23 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->price = 1500;
     }
+
+    // Plates
+    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
+    {
+        outItem->price = 4000;
+    }
+
+    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
+    {
+        outItem->price = 1000;
+    }
+
+    if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+    {
+        outItem->price = 1000;
+    }
+
 #endif
 
     // Individual items
