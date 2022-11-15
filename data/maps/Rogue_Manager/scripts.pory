@@ -305,6 +305,19 @@ script Rogue_Shop_RareHeldItems
     release
 }
 
+script Rogue_Shop_RarePlates
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock TYPE BASED ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_RARE_PLATES)
+
+    msgbox("Come again soon!")
+    release
+}
+
 script Rogue_Shop_Charms
 {
     lock
