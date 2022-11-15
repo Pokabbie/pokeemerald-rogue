@@ -1066,6 +1066,11 @@ void RogueQuery_ItemsExcludeCommon(void)
 
     // Ignore sweets, as they are not used
     RogueQuery_ItemsExcludeRange(ITEM_STRAWBERRY_SWEET, ITEM_RIBBON_SWEET);
+    
+    // Exclude everything but plates
+    //RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
+    RogueQuery_ItemsExcludeRange(ITEM_DOUSE_DRIVE, ITEM_CHILL_DRIVE);
+    RogueQuery_ItemsExcludeRange(ITEM_FIRE_MEMORY, ITEM_FAIRY_MEMORY);
 
     switch(maxGen)
     {

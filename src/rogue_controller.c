@@ -1834,6 +1834,28 @@ static bool8 PartyContainsStrongLegendaryMon(void)
     return FALSE;
 }
 
+static void BeginRogueRun_ModifyParty(void)
+{
+    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        u16 i;
+        u16 temp = 0;
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &temp);
+                SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &temp);
+                SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &temp);
+                SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &temp);
+                SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &temp);
+                SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
+            }
+        }
+    }
+}
+
 static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -1888,6 +1910,8 @@ static void BeginRogueRun(void)
 
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
+
+    BeginRogueRun_ModifyParty();
 
     if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
     {
@@ -5222,9 +5246,9 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
 #ifdef ROGUE_EXPANSION
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
+
+    // Merchants can't sell plates
     RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
-    RogueQuery_ItemsExcludeRange(ITEM_DOUSE_DRIVE, ITEM_CHILL_DRIVE);
-    RogueQuery_ItemsExcludeRange(ITEM_FIRE_MEMORY, ITEM_FAIRY_MEMORY);
 #endif
 
     switch(itemCategory)
