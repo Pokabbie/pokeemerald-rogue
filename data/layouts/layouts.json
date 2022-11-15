@@ -5020,6 +5020,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Route_Johto_Field1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Field1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_CAVE0",
+      "name": "Rogue_Route_Johto_Cave0_Layout",
+      "width": 58,
+      "height": 58,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_Cave0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Cave0/map.bin"
     }
   ]
 }
