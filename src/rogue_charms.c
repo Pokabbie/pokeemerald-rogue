@@ -108,6 +108,14 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
         case EFFECT_FLINCH_CHANCE:
             return min(itemCount * (isCurse ? 5 : 10), 90);
 
+        case EFFECT_CRIT_CHANCE:
+            {
+                if(isCurse)
+                    return itemCount;
+                else
+                    return itemCount != 0 ? (itemCount + 1) : 0; // Free focus energy
+            }
+
         case EFFECT_SHED_SKIN_CHANCE:
             return min(itemCount * (isCurse ? 15 : 20), 100);
 

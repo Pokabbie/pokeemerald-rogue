@@ -246,6 +246,8 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
 #ifdef ROGUE_EXPANSION
             case(EVO_SPECIFIC_MON_IN_PARTY):
+            case(EVO_CRITICAL_HITS):
+            case(EVO_SCRIPT_TRIGGER_DMG):
                 outEvo->method = EVO_LEVEL;
                 outEvo->param = 20;
                 break;

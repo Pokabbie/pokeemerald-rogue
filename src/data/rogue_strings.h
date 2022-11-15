@@ -157,8 +157,8 @@ const u8 sItemFlinchCharmDesc[] = _(
 
 const u8 sItemCritCharmDesc[] = _(
     "Friendly POKéMON\n"
-    "have an extra stage\n"
-    "for crit rate.");
+    "have an increased\n"
+    "crit rate.");
 
 const u8 sItemShedSkinCharmDesc[] = _(
     "Friendly POKéMON\n"
@@ -197,8 +197,8 @@ const u8 sItemFlinchCurseDesc[] = _(
 
 const u8 sItemCritCurseDesc[] = _(
     "Opponent POKéMON\n"
-    "have an extra stage\n"
-    "for crit rate.");
+    "have an increased\n"
+    "crit rate.");
 
 const u8 sItemShedSkinCurseDesc[] = _(
     "Opponent POKéMON\n"

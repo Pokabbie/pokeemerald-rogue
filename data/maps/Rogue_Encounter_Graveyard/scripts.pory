@@ -11,7 +11,10 @@ const FLAG_USED_ENCOUNTER = FLAG_TEMP_1
 
 mapscripts Rogue_Encounter_Graveyard_MapScripts 
 {
-
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
 }
 
 script Rogue_Graveyard_EnterTrigger
