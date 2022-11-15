@@ -672,13 +672,15 @@ Rogue_StartAdventureCommon_Text_1:
 
 Rogue_StartAdventureCommon_Text_2:
 	.string "Looks like you have too many POKéMON.\p"
-	.string "You can only take in 2.\n"
+	.string "You can only take in 2 POKéMON into this\n"
+	.string "mode.\n"
 	.string "You should use the PC to deposit some\l"
 	.string "before I can let you on an adventure.$"
 
 Rogue_StartAdventureCommon_Text_3:
 	.string "Looks like you have too many POKéMON.\p"
-	.string "You can only take in 1.\n"
+	.string "You can only take in 1 POKéMON into this\n"
+	.string "mode.\n"
 	.string "You should use the PC to deposit some\l"
 	.string "before I can let you on an adventure.$"
 

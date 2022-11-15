@@ -364,7 +364,7 @@ script Rogue_StartAdventureCommon
     {
         if(var(VAR_RESULT) > 2)
         {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2 POKéMON into this mode.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, NO)
         }
         else
@@ -376,7 +376,7 @@ script Rogue_StartAdventureCommon
     {
         if(var(VAR_RESULT) > 1)
         {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1 POKéMON into this mode.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, NO)
         }
         else

@@ -309,7 +309,7 @@ script Rogue_Shop_RarePlates
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock TYPE BASED ITEMS.")
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock REWARD HELD ITEMS.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_RARE_PLATES)

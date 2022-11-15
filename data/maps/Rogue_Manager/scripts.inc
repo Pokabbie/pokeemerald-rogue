@@ -1205,7 +1205,7 @@ Rogue_Shop_RareHeldItems_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.$"
 
 Rogue_Shop_RarePlates_Text_0:
-	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock TYPE BASED ITEMS.$"
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock REWARD HELD ITEMS.$"
 
 Rogue_Shop_Charms_Text_0:
 	.string "Welcome...\pWould you... like to adjust your fate...?$"
