@@ -318,8 +318,8 @@ static const u8 sTrainerPicFacilityClass[PLAYER_STYLE_COUNT] =
     [STYLE_EMR_MAY] = FACILITY_CLASS_MAY,
     [STYLE_RED]   = FACILITY_CLASS_RED,
     [STYLE_LEAF] = FACILITY_CLASS_LEAF,
-    [STYLE_ETHAN] = FACILITY_CLASS_RED,
-    [STYLE_LYRA] = FACILITY_CLASS_LEAF,
+    [STYLE_ETHAN] = FACILITY_CLASS_ETHAN,
+    [STYLE_LYRA] = FACILITY_CLASS_LYRA,
 };
 
 static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =

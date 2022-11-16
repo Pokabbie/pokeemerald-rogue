@@ -142,11 +142,14 @@
 
 #define TRAINER_PIC_JOHTO_RED             117
 
-#define TRAINER_PIC_POKABBIE              118
-#define TRAINER_PIC_POKABBIE_DITTO        119 // Just used for battle transition
-#define TRAINER_PIC_GLITCH_KATE           120
-#define TRAINER_PIC_GLITCH_TAILS          121
-#define TRAINER_PIC_GLITCH_ERMA           122
+#define TRAINER_PIC_ETHAN                 118
+#define TRAINER_PIC_LYRA                  119
+
+#define TRAINER_PIC_POKABBIE              120
+#define TRAINER_PIC_POKABBIE_DITTO        121 // Just used for battle transition
+#define TRAINER_PIC_GLITCH_KATE           122
+#define TRAINER_PIC_GLITCH_TAILS          123
+#define TRAINER_PIC_GLITCH_ERMA           124
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -240,8 +243,10 @@
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
+#define FACILITY_CLASS_ETHAN                 0x52
+#define FACILITY_CLASS_LYRA                  0x53
 
-#define FACILITY_CLASSES_COUNT               0x52
+#define FACILITY_CLASSES_COUNT               0x54
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1

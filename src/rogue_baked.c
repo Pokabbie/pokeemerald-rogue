@@ -710,11 +710,11 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
                 case(STYLE_ETHAN):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
+                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
                     break;
                 case(STYLE_LYRA):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
                     break;
             };
             break;
@@ -744,11 +744,11 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
                 case(STYLE_ETHAN):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
                     break;
                 case(STYLE_LYRA):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
+                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
                     break;
             };
             break;

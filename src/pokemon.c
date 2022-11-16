@@ -7076,16 +7076,16 @@ u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
             return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
 
         case STYLE_RED:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
+            return TRAINER_PIC_RED;
 
         case STYLE_LEAF:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
+            return TRAINER_PIC_LEAF;
 
         case STYLE_ETHAN:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
+            return TRAINER_PIC_ETHAN;
 
         case STYLE_LYRA:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
+            return TRAINER_PIC_LYRA;
     };
 
     return gFacilityClassToPicIndex[FACILITY_CLASS_WALLY];
