@@ -2712,6 +2712,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                             case(STYLE_LEAF):
                                 VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                                 break;
+
+                            case(STYLE_ETHAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
+                                break;
+                            case(STYLE_LYRA):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
+                                break;
                         };
                     }
                     // Rival Trainer
@@ -2731,6 +2738,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                                 break;
                             case(STYLE_LEAF):
                                 VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+
+                            case(STYLE_ETHAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
+                                break;
+                            case(STYLE_LYRA):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
                                 break;
                         };
                     }
@@ -2823,6 +2837,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                             case(STYLE_LEAF):
                                 VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
                                 break;
+
+                            case(STYLE_ETHAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
+                                break;
+                            case(STYLE_LYRA):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
+                                break;
                         };
                     }
                     // Rival Trainer
@@ -2842,6 +2863,13 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                                 break;
                             case(STYLE_LEAF):
                                 VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
+                                break;
+
+                            case(STYLE_ETHAN):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
+                                break;
+                            case(STYLE_LYRA):
+                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
                                 break;
                         };
                     }

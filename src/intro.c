@@ -1374,16 +1374,14 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     switch(sIntroCharacterGender)
     {
         case STYLE_EMR_BRENDAN: 
+        case STYLE_RED: 
+        case STYLE_ETHAN: 
             LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
-            break;
-        case STYLE_EMR_MAY: 
-            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
             break;
 
-        case STYLE_RED: 
-            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
-            break;
+        case STYLE_EMR_MAY: 
         case STYLE_LEAF: 
+        case STYLE_LYRA: 
             LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
             break;
     }
@@ -1405,16 +1403,14 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     switch(sIntroCharacterGender)
     {
         case STYLE_EMR_BRENDAN: 
+        case STYLE_RED: 
+        case STYLE_ETHAN: 
             spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
-            break;
-        case STYLE_EMR_MAY: 
-            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
             break;
 
-        case STYLE_RED: 
-            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
-            break;
+        case STYLE_EMR_MAY: 
         case STYLE_LEAF: 
+        case STYLE_LYRA: 
             spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
             break;
     }

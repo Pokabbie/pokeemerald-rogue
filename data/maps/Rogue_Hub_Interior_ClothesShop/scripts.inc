@@ -40,7 +40,7 @@ Rogue_Hub_Clothes_ChangeStyle0_3:
 
 Rogue_Hub_Clothes_ChangeStyle0_6:
 	special Script_ChangePlayerStyle0
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 19, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 19, 20
 	waitstate
 	goto Rogue_Hub_Clothes_ChangeStyle0_5
 
@@ -70,7 +70,7 @@ Rogue_Hub_Clothes_ChangeStyle1_3:
 
 Rogue_Hub_Clothes_ChangeStyle1_6:
 	special Script_ChangePlayerStyle1
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 20
 	waitstate
 	goto Rogue_Hub_Clothes_ChangeStyle1_5
 
@@ -105,7 +105,7 @@ Rogue_Hub_Clothes_SetStyle_Brendan_1:
 Rogue_Hub_Clothes_SetStyle_Brendan_2:
 	setvar VAR_0x8006, 0
 	special Script_ChangePlayerGender
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 4, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 4, 20
 	waitstate
 	goto Rogue_Hub_Clothes_SetStyle_Brendan_1
 
@@ -122,7 +122,7 @@ Rogue_Hub_Clothes_SetStyle_May_1:
 Rogue_Hub_Clothes_SetStyle_May_2:
 	setvar VAR_0x8006, 1
 	special Script_ChangePlayerGender
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 8, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 8, 20
 	waitstate
 	goto Rogue_Hub_Clothes_SetStyle_May_1
 
@@ -139,7 +139,7 @@ Rogue_Hub_Clothes_SetStyle_Red_1:
 Rogue_Hub_Clothes_SetStyle_Red_2:
 	setvar VAR_0x8006, 2
 	special Script_ChangePlayerGender
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 29, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 29, 20
 	waitstate
 	goto Rogue_Hub_Clothes_SetStyle_Red_1
 
@@ -156,9 +156,43 @@ Rogue_Hub_Clothes_SetStyle_Leaf_1:
 Rogue_Hub_Clothes_SetStyle_Leaf_2:
 	setvar VAR_0x8006, 3
 	special Script_ChangePlayerGender
-	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 33, 9
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 33, 20
 	waitstate
 	goto Rogue_Hub_Clothes_SetStyle_Leaf_1
+
+
+Rogue_Hub_Clothes_SetStyle_Ethan::
+	lock
+	msgbox Rogue_Hub_Clothes_SetStyle_Brendan_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Hub_Clothes_SetStyle_Ethan_2
+Rogue_Hub_Clothes_SetStyle_Ethan_1:
+	release
+	return
+
+Rogue_Hub_Clothes_SetStyle_Ethan_2:
+	setvar VAR_0x8006, 4
+	special Script_ChangePlayerGender
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 16, 4
+	waitstate
+	goto Rogue_Hub_Clothes_SetStyle_Ethan_1
+
+
+Rogue_Hub_Clothes_SetStyle_Lyra::
+	lock
+	msgbox Rogue_Hub_Clothes_SetStyle_Brendan_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Hub_Clothes_SetStyle_Lyra_2
+Rogue_Hub_Clothes_SetStyle_Lyra_1:
+	release
+	return
+
+Rogue_Hub_Clothes_SetStyle_Lyra_2:
+	setvar VAR_0x8006, 5
+	special Script_ChangePlayerGender
+	warp MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 4
+	waitstate
+	goto Rogue_Hub_Clothes_SetStyle_Lyra_1
 
 
 Rogue_Hub_Clothes_TalkAssistant_Text_0:

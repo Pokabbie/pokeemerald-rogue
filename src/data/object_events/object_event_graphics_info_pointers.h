@@ -228,8 +228,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dusclops;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnionRoomAttendant;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sudowoodo;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mew;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Red;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Leaf;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deoxys;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirthIslandStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brandon;
@@ -244,16 +242,34 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Storyteller;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Leaf;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafMachBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafAcroBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafSurfing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFieldMove;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafFishing;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Red;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedMachBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedAcroBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurfing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFishing;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lyra;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraMachBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraAcroBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraSurfing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraFieldMove;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraFishing;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ethan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanMachBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAcroBike;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanSurfing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanFieldMove;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanFishing;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Agatha;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blaine;
@@ -289,6 +305,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeafAlt;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LyraAlt;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
@@ -524,8 +542,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_UNION_ROOM_NURSE] =         &gObjectEventGraphicsInfo_UnionRoomAttendant,
     [OBJ_EVENT_GFX_SUDOWOODO] =                &gObjectEventGraphicsInfo_Sudowoodo,
     [OBJ_EVENT_GFX_MEW] =                      &gObjectEventGraphicsInfo_Mew,
-    [OBJ_EVENT_GFX_RED] =                      &gObjectEventGraphicsInfo_Red,
-    [OBJ_EVENT_GFX_LEAF] =                     &gObjectEventGraphicsInfo_Leaf,
     [OBJ_EVENT_GFX_DEOXYS] =                   &gObjectEventGraphicsInfo_Deoxys,
     [OBJ_EVENT_GFX_DEOXYS_TRIANGLE] =          &gObjectEventGraphicsInfo_BirthIslandStone,
     [OBJ_EVENT_GFX_BRANDON] =                  &gObjectEventGraphicsInfo_Brandon,
@@ -534,16 +550,33 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
 
+    [OBJ_EVENT_GFX_LEAF] =                     &gObjectEventGraphicsInfo_Leaf,
     [OBJ_EVENT_GFX_LEAF_MACH_BIKE] =           &gObjectEventGraphicsInfo_LeafMachBike,
     [OBJ_EVENT_GFX_LEAF_ACRO_BIKE] =           &gObjectEventGraphicsInfo_LeafAcroBike,
     [OBJ_EVENT_GFX_LEAF_SURFING] =             &gObjectEventGraphicsInfo_LeafSurfing,
     [OBJ_EVENT_GFX_LEAF_FIELD_MOVE] =          &gObjectEventGraphicsInfo_LeafFieldMove,
     [OBJ_EVENT_GFX_LEAF_FISHING] =             &gObjectEventGraphicsInfo_LeafFishing,
+
+    [OBJ_EVENT_GFX_RED] =                      &gObjectEventGraphicsInfo_Red,
     [OBJ_EVENT_GFX_RED_MACH_BIKE] =            &gObjectEventGraphicsInfo_RedMachBike,
     [OBJ_EVENT_GFX_RED_ACRO_BIKE] =            &gObjectEventGraphicsInfo_RedAcroBike,
     [OBJ_EVENT_GFX_RED_SURFING] =              &gObjectEventGraphicsInfo_RedSurfing,
     [OBJ_EVENT_GFX_RED_FIELD_MOVE] =           &gObjectEventGraphicsInfo_RedFieldMove,
     [OBJ_EVENT_GFX_RED_FISHING] =              &gObjectEventGraphicsInfo_RedFishing,
+
+    [OBJ_EVENT_GFX_LYRA] =                     &gObjectEventGraphicsInfo_Lyra,
+    [OBJ_EVENT_GFX_LYRA_MACH_BIKE] =           &gObjectEventGraphicsInfo_LyraMachBike,
+    [OBJ_EVENT_GFX_LYRA_ACRO_BIKE] =           &gObjectEventGraphicsInfo_LyraAcroBike,
+    [OBJ_EVENT_GFX_LYRA_SURFING] =             &gObjectEventGraphicsInfo_LyraSurfing,
+    [OBJ_EVENT_GFX_LYRA_FIELD_MOVE] =          &gObjectEventGraphicsInfo_LyraFieldMove,
+    [OBJ_EVENT_GFX_LYRA_FISHING] =             &gObjectEventGraphicsInfo_LyraFishing,
+
+    [OBJ_EVENT_GFX_ETHAN] =                    &gObjectEventGraphicsInfo_Ethan,
+    [OBJ_EVENT_GFX_ETHAN_MACH_BIKE] =          &gObjectEventGraphicsInfo_EthanMachBike,
+    [OBJ_EVENT_GFX_ETHAN_ACRO_BIKE] =          &gObjectEventGraphicsInfo_EthanAcroBike,
+    [OBJ_EVENT_GFX_ETHAN_SURFING] =            &gObjectEventGraphicsInfo_EthanSurfing,
+    [OBJ_EVENT_GFX_ETHAN_FIELD_MOVE] =         &gObjectEventGraphicsInfo_EthanFieldMove,
+    [OBJ_EVENT_GFX_ETHAN_FISHING] =            &gObjectEventGraphicsInfo_EthanFishing,
 
     [OBJ_EVENT_GFX_KANTO_AGATHA] =             &gObjectEventGraphicsInfo_Kanto_Agatha,
     [OBJ_EVENT_GFX_KANTO_BLAINE] =             &gObjectEventGraphicsInfo_Kanto_Blaine,
@@ -579,6 +612,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,
     [OBJ_EVENT_GFX_RED_ALT] =                  &gObjectEventGraphicsInfo_RedAlt,
     [OBJ_EVENT_GFX_LEAF_ALT] =                 &gObjectEventGraphicsInfo_LeafAlt,
+    [OBJ_EVENT_GFX_LYRA_ALT] =                 &gObjectEventGraphicsInfo_LyraAlt,
+    [OBJ_EVENT_GFX_ETHAN_ALT] =                &gObjectEventGraphicsInfo_EthanAlt,
 
     [OBJ_EVENT_GFX_GLITCH_KATE] =              &gObjectEventGraphicsInfo_Glitch_Kate,
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,

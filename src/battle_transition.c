@@ -921,7 +921,9 @@ static const u16 *const sPlayerMugshotsPals[PLAYER_STYLE_COUNT] =
     [STYLE_EMR_BRENDAN] = sMugshotPal_Brendan,
     [STYLE_EMR_MAY] = sMugshotPal_May,
     [STYLE_RED] = sMugshotPal_Brendan,
-    [STYLE_LEAF] = sMugshotPal_May
+    [STYLE_LEAF] = sMugshotPal_May,
+    [STYLE_ETHAN] = sMugshotPal_Brendan,
+    [STYLE_LYRA] = sMugshotPal_May,
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");

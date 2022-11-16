@@ -47,6 +47,8 @@ const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
 const u8 gText_TrainerName_Red[] = _("RED");
 const u8 gText_TrainerName_Leaf[] = _("LEAF");
+const u8 gText_TrainerName_Ethan[] = _("ETHAN");
+const u8 gText_TrainerName_Lyra[] = _("LYRA");
 
 const u8 gText_TrainerName_Falkner[] = _("FALKNER");
 const u8 gText_TrainerName_Bugsy[] = _("BUGSY");

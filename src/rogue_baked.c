@@ -61,6 +61,8 @@ extern const u8 gText_TrainerName_Brendan[];
 extern const u8 gText_TrainerName_May[];
 extern const u8 gText_TrainerName_Red[];
 extern const u8 gText_TrainerName_Leaf[];
+extern const u8 gText_TrainerName_Ethan[];
+extern const u8 gText_TrainerName_Lyra[];
 
 extern const u8 gText_TrainerName_Falkner[];
 extern const u8 gText_TrainerName_Bugsy[];
@@ -355,6 +357,11 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
                     return gText_TrainerName_Leaf;
                 case(STYLE_LEAF):
                     return gText_TrainerName_Red;
+
+                case(STYLE_ETHAN):
+                    return gText_TrainerName_Lyra;
+                case(STYLE_LYRA):
+                    return gText_TrainerName_Ethan;
             };
             break;
         }
@@ -700,6 +707,15 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
                     outTrainer->trainerPic = TRAINER_PIC_LEAF;
                     break;
+
+                case(STYLE_ETHAN):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_RED;
+                    break;
+                case(STYLE_LYRA):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    break;
             };
             break;
             
@@ -722,6 +738,15 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                     outTrainer->trainerPic = TRAINER_PIC_LEAF;
                     break;
                 case(STYLE_LEAF):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+                    outTrainer->trainerPic = TRAINER_PIC_RED;
+                    break;
+
+                case(STYLE_ETHAN):
+                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
+                    break;
+                case(STYLE_LYRA):
                     outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
                     outTrainer->trainerPic = TRAINER_PIC_RED;
                     break;
