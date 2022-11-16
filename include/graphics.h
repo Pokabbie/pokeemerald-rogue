@@ -3089,7 +3089,10 @@ FOREACH_VISUAL_PRESETS(RED_PALETTE)
 #undef RED_PALETTE
 
 extern const u32 gTrainerPalette_Ethan_Front_0_0[];  // Temp until colour variations are hooked up
+extern const u32 gTrainerPalette_Ethan_Back_0_0[];  // Temp until colour variations are hooked up
+
 extern const u32 gTrainerPalette_Lyra_Front_0_0[];   // Temp until colour variations are hooked up
+extern const u32 gTrainerPalette_Lyra_Back_0_0[];   // Temp until colour variations are hooked up
 
 // Share palette for now
 #define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
@@ -3155,6 +3158,8 @@ extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
 extern const u8 gTrainerBackPic_Red[];
 extern const u8 gTrainerBackPic_Leaf[];
+extern const u8 gTrainerBackPic_Ethan[];
+extern const u8 gTrainerBackPic_Lyra[];
 extern const u8 gTrainerBackPic_RubySapphireBrendan[];
 extern const u8 gTrainerBackPic_RubySapphireMay[];
 extern const u8 gTrainerBackPic_Wally[];

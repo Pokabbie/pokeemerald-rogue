@@ -84,6 +84,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Leaf[] =
     gTrainerBackPic_Leaf + 0x2000, 0x0800,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_Ethan[] =
+{
+    gTrainerBackPic_Ethan, 0x0800,
+    gTrainerBackPic_Ethan + 0x0800, 0x0800,
+    gTrainerBackPic_Ethan + 0x1000, 0x0800,
+    gTrainerBackPic_Ethan + 0x1800, 0x0800,
+    gTrainerBackPic_Ethan + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Lyra[] =
+{
+    gTrainerBackPic_Lyra, 0x0800,
+    gTrainerBackPic_Lyra + 0x0800, 0x0800,
+    gTrainerBackPic_Lyra + 0x1000, 0x0800,
+    gTrainerBackPic_Lyra + 0x1800, 0x0800,
+    gTrainerBackPic_Lyra + 0x2000, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireBrendan[] =
 {
     gTrainerBackPic_RubySapphireBrendan, 0x0800,
