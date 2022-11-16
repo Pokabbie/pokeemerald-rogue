@@ -194,7 +194,7 @@ void Rogue_AlterMonIVs(void)
 
 void Rogue_ApplyStatusToMon(void)
 {
-    u16 statusAilment;
+    u32 statusAilment = 0;
     u16 monIdx = gSpecialVar_0x8004;
 
     switch(gSpecialVar_0x8005)
