@@ -616,60 +616,65 @@ Rogue_ConfigRoom_RedrawMap_4:
 	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_ConfigRoom_RedrawMap_9
 	setvar VAR_TEMP_1, 0
 Rogue_ConfigRoom_RedrawMap_8:
-	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_13
-	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	questcollected QUEST_DevilDeal
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_RedrawMap_13
+	clearflag FLAG_ROGUE_TRAINER0
 Rogue_ConfigRoom_RedrawMap_12:
-	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_17
-	setmetatile 3, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_17
+	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_16:
-	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_21
-	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_21
+	setmetatile 3, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_20:
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_RedrawMap_25
-	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_25
+	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_24:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_29
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_30
-	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_RedrawMap_29
+	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_28:
-	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_35
-	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_36
+	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_33
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_34
+	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
+Rogue_ConfigRoom_RedrawMap_32:
+	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_39
+	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_40
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
-Rogue_ConfigRoom_RedrawMap_34:
-	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_41
-	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_42
+Rogue_ConfigRoom_RedrawMap_38:
+	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_45
+	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_46
 	setmetatile 5, 5, METATILE_BikeShop_Button_Green, FALSE
-Rogue_ConfigRoom_RedrawMap_40:
-	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_47
+Rogue_ConfigRoom_RedrawMap_44:
+	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_51
 	setmetatile 14, 6, METATILE_BikeShop_Button_Pressed, FALSE
-Rogue_ConfigRoom_RedrawMap_46:
-	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_51
-	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_50:
-	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_55
-	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_WILDMONS, Rogue_ConfigRoom_RedrawMap_55
+	setmetatile 16, 6, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_54:
-	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_59
-	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_TRAINERS, Rogue_ConfigRoom_RedrawMap_59
+	setmetatile 14, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_58:
-	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_63
-	setmetatile 15, 20, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_SET_SEED_BOSSES, Rogue_ConfigRoom_RedrawMap_63
+	setmetatile 16, 8, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_62:
-	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_67
-	setmetatile 15, 22, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_KANTO_ROUTES, Rogue_ConfigRoom_RedrawMap_67
+	setmetatile 15, 20, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_66:
-	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_RedrawMap_71
-	setmetatile 17, 20, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_KANTO_BOSSES, Rogue_ConfigRoom_RedrawMap_71
+	setmetatile 15, 22, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_70:
-	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_RedrawMap_75
-	setmetatile 17, 22, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_JOHTO_ROUTES, Rogue_ConfigRoom_RedrawMap_75
+	setmetatile 17, 20, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_74:
-	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_79
-	setmetatile 19, 20, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_JOHTO_BOSSES, Rogue_ConfigRoom_RedrawMap_79
+	setmetatile 17, 22, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_78:
-	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_83
-	setmetatile 19, 22, METATILE_BikeShop_Button_Pressed, FALSE
+	goto_if_set FLAG_ROGUE_HOENN_ROUTES, Rogue_ConfigRoom_RedrawMap_83
+	setmetatile 19, 20, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_82:
+	goto_if_set FLAG_ROGUE_HOENN_BOSSES, Rogue_ConfigRoom_RedrawMap_87
+	setmetatile 19, 22, METATILE_BikeShop_Button_Pressed, FALSE
+Rogue_ConfigRoom_RedrawMap_86:
 	special DrawWholeMapView
 	return
 
@@ -692,84 +697,88 @@ Rogue_ConfigRoom_RedrawMap_9:
 	goto Rogue_ConfigRoom_RedrawMap_8
 
 Rogue_ConfigRoom_RedrawMap_13:
-	setmetatile 1, 3, METATILE_BikeShop_Button_Green, FALSE
+	setflag FLAG_ROGUE_TRAINER0
 	goto Rogue_ConfigRoom_RedrawMap_12
 
 Rogue_ConfigRoom_RedrawMap_17:
-	setmetatile 3, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 1, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_16
 
 Rogue_ConfigRoom_RedrawMap_21:
-	setmetatile 5, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 3, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_20
 
 Rogue_ConfigRoom_RedrawMap_25:
-	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 5, 3, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_24
 
 Rogue_ConfigRoom_RedrawMap_29:
+	setmetatile 7, 3, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_28
+
+Rogue_ConfigRoom_RedrawMap_33:
 	setmetatile 1, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_28
+	goto Rogue_ConfigRoom_RedrawMap_32
 
-Rogue_ConfigRoom_RedrawMap_30:
+Rogue_ConfigRoom_RedrawMap_34:
 	setmetatile 1, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_28
+	goto Rogue_ConfigRoom_RedrawMap_32
 
-Rogue_ConfigRoom_RedrawMap_35:
+Rogue_ConfigRoom_RedrawMap_39:
 	setmetatile 3, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_34
+	goto Rogue_ConfigRoom_RedrawMap_38
 
-Rogue_ConfigRoom_RedrawMap_36:
+Rogue_ConfigRoom_RedrawMap_40:
 	setmetatile 3, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_34
+	goto Rogue_ConfigRoom_RedrawMap_38
 
-Rogue_ConfigRoom_RedrawMap_41:
+Rogue_ConfigRoom_RedrawMap_45:
 	setmetatile 5, 5, 0x23E, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_40
+	goto Rogue_ConfigRoom_RedrawMap_44
 
-Rogue_ConfigRoom_RedrawMap_42:
+Rogue_ConfigRoom_RedrawMap_46:
 	setmetatile 5, 5, METATILE_BikeShop_Button_Blue, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_40
-
-Rogue_ConfigRoom_RedrawMap_47:
-	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
-	goto Rogue_ConfigRoom_RedrawMap_46
+	goto Rogue_ConfigRoom_RedrawMap_44
 
 Rogue_ConfigRoom_RedrawMap_51:
-	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_50
 
 Rogue_ConfigRoom_RedrawMap_55:
-	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 6, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_54
 
 Rogue_ConfigRoom_RedrawMap_59:
-	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 14, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_58
 
 Rogue_ConfigRoom_RedrawMap_63:
-	setmetatile 15, 20, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 16, 8, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_62
 
 Rogue_ConfigRoom_RedrawMap_67:
-	setmetatile 15, 22, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 15, 20, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_66
 
 Rogue_ConfigRoom_RedrawMap_71:
-	setmetatile 17, 20, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 15, 22, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_70
 
 Rogue_ConfigRoom_RedrawMap_75:
-	setmetatile 17, 22, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 17, 20, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_74
 
 Rogue_ConfigRoom_RedrawMap_79:
-	setmetatile 19, 20, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 17, 22, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_78
 
 Rogue_ConfigRoom_RedrawMap_83:
-	setmetatile 19, 22, METATILE_BikeShop_Button_Green, FALSE
+	setmetatile 19, 20, METATILE_BikeShop_Button_Green, FALSE
 	goto Rogue_ConfigRoom_RedrawMap_82
+
+Rogue_ConfigRoom_RedrawMap_87:
+	setmetatile 19, 22, METATILE_BikeShop_Button_Green, FALSE
+	goto Rogue_ConfigRoom_RedrawMap_86
 
 
 Rogue_ConfigRoom_Button_ExpAll::

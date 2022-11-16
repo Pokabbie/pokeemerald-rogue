@@ -32,13 +32,6 @@ Rogue_HubTransition_OnEnter_3:
 
 
 Rogue_HubTransition_OnLoad::
-	questcollected QUEST_DevilDeal
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_HubTransition_OnLoad_1
-	return
-
-Rogue_HubTransition_OnLoad_1:
-	setflag FLAG_TEMP_1
 	return
 
 

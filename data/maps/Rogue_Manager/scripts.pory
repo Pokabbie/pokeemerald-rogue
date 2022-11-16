@@ -322,12 +322,26 @@ script Rogue_Shop_Charms
 {
     lock
     faceplayer
-    message("Welcome...\pWould you... like to adjust your fate...?")
-    waitmessage
 
-    rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
+    msgbox(format("Oh! Child! You startled me..."), MSGBOX_DEFAULT)
+    msgbox(format("I can offer you some Curses to add some extra challenge in your future Adventures...\pWould you like to pick a new set of Curses?"), MSGBOX_YESNO)
 
-    msgbox("Yes... of course...")
+    if(var(VAR_RESULT) == YES)
+    {
+        message(format("So how will you adjust your fate this time...?"))
+        waitmessage
+
+        special(Rogue_ClearCharmsAndCurses)
+
+        rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
+
+        msgbox(format("Good luck child..."), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("Very well..."))
+    }
+
     release
 }
 

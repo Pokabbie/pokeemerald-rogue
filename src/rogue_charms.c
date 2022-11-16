@@ -97,7 +97,12 @@ static u16 EffectToCurseItem(u8 effectType)
 
 static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 {
-    u32 itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
+    u32 itemCount;
+
+    if(!Rogue_IsRunActive())
+        return 0;
+
+    itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
 
     // Custom rate scaling
     switch(effectType)
@@ -153,6 +158,34 @@ u16 GetCharmValue(u8 effectType)
 u16 GetCurseValue(u8 effectType)
 {
     return CalcValueInternal(effectType, EffectToCurseItem(effectType), TRUE);
+}
+
+void Rogue_RemoveCharmsFromBag(void)
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        itemId = EffectToCharmItem(effectType);
+
+        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
+            RemoveBagItem(itemId, 1);
+    }
+}
+
+void Rogue_RemoveCursesFromBag(void)
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        itemId = EffectToCurseItem(effectType);
+
+        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
+            RemoveBagItem(itemId, 1);
+    }
 }
 
 static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)

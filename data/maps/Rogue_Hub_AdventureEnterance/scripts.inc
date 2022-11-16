@@ -50,28 +50,20 @@ Rogue_Adventure_WarpState0_13:
 
 
 Rogue_Adventure_RedrawMap::
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_le Rogue_Adventure_RedrawMap_2
-	clearflag FLAG_ROGUE_TRAINER1
-Rogue_Adventure_RedrawMap_1:
-	goto_if_set FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_5
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_RedrawMap_9
-Rogue_Adventure_RedrawMap_6:
+	goto_if_set FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_1
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_RedrawMap_5
+Rogue_Adventure_RedrawMap_2:
 	setflag FLAG_ROGUE_TRAINER0
 	fillmetatile 10, 0, 17, 8, 0x001, TRUE
 	return
 
-Rogue_Adventure_RedrawMap_2:
-	setflag FLAG_ROGUE_TRAINER1
-	goto Rogue_Adventure_RedrawMap_1
-
-Rogue_Adventure_RedrawMap_5:
+Rogue_Adventure_RedrawMap_1:
 	clearflag FLAG_ROGUE_TRAINER0
 	return
 
-Rogue_Adventure_RedrawMap_9:
-	goto_if_unset FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_5
-	goto Rogue_Adventure_RedrawMap_6
+Rogue_Adventure_RedrawMap_5:
+	goto_if_unset FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_1
+	goto Rogue_Adventure_RedrawMap_2
 
 
 Rogue_Adventure_ScottGiveQuestLog::

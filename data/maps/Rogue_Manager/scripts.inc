@@ -277,12 +277,22 @@ Rogue_Shop_RarePlates::
 Rogue_Shop_Charms::
 	lock
 	faceplayer
-	message Rogue_Shop_Charms_Text_0
-	waitmessage
-	rogue_dynamicpokemart ROGUE_SHOP_CHARMS
-	msgbox Rogue_Shop_Charms_Text_1
+	msgbox Rogue_Shop_Charms_Text_0, MSGBOX_DEFAULT
+	msgbox Rogue_Shop_Charms_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Shop_Charms_2
+	msgbox Rogue_Shop_Charms_Text_4
+Rogue_Shop_Charms_1:
 	release
 	return
+
+Rogue_Shop_Charms_2:
+	message Rogue_Shop_Charms_Text_2
+	waitmessage
+	special Rogue_ClearCharmsAndCurses
+	rogue_dynamicpokemart ROGUE_SHOP_CHARMS
+	msgbox Rogue_Shop_Charms_Text_3, MSGBOX_DEFAULT
+	goto Rogue_Shop_Charms_1
 
 
 RogueSafari_Sign_South::
@@ -1208,10 +1218,24 @@ Rogue_Shop_RarePlates_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock REWARD HELD ITEMS.$"
 
 Rogue_Shop_Charms_Text_0:
-	.string "Welcome...\pWould you... like to adjust your fate...?$"
+	.string "Oh! Child! You startled me...$"
 
 Rogue_Shop_Charms_Text_1:
-	.string "Yes... of course...$"
+	.string "I can offer you some Curses to add some\n"
+	.string "extra challenge in your future\l"
+	.string "Adventures...\p"
+	.string "Would you like to pick a new set of\n"
+	.string "Curses?$"
+
+Rogue_Shop_Charms_Text_2:
+	.string "So how will you adjust your fate this\n"
+	.string "time...?$"
+
+Rogue_Shop_Charms_Text_3:
+	.string "Good luck child...$"
+
+Rogue_Shop_Charms_Text_4:
+	.string "Very well...$"
 
 RogueSafari_Sign_South_Text_0:
 	.string "SOUTH AREA home to:\n"

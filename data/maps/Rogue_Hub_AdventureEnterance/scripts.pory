@@ -50,16 +50,6 @@ script Rogue_Adventure_WarpState0
 
 script Rogue_Adventure_RedrawMap
 {
-    // Basic bag NPC
-    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
-    {
-        setflag(FLAG_ROGUE_TRAINER1)
-    }
-    else
-    {
-        clearflag(FLAG_ROGUE_TRAINER1)
-    }
-
     // Hide hidden rooms
     if(flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS) || flag(FLAG_ROGUE_MET_POKABBIE) && !flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS))
     {

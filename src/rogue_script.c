@@ -621,3 +621,9 @@ void Rogue_ChooseMiniBossRewardMons(void)
 {
     Rogue_SelectMiniBossRewardMons();
 }
+
+void Rogue_ClearCharmsAndCurses(void)
+{
+    Rogue_RemoveCharmsFromBag();
+    Rogue_RemoveCursesFromBag();
+}
