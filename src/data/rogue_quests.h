@@ -505,8 +505,10 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "Curses and complete a\n"
                     "full run."
                 ),
+        .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ULTRA_BALL, 99 } },
         },
     },
@@ -519,8 +521,10 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "Embargo, 5 Capacity, 5 Wild,\n"
                     "99 Discount curses."
                 ),
+        .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MASTER_BALL, 1 } },
         },
     },
