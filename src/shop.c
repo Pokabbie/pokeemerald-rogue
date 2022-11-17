@@ -555,7 +555,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     BuyMenuPrint(2, description, 3, 1, 0, 0);
 }
 
-static u16 Mart_GetItemPrice(u16 itemId)
+static u32 Mart_GetItemPrice(u16 itemId)
 {
     if(ItemId_GetPrice(itemId) == 0)
     {
@@ -564,7 +564,7 @@ static u16 Mart_GetItemPrice(u16 itemId)
     }
     else
     {
-        s16 totalPerc = 0;
+        u32 totalPerc = 0;
         u32 basePrice = max(ItemId_GetPrice(itemId), sMartInfo.minPrice);
 
         u16 decValue = GetCharmValue(EFFECT_SHOP_PRICE);
@@ -576,8 +576,12 @@ static u16 Mart_GetItemPrice(u16 itemId)
         else
             totalPerc -= decValue;
 
-        // Can only go down to 10$
-        return max(10, (basePrice * totalPerc) / 100);
+        // At this point max at all the prices
+        if(totalPerc >= 2500)
+            return 99999;
+
+        // Can only go down to 10$ or up to 99999$
+        return max(10, min(99999, (basePrice * totalPerc) / 100));
     }
 }
 

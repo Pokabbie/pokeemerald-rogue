@@ -278,20 +278,21 @@ Rogue_Shop_Charms::
 	lock
 	faceplayer
 	msgbox Rogue_Shop_Charms_Text_0, MSGBOX_DEFAULT
-	msgbox Rogue_Shop_Charms_Text_1, MSGBOX_YESNO
+	msgbox Rogue_Shop_Charms_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_Shop_Charms_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Shop_Charms_2
-	msgbox Rogue_Shop_Charms_Text_4
 Rogue_Shop_Charms_1:
+	message Rogue_Shop_Charms_Text_3
+	waitmessage
+	rogue_dynamicpokemart ROGUE_SHOP_CHARMS
+	msgbox Rogue_Shop_Charms_Text_4, MSGBOX_DEFAULT
 	release
 	return
 
 Rogue_Shop_Charms_2:
-	message Rogue_Shop_Charms_Text_2
-	waitmessage
+	playse SE_SHOP
 	special Rogue_ClearCharmsAndCurses
-	rogue_dynamicpokemart ROGUE_SHOP_CHARMS
-	msgbox Rogue_Shop_Charms_Text_3, MSGBOX_DEFAULT
 	goto Rogue_Shop_Charms_1
 
 
@@ -1224,18 +1225,18 @@ Rogue_Shop_Charms_Text_1:
 	.string "I can offer you some Curses to add some\n"
 	.string "extra challenge in your future\l"
 	.string "Adventures...\p"
-	.string "Would you like to pick a new set of\n"
-	.string "Curses?$"
+	.string "I can inflict you with new Curses...$"
 
 Rogue_Shop_Charms_Text_2:
-	.string "So how will you adjust your fate this\n"
-	.string "time...?$"
+	.string "Would you like me to remove any active\n"
+	.string "Curses?$"
 
 Rogue_Shop_Charms_Text_3:
-	.string "Good luck child...$"
+	.string "So how would you like to adjust your\n"
+	.string "fate...?$"
 
 Rogue_Shop_Charms_Text_4:
-	.string "Very well...$"
+	.string "Good luck child...$"
 
 RogueSafari_Sign_South_Text_0:
 	.string "SOUTH AREA home to:\n"

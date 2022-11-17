@@ -200,7 +200,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_REPEATABLE,
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } } 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
         },
         .unlockedQuests = { 
             QUEST_NORMAL_Champion, 
@@ -466,13 +466,12 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_Hardcore2,
             QUEST_Hardcore3,
             QUEST_Cursed1,
-            QUEST_Cursed2,
         }
     },
 
     [QUEST_Cursed1] = 
     {
-        .title = _("Cursed Path"),
+        .title = _("Cursed Body"),
         .desc = _(
                     "Accept 1 of every\n"
                     "Curse and complete a\n"
@@ -482,13 +481,26 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
         },
     },
-    [QUEST_Cursed2] = 
+    [QUEST_IronMono1] = 
     {
-        .title = _("Iron Mono"),
+        .title = _("True Mono"),
         .desc = _(
                     "Accept 5 Capacity\n"
                     "Curses and complete a\n"
                     "full run."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+        },
+    },
+    [QUEST_IronMono2] = 
+    {
+        .title = _("Iron Kaizo"),
+        .desc = _(
+                    "Full run with: Bag Wipe\n"
+                    "& Random starter;\n"
+                    "Embargo, 5 Capacity, 5 Wild,\n"
+                    "99 Discount curses."
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
@@ -544,7 +556,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "Hard Trainers enabled."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DITTO, 7, TRUE } },
         }
     },
@@ -558,10 +570,12 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "catching legendaries."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
         },
-        .unlockedQuests = { 
+        .unlockedQuests = {
+            QUEST_IronMono1,
+            QUEST_IronMono2,
             QUEST_Hardcore4,
         },
     },
@@ -575,7 +589,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                     "Overlvl off, Random Starter."
                 ),
         .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RAYQUAZA, 7, TRUE } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
         }
@@ -847,11 +861,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHILAN_BERRY, 1 } },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
 #endif
         }
@@ -868,11 +882,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHOPLE_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_BELT, 1 } },
 #endif
         }
@@ -889,11 +903,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COBA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHARP_BEAK, 1 } },
 #endif
         }
@@ -910,11 +924,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KEBIA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POISON_BARB, 1 } },
 #endif
         }
@@ -931,11 +945,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHUCA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SOFT_SAND, 1 } },
 #endif
         }
@@ -952,11 +966,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARTI_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HARD_STONE, 1 } },
 #endif
         }
@@ -973,11 +987,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TANGA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
 #endif
         }
     },
@@ -993,11 +1007,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KASIB_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPELL_TAG, 1 } },
 #endif
         }
@@ -1014,11 +1028,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BABIRI_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_METAL_COAT, 1 } },
 #endif
         }
@@ -1035,11 +1049,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_OCCA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARCOAL, 1 } },
 #endif
         }
@@ -1056,11 +1070,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PASSHO_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MYSTIC_WATER, 1 } },
 #endif
         }
@@ -1077,11 +1091,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RINDO_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MIRACLE_SEED, 1 } },
 #endif
         }
@@ -1098,11 +1112,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_WACAN_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MAGNET, 1 } },
 #endif
         }
@@ -1119,11 +1133,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PAYAPA_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TWISTED_SPOON, 1 } },
 #endif
         }
@@ -1140,11 +1154,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_YACHE_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_NEVER_MELT_ICE, 1 } },
 #endif
         }
@@ -1161,11 +1175,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HABAN_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DRAGON_FANG, 1 } },
 #endif
         }
@@ -1182,11 +1196,11 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COLBUR_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
 #else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_GLASSES, 1 } },
 #endif
         }
@@ -1203,7 +1217,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 10000 } },
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ROSELI_BERRY, 1 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
         }

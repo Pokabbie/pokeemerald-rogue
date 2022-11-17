@@ -5,7 +5,7 @@
 #define QUEST_FLAGS_ACTIVE_IN_HUB         (1 << 2) // currently means ONLY active during hub phase
 
 #define QUEST_TITLE_LENGTH 16
-#define QUEST_DESC_LENGTH 84
+#define QUEST_DESC_LENGTH 96
 
 #define  QUEST_MAX_REWARD_COUNT     4
 #define  QUEST_MAX_FOLLOWING_QUESTS 24
@@ -115,8 +115,9 @@
 #define QUEST_DevilDeal             (QUEST_RegionMode_Last + 1)
 #define QUEST_LegendOnly            (QUEST_RegionMode_Last + 2)
 #define QUEST_Cursed1               (QUEST_RegionMode_Last + 3)
-#define QUEST_Cursed2               (QUEST_RegionMode_Last + 4)
-#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 5)
+#define QUEST_IronMono1             (QUEST_RegionMode_Last + 4)
+#define QUEST_IronMono2             (QUEST_RegionMode_Last + 5)
+#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 6)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_LAST QUEST_Hardcore4

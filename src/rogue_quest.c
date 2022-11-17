@@ -630,7 +630,8 @@ static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
         }
     }
 
-    if(IsQuestActive(QUEST_Hardcore4))
+    // Check for random starter
+    if(IsQuestActive(QUEST_Hardcore4) || IsQuestActive(QUEST_IronMono2))
     {
         // Only care about the very first check
         if(VarGet(VAR_ROGUE_CURRENT_ROOM_IDX) == 0)
@@ -639,6 +640,7 @@ static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
 
             if(!enteringPotentialEncounter && !isRandomanDisabled)
             {
+                TryDeactivateQuest(QUEST_IronMono2);
                 TryDeactivateQuest(QUEST_Hardcore4);
             }
         }
@@ -672,7 +674,8 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
         TryDeactivateQuest(QUEST_Cursed1);
-        TryDeactivateQuest(QUEST_Cursed2);
+        TryDeactivateQuest(QUEST_IronMono1);
+        TryDeactivateQuest(QUEST_IronMono2);
         TryDeactivateQuest(QUEST_LegendOnly);
 
         TryDeactivateQuest(QUEST_KantoMode);
@@ -709,7 +712,13 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG) || !FlagGet(FLAG_ROGUE_HARD_ITEMS) || FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED) || FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+    if(!FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        TryDeactivateQuest(QUEST_IronMono2);
+        TryDeactivateQuest(QUEST_Hardcore4);
+    }
+
+    if(!FlagGet(FLAG_ROGUE_HARD_ITEMS) || FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED) || FlagGet(FLAG_ROGUE_CAN_OVERLVL))
     {
         TryDeactivateQuest(QUEST_Hardcore4);
     }
@@ -944,7 +953,8 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_Hardcore3);
                 TryMarkQuestAsComplete(QUEST_Hardcore4);
                 TryMarkQuestAsComplete(QUEST_Cursed1);
-                TryMarkQuestAsComplete(QUEST_Cursed2);
+                TryMarkQuestAsComplete(QUEST_IronMono1);
+                TryMarkQuestAsComplete(QUEST_IronMono2);
                 TryMarkQuestAsComplete(QUEST_LegendOnly);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);
@@ -1018,11 +1028,19 @@ void QuestNotify_OnExitHubTransition(void)
     }
     
     if(!CheckBagHasItem(ITEM_PARTY_CURSE, 5))
-        TryDeactivateQuest(QUEST_Cursed2);
+    {
+        TryDeactivateQuest(QUEST_IronMono1);
+        TryDeactivateQuest(QUEST_IronMono2);
+    }
 
+    if(!CheckBagHasItem(ITEM_SHOP_PRICE_CURSE, 99))
+    {
+        TryDeactivateQuest(QUEST_IronMono2);
+    }
 
     if(!CheckBagHasItem(ITEM_BATTLE_ITEM_CURSE, 1))
     {
+        TryDeactivateQuest(QUEST_IronMono2);
         TryDeactivateQuest(QUEST_Hardcore);
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
