@@ -5611,6 +5611,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             switch (currentEvo.method)
             {
@@ -5678,6 +5679,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             switch (currentEvo.method)
             {
@@ -5700,6 +5702,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             if (currentEvo.method == EVO_ITEM
              && currentEvo.param == evolutionItem)

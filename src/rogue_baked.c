@@ -312,7 +312,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 #endif
         }
+    }
+}
 
+void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo)
+{
+    if(outEvo->targetSpecies != SPECIES_NONE)
+    {
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))
         {
@@ -324,6 +330,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         }
     }
 }
+
 const u8* Rogue_GetTrainerName(u16 trainerNum)
 {
     // TODO - Replace name with _("CHALLENGER")

@@ -265,6 +265,7 @@ u16 Rogue_GetMonEvoCount(void)
         for (e = 0; e < EVOS_PER_MON; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
@@ -304,6 +305,7 @@ void Rogue_GetMonEvoParams(void)
         for (e = 0; e < EVOS_PER_MON; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
