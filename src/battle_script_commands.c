@@ -9865,7 +9865,7 @@ static void Cmd_removelightscreenreflect(void) // brick break
     gBattlescriptCurrInstr++;
 }
 
-static bool8 PartyContainsSpecies(u16 checkSpecies)
+static bool8 PartyContainsSpeciesChain(u16 checkSpecies)
 {
     u16 i;
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -9875,9 +9875,12 @@ static bool8 PartyContainsSpecies(u16 checkSpecies)
 #else
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
 #endif
-        if(species != SPECIES_NONE && species == checkSpecies)
+        if(species != SPECIES_NONE)
         {
-            return TRUE;
+            species = Rogue_GetEggSpecies(species);
+
+            if(species == checkSpecies)
+                return TRUE;
         }
     }
 
@@ -9894,7 +9897,7 @@ static bool8 CurseBlocksPokeball(void)
         u16 species = gBattleMons[gBattlerTarget].species;
 #endif
 
-        if(PartyContainsSpecies(species))
+        if(PartyContainsSpeciesChain(Rogue_GetEggSpecies(species)))
             return TRUE;
 
     }

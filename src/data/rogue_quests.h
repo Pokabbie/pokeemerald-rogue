@@ -465,11 +465,12 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_Hardcore,
             QUEST_Hardcore2,
             QUEST_Hardcore3,
-            QUEST_Cursed1,
+            QUEST_CursedBody,
+            QUEST_Nuzlocke,
         }
     },
 
-    [QUEST_Cursed1] = 
+    [QUEST_CursedBody] = 
     {
         .title = _("Cursed Body"),
         .desc = _(
@@ -479,8 +480,23 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DUSKULL, 7, TRUE } },
         },
     },
+    [QUEST_Nuzlocke] = 
+    {
+        .title = _("Roguelocke"),
+        .desc = _(
+                    "Full run with: Bag Wipe\n"
+                    "Random starter; Embargo,\n"
+                    "Species & 10 Wild curses."
+                ),
+        .rewards = { 
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
+        },
+    },
+
     [QUEST_IronMono1] = 
     {
         .title = _("True Mono"),
@@ -491,6 +507,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ULTRA_BALL, 99 } },
         },
     },
     [QUEST_IronMono2] = 
@@ -504,6 +521,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MASTER_BALL, 1 } },
         },
     },
     
