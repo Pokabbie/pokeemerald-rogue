@@ -571,6 +571,7 @@ static void TryActivateQuestInternal(u16 questId, struct RogueQuestState* state)
     }
 }
 
+
 static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
 {
     bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
@@ -582,6 +583,26 @@ static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
     else
     {
         state->isValid = FALSE;
+    }
+}
+
+static void ActivateGauntletAdventureQuests(u16 questId, struct RogueQuestState* state)
+{
+    // The quests we allow for gauntlet mode
+    switch(questId)
+    {
+        case QUEST_FirstAdventure:
+        case QUEST_GymChallenge:
+        case QUEST_GymMaster:
+        case QUEST_EliteMaster:
+        case QUEST_Champion:
+        case QUEST_GauntletMode:
+            ActivateAdventureQuests(questId, state);
+            break;
+
+        default:
+            state->isValid = FALSE;
+            break;
     }
 }
 
@@ -703,7 +724,11 @@ void QuestNotify_BeginAdventure(void)
     sPreviousRouteType = 0;
 
     // Cannot activate quests on Gauntlet mode
-    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        ForEachUnlockedQuest(ActivateGauntletAdventureQuests);
+    }
+    else
     {
         ForEachUnlockedQuest(ActivateAdventureQuests);
     }
@@ -776,6 +801,11 @@ void QuestNotify_BeginAdventure(void)
     if(!FlagGet(FLAG_ROGUE_DOUBLE_BATTLES))
     {
         TryDeactivateQuest(QUEST_OrreMode);
+    }
+
+    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    {
+        TryDeactivateQuest(QUEST_GauntletMode);
     }
 
     {
@@ -1008,6 +1038,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_IronMono1);
                 TryMarkQuestAsComplete(QUEST_IronMono2);
                 TryMarkQuestAsComplete(QUEST_LegendOnly);
+                TryMarkQuestAsComplete(QUEST_GauntletMode);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);
                 TryMarkQuestAsComplete(QUEST_JohtoMode);

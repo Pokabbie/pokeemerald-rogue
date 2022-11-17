@@ -591,7 +591,7 @@ Rogue_Hub_ProfLab_ProfExplain_Text_1:
 	.string "will also change!\p"
 	.string "When you finish your adventure you'll\n"
 	.string "be escorted back to the HUB and we'll\l"
-	.string "restore you BAG and POKéMON back to\l"
+	.string "restore your BAG and POKéMON back to\l"
 	.string "their original states.\p"
 	.string "So, for example, if you evolved your\n"
 	.string "PARTNER POKéMON whilst on an\l"

@@ -1023,9 +1023,9 @@ RogueHub_SpeakBerryMerchant_Text_0:
 	.string "Oh hello {PLAYER}!\n"
 	.string "I hope you don't mind, but I've setup\l"
 	.string "some berry patches.\p"
-	.string "You may be given berries are rewards\n"
-	.string "for completing quest that you're\l"
-	.string "welcome to plant in this field!$"
+	.string "You may be given berries as rewards for\n"
+	.string "completing quest that you're welcome\l"
+	.string "to plant in this field!$"
 
 RogueHub_SpeakBerryMerchant_Text_1:
 	.string "If you ever run out of berries or if\n"

@@ -629,7 +629,8 @@ Rogue_Adventure_StartGauntlet_Text_1:
 	.string "more POKéMON or items.\p"
 	.string "This is a high stakes mode intended for\n"
 	.string "faster more difficult battles,\l"
-	.string "although Quests are disabled.$"
+	.string "although almost all Quests are\l"
+	.string "disabled in this mode.$"
 
 Rogue_Adventure_StartRainbow_Text_0:
 	.string "Would you like to go on a RAINBOW\n"
