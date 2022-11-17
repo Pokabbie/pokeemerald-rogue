@@ -61,7 +61,7 @@ script Rogue_AdventurePaths_InteractNodeInternal
             msgbox(format("It's a... Game Show?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_GRAVEYARD:
-            msgbox(format("It's a Devil Deal...\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's a Dark Deal...?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_LAB:
             msgbox(format("It's a POKéMON LAB.\nEnter this encounter?"), MSGBOX_YESNO)

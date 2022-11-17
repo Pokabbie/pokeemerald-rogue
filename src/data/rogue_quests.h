@@ -452,10 +452,10 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     },
     [QUEST_DevilDeal] = 
     {
-        .title = _("Devil Deal"),
+        .title = _("Mankey's Paw"),
         .desc = _(
-                    "Make a deal with...\n"
-                    "a devil?"
+                    "Make a dark deal during\n"
+                    "an Adventure..."
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
