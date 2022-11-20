@@ -305,7 +305,7 @@ static void Task_Sparkles_SpiralUpward(u8 taskId)
             for (i = 0; i < 4; i++)
                 CreateSparkle_SpiralUpward((gTasks[taskId].tTimer & 120) * 2 + i * 64);
         }
-        gTasks[taskId].tTimer++;
+        gTasks[taskId].tTimer += 4;
     }
     else
     {
@@ -337,17 +337,17 @@ static void Task_Sparkles_ArcDown_Init(u8 taskId)
 
 static void Task_Sparkles_ArcDown(u8 taskId)
 {
-    if (gTasks[taskId].tTimer < 96)
-    {
-        if (gTasks[taskId].tTimer < 6)
-        {
-            u8 i;
-            for (i = 0; i < 9; i++)
-                CreateSparkle_ArcDown(i * 16);
-        }
-        gTasks[taskId].tTimer++;
-    }
-    else
+    //if (gTasks[taskId].tTimer < 96)
+    //{
+    //    if (gTasks[taskId].tTimer < 6)
+    //    {
+    //        u8 i;
+    //        for (i = 0; i < 9; i++)
+    //            CreateSparkle_ArcDown(i * 16);
+    //    }
+    //    gTasks[taskId].tTimer += 4;
+    //}
+    //else
         gTasks[taskId].func = Task_Sparkles_ArcDown_End;
 }
 
@@ -385,7 +385,7 @@ static void Task_Sparkles_CircleInward(u8 taskId)
             for (i = 0; i < 16; i++)
                 CreateSparkle_CircleInward(i * 16, 8);
         }
-        gTasks[taskId].tTimer++;
+        gTasks[taskId].tTimer += 4;
     }
     else
         gTasks[taskId].func = Task_Sparkles_CircleInward_End;
@@ -434,7 +434,7 @@ static void Task_Sparkles_SprayAndFlash(u8 taskId)
             BeginNormalPaletteFade(0xFFFF041C, 0x10, 0x10, 0, RGB_WHITE); // was 0xFFF9001C in R/S
             break;
         }
-        gTasks[taskId].tTimer++;
+        gTasks[taskId].tTimer++;// += 4;
     }
     else
         gTasks[taskId].func = Task_Sparkles_SprayAndFlash_End;
@@ -480,10 +480,10 @@ static void Task_Sparkles_SprayAndFlashTrade(u8 taskId)
                 CreateSparkle_Spray(i);
             break;
         case 32:
-            BeginNormalPaletteFade(0xFFFF0400, 0x10, 0x10, 0, RGB_WHITE); // was 0xFFFF0001 in R/S
+            //BeginNormalPaletteFade(0xFFFF0400, 0x10, 0x10, 0, RGB_WHITE); // was 0xFFFF0001 in R/S
             break;
         }
-        gTasks[taskId].tTimer++;
+        gTasks[taskId].tTimer += 4;
     }
     else
         gTasks[taskId].func = Task_Sparkles_SprayAndFlash_End;
@@ -561,11 +561,11 @@ static void Task_CycleEvolutionMonSprite_TryEnd(u8 taskId)
 {
     if (gTasks[taskId].tEvoStopped)
         EndOnPreEvoMon(taskId);
-    else if (gTasks[taskId].tScaleSpeed == 128)
+    else if (gTasks[taskId].tScaleSpeed >= 128)
         EndOnPostEvoMon(taskId);
     else
     {
-        gTasks[taskId].tScaleSpeed += 2;
+        gTasks[taskId].tScaleSpeed += 8;
         gTasks[taskId].tShowingPostEvo ^= 1;
         gTasks[taskId].func = Task_CycleEvolutionMonSprite_UpdateSize;
     }

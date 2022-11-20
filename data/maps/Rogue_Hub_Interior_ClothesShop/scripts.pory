@@ -39,7 +39,7 @@ script Rogue_Hub_Clothes_ChangeStyle0
     {
         special(Script_ChangePlayerStyle0)
         
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 19, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 19, 20)
         waitstate
     }
     else
@@ -75,7 +75,7 @@ script Rogue_Hub_Clothes_ChangeStyle1
     {
         special(Script_ChangePlayerStyle1)
         
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 20)
         waitstate
     }
     else
@@ -121,7 +121,7 @@ script Rogue_Hub_Clothes_SetStyle_Brendan
         setvar(VAR_0x8006, 0)
         special(Script_ChangePlayerGender)
 
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 4, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 4, 20)
 
         //special(Script_ShowTrainerCard)
         waitstate
@@ -142,7 +142,7 @@ script Rogue_Hub_Clothes_SetStyle_May
         setvar(VAR_0x8006, 1)
         special(Script_ChangePlayerGender)
 
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 8, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 8, 20)
 
         //special(Script_ShowTrainerCard)
         waitstate
@@ -163,7 +163,7 @@ script Rogue_Hub_Clothes_SetStyle_Red
         setvar(VAR_0x8006, 2)
         special(Script_ChangePlayerGender)
 
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 29, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 29, 20)
 
         //special(Script_ShowTrainerCard)
         waitstate
@@ -184,7 +184,49 @@ script Rogue_Hub_Clothes_SetStyle_Leaf
         setvar(VAR_0x8006, 3)
         special(Script_ChangePlayerGender)
 
-        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 33, 9)
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 33, 20)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Ethan
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 4)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 16, 4)
+
+        //special(Script_ShowTrainerCard)
+        waitstate
+    }
+
+    release
+}
+
+script Rogue_Hub_Clothes_SetStyle_Lyra
+{
+    lock
+
+    msgbox(format("Change to this style?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        //fadescreen(FADE_TO_BLACK)
+
+        setvar(VAR_0x8006, 5)
+        special(Script_ChangePlayerGender)
+
+        warp(MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP, 21, 4)
 
         //special(Script_ShowTrainerCard)
         waitstate

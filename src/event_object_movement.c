@@ -460,6 +460,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE         0x1133
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA         0x1134
 
+#define OBJ_EVENT_PAL_TAG_ETHAN                   0x1135
+#define OBJ_EVENT_PAL_TAG_LYRA                    0x1136
+
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -523,6 +526,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Johto_NPC_Red,         OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED},
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
+    {gObjectEventPal_Ethan_0_0,             OBJ_EVENT_PAL_TAG_ETHAN},
+    {gObjectEventPal_Lyra_0_0,              OBJ_EVENT_PAL_TAG_LYRA},
     {},
 };
 

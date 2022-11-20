@@ -309,7 +309,7 @@ script Rogue_Shop_RarePlates
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock TYPE BASED ITEMS.")
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock REWARD HELD ITEMS.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_RARE_PLATES)
@@ -322,12 +322,24 @@ script Rogue_Shop_Charms
 {
     lock
     faceplayer
-    message("Welcome...\pWould you... like to adjust your fate...?")
+
+    msgbox(format("Oh! Child! You startled me..."), MSGBOX_DEFAULT)
+    msgbox(format("I can offer you some Curses to add some extra challenge in your future Adventures...\pI can inflict you with new Curses..."), MSGBOX_DEFAULT)
+
+    msgbox(format("Would you like me to remove any active Curses?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        playse(SE_SHOP)
+        special(Rogue_ClearCharmsAndCurses)
+    }
+
+    message(format("So how would you like to adjust your fate...?"))
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
 
-    msgbox("Yes... of course...")
+    msgbox(format("Good luck child..."), MSGBOX_DEFAULT)
+
     release
 }
 

@@ -12,9 +12,9 @@ const u8 gText_RogueVersionPrefix[] = _("Vanilla");
 const u8 gText_RogueVersionSpacer[] = _(" - ");
 
 #ifdef ROGUE_DEBUG
-const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
+const u8 gText_RogueVersionSuffix[] = _("(1.3 DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _("The Questing Update");
+const u8 gText_RogueVersionSuffix[] = _("The (1.3 dev) Update");
 #endif
 
 
@@ -47,6 +47,8 @@ const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
 const u8 gText_TrainerName_Red[] = _("RED");
 const u8 gText_TrainerName_Leaf[] = _("LEAF");
+const u8 gText_TrainerName_Ethan[] = _("ETHAN");
+const u8 gText_TrainerName_Lyra[] = _("LYRA");
 
 const u8 gText_TrainerName_Falkner[] = _("FALKNER");
 const u8 gText_TrainerName_Bugsy[] = _("BUGSY");
@@ -148,7 +150,7 @@ const u8 gText_ItemQuestLogDesc[] = _(
 
 const u8 sItemShoppingCharmDesc[] = _(
     "Shop prices are\n"
-    "reduced by 20%");
+    "reduced by 25%");
 
 const u8 sItemFlinchCharmDesc[] = _(
     "Friendly moves\n"
@@ -187,7 +189,7 @@ const u8 sItemEncounterCharmDesc[] = _(
     
 const u8 sItemShoppingCurseDesc[] = _(
     "Shop prices are\n"
-    "increased by 20%");
+    "increased by 25%");
 
 
 const u8 sItemFlinchCurseDesc[] = _(

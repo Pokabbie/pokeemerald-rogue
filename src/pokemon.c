@@ -2998,6 +2998,24 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_BattleSpriteStartSlideLeft,
     },
+    [TRAINER_BACK_PIC_ETHAN] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Ethan,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+    [TRAINER_BACK_PIC_LYRA] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Lyra,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
     [TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN] = {
         .tileTag = TAG_NONE,
         .paletteTag = 0,
@@ -6507,6 +6525,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             switch (currentEvo.method)
             {
@@ -6716,6 +6735,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             switch (currentEvo.method)
             {
@@ -6742,6 +6762,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             Rogue_ModifyEvolution(species, i, &currentEvo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &currentEvo);
 
             switch(currentEvo.method)
             {
@@ -8221,10 +8242,16 @@ u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
             return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
 
         case STYLE_RED:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
+            return TRAINER_PIC_RED;
 
         case STYLE_LEAF:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
+            return TRAINER_PIC_LEAF;
+
+        case STYLE_ETHAN:
+            return TRAINER_PIC_ETHAN;
+
+        case STYLE_LYRA:
+            return TRAINER_PIC_LYRA;
     };
 
     return gFacilityClassToPicIndex[FACILITY_CLASS_WALLY];

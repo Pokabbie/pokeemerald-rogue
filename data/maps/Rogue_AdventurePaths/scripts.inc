@@ -228,7 +228,7 @@ Rogue_AdventurePaths_InteractNodeInternal_Text_3:
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_4:
-	.string "It's a Devil Deal...\n"
+	.string "It's a Dark Deal...?\n"
 	.string "Enter this encounter?$"
 
 Rogue_AdventurePaths_InteractNodeInternal_Text_5:

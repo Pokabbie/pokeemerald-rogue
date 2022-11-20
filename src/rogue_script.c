@@ -194,7 +194,7 @@ void Rogue_AlterMonIVs(void)
 
 void Rogue_ApplyStatusToMon(void)
 {
-    u16 statusAilment;
+    u32 statusAilment = 0;
     u16 monIdx = gSpecialVar_0x8004;
 
     switch(gSpecialVar_0x8005)
@@ -265,6 +265,7 @@ u16 Rogue_GetMonEvoCount(void)
         for (e = 0; e < EVOS_PER_MON; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
@@ -304,6 +305,7 @@ void Rogue_GetMonEvoParams(void)
         for (e = 0; e < EVOS_PER_MON; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
@@ -620,4 +622,10 @@ void Rogue_GiveLabMon(void)
 void Rogue_ChooseMiniBossRewardMons(void)
 {
     Rogue_SelectMiniBossRewardMons();
+}
+
+void Rogue_ClearCharmsAndCurses(void)
+{
+    Rogue_RemoveCharmsFromBag();
+    Rogue_RemoveCursesFromBag();
 }

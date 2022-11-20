@@ -653,7 +653,7 @@ script RogueHub_SpeakBerryMerchant
 
     if(flag(FLAG_ROGUE_MET_BERRY_MERCHANT) == FALSE)
     {
-        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou may be given berries are rewards for completing quest that you're welcome to plant in this field!"))
+        msgbox(format("Oh hello {PLAYER}!\nI hope you don't mind, but I've setup some berry patches.\pYou may be given berries as rewards for completing quest that you're welcome to plant in this field!"))
 
         //msgbox(format("Here's a little care package to get you started"))
         //giveitem(ITEM_ORAN_BERRY, 1)

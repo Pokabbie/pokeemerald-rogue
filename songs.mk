@@ -822,6 +822,9 @@ $(MID_SUBDIR)/mus_hg_route42.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_route47.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V073
 	
+$(MID_SUBDIR)/mus_hg_ice_path.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V072
+
 $(MID_SUBDIR)/mus_dp_vs_elite_four.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V094
 

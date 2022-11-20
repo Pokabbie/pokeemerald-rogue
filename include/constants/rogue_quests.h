@@ -5,7 +5,7 @@
 #define QUEST_FLAGS_ACTIVE_IN_HUB         (1 << 2) // currently means ONLY active during hub phase
 
 #define QUEST_TITLE_LENGTH 16
-#define QUEST_DESC_LENGTH 84
+#define QUEST_DESC_LENGTH 96
 
 #define  QUEST_MAX_REWARD_COUNT     4
 #define  QUEST_MAX_FOLLOWING_QUESTS 24
@@ -54,19 +54,19 @@
 #define QUEST_Hardcore2             (QUEST_MeetPokabbie + 17)
 #define QUEST_Hardcore3             (QUEST_MeetPokabbie + 18)
 #define QUEST_KantoMode             (QUEST_MeetPokabbie + 19)
-#define QUEST_OrreMode              (QUEST_MeetPokabbie + 20)
+#define QUEST_GauntletMode          (QUEST_MeetPokabbie + 20)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_MegaEvo               (QUEST_OrreMode + 1)
-#define QUEST_ZMove                 (QUEST_OrreMode + 2)
+#define QUEST_MegaEvo               (QUEST_GauntletMode + 1)
+#define QUEST_ZMove                 (QUEST_GauntletMode + 2)
 
-#define QUEST_ShayminItem           (QUEST_OrreMode + 3)
-#define QUEST_HoopaItem             (QUEST_OrreMode + 4)
-#define QUEST_NatureItem            (QUEST_OrreMode + 5)
+#define QUEST_ShayminItem           (QUEST_GauntletMode + 3)
+#define QUEST_HoopaItem             (QUEST_GauntletMode + 4)
+#define QUEST_NatureItem            (QUEST_GauntletMode + 5)
 
 #define BASIC_QUEST_BLOCK_LAST QUEST_NatureItem
 #else
-#define BASIC_QUEST_BLOCK_LAST QUEST_OrreMode
+#define BASIC_QUEST_BLOCK_LAST QUEST_GauntletMode
 #endif
 
 #define QUEST_NORMAL_Champion       (BASIC_QUEST_BLOCK_LAST + 1)
@@ -112,11 +112,14 @@
 #else
 #define QUEST_RegionMode_Last       QUEST_GlitchMode
 #endif
-#define QUEST_DevilDeal             (QUEST_RegionMode_Last + 1)
-#define QUEST_LegendOnly            (QUEST_RegionMode_Last + 2)
-#define QUEST_Cursed1               (QUEST_RegionMode_Last + 3)
-#define QUEST_Cursed2               (QUEST_RegionMode_Last + 4)
-#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 5)
+#define QUEST_OrreMode              (QUEST_RegionMode_Last + 1)
+#define QUEST_DevilDeal             (QUEST_RegionMode_Last + 2)
+#define QUEST_LegendOnly            (QUEST_RegionMode_Last + 3)
+#define QUEST_CursedBody            (QUEST_RegionMode_Last + 4)
+#define QUEST_Nuzlocke              (QUEST_RegionMode_Last + 5)
+#define QUEST_IronMono1             (QUEST_RegionMode_Last + 6)
+#define QUEST_IronMono2             (QUEST_RegionMode_Last + 7)
+#define QUEST_Hardcore4             (QUEST_RegionMode_Last + 8)
 
 #define QUEST_FIRST QUEST_FirstAdventure
 #define QUEST_LAST QUEST_Hardcore4

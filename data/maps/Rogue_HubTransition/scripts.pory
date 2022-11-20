@@ -34,11 +34,6 @@ script Rogue_HubTransition_OnEnter
 
 script Rogue_HubTransition_OnLoad
 {
-    questcollected(QUEST_DevilDeal)
-    if(var(VAR_RESULT) == NO)
-    {
-        setflag(FLAG_TEMP_1)
-    }
 }
 
 script Rogue_HubTransition_RandomMan

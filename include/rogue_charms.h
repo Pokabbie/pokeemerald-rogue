@@ -28,6 +28,9 @@ bool8 IsCurseActive(u8 effectType);
 u16 GetCharmValue(u8 effectType);
 u16 GetCurseValue(u8 effectType);
 
+void Rogue_RemoveCharmsFromBag(void);
+void Rogue_RemoveCursesFromBag(void);
+
 u16 Rogue_GetMaxPartySize(void);
 
 u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount);

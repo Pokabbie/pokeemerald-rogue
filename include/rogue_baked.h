@@ -10,6 +10,7 @@ struct Item;
 struct Trainer;
 
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo);
+void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo);
 const u8* Rogue_GetItemName(u16 itemIdx);
 const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which);
 void Rogue_ModifyItem(u16 itemIdx, struct Item* outItem);

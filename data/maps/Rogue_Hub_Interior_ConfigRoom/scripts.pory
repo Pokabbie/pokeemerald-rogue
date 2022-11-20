@@ -629,6 +629,17 @@ script Rogue_ConfigRoom_RedrawMap
         setvar(VAR_TEMP_1, 0)
     }
 
+    // Charms/Curse npc
+    questcollected(QUEST_DevilDeal)
+    if(var(VAR_RESULT) == NO)
+    {
+        setflag(FLAG_ROGUE_TRAINER0)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER0)
+    }
+
 
     if(flag(FLAG_ROGUE_EXP_ALL))
     {

@@ -50,28 +50,20 @@ Rogue_Adventure_WarpState0_13:
 
 
 Rogue_Adventure_RedrawMap::
-	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_le Rogue_Adventure_RedrawMap_2
-	clearflag FLAG_ROGUE_TRAINER1
-Rogue_Adventure_RedrawMap_1:
-	goto_if_set FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_5
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_RedrawMap_9
-Rogue_Adventure_RedrawMap_6:
+	goto_if_set FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_1
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, Rogue_Adventure_RedrawMap_5
+Rogue_Adventure_RedrawMap_2:
 	setflag FLAG_ROGUE_TRAINER0
 	fillmetatile 10, 0, 17, 8, 0x001, TRUE
 	return
 
-Rogue_Adventure_RedrawMap_2:
-	setflag FLAG_ROGUE_TRAINER1
-	goto Rogue_Adventure_RedrawMap_1
-
-Rogue_Adventure_RedrawMap_5:
+Rogue_Adventure_RedrawMap_1:
 	clearflag FLAG_ROGUE_TRAINER0
 	return
 
-Rogue_Adventure_RedrawMap_9:
-	goto_if_unset FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_5
-	goto Rogue_Adventure_RedrawMap_6
+Rogue_Adventure_RedrawMap_5:
+	goto_if_unset FLAG_ROGUE_SCOTT_GIFTED_EXTRAS, Rogue_Adventure_RedrawMap_1
+	goto Rogue_Adventure_RedrawMap_2
 
 
 Rogue_Adventure_ScottGiveQuestLog::
@@ -637,7 +629,8 @@ Rogue_Adventure_StartGauntlet_Text_1:
 	.string "more POKéMON or items.\p"
 	.string "This is a high stakes mode intended for\n"
 	.string "faster more difficult battles,\l"
-	.string "although Quests are disabled.$"
+	.string "although almost all Quests are\l"
+	.string "disabled in this mode.$"
 
 Rogue_Adventure_StartRainbow_Text_0:
 	.string "Would you like to go on a RAINBOW\n"
@@ -672,13 +665,15 @@ Rogue_StartAdventureCommon_Text_1:
 
 Rogue_StartAdventureCommon_Text_2:
 	.string "Looks like you have too many POKéMON.\p"
-	.string "You can only take in 2.\n"
+	.string "You can only take in 2 POKéMON into this\n"
+	.string "mode.\n"
 	.string "You should use the PC to deposit some\l"
 	.string "before I can let you on an adventure.$"
 
 Rogue_StartAdventureCommon_Text_3:
 	.string "Looks like you have too many POKéMON.\p"
-	.string "You can only take in 1.\n"
+	.string "You can only take in 1 POKéMON into this\n"
+	.string "mode.\n"
 	.string "You should use the PC to deposit some\l"
 	.string "before I can let you on an adventure.$"
 

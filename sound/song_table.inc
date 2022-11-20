@@ -623,6 +623,7 @@ gSongTable::
 	song mus_hg_route38, 0, 0
 	song mus_hg_route42, 0, 0
 	song mus_hg_route47, 0, 0
+	song mus_hg_ice_path, 0, 0
 	song mus_dp_vs_elite_four, 0, 0
 	song mus_dp_vs_champion, 0, 0
 

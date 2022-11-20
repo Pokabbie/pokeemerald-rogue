@@ -317,7 +317,9 @@ static const u8 sTrainerPicFacilityClass[PLAYER_STYLE_COUNT] =
     [STYLE_EMR_BRENDAN] = FACILITY_CLASS_BRENDAN,
     [STYLE_EMR_MAY] = FACILITY_CLASS_MAY,
     [STYLE_RED]   = FACILITY_CLASS_RED,
-    [STYLE_LEAF] = FACILITY_CLASS_LEAF
+    [STYLE_LEAF] = FACILITY_CLASS_LEAF,
+    [STYLE_ETHAN] = FACILITY_CLASS_ETHAN,
+    [STYLE_LYRA] = FACILITY_CLASS_LYRA,
 };
 
 static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
@@ -705,6 +707,8 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
     {
         case STYLE_RED:
         case STYLE_LEAF:
+        case STYLE_ETHAN:
+        case STYLE_LYRA:
             cardType = CARD_TYPE_FRLG;
             break;
 

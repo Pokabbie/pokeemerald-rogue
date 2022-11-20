@@ -50,16 +50,6 @@ script Rogue_Adventure_WarpState0
 
 script Rogue_Adventure_RedrawMap
 {
-    // Basic bag NPC
-    if(var(VAR_ROGUE_INTRO_STATE) <= 5)
-    {
-        setflag(FLAG_ROGUE_TRAINER1)
-    }
-    else
-    {
-        clearflag(FLAG_ROGUE_TRAINER1)
-    }
-
     // Hide hidden rooms
     if(flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS) || flag(FLAG_ROGUE_MET_POKABBIE) && !flag(FLAG_ROGUE_SCOTT_GIFTED_EXTRAS))
     {
@@ -269,7 +259,7 @@ script Rogue_Adventure_StartGauntlet
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
 
         case 2: // Info
-            msgbox(format("In GAUNTLET adventures, you will get given a few routes to capture POKéMON and collect items.\pAfter that you will fight every BOSS back to back with no chance to get any more POKéMON or items.\pThis is a high stakes mode intended for faster more difficult battles, although Quests are disabled."), MSGBOX_DEFAULT)
+            msgbox(format("In GAUNTLET adventures, you will get given a few routes to capture POKéMON and collect items.\pAfter that you will fight every BOSS back to back with no chance to get any more POKéMON or items.\pThis is a high stakes mode intended for faster more difficult battles, although almost all Quests are disabled in this mode."), MSGBOX_DEFAULT)
 
         case MULTI_B_PRESSED:
             msgbox(format("Feel free to speak with me again, if you change your mind."), MSGBOX_DEFAULT)
@@ -364,7 +354,7 @@ script Rogue_StartAdventureCommon
     {
         if(var(VAR_RESULT) > 2)
         {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2 POKéMON into this mode.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, NO)
         }
         else
@@ -376,7 +366,7 @@ script Rogue_StartAdventureCommon
     {
         if(var(VAR_RESULT) > 1)
         {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
+            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1 POKéMON into this mode.\nYou should use the PC to deposit some before I can let you on an adventure."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, NO)
         }
         else

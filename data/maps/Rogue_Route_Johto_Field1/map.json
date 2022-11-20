@@ -3,7 +3,7 @@
   "name": "Rogue_Route_Johto_Field1",
   "layout": "LAYOUT_ROGUE_ROUTE_JOHTO_FIELD1",
   "music": "MUS_HG_ROUTE30",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_SPECIAL_AREA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

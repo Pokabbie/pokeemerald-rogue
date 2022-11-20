@@ -476,9 +476,10 @@ static const struct MenuAction sMenuActions_Gender[PLAYER_STYLE_COUNT] = {
 
     {gText_BirchRed, NULL},
     {gText_BirchLeaf, NULL},
-    
-    //{gText_BirchRSBrendan, NULL},
-    //{gText_BirchRSMay, NULL}
+
+    // TODO - ETHAN LYRA (If we want them here?)
+    {gText_BirchRed, NULL},
+    {gText_BirchLeaf, NULL},
 };
 
 static const struct MenuAction sMenuActions_Styles[4] = {
@@ -1701,6 +1702,13 @@ static void Task_NewGameBirchSpeech_SlideOutOldGenderSprite(u8 taskId)
             case(STYLE_LEAF):
                 spriteId = gTasks[taskId].tLeafSpriteId;
                 break;
+
+            //case(STYLE_ETHAN):
+            //    spriteId = gTasks[taskId].tRedSpriteId;
+            //    break;
+            //case(STYLE_LYRA):
+            //    spriteId = gTasks[taskId].tLeafSpriteId;
+            //    break;
         };
 
         gSprites[spriteId].x = DISPLAY_WIDTH;
@@ -2049,6 +2057,13 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
         case(STYLE_LEAF):
             spriteId = gTasks[taskId].tLeafSpriteId;
             break;
+
+        //case(STYLE_ETHAN):
+        //    spriteId = gTasks[taskId].tRedSpriteId;
+        //    break;
+        //case(STYLE_LYRA):
+        //    spriteId = gTasks[taskId].tLeafSpriteId;
+        //    break;
     };
 
     gSprites[spriteId].x = 180;
