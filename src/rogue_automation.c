@@ -11,17 +11,18 @@
 #include "constants/weather.h"
 #include "data.h"
 
+#include "battle_main.h"
 #include "event_data.h"
+#include "intro.h"
+#include "main.h"
 #include "pokemon.h"
 
-//#include "item.h"
-//#include "random.h"
-
-//#include "rogue_controller.h"
+#include "rogue_automation.h"
 
 #define COMM_BUFFER_SIZE 32
 
 EWRAM_DATA u16 gAutoCommandCounter;
+EWRAM_DATA u16 gAutoInputState;
 EWRAM_DATA u16 gAutoCommBuffer[COMM_BUFFER_SIZE];
 
 
@@ -31,6 +32,8 @@ const struct RogueAutomationHeader gRogueAutomationHeader =
     .commBuffer = gAutoCommBuffer,
 };
 
+void DoSpecialTrainerBattle(void);
+
 static void ProcessNextAutoCmd(u16 cmd, u16* args);
 static void AutoCmd_ClearPlayerParty(u16* args);
 static void AutoCmd_ClearEnemyParty(u16* args);
@@ -39,6 +42,7 @@ static void AutoCmd_SetEnemyMon(u16* args);
 static void AutoCmd_SetPlayerMonData(u16* args);
 static void AutoCmd_SetEnemyMonData(u16* args);
 static void AutoCmd_StartTrainerBattle(u16* args);
+static void AutoCmd_GetInputState(u16* args);
 
 
 u16 Rogue_AutomationBufferSize(void)
@@ -60,6 +64,8 @@ void Rogue_AutomationInit(void)
 {
     gAutoCommandCounter = 0;
     gAutoCommBuffer[0] = gAutoCommandCounter;
+
+    gAutoInputState = AUTO_INPUT_STATE_TITLE_MENU;
 }
 
 void Rogue_AutomationCallback(void)
@@ -79,7 +85,17 @@ void Rogue_AutomationCallback(void)
     }
 }
 
+void Rogue_PushAutomationInputState(u16 state)
+{
+    gAutoInputState = state;
+}
+
 bool8 Rogue_AutomationSkipTrainerPartyCreate(void)
+{
+    return TRUE;
+}
+
+bool8 Rogue_AutomationAutoPickBattleMove(void)
 {
     return TRUE;
 }
@@ -97,6 +113,7 @@ static void ProcessNextAutoCmd(u16 cmd, u16* args)
         case 4: AutoCmd_SetPlayerMonData(args); break;
         case 5: AutoCmd_SetEnemyMonData(args); break;
         case 6: AutoCmd_StartTrainerBattle(args); break;
+        case 7: AutoCmd_GetInputState(args); break;
     }
 }
 
@@ -166,12 +183,15 @@ static void AutoCmd_SetEnemyMonData(u16* args)
     SetMonData(&gEnemyParty[index], data, &value);
 }
 
-void DoSpecialTrainerBattle(void);
-
 static void AutoCmd_StartTrainerBattle(u16* args)
 {
     gSpecialVar_0x8004 = SPECIAL_BATTLE_AUTOMATION;
     DoSpecialTrainerBattle();
+}
+
+static void AutoCmd_GetInputState(u16* args)
+{
+    args[0] = gAutoInputState;
 }
 
 #endif

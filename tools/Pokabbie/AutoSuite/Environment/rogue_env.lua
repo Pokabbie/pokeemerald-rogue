@@ -35,6 +35,11 @@ function msgFormat(id, msg, isError)
         return prefix .. msg
 end
 
+-- Emu Specific
+--
+--function AutoEmu_OnFrame()
+--end
+
 -- Automation Cmds
 --
 
@@ -88,6 +93,12 @@ function AutoCmd_emu_write32(sock, params)
     sock:send(tostring(value))
 end
 
+function AutoCmd_emu_setKeys(sock, params)
+    local keys = tonumber(params[2])
+    emu:setKeys(keys)
+    sock:send(tostring(keys))
+end
+
 autoCmds = 
 {
     hello = AutoCmd_HelloWorld,
@@ -98,6 +109,7 @@ autoCmds =
     emu_write8 = AutoCmd_emu_write8,
     emu_write16 = AutoCmd_emu_write16,
     emu_write32 = AutoCmd_emu_write32,
+    emu_setkeys = AutoCmd_emu_setKeys,
 }
 
 function Auto_ProcessCmd(sock, msg)
@@ -175,6 +187,8 @@ end
 
 -- Run Server
 if emu then
+    --callbacks:add("frame", AutoEmu_OnFrame)
+
     console:log("Hooking up Server")
 
     while not activeServer.listenServer do

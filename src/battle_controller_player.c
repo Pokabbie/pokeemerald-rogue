@@ -36,6 +36,7 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "rogue_automation.h"
 #include "rogue_controller.h"
 
 static void PlayerHandleGetMonData(void);
@@ -2652,8 +2653,56 @@ static void PlayerChooseMoveInBattlePalace(void)
     }
 }
 
+#ifdef ROGUE_FEATURE_AUTOMATION
+static u16 ChooseAutomationMoveAndTarget(void)
+{
+    u32 moveTarget;
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+    u16 chosenMoveId = Random() % MAX_MON_MOVES;
+
+    while(moveInfo->moves[chosenMoveId] == MOVE_NONE)
+    {
+        chosenMoveId = Random() % MAX_MON_MOVES;
+    }
+
+    if (moveInfo->moves[chosenMoveId] == MOVE_CURSE)
+    {
+        if (moveInfo->monType1 != TYPE_GHOST && moveInfo->monType2 != TYPE_GHOST)
+            moveTarget = MOVE_TARGET_USER;
+        else
+            moveTarget = MOVE_TARGET_SELECTED;
+    }
+    else
+    {
+        moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
+    }
+
+    if (moveTarget & MOVE_TARGET_USER)
+        chosenMoveId |= (gActiveBattler << 8);
+    else if (moveTarget == MOVE_TARGET_SELECTED)
+        chosenMoveId |= ((gActiveBattler ^ BIT_SIDE) << 8);
+    else
+        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(gActiveBattler) & BIT_SIDE) ^ BIT_SIDE) << 8);
+
+    return chosenMoveId;
+}
+
+static void PlayerChooseMoveInAutomationBattle(void)
+{
+    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseAutomationMoveAndTarget());
+    PlayerBufferExecCompleted();
+}
+#endif
+
 static void PlayerHandleChooseMove(void)
 {
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if (Rogue_AutomationAutoPickBattleMove())
+    {
+        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutomationBattle;
+    }
+    else
+#endif
     if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
     {
         *(gBattleStruct->arenaMindPoints + gActiveBattler) = 8;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace AutoCoordinator.GameConsole
 {
@@ -68,6 +69,19 @@ namespace AutoCoordinator.GameConsole
 		public void Cmd_Emu_Write32(uint addr, uint value)
 		{
 			m_Connection.SendMessage("emu_write32", addr.ToString(), value.ToString());
+		}
+
+		public void Cmd_Emu_SetKeys(ConsoleButtons buttons)
+		{
+			m_Connection.SendMessage("emu_setkeys", ((uint)buttons).ToString());
+		}
+
+		public void Cmd_Emu_TapKeys(ConsoleButtons buttons)
+		{
+			// Not great, but this hack will do for now
+			Cmd_Emu_SetKeys(buttons);
+			Thread.Sleep(30);
+			Cmd_Emu_SetKeys(ConsoleButtons.None);
 		}
 	}
 }

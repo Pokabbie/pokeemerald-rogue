@@ -1857,6 +1857,10 @@ void BattleMainCB2(void)
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
+    
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);
+#endif
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && RecordedBattle_CanStopPlayback())
     {

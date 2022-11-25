@@ -38,6 +38,7 @@
 #include "mystery_gift_menu.h"
 
 #include "rogue.h"
+#include "rogue_automation.h"
 #include "rogue_quest.h"
 
 /*

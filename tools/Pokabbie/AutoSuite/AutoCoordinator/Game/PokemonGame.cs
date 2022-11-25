@@ -16,6 +16,14 @@ namespace AutoCoordinator.Game
 		private uint m_AutoBufferAddr;
 		private ushort m_CommandCounter;
 
+		public enum GameInputState
+		{
+			Unknown,
+			TitleMenu,
+			Overworld,
+			Battle,
+		}
+
 		public enum CommandCode
 		{
 			ClearPlayerParty = 0,
@@ -24,7 +32,8 @@ namespace AutoCoordinator.Game
 			SetEnemyMon,
 			SetPlayerMonData,
 			SetEnemyMonData,
-			StartTrainerBattle
+			StartTrainerBattle,
+			GetInputState
 		}
 
 		public PokemonGame()
@@ -51,18 +60,41 @@ namespace AutoCoordinator.Game
 
 		public void DoTest()
 		{
-			ClearPlayerParty();
-			SetPlayerMon(0, 23, 8, 11);
-			SetPlayerMonData(0, PokemonDataID.HeldItem, 123);
+			bool testStarted = false;
 
-			ClearEnemyParty();
-			SetEnemyMon(0, 25, 3, 11);
+			while (true)
+			{
+				GameInputState inputState = GetInputState();
 
-			StartTrainerBattle();
+				switch (inputState)
+				{
+					case GameInputState.TitleMenu:
+					case GameInputState.Battle:
+						m_Connection.Cmd_Emu_TapKeys(ConsoleButtons.A);
+						testStarted = false;
+						break;
+
+					case GameInputState.Overworld:
+						if (!testStarted)
+						{
+							ClearPlayerParty();
+							SetPlayerMon(0, 23, 8, 11);
+							SetPlayerMonData(0, PokemonDataID.HeldItem, 123);
+
+							ClearEnemyParty();
+							SetEnemyMon(0, 25, 30, 11);
+
+							StartTrainerBattle();
+							testStarted = true;
+						}
+						break;
+				}
+			}
+
 			return;
 		}
 
-		private void PushCmd(CommandCode cmd, params int[] values)
+		private bool PushCmd(CommandCode cmd, params int[] values)
 		{
 			if (values.Length >= m_AutoBufferSize - 2)
 				throw new Exception("Too many params for communication buffer");
@@ -88,11 +120,17 @@ namespace AutoCoordinator.Game
 				{
 					// Success!
 					m_CommandCounter = counterValue;
-					return;
+					return true;
 				}
 			}
 
 			Console.Error.WriteLine($"Cmd {cmd} timeout");
+			return false;
+		}
+
+		public ushort ReadReturnValue(int offset = 0)
+		{
+			return m_Connection.Cmd_Emu_Read16(m_AutoBufferAddr + 4 + 2 * (uint)offset);
 		}
 
 		public void ClearPlayerParty()
@@ -128,6 +166,14 @@ namespace AutoCoordinator.Game
 		public void StartTrainerBattle(bool isDoubleBattle = false)
 		{
 			PushCmd(CommandCode.StartTrainerBattle);
+		}
+
+		public GameInputState GetInputState()
+		{
+			if (PushCmd(CommandCode.GetInputState))
+				return (GameInputState)ReadReturnValue();
+
+			return GameInputState.Unknown;
 		}
 	}
 }
