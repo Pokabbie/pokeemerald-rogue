@@ -66,7 +66,7 @@ namespace AutoCoordinator.Game
 			if (values.Length >= m_AutoBufferSize - 2)
 				throw new Exception("Too many params for communication buffer");
 
-			Console.WriteLine("Cmd: " + cmd + " " + string.Join(" ", values));
+			//Console.WriteLine("Cmd: " + cmd + " " + string.Join(" ", values));
 
 			m_Connection.Cmd_Emu_Write16(m_AutoBufferAddr + 2, (ushort)cmd);
 
@@ -98,6 +98,12 @@ namespace AutoCoordinator.Game
 		public ushort ReadReturnValue(int offset = 0)
 		{
 			return m_Connection.Cmd_Emu_Read16(m_AutoBufferAddr + 4 + 2 * (uint)offset);
+		}
+
+		public void ResetGame()
+		{
+			m_Connection.Cmd_Emu_Reset();
+			Thread.Sleep(100);
 		}
 
 		public void ClearPlayerParty()

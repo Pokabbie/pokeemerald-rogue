@@ -83,5 +83,10 @@ namespace AutoCoordinator.GameConsole
 			Thread.Sleep(30);
 			Cmd_Emu_SetKeys(ConsoleButtons.None);
 		}
+
+		public void Cmd_Emu_Reset()
+		{
+			m_Connection.SendMessage("emu_reset");
+		}
 	}
 }

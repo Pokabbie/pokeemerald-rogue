@@ -99,6 +99,11 @@ function AutoCmd_emu_setKeys(sock, params)
     sock:send(tostring(keys))
 end
 
+function AutoCmd_emu_reset(sock, params)
+    emu:reset()
+    sock:send("1")
+end
+
 autoCmds = 
 {
     hello = AutoCmd_HelloWorld,
@@ -110,6 +115,7 @@ autoCmds =
     emu_write16 = AutoCmd_emu_write16,
     emu_write32 = AutoCmd_emu_write32,
     emu_setkeys = AutoCmd_emu_setKeys,
+    emu_reset = AutoCmd_emu_reset,
 }
 
 function Auto_ProcessCmd(sock, msg)

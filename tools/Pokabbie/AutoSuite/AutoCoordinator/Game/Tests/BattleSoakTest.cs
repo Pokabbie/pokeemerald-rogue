@@ -13,23 +13,41 @@ namespace AutoCoordinator.Game.Tests
 
 		public override void Run(PokemonGame game)
 		{
+			game.ResetGame();
+
 			m_SpeciesCount = game.GetNumSpecies();
 			RunBattleSoakLoop(game);
 		}
 
+		private void SelectMonData(bool isPlayer, out int species, out int level, out int fixedIVs)
+		{
+			if (CurrentTestID < m_SpeciesCount - 1)
+			{
+				species = (CurrentTestID + 1);
+				level = 100;
+				fixedIVs = 11;
+			}
+			else
+			{
+				species = m_RNG.Next(1, m_SpeciesCount);
+				level = m_CurrentLevel;
+				fixedIVs = m_RNG.Next(0, 32);
+			}
+
+			LogTestMessage($"SetupMon: player:{isPlayer}, species:{species}, level:{level}, fixedIVs:{fixedIVs}");
+		}
+
 		private void SetupPlayerMon(PokemonGame game, int slot)
 		{
-			int species = m_RNG.Next(1, m_SpeciesCount);
-			int fixedIvs = m_RNG.Next(0, 32);
-			game.SetPlayerMon(slot, species, m_CurrentLevel, fixedIvs);
+			SelectMonData(true, out int species, out int level, out int fixedIVs);
+			game.SetPlayerMon(slot, species, level, fixedIVs);
 			game.ApplyRandomPlayerMonPreset(slot);
 		}
 
 		private void SetupEnemyMon(PokemonGame game, int slot)
 		{
-			int species = m_RNG.Next(1, m_SpeciesCount);
-			int fixedIvs = m_RNG.Next(0, 32);
-			game.SetEnemyMon(slot, species, m_CurrentLevel, fixedIvs);
+			SelectMonData(false, out int species, out int level, out int fixedIVs);
+			game.SetEnemyMon(slot, species, level, fixedIVs);
 			game.ApplyRandomEnemyMonPreset(slot);
 		}
 
@@ -40,6 +58,13 @@ namespace AutoCoordinator.Game.Tests
 			while (true)
 			{
 				PokemonGame.GameInputState inputState = game.GetInputState();
+
+				if (CurrentTestDuration >= TimeSpan.FromMinutes(5))
+				{
+					LogTestFail("Test timed out");
+					game.ResetGame();
+					internalState = -1;
+				}
 
 				if (internalState == -1)
 				{
@@ -65,6 +90,8 @@ namespace AutoCoordinator.Game.Tests
 					case PokemonGame.GameInputState.Overworld:
 						if (internalState == 0)
 						{
+							StartNextTest("1v1 soak");
+
 							game.ClearPlayerParty();
 							game.ClearEnemyParty();
 							for (int i = 0; i < 1; ++i)
@@ -80,6 +107,7 @@ namespace AutoCoordinator.Game.Tests
 						{
 							// Finished this round, so just loop
 							internalState = -1;
+							LogTestSuccess();
 						}
 						break;
 				}
