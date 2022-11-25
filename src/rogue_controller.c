@@ -34,6 +34,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
@@ -1146,6 +1147,21 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
     }
+#ifdef ROGUE_FEATURE_AUTOMATION
+    // Automation tab
+    //
+    else
+    {
+        u16 i;
+
+        strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+
+        for(i = 0; i < 8; ++i) // Rogue_AutomationBufferSize()
+        {
+            strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, Rogue_ReadAutomationBuffer(i));
+        }
+    }
+#else
     // Misc. debug tab
     //
     else
@@ -1155,6 +1171,7 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[0]);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[1]);
     }
+#endif
 
     return gStringVar4;
 }

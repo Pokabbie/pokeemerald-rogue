@@ -2139,7 +2139,19 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_MAGMA);
         break;
+#ifdef ROGUE_FEATURE_AUTOMATION
+    case SPECIAL_BATTLE_AUTOMATION:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+
+        // Manual BattleSetup_ConfigureTrainerBattle
+        BattleSetup_ConfigureAutomationTrainerBattle();
+
+        CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
+        break;
     }
+#endif
 }
 
 static void SaveCurrentWinStreak(void)

@@ -25,6 +25,8 @@
 #include "trainer_hill.h"
 #include "constants/rgb.h"
 
+#include "rogue_automation.h"
+
 static void VBlankIntr(void);
 static void HBlankIntr(void);
 static void VCountIntr(void);
@@ -118,6 +120,10 @@ void AgbMain()
 
     gLinkTransferringData = FALSE;
     sUnusedVar = 0xFC0;
+    
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_AutomationInit();
+#endif
 
     for (;;)
     {
@@ -183,6 +189,10 @@ static void CallCallbacks(void)
 
     if (gMain.callback2)
         gMain.callback2();
+
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_AutomationCallback();
+#endif
 }
 
 void SetMainCallback2(MainCallback callback)

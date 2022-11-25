@@ -337,6 +337,7 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
+        src/rogue_automation.o(.text);
         src/rogue_controller.o(.text);
         src/rogue_query.o(.text);
         src/rogue_baked.o(.text);
@@ -706,6 +707,7 @@ SECTIONS {
         data/mystery_gift.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
+        src/rogue_automation.o(.rodata);
         src/rogue_controller.o(.rodata);
         src/rogue_query.o(.rodata);
         src/rogue_baked.o(.rodata);

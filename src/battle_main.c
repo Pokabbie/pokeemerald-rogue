@@ -61,6 +61,7 @@
 #include "constants/trainers.h"
 #include "cable_club.h"
 
+#include "rogue_automation.h"
 #include "rogue_controller.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
@@ -1958,6 +1959,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
+        
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if(Rogue_AutomationSkipTrainerPartyCreate())
+    {
+        return CalculateEnemyPartyCount();
+    }
+#endif
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER

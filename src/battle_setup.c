@@ -1244,6 +1244,15 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     }
 }
 
+
+void BattleSetup_ConfigureAutomationTrainerBattle(void)
+{
+    InitTrainerBattleVariables();
+
+    sTrainerBattleMode = TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT;
+    gTrainerBattleOpponent_A = TRAINER_ROGUE_BOSS_RED;
+}
+
 void ConfigureAndSetUpOneTrainerBattle(u8 trainerObjEventId, const u8 *trainerScript)
 {
     gSelectedObjectEvent = trainerObjEventId;

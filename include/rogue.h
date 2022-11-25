@@ -216,6 +216,16 @@ struct RogueMonPresetCollection
     const u16* moves;
 };
 
+#ifdef ROGUE_FEATURE_AUTOMATION
+struct RogueAutomationHeader
+{
+    u32 commBufferCapacity;
+    u16* commBuffer;
+};
+
+extern const struct RogueAutomationHeader gRogueAutomationHeader;
+#endif
+
 extern const struct SpeciesTable gRogueSpeciesTable[];
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
@@ -226,5 +236,6 @@ extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
+
 
 #endif  // GUARD_ROGUE_H

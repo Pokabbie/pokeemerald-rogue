@@ -5,6 +5,7 @@
 #include "battle_main.h"
 #include "item.h"
 #include "pokeball.h"
+#include "rogue.h"
 
 struct GFRomHeader
 {
@@ -34,18 +35,27 @@ struct GFRomHeader
     u8 unk2;
     u8 pokemonNameLength1;
     u8 pokemonNameLength2;
+#ifdef ROGUE_FEATURE_AUTOMATION
+    u32 rogueAutomationHandshake1;
+    const struct RogueAutomationHeader * automationHeader;
+    u32 rogueAutomationHandshake2;
+#else
+    // Chuck these out!
     u8 unk5;
     u8 unk6;
     u8 unk7;
     u8 unk8;
+
     u8 unk9;
     u8 unk10;
     u8 unk11;
     u8 unk12;
+
     u8 unk13;
     u8 unk14;
     u8 unk15;
     u8 unk16;
+#endif
     u8 unk17;
     u32 saveBlock2Size;
     u32 saveBlock1Size;
@@ -114,6 +124,11 @@ static const struct GFRomHeader sGFRomHeader = {
     .unk2 = 10,
     .pokemonNameLength1 = POKEMON_NAME_LENGTH,
     .pokemonNameLength2 = POKEMON_NAME_LENGTH,
+#ifdef ROGUE_FEATURE_AUTOMATION
+    .rogueAutomationHandshake1 = 20012,
+    .automationHeader = &gRogueAutomationHeader,
+    .rogueAutomationHandshake2 = 30035,
+#else
     // Two of the below 12s are likely move/ability name length, given their presence in this header
     .unk5 = 12,
     .unk6 = 12,
@@ -127,6 +142,7 @@ static const struct GFRomHeader sGFRomHeader = {
     .unk14 = 11,
     .unk15 = 1,
     .unk16 = 8,
+#endif
     .unk17 = 12,
     .saveBlock2Size = sizeof(struct SaveBlock2),
     .saveBlock1Size = sizeof(struct SaveBlock1),
