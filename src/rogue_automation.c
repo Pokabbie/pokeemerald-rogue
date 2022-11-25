@@ -33,6 +33,8 @@ const struct RogueAutomationHeader gRogueAutomationHeader =
 };
 
 void DoSpecialTrainerBattle(void);
+void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset);
 
 static void ProcessNextAutoCmd(u16 cmd, u16* args);
 static void AutoCmd_ClearPlayerParty(u16* args);
@@ -43,6 +45,9 @@ static void AutoCmd_SetPlayerMonData(u16* args);
 static void AutoCmd_SetEnemyMonData(u16* args);
 static void AutoCmd_StartTrainerBattle(u16* args);
 static void AutoCmd_GetInputState(u16* args);
+static void AutoCmd_GetNumSpecies(u16* args);
+static void AutoCmd_ApplyRandomPlayerMonPreset(u16* args);
+static void AutoCmd_ApplyRandomEnemyMonPreset(u16* args);
 
 
 u16 Rogue_AutomationBufferSize(void)
@@ -53,6 +58,11 @@ u16 Rogue_AutomationBufferSize(void)
 u16 Rogue_ReadAutomationBuffer(u16 offset)
 {
     return gAutoCommBuffer[offset];
+}
+
+bool8 Rogue_AutomationForceRandomAI(void)
+{
+    return TRUE;
 }
 
 void Rogue_WriteAutomationBuffer(u16 offset, u16 value)
@@ -114,6 +124,9 @@ static void ProcessNextAutoCmd(u16 cmd, u16* args)
         case 5: AutoCmd_SetEnemyMonData(args); break;
         case 6: AutoCmd_StartTrainerBattle(args); break;
         case 7: AutoCmd_GetInputState(args); break;
+        case 8: AutoCmd_GetNumSpecies(args); break;
+        case 9: AutoCmd_ApplyRandomPlayerMonPreset(args); break;
+        case 10: AutoCmd_ApplyRandomEnemyMonPreset(args); break;
     }
 }
 
@@ -192,6 +205,31 @@ static void AutoCmd_StartTrainerBattle(u16* args)
 static void AutoCmd_GetInputState(u16* args)
 {
     args[0] = gAutoInputState;
+}
+
+static void AutoCmd_GetNumSpecies(u16* args)
+{
+    args[0] = NUM_SPECIES;
+}
+
+static void ApplyRandomMonPreset(struct Pokemon* party, u8 monIdx)
+{
+    struct RogueMonPreset preset;
+    u16 species = GetMonData(&party[monIdx], MON_DATA_SPECIES);
+    u16 level = GetMonData(&party[monIdx], MON_DATA_LEVEL);
+
+    if(SelectNextPreset(species, 0, monIdx, 0, &preset))
+        ApplyMonPreset(&party[monIdx], level, &preset);
+}
+
+static void AutoCmd_ApplyRandomPlayerMonPreset(u16* args)
+{
+    ApplyRandomMonPreset(&gPlayerParty[0], args[0]);
+}
+
+static void AutoCmd_ApplyRandomEnemyMonPreset(u16* args)
+{
+    ApplyRandomMonPreset(&gEnemyParty[0], args[0]);
 }
 
 #endif

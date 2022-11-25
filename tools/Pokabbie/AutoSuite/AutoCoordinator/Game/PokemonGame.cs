@@ -33,7 +33,10 @@ namespace AutoCoordinator.Game
 			SetPlayerMonData,
 			SetEnemyMonData,
 			StartTrainerBattle,
-			GetInputState
+			GetInputState,
+			GetNumSpecies,
+			ApplyRandomPlayerMonPreset,
+			ApplyRandomEnemyMonPreset,
 		}
 
 		public PokemonGame()
@@ -56,42 +59,6 @@ namespace AutoCoordinator.Game
 			}
 
 			return false;
-		}
-
-		public void DoTest()
-		{
-			bool testStarted = false;
-
-			while (true)
-			{
-				GameInputState inputState = GetInputState();
-
-				switch (inputState)
-				{
-					case GameInputState.TitleMenu:
-					case GameInputState.Battle:
-						m_Connection.Cmd_Emu_TapKeys(ConsoleButtons.A);
-						testStarted = false;
-						break;
-
-					case GameInputState.Overworld:
-						if (!testStarted)
-						{
-							ClearPlayerParty();
-							SetPlayerMon(0, 23, 8, 11);
-							SetPlayerMonData(0, PokemonDataID.HeldItem, 123);
-
-							ClearEnemyParty();
-							SetEnemyMon(0, 25, 30, 11);
-
-							StartTrainerBattle();
-							testStarted = true;
-						}
-						break;
-				}
-			}
-
-			return;
 		}
 
 		private bool PushCmd(CommandCode cmd, params int[] values)
@@ -174,6 +141,23 @@ namespace AutoCoordinator.Game
 				return (GameInputState)ReadReturnValue();
 
 			return GameInputState.Unknown;
+		}
+		public int GetNumSpecies()
+		{
+			if (PushCmd(CommandCode.GetNumSpecies))
+				return ReadReturnValue();
+
+			return 0;
+		}
+
+		public void ApplyRandomPlayerMonPreset(int index)
+		{
+			PushCmd(CommandCode.ApplyRandomPlayerMonPreset, index);
+		}
+
+		public void ApplyRandomEnemyMonPreset(int index)
+		{
+			PushCmd(CommandCode.ApplyRandomEnemyMonPreset, index);
 		}
 	}
 }

@@ -19,6 +19,7 @@ void Rogue_PushAutomationInputState(u16 state);
 
 bool8 Rogue_AutomationSkipTrainerPartyCreate(void);
 bool8 Rogue_AutomationAutoPickBattleMove(void);
+bool8 Rogue_AutomationForceRandomAI(void);
 
 
 #endif
