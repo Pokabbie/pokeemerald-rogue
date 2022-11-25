@@ -2150,8 +2150,8 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
         break;
-    }
 #endif
+    }
 }
 
 static void SaveCurrentWinStreak(void)
