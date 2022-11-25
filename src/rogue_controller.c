@@ -34,6 +34,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
@@ -158,7 +159,7 @@ static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
-static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 static u8 GetCurrentWildEncounterCount(void);
 
@@ -1146,6 +1147,21 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
     }
+#ifdef ROGUE_FEATURE_AUTOMATION
+    // Automation tab
+    //
+    else
+    {
+        u16 i;
+
+        strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
+
+        for(i = 0; i < 8; ++i) // Rogue_AutomationBufferSize()
+        {
+            strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, Rogue_ReadAutomationBuffer(i));
+        }
+    }
+#else
     // Misc. debug tab
     //
     else
@@ -1155,6 +1171,7 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[0]);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, gSaveBlock1Ptr->dewfordTrends[0].words[1]);
     }
+#endif
 
     return gStringVar4;
 }
@@ -4473,7 +4490,7 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
-static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset)
+bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset)
 {
     u8 randOffset;
     u8 i;
@@ -4481,7 +4498,6 @@ static bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFl
     bool8 exactMirrorPlayer = FALSE;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
-    
     if(IsBossTrainer(trainerNum))
     {
         const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
@@ -4702,7 +4718,7 @@ static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
     }
 }
 
-static void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
+void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
 {
 #ifdef ROGUE_EXPANSION
     u16 const abilityCount = 3;

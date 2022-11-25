@@ -69,6 +69,7 @@
 
 #include "constants/heal_locations.h"
 
+#include "rogue_automation.h"
 #include "rogue_controller.h"
 
 struct CableClubPlayer
@@ -1488,6 +1489,10 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
         }
     }
+
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_PushAutomationInputState(AUTO_INPUT_STATE_OVERWORLD);
+#endif
 }
 
 void CB1_Overworld(void)
