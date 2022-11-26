@@ -21,13 +21,13 @@ namespace AutoCoordinator.Game.Tests
 
 		private void SelectMonData(bool isPlayer, out int species, out int level, out int fixedIVs)
 		{
-			if (CurrentTestID < m_SpeciesCount - 1)
-			{
-				species = (CurrentTestID + 1);
-				level = 100;
-				fixedIVs = 11;
-			}
-			else
+			//if (CurrentTestID < m_SpeciesCount - 1)
+			//{
+			//	species = (CurrentTestID + 1);
+			//	level = 100;
+			//	fixedIVs = 11;
+			//}
+			//else
 			{
 				species = m_RNG.Next(1, m_SpeciesCount);
 				level = m_CurrentLevel;
@@ -108,6 +108,12 @@ namespace AutoCoordinator.Game.Tests
 							// Finished this round, so just loop
 							internalState = -1;
 							LogTestSuccess();
+
+							if ((CurrentTestID % 100) == 0)
+							{
+								LogTestMessage("Executing periodic reboot");
+								game.ResetGame();
+							}
 						}
 						break;
 				}
