@@ -88,5 +88,37 @@ namespace AutoCoordinator.GameConsole
 		{
 			m_Connection.SendMessage("emu_reset");
 		}
+
+		public byte[] Cmd_Emu_ReadTerminatedString(uint addr, byte terminator, uint maxLength = 128)
+		{
+			// Should really move this to be a native command
+			List<byte> output = new List<byte>((int)maxLength);
+
+			for (uint i = 0; i < maxLength; ++i)
+			{
+				byte c = Cmd_Emu_Read8(addr + i);
+
+				if (c == terminator)
+					break;
+
+				output.Add(c);
+			}
+
+			return output.ToArray();
+		}
+
+		public byte[] Cmd_Emu_ReadString(uint addr, uint maxLength)
+		{
+			// Should really move this to be a native command
+			List<byte> output = new List<byte>((int)maxLength);
+
+			for (uint i = 0; i < maxLength; ++i)
+			{
+				byte c = Cmd_Emu_Read8(addr + i);
+				output.Add(c);
+			}
+
+			return output.ToArray();
+		}
 	}
 }

@@ -16,8 +16,10 @@ namespace AutoCoordinator.Game
 		public uint GameLanguage;
 		public byte[] GameName;
 		public uint MonSpeciesNamesAddr;
+		public uint MoveNamesAddr;
 		public uint NationalDexCount;
 		public uint AutomationHeaderAddr;
+		public uint ItemTableAddr;
 
 		public static bool TryParseInternal(ConsoleConnection connection, bool applyExCheck, ref PokemonGameHeader header)
 		{
@@ -32,6 +34,7 @@ namespace AutoCoordinator.Game
 			header.GameName = connection.Cmd_Emu_ReadRange(gfHeaderAddr + 8, 32);
 
 			header.MonSpeciesNamesAddr = connection.Cmd_Emu_Read32(gfHeaderAddr + 68);
+			header.MoveNamesAddr = connection.Cmd_Emu_Read32(gfHeaderAddr + 72);
 
 			header.NationalDexCount = connection.Cmd_Emu_Read32(offsetHeaderAddr + 112);
 
@@ -50,6 +53,8 @@ namespace AutoCoordinator.Game
 				Console.WriteLine("Failed to parse valid 'rogue handshake 2'");
 				return false;
 			}
+
+			header.ItemTableAddr = connection.Cmd_Emu_Read32(offsetHeaderAddr + 200);
 
 			return true;
 		}

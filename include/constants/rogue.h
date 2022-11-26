@@ -12,11 +12,13 @@
 //#define ROGUE_DEBUG
 //#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
+//#define ROGUE_DEBUG_LVL_5_TRAINERS
 #else
 
 #define ROGUE_DEBUG
 #define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
+//#define ROGUE_DEBUG_LVL_5_TRAINERS
 #endif
 
 // It looks like file.c:line: size of array `id' is negative

@@ -4,6 +4,7 @@
 constants = 
 {
     listenPort = 30150,
+    logCommands = false, --This can cause memory leaks due to the shear amount of messages
 }
 
 activeServer = 
@@ -123,9 +124,11 @@ function Auto_ProcessCmd(sock, msg)
 
     for k, v in pairs(autoCmds) do
         if k == params[1] then
-            console:log("Executing Cmd: " .. msg)
-            --console:log(params)
-            --v(sock, table.remove(params, 1))
+
+            if constants.logCommands then
+                console:log("Executing Cmd: " .. msg)
+            end
+
             v(sock, params)
             return true
         end

@@ -7,11 +7,19 @@ namespace AutoCoordinator.Game.Tests
 {
 	public abstract class PokemonTest
 	{
+		private string m_TestName;
 		private int m_TestIdCounter;
 		private int m_CurrentTestID;
+
 		private DateTime m_TestStartTime = DateTime.UtcNow;
+		private Random m_RNG = new Random();
 
 		private StringBuilder m_LocalLog = new StringBuilder();
+
+		public PokemonTest(string testName)
+		{
+			m_TestName = testName;
+		}
 
 		public abstract void Run(PokemonGame game);
 
@@ -25,14 +33,19 @@ namespace AutoCoordinator.Game.Tests
 			get => DateTime.UtcNow - m_TestStartTime;
 		}
 
-		public void StartNextTest(string title)
+		public Random RNG
+		{
+			get => m_RNG;
+		}
+
+		public void StartNextTest()
 		{
 			m_LocalLog.Clear();
 			m_CurrentTestID = m_TestIdCounter++;
 			m_TestStartTime = DateTime.UtcNow;
 
 			LogTestMessage("========================================");
-			LogTestMessage($"Starting '{title}' (ID:{CurrentTestID})");
+			LogTestMessage($"Starting '{m_TestName}' (ID:{CurrentTestID})");
 		}
 
 		public void LogTestMessage(string msg)
