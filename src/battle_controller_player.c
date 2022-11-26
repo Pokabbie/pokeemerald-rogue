@@ -2878,8 +2878,8 @@ static void PlayerChooseMoveInBattlePalace(void)
 #ifdef ROGUE_FEATURE_AUTOMATION
 static u16 ChooseAutomationMoveAndTarget(void)
 {
-    u32 moveTarget;
-    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+    u32 moveTarget;    
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
     u16 chosenMoveId = Random() % MAX_MON_MOVES;
 
     while(moveInfo->moves[chosenMoveId] == MOVE_NONE)
