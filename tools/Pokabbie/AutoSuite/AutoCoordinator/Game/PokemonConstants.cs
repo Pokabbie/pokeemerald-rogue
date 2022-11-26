@@ -34,7 +34,10 @@ namespace AutoCoordinator.Game
 		SPATK_IV,
 		SPDEF_IV,
 		//..
-		HP				= 57,
+		AbilityNum		= 46,
+		//..
+		Level			= 56,
+		HP,
 		MaxHP,
 		ATK,
 		DEF,

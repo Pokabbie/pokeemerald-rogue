@@ -13,11 +13,13 @@
 
 #include "battle_main.h"
 #include "event_data.h"
+#include "field_weather.h"
 #include "intro.h"
 #include "main.h"
 #include "pokemon.h"
 
 #include "rogue_automation.h"
+#include "rogue_controller.h"
 
 #define COMM_BUFFER_SIZE 32
 
@@ -43,11 +45,17 @@ static void AutoCmd_SetPlayerMon(u16* args);
 static void AutoCmd_SetEnemyMon(u16* args);
 static void AutoCmd_SetPlayerMonData(u16* args);
 static void AutoCmd_SetEnemyMonData(u16* args);
+static void AutoCmd_GetPlayerMonData(u16* args);
+static void AutoCmd_GetEnemyMonData(u16* args);
 static void AutoCmd_StartTrainerBattle(u16* args);
 static void AutoCmd_GetInputState(u16* args);
 static void AutoCmd_GetNumSpecies(u16* args);
 static void AutoCmd_ApplyRandomPlayerMonPreset(u16* args);
 static void AutoCmd_ApplyRandomEnemyMonPreset(u16* args);
+static void AutoCmd_GeneratePlayerParty(u16* args);
+static void AutoCmd_GenerateEnemyParty(u16* args);
+static void AutoCmd_SetRunDifficulty(u16* args);
+static void AutoCmd_SetWeather(u16* args);
 
 
 u16 Rogue_AutomationBufferSize(void)
@@ -122,11 +130,17 @@ static void ProcessNextAutoCmd(u16 cmd, u16* args)
         case 3: AutoCmd_SetEnemyMon(args); break;
         case 4: AutoCmd_SetPlayerMonData(args); break;
         case 5: AutoCmd_SetEnemyMonData(args); break;
-        case 6: AutoCmd_StartTrainerBattle(args); break;
-        case 7: AutoCmd_GetInputState(args); break;
-        case 8: AutoCmd_GetNumSpecies(args); break;
-        case 9: AutoCmd_ApplyRandomPlayerMonPreset(args); break;
-        case 10: AutoCmd_ApplyRandomEnemyMonPreset(args); break;
+        case 6: AutoCmd_GetPlayerMonData(args); break;
+        case 7: AutoCmd_GetEnemyMonData(args); break;
+        case 8: AutoCmd_StartTrainerBattle(args); break;
+        case 9: AutoCmd_GetInputState(args); break;
+        case 10: AutoCmd_GetNumSpecies(args); break;
+        case 11: AutoCmd_ApplyRandomPlayerMonPreset(args); break;
+        case 12: AutoCmd_ApplyRandomEnemyMonPreset(args); break;
+        case 13: AutoCmd_GeneratePlayerParty(args); break;
+        case 14: AutoCmd_GenerateEnemyParty(args); break;
+        case 15: AutoCmd_SetRunDifficulty(args); break;
+        case 16: AutoCmd_SetWeather(args); break;
     }
 }
 
@@ -196,6 +210,22 @@ static void AutoCmd_SetEnemyMonData(u16* args)
     SetMonData(&gEnemyParty[index], data, &value);
 }
 
+static void AutoCmd_GetPlayerMonData(u16* args)
+{
+    u16 index = args[0];
+    u16 data = args[1];
+
+    args[0] = GetMonData(&gPlayerParty[index], data);
+}
+
+static void AutoCmd_GetEnemyMonData(u16* args)
+{
+    u16 index = args[0];
+    u16 data = args[1];
+
+    args[0] = GetMonData(&gEnemyParty[index], data);
+}
+
 static void AutoCmd_StartTrainerBattle(u16* args)
 {
     gSpecialVar_0x8004 = SPECIAL_BATTLE_AUTOMATION;
@@ -230,6 +260,50 @@ static void AutoCmd_ApplyRandomPlayerMonPreset(u16* args)
 static void AutoCmd_ApplyRandomEnemyMonPreset(u16* args)
 {
     ApplyRandomMonPreset(&gEnemyParty[0], args[0]);
+}
+
+static void GenerateTrainerParty(u16* args, struct Pokemon * party)
+{
+    u16 trainerNum = args[0];
+    bool8 success;
+    u8 monCount;
+    Rogue_PreCreateTrainerParty(trainerNum, &success, &monCount);
+
+    if(success)
+    {
+        u16 i;
+        monCount = args[1]; // Override mon coount
+
+        for(i = 0; i < monCount; ++i)
+            Rogue_CreateTrainerMon(trainerNum, party, i, monCount);
+
+        Rogue_PostCreateTrainerParty(trainerNum, party, monCount);
+    }
+}
+
+static void AutoCmd_GeneratePlayerParty(u16* args)
+{
+    GenerateTrainerParty(args, &gPlayerParty[0]);
+    CalculatePlayerPartyCount();
+}
+
+static void AutoCmd_GenerateEnemyParty(u16* args)
+{
+    GenerateTrainerParty(args, &gEnemyParty[0]);
+    CalculateEnemyPartyCount();
+}
+
+static void AutoCmd_SetRunDifficulty(u16* args)
+{
+    gRogueRun.currentDifficulty = args[0];
+}
+
+static void AutoCmd_SetWeather(u16* args)
+{
+    u16 weather = args[0];
+    
+    SetSavedWeather(weather);
+    DoCurrentWeather();
 }
 
 #endif

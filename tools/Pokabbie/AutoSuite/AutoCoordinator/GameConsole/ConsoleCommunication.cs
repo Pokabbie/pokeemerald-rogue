@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace AutoCoordinator.GameConsole
 {
@@ -39,23 +40,50 @@ namespace AutoCoordinator.GameConsole
 		{
 			string msg = string.Join(";", inArgs);
 
-			TcpClient client = GetValidClient();
-			client.GetStream().Write(Encoding.ASCII.GetBytes(msg));
+			while (true)
+			{
+				try
+				{
+					TcpClient client = GetValidClient();
+					client.GetStream().Write(Encoding.ASCII.GetBytes(msg));
+					break;
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine($"Exception for cmd '{inArgs[0]}': {e.Message}");
+					Thread.Sleep(10000);
+				}
+			}
+
 			return CommunicationStatus.Success;
 		}
 
 		public CommunicationStatus TrySendMessage(out string outMessage, params string[] inArgs)
 		{
 			string msg = string.Join(";", inArgs);
+			int readCount;
 
-			TcpClient client = GetValidClient();
-			client.GetStream().Write(Encoding.ASCII.GetBytes(msg));
-
-			int readCount = client.GetStream().Read(m_ReadBuffer);
-			if (readCount == 0)
+			while (true)
 			{
-				outMessage = null;
-				return CommunicationStatus.Error;
+				try
+				{
+					TcpClient client = GetValidClient();
+					client.GetStream().Write(Encoding.ASCII.GetBytes(msg));
+
+					readCount = client.GetStream().Read(m_ReadBuffer);
+					if (readCount == 0)
+					{
+						outMessage = null;
+						return CommunicationStatus.Error;
+					}
+
+					break;
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine($"Exception for cmd '{inArgs[0]}': {e.Message}");
+					Thread.Sleep(10000);
+				}
 			}
 
 			outMessage = Encoding.ASCII.GetString(m_ReadBuffer.Take(readCount).ToArray());

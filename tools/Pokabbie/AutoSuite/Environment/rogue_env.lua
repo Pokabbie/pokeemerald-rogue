@@ -4,6 +4,7 @@
 constants = 
 {
     listenPort = 30150,
+    logCommands = false, --This can cause memory leaks due to the shear amount of messages
 }
 
 activeServer = 
@@ -99,6 +100,11 @@ function AutoCmd_emu_setKeys(sock, params)
     sock:send(tostring(keys))
 end
 
+function AutoCmd_emu_reset(sock, params)
+    emu:reset()
+    sock:send("1")
+end
+
 autoCmds = 
 {
     hello = AutoCmd_HelloWorld,
@@ -110,6 +116,7 @@ autoCmds =
     emu_write16 = AutoCmd_emu_write16,
     emu_write32 = AutoCmd_emu_write32,
     emu_setkeys = AutoCmd_emu_setKeys,
+    emu_reset = AutoCmd_emu_reset,
 }
 
 function Auto_ProcessCmd(sock, msg)
@@ -117,9 +124,11 @@ function Auto_ProcessCmd(sock, msg)
 
     for k, v in pairs(autoCmds) do
         if k == params[1] then
-            console:log("Executing Cmd: " .. msg)
-            --console:log(params)
-            --v(sock, table.remove(params, 1))
+
+            if constants.logCommands then
+                console:log("Executing Cmd: " .. msg)
+            end
+
             v(sock, params)
             return true
         end

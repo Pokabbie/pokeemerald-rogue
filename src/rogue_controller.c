@@ -3322,6 +3322,12 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
     }
 
+#ifdef ROGUE_FEATURE_AUTOMATION
+    {
+        return TRUE;
+    }
+#endif
+
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
         return IsAnyBossTrainer(trainerNum);
@@ -3650,7 +3656,11 @@ void Rogue_PreBattleSetup(void)
 
 bool8 Rogue_OverrideTrainerItems(u16* items)
 {
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if(TRUE)
+#else
     if(Rogue_IsRunActive())
+#endif
     {
         u8 i;
 
@@ -3906,12 +3916,12 @@ static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
 
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if(TRUE)
+#else
     if(Rogue_IsRunActive())
-    {
-        bool8 isAnyBoss = IsAnyBossTrainer(trainerNum);
-        u8 difficultyLevel = gRogueRun.currentDifficulty;
-
-        // Reset trainer temp
+#endif
+    {        // Reset trainer temp
         memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
         gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
 
@@ -5026,7 +5036,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             level++;
     }
 
-#ifdef ROGUE_DEBUG
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
     // Just force the level down so it can be one shotted but do the rest of the calcs corectly
     CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #else
@@ -6034,7 +6044,11 @@ static u8 CalculatePlayerLevel(void)
 static u8 CalculateTrainerLevel(u16 trainerNum)
 {
     u8 level;
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if(TRUE)
+#else
     if(IsBossTrainer(trainerNum))
+#endif
     {
         level = CalculatePlayerLevel();
     }
