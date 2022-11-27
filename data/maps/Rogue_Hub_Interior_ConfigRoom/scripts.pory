@@ -882,7 +882,7 @@ script Rogue_ConfigRoom_Button_CanOverLvl
 
 script Rogue_ConfigRoom_Button_EVGainEnabled
 {
-    bufferstring(STR_VAR_1, format("ENABLE EVs"))
+    bufferstring(STR_VAR_1, format("ENABLE REWARD EVs"))
 
     if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
@@ -906,7 +906,7 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled POKéMON will gain EVs at an accelerated rate.\pWhen disabled POKéMON will gain no EVs and you PARTNER will have theirs set to 0 when starting a run.\pThis will only affect you; trainers will never have EVs regardless of whether this is toggled on or off."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled, POKéMON will gain EVs at the very end of Trainer battles.\pThese REWARD EVs will be given based on the nature of the POKéMON gaining them.\pThis features is intended to be a reward mechanic for not having POKéMON faint.\pWhen disabled POKéMON will always have 0 EVs.\pThis control will only affect you, the player; trainers will never have EVs, regardless of whether this is enabled or disabled."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

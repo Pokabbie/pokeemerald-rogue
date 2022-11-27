@@ -3,6 +3,7 @@
 #include "constants/battle.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
+#include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
@@ -388,14 +389,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
 void Rogue_ModifyEVGain(int* multiplier)
 {
-    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
-    {
-        *multiplier = 4;
-    }
-    else
-    {
-        *multiplier = 0;
-    }
+    // We don't give out EVs normally instead we reward at end of trainer battles based on nature
+    *multiplier = 0;
 }
 
 void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
@@ -3136,6 +3131,116 @@ static bool32 DidPlayerCatch(u32 battleOutcome)
     }
 }
 
+const u16 gNatureEvRewardStatTable[NUM_NATURES][NUM_STATS] =
+{
+                       // Hp  Atk Def Spd Sp.Atk Sp.Def
+    [NATURE_HARDY]   = {  6,  3,  3,  4,  4,     4},
+    [NATURE_LONELY]  = {  4,  6,  0,  4,  4,     4},
+    [NATURE_BRAVE]   = {  4,  6,  4,  0,  4,     4},
+    [NATURE_ADAMANT] = {  4,  6,  4,  4,  0,     4},
+    [NATURE_NAUGHTY] = {  4,  6,  4,  4,  4,     0},
+    [NATURE_BOLD]    = {  4,  0,  6,  4,  4,     4},
+    [NATURE_DOCILE]  = {  6,  4,  4,  4,  3,     3},
+    [NATURE_RELAXED] = {  4,  4,  6,  0,  4,     4},
+    [NATURE_IMPISH]  = {  4,  4,  6,  4,  0,     4},
+    [NATURE_LAX]     = {  4,  4,  6,  4,  4,     0},
+    [NATURE_TIMID]   = {  4,  0,  4,  6,  4,     4},
+    [NATURE_HASTY]   = {  4,  4,  0,  6,  4,     4},
+    [NATURE_SERIOUS] = {  6,  3,  4,  4,  3,     4},
+    [NATURE_JOLLY]   = {  4,  4,  4,  6,  0,     4},
+    [NATURE_NAIVE]   = {  4,  4,  4,  6,  4,     0},
+    [NATURE_MODEST]  = {  4,  0,  4,  4,  6,     4},
+    [NATURE_MILD]    = {  4,  4,  0,  4,  6,     4},
+    [NATURE_QUIET]   = {  4,  4,  4,  0,  6,     4},
+    [NATURE_BASHFUL] = {  6,  4,  3,  4,  4,     3},
+    [NATURE_RASH]    = {  4,  4,  4,  4,  6,     0},
+    [NATURE_CALM]    = {  4,  0,  4,  4,  4,     6},
+    [NATURE_GENTLE]  = {  4,  4,  0,  4,  4,     6},
+    [NATURE_SASSY]   = {  4,  4,  4,  0,  4,     6},
+    [NATURE_CAREFUL] = {  4,  4,  4,  4,  0,     6},
+    [NATURE_QUIRKY]  = {  3,  4,  4,  3,  4,     4},
+};
+
+// Modified version of MonGainEVs
+// Award EVs based on nature
+static void MonGainRewardEVs(struct Pokemon *mon)
+{
+    u8 evs[NUM_STATS];
+    u16 evIncrease;
+    u16 totalEVs;
+    u16 heldItem;
+    u8 holdEffect;
+    int i, multiplier;
+    u8 stat;
+    u8 bonus;
+    u8 nature;
+
+    heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
+    nature = GetNature(mon);
+
+    if (heldItem == ITEM_ENIGMA_BERRY)
+    {
+        if (gMain.inBattle)
+            holdEffect = gEnigmaBerries[0].holdEffect;
+        else
+            holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(heldItem);
+    }
+
+    stat = ItemId_GetSecondaryId(heldItem);
+    bonus = ItemId_GetHoldEffectParam(heldItem);
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        evs[i] = GetMonData(mon, MON_DATA_HP_EV + i, 0);
+        totalEVs += evs[i];
+    }
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        if (totalEVs >= MAX_TOTAL_EVS)
+            break;
+
+        if (CheckPartyHasHadPokerus(mon, 0))
+            multiplier = 2;
+        else
+            multiplier = 1;
+        
+        if(multiplier == 0)
+            continue;
+
+        evIncrease = gNatureEvRewardStatTable[nature][i];
+
+#ifdef ROGUE_EXPANSION
+        if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == i)
+            evIncrease += bonus;
+#endif
+
+        if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+            multiplier *= 2;
+
+        evIncrease *= multiplier;
+
+        if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
+            evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
+
+        if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
+        {
+            int val1 = (s16)evIncrease + MAX_PER_STAT_EVS;
+            int val2 = evs[i] + evIncrease;
+            evIncrease = val1 - val2;
+        }
+
+        evs[i] += evIncrease;
+        totalEVs += evIncrease;
+        SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
+    }
+}
+
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -3204,6 +3309,21 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
+
+            // Reward EVs based on nature
+            if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+            {
+                u16 i;
+
+                for(i = 0; i < gPlayerPartyCount; ++i)
+                {
+                    if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+                    {
+                        MonGainRewardEVs(&gPlayerParty[i]);
+                        CalculateMonStats(&gPlayerParty[i]);
+                    }
+                }
+            }
         }
         else
         {
