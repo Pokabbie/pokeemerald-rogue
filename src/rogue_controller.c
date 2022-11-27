@@ -3134,31 +3134,31 @@ static bool32 DidPlayerCatch(u32 battleOutcome)
 const u16 gNatureEvRewardStatTable[NUM_NATURES][NUM_STATS] =
 {
                        // Hp  Atk Def Spd Sp.Atk Sp.Def
-    [NATURE_HARDY]   = {  6,  3,  3,  4,  4,     4},
+    [NATURE_HARDY]   = {  6,  2,  2,  4,  4,     4},
     [NATURE_LONELY]  = {  4,  6,  0,  4,  4,     4},
     [NATURE_BRAVE]   = {  4,  6,  4,  0,  4,     4},
     [NATURE_ADAMANT] = {  4,  6,  4,  4,  0,     4},
     [NATURE_NAUGHTY] = {  4,  6,  4,  4,  4,     0},
     [NATURE_BOLD]    = {  4,  0,  6,  4,  4,     4},
-    [NATURE_DOCILE]  = {  6,  4,  4,  4,  3,     3},
+    [NATURE_DOCILE]  = {  6,  4,  4,  4,  2,     2},
     [NATURE_RELAXED] = {  4,  4,  6,  0,  4,     4},
     [NATURE_IMPISH]  = {  4,  4,  6,  4,  0,     4},
     [NATURE_LAX]     = {  4,  4,  6,  4,  4,     0},
     [NATURE_TIMID]   = {  4,  0,  4,  6,  4,     4},
     [NATURE_HASTY]   = {  4,  4,  0,  6,  4,     4},
-    [NATURE_SERIOUS] = {  6,  3,  4,  4,  3,     4},
+    [NATURE_SERIOUS] = {  6,  2,  4,  4,  2,     4},
     [NATURE_JOLLY]   = {  4,  4,  4,  6,  0,     4},
     [NATURE_NAIVE]   = {  4,  4,  4,  6,  4,     0},
     [NATURE_MODEST]  = {  4,  0,  4,  4,  6,     4},
     [NATURE_MILD]    = {  4,  4,  0,  4,  6,     4},
     [NATURE_QUIET]   = {  4,  4,  4,  0,  6,     4},
-    [NATURE_BASHFUL] = {  6,  4,  3,  4,  4,     3},
+    [NATURE_BASHFUL] = {  6,  4,  2,  4,  4,     2},
     [NATURE_RASH]    = {  4,  4,  4,  4,  6,     0},
     [NATURE_CALM]    = {  4,  0,  4,  4,  4,     6},
     [NATURE_GENTLE]  = {  4,  4,  0,  4,  4,     6},
     [NATURE_SASSY]   = {  4,  4,  4,  0,  4,     6},
     [NATURE_CAREFUL] = {  4,  4,  4,  4,  0,     6},
-    [NATURE_QUIRKY]  = {  3,  4,  4,  3,  4,     4},
+    [NATURE_QUIRKY]  = {  2,  4,  4,  4,  4,     4},
 };
 
 // Modified version of MonGainEVs
