@@ -5410,11 +5410,29 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
         RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
     }
 
+    // Just sell PP max rather than be fiddly with price
+    RogueQuery_Exclude(ITEM_PP_UP);
+
 #ifdef ROGUE_EXPANSION
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
 
     // Merchants can't sell plates
     RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
+
+    // Not allowed to buy these items in the hub
+    if(!Rogue_IsRunActive())
+    {
+        RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
+    }
+#else
+    // Not allowed to buy these items in the hub
+    if(!Rogue_IsRunActive())
+    {
+        // These items aren't next to each other in vanilla
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CALCIUM);
+        RogueQuery_Exclude(ITEM_ZINC);
+    }
 #endif
 
     switch(itemCategory)
