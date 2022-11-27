@@ -5808,9 +5808,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                     BattleScriptPushCursorAndCallback(BattleScript_IntimidateActivatesEnd3);
                 }
                 else
-                {
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_IntimidateActivates;
+                { 
+                    // RogueNote: this is causing weird softlock crashes with multihits on wandering spirit, so just disable it for now
+                    if(gMultiHitCounter == 0 || gMultiHitCounter == 1)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_IntimidateActivates;
+                    }
                 }
                 battler = gBattlerAbility = gBattleStruct->intimidateBattler = i;
                 effect++;
