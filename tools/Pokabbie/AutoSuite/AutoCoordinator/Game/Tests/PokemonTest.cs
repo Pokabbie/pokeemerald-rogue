@@ -13,6 +13,7 @@ namespace AutoCoordinator.Game.Tests
 
 		private DateTime m_TestStartTime = DateTime.UtcNow;
 		private Random m_RNG = new Random();
+		private bool m_TestActive = false;
 
 		private StringBuilder m_LocalLog = new StringBuilder();
 
@@ -23,6 +24,11 @@ namespace AutoCoordinator.Game.Tests
 
 		public abstract void Run(PokemonGame game);
 
+		public string TestName
+		{
+			get => m_TestName;
+		}
+
 		public int CurrentTestID
 		{
 			get => m_CurrentTestID;
@@ -30,7 +36,7 @@ namespace AutoCoordinator.Game.Tests
 
 		public TimeSpan CurrentTestDuration
 		{
-			get => DateTime.UtcNow - m_TestStartTime;
+			get => m_TestActive ? DateTime.UtcNow - m_TestStartTime : TimeSpan.FromSeconds(0);
 		}
 
 		public Random RNG
@@ -43,6 +49,7 @@ namespace AutoCoordinator.Game.Tests
 			m_LocalLog.Clear();
 			m_CurrentTestID = m_TestIdCounter++;
 			m_TestStartTime = DateTime.UtcNow;
+			m_TestActive = true;
 
 			LogTestMessage("========================================");
 			LogTestMessage($"Starting '{m_TestName}' (ID:{CurrentTestID})");
@@ -59,6 +66,7 @@ namespace AutoCoordinator.Game.Tests
 		public void LogTestSuccess()
 		{
 			LogTestMessage($"Finished successfully (ID:{CurrentTestID})");
+			m_TestActive = false;
 
 			//FlushLocalLogToFile("testOutput.txt");
 		}
@@ -67,12 +75,15 @@ namespace AutoCoordinator.Game.Tests
 		{
 			LogTestMessage($"Failed (ID:{CurrentTestID})");
 			LogTestMessage("Error: " + errorMessage);
+			m_TestActive = false;
 
-			FlushLocalLogToFile("testOutput.txt");
+			FlushLocalLogToFile();
 		}
 
-		private void FlushLocalLogToFile(string path)
+		private void FlushLocalLogToFile()
 		{
+			string path = $"testOutput({m_TestName}).txt";
+
 			using (var stream = File.AppendText(path))
 				stream.WriteLine(m_LocalLog.ToString());
 
