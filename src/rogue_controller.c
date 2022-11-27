@@ -1209,7 +1209,6 @@ u8* Rogue_GetMiniMenuContent(void)
 
 void Rogue_CreateMiniMenuExtraGFX(void)
 {
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
     u8 palIndex;
     u8 oamPriority = 0; // Render infront of background
@@ -1248,12 +1247,10 @@ void Rogue_CreateMiniMenuExtraGFX(void)
             LoadPalette(&palBuffer[0], 0x100 + palIndex * 16, 32);
         }
     }
-#endif
 }
 
 void Rogue_RemoveMiniMenuExtraGFX(void)
 {
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
@@ -1272,7 +1269,6 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
         //FreeMonIconPalettes();
     }
-#endif
 }
 
 #endif
@@ -3219,23 +3215,19 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 static void Battle_UpdateEncounterTracker(void)
 {
     // Update encounter tracker (For both in run and safari)
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+    //u16 wildSpecies = gBattleMons[gActiveBattler].species;
+    u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+    //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
     {
-        u8 i;
-        //u16 wildSpecies = gBattleMons[gActiveBattler].species;
-        u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
-        //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+        if(gRogueRun.wildEncounters[i] == wildSpecies)
         {
-            if(gRogueRun.wildEncounters[i] == wildSpecies)
-            {
-                gRogueLocal.encounterPreview[i].isVisible = TRUE;
-            }
-
+            gRogueLocal.encounterPreview[i].isVisible = TRUE;
         }
+
     }
-#endif
 }
 
 void Rogue_Battle_EndWildBattle(void)
