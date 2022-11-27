@@ -2031,6 +2031,7 @@ extern const u8 gText_PkmnWasDeposited[];
 extern const u8 gText_BoxIsFull2[];
 extern const u8 gText_ReleaseThisPokemon[];
 extern const u8 gText_PkmnWasReleased[];
+extern const u8 gText_PkmnWasReleased2[];
 extern const u8 gText_ByeByePkmn[];
 extern const u8 gText_MarkYourPkmn[];
 extern const u8 gText_ThatsYourLastPkmn[];

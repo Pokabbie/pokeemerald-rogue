@@ -905,6 +905,7 @@ const u8 gText_PkmnWasDeposited[] = _("{DYNAMIC 0} was deposited.");
 const u8 gText_BoxIsFull2[] = _("The BOX is full.");
 const u8 gText_ReleaseThisPokemon[] = _("Release this POKéMON?");
 const u8 gText_PkmnWasReleased[] = _("{DYNAMIC 0} was released.");
+const u8 gText_PkmnWasReleased2[] = _("{STR_VAR_1} was released.");
 const u8 gText_ByeByePkmn[] = _("Bye-bye, {DYNAMIC 0}!");
 const u8 gText_MarkYourPkmn[] = _("Mark your POKéMON.");
 const u8 gText_ThatsYourLastPkmn[] = _("That's your last POKéMON!");
