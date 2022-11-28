@@ -3,6 +3,7 @@
 #include "constants/battle.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
+#include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
@@ -388,14 +389,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
 void Rogue_ModifyEVGain(int* multiplier)
 {
-    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
-    {
-        *multiplier = 4;
-    }
-    else
-    {
-        *multiplier = 0;
-    }
+    // We don't give out EVs normally instead we reward at end of trainer battles based on nature
+    *multiplier = 0;
 }
 
 void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
@@ -1209,7 +1204,6 @@ u8* Rogue_GetMiniMenuContent(void)
 
 void Rogue_CreateMiniMenuExtraGFX(void)
 {
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
     u8 palIndex;
     u8 oamPriority = 0; // Render infront of background
@@ -1248,12 +1242,10 @@ void Rogue_CreateMiniMenuExtraGFX(void)
             LoadPalette(&palBuffer[0], 0x100 + palIndex * 16, 32);
         }
     }
-#endif
 }
 
 void Rogue_RemoveMiniMenuExtraGFX(void)
 {
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
     u8 i;
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
@@ -1272,7 +1264,6 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
         //FreeMonIconPalettes();
     }
-#endif
 }
 
 #endif
@@ -3140,6 +3131,116 @@ static bool32 DidPlayerCatch(u32 battleOutcome)
     }
 }
 
+const u16 gNatureEvRewardStatTable[NUM_NATURES][NUM_STATS] =
+{
+                       // Hp  Atk Def Spd Sp.Atk Sp.Def
+    [NATURE_HARDY]   = {  6,  2,  2,  4,  4,     4},
+    [NATURE_LONELY]  = {  4,  6,  0,  4,  4,     4},
+    [NATURE_BRAVE]   = {  4,  6,  4,  0,  4,     4},
+    [NATURE_ADAMANT] = {  4,  6,  4,  4,  0,     4},
+    [NATURE_NAUGHTY] = {  4,  6,  4,  4,  4,     0},
+    [NATURE_BOLD]    = {  4,  0,  6,  4,  4,     4},
+    [NATURE_DOCILE]  = {  6,  4,  4,  4,  2,     2},
+    [NATURE_RELAXED] = {  4,  4,  6,  0,  4,     4},
+    [NATURE_IMPISH]  = {  4,  4,  6,  4,  0,     4},
+    [NATURE_LAX]     = {  4,  4,  6,  4,  4,     0},
+    [NATURE_TIMID]   = {  4,  0,  4,  6,  4,     4},
+    [NATURE_HASTY]   = {  4,  4,  0,  6,  4,     4},
+    [NATURE_SERIOUS] = {  6,  2,  4,  4,  2,     4},
+    [NATURE_JOLLY]   = {  4,  4,  4,  6,  0,     4},
+    [NATURE_NAIVE]   = {  4,  4,  4,  6,  4,     0},
+    [NATURE_MODEST]  = {  4,  0,  4,  4,  6,     4},
+    [NATURE_MILD]    = {  4,  4,  0,  4,  6,     4},
+    [NATURE_QUIET]   = {  4,  4,  4,  0,  6,     4},
+    [NATURE_BASHFUL] = {  6,  4,  2,  4,  4,     2},
+    [NATURE_RASH]    = {  4,  4,  4,  4,  6,     0},
+    [NATURE_CALM]    = {  4,  0,  4,  4,  4,     6},
+    [NATURE_GENTLE]  = {  4,  4,  0,  4,  4,     6},
+    [NATURE_SASSY]   = {  4,  4,  4,  0,  4,     6},
+    [NATURE_CAREFUL] = {  4,  4,  4,  4,  0,     6},
+    [NATURE_QUIRKY]  = {  2,  4,  4,  4,  4,     4},
+};
+
+// Modified version of MonGainEVs
+// Award EVs based on nature
+static void MonGainRewardEVs(struct Pokemon *mon)
+{
+    u8 evs[NUM_STATS];
+    u16 evIncrease;
+    u16 totalEVs;
+    u16 heldItem;
+    u8 holdEffect;
+    int i, multiplier;
+    u8 stat;
+    u8 bonus;
+    u8 nature;
+
+    heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
+    nature = GetNature(mon);
+
+    if (heldItem == ITEM_ENIGMA_BERRY)
+    {
+        if (gMain.inBattle)
+            holdEffect = gEnigmaBerries[0].holdEffect;
+        else
+            holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(heldItem);
+    }
+
+    stat = ItemId_GetSecondaryId(heldItem);
+    bonus = ItemId_GetHoldEffectParam(heldItem);
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        evs[i] = GetMonData(mon, MON_DATA_HP_EV + i, 0);
+        totalEVs += evs[i];
+    }
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        if (totalEVs >= MAX_TOTAL_EVS)
+            break;
+
+        if (CheckPartyHasHadPokerus(mon, 0))
+            multiplier = 2;
+        else
+            multiplier = 1;
+        
+        if(multiplier == 0)
+            continue;
+
+        evIncrease = gNatureEvRewardStatTable[nature][i];
+
+#ifdef ROGUE_EXPANSION
+        if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == i)
+            evIncrease += bonus;
+#endif
+
+        if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+            multiplier *= 2;
+
+        evIncrease *= multiplier;
+
+        if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
+            evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
+
+        if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
+        {
+            int val1 = (s16)evIncrease + MAX_PER_STAT_EVS;
+            int val2 = evs[i] + evIncrease;
+            evIncrease = val1 - val2;
+        }
+
+        evs[i] += evIncrease;
+        totalEVs += evIncrease;
+        SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
+    }
+}
+
+
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
@@ -3208,6 +3309,21 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
+
+            // Reward EVs based on nature
+            if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+            {
+                u16 i;
+
+                for(i = 0; i < gPlayerPartyCount; ++i)
+                {
+                    if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+                    {
+                        MonGainRewardEVs(&gPlayerParty[i]);
+                        CalculateMonStats(&gPlayerParty[i]);
+                    }
+                }
+            }
         }
         else
         {
@@ -3219,23 +3335,19 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 static void Battle_UpdateEncounterTracker(void)
 {
     // Update encounter tracker (For both in run and safari)
-#ifdef ROGUE_FEATURE_ENCOUNTER_PREVIEW
+    u8 i;
+    //u16 wildSpecies = gBattleMons[gActiveBattler].species;
+    u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+    //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
     {
-        u8 i;
-        //u16 wildSpecies = gBattleMons[gActiveBattler].species;
-        u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
-        //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+        if(gRogueRun.wildEncounters[i] == wildSpecies)
         {
-            if(gRogueRun.wildEncounters[i] == wildSpecies)
-            {
-                gRogueLocal.encounterPreview[i].isVisible = TRUE;
-            }
-
+            gRogueLocal.encounterPreview[i].isVisible = TRUE;
         }
+
     }
-#endif
 }
 
 void Rogue_Battle_EndWildBattle(void)
@@ -3727,6 +3839,222 @@ static void ApplyTrainerQuery(u16 trainerNum)
         RogueQuery_SpeciesIsValid();
         RogueQuery_SpeciesExcludeCommon();
         RogueQuery_Exclude(SPECIES_UNOWN);
+
+        // Apply alternate forms
+        //
+#ifdef ROGUE_EXPANSION
+        {
+            // Deoxys - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_DEOXYS))
+            {
+                switch(RogueRandomRange(4, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Include(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 2:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Include(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 3:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Include(SPECIES_DEOXYS_SPEED);
+                        break;
+                }
+            }
+
+            // Shaymin - One of land or sky forme
+            if(RogueQuery_CheckIncluded(SPECIES_SHAYMIN))
+            {
+                // One of land or sky forme
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_SHAYMIN);
+                    RogueQuery_Exclude(SPECIES_SHAYMIN_SKY);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_SHAYMIN);
+                    RogueQuery_Include(SPECIES_SHAYMIN_SKY);
+                }
+            }
+
+            // Arceus - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ARCEUS))
+            {
+                RogueQuery_IncludeRange(SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_FAIRY);
+            }
+
+            // Genies - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_TORNADUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_TORNADUS);
+                    RogueQuery_Exclude(SPECIES_TORNADUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_TORNADUS);
+                    RogueQuery_Include(SPECIES_TORNADUS_THERIAN);
+                }
+            }
+
+            if(RogueQuery_CheckIncluded(SPECIES_THUNDURUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_TORNADUS);
+                    RogueQuery_Exclude(SPECIES_THUNDURUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_THUNDURUS);
+                    RogueQuery_Include(SPECIES_THUNDURUS_THERIAN);
+                }
+            }
+
+            if(RogueQuery_CheckIncluded(SPECIES_LANDORUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_LANDORUS);
+                    RogueQuery_Exclude(SPECIES_LANDORUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_LANDORUS);
+                    RogueQuery_Include(SPECIES_LANDORUS_THERIAN);
+                }
+            }
+
+            // Kyurem - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_KYUREM))
+            {
+                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_KYUREM);
+                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_KYUREM);
+                        RogueQuery_Include(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
+                        break;
+                    case 2:
+
+                        RogueQuery_Exclude(SPECIES_KYUREM);
+                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Include(SPECIES_KYUREM_BLACK);
+                        break;
+                }
+            }
+
+            // Genesect - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_GENESECT))
+            {
+                RogueQuery_IncludeRange(SPECIES_GENESECT_DOUSE_DRIVE, SPECIES_GENESECT_CHILL_DRIVE);
+            }
+
+            // Hoopa - Allow one of the forms
+            if(RogueQuery_CheckIncluded(SPECIES_HOOPA))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_HOOPA);
+                    RogueQuery_Exclude(SPECIES_HOOPA_UNBOUND);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_HOOPA);
+                    RogueQuery_Include(SPECIES_HOOPA_UNBOUND);
+                }
+            }
+
+            // Genesect - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
+            {
+                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
+            }
+
+            // Oricorio - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
+            {
+                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
+            }
+
+            // Oricorio - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_LYCANROC))
+            {
+                RogueQuery_IncludeRange(SPECIES_LYCANROC_MIDNIGHT, SPECIES_LYCANROC_DUSK);
+            }
+
+            // Necrozma - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_NECROZMA))
+            {
+                RogueQuery_IncludeRange(SPECIES_NECROZMA_DUSK_MANE, SPECIES_NECROZMA_DAWN_WINGS);
+            }
+
+            // Urshifu - One of 2 forms
+            if(RogueQuery_CheckIncluded(SPECIES_URSHIFU))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_URSHIFU);
+                    RogueQuery_Exclude(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_URSHIFU);
+                    RogueQuery_Include(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
+                }
+            }
+
+            // Calyrex - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_CALYREX))
+            {
+                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_CALYREX);
+                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_CALYREX);
+                        RogueQuery_Include(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+                    case 2:
+
+                        RogueQuery_Exclude(SPECIES_CALYREX);
+                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Include(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+                }
+            }
+        }
+#endif
 
         if(gRogueLocal.trainerTemp.forceLegendaries)
             RogueQuery_SpeciesIsLegendary();
@@ -5298,11 +5626,29 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
         RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
     }
 
+    // Just sell PP max rather than be fiddly with price
+    RogueQuery_Exclude(ITEM_PP_UP);
+
 #ifdef ROGUE_EXPANSION
     RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
 
     // Merchants can't sell plates
     RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
+
+    // Not allowed to buy these items in the hub
+    if(!Rogue_IsRunActive())
+    {
+        RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
+    }
+#else
+    // Not allowed to buy these items in the hub
+    if(!Rogue_IsRunActive())
+    {
+        // These items aren't next to each other in vanilla
+        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CALCIUM);
+        RogueQuery_Exclude(ITEM_ZINC);
+    }
 #endif
 
     switch(itemCategory)

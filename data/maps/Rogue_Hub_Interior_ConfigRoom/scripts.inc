@@ -1598,17 +1598,23 @@ Rogue_ConfigRoom_Button_CanOverLvl_Text_1:
 	.string "of the next GYM LEADER/BOSS.$"
 
 Rogue_ConfigRoom_Button_EVGainEnabled_Text_0:
-	.string "ENABLE EVs$"
+	.string "ENABLE REWARD EVs$"
 
 Rogue_ConfigRoom_Button_EVGainEnabled_Text_1:
-	.string "When enabled POKéMON will gain EVs at\n"
-	.string "an accelerated rate.\p"
-	.string "When disabled POKéMON will gain no EVs\n"
-	.string "and you PARTNER will have theirs set to\l"
-	.string "0 when starting a run.\p"
-	.string "This will only affect you; trainers will\n"
-	.string "never have EVs regardless of whether\l"
-	.string "this is toggled on or off.$"
+	.string "When enabled, POKéMON will gain EVs at\n"
+	.string "the very end of Trainer battles.\p"
+	.string "These REWARD EVs will be given based on\n"
+	.string "the nature of the POKéMON gaining\l"
+	.string "them.\p"
+	.string "This features is intended to be a\n"
+	.string "reward mechanic for not having\l"
+	.string "POKéMON faint.\p"
+	.string "When disabled POKéMON will always have\n"
+	.string "0 EVs.\p"
+	.string "This control will only affect you, the\n"
+	.string "player; trainers will never have EVs,\l"
+	.string "regardless of whether this is enabled\l"
+	.string "or disabled.$"
 
 Rogue_ConfigRoom_Button_BasicBag_Text_0:
 	.string "BAG WIPE$"

@@ -404,6 +404,7 @@ static void CursorCb_Trade1(u8);
 static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
 static void CursorCb_Release(u8);
+static void CursorCb_ReleaseField(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
@@ -1154,9 +1155,9 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     Free(temp);
 }
 
-static void ReleasePartyPokemon(u8 slot)
+static void ReleasePartyPokemon(u8 slot, bool8 shiftMonsUp)
 {
-    RemoveMonAtSlot(slot, TRUE, FALSE);
+    RemoveMonAtSlot(slot, TRUE, shiftMonsUp);
 }
 
 static void Task_ClosePartyMenu(u8 taskId)
@@ -2630,6 +2631,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         else
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
     }
+
+    if(slotId != 0)
+    {
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEASE_FIELD);
+    }
+
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
 
@@ -2860,12 +2867,6 @@ static void SwitchSelectedMons(u8 taskId)
         SlidePartyMenuBoxOneStep(taskId);
         gTasks[taskId].func = Task_SlideSelectedSlotsOffscreen;
     }
-}
-
-static void ReleaseSelectedMon()
-{
-    u8 slot = GetCursorSelectionMonId();
-    ReleasePartyPokemon(slot);
 }
 
 // returns FALSE if the slot has slid fully offscreen / back onscreen
@@ -3330,10 +3331,54 @@ static void CursorCb_Release(u8 taskId)
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
 
-    ReleaseSelectedMon();
+    ReleasePartyPokemon(GetCursorSelectionMonId(), FALSE);
 
     gTasks[taskId].func = Task_ClosePartyMenu;
 }
+
+static void Task_ReleaseSelectedMonYesNo(u8 taskId);
+static void Task_ReleaseSelectedMonYesNoInput(u8 taskId);
+
+static void CursorCb_ReleaseField(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    DisplayPartyMenuMessage(gText_ReleaseThisPokemon, TRUE);
+    gTasks[taskId].func = Task_ReleaseSelectedMonYesNo;
+}
+
+static void Task_ReleaseSelectedMonYesNo(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive() != TRUE)
+    {
+        PartyMenuDisplayYesNoMenu();
+        gTasks[taskId].func = Task_ReleaseSelectedMonYesNoInput;
+    }
+}
+
+static void Task_ReleaseSelectedMonYesNoInput(u8 taskId)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:
+        PlaySE(SE_SELECT);
+
+        ReleasePartyPokemon(GetCursorSelectionMonId(), TRUE);
+
+        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+        break;
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        // fallthrough
+    case 1:
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        break;
+    }
+}
+
 
 static void Task_TossHeldItemYesNo(u8 taskId)
 {

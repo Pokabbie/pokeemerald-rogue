@@ -1,7 +1,6 @@
 #define ROGUE_EXPANSION
 
-#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
-#define ROGUE_FEATURE_ENCOUNTER_PREVIEW
+//#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
 
@@ -9,10 +8,10 @@
 // Debugging defines
 // Override these when debugging
 //
-//#define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
+#define ROGUE_DEBUG
+#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
-//#define ROGUE_DEBUG_LVL_5_TRAINERS
+#define ROGUE_DEBUG_LVL_5_TRAINERS
 #else
 
 #define ROGUE_DEBUG

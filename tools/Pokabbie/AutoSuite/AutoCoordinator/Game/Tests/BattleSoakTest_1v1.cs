@@ -6,9 +6,9 @@ using System.Threading;
 
 namespace AutoCoordinator.Game.Tests
 {
-	public class BattleSoakTest : PokemonBattleTest
+	public class BattleSoakTest_1v1 : PokemonBattleTest
 	{
-		public BattleSoakTest() : base("1v1 Soak Test")
+		public BattleSoakTest_1v1() : base("1v1 Soak Test")
 		{
 		}
 
