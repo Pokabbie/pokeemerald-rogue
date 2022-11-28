@@ -113,6 +113,11 @@ u16 RogueQuery_BufferSize(void)
     return gRogueQueryBufferSize;
 }
 
+bool8 RogueQuery_CheckIncluded(u16 id)
+{
+    return GetQueryState(id);
+}
+
 u16 RogueQuery_UncollapsedSpeciesSize(void)
 {
     u16 species;

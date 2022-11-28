@@ -3840,6 +3840,222 @@ static void ApplyTrainerQuery(u16 trainerNum)
         RogueQuery_SpeciesExcludeCommon();
         RogueQuery_Exclude(SPECIES_UNOWN);
 
+        // Apply alternate forms
+        //
+#ifdef ROGUE_EXPANSION
+        {
+            // Deoxys - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_DEOXYS))
+            {
+                switch(RogueRandomRange(4, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Include(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 2:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Include(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
+                        break;
+
+                    case 3:
+                        RogueQuery_Exclude(SPECIES_DEOXYS);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
+                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
+                        RogueQuery_Include(SPECIES_DEOXYS_SPEED);
+                        break;
+                }
+            }
+
+            // Shaymin - One of land or sky forme
+            if(RogueQuery_CheckIncluded(SPECIES_SHAYMIN))
+            {
+                // One of land or sky forme
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_SHAYMIN);
+                    RogueQuery_Exclude(SPECIES_SHAYMIN_SKY);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_SHAYMIN);
+                    RogueQuery_Include(SPECIES_SHAYMIN_SKY);
+                }
+            }
+
+            // Arceus - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ARCEUS))
+            {
+                RogueQuery_IncludeRange(SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_FAIRY);
+            }
+
+            // Genies - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_TORNADUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_TORNADUS);
+                    RogueQuery_Exclude(SPECIES_TORNADUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_TORNADUS);
+                    RogueQuery_Include(SPECIES_TORNADUS_THERIAN);
+                }
+            }
+
+            if(RogueQuery_CheckIncluded(SPECIES_THUNDURUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_TORNADUS);
+                    RogueQuery_Exclude(SPECIES_THUNDURUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_THUNDURUS);
+                    RogueQuery_Include(SPECIES_THUNDURUS_THERIAN);
+                }
+            }
+
+            if(RogueQuery_CheckIncluded(SPECIES_LANDORUS))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_LANDORUS);
+                    RogueQuery_Exclude(SPECIES_LANDORUS_THERIAN);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_LANDORUS);
+                    RogueQuery_Include(SPECIES_LANDORUS_THERIAN);
+                }
+            }
+
+            // Kyurem - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_KYUREM))
+            {
+                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_KYUREM);
+                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_KYUREM);
+                        RogueQuery_Include(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
+                        break;
+                    case 2:
+
+                        RogueQuery_Exclude(SPECIES_KYUREM);
+                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
+                        RogueQuery_Include(SPECIES_KYUREM_BLACK);
+                        break;
+                }
+            }
+
+            // Genesect - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_GENESECT))
+            {
+                RogueQuery_IncludeRange(SPECIES_GENESECT_DOUSE_DRIVE, SPECIES_GENESECT_CHILL_DRIVE);
+            }
+
+            // Hoopa - Allow one of the forms
+            if(RogueQuery_CheckIncluded(SPECIES_HOOPA))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_HOOPA);
+                    RogueQuery_Exclude(SPECIES_HOOPA_UNBOUND);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_HOOPA);
+                    RogueQuery_Include(SPECIES_HOOPA_UNBOUND);
+                }
+            }
+
+            // Genesect - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
+            {
+                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
+            }
+
+            // Oricorio - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
+            {
+                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
+            }
+
+            // Oricorio - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_LYCANROC))
+            {
+                RogueQuery_IncludeRange(SPECIES_LYCANROC_MIDNIGHT, SPECIES_LYCANROC_DUSK);
+            }
+
+            // Necrozma - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_NECROZMA))
+            {
+                RogueQuery_IncludeRange(SPECIES_NECROZMA_DUSK_MANE, SPECIES_NECROZMA_DAWN_WINGS);
+            }
+
+            // Urshifu - One of 2 forms
+            if(RogueQuery_CheckIncluded(SPECIES_URSHIFU))
+            {
+                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
+                {
+                    RogueQuery_Include(SPECIES_URSHIFU);
+                    RogueQuery_Exclude(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
+                }
+                else
+                {
+                    RogueQuery_Exclude(SPECIES_URSHIFU);
+                    RogueQuery_Include(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
+                }
+            }
+
+            // Calyrex - One of forms
+            if(RogueQuery_CheckIncluded(SPECIES_CALYREX))
+            {
+                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
+                {
+                    case 0:
+                        RogueQuery_Include(SPECIES_CALYREX);
+                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+
+                    case 1:
+                        RogueQuery_Exclude(SPECIES_CALYREX);
+                        RogueQuery_Include(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+                    case 2:
+
+                        RogueQuery_Exclude(SPECIES_CALYREX);
+                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
+                        RogueQuery_Include(SPECIES_CALYREX_SHADOW_RIDER);
+                        break;
+                }
+            }
+        }
+#endif
+
         if(gRogueLocal.trainerTemp.forceLegendaries)
             RogueQuery_SpeciesIsLegendary();
         else 

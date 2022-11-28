@@ -8,10 +8,10 @@
 // Debugging defines
 // Override these when debugging
 //
-//#define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
+#define ROGUE_DEBUG
+#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
-//#define ROGUE_DEBUG_LVL_5_TRAINERS
+#define ROGUE_DEBUG_LVL_5_TRAINERS
 #else
 
 #define ROGUE_DEBUG
