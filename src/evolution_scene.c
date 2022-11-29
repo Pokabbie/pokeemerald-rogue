@@ -886,13 +886,14 @@ static void Task_EvolutionScene(u8 taskId)
             }
             break;
         case MVSTATE_INTRO_MSG_2:
-            if (!IsTextPrinterActive(0) && !IsSEPlaying())
-            {
-                // "But, {mon} can't learn more than four moves"
-                BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_TRYTOLEARNMOVE2 - BATTLESTRINGS_TABLE_START]);
-                BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-                gTasks[taskId].tLearnMoveState++;
-            }
+            gTasks[taskId].tLearnMoveState++;
+            //if (!IsTextPrinterActive(0) && !IsSEPlaying())
+            //{
+            //    // "But, {mon} can't learn more than four moves"
+            //    BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_TRYTOLEARNMOVE2 - BATTLESTRINGS_TABLE_START]);
+            //    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+            //    gTasks[taskId].tLearnMoveState++;
+            //}
             break;
         case MVSTATE_INTRO_MSG_3:
             if (!IsTextPrinterActive(0) && !IsSEPlaying())
@@ -1024,11 +1025,12 @@ static void Task_EvolutionScene(u8 taskId)
             }
             break;
         case MVSTATE_ASK_CANCEL:
-            BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_STOPLEARNINGMOVE - BATTLESTRINGS_TABLE_START]);
-            BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-            gTasks[taskId].tLearnMoveYesState = MVSTATE_CANCEL;
-            gTasks[taskId].tLearnMoveNoState = MVSTATE_INTRO_MSG_1;
-            gTasks[taskId].tLearnMoveState = MVSTATE_PRINT_YES_NO;
+            gTasks[taskId].tLearnMoveState = MVSTATE_CANCEL;
+            //BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_STOPLEARNINGMOVE - BATTLESTRINGS_TABLE_START]);
+            //BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+            //gTasks[taskId].tLearnMoveYesState = MVSTATE_CANCEL;
+            //gTasks[taskId].tLearnMoveNoState = MVSTATE_INTRO_MSG_1;
+            //gTasks[taskId].tLearnMoveState = MVSTATE_PRINT_YES_NO;
             break;
         case MVSTATE_CANCEL:
             BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_DIDNOTLEARNMOVE - BATTLESTRINGS_TABLE_START]);
