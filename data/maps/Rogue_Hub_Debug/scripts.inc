@@ -95,7 +95,9 @@ Rogue_Debug_AddMoney::
 	lock
 	addmoney 10000
 	msgbox Rogue_Debug_AddMoney_Text_0, MSGBOX_DEFAULT
-	giveitem ITEM_RARE_CANDY, 99
+	giveitem ITEM_STAR_PIECE, 999
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_ESCAPE_ROPE, 999
 	release
 	return
 
@@ -121,4 +123,4 @@ Rogue_Debug_CollectAllQuests_Text_0:
 	.string "CollectAllQuests$"
 
 Rogue_Debug_AddMoney_Text_0:
-	.string "Money + Candies added.$"
+	.string "Lots of stuff.$"

@@ -91,20 +91,23 @@
 #endif
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_TYPE_Last             QUEST_FAIRY_Champion
+#define _QUEST_LAST_1_2             QUEST_FAIRY_Champion
 #else
-#define QUEST_TYPE_Last             QUEST_DARK_Champion
+#define _QUEST_LAST_1_2             QUEST_DARK_Champion
 #endif
 
-#define QUEST_JohtoMode             (QUEST_TYPE_Last + 1)
-#define QUEST_HoennMode             (QUEST_TYPE_Last + 2)
-#define QUEST_GlitchMode            (QUEST_TYPE_Last + 3)
+// 1.3 Quests
+// 
+
+#define QUEST_JohtoMode             (_QUEST_LAST_1_2 + 1)
+#define QUEST_HoennMode             (_QUEST_LAST_1_2 + 2)
+#define QUEST_GlitchMode            (_QUEST_LAST_1_2 + 3)
 #ifdef ROGUE_EXPANSION
-#define QUEST_SinnohMode            (QUEST_TYPE_Last + 4)
-#define QUEST_UnovaMode             (QUEST_TYPE_Last + 5)
-#define QUEST_KalosMode             (QUEST_TYPE_Last + 6)
-#define QUEST_AlolaMode             (QUEST_TYPE_Last + 7)
-#define QUEST_GalarMode             (QUEST_TYPE_Last + 8)
+#define QUEST_SinnohMode            (_QUEST_LAST_1_2 + 4)
+#define QUEST_UnovaMode             (_QUEST_LAST_1_2 + 5)
+#define QUEST_KalosMode             (_QUEST_LAST_1_2 + 6)
+#define QUEST_AlolaMode             (_QUEST_LAST_1_2 + 7)
+#define QUEST_GalarMode             (_QUEST_LAST_1_2 + 8)
 #endif
 
 #ifdef ROGUE_EXPANSION
@@ -112,6 +115,7 @@
 #else
 #define QUEST_RegionMode_Last       QUEST_GlitchMode
 #endif
+
 #define QUEST_OrreMode              (QUEST_RegionMode_Last + 1)
 #define QUEST_DevilDeal             (QUEST_RegionMode_Last + 2)
 #define QUEST_LegendOnly            (QUEST_RegionMode_Last + 3)
@@ -121,7 +125,15 @@
 #define QUEST_IronMono2             (QUEST_RegionMode_Last + 7)
 #define QUEST_Hardcore4             (QUEST_RegionMode_Last + 8)
 
+#ifdef ROGUE_EXPANSION
+#define QUEST_DeoxysItem            (QUEST_RegionMode_Last + 9)
+#define _QUEST_LAST_1_3 QUEST_DeoxysItem
+#else
+#define _QUEST_LAST_1_3 QUEST_Hardcore4
+#endif
+
+
 #define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST QUEST_Hardcore4
+#define QUEST_LAST _QUEST_LAST_1_3
 
 #define QUEST_CAPACITY (QUEST_LAST + 1)
