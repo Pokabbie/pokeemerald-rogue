@@ -101,6 +101,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     {
         outEvo->targetSpecies = SPECIES_WEEZING_GALARIAN;
     }
+
+    if(species == SPECIES_MIME_JR && evoIdx == 1)
+    {
+        outEvo->targetSpecies = SPECIES_MR_MIME_GALARIAN;
+    }
 #endif
 
 #ifndef ROGUE_BAKING
@@ -215,6 +220,12 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         {
             outEvo->method = EVO_ITEM;
             outEvo->param = ITEM_GALARICA_CUFF;
+        }
+
+        if (species == SPECIES_MIME_JR && evoIdx == 1)
+        {
+            outEvo->method = EVO_LEVEL;
+            outEvo->param = 42;
         }
 
         if(species == SPECIES_PIKACHU && evoIdx == 1)
