@@ -103,6 +103,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     }
 #endif
 
+#ifndef ROGUE_BAKING
     if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
     {
         // Invalid evo
@@ -110,8 +111,9 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->method = 0;
         return;
     }
+#endif
 
-#ifdef ROGUE_EXPANSION
+#if defined(ROGUE_EXPANSION) && !defined(ROGUE_BAKING)
     if(!IsMegaEvolutionEnabled())
     {
         switch(outEvo->method)
@@ -318,6 +320,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
+#ifndef ROGUE_BAKING
     if(outEvo->targetSpecies != SPECIES_NONE)
     {
         // Apply evo curse
@@ -330,10 +333,12 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
             }
         }
     }
+#endif
 }
 
 const u8* Rogue_GetTrainerName(u16 trainerNum)
 {
+#ifndef ROGUE_BAKING
     // TODO - Replace name with _("CHALLENGER")
 
     if(trainerNum >= TRAINER_ROGUE_BREEDER_F && trainerNum <= TRAINER_ROGUE_POSH_M)
@@ -457,10 +462,14 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
     }
 
     return gTrainers[trainerNum].trainerName;
+#else
+    return NULL;
+#endif
 }
 
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 {
+#ifndef ROGUE_BAKING
     memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
 
     // We can do this, but ideally we should fixup to use the method above
@@ -995,6 +1004,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
             break;
     }
+#endif
 }
 
 static u16 SanitizeItemId(u16 itemId)
