@@ -9856,11 +9856,17 @@ const struct Item gItems[] =
         .name = _("Meteorite"),
         .itemId = ITEM_METEORITE,
         .price = 0,
-        .description = sMeteoriteDesc,
         .importance = 1,
+        .description = sMeteoriteDesc,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        #ifdef POKEMON_EXPANSION
+            .type = ITEM_USE_PARTY_MENU,
+            .fieldUseFunc = ItemUseOutOfBattle_FormChange,
+            .secondaryId = FORM_ITEM_USE,
+        #else
+            .type = ITEM_USE_BAG_MENU,
+            .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        #endif
     },
 
     [ITEM_MAGMA_EMBLEM] =

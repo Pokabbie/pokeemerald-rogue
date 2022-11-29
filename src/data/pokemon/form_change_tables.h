@@ -43,6 +43,26 @@ FORM_ITEM_USE_TIME:
 #define DAY    0
 #define NIGHT  1
 
+static const struct FormChange sDeoxysFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_DEOXYS_ATTACK, ITEM_METEORITE },
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sDeoxysAttackFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_DEOXYS_DEFENSE, ITEM_METEORITE },
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sDeoxysDefenseFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_DEOXYS_SPEED, ITEM_METEORITE},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sDeoxysSpeedFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_DEOXYS, ITEM_METEORITE },
+    {FORM_CHANGE_END},
+};
+
 static const struct FormChange sGiratinaFormChangeTable[] = {
     {FORM_ITEM_HOLD, SPECIES_GIRATINA, ITEM_NONE},
     {FORM_ITEM_HOLD, SPECIES_GIRATINA_ORIGIN, ITEM_GRISEOUS_ORB},

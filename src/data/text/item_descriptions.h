@@ -3719,9 +3719,10 @@ static const u8 sKeyToRoom6Desc[] = _(
     "door inside the\n"
     "Abandoned Ship.");
 
-static const u8 sMeteoriteDesc[] = _(
-    "A meteorite found\n"
-    "at Meteor Falls.");
+static const u8 sMeteoriteDesc[] = _(    
+    "A meteorite infused\n"
+    "with a Pokémon's\n"
+    "DNA.");
 
 static const u8 sMagmaEmblemDesc[] = _(
     "A medal-like item in\n"
