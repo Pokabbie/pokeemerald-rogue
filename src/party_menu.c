@@ -5342,11 +5342,28 @@ static void Task_PartyMenuReplaceMove(u8 taskId)
 
 static void StopLearningMovePrompt(u8 taskId)
 {
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+
+    GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
-    StringExpandPlaceholders(gStringVar4, gText_StopLearningMove2);
+    StringExpandPlaceholders(gStringVar4, gText_MoveNotLearned);
     DisplayPartyMenuMessage(gStringVar4, TRUE);
-    ScheduleBgCopyTilemapToVram(2);
-    gTasks[taskId].func = Task_StopLearningMoveYesNo;
+    if (gPartyMenu.learnMoveState == 1)
+    {
+        gTasks[taskId].func = Task_TryLearningNextMoveAfterText;
+    }
+    else
+    {
+        if (gPartyMenu.learnMoveState == 2) // never occurs
+            gSpecialVar_Result = FALSE;
+        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+    }
+
+    //StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
+    //StringExpandPlaceholders(gStringVar4, gText_StopLearningMove2);
+    //DisplayPartyMenuMessage(gStringVar4, TRUE);
+    //ScheduleBgCopyTilemapToVram(2);
+    //gTasks[taskId].func = Task_StopLearningMoveYesNo;
 }
 
 static void Task_StopLearningMoveYesNo(u8 taskId)

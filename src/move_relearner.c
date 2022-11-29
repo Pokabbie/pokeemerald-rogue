@@ -670,9 +670,10 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_STOP_TEACHING:
-        StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
-        FormatAndPrintText(gText_MoveRelearnerStopTryingToTeachMove);
-        sMoveRelearnerStruct->state++;
+        sMoveRelearnerStruct->state = MENU_STATE_CHOOSE_SETUP_STATE;
+        //StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
+        //FormatAndPrintText(gText_MoveRelearnerStopTryingToTeachMove);
+        //sMoveRelearnerStruct->state++;
         break;
     case MENU_STATE_WAIT_FOR_STOP_TEACHING:
         if (!MoveRelearnerRunTextPrinters())
