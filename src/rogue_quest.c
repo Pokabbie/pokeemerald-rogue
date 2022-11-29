@@ -1159,6 +1159,9 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                         )
                             TryMarkQuestAsComplete(QUEST_NatureItem);
                     }
+    
+                    if(IsQuestActive(QUEST_DeoxysItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_DEOXYS))
+                        TryMarkQuestAsComplete(QUEST_DeoxysItem);
 #endif
                 }
 

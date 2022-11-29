@@ -261,6 +261,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_ShayminItem,
             QUEST_HoopaItem,
             QUEST_NatureItem,
+            QUEST_DeoxysItem,
 #endif
         }
     },
@@ -852,6 +853,19 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_REVEAL_GLASS, 1 } },
+        }
+    },
+    [QUEST_DeoxysItem] = 
+    {
+        .title = _("Deep Space"),
+        .sortIndex = 200,
+        .desc = _(
+                    "Reach the final champion\n"
+                    "with a Deoxys in your\n"
+                    "party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_METEORITE, 1 } },
         }
     },
 #endif
