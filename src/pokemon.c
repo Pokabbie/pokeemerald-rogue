@@ -6455,12 +6455,23 @@ u8 GetNature(struct Pokemon *mon)
 
 void SetNature(struct Pokemon *mon, u8 nature)
 {
+    u16 i;
+    bool8 isMonShiny = IsMonShiny(mon);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 origNature = GetNatureFromPersonality(personality);
 
     personality = (personality - origNature) + nature;
 
-    ChangePersonality(&mon->box, personality);
+    // Try to change personality over and over again whilst retaining shiny state
+    for(i = 0; i < 1000; ++i)
+    {
+        ChangePersonality(&mon->box, personality);
+
+        if(isMonShiny == IsMonShiny(mon))
+            break;
+
+        personality -= NUM_NATURES;
+    }
 
     // Recalc mon stats
     CalculateMonStats(mon);
