@@ -803,118 +803,145 @@ Rogue_Heal_PreBoss_35:
 	goto Rogue_Heal_PreBoss_27
 
 
+Rogue_IsGlitchModeGymLeadersActive::
+	goto_if_unset FLAG_ROGUE_KANTO_BOSSES, Rogue_IsGlitchModeGymLeadersActive_4
+Rogue_IsGlitchModeGymLeadersActive_2:
+	setvar VAR_RESULT, NO
+	return
+
+Rogue_IsGlitchModeGymLeadersActive_1:
+	setvar VAR_RESULT, YES
+	return
+
+Rogue_IsGlitchModeGymLeadersActive_3:
+	goto_if_unset FLAG_ROGUE_HOENN_BOSSES, Rogue_IsGlitchModeGymLeadersActive_1
+	goto Rogue_IsGlitchModeGymLeadersActive_2
+
+Rogue_IsGlitchModeGymLeadersActive_4:
+	goto_if_unset FLAG_ROGUE_JOHTO_BOSSES, Rogue_IsGlitchModeGymLeadersActive_3
+	goto Rogue_IsGlitchModeGymLeadersActive_2
+
+
 Rogue_GymIdentity_PreBoss::
 	msgbox Rogue_GymIdentity_PreBoss_Text_0, MSGBOX_DEFAULT
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_GymIdentity_PreBoss_1
-	msgbox Rogue_GymIdentity_PreBoss_Text_3, MSGBOX_DEFAULT
+	call Rogue_IsGlitchModeGymLeadersActive
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_GymIdentity_PreBoss_1
+	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_GymIdentity_PreBoss_2
+	msgbox Rogue_GymIdentity_PreBoss_Text_4, MSGBOX_DEFAULT
 	showmoneybox 0, 0
 	switch VAR_ROGUE_DIFFICULTY
-	case 0, Rogue_GymIdentity_PreBoss_6
-	case 1, Rogue_GymIdentity_PreBoss_7
-	case 2, Rogue_GymIdentity_PreBoss_8
-	case 3, Rogue_GymIdentity_PreBoss_9
-	case 4, Rogue_GymIdentity_PreBoss_10
-	case 5, Rogue_GymIdentity_PreBoss_11
-	case 6, Rogue_GymIdentity_PreBoss_12
+	case 0, Rogue_GymIdentity_PreBoss_8
+	case 1, Rogue_GymIdentity_PreBoss_9
+	case 2, Rogue_GymIdentity_PreBoss_10
+	case 3, Rogue_GymIdentity_PreBoss_11
+	case 4, Rogue_GymIdentity_PreBoss_12
+	case 5, Rogue_GymIdentity_PreBoss_13
+	case 6, Rogue_GymIdentity_PreBoss_14
 	checkconstantmoney 8000
 	bufferconstantnumberstring STR_VAR_1, 8000
-Rogue_GymIdentity_PreBoss_4:
+Rogue_GymIdentity_PreBoss_6:
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_GymIdentity_PreBoss_15
-	msgbox Rogue_GymIdentity_PreBoss_Text_5, MSGBOX_DEFAULT
-Rogue_GymIdentity_PreBoss_14:
+	goto_if_eq Rogue_GymIdentity_PreBoss_17
+	msgbox Rogue_GymIdentity_PreBoss_Text_6, MSGBOX_DEFAULT
+Rogue_GymIdentity_PreBoss_16:
 	hidemoneybox
 	return
 
 Rogue_GymIdentity_PreBoss_1:
 	msgbox Rogue_GymIdentity_PreBoss_Text_1, MSGBOX_DEFAULT
-	msgbox Rogue_GymIdentity_PreBoss_Text_2, MSGBOX_YESNO
+	setvar VAR_RESULT, NO
 	return
 
-Rogue_GymIdentity_PreBoss_6:
-	checkconstantmoney 1000
-	bufferconstantnumberstring STR_VAR_1, 1000
-	goto Rogue_GymIdentity_PreBoss_4
-
-Rogue_GymIdentity_PreBoss_7:
-	checkconstantmoney 2000
-	bufferconstantnumberstring STR_VAR_1, 2000
-	goto Rogue_GymIdentity_PreBoss_4
+Rogue_GymIdentity_PreBoss_2:
+	msgbox Rogue_GymIdentity_PreBoss_Text_2, MSGBOX_DEFAULT
+	msgbox Rogue_GymIdentity_PreBoss_Text_3, MSGBOX_YESNO
+	return
 
 Rogue_GymIdentity_PreBoss_8:
-	checkconstantmoney 3000
-	bufferconstantnumberstring STR_VAR_1, 3000
-	goto Rogue_GymIdentity_PreBoss_4
+	checkconstantmoney 1000
+	bufferconstantnumberstring STR_VAR_1, 1000
+	goto Rogue_GymIdentity_PreBoss_6
 
 Rogue_GymIdentity_PreBoss_9:
-	checkconstantmoney 4000
-	bufferconstantnumberstring STR_VAR_1, 4000
-	goto Rogue_GymIdentity_PreBoss_4
+	checkconstantmoney 2000
+	bufferconstantnumberstring STR_VAR_1, 2000
+	goto Rogue_GymIdentity_PreBoss_6
 
 Rogue_GymIdentity_PreBoss_10:
-	checkconstantmoney 5000
-	bufferconstantnumberstring STR_VAR_1, 5000
-	goto Rogue_GymIdentity_PreBoss_4
+	checkconstantmoney 3000
+	bufferconstantnumberstring STR_VAR_1, 3000
+	goto Rogue_GymIdentity_PreBoss_6
 
 Rogue_GymIdentity_PreBoss_11:
-	checkconstantmoney 6000
-	bufferconstantnumberstring STR_VAR_1, 6000
-	goto Rogue_GymIdentity_PreBoss_4
+	checkconstantmoney 4000
+	bufferconstantnumberstring STR_VAR_1, 4000
+	goto Rogue_GymIdentity_PreBoss_6
 
 Rogue_GymIdentity_PreBoss_12:
+	checkconstantmoney 5000
+	bufferconstantnumberstring STR_VAR_1, 5000
+	goto Rogue_GymIdentity_PreBoss_6
+
+Rogue_GymIdentity_PreBoss_13:
+	checkconstantmoney 6000
+	bufferconstantnumberstring STR_VAR_1, 6000
+	goto Rogue_GymIdentity_PreBoss_6
+
+Rogue_GymIdentity_PreBoss_14:
 	checkconstantmoney 7000
 	bufferconstantnumberstring STR_VAR_1, 7000
-	goto Rogue_GymIdentity_PreBoss_4
+	goto Rogue_GymIdentity_PreBoss_6
 
-Rogue_GymIdentity_PreBoss_15:
-	msgbox Rogue_GymIdentity_PreBoss_Text_4, MSGBOX_YESNO
+Rogue_GymIdentity_PreBoss_17:
+	msgbox Rogue_GymIdentity_PreBoss_Text_5, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Rogue_GymIdentity_PreBoss_18
-	goto Rogue_GymIdentity_PreBoss_14
+	goto_if_eq Rogue_GymIdentity_PreBoss_20
+	goto Rogue_GymIdentity_PreBoss_16
 
-Rogue_GymIdentity_PreBoss_18:
+Rogue_GymIdentity_PreBoss_20:
 	playse SE_VEND
 	switch VAR_ROGUE_DIFFICULTY
-	case 0, Rogue_GymIdentity_PreBoss_22
-	case 1, Rogue_GymIdentity_PreBoss_23
-	case 2, Rogue_GymIdentity_PreBoss_24
-	case 3, Rogue_GymIdentity_PreBoss_25
-	case 4, Rogue_GymIdentity_PreBoss_26
-	case 5, Rogue_GymIdentity_PreBoss_27
-	case 6, Rogue_GymIdentity_PreBoss_28
+	case 0, Rogue_GymIdentity_PreBoss_24
+	case 1, Rogue_GymIdentity_PreBoss_25
+	case 2, Rogue_GymIdentity_PreBoss_26
+	case 3, Rogue_GymIdentity_PreBoss_27
+	case 4, Rogue_GymIdentity_PreBoss_28
+	case 5, Rogue_GymIdentity_PreBoss_29
+	case 6, Rogue_GymIdentity_PreBoss_30
 	removeconstantmoney 8000
-Rogue_GymIdentity_PreBoss_20:
+Rogue_GymIdentity_PreBoss_22:
 	updatemoneybox
 	waitse
-	goto Rogue_GymIdentity_PreBoss_14
-
-Rogue_GymIdentity_PreBoss_22:
-	removeconstantmoney 1000
-	goto Rogue_GymIdentity_PreBoss_20
-
-Rogue_GymIdentity_PreBoss_23:
-	removeconstantmoney 2000
-	goto Rogue_GymIdentity_PreBoss_20
+	goto Rogue_GymIdentity_PreBoss_16
 
 Rogue_GymIdentity_PreBoss_24:
-	removeconstantmoney 3000
-	goto Rogue_GymIdentity_PreBoss_20
+	removeconstantmoney 1000
+	goto Rogue_GymIdentity_PreBoss_22
 
 Rogue_GymIdentity_PreBoss_25:
-	removeconstantmoney 4000
-	goto Rogue_GymIdentity_PreBoss_20
+	removeconstantmoney 2000
+	goto Rogue_GymIdentity_PreBoss_22
 
 Rogue_GymIdentity_PreBoss_26:
-	removeconstantmoney 5000
-	goto Rogue_GymIdentity_PreBoss_20
+	removeconstantmoney 3000
+	goto Rogue_GymIdentity_PreBoss_22
 
 Rogue_GymIdentity_PreBoss_27:
-	removeconstantmoney 6000
-	goto Rogue_GymIdentity_PreBoss_20
+	removeconstantmoney 4000
+	goto Rogue_GymIdentity_PreBoss_22
 
 Rogue_GymIdentity_PreBoss_28:
+	removeconstantmoney 5000
+	goto Rogue_GymIdentity_PreBoss_22
+
+Rogue_GymIdentity_PreBoss_29:
+	removeconstantmoney 6000
+	goto Rogue_GymIdentity_PreBoss_22
+
+Rogue_GymIdentity_PreBoss_30:
 	removeconstantmoney 7000
-	goto Rogue_GymIdentity_PreBoss_20
+	goto Rogue_GymIdentity_PreBoss_22
 
 
 Rogue_Battle_BreederF::
@@ -1375,22 +1402,28 @@ Rogue_GymIdentity_PreBoss_Text_0:
 	.string "A mysterious statue!$"
 
 Rogue_GymIdentity_PreBoss_Text_1:
+	.string "The text is scratched up...\p"
+	.string "It reads...\n"
+	.string "DMVBF DE LYF POLLU!!!\p"
+	.string "(Whatever that means?)$"
+
+Rogue_GymIdentity_PreBoss_Text_2:
 	.string "It reads...\p"
 	.string "'I can provide you a glimpse of the\n"
 	.string "future'$"
 
-Rogue_GymIdentity_PreBoss_Text_2:
+Rogue_GymIdentity_PreBoss_Text_3:
 	.string "Do you want to read on?$"
 
-Rogue_GymIdentity_PreBoss_Text_3:
+Rogue_GymIdentity_PreBoss_Text_4:
 	.string "It reads...\p"
 	.string "'For a cost, I can provide you a glimpse\n"
 	.string "of the future'$"
 
-Rogue_GymIdentity_PreBoss_Text_4:
+Rogue_GymIdentity_PreBoss_Text_5:
 	.string "Do you want to insert ¥{STR_VAR_1}?$"
 
-Rogue_GymIdentity_PreBoss_Text_5:
+Rogue_GymIdentity_PreBoss_Text_6:
 	.string "Oh no!\p"
 	.string "It requires ¥{STR_VAR_1} which is\n"
 	.string "more than what I have!$"
