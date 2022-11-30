@@ -4985,7 +4985,7 @@
       "id": "LAYOUT_ROGUE_ROUTE_KANTO_FOREST0",
       "name": "Rogue_Route_Kanto_Forest0_Layout",
       "width": 54,
-      "height": 64,
+      "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/border.bin",
@@ -4994,7 +4994,7 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_KANTO_CAVE0",
       "name": "Rogue_Route_Kanto_Cave0_Layout",
-      "width": 109,
+      "width": 102,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
