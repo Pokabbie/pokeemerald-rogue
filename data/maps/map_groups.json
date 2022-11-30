@@ -688,6 +688,11 @@
     "Rogue_Special_Suicune",
     "Rogue_Special_Celebi",
     "Rogue_Special_Jirachi",
-    "Rogue_Special_GenericWildMon"
+    "Rogue_Special_GenericWildMon",
+    "Rogue_Special_Gen4_Mon",
+    "Rogue_Special_Gen5_Mon",
+    "Rogue_Special_Gen6_Mon",
+    "Rogue_Special_Gen7_Mon",
+    "Rogue_Special_Gen8_Mon"
   ]
 }

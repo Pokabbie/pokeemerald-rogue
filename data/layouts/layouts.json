@@ -4985,7 +4985,7 @@
       "id": "LAYOUT_ROGUE_ROUTE_KANTO_FOREST0",
       "name": "Rogue_Route_Kanto_Forest0_Layout",
       "width": 54,
-      "height": 64,
+      "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Route_Kanto_Forest0/border.bin",
@@ -4994,7 +4994,7 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_KANTO_CAVE0",
       "name": "Rogue_Route_Kanto_Cave0_Layout",
-      "width": 109,
+      "width": 102,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -5030,6 +5030,56 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Route_Johto_Cave0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Cave0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN4_MON",
+      "name": "Rogue_Special_Gen4_Mon_Layout",
+      "width": 19,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Gen4_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen4_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN5_MON",
+      "name": "Rogue_Special_Gen5_Mon_Layout",
+      "width": 21,
+      "height": 29,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Special_Gen5_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen5_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN6_MON",
+      "name": "Rogue_Special_Gen6_Mon_Layout",
+      "width": 20,
+      "height": 27,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Gen6_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen6_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN7_MON",
+      "name": "Rogue_Special_Gen7_Mon_Layout",
+      "width": 9,
+      "height": 19,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Gen7_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen7_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN8_MON",
+      "name": "Rogue_Special_Gen8_Mon_Layout",
+      "width": 20,
+      "height": 27,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Gen8_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen8_Mon/map.bin"
     }
   ]
 }

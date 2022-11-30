@@ -656,6 +656,11 @@
 #define MAP_ROGUE_SPECIAL_CELEBI           (49 | (35 << 8))
 #define MAP_ROGUE_SPECIAL_JIRACHI          (50 | (35 << 8))
 #define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON (51 | (35 << 8))
+#define MAP_ROGUE_SPECIAL_GEN4_MON         (52 | (35 << 8))
+#define MAP_ROGUE_SPECIAL_GEN5_MON         (53 | (35 << 8))
+#define MAP_ROGUE_SPECIAL_GEN6_MON         (54 | (35 << 8))
+#define MAP_ROGUE_SPECIAL_GEN7_MON         (55 | (35 << 8))
+#define MAP_ROGUE_SPECIAL_GEN8_MON         (56 | (35 << 8))
 
 #define MAP_GROUPS_COUNT 36
 
