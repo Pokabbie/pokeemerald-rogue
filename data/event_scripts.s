@@ -1179,3 +1179,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Johto_Field1/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Johto_Cave0/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen4_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen5_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen6_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen7_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen8_Mon/scripts.inc"
