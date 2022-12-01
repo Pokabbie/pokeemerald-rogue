@@ -2919,7 +2919,7 @@ static void PlayerChooseMoveInAutomationBattle(void)
 static void PlayerHandleChooseMove(void)
 {
 #ifdef ROGUE_FEATURE_AUTOMATION
-    if (Rogue_AutomationAutoPickBattleMove())
+    if (Rogue_AutomationGetFlag(AUTO_FLAG_PLAYER_AUTO_PICK_MOVES))
     {
         gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutomationBattle;
     }

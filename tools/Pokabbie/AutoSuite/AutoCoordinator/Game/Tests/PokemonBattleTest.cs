@@ -8,8 +8,6 @@ namespace AutoCoordinator.Game.Tests
 {
 	public abstract class PokemonBattleTest : PokemonTest
 	{
-		private int m_SpeciesCount;
-
 		public PokemonBattleTest(string testName) : base(testName)
 		{
 		}
@@ -26,40 +24,6 @@ namespace AutoCoordinator.Game.Tests
 		protected abstract void ConfigureInitialRun(PokemonGame game);
 
 		protected abstract void ConfigureTest(PokemonGame game);
-
-		protected void LogPlayerPartyInfo(PokemonGame game, int partySize)
-		{
-			LogTestMessage($"== Player Party ==");
-			for (int i = 0; i < partySize; ++i)
-			{
-				LogTestMessage($"=({i})=");
-				LogTestMessage($"Species: {game.GetPlayerMonData(i, PokemonDataID.Species)} ({game.GetSpeciesName(game.GetPlayerMonData(i, PokemonDataID.Species))})");
-				LogTestMessage($"Level: {game.GetPlayerMonData(i, PokemonDataID.Level)}");
-				LogTestMessage($"HeldItem: {game.GetPlayerMonData(i, PokemonDataID.HeldItem)}");
-				LogTestMessage($"AbilityNum: {game.GetPlayerMonData(i, PokemonDataID.AbilityNum)}");
-				LogTestMessage($"Move1: {game.GetPlayerMonData(i, PokemonDataID.Move1)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move1))})");
-				LogTestMessage($"Move2: {game.GetPlayerMonData(i, PokemonDataID.Move2)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move2))})");
-				LogTestMessage($"Move3: {game.GetPlayerMonData(i, PokemonDataID.Move3)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move3))})");
-				LogTestMessage($"Move4: {game.GetPlayerMonData(i, PokemonDataID.Move4)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move4))})");
-			}
-		}
-
-		protected void LogEnemyPartyInfo(PokemonGame game, int partySize)
-		{
-			LogTestMessage($"== Enemy Party ==");
-			for (int i = 0; i < partySize; ++i)
-			{
-				LogTestMessage($"=({i})=");
-				LogTestMessage($"Species: {game.GetEnemyMonData(i, PokemonDataID.Species)} ({game.GetSpeciesName(game.GetEnemyMonData(i, PokemonDataID.Species))})");
-				LogTestMessage($"Level: {game.GetEnemyMonData(i, PokemonDataID.Level)}");
-				LogTestMessage($"HeldItem: {game.GetEnemyMonData(i, PokemonDataID.HeldItem)}");
-				LogTestMessage($"AbilityNum: {game.GetEnemyMonData(i, PokemonDataID.AbilityNum)}");
-				LogTestMessage($"Move1: {game.GetEnemyMonData(i, PokemonDataID.Move1)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move1))})");
-				LogTestMessage($"Move2: {game.GetEnemyMonData(i, PokemonDataID.Move2)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move2))})");
-				LogTestMessage($"Move3: {game.GetEnemyMonData(i, PokemonDataID.Move3)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move3))})");
-				LogTestMessage($"Move4: {game.GetEnemyMonData(i, PokemonDataID.Move4)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move4))})");
-			}
-		}
 
 		private void RunBattleSoakLoop(PokemonGame game)
 		{
@@ -100,6 +64,13 @@ namespace AutoCoordinator.Game.Tests
 						if (internalState == 0)
 						{
 							StartNextTest();
+
+							game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_ForceCompMovesets, true);
+							game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_DisablePartyGeneration, false);
+							game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_RandomAI, true);
+							game.SetAutomationFlag(PokemonGame.AutomationFlag.Player_AutoPickMoves, true);
+							game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_ForceLevel5, false);
+
 							ConfigureTest(game);
 
 							game.StartTrainerBattle();

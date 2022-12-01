@@ -17,4 +17,6 @@ bool8 RogueAdv_CanUseEscapeRope(void);
 void RogueAdv_GetNodeParams();
 void RogueAdv_ExecuteNodeAction();
 
+void RogueAdv_DebugExecuteRandomNextNode();
+
 #endif

@@ -1404,3 +1404,42 @@ void RogueAdv_ExecuteNodeAction()
     DoWarp();
     ResetInitialPlayerAvatarState();
 }
+
+void RogueAdv_DebugExecuteRandomNextNode()
+{
+#ifdef ROGUE_DEBUG
+    u16 i;
+    struct RogueAdvPathNode* node;
+
+    u16 nodeX, nodeY;
+
+    for(i = 0; i < 100; ++i)
+    {
+        VarSet(gSpecialVar_ScriptNodeID, Random() % 16);
+
+        // Look for encounter in next column (Don't care if these can actually connect or not)
+        node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+        if(node && nodeX == GetInitialGFXColumn() && node->roomType != ADVPATH_ROOM_NONE)
+        {
+            RogueAdv_ExecuteNodeAction();
+            return;
+        }
+    }
+
+    // Failed so fallback to next gym warp
+    for(i = 0; i < 16; ++i)
+    {
+        VarSet(gSpecialVar_ScriptNodeID, i);
+
+        node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+        if(node && node->roomType == ADVPATH_ROOM_BOSS)
+        {
+            RogueAdv_ExecuteNodeAction();
+            return;
+        }
+    }
+
+    VarSet(gSpecialVar_ScriptNodeID, 0);
+    RogueAdv_ExecuteNodeAction();
+#endif
+}

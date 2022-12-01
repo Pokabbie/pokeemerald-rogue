@@ -76,12 +76,17 @@ namespace AutoCoordinator.GameConsole
 			m_Connection.SendMessage("emu_setkeys", ((uint)buttons).ToString());
 		}
 
-		public void Cmd_Emu_TapKeys(ConsoleButtons buttons)
+		public void Cmd_Emu_TapKeys(ConsoleButtons buttons, int tapCount = 1)
 		{
-			// Not great, but this hack will do for now
-			Cmd_Emu_SetKeys(buttons);
-			Thread.Sleep(30);
-			Cmd_Emu_SetKeys(ConsoleButtons.None);
+			for (int i = 0; i < tapCount; ++i)
+			{
+				// Not great, but this hack will do for now
+				Cmd_Emu_SetKeys(buttons);
+				Cmd_Emu_SetKeys(ConsoleButtons.None);
+
+				if (tapCount > 1)
+					Thread.Sleep(50);
+			}
 		}
 
 		public void Cmd_Emu_Reset()

@@ -3435,6 +3435,7 @@ static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
     }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
+    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_FORCE_COMP_MOVESETS))
     {
         return TRUE;
     }
@@ -4245,7 +4246,7 @@ static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
 void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
 {
 #ifdef ROGUE_FEATURE_AUTOMATION
-    if(TRUE)
+    if(!Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
 #else
     if(Rogue_IsRunActive())
 #endif
@@ -5364,12 +5365,17 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
             level++;
     }
 
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-    // Just force the level down so it can be one shotted but do the rest of the calcs corectly
-    CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+#if defined(ROGUE_FEATURE_AUTOMATION)
+    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_LVL_5))
+#elif defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
+    if(TRUE) // Debug - Force Lvl 5
 #else
-    CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+    if(FALSE)
 #endif
+        // Just force the level down so it can be one shotted but do the rest of the calcs corectly
+        CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+    else
+        CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
     if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
     {
@@ -6391,7 +6397,7 @@ static u8 CalculateTrainerLevel(u16 trainerNum)
 {
     u8 level;
 #ifdef ROGUE_FEATURE_AUTOMATION
-    if(TRUE)
+    if(!Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
 #else
     if(IsBossTrainer(trainerNum))
 #endif

@@ -288,6 +288,10 @@ static bool8 IsFinalEvolution(u16 species)
 
 bool8 IsSpeciesLegendary(u16 species)
 {
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
     switch(species)
     {
         case SPECIES_ARTICUNO:

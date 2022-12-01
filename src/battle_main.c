@@ -1842,7 +1842,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         return 0;
         
 #ifdef ROGUE_FEATURE_AUTOMATION
-    if(Rogue_AutomationSkipTrainerPartyCreate())
+    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
     {
         return CalculateEnemyPartyCount();
     }
