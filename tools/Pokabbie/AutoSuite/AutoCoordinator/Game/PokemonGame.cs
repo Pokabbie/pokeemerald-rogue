@@ -48,6 +48,25 @@ namespace AutoCoordinator.Game
 			GenerateEnemyParty,
 			SetRunDifficulty,
 			SetWeather,
+			SetRogueSeed,
+			SetFlag,
+			GetFlag,
+			SetVar,
+			GetVar,
+			GetMapLayoutID,
+			Warp,
+			WarpNextAdventureEncounter,
+			SetAutomationFlag,
+			GetAutomationFlag,
+		}
+
+		public enum AutomationFlag
+		{
+			Trainer_ForceCompMovesets,
+			Trainer_DisablePartyGeneration,
+			Trainer_RandomAI,
+			Trainer_ForceLevel5,
+			Player_AutoPickMoves,
 		}
 
 		public PokemonGame()
@@ -266,6 +285,75 @@ namespace AutoCoordinator.Game
 		public void SetWeather(int weatherType)
 		{
 			PushCmd(CommandCode.SetWeather, weatherType);
+		}
+
+		public void SetRogueSeed(int word0, int word1)
+		{
+			PushCmd(CommandCode.SetRogueSeed, word0, word1);
+		}
+
+		public void SetFlag(PokemonFlagID flag, bool state)
+		{
+			PushCmd(CommandCode.SetFlag, (int)flag, state ? 1 : 0);
+		}
+
+		public bool GetFlag(PokemonFlagID flag)
+		{
+			if (PushCmd(CommandCode.GetFlag, (int)flag))
+				return ReadReturnValue() != 0;
+
+			return false;
+		}
+
+		public void SetVar(PokemonVarID var, int value)
+		{
+			PushCmd(CommandCode.SetVar, (int)var, value);
+		}
+
+		public int GetVar(PokemonVarID var)
+		{
+			if (PushCmd(CommandCode.GetVar, (int)var))
+				return ReadReturnValue();
+
+			return 0;
+		}
+
+		public PokemonMapLayoutID GetMapLayoutID()
+		{
+			if (PushCmd(CommandCode.GetMapLayoutID))
+				return (PokemonMapLayoutID)ReadReturnValue();
+
+			return (PokemonMapLayoutID)0;
+		}
+
+		public void Warp(RogueMapID mapId, int warpId, int x, int y)
+		{
+			PushCmd(CommandCode.Warp, mapId.ToMapGroup(), mapId.ToMapNum(), warpId, x, y);
+			Thread.Sleep(100);
+		}
+
+		public void Warp(RogueMapID mapId, int warpId)
+		{
+			Warp(mapId, warpId, 0, 0);
+		}
+
+		public void WarpNextAdventureEncounter()
+		{
+			PushCmd(CommandCode.WarpNextAdventureEncounter);
+			Thread.Sleep(100);
+		}
+
+		public void SetAutomationFlag(AutomationFlag flag, bool state)
+		{
+			PushCmd(CommandCode.SetAutomationFlag, (int)flag, state ? 1 : 0);
+		}
+
+		public bool GetAutomationFlag(AutomationFlag flag)
+		{
+			if (PushCmd(CommandCode.GetAutomationFlag, (int)flag))
+				return ReadReturnValue() != 0;
+
+			return false;
 		}
 	}
 }

@@ -13,12 +13,15 @@
 
 #include "battle_main.h"
 #include "event_data.h"
+#include "field_screen_effect.h"
 #include "field_weather.h"
 #include "intro.h"
 #include "main.h"
+#include "overworld.h"
 #include "pokemon.h"
 
 #include "rogue_automation.h"
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 
 #define COMM_BUFFER_SIZE 32
@@ -26,6 +29,7 @@
 EWRAM_DATA u16 gAutoCommandCounter;
 EWRAM_DATA u16 gAutoInputState;
 EWRAM_DATA u16 gAutoCommBuffer[COMM_BUFFER_SIZE];
+EWRAM_DATA u8 gAutoFlagBits[1 + AUTO_FLAG_COUNT / 8];
 
 
 const struct RogueAutomationHeader gRogueAutomationHeader =
@@ -56,6 +60,16 @@ static void AutoCmd_GeneratePlayerParty(u16* args);
 static void AutoCmd_GenerateEnemyParty(u16* args);
 static void AutoCmd_SetRunDifficulty(u16* args);
 static void AutoCmd_SetWeather(u16* args);
+static void AutoCmd_SetRogueSeed(u16* args);
+static void AutoCmd_SetFlag(u16* args);
+static void AutoCmd_GetFlag(u16* args);
+static void AutoCmd_SetVar(u16* args);
+static void AutoCmd_GetVar(u16* args);
+static void AutoCmd_GetMapLayoutID(u16* args);
+static void AutoCmd_Warp(u16* args);
+static void AutoCmd_WarpNextAdventureEncounter(u16* args);
+static void AutoCmd_SetAutomationFlag(u16* args);
+static void AutoCmd_GetAutomationFlag(u16* args);
 
 
 u16 Rogue_AutomationBufferSize(void)
@@ -68,9 +82,29 @@ u16 Rogue_ReadAutomationBuffer(u16 offset)
     return gAutoCommBuffer[offset];
 }
 
-bool8 Rogue_AutomationForceRandomAI(void)
+bool8 Rogue_AutomationGetFlag(u16 flag)
 {
-    return TRUE;
+    u16 idx = flag / 8;
+    u16 bit = flag % 8;
+
+    u8 bitMask = 1 << bit;
+    return gAutoFlagBits[idx] & bitMask;
+}
+
+void Rogue_AutomationSetFlag(u16 flag, bool8 state)
+{
+    u16 idx = flag / 8;
+    u16 bit = flag % 8;
+
+    u8 bitMask = 1 << bit;
+    if(state)
+    {
+        gAutoFlagBits[idx] |= bitMask;
+    }
+    else
+    {
+        gAutoFlagBits[idx] &= ~bitMask;
+    }
 }
 
 void Rogue_WriteAutomationBuffer(u16 offset, u16 value)
@@ -84,6 +118,12 @@ void Rogue_AutomationInit(void)
     gAutoCommBuffer[0] = gAutoCommandCounter;
 
     gAutoInputState = AUTO_INPUT_STATE_TITLE_MENU;
+
+    Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_FORCE_COMP_MOVESETS, FALSE);
+    Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION, FALSE);
+    Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_RANDOM_AI, FALSE);
+    Rogue_AutomationSetFlag(AUTO_FLAG_PLAYER_AUTO_PICK_MOVES, TRUE);
+    Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_LVL_5, FALSE);
 }
 
 void Rogue_AutomationCallback(void)
@@ -106,16 +146,6 @@ void Rogue_AutomationCallback(void)
 void Rogue_PushAutomationInputState(u16 state)
 {
     gAutoInputState = state;
-}
-
-bool8 Rogue_AutomationSkipTrainerPartyCreate(void)
-{
-    return TRUE;
-}
-
-bool8 Rogue_AutomationAutoPickBattleMove(void)
-{
-    return TRUE;
 }
 
 // Auto Commands
@@ -141,6 +171,16 @@ static void ProcessNextAutoCmd(u16 cmd, u16* args)
         case 14: AutoCmd_GenerateEnemyParty(args); break;
         case 15: AutoCmd_SetRunDifficulty(args); break;
         case 16: AutoCmd_SetWeather(args); break;
+        case 17: AutoCmd_SetRogueSeed(args); break;
+        case 18: AutoCmd_SetFlag(args); break;
+        case 19: AutoCmd_GetFlag(args); break;
+        case 20: AutoCmd_SetVar(args); break;
+        case 21: AutoCmd_GetVar(args); break;
+        case 22: AutoCmd_GetMapLayoutID(args); break;
+        case 23: AutoCmd_Warp(args); break;
+        case 24: AutoCmd_WarpNextAdventureEncounter(args); break;
+        case 25: AutoCmd_SetAutomationFlag(args); break;
+        case 26: AutoCmd_GetAutomationFlag(args); break;
     }
 }
 
@@ -304,6 +344,81 @@ static void AutoCmd_SetWeather(u16* args)
     
     SetSavedWeather(weather);
     DoCurrentWeather();
+}
+
+static void AutoCmd_SetRogueSeed(u16* args)
+{
+    gSaveBlock1Ptr->dewfordTrends[0].words[0] = args[0];
+    gSaveBlock1Ptr->dewfordTrends[0].words[1] = args[1];
+}
+
+static void AutoCmd_SetFlag(u16* args)
+{
+    u16 flag = args[0];
+    u16 state = args[1];
+
+    if(state)
+        FlagSet(flag);
+    else
+        FlagClear(flag);
+}
+
+static void AutoCmd_GetFlag(u16* args)
+{
+    u16 flag = args[0];
+    args[0] = FlagGet(flag);
+}
+
+static void AutoCmd_SetVar(u16* args)
+{
+    u16 var = args[0];
+    u16 value = args[1];
+
+    VarSet(var, value);
+}
+
+static void AutoCmd_GetVar(u16* args)
+{
+    u16 var = args[0];
+    args[0] = VarGet(var);
+}
+
+static void AutoCmd_GetMapLayoutID(u16* args)
+{
+    args[0] = gMapHeader.mapLayoutId;
+}
+
+static void AutoCmd_Warp(u16* args)
+{
+    struct WarpData warp;
+    warp.mapGroup = args[0];
+    warp.mapNum = args[1];
+    warp.warpId = args[2];
+    warp.x = args[3];
+    warp.y = args[4];
+
+    SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+}
+
+static void AutoCmd_WarpNextAdventureEncounter(u16* args)
+{
+    RogueAdv_DebugExecuteRandomNextNode();
+}
+
+static void AutoCmd_SetAutomationFlag(u16* args)
+{
+    u16 flag = args[0];
+    u16 state = args[1];
+
+    Rogue_AutomationSetFlag(flag, state ? 1 : 0);
+}
+
+static void AutoCmd_GetAutomationFlag(u16* args)
+{
+    u16 flag = args[0];
+    args[0] = Rogue_AutomationGetFlag(flag);
 }
 
 #endif

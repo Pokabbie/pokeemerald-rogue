@@ -44,6 +44,11 @@ namespace AutoCoordinator.Game.Tests
 			get => m_RNG;
 		}
 
+		public bool IsTestActive
+		{
+			get => m_TestActive;
+		}
+
 		public void StartNextTest()
 		{
 			m_LocalLog.Clear();
@@ -88,6 +93,70 @@ namespace AutoCoordinator.Game.Tests
 				stream.WriteLine(m_LocalLog.ToString());
 
 			m_LocalLog.Clear();
+		}
+
+		public int CalculatePlayerPartySize(PokemonGame game)
+		{
+			int partySize = 0;
+
+			for (int i = 0; i < 6; ++i)
+			{
+				if (game.GetPlayerMonData(i, PokemonDataID.Species) != 0)
+					++partySize;
+				else
+					break;
+			}
+
+			return partySize;
+		}
+
+		public int CalculateEnemyPartySize(PokemonGame game)
+		{
+			int partySize = 0;
+
+			for (int i = 0; i < 6; ++i)
+			{
+				if (game.GetEnemyMonData(i, PokemonDataID.Species) != 0)
+					++partySize;
+				else
+					break;
+			}
+
+			return partySize;
+		}
+
+		protected void LogPlayerPartyInfo(PokemonGame game, int partySize)
+		{
+			LogTestMessage($"== Player Party (size:{partySize}) ==");
+			for (int i = 0; i < partySize; ++i)
+			{
+				LogTestMessage($"=({i})=");
+				LogTestMessage($"Species: {game.GetPlayerMonData(i, PokemonDataID.Species)} ({game.GetSpeciesName(game.GetPlayerMonData(i, PokemonDataID.Species))})");
+				LogTestMessage($"Level: {game.GetPlayerMonData(i, PokemonDataID.Level)}");
+				LogTestMessage($"HeldItem: {game.GetPlayerMonData(i, PokemonDataID.HeldItem)}");
+				LogTestMessage($"AbilityNum: {game.GetPlayerMonData(i, PokemonDataID.AbilityNum)}");
+				LogTestMessage($"Move1: {game.GetPlayerMonData(i, PokemonDataID.Move1)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move1))})");
+				LogTestMessage($"Move2: {game.GetPlayerMonData(i, PokemonDataID.Move2)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move2))})");
+				LogTestMessage($"Move3: {game.GetPlayerMonData(i, PokemonDataID.Move3)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move3))})");
+				LogTestMessage($"Move4: {game.GetPlayerMonData(i, PokemonDataID.Move4)} ({game.GetMoveName(game.GetPlayerMonData(i, PokemonDataID.Move4))})");
+			}
+		}
+
+		protected void LogEnemyPartyInfo(PokemonGame game, int partySize)
+		{
+			LogTestMessage($"== Enemy Party (size:{partySize}) ==");
+			for (int i = 0; i < partySize; ++i)
+			{
+				LogTestMessage($"=({i})=");
+				LogTestMessage($"Species: {game.GetEnemyMonData(i, PokemonDataID.Species)} ({game.GetSpeciesName(game.GetEnemyMonData(i, PokemonDataID.Species))})");
+				LogTestMessage($"Level: {game.GetEnemyMonData(i, PokemonDataID.Level)}");
+				LogTestMessage($"HeldItem: {game.GetEnemyMonData(i, PokemonDataID.HeldItem)}");
+				LogTestMessage($"AbilityNum: {game.GetEnemyMonData(i, PokemonDataID.AbilityNum)}");
+				LogTestMessage($"Move1: {game.GetEnemyMonData(i, PokemonDataID.Move1)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move1))})");
+				LogTestMessage($"Move2: {game.GetEnemyMonData(i, PokemonDataID.Move2)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move2))})");
+				LogTestMessage($"Move3: {game.GetEnemyMonData(i, PokemonDataID.Move3)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move3))})");
+				LogTestMessage($"Move4: {game.GetEnemyMonData(i, PokemonDataID.Move4)} ({game.GetMoveName(game.GetEnemyMonData(i, PokemonDataID.Move4))})");
+			}
 		}
 	}
 }

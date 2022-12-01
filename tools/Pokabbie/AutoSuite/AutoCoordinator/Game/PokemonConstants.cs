@@ -45,4 +45,104 @@ namespace AutoCoordinator.Game
 		SPATK,
 		SPDEF,
 	}
+
+	public enum PokemonFlagID
+	{
+		RogueRunActive = 0x20,
+		RogueExpAll,
+		SeedEnabled,
+		SeedItems,
+		SeedTrainers,
+		SeedBosses,
+		SeedWildMons,
+		RogueDoubleBattles,
+		RogueCanOverLvl,
+		RogueHardTrainers,
+		//..
+		RogueEasyTrainers = 0x266,
+		RogueEasyItems,
+		RogueHardItems,
+		//..
+		RogueEVsEnabled = 0x26B,
+		//..
+		RogueGauntletMode = 0x26E,
+		RogueExpansionActive,
+		RogueRareItemMartDisabled,
+		RogueRandomTradeDisabled,
+		RogueRainbowMode,
+		//..
+		RogueForceBasicBag = 0x276,
+		RogueQuestsAskForRetire,
+		RogueQuestsNeverAskForRetire,
+		RogueHoennRoutes,
+		RogueHoennBosses,
+		RogueKantoRoutes,
+		RogueKantoBosses,
+		RogueJohtoRoutes,
+		RogueJohtoBosses,
+		RogueEasyLegendaries,
+		RogueHardLegendaries,
+	}
+
+	public enum PokemonVarID
+	{
+		RogueDifficulty = 0x407D,
+		RogueFurthestDifficulty,
+		//..
+		RogueEnabledGenLimit = 0x40A8,
+		//..
+		RogueCurrentLevelCap = 0x40BB,
+		//..
+		RogueRegionDexLimit = 0x40DC,
+		//..
+	}
+
+	public enum PokemonMapLayoutID
+	{ 
+		Unknown = 0,
+		RogueHub = 442,
+		RogueHubTransition,
+		//..
+		RogueBoss0 = 447,
+		//..
+		RogueBoss8 = 449,
+		RogueBoss9,
+		RogueBoss10,
+		RogueBoss11,
+		RogueBoss12,
+		RogueBoss13,
+		//..
+		RogueAdventurePaths = 480,
+		//..
+		RogueHubAdventureEntrance = 491
+	}
+
+	public enum RogueMapID
+	{
+		RogueHub					= (1 | (34 << 8)),
+		RogueHubTransition			= (2 | (34 << 8)),
+		RogueHubAdventureEntrance	= (7 | (34 << 8)),
+
+		RogueAdventurePaths			= (0 | (35 << 8)),
+		RogueBoss0					= (24 | (35 << 8)),
+		RogueBoss8					= (25 | (35 << 8)),
+		RogueBoss9					= (26 | (35 << 8)),
+		RogueBoss10					= (27 | (35 << 8)),
+		RogueBoss11					= (28 | (35 << 8)),
+		RogueBoss12					= (29 | (35 << 8)),
+		RogueBoss13					= (30 | (35 << 8)),
+	}
+
+	public static class RogueMapIDMethods
+	{
+		public static int ToMapGroup(this RogueMapID mapId)
+		{
+			return (byte)(((int)mapId) >> 8);
+		}
+
+		public static int ToMapNum(this RogueMapID mapId)
+		{
+			return (byte)(((int)mapId) & 0xFF);
+		}
+	}
 }
