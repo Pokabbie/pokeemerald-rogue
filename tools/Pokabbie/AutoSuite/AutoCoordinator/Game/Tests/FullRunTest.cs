@@ -19,7 +19,11 @@ namespace AutoCoordinator.Game.Tests
 		private TestState m_State = null;
 
 		public FullRunTest() : base("Full Run Test")
-		{ 
+		{
+		}
+
+		public FullRunTest(string name) : base(name)
+		{
 		}
 
 		public override void Run(PokemonGame game)
@@ -130,7 +134,7 @@ namespace AutoCoordinator.Game.Tests
 			game.SetVar(PokemonVarID.RogueRegionDexLimit, 0);
 		}
 
-		private void SelectRandomSettings(PokemonGame game)
+		protected virtual void SelectRandomSettings(PokemonGame game)
 		{
 			bool SetFlagPerc(PokemonFlagID flag, int perc)
 			{

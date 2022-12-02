@@ -31,6 +31,8 @@ namespace AutoCoordinator.GameConsole
 			{
 				m_Client = new TcpClient();
 				m_Client.Connect(m_EndPoint);
+				m_Client.ReceiveTimeout = 10000;
+				m_Client.SendTimeout = 30000;
 			}
 
 			return m_Client;
