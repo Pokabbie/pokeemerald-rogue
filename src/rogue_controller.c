@@ -2209,7 +2209,7 @@ u8 Rogue_SelectBossEncounter(void)
     return bossId;
 }
 
-static bool8 IsLegendaryEncounterEnabled(u16 legendaryId)
+static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDifficulty)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
@@ -2221,7 +2221,11 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId)
         return FALSE;
     }
 
-    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+    if(applyLegendaryDifficulty)
+    {
+        allowStrongSpecies = TRUE;
+    }
+    else if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
     {
         allowStrongSpecies = TRUE;
     }
@@ -2252,7 +2256,7 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId)
     return TRUE;
 }
 
-static u16 NextLegendaryId()
+static u16 NextLegendaryId(bool8 applyLegendaryDifficulty)
 {
     u16 i;
     u16 randIdx;
@@ -2260,7 +2264,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEncounterEnabled(i))
+        if(IsLegendaryEncounterEnabled(i, applyLegendaryDifficulty))
             ++enabledLegendariesCount;
     }
 
@@ -2268,7 +2272,7 @@ static u16 NextLegendaryId()
     {
         // We've exhausted all enabled legendary options, so we're going to wipe the buffer and try again
         memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
-        return NextLegendaryId();
+        return NextLegendaryId(FALSE);
     }
 
     randIdx = RogueRandomRange(enabledLegendariesCount, OVERWORLD_FLAG);
@@ -2276,7 +2280,7 @@ static u16 NextLegendaryId()
 
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEncounterEnabled(i))
+        if(IsLegendaryEncounterEnabled(i, applyLegendaryDifficulty))
         {
             if(enabledLegendariesCount == randIdx)
                 return i;
@@ -2290,7 +2294,7 @@ static u16 NextLegendaryId()
 
 u8 Rogue_SelectLegendaryEncounterRoom(void)
 {    
-    u16 legendaryId = NextLegendaryId();
+    u16 legendaryId = NextLegendaryId(TRUE);
 
     HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId);
 
