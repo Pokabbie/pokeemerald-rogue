@@ -212,9 +212,6 @@ namespace AutoCoordinator.Game.Tests
 			{
 				StartNextTest();
 
-				game.SetAutomationFlag(PokemonGame.AutomationFlag.Player_AutoPickMoves, true);
-				game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_ForceLevel5, true);
-
 				m_State = null;
 				game.ResetGame();
 				return;
@@ -223,6 +220,10 @@ namespace AutoCoordinator.Game.Tests
 			if (m_State == null)
 			{
 				m_State = new TestState();
+
+				game.SetAutomationFlag(PokemonGame.AutomationFlag.Player_AutoPickMoves, true);
+				game.SetAutomationFlag(PokemonGame.AutomationFlag.Trainer_ForceLevel5, true);
+
 				ResetDifficultySettings(game);
 				SelectRandomSettings(game);
 
