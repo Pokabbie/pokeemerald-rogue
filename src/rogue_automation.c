@@ -26,16 +26,20 @@
 
 #define COMM_BUFFER_SIZE 32
 
-EWRAM_DATA u16 gAutoCommandCounter;
-EWRAM_DATA u16 gAutoInputState;
-EWRAM_DATA u16 gAutoCommBuffer[COMM_BUFFER_SIZE];
-EWRAM_DATA u8 gAutoFlagBits[1 + AUTO_FLAG_COUNT / 8];
+struct AutomationState
+{
+    u16 commandCounter;
+    u16 inputState;
+    u16 commBuffer[COMM_BUFFER_SIZE];
+    u8 autoFlagBits[1 + AUTO_FLAG_COUNT / 8];
+};
 
+EWRAM_DATA struct AutomationState gAutomationState;
 
 const struct RogueAutomationHeader gRogueAutomationHeader =
 {
     .commBufferCapacity = COMM_BUFFER_SIZE,
-    .commBuffer = gAutoCommBuffer,
+    .commBuffer = gAutomationState.commBuffer,
 };
 
 void DoSpecialTrainerBattle(void);
@@ -79,7 +83,7 @@ u16 Rogue_AutomationBufferSize(void)
 
 u16 Rogue_ReadAutomationBuffer(u16 offset)
 {
-    return gAutoCommBuffer[offset];
+    return gAutomationState.commBuffer[offset];
 }
 
 bool8 Rogue_AutomationGetFlag(u16 flag)
@@ -88,7 +92,7 @@ bool8 Rogue_AutomationGetFlag(u16 flag)
     u16 bit = flag % 8;
 
     u8 bitMask = 1 << bit;
-    return gAutoFlagBits[idx] & bitMask;
+    return gAutomationState.autoFlagBits[idx] & bitMask;
 }
 
 void Rogue_AutomationSetFlag(u16 flag, bool8 state)
@@ -99,25 +103,25 @@ void Rogue_AutomationSetFlag(u16 flag, bool8 state)
     u8 bitMask = 1 << bit;
     if(state)
     {
-        gAutoFlagBits[idx] |= bitMask;
+        gAutomationState.autoFlagBits[idx] |= bitMask;
     }
     else
     {
-        gAutoFlagBits[idx] &= ~bitMask;
+        gAutomationState.autoFlagBits[idx] &= ~bitMask;
     }
 }
 
 void Rogue_WriteAutomationBuffer(u16 offset, u16 value)
 {
-    gAutoCommBuffer[offset] = value;
+    gAutomationState.commBuffer[offset] = value;
 }
 
 void Rogue_AutomationInit(void)
 {
-    gAutoCommandCounter = 0;
-    gAutoCommBuffer[0] = gAutoCommandCounter;
+    gAutomationState.commandCounter = 0;
+    gAutomationState.commBuffer[0] = gAutomationState.commandCounter;
 
-    gAutoInputState = AUTO_INPUT_STATE_TITLE_MENU;
+    gAutomationState.inputState = AUTO_INPUT_STATE_TITLE_MENU;
 
     Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_FORCE_COMP_MOVESETS, FALSE);
     Rogue_AutomationSetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION, FALSE);
@@ -128,24 +132,24 @@ void Rogue_AutomationInit(void)
 
 void Rogue_AutomationCallback(void)
 {
-    u16 counterId = gAutoCommBuffer[0];
+    u16 counterId = gAutomationState.commBuffer[0];
 
     // Received a command if the counter missmatches
-    if(gAutoCommandCounter != counterId)
+    if(gAutomationState.commandCounter != counterId)
     {
-        u16 cmd = gAutoCommBuffer[1];
-        u16* args = &gAutoCommBuffer[2];
+        u16 cmd = gAutomationState.commBuffer[1];
+        u16* args = &gAutomationState.commBuffer[2];
         ProcessNextAutoCmd(cmd, args);
 
         // Indicate that we've finished this command
-        gAutoCommandCounter = counterId + 1;
-        gAutoCommBuffer[0] = gAutoCommandCounter;
+        gAutomationState.commandCounter = counterId + 1;
+        gAutomationState.commBuffer[0] = gAutomationState.commandCounter;
     }
 }
 
 void Rogue_PushAutomationInputState(u16 state)
 {
-    gAutoInputState = state;
+    gAutomationState.inputState = state;
 }
 
 // Auto Commands
@@ -274,7 +278,7 @@ static void AutoCmd_StartTrainerBattle(u16* args)
 
 static void AutoCmd_GetInputState(u16* args)
 {
-    args[0] = gAutoInputState;
+    args[0] = gAutomationState.inputState;
 }
 
 static void AutoCmd_GetNumSpecies(u16* args)
