@@ -4157,9 +4157,12 @@ static u8 ForewarnChooseMove(u32 battler)
             bestId = i;
     }
 
-    gBattlerTarget = data[bestId].battlerId;
-    PREPARE_MOVE_BUFFER(gBattleTextBuff1, data[bestId].moveId)
-    RecordKnownMove(gBattlerTarget, data[bestId].moveId);
+    if(bestId < count)
+    {
+        gBattlerTarget = data[bestId].battlerId;
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, data[bestId].moveId)
+        RecordKnownMove(gBattlerTarget, data[bestId].moveId);
+    }
 
     free(data);
 }
