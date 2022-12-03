@@ -44,11 +44,11 @@ namespace AutoCoordinator.Game.Tests
 					stateEnterTime = DateTime.UtcNow;
 				}
 
+				TimeSpan stateDuration = (DateTime.UtcNow - stateEnterTime);
 				if (IsTestActive)
 				{
-					TimeSpan stuckTimeout = (DateTime.UtcNow - stateEnterTime);
-					if (stuckTimeout >= TimeSpan.FromMinutes(4))
-						LogTestFail($"Stuck for {stuckTimeout}");
+					if (stateDuration >= TimeSpan.FromMinutes(4))
+						LogTestFail($"Stuck for {stateDuration}");
 				}
 
 				switch (inputState)
@@ -58,7 +58,7 @@ namespace AutoCoordinator.Game.Tests
 						break;
 
 					case PokemonGame.GameInputState.Battle:
-						Test_Battle(game, justChangedState);
+						Test_Battle(game, justChangedState, stateDuration);
 						break;
 
 					case PokemonGame.GameInputState.Overworld:
@@ -79,25 +79,35 @@ namespace AutoCoordinator.Game.Tests
 			if (IsTestActive && m_State != null && m_State.m_HasAdventureStarted)
 			{
 				LogTestMessage("Reached Title Screen");
-				LogTestSuccess();
+
+				if (m_State.m_CurrentDifficulty >= 13)
+				{
+					LogTestSuccess();
+				}
+				else
+				{
+					LogTestMessage($"Must've crashed (difficulty: {m_State.m_CurrentDifficulty})");
+					LogTestSuccess();
+				}
+
 				return;
 			}
 
 			game.Connection.Cmd_Emu_TapKeys(ConsoleButtons.A);
 		}
 
-		private void Test_Battle(PokemonGame game, bool justEnteredState)
+		private void Test_Battle(PokemonGame game, bool justEnteredState, TimeSpan stateDuration)
 		{
 			if (justEnteredState && m_State != null)
 			{
 				m_State.m_CurrentDifficulty = game.GetVar(PokemonVarID.RogueDifficulty);
 
 				LogTestMessage($"Starting Battle in Difficulty {m_State.m_CurrentDifficulty}...");
-				LogPlayerPartyInfo(game, CalculatePlayerPartySize(game));
 				LogEnemyPartyInfo(game, CalculateEnemyPartySize(game));
 			}
 
-			game.Connection.Cmd_Emu_TapKeys(ConsoleButtons.A);
+			if(stateDuration > TimeSpan.FromSeconds(3))
+				game.Connection.Cmd_Emu_TapKeys(ConsoleButtons.A);
 		}
 
 		private void ResetDifficultySettings(PokemonGame game)
@@ -236,6 +246,7 @@ namespace AutoCoordinator.Game.Tests
 				game.SetPlayerMonData(0, PokemonDataID.Move2, 332); // Aerial Ace
 				game.SetPlayerMonData(0, PokemonDataID.Move3, 0);
 				game.SetPlayerMonData(0, PokemonDataID.Move4, 0);
+				LogPlayerPartyInfo(game, CalculatePlayerPartySize(game));
 
 				LogTestMessage("Warping to 'RogueHubTransition'");
 				game.Warp(RogueMapID.RogueHubTransition, 0);
@@ -274,7 +285,7 @@ namespace AutoCoordinator.Game.Tests
 					break;
 
 				case PokemonMapLayoutID.RogueHubTransition:
-					game.Connection.Cmd_Emu_TapKeys(ConsoleButtons.A | ConsoleButtons.UP);
+					game.Warp(RogueMapID.RogueHubTransition, 0);
 					break;
 
 				case PokemonMapLayoutID.RogueAdventurePaths:

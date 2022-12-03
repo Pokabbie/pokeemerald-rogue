@@ -1,6 +1,9 @@
+#ifndef ROGUE_CONFIG_H
+#define ROGUE_CONFIG_H
+
 #define ROGUE_EXPANSION
 
-#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
+//#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
 
@@ -12,12 +15,19 @@
 #define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 #define ROGUE_DEBUG_LVL_5_TRAINERS
+#define ROGUE_DEBUG_LOGGING
+
 #else
 
+// Automation defines
+// Don't adjust these unless needed
+//
 #define ROGUE_DEBUG
 #define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 //#define ROGUE_DEBUG_LVL_5_TRAINERS
+#define ROGUE_DEBUG_LOGGING
+
 #endif
 
 // It looks like file.c:line: size of array `id' is negative
@@ -306,3 +316,5 @@
     callback(3, 5)
 
 #include "rogue_quests.h"
+
+#endif

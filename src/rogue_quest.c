@@ -14,6 +14,57 @@
 #include "rogue_controller.h"
 #include "rogue_quest.h"
 
+
+// Debug disable
+#if 1
+
+void ResetQuestState(u16 saveVersion) {}
+bool8 AnyNewQuests(void) { return FALSE; }
+bool8 AnyQuestRewardsPending(void) { return FALSE; }
+bool8 AnyNewQuestsPending(void) { return FALSE; }
+
+u16 GetCompletedQuestCount(void) { return 0; }
+u16 GetUnlockedQuestCount(void) { return 0; }
+u8 GetCompletedQuestPerc(void) { return 0; }
+
+bool8 GetQuestState(u16 questId, struct RogueQuestState* outState) { return FALSE; }
+void SetQuestState(u16 questId, struct RogueQuestState* state) {}
+
+bool8 IsQuestRepeatable(u16 questId) { return FALSE; }
+bool8 IsQuestCollected(u16 questId) { return FALSE; }
+bool8 IsQuestGloballyTracked(u16 questId) { return FALSE; }
+bool8 IsQuestActive(u16 questId) { return FALSE; }
+bool8 DoesQuestHaveUnlocks(u16 questId) { return FALSE; }
+
+bool8 GiveNextRewardAndFormat(u8* str, u8* type) { return FALSE; }
+bool8 TryUnlockQuest(u16 questId) { return FALSE; }
+bool8 TryMarkQuestAsComplete(u16 questId) { return FALSE; }
+bool8 TryDeactivateQuest(u16 questId) { return FALSE; }
+void UnlockFollowingQuests(u16 questId) {}
+
+void QuestNotify_BeginAdventure(void) {}
+void QuestNotify_EndAdventure(void) {}
+
+void QuestNotify_OnWildBattleEnd(void) {}
+void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer) {}
+void QuestNotify_OnMonFainted(void) {}
+
+void QuestNotify_OnExitHubTransition(void) {}
+void QuestNotify_OnWarp(struct WarpData* warp) {}
+void QuestNotify_OnAddMoney(u32 amount) {}
+void QuestNotify_OnRemoveMoney(u32 amount) {}
+
+void QuestNotify_OnAddBagItem(u16 itemId, u16 count) {}
+void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count) {}
+
+void QuestNotify_OnUseBattleItem(u16 itemId) {}
+
+void QuestNotify_OnMegaEvolve(u16 species) {}
+void QuestNotify_OnZMoveUsed(u16 move) {}
+
+
+#else
+
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
 extern const u8 gText_QuestRewardGiveMon[];
@@ -1307,3 +1358,5 @@ void QuestNotify_OnZMoveUsed(u16 move)
     }
 #endif
 }
+
+#endif

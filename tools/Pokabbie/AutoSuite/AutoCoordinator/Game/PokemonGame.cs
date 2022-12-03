@@ -162,9 +162,9 @@ namespace AutoCoordinator.Game
 			m_Connection.Cmd_Emu_Write16(m_AutoBufferAddr + 0, ++m_CommandCounter);
 
 			// Wait for game to complete task
-			for (int i = 0; i < 1000; ++i)
+			for (int i = 0; i < 500; ++i)
 			{
-				Thread.Sleep(15);
+				Thread.Sleep(10);
 				ushort counterValue = m_Connection.Cmd_Emu_Read16(m_AutoBufferAddr + 0);
 
 				// Wait until the counter is equal to counter + 1 to indicate that the command has been executed
@@ -188,7 +188,7 @@ namespace AutoCoordinator.Game
 		public void ResetGame()
 		{
 			m_Connection.Cmd_Emu_Reset();
-			Thread.Sleep(100);
+			Thread.Sleep(1000);
 		}
 
 		public void ClearPlayerParty()
@@ -329,7 +329,7 @@ namespace AutoCoordinator.Game
 		public void Warp(RogueMapID mapId, int warpId, int x, int y)
 		{
 			PushCmd(CommandCode.Warp, mapId.ToMapGroup(), mapId.ToMapNum(), warpId, x, y);
-			Thread.Sleep(100);
+			Thread.Sleep(500);
 		}
 
 		public void Warp(RogueMapID mapId, int warpId)
