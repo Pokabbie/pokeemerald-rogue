@@ -12,14 +12,6 @@ namespace AutoCoordinator
 
 		static void Main(string[] args)
 		{
-			PokemonGame game = new PokemonGame();
-
-			if (!game.CheckConnection())
-			{
-				Console.Error.WriteLine("Unable to validate game connection");
-				return;
-			}
-
 			List<PokemonTest> avaliableTests = new List<PokemonTest>();
 
 			foreach (var testClass in Assembly.GetEntryAssembly().GetTypes().Where((t) => t.IsSubclassOf(typeof(PokemonTest)) && !t.IsAbstract))
@@ -54,8 +46,15 @@ namespace AutoCoordinator
 			}
 
 			PokemonTest test = avaliableTests[selectedIndex];
-			Console.WriteLine($"Running {test.TestName}...");
+			PokemonGame game = new PokemonGame();
 
+			if (!game.CheckConnection())
+			{
+				Console.Error.WriteLine("Unable to validate game connection");
+				return;
+			}
+
+			Console.WriteLine($"Running {test.TestName}...");
 			test.Run(game);
 
 			return;
