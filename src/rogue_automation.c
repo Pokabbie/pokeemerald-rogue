@@ -9,6 +9,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "gba/isagbprint.h"
 #include "data.h"
 
 #include "battle_main.h"
@@ -118,6 +119,8 @@ void Rogue_WriteAutomationBuffer(u16 offset, u16 value)
 
 void Rogue_AutomationInit(void)
 {
+    DebugPrint("Automation Initalised..");
+    
     gAutomationState.commandCounter = 0;
     gAutomationState.commBuffer[0] = gAutomationState.commandCounter;
 

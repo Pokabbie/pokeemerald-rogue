@@ -13,6 +13,7 @@
 #include "random.h"
 #include "dma3.h"
 #include "gba/flash_internal.h"
+#include "gba/isagbprint.h"
 #include "load_save.h"
 #include "gpu_regs.h"
 #include "agb_flash.h"
@@ -120,7 +121,17 @@ void AgbMain()
 
     gLinkTransferringData = FALSE;
     sUnusedVar = 0xFC0;
-    
+
+#ifndef NDEBUG
+#if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
+    (void) MgbaOpen();
+#elif (LOG_HANDLER == LOG_HANDLER_AGB_PRINT)
+    AGBPrintfInit();
+#endif
+#endif
+
+    DebugPrint("Logger hooked up");
+
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationInit();
 #endif

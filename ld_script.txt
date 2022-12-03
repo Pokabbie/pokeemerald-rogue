@@ -376,6 +376,7 @@ SECTIONS {
         src/librfu_rfu.o(.text);
         src/librfu_sio32id.o(.text);
         src/libisagbprn.o(.text);
+        src/mini_printf.o(.text);
         *libagbsyscall.a:ArcTan2.o(.text);
         *libagbsyscall.a:BgAffineSet.o(.text);
         *libagbsyscall.a:CpuFastSet.o(.text);
