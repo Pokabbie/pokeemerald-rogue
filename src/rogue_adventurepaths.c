@@ -4,6 +4,7 @@
 #include "event_data.h"
 #include "fieldmap.h"
 #include "field_screen_effect.h"
+#include "malloc.h"
 #include "overworld.h"
 #include "random.h"
 #include "strings.h"
@@ -627,8 +628,8 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount, struct AdvMapScra
     }
 
 #ifdef ROGUE_DEBUG
-    //if(currScratch->roomType != ADVPATH_ROOM_BOSS)
-    //    currScratch->roomType = ADVPATH_ROOM_NONE;
+    //if(currScratch->roomType == ADVPATH_ROOM_ROUTE)
+    //    currScratch->roomType = ADVPATH_ROOM_RESTSTOP;
 #endif
 }
 
@@ -822,8 +823,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     u8 totalDistance;
     u8 minY, maxY;
     struct AdvMapScratch scratch;
-    struct AdvEventScratch rowEventScratchA[MAX_PATH_ROWS];
-    struct AdvEventScratch rowEventScratchB[MAX_PATH_ROWS];
+    struct AdvEventScratch* rowEventScratchA = malloc(sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
+    struct AdvEventScratch* rowEventScratchB = malloc(sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
 
     if(gRogueAdvPath.currentNodeX < gRogueAdvPath.currentColumnCount)
     {
@@ -863,11 +864,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         scratch.readNodes = (i == 0 ? &rowEventScratchA[0] : &rowEventScratchB[0]);
         scratch.writeNodes =  (i == 0 ? &rowEventScratchB[0] : &rowEventScratchA[0]);
 
-        memset(scratch.writeNodes, 0, sizeof(struct AdvEventScratch) * MAX_PATH_ROWS);
+        memset(scratch.writeNodes, 0, sizeof(scratch.writeNodes[0]) * MAX_PATH_ROWS);
 
         GenerateAdventureColumnPath(totalDistance - i - 1, totalDistance, &scratch);
         GenerateAdventureColumnEvents(totalDistance - i - 1, totalDistance, &scratch);
     }
+
+    free(rowEventScratchA);
+    free(rowEventScratchB);
 
     minY = MAX_PATH_ROWS;
     maxY = 0;
