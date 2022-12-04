@@ -172,8 +172,10 @@ u16 *GetVarPointer(u16 id)
         return NULL;
     else if (id < SPECIAL_VARS_START)
         return &gSaveBlock1Ptr->vars[id - VARS_START];
-    else
+    else if(id <= SPECIAL_VARS_END)
         return gSpecialVars[id - SPECIAL_VARS_START];
+
+    return NULL;
 }
 
 u16 VarGet(u16 id)
