@@ -196,7 +196,7 @@ void LoadObjectEvents(void)
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
 
-    //Rogue_OnLoadGame();
+    Rogue_OnLoadGame();
 }
 
 void CopyPartyAndObjectsToSave(void)
