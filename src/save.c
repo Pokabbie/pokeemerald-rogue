@@ -728,8 +728,8 @@ u8 HandleSavingData(u8 saveType)
             IncrementGameStat(GAME_STAT_ENTERED_HOF);
 
         // Write the full save slot first
-        CopyPartyAndObjectsToSave();
-        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
+        //CopyPartyAndObjectsToSave();
+        //WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
 
         // Save the Hall of Fame
         tempAddr = gDecompressionBuffer;
