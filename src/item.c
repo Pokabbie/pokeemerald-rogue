@@ -19,7 +19,6 @@
 #include "party_menu.h"
 
 #include "rogue.h"
-#include "rogue_charms.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
 
@@ -197,32 +196,26 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     return FALSE;
 }
 
-u16 GetItemCountInBagPocket(u16 itemId, u8 pocket)
+u16 GetItemCountInBag(u16 itemId)
 {
     u8 i;
-    //u8 pocket;
+    u8 pocket;
+    u16 count = 0;
 
-    // RogueNote: this can cause some strange memreads and cause some random crashes?
-    //pocket = ItemId_GetPocket(itemId);
+    if (ItemId_GetPocket(itemId) == 0)
+        return count;
+    
+    pocket = ItemId_GetPocket(itemId) - 1;
 
-    //if (pocket == 0)
-    //    return 0;
-
-    //pocket = pocket - 1;
-
-    //for(pocket = KEYITEMS_POCKET; pocket < POCKETS_COUNT; ++pocket)
+    // Check for item slots that contain the item
+    for (i = 0; i < gBagPockets[pocket].capacity; i++)
     {
-        // Check for item slots that contain the item
-        for (i = 0; i < gBagPockets[pocket].capacity; i++)
-        {
-            if (gBagPockets[pocket].itemSlots[i].itemId == itemId)
-            {
-                return GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
-            }
+        if (gBagPockets[pocket].itemSlots[i].itemId == itemId)
+        {            
+            count += GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
         }
     }
-
-    return 0;
+    return count;
 }
 
 bool8 HasAtLeastOneBerry(void)
@@ -411,9 +404,6 @@ bool8 AddBagItem(u16 itemId, u16 count)
         memcpy(itemPocket->itemSlots, newItems, itemPocket->capacity * sizeof(struct ItemSlot));
         Free(newItems);
 
-        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
-            Rogue_RecalulateCharmValues();
-
         QuestNotify_OnAddBagItem(itemId, count);
         return TRUE;
     }
@@ -509,9 +499,6 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
                 }
             }
         }
-
-        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
-            Rogue_RecalulateCharmValues();
 
         QuestNotify_OnRemoveBagItem(itemId, count);
         return TRUE;
@@ -754,8 +741,6 @@ void ClearBag(void)
     {
         ClearItemSlots(gBagPockets[i].itemSlots, gBagPockets[i].capacity);
     }
-
-    Rogue_RecalulateCharmValues();
 }
 
 u16 CountTotalItemQuantityInBag(u16 itemId)

@@ -1202,33 +1202,25 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
 
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
-    bool8 isCurseOrCharm = FALSE;
     itemId = SanitizeItemId(itemId);
+    memcpy(outItem, &gItems[itemId], sizeof(struct Item));
 
     // Charm/Curse items
     //
     if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
     {
-        memcpy(outItem, &gItems[ITEM_NONE], sizeof(struct Item));
-
         outItem->itemId = itemId;
         outItem->price = 0;
         outItem->description = gText_ItemPlaceholderDesc;
         outItem->importance = 0;
         outItem->registrability = FALSE;
         outItem->pocket = POCKET_KEY_ITEMS;
-        outItem->type = ITEM_USE_BAG_MENU;
+        outItem->type = ITEM_USE_FIELD;
+        outItem->holdEffect = 0;
         outItem->fieldUseFunc = ItemUseOutOfBattle_CannotUse;
-
-        isCurseOrCharm = TRUE;
+        outItem->battleUsage = 0;
+        outItem->battleUseFunc = 0;
     }
-    else
-    {
-        memcpy(outItem, &gItems[itemId], sizeof(struct Item));
-    }
-
-    if(itemId == ITEM_NONE)
-        return;
 
     // Custom desc for charms/curses
     switch(itemId)
@@ -1502,7 +1494,8 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 
     // Check we're not a charm/curse otherwise we can get infinite loops here
-    if(!isCurseOrCharm)
+    if(!(itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM)
+    && !(itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
     {
         if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
         {

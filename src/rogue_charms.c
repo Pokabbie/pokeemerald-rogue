@@ -8,14 +8,6 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 
-struct RogueCharmData
-{
-    u16 charmValues[EFFECT_COUNT];
-    u16 curseValues[EFFECT_COUNT];
-};
-
-EWRAM_DATA struct RogueCharmData gRogueCharmData;
-
 static u16 EffectToCharmItem(u8 effectType)
 {
     switch(effectType)
@@ -105,12 +97,12 @@ static u16 EffectToCurseItem(u8 effectType)
 
 static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 {
-    u16 itemCount;
+    u32 itemCount;
 
-    if(itemId == ITEM_NONE)
+    if(!Rogue_IsRunActive())
         return 0;
 
-    itemCount = 0;//min(100, GetItemCountInBagPocket(itemId, KEYITEMS_POCKET));
+    itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
 
     // Custom rate scaling
     switch(effectType)
@@ -148,16 +140,6 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
     return itemCount;
 }
 
-void Rogue_RecalulateCharmValues(void) // TODO - Call on LoadGame if keeping this
-{
-    u8 i;
-    for(i = 0; i < EFFECT_COUNT; ++i)
-    {
-        gRogueCharmData.charmValues[i] = CalcValueInternal(i, EffectToCharmItem(i), FALSE);
-        gRogueCharmData.curseValues[i] = CalcValueInternal(i, EffectToCurseItem(i), TRUE);
-    }
-}
-
 bool8 IsCharmActive(u8 effectType)
 {
     return GetCharmValue(effectType) != 0;
@@ -170,18 +152,12 @@ bool8 IsCurseActive(u8 effectType)
 
 u16 GetCharmValue(u8 effectType)
 {
-    if(!Rogue_IsRunActive())
-        return 0;
-    
-    return 0;//gRogueCharmData.charmValues[effectType];
+    return CalcValueInternal(effectType, EffectToCharmItem(effectType), FALSE);
 }
 
 u16 GetCurseValue(u8 effectType)
 {
-    if(!Rogue_IsRunActive())
-        return 0;
-
-    return 0;//gRogueCharmData.curseValues[effectType];
+    return CalcValueInternal(effectType, EffectToCurseItem(effectType), TRUE);
 }
 
 void Rogue_RemoveCharmsFromBag(void)

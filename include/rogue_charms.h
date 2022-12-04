@@ -22,8 +22,6 @@ enum RogueCharmEffects
     EFFECT_COUNT,
 };
 
-void Rogue_RecalulateCharmValues(void);
-
 bool8 IsCharmActive(u8 effectType);
 bool8 IsCurseActive(u8 effectType);
 
