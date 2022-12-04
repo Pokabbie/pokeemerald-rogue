@@ -9,6 +9,7 @@
 #include "constants/rogue.h"
 #include "constants/weather.h"
 #include "data.h"
+#include "gba/isagbprint.h"
 
 #include "battle.h"
 #include "battle_setup.h"
@@ -1534,9 +1535,16 @@ static void* GetBoxDataPtr(size_t offset)
     return baseAddr + offset;
 }
 
+static void* GetBoxDataEndPtr()
+{
+    void* baseAddr = &gPokemonStoragePtr->boxes[ACTUAL_TOTAL_BOXES_COUNT - 1][IN_BOX_COUNT - 1];
+    return baseAddr;
+}
+
 static size_t SerializeBoxData(size_t offset, void* src, size_t size)
 {
     void* addr = GetBoxDataPtr(offset);
+    AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(addr, src, size);
     return offset + size;
 }
@@ -1544,6 +1552,7 @@ static size_t SerializeBoxData(size_t offset, void* src, size_t size)
 static size_t DeserializeBoxData(size_t offset, void* dst, size_t size)
 {
     void* addr = GetBoxDataPtr(offset);
+    AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(dst, addr, size);
     return offset + size;
 }
