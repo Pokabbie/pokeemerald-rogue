@@ -104,8 +104,7 @@ Rogue_HubTransition_OnEnter_Text_2:
 	.string "(Aim for the lowest score)$"
 
 Rogue_HubTransition_OnEnter_Text_3:
-	.string "{STR_VAR_1} Campaign Active!\p"
-	.string "(Aim for the highest score)$"
+	.string "{STR_VAR_1} Campaign Active!$"
 
 Rogue_HubTransition_RandomMan_Text_0:
 	.string "WAHEY!\p"

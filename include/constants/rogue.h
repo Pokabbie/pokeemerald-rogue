@@ -319,6 +319,7 @@
 //
 #define ROGUE_CAMPAIGN_NONE         0
 #define ROGUE_CAMPAIGN_LOW_BST      1
+#define ROGUE_CAMPAIGN_CLASSIC      2
 
 #include "rogue_quests.h"
 

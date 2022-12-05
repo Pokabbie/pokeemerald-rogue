@@ -110,6 +110,9 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
         case ROGUE_CAMPAIGN_LOW_BST:
             bufferstring(STR_VAR_1, "BST CUP")
 
+        case ROGUE_CAMPAIGN_CLASSIC:
+            bufferstring(STR_VAR_1, "Classic Mode")
+
         default:
             bufferstring(STR_VAR_1, "???")
     }
@@ -120,7 +123,10 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
     {
         case ROGUE_CAMPAIGN_LOW_BST:
-            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, TM TOXIC is banned for this Campaign."))
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned."))
+
+        case ROGUE_CAMPAIGN_CLASSIC:
+            msgbox(format("Classic Mode makes the Adventures more similar to how they use to be 'back in the 1.0 days'.\pThe main feature is that you no longer get any options for encounter.\pYou'll always have to take a specific path.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
 
         default:
             msgbox(format("???"))

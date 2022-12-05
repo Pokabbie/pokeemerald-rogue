@@ -720,7 +720,7 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
     gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 1, 120, 72, 6, TAG_NONE);
     //gTasks[taskId].tPlayerSpriteID = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 120, 60, 0, &gDecompressionBuffer[0x0]);
     
-    if(Rogue_IsCampaignActive())
+    if(Rogue_IsActiveCampaignScored())
         AddWindow(&sHof_WindowTemplate_CampaignRun);
     else
         AddWindow(&sHof_WindowTemplate);
@@ -1261,7 +1261,7 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
     width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
     AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x21, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
 
-    if(Rogue_IsCampaignActive())
+    if(Rogue_IsActiveCampaignScored())
     {
         u16 runScore = Rogue_GetCampaignScore();
         u16 runId = Rogue_GetCampaignRunId();

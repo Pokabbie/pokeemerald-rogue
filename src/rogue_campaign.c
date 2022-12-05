@@ -1,47 +1,11 @@
 #include "global.h"
-//#include "constants/abilities.h"
-//#include "constants/battle.h"
-//#include "constants/event_objects.h"
 #include "constants/game_stat.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
 #include "constants/items.h"
-//#include "constants/layouts.h"
-//#include "constants/rogue.h"
-//#include "constants/weather.h"
-//#include "data.h"
-//#include "gba/isagbprint.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
-//#include "berry.h"
+
 #include "event_data.h"
-//#include "graphics.h"
 #include "item.h"
-//#include "load_save.h"
-//#include "main.h"
-//#include "money.h"
-//#include "overworld.h"
-//#include "party_menu.h"
-//#include "palette.h"
-//#include "play_time.h"
-//#include "player_pc.h"
 #include "pokemon.h"
-//#include "pokemon_icon.h"
-//#include "pokemon_storage_system.h"
-//#include "random.h"
-//#include "safari_zone.h"
-//#include "script.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
-//
-//#include "rogue.h"
-//#include "rogue_automation.h"
-//#include "rogue_adventurepaths.h"
-//#include "rogue_charms.h"
-//#include "rogue_query.h"
-//#include "rogue_quest.h"
+
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 
@@ -63,7 +27,7 @@ u16 Rogue_GetActiveCampaign(void)
         if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             return ROGUE_CAMPAIGN_NONE;
         break;
-    
+
     default:
         break;
     }
@@ -84,6 +48,12 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
         return TRUE;
     }
 
+    if(word0 == 9843 && word1 == 6699) // REFLECT ADVENTURE
+    {
+        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_CLASSIC);
+        return TRUE;
+    }
+
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
     return FALSE;
 }
@@ -98,7 +68,11 @@ u16 Rogue_PreActivateDesiredCampaign(void)
         FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
 
         // Expansion Room settings
+#ifdef ROGUE_EXPANSION
         VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 8);
+#else
+        VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+#endif
         VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
 
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
@@ -132,6 +106,17 @@ u16 Rogue_PostActivateDesiredCampaign(void)
         }
         break;
     }
+}
+
+bool8 Rogue_IsActiveCampaignScored(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 u16 Rogue_GetCampaignScore(void)

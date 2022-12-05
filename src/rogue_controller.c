@@ -1198,7 +1198,7 @@ u8* Rogue_GetMiniMenuContent(void)
 
     ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 4);
     
-    if(Rogue_IsCampaignActive())
+    if(Rogue_IsActiveCampaignScored())
     {
         ConvertIntToDecimalStringN(gStringVar1, Rogue_GetCampaignScore(), STR_CONV_MODE_RIGHT_ALIGN, 6);
 

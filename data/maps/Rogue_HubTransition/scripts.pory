@@ -35,9 +35,13 @@ script Rogue_HubTransition_OnEnter
             case ROGUE_CAMPAIGN_LOW_BST:
                 msgbox(format("BST CUP Campaign Active!\p(Aim for the lowest score)"))
             
+            //default:
+            //    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+            //    msgbox(format("{STR_VAR_1} Campaign Active!\p(Aim for the highest score)"))
+
             default:
                 call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-                msgbox(format("{STR_VAR_1} Campaign Active!\p(Aim for the highest score)"))
+                msgbox(format("{STR_VAR_1} Campaign Active!"))
         }
     }
 

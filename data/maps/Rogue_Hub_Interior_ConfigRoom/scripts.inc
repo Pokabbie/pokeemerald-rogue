@@ -98,22 +98,32 @@ Rogue_ConfigRoom_TalkAssistantInternal_16:
 Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0
 	return
 
+Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	return
+
 
 Rogue_ConfigRoom_Campaign_CampaignDescription::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
-	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
+	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_3:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1
 	return
 
 
@@ -403,7 +413,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -571,7 +581,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -620,7 +630,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1513,6 +1523,9 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0:
 	.string "BST CUP$"
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1:
+	.string "Classic Mode$"
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
@@ -1528,8 +1541,21 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "a Standard Battle Adventure\p"
 	.string "Gauntlet and Rainbow mode ain't\n"
 	.string "allowed!\p"
-	.string "Finally, TM TOXIC is banned for this\n"
-	.string "Campaign.$"
+	.string "Finally, this campaign will adjust\n"
+	.string "Config Lab settings and TM TOXIC is\l"
+	.string "banned.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
+	.string "Classic Mode makes the Adventures more\n"
+	.string "similar to how they use to be 'back in\l"
+	.string "the 1.0 days'.\p"
+	.string "The main feature is that you no longer\n"
+	.string "get any options for encounter.\p"
+	.string "You'll always have to take a specific\n"
+	.string "path.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and doesn't adjust any of the\l"
+	.string "settings in the Config Lab.$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:
 	.string "You wanna give the {STR_VAR_1}\n"
