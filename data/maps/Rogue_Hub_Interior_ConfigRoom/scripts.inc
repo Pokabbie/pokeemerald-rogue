@@ -1525,7 +1525,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "Every POKéMON you have in your party\n"
 	.string "will be considered for the score.\p"
 	.string "For this Campaign, you'll have to enter\n"
-	.string "a Standard Single Battle Adventure\p"
+	.string "a Standard Battle Adventure\p"
 	.string "Gauntlet and Rainbow mode ain't\n"
 	.string "allowed!\p"
 	.string "Finally, TM TOXIC is banned for this\n"

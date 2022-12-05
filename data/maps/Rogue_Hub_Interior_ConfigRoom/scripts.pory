@@ -120,7 +120,7 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
     {
         case ROGUE_CAMPAIGN_LOW_BST:
-            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Single Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, TM TOXIC is banned for this Campaign."))
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, TM TOXIC is banned for this Campaign."))
 
         default:
             msgbox(format("???"))

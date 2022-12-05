@@ -147,7 +147,11 @@ u16 Rogue_GetCampaignScore(void)
 
 u16 Rogue_GetCampaignRunId(void)
 {
-    return 34123;
+    // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
+    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
+    u16 score = Rogue_GetCampaignScore();
+
+    return ~(trainerId ^ score);
 }
 
 bool8 Rogue_CheckCampaignBansItem(u16 item)

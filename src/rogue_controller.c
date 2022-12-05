@@ -1910,9 +1910,9 @@ static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
-    Rogue_PreActivateDesiredCampaign();
-
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
+
+    Rogue_PreActivateDesiredCampaign();
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
     {
@@ -1990,6 +1990,10 @@ static void BeginRogueRun(void)
                     AddBagItem(itemId, quantity);
             }
         }
+
+#ifdef ROGUE_DEBUG
+        AddBagItem(ITEM_ESCAPE_ROPE, 101);
+#endif
     }
     else
     {
