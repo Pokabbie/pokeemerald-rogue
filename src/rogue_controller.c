@@ -38,6 +38,7 @@
 #include "rogue.h"
 #include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
@@ -1191,14 +1192,25 @@ u8* Rogue_GetMiniMenuContent(void)
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
 
-    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 4);
     ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
     StringExpandPlaceholders(gStringVar3, gText_RogueHourMinute);
 
-    ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 4);
     
-    StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+    if(Rogue_IsCampaignActive())
+    {
+        ConvertIntToDecimalStringN(gStringVar1, Rogue_GetCampaignScore(), STR_CONV_MODE_RIGHT_ALIGN, 6);
+
+        StringExpandPlaceholders(gStringVar4, gText_RogueCampaignProgress);
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 5);
+
+        StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
+    }
+    
 
     return gStringVar4;
 }
@@ -1384,6 +1396,7 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
     if(newGame || saveVersion < 3)
     {
         VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
+        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
         FlagSet(FLAG_ROGUE_HOENN_ROUTES);
         FlagSet(FLAG_ROGUE_HOENN_BOSSES);
@@ -1402,6 +1415,40 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 #endif
 }
 
+void Rogue_ResetConfigHubSettings(void)
+{
+    // Seed settings
+    FlagClear(FLAG_SET_SEED_ENABLED);
+    FlagSet(FLAG_SET_SEED_ITEMS);
+    FlagSet(FLAG_SET_SEED_TRAINERS);
+    FlagSet(FLAG_SET_SEED_BOSSES);
+    FlagSet(FLAG_SET_SEED_WILDMONS);
+    
+    // Basic settings
+    FlagSet(FLAG_ROGUE_EXP_ALL);
+    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
+    FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
+    FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
+    FlagClear(FLAG_ROGUE_HARD_TRAINERS);
+    FlagClear(FLAG_ROGUE_EASY_ITEMS);
+    FlagClear(FLAG_ROGUE_HARD_ITEMS);
+    FlagClear(FLAG_ROGUE_FORCE_BASIC_BAG);
+
+    // Expansion Room settings
+    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
+
+    FlagSet(FLAG_ROGUE_HOENN_ROUTES);
+    FlagSet(FLAG_ROGUE_HOENN_BOSSES);
+
+    FlagSet(FLAG_ROGUE_KANTO_ROUTES);
+    FlagSet(FLAG_ROGUE_JOHTO_ROUTES);
+
+    FlagClear(FLAG_ROGUE_KANTO_BOSSES);
+    FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
+}
+
 void Rogue_OnNewGame(void)
 {
     SetMoney(&gSaveBlock1Ptr->money, 0);
@@ -1416,25 +1463,11 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_EXPANSION_ACTIVE);
 #endif
 
-    // Seed settings
-    FlagClear(FLAG_SET_SEED_ENABLED);
-    FlagSet(FLAG_SET_SEED_ITEMS);
-    FlagSet(FLAG_SET_SEED_TRAINERS);
-    FlagSet(FLAG_SET_SEED_BOSSES);
-    FlagSet(FLAG_SET_SEED_WILDMONS);
-    
-    // Run settings
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
-    FlagSet(FLAG_ROGUE_EXP_ALL);
-    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
-    FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
-    FlagClear(FLAG_ROGUE_CAN_OVERLVL);
-    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
-    FlagClear(FLAG_ROGUE_HARD_TRAINERS);
-    FlagClear(FLAG_ROGUE_EASY_ITEMS);
-    FlagClear(FLAG_ROGUE_HARD_ITEMS);
+    VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
-    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+    Rogue_ResetConfigHubSettings();
+
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -1877,6 +1910,8 @@ static void BeginRogueRun(void)
 {
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
+    Rogue_PreActivateDesiredCampaign();
+
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     if(FlagGet(FLAG_SET_SEED_ENABLED))
@@ -1994,6 +2029,8 @@ static void BeginRogueRun(void)
     {
         FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
     }
+
+    Rogue_PostActivateDesiredCampaign();
 
     QuestNotify_BeginAdventure();
 }

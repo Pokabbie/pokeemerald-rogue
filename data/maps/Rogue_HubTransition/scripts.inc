@@ -18,6 +18,10 @@ Rogue_HubTransition_OnEnter::
 	goto_if_set FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES, Rogue_HubTransition_OnEnter_2
 	goto_if_set FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES, Rogue_HubTransition_OnEnter_3
 Rogue_HubTransition_OnEnter_1:
+	specialvar VAR_RESULT, Rogue_GetActiveCampaign
+	switch VAR_RESULT
+	case ROGUE_CAMPAIGN_LOW_BST, Rogue_HubTransition_OnEnter_8
+Rogue_HubTransition_OnEnter_6:
 	release
 	setvar VAR_TEMP_1, 1
 	end
@@ -29,6 +33,10 @@ Rogue_HubTransition_OnEnter_2:
 Rogue_HubTransition_OnEnter_3:
 	msgbox Rogue_HubTransition_OnEnter_Text_1
 	goto Rogue_HubTransition_OnEnter_1
+
+Rogue_HubTransition_OnEnter_8:
+	msgbox Rogue_HubTransition_OnEnter_Text_2
+	goto Rogue_HubTransition_OnEnter_6
 
 
 Rogue_HubTransition_OnLoad::
@@ -83,6 +91,10 @@ Rogue_HubTransition_OnEnter_Text_0:
 
 Rogue_HubTransition_OnEnter_Text_1:
 	.string "Basic Legendary clause activated...$"
+
+Rogue_HubTransition_OnEnter_Text_2:
+	.string "BST Cup Campaign Active!\p"
+	.string "(Aim for the lowest score)$"
 
 Rogue_HubTransition_RandomMan_Text_0:
 	.string "WAHEY!\p"

@@ -27,6 +27,13 @@ script Rogue_HubTransition_OnEnter
         msgbox(format("Basic Legendary clause activated..."))
     }
 
+    specialvar(VAR_RESULT, Rogue_GetActiveCampaign)
+    switch(var(VAR_RESULT))
+    {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            msgbox(format("BST Cup Campaign Active!\p(Aim for the lowest score)"))
+    }
+
     release
     setvar(VAR_TEMP_1, 1)
     end
