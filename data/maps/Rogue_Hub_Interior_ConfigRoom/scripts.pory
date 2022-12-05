@@ -72,7 +72,7 @@ script Rogue_ConfigRoom_TalkAssistantInternal
         if(var(VAR_RESULT) == YES)
         {
             msgbox(format("ASSISTANT: Please select the SEED phrases"), MSGBOX_DEFAULT)
-            setvar(VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE)
+            setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_SEED)
             call(Common_ShowEasyChatScreen)
 
             if(var(VAR_RESULT) == TRUE)
@@ -101,6 +101,91 @@ script Rogue_ConfigRoom_TalkAssistantInternal
             }
         }
     }
+}
+
+script Rogue_ConfigRoom_Campaign_BufferCampaignName
+{
+    switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
+    {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            bufferstring(STR_VAR_1, "BST CUP")
+
+        default:
+            bufferstring(STR_VAR_1, "???")
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_CampaignDescription
+{
+    switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
+    {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Single Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, TM TOXIC is banned for this Campaign."))
+
+        default:
+            msgbox(format("???"))
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_Choice
+{
+    message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            msgbox(format("Good luck, kid!"), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            msgbox(format("When you take part in a Campaign, I'll change the settings in this here Config Lab.\pI may also swap out your POKéMON and change some of the items in your bag too!\pWhen on a Campaign, you'll be given a specific task to try and complete."), MSGBOX_DEFAULT)
+            call(Rogue_ConfigRoom_Campaign_CampaignDescription)
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start and Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+            call(Rogue_ConfigRoom_Campaign_Choice)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            msgbox(format("You let me know, if you wanna have a go of it."), MSGBOX_DEFAULT)
+            setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
+    }
+}
+
+script Rogue_ConfigRoom_Campaign
+{
+    lock
+
+    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+    {
+        msgbox(format("...\pWhat was that?"))
+
+        setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
+        call(Common_ShowEasyChatScreen)
+        
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+        {
+            faceplayer
+            call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+            msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
+            call(Rogue_ConfigRoom_Campaign_Choice)
+        }
+        else
+        {
+            msgbox(format("... ... ...\pNah that ain't it..."), MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        faceplayer
+        call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+        msgbox(format("Well if it isn't the kid!"), MSGBOX_DEFAULT)
+
+        call(Rogue_ConfigRoom_Campaign_Choice)
+    }
+
+    release
 }
 
 script Rogue_ConfigRoom_WalkAboveAssistant

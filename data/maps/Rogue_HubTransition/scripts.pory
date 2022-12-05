@@ -28,10 +28,17 @@ script Rogue_HubTransition_OnEnter
     }
 
     specialvar(VAR_RESULT, Rogue_GetActiveCampaign)
-    switch(var(VAR_RESULT))
+    if(var(VAR_RESULT) != ROGUE_CAMPAIGN_NONE)
     {
-        case ROGUE_CAMPAIGN_LOW_BST:
-            msgbox(format("BST Cup Campaign Active!\p(Aim for the lowest score)"))
+        switch(var(VAR_RESULT))
+        {
+            case ROGUE_CAMPAIGN_LOW_BST:
+                msgbox(format("BST CUP Campaign Active!\p(Aim for the lowest score)"))
+            
+            default:
+                call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+                msgbox(format("{STR_VAR_1} Campaign Active!\p(Aim for the highest score)"))
+        }
     }
 
     release

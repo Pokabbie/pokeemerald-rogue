@@ -4,6 +4,8 @@
 u16 Rogue_GetActiveCampaign(void);
 bool8 Rogue_IsCampaignActive(void);
 
+bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1);
+
 u16 Rogue_PreActivateDesiredCampaign(void);
 u16 Rogue_PostActivateDesiredCampaign(void);
 

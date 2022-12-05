@@ -197,8 +197,11 @@ RogueHub_OnMapLoad_38:
 	goto_if_eq RogueHub_OnMapLoad_43
 	clearflag FLAG_ROGUE_TRAINER9
 RogueHub_OnMapLoad_42:
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_OnMapLoad_47
+	setflag FLAG_ROGUE_TRAINER10
+RogueHub_OnMapLoad_46:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_46
+	goto_if_gt RogueHub_OnMapLoad_50
 	return
 
 RogueHub_OnMapLoad_2:
@@ -265,7 +268,11 @@ RogueHub_OnMapLoad_43:
 	setflag FLAG_ROGUE_TRAINER9
 	goto RogueHub_OnMapLoad_42
 
-RogueHub_OnMapLoad_46:
+RogueHub_OnMapLoad_47:
+	clearflag FLAG_ROGUE_TRAINER11
+	goto RogueHub_OnMapLoad_46
+
+RogueHub_OnMapLoad_50:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 

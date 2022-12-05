@@ -76,6 +76,18 @@ bool8 Rogue_IsCampaignActive(void)
     return Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_NONE;
 }
 
+bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
+{
+    if(word0 == 5160 && word1 == 6705) // SMALL HOLIDAY
+    {
+        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_LOW_BST);
+        return TRUE;
+    }
+
+    VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
+    return FALSE;
+}
+
 u16 Rogue_PreActivateDesiredCampaign(void)
 {
     switch (Rogue_GetActiveCampaign())
