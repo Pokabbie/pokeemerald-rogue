@@ -268,7 +268,7 @@ Rogue_Shop_RarePlates::
 	faceplayer
 	message Rogue_Shop_RarePlates_Text_0
 	waitmessage
-	rogue_dynamicpokemart ROGUE_SHOP_RARE_PLATES
+	rogue_dynamicpokemart ROGUE_SHOP_QUEST_REWARDS
 	msgbox Rogue_Shop_Balls_Text_1
 	release
 	return

@@ -5867,18 +5867,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
                 if(!IsQuestCollected(QUEST_ZMove))
                     RogueQuery_ItemsExcludeRange(ITEM_NORMALIUM_Z, ITEM_ULTRANECROZIUM_Z);
-
-                if(!IsQuestCollected(QUEST_HoennMode))
-                {
-                    RogueQuery_Exclude(ITEM_RED_ORB);
-                    RogueQuery_Exclude(ITEM_BLUE_ORB);
-                }
-
-                if(!IsQuestCollected(QUEST_GalarMode))
-                {
-                    RogueQuery_Exclude(ITEM_RUSTED_SWORD);
-                    RogueQuery_Exclude(ITEM_RUSTED_SHIELD);
-                }
 #endif
             }
 
@@ -5888,116 +5876,11 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 *minSalePrice = 3000;
             break;
 
-        case ROGUE_SHOP_RARE_PLATES:
+        case ROGUE_SHOP_QUEST_REWARDS:
             RogueQuery_ExcludeAll();
-            
-#ifdef ROGUE_EXPANSION
-            if(IsQuestCollected(QUEST_FIRE_Champion))
-            {
-                RogueQuery_Include(ITEM_FLAME_PLATE);
-                RogueQuery_Include(ITEM_FIRE_MEMORY);
-                RogueQuery_Include(ITEM_BURN_DRIVE);
-            }
 
-            if(IsQuestCollected(QUEST_WATER_Champion))
-            {
-                RogueQuery_Include(ITEM_SPLASH_PLATE);
-                RogueQuery_Include(ITEM_WATER_MEMORY);
-                RogueQuery_Include(ITEM_DOUSE_DRIVE);
-            }
+            // Will include below
 
-            if(IsQuestCollected(QUEST_ELECTRIC_Champion))
-            {
-                RogueQuery_Include(ITEM_ZAP_PLATE);
-                RogueQuery_Include(ITEM_ELECTRIC_MEMORY);
-                RogueQuery_Include(ITEM_SHOCK_DRIVE);
-            }
-
-            if(IsQuestCollected(QUEST_GRASS_Champion))
-            {
-                RogueQuery_Include(ITEM_MEADOW_PLATE);
-                RogueQuery_Include(ITEM_GRASS_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_ICE_Champion))
-            {
-                RogueQuery_Include(ITEM_ICICLE_PLATE);
-                RogueQuery_Include(ITEM_ICE_MEMORY);
-                RogueQuery_Include(ITEM_CHILL_DRIVE);
-            }
-
-            if(IsQuestCollected(QUEST_FIGHTING_Champion))
-            {
-                RogueQuery_Include(ITEM_FIST_PLATE);
-                RogueQuery_Include(ITEM_FIGHTING_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_POISON_Champion))
-            {
-                RogueQuery_Include(ITEM_TOXIC_PLATE);
-                RogueQuery_Include(ITEM_POISON_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_GROUND_Champion))
-            {
-                RogueQuery_Include(ITEM_EARTH_PLATE);
-                RogueQuery_Include(ITEM_GROUND_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_FLYING_Champion))
-            {
-                RogueQuery_Include(ITEM_SKY_PLATE);
-                RogueQuery_Include(ITEM_FLYING_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_PSYCHIC_Champion))
-            {
-                RogueQuery_Include(ITEM_MIND_PLATE);
-                RogueQuery_Include(ITEM_PSYCHIC_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_BUG_Champion))
-            {
-                RogueQuery_Include(ITEM_INSECT_PLATE);
-                RogueQuery_Include(ITEM_BUG_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_ROCK_Champion))
-            {
-                RogueQuery_Include(ITEM_STONE_PLATE);
-                RogueQuery_Include(ITEM_ROCK_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_GHOST_Champion))
-            {
-                RogueQuery_Include(ITEM_SPOOKY_PLATE);
-                RogueQuery_Include(ITEM_GHOST_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_DRAGON_Champion))
-            {
-                RogueQuery_Include(ITEM_DRACO_PLATE);
-                RogueQuery_Include(ITEM_DRAGON_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_DARK_Champion))
-            {
-                RogueQuery_Include(ITEM_DREAD_PLATE);
-                RogueQuery_Include(ITEM_DARK_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_STEEL_Champion))
-            {
-                RogueQuery_Include(ITEM_IRON_PLATE);
-                RogueQuery_Include(ITEM_STEEL_MEMORY);
-            }
-
-            if(IsQuestCollected(QUEST_FAIRY_Champion))
-            {
-                RogueQuery_Include(ITEM_PIXIE_PLATE);
-                RogueQuery_Include(ITEM_FAIRY_MEMORY);
-            }
-#endif
             break;
 
         case ROGUE_SHOP_BERRIES:
@@ -6006,7 +5889,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                 u16 i, j;
                 RogueQuery_ExcludeAll();
 
-                for(i = 0; i < QUEST_CAPACITY; ++i)
+                for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
                 {
                     if(IsQuestCollected(i))
                     {
@@ -6049,6 +5932,31 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             *minSalePrice = 0;
             break;
     };
+
+    // Apply shop reward items (Only applicable in hb)
+    if(!Rogue_IsRunActive())
+    {
+        u16 i, j;
+        u16 itemId;
+
+        for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
+        {
+            for(j = 0; j < QUEST_MAX_ITEM_SHOP_REWARD_COUNT; ++j)
+            {
+                itemId = gRogueQuests[i].unlockedShopRewards[j];
+                if(itemId == ITEM_NONE)
+                    break;
+
+                // Always put reward items in the reward shop (Not allowed in other shops)
+                if(itemCategory == ROGUE_SHOP_QUEST_REWARDS && IsQuestCollected(i))
+                    RogueQuery_Include(itemId);
+                else
+                    RogueQuery_Exclude(itemId);
+            }
+        }
+
+        *minSalePrice = 2000;
+    }
 
     RogueQuery_CollapseItemBuffer();
 
