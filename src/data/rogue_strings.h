@@ -64,9 +64,9 @@ const u8 gText_TrainerName_Clair[] = _("CLAIR");
 const u8 gText_TrainerName_Will[] = _("WILL");
 const u8 gText_TrainerName_Karen[] = _("KAREN");
 
-const u8 gText_TrainerName_Kate[] = _("Kate");
-const u8 gText_TrainerName_Raven[] = _("Raven");
-const u8 gText_TrainerName_Erma[] = _("Erma");
+const u8 gText_TrainerName_Kate[] = _("KATE");
+const u8 gText_TrainerName_Raven[] = _("RAVEN");
+const u8 gText_TrainerName_Erma[] = _("ERMA");
 const u8 gText_TrainerName_Tails[] = _("TMK4");
 const u8 gText_TrainerName_Pokabbie[] = _("POKABBIE'S DITTO");
 
