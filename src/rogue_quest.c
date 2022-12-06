@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/game_stat.h"
 #include "constants/items.h"
 
 #include "battle.h"
@@ -863,6 +864,11 @@ void QuestNotify_BeginAdventure(void)
     CheckCurseQuests();
 }
 
+static void OnStartBattle(void)
+{
+    UpdateMonoQuests();
+}
+
 static void OnEndBattle(void)
 {
     struct RogueQuestState state;
@@ -911,8 +917,6 @@ static void OnEndBattle(void)
             }
         }
     }
-
-    UpdateMonoQuests();
 }
 
 void QuestNotify_EndAdventure(void)
@@ -1203,9 +1207,6 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                 break;
         }
 
-        // Could've traded by event so update mono quests
-        UpdateMonoQuests();
-
         if(gRogueAdvPath.currentRoomType != ADVPATH_ROOM_RESTSTOP)
         {
             UpdateChaosChampion(FALSE);
@@ -1306,4 +1307,14 @@ void QuestNotify_OnZMoveUsed(u16 move)
             TryMarkQuestAsComplete(QUEST_ZMove);
     }
 #endif
+}
+
+void QuestNotify_StatIncrement(u8 statIndex)
+{
+    switch (statIndex)
+    {
+    case GAME_STAT_TOTAL_BATTLES:
+        OnStartBattle();
+        break;
+    } 
 }

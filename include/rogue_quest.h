@@ -45,4 +45,6 @@ void QuestNotify_OnUseBattleItem(u16 itemId);
 void QuestNotify_OnMegaEvolve(u16 species);
 void QuestNotify_OnZMoveUsed(u16 move);
 
+void QuestNotify_StatIncrement(u8 statIndex);
+
 #endif

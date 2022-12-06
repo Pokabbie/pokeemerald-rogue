@@ -907,9 +907,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("NORMAL Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "NORMAL POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with NORMAL\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -928,9 +928,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("FIGHT Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "FIGHTING POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with FIGHTING\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -949,9 +949,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("FLYING Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "FLYING POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with FLYING\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -970,9 +970,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("POISON Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "POISON POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with POISON\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -991,9 +991,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("GROUND Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "GROUND POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with GROUND\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1012,9 +1012,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("ROCK Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "ROCK POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with ROCK\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1033,9 +1033,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("BUG Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "BUG POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with BUG\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1053,9 +1053,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("GHOST Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "GHOST POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with GHOST\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1074,9 +1074,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("STEEL Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "STEEL POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with STEEL\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1095,9 +1095,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("FIRE Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "FIRE POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with FIRE\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1116,9 +1116,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("WATER Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "WATER POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with WATER\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1137,9 +1137,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("GRASS Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "GRASS POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with GRASS\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1158,9 +1158,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("ELECTR Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "ELECTRIC POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with ELECTRIC\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1179,9 +1179,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("PSYCHC Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "PSYCHIC POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with PSYCHIC\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1200,9 +1200,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("ICE Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "ICE POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with ICE\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1221,9 +1221,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("DRAGON Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "DRAGON POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with DRAGON\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1242,9 +1242,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("DARK Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "DARK POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with DARK\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
@@ -1264,9 +1264,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("FAIRY Master"),
         .sortIndex = 255,
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever catching and using\n"
-                    "FAIRY POKéMON."
+                    "Win a full Run, only ever\n"
+                    "entering battle with FAIRY\n"
+                    "POKéMON in your party."
                 ),
         .flags = QUEST_FLAGS_NONE,
         .rewards = { 
