@@ -380,7 +380,7 @@ script Rogue_StartAdventureCommon
         setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
         specialvar(VAR_RESULT, GetLeadMonLevel)
 
-        if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE)
+        if(flag(FLAG_SET_SEED_ENABLED) == FALSE && flag(FLAG_ROGUE_GAUNTLET_MODE) == FALSE && var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
         {
             if(var(VAR_RESULT) > 85)
             {

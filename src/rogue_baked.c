@@ -894,7 +894,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
             break;
 
         case TRAINER_ROGUE_BOSS_RAVEN:
-            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_F;
+            outTrainer->trainerPic = FACILITY_CLASS_PKMN_BREEDER_F;
             break;
 
         case TRAINER_ROGUE_BOSS_ERMA:

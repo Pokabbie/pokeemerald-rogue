@@ -91,6 +91,11 @@ struct RogueQuestData
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
 
 
+struct RogueCampaignData_LowBst
+{
+    u16 scoreSpecies;
+};
+
 struct RogueRunData
 {
     u16 currentRoomIdx;
@@ -107,6 +112,10 @@ struct RogueRunData
     u16 miniBossHistoryBuffer[3];
     u16 bossHistoryBuffer[15];
     u16 wildEncounterHistoryBuffer[3];
+    union
+    {
+        struct RogueCampaignData_LowBst lowBst;
+    } campaignData;
 };
 
 struct RogueHubData

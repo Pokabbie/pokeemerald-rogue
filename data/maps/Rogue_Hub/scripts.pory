@@ -325,6 +325,15 @@ script RogueHub_OnMapLoad
         clearflag(FLAG_ROGUE_TRAINER9)
     }
 
+    // Campaign Man
+    if(flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        clearflag(FLAG_ROGUE_TRAINER11)
+    }
+    else
+    {
+        setflag(FLAG_ROGUE_TRAINER10)
+    }
 
     // Intro Scott
     if(var(VAR_ROGUE_INTRO_STATE) > 3)

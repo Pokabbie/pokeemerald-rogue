@@ -23,6 +23,7 @@
 
 #include "rogue_query.h"
 #include "rogue_baked.h"
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 
 #define QUERY_BUFFER_COUNT 128
@@ -1145,7 +1146,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     {
         if(GetQueryState(itemId))
         {
-            if(!IsGenEnabled(ItemToGen(itemId)))
+            if(!IsGenEnabled(ItemToGen(itemId)) || Rogue_CheckCampaignBansItem(itemId))
             {
                 SetQueryState(itemId, FALSE);
             }

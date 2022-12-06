@@ -34,6 +34,7 @@
 #include "constants/rgb.h"
 #include "constants/rogue.h"
 
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 
 static EWRAM_DATA struct EasyChatScreen *sEasyChatScreen = NULL;
@@ -514,7 +515,7 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .confirmText2 = gText_IsAsShownOkay,
     },
     {
-        .type = EASY_CHAT_TYPE_TRENDY_PHRASE,
+        .type = EASY_CHAT_TYPE_ROGUE_SEED,
         .numColumns = 2,
         .numRows = 1,
         .frameId = FRAMEID_COMBINE_TWO_WORDS,
@@ -668,6 +669,18 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .instructionsText2 = gText_AndFillOutTheQuestionnaire,
         .confirmText1 = gText_TheAnswer,
         .confirmText2 = gText_IsAsShownOkay,
+    },
+    {
+        .type = EASY_CHAT_TYPE_ROGUE_CAMPAIGN,
+        .numColumns = 2,
+        .numRows = 1,
+        .frameId = FRAMEID_COMBINE_TWO_WORDS,
+        .fourFooterOptions = FALSE,
+        .titleText = gText_CampaignPhrase,
+        .instructionsText1 = gText_CampaignWhatToSay,
+        .instructionsText2 = gText_CampaignWhatToSay2,
+        .confirmText1 = gText_CampaignSayingOk,
+        .confirmText2 = gText_CampaignSayingOk1,
     },
 };
 
@@ -1485,10 +1498,15 @@ void ShowEasyChatScreen(void)
         words = gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].dummy.words;
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_MALE;
         break;
-    case EASY_CHAT_TYPE_TRENDY_PHRASE:
+    case EASY_CHAT_TYPE_ROGUE_SEED:
         words = (u16 *)gStringVar3;
         words[0] = gSaveBlock1Ptr->dewfordTrends[0].words[0];
         words[1] = gSaveBlock1Ptr->dewfordTrends[0].words[1];
+        break;
+    case EASY_CHAT_TYPE_ROGUE_CAMPAIGN:
+        words = (u16 *)gStringVar3;
+        words[0] = gSaveBlock1Ptr->dewfordTrends[1].words[0];
+        words[1] = gSaveBlock1Ptr->dewfordTrends[1].words[1];
         break;
     case EASY_CHAT_TYPE_GABBY_AND_TY:
         words = gSaveBlock1Ptr->gabbyAndTyData.quote;
@@ -2129,8 +2147,9 @@ static u16 TryConfirmWords(void)
         sEasyChatScreen->inputState = INPUTSTATE_CONFIRM_WORDS_YES_NO;
         return ECFUNC_PROMPT_CONFIRM;
     }
-    else if (sEasyChatScreen->type == EASY_CHAT_TYPE_TRENDY_PHRASE
-          || sEasyChatScreen->type == EASY_CHAT_TYPE_GOOD_SAYING)
+    else if (sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_SEED
+          || sEasyChatScreen->type == EASY_CHAT_TYPE_GOOD_SAYING
+          || sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
     {
         if (!IsCurrentPhraseFull())
         {
@@ -2334,7 +2353,7 @@ static bool32 GetEasyChatCompleted(void)
     }
     else
     {
-        if(sEasyChatScreen->type == EASY_CHAT_TYPE_TRENDY_PHRASE)
+        if(sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_SEED || sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
         {
             // RogueNote: Always accept phrase change, can be used to reset SEED quickly
             return TRUE;
@@ -2973,9 +2992,19 @@ static void SetSpecialEasyChatResult(void)
         else
             gSpecialVar_0x8004 = 0;
         break;
-    case EASY_CHAT_TYPE_TRENDY_PHRASE:
+    case EASY_CHAT_TYPE_ROGUE_SEED:
         BufferCurrentPhraseToStringVar2();
-        gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        //gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        gSaveBlock1Ptr->dewfordTrends[0].words[0] = sEasyChatScreen->currentPhrase[0];
+        gSaveBlock1Ptr->dewfordTrends[0].words[1] = sEasyChatScreen->currentPhrase[1];
+        gSpecialVar_0x8004 = TRUE;
+        break;
+    case EASY_CHAT_TYPE_ROGUE_CAMPAIGN:
+        BufferCurrentPhraseToStringVar2();
+        //gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        gSaveBlock1Ptr->dewfordTrends[1].words[0] = sEasyChatScreen->currentPhrase[0];
+        gSaveBlock1Ptr->dewfordTrends[1].words[1] = sEasyChatScreen->currentPhrase[1];
+        gSpecialVar_0x8004 = Rogue_TryUpdateDesiredCampaign(gSaveBlock1Ptr->dewfordTrends[1].words[0], gSaveBlock1Ptr->dewfordTrends[1].words[1]);
         break;
     case EASY_CHAT_TYPE_GOOD_SAYING:
         gSpecialVar_0x8004 = DidPlayerInputABerryMasterWifePhrase();

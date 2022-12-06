@@ -12,7 +12,7 @@
 // Override these when debugging
 //
 #define ROGUE_DEBUG
-#define ROGUE_DEBUG_PAUSE_PANEL
+//#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
 #define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
@@ -314,6 +314,12 @@
     callback(3, 3) \
     callback(3, 4) \
     callback(3, 5)
+
+// Rogue Campaigns
+//
+#define ROGUE_CAMPAIGN_NONE         0
+#define ROGUE_CAMPAIGN_LOW_BST      1
+#define ROGUE_CAMPAIGN_CLASSIC      2
 
 #include "rogue_quests.h"
 

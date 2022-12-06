@@ -5080,6 +5080,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Gen8_Mon/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Gen8_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_WATER_FRONT0",
+      "name": "Rogue_Route_Johto_WaterFront0_Layout",
+      "width": 50,
+      "height": 120,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_WaterFront0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_WaterFront0/map.bin"
     }
   ]
 }

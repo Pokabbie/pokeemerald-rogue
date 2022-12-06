@@ -15,6 +15,7 @@
 #include "rogue_controller.h"
 
 #include "rogue_adventurepaths.h"
+#include "rogue_campaign.h"
 
 // Bridge refers to horizontal paths
 // Ladder refers to vertical
@@ -185,6 +186,12 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
             *breakChance = 2;
             *extraSplitChance = 0;
             break;
+    }
+
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
+    {
+        *breakChance = 0;
+        *extraSplitChance = 0;
     }
 
 #ifdef ROGUE_DEBUG
@@ -379,7 +386,6 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
             weights[ADVPATH_ROOM_WILD_DEN] = 250;
             weights[ADVPATH_ROOM_GAMESHOW] = 70;
             weights[ADVPATH_ROOM_GRAVEYARD] = 70;
-            weights[ADVPATH_ROOM_LAB] = 0;
         }
     }
     else
@@ -577,6 +583,15 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         }
     }
 
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
+    {
+        weights[ADVPATH_ROOM_RESTSTOP] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+
     // We have limited number of certain encounters
     if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
     {
@@ -655,7 +670,7 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
         //case ADVPATH_ROOM_BOSS:
 
         case ADVPATH_ROOM_RESTSTOP:
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
             {
                 // Always full rest stop
                 nodeInfo->roomParams.roomIdx = 0; // Heals

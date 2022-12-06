@@ -70,6 +70,7 @@
 #include "constants/heal_locations.h"
 
 #include "rogue_automation.h"
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 
 struct CableClubPlayer
@@ -452,6 +453,8 @@ void IncrementGameStat(u8 index)
             statVal++;
         else
             statVal = 0xFFFFFF;
+
+        Rogue_CampaignNotify_StatIncrement(index);
 
         SetGameStat(index, statVal);
     }

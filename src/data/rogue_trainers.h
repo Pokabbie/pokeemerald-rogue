@@ -578,6 +578,62 @@ static const u16 sQuerySpecies_Tails[] =
 #endif
 };
 
+static const u16 sQuerySpecies_Raven[] =
+{
+    SPECIES_NIDOKING,
+    SPECIES_VILEPLUME,
+    SPECIES_RAICHU,
+    SPECIES_DRAGONITE,
+    SPECIES_FLAREON,
+    SPECIES_VAPOREON,
+    SPECIES_ARTICUNO,
+    SPECIES_RAPIDASH,
+
+    SPECIES_FERALIGATR,
+    SPECIES_AMPHAROS,
+    SPECIES_MISDREAVUS,
+    SPECIES_BELLOSSOM,
+    SPECIES_HO_OH,
+
+    SPECIES_BLAZIKEN,
+    SPECIES_MAWILE,
+    SPECIES_ALTARIA,
+    SPECIES_BANETTE,
+    SPECIES_JIRACHI,
+
+#ifdef ROGUE_EXPANSION
+    SPECIES_PACHIRISU,
+    SPECIES_MISMAGIUS,
+    SPECIES_HONCHKROW,
+    SPECIES_VESPIQUEN,
+    SPECIES_EMPOLEON,
+    SPECIES_MANAPHY,
+
+    SPECIES_WHIMSICOTT,
+    SPECIES_SCOLIPEDE,
+    SPECIES_KROOKODILE,
+    SPECIES_VOLCARONA,
+    SPECIES_BRAVIARY,
+    SPECIES_CINCCINO,
+
+    SPECIES_GOODRA,
+    SPECIES_PANGORO,
+    SPECIES_MEOWSTIC,
+    SPECIES_CLAWITZER,
+    SPECIES_GOURGEIST,
+    SPECIES_DIANCIE,
+
+    SPECIES_PRIMARINA,
+    SPECIES_RAICHU_ALOLAN,
+    SPECIES_BEWEAR,
+    SPECIES_TAPU_LELE,
+
+    SPECIES_DRACOZOLT,
+    SPECIES_RAPIDASH_GALARIAN,
+    SPECIES_ALCREMIE
+#endif
+};
+
 static const struct RogueTrainerEncounter sRouteBossEncounters[] = 
 {
     // Hoenn Gyms
@@ -1183,11 +1239,18 @@ static const struct RogueTrainerEncounter sRouteBossEncounters[] =
         .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
     },
     {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
+        .gfxId = OBJ_EVENT_GFX_WOMAN_2,
         .trainerId = TRAINER_ROGUE_BOSS_RAVEN,
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_NONE },
+#ifdef ROGUE_EXPANSION
+        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_FAIRY },
+#else
+        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_PSYCHIC }, // Give fog but don't do anything with it
+#endif
         .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE,
+        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_WEATHER,
+        .querySpecies = sQuerySpecies_Raven,
+        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Raven),
+        .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
     },
     {
         .gfxId = OBJ_EVENT_GFX_GLITCH_ERMA,

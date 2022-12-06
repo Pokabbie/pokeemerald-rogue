@@ -35,6 +35,8 @@
 #include "confetti_util.h"
 #include "constants/rgb.h"
 
+#include "rogue_campaign.h"
+
 #define HALL_OF_FAME_MAX_TEAMS 30
 #define TAG_CONFETTI 1001
 
@@ -140,6 +142,16 @@ static const struct WindowTemplate sHof_WindowTemplate = {
     .tilemapTop = 2,
     .width = 14,
     .height = 6,
+    .paletteNum = 14,
+    .baseBlock = 1
+};
+
+static const struct WindowTemplate sHof_WindowTemplate_CampaignRun = {
+    .bg = 0,
+    .tilemapLeft = 2,
+    .tilemapTop = 2,
+    .width = 14,
+    .height = 10,
     .paletteNum = 14,
     .baseBlock = 1
 };
@@ -707,7 +719,12 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
 
     gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 1, 120, 72, 6, TAG_NONE);
     //gTasks[taskId].tPlayerSpriteID = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 120, 60, 0, &gDecompressionBuffer[0x0]);
-    AddWindow(&sHof_WindowTemplate);
+    
+    if(Rogue_IsActiveCampaignScored())
+        AddWindow(&sHof_WindowTemplate_CampaignRun);
+    else
+        AddWindow(&sHof_WindowTemplate);
+
     LoadWindowGfx(1, gSaveBlock2Ptr->optionsWindowFrameType, 0x21D, 0xD0);
     LoadPalette(GetTextWindowPalette(1), 0xE0, 0x20);
     gTasks[taskId].tFrameCount = 120;
@@ -1243,6 +1260,31 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
 
     width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
     AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x21, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
+
+    if(Rogue_IsActiveCampaignScored())
+    {
+        u16 runScore = Rogue_GetCampaignScore();
+        u16 runId = Rogue_GetCampaignRunId();
+
+        AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 0x31, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunScore);
+
+        ConvertIntToDecimalStringN(text, runScore, STR_CONV_MODE_RIGHT_ALIGN, 6);
+
+        width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
+        AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x31, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
+
+
+        AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 0x41, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunNumber);
+        
+        text[0] = (runId % 100000) / 10000 + CHAR_0;
+        text[1] = (runId % 10000) / 1000 + CHAR_0;
+        text[2] = (runId % 1000) / 100 + CHAR_0;
+        text[3] = (runId % 100) / 10 + CHAR_0;
+        text[4] = (runId % 10) / 1 + CHAR_0;
+        text[5] = EOS;
+        width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
+        AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x41, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
+    }
 
     CopyWindowToVram(1, COPYWIN_FULL);
 }

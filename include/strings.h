@@ -270,6 +270,7 @@ extern const u8 gText_Peak[];
 extern const u8 gText_SafariBallStock[];
 extern const u8 gText_BattlePyramidFloor[];
 extern const u8 gText_RogueRoomProgress[];
+extern const u8 gText_RogueCampaignProgress[];
 extern const u8 gText_RogueHourMinute[];
 
 extern const u8 gText_MenuOptionPokedex[];
@@ -2125,6 +2126,8 @@ extern const u8 gText_Level[];
 extern const u8 gText_IDNumber[];
 extern const u8 gText_Name[];
 extern const u8 gText_Time[];
+extern const u8 gText_RunScore[];
+extern const u8 gText_RunNumber[];
 
 // daycare
 extern const u8 gText_MaleSymbol4[];
@@ -2678,10 +2681,15 @@ extern const u8 gText_TheBardsSong2[];
 extern const u8 gText_FindWordsThatDescribeYour[];
 extern const u8 gText_FeelingsRightNow[];
 extern const u8 gText_WhatsHipAndHappening[];
+extern const u8 gText_CampaignPhrase[];
 extern const u8 gText_CombineTwoWordsOrPhrases[];
 extern const u8 gText_AndMakeATrendySaying[];
+extern const u8 gText_CampaignWhatToSay[];
+extern const u8 gText_CampaignWhatToSay2[];
 extern const u8 gText_TheTrendySaying[];
 extern const u8 gText_AfterYouHaveReadTheQuiz[];
+extern const u8 gText_CampaignSayingOk[];
+extern const u8 gText_CampaignSayingOk1[];
 extern const u8 gText_QuestionPressTheAButton[];
 extern const u8 gText_TheQuizAnswerIs[];
 extern const u8 gText_OutOfTheListedChoices[];

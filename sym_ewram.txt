@@ -36,6 +36,7 @@
 	.include "src/overworld.o"
 	.include "src/fieldmap.o"
 	.include "src/rogue_automation.o"
+	.include "src/rogue_campaign.o"
 	.include "src/rogue_controller.o"
 	.include "src/rogue_query.o"
 	.include "src/rogue_quest.o"

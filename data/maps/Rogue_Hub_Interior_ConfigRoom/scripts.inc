@@ -63,7 +63,7 @@ Rogue_ConfigRoom_TalkAssistantInternal_4:
 
 Rogue_ConfigRoom_TalkAssistantInternal_6:
 	msgbox Rogue_ConfigRoom_TalkAssistantInternal_Text_3, MSGBOX_DEFAULT
-	setvar VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE
+	setvar VAR_0x8004, EASY_CHAT_TYPE_ROGUE_SEED
 	call Common_ShowEasyChatScreen
 	compare VAR_RESULT, TRUE
 	goto_if_eq Rogue_ConfigRoom_TalkAssistantInternal_11
@@ -93,6 +93,97 @@ Rogue_ConfigRoom_TalkAssistantInternal_16:
 	applymovement 1, ConfigRoom_LookLeft
 	waitmovement 0
 	return
+
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName::
+	switch VAR_ROGUE_DESIRED_CAMPAIGN
+	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
+	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	return
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0
+	return
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	return
+
+
+Rogue_ConfigRoom_Campaign_CampaignDescription::
+	switch VAR_ROGUE_DESIRED_CAMPAIGN
+	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
+	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
+	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_2:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_3:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1
+	return
+
+
+Rogue_ConfigRoom_Campaign_Choice::
+	message Rogue_ConfigRoom_Campaign_Choice_Text_0
+	waitmessage
+	multichoice 20, 6, MULTI_YESNOINFO, NO
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_Campaign_Choice_2
+	case 2, Rogue_ConfigRoom_Campaign_Choice_3
+	case 1, Rogue_ConfigRoom_Campaign_Choice_4
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_4
+	return
+
+Rogue_ConfigRoom_Campaign_Choice_2:
+	waitse
+	playse SE_PIN
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_Choice_3:
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
+	call Rogue_ConfigRoom_Campaign_CampaignDescription
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_3, MSGBOX_DEFAULT
+	call Rogue_ConfigRoom_Campaign_Choice
+	return
+
+Rogue_ConfigRoom_Campaign_Choice_4:
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_4, MSGBOX_DEFAULT
+	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	return
+
+
+Rogue_ConfigRoom_Campaign::
+	lock
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_eq Rogue_ConfigRoom_Campaign_2
+	faceplayer
+	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	msgbox Rogue_ConfigRoom_Campaign_Text_3, MSGBOX_DEFAULT
+	call Rogue_ConfigRoom_Campaign_Choice
+Rogue_ConfigRoom_Campaign_1:
+	release
+	return
+
+Rogue_ConfigRoom_Campaign_2:
+	msgbox Rogue_ConfigRoom_Campaign_Text_0
+	setvar VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN
+	call Common_ShowEasyChatScreen
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_ne Rogue_ConfigRoom_Campaign_5
+	msgbox Rogue_ConfigRoom_Campaign_Text_2, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Campaign_1
+
+Rogue_ConfigRoom_Campaign_5:
+	faceplayer
+	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	msgbox Rogue_ConfigRoom_Campaign_Text_1, MSGBOX_DEFAULT
+	call Rogue_ConfigRoom_Campaign_Choice
+	goto Rogue_ConfigRoom_Campaign_1
 
 
 Rogue_ConfigRoom_WalkAboveAssistant::
@@ -322,7 +413,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_BufferRegionName_Text_8
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -490,7 +581,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_BufferRegionName_Text_8
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -539,7 +630,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_BufferRegionName_Text_8
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1428,6 +1519,88 @@ Rogue_ConfigRoom_TalkAssistantInternal_Text_5:
 	.string "Speak to me if you ever want to enable\l"
 	.string "SEEDED mode$"
 
+Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0:
+	.string "BST CUP$"
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1:
+	.string "Classic Mode$"
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2:
+	.string "???$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
+	.string "The BST CUP is short for Base Stat\n"
+	.string "Total Cup.\p"
+	.string "The jist of it, is that you want to try\n"
+	.string "and complete a full run using the\l"
+	.string "weakest POKéMON you can find (The\l"
+	.string "POKéMON with the lowest BST).\p"
+	.string "Every POKéMON you have in your party\n"
+	.string "will be considered for the score.\p"
+	.string "For this Campaign, you'll have to enter\n"
+	.string "a Standard Battle Adventure\p"
+	.string "Gauntlet and Rainbow mode ain't\n"
+	.string "allowed!\p"
+	.string "Finally, this campaign will adjust\n"
+	.string "Config Lab settings and TM TOXIC is\l"
+	.string "banned.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
+	.string "Classic Mode makes the Adventures more\n"
+	.string "similar to how they use to be 'back in\l"
+	.string "the 1.0 days'.\p"
+	.string "The main feature is that you no longer\n"
+	.string "get any options for encounter.\p"
+	.string "You'll always have to take a specific\n"
+	.string "path.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and doesn't adjust any of the\l"
+	.string "settings in the Config Lab.$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_0:
+	.string "You wanna give the {STR_VAR_1}\n"
+	.string "Campaign a go?$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_1:
+	.string "Good luck, kid!$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_2:
+	.string "When you take part in a Campaign, I'll\n"
+	.string "change the settings in this here\l"
+	.string "Config Lab.\p"
+	.string "I may also swap out your POKéMON and\n"
+	.string "change some of the items in your bag\l"
+	.string "too!\p"
+	.string "When on a Campaign, you'll be given a\n"
+	.string "specific task to try and complete.$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_3:
+	.string "You'll know if the Campaign is active;\n"
+	.string "it'll be announced to you at the start\l"
+	.string "and Adventure and you'll be able to\l"
+	.string "view your current score in the pause\l"
+	.string "menu.$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_4:
+	.string "You let me know, if you wanna have a go\n"
+	.string "of it.$"
+
+Rogue_ConfigRoom_Campaign_Text_0:
+	.string "...\p"
+	.string "What was that?$"
+
+Rogue_ConfigRoom_Campaign_Text_1:
+	.string "Whoa!\p"
+	.string "That there's the secret phrase for the\n"
+	.string "{STR_VAR_1} Campaign!$"
+
+Rogue_ConfigRoom_Campaign_Text_2:
+	.string "... ... ...\p"
+	.string "Nah that ain't it...$"
+
+Rogue_ConfigRoom_Campaign_Text_3:
+	.string "Well if it isn't the kid!$"
+
 Rogue_ConfigRoom_TalkHiddenEnterance_Text_0:
 	.string "What's this?\p"
 	.string "A hidden switch!\p"
@@ -1516,9 +1689,6 @@ Rogue_ConfigRoom_BufferRegionName_Text_6:
 
 Rogue_ConfigRoom_BufferRegionName_Text_7:
 	.string "GALAR$"
-
-Rogue_ConfigRoom_BufferRegionName_Text_8:
-	.string "???$"
 
 Rogue_ConfigRoom_AdjustWildGens_Regional_Text_0:
 	.string "Which REGION's DEX would you like to\n"

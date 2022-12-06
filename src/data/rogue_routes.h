@@ -143,6 +143,11 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .wildTypeTable = { TYPE_ICE, TYPE_DARK, TYPE_GROUND }
 #endif
     },
+    {
+        .mapFlags = ROUTE_FLAG_JOHTO,
+        .map = ROUTE_MAP(ROGUE_ROUTE_JOHTO_WATER_FRONT0),
+        .wildTypeTable = { TYPE_WATER, TYPE_FLYING, TYPE_GHOST }
+    },
 
     // Fallback
     //
