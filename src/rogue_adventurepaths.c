@@ -460,7 +460,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         {
             weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
             weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 60);
+            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
 
             // These should start trading with each other deeper into the run
             if(gRogueRun.currentDifficulty < 6)
@@ -471,7 +471,13 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
             else
             {
                 weights[ADVPATH_ROOM_GAMESHOW] = 10;
-                weights[ADVPATH_ROOM_GRAVEYARD] = 330 - 30 * min(5, gRogueRun.currentDifficulty - 6);
+                weights[ADVPATH_ROOM_GRAVEYARD] = 360 - 30 * min(5, gRogueRun.currentDifficulty - 6);
+            }
+
+            // Every 3rd encounter becomes more common
+            if((gRogueRun.currentDifficulty % 3) != 0)
+            {
+                weights[ADVPATH_ROOM_GRAVEYARD] = 10;
             }
 
             if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
