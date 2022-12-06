@@ -9,6 +9,7 @@
 
 #define  QUEST_MAX_REWARD_COUNT     4
 #define  QUEST_MAX_FOLLOWING_QUESTS 24
+#define  QUEST_MAX_ITEM_SHOP_REWARD_COUNT 6
 
 #define  QUEST_REWARD_NONE          0
 #define  QUEST_REWARD_SET_FLAG      1 // Params(1): flag

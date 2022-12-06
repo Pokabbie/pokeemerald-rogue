@@ -66,6 +66,7 @@ struct RogueQuestConstants
     const u16 flags;
     struct RogueQuestReward rewards[QUEST_MAX_REWARD_COUNT];
     const u16 unlockedQuests[QUEST_MAX_FOLLOWING_QUESTS];
+    const u16 unlockedShopRewards[QUEST_MAX_ITEM_SHOP_REWARD_COUNT]; // Specifically into the ROGUE_SHOP_QUEST_REWARDS shop
 };
 
 struct RogueQuestState

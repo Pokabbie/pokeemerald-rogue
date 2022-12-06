@@ -48,7 +48,7 @@
 #define ROGUE_SHOP_BATTLE_ENHANCERS     4
 #define ROGUE_SHOP_HELD_ITEMS           5
 #define ROGUE_SHOP_RARE_HELD_ITEMS      6
-#define ROGUE_SHOP_RARE_PLATES          8
+#define ROGUE_SHOP_QUEST_REWARDS        8
 #define ROGUE_SHOP_BERRIES              9
 #define ROGUE_SHOP_CHARMS               10
 
