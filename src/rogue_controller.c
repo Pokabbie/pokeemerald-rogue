@@ -3845,6 +3845,7 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 static void ApplyTrainerQuery(u16 trainerNum)
 {
     bool8 skipToEnd = FALSE;
+    bool8 isBossTrainer = IsBossTrainer(trainerNum);
 
     // Query for the current trainer team
     RogueQuery_Clear();
@@ -3951,10 +3952,15 @@ static void ApplyTrainerQuery(u16 trainerNum)
             }
 
             // Arceus - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_ARCEUS))
+            if(isBossTrainer && gRogueRun.currentDifficulty >= 12 && RogueQuery_CheckIncluded(SPECIES_ARCEUS))
             {
                 RogueQuery_IncludeRange(SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_FAIRY);
             }
+            else
+            {
+                RogueQuery_Exclude(SPECIES_ARCEUS);
+            }
+            
 
             // Genies - One of forms
             if(RogueQuery_CheckIncluded(SPECIES_TORNADUS))
