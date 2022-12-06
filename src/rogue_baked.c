@@ -1456,6 +1456,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->holdEffect = 0;
             break;
     
+        case ITEM_SOUL_DEW:
+            outItem->price = 5000;
+            break;
+
 #ifdef ROGUE_EXPANSION
         case ITEM_ABILITY_CAPSULE:
             outItem->price = 3000;
@@ -1465,6 +1469,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = 6000;
             break;
 
+        case ITEM_ADAMANT_ORB:
+        case ITEM_LUSTROUS_ORB:
+        case ITEM_GRISEOUS_ORB:
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
             outItem->price = 5000;
@@ -1499,6 +1506,75 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_MASTER_BALL:
             outItem->price = 50000;
             break;
+
+
+        // TM Items
+        // 
+        case ITEM_TM01_FOCUS_PUNCH:
+        case ITEM_TM28_DIG:
+        case ITEM_TM39_ROCK_TOMB:
+            outItem->price = 1500;
+            break;
+
+        case ITEM_TM07_HAIL:
+        case ITEM_TM09_BULLET_SEED:
+        case ITEM_TM11_SUNNY_DAY:
+        case ITEM_TM18_RAIN_DANCE:
+        case ITEM_TM20_SAFEGUARD:
+        case ITEM_TM37_SANDSTORM:
+            outItem->price = 2000;
+            break;
+
+        case ITEM_TM26_EARTHQUAKE:
+            outItem->price = 5000;
+            break;
+
+        case ITEM_TM14_BLIZZARD:
+        case ITEM_TM15_HYPER_BEAM:
+        case ITEM_TM25_THUNDER:
+        case ITEM_TM38_FIRE_BLAST:
+            outItem->price = 6000;
+            break;
+
+        case ITEM_TM06_TOXIC:
+            outItem->price = 8000;
+            break;
+
+        // Common Battle Items
+        //
+        case ITEM_METAL_POWDER:
+            outItem->price = 500;
+            break;
+
+        case ITEM_WHITE_HERB:
+        case ITEM_LEFTOVERS:
+            outItem->price = 8000;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_QUICK_POWDER:
+            outItem->price = 500;
+            break;
+
+        case ITEM_RING_TARGET:
+        case ITEM_BINDING_BAND:
+            outItem->price = 1000;
+            break;
+
+        case ITEM_RED_CARD:
+        case ITEM_AIR_BALLOON:
+        case ITEM_EJECT_BUTTON:
+            outItem->price = 2000;
+            break;
+
+        case ITEM_ASSAULT_VEST:
+            outItem->price = 4000;
+            break;
+
+        case ITEM_LIFE_ORB:
+            outItem->price = 8000;
+            break;
+#endif
     }
 
     // Check we're not a charm/curse otherwise we can get infinite loops here
