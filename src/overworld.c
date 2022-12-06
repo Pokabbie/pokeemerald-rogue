@@ -72,6 +72,7 @@
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_quest.h"
 
 struct CableClubPlayer
 {
@@ -455,6 +456,7 @@ void IncrementGameStat(u8 index)
             statVal = 0xFFFFFF;
 
         Rogue_CampaignNotify_StatIncrement(index);
+        QuestNotify_StatIncrement(index);
 
         SetGameStat(index, statVal);
     }
