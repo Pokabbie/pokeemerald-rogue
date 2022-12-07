@@ -744,7 +744,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .unlockedShopRewards = {
             ITEM_ADAMANT_ORB,
             ITEM_LUSTROUS_ORB,
-            ITEM_GRISEOUS_DEW,
+            ITEM_GRISEOUS_ORB,
         }
 #endif
 
