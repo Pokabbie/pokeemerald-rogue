@@ -103,14 +103,18 @@ struct RogueRunData
     u16 currentDifficulty;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
+
+    // TODO - Should move these into a separate Global struct similar to the quest stuff?
+    // Maybe combine the both
     u8 safairShinyBufferHead;
     u16 safariShinyBuffer[6];
     u32 safariShinyPersonality;
+
     u16 wildEncounters[9];
     u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[9];
+    u16 routeHistoryBuffer[12];
     u16 legendaryHistoryBuffer[6];
-    u16 miniBossHistoryBuffer[3];
+    u16 miniBossHistoryBuffer[12];
     u16 bossHistoryBuffer[15];
     u16 wildEncounterHistoryBuffer[3];
     union

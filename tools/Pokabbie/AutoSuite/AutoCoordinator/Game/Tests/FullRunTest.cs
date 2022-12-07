@@ -142,6 +142,9 @@ namespace AutoCoordinator.Game.Tests
 
 			game.SetVar(PokemonVarID.RogueEnabledGenLimit, 8);
 			game.SetVar(PokemonVarID.RogueRegionDexLimit, 0);
+
+			game.SetVar(PokemonVarID.RogueSkipToDifficulty, 0);
+			game.SetVar(PokemonVarID.DesiredCampaign, 0);
 		}
 
 		protected virtual void SelectRandomSettings(PokemonGame game)
