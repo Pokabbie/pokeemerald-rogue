@@ -2043,6 +2043,12 @@ static void EndRogueRun(void)
 {
     QuestNotify_EndAdventure();
 
+    if(Rogue_IsCampaignActive())
+    {
+        if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+            IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+    }
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     //gRogueRun.currentRoomIdx = 0;

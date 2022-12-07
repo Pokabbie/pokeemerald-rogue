@@ -32,6 +32,8 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 
+#include "rogue_quest.h"
+
 struct TrainerCardData
 {
     u8 mainState;
@@ -671,11 +673,11 @@ u32 CountPlayerTrainerStars(void)
 
     if (GetGameStat(GAME_STAT_ENTERED_HOF))
         stars++;
-    if (HasAllHoennMons())
+    if (GetCompletedQuestPerc())
         stars++;
-    if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
+    if (IsQuestCollected(QUEST_GlitchMode))
         stars++;
-    if (HasAllFrontierSymbols())
+    if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED))
         stars++;
 
     return stars;
