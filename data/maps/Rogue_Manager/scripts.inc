@@ -338,7 +338,6 @@ Rogue_Tutor_MoveRelearn::
 	msgbox Rogue_Tutor_MoveRelearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
 	msgbox Rogue_Tutor_MoveRelearn_Text_1, MSGBOX_DEFAULT
-	hidemoneybox
 	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_MoveRelearn_2
@@ -346,6 +345,7 @@ Rogue_Tutor_MoveRelearn_1:
 Rogue_Tutor_MoveRelearn_5:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Tutor_MoveRelearn_6
+	hidemoneybox
 	release
 	return
 
@@ -354,10 +354,10 @@ Rogue_Tutor_MoveRelearn_2:
 	goto Rogue_Tutor_MoveRelearn_1
 
 Rogue_Tutor_MoveRelearn_6:
+	hidemoneybox
 	checkmoney 1000
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_MoveRelearn_9
-Rogue_Tutor_MoveRelearn_8:
+	goto_if_eq Rogue_Tutor_MoveRelearn_8
 	special ChooseMonForMoveRelearner
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
@@ -374,11 +374,10 @@ Rogue_Tutor_MoveRelearn_14:
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_MoveRelearn_5
 
-Rogue_Tutor_MoveRelearn_9:
+Rogue_Tutor_MoveRelearn_8:
 	showmoneybox 0, 0
-	goto Rogue_Tutor_NotEnoughMoney
-	hidemoneybox
-	goto Rogue_Tutor_MoveRelearn_8
+	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_DEFAULT
+	goto Rogue_Tutor_MoveRelearn_5
 
 Rogue_Tutor_MoveRelearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
@@ -392,8 +391,7 @@ Rogue_Tutor_MoveRelearn_17:
 	removemoney 1000
 	playse SE_SHOP
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
-	hidemoneybox
+	msgbox Rogue_Tutor_MoveRelearn_Text_3, MSGBOX_YESNO
 	goto Rogue_Tutor_MoveRelearn_5
 
 
@@ -404,7 +402,6 @@ Rogue_Tutor_EggMoveLearn::
 	msgbox Rogue_Tutor_EggMoveLearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
 	msgbox Rogue_Tutor_EggMoveLearn_Text_1, MSGBOX_DEFAULT
-	hidemoneybox
 	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_EggMoveLearn_2
@@ -412,6 +409,7 @@ Rogue_Tutor_EggMoveLearn_1:
 Rogue_Tutor_EggMoveLearn_5:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Tutor_EggMoveLearn_6
+	hidemoneybox
 	release
 	return
 
@@ -420,10 +418,10 @@ Rogue_Tutor_EggMoveLearn_2:
 	goto Rogue_Tutor_EggMoveLearn_1
 
 Rogue_Tutor_EggMoveLearn_6:
+	hidemoneybox
 	checkmoney 2000
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_EggMoveLearn_9
-Rogue_Tutor_EggMoveLearn_8:
+	goto_if_eq Rogue_Tutor_EggMoveLearn_8
 	special ChooseMonForMoveRelearner
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
@@ -440,11 +438,10 @@ Rogue_Tutor_EggMoveLearn_14:
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_EggMoveLearn_5
 
-Rogue_Tutor_EggMoveLearn_9:
+Rogue_Tutor_EggMoveLearn_8:
 	showmoneybox 0, 0
-	goto Rogue_Tutor_NotEnoughMoneyKind
-	hidemoneybox
-	goto Rogue_Tutor_EggMoveLearn_8
+	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_DEFAULT
+	goto Rogue_Tutor_EggMoveLearn_5
 
 Rogue_Tutor_EggMoveLearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
@@ -459,8 +456,7 @@ Rogue_Tutor_EggMoveLearn_17:
 	updatemoneybox
 	playse SE_SHOP
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_MoveRelearn_Text_2, MSGBOX_YESNO
-	hidemoneybox
+	msgbox Rogue_Tutor_MoveRelearn_Text_3, MSGBOX_YESNO
 	goto Rogue_Tutor_EggMoveLearn_5
 
 
@@ -471,7 +467,6 @@ Rogue_Tutor_TutorMoveLearn::
 	msgbox Rogue_Tutor_TutorMoveLearn_Text_0, MSGBOX_DEFAULT
 	showmoneybox 0, 0
 	msgbox Rogue_Tutor_TutorMoveLearn_Text_1, MSGBOX_DEFAULT
-	hidemoneybox
 	setvar VAR_RESULT, YES
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Tutor_TutorMoveLearn_2
@@ -479,6 +474,7 @@ Rogue_Tutor_TutorMoveLearn_1:
 Rogue_Tutor_TutorMoveLearn_5:
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Tutor_TutorMoveLearn_6
+	hidemoneybox
 	release
 	return
 
@@ -487,10 +483,10 @@ Rogue_Tutor_TutorMoveLearn_2:
 	goto Rogue_Tutor_TutorMoveLearn_1
 
 Rogue_Tutor_TutorMoveLearn_6:
+	hidemoneybox
 	checkmoney 3000
 	compare VAR_RESULT, NO
-	goto_if_eq Rogue_Tutor_TutorMoveLearn_9
-Rogue_Tutor_TutorMoveLearn_8:
+	goto_if_eq Rogue_Tutor_TutorMoveLearn_8
 	special ChooseMonForMoveRelearner
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
@@ -507,11 +503,10 @@ Rogue_Tutor_TutorMoveLearn_14:
 	setvar VAR_RESULT, YES
 	goto Rogue_Tutor_TutorMoveLearn_5
 
-Rogue_Tutor_TutorMoveLearn_9:
+Rogue_Tutor_TutorMoveLearn_8:
 	showmoneybox 0, 0
-	goto Rogue_Tutor_NotEnoughMoney
-	hidemoneybox
-	goto Rogue_Tutor_TutorMoveLearn_8
+	msgbox Rogue_Tutor_TutorMoveLearn_Text_2, MSGBOX_DEFAULT
+	goto Rogue_Tutor_TutorMoveLearn_5
 
 Rogue_Tutor_TutorMoveLearn_12:
 	goto Rogue_Tutor_MoveRelearnCancel
@@ -526,29 +521,13 @@ Rogue_Tutor_TutorMoveLearn_17:
 	updatemoneybox
 	playse SE_SHOP
 	showmoneybox 0, 0
-	msgbox Rogue_Tutor_TutorMoveLearn_Text_2, MSGBOX_YESNO
-	hidemoneybox
+	msgbox Rogue_Tutor_TutorMoveLearn_Text_3, MSGBOX_YESNO
 	goto Rogue_Tutor_TutorMoveLearn_5
-
-
-Rogue_Tutor_NotEnoughMoneyKind::
-	msgbox Rogue_Tutor_NotEnoughMoneyKind_Text_0, MSGBOX_DEFAULT
-	setvar VAR_RESULT, NO
-	release
-	return
-
-
-Rogue_Tutor_NotEnoughMoney::
-	msgbox Rogue_Tutor_NotEnoughMoney_Text_0, MSGBOX_DEFAULT
-	setvar VAR_RESULT, NO
-	release
-	return
 
 
 Rogue_Tutor_MoveRelearnCancel::
 	msgbox Rogue_Tutor_MoveRelearnCancel_Text_0, MSGBOX_DEFAULT
 	setvar VAR_RESULT, NO
-	release
 	return
 
 
@@ -1243,7 +1222,7 @@ Rogue_Shop_RareHeldItems_Text_0:
 	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.$"
 
 Rogue_Shop_RarePlates_Text_0:
-	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock REWARD HELD ITEMS.$"
+	.string "Welcome to the TRAVELLING BATTLE Shop!\nI stock QUEST REWARD ITEMS.$"
 
 Rogue_Shop_Charms_Text_0:
 	.string "Oh! Child! You startled me...$"
@@ -1304,6 +1283,12 @@ Rogue_Tutor_MoveRelearn_Text_1:
 	.string "a move for ¥1000?$"
 
 Rogue_Tutor_MoveRelearn_Text_2:
+	.string "I'm afraid you don't have enough money.\p"
+	.string "Come back once you've gotten a bit more\n"
+	.string "and I'll gladly teach some moves to\l"
+	.string "your POKéMON.$"
+
+Rogue_Tutor_MoveRelearn_Text_3:
 	.string "Do you want me to teach another\n"
 	.string "POKéMON?$"
 
@@ -1327,18 +1312,12 @@ Rogue_Tutor_TutorMoveLearn_Text_1:
 	.string "for ¥3000?$"
 
 Rogue_Tutor_TutorMoveLearn_Text_2:
-	.string "You wanna get me to teach anymore\n"
-	.string "POKéMON?$"
-
-Rogue_Tutor_NotEnoughMoneyKind_Text_0:
-	.string "I'm afraid you don't have enough money.\p"
-	.string "Come back once you've gotten a bit more\n"
-	.string "and I'll gladly teach some moves to\l"
-	.string "your POKéMON.$"
-
-Rogue_Tutor_NotEnoughMoney_Text_0:
 	.string "You don't have enough money!\p"
 	.string "Come back once you've got enough.$"
+
+Rogue_Tutor_TutorMoveLearn_Text_3:
+	.string "You wanna get me to teach anymore\n"
+	.string "POKéMON?$"
 
 Rogue_Tutor_MoveRelearnCancel_Text_0:
 	.string "You know where to find me, if you change\n"
