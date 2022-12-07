@@ -19,6 +19,7 @@
 #include "rogue.h"
 #include "rogue_charms.h"
 #include "rogue_script.h"
+#include "rogue_popup.h"
 #include "rogue_quest.h"
 
 #ifdef ROGUE_DEBUG
@@ -628,4 +629,11 @@ void Rogue_ClearCharmsAndCurses(void)
 {
     Rogue_RemoveCharmsFromBag();
     Rogue_RemoveCursesFromBag();
+}
+
+void Rogue_Popup(void)
+{
+    u8 msgType = gSpecialVar_0x8004;
+    u16 param = gSpecialVar_0x8005;
+    Rogue_PushPopup(msgType, param);
 }

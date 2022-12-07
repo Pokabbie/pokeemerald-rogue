@@ -20,11 +20,15 @@ script Rogue_HubTransition_OnEnter
 
     if(flag(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
     {
-        msgbox(format("Strong Legendary clause activated..."))
+        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
+        setvar(VAR_0x8005, 1)
+        special(Rogue_Popup)
     }
     elif(flag(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
-    {
-        msgbox(format("Basic Legendary clause activated..."))
+    {        
+        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
+        setvar(VAR_0x8005, 0)
+        special(Rogue_Popup)
     }
 
     specialvar(VAR_RESULT, Rogue_GetActiveCampaign)

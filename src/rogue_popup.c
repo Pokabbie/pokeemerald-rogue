@@ -40,16 +40,22 @@ static EWRAM_DATA u8 sPopupShownId = 0;
 static EWRAM_DATA u8 sPopupQueuedId = 0;
 static EWRAM_DATA struct PopupRequest sPopupQueue[POPUP_QUEUE_CAPACITY];
 
+
+static const u8 sString_WeakLegendaryClause[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Basic Legendary");
+static const u8 sString_StrongLegendaryClause[] = _("{COLOR RED}{SHADOW LIGHT_RED}Strong Legendary");
+
 static const u8 sQuestPopupMessageStrings[][32] =
 {
     [POPUP_MSG_QUEST_COMPLETE] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Quest Completed!"),
     [POPUP_MSG_QUEST_FAIL] = _("{COLOR RED}{SHADOW LIGHT_RED}Quest Failed"),
+    [POPUP_MSG_LEGENDARY_CLAUSE] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Clause Activated!"),
 };
 
 static const u16 sQuestPopupMessageSoundEffect[] =
 {
     [POPUP_MSG_QUEST_COMPLETE] = SE_EXP_MAX,
     [POPUP_MSG_QUEST_FAIL] = SE_NOT_EFFECTIVE,
+    [POPUP_MSG_LEGENDARY_CLAUSE] = SE_BALL_OPEN,
     //SE_SUCCESS, SE_FAILURE
 };
 
@@ -194,7 +200,25 @@ static void ShowQuestPopUpWindow(void)
         x = GetStringCenterAlignXOffset(FONT_SMALL, sQuestPopupMessageStrings[msgType], 80);
         AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, sQuestPopupMessageStrings[msgType], x, 16, TEXT_SKIP_DRAW, NULL);
         break;
-    
+
+    case POPUP_MSG_LEGENDARY_CLAUSE:
+        // Legendary Clause Title
+        if(param == 0)
+        {
+            x = GetStringCenterAlignXOffset(FONT_NARROW, sString_WeakLegendaryClause, 80);
+            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, sString_WeakLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
+        }
+        else
+        {
+            x = GetStringCenterAlignXOffset(FONT_NARROW, sString_StrongLegendaryClause, 80);
+            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, sString_StrongLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
+        }
+
+        // Msg Subtext
+        x = GetStringCenterAlignXOffset(FONT_SMALL, sQuestPopupMessageStrings[msgType], 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, sQuestPopupMessageStrings[msgType], x, 16, TEXT_SKIP_DRAW, NULL);
+        break;
+
     default:
         break;
     }

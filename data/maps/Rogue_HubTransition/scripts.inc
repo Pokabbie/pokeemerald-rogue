@@ -27,22 +27,26 @@ Rogue_HubTransition_OnEnter_6:
 	end
 
 Rogue_HubTransition_OnEnter_2:
-	msgbox Rogue_HubTransition_OnEnter_Text_0
+	setvar VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE
+	setvar VAR_0x8005, 1
+	special Rogue_Popup
 	goto Rogue_HubTransition_OnEnter_1
 
 Rogue_HubTransition_OnEnter_3:
-	msgbox Rogue_HubTransition_OnEnter_Text_1
+	setvar VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE
+	setvar VAR_0x8005, 0
+	special Rogue_Popup
 	goto Rogue_HubTransition_OnEnter_1
 
 Rogue_HubTransition_OnEnter_7:
 	switch VAR_RESULT
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_HubTransition_OnEnter_10
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	msgbox Rogue_HubTransition_OnEnter_Text_3
+	msgbox Rogue_HubTransition_OnEnter_Text_1
 	goto Rogue_HubTransition_OnEnter_6
 
 Rogue_HubTransition_OnEnter_10:
-	msgbox Rogue_HubTransition_OnEnter_Text_2
+	msgbox Rogue_HubTransition_OnEnter_Text_0
 	goto Rogue_HubTransition_OnEnter_6
 
 
@@ -94,16 +98,10 @@ Rogue_HubTransition_RandomMan_8:
 
 
 Rogue_HubTransition_OnEnter_Text_0:
-	.string "Strong Legendary clause activated...$"
-
-Rogue_HubTransition_OnEnter_Text_1:
-	.string "Basic Legendary clause activated...$"
-
-Rogue_HubTransition_OnEnter_Text_2:
 	.string "BST CUP Campaign Active!\p"
 	.string "(Aim for the lowest score)$"
 
-Rogue_HubTransition_OnEnter_Text_3:
+Rogue_HubTransition_OnEnter_Text_1:
 	.string "{STR_VAR_1} Campaign Active!$"
 
 Rogue_HubTransition_RandomMan_Text_0:

@@ -326,6 +326,7 @@
 //
 #define POPUP_MSG_QUEST_COMPLETE    0
 #define POPUP_MSG_QUEST_FAIL        1
+#define POPUP_MSG_LEGENDARY_CLAUSE  2
 
 #include "rogue_quests.h"
 
