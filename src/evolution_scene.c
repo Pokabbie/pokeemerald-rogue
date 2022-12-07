@@ -34,6 +34,7 @@
 #include "constants/rgb.h"
 #include "constants/items.h"
 
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
@@ -554,7 +555,7 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon* mon)
 
     Rogue_ModifyEvolution(preEvoSpecies ,0, &evo);
 
-    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < PARTY_SIZE)
+    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < Rogue_GetMaxPartySize())
     {
         s32 i;
         struct Pokemon* shedinja = &gPlayerParty[gPlayerPartyCount];
