@@ -1283,6 +1283,8 @@ static bool8 IsRareHeldItem(struct Item* item)
     return (item->itemId >= ITEM_RED_ORB && item->itemId <= ITEM_DIANCITE) ||
         (item->itemId >= ITEM_NORMALIUM_Z && item->itemId <= ITEM_ULTRANECROZIUM_Z) ||
         (item->itemId == ITEM_RUSTED_SWORD || item->itemId == ITEM_RUSTED_SHIELD) ||
+        (item->itemId == ITEM_ADAMANT_ORB || item->itemId == ITEM_LUSTROUS_ORB || item->itemId == ITEM_GRISEOUS_DEW) ||
+        item->itemId == ITEM_SOUL_DEW ||
         item->itemId == ITEM_DYNAMAX_CANDY ||
         item->itemId == ITEM_MAX_MUSHROOMS;
 #else

@@ -24,7 +24,8 @@ static const u8 gText_PreviewUnlocksTravelShopUpgrade[] = _("Travelling Mart Upg
 static const u8 gText_GiveTravelShopMegas[] = _("Travelling Mart will now stock\nMega stones!");
 static const u8 gText_GiveTravelShopZMoves[] = _("Travelling Mart will now stock\nZ Crystals!");
 static const u8 gText_GiveTravelShopRustedItems[] = _("Travelling Mart will now stock\nRusted Sword and Shield!");
-static const u8 gText_GiveTravelShopOrbs[] = _("Travelling Mart will now stock\nRed and Blue Orbs!");
+static const u8 gText_GiveTravelShopHoennOrbs[] = _("Travelling Mart will now stock\nRed & Blue Orbs and Soul Dew!");
+static const u8 gText_GiveTravelShopSinnohOrbs[] = _("Travelling Mart will now stock\nAdamant, Lustrous & Griseous Orbs!");
 static const u8 gText_GiveTravelShopPlates[] = _("Travelling Mart will now stock\nAdditional Plates and Memories!");
 
 const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] = 
@@ -695,13 +696,14 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RALTS, 7, TRUE } },
 #ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopOrbs },
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopHoennOrbs },
 #endif
         },
 #ifdef ROGUE_EXPANSION
         .unlockedShopRewards = {
             ITEM_RED_ORB,
-            ITEM_BLUE_ORB
+            ITEM_BLUE_ORB,
+            ITEM_SOUL_DEW,
         }
 #endif
     },
@@ -734,7 +736,19 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DRIFLOON, 7, TRUE } },
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopSinnohOrbs },
+#endif
+        },
+#ifdef ROGUE_EXPANSION
+        .unlockedShopRewards = {
+            ITEM_ADAMANT_ORB,
+            ITEM_LUSTROUS_ORB,
+            ITEM_GRISEOUS_DEW,
         }
+#endif
+
+
     },
     [QUEST_UnovaMode] = 
     {
