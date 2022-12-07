@@ -8023,7 +8023,7 @@ BattleScript_AbilityPopUp:
 	.if B_ABILITY_POP_UP == TRUE
 	showabilitypopup BS_ABILITY_BATTLER
 	recordability BS_ABILITY_BATTLER
-	pause 40
+	pause B_WAIT_TIME_EXTRA_LONG
 	.endif
 	sethword sABILITY_OVERWRITE, 0
 	return
