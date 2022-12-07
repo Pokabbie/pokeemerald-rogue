@@ -659,6 +659,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
             break;
         }
     }
+    
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_MINIBOSS_BATTLER)
+    {
+        if(writeNodeScratch->roomType == ADVPATH_ROOM_ROUTE)
+            writeNodeScratch->roomType = ADVPATH_ROOM_MINIBOSS;
+    }
 
 #ifdef ROGUE_DEBUG
     //if(writeNodeScratch->roomType == ADVPATH_ROOM_ROUTE)

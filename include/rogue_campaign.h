@@ -9,6 +9,8 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1);
 u16 Rogue_PreActivateDesiredCampaign(void);
 u16 Rogue_PostActivateDesiredCampaign(void);
 
+u16 Rogue_DeactivateActiveCampaign(void);
+
 bool8 Rogue_CheckCampaignBansItem(u16 item);
 
 bool8 Rogue_IsActiveCampaignScored(void);

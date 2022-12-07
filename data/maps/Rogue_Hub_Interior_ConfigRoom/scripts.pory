@@ -113,6 +113,9 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
         case ROGUE_CAMPAIGN_CLASSIC:
             bufferstring(STR_VAR_1, "Classic Mode")
 
+        case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+            bufferstring(STR_VAR_1, "Battle Addict")
+
         default:
             bufferstring(STR_VAR_1, "???")
     }
@@ -124,9 +127,15 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
     {
         case ROGUE_CAMPAIGN_LOW_BST:
             msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_CLASSIC:
             msgbox(format("Classic Mode makes the Adventures more similar to how they use to be 'back in the 1.0 days'.\pThe main feature is that you no longer get any options for encounter.\pYou'll always have to take a specific path.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+            msgbox(format("Battle Addict makes the Adventures never create Route encounter. Instead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
 
         default:
             msgbox(format("???"))
@@ -137,7 +146,7 @@ script Rogue_ConfigRoom_Campaign_Choice
 {
     message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
     waitmessage
-    multichoice(20, 6, MULTI_YESNOINFO, NO)
+    multichoice(20, 6, MULTI_YESNOINFO, YES)
 
     switch(var(VAR_RESULT))
     {
@@ -149,11 +158,10 @@ script Rogue_ConfigRoom_Campaign_Choice
         case 2: // Info
             msgbox(format("When you take part in a Campaign, I'll change the settings in this here Config Lab.\pI may also swap out your POKéMON and change some of the items in your bag too!\pWhen on a Campaign, you'll be given a specific task to try and complete."), MSGBOX_DEFAULT)
             call(Rogue_ConfigRoom_Campaign_CampaignDescription)
-            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start and Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
             call(Rogue_ConfigRoom_Campaign_Choice)
 
         case 1: // No
-        case MULTI_B_PRESSED:
+        //case MULTI_B_PRESSED:
             msgbox(format("You let me know, if you wanna have a go of it."), MSGBOX_DEFAULT)
             setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
     }

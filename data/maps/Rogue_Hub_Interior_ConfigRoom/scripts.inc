@@ -99,7 +99,8 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
@@ -110,32 +111,43 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
 	return
 
+Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	return
+
 
 Rogue_ConfigRoom_Campaign_CampaignDescription::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
-	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
+	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_3:
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_2
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_4:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
 	return
 
 
 Rogue_ConfigRoom_Campaign_Choice::
 	message Rogue_ConfigRoom_Campaign_Choice_Text_0
 	waitmessage
-	multichoice 20, 6, MULTI_YESNOINFO, NO
+	multichoice 20, 6, MULTI_YESNOINFO, YES
 	switch VAR_RESULT
 	case 0, Rogue_ConfigRoom_Campaign_Choice_2
 	case 2, Rogue_ConfigRoom_Campaign_Choice_3
 	case 1, Rogue_ConfigRoom_Campaign_Choice_4
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_4
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_2:
@@ -147,12 +159,11 @@ Rogue_ConfigRoom_Campaign_Choice_2:
 Rogue_ConfigRoom_Campaign_Choice_3:
 	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_3, MSGBOX_DEFAULT
 	call Rogue_ConfigRoom_Campaign_Choice
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_4:
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_4, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_3, MSGBOX_DEFAULT
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
@@ -413,7 +424,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -581,7 +592,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -630,7 +641,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1526,6 +1537,9 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1:
 	.string "Classic Mode$"
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2:
+	.string "Battle Addict$"
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
@@ -1546,6 +1560,13 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "banned.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
+	.string "You'll know if the Campaign is active;\n"
+	.string "it'll be announced to you at the start\l"
+	.string "of the Adventure and you'll be able to\l"
+	.string "view your current score in the pause\l"
+	.string "menu.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_2:
 	.string "Classic Mode makes the Adventures more\n"
 	.string "similar to how they use to be 'back in\l"
 	.string "the 1.0 days'.\p"
@@ -1553,6 +1574,19 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
 	.string "get any options for encounter.\p"
 	.string "You'll always have to take a specific\n"
 	.string "path.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and doesn't adjust any of the\l"
+	.string "settings in the Config Lab.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3:
+	.string "You'll know if the Campaign is active;\n"
+	.string "it'll be announced to you at the start\l"
+	.string "of the Adventure.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
+	.string "Battle Addict makes the Adventures\n"
+	.string "never create Route encounter. Instead\l"
+	.string "you have Strong Trainer encounters.\p"
 	.string "This can be played in any adventure\n"
 	.string "type and doesn't adjust any of the\l"
 	.string "settings in the Config Lab.$"
@@ -1575,13 +1609,6 @@ Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "specific task to try and complete.$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_3:
-	.string "You'll know if the Campaign is active;\n"
-	.string "it'll be announced to you at the start\l"
-	.string "and Adventure and you'll be able to\l"
-	.string "view your current score in the pause\l"
-	.string "menu.$"
-
-Rogue_ConfigRoom_Campaign_Choice_Text_4:
 	.string "You let me know, if you wanna have a go\n"
 	.string "of it.$"
 
