@@ -100,19 +100,19 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_1, gText_Campaign_None
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0
+	bufferstring STR_VAR_1, gText_Campaign_LowBST
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	bufferstring STR_VAR_1, gText_Campaign_Classic
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	bufferstring STR_VAR_1, gText_Campaign_MiniBossBattler
 	return
 
 
@@ -121,7 +121,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
-	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -424,7 +424,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -592,7 +592,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -641,7 +641,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1530,18 +1530,6 @@ Rogue_ConfigRoom_TalkAssistantInternal_Text_5:
 	.string "Speak to me if you ever want to enable\l"
 	.string "SEEDED mode$"
 
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0:
-	.string "BST CUP$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1:
-	.string "Classic Mode$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2:
-	.string "Battle Addict$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3:
-	.string "???$"
-
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "The BST CUP is short for Base Stat\n"
 	.string "Total Cup.\p"
@@ -1591,6 +1579,9 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
 	.string "This can be played in any adventure\n"
 	.string "type and doesn't adjust any of the\l"
 	.string "settings in the Config Lab.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
+	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:
 	.string "You wanna give the {STR_VAR_1}\n"

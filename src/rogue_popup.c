@@ -18,6 +18,7 @@
 #include "constants/songs.h"
 
 #include "rogue.h"
+#include "rogue_campaign.h"
 #include "rogue_popup.h"
 
 #define POPUP_QUEUE_CAPACITY 8
@@ -40,22 +41,25 @@ static EWRAM_DATA u8 sPopupShownId = 0;
 static EWRAM_DATA u8 sPopupQueuedId = 0;
 static EWRAM_DATA struct PopupRequest sPopupQueue[POPUP_QUEUE_CAPACITY];
 
+extern const u8 gText_Popup_QuestComplete[];
+extern const u8 gText_Popup_QuestFail[];
+extern const u8 gText_Popup_LegendaryClause[];
+extern const u8 gText_Popup_None[];
 
-static const u8 sString_WeakLegendaryClause[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Basic Legendary");
-static const u8 sString_StrongLegendaryClause[] = _("{COLOR RED}{SHADOW LIGHT_RED}Strong Legendary");
+extern const u8 gPopupText_WeakLegendaryClause[];
+extern const u8 gPopupText_StrongLegendaryClause[];
 
-static const u8 sQuestPopupMessageStrings[][32] =
-{
-    [POPUP_MSG_QUEST_COMPLETE] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Quest Completed!"),
-    [POPUP_MSG_QUEST_FAIL] = _("{COLOR RED}{SHADOW LIGHT_RED}Quest Failed"),
-    [POPUP_MSG_LEGENDARY_CLAUSE] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Clause Activated!"),
-};
+extern const u8 gPopupText_CampaignNoneScore[];
+extern const u8 gPopupText_CampaignHighScore[];
+extern const u8 gPopupText_CampaignLowScore[];
+
 
 static const u16 sQuestPopupMessageSoundEffect[] =
 {
     [POPUP_MSG_QUEST_COMPLETE] = SE_EXP_MAX,
     [POPUP_MSG_QUEST_FAIL] = SE_NOT_EFFECTIVE,
     [POPUP_MSG_LEGENDARY_CLAUSE] = SE_BALL_OPEN,
+    [POPUP_MSG_CAMPAIGN_ANNOUNCE] = SE_EXP_MAX,
     //SE_SUCCESS, SE_FAILURE
 };
 
@@ -177,6 +181,24 @@ static void HideQuestPopUpWindow(void)
     }
 }
 
+const u8* GetMsgText(u8 msgType)
+{
+    switch (msgType)
+    {
+    case POPUP_MSG_QUEST_COMPLETE:
+        return &gText_Popup_QuestComplete[0];
+
+    case POPUP_MSG_QUEST_FAIL:
+        return &gText_Popup_QuestFail[0];
+
+    case POPUP_MSG_LEGENDARY_CLAUSE:
+        return &gText_Popup_LegendaryClause[0];
+    
+    default:
+        return &gText_Popup_None[0];
+    }
+}
+
 static void ShowQuestPopUpWindow(void)
 {
     u8 x;
@@ -197,26 +219,51 @@ static void ShowQuestPopUpWindow(void)
         AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gRogueQuests[param].title, x, 2, TEXT_SKIP_DRAW, NULL);
 
         // Msg Subtext
-        x = GetStringCenterAlignXOffset(FONT_SMALL, sQuestPopupMessageStrings[msgType], 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, sQuestPopupMessageStrings[msgType], x, 16, TEXT_SKIP_DRAW, NULL);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, GetMsgText(msgType), 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, GetMsgText(msgType), x, 16, TEXT_SKIP_DRAW, NULL);
         break;
 
     case POPUP_MSG_LEGENDARY_CLAUSE:
         // Legendary Clause Title
         if(param == 0)
         {
-            x = GetStringCenterAlignXOffset(FONT_NARROW, sString_WeakLegendaryClause, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, sString_WeakLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
+            x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_WeakLegendaryClause, 80);
+            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_WeakLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
         }
         else
         {
-            x = GetStringCenterAlignXOffset(FONT_NARROW, sString_StrongLegendaryClause, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, sString_StrongLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
+            x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StrongLegendaryClause, 80);
+            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StrongLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
         }
 
         // Msg Subtext
-        x = GetStringCenterAlignXOffset(FONT_SMALL, sQuestPopupMessageStrings[msgType], 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, sQuestPopupMessageStrings[msgType], x, 16, TEXT_SKIP_DRAW, NULL);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, GetMsgText(msgType), 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, GetMsgText(msgType), x, 16, TEXT_SKIP_DRAW, NULL);
+        break;
+
+    case POPUP_MSG_CAMPAIGN_ANNOUNCE:
+        // Campaign Title
+        x = GetStringCenterAlignXOffset(FONT_NARROW, GetCampaignTitle(Rogue_GetActiveCampaign()), 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, GetCampaignTitle(Rogue_GetActiveCampaign()), x, 2, TEXT_SKIP_DRAW, NULL);
+
+        if(Rogue_IsActiveCampaignScored())
+        {
+            if(Rogue_IsActiveCampaignLowScoreGood())
+            {
+                x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignLowScore, 80);
+                AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignLowScore, x, 16, TEXT_SKIP_DRAW, NULL);
+            }
+            else
+            {
+                x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignHighScore, 80);
+                AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignHighScore, x, 16, TEXT_SKIP_DRAW, NULL);
+            }
+        }
+        else
+        {
+            x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignNoneScore, 80);
+            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignNoneScore, x, 16, TEXT_SKIP_DRAW, NULL);
+        }
         break;
 
     default:

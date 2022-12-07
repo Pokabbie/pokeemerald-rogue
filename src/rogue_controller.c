@@ -2013,17 +2013,6 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
 
-    FlagClear(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
-    FlagClear(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
-
-    if(PartyContainsWeakLegendaryMon())
-        FlagSet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
-
-    if(PartyContainsStrongLegendaryMon())
-        FlagSet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
-
-    GiveMonPartnerRibbon();
-
     // Enable randoman trader at start
     if(IsQuestCollected(QUEST_MrRandoman))
     {
@@ -2035,6 +2024,17 @@ static void BeginRogueRun(void)
     }
 
     Rogue_PostActivateDesiredCampaign();
+
+    FlagClear(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
+    FlagClear(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
+
+    if(PartyContainsWeakLegendaryMon())
+        FlagSet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
+
+    if(PartyContainsStrongLegendaryMon())
+        FlagSet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
+
+    GiveMonPartnerRibbon();
 
     QuestNotify_BeginAdventure();
 }

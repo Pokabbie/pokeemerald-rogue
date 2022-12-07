@@ -290,6 +290,27 @@ const u8 gText_QuestRewardGiveMon[] = _("Recieved a {STR_VAR_1}!");
 const u8 gText_QuestRewardGiveShinyMon[] = _("Recieved a Shiny {STR_VAR_1}!");
 const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
+// Campaigns
+//
+const u8 gText_Campaign_None[] = _("???");
+const u8 gText_Campaign_LowBST[] = _("BST CUP");
+const u8 gText_Campaign_Classic[] = _("Classic Mode");
+const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
+
+// Popups
+//
+const u8 gText_Popup_QuestComplete[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Quest Completed!");
+const u8 gText_Popup_QuestFail[] = _("{COLOR RED}{SHADOW LIGHT_RED}Quest Failed");
+const u8 gText_Popup_LegendaryClause[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Clause Activated!");
+const u8 gText_Popup_None[] = _("");
+
+const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Basic Legendary");
+const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR RED}{SHADOW LIGHT_RED}Strong Legendary");
+
+const u8 gPopupText_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
+const u8 gPopupText_CampaignHighScore[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Aim for High Score!");
+const u8 gPopupText_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED}Aim for Low Score!");
+
 // Debug
 //
 #ifdef ROGUE_DEBUG

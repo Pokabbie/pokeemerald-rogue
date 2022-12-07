@@ -108,16 +108,16 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
     {
         case ROGUE_CAMPAIGN_LOW_BST:
-            bufferstring(STR_VAR_1, "BST CUP")
+            bufferstring(STR_VAR_1, gText_Campaign_LowBST)
 
         case ROGUE_CAMPAIGN_CLASSIC:
-            bufferstring(STR_VAR_1, "Classic Mode")
+            bufferstring(STR_VAR_1, gText_Campaign_Classic)
 
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
-            bufferstring(STR_VAR_1, "Battle Addict")
+            bufferstring(STR_VAR_1, gText_Campaign_MiniBossBattler)
 
         default:
-            bufferstring(STR_VAR_1, "???")
+            bufferstring(STR_VAR_1, gText_Campaign_None)
     }
 }
 
