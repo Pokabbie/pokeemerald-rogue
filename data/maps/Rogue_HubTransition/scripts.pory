@@ -18,31 +18,25 @@ script Rogue_HubTransition_OnEnter
 {
     lock
 
-    if(flag(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
-    {
-        msgbox(format("Strong Legendary clause activated..."))
-    }
-    elif(flag(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
-    {
-        msgbox(format("Basic Legendary clause activated..."))
-    }
-
     specialvar(VAR_RESULT, Rogue_GetActiveCampaign)
     if(var(VAR_RESULT) != ROGUE_CAMPAIGN_NONE)
     {
-        switch(var(VAR_RESULT))
-        {
-            case ROGUE_CAMPAIGN_LOW_BST:
-                msgbox(format("BST CUP Campaign Active!\p(Aim for the lowest score)"))
-            
-            //default:
-            //    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-            //    msgbox(format("{STR_VAR_1} Campaign Active!\p(Aim for the highest score)"))
+        setvar(VAR_0x8004, POPUP_MSG_CAMPAIGN_ANNOUNCE)
+        copyvar(VAR_0x8005, VAR_RESULT)
+        special(Rogue_Popup)
+    }
 
-            default:
-                call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-                msgbox(format("{STR_VAR_1} Campaign Active!"))
-        }
+    if(flag(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
+    {
+        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
+        setvar(VAR_0x8005, 1)
+        special(Rogue_Popup)
+    }
+    elif(flag(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
+    {        
+        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
+        setvar(VAR_0x8005, 0)
+        special(Rogue_Popup)
     }
 
     release

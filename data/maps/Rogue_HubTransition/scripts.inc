@@ -15,35 +15,34 @@ Rogue_HubTransition_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 Rogue_HubTransition_OnEnter::
 	lock
-	goto_if_set FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES, Rogue_HubTransition_OnEnter_2
-	goto_if_set FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES, Rogue_HubTransition_OnEnter_3
-Rogue_HubTransition_OnEnter_1:
 	specialvar VAR_RESULT, Rogue_GetActiveCampaign
 	compare VAR_RESULT, ROGUE_CAMPAIGN_NONE
-	goto_if_ne Rogue_HubTransition_OnEnter_7
-Rogue_HubTransition_OnEnter_6:
+	goto_if_ne Rogue_HubTransition_OnEnter_2
+Rogue_HubTransition_OnEnter_1:
+	goto_if_set FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES, Rogue_HubTransition_OnEnter_5
+	goto_if_set FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES, Rogue_HubTransition_OnEnter_6
+Rogue_HubTransition_OnEnter_4:
 	release
 	setvar VAR_TEMP_1, 1
 	end
 
 Rogue_HubTransition_OnEnter_2:
-	msgbox Rogue_HubTransition_OnEnter_Text_0
+	setvar VAR_0x8004, POPUP_MSG_CAMPAIGN_ANNOUNCE
+	copyvar VAR_0x8005, VAR_RESULT
+	special Rogue_Popup
 	goto Rogue_HubTransition_OnEnter_1
 
-Rogue_HubTransition_OnEnter_3:
-	msgbox Rogue_HubTransition_OnEnter_Text_1
-	goto Rogue_HubTransition_OnEnter_1
+Rogue_HubTransition_OnEnter_5:
+	setvar VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE
+	setvar VAR_0x8005, 1
+	special Rogue_Popup
+	goto Rogue_HubTransition_OnEnter_4
 
-Rogue_HubTransition_OnEnter_7:
-	switch VAR_RESULT
-	case ROGUE_CAMPAIGN_LOW_BST, Rogue_HubTransition_OnEnter_10
-	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	msgbox Rogue_HubTransition_OnEnter_Text_3
-	goto Rogue_HubTransition_OnEnter_6
-
-Rogue_HubTransition_OnEnter_10:
-	msgbox Rogue_HubTransition_OnEnter_Text_2
-	goto Rogue_HubTransition_OnEnter_6
+Rogue_HubTransition_OnEnter_6:
+	setvar VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE
+	setvar VAR_0x8005, 0
+	special Rogue_Popup
+	goto Rogue_HubTransition_OnEnter_4
 
 
 Rogue_HubTransition_OnLoad::
@@ -92,19 +91,6 @@ Rogue_HubTransition_RandomMan_8:
 	special Rogue_SeedRandomGenerators
 	goto Rogue_HubTransition_RandomMan_5
 
-
-Rogue_HubTransition_OnEnter_Text_0:
-	.string "Strong Legendary clause activated...$"
-
-Rogue_HubTransition_OnEnter_Text_1:
-	.string "Basic Legendary clause activated...$"
-
-Rogue_HubTransition_OnEnter_Text_2:
-	.string "BST CUP Campaign Active!\p"
-	.string "(Aim for the lowest score)$"
-
-Rogue_HubTransition_OnEnter_Text_3:
-	.string "{STR_VAR_1} Campaign Active!$"
 
 Rogue_HubTransition_RandomMan_Text_0:
 	.string "WAHEY!\p"

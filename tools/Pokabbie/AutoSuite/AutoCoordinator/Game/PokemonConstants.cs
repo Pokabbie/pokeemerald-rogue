@@ -89,12 +89,16 @@ namespace AutoCoordinator.Game
 		RogueDifficulty = 0x407D,
 		RogueFurthestDifficulty,
 		//..
+		RogueSkipToDifficulty = 0x409D,
+		//..
 		RogueEnabledGenLimit = 0x40A8,
 		//..
 		RogueCurrentLevelCap = 0x40BB,
 		//..
 		RogueRegionDexLimit = 0x40DC,
 		//..
+		DesiredCampaign = 0x40F8,
+		ActiveCampaign,
 	}
 
 	public enum PokemonMapLayoutID

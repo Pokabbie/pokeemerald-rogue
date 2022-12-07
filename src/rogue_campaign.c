@@ -10,8 +10,31 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 
+extern const u8 gText_Campaign_None[];
+extern const u8 gText_Campaign_LowBST[];
+extern const u8 gText_Campaign_Classic[];
+extern const u8 gText_Campaign_MiniBossBattler[];
+
 static void Campaign_LowBst_RecalculateScore(void);
 static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
+
+const u8* GetCampaignTitle(u16 campaignId)
+{
+    switch (campaignId)
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        return &gText_Campaign_LowBST[0];
+
+    case ROGUE_CAMPAIGN_CLASSIC:
+        return &gText_Campaign_Classic[0];
+
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+        return &gText_Campaign_MiniBossBattler[0];
+    
+    default:
+        return &gText_Campaign_None[0];
+    }
+}
 
 u16 Rogue_GetActiveCampaign(void)
 {
@@ -132,6 +155,17 @@ u16 Rogue_DeactivateActiveCampaign(void)
 }
 
 bool8 Rogue_IsActiveCampaignScored(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsActiveCampaignLowScoreGood(void)
 {
     switch (Rogue_GetActiveCampaign())
     {

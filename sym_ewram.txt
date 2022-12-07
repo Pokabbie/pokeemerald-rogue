@@ -41,6 +41,7 @@
 	.include "src/rogue_query.o"
 	.include "src/rogue_quest.o"
 	.include "src/rogue_questmenu.o"
+	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"
 	.include "src/rogue_charms.o"
 	.include "src/field_camera.o"

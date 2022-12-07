@@ -100,19 +100,19 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_1, gText_Campaign_None
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0
+	bufferstring STR_VAR_1, gText_Campaign_LowBST
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1
+	bufferstring STR_VAR_1, gText_Campaign_Classic
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2
+	bufferstring STR_VAR_1, gText_Campaign_MiniBossBattler
 	return
 
 
@@ -121,7 +121,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
-	msgbox Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -424,7 +424,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -592,7 +592,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -641,7 +641,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1530,18 +1530,6 @@ Rogue_ConfigRoom_TalkAssistantInternal_Text_5:
 	.string "Speak to me if you ever want to enable\l"
 	.string "SEEDED mode$"
 
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_0:
-	.string "BST CUP$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_1:
-	.string "Classic Mode$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_2:
-	.string "Battle Addict$"
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_Text_3:
-	.string "???$"
-
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "The BST CUP is short for Base Stat\n"
 	.string "Total Cup.\p"
@@ -1552,7 +1540,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "Every POKéMON you have in your party\n"
 	.string "will be considered for the score.\p"
 	.string "For this Campaign, you'll have to enter\n"
-	.string "a Standard Battle Adventure\p"
+	.string "a Standard Battle Adventure.\p"
 	.string "Gauntlet and Rainbow mode ain't\n"
 	.string "allowed!\p"
 	.string "Finally, this campaign will adjust\n"
@@ -1569,7 +1557,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_2:
 	.string "Classic Mode makes the Adventures more\n"
 	.string "similar to how they use to be 'back in\l"
-	.string "the 1.0 days'.\p"
+	.string "the ol' days'.\p"
 	.string "The main feature is that you no longer\n"
 	.string "get any options for encounter.\p"
 	.string "You'll always have to take a specific\n"
@@ -1585,11 +1573,15 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3:
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
 	.string "Battle Addict makes the Adventures\n"
-	.string "never create Route encounter. Instead\l"
-	.string "you have Strong Trainer encounters.\p"
+	.string "never create 'Route' encounters.\p"
+	.string "Instead you have Strong Trainer\n"
+	.string "encounters.\p"
 	.string "This can be played in any adventure\n"
 	.string "type and doesn't adjust any of the\l"
 	.string "settings in the Config Lab.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
+	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:
 	.string "You wanna give the {STR_VAR_1}\n"
@@ -1599,14 +1591,14 @@ Rogue_ConfigRoom_Campaign_Choice_Text_1:
 	.string "Good luck, kid!$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_2:
-	.string "When you take part in a Campaign, I'll\n"
-	.string "change the settings in this here\l"
+	.string "When you take part in a Campaign\n"
+	.string "settings will be changed to give a\l"
+	.string "unique challenge.\p"
+	.string "I may swap out your POKéMON and change\n"
+	.string "some of the items in your bag.\p"
+	.string "I may also edit your settings in the\n"
 	.string "Config Lab.\p"
-	.string "I may also swap out your POKéMON and\n"
-	.string "change some of the items in your bag\l"
-	.string "too!\p"
-	.string "When on a Campaign, you'll be given a\n"
-	.string "specific task to try and complete.$"
+	.string "Each Campaign has a specific setup.$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_3:
 	.string "You let me know, if you wanna have a go\n"
@@ -1623,7 +1615,8 @@ Rogue_ConfigRoom_Campaign_Text_1:
 
 Rogue_ConfigRoom_Campaign_Text_2:
 	.string "... ... ...\p"
-	.string "Nah that ain't it...$"
+	.string "Nah...\n"
+	.string "That ain't Campaign I know about...$"
 
 Rogue_ConfigRoom_Campaign_Text_3:
 	.string "Well if it isn't the kid!$"

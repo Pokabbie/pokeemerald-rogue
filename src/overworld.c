@@ -73,6 +73,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_quest.h"
+#include "rogue_popup.h"
 
 struct CableClubPlayer
 {
@@ -1477,6 +1478,7 @@ bool32 IsOverworldLinkActive(void)
 
 static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
+    bool8 allowPopups;
     struct FieldInput inputStruct;
 
     UpdatePlayerAvatarTransitionState();
@@ -1487,12 +1489,18 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         if (ProcessPlayerFieldInput(&inputStruct) == 1)
         {
             ScriptContext2_Enable();
-            HideMapNamePopUpWindow();
+            HideMapNamePopUpWindow(); 
+            Rogue_UpdatePopups(TRUE, FALSE);
         }
         else
         {
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
+            Rogue_UpdatePopups(TRUE, TRUE);
         }
+    }
+    else
+    {
+        Rogue_UpdatePopups(TRUE, FALSE);
     }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
