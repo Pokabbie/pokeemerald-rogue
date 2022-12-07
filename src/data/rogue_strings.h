@@ -142,7 +142,7 @@ const u8 gText_ItemLinkCableDesc[] = _(
 const u8 gText_EscapeRopeDesc[] = _(
     "Use to escape\n"
     "instantly from\n"
-    "some encounters.");
+    "most encounters.");
 
 const u8 gText_ItemQuestLogDesc[] = _(
     "A digital log for\n"
