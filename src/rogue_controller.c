@@ -2043,6 +2043,9 @@ static void EndRogueRun(void)
 {
     QuestNotify_EndAdventure();
 
+    if(Rogue_IsCampaignActive())
+        Rogue_DeactivateActiveCampaign();
+
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     //gRogueRun.currentRoomIdx = 0;
@@ -3696,6 +3699,15 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
         else if(IsMiniBossTrainer(trainerNum))
         {
             const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+
+            // If we somehow get a mini boss early, it should be easy going
+            if(difficultyLevel < 3)
+            {
+                *monsCount /= 2;
+
+                if(*monsCount == 0)
+                    *monsCount = 1;
+            }
 
             if((trainer->partyFlags & PARTY_FLAG_STRONG_PRESETS_IGNORE) != 0)
             {

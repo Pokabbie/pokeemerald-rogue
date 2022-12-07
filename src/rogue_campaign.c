@@ -4,6 +4,7 @@
 
 #include "event_data.h"
 #include "item.h"
+#include "overworld.h"
 #include "pokemon.h"
 
 #include "rogue_campaign.h"
@@ -14,25 +15,7 @@ static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
 
 u16 Rogue_GetActiveCampaign(void)
 {
-    u16 desiredCampaign;
-
-    if(!Rogue_IsRunActive() || VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
-        return ROGUE_CAMPAIGN_NONE;
-
-    desiredCampaign = VarGet(VAR_ROGUE_DESIRED_CAMPAIGN);
-
-    switch (desiredCampaign)
-    {
-    case ROGUE_CAMPAIGN_LOW_BST:
-        if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            return ROGUE_CAMPAIGN_NONE;
-        break;
-
-    default:
-        break;
-    }
-
-    return desiredCampaign;
+    return VarGet(VAR_ROGUE_ACTIVE_CAMPAIGN);
 }
 
 bool8 Rogue_IsCampaignActive(void)
@@ -54,12 +37,41 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
         return TRUE;
     }
 
+    if(word0 == 8716 && word1 == 7194) // BATTLETOWER NOW
+    {
+        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_MINIBOSS_BATTLER);
+        return TRUE;
+    }
+
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
     return FALSE;
 }
 
 u16 Rogue_PreActivateDesiredCampaign(void)
 {
+    // Activate desired campaign
+    {
+        u16 desiredCampaign;
+
+        if(VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
+            return ROGUE_CAMPAIGN_NONE;
+
+        desiredCampaign = VarGet(VAR_ROGUE_DESIRED_CAMPAIGN);
+
+        switch (desiredCampaign)
+        {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                desiredCampaign = ROGUE_CAMPAIGN_NONE;
+            break;
+
+        default:
+            break;
+        }
+
+        VarSet(VAR_ROGUE_ACTIVE_CAMPAIGN, desiredCampaign);
+    }
+
     switch (Rogue_GetActiveCampaign())
     {
     case ROGUE_CAMPAIGN_LOW_BST:
@@ -106,6 +118,17 @@ u16 Rogue_PostActivateDesiredCampaign(void)
         }
         break;
     }
+}
+
+u16 Rogue_DeactivateActiveCampaign(void)
+{
+    if(gRogueRun.currentDifficulty >= 14)
+    {
+        if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+            IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+    }
+
+    VarSet(VAR_ROGUE_ACTIVE_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 }
 
 bool8 Rogue_IsActiveCampaignScored(void)

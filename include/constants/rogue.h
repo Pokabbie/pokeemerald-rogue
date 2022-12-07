@@ -317,9 +317,10 @@
 
 // Rogue Campaigns
 //
-#define ROGUE_CAMPAIGN_NONE         0
-#define ROGUE_CAMPAIGN_LOW_BST      1
-#define ROGUE_CAMPAIGN_CLASSIC      2
+#define ROGUE_CAMPAIGN_NONE                 0
+#define ROGUE_CAMPAIGN_LOW_BST              1
+#define ROGUE_CAMPAIGN_CLASSIC              2
+#define ROGUE_CAMPAIGN_MINIBOSS_BATTLER     3
 
 #include "rogue_quests.h"
 
