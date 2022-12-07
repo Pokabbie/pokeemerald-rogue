@@ -322,6 +322,11 @@
 #define ROGUE_CAMPAIGN_CLASSIC              2
 #define ROGUE_CAMPAIGN_MINIBOSS_BATTLER     3
 
+// Popups
+//
+#define POPUP_MSG_QUEST_COMPLETE    0
+#define POPUP_MSG_QUEST_FAIL        1
+
 #include "rogue_quests.h"
 
 #endif

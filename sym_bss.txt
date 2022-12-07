@@ -69,5 +69,6 @@
 	.include "src/rogue_script.o"
 	.include "src/rogue_quest.o"
 	.include "src/rogue_questmenu.o"
+	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"
 	.include "src/rogue_charms.o"

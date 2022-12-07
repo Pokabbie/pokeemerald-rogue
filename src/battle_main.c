@@ -63,6 +63,7 @@
 
 #include "rogue_automation.h"
 #include "rogue_controller.h"
+#include "rogue_popup.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -4127,6 +4128,8 @@ static void HandleTurnActionSelectionState(void)
 {
     s32 i;
 
+    Rogue_UpdatePopups(FALSE, TRUE);
+
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
@@ -4931,6 +4934,8 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
 
 static void RunTurnActionsFunctions(void)
 {
+    Rogue_UpdatePopups(FALSE, FALSE);
+
     if (gBattleOutcome != 0)
         gCurrentActionFuncId = B_ACTION_FINISHED;
 

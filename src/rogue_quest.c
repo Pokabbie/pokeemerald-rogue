@@ -14,6 +14,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_quest.h"
+#include "rogue_popup.h"
 
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
@@ -493,6 +494,7 @@ bool8 TryMarkQuestAsComplete(u16 questId)
             state->hasPendingRewards = TRUE;
         }
 
+        Rogue_PushPopup(POPUP_MSG_QUEST_COMPLETE, questId);
         return TRUE;
     }
 
@@ -506,6 +508,10 @@ bool8 TryDeactivateQuest(u16 questId)
     if(state->isValid)
     {
         state->isValid = FALSE;
+
+        if(state->isPinned)
+            Rogue_PushPopup(POPUP_MSG_QUEST_FAIL, questId);
+
         return TRUE;
     }
 
