@@ -152,6 +152,7 @@
     <ClInclude Include="..\..\..\..\include\constants\pokemon.h" />
     <ClInclude Include="..\..\..\..\include\rogue_baked.h" />
     <ClInclude Include="..\..\..\..\src\data\pokemon\evolution.h" />
+    <ClInclude Include="..\..\..\..\src\data\pokemon\base_stats.h" />
     <ClInclude Include="Inc\BakeConstants.h" />
     <ClInclude Include="Inc\BakeHelpers.h" />
   </ItemGroup>

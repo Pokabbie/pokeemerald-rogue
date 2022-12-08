@@ -2,14 +2,28 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
+#include <set>
 
 extern "C"
 {
 	#include "rogue_baked.h"
+
+	extern const struct BaseStats gBaseStats[];
 }
 
 u16 eggLookup[NUM_SPECIES]{ SPECIES_NONE };
 u8 evolutionCountLookup[NUM_SPECIES]{ 0 };
+
+std::set<u16> eggEvolutionTypes[NUM_SPECIES];
+
+static bool HasEvolutionConnectionOfType(u16 species, u16 type)
+{
+	u16 eggSpecies = eggLookup[species];
+	auto types = eggEvolutionTypes[eggSpecies];
+
+	return types.find(type) != types.end();
+}
 
 int main()
 {
@@ -22,8 +36,15 @@ int main()
 		}
 		else
 		{
-			eggLookup[s] = Rogue_GetEggSpecies(s);
+			u16 eggSpecies = Rogue_GetEggSpecies(s);
+			eggLookup[s] = eggSpecies;
 			evolutionCountLookup[s] = Rogue_GetEvolutionCount(s);
+
+			if (gBaseStats[s].type1 != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(gBaseStats[s].type1);
+
+			if (gBaseStats[s].type2 != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(gBaseStats[s].type2);
 		}
 	}
 
@@ -52,7 +73,46 @@ int main()
 	}
 	file << "};\n";
 
+	//file << "const u8 gRogueBake_EvolutionChainTypes[NUM_SPECIES][8] =\n{\n";
+	//for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+	//{
+	//	u16 eggSpecies = eggLookup[s];
+	//
+	//	file << "\t[" << s << "] = { ";
+	//	
+	//	for (auto type : eggEvolutionTypes[eggSpecies])
+	//	{
+	//		file << type << ", ";
+	//	}
+	//
+	//	file << "},\n";
+	//}
+	//file << "};\n";
+
 	file << "\n";
+
+	for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
+	{
+		file << "const u16 gRogueBake_SpeciesTypeTable_" << t << "[] =\n{\n";
+		for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+		{
+			if (HasEvolutionConnectionOfType(s, t))
+			{
+				file << "\t" << s << ",\n";
+			}
+		}
+		file << "\tSPECIES_NONE\n";
+		file << "};\n\n";
+	}
+
+
+	file << "const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES] =\n{\n";
+	for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
+	{
+		file << "\t[" << t << "] = gRogueBake_SpeciesTypeTable_" << t << ",\n";
+	}
+	file << "};\n";
+
 	file.close();
 	return 0;
 }

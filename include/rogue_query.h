@@ -28,7 +28,7 @@ void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData);
 void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
 
 // Species
-void RogueQuery_SpeciesIsValid(void);
+void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3);
 void RogueQuery_SpeciesExcludeCommon(void);
 void RogueQuery_SpeciesExcludeRange(u16 fromId, u16 toId);
 void RogueQuery_SpeciesInPokedex(void);

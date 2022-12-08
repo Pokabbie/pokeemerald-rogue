@@ -17,7 +17,9 @@ void Rogue_ModifyItem(u16 itemIdx, struct Item* outItem);
 const u8* Rogue_GetTrainerName(u16 trainerNum);
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer);
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
+
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetEvolutionCount(u16 species);
+const u16* Rogue_GetSpeciesTypeTables(u16 type);
 
 #endif

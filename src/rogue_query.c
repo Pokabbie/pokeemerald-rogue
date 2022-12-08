@@ -455,12 +455,45 @@ bool8 IsLegendaryEnabled(u16 species)
     }
 }
 
-void RogueQuery_SpeciesIsValid(void)
+static void TryApplyTypeEarlyCull(u8 type)
+{
+    if(type != TYPE_NONE)
+    {
+        u16 i;
+        u16 species;
+        const u16* typeTable = Rogue_GetSpeciesTypeTables(type);
+
+        for(i = 0; ; ++i)
+        {
+            species = typeTable[i];
+
+            if(species == SPECIES_NONE)
+                break;
+
+            RogueQuery_Include(species);
+        }
+    }
+}
+
+void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3)
 {
     // Handle for ?? species mainly
     // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
     u16 species;
     bool8 state;
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+
+    // No need to do this, as we're going to exclude everything below anyway
+    if(dexLimit != 0) 
+        return;
+
+    if(earlyCullType1 != TYPE_NONE || earlyCullType2 != TYPE_NONE)
+    {
+        RogueQuery_ExcludeAll();
+        TryApplyTypeEarlyCull(earlyCullType1);
+        TryApplyTypeEarlyCull(earlyCullType2);
+        TryApplyTypeEarlyCull(earlyCullType3);
+    }
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
@@ -518,7 +551,7 @@ void RogueQuery_SpeciesExcludeCommon(void)
         }
 
         // Re-apply to remove any invalid mons
-        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
     }
     // Using national mode gen limiter
     else

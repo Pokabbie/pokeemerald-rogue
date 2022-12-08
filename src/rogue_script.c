@@ -72,7 +72,7 @@ void Rogue_RandomisePartyMon(void)
         // Query for the current route type
         RogueQuery_Clear();
 
-        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
         RogueQuery_SpeciesExcludeCommon();
 
         if(gRogueRun.currentDifficulty < 2)
@@ -108,7 +108,7 @@ void Rogue_RandomisePartyMon(void)
         // Query for the current route type
         RogueQuery_Clear();
 
-        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
         RogueQuery_SpeciesExcludeCommon();
 
         if(gRogueRun.currentDifficulty < 2)
