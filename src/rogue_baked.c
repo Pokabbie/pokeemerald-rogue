@@ -89,6 +89,7 @@ extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 #ifdef ROGUE_BAKE_VALID
 extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
 extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
+extern const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES];
 #endif
 
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
@@ -1682,5 +1683,15 @@ u8 Rogue_GetEvolutionCount(u16 species)
     }
 
     return 0;
+#endif
+}
+
+
+const u16* Rogue_GetSpeciesTypeTables(u16 type)
+{
+#ifdef ROGUE_BAKE_VALID
+    return gRogueBake_SpeciesTypeTables[type];
+#else
+    return NULL;
 #endif
 }

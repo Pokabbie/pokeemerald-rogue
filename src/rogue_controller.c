@@ -1297,7 +1297,7 @@ static void SelectStartMons(void)
     RogueQuery_Exclude(SPECIES_SUNKERN);
     RogueQuery_Exclude(SPECIES_SUNFLORA);
 
-    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
@@ -2431,6 +2431,19 @@ void Rogue_SelectMiniBossRewardMons()
     gRngRogueValue = startSeed;
 }
 
+static u8 RandomMonType(u16 seedFlag)
+{
+    u8 type;
+
+    do
+    {
+        type = RogueRandomRange(NUMBER_OF_MON_TYPES, seedFlag);
+    }
+    while(type == TYPE_MYSTERY);
+
+    return type;
+}
+
 u8 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 queryCount;
@@ -2438,7 +2451,7 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
 
     RogueQuery_Clear();
 
-    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsValid(RandomMonType(FLAG_SET_SEED_WILDMONS), TYPE_NONE, TYPE_NONE);
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
@@ -3879,7 +3892,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
             }
         }
 
-        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE); // Already done early cull above
         RogueQuery_SpeciesExcludeCommon();
 
         if(gRogueLocal.trainerTemp.forceLegendaries)
@@ -3904,7 +3917,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
     }
     else
     {
-        RogueQuery_SpeciesIsValid();
+        RogueQuery_SpeciesIsValid(gRogueLocal.trainerTemp.allowedType[0], gRogueLocal.trainerTemp.allowedType[1], TYPE_NONE);
         RogueQuery_SpeciesExcludeCommon();
         RogueQuery_Exclude(SPECIES_UNOWN);
 
@@ -4139,14 +4152,6 @@ static void ApplyTrainerQuery(u16 trainerNum)
                 RogueQuery_SpeciesIsNotStrongLegendary();
             else if(!gRogueLocal.trainerTemp.allowWeakLegendaries)
                 RogueQuery_SpeciesIsNotWeakLegendary();
-        }
-
-        if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
-        {
-            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
         }
     }
 
@@ -6112,10 +6117,13 @@ static void RandomiseWildEncounters(void)
     // Query for the current route type
     RogueQuery_Clear();
 
-    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsValid(
+        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
+        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[1],
+        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[2]
+        );
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable));
     RogueQuery_TransformToEggSpecies();
 
     // Evolve the species to just below the wild encounter level
@@ -6143,11 +6151,10 @@ static void RandomiseFishingEncounters(void)
 {
     RogueQuery_Clear();
 
-    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsValid(TYPE_WATER, TYPE_NONE, TYPE_NONE);
     RogueQuery_SpeciesExcludeCommon();
     RogueQuery_SpeciesIsNotLegendary();
 
-    RogueQuery_SpeciesOfType(TYPE_WATER);
     RogueQuery_TransformToEggSpecies();
     RogueQuery_SpeciesOfType(TYPE_WATER);
 
@@ -6231,7 +6238,7 @@ static void RandomiseSafariWildEncounters(void)
 
     // Query for the current zone
     RogueQuery_Clear();
-    RogueQuery_SpeciesIsValid();
+    RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE); // TODO - Could probably get this working to speed up transition
 
     if(targetGen == 0)
     {
