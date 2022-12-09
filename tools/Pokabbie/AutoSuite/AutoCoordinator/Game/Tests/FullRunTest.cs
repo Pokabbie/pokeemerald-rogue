@@ -197,6 +197,15 @@ namespace AutoCoordinator.Game.Tests
 			SetFlagPerc(PokemonFlagID.RogueKantoBosses, 50);
 			SetFlagPerc(PokemonFlagID.RogueJohtoBosses, 50);
 
+			// TEMP
+			game.SetFlag(PokemonFlagID.RogueHoennRoutes, true);
+			game.SetFlag(PokemonFlagID.RogueKantoRoutes, true);
+			game.SetFlag(PokemonFlagID.RogueJohtoRoutes, true);
+
+			game.SetFlag(PokemonFlagID.RogueHoennBosses, false);
+			game.SetFlag(PokemonFlagID.RogueKantoBosses, false);
+			game.SetFlag(PokemonFlagID.RogueJohtoBosses, true);
+
 			SetDifficultyPerc("Trainers", PokemonFlagID.RogueEasyTrainers, PokemonFlagID.RogueHardTrainers);
 			SetDifficultyPerc("Items", PokemonFlagID.RogueEasyItems, PokemonFlagID.RogueHardItems);
 			SetDifficultyPerc("Legendaries", PokemonFlagID.RogueEasyLegendaries, PokemonFlagID.RogueHardLegendaries);
@@ -227,6 +236,18 @@ namespace AutoCoordinator.Game.Tests
 
 				m_State = null;
 				game.ResetGame();
+
+
+				LogTestMessage($"Clearing save states");
+				game.Connection.Cmd_Emu_SaveStateSlot(1);
+				game.Connection.Cmd_Emu_SaveStateSlot(2);
+				game.Connection.Cmd_Emu_SaveStateSlot(3);
+				game.Connection.Cmd_Emu_SaveStateSlot(4);
+				game.Connection.Cmd_Emu_SaveStateSlot(5);
+				game.Connection.Cmd_Emu_SaveStateSlot(6);
+				game.Connection.Cmd_Emu_SaveStateSlot(7);
+				game.Connection.Cmd_Emu_SaveStateSlot(8);
+				game.Connection.Cmd_Emu_SaveStateSlot(9);
 				return;
 			}
 
@@ -275,6 +296,22 @@ namespace AutoCoordinator.Game.Tests
 			{
 				LogTestMessage($"Warped '{currentMapLayout}'");
 				m_State.m_PrevMapLayoutID = currentMapLayout;
+
+				switch (currentMapLayout)
+				{
+					case PokemonMapLayoutID.RogueBoss0:
+					case PokemonMapLayoutID.RogueBoss8:
+					case PokemonMapLayoutID.RogueBoss9:
+					case PokemonMapLayoutID.RogueBoss10:
+					case PokemonMapLayoutID.RogueBoss11:
+					case PokemonMapLayoutID.RogueBoss12:
+					case PokemonMapLayoutID.RogueBoss13:
+						// Just enter battle room
+						int slot = 1 + m_State.m_CurrentDifficulty % 9;
+						LogTestMessage($"Saving to state {slot}");
+						game.Connection.Cmd_Emu_SaveStateSlot(slot);
+						break;
+				}
 			}
 
 			switch (currentMapLayout)

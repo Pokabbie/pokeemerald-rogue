@@ -4855,12 +4855,30 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
 
     // Prevent duplicates, if possible
     // *Only allow duplicates after we've already seen everything in the query
-    do
     {
-        randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-        species = RogueQuery_BufferPtr()[randIdx];
+        u8 stuckCount = 0;
+
+        do
+        {
+            randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
+            species = RogueQuery_BufferPtr()[randIdx];
+
+            if(stuckCount++ >= 100)
+            {
+                if(skipDupeCheck == FALSE)
+                {
+                    stuckCount = 0;
+                    skipDupeCheck = TRUE;
+                }
+                else
+                {
+                    // Was unable to find a valid species, so just handle whatever we return
+                    break;
+                }
+            }
+        }
+        while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
-    while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
 
 #ifdef ROGUE_DEBUG
     if(species == SPECIES_NONE)
