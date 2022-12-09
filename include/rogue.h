@@ -103,6 +103,10 @@ struct RogueRunData
     u16 currentDifficulty;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
+#ifdef ROGUE_EXPANSION
+    u8 megasEnabled : 1;
+    u8 zMovesEnabled : 1;
+#endif
 
     // TODO - Should move these into a separate Global struct similar to the quest stuff?
     // Maybe combine the both
