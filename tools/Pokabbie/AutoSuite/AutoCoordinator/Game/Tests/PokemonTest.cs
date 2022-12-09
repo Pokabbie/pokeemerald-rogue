@@ -146,7 +146,7 @@ namespace AutoCoordinator.Game.Tests
 			int slot = 1 + m_CurrentSaveStateSlot;
 			LogTestMessage($"Saving to state {slot}");
 			game.Connection.Cmd_Emu_SaveStateSlot(slot);
-			m_CurrentSaveStateSlot = (m_CurrentSaveStateSlot + 1 % 9);
+			m_CurrentSaveStateSlot = (m_CurrentSaveStateSlot + 1) % 9;
 
 			// More interested in these files than the above
 			string savePath = Path.Combine(ScratchDir, $"{id}.ss0");
