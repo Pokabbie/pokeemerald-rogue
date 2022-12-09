@@ -19,6 +19,7 @@
 #include "party_menu.h"
 
 #include "rogue.h"
+#include "rogue_charms.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
 
@@ -405,6 +406,10 @@ bool8 AddBagItem(u16 itemId, u16 count)
         Free(newItems);
 
         QuestNotify_OnAddBagItem(itemId, count);
+
+        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+            RecalcCharmCurseValues();
+
         return TRUE;
     }
 }
@@ -469,6 +474,10 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
             if (count == 0)
             {
                 QuestNotify_OnRemoveBagItem(itemId, count);
+
+                if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                    RecalcCharmCurseValues();
+
                 return TRUE;
             }
         }
@@ -495,12 +504,20 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
                 if (count == 0)
                 {
                     QuestNotify_OnRemoveBagItem(itemId, count);
+
+                    if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                        RecalcCharmCurseValues();
+
                     return TRUE;
                 }
             }
         }
 
         QuestNotify_OnRemoveBagItem(itemId, count);
+        
+        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+            RecalcCharmCurseValues();
+
         return TRUE;
     }
 }
@@ -741,6 +758,8 @@ void ClearBag(void)
     {
         ClearItemSlots(gBagPockets[i].itemSlots, gBagPockets[i].capacity);
     }
+    
+    RecalcCharmCurseValues();
 }
 
 u16 CountTotalItemQuantityInBag(u16 itemId)

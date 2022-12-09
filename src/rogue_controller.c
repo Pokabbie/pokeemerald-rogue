@@ -1047,7 +1047,7 @@ bool8 IsGenEnabled(u8 gen)
 bool8 IsMegaEvolutionEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return CheckBagHasItem(ITEM_MEGA_RING, 1);
+    return gRogueRun.megasEnabled;
 #else
     return FALSE;
 #endif
@@ -1056,7 +1056,7 @@ bool8 IsMegaEvolutionEnabled(void)
 bool8 IsZMovesEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return CheckBagHasItem(ITEM_Z_POWER_RING, 1);
+    return gRogueRun.zMovesEnabled;
 #else
     return FALSE;
 #endif
@@ -1065,7 +1065,7 @@ bool8 IsZMovesEnabled(void)
 bool8 IsDynamaxEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return CheckBagHasItem(ITEM_DYNAMAX_BAND, 1);
+    return FALSE;
 #else
     return FALSE;
 #endif
@@ -1745,6 +1745,7 @@ void Rogue_OnLoadGame(void)
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
+    RecalcCharmCurseValues();
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
@@ -1908,6 +1909,8 @@ static void BeginRogueRun_ModifyParty(void)
 
 static void BeginRogueRun(void)
 {
+    DebugPrint("BeginRogueRun");
+    
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
@@ -1928,6 +1931,12 @@ static void BeginRogueRun(void)
     {
         gRogueRun.currentLevelOffset = 80;
     }
+    
+#ifdef ROGUE_EXPANSION
+    gRogueRun.megasEnabled =  CheckBagHasItem(ITEM_MEGA_RING, 1);
+    gRogueRun.zMovesEnabled = CheckBagHasItem(ITEM_Z_POWER_RING, 1);
+    // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
+#endif
 
     // Will get generated later
     gRogueAdvPath.currentColumnCount = 0;
@@ -1999,6 +2008,8 @@ static void BeginRogueRun(void)
     {
         SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
     }
+
+    RecalcCharmCurseValues();
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
 

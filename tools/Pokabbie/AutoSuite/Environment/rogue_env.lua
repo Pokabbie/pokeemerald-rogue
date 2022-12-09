@@ -117,6 +117,18 @@ function AutoCmd_emu_loadStateSlot(sock, params)
     sock:send("1")
 end
 
+function AutoCmd_emu_saveStateFile(sock, params)
+    local path = params[2]
+    emu:saveStateFile(path, 31)
+    sock:send("1")
+end
+
+function AutoCmd_emu_loadStateFile(sock, params)
+    local path = params[2]
+    emu:loadStateFile(path, 29)
+    sock:send("1")
+end
+
 autoCmds = 
 {
     hello = AutoCmd_HelloWorld,
@@ -131,6 +143,8 @@ autoCmds =
     emu_reset = AutoCmd_emu_reset,
     emu_saveStateSlot = AutoCmd_emu_saveStateSlot,
     emu_loadStateSlot = AutoCmd_emu_loadStateSlot,
+    emu_saveStateFile = AutoCmd_emu_saveStateFile,
+    emu_loadStateFile = AutoCmd_emu_loadStateFile,
 }
 
 function Auto_ProcessCmd(sock, msg)
