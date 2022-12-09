@@ -125,5 +125,15 @@ namespace AutoCoordinator.GameConsole
 
 			return output.ToArray();
 		}
+
+		public void Cmd_Emu_SaveStateSlot(int slot = 0)
+		{
+			m_Connection.SendMessage("emu_saveStateSlot", (slot).ToString());
+		}
+
+		public void Cmd_Emu_LoadStateSlot(int slot = 0)
+		{
+			m_Connection.SendMessage("emu_loadStateSlot", (slot).ToString());
+		}
 	}
 }

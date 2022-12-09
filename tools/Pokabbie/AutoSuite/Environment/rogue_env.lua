@@ -105,6 +105,18 @@ function AutoCmd_emu_reset(sock, params)
     sock:send("1")
 end
 
+function AutoCmd_emu_saveStateSlot(sock, params)
+    local slot = tonumber(params[2])
+    emu:saveStateSlot(slot, 31)
+    sock:send("1")
+end
+
+function AutoCmd_emu_loadStateSlot(sock, params)
+    local slot = tonumber(params[2])
+    emu:loadStateSlot(slot, 29)
+    sock:send("1")
+end
+
 autoCmds = 
 {
     hello = AutoCmd_HelloWorld,
@@ -117,6 +129,8 @@ autoCmds =
     emu_write32 = AutoCmd_emu_write32,
     emu_setkeys = AutoCmd_emu_setKeys,
     emu_reset = AutoCmd_emu_reset,
+    emu_saveStateSlot = AutoCmd_emu_saveStateSlot,
+    emu_loadStateSlot = AutoCmd_emu_loadStateSlot,
 }
 
 function Auto_ProcessCmd(sock, msg)
