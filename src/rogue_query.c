@@ -45,6 +45,8 @@ static void SetQueryState(u16 elem, bool8 state)
     u16 bit = elem % 8;
 
     u8 bitMask = 1 << bit;
+    
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueQueryBits));
     if(state)
     {
         gRogueQueryBits[idx] |= bitMask;
@@ -61,13 +63,15 @@ static bool8 GetQueryState(u16 elem)
     u16 bit = elem % 8;
 
     u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueQueryBits));
     return gRogueQueryBits[idx] & bitMask;
 }
 
 void RogueQuery_Clear(void)
 {
     gRogueQueryBufferSize = 0;
-    memset(&gRogueQueryBits[0], 255, sizeof(bool8) * ARRAY_COUNT(gRogueQueryBits));
+    memset(&gRogueQueryBits[0], 255, sizeof(u8) * ARRAY_COUNT(gRogueQueryBits));
 }
 
 void RogueQuery_CollapseSpeciesBuffer(void)
@@ -173,11 +177,14 @@ u16 RogueQuery_PopCollapsedIndex(u16 idx)
     u16 i;
     u16 value = gRogueQueryBuffer[idx];
 
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueQueryBuffer));
+
     SetQueryState(value, FALSE);
     --gRogueQueryBufferSize;
 
     for(i = idx; i < gRogueQueryBufferSize; ++i)
     {
+        AGB_ASSERT(i + 1 < ARRAY_COUNT(gRogueQueryBuffer));
         gRogueQueryBuffer[i] = gRogueQueryBuffer[i + 1];
     }
 
@@ -226,7 +233,7 @@ void RogueQuery_Exclude(u16 idx)
 
 void RogueQuery_ExcludeAll(void)
 {
-    memset(&gRogueQueryBits[0], 0, sizeof(bool8) * ARRAY_COUNT(gRogueQueryBits));
+    memset(&gRogueQueryBits[0], 0, sizeof(u8) * ARRAY_COUNT(gRogueQueryBits));
 }
 
 void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData)
