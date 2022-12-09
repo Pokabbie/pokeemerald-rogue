@@ -10,16 +10,25 @@ namespace AutoCoordinator.Game.Tests
 		private string m_TestName;
 		private int m_TestIdCounter;
 		private int m_CurrentTestID;
+		private int m_CurrentSaveStateSlot;
 
 		private DateTime m_TestStartTime = DateTime.UtcNow;
 		private Random m_RNG = new Random();
 		private bool m_TestActive = false;
-
-		private StringBuilder m_LocalLog = new StringBuilder();
+		private StreamWriter m_LogStream = null;
 
 		public PokemonTest(string testName)
 		{
 			m_TestName = testName;
+		}
+
+		public string ScratchDir
+		{
+			get
+			{
+				string path = Path.GetFullPath($"Test({m_TestName})\\Scratch");
+				return path;
+			}
 		}
 
 		public abstract void Run(PokemonGame game);
@@ -51,7 +60,8 @@ namespace AutoCoordinator.Game.Tests
 
 		public void StartNextTest()
 		{
-			m_LocalLog.Clear();
+			ResetScratch();
+
 			m_CurrentTestID = m_TestIdCounter++;
 			m_TestStartTime = DateTime.UtcNow;
 			m_TestActive = true;
@@ -65,15 +75,83 @@ namespace AutoCoordinator.Game.Tests
 			msg = $"[{DateTime.UtcNow.TimeOfDay.ToString()}] {msg}";
 
 			Console.WriteLine(msg);
-			m_LocalLog.AppendLine(msg);
+
+			if (m_LogStream != null)
+				m_LogStream.WriteLine(msg);
 		}
 
 		public void LogTestSuccess()
 		{
 			LogTestMessage($"Finished successfully (ID:{CurrentTestID})");
 			m_TestActive = false;
+		}
 
-			//FlushLocalLogToFile("testOutput.txt");
+		private void ResetScratch()
+		{
+			if (m_LogStream != null)
+			{
+				m_LogStream.Dispose();
+				m_LogStream = null;
+			}
+
+			string dir = ScratchDir;
+
+			if (Directory.Exists(dir))
+				Directory.Delete(dir, true);
+
+			Directory.CreateDirectory(dir);
+
+			string logFilePath = Path.Combine(ScratchDir, "output.txt");
+			m_LogStream = new StreamWriter(File.Create(logFilePath));
+			m_LogStream.AutoFlush = true;
+
+			LogTestMessage($"Reset testing scratch '{dir}'");
+		}
+
+		private void CopyScratchDir(string newDir)
+		{
+			if (m_LogStream != null)
+			{
+				m_LogStream.Dispose();
+				m_LogStream = null;
+			}
+
+			string oldDir = ScratchDir;
+
+			foreach (string file in Directory.EnumerateFiles(oldDir, "*.*", SearchOption.AllDirectories))
+			{
+				string copyFile = file.Replace(oldDir, newDir, StringComparison.CurrentCultureIgnoreCase);
+				Directory.CreateDirectory(Path.GetDirectoryName(copyFile));
+				File.Copy(file, copyFile);
+			}
+		}
+
+		public void ClearSaveStates(PokemonGame game)
+		{
+			LogTestMessage($"Clearing save states");
+			game.Connection.Cmd_Emu_SaveStateSlot(1);
+			game.Connection.Cmd_Emu_SaveStateSlot(2);
+			game.Connection.Cmd_Emu_SaveStateSlot(3);
+			game.Connection.Cmd_Emu_SaveStateSlot(4);
+			game.Connection.Cmd_Emu_SaveStateSlot(5);
+			game.Connection.Cmd_Emu_SaveStateSlot(6);
+			game.Connection.Cmd_Emu_SaveStateSlot(7);
+			game.Connection.Cmd_Emu_SaveStateSlot(8);
+			game.Connection.Cmd_Emu_SaveStateSlot(9);
+			m_CurrentSaveStateSlot = 0;
+		}
+
+		public void PushSaveState(PokemonGame game, string id)
+		{
+			int slot = 1 + m_CurrentSaveStateSlot;
+			LogTestMessage($"Saving to state {slot}");
+			game.Connection.Cmd_Emu_SaveStateSlot(slot);
+			m_CurrentSaveStateSlot = (m_CurrentSaveStateSlot + 1 % 9);
+
+			// More interested in these files than the above
+			string savePath = Path.Combine(ScratchDir, $"{id}.ss0");
+			LogTestMessage($"Saving to state {savePath}");
+			game.Connection.Cmd_Emu_SaveStateFile(savePath);
 		}
 
 		public void LogTestFail(string errorMessage)
@@ -82,17 +160,9 @@ namespace AutoCoordinator.Game.Tests
 			LogTestMessage("Error: " + errorMessage);
 			m_TestActive = false;
 
-			FlushLocalLogToFile();
-		}
+			string crashDir = Path.Combine(Path.GetDirectoryName(ScratchDir), $"Fail_{CurrentTestID}_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}");
 
-		private void FlushLocalLogToFile()
-		{
-			string path = $"testOutput({m_TestName}).txt";
-
-			using (var stream = File.AppendText(path))
-				stream.WriteLine(m_LocalLog.ToString());
-
-			m_LocalLog.Clear();
+			CopyScratchDir(crashDir);
 		}
 
 		public int CalculatePlayerPartySize(PokemonGame game)

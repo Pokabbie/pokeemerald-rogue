@@ -48,7 +48,11 @@ namespace AutoCoordinator.Game.Tests
 				if (IsTestActive)
 				{
 					if (stateDuration >= TimeSpan.FromMinutes(4))
+					{
 						LogTestFail($"Stuck for {stateDuration}");
+						game.ResetGame();
+						break;
+					}
 				}
 
 				switch (inputState)
@@ -87,7 +91,7 @@ namespace AutoCoordinator.Game.Tests
 				else
 				{
 					LogTestMessage($"Must've crashed (difficulty: {m_State.m_CurrentDifficulty})");
-					LogTestSuccess();
+					LogTestFail("Detected Crash (Back on Title Screen)");
 				}
 
 				return;
@@ -236,18 +240,7 @@ namespace AutoCoordinator.Game.Tests
 
 				m_State = null;
 				game.ResetGame();
-
-
-				LogTestMessage($"Clearing save states");
-				game.Connection.Cmd_Emu_SaveStateSlot(1);
-				game.Connection.Cmd_Emu_SaveStateSlot(2);
-				game.Connection.Cmd_Emu_SaveStateSlot(3);
-				game.Connection.Cmd_Emu_SaveStateSlot(4);
-				game.Connection.Cmd_Emu_SaveStateSlot(5);
-				game.Connection.Cmd_Emu_SaveStateSlot(6);
-				game.Connection.Cmd_Emu_SaveStateSlot(7);
-				game.Connection.Cmd_Emu_SaveStateSlot(8);
-				game.Connection.Cmd_Emu_SaveStateSlot(9);
+				ClearSaveStates(game);
 				return;
 			}
 
@@ -306,10 +299,7 @@ namespace AutoCoordinator.Game.Tests
 					case PokemonMapLayoutID.RogueBoss11:
 					case PokemonMapLayoutID.RogueBoss12:
 					case PokemonMapLayoutID.RogueBoss13:
-						// Just enter battle room
-						int slot = 1 + m_State.m_CurrentDifficulty % 9;
-						LogTestMessage($"Saving to state {slot}");
-						game.Connection.Cmd_Emu_SaveStateSlot(slot);
+						PushSaveState(game, $"pre_boss_{m_State.m_CurrentDifficulty}");
 						break;
 				}
 			}

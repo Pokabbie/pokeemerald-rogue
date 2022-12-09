@@ -135,5 +135,17 @@ namespace AutoCoordinator.GameConsole
 		{
 			m_Connection.SendMessage("emu_loadStateSlot", (slot).ToString());
 		}
+
+		public void Cmd_Emu_SaveStateFile(string filePath)
+		{
+			filePath = System.IO.Path.GetFullPath(filePath);
+			m_Connection.SendMessage("emu_saveStateFile", filePath);
+		}
+
+		public void Cmd_Emu_LoadStateSlot(string filePath)
+		{
+			filePath = System.IO.Path.GetFullPath(filePath);
+			m_Connection.SendMessage("emu_loadStateFile", filePath);
+		}
 	}
 }

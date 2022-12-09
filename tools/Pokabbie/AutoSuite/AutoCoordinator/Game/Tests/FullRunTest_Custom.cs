@@ -55,22 +55,22 @@ namespace AutoCoordinator.Game.Tests
 			const int difficulty_hard = 2;
 
 			SetFlagPerc(PokemonFlagID.RogueDoubleBattles, false);
-			SetFlagPerc(PokemonFlagID.RogueRainbowMode, true);
+			SetFlagPerc(PokemonFlagID.RogueRainbowMode, false);
 			SetFlagPerc(PokemonFlagID.RogueGauntletMode, false);
 
 			SetFlagPerc(PokemonFlagID.RogueHoennBosses, false);
-			SetFlagPerc(PokemonFlagID.RogueKantoBosses, false);
-			SetFlagPerc(PokemonFlagID.RogueJohtoBosses, false);
+			SetFlagPerc(PokemonFlagID.RogueKantoBosses, true);
+			SetFlagPerc(PokemonFlagID.RogueJohtoBosses, true);
 
 
-			SetDifficultyPerc("Trainers", PokemonFlagID.RogueEasyTrainers, PokemonFlagID.RogueHardTrainers, difficulty_hard);
-			SetDifficultyPerc("Items", PokemonFlagID.RogueEasyItems, PokemonFlagID.RogueHardItems, difficulty_average);
+			SetDifficultyPerc("Trainers", PokemonFlagID.RogueEasyTrainers, PokemonFlagID.RogueHardTrainers, difficulty_average);
+			SetDifficultyPerc("Items", PokemonFlagID.RogueEasyItems, PokemonFlagID.RogueHardItems, difficulty_easy);
 			SetDifficultyPerc("Legendaries", PokemonFlagID.RogueEasyLegendaries, PokemonFlagID.RogueHardLegendaries, difficulty_average);
 
-			int regionRng = 2;
-			bool regionalDex = true;
-			int seed0 = 34796;
-			int seed1 = 19701;
+			int regionRng = 6;
+			bool regionalDex = false;
+			int seed0 = 19317;
+			int seed1 = 28004;
 
 			LogTestMessage($"Using Gen Limit {regionRng} ({(regionalDex ? "regional" : "national")})");
 			game.SetVar(PokemonVarID.RogueEnabledGenLimit, regionRng);
