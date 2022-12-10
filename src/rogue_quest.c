@@ -93,38 +93,32 @@ static void UnlockDefaultQuests()
     }
 }
 
-void ResetQuestState(u16 saveVersion)
+void ResetQuestStateAfter(u16 loadedQuestCapacity)
 {
     u16 i;
 
-    if(saveVersion == 0 || saveVersion == 1)
+    if(loadedQuestCapacity < QUEST_CAPACITY)
     {
-        // Clear these flags here, as they are quest related so we want to make sure they're setup correctly
-        FlagClear(FLAG_ROGUE_MET_POKABBIE);
-        FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
+        if(loadedQuestCapacity == 0)
+        {
+            // Clear these flags here, as they are quest related so we want to make sure they're setup correctly
+            FlagClear(FLAG_ROGUE_MET_POKABBIE);
+            FlagClear(FLAG_ROGUE_UNCOVERRED_POKABBIE);
+        }
 
         // Reset the state for any new quests
-        for(i = 0; i < QUEST_CAPACITY; ++i)
+        for(i = loadedQuestCapacity; i < QUEST_CAPACITY; ++i)
         {
             memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
-    }
-    else
-    {
-        // v1.3 new values
-        if(saveVersion < 3)
+
+        // Always make sure default quests are unlocked
+        UnlockDefaultQuests();
+
+        if(loadedQuestCapacity == 0)
         {
-            for(i = QUEST_JohtoMode; i < QUEST_CAPACITY; ++i)
-                memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
+            ForEachUnlockedQuest(ActivateHubQuests);
         }
-    }
-
-    // Always make sure default quests are unlocked
-    UnlockDefaultQuests();
-
-    if(saveVersion == 0 || saveVersion == 1)
-    {
-        ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
 

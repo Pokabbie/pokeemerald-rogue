@@ -624,7 +624,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_GauntletMode] = 
     {
         .title = _("Gauntlet Mode"),
-        .sortIndex = 10,
+        .sortIndex = 3,
         .desc = _(
                     "Bring between 1 & 6 POKéMON\n"
                     "into Gauntlet Mode and\n"
@@ -657,7 +657,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     [QUEST_OrreMode] = 
     {
         .title = _("Orre Style"),
-        .sortIndex = 10,
+        .sortIndex = 3,
         .desc = _(
                     "Reach the final champion\n"
                     "in DOUBLES with an ESPEON\n"

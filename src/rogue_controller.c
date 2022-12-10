@@ -41,6 +41,7 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
 
@@ -1365,8 +1366,6 @@ static void ClearPokemonHeldItems(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
-    ResetQuestState(newGame ? 0 : saveVersion);
-
     // Loading existing save
     if(!newGame)
     {
@@ -1487,7 +1486,11 @@ void Rogue_OnNewGame(void)
     ClearBerryTrees();
     SelectStartMons();
 
+    ResetQuestStateAfter(0);
+
     EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
+
+    Rogue_ClearPopupQueue();
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
@@ -1678,7 +1681,11 @@ void Rogue_OnSaveGame(void)
         size_t offset = 0;
 
         // Serialize more global data
-        offset += SerializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+        {
+            u16 questCapacity = QUEST_CAPACITY;
+            offset += SerializeBoxData(offset, &questCapacity, sizeof(questCapacity));
+            offset += SerializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+        }
 
         // Serialize temporary per-run data
         offset += SerializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
@@ -1703,11 +1710,7 @@ void Rogue_OnLoadGame(void)
         // Pre 1.3
         if(gSaveBlock1Ptr->rogueSaveVersion < 3)
         {
-#ifdef ROGUE_EXPANSION
-            const u16 questCount = 58;
-#else
-            const u16 questCount = 52;
-#endif
+            const u16 questCapacity = _QUEST_LAST_1_2 + 1;
 
             // This was a very chaotically organised struct, so skip over most thingg
             // as that's just hub data to restore and we can't load previous versions whilst in a run
@@ -1716,13 +1719,18 @@ void Rogue_OnLoadGame(void)
             offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
-            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+            offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+            ResetQuestStateAfter(questCapacity);
         }
         else
         {
             // Serialize more global data
-            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData)); 
-            // Don't have to worry about keeping track of quest count here as it reads into run space and the new quests will be wiped on first load
+            {
+                u16 questCapacity = QUEST_CAPACITY;
+                offset += DeserializeBoxData(offset, &questCapacity, sizeof(questCapacity));
+                offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * min(questCapacity, QUEST_CAPACITY));
+                ResetQuestStateAfter(questCapacity);
+            }
 
             // Serialize temporary per-run data
             offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
