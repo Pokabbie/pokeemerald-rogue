@@ -3152,7 +3152,10 @@ void RemoveAnyFaintedMons(bool8 keepItems)
     }
 
     if(hasMonFainted)
+    {
+        Rogue_CampaignNotify_OnMonFainted();
         QuestNotify_OnMonFainted();
+    }
 
     gPlayerPartyCount = CalculatePlayerPartyCount();
 }
@@ -4766,6 +4769,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         // EXP trainer
         return SPECIES_CHANSEY;
     }
+    
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        return SPECIES_FARFETCHD;
+    }
 
     if(IsBossTrainer(trainerNum))
     {
@@ -5579,6 +5587,9 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
                 // Prevent recent duplicates when on a run (Don't use this in safari mode though)
                 randIdx = Random() % count; 
                 *species = gRogueRun.wildEncounters[randIdx];
+
+                if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+                    break;
             }
             while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
@@ -6127,7 +6138,12 @@ static u16 NextWildSpecies(u16 * party, u8 monIdx)
     u16 species;
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
-    
+
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        return SPECIES_FARFETCHD;
+    }
+
     // Prevent duplicates, if possible
     do
     {

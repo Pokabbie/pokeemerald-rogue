@@ -317,17 +317,18 @@
 
 // Rogue Campaigns
 //
-#define ROGUE_CAMPAIGN_NONE                 0
-#define ROGUE_CAMPAIGN_LOW_BST              1
-#define ROGUE_CAMPAIGN_CLASSIC              2
-#define ROGUE_CAMPAIGN_MINIBOSS_BATTLER     3
+#define ROGUE_CAMPAIGN_NONE                     0
+#define ROGUE_CAMPAIGN_LOW_BST                  1
+#define ROGUE_CAMPAIGN_CLASSIC                  2
+#define ROGUE_CAMPAIGN_MINIBOSS_BATTLER         3
+#define ROGUE_CAMPAIGN_LATERMANNER              4
 
 // Popups
 //
 #define POPUP_MSG_QUEST_COMPLETE                0
 #define POPUP_MSG_QUEST_FAIL                    1
 #define POPUP_MSG_LEGENDARY_CLAUSE              2
-#define POPUP_MSG_CAMPAIGN_ANNOUNCE             4
+#define POPUP_MSG_CAMPAIGN_ANNOUNCE             3
 
 #include "rogue_quests.h"
 

@@ -116,6 +116,9 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
             bufferstring(STR_VAR_1, gText_Campaign_MiniBossBattler)
 
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            bufferstring(STR_VAR_1, gText_Campaign_LaterManner)
+
         default:
             bufferstring(STR_VAR_1, gText_Campaign_None)
     }
@@ -136,6 +139,10 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
             msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou lose points if a POKéMON faints...\pAnd well... You'll figure out the rest."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         default:
             msgbox(format("???"))

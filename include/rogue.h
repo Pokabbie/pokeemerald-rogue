@@ -97,6 +97,11 @@ struct RogueCampaignData_LowBst
     u16 scoreSpecies;
 };
 
+struct RogueCampaignData_Generic
+{
+    u16 score;
+};
+
 struct RogueRunData
 {
     u16 currentRoomIdx;
@@ -123,6 +128,7 @@ struct RogueRunData
     u16 wildEncounterHistoryBuffer[3];
     union
     {
+        struct RogueCampaignData_Generic generic;
         struct RogueCampaignData_LowBst lowBst;
     } campaignData;
 };

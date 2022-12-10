@@ -100,6 +100,7 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
+	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_BufferCampaignName_5
 	bufferstring STR_VAR_1, gText_Campaign_None
 	return
 
@@ -115,13 +116,18 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
 	bufferstring STR_VAR_1, gText_Campaign_MiniBossBattler
 	return
 
+Rogue_ConfigRoom_Campaign_BufferCampaignName_5:
+	bufferstring STR_VAR_1, gText_Campaign_LaterManner
+	return
+
 
 Rogue_ConfigRoom_Campaign_CampaignDescription::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
+	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_CampaignDescription_5
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -137,6 +143,11 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_3:
 Rogue_ConfigRoom_Campaign_CampaignDescription_4:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_5:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
 
@@ -424,7 +435,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -592,7 +603,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -641,7 +652,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1581,6 +1592,15 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
 	.string "settings in the Config Lab.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
+	.string "LaterManner Mode was made for the\n"
+	.string "streamer himself!\p"
+	.string "It's..!\p"
+	.string "Err...\p"
+	.string "Well it is a mode...\p"
+	.string "You lose points if a POKéMON faints...\p"
+	.string "And well... You'll figure out the rest.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:
