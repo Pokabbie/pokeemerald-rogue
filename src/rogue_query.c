@@ -511,7 +511,7 @@ void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCul
                 SetQueryState(species, FALSE);
             }
 #ifdef ROGUE_EXPANSION
-            else if(species >= FORMS_START)
+            else if(species > FORMS_START)
             {
                 // Only validate certain forms here
                 // (A lot of them are manual transform methods)

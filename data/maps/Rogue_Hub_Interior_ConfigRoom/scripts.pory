@@ -424,6 +424,10 @@ script Rogue_ConfigRoom_MegaBag
         setvar(VAR_CONFIG_ITEM, 703)
         call(Rogue_ConfigRoom_ItemBag)
     }
+    else
+    {
+        msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+    }
     release
 }
 

@@ -163,7 +163,7 @@ Rogue_Hub_Clothes_SetStyle_Leaf_2:
 
 Rogue_Hub_Clothes_SetStyle_Ethan::
 	lock
-	msgbox Rogue_Hub_Clothes_SetStyle_Brendan_Text_0, MSGBOX_YESNO
+	msgbox Rogue_Hub_Clothes_SetStyle_Ethan_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Hub_Clothes_SetStyle_Ethan_2
 Rogue_Hub_Clothes_SetStyle_Ethan_1:
@@ -180,7 +180,7 @@ Rogue_Hub_Clothes_SetStyle_Ethan_2:
 
 Rogue_Hub_Clothes_SetStyle_Lyra::
 	lock
-	msgbox Rogue_Hub_Clothes_SetStyle_Brendan_Text_0, MSGBOX_YESNO
+	msgbox Rogue_Hub_Clothes_SetStyle_Ethan_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Rogue_Hub_Clothes_SetStyle_Lyra_2
 Rogue_Hub_Clothes_SetStyle_Lyra_1:
@@ -230,3 +230,7 @@ Rogue_Hub_Clothes_ChangeName_Text_1:
 
 Rogue_Hub_Clothes_SetStyle_Brendan_Text_0:
 	.string "Change to this style?$"
+
+Rogue_Hub_Clothes_SetStyle_Ethan_Text_0:
+	.string "Change to this style?\n"
+	.string "(WARNING UNFINISHED)$"

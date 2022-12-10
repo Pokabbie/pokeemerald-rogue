@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_ConfigRoom_MegaBag",
-      "flag": "FLAG_TEMP_1"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",

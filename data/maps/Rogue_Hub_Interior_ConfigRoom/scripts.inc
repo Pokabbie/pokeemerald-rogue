@@ -389,6 +389,7 @@ Rogue_ConfigRoom_ItemBag_7:
 Rogue_ConfigRoom_MegaBag::
 	lock
 	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_MegaBag_2
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0
 Rogue_ConfigRoom_MegaBag_1:
 	release
 	return
@@ -1705,6 +1706,17 @@ Rogue_ConfigRoom_ItemBag_Text_1:
 Rogue_ConfigRoom_ItemBag_Text_2:
 	.string "The {STR_VAR_1} was placed back\n"
 	.string "into the bag.$"
+
+Rogue_ConfigRoom_MegaBag_Text_0:
+	.string "It's an bag with a note attached...\p"
+	.string "Thanks for player Vanilla Version!\p"
+	.string "In EX Version this room can be used to\n"
+	.string "enable POKéMON from future\l"
+	.string "generations!\p"
+	.string "If that sounds fun, you can start a New\n"
+	.string "Game on EX version and immediately\l"
+	.string "unlock this room by interacting with\l"
+	.string "the window inside the Config Lab.$"
 
 Rogue_ConfigRoom_BufferRegionName_Text_0:
 	.string "KANTO$"
