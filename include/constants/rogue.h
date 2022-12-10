@@ -323,6 +323,10 @@
 #define ROGUE_CAMPAIGN_MINIBOSS_BATTLER         3
 #define ROGUE_CAMPAIGN_LATERMANNER              4
 
+#define ROGUE_CAMPAIGN_FIRST                    ROGUE_CAMPAIGN_LOW_BST
+#define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_LATERMANNER
+#define ROGUE_CAMPAIGN_COUNT                    (ROGUE_CAMPAIGN_LAST - ROGUE_CAMPAIGN_FIRST + 1)
+
 // Popups
 //
 #define POPUP_MSG_QUEST_COMPLETE                0

@@ -1117,6 +1117,10 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Ignore sweets, as they are not used
     RogueQuery_ItemsExcludeRange(ITEM_STRAWBERRY_SWEET, ITEM_RIBBON_SWEET);
     
+    // Ignroe these, as mons/form swaps currently not enabled
+    RogueQuery_Exclude(ITEM_PIKASHUNIUM_Z);
+    RogueQuery_Exclude(ITEM_ULTRANECROZIUM_Z);
+
     // Exclude everything but plates
     //RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
     RogueQuery_ItemsExcludeRange(ITEM_DOUSE_DRIVE, ITEM_CHILL_DRIVE);
