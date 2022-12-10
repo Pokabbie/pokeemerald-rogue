@@ -5090,6 +5090,16 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Rogue_Route_Johto_WaterFront0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Johto_WaterFront0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_URBAN0",
+      "name": "Rogue_Route_Johto_Urban0_Layout",
+      "width": 92,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_Urban0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Urban0/map.bin"
     }
   ]
 }
