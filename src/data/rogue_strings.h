@@ -1,7 +1,7 @@
 
 
 // Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
-const u8 gText_RogueVersion[] = _("v1.2.1");
+const u8 gText_RogueVersion[] = _("v1.3 (Pre-release)");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX");
@@ -14,9 +14,9 @@ const u8 gText_RogueVersionSpacer[] = _(" - ");
 #if defined(ROGUE_FEATURE_AUTOMATION)
 const u8 gText_RogueVersionSuffix[] = _("(AUTOMATION)");
 #elif defined(ROGUE_DEBUG)
-const u8 gText_RogueVersionSuffix[] = _("(1.3 DEBUG)");
+const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
-const u8 gText_RogueVersionSuffix[] = _("The (1.3 dev) Update");
+const u8 gText_RogueVersionSuffix[] = _("The Regional Update");
 #endif
 
 
@@ -296,6 +296,7 @@ const u8 gText_Campaign_None[] = _("???");
 const u8 gText_Campaign_LowBST[] = _("BST CUP");
 const u8 gText_Campaign_Classic[] = _("Classic Mode");
 const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
+const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
 
 // Popups
 //

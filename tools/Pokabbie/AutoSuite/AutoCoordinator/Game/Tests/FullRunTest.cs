@@ -201,15 +201,6 @@ namespace AutoCoordinator.Game.Tests
 			SetFlagPerc(PokemonFlagID.RogueKantoBosses, 50);
 			SetFlagPerc(PokemonFlagID.RogueJohtoBosses, 50);
 
-			// TEMP
-			game.SetFlag(PokemonFlagID.RogueHoennRoutes, true);
-			game.SetFlag(PokemonFlagID.RogueKantoRoutes, true);
-			game.SetFlag(PokemonFlagID.RogueJohtoRoutes, true);
-
-			game.SetFlag(PokemonFlagID.RogueHoennBosses, false);
-			game.SetFlag(PokemonFlagID.RogueKantoBosses, false);
-			game.SetFlag(PokemonFlagID.RogueJohtoBosses, true);
-
 			SetDifficultyPerc("Trainers", PokemonFlagID.RogueEasyTrainers, PokemonFlagID.RogueHardTrainers);
 			SetDifficultyPerc("Items", PokemonFlagID.RogueEasyItems, PokemonFlagID.RogueHardItems);
 			SetDifficultyPerc("Legendaries", PokemonFlagID.RogueEasyLegendaries, PokemonFlagID.RogueHardLegendaries);

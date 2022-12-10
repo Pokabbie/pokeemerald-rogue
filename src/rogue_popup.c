@@ -88,6 +88,12 @@ void Rogue_PushPopup(u8 msgType, u16 param)
     sPopupQueuedId = (sPopupQueuedId + 1) % POPUP_QUEUE_CAPACITY;
 }
 
+void Rogue_ClearPopupQueue(void)
+{
+    sPopupQueuedId = 0;
+    sPopupShownId = 0;
+}
+
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId

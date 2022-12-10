@@ -3,7 +3,7 @@
 
 #define ROGUE_EXPANSION
 
-#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
+//#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
 
@@ -317,17 +317,22 @@
 
 // Rogue Campaigns
 //
-#define ROGUE_CAMPAIGN_NONE                 0
-#define ROGUE_CAMPAIGN_LOW_BST              1
-#define ROGUE_CAMPAIGN_CLASSIC              2
-#define ROGUE_CAMPAIGN_MINIBOSS_BATTLER     3
+#define ROGUE_CAMPAIGN_NONE                     0
+#define ROGUE_CAMPAIGN_LOW_BST                  1
+#define ROGUE_CAMPAIGN_CLASSIC                  2
+#define ROGUE_CAMPAIGN_MINIBOSS_BATTLER         3
+#define ROGUE_CAMPAIGN_LATERMANNER              4
+
+#define ROGUE_CAMPAIGN_FIRST                    ROGUE_CAMPAIGN_LOW_BST
+#define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_LATERMANNER
+#define ROGUE_CAMPAIGN_COUNT                    (ROGUE_CAMPAIGN_LAST - ROGUE_CAMPAIGN_FIRST + 1)
 
 // Popups
 //
 #define POPUP_MSG_QUEST_COMPLETE                0
 #define POPUP_MSG_QUEST_FAIL                    1
 #define POPUP_MSG_LEGENDARY_CLAUSE              2
-#define POPUP_MSG_CAMPAIGN_ANNOUNCE             4
+#define POPUP_MSG_CAMPAIGN_ANNOUNCE             3
 
 #include "rogue_quests.h"
 

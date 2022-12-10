@@ -1,7 +1,7 @@
 #ifndef ROGUE_QUEST_H
 #define ROGUE_QUEST_H
 
-void ResetQuestState(u16 saveVersion);
+void ResetQuestStateAfter(u16 loadedQuestCapacity);
 bool8 AnyNewQuests(void);
 bool8 AnyQuestRewardsPending(void);
 bool8 AnyNewQuestsPending(void);

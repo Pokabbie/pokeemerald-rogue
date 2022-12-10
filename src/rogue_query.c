@@ -511,7 +511,7 @@ void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCul
                 SetQueryState(species, FALSE);
             }
 #ifdef ROGUE_EXPANSION
-            else if(species >= FORMS_START)
+            else if(species > FORMS_START)
             {
                 // Only validate certain forms here
                 // (A lot of them are manual transform methods)
@@ -1117,6 +1117,10 @@ void RogueQuery_ItemsExcludeCommon(void)
     // Ignore sweets, as they are not used
     RogueQuery_ItemsExcludeRange(ITEM_STRAWBERRY_SWEET, ITEM_RIBBON_SWEET);
     
+    // Ignroe these, as mons/form swaps currently not enabled
+    RogueQuery_Exclude(ITEM_PIKASHUNIUM_Z);
+    RogueQuery_Exclude(ITEM_ULTRANECROZIUM_Z);
+
     // Exclude everything but plates
     //RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
     RogueQuery_ItemsExcludeRange(ITEM_DOUSE_DRIVE, ITEM_CHILL_DRIVE);

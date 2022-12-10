@@ -14,6 +14,7 @@ extern const u8 gText_Campaign_None[];
 extern const u8 gText_Campaign_LowBST[];
 extern const u8 gText_Campaign_Classic[];
 extern const u8 gText_Campaign_MiniBossBattler[];
+extern const u8 gText_Campaign_LaterManner[];
 
 static void Campaign_LowBst_RecalculateScore(void);
 static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
@@ -30,6 +31,9 @@ const u8* GetCampaignTitle(u16 campaignId)
 
     case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
         return &gText_Campaign_MiniBossBattler[0];
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        return &gText_Campaign_LaterManner[0];
     
     default:
         return &gText_Campaign_None[0];
@@ -63,6 +67,12 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
     if(word0 == 8716 && word1 == 7194) // BATTLETOWER NOW
     {
         VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_MINIBOSS_BATTLER);
+        return TRUE;
+    }
+
+    if(word0 == 7184 && word1 == 2579) // LATER MAN
+    {
+        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_LATERMANNER);
         return TRUE;
     }
 
@@ -114,6 +124,11 @@ u16 Rogue_PreActivateDesiredCampaign(void)
         FlagSet(FLAG_ROGUE_KANTO_BOSSES);
         FlagSet(FLAG_ROGUE_JOHTO_BOSSES);
         break;
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        Rogue_ResetConfigHubSettings();
+        FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        break;
     }
 }
 
@@ -125,7 +140,6 @@ u16 Rogue_PostActivateDesiredCampaign(void)
         {
             u16 i;
             gRogueRun.campaignData.lowBst.scoreSpecies = SPECIES_NONE;
-            Campaign_LowBst_RecalculateScore();
 
             for(i = 0; i < PARTY_SIZE; ++i)
                 ZeroMonData(&gPlayerParty[i]);
@@ -138,6 +152,20 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             AddBagItem(ITEM_LINK_CABLE, 10);
             
             Campaign_LowBst_RecalculateScore();
+        }
+        break;
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        {
+            u16 i;
+            gRogueRun.campaignData.generic.score = 0;
+
+            for(i = 0; i < PARTY_SIZE; ++i)
+                ZeroMonData(&gPlayerParty[i]);
+        
+            // Force Farfetched start
+            CreateMon(&gPlayerParty[0], SPECIES_FARFETCHD, 15, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+            CalculatePlayerPartyCount();
         }
         break;
     }
@@ -159,6 +187,7 @@ bool8 Rogue_IsActiveCampaignScored(void)
     switch (Rogue_GetActiveCampaign())
     {
     case ROGUE_CAMPAIGN_LOW_BST:
+    case ROGUE_CAMPAIGN_LATERMANNER:
         return TRUE;
     }
 
@@ -170,6 +199,7 @@ bool8 Rogue_IsActiveCampaignLowScoreGood(void)
     switch (Rogue_GetActiveCampaign())
     {
     case ROGUE_CAMPAIGN_LOW_BST:
+    case ROGUE_CAMPAIGN_LATERMANNER:
         return TRUE;
     }
 
@@ -184,7 +214,7 @@ u16 Rogue_GetCampaignScore(void)
         return Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
     }
 
-    return 0;
+    return gRogueRun.campaignData.generic.score;
 }
 
 u16 Rogue_GetCampaignRunId(void)
@@ -226,6 +256,19 @@ void Rogue_CampaignNotify_StatIncrement(u8 statIndex)
     default:
         break;
     } 
+}
+
+void Rogue_CampaignNotify_OnMonFainted(void)
+{
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        ++gRogueRun.campaignData.generic.score;
+        break;
+    }
 }
 
 static void Campaign_LowBst_RecalculateScore(void)

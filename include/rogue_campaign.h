@@ -21,5 +21,6 @@ u16 Rogue_GetCampaignScore(void);
 u16 Rogue_GetCampaignRunId(void);
 
 void Rogue_CampaignNotify_StatIncrement(u8 statIndex);
+void Rogue_CampaignNotify_OnMonFainted(void);
 
 #endif

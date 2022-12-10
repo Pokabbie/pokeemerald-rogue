@@ -41,6 +41,7 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
 
@@ -1336,7 +1337,7 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 2  // The version to bump every time there is a patch so players cannot patch incorrectly
+#define ROGUE_COMPAT_VERSION 3  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 static void ClearPokemonHeldItems(void)
 {
@@ -1365,8 +1366,6 @@ static void ClearPokemonHeldItems(void)
 // Called on NewGame and LoadGame, if new values are added in new releases, put them here
 static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 {
-    ResetQuestState(newGame ? 0 : saveVersion);
-
     // Loading existing save
     if(!newGame)
     {
@@ -1487,7 +1486,11 @@ void Rogue_OnNewGame(void)
     ClearBerryTrees();
     SelectStartMons();
 
+    ResetQuestStateAfter(0);
+
     EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
+
+    Rogue_ClearPopupQueue();
 
 #ifdef ROGUE_DEBUG
     SetMoney(&gSaveBlock1Ptr->money, 999999);
@@ -1678,7 +1681,11 @@ void Rogue_OnSaveGame(void)
         size_t offset = 0;
 
         // Serialize more global data
-        offset += SerializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+        {
+            u16 questCapacity = QUEST_CAPACITY;
+            offset += SerializeBoxData(offset, &questCapacity, sizeof(questCapacity));
+            offset += SerializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+        }
 
         // Serialize temporary per-run data
         offset += SerializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
@@ -1703,11 +1710,7 @@ void Rogue_OnLoadGame(void)
         // Pre 1.3
         if(gSaveBlock1Ptr->rogueSaveVersion < 3)
         {
-#ifdef ROGUE_EXPANSION
-            const u16 questCount = 58;
-#else
-            const u16 questCount = 52;
-#endif
+            const u16 questCapacity = _QUEST_LAST_1_2 + 1;
 
             // This was a very chaotically organised struct, so skip over most thingg
             // as that's just hub data to restore and we can't load previous versions whilst in a run
@@ -1716,13 +1719,18 @@ void Rogue_OnLoadGame(void)
             offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
-            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData));
+            offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+            ResetQuestStateAfter(questCapacity);
         }
         else
         {
             // Serialize more global data
-            offset += DeserializeBoxData(offset, &gRogueQuestData, sizeof(gRogueQuestData)); 
-            // Don't have to worry about keeping track of quest count here as it reads into run space and the new quests will be wiped on first load
+            {
+                u16 questCapacity = QUEST_CAPACITY;
+                offset += DeserializeBoxData(offset, &questCapacity, sizeof(questCapacity));
+                offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * min(questCapacity, QUEST_CAPACITY));
+                ResetQuestStateAfter(questCapacity);
+            }
 
             // Serialize temporary per-run data
             offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
@@ -3152,7 +3160,10 @@ void RemoveAnyFaintedMons(bool8 keepItems)
     }
 
     if(hasMonFainted)
+    {
+        Rogue_CampaignNotify_OnMonFainted();
         QuestNotify_OnMonFainted();
+    }
 
     gPlayerPartyCount = CalculatePlayerPartyCount();
 }
@@ -4766,6 +4777,11 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
         // EXP trainer
         return SPECIES_CHANSEY;
     }
+    
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        return SPECIES_FARFETCHD;
+    }
 
     if(IsBossTrainer(trainerNum))
     {
@@ -5579,6 +5595,9 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
                 // Prevent recent duplicates when on a run (Don't use this in safari mode though)
                 randIdx = Random() % count; 
                 *species = gRogueRun.wildEncounters[randIdx];
+
+                if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+                    break;
             }
             while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
@@ -6127,7 +6146,12 @@ static u16 NextWildSpecies(u16 * party, u8 monIdx)
     u16 species;
     u16 randIdx;
     u16 queryCount = RogueQuery_BufferSize();
-    
+
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        return SPECIES_FARFETCHD;
+    }
+
     // Prevent duplicates, if possible
     do
     {

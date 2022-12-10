@@ -370,7 +370,7 @@ void RogueDebug_FillGenPC(void)
 void RogueDebug_ClearQuests(void)
 {
 #ifdef ROGUE_DEBUG
-    ResetQuestState(0);
+    ResetQuestStateAfter(0);
 #endif
 }
 
