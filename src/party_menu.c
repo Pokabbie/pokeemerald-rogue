@@ -1157,7 +1157,7 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 
 static void ReleasePartyPokemon(u8 slot, bool8 shiftMonsUp)
 {
-    RemoveMonAtSlot(slot, TRUE, shiftMonsUp);
+    RemoveMonAtSlot(slot, TRUE, shiftMonsUp, TRUE);
 }
 
 static void Task_ClosePartyMenu(u8 taskId)
@@ -5342,22 +5342,9 @@ static void Task_PartyMenuReplaceMove(u8 taskId)
 
 static void StopLearningMovePrompt(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-
-    GetMonNickname(mon, gStringVar1);
-    StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
-    StringExpandPlaceholders(gStringVar4, gText_MoveNotLearned);
-    DisplayPartyMenuMessage(gStringVar4, TRUE);
-    if (gPartyMenu.learnMoveState == 1)
-    {
-        gTasks[taskId].func = Task_TryLearningNextMoveAfterText;
-    }
-    else
-    {
-        if (gPartyMenu.learnMoveState == 2) // never occurs
-            gSpecialVar_Result = FALSE;
-        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
-    }
+    if (gPartyMenuUseExitCallback == FALSE)
+        sPartyMenuInternal->exitCallback = NULL;
+    Task_ClosePartyMenu(taskId);
 
     //StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
     //StringExpandPlaceholders(gStringVar4, gText_StopLearningMove2);

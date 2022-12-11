@@ -13,8 +13,8 @@ u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 u16 Rogue_GetStartSeed(void);
 
-void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty);
-void RemoveAnyFaintedMons(bool8 keepItems);
+void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab);
+void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
