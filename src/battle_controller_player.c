@@ -37,6 +37,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_automation.h"
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 
 static void PlayerHandleGetMonData(void);
@@ -2653,13 +2654,31 @@ static void PlayerChooseMoveInBattlePalace(void)
     }
 }
 
-#ifdef ROGUE_FEATURE_AUTOMATION
-static u16 ChooseAutomationMoveAndTarget(void)
+static u16 ChooseRandomMoveAndTarget(void)
 {
     u32 moveTarget;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
     u16 chosenMoveId = Random() % MAX_MON_MOVES;
 
+    // Force the choiced move to be used
+    {
+        u16 i;
+        u16 choicedMove = gBattleStruct->choicedMove[gActiveBattler];
+
+        if (choicedMove != MOVE_NONE && choicedMove != MOVE_UNAVAILABLE)
+        {
+            for(i = 0; i < MAX_MON_MOVES; ++i)
+            {
+                if(moveInfo->moves[i] == choicedMove)
+                {
+                    chosenMoveId = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Ensure we have chosen a valid move
     while(moveInfo->moves[chosenMoveId] == MOVE_NONE)
     {
         chosenMoveId = Random() % MAX_MON_MOVES;
@@ -2687,23 +2706,26 @@ static u16 ChooseAutomationMoveAndTarget(void)
     return chosenMoveId;
 }
 
-static void PlayerChooseMoveInAutomationBattle(void)
+static void PlayerChooseMoveInAutoBattle(void)
 {
-    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseAutomationMoveAndTarget());
+    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget());
     PlayerBufferExecCompleted();
 }
-#endif
 
 static void PlayerHandleChooseMove(void)
 {
 #ifdef ROGUE_FEATURE_AUTOMATION
     if (Rogue_AutomationGetFlag(AUTO_FLAG_PLAYER_AUTO_PICK_MOVES))
     {
-        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutomationBattle;
+        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutoBattle;
     }
     else
 #endif
-    if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    {
+        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutoBattle;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
     {
         *(gBattleStruct->arenaMindPoints + gActiveBattler) = 8;
         gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInBattlePalace;

@@ -116,6 +116,9 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
             bufferstring(STR_VAR_1, gText_Campaign_MiniBossBattler)
 
+        case ROGUE_CAMPAIGN_AUTO_BATTLER:
+            bufferstring(STR_VAR_1, gText_Campaign_AutoBattler)
+
         case ROGUE_CAMPAIGN_LATERMANNER:
             bufferstring(STR_VAR_1, gText_Campaign_LaterManner)
 
@@ -138,7 +141,11 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
 
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
             msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
-            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_AUTO_BATTLER:
+            msgbox(format("Auto Battler makes it so in battles, both you and the opponent will always pick random moves.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_LATERMANNER:
             msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a POKéMON faints...\pAnd well... You'll figure out the rest."))

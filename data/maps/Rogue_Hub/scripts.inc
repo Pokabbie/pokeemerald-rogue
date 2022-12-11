@@ -904,6 +904,14 @@ RogueHub_HintCampaignClassic::
 	return
 
 
+RogueHub_HintCampaignAutoBattle::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignAutoBattle_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -1244,3 +1252,6 @@ RogueHub_HintCampaignClassic_Text_0:
 	.string "I like to REFLECT back on what it use to\n"
 	.string "be and I sometimes miss how simple it\l"
 	.string "was...$"
+
+RogueHub_HintCampaignAutoBattle_Text_0:
+	.string "WHAT are you going to ATTACK?!$"

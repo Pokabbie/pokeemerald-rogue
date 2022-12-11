@@ -1019,3 +1019,13 @@ script RogueHub_HintCampaignClassic
 
     release
 }
+
+script RogueHub_HintCampaignAutoBattle
+{
+    lock
+
+    faceplayer
+    msgbox(format("WHAT are you going to ATTACK?!"), MSGBOX_DEFAULT)
+
+    release
+}

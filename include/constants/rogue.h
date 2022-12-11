@@ -321,7 +321,8 @@
 #define ROGUE_CAMPAIGN_LOW_BST                  1
 #define ROGUE_CAMPAIGN_CLASSIC                  2
 #define ROGUE_CAMPAIGN_MINIBOSS_BATTLER         3
-#define ROGUE_CAMPAIGN_LATERMANNER              4
+#define ROGUE_CAMPAIGN_AUTO_BATTLER             4
+#define ROGUE_CAMPAIGN_LATERMANNER              5
 
 #define ROGUE_CAMPAIGN_FIRST                    ROGUE_CAMPAIGN_LOW_BST
 #define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_LATERMANNER

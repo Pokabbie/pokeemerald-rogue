@@ -298,6 +298,7 @@ const u8 gText_Campaign_None[] = _("???");
 const u8 gText_Campaign_LowBST[] = _("BST CUP");
 const u8 gText_Campaign_Classic[] = _("Classic Mode");
 const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
+const u8 gText_Campaign_AutoBattler[] = _("Auto Battler");
 const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
 
 // Popups
