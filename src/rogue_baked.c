@@ -20,6 +20,7 @@
 #include "string_util.h"
 
 #include "rogue_automation.h"
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #endif
@@ -495,8 +496,14 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
     outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
 #endif
 
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    {
+        // AI will be dump for this campaign
+        outTrainer->aiFlags = 0;
+    }
 #ifdef ROGUE_FEATURE_AUTOMATION
-    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
+    else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
+#else
     {
 #ifdef ROGUE_EXPANSION
         // Still want AI to still do weird switching just for completeness?

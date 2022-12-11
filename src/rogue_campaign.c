@@ -14,6 +14,7 @@ extern const u8 gText_Campaign_None[];
 extern const u8 gText_Campaign_LowBST[];
 extern const u8 gText_Campaign_Classic[];
 extern const u8 gText_Campaign_MiniBossBattler[];
+extern const u8 gText_Campaign_AutoBattler[];
 extern const u8 gText_Campaign_LaterManner[];
 
 static void Campaign_LowBst_RecalculateScore(void);
@@ -31,6 +32,9 @@ const u8* GetCampaignTitle(u16 campaignId)
 
     case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
         return &gText_Campaign_MiniBossBattler[0];
+
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
+        return &gText_Campaign_AutoBattler[0];
 
     case ROGUE_CAMPAIGN_LATERMANNER:
         return &gText_Campaign_LaterManner[0];
@@ -74,6 +78,9 @@ u16 TryGetCampaignId(u16 word0, u16 word1)
 
     if(word0 == 8716 && word1 == 7194) // BATTLETOWER NOW
         return ROGUE_CAMPAIGN_MINIBOSS_BATTLER;
+
+    if(word0 == 1554 && word1 == 7714) // ATTACK WHAT
+        return ROGUE_CAMPAIGN_AUTO_BATTLER;
 
     if(word0 == 7184 && word1 == 2579) // LATER MAN
         return ROGUE_CAMPAIGN_LATERMANNER;
@@ -164,7 +171,9 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             CalculatePlayerPartyCount();
 
             AddBagItem(ITEM_EVERSTONE_CURSE, 1);
-            AddBagItem(ITEM_LINK_CABLE, 10);
+            AddBagItem(ITEM_SPECIES_CLAUSE_CURSE, 1);
+            AddBagItem(ITEM_LINK_CABLE, 50);
+            AddBagItem(ITEM_RARE_CANDY, 8);
             
             Campaign_LowBst_RecalculateScore();
         }
@@ -182,6 +191,10 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             CreateMon(&gPlayerParty[0], SPECIES_FARFETCHD, 15, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
             CalculatePlayerPartyCount();
         }
+        break;
+
+    default:
+        gRogueRun.campaignData.generic.score = 0;
         break;
     }
 }
@@ -209,6 +222,8 @@ bool8 Rogue_IsActiveCampaignScored(void)
     {
     case ROGUE_CAMPAIGN_LOW_BST:
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
         return TRUE;
     }
 
@@ -221,6 +236,8 @@ bool8 Rogue_IsActiveCampaignLowScoreGood(void)
     {
     case ROGUE_CAMPAIGN_LOW_BST:
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
         return TRUE;
     }
 
@@ -241,10 +258,21 @@ u16 Rogue_GetCampaignScore(void)
 u16 Rogue_GetCampaignRunId(void)
 {
     // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
+    u16 scoreEncode;
     u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
-    u16 score = Rogue_GetCampaignScore();
 
-    return ~(trainerId ^ score);
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        scoreEncode = gRogueRun.campaignData.lowBst.scoreSpecies;
+        break;
+
+    default:
+        scoreEncode = Rogue_GetCampaignScore();
+        break;
+    }
+
+    return ~(trainerId ^ scoreEncode);
 }
 
 bool8 Rogue_CheckCampaignBansItem(u16 item)
@@ -287,6 +315,8 @@ void Rogue_CampaignNotify_OnMonFainted(void)
     switch (Rogue_GetActiveCampaign())
     {
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
         ++gRogueRun.campaignData.generic.score;
         break;
     }

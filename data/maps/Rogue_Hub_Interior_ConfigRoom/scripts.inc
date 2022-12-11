@@ -100,7 +100,8 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
-	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_BufferCampaignName_5
+	case ROGUE_CAMPAIGN_AUTO_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_5
+	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_BufferCampaignName_6
 	bufferstring STR_VAR_1, gText_Campaign_None
 	return
 
@@ -117,6 +118,10 @@ Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
 	return
 
 Rogue_ConfigRoom_Campaign_BufferCampaignName_5:
+	bufferstring STR_VAR_1, gText_Campaign_AutoBattler
+	return
+
+Rogue_ConfigRoom_Campaign_BufferCampaignName_6:
 	bufferstring STR_VAR_1, gText_Campaign_LaterManner
 	return
 
@@ -126,8 +131,9 @@ Rogue_ConfigRoom_Campaign_CampaignDescription::
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
 	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_CampaignDescription_3
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
-	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_CampaignDescription_5
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
+	case ROGUE_CAMPAIGN_AUTO_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_5
+	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_CampaignDescription_6
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -142,7 +148,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_3:
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_4:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_5:
@@ -150,59 +156,82 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_5:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
+Rogue_ConfigRoom_Campaign_CampaignDescription_6:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
+	return
+
 
 Rogue_ConfigRoom_Campaign_Choice::
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	message Rogue_ConfigRoom_Campaign_Choice_Text_0
+	special Rogue_GetCampaignHighScore
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_ConfigRoom_Campaign_Choice_2
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	message Rogue_ConfigRoom_Campaign_Choice_Text_1
+Rogue_ConfigRoom_Campaign_Choice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, YES
 	switch VAR_RESULT
-	case 0, Rogue_ConfigRoom_Campaign_Choice_2
-	case 2, Rogue_ConfigRoom_Campaign_Choice_3
-	case 1, Rogue_ConfigRoom_Campaign_Choice_4
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_4
+	case 0, Rogue_ConfigRoom_Campaign_Choice_6
+	case 2, Rogue_ConfigRoom_Campaign_Choice_7
+	case 1, Rogue_ConfigRoom_Campaign_Choice_8
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_8
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_2:
+	message Rogue_ConfigRoom_Campaign_Choice_Text_0
+	goto Rogue_ConfigRoom_Campaign_Choice_1
+
+Rogue_ConfigRoom_Campaign_Choice_6:
 	waitse
 	playse SE_PIN
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	return
 
-Rogue_ConfigRoom_Campaign_Choice_3:
+Rogue_ConfigRoom_Campaign_Choice_7:
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
 	call Rogue_ConfigRoom_Campaign_Choice
 	return
 
-Rogue_ConfigRoom_Campaign_Choice_4:
+Rogue_ConfigRoom_Campaign_Choice_8:
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
 
 Rogue_ConfigRoom_Campaign_ReplayChoice::
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0
+	special Rogue_GetCampaignHighScore
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_ConfigRoom_Campaign_ReplayChoice_2
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1
+Rogue_ConfigRoom_Campaign_ReplayChoice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, NO
 	switch VAR_RESULT
-	case 0, Rogue_ConfigRoom_Campaign_ReplayChoice_2
-	case 2, Rogue_ConfigRoom_Campaign_ReplayChoice_3
-	case 1, Rogue_ConfigRoom_Campaign_ReplayChoice_4
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_ReplayChoice_4
+	case 0, Rogue_ConfigRoom_Campaign_ReplayChoice_6
+	case 2, Rogue_ConfigRoom_Campaign_ReplayChoice_7
+	case 1, Rogue_ConfigRoom_Campaign_ReplayChoice_8
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_ReplayChoice_8
 	return
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_2:
+	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0
+	goto Rogue_ConfigRoom_Campaign_ReplayChoice_1
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_6:
 	waitse
 	playse SE_PIN
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	return
 
-Rogue_ConfigRoom_Campaign_ReplayChoice_3:
+Rogue_ConfigRoom_Campaign_ReplayChoice_7:
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
 	call Rogue_ConfigRoom_Campaign_ReplayChoice
 	return
 
-Rogue_ConfigRoom_Campaign_ReplayChoice_4:
+Rogue_ConfigRoom_Campaign_ReplayChoice_8:
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
@@ -551,7 +580,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -719,7 +748,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -768,7 +797,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1672,7 +1701,10 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "allowed!\p"
 	.string "Finally, this campaign will adjust\n"
 	.string "Config Lab settings and TM TOXIC is\l"
-	.string "banned.$"
+	.string "banned.\p"
+	.string "(Note the score will update when\n"
+	.string "starting a battle, to give you a chance\l"
+	.string "to catch and release mons)$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
 	.string "You'll know if the Campaign is active;\n"
@@ -1705,18 +1737,34 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
 	.string "encounters.\p"
 	.string "This can be played in any adventure\n"
 	.string "type and doesn't adjust any of the\l"
-	.string "settings in the Config Lab.$"
+	.string "settings in the Config Lab.\p"
+	.string "Your score is based on how many\n"
+	.string "POKéMON faint during the run.\p"
+	.string "The aim is to get the lowest score\n"
+	.string "possible.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
+	.string "Auto Battler makes it so in battles,\n"
+	.string "both you and the opponent will always\l"
+	.string "pick random moves.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and doesn't adjust any of the\l"
+	.string "settings in the Config Lab.\p"
+	.string "Your score is based on how many\n"
+	.string "POKéMON faint during the run.\p"
+	.string "The aim is to get the lowest score\n"
+	.string "possible.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6:
 	.string "LaterManner Mode was made for the\n"
 	.string "streamer himself!\p"
 	.string "It's..!\p"
 	.string "Err...\p"
 	.string "Well it is a mode...\p"
-	.string "You lose points if a POKéMON faints...\p"
+	.string "You gain score if a POKéMON faints...\p"
 	.string "And well... You'll figure out the rest.$"
 
-Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6:
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:
@@ -1724,11 +1772,18 @@ Rogue_ConfigRoom_Campaign_Choice_Text_0:
 	.string "Campaign a go?$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_1:
+	.string "Play the {STR_VAR_1} Campaign?\n"
+	.string "(Best Score: {STR_VAR_2})$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "Good luck, kid!$"
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0:
-	.string "You wanna replay the {STR_VAR_1}\n"
-	.string "Campaign a go?$"
+	.string "Replay the {STR_VAR_1} Campaign?$"
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1:
+	.string "Replay the {STR_VAR_1} Campaign?\n"
+	.string "(Best Score: {STR_VAR_2})$"
 
 Rogue_ConfigRoom_Campaign_NewPhrase_Text_0:
 	.string "...\p"

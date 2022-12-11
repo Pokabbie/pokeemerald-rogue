@@ -2496,7 +2496,10 @@ u8 Rogue_SelectWildDenEncounterRoom(void)
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
 
-    RogueQuery_EvolveSpecies(CalculatePlayerLevel(), TRUE);
+    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_LOW_BST)
+    {
+        RogueQuery_EvolveSpecies(CalculatePlayerLevel(), TRUE);
+    }
 
     // Have to use uncollapsed queries as this query is too large otherwise
     queryCount = RogueQuery_UncollapsedSpeciesSize();
@@ -6200,8 +6203,12 @@ static void RandomiseWildEncounters(void)
     RogueQuery_SpeciesIsNotLegendary();
     RogueQuery_TransformToEggSpecies();
 
-    // Evolve the species to just below the wild encounter level
-    RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
+    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_LOW_BST)
+    {
+        // Evolve the species to just below the wild encounter level
+        RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
+    }
+
     RogueQuery_SpeciesOfTypes(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable));
 
     RogueQuery_CollapseSpeciesBuffer();
@@ -6689,6 +6696,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 #endif
         RogueQuery_Include(ITEM_MASTER_BALL);
         RogueQuery_Include(ITEM_ESCAPE_ROPE);
+        RogueQuery_Include(ITEM_RARE_CANDY);
     }
     else
     {

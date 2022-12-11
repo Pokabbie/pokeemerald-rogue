@@ -332,7 +332,7 @@ script RogueHub_OnMapLoad
     }
     else
     {
-        setflag(FLAG_ROGUE_TRAINER10)
+        setflag(FLAG_ROGUE_TRAINER11)
     }
 
     // Intro Scott
@@ -1016,6 +1016,16 @@ script RogueHub_HintCampaignClassic
 
     faceplayer
     msgbox(format("You youngins really have easy ADVENTURES nowadays you know...\pI like to REFLECT back on what it use to be and I sometimes miss how simple it was..."), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_HintCampaignAutoBattle
+{
+    lock
+
+    faceplayer
+    msgbox(format("WHAT are you going to ATTACK?!"), MSGBOX_DEFAULT)
 
     release
 }

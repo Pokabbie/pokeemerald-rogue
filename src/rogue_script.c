@@ -674,3 +674,20 @@ void Rogue_GetNextUnlockedCampaign(void)
 
     gSpecialVar_0x8004 = ROGUE_CAMPAIGN_NONE;
 }
+
+void Rogue_GetCampaignHighScore(void)
+{
+    u16 i = VarGet(VAR_ROGUE_DESIRED_CAMPAIGN);
+
+    if(i != ROGUE_CAMPAIGN_NONE)
+    {
+        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isCompleted)
+        {
+            gSpecialVar_Result = gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].bestScore;
+            return;
+        }
+    }
+
+    gSpecialVar_Result = 0;
+    return;
+}

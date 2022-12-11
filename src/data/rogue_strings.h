@@ -1,7 +1,7 @@
 
 
 // Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
-const u8 gText_RogueVersion[] = _("v1.3 (Pre-release)");
+const u8 gText_RogueVersion[] = _("v1.3 (Prerel)");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX");
@@ -245,7 +245,7 @@ const u8 sItemBattleItemCurseDesc[] = _(
 const u8 sItemSpeciesClauseCurseDesc[] = _(
     "POKéMON can't be\n"
     "caught if species\n"
-    "in party already.");
+    "already in party.");
 
 const u8 sItemItemShuffleCurseDesc[] = _(
     "Entering a Battle\n"
@@ -292,10 +292,13 @@ const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
 // Campaigns
 //
+const u8 gText_CampaignHofTitle[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{STR_VAR_1}");
+
 const u8 gText_Campaign_None[] = _("???");
 const u8 gText_Campaign_LowBST[] = _("BST CUP");
 const u8 gText_Campaign_Classic[] = _("Classic Mode");
 const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
+const u8 gText_Campaign_AutoBattler[] = _("Auto Battler");
 const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
 
 // Popups

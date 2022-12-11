@@ -116,6 +116,9 @@ script Rogue_ConfigRoom_Campaign_BufferCampaignName
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
             bufferstring(STR_VAR_1, gText_Campaign_MiniBossBattler)
 
+        case ROGUE_CAMPAIGN_AUTO_BATTLER:
+            bufferstring(STR_VAR_1, gText_Campaign_AutoBattler)
+
         case ROGUE_CAMPAIGN_LATERMANNER:
             bufferstring(STR_VAR_1, gText_Campaign_LaterManner)
 
@@ -129,7 +132,7 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
     {
         case ROGUE_CAMPAIGN_LOW_BST:
-            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure.\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned."))
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure.\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned.\p(Note the score will update when starting a battle, to give you a chance to catch and release mons)"))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_CLASSIC:
@@ -137,11 +140,15 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
-            msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
-            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+            msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_AUTO_BATTLER:
+            msgbox(format("Auto Battler makes it so in battles, both you and the opponent will always pick random moves.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_LATERMANNER:
-            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou lose points if a POKéMON faints...\pAnd well... You'll figure out the rest."))
+            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a POKéMON faints...\pAnd well... You'll figure out the rest."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         default:
@@ -152,7 +159,18 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
 script Rogue_ConfigRoom_Campaign_Choice
 {
     call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-    message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
     waitmessage
     multichoice(20, 6, MULTI_YESNOINFO, YES)
 
@@ -176,7 +194,18 @@ script Rogue_ConfigRoom_Campaign_Choice
 script Rogue_ConfigRoom_Campaign_ReplayChoice
 {
     call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-    message(format("You wanna replay the {STR_VAR_1} Campaign a go?"))
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("Replay the {STR_VAR_1} Campaign?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Replay the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
     waitmessage
     multichoice(20, 6, MULTI_YESNOINFO, NO)
 

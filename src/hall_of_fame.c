@@ -64,6 +64,8 @@ struct HofGfx
     u8 tilemap2[0x1000];
 };
 
+extern const u8 gText_CampaignHofTitle[];
+
 static EWRAM_DATA u32 sHofFadePalettes = 0;
 static EWRAM_DATA struct HallofFameTeam *sHofMonPtr = NULL;
 static EWRAM_DATA struct HofGfx *sHofGfxPtr = NULL;
@@ -151,7 +153,7 @@ static const struct WindowTemplate sHof_WindowTemplate_CampaignRun = {
     .tilemapLeft = 2,
     .tilemapTop = 2,
     .width = 14,
-    .height = 10,
+    .height = 11,
     .paletteNum = 14,
     .baseBlock = 1
 };
@@ -1264,15 +1266,19 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
         u16 runScore = Rogue_GetCampaignScore();
         u16 runId = Rogue_GetCampaignRunId();
 
-        AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 0x31, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunScore);
+        StringCopy(gStringVar1, GetCampaignTitle(Rogue_GetActiveCampaign()));
+        StringExpandPlaceholders(gStringVar2, gText_CampaignHofTitle);
+        AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 49, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gStringVar2);
+
+        AddTextPrinterParameterized3(1, FONT_SHORT, 0, 63, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunScore);
 
         ConvertIntToDecimalStringN(text, runScore, STR_CONV_MODE_RIGHT_ALIGN, 6);
 
-        width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
-        AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x31, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
+        width = GetStringRightAlignXOffset(FONT_SHORT, text, 0x70);
+        AddTextPrinterParameterized3(1, FONT_SHORT, width, 63, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
 
 
-        AddTextPrinterParameterized3(1, FONT_NORMAL, 0, 0x41, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunNumber);
+        AddTextPrinterParameterized3(1, FONT_SHORT, 0, 75, sPlayerInfoTextColors, TEXT_SKIP_DRAW, gText_RunNumber);
         
         text[0] = (runId % 100000) / 10000 + CHAR_0;
         text[1] = (runId % 10000) / 1000 + CHAR_0;
@@ -1280,8 +1286,8 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
         text[3] = (runId % 100) / 10 + CHAR_0;
         text[4] = (runId % 10) / 1 + CHAR_0;
         text[5] = EOS;
-        width = GetStringRightAlignXOffset(FONT_NORMAL, text, 0x70);
-        AddTextPrinterParameterized3(1, FONT_NORMAL, width, 0x41, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
+        width = GetStringRightAlignXOffset(FONT_SHORT, text, 0x70);
+        AddTextPrinterParameterized3(1, FONT_SHORT, width, 75, sPlayerInfoTextColors, TEXT_SKIP_DRAW, text);
     }
 
     CopyWindowToVram(1, COPYWIN_FULL);

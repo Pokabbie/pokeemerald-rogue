@@ -11,11 +11,11 @@
 // Debugging defines
 // Override these when debugging
 //
-#define ROGUE_DEBUG
+//#define ROGUE_DEBUG
 //#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
-#define ROGUE_DEBUG_LVL_5_TRAINERS
-#define ROGUE_DEBUG_LOGGING
+//#define ROGUE_DEBUG_LVL_5_TRAINERS
+//#define ROGUE_DEBUG_LOGGING
 
 #else
 
@@ -321,7 +321,8 @@
 #define ROGUE_CAMPAIGN_LOW_BST                  1
 #define ROGUE_CAMPAIGN_CLASSIC                  2
 #define ROGUE_CAMPAIGN_MINIBOSS_BATTLER         3
-#define ROGUE_CAMPAIGN_LATERMANNER              4
+#define ROGUE_CAMPAIGN_AUTO_BATTLER             4
+#define ROGUE_CAMPAIGN_LATERMANNER              5
 
 #define ROGUE_CAMPAIGN_FIRST                    ROGUE_CAMPAIGN_LOW_BST
 #define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_LATERMANNER
