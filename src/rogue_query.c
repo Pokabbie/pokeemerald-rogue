@@ -1092,7 +1092,9 @@ void RogueQuery_ItemsExcludeCommon(void)
 #ifdef ROGUE_EXPANSION
     // Not implemented
     RogueQuery_Exclude(ITEM_MAX_HONEY);
+    RogueQuery_Exclude(ITEM_LURE);
     RogueQuery_Exclude(ITEM_SUPER_LURE);
+    RogueQuery_Exclude(ITEM_MAX_LURE);
 
     RogueQuery_Exclude(ITEM_PRISM_SCALE); // Not needed as is not a lvl up evo
     RogueQuery_ItemsExcludeRange(ITEM_GROWTH_MULCH, ITEM_BLACK_APRICORN);
