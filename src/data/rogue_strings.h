@@ -292,6 +292,8 @@ const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
 
 // Campaigns
 //
+const u8 gText_CampaignHofTitle[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{STR_VAR_1}");
+
 const u8 gText_Campaign_None[] = _("???");
 const u8 gText_Campaign_LowBST[] = _("BST CUP");
 const u8 gText_Campaign_Classic[] = _("Classic Mode");

@@ -243,10 +243,21 @@ u16 Rogue_GetCampaignScore(void)
 u16 Rogue_GetCampaignRunId(void)
 {
     // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
+    u16 scoreEncode;
     u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
-    u16 score = Rogue_GetCampaignScore();
 
-    return ~(trainerId ^ score);
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        scoreEncode = gRogueRun.campaignData.lowBst.scoreSpecies;
+        break;
+
+    default:
+        scoreEncode = Rogue_GetCampaignScore();
+        break;
+    }
+
+    return ~(trainerId ^ scoreEncode);
 }
 
 bool8 Rogue_CheckCampaignBansItem(u16 item)
