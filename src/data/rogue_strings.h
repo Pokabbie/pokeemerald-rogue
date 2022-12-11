@@ -245,7 +245,7 @@ const u8 sItemBattleItemCurseDesc[] = _(
 const u8 sItemSpeciesClauseCurseDesc[] = _(
     "POKéMON can't be\n"
     "caught if species\n"
-    "in party already.");
+    "already in party.");
 
 const u8 sItemItemShuffleCurseDesc[] = _(
     "Entering a Battle\n"
