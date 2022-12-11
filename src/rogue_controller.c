@@ -3914,6 +3914,39 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
     return FALSE;
 }
 
+extern const u16* const gRegionalDexSpecies[];
+extern u16 gRegionalDexSpeciesCount[];
+
+static bool8 IsSpeciesEnabledForCustomQuery(u16 species)
+{
+    u16 eggSpecies = Rogue_GetEggSpecies(species);
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+    // Use a specific regional dex
+    if(dexLimit != 0)
+    {
+        u16 i;
+        u16 checkSpecies;
+        const u16 targetDex = dexLimit - 1;
+        
+        for(i = 0; i < gRegionalDexSpeciesCount[targetDex]; ++i)
+        {
+            checkSpecies = Rogue_GetEggSpecies(gRegionalDexSpecies[targetDex][i]);
+
+            if(checkSpecies == eggSpecies)
+                return TRUE;
+        }
+
+        return FALSE;
+    }
+    else
+    {
+        return IsGenEnabled(SpeciesToGen(species));
+    }
+}
+
+
 static void ApplyTrainerQuery(u16 trainerNum)
 {
     bool8 skipToEnd = FALSE;
@@ -3933,14 +3966,14 @@ static void ApplyTrainerQuery(u16 trainerNum)
         {
             u16 species = gRogueLocal.trainerTemp.customQuerySpecies[i];
 
-            if(IsGenEnabled(SpeciesToGen(species)))
+            if(IsSpeciesEnabledForCustomQuery(species))
             {
                 RogueQuery_Include(species);
             }
         }
 
         RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE); // Already done early cull above
-        RogueQuery_SpeciesExcludeCommon();
+        //RogueQuery_SpeciesExcludeCommon(); // We cull gen above (Doesn't entirely work for custom queries as regional dex culls)
 
         if(gRogueLocal.trainerTemp.forceLegendaries)
             RogueQuery_SpeciesIsLegendary();
@@ -4535,6 +4568,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
 
 void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
 {
+    bool8 keepExistingLead = FALSE;
     bool8 reorganiseParty = TRUE;
     bool8 clampLeadScore = FALSE;
 
@@ -4549,7 +4583,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
 
         if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
         {
-            reorganiseParty = FALSE;
+            keepExistingLead = TRUE;
         }
     }
     else if(IsMiniBossTrainer(trainerNum))
@@ -4563,7 +4597,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
 
         if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
         {
-            reorganiseParty = FALSE;
+            keepExistingLead = TRUE;
         }
     }
     else
@@ -4581,6 +4615,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
         u16 i;
         s16 scoreA, scoreB;
         bool8 anySwaps;
+        u16 startIndex = keepExistingLead ? 1 : 0;
         u16 sortLength = monsCount - 1;
 
         if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && !FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty < 8)
@@ -4595,7 +4630,7 @@ void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 mons
         {
             anySwaps = FALSE;
 
-            for(i = 0; i < monsCount - 1; ++i)
+            for(i = startIndex; i < monsCount - 1; ++i)
             {
                 scoreA = CalulcateMonSortScore(&party[i]);
                 scoreB = CalulcateMonSortScore(&party[i + 1]);
