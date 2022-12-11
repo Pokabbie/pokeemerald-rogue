@@ -15,26 +15,23 @@ script Rogue_Route_Chaos0_OnFrame0
 {
     call(Rogue_SetDesiredWeather)
 
-    if(flag(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE))
+    lockall
+    special(DoSealedChamberShakingEffect_Short)
+    waitstate
+    playse(SE_DOOR)
+    delay(10)
+    random(3)
+    switch(var(VAR_RESULT))
     {
-        lockall
-        special(DoSealedChamberShakingEffect_Short)
-        waitstate
-        playse(SE_DOOR)
-        delay(10)
-        random(3)
-        switch(var(VAR_RESULT))
-        {
-            case 0:
-                setmetatile(15,6, 0x1A1, TRUE)
-            case 1:
-                setmetatile(42,63, 0x1A1, TRUE)
-            case 2:
-                setmetatile(66,6, 0x32E, TRUE)
-                setmetatile(66,7, 0x336, FALSE)
-        }
-        releaseall
+        case 0:
+            setmetatile(15,6, 0x1A1, TRUE)
+        case 1:
+            setmetatile(42,63, 0x1A1, TRUE)
+        case 2:
+            setmetatile(66,6, 0x32E, TRUE)
+            setmetatile(66,7, 0x336, FALSE)
     }
+    releaseall
 
     setvar(VAR_TEMP_1, 1)
     end

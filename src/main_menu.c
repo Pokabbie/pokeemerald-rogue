@@ -471,7 +471,7 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
     sSpriteAffineAnim_PlayerShrink
 };
 
-static const struct MenuAction sMenuActions_Gender[PLAYER_STYLE_COUNT] = {
+static const struct MenuAction sMenuActions_Gender[4] = { //PLAYER_STYLE_COUNT
     {gText_BirchBrendan, NULL},
     {gText_BirchMay, NULL},
 
@@ -479,8 +479,8 @@ static const struct MenuAction sMenuActions_Gender[PLAYER_STYLE_COUNT] = {
     {gText_BirchLeaf, NULL},
 
     // TODO - ETHAN LYRA (If we want them here?)
-    {gText_BirchRed, NULL},
-    {gText_BirchLeaf, NULL},
+    //{gText_BirchRed, NULL},
+    //{gText_BirchLeaf, NULL},
 };
 
 static const struct MenuAction sMenuActions_Styles[4] = {

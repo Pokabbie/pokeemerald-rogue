@@ -1916,7 +1916,8 @@ static bool8 PartyContainsStrongLegendaryMon(void)
 
 static void BeginRogueRun_ModifyParty(void)
 {
-    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    // Always clear out EVs as we shouldn't have them in the HUB anymore
+    //if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         u16 i;
         u16 temp = 0;
@@ -5970,6 +5971,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
             // Will include below
 
+            *minSalePrice = 2000;
             break;
 
         case ROGUE_SHOP_BERRIES:
@@ -6043,8 +6045,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     RogueQuery_Exclude(itemId);
             }
         }
-
-        *minSalePrice = 2000;
     }
 
     RogueQuery_CollapseItemBuffer();
