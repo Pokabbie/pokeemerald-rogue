@@ -1810,9 +1810,8 @@ Rogue_ConfigRoom_Campaign_NewPhrase_Text_3:
 	.string "of it.$"
 
 Rogue_ConfigRoom_Campaign_NewPhrase_Text_4:
-	.string "... ... ...\p"
 	.string "Nah...\n"
-	.string "That ain't Campaign I know about...$"
+	.string "That ain't no mode I know about...$"
 
 Rogue_ConfigRoom_SelectCampaign_Loop_Text_0:
 	.string "That's all I've got I'm afraid...$"

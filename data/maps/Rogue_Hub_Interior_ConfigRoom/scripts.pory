@@ -253,7 +253,7 @@ script Rogue_ConfigRoom_Campaign_NewPhrase
     }
     else
     {
-        msgbox(format("... ... ...\pNah...\nThat ain't Campaign I know about..."), MSGBOX_DEFAULT)
+        msgbox(format("Nah...\nThat ain't no mode I know about..."), MSGBOX_DEFAULT)
     }
 }
 
