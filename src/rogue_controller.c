@@ -1916,7 +1916,8 @@ static bool8 PartyContainsStrongLegendaryMon(void)
 
 static void BeginRogueRun_ModifyParty(void)
 {
-    if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    // Always clear out EVs as we shouldn't have them in the HUB anymore
+    //if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         u16 i;
         u16 temp = 0;

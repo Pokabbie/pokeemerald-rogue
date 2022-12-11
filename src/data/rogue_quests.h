@@ -492,8 +492,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("Roguelocke"),
         .desc = _(
                     "Full run with: Bag Wipe\n"
-                    "Random starter; Embargo,\n"
-                    "Species & 10 Wild curses."
+                    "Random starter trade;\n"
+                    "Embargo, Species & 10\n"
+                    "Wild curses."
                 ),
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
@@ -520,8 +521,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("Iron Kaizo"),
         .desc = _(
-                    "Full run with: Bag Wipe\n"
-                    "& Random starter;\n"
+                    "Full run with: Bag Wipe,\n"
+                    "Random starter trade,\n"
                     "Embargo, 5 Capacity, 5 Wild,\n"
                     "99 Discount curses."
                 ),
@@ -612,7 +613,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .desc = _(
                     "Insane Mode rules + Hard\n"
                     "Items, Bag Wipe, EVs off\n"
-                    "Overlvl off, Random Starter."
+                    "Overlvl off, Random Starter\n"
+                    "trade."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },

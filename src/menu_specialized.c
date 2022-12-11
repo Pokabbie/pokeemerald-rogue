@@ -1123,7 +1123,7 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
         AddTextPrinterParameterized(0, FONT_SHORT, str, x, 65, 0, NULL);
     }
 
-    if(IsQuestRepeatable(chosenQuest))
+    if(IsQuestRepeatable(chosenQuest) && chosenQuest != QUEST_IronMono2) // Exception for quests who's description is too long
     {
         str = gText_QuestLogMarkerRepeatable;
         AddTextPrinterParameterized(0, FONT_SHORT, str, 2, 65, 0, NULL);

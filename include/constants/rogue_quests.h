@@ -5,7 +5,7 @@
 #define QUEST_FLAGS_ACTIVE_IN_HUB         (1 << 2) // currently means ONLY active during hub phase
 
 #define QUEST_TITLE_LENGTH 16
-#define QUEST_DESC_LENGTH 96
+#define QUEST_DESC_LENGTH 128
 
 #define  QUEST_MAX_REWARD_COUNT     4
 #define  QUEST_MAX_FOLLOWING_QUESTS 24
