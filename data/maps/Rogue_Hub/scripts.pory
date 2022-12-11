@@ -332,7 +332,7 @@ script RogueHub_OnMapLoad
     }
     else
     {
-        setflag(FLAG_ROGUE_TRAINER10)
+        setflag(FLAG_ROGUE_TRAINER11)
     }
 
     // Intro Scott

@@ -1672,7 +1672,10 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_0:
 	.string "allowed!\p"
 	.string "Finally, this campaign will adjust\n"
 	.string "Config Lab settings and TM TOXIC is\l"
-	.string "banned.$"
+	.string "banned.\p"
+	.string "(Note the score will update when\n"
+	.string "starting a battle, to give you a chance\l"
+	.string "to catch and release mons)$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1:
 	.string "You'll know if the Campaign is active;\n"

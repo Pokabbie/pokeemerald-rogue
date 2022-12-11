@@ -164,7 +164,9 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             CalculatePlayerPartyCount();
 
             AddBagItem(ITEM_EVERSTONE_CURSE, 1);
-            AddBagItem(ITEM_LINK_CABLE, 10);
+            AddBagItem(ITEM_SPECIES_CLAUSE_CURSE, 1);
+            AddBagItem(ITEM_LINK_CABLE, 50);
+            AddBagItem(ITEM_RARE_CANDY, 8);
             
             Campaign_LowBst_RecalculateScore();
         }
