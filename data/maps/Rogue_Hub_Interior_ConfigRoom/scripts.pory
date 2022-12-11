@@ -152,7 +152,18 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
 script Rogue_ConfigRoom_Campaign_Choice
 {
     call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-    message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
     waitmessage
     multichoice(20, 6, MULTI_YESNOINFO, YES)
 
@@ -176,7 +187,18 @@ script Rogue_ConfigRoom_Campaign_Choice
 script Rogue_ConfigRoom_Campaign_ReplayChoice
 {
     call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-    message(format("You wanna replay the {STR_VAR_1} Campaign a go?"))
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("Replay the {STR_VAR_1} Campaign?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Replay the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
     waitmessage
     multichoice(20, 6, MULTI_YESNOINFO, NO)
 

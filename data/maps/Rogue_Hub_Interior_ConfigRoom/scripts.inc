@@ -153,56 +153,74 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_5:
 
 Rogue_ConfigRoom_Campaign_Choice::
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	message Rogue_ConfigRoom_Campaign_Choice_Text_0
+	special Rogue_GetCampaignHighScore
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_ConfigRoom_Campaign_Choice_2
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	message Rogue_ConfigRoom_Campaign_Choice_Text_1
+Rogue_ConfigRoom_Campaign_Choice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, YES
 	switch VAR_RESULT
-	case 0, Rogue_ConfigRoom_Campaign_Choice_2
-	case 2, Rogue_ConfigRoom_Campaign_Choice_3
-	case 1, Rogue_ConfigRoom_Campaign_Choice_4
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_4
+	case 0, Rogue_ConfigRoom_Campaign_Choice_6
+	case 2, Rogue_ConfigRoom_Campaign_Choice_7
+	case 1, Rogue_ConfigRoom_Campaign_Choice_8
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_8
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_2:
+	message Rogue_ConfigRoom_Campaign_Choice_Text_0
+	goto Rogue_ConfigRoom_Campaign_Choice_1
+
+Rogue_ConfigRoom_Campaign_Choice_6:
 	waitse
 	playse SE_PIN
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	return
 
-Rogue_ConfigRoom_Campaign_Choice_3:
+Rogue_ConfigRoom_Campaign_Choice_7:
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
 	call Rogue_ConfigRoom_Campaign_Choice
 	return
 
-Rogue_ConfigRoom_Campaign_Choice_4:
+Rogue_ConfigRoom_Campaign_Choice_8:
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
 
 Rogue_ConfigRoom_Campaign_ReplayChoice::
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0
+	special Rogue_GetCampaignHighScore
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_ConfigRoom_Campaign_ReplayChoice_2
+	buffernumberstring STR_VAR_2, VAR_RESULT
+	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1
+Rogue_ConfigRoom_Campaign_ReplayChoice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, NO
 	switch VAR_RESULT
-	case 0, Rogue_ConfigRoom_Campaign_ReplayChoice_2
-	case 2, Rogue_ConfigRoom_Campaign_ReplayChoice_3
-	case 1, Rogue_ConfigRoom_Campaign_ReplayChoice_4
-	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_ReplayChoice_4
+	case 0, Rogue_ConfigRoom_Campaign_ReplayChoice_6
+	case 2, Rogue_ConfigRoom_Campaign_ReplayChoice_7
+	case 1, Rogue_ConfigRoom_Campaign_ReplayChoice_8
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_ReplayChoice_8
 	return
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_2:
+	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0
+	goto Rogue_ConfigRoom_Campaign_ReplayChoice_1
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_6:
 	waitse
 	playse SE_PIN
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	return
 
-Rogue_ConfigRoom_Campaign_ReplayChoice_3:
+Rogue_ConfigRoom_Campaign_ReplayChoice_7:
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
 	call Rogue_ConfigRoom_Campaign_ReplayChoice
 	return
 
-Rogue_ConfigRoom_Campaign_ReplayChoice_4:
+Rogue_ConfigRoom_Campaign_ReplayChoice_8:
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
@@ -1731,11 +1749,18 @@ Rogue_ConfigRoom_Campaign_Choice_Text_0:
 	.string "Campaign a go?$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_1:
+	.string "Play the {STR_VAR_1} Campaign?\n"
+	.string "(Best Score: {STR_VAR_2})$"
+
+Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "Good luck, kid!$"
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0:
-	.string "You wanna replay the {STR_VAR_1}\n"
-	.string "Campaign a go?$"
+	.string "Replay the {STR_VAR_1} Campaign?$"
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1:
+	.string "Replay the {STR_VAR_1} Campaign?\n"
+	.string "(Best Score: {STR_VAR_2})$"
 
 Rogue_ConfigRoom_Campaign_NewPhrase_Text_0:
 	.string "...\p"
