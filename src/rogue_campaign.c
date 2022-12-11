@@ -331,7 +331,7 @@ static void Campaign_LowBst_RecalculateScore(void)
         {
             tempScore = Campaign_LowBst_ScoreFromSpecies(tempSpecies);
 
-            if(tempScore < currentScore || currentScore == 0)
+            if(tempScore > currentScore || currentScore == 0)
             {
                 currentSpecies = tempSpecies;
                 currentScore = tempScore;
