@@ -60,6 +60,7 @@
 #include "constants/trainers.h"
 #include "battle_util.h"
 
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_script.h"
@@ -8701,6 +8702,7 @@ static void Cmd_various(void)
             if(GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
             {
                 QuestNotify_OnMegaEvolve(gBattleMons[gActiveBattler].species);
+                Rogue_CampaignNotify_OnMegaEvolve(gBattleMons[gActiveBattler].species, megaSpecies);
             }
 
             gBattleMons[gActiveBattler].species = megaSpecies;
