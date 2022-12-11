@@ -5971,6 +5971,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 
             // Will include below
 
+            *minSalePrice = 2000;
             break;
 
         case ROGUE_SHOP_BERRIES:
@@ -6044,8 +6045,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
                     RogueQuery_Exclude(itemId);
             }
         }
-
-        *minSalePrice = 2000;
     }
 
     RogueQuery_CollapseItemBuffer();
