@@ -386,163 +386,69 @@ script RogueSafari_Sign_SouthEast
 script Rogue_Tutor_MoveRelearn
 {
     special(TeachMoveSetContextRelearnMove)
+    setvar(VAR_0x8009, 1000)
 
     lock
     faceplayer
     msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach POKéMON moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
 
-    showmoneybox(0, 0)
-    msgbox(format("Would you like me to teach your POKéMON a move for ¥1000?"), MSGBOX_DEFAULT)
-
-    setvar(VAR_RESULT, YES)
-    if(var(VAR_RESULT) == NO)
-    {
-        goto(Rogue_Tutor_MoveRelearnCancel)
-    }
-
-    while(var(VAR_RESULT) == YES)
-    {
-        hidemoneybox
-        checkmoney(1000)
-        if(var(VAR_RESULT) == NO)
-        {
-            showmoneybox(0, 0)
-            msgbox(format("I'm afraid you don't have enough money.\pCome back once you've gotten a bit more and I'll gladly teach some moves to your POKéMON."), MSGBOX_DEFAULT)
-        }
-        else
-        {
-            special(ChooseMonForMoveRelearner)
-            waitstate
-
-            if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
-            {
-                goto(Rogue_Tutor_MoveRelearnCancel)
-            }
-
-            special(IsSelectedMonEgg)
-
-            if(var(VAR_RESULT) == TRUE)
-            {
-                goto(Rogue_Tutor_MoveRelearnCancel)
-            }
-
-            // Teach move
-            special(TeachMoveFromContext)
-            waitstate
-
-            // Always loop here to make batch teaching less tedious
-            if(var(VAR_0x8006) != 0)
-            {
-                removemoney(1000)
-                playse(SE_SHOP)
-
-                showmoneybox(0, 0)
-                msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
-            }
-            else
-            {
-                setvar(VAR_RESULT, YES)
-            }
-        }
-    }
-
-    hidemoneybox
+    call(Rogue_Tutor_MoveTeachLoop)
     release
 }
 
 script Rogue_Tutor_EggMoveLearn
 {
     special(TeachMoveSetContextEggMove)
+    setvar(VAR_0x8009, 2000)
 
     lock
     faceplayer
     msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach POKéMON moves if you'd like?"), MSGBOX_DEFAULT)
 
-    showmoneybox(0, 0)
-    msgbox(format("Would you like me to teach your POKéMON a move for ¥2000?"), MSGBOX_DEFAULT)
-
-    setvar(VAR_RESULT, YES)
-    if(var(VAR_RESULT) == NO)
-    {
-        goto(Rogue_Tutor_MoveRelearnCancel)
-    }
-
-    while(var(VAR_RESULT) == YES)
-    {
-        hidemoneybox
-        checkmoney(2000)
-        if(var(VAR_RESULT) == NO)
-        {
-            showmoneybox(0, 0)
-            msgbox(format("I'm afraid you don't have enough money.\pCome back once you've gotten a bit more and I'll gladly teach some moves to your POKéMON."), MSGBOX_DEFAULT)
-        }
-        else
-        {
-            special(ChooseMonForMoveRelearner)
-            waitstate
-
-            if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
-            {
-                goto(Rogue_Tutor_MoveRelearnCancel)
-            }
-
-            special(IsSelectedMonEgg)
-
-            if(var(VAR_RESULT) == TRUE)
-            {
-                goto(Rogue_Tutor_MoveRelearnCancel)
-            }
-
-            // Teach move
-            special(TeachMoveFromContext)
-            waitstate
-
-            // Always loop here to make batch teaching less tedious
-            if(var(VAR_0x8006) != 0)
-            {
-                removemoney(2000)
-                updatemoneybox
-                playse(SE_SHOP)
-
-                showmoneybox(0, 0)
-                msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
-            }
-            else
-            {
-                setvar(VAR_RESULT, YES)
-            }
-        }
-    }
-
-    hidemoneybox
+    call(Rogue_Tutor_MoveTeachLoop)
     release
 }
 
 script Rogue_Tutor_TutorMoveLearn
 {
     special(TeachMoveSetContextTutorMove)
+    setvar(VAR_0x8009, 3000)
 
     lock
     faceplayer
     msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach POKéMON moves some radical moves!"), MSGBOX_DEFAULT)
 
-    showmoneybox(0, 0)
-    msgbox(format("Want me to teach your POKéMON a move for ¥3000?"), MSGBOX_DEFAULT)
+    call(Rogue_Tutor_MoveTeachLoop)
+    release
+}
 
-    setvar(VAR_RESULT, YES)
+script Rogue_Tutor_MoveRelearnCancel
+{
+    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
+}
+
+script Rogue_Tutor_MoveTeachLoop
+{
+    showmoneybox(0, 0)
+    buffernumberstring(STR_VAR_1, VAR_0x8009)
+    msgbox(format("Would you like me to teach your POKéMON a move for ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+    hidemoneybox
+
     if(var(VAR_RESULT) == NO)
     {
         goto(Rogue_Tutor_MoveRelearnCancel)
+        setvar(VAR_RESULT, NO)
     }
 
     while(var(VAR_RESULT) == YES)
     {
-        hidemoneybox
-        checkmoney(3000)
+        checkmoney(VAR_0x8009)
         if(var(VAR_RESULT) == NO)
         {
             showmoneybox(0, 0)
-            msgbox(format("You don't have enough money!\pCome back once you've got enough."), MSGBOX_DEFAULT)
+            buffernumberstring(STR_VAR_1, VAR_0x8009)
+            msgbox(format("You don't seem to have enough money at the moment.\pCome back once you have ¥{STR_VAR_1}."), MSGBOX_DEFAULT)
+            hidemoneybox
         }
         else
         {
@@ -552,45 +458,49 @@ script Rogue_Tutor_TutorMoveLearn
             if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
             {
                 goto(Rogue_Tutor_MoveRelearnCancel)
+                setvar(VAR_RESULT, NO)
             }
 
-            special(IsSelectedMonEgg)
-
-            if(var(VAR_RESULT) == TRUE)
+            if(var(VAR_RESULT) == YES)
             {
-                goto(Rogue_Tutor_MoveRelearnCancel)
+                special(IsSelectedMonEgg)
+
+                if(var(VAR_RESULT) == TRUE)
+                {
+                    goto(Rogue_Tutor_MoveRelearnCancel)
+                    setvar(VAR_RESULT, NO)
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
             }
 
-            // Teach move
-            special(TeachMoveFromContext)
-            waitstate
-
-            // Always loop here to make batch teaching less tedious
-            if(var(VAR_0x8006) != 0)
+            if(var(VAR_RESULT) == YES)
             {
-                removemoney(3000)
-                updatemoneybox
-                playse(SE_SHOP)
+                // Teach move
+                special(TeachMoveFromContext)
+                waitstate
 
-                showmoneybox(0, 0)
-                msgbox(format("You wanna get me to teach anymore POKéMON?"), MSGBOX_YESNO)
-            }
-            else
-            {
-                setvar(VAR_RESULT, YES)
+                // Always loop here to make batch teaching less tedious
+                if(var(VAR_0x8006) != 0)
+                {
+                    removemoney(VAR_0x8009)
+                    playse(SE_SHOP)
+
+                    showmoneybox(0, 0)
+                    msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
+                    hidemoneybox
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
             }
         }
     }
-
-    hidemoneybox
-    release
 }
 
-script Rogue_Tutor_MoveRelearnCancel
-{
-    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
-    setvar(VAR_RESULT, NO)
-}
 
 script Rogue_Tutor_MoveDelete
 {
