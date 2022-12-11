@@ -3,6 +3,8 @@
 
 const u8* GetCampaignTitle(u16 campaignId);
 
+void Rogue_ResetCampaignAfter(u16 count);
+
 u16 Rogue_GetActiveCampaign(void);
 bool8 Rogue_IsCampaignActive(void);
 

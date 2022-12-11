@@ -5454,9 +5454,10 @@ void BufferDeepLinkPhrase(void)
 
 static bool8 IsAdditionalPhraseUnlocked(u8 additionalPhraseId)
 {
-    int byteOffset = additionalPhraseId / 8;
-    int shift = additionalPhraseId % 8;
-    return (gSaveBlock1Ptr->additionalPhrases[byteOffset] >> shift) & 1;
+    return TRUE;
+    //int byteOffset = additionalPhraseId / 8;
+    //int shift = additionalPhraseId % 8;
+    //return (gSaveBlock1Ptr->additionalPhrases[byteOffset] >> shift) & 1;
 }
 
 void UnlockAdditionalPhrase(u8 additionalPhraseId)
@@ -5802,14 +5803,15 @@ static u16 SetSelectedWordGroup_AlphabetMode(u16 groupId)
 
 static bool8 IsEasyChatGroupUnlocked2(u8 groupId)
 {
-    int i;
-    for (i = 0; i < sWordData->numUnlockedGroups; i++)
-    {
-        if (sWordData->unlockedGroupIds[i] == groupId)
-            return TRUE;
-    }
-
-    return FALSE;
+    return TRUE;
+    //int i;
+    //for (i = 0; i < sWordData->numUnlockedGroups; i++)
+    //{
+    //    if (sWordData->unlockedGroupIds[i] == groupId)
+    //        return TRUE;
+    //}
+//
+    //return FALSE;
 }
 
 static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
@@ -5822,13 +5824,14 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
         if (IsRestrictedWordSpecies(wordIndex))
             CanPokemonBeShown(wordIndex);
         return TRUE;
-    case EC_GROUP_MOVE_1:
-    case EC_GROUP_MOVE_2:
-        return TRUE;
-    case EC_GROUP_TRENDY_SAYING:
-        return IsAdditionalPhraseUnlocked(wordIndex);
+    //case EC_GROUP_MOVE_1:
+    //case EC_GROUP_MOVE_2:
+    //    return TRUE;
+    //case EC_GROUP_TRENDY_SAYING:
+    //    return IsAdditionalPhraseUnlocked(wordIndex);
     default:
-        return gEasyChatGroups[groupId].wordData.words[wordIndex].enabled;
+        //return gEasyChatGroups[groupId].wordData.words[wordIndex].enabled;
+        return TRUE;
     }
 }
 
@@ -5836,24 +5839,25 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
 // unless they are in this group. If they are in this group (just Deoxys), they must also have been seen.
 static int IsRestrictedWordSpecies(u16 species)
 {
-    u32 i;
-    for (i = 0; i < ARRAY_COUNT(sRestrictedWordSpecies); i++)
-    {
-        if (sRestrictedWordSpecies[i] == species)
-            return TRUE;
-    }
+    //u32 i;
+    //for (i = 0; i < ARRAY_COUNT(sRestrictedWordSpecies); i++)
+    //{
+    //    if (sRestrictedWordSpecies[i] == species)
+    //        return TRUE;
+    //}
 
     return FALSE;
 }
 
 static u8 IsEasyChatWordUnlocked(u16 easyChatWord)
 {
-    u8 groupId = EC_GROUP(easyChatWord);
-    u32 index = EC_INDEX(easyChatWord);
-    if (!IsEasyChatGroupUnlocked2(groupId))
-        return FALSE;
-    else
-        return IsEasyChatIndexAndGroupUnlocked(index, groupId);
+    return TRUE;
+    //u8 groupId = EC_GROUP(easyChatWord);
+    //u32 index = EC_INDEX(easyChatWord);
+    //if (!IsEasyChatGroupUnlocked2(groupId))
+    //    return FALSE;
+    //else
+    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId);
 }
 
 void InitializeEasyChatWordArray(u16 *words, u16 length)
@@ -5873,11 +5877,12 @@ void InitQuestionnaireWords(void)
 
 bool32 IsEasyChatAnswerUnlocked(int easyChatWord)
 {
-    int groupId = EC_GROUP(easyChatWord);
-    int mask = EC_MASK_GROUP;
-    int index = EC_INDEX(easyChatWord);
-    if (!IsEasyChatGroupUnlocked(groupId & mask))
-        return FALSE;
-    else
-        return IsEasyChatIndexAndGroupUnlocked(index, groupId & mask);
+    return TRUE;
+    //int groupId = EC_GROUP(easyChatWord);
+    //int mask = EC_MASK_GROUP;
+    //int index = EC_INDEX(easyChatWord);
+    //if (!IsEasyChatGroupUnlocked(groupId & mask))
+    //    return FALSE;
+    //else
+    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId & mask);
 }

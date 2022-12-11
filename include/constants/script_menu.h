@@ -98,9 +98,9 @@
 #define MULTI_FRONTIER_GAMBLER_BET         87
 #define MULTI_TENT                         88
 #define MULTI_RANDOM_SWAP_OPTIONS          89
-#define MULTI_UNUSED_SSTIDAL_2             90 //
-#define MULTI_UNUSED_SSTIDAL_3             91 //
-#define MULTI_UNUSED_SSTIDAL_4             92 //
+#define MULTI_CAMPAIGN_EXT_OPT             90
+#define MULTI_CAMPAIGN_OPT2                91
+#define MULTI_CAMPAIGN_OPT3                92
 #define MULTI_FOSSIL                       93
 #define MULTI_YESNO                        94
 #define MULTI_FRONTIER_RULES               95

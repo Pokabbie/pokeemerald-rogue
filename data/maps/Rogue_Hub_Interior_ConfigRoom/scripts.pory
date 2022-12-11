@@ -151,6 +151,7 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
 
 script Rogue_ConfigRoom_Campaign_Choice
 {
+    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
     message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
     waitmessage
     multichoice(20, 6, MULTI_YESNOINFO, YES)
@@ -163,14 +164,110 @@ script Rogue_ConfigRoom_Campaign_Choice
             msgbox(format("Good luck, kid!"), MSGBOX_DEFAULT)
 
         case 2: // Info
-            msgbox(format("When you take part in a Campaign settings will be changed to give a unique challenge.\pI may swap out your POKéMON and change some of the items in your bag.\pI may also edit your settings in the Config Lab.\pEach Campaign has a specific setup."), MSGBOX_DEFAULT)
             call(Rogue_ConfigRoom_Campaign_CampaignDescription)
             call(Rogue_ConfigRoom_Campaign_Choice)
 
         case 1: // No
-        //case MULTI_B_PRESSED:
-            msgbox(format("You let me know, if you wanna have a go of it."), MSGBOX_DEFAULT)
+        case MULTI_B_PRESSED:
             setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_ReplayChoice
+{
+    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+    message(format("You wanna replay the {STR_VAR_1} Campaign a go?"))
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            msgbox(format("Good luck, kid!"), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            call(Rogue_ConfigRoom_Campaign_CampaignDescription)
+            call(Rogue_ConfigRoom_Campaign_ReplayChoice)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_NewPhrase
+{
+    msgbox(format("...\pWhat was that?"))
+
+    setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
+    call(Common_ShowEasyChatScreen)
+    
+    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+    {
+        faceplayer
+        call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+        msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
+
+        if(var(VAR_TEMP_F) == YES)
+        {
+            msgbox(format("When you take part in a Campaign settings will be changed to give a unique challenge.\pI may swap out your POKéMON and change some of the items in your bag.\pI may also edit your settings in the Config Lab.\pEach Campaign has a specific setup, rules and restrictions."), MSGBOX_DEFAULT)
+        }
+
+        call(Rogue_ConfigRoom_Campaign_Choice)
+
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+        {
+            msgbox(format("You let me know, if you wanna have a go of it."), MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        msgbox(format("... ... ...\pNah...\nThat ain't Campaign I know about..."), MSGBOX_DEFAULT)
+    }
+}
+
+script Rogue_ConfigRoom_SelectCampaign_Loop
+{
+    special(Rogue_GetNextUnlockedCampaign)
+    if(var(VAR_0x8004) != ROGUE_CAMPAIGN_NONE)
+    {
+        setvar(VAR_RESULT, YES)
+    }
+    else
+    {
+        setvar(VAR_RESULT, NO)
+    }
+
+    while(var(VAR_RESULT) == YES)
+    {
+        copyvar(VAR_ROGUE_DESIRED_CAMPAIGN, VAR_0x8004)
+        call(Rogue_ConfigRoom_Campaign_ReplayChoice)
+
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+        {
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            special(Rogue_GetNextUnlockedCampaign)
+            if(var(VAR_0x8004) == ROGUE_CAMPAIGN_NONE)
+            {
+                // Ran out of campaigns
+                setvar(VAR_RESULT, NO)
+            }
+            else
+            {
+                // Still got more to check
+                setvar(VAR_RESULT, YES)
+            }
+        }
+    }
+
+    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+    {
+        msgbox(format("That's all I've got I'm afraid..."))
     }
 }
 
@@ -178,32 +275,47 @@ script Rogue_ConfigRoom_Campaign
 {
     lock
 
-    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+    special(Rogue_GetUnlockedCampaignCount)
+    if(var(VAR_RESULT) == 0)
     {
-        msgbox(format("...\pWhat was that?"))
-
-        setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
-        call(Common_ShowEasyChatScreen)
-        
-        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
-        {
-            faceplayer
-            call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-            msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
-            call(Rogue_ConfigRoom_Campaign_Choice)
-        }
-        else
-        {
-            msgbox(format("... ... ...\pNah...\nThat ain't Campaign I know about..."), MSGBOX_DEFAULT)
-        }
+        setvar(VAR_TEMP_F, YES)
+        call(Rogue_ConfigRoom_Campaign_NewPhrase)
     }
     else
     {
         faceplayer
-        call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
-        msgbox(format("Well if it isn't the kid!"), MSGBOX_DEFAULT)
+        msgbox(format("Hiya kid!"))
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+        {
+            call(Rogue_ConfigRoom_Campaign_Choice)
 
-        call(Rogue_ConfigRoom_Campaign_Choice)
+            if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+            {
+                msgbox(format("You let me know, if you wanna give it another go."), MSGBOX_DEFAULT)
+            }
+        }
+        else
+        {
+            // Additional options
+            message(format("How can I help?"))
+            waitmessage
+
+            multichoice(20, 6, MULTI_CAMPAIGN_EXT_OPT, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0: // Play Campaign
+                    setvar(VAR_0x8004, ROGUE_CAMPAIGN_NONE)
+                    call(Rogue_ConfigRoom_SelectCampaign_Loop)
+
+                case 1: // New Phrase
+                    setvar(VAR_TEMP_F, NO)
+                    call(Rogue_ConfigRoom_Campaign_NewPhrase)
+
+                //case 2:
+                //case MULTI_B_PRESSED: 
+            }
+        }
     }
 
     release

@@ -5,6 +5,7 @@
 
 extern EWRAM_DATA struct RogueRunData gRogueRun;
 extern EWRAM_DATA struct RogueHubData gRogueHubData;
+extern EWRAM_DATA struct RogueGlobalData gRogueGlobalData;
 
 #define OVERWORLD_FLAG 0
 

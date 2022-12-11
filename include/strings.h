@@ -117,6 +117,9 @@ extern const u8 gText_NoDecorationsInUse[];
 extern const u8 gText_Exit[];
 extern const u8 gText_Cancel[];
 
+extern const u8 gText_NewPhrase[];
+extern const u8 gText_PlayCampaign[];
+
 extern const u8 gText_ThrowAwayVar1[];
 extern const u8 gText_Var1ThrownAway[];
 
@@ -2954,6 +2957,7 @@ extern const u8 gText_XDotY2[];
 extern const u8 gText_SpaceMin[];
 extern const u8 gText_StrVar1[];
 extern const u8 gText_StrVar2[];
+extern const u8 gText_StrVar3[];
 extern const u8 gText_PressingSpeed[];
 extern const u8 gText_TimesPerSec[];
 extern const u8 gText_XDotY3[];

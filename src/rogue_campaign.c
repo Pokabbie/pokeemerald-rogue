@@ -40,6 +40,20 @@ const u8* GetCampaignTitle(u16 campaignId)
     }
 }
 
+void Rogue_ResetCampaignAfter(u16 count)
+{
+    u16 i;
+
+    if(count < ROGUE_CAMPAIGN_COUNT)
+    {
+        // Reset the state for any new quests
+        for(i = count; i < ROGUE_CAMPAIGN_COUNT; ++i)
+        {
+            memset(&gRogueGlobalData.campaignData[i], 0, sizeof(struct RogueCampaignState));
+        }
+    }
+}
+
 u16 Rogue_GetActiveCampaign(void)
 {
     return VarGet(VAR_ROGUE_ACTIVE_CAMPAIGN);
@@ -50,33 +64,34 @@ bool8 Rogue_IsCampaignActive(void)
     return Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_NONE;
 }
 
-bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
+u16 TryGetCampaignId(u16 word0, u16 word1)
 {
     if(word0 == 5160 && word1 == 6705) // SMALL HOLIDAY
-    {
-        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_LOW_BST);
-        return TRUE;
-    }
+        return ROGUE_CAMPAIGN_LOW_BST;
 
     if(word0 == 9843 && word1 == 6699) // REFLECT ADVENTURE
-    {
-        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_CLASSIC);
-        return TRUE;
-    }
+        return ROGUE_CAMPAIGN_CLASSIC;
 
     if(word0 == 8716 && word1 == 7194) // BATTLETOWER NOW
-    {
-        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_MINIBOSS_BATTLER);
-        return TRUE;
-    }
+        return ROGUE_CAMPAIGN_MINIBOSS_BATTLER;
 
     if(word0 == 7184 && word1 == 2579) // LATER MAN
+        return ROGUE_CAMPAIGN_LATERMANNER;
+
+    return ROGUE_CAMPAIGN_NONE;
+}
+
+bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
+{
+    u16 campaignId = TryGetCampaignId(word0, word1);
+    VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, campaignId);
+
+    if(campaignId != ROGUE_CAMPAIGN_NONE)
     {
-        VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_LATERMANNER);
+        gRogueGlobalData.campaignData[campaignId - ROGUE_CAMPAIGN_FIRST].isUnlocked =  TRUE;
         return TRUE;
     }
 
-    VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
     return FALSE;
 }
 
@@ -173,10 +188,16 @@ u16 Rogue_PostActivateDesiredCampaign(void)
 
 u16 Rogue_DeactivateActiveCampaign(void)
 {
-    if(gRogueRun.currentDifficulty >= 14)
+    if(Rogue_IsCampaignActive())
     {
-        if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
-            IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+        if(gRogueRun.currentDifficulty >= 14)
+        {
+            if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+                IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+
+            gRogueGlobalData.campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
+            gRogueGlobalData.campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();
+        }
     }
 
     VarSet(VAR_ROGUE_ACTIVE_CAMPAIGN, ROGUE_CAMPAIGN_NONE);

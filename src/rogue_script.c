@@ -17,13 +17,14 @@
 #include "rogue_query.h"
 
 #include "rogue.h"
+#include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_script.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
 
 #ifdef ROGUE_DEBUG
-extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
+extern EWRAM_DATA struct RogueGlobalData gRogueGlobalData;
 #endif
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
@@ -371,6 +372,7 @@ void RogueDebug_ClearQuests(void)
 {
 #ifdef ROGUE_DEBUG
     ResetQuestStateAfter(0);
+    Rogue_ResetCampaignAfter(0);
 #endif
 }
 
@@ -386,7 +388,7 @@ void RogueDebug_CompleteAvaliableQuests(void)
         // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
         questId = QUEST_CAPACITY - i - 1;
 
-        state = &gRogueQuestData.questStates[questId];
+        state = &gRogueGlobalData.questStates[questId];
 
         if(state->isUnlocked && !state->isCompleted)
         {
@@ -417,7 +419,7 @@ void RogueDebug_CollectAllQuests(void)
             // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
             questId = QUEST_CAPACITY - i - 1;
 
-            state = &gRogueQuestData.questStates[questId];
+            state = &gRogueGlobalData.questStates[questId];
 
             if(state->isUnlocked && (!state->isCompleted || state->hasPendingRewards))
             {
@@ -586,13 +588,13 @@ void Rogue_GetBufferedShinySpecies(void)
     u16 i;
     u16 offset = gSpecialVar_0x8004;
 
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.safariShinyBuffer); ++i)
+    for(i = 0; i < ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer); ++i)
     {
-        if(gRogueRun.safariShinyBuffer[i] != (u16)-1)
+        if(gRogueGlobalData.safariShinyBuffer[i] != (u16)-1)
         {
             if(offset == 0)
             {
-                gSpecialVar_Result = gRogueRun.safariShinyBuffer[i];
+                gSpecialVar_Result = gRogueGlobalData.safariShinyBuffer[i];
                 return;
             }
             else
@@ -636,4 +638,39 @@ void Rogue_Popup(void)
     u8 msgType = gSpecialVar_0x8004;
     u16 param = gSpecialVar_0x8005;
     Rogue_PushPopup(msgType, param);
+}
+
+void Rogue_GetUnlockedCampaignCount(void)
+{
+    u16 i;
+    u16 count = 0;
+
+    for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
+    {
+        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
+            ++count;
+    }
+
+    gSpecialVar_Result = count;
+}
+
+void Rogue_GetNextUnlockedCampaign(void)
+{
+    u16 i = gSpecialVar_0x8004;
+
+    if(i == ROGUE_CAMPAIGN_NONE)
+        i = ROGUE_CAMPAIGN_FIRST;
+    else
+        ++i;
+
+    for(; i <= ROGUE_CAMPAIGN_LAST; ++i)
+    {
+        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
+        {
+            gSpecialVar_0x8004 = i;
+            return;
+        }
+    }
+
+    gSpecialVar_0x8004 = ROGUE_CAMPAIGN_NONE;
 }
