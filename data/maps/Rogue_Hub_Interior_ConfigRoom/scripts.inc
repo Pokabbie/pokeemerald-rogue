@@ -152,6 +152,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_5:
 
 
 Rogue_ConfigRoom_Campaign_Choice::
+	call Rogue_ConfigRoom_Campaign_BufferCampaignName
 	message Rogue_ConfigRoom_Campaign_Choice_Text_0
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, YES
@@ -159,6 +160,7 @@ Rogue_ConfigRoom_Campaign_Choice::
 	case 0, Rogue_ConfigRoom_Campaign_Choice_2
 	case 2, Rogue_ConfigRoom_Campaign_Choice_3
 	case 1, Rogue_ConfigRoom_Campaign_Choice_4
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_Choice_4
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_2:
@@ -168,43 +170,156 @@ Rogue_ConfigRoom_Campaign_Choice_2:
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_3:
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_2, MSGBOX_DEFAULT
 	call Rogue_ConfigRoom_Campaign_CampaignDescription
 	call Rogue_ConfigRoom_Campaign_Choice
 	return
 
 Rogue_ConfigRoom_Campaign_Choice_4:
-	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_3, MSGBOX_DEFAULT
 	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	return
 
 
-Rogue_ConfigRoom_Campaign::
-	lock
+Rogue_ConfigRoom_Campaign_ReplayChoice::
+	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0
+	waitmessage
+	multichoice 20, 6, MULTI_YESNOINFO, NO
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_Campaign_ReplayChoice_2
+	case 2, Rogue_ConfigRoom_Campaign_ReplayChoice_3
+	case 1, Rogue_ConfigRoom_Campaign_ReplayChoice_4
+	case MULTI_B_PRESSED, Rogue_ConfigRoom_Campaign_ReplayChoice_4
+	return
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_2:
+	waitse
+	playse SE_PIN
+	msgbox Rogue_ConfigRoom_Campaign_Choice_Text_1, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_3:
+	call Rogue_ConfigRoom_Campaign_CampaignDescription
+	call Rogue_ConfigRoom_Campaign_ReplayChoice
+	return
+
+Rogue_ConfigRoom_Campaign_ReplayChoice_4:
+	setvar VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	return
+
+
+Rogue_ConfigRoom_Campaign_NewPhrase::
+	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_0
+	setvar VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN
+	call Common_ShowEasyChatScreen
 	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
-	goto_if_eq Rogue_ConfigRoom_Campaign_2
+	goto_if_ne Rogue_ConfigRoom_Campaign_NewPhrase_1
+	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_4, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_NewPhrase_1:
 	faceplayer
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	msgbox Rogue_ConfigRoom_Campaign_Text_3, MSGBOX_DEFAULT
+	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_1, MSGBOX_DEFAULT
+	compare VAR_TEMP_F, YES
+	goto_if_eq Rogue_ConfigRoom_Campaign_NewPhrase_5
+Rogue_ConfigRoom_Campaign_NewPhrase_4:
 	call Rogue_ConfigRoom_Campaign_Choice
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_eq Rogue_ConfigRoom_Campaign_NewPhrase_7
+	return
+
+Rogue_ConfigRoom_Campaign_NewPhrase_5:
+	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_2, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Campaign_NewPhrase_4
+
+Rogue_ConfigRoom_Campaign_NewPhrase_7:
+	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_3, MSGBOX_DEFAULT
+	return
+
+
+Rogue_ConfigRoom_SelectCampaign_Loop::
+	special Rogue_GetNextUnlockedCampaign
+	compare VAR_0x8004, ROGUE_CAMPAIGN_NONE
+	goto_if_ne Rogue_ConfigRoom_SelectCampaign_Loop_2
+	setvar VAR_RESULT, NO
+Rogue_ConfigRoom_SelectCampaign_Loop_1:
+Rogue_ConfigRoom_SelectCampaign_Loop_6:
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_SelectCampaign_Loop_7
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_eq Rogue_ConfigRoom_SelectCampaign_Loop_9
+	return
+
+Rogue_ConfigRoom_SelectCampaign_Loop_2:
+	setvar VAR_RESULT, YES
+	goto Rogue_ConfigRoom_SelectCampaign_Loop_1
+
+Rogue_ConfigRoom_SelectCampaign_Loop_7:
+	copyvar VAR_ROGUE_DESIRED_CAMPAIGN, VAR_0x8004
+	call Rogue_ConfigRoom_Campaign_ReplayChoice
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_ne Rogue_ConfigRoom_SelectCampaign_Loop_11
+	special Rogue_GetNextUnlockedCampaign
+	compare VAR_0x8004, ROGUE_CAMPAIGN_NONE
+	goto_if_eq Rogue_ConfigRoom_SelectCampaign_Loop_14
+	setvar VAR_RESULT, YES
+	goto Rogue_ConfigRoom_SelectCampaign_Loop_6
+
+Rogue_ConfigRoom_SelectCampaign_Loop_9:
+	msgbox Rogue_ConfigRoom_SelectCampaign_Loop_Text_0
+	return
+
+Rogue_ConfigRoom_SelectCampaign_Loop_11:
+	setvar VAR_RESULT, NO
+	goto Rogue_ConfigRoom_SelectCampaign_Loop_6
+
+Rogue_ConfigRoom_SelectCampaign_Loop_14:
+	setvar VAR_RESULT, NO
+	goto Rogue_ConfigRoom_SelectCampaign_Loop_6
+
+
+Rogue_ConfigRoom_Campaign::
+	lock
+	special Rogue_GetUnlockedCampaignCount
+	compare VAR_RESULT, 0
+	goto_if_eq Rogue_ConfigRoom_Campaign_2
+	faceplayer
+	msgbox Rogue_ConfigRoom_Campaign_Text_0
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_ne Rogue_ConfigRoom_Campaign_5
+	message Rogue_ConfigRoom_Campaign_Text_2
+	waitmessage
+	multichoice 20, 6, MULTI_CAMPAIGN_EXT_OPT, NO
+	switch VAR_RESULT
+	case 0, Rogue_ConfigRoom_Campaign_11
+	case 1, Rogue_ConfigRoom_Campaign_12
 Rogue_ConfigRoom_Campaign_1:
 	release
 	return
 
 Rogue_ConfigRoom_Campaign_2:
-	msgbox Rogue_ConfigRoom_Campaign_Text_0
-	setvar VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN
-	call Common_ShowEasyChatScreen
-	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
-	goto_if_ne Rogue_ConfigRoom_Campaign_5
-	msgbox Rogue_ConfigRoom_Campaign_Text_2, MSGBOX_DEFAULT
+	setvar VAR_TEMP_F, YES
+	call Rogue_ConfigRoom_Campaign_NewPhrase
 	goto Rogue_ConfigRoom_Campaign_1
 
 Rogue_ConfigRoom_Campaign_5:
-	faceplayer
-	call Rogue_ConfigRoom_Campaign_BufferCampaignName
-	msgbox Rogue_ConfigRoom_Campaign_Text_1, MSGBOX_DEFAULT
 	call Rogue_ConfigRoom_Campaign_Choice
+	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
+	goto_if_eq Rogue_ConfigRoom_Campaign_8
+	goto Rogue_ConfigRoom_Campaign_1
+
+Rogue_ConfigRoom_Campaign_8:
+	msgbox Rogue_ConfigRoom_Campaign_Text_1, MSGBOX_DEFAULT
+	goto Rogue_ConfigRoom_Campaign_1
+
+Rogue_ConfigRoom_Campaign_11:
+	setvar VAR_0x8004, ROGUE_CAMPAIGN_NONE
+	call Rogue_ConfigRoom_SelectCampaign_Loop
+	goto Rogue_ConfigRoom_Campaign_1
+
+Rogue_ConfigRoom_Campaign_12:
+	setvar VAR_TEMP_F, NO
+	call Rogue_ConfigRoom_Campaign_NewPhrase
 	goto Rogue_ConfigRoom_Campaign_1
 
 
@@ -1611,7 +1726,20 @@ Rogue_ConfigRoom_Campaign_Choice_Text_0:
 Rogue_ConfigRoom_Campaign_Choice_Text_1:
 	.string "Good luck, kid!$"
 
-Rogue_ConfigRoom_Campaign_Choice_Text_2:
+Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0:
+	.string "You wanna replay the {STR_VAR_1}\n"
+	.string "Campaign a go?$"
+
+Rogue_ConfigRoom_Campaign_NewPhrase_Text_0:
+	.string "...\p"
+	.string "What was that?$"
+
+Rogue_ConfigRoom_Campaign_NewPhrase_Text_1:
+	.string "Whoa!\p"
+	.string "That there's the secret phrase for the\n"
+	.string "{STR_VAR_1} Campaign!$"
+
+Rogue_ConfigRoom_Campaign_NewPhrase_Text_2:
 	.string "When you take part in a Campaign\n"
 	.string "settings will be changed to give a\l"
 	.string "unique challenge.\p"
@@ -1619,28 +1747,30 @@ Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "some of the items in your bag.\p"
 	.string "I may also edit your settings in the\n"
 	.string "Config Lab.\p"
-	.string "Each Campaign has a specific setup.$"
+	.string "Each Campaign has a specific setup,\n"
+	.string "rules and restrictions.$"
 
-Rogue_ConfigRoom_Campaign_Choice_Text_3:
+Rogue_ConfigRoom_Campaign_NewPhrase_Text_3:
 	.string "You let me know, if you wanna have a go\n"
 	.string "of it.$"
 
-Rogue_ConfigRoom_Campaign_Text_0:
-	.string "...\p"
-	.string "What was that?$"
-
-Rogue_ConfigRoom_Campaign_Text_1:
-	.string "Whoa!\p"
-	.string "That there's the secret phrase for the\n"
-	.string "{STR_VAR_1} Campaign!$"
-
-Rogue_ConfigRoom_Campaign_Text_2:
+Rogue_ConfigRoom_Campaign_NewPhrase_Text_4:
 	.string "... ... ...\p"
 	.string "Nah...\n"
 	.string "That ain't Campaign I know about...$"
 
-Rogue_ConfigRoom_Campaign_Text_3:
-	.string "Well if it isn't the kid!$"
+Rogue_ConfigRoom_SelectCampaign_Loop_Text_0:
+	.string "That's all I've got I'm afraid...$"
+
+Rogue_ConfigRoom_Campaign_Text_0:
+	.string "Hiya kid!$"
+
+Rogue_ConfigRoom_Campaign_Text_1:
+	.string "You let me know, if you wanna give it\n"
+	.string "another go.$"
+
+Rogue_ConfigRoom_Campaign_Text_2:
+	.string "How can I help?$"
 
 Rogue_ConfigRoom_TalkHiddenEnterance_Text_0:
 	.string "What's this?\p"

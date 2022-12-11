@@ -144,7 +144,7 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
 EWRAM_DATA struct RogueBoxHubData gRogueBoxHubData = {}; // Anything that's too large to fit in the above struct
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
-EWRAM_DATA struct RogueQuestData gRogueQuestData = {};
+EWRAM_DATA struct RogueGlobalData gRogueGlobalData = {};
 EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
@@ -185,14 +185,14 @@ static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
 static void EnsureSafariShinyBufferIsValid()
 {
-    if(gRogueRun.safairShinyBufferHead > ARRAY_COUNT(gRogueRun.safariShinyBuffer))
+    if(gRogueGlobalData.safairShinyBufferHead > ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer))
     {
-        gRogueRun.safairShinyBufferHead = 0;
-        memset(&gRogueRun.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.safariShinyBuffer));
+        gRogueGlobalData.safairShinyBufferHead = 0;
+        memset(&gRogueGlobalData.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
 
 #ifdef ROGUE_DEBUG
-        gRogueRun.safariShinyBuffer[0] = SPECIES_FLAREON;
-        gRogueRun.safariShinyBuffer[1] = SPECIES_WEEDLE;
+        gRogueGlobalData.safariShinyBuffer[0] = SPECIES_FLAREON;
+        gRogueGlobalData.safariShinyBuffer[1] = SPECIES_WEEDLE;
 #endif
     }
 }
@@ -203,19 +203,19 @@ static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
 
     EnsureSafariShinyBufferIsValid();
 
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.safariShinyBuffer); ++i)
+    for(i = 0; i < ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer); ++i)
     {
-        if(Rogue_GetEggSpecies(gRogueRun.safariShinyBuffer[i]) == Rogue_GetEggSpecies(species))
+        if(Rogue_GetEggSpecies(gRogueGlobalData.safariShinyBuffer[i]) == Rogue_GetEggSpecies(species))
         {
-            gRogueRun.safariShinyBuffer[i] = (u16)-1;
-            return gRogueRun.safariShinyPersonality;
+            gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
+            return gRogueGlobalData.safariShinyPersonality;
         }
 #ifdef ROGUE_EXPANSION
         // Support shiny buffering for alternate forms
-        else if(GET_BASE_SPECIES_ID(gRogueRun.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
+        else if(GET_BASE_SPECIES_ID(gRogueGlobalData.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
         {
-            gRogueRun.safariShinyBuffer[i] = (u16)-1;
-            return gRogueRun.safariShinyPersonality;
+            gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
+            return gRogueGlobalData.safariShinyPersonality;
         }
 #endif
     }
@@ -497,11 +497,11 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         if(IsMonShiny(mon))
         {
             EnsureSafariShinyBufferIsValid();
-            gRogueRun.safariShinyBuffer[gRogueRun.safairShinyBufferHead] = GetMonData(mon, MON_DATA_SPECIES);
-            gRogueRun.safairShinyBufferHead = (gRogueRun.safairShinyBufferHead + 1) % ARRAY_COUNT(gRogueRun.safariShinyBuffer);
+            gRogueGlobalData.safariShinyBuffer[gRogueGlobalData.safairShinyBufferHead] = GetMonData(mon, MON_DATA_SPECIES);
+            gRogueGlobalData.safairShinyBufferHead = (gRogueGlobalData.safairShinyBufferHead + 1) % ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer);
 
             // Only store most recent personality, as u32s are costly and this is the easiest way to ensure shinies
-            gRogueRun.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+            gRogueGlobalData.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
         }
 
         // Apply charms to IVs
@@ -1478,8 +1478,8 @@ void Rogue_OnNewGame(void)
     EnableNationalPokedex();
 
     // Reset shiny safari
-    gRogueRun.safairShinyBufferHead = 0;
-    memset(&gRogueRun.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.safariShinyBuffer));
+    gRogueGlobalData.safairShinyBufferHead = 0;
+    memset(&gRogueGlobalData.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
@@ -1487,6 +1487,7 @@ void Rogue_OnNewGame(void)
     SelectStartMons();
 
     ResetQuestStateAfter(0);
+    Rogue_ResetCampaignAfter(0);
 
     EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
 
@@ -1577,20 +1578,20 @@ static void* GetBoxDataEndPtr()
     return baseAddr;
 }
 
-static size_t SerializeBoxData(size_t offset, void* src, size_t size)
+static void SerializeBoxData(size_t* offset, void* src, size_t size)
 {
-    void* addr = GetBoxDataPtr(offset);
+    void* addr = GetBoxDataPtr(*offset);
     AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(addr, src, size);
-    return offset + size;
+    *offset += size;
 }
 
-static size_t DeserializeBoxData(size_t offset, void* dst, size_t size)
+static void DeserializeBoxData(size_t* offset, void* dst, size_t size)
 {
-    void* addr = GetBoxDataPtr(offset);
+    void* addr = GetBoxDataPtr(*offset);
     AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(dst, addr, size);
-    return offset + size;
+    *offset += size;
 }
 
 static void SaveHubStates(void)
@@ -1682,15 +1683,25 @@ void Rogue_OnSaveGame(void)
 
         // Serialize more global data
         {
-            u16 questCapacity = QUEST_CAPACITY;
-            offset += SerializeBoxData(offset, &questCapacity, sizeof(questCapacity));
-            offset += SerializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+            u16 count;
+
+            count = QUEST_CAPACITY;
+            SerializeBoxData(&offset, &count, sizeof(count));
+            SerializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * count);
+
+            count = ROGUE_CAMPAIGN_COUNT;
+            SerializeBoxData(&offset, &count, sizeof(count));
+            SerializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * count);
+
+            SerializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead));
+            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
+            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality));
         }
 
         // Serialize temporary per-run data
-        offset += SerializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
-        offset += SerializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
-        offset += SerializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+        SerializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+        SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+        SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
     }
 }
 
@@ -1719,23 +1730,33 @@ void Rogue_OnLoadGame(void)
             offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
-            offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+            DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
             ResetQuestStateAfter(questCapacity);
+            Rogue_ResetCampaignAfter(0);
         }
         else
         {
             // Serialize more global data
             {
-                u16 questCapacity = QUEST_CAPACITY;
-                offset += DeserializeBoxData(offset, &questCapacity, sizeof(questCapacity));
-                offset += DeserializeBoxData(offset, &gRogueQuestData.questStates[0], sizeof(struct RogueQuestState) * min(questCapacity, QUEST_CAPACITY));
-                ResetQuestStateAfter(questCapacity);
+                u16 count;
+                
+                DeserializeBoxData(&offset, &count, sizeof(count));
+                DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * min(count, QUEST_CAPACITY));
+                ResetQuestStateAfter(count);
+
+                DeserializeBoxData(&offset, &count, sizeof(count));
+                DeserializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * min(count, ROGUE_CAMPAIGN_COUNT));
+                Rogue_ResetCampaignAfter(count);
+
+                DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead));
+                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
+                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality));
             }
 
             // Serialize temporary per-run data
-            offset += DeserializeBoxData(offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
-            offset += DeserializeBoxData(offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
-            offset += DeserializeBoxData(offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+            DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
+            DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
+            DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
         }
     }
 

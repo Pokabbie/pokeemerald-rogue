@@ -5100,6 +5100,16 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/Rogue_Route_Johto_Urban0/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Urban0/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_JOHTO_MOUNTAIN0",
+      "name": "Rogue_Route_Johto_Mountain0_Layout",
+      "width": 31,
+      "height": 119,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_Johto_Mountain0/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Johto_Mountain0/map.bin"
     }
   ]
 }

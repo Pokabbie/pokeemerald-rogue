@@ -1194,3 +1194,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Johto_WaterFront0/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Johto_Urban0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Mountain0/scripts.inc"

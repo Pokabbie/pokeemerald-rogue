@@ -618,26 +618,24 @@ static const struct MenuAction MultichoiceList_UnusedSSTidal1[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_UnusedSSTidal2[] =
+static const struct MenuAction MultichoiceList_CampaignExtOpt[] =
 {
-    {gText_SouthernIsland},
-    {gText_FarawayIsland},
-    {gText_Exit},
+    {gText_PlayCampaign},
+    {gText_NewPhrase},
+    {gText_Cancel},
 };
 
-static const struct MenuAction MultichoiceList_UnusedSSTidal3[] =
+static const struct MenuAction MultichoiceList_CampaignOpt2[] =
 {
-    {gText_BirthIsland},
-    {gText_FarawayIsland},
-    {gText_Exit},
+    {gText_StrVar1},
+    {gText_StrVar2},
 };
 
-static const struct MenuAction MultichoiceList_UnusedSSTidal4[] =
+static const struct MenuAction MultichoiceList_CampaignOpt3[] =
 {
-    {gText_SouthernIsland},
-    {gText_BirthIsland},
-    {gText_FarawayIsland},
-    {gText_Exit},
+    {gText_StrVar1},
+    {gText_StrVar2},
+    {gText_StrVar3},
 };
 
 static const struct MenuAction MultichoiceList_Fossil[] =
@@ -954,9 +952,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FRONTIER_GAMBLER_BET]       = MULTICHOICE(MultichoiceList_FrontierGamblerBet),
     [MULTI_TENT]                       = MULTICHOICE(MultichoiceList_Tent),
     [MULTI_RANDOM_SWAP_OPTIONS]        = MULTICHOICE(MultichoiceList_RandomSwap),
-    [MULTI_UNUSED_SSTIDAL_2]           = MULTICHOICE(MultichoiceList_UnusedSSTidal2),
-    [MULTI_UNUSED_SSTIDAL_3]           = MULTICHOICE(MultichoiceList_UnusedSSTidal3),
-    [MULTI_UNUSED_SSTIDAL_4]           = MULTICHOICE(MultichoiceList_UnusedSSTidal4),
+    [MULTI_CAMPAIGN_EXT_OPT]           = MULTICHOICE(MultichoiceList_CampaignExtOpt),
+    [MULTI_CAMPAIGN_OPT2]              = MULTICHOICE(MultichoiceList_CampaignOpt2),
+    [MULTI_CAMPAIGN_OPT3]              = MULTICHOICE(MultichoiceList_CampaignOpt3),
     [MULTI_FOSSIL]                     = MULTICHOICE(MultichoiceList_Fossil),
     [MULTI_YESNO]                      = MULTICHOICE(MultichoiceList_YesNo),
     [MULTI_FRONTIER_RULES]             = MULTICHOICE(MultichoiceList_FrontierRules),

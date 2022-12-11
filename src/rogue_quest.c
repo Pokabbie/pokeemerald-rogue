@@ -22,7 +22,7 @@ extern const u8 gText_QuestRewardGiveMon[];
 extern const u8 gText_QuestRewardGiveShinyMon[];
 extern const u8 gText_QuestLogStatusIncomplete[];
 
-extern EWRAM_DATA struct RogueQuestData gRogueQuestData;
+extern EWRAM_DATA struct RogueGlobalData gRogueGlobalData;
 
 static EWRAM_DATA u8 sRewardQuest = 0;
 static EWRAM_DATA u8 sRewardParam = 0;
@@ -109,7 +109,7 @@ void ResetQuestStateAfter(u16 loadedQuestCapacity)
         // Reset the state for any new quests
         for(i = loadedQuestCapacity; i < QUEST_CAPACITY; ++i)
         {
-            memset(&gRogueQuestData.questStates[i], 0, sizeof(struct RogueQuestState));
+            memset(&gRogueGlobalData.questStates[i], 0, sizeof(struct RogueQuestState));
         }
 
         // Always make sure default quests are unlocked
@@ -129,7 +129,7 @@ bool8 AnyNewQuests(void)
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked && state->hasNewMarker)
         {
             return TRUE;
@@ -146,7 +146,7 @@ bool8 AnyQuestRewardsPending(void)
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked && state->hasPendingRewards)
         {
             return TRUE;
@@ -163,7 +163,7 @@ bool8 AnyNewQuestsPending(void)
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked && state->hasPendingRewards && DoesQuestHaveUnlocks(i))
         {
             return TRUE;
@@ -181,7 +181,7 @@ u16 GetCompletedQuestCount(void)
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked && state->isCompleted)
             ++count;
     }
@@ -197,7 +197,7 @@ u16 GetUnlockedQuestCount(void)
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked)
             ++count;
     }
@@ -214,7 +214,7 @@ bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
 {
     if(questId < QUEST_CAPACITY)
     {
-        memcpy(outState, &gRogueQuestData.questStates[questId], sizeof(struct RogueQuestState));
+        memcpy(outState, &gRogueGlobalData.questStates[questId], sizeof(struct RogueQuestState));
         return outState->isUnlocked;
     }
 
@@ -225,7 +225,7 @@ void SetQuestState(u16 questId, struct RogueQuestState* state)
 {
     if(questId < QUEST_CAPACITY)
     {
-        memcpy(&gRogueQuestData.questStates[questId], state, sizeof(struct RogueQuestState));
+        memcpy(&gRogueGlobalData.questStates[questId], state, sizeof(struct RogueQuestState));
     }
 }
 
@@ -278,7 +278,7 @@ static bool8 QueueTargetRewardQuest()
     struct RogueQuestState* state;
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
 
         if(state->hasPendingRewards)
         {
@@ -311,7 +311,7 @@ static bool8 QueueNextReward()
         if(sRewardParam >= QUEST_MAX_REWARD_COUNT || reward->type == QUEST_REWARD_NONE)
         {
             // We've cleared out this quest's rewards
-            gRogueQuestData.questStates[sRewardQuest].hasPendingRewards = FALSE;
+            gRogueGlobalData.questStates[sRewardQuest].hasPendingRewards = FALSE;
 
             sRewardQuest = QUEST_NONE;
             sRewardParam = 0;
@@ -429,7 +429,7 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type)
 
 bool8 TryUnlockQuest(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
+    struct RogueQuestState* state = &gRogueGlobalData.questStates[questId];
 
     if(!state->isUnlocked)
     {
@@ -468,7 +468,7 @@ bool8 TryUnlockQuest(u16 questId)
 
 bool8 TryMarkQuestAsComplete(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
+    struct RogueQuestState* state = &gRogueGlobalData.questStates[questId];
 
     if(state->isValid)
     {
@@ -497,7 +497,7 @@ bool8 TryMarkQuestAsComplete(u16 questId)
 
 bool8 TryDeactivateQuest(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueQuestData.questStates[questId];
+    struct RogueQuestState* state = &gRogueGlobalData.questStates[questId];
 
     if(state->isValid)
     {
@@ -532,7 +532,7 @@ static void ForEachUnlockedQuest(QuestCallback callback)
 
     for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isUnlocked)
         {
             callback(i, state);
@@ -547,7 +547,7 @@ static void ForEachActiveQuest(QuestCallback callback)
 
     for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
-        state = &gRogueQuestData.questStates[i];
+        state = &gRogueGlobalData.questStates[i];
         if(state->isValid && !state->isCompleted)
         {
             callback(i, state);

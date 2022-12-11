@@ -888,6 +888,22 @@ RogueHub_HintHubRespawns::
 	return
 
 
+RogueHub_HintCampaignBattlerTower::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignBattlerTower_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintCampaignClassic::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignClassic_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -1213,3 +1229,18 @@ RogueHub_HintHubRespawns_Text_0:
 	.string "I got lost and ended up back in the HUB.\p"
 	.string "I'm not really sure how that works, but\n"
 	.string "it sure is convenient!$"
+
+RogueHub_HintCampaignBattlerTower_Text_0:
+	.string "There was a crazy guy who said he was\n"
+	.string "from the BATTLETOWER running around\l"
+	.string "in the Config Lab earlier.\p"
+	.string "He kept screaming NOW over and over\n"
+	.string "again...\p"
+	.string "It was very confusing...$"
+
+RogueHub_HintCampaignClassic_Text_0:
+	.string "You youngins really have easy\n"
+	.string "ADVENTURES nowadays you know...\p"
+	.string "I like to REFLECT back on what it use to\n"
+	.string "be and I sometimes miss how simple it\l"
+	.string "was...$"

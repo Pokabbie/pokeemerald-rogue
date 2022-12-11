@@ -84,9 +84,20 @@ struct RogueQuestState
     u8 hasNewMarker : 1;
 };
 
-struct RogueQuestData
+struct RogueCampaignState
 {
+    u8 isUnlocked : 1;
+    u8 isCompleted : 1;
+    u16 bestScore;
+};
+
+struct RogueGlobalData
+{
+    u8 safairShinyBufferHead;
+    u16 safariShinyBuffer[6];
+    u32 safariShinyPersonality;
     struct RogueQuestState questStates[QUEST_CAPACITY];
+    struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
 };
 
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
@@ -112,13 +123,6 @@ struct RogueRunData
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
 #endif
-
-    // TODO - Should move these into a separate Global struct similar to the quest stuff?
-    // Maybe combine the both
-    u8 safairShinyBufferHead;
-    u16 safariShinyBuffer[6];
-    u32 safariShinyPersonality;
-
     u16 wildEncounters[9];
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[12];

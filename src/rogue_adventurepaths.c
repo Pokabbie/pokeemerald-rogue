@@ -639,6 +639,13 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         weights[ADVPATH_ROOM_LAB] = 0;
     }
 
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+
     totalWeight = 0;
     for(i = 0; i < ADVPATH_ROOM_COUNT; ++i)
     {
