@@ -185,6 +185,10 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             CalculatePlayerPartyCount();
         }
         break;
+
+    default:
+        gRogueRun.campaignData.generic.score = 0;
+        break;
     }
 }
 
@@ -211,6 +215,7 @@ bool8 Rogue_IsActiveCampaignScored(void)
     {
     case ROGUE_CAMPAIGN_LOW_BST:
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
         return TRUE;
     }
 
@@ -223,6 +228,7 @@ bool8 Rogue_IsActiveCampaignLowScoreGood(void)
     {
     case ROGUE_CAMPAIGN_LOW_BST:
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
         return TRUE;
     }
 
@@ -300,6 +306,7 @@ void Rogue_CampaignNotify_OnMonFainted(void)
     switch (Rogue_GetActiveCampaign())
     {
     case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
         ++gRogueRun.campaignData.generic.score;
         break;
     }

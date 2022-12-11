@@ -1708,7 +1708,11 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_4:
 	.string "encounters.\p"
 	.string "This can be played in any adventure\n"
 	.string "type and doesn't adjust any of the\l"
-	.string "settings in the Config Lab.$"
+	.string "settings in the Config Lab.\p"
+	.string "Your score is based on how many\n"
+	.string "POKéMON faint during the run.\p"
+	.string "The aim is to get the lowest score\n"
+	.string "possible.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
 	.string "LaterManner Mode was made for the\n"
@@ -1716,7 +1720,7 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_5:
 	.string "It's..!\p"
 	.string "Err...\p"
 	.string "Well it is a mode...\p"
-	.string "You lose points if a POKéMON faints...\p"
+	.string "You gain score if a POKéMON faints...\p"
 	.string "And well... You'll figure out the rest.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6:
