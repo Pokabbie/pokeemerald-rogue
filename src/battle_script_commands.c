@@ -8691,6 +8691,13 @@ static void Cmd_various(void)
             {
                 gBattleStruct->mega.playerEvolvedSpecies = gBattleStruct->mega.evolvedSpecies[gActiveBattler];
             }
+
+            if (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_LEFT
+                || (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_RIGHT && !(gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))))
+            {
+                gBattleStruct->mega.opponentEvolvedSpecies = gBattleStruct->mega.evolvedSpecies[gActiveBattler];
+            }
+    
             //Checks regular Mega Evolution
             megaSpecies = GetMegaEvolutionSpecies(gBattleStruct->mega.evolvedSpecies[gActiveBattler], gBattleMons[gActiveBattler].item);
             //Checks Wish Mega Evolution

@@ -9629,7 +9629,7 @@ bool32 CanMegaEvolve(u8 battlerId)
     return FALSE;
 }
 
-void UndoMegaEvolution(u32 monId)
+void UndoPlayerMegaEvolution(u32 monId)
 {
     u16 baseSpecies = GET_BASE_SPECIES_ID(GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES));
 
@@ -9651,6 +9651,31 @@ void UndoMegaEvolution(u32 monId)
         SetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
         gBattleStruct->changedSpecies[monId] = 0;
         CalculateMonStats(&gPlayerParty[monId]);
+    }
+}
+
+void UndoEnemyMegaEvolution(u32 monId)
+{
+    u16 baseSpecies = GET_BASE_SPECIES_ID(GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES));
+
+    if (gBattleStruct->mega.evolvedPartyIds[B_SIDE_OPPONENT] & gBitTable[monId])
+    {
+        gBattleStruct->mega.evolvedPartyIds[B_SIDE_OPPONENT] &= ~(gBitTable[monId]);
+        SetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, &gBattleStruct->mega.opponentEvolvedSpecies);
+        CalculateMonStats(&gEnemyParty[monId]);
+    }
+    else if (gBattleStruct->mega.primalRevertedPartyIds[B_SIDE_OPPONENT] & gBitTable[monId])
+    {
+        gBattleStruct->mega.primalRevertedPartyIds[B_SIDE_OPPONENT] &= ~(gBitTable[monId]);
+        SetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, &baseSpecies);
+        CalculateMonStats(&gEnemyParty[monId]);
+    }
+    // While not exactly a mega evolution, Zygarde follows the same rules.
+    else if (GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL) == SPECIES_ZYGARDE_COMPLETE)
+    {
+        SetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
+        gBattleStruct->changedSpecies[monId] = 0;
+        CalculateMonStats(&gEnemyParty[monId]);
     }
 }
 

@@ -3241,7 +3241,9 @@ void FaintClearSetData(void)
     ClearBattlerItemEffectHistory(gActiveBattler);
     UndoFormChange(gBattlerPartyIndexes[gActiveBattler], GET_BATTLER_SIDE(gActiveBattler), FALSE);
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-        UndoMegaEvolution(gBattlerPartyIndexes[gActiveBattler]);
+        UndoPlayerMegaEvolution(gBattlerPartyIndexes[gActiveBattler]);
+    //else
+    //    UndoEnemyMegaEvolution(gBattlerPartyIndexes[gActiveBattler]);
 
     // If the fainted mon was involved in a Sky Drop
     if (gBattleStruct->skyDropTargets[gActiveBattler] != 0xFF)
@@ -5218,9 +5220,15 @@ static void HandleEndTurn_FinishBattle(void)
         #endif
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            UndoMegaEvolution(i);
+            UndoPlayerMegaEvolution(i);
             UndoFormChange(i, B_SIDE_PLAYER, FALSE);
             DoBurmyFormChange(i);
+        }
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            UndoEnemyMegaEvolution(i);
+            UndoFormChange(i, B_SIDE_OPPONENT, FALSE);
+            //DoBurmyFormChange(i);
         }
     #if B_RECALCULATE_STATS >= GEN_5
         // Recalculate the stats of every party member before the end
