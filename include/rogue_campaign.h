@@ -24,5 +24,6 @@ u16 Rogue_GetCampaignRunId(void);
 
 void Rogue_CampaignNotify_StatIncrement(u8 statIndex);
 void Rogue_CampaignNotify_OnMonFainted(void);
+void Rogue_CampaignNotify_OnMegaEvolve(u16 fromSpecies, u16 toSpecies);
 
 #endif

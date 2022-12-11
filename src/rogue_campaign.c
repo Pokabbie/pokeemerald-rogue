@@ -292,6 +292,28 @@ void Rogue_CampaignNotify_OnMonFainted(void)
     }
 }
 
+void Rogue_CampaignNotify_OnMegaEvolve(u16 fromSpecies, u16 toSpecies)
+{
+#ifdef ROGUE_EXPANSION
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            u16 currentScore = Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
+            u16 megaScore = Campaign_LowBst_ScoreFromSpecies(toSpecies);
+
+            if(megaScore > currentScore)
+                gRogueRun.campaignData.lowBst.scoreSpecies = toSpecies;
+        }
+        break;
+    }
+
+#endif
+}
+
 static void Campaign_LowBst_RecalculateScore(void)
 {
     u16 i;
