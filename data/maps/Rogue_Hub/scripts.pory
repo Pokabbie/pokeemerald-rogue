@@ -999,3 +999,23 @@ script RogueHub_HintHubRespawns
 
     release
 }
+
+script RogueHub_HintCampaignBattlerTower
+{
+    lock
+
+    faceplayer
+    msgbox(format("There was a crazy guy who said he was from the BATTLETOWER running around in the Config Lab earlier.\pHe kept screaming NOW over and over again...\pIt was very confusing..."), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_HintCampaignClassic
+{
+    lock
+
+    faceplayer
+    msgbox(format("You youngins really have easy ADVENTURES nowadays you know...\pI like to REFLECT back on what it use to be and I sometimes miss how simple it was..."), MSGBOX_DEFAULT)
+
+    release
+}
