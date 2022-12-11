@@ -51,7 +51,7 @@ Rogue_Encounter_Lab_PokeballCommon_8:
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Rogue_Encounter_Lab_PokeballCommon_10
-	special Rogue_ReleaseMonInSlot
+	special Rogue_ReleaseMonInSlot_NoLabBuffering
 	goto Rogue_Encounter_Lab_PokeballCommon_7
 
 Rogue_Encounter_Lab_PokeballCommon_10:

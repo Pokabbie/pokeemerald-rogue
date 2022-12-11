@@ -244,7 +244,17 @@ void Rogue_ReleaseMonInSlot(void)
 
     if(monIdx < gPlayerPartyCount)
     {
-        RemoveMonAtSlot(monIdx, TRUE, TRUE);
+        RemoveMonAtSlot(monIdx, TRUE, TRUE, TRUE);
+    }
+}
+
+void Rogue_ReleaseMonInSlot_NoLabBuffering(void)
+{
+    u16 monIdx = gSpecialVar_0x8004;
+
+    if(monIdx < gPlayerPartyCount)
+    {
+        RemoveMonAtSlot(monIdx, TRUE, TRUE, FALSE);
     }
 }
 

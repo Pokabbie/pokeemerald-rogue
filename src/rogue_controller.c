@@ -3111,7 +3111,7 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
     return FALSE;
 }
 
-void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
+void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab)
 {
     if(slot < gPlayerPartyCount)
     {
@@ -3122,7 +3122,7 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
 
             if(shiftUpwardsParty)
             {
-                RemoveAnyFaintedMons(keepItems);
+                RemoveAnyFaintedMons(keepItems, canSendToLab);
             }
             else
             {
@@ -3134,7 +3134,8 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
                         AddBagItem(heldItem, 1);
                 }
 
-                PushFaintedMonToLab(&gPlayerParty[slot]);
+                if(canSendToLab)
+                    PushFaintedMonToLab(&gPlayerParty[slot]);
 
                 ZeroMonData(&gPlayerParty[slot]);
             }
@@ -3142,7 +3143,7 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty)
     }
 }
 
-void RemoveAnyFaintedMons(bool8 keepItems)
+void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
 {
     bool8 hasValidSpecies;
     u8 read;
@@ -3178,7 +3179,8 @@ void RemoveAnyFaintedMons(bool8 keepItems)
             else
                 hasMonFainted = TRUE;
 
-            PushFaintedMonToLab(&gPlayerParty[read]);
+            if(canSendToLab)
+                PushFaintedMonToLab(&gPlayerParty[read]);
 
             ZeroMonData(&gPlayerParty[read]);
         }
@@ -3425,7 +3427,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
-            RemoveAnyFaintedMons(FALSE);
+            RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
             if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
@@ -3496,7 +3498,7 @@ void Rogue_Battle_EndWildBattle(void)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnWildBattleEnd();
-            RemoveAnyFaintedMons(FALSE);
+            RemoveAnyFaintedMons(FALSE, TRUE);
         }
         else
         {
