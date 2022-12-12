@@ -405,7 +405,17 @@ movement RogueHub_Intro_ScottWalkToPost
 
 script RogueHub_EnterPostTutortial
 {
-    call(RogueHub_IntroPokabbie)
+    if(flag(FLAG_ROGUE_PENDING_PATCH_MSG))
+    {
+        lock
+        clearflag(FLAG_ROGUE_PENDING_PATCH_MSG)
+        call(Rogue_QuickSaveVersionUpdateMessage)
+        release
+    }
+    else
+    {
+        call(RogueHub_IntroPokabbie)
+    }
     setvar(VAR_RETURN_STATE, 2)
 }
 

@@ -129,8 +129,13 @@ script Rogue_QuickSaveVersionUpdateMessage
     bufferstring(STR_VAR_2, gText_RogueVersionPrefix)
     bufferstring(STR_VAR_3, gText_RogueVersionSuffix)
 
-    msgbox(format("Welcome to...\nEmerald Rogue {STR_VAR_2}!\n{STR_VAR_1} {STR_VAR_3}\pAlways remember to download from the official sources:\pPokeCommunity (posted by Pokabbie) or Discord\pFor guides, bug reporting and previews, feel free to join the official Discord:\phttps://discord.gg/XGyB9gTb8E"))
-    msgbox(format("I hope you enjoy Emerald Rogue!"))
+    if(flag(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING))
+    {
+        msgbox(format("WARNING!\pThis save game was detected to have come from a pre-release patch version.\pIt is not recommended to continue using this save, as you may lock yourself out of new content.\pPlease restore a backup if possible."))
+    }
+
+    msgbox(format("Welcome to...\nEmerald Rogue {STR_VAR_2}!\p{STR_VAR_1} {STR_VAR_3}\pAlways remember to download from the official sources:\pPokeCommunity (posted by Pokabbie) or Discord\pFor guides, bug reporting and previews, feel free to join the official Discord:\phttps://discord.gg/XGyB9gTb8E"), MSGBOX_DEFAULT)
+    msgbox(format("I hope you enjoy Emerald Rogue!"), MSGBOX_DEFAULT)
 }
 
 //script Rogue_NewGameVersionUpdate
@@ -144,12 +149,13 @@ script Rogue_QuickSaveVersionUpdateMessage
 
 script Rogue_QuickSaveVersionUpdate
 {
-    lockall
+    lock
 
-    call(Rogue_QuickSaveVersionUpdateMessage)
+    //call(Rogue_QuickSaveVersionUpdateMessage) - Reload and then show message after back in hub
+    setflag(FLAG_ROGUE_PENDING_PATCH_MSG)
     warp(MAP_ROGUE_HUB, 8)
 
-    releaseall
+    release
 }
 
 script Rogue_RetireFromRun

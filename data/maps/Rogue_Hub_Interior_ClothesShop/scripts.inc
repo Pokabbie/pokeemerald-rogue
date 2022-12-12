@@ -34,7 +34,6 @@ Rogue_Hub_Clothes_ChangeStyle0_5:
 	return
 
 Rogue_Hub_Clothes_ChangeStyle0_3:
-	msgbox Rogue_Hub_Clothes_ChangeStyle0_Text_0
 	setvar VAR_RESULT, NO
 	goto Rogue_Hub_Clothes_ChangeStyle0_1
 
@@ -64,7 +63,6 @@ Rogue_Hub_Clothes_ChangeStyle1_5:
 	return
 
 Rogue_Hub_Clothes_ChangeStyle1_3:
-	msgbox Rogue_Hub_Clothes_ChangeStyle0_Text_0
 	setvar VAR_RESULT, NO
 	goto Rogue_Hub_Clothes_ChangeStyle1_1
 

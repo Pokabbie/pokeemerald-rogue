@@ -27,6 +27,10 @@ struct RogueAdvPathRoomParams
         {
             u8 difficulty;
         } route;
+        struct
+        {
+            u16 species;
+        } wildDen;
     } perType;
 };
 

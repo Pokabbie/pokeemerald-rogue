@@ -595,6 +595,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         weights[ADVPATH_ROOM_WILD_DEN] = 0;
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LAB] = 0;
     }
 
@@ -743,7 +744,8 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
             break;
 
         case ADVPATH_ROOM_WILD_DEN:
-            nodeInfo->roomParams.roomIdx = Rogue_SelectWildDenEncounterRoom();
+            nodeInfo->roomParams.roomIdx = 0;
+            nodeInfo->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
             break;
 
         case ADVPATH_ROOM_GAMESHOW:

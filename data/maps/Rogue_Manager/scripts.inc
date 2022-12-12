@@ -114,16 +114,22 @@ Rogue_QuickSaveVersionUpdateMessage::
 	bufferstring STR_VAR_1, gText_RogueVersion
 	bufferstring STR_VAR_2, gText_RogueVersionPrefix
 	bufferstring STR_VAR_3, gText_RogueVersionSuffix
-	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_0
-	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_1
+	goto_if_set FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING, Rogue_QuickSaveVersionUpdateMessage_2
+Rogue_QuickSaveVersionUpdateMessage_1:
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_1, MSGBOX_DEFAULT
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_2, MSGBOX_DEFAULT
 	return
+
+Rogue_QuickSaveVersionUpdateMessage_2:
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_0
+	goto Rogue_QuickSaveVersionUpdateMessage_1
 
 
 Rogue_QuickSaveVersionUpdate::
-	lockall
-	call Rogue_QuickSaveVersionUpdateMessage
+	lock
+	setflag FLAG_ROGUE_PENDING_PATCH_MSG
 	warp MAP_ROGUE_HUB, 8
-	releaseall
+	release
 	return
 
 
@@ -1095,8 +1101,17 @@ Rogue_QuickSaveVersionWarning_Text_0:
 	.string "re-save in a valid location.$"
 
 Rogue_QuickSaveVersionUpdateMessage_Text_0:
+	.string "WARNING!\p"
+	.string "This save game was detected to have\n"
+	.string "come from a pre-release patch version.\p"
+	.string "It is not recommended to continue\n"
+	.string "using this save, as you may lock\l"
+	.string "yourself out of new content.\p"
+	.string "Please restore a backup if possible.$"
+
+Rogue_QuickSaveVersionUpdateMessage_Text_1:
 	.string "Welcome to...\n"
-	.string "Emerald Rogue {STR_VAR_2}!\n"
+	.string "Emerald Rogue {STR_VAR_2}!\p"
 	.string "{STR_VAR_1} {STR_VAR_3}\p"
 	.string "Always remember to download from the\n"
 	.string "official sources:\p"
@@ -1106,7 +1121,7 @@ Rogue_QuickSaveVersionUpdateMessage_Text_0:
 	.string "feel free to join the official Discord:\p"
 	.string "https://discord.gg/XGyB9gTb8E$"
 
-Rogue_QuickSaveVersionUpdateMessage_Text_1:
+Rogue_QuickSaveVersionUpdateMessage_Text_2:
 	.string "I hope you enjoy Emerald Rogue!$"
 
 Rogue_RetireFromRun_Text_0:

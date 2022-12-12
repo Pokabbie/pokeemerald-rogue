@@ -125,12 +125,13 @@
 #define QUEST_IronMono1             (QUEST_RegionMode_Last + 6)
 #define QUEST_IronMono2             (QUEST_RegionMode_Last + 7)
 #define QUEST_Hardcore4             (QUEST_RegionMode_Last + 8)
+#define QUEST_CampaignTease         (QUEST_RegionMode_Last + 9)
 
 #ifdef ROGUE_EXPANSION
-#define QUEST_DeoxysItem            (QUEST_RegionMode_Last + 9)
+#define QUEST_DeoxysItem            (QUEST_RegionMode_Last + 10)
 #define _QUEST_LAST_1_3 QUEST_DeoxysItem
 #else
-#define _QUEST_LAST_1_3 QUEST_Hardcore4
+#define _QUEST_LAST_1_3 QUEST_CampaignTease
 #endif
 
 

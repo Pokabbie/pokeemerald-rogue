@@ -1337,7 +1337,18 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 3  // The version to bump every time there is a patch so players cannot patch incorrectly
+#define ROGUE_COMPAT_VERSION 4  // The version to bump every time there is a patch so players cannot patch incorrectly
+
+static bool8 IsPreReleaseCompatVersion(u16 version)
+{
+    switch (version)
+    {
+    case 3:
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 static void ClearPokemonHeldItems(void)
 {
@@ -1455,6 +1466,8 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+
+    FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
 #ifdef ROGUE_EXPANSION
     FlagSet(FLAG_ROGUE_EXPANSION_ACTIVE);
@@ -1765,12 +1778,17 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
 
+    FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
+
     if(gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
     {
         if(Rogue_IsRunActive())
             gRogueLocal.hasSaveWarningPending = TRUE;
         else
             gRogueLocal.hasVersionUpdateMsgPending = TRUE;
+
+        if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
+            FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
@@ -1932,6 +1950,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
+                CalculateMonStats(&gPlayerParty[i]);
             }
         }
     }
@@ -2485,7 +2504,7 @@ static u8 RandomMonType(u16 seedFlag)
     return type;
 }
 
-u8 Rogue_SelectWildDenEncounterRoom(void)
+u16 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 queryCount;
     u16 species;
@@ -2928,7 +2947,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_WILD_DEN:
                 {
                     ResetSpecialEncounterStates();
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.roomIdx);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
                     break;
                 }
 
@@ -3085,7 +3104,15 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
     SetMonData(destMon, MON_DATA_HP, &temp);
 
-    // TODO - Maybe we make fainted mons weaker?
+    // Wipe EVs
+    temp = 0;
+    SetMonData(destMon, MON_DATA_HP_EV, &temp);
+    SetMonData(destMon, MON_DATA_ATK_EV, &temp);
+    SetMonData(destMon, MON_DATA_DEF_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPEED_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPATK_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPDEF_EV, &temp);
+    CalculateMonStats(destMon);
 }
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)

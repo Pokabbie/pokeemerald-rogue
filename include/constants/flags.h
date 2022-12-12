@@ -667,7 +667,7 @@
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_ROGUE_VALID_QUICK_SAVE          0x269
-#define FLAG_UNUSED_0x26A                    0x26A
+#define FLAG_ROGUE_PENDING_PATCH_MSG         0x26A
 #define FLAG_ROGUE_EV_GAIN_ENABLED           0x26B
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
@@ -692,7 +692,7 @@
 #define FLAG_ROGUE_HARD_LEGENDARIES          0x280
 #define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
 #define FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES  0x282
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
+#define FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING   0x283
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
 #define FLAG_UNUSED_0x285  0x285 // Unused Flag
 #define FLAG_UNUSED_0x286  0x286 // Unused Flag

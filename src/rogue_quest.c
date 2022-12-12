@@ -115,10 +115,7 @@ void ResetQuestStateAfter(u16 loadedQuestCapacity)
         // Always make sure default quests are unlocked
         UnlockDefaultQuests();
 
-        if(loadedQuestCapacity == 0)
-        {
-            ForEachUnlockedQuest(ActivateHubQuests);
-        }
+        ForEachUnlockedQuest(ActivateHubQuests);
     }
 }
 
