@@ -247,6 +247,7 @@ Rogue_ConfigRoom_Campaign_NewPhrase::
 
 Rogue_ConfigRoom_Campaign_NewPhrase_1:
 	faceplayer
+	completequest QUEST_CampaignTease
 	call Rogue_ConfigRoom_Campaign_BufferCampaignName
 	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_1, MSGBOX_DEFAULT
 	compare VAR_TEMP_F, YES

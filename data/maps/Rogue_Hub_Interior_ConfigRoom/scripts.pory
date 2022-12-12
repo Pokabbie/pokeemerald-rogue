@@ -236,6 +236,8 @@ script Rogue_ConfigRoom_Campaign_NewPhrase
     if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
     {
         faceplayer
+        completequest(QUEST_CampaignTease)
+
         call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
         msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
 

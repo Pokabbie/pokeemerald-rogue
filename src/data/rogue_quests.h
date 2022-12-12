@@ -244,6 +244,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 #endif
         },
         .unlockedQuests = { 
+            QUEST_CampaignTease,
+
             QUEST_GauntletMode,
             QUEST_OrreMode,
 
@@ -264,6 +266,21 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_NatureItem,
             QUEST_DeoxysItem,
 #endif
+        }
+    },
+
+    [QUEST_CampaignTease] = 
+    {
+        .title = _("Mystery Man"),
+        .sortIndex = 2,
+        .desc = _(
+                    "Look around the HUB to\n"
+                    "figure out a phrase the\n"
+                    "Mysterious Man may know."
+                ),
+        .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
         }
     },
 
