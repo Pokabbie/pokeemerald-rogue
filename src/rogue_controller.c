@@ -1932,6 +1932,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
+                CalculateMonStats(&gPlayerParty[i]);
             }
         }
     }
@@ -3085,7 +3086,15 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
     SetMonData(destMon, MON_DATA_HP, &temp);
 
-    // TODO - Maybe we make fainted mons weaker?
+    // Wipe EVs
+    temp = 0;
+    SetMonData(destMon, MON_DATA_HP_EV, &temp);
+    SetMonData(destMon, MON_DATA_ATK_EV, &temp);
+    SetMonData(destMon, MON_DATA_DEF_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPEED_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPATK_EV, &temp);
+    SetMonData(destMon, MON_DATA_SPDEF_EV, &temp);
+    CalculateMonStats(destMon);
 }
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)

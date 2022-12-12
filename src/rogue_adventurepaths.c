@@ -595,6 +595,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         weights[ADVPATH_ROOM_WILD_DEN] = 0;
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LAB] = 0;
     }
 
