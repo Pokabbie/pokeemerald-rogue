@@ -27,7 +27,6 @@ script Rogue_Hub_Clothes_ChangeStyle0
     switch(var(VAR_RESULT))
     {
         case MULTI_B_PRESSED:
-            msgbox(format("Hello!\nI can help with adjusting your appearance"))
             setvar(VAR_RESULT, NO)
 
         default:
@@ -63,7 +62,6 @@ script Rogue_Hub_Clothes_ChangeStyle1
     switch(var(VAR_RESULT))
     {
         case MULTI_B_PRESSED:
-            msgbox(format("Hello!\nI can help with adjusting your appearance"))
             setvar(VAR_RESULT, NO)
 
         default:
