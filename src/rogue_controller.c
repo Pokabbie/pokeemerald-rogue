@@ -1337,7 +1337,18 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 3  // The version to bump every time there is a patch so players cannot patch incorrectly
+#define ROGUE_COMPAT_VERSION 4  // The version to bump every time there is a patch so players cannot patch incorrectly
+
+static bool8 IsPreReleaseCompatVersion(u16 version)
+{
+    switch (version)
+    {
+    case 3:
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 static void ClearPokemonHeldItems(void)
 {
@@ -1455,6 +1466,8 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+
+    FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
 #ifdef ROGUE_EXPANSION
     FlagSet(FLAG_ROGUE_EXPANSION_ACTIVE);
@@ -1765,12 +1778,17 @@ void Rogue_OnLoadGame(void)
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
 
+    FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
+
     if(gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
     {
         if(Rogue_IsRunActive())
             gRogueLocal.hasSaveWarningPending = TRUE;
         else
             gRogueLocal.hasVersionUpdateMsgPending = TRUE;
+
+        if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
+            FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
