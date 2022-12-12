@@ -332,9 +332,18 @@ RogueHub_Intro_ScottWalkToPost:
 	step_end
 
 RogueHub_EnterPostTutortial::
+	goto_if_set FLAG_ROGUE_PENDING_PATCH_MSG, RogueHub_EnterPostTutortial_2
 	call RogueHub_IntroPokabbie
+RogueHub_EnterPostTutortial_1:
 	setvar VAR_TEMP_0, 2
 	return
+
+RogueHub_EnterPostTutortial_2:
+	lock
+	clearflag FLAG_ROGUE_PENDING_PATCH_MSG
+	call Rogue_QuickSaveVersionUpdateMessage
+	release
+	goto RogueHub_EnterPostTutortial_1
 
 
 RogueHub_SpeakScott::

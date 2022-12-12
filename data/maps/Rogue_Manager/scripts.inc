@@ -114,16 +114,16 @@ Rogue_QuickSaveVersionUpdateMessage::
 	bufferstring STR_VAR_1, gText_RogueVersion
 	bufferstring STR_VAR_2, gText_RogueVersionPrefix
 	bufferstring STR_VAR_3, gText_RogueVersionSuffix
-	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_0
-	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_1
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_0, MSGBOX_DEFAULT
+	msgbox Rogue_QuickSaveVersionUpdateMessage_Text_1, MSGBOX_DEFAULT
 	return
 
 
 Rogue_QuickSaveVersionUpdate::
-	lockall
-	call Rogue_QuickSaveVersionUpdateMessage
+	lock
+	setflag FLAG_ROGUE_PENDING_PATCH_MSG
 	warp MAP_ROGUE_HUB, 8
-	releaseall
+	release
 	return
 
 
@@ -1096,7 +1096,7 @@ Rogue_QuickSaveVersionWarning_Text_0:
 
 Rogue_QuickSaveVersionUpdateMessage_Text_0:
 	.string "Welcome to...\n"
-	.string "Emerald Rogue {STR_VAR_2}!\n"
+	.string "Emerald Rogue {STR_VAR_2}!\p"
 	.string "{STR_VAR_1} {STR_VAR_3}\p"
 	.string "Always remember to download from the\n"
 	.string "official sources:\p"
