@@ -2485,7 +2485,7 @@ static u8 RandomMonType(u16 seedFlag)
     return type;
 }
 
-u8 Rogue_SelectWildDenEncounterRoom(void)
+u16 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 queryCount;
     u16 species;
@@ -2928,7 +2928,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_WILD_DEN:
                 {
                     ResetSpecialEncounterStates();
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.roomIdx);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
                     break;
                 }
 

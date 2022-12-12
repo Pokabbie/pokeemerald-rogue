@@ -743,7 +743,8 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
             break;
 
         case ADVPATH_ROOM_WILD_DEN:
-            nodeInfo->roomParams.roomIdx = Rogue_SelectWildDenEncounterRoom();
+            nodeInfo->roomParams.roomIdx = 0;
+            nodeInfo->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
             break;
 
         case ADVPATH_ROOM_GAMESHOW:

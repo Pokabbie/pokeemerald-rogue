@@ -60,7 +60,7 @@ u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectBossEncounter(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
 u8 Rogue_SelectMiniBossEncounterRoom(void);
-u8 Rogue_SelectWildDenEncounterRoom(void);
+u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();
 
