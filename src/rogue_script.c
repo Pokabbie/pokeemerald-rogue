@@ -63,7 +63,12 @@ static u8 Calc_RandomTradeLevel(struct Pokemon* mon)
 {
     if(gRogueRun.currentRoomIdx == 0)
     {
-        return 5 + GetStartDifficulty() * 10;
+        u16 startDifficulty = GetStartDifficulty();
+
+        if(startDifficulty == 0)
+            return 7;
+        else
+            return 5 + GetStartDifficulty() * 10;
     }
     else
         return GetMonData(mon, MON_DATA_LEVEL);
