@@ -707,8 +707,8 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .title = _("Hoenn Rainbow"),
         .sortIndex = 10,
         .desc = _(
-                    "Enable only HOENN BOSSES\n"
-                    "and REGIONAL DEX and win\n"
+                    "Enable the HOENN\n"
+                    "REGIONAL DEX and win\n"
                     "a full RAINBOW run."
                 ),
         .rewards = {

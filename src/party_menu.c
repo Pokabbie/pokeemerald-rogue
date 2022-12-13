@@ -343,7 +343,8 @@ static void Task_DisplayLevelUpStatsPg1(u8);
 static void DisplayLevelUpStatsPg1(u8);
 static void Task_DisplayLevelUpStatsPg2(u8);
 static void DisplayLevelUpStatsPg2(u8);
-static void Task_TryLearnNewMoves(u8);
+static void Task_TryLearnNewMoves1(u8);
+static void Task_TryLearnNewMoves2(u8);
 static void PartyMenuTryEvolution(u8);
 static void DisplayMonNeedsToReplaceMove(u8);
 static void DisplayMonLearnedMove(u8, u16);
@@ -5088,7 +5089,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     else
     {
         gPartyMenuUseExitCallback = TRUE;
-        PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+        //PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
         RemoveBagItem(gSpecialVar_ItemId, 1);
         GetMonNickname(mon, gStringVar1);
@@ -5096,7 +5097,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
         DisplayPartyMenuMessage(gStringVar4, TRUE);
         ScheduleBgCopyTilemapToVram(2);
-        gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+        gTasks[taskId].func = Task_TryLearnNewMoves1; //Task_DisplayLevelUpStatsPg1;
     }
 }
 
@@ -5129,7 +5130,7 @@ static void Task_DisplayLevelUpStatsPg2(u8 taskId)
     {
         PlaySE(SE_SELECT);
         DisplayLevelUpStatsPg2(taskId);
-        gTasks[taskId].func = Task_TryLearnNewMoves;
+        gTasks[taskId].func = Task_TryLearnNewMoves2;
     }
 }
 
@@ -5152,14 +5153,25 @@ static void DisplayLevelUpStatsPg2(u8 taskId)
     ScheduleBgCopyTilemapToVram(2);
 }
 
-static void Task_TryLearnNewMoves(u8 taskId)
+static void Task_TryLearnNewMoves1(u8 taskId)
+{
+    u16 learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
+
+    if(learnMove != 0)
+        PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+
+    gPartyMenu.learnMoveState = learnMove; // Use as temp storage
+    gTasks[taskId].func = Task_TryLearnNewMoves2;
+}
+
+static void Task_TryLearnNewMoves2(u8 taskId)
 {
     u16 learnMove;
 
     if (WaitFanfare(FALSE) && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
         RemoveLevelUpStatsWindow();
-        learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
+        learnMove = gPartyMenu.learnMoveState;
         gPartyMenu.learnMoveState = 1;
         switch (learnMove)
         {
