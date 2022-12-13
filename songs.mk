@@ -796,7 +796,7 @@ $(MID_SUBDIR)/mus_hg_vs_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V098 -P1
 
 $(MID_SUBDIR)/mus_hg_vs_champion.s: %.s: %.mid
-	$(MID) $< $@ -E -R0 -G229 -V098 -P1
+	$(MID) $< $@ -E -R0 -G229 -V113 -P1
 
 $(MID_SUBDIR)/mus_hg_victory_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V100

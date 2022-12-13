@@ -88,7 +88,6 @@ script Rogue_BattleDefeated_GiveMon
     }
     waitmessage
 
-    special(Rogue_ChooseMiniBossRewardMons)
     bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
     bufferspeciesname(STR_VAR_2, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
 
@@ -156,6 +155,7 @@ script Rogue_BattleDefeated_MiniBoss
     copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
     call(Rogue_GiveItem_Internal)
 
+    special(Rogue_ChooseMiniBossRewardMons)
     call(Rogue_BattleDefeated_GiveMon)
 
     special(HealPlayerParty)

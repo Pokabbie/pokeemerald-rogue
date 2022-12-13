@@ -1048,7 +1048,11 @@ bool8 IsGenEnabled(u8 gen)
 bool8 IsMegaEvolutionEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return gRogueRun.megasEnabled;
+    if(Rogue_IsRunActive())
+        return gRogueRun.megasEnabled; // cached result
+    else
+        return CheckBagHasItem(ITEM_MEGA_RING, 1);
+
 #else
     return FALSE;
 #endif
@@ -1057,7 +1061,10 @@ bool8 IsMegaEvolutionEnabled(void)
 bool8 IsZMovesEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return gRogueRun.zMovesEnabled;
+    if(Rogue_IsRunActive())
+        return gRogueRun.zMovesEnabled; // cached result
+    else
+        return CheckBagHasItem(ITEM_Z_POWER_RING, 1);
 #else
     return FALSE;
 #endif
@@ -1962,6 +1969,13 @@ static void BeginRogueRun(void)
     
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
+#ifdef ROGUE_EXPANSION
+    // Cache the results for the run (Must do before ActiveRun flag is set)
+    gRogueRun.megasEnabled = IsMegaEvolutionEnabled();
+    gRogueRun.zMovesEnabled = IsZMovesEnabled();
+    // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
+#endif
+
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     Rogue_PreActivateDesiredCampaign();
@@ -1980,13 +1994,6 @@ static void BeginRogueRun(void)
     {
         gRogueRun.currentLevelOffset = 80;
     }
-    
-#ifdef ROGUE_EXPANSION
-    gRogueRun.megasEnabled =  CheckBagHasItem(ITEM_MEGA_RING, 1);
-    gRogueRun.zMovesEnabled = CheckBagHasItem(ITEM_Z_POWER_RING, 1);
-    // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
-#endif
-
     // Will get generated later
     gRogueAdvPath.currentColumnCount = 0;
     gRogueAdvPath.currentNodeX = 0;
@@ -2702,19 +2709,53 @@ bool8 PartyContainsLegendary(struct Pokemon *party, u8 partyCount)
     return FALSE;
 }
 
+static bool8 IsRareShopActive()
+{
+#ifdef ROGUE_EXPANSION        
+    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
+#else
+    return FALSE;
+#endif
+}
+
+static bool8 IsQuestRewardShopActive()
+{
+    // Apply shop reward items (Only applicable in hb)
+    u16 i, j;
+    u16 itemId;
+    
+    if(Rogue_IsRunActive())
+        return FALSE;
+
+    for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
+    {
+        if(IsQuestCollected(i))
+        {
+            for(j = 0; j < QUEST_MAX_ITEM_SHOP_REWARD_COUNT; ++j)
+            {
+                itemId = gRogueQuests[i].unlockedShopRewards[j];
+                if(itemId != ITEM_NONE)
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
 void Rogue_OnWarpIntoMap(void)
 {
     u8 difficultyLevel;
     gRogueAdvPath.isOverviewActive = FALSE;
 
-    if(IsMegaEvolutionEnabled() || IsZMovesEnabled() || IsDynamaxEnabled())
-    {
+    FlagSet(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
+    FlagSet(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
+
+    if(IsRareShopActive())
         FlagClear(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
-    }
-    else
-    {
-        FlagSet(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
-    }
+
+    if(IsQuestRewardShopActive())
+        FlagClear(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
 
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {

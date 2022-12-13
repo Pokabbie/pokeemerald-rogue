@@ -61,7 +61,6 @@ Rogue_BattleDefeated_GiveMon::
 	message Rogue_BattleDefeated_GiveMon_Text_2
 Rogue_BattleDefeated_GiveMon_1:
 	waitmessage
-	special Rogue_ChooseMiniBossRewardMons
 	bufferspeciesname STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
 	bufferspeciesname STR_VAR_2, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
 	multichoice 17, 6, MULTI_EXPAND2_EXIT, FALSE
@@ -131,6 +130,7 @@ Rogue_BattleDefeated_MiniBoss::
 Rogue_BattleDefeated_MiniBoss_1:
 	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
 	call Rogue_GiveItem_Internal
+	special Rogue_ChooseMiniBossRewardMons
 	call Rogue_BattleDefeated_GiveMon
 	special HealPlayerParty
 	special RemoveCameraObject

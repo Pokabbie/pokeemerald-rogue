@@ -65,120 +65,6 @@ script RogueHub_OnTransition
     }
 }
 
-script RogueHub_CheckAnyPlateQuestsCollected
-{
-    if(!flag(FLAG_ROGUE_EXPANSION_ACTIVE))
-    {
-        setvar(VAR_RESULT, NO)
-        return
-    }
-
-    questcollected(QUEST_NORMAL_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_FIGHTING_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_FLYING_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_POISON_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_GROUND_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_ROCK_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_BUG_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_GHOST_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_STEEL_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_FIRE_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_WATER_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_GRASS_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_ELECTRIC_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_PSYCHIC_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_ICE_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_DRAGON_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    questcollected(QUEST_DARK_Champion)
-    if(var(VAR_RESULT) == YES)
-    {
-        return
-    }
-
-    // This really shouldn't be done in script as we can't compile this on Vanilla -_-
-    // QUEST_FAIRY_Champion
-}
-
 script RogueHub_OnMapLoad
 {
     // Turn off buildings that haven't unlocked yet
@@ -258,21 +144,16 @@ script RogueHub_OnMapLoad
     {
         clearflag(FLAG_ROGUE_TRAINER7)
         clearflag(FLAG_ROGUE_TRAINER5)
+        clearflag(FLAG_ROGUE_TRAINER10)
 
         if(flag(FLAG_ROGUE_RARE_ITEM_MART_DISABLED))
         {
             setflag(FLAG_ROGUE_TRAINER5)
         }
 
-        // Plate trader
-        call(RogueHub_CheckAnyPlateQuestsCollected)
-        if(var(VAR_RESULT) == NO)
+        if(flag(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED))
         {
             setflag(FLAG_ROGUE_TRAINER10)
-        }
-        else
-        {
-            clearflag(FLAG_ROGUE_TRAINER10)
         }
     }
 
