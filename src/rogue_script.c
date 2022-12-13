@@ -57,6 +57,18 @@ void Rogue_SeedRandomGenerators(void)
     gRngRogueValue = startSeed;
 }
 
+u16 GetStartDifficulty(void);
+
+static u8 Calc_RandomTradeLevel(struct Pokemon* mon)
+{
+    if(gRogueRun.currentRoomIdx == 0)
+    {
+        return 5 + GetStartDifficulty() * 10;
+    }
+    else
+        return GetMonData(mon, MON_DATA_LEVEL);
+}
+
 void Rogue_RandomisePartyMon(void)
 {
     u8 monIdx = gSpecialVar_0x8004;
@@ -68,7 +80,7 @@ void Rogue_RandomisePartyMon(void)
         u16 queryCount;
         u16 species;
         u16 heldItem;
-        u8 targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);
+        u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
 
         // Query for the current route type
         RogueQuery_Clear();
@@ -88,7 +100,7 @@ void Rogue_RandomisePartyMon(void)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
-            targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
             species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
@@ -103,7 +115,7 @@ void Rogue_RandomisePartyMon(void)
     {
         u16 queryCount;
         u16 species;
-        u8 targetlevel = gRogueRun.currentRoomIdx == 0 ? 7 : GetMonData(&gPlayerParty[monIdx], MON_DATA_LEVEL);
+        u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
         u16 heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
         // Query for the current route type

@@ -460,7 +460,11 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         {
             weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
             weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
-            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
+
+            if(gRogueRun.currentDifficulty < 3)
+                weights[ADVPATH_ROOM_LAB] = 0;
+            else
+                weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
 
             // These should start trading with each other deeper into the run
             if(gRogueRun.currentDifficulty < 6)

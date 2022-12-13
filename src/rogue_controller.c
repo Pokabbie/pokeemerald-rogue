@@ -1836,7 +1836,7 @@ void Rogue_OnLoadMap(void)
     }
 }
 
-static u16 GetStartDifficulty(void)
+u16 GetStartDifficulty(void)
 {
     u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
 
