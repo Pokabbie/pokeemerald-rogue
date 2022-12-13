@@ -3519,13 +3519,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     }
 }
 
-static void Battle_UpdateEncounterTracker(void)
+static void Battle_UpdateEncounterTrackerInternal(u16 wildSpecies)
 {
     // Update encounter tracker (For both in run and safari)
     u8 i;
-    //u16 wildSpecies = gBattleMons[gActiveBattler].species;
-    u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
-    //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
 
     for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
     {
@@ -3533,8 +3530,16 @@ static void Battle_UpdateEncounterTracker(void)
         {
             gRogueLocal.encounterPreview[i].isVisible = TRUE;
         }
-
     }
+}
+
+static void Battle_UpdateEncounterTracker(void)
+{
+    //u16 wildSpecies = gBattleMons[gActiveBattler].species;
+    u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
+    //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+    Battle_UpdateEncounterTrackerInternal(wildSpecies);
 }
 
 void Rogue_Battle_EndWildBattle(void)
@@ -5732,6 +5737,13 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
             while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
+        }
+
+        // This method gets called for repel and intimidate
+        // Only update tracker if repel is active otherwise update tracker when enter battle
+        if(VarGet(VAR_REPEL_STEP_COUNT) != 0)
+        {
+            Battle_UpdateEncounterTrackerInternal(*species);
         }
 
         if(GetSafariZoneFlag())
