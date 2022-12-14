@@ -245,19 +245,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         },
         .unlockedQuests = { 
             QUEST_CampaignTease,
-
             QUEST_GauntletMode,
-            QUEST_OrreMode,
-
             QUEST_KantoMode,
-            QUEST_JohtoMode,
-            QUEST_HoennMode,
 #ifdef ROGUE_EXPANSION
-            QUEST_SinnohMode,
-            QUEST_UnovaMode,
-            QUEST_KalosMode,
-            QUEST_AlolaMode,
-            QUEST_GalarMode,
 
             QUEST_MegaEvo,
             QUEST_ZMove,
@@ -666,6 +656,16 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
                 ),
         .unlockedQuests = { 
             QUEST_GlitchMode,
+            QUEST_OrreMode,
+            QUEST_JohtoMode,
+            QUEST_HoennMode,
+#ifdef ROGUE_EXPANSION
+            QUEST_SinnohMode,
+            QUEST_UnovaMode,
+            QUEST_KalosMode,
+            QUEST_AlolaMode,
+            QUEST_GalarMode,
+#endif
         },
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },

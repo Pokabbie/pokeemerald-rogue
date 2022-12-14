@@ -1655,7 +1655,7 @@ static bool8 InitEasyChatScreenStruct(u8 type, u16 *words, u8 displayedPersonTyp
     sEasyChatScreen->savedPhrase = words;
     sEasyChatScreen->mainCursorColumn = 0;
     sEasyChatScreen->mainCursorRow = 0;
-    sEasyChatScreen->inAlphabetMode = FALSE;
+    sEasyChatScreen->inAlphabetMode = TRUE;
     sEasyChatScreen->displayedPersonType = displayedPersonType;
     sEasyChatScreen->unused = 0;
     templateId = GetEachChatScreenTemplateId(type);
