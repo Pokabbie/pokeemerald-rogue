@@ -1,6 +1,6 @@
 
 
-// Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
+// Make sure to bump ROGUE_COMPAT_VERSION in constants/rogue.h when changing this
 const u8 gText_RogueVersion[] = _("v1.3");
 
 #ifdef ROGUE_EXPANSION

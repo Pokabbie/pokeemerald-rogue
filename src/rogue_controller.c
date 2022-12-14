@@ -1344,7 +1344,7 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 4  // The version to bump every time there is a patch so players cannot patch incorrectly
+// ROGUE_COMPAT_VERSION moved to constants/rogue.h
 
 static bool8 IsPreReleaseCompatVersion(u16 version)
 {
