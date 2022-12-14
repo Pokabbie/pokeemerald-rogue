@@ -131,7 +131,7 @@ struct RogueRunData
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[12];
     u16 legendaryHistoryBuffer[6];
-    u16 miniBossHistoryBuffer[12];
+    u16 miniBossHistoryBuffer[6];
     u16 bossHistoryBuffer[15];
     u16 wildEncounterHistoryBuffer[3];
     union
