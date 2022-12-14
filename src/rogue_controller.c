@@ -2679,6 +2679,30 @@ bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
     return FALSE;
 }
 
+bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+#ifdef ROGUE_EXPANSION
+        s = GET_BASE_SPECIES_ID(species);
+#endif
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 PartyContainsType(struct Pokemon *party, u8 partyCount, u16 type)
 {
     u8 i;
@@ -5039,7 +5063,7 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
                 }
             }
         }
-        while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
+        while(!skipDupeCheck && PartyContainsBaseSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
 
 #ifdef ROGUE_DEBUG
