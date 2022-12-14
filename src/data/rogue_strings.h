@@ -1,6 +1,6 @@
 
 
-// Make sure to bump ROGUE_COMPAT_VERSION in constants/rogue.h when changing this
+// Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
 const u8 gText_RogueVersion[] = _("v1.3");
 
 #ifdef ROGUE_EXPANSION
@@ -267,11 +267,11 @@ const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
 const u8 gText_QuestLogTitleNew[] = _("New!");
 const u8 gText_QuestLogTitleStatus[] = _("Status:");
 const u8 gText_QuestLogMarkerRepeatable[] = _("REPEATABLE");
-const u8 gText_QuestLogMarkerInactive[] = _("INACTIVE");
-const u8 gText_QuestLogStatusIncomplete[] = _("INCOMPLETE");
-const u8 gText_QuestLogStatusComplete[] = _("COMPLETE");
-const u8 gText_QuestLogStatusCollection[] = _("READY TO COLLECT");
-const u8 gText_QuestLogStatusCollected[] = _("ALREADY COLLECTED");
+const u8 gText_QuestLogMarkerInactive[] = _("{COLOR RED}{SHADOW LIGHT_RED}INACTIVE");
+const u8 gText_QuestLogStatusIncomplete[] = _("{COLOR RED}{SHADOW LIGHT_RED}INCOMPLETE");
+const u8 gText_QuestLogStatusComplete[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}COMPLETE");
+const u8 gText_QuestLogStatusCollection[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}READY TO COLLECT");
+const u8 gText_QuestLogStatusCollected[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}ALREADY COLLECTED");
 const u8 gText_QuestLogTitleRewardMoney[] = _("¥{STR_VAR_1}");
 const u8 gText_QuestLogTitleRewardPokemon[] = _("{STR_VAR_1}");
 const u8 gText_QuestLogTitleRewardShinyPokemon[] = _("Shiny {STR_VAR_1}");
@@ -282,7 +282,7 @@ const u8 gText_QuestLogPromptPinQuest[] = _("Pin this Quest?");
 const u8 gText_QuestLogPromptUnpinQuest[] = _("Unpin this Quest?");
 const u8 gText_QuestLogOverviewCompleted[] = _("Completed:");
 const u8 gText_QuestLogOverviewUnlocked[] = _("Unlocked:");
-const u8 gText_QuestLogOverviewRewardsToCollect[] = _("PENDING REWARDS");
+const u8 gText_QuestLogOverviewRewardsToCollect[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}PENDING REWARDS");
 const u8 gText_QuestLogBack[] = _("Back");
 
 const u8 gText_QuestRewardGive[] = _("Recieved {STR_VAR_1}!");
