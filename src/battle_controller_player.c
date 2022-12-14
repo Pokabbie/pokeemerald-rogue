@@ -2930,7 +2930,24 @@ static u16 ChooseRandomMoveAndTarget(void)
 
 static void PlayerChooseMoveInAutoBattle(void)
 {
-    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget());
+    u16 moveTarget = ChooseRandomMoveAndTarget();
+    u16 chosenMoveId = (moveTarget & ~MOVE_TARGET_ALL_BATTLERS);
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
+    
+    if (CanMegaEvolve(gActiveBattler))
+    {
+        moveTarget |= RET_MEGA_EVOLUTION;
+    }
+    // Something to do with MoveSelectionDisplayZMove ???
+    //else if (ShouldUseZMove(gActiveBattler, gBattlerTarget, moveInfo->moves[chosenMoveId]))
+    //{
+    //    
+    //    QueueZMove(gActiveBattler, moveInfo->moves[chosenMoveId]);
+    //    //gBattleStruct->zmove.baseMoves[gActiveBattler] = moveInfo->moves[chosenMoveId];
+    //    //gBattleStruct->zmove.active = TRUE;
+    //}
+
+    BtlController_EmitTwoReturnValues(BUFFER_B, 10, moveTarget);
     PlayerBufferExecCompleted();
 }
 
