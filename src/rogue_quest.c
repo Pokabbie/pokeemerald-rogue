@@ -119,6 +119,21 @@ void ResetQuestStateAfter(u16 loadedQuestCapacity)
     }
 }
 
+void ResetQuestsFor_1_3_1(void)
+{
+    // Clear completion state for these quests, as 1.3.0 had a bug with AI difficulty
+    gRogueGlobalData.questStates[QUEST_LegendOnly].isCompleted = FALSE;
+    gRogueGlobalData.questStates[QUEST_LegendOnly].hasPendingRewards = FALSE;
+    gRogueGlobalData.questStates[QUEST_Nuzlocke].isCompleted = FALSE;
+    gRogueGlobalData.questStates[QUEST_Nuzlocke].hasPendingRewards = FALSE;
+    gRogueGlobalData.questStates[QUEST_IronMono1].isCompleted = FALSE;
+    gRogueGlobalData.questStates[QUEST_IronMono1].hasPendingRewards = FALSE;
+    gRogueGlobalData.questStates[QUEST_IronMono2].isCompleted = FALSE;
+    gRogueGlobalData.questStates[QUEST_IronMono2].hasPendingRewards = FALSE;
+    gRogueGlobalData.questStates[QUEST_Hardcore4].isCompleted = FALSE;
+    gRogueGlobalData.questStates[QUEST_Hardcore4].hasPendingRewards = FALSE;
+}
+
 bool8 AnyNewQuests(void)
 {
     u16 i;

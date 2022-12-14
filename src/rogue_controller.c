@@ -1796,6 +1796,9 @@ void Rogue_OnLoadGame(void)
 
         if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
             FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
+
+        if(gSaveBlock1Ptr->rogueCompatVersion == 4)
+            ResetQuestsFor_1_3_1();
     }
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
