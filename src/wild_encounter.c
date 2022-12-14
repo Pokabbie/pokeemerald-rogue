@@ -808,38 +808,39 @@ void FishingWildEncounter(u8 rod)
 
 u16 GetLocalWildMon(bool8 *isWaterMon)
 {
-    u16 headerId;
-    const struct WildPokemonInfo *landMonsInfo;
-    const struct WildPokemonInfo *waterMonsInfo;
+    return Rogue_SelectRandomWildMon();
 
-    *isWaterMon = FALSE;
-    headerId = GetCurrentMapWildMonHeaderId();
-    if (headerId == HEADER_NONE)
-        return SPECIES_NONE;
-    landMonsInfo = gWildMonHeaders[headerId].landMonsInfo;
-    waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
-    // Neither
-    if (landMonsInfo == NULL && waterMonsInfo == NULL)
-        return SPECIES_NONE;
-    // Land Pokemon
-    else if (landMonsInfo != NULL && waterMonsInfo == NULL)
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
-    // Water Pokemon
-    else if (landMonsInfo == NULL && waterMonsInfo != NULL)
-    {
-        *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
-    }
-    // Either land or water Pokemon
-    if ((Random() % 100) < 80)
-    {
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
-    }
-    else
-    {
-        *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
-    }
+    //u16 headerId;
+    //const struct WildPokemonInfo *landMonsInfo;
+    //const struct WildPokemonInfo *waterMonsInfo;
+    //*isWaterMon = FALSE;
+    //headerId = GetCurrentMapWildMonHeaderId();
+    //if (headerId == HEADER_NONE)
+    //    return SPECIES_NONE;
+    //landMonsInfo = gWildMonHeaders[headerId].landMonsInfo;
+    //waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
+    //// Neither
+    //if (landMonsInfo == NULL && waterMonsInfo == NULL)
+    //    return SPECIES_NONE;
+    //// Land Pokemon
+    //else if (landMonsInfo != NULL && waterMonsInfo == NULL)
+    //    return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+    //// Water Pokemon
+    //else if (landMonsInfo == NULL && waterMonsInfo != NULL)
+    //{
+    //    *isWaterMon = TRUE;
+    //    return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+    //}
+    //// Either land or water Pokemon
+    //if ((Random() % 100) < 80)
+    //{
+    //    return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+    //}
+    //else
+    //{
+    //    *isWaterMon = TRUE;
+    //    return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+    //}
 }
 
 u16 GetLocalWaterMon(void)

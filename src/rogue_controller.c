@@ -5785,6 +5785,17 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
     }
 }
 
+u16 Rogue_SelectRandomWildMon(void)
+{
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    {
+        u16 count = GetCurrentWildEncounterCount();
+        return gRogueRun.wildEncounters[Random() % count];
+    }
+
+    return SPECIES_NONE;
+}
+
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
     *level = CalculateWildLevel(3);

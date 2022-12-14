@@ -2112,7 +2112,9 @@ Rogue_ConfigRoom_Button_KantoBosses_Text_0:
 Rogue_ConfigRoom_Button_KantoBosses_Text_1:
 	.string "When enabled, leaders from the Kanto\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"
 
 Rogue_ConfigRoom_Button_JohtoRoutes_Text_0:
 	.string "JOHTO ROUTES$"
@@ -2128,7 +2130,9 @@ Rogue_ConfigRoom_Button_JohtoBosses_Text_0:
 Rogue_ConfigRoom_Button_JohtoBosses_Text_1:
 	.string "When enabled, leaders from the Johto\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"
 
 Rogue_ConfigRoom_Button_HoennRoutes_Text_0:
 	.string "HOENN ROUTES$"
@@ -2144,4 +2148,6 @@ Rogue_ConfigRoom_Button_HoennBosses_Text_0:
 Rogue_ConfigRoom_Button_HoennBosses_Text_1:
 	.string "When enabled, leaders from the Hoenn\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"
