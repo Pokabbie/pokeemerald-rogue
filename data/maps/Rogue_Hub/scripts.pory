@@ -332,7 +332,7 @@ script RogueHub_IntroPokabbie
         applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Enter)
         waitmovement(0)
 
-        msgbox(format("???: Congratulations {PLAYER}!\nI can't believe you managed to defeat the CHAMPION!\pOh of course.\nWhere I my manners!\nAllow me to introduce myself!"), MSGBOX_NPC)
+        msgbox(format("???: Congratulations {PLAYER}!\nI can't believe you managed to defeat the CHAMPION!\pOh of course.\nWhere are my manners!\nAllow me to introduce myself!"), MSGBOX_NPC)
     
         applymovement(NPC_POKABBIE, RogueHub_Pokabbie_Spin)
         waitmovement(0)

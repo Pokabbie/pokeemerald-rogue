@@ -198,12 +198,12 @@ script Rogue_ConfigRoom_Campaign_ReplayChoice
 
     if(var(VAR_RESULT) == 0)
     {
-        message(format("Replay the {STR_VAR_1} Campaign?"))
+        message(format("Play the {STR_VAR_1} Campaign?"))
     }
     else
     {
         buffernumberstring(STR_VAR_2, VAR_RESULT)
-        message(format("Replay the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
     }
 
     waitmessage
@@ -1504,7 +1504,7 @@ script Rogue_ConfigRoom_Button_KantoBosses
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1569,7 +1569,7 @@ script Rogue_ConfigRoom_Button_JohtoBosses
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled, leaders from the Johto region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled, leaders from the Johto region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1633,7 +1633,7 @@ script Rogue_ConfigRoom_Button_HoennBosses
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled, leaders from the Hoenn region may start appearing for Mighty trainer battles."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled, leaders from the Hoenn region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

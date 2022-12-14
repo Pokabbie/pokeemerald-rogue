@@ -503,7 +503,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
     }
 #ifdef ROGUE_FEATURE_AUTOMATION
     else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
-#else
     {
 #ifdef ROGUE_EXPANSION
         // Still want AI to still do weird switching just for completeness?

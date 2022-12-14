@@ -1344,7 +1344,7 @@ static void SelectStartMons(void)
 }
 
 #define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
-#define ROGUE_COMPAT_VERSION 4  // The version to bump every time there is a patch so players cannot patch incorrectly
+// ROGUE_COMPAT_VERSION moved to constants/rogue.h
 
 static bool8 IsPreReleaseCompatVersion(u16 version)
 {
@@ -1836,7 +1836,7 @@ void Rogue_OnLoadMap(void)
     }
 }
 
-static u16 GetStartDifficulty(void)
+u16 GetStartDifficulty(void)
 {
     u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
 
@@ -2671,6 +2671,30 @@ bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
     for(i = 0; i < partyCount; ++i)
     {
         s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+{
+    u8 i;
+    u16 s;
+
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    for(i = 0; i < partyCount; ++i)
+    {
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+
+#ifdef ROGUE_EXPANSION
+        s = GET_BASE_SPECIES_ID(species);
+#endif
 
         if(s == species)
             return TRUE;
@@ -3519,22 +3543,35 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     }
 }
 
-static void Battle_UpdateEncounterTracker(void)
+static void Battle_UpdateEncounterTrackerInternal(u16 wildSpecies)
 {
     // Update encounter tracker (For both in run and safari)
     u8 i;
+
+#ifdef ROGUE_EXPANSION
+    wildSpecies = GET_BASE_SPECIES_ID(wildSpecies);
+#endif
+
+    for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+    {
+#ifdef ROGUE_EXPANSION
+        if(GET_BASE_SPECIES_ID(gRogueRun.wildEncounters[i]) == wildSpecies)
+#else
+        if(gRogueRun.wildEncounters[i] == wildSpecies)
+#endif
+        {
+            gRogueLocal.encounterPreview[i].isVisible = TRUE;
+        }
+    }
+}
+
+static void Battle_UpdateEncounterTracker(void)
+{
     //u16 wildSpecies = gBattleMons[gActiveBattler].species;
     u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
     //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
 
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-    {
-        if(gRogueRun.wildEncounters[i] == wildSpecies)
-        {
-            gRogueLocal.encounterPreview[i].isVisible = TRUE;
-        }
-
-    }
+    Battle_UpdateEncounterTrackerInternal(wildSpecies);
 }
 
 void Rogue_Battle_EndWildBattle(void)
@@ -5034,7 +5071,7 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
                 }
             }
         }
-        while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
+        while(!skipDupeCheck && PartyContainsBaseSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
 
 #ifdef ROGUE_DEBUG
@@ -5560,7 +5597,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
-    if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(isBoss)
         {
@@ -5734,11 +5771,29 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
+        // This method gets called for repel and intimidate
+        // Only update tracker if repel is active otherwise update tracker when enter battle
+        if(VarGet(VAR_REPEL_STEP_COUNT) != 0)
+        {
+            Battle_UpdateEncounterTrackerInternal(*species);
+        }
+
         if(GetSafariZoneFlag())
         {
             *forcePersonality = ConsumeSafariShinyBufferIfPresent(*species);
         }
     }
+}
+
+u16 Rogue_SelectRandomWildMon(void)
+{
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    {
+        u16 count = GetCurrentWildEncounterCount();
+        return gRogueRun.wildEncounters[Random() % count];
+    }
+
+    return SPECIES_NONE;
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)

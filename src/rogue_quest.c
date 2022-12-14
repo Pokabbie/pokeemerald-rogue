@@ -864,6 +864,28 @@ void QuestNotify_BeginAdventure(void)
 static void OnStartBattle(void)
 {
     UpdateMonoQuests();
+    
+    if(IsQuestActive(QUEST_Hardcore3) || IsQuestActive(QUEST_Hardcore4) || IsQuestActive(QUEST_LegendOnly))
+    {
+        u16 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                if(IsSpeciesLegendary(species))
+                {
+                    TryDeactivateQuest(QUEST_Hardcore3);
+                    TryDeactivateQuest(QUEST_Hardcore4);
+                }
+                else
+                {
+                    TryDeactivateQuest(QUEST_LegendOnly);
+                }
+            }
+        }
+    }
 }
 
 static void OnEndBattle(void)
@@ -890,28 +912,6 @@ static void OnEndBattle(void)
         {
             state.isValid = FALSE;
             SetQuestState(QUEST_NoFainting1, &state);
-        }
-    }
-
-    if(IsQuestActive(QUEST_Hardcore3) || IsQuestActive(QUEST_Hardcore4) || IsQuestActive(QUEST_LegendOnly))
-    {
-        u16 i;
-
-        for(i = 0; i < PARTY_SIZE; ++i)
-        {
-            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-            if(species != SPECIES_NONE)
-            {
-                if(IsSpeciesLegendary(species))
-                {
-                    TryDeactivateQuest(QUEST_Hardcore3);
-                    TryDeactivateQuest(QUEST_Hardcore4);
-                }
-                else
-                {
-                    TryDeactivateQuest(QUEST_LegendOnly);
-                }
-            }
         }
     }
 }

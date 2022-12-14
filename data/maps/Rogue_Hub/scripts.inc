@@ -836,7 +836,7 @@ RogueHub_IntroPokabbie_Text_1:
 	.string "I can't believe you managed to defeat\l"
 	.string "the CHAMPION!\p"
 	.string "Oh of course.\n"
-	.string "Where I my manners!\n"
+	.string "Where are my manners!\n"
 	.string "Allow me to introduce myself!$"
 
 RogueHub_IntroPokabbie_Text_2:

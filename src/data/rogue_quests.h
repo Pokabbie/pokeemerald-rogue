@@ -611,7 +611,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .desc = _(
                     "Hardcore Mode rules +\n"
                     "Species Curse & no\n"
-                    "catching legendaries."
+                    "using legendaries."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },

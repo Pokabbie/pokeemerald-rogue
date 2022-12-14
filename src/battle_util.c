@@ -7252,7 +7252,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
         {
             u16 extraFlinchChance = 0;
 
-            if(GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+            if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
                 extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
             else
                 extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);

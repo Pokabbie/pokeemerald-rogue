@@ -205,7 +205,7 @@ Rogue_ConfigRoom_Campaign_ReplayChoice::
 	compare VAR_RESULT, 0
 	goto_if_eq Rogue_ConfigRoom_Campaign_ReplayChoice_2
 	buffernumberstring STR_VAR_2, VAR_RESULT
-	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1
+	message Rogue_ConfigRoom_Campaign_Choice_Text_1
 Rogue_ConfigRoom_Campaign_ReplayChoice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, NO
@@ -1780,11 +1780,7 @@ Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "Good luck, kid!$"
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0:
-	.string "Replay the {STR_VAR_1} Campaign?$"
-
-Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1:
-	.string "Replay the {STR_VAR_1} Campaign?\n"
-	.string "(Best Score: {STR_VAR_2})$"
+	.string "Play the {STR_VAR_1} Campaign?$"
 
 Rogue_ConfigRoom_Campaign_NewPhrase_Text_0:
 	.string "...\p"
@@ -2116,7 +2112,9 @@ Rogue_ConfigRoom_Button_KantoBosses_Text_0:
 Rogue_ConfigRoom_Button_KantoBosses_Text_1:
 	.string "When enabled, leaders from the Kanto\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"
 
 Rogue_ConfigRoom_Button_JohtoRoutes_Text_0:
 	.string "JOHTO ROUTES$"
@@ -2132,7 +2130,9 @@ Rogue_ConfigRoom_Button_JohtoBosses_Text_0:
 Rogue_ConfigRoom_Button_JohtoBosses_Text_1:
 	.string "When enabled, leaders from the Johto\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"
 
 Rogue_ConfigRoom_Button_HoennRoutes_Text_0:
 	.string "HOENN ROUTES$"
@@ -2148,4 +2148,6 @@ Rogue_ConfigRoom_Button_HoennBosses_Text_0:
 Rogue_ConfigRoom_Button_HoennBosses_Text_1:
 	.string "When enabled, leaders from the Hoenn\n"
 	.string "region may start appearing for Mighty\l"
-	.string "trainer battles.$"
+	.string "trainer battles.\p"
+	.string "(This setting is ignored for Rainbow\n"
+	.string "mode)$"

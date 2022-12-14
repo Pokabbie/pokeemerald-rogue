@@ -260,6 +260,7 @@ u16 Rogue_GetCampaignRunId(void)
     // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
     u16 scoreEncode;
     u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
+    u16 compatOffset = ROGUE_COMPAT_VERSION - 4; // 4 was the first version this was present
 
     switch (Rogue_GetActiveCampaign())
     {
@@ -272,7 +273,7 @@ u16 Rogue_GetCampaignRunId(void)
         break;
     }
 
-    return ~(trainerId ^ scoreEncode);
+    return ~((trainerId ^ scoreEncode) + compatOffset);
 }
 
 bool8 Rogue_CheckCampaignBansItem(u16 item)
