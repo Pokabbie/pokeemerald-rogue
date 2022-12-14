@@ -5073,8 +5073,19 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
                     break;
                 }
             }
+
+            #ifdef ROGUE_EXPANSION
+			// Special case for Arceus as all species can be enabled at once
+            if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+            {
+                if(PartyContainsBaseSpecies(party, monIdx, SPECIES_ARCEUS))
+                {
+                    continue;
+                }
+            }
+            #endif
         }
-        while(!skipDupeCheck && PartyContainsBaseSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
+        while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
 
 #ifdef ROGUE_DEBUG
