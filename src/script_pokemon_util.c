@@ -35,6 +35,8 @@ void HealPlayerParty(void)
     u8 ppBonuses;
     u8 arg[4];
 
+    CalculatePlayerPartyCount();
+
     // restore HP.
     for(i = 0; i < gPlayerPartyCount; i++)
     {
