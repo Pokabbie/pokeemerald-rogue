@@ -198,12 +198,12 @@ script Rogue_ConfigRoom_Campaign_ReplayChoice
 
     if(var(VAR_RESULT) == 0)
     {
-        message(format("Replay the {STR_VAR_1} Campaign?"))
+        message(format("Play the {STR_VAR_1} Campaign?"))
     }
     else
     {
         buffernumberstring(STR_VAR_2, VAR_RESULT)
-        message(format("Replay the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
     }
 
     waitmessage

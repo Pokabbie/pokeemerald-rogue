@@ -205,7 +205,7 @@ Rogue_ConfigRoom_Campaign_ReplayChoice::
 	compare VAR_RESULT, 0
 	goto_if_eq Rogue_ConfigRoom_Campaign_ReplayChoice_2
 	buffernumberstring STR_VAR_2, VAR_RESULT
-	message Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1
+	message Rogue_ConfigRoom_Campaign_Choice_Text_1
 Rogue_ConfigRoom_Campaign_ReplayChoice_1:
 	waitmessage
 	multichoice 20, 6, MULTI_YESNOINFO, NO
@@ -1780,11 +1780,7 @@ Rogue_ConfigRoom_Campaign_Choice_Text_2:
 	.string "Good luck, kid!$"
 
 Rogue_ConfigRoom_Campaign_ReplayChoice_Text_0:
-	.string "Replay the {STR_VAR_1} Campaign?$"
-
-Rogue_ConfigRoom_Campaign_ReplayChoice_Text_1:
-	.string "Replay the {STR_VAR_1} Campaign?\n"
-	.string "(Best Score: {STR_VAR_2})$"
+	.string "Play the {STR_VAR_1} Campaign?$"
 
 Rogue_ConfigRoom_Campaign_NewPhrase_Text_0:
 	.string "...\p"
