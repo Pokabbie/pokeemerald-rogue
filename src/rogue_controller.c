@@ -3548,9 +3548,17 @@ static void Battle_UpdateEncounterTrackerInternal(u16 wildSpecies)
     // Update encounter tracker (For both in run and safari)
     u8 i;
 
+#ifdef ROGUE_EXPANSION
+    wildSpecies = GET_BASE_SPECIES_ID(wildSpecies);
+#endif
+
     for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
     {
+#ifdef ROGUE_EXPANSION
+        if(GET_BASE_SPECIES_ID(gRogueRun.wildEncounters[i]) == wildSpecies)
+#else
         if(gRogueRun.wildEncounters[i] == wildSpecies)
+#endif
         {
             gRogueLocal.encounterPreview[i].isVisible = TRUE;
         }
