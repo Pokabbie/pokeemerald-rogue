@@ -3676,7 +3676,8 @@ static void TryDoEventsBeforeFirstTurn(void)
                 Rogue_ModifyEvolution(gBattleMons[i].species, j, &evo);
 
                 if (evo.targetSpecies != SPECIES_NONE
-                 && evo.method == EVO_PRIMAL_REVERSION)
+                 && evo.method == EVO_PRIMAL_REVERSION
+                 && evo.param == gBattleMons[i].item)
                 {
                     gBattlerAttacker = i;
                     BattleScriptExecute(BattleScript_PrimalReversion);
