@@ -481,7 +481,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
             // Every 3rd encounter becomes more common
             if((gRogueRun.currentDifficulty % 3) != 0)
             {
-                weights[ADVPATH_ROOM_GRAVEYARD] = 10;
+                weights[ADVPATH_ROOM_GRAVEYARD] = 5;
             }
 
             if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
@@ -634,13 +634,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         weights[ADVPATH_ROOM_GAMESHOW] = 0;
     }
 
-    if(gAdvPathScratch->graveYardCount >= 1)
+    // Only 1 at once
+    if(gAdvPathScratch->graveYardCount >= 1 || gAdvPathScratch->labCount >= 1)
     {
         weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-    }
-
-    if(gAdvPathScratch->labCount >= 1)
-    {
         weights[ADVPATH_ROOM_LAB] = 0;
     }
 

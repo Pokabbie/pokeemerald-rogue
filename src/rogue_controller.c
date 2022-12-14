@@ -5565,7 +5565,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
         fixedIV = 0;
-    if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
     {
         if(isBoss)
         {
