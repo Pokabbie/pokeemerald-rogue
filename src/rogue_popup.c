@@ -57,6 +57,7 @@ extern const u8 gPopupText_CampaignHighScore[];
 extern const u8 gPopupText_CampaignLowScore[];
 
 extern const u8 gPopupText_SafariArea[];
+extern const u8 gPopupText_StarterWarning[];
 
 
 static const u16 sQuestPopupMessageSoundEffect[] =
@@ -66,6 +67,7 @@ static const u16 sQuestPopupMessageSoundEffect[] =
     [POPUP_MSG_LEGENDARY_CLAUSE] = SE_BALL_OPEN,
     [POPUP_MSG_CAMPAIGN_ANNOUNCE] = SE_EXP_MAX,
     [POPUP_MSG_SAFARI_ENCOUNTERS] = 0,
+    [POPUP_MSG_PARTNER_EVO_WARNING] = SE_NOT_EFFECTIVE,
     //SE_SUCCESS, SE_FAILURE
 };
 
@@ -397,6 +399,12 @@ static void ShowQuestPopUpWindow(void)
             x = GetStringCenterAlignXOffset(FONT_SMALL, gStringVar4, 80);
             AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gStringVar4, x, 16, TEXT_SKIP_DRAW, NULL);
         }
+        break;
+
+    case POPUP_MSG_PARTNER_EVO_WARNING:
+        // Title contains entire warning
+        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StarterWarning, 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StarterWarning, x, 0, TEXT_SKIP_DRAW, NULL);
         break;
 
     default:

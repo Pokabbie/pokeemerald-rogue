@@ -1856,18 +1856,54 @@ u16 GetStartDifficulty(void)
     return 0;
 }
 
+static bool8 HasAnyActiveEvos(u16 species)
+{
+    u8 i;
+    struct Evolution evo;
+
+    for(i = 0; i < EVOS_PER_MON; ++i)
+    {
+        Rogue_ModifyEvolution(species, i, &evo);
+
+        if(evo.targetSpecies != SPECIES_NONE)
+        {
+#ifdef ROGUE_EXPANSION
+            if(evolution.method != EVO_MEGA_EVOLUTION &&
+                evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
+                evolution.method != EVO_PRIMAL_REVERSION
+            )
+#endif
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static void GiveMonPartnerRibbon(void)
 {
     u8 i;
+    u16 species;
     bool8 ribbonSet = TRUE;
+    bool8 hasDisabledEvo = FALSE;
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
-        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if(species != SPECIES_NONE)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
+
+            if(!hasDisabledEvo && Rogue_GetEvolutionCount(species) != 0)
+            {
+                if(!HasAnyActiveEvos(species))
+                    hasDisabledEvo = TRUE;
+            }
         }
     }
+
+    if(hasDisabledEvo)
+        Rogue_PushPopup(POPUP_MSG_PARTNER_EVO_WARNING, 0);
 }
 
 bool8 Rogue_IsPartnerMonInTeam(void)
