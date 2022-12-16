@@ -5607,7 +5607,7 @@ extern const u8 gMonIcon_Regieleki[];
 extern const u8 gMonIcon_Regidrago[];
 extern const u8 gMonIcon_Glastrier[];
 extern const u8 gMonIcon_Spectrier[];
-//extern const u8 gMonIcon_Calyrex[];
+extern const u8 gMonIcon_Calyrex[];
 extern const u8 gMonIcon_VenusaurMega[];
 extern const u8 gMonIcon_CharizardMegaX[];
 extern const u8 gMonIcon_CharizardMegaY[];
