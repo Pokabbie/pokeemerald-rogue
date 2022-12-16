@@ -1835,7 +1835,12 @@ void Rogue_OnLoadMap(void)
 {
     if(GetSafariZoneFlag())
     {
+        // Reset preview data
+        memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
+        Rogue_ClearPopupQueue();
+
         RandomiseSafariWildEncounters();
+        Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
 }
 
@@ -2802,9 +2807,10 @@ void Rogue_OnWarpIntoMap(void)
     else if(GetSafariZoneFlag())
     {
         // Reset preview data
-        memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
-
-        RandomiseSafariWildEncounters();
+        //memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
+//
+        //RandomiseSafariWildEncounters();
+        //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
 }
 
@@ -6425,67 +6431,63 @@ static void RandomiseFishingEncounters(void)
     }
 }
 
-static void RogueQuery_SafariTypeForMap()
+void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize)
 {
+    AGB_ASSERT(arraySize == 3);
+
+    outArray[0] = TYPE_NONE;
+    outArray[1] = TYPE_NONE;
+    outArray[2] = TYPE_NONE;
+
     if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTH)
     {
-        u8 types[] =
-        {
-            TYPE_NORMAL, TYPE_FIGHTING
+        outArray[0] = TYPE_NORMAL;
+        outArray[1] = TYPE_FIGHTING;
 #ifdef ROGUE_EXPANSION
-            ,TYPE_FAIRY
+        outArray[2] = TYPE_FAIRY;
 #endif
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_SOUTHWEST)
     {
-        u8 types[] =
-        {
-            TYPE_GRASS, TYPE_POISON, TYPE_DARK
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+        outArray[0] = TYPE_GRASS;
+        outArray[1] = TYPE_POISON;
+        outArray[2] = TYPE_DARK;
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHWEST)
     {
-        u8 types[] =
-        {
-            TYPE_DRAGON, TYPE_STEEL, TYPE_PSYCHIC
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+        outArray[0] = TYPE_DRAGON;
+        outArray[1] = TYPE_STEEL;
+        outArray[2] = TYPE_PSYCHIC;
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTH)
     {
-        u8 types[] =
-        {
-            TYPE_FLYING, TYPE_GHOST, TYPE_FIRE
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+        outArray[0] = TYPE_FLYING;
+        outArray[1] = TYPE_GHOST;
+        outArray[2] = TYPE_FIRE;
     }
     else if(gMapHeader.mapLayoutId == LAYOUT_SAFARI_ZONE_NORTHEAST)
     {
-        u8 types[] =
-        {
-            TYPE_ROCK, TYPE_GROUND, TYPE_ELECTRIC
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+        outArray[0] = TYPE_ROCK;
+        outArray[1] = TYPE_GROUND;
+        outArray[2] = TYPE_ELECTRIC;
     }
     else // SAFARI_ZONE_SOUTHEAST
     {
-        u8 types[] =
-        {
-            TYPE_WATER, TYPE_BUG, TYPE_ICE
-        };
-        RogueQuery_SpeciesOfTypes(&types[0], ARRAY_COUNT(types));
+        outArray[0] = TYPE_WATER;
+        outArray[1] = TYPE_BUG;
+        outArray[2] = TYPE_ICE;
     }
 }
 
 static void RandomiseSafariWildEncounters(void)
 {
+    u8 types[3];
     u8 maxlevel = CalculateWildLevel(0);
     u16 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
     u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
+
+    Rogue_SafariTypeForMap(&types[0], ARRAY_COUNT(types));
 
     // Temporarily remove the gen limit for the safari encounters
     VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
@@ -6493,7 +6495,7 @@ static void RandomiseSafariWildEncounters(void)
 
     // Query for the current zone
     RogueQuery_Clear();
-    RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE); // TODO - Could probably get this working to speed up transition
+    RogueQuery_SpeciesIsValid(types[0], types[1], types[2]);
 
     if(targetGen == 0)
     {
@@ -6507,7 +6509,6 @@ static void RandomiseSafariWildEncounters(void)
 
     RogueQuery_SpeciesInPokedex();
 
-    RogueQuery_SafariTypeForMap();
     RogueQuery_TransformToEggSpecies();
     RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off if needed
 
@@ -6516,7 +6517,10 @@ static void RandomiseSafariWildEncounters(void)
         RogueQuery_SpeciesInGeneration(targetGen);
     }
 
-    RogueQuery_SafariTypeForMap();
+    if(types[2] == TYPE_NONE)
+        RogueQuery_SpeciesOfTypes(&types[0], 2);
+    else
+        RogueQuery_SpeciesOfTypes(&types[0], 3);
 
     RogueQuery_CollapseSpeciesBuffer();
 

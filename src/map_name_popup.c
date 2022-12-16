@@ -208,22 +208,23 @@ static bool8 StartMenu_ShowMapNamePopup(void)
 
 void ShowMapNamePopup(void)
 {
-    if (FlagGet(FLAG_HIDE_MAP_NAME_POPUP) != TRUE)
-    {
-        if (!FuncIsActiveTask(Task_MapNamePopUpWindow))
-        {
-            sPopupTaskId = CreateTask(Task_MapNamePopUpWindow, 90);
-            SetGpuReg(REG_OFFSET_BG0VOFS, 40);
-            gTasks[sPopupTaskId].data[0] = 6;
-            gTasks[sPopupTaskId].data[2] = 40;
-        }
-        else
-        {
-            if (gTasks[sPopupTaskId].data[0] != 2)
-                gTasks[sPopupTaskId].data[0] = 2;
-            gTasks[sPopupTaskId].data[3] = 1;
-        }
-    }
+    // RogueNote: Never show map popup
+    //if (FlagGet(FLAG_HIDE_MAP_NAME_POPUP) != TRUE)
+    //{
+    //    if (!FuncIsActiveTask(Task_MapNamePopUpWindow))
+    //    {
+    //        sPopupTaskId = CreateTask(Task_MapNamePopUpWindow, 90);
+    //        SetGpuReg(REG_OFFSET_BG0VOFS, 40);
+    //        gTasks[sPopupTaskId].data[0] = 6;
+    //        gTasks[sPopupTaskId].data[2] = 40;
+    //    }
+    //    else
+    //    {
+    //        if (gTasks[sPopupTaskId].data[0] != 2)
+    //            gTasks[sPopupTaskId].data[0] = 2;
+    //        gTasks[sPopupTaskId].data[3] = 1;
+    //    }
+    //}
 }
 
 static void Task_MapNamePopUpWindow(u8 taskId)

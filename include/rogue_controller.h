@@ -80,6 +80,7 @@ bool8 Rogue_AllowWildMonItems(void);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality);
 u16 Rogue_SelectRandomWildMon(void);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
+void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
 
