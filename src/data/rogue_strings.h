@@ -285,10 +285,10 @@ const u8 gText_QuestLogOverviewUnlocked[] = _("Unlocked:");
 const u8 gText_QuestLogOverviewRewardsToCollect[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}PENDING REWARDS");
 const u8 gText_QuestLogBack[] = _("Back");
 
-const u8 gText_QuestRewardGive[] = _("Recieved {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveMon[] = _("Recieved a {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveShinyMon[] = _("Recieved a Shiny {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveMoney[] = _("Recieved ¥{STR_VAR_1}!");
+const u8 gText_QuestRewardGive[] = _("Received {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveMon[] = _("Received a {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveShinyMon[] = _("Received a Shiny {STR_VAR_1}!");
+const u8 gText_QuestRewardGiveMoney[] = _("Received ¥{STR_VAR_1}!");
 
 // Campaigns
 //
