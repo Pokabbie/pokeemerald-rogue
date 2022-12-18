@@ -29,8 +29,10 @@
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "rtc.h"
 #include "safari_zone.h"
 #include "script.h"
+#include "siirtc.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
@@ -139,6 +141,20 @@ struct RogueLabEncounterData
     struct Pokemon party[LAB_MON_COUNT];
 };
 
+typedef u16 hot_track_dat;
+
+struct RogueHotTracking
+{
+    hot_track_dat initSeed;
+    hot_track_dat rollingSeed;
+    hot_track_dat triggerCount;
+    hot_track_dat triggerMin;
+    hot_track_dat triggerMax;
+    hot_track_dat triggerAccumulation;
+};
+
+static struct RogueHotTracking gRogueHotTracking;
+
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 EWRAM_DATA struct RogueHubData gRogueHubData = {};
@@ -150,6 +166,9 @@ EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 bool8 IsSpeciesLegendary(u16 species);
 bool8 IsSpeciesType(u16 species, u8 type);
 bool8 IsLegendaryEnabled(u16 species);
+
+
+static void ResetHotTracking();
 
 static bool8 IsBossTrainer(u16 trainerNum);
 static bool8 IsMiniBossTrainer(u16 trainerNum);
@@ -1722,6 +1741,11 @@ void Rogue_OnSaveGame(void)
         SerializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
         SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
         SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax));
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation));
     }
 }
 
@@ -1777,6 +1801,11 @@ void Rogue_OnLoadGame(void)
             DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
             DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
             DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax));
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation));
         }
     }
 
@@ -1830,6 +1859,88 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
 
     return FALSE;
 }
+
+static hot_track_dat HotTrackingRtcToCounter(struct SiiRtcInfo* rtc)
+{
+    return RtcGetDayCount(rtc) * 24 * 60 * 60 +
+           ConvertBcdToBinary(rtc->hour) * 60 * 60 + 
+           ConvertBcdToBinary(rtc->minute) * 60 + 
+           ConvertBcdToBinary(rtc->second);
+}
+
+static hot_track_dat HotTrackingLocalRtcToCounter(void)
+{
+    struct SiiRtcInfo localRtc;
+    RtcGetRawInfo(&localRtc);
+
+    return HotTrackingRtcToCounter(&localRtc);
+}
+
+
+static void ResetHotTracking()
+{
+    gRogueHotTracking.initSeed = HotTrackingLocalRtcToCounter();
+    gRogueHotTracking.rollingSeed = gRogueHotTracking.initSeed;
+    gRogueHotTracking.triggerCount = 0;
+    gRogueHotTracking.triggerMin = (hot_track_dat)-1;
+    gRogueHotTracking.triggerMax = 0;
+    gRogueHotTracking.triggerAccumulation = 0;
+
+    DebugPrintf("HotTracking init:%d roll:%d", gRogueHotTracking.initSeed, gRogueHotTracking.rollingSeed);
+}
+
+static void UpdateHotTracking()
+{
+    hot_track_dat localCounter = HotTrackingLocalRtcToCounter();
+    hot_track_dat seedCounter = localCounter - gRogueHotTracking.initSeed;
+    hot_track_dat rollingCounter = localCounter - gRogueHotTracking.rollingSeed;
+
+    if(rollingCounter > 1)
+    {
+        gRogueHotTracking.initSeed = localCounter;
+        gRogueHotTracking.rollingSeed = localCounter;
+        
+        ++gRogueHotTracking.triggerCount;
+        gRogueHotTracking.triggerMin = min(gRogueHotTracking.triggerMin, rollingCounter);
+        gRogueHotTracking.triggerMax = max(gRogueHotTracking.triggerMax, rollingCounter);
+        gRogueHotTracking.triggerAccumulation += rollingCounter;
+
+        DebugPrintf("HotTracking trigger:%d roll:%d trigger:%d", seedCounter, rollingCounter, gRogueHotTracking.triggerCount);
+    }
+    else
+    {
+        gRogueHotTracking.rollingSeed = localCounter;
+    }
+}
+
+void Rogue_MainInit(void)
+{
+    ResetHotTracking();
+
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_AutomationInit();
+#endif
+}
+
+void Rogue_MainCallback(void)
+{
+    //Additional 3rd maincallback which is always called
+
+    UpdateHotTracking();
+
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_AutomationCallback();
+#endif
+}
+
+u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
+{
+    *count = gRogueHotTracking.triggerCount;
+    *average = gRogueHotTracking.triggerAccumulation / gRogueHotTracking.triggerCount;
+    *min = gRogueHotTracking.triggerMin;
+    *max = gRogueHotTracking.triggerMax;
+}
+
 
 void Rogue_OnLoadMap(void)
 {
@@ -2012,6 +2123,7 @@ static void BeginRogueRun(void)
     DebugPrint("BeginRogueRun");
     
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+    ResetHotTracking();
 
 #ifdef ROGUE_EXPANSION
     // Cache the results for the run (Must do before ActiveRun flag is set)

@@ -35,6 +35,7 @@
 #include "confetti_util.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
 #include "rogue_campaign.h"
 
 #define HALL_OF_FAME_MAX_TEAMS 50
@@ -731,6 +732,33 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
     gTasks[taskId].func = Task_Hof_WaitAndPrintPlayerInfo;
 }
 
+static void HotTrackingAssignPostfix(u8* str, u16 count, u16 value, u16 threshold0, u16 threshold1)
+{
+    if(count == 0)
+    {
+        str[0] = 0xAB;
+        str[1] = EOS;
+    }
+    else
+    {
+        if(value > threshold1)
+        {
+            str[0] = 0x00;
+            str[1] = EOS;
+        }
+        else if(value > threshold0)
+        {
+            str[0] = 0xAD;
+            str[1] = EOS;
+        }
+        else
+        {
+            str[0] = 0xAB; // !
+            str[1] = EOS;
+        }
+    }
+}
+
 static void Task_Hof_WaitAndPrintPlayerInfo(u8 taskId)
 {
     if (gTasks[taskId].tFrameCount != 0)
@@ -743,10 +771,18 @@ static void Task_Hof_WaitAndPrintPlayerInfo(u8 taskId)
     }
     else
     {
+        u16 count, average, min, max;
+        Rogue_GetHotTrackingData(&count, &average, &min, &max);
+
         FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, 0x20, 0x20);
         HallOfFame_PrintPlayerInfo(1, 2);
         DrawDialogueFrame(0, FALSE);
-        AddTextPrinterParameterized2(0, FONT_NORMAL, gText_LeagueChamp, 0, NULL, 2, 1, 3);
+
+        HotTrackingAssignPostfix(&gStringVar1[0], count, average, 0, 5);
+        HotTrackingAssignPostfix(&gStringVar2[0], count, max, 30, 600);
+        StringExpandPlaceholders(gStringVar4, gText_LeagueChamp);
+
+        AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, 0, NULL, 2, 1, 3);
         CopyWindowToVram(0, COPYWIN_FULL);
         gTasks[taskId].func = Task_Hof_ExitOnKeyPressed;
     }

@@ -53,6 +53,11 @@ void Rogue_OnLoadGame(void);
 bool8 Rogue_OnProcessPlayerFieldInput(void);
 bool8 Rogue_IsPartnerMonInTeam(void);
 
+void Rogue_MainInit(void);
+void Rogue_MainCallback(void);
+
+u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
+
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
