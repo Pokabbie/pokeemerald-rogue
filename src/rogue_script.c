@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/battle.h"
+#include "constants/battle_frontier.h"
 #include "constants/items.h"
 #include "constants/rogue.h"
 
@@ -26,6 +27,8 @@
 #ifdef ROGUE_DEBUG
 extern EWRAM_DATA struct RogueGlobalData gRogueGlobalData;
 #endif
+
+void DoSpecialTrainerBattle(void);
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
 {
@@ -459,6 +462,21 @@ void RogueDebug_CollectAllQuests(void)
             }
         }
     }
+#endif
+}
+
+void RogueDebug_StartBattle(void)
+{
+#ifdef ROGUE_DEBUG
+    u16 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        BoxMonAtToMon(TOTAL_BOXES_COUNT- 1, i, &gEnemyParty[i]);
+
+    CalculateEnemyPartyCount();
+
+    gSpecialVar_0x8004 = SPECIAL_BATTLE_AUTOMATION;
+    DoSpecialTrainerBattle();
 #endif
 }
 

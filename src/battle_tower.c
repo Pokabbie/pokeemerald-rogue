@@ -2139,7 +2139,6 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_MAGMA);
         break;
-#ifdef ROGUE_FEATURE_AUTOMATION
     case SPECIAL_BATTLE_AUTOMATION:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 
@@ -2150,7 +2149,6 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
         break;
-#endif
     }
 }
 
