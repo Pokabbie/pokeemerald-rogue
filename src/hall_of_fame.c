@@ -41,12 +41,18 @@
 #define HALL_OF_FAME_MAX_TEAMS 50
 #define TAG_CONFETTI 1001
 
+#define RGB_FOCUS_FAINTED RGB(18, 18, 18)
+#define RGB_BACKGROUND RGB(16, 29, 24)
+#define RGB_BACKGROUND_FAINTED RGB(0, 13, 8)
+
 struct HallofFameMon
 {
     u32 tid;
     u32 personality;
-    u16 species:9;
-    u16 lvl:7;
+    u16 species : 9;
+    u16 fainted : 1;
+    u16 pad : 6;
+    //u16 lvl:7;
     u8 nick[POKEMON_NAME_LENGTH];
 };
 
@@ -67,7 +73,8 @@ struct HofGfx
 
 extern const u8 gText_CampaignHofTitle[];
 
-static EWRAM_DATA u32 sHofFadePalettes = 0;
+static EWRAM_DATA u32 sHofBackgroundPalettes = 0;
+static EWRAM_DATA u32 sHofFaintedPalettes = 0;
 static EWRAM_DATA struct HallofFameTeam *sHofMonPtr = NULL;
 static EWRAM_DATA struct HofGfx *sHofGfxPtr = NULL;
 
@@ -352,7 +359,8 @@ static const struct HallofFameMon sDummyFameMon =
     .tid = 0x3EA03EA,
     .personality = 0,
     .species = SPECIES_NONE,
-    .lvl = 0,
+    .fainted = 0,
+    .pad = 0,
     .nick = {0}
 };
 
@@ -463,7 +471,7 @@ static void Task_Hof_InitMonData(u8 taskId)
             sHofMonPtr->mon[i].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
             sHofMonPtr->mon[i].tid = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
             sHofMonPtr->mon[i].personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
-            sHofMonPtr->mon[i].lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            sHofMonPtr->mon[i].fainted = GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0;
             GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, nick);
             for (j = 0; j < POKEMON_NAME_LENGTH; j++)
             {
@@ -476,12 +484,13 @@ static void Task_Hof_InitMonData(u8 taskId)
             sHofMonPtr->mon[i].species = SPECIES_NONE;
             sHofMonPtr->mon[i].tid = 0;
             sHofMonPtr->mon[i].personality = 0;
-            sHofMonPtr->mon[i].lvl = 0;
+            sHofMonPtr->mon[i].fainted = TRUE;
             sHofMonPtr->mon[i].nick[0] = EOS;
         }
     }
 
-    sHofFadePalettes = 0;
+    sHofBackgroundPalettes = 0;
+    sHofFaintedPalettes = 0;
     gTasks[taskId].tDisplayedMonId = 0;
     gTasks[taskId].tPlayerSpriteID = SPRITE_NONE;
 
@@ -574,6 +583,7 @@ static void Task_Hof_SetMonDisplayTask(u8 taskId)
 
 #define tDestinationX  data[1]
 #define tDestinationY  data[2]
+#define tIsFainted     data[6]
 #define tSpecies       data[7]
 
 static void Task_Hof_DisplayMon(u8 taskId)
@@ -606,9 +616,18 @@ static void Task_Hof_DisplayMon(u8 taskId)
     gSprites[spriteId].tDestinationX = destX;
     gSprites[spriteId].tDestinationY = destY;
     gSprites[spriteId].data[0] = 0;
+    gSprites[spriteId].tIsFainted = currMon->fainted;
     gSprites[spriteId].tSpecies = currMon->species;
     gSprites[spriteId].callback = SpriteCB_GetOnScreenAndAnimate;
     gTasks[taskId].tMonSpriteId(currMonId) = spriteId;
+
+    if(currMon->fainted)
+    {
+        u32 monPaletteId = (0x10000 << gSprites[spriteId].oam.paletteNum);
+        sHofFaintedPalettes |= monPaletteId;
+        BlendPalettes(monPaletteId, 0xC, RGB_FOCUS_FAINTED);
+    }
+
     ClearDialogWindowAndFrame(0, TRUE);
     gTasks[taskId].func = Task_Hof_PrintMonInfoAfterAnimating;
 }
@@ -639,11 +658,17 @@ static void Task_Hof_TryDisplayAnotherMon(u8 taskId)
     }
     else
     {
-        sHofFadePalettes |= (0x10000 << gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.paletteNum);
+        sHofBackgroundPalettes |= (0x10000 << gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.paletteNum);
+
         if (gTasks[taskId].tDisplayedMonId < PARTY_SIZE - 1 && currMon[1].species != SPECIES_NONE) // there is another pokemon to display
         {
+            u32 faintedBackgroundPalettes = sHofBackgroundPalettes & sHofFaintedPalettes;
+            u32 aliveBackgroundPalettes = sHofBackgroundPalettes & ~sHofFaintedPalettes;
+
             gTasks[taskId].tDisplayedMonId++;
-            BeginNormalPaletteFade(sHofFadePalettes, 0, 12, 12, RGB(16, 29, 24));
+            BeginNormalPaletteFade(faintedBackgroundPalettes, 0, 12, 12, RGB_BACKGROUND_FAINTED);
+            BeginNormalPaletteFade(aliveBackgroundPalettes, 0, 12, 12, RGB_BACKGROUND);
+
             gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.priority = 1;
             gTasks[taskId].func = Task_Hof_DisplayMon;
         }
@@ -657,13 +682,17 @@ static void Task_Hof_TryDisplayAnotherMon(u8 taskId)
 static void Task_Hof_PaletteFadeAndPrintWelcomeText(u8 taskId)
 {
     u16 i;
+    u32 faintedPalettes = sHofFaintedPalettes;
+    u32 alivePalettes = ~sHofFaintedPalettes;
 
-    BeginNormalPaletteFade(PALETTES_OBJECTS, 0, 0, 0, RGB_BLACK);
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (gTasks[taskId].tMonSpriteId(i) != SPRITE_NONE)
             gSprites[gTasks[taskId].tMonSpriteId(i)].oam.priority = 0;
     }
+
+    BeginNormalPaletteFade(alivePalettes, 0, 0, 0, RGB_BLACK);
+    BlendPalettes(faintedPalettes, 0xC, RGB_FOCUS_FAINTED);
 
     HallOfFame_PrintWelcomeText(0, 15);
     PlaySE(SE_APPLAUSE);
@@ -685,12 +714,18 @@ static void Task_Hof_DoConfetti(u8 taskId)
     else
     {
         u16 i;
+        u32 faintedBackgroundPalettes = sHofBackgroundPalettes & sHofFaintedPalettes;
+        u32 aliveBackgroundPalettes = sHofBackgroundPalettes & ~sHofFaintedPalettes;
+
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (gTasks[taskId].tMonSpriteId(i) != SPRITE_NONE)
                 gSprites[gTasks[taskId].tMonSpriteId(i)].oam.priority = 1;
         }
-        BeginNormalPaletteFade(sHofFadePalettes, 0, 12, 12, RGB(16, 29, 24));
+
+        BeginNormalPaletteFade(aliveBackgroundPalettes, 0, 12, 12, RGB_BACKGROUND);
+        BlendPalettes(faintedBackgroundPalettes, 0xC, RGB_BACKGROUND_FAINTED);
+
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
         CopyWindowToVram(0, COPYWIN_FULL);
         gTasks[taskId].tFrameCount = 7;
@@ -957,7 +992,8 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
         savedTeams++;
 
     currMon = &savedTeams->mon[0];
-    sHofFadePalettes = 0;
+    sHofBackgroundPalettes = 0;
+    sHofFaintedPalettes = 0;
     gTasks[taskId].tCurrMonId = 0;
     gTasks[taskId].tMonNo = 0;
 
@@ -993,6 +1029,9 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
             spriteId = CreateMonPicSprite_HandleDeoxys(currMon->species, currMon->tid, currMon->personality, 1, posX, posY, i, TAG_NONE);
             gSprites[spriteId].oam.priority = 1;
             gTasks[taskId].tMonSpriteId(i) = spriteId;
+
+            if(currMon->fainted)
+                sHofFaintedPalettes |= (0x10000 << gSprites[spriteId].oam.paletteNum);
         }
         else
         {
@@ -1000,7 +1039,7 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
         }
     }
 
-    BlendPalettes(PALETTES_OBJECTS, 0xC, RGB(16, 29, 24));
+    BlendPalettes(PALETTES_OBJECTS, 0xC, RGB_BACKGROUND);
 
     ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tCurrPageNo, STR_CONV_MODE_RIGHT_ALIGN, 3);
     StringExpandPlaceholders(gStringVar4, gText_HOFNumber);
@@ -1032,8 +1071,17 @@ static void Task_HofPC_PrintMonInfo(u8 taskId)
 
     currMonID = gTasks[taskId].tMonSpriteId(gTasks[taskId].tCurrMonId);
     gSprites[currMonID].oam.priority = 0;
-    sHofFadePalettes = (0x10000 << gSprites[currMonID].oam.paletteNum) ^ PALETTES_OBJECTS;
-    BlendPalettesUnfaded(sHofFadePalettes, 0xC, RGB(16, 29, 24));
+    sHofBackgroundPalettes = (0x10000 << gSprites[currMonID].oam.paletteNum) ^ PALETTES_OBJECTS;
+
+    {
+        u32 faintedBackgroundPalettes = sHofBackgroundPalettes & sHofFaintedPalettes;
+        u32 aliveBackgroundPalettes = sHofBackgroundPalettes & ~sHofFaintedPalettes;
+        u32 faintedFocusPalettes = ~sHofBackgroundPalettes & sHofFaintedPalettes;
+
+        BlendPalettesUnfaded(faintedBackgroundPalettes, 0xC, RGB_BACKGROUND_FAINTED); // Call unfaded to reset
+        BlendPalettes(aliveBackgroundPalettes, 0xC, RGB_BACKGROUND);
+        BlendPalettes(faintedFocusPalettes, 0xC, RGB_FOCUS_FAINTED);
+    }
 
     currMon = &savedTeams->mon[gTasks[taskId].tCurrMonId];
     if (currMon->species != SPECIES_EGG)
@@ -1243,7 +1291,7 @@ static void HallOfFame_PrintMonInfo(struct HallofFameMon* currMon, u8 unused1, u
         AddTextPrinterParameterized3(0, FONT_NORMAL, 0x80, 1, sMonInfoTextColors, TEXT_SKIP_DRAW, text);
 
         stringPtr = StringCopy(text, gText_Level);
-        ConvertIntToDecimalStringN(stringPtr, currMon->lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        ConvertIntToDecimalStringN(stringPtr, 100, STR_CONV_MODE_LEFT_ALIGN, 3); // currMon->lvl
         AddTextPrinterParameterized3(0, FONT_NORMAL, 0x24, 0x11, sMonInfoTextColors, TEXT_SKIP_DRAW, text);
 
         stringPtr = StringCopy(text, gText_IDNumber);
@@ -1442,17 +1490,22 @@ static void SpriteCB_GetOnScreenAndAnimate(struct Sprite *sprite)
     else
     {
         s16 species = sprite->tSpecies;
+        u8 flags = 3;
+
+        if(sprite->tIsFainted)
+            flags |= SKIP_FRONT_ANIM;
 
         if (species == SPECIES_EGG)
-            DoMonFrontSpriteAnimation(sprite, species, TRUE, 3);
+            DoMonFrontSpriteAnimation(sprite, species, TRUE, flags);
         else
-            DoMonFrontSpriteAnimation(sprite, species, FALSE, 3);
+            DoMonFrontSpriteAnimation(sprite, species, FALSE, flags);
     }
 }
 
 #undef tDestinationX
 #undef tDestinationY
 #undef tSpecies
+#undef tIsFainted
 
 #define sSineIdx data[0]
 #define sExtraY  data[1]

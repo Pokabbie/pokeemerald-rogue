@@ -3399,39 +3399,60 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
     u8 write = 0;
     bool8 hasMonFainted = FALSE;
 
-    for(read = 0; read < PARTY_SIZE; ++read)
+    // If we're finished, we don't want to release any mons, just check if anything has fainted or not
+    if(gRogueRun.currentDifficulty >= BOSS_COUNT)
     {
-        hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
-
-        if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
+        for(read = 0; read < PARTY_SIZE; ++read)
         {
-            // This mon is alive
+            hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
 
-            // No need to do anything as this mon is in the correct slot
-            if(write != read)
+            if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
             {
-                CopyMon(&gPlayerParty[write], &gPlayerParty[read], sizeof(struct Pokemon));
+                // This mon is alive
+            }
+            else if(hasValidSpecies)
+            {
+                hasMonFainted = TRUE;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(read = 0; read < PARTY_SIZE; ++read)
+        {
+            hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
+
+            if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
+            {
+                // This mon is alive
+
+                // No need to do anything as this mon is in the correct slot
+                if(write != read)
+                {
+                    CopyMon(&gPlayerParty[write], &gPlayerParty[read], sizeof(struct Pokemon));
+                    ZeroMonData(&gPlayerParty[read]);
+                }
+
+                ++write;
+            }
+            else if(hasValidSpecies)
+            {
+                if(keepItems)
+                {
+                    // Dead so give back held item
+                    u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
+                    if(heldItem != ITEM_NONE)
+                        AddBagItem(heldItem, 1);
+                }
+                else
+                    hasMonFainted = TRUE;
+
+                if(canSendToLab)
+                    PushFaintedMonToLab(&gPlayerParty[read]);
+
                 ZeroMonData(&gPlayerParty[read]);
             }
-
-            ++write;
-        }
-        else if(hasValidSpecies)
-        {
-            if(keepItems)
-            {
-                // Dead so give back held item
-                u16 heldItem = GetMonData(&gPlayerParty[read], MON_DATA_HELD_ITEM);
-                if(heldItem != ITEM_NONE)
-                    AddBagItem(heldItem, 1);
-            }
-            else
-                hasMonFainted = TRUE;
-
-            if(canSendToLab)
-                PushFaintedMonToLab(&gPlayerParty[read]);
-
-            ZeroMonData(&gPlayerParty[read]);
         }
     }
 
