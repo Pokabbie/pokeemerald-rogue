@@ -2189,7 +2189,6 @@ void DoSpecialTrainerBattle(void)
         if (gSpecialVar_0x8005 & MULTI_BATTLE_CHOOSE_MONS) // Skip mons restoring(done in the script)
             gBattleScripting.specialTrainerBattleType = 0xFF;
         break;
-#ifdef ROGUE_FEATURE_AUTOMATION
     case SPECIAL_BATTLE_AUTOMATION:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 
@@ -2200,7 +2199,6 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
         break;
-#endif
     }
 }
 

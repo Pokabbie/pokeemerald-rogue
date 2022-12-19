@@ -20,7 +20,8 @@ int GameClear(void)
         u8 count;
     } ribbonCounts[6];
 
-    HealPlayerParty();
+    // RogueNote: No need to heal party on clear
+    //HealPlayerParty();
 
     if (FlagGet(FLAG_SYS_GAME_CLEAR) == TRUE)
     {

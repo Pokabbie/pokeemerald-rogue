@@ -105,3 +105,21 @@ script Rogue_Debug_AddMoney
 
     release
 }
+
+script Rogue_Debug_TrainerBattleSingle
+{
+    lock
+    clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
+    special(HealPlayerParty)
+    special(RogueDebug_StartBattle)
+    release
+}
+
+script Rogue_Debug_TrainerBattleDouble
+{
+    lock
+    setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+    special(HealPlayerParty)
+    special(RogueDebug_StartBattle)
+    release
+}

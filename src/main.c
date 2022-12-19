@@ -26,7 +26,7 @@
 #include "trainer_hill.h"
 #include "constants/rgb.h"
 
-#include "rogue_automation.h"
+#include "rogue_controller.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -132,9 +132,7 @@ void AgbMain()
 
     DebugPrint("Logger hooked up");
 
-#ifdef ROGUE_FEATURE_AUTOMATION
-    Rogue_AutomationInit();
-#endif
+    Rogue_MainInit();
 
     for (;;)
     {
@@ -201,9 +199,7 @@ static void CallCallbacks(void)
     if (gMain.callback2)
         gMain.callback2();
 
-#ifdef ROGUE_FEATURE_AUTOMATION
-    Rogue_AutomationCallback();
-#endif
+    Rogue_MainCallback();
 }
 
 void SetMainCallback2(MainCallback callback)

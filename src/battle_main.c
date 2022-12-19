@@ -55,6 +55,7 @@
 #include "constants/battle_config.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_string_ids.h"
+#include "constants/battle_frontier.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -1845,6 +1846,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 #ifdef ROGUE_FEATURE_AUTOMATION
     if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
     {
+        Rogue_Battle_StartTrainerBattle();
+        return CalculateEnemyPartyCount();
+    }
+#endif
+
+#ifdef ROGUE_DEBUG
+    if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
+    {
+        Rogue_Battle_StartTrainerBattle();
         return CalculateEnemyPartyCount();
     }
 #endif

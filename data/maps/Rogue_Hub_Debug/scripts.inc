@@ -102,6 +102,24 @@ Rogue_Debug_AddMoney::
 	return
 
 
+Rogue_Debug_TrainerBattleSingle::
+	lock
+	clearflag FLAG_ROGUE_DOUBLE_BATTLES
+	special HealPlayerParty
+	special RogueDebug_StartBattle
+	release
+	return
+
+
+Rogue_Debug_TrainerBattleDouble::
+	lock
+	setflag FLAG_ROGUE_DOUBLE_BATTLES
+	special HealPlayerParty
+	special RogueDebug_StartBattle
+	release
+	return
+
+
 Rogue_Debug_FillPCWithGen_Text_0:
 	.string "Fill PC with GEN?$"
 

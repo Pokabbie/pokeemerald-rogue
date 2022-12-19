@@ -57,6 +57,7 @@ extern const u8 gPopupText_CampaignHighScore[];
 extern const u8 gPopupText_CampaignLowScore[];
 
 extern const u8 gPopupText_SafariArea[];
+extern const u8 gPopupText_StarterWarning[];
 
 
 static const u16 sQuestPopupMessageSoundEffect[] =
@@ -66,6 +67,7 @@ static const u16 sQuestPopupMessageSoundEffect[] =
     [POPUP_MSG_LEGENDARY_CLAUSE] = SE_BALL_OPEN,
     [POPUP_MSG_CAMPAIGN_ANNOUNCE] = SE_EXP_MAX,
     [POPUP_MSG_SAFARI_ENCOUNTERS] = 0,
+    [POPUP_MSG_PARTNER_EVO_WARNING] = SE_NOT_EFFECTIVE,
     //SE_SUCCESS, SE_FAILURE
 };
 
@@ -217,7 +219,7 @@ const u8* GetMsgText(u8 msgType)
 static u8* AppendTypeName(u8* strPointer, u8 type)
 {
     const u8 gText_AdjNormal[] = _("NORMAL");
-    const u8 gText_AdjFighting[] = _("FIGHTING");
+    const u8 gText_AdjFighting[] = _("FIGHT"); // Shortened for convienience
     const u8 gText_AdjFlying[] = _("FLYING");
     const u8 gText_AdjPoison[] = _("POISON");
     const u8 gText_AdjGround[] = _("GROUND");
@@ -228,7 +230,7 @@ static u8* AppendTypeName(u8* strPointer, u8 type)
     const u8 gText_AdjFire[] = _("FIRE");
     const u8 gText_AdjWater[] = _("WATER");
     const u8 gText_AdjGrass[] = _("GRASS");
-    const u8 gText_AdjElectric[] = _("ELECTRIC");
+    const u8 gText_AdjElectric[] = _("ELEC"); // Shortened for convienience
     const u8 gText_AdjPsychic[] = _("PSYCHIC");
     const u8 gText_AdjIce[] = _("ICE");
     const u8 gText_AdjDragon[] = _("DRAGON");
@@ -397,6 +399,12 @@ static void ShowQuestPopUpWindow(void)
             x = GetStringCenterAlignXOffset(FONT_SMALL, gStringVar4, 80);
             AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gStringVar4, x, 16, TEXT_SKIP_DRAW, NULL);
         }
+        break;
+
+    case POPUP_MSG_PARTNER_EVO_WARNING:
+        // Title contains entire warning
+        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StarterWarning, 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StarterWarning, x, 0, TEXT_SKIP_DRAW, NULL);
         break;
 
     default:

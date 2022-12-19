@@ -1204,6 +1204,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 #ifdef ROGUE_EXPANSION
         .unlockedShopRewards = {
             ITEM_FLAME_PLATE,
+            ITEM_FIRE_MEMORY,
             ITEM_BURN_DRIVE,
         }
 #endif

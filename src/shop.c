@@ -38,6 +38,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/event_objects.h"
 
 #include "rogue_controller.h"
 #include "rogue_charms.h"
@@ -893,7 +894,11 @@ static void BuyMenuDrawObjectEvents(void)
             gSprites[spriteId].subspriteMode = SUBSPRITES_ON;
         }
 
-        StartSpriteAnim(&gSprites[spriteId], sShopData->viewportObjects[i][ANIM_NUM]);
+        // RogueNote: don't start anim for truck as it breaks 
+        if(gObjectEvents[sShopData->viewportObjects[i][OBJ_EVENT_ID]].graphicsId != OBJ_EVENT_GFX_TRUCK)
+        {
+            StartSpriteAnim(&gSprites[spriteId], sShopData->viewportObjects[i][ANIM_NUM]);
+        }
     }
 }
 
