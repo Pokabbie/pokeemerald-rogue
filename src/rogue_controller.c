@@ -4561,7 +4561,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
 
     if((gRogueLocal.trainerTemp.forceLegendaries || gRogueLocal.trainerTemp.allowStrongLegendaries) && trainerNum == TRAINER_ROGUE_MINI_BOSS_MAXIE)
     {
-        if(IsGenEnabled(SpeciesToGen(SPECIES_GROUDON)))
+        if(IsSpeciesEnabledForCustomQuery(SPECIES_GROUDON))
         {
             RogueQuery_Include(SPECIES_GROUDON);
         }
