@@ -109,6 +109,7 @@ struct RogueTrainerTemp
     bool8 allowStrongLegendaries;
     bool8 forceLegendaries;
     bool8 preferStrongPresets;
+    bool8 forceStrongPresets;
     bool8 hasAppliedFallback;
     u8 queryMonOffset;
     bool8 hasUsedLeftovers;
@@ -1905,6 +1906,13 @@ void Rogue_OnLoadGame(void)
     FlipEncryptMemory(&gRogueRun, sizeof(gRogueRun), encryptionKey);
     FlipEncryptMemory(&gRogueHubData, sizeof(gRogueHubData), encryptionKey);
 
+#ifndef ROGUE_DEBUG
+    if(!FlagGet(FLAG_ROGUE_DEBUG_DISABLED))
+    {
+        // Invalidate quicksave if we've just jumped from a DEBUG build
+        gRogueLocal.hasValidQuickSave = FALSE;
+    }
+#endif
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
@@ -3982,6 +3990,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8* forceType = &gRogueLocal.trainerTemp.allowedType[0];
     u8* disabledType = &gRogueLocal.trainerTemp.disallowedType[0];
+    bool8 attemptForceStrongPresets = FALSE;
 
     if(IsBossTrainer(trainerNum))
     {
@@ -4010,6 +4019,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
                 gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
             }
         }
+
+        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0)
+        {
+            attemptForceStrongPresets = TRUE;
+        }
     }
     else if(IsMiniBossTrainer(trainerNum))
     {
@@ -4037,6 +4051,11 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
                 gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
                 gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
             }
+        }
+
+        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0)
+        {
+            attemptForceStrongPresets = TRUE;
         }
     }
     else
@@ -4253,6 +4272,16 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
     {
         gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
+    }
+
+    if(attemptForceStrongPresets && gRogueLocal.trainerTemp.preferStrongPresets)
+    {
+        if(!Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LOW_BST)
+        {
+            // Temp don't apply this change during the low bst cup as it'll make it harder mid competition
+            // TODO - Remove this check once competition is over
+            gRogueLocal.trainerTemp.forceStrongPresets = TRUE;
+        }
     }
 
     if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
@@ -4650,7 +4679,7 @@ static void ApplyTrainerQuery(u16 trainerNum)
         u16 targetDex = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
 
         // Regional dex and national mode gen prior to gen 2 has strong mons disabled
-        if(targetDex == 0 && maxGen >= 3)
+        if(gRogueLocal.trainerTemp.forceStrongPresets || (targetDex == 0 && maxGen >= 3))
         { 
             RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
         }

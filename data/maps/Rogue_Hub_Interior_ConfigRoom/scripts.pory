@@ -316,6 +316,10 @@ script Rogue_ConfigRoom_Campaign
     {
         faceplayer
         msgbox(format("Hiya kid!"))
+
+        // Always mark this as complete as some people are not getting it first time?
+        completequest(QUEST_CampaignTease)
+
         if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
         {
             call(Rogue_ConfigRoom_Campaign_Choice)
