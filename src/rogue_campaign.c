@@ -323,6 +323,25 @@ void Rogue_CampaignNotify_OnMonFainted(void)
     }
 }
 
+void Rogue_CampaignNotify_OnMonFormChange(u16 fromSpecies, u16 toSpecies)
+{
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            u16 currentScore = Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
+            u16 formScore = Campaign_LowBst_ScoreFromSpecies(toSpecies);
+
+            if(formScore > currentScore)
+                gRogueRun.campaignData.lowBst.scoreSpecies = toSpecies;
+        }
+        break;
+    }
+}
+
 void Rogue_CampaignNotify_OnMegaEvolve(u16 fromSpecies, u16 toSpecies)
 {
 #ifdef ROGUE_EXPANSION

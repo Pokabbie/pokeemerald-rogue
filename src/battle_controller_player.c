@@ -2241,6 +2241,8 @@ static void SetPlayerMonData(u8 monId)
         }
         break;
     case REQUEST_SPECIES_BATTLE:
+        Rogue_CampaignNotify_OnMonFormChange(GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES), gBattleResources->bufferA[gActiveBattler][3]);
+
         SetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, &gBattleResources->bufferA[gActiveBattler][3]);
         break;
     case REQUEST_HELDITEM_BATTLE:
