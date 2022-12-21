@@ -4020,7 +4020,7 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
             }
         }
 
-        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0)
+        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0 || (trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
         {
             attemptForceStrongPresets = TRUE;
         }
@@ -4051,11 +4051,6 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
                 gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
                 gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
             }
-        }
-
-        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0)
-        {
-            attemptForceStrongPresets = TRUE;
         }
     }
     else
