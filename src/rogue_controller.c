@@ -1742,6 +1742,14 @@ void Rogue_OnSaveGame(void)
         SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
         SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
 
+        // Encounter preview
+        {
+            u16 i;
+
+            for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
+                SerializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible));
+        }
+
         SerializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
         SerializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
         SerializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax));
@@ -1801,6 +1809,14 @@ void Rogue_OnLoadGame(void)
             DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
             DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
             DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+            
+            // Encounter preview
+            {
+                u16 i;
+
+                for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
+                    DeserializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible));
+            }
 
             DeserializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
             DeserializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
