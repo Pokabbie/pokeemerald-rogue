@@ -1099,6 +1099,29 @@ bool8 IsDynamaxEnabled(void)
 #endif
 }
 
+static u32 GetPresetMonFlags(u16 species)
+{
+    u32 flags;
+#ifdef ROGUE_EXPANSION
+    u16 species2;;
+#endif
+    
+    flags = gPresetMonTable[species].flags;
+
+#ifdef ROGUE_EXPANSION
+    species2 = GET_BASE_SPECIES_ID(species);
+    if(species2 != species)
+        flags |= gPresetMonTable[species2].flags;
+#endif
+
+    return flags;
+}
+
+bool8 CheckPresetMonFlags(u16 species, u32 flag)
+{
+    return (GetPresetMonFlags(species) & flag) != 0;
+}
+
 #if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
@@ -2156,10 +2179,10 @@ static bool8 PartyContainsStrongLegendaryMon(void)
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        
         if(species != SPECIES_NONE && IsSpeciesLegendary(species))
         {
-            bool8 isStrongMon = ((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0);
-            if(isStrongMon)
+            if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
             {
                 return TRUE;
             }
@@ -2592,7 +2615,7 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDi
 
     if(!allowStrongSpecies)
     {
-        if((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0)
+        if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
         {
             // We're not allowed this encounter as it's too strong
             return FALSE;
