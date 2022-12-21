@@ -1905,6 +1905,13 @@ void Rogue_OnLoadGame(void)
     FlipEncryptMemory(&gRogueRun, sizeof(gRogueRun), encryptionKey);
     FlipEncryptMemory(&gRogueHubData, sizeof(gRogueHubData), encryptionKey);
 
+#ifndef ROGUE_DEBUG
+    if(!FlagGet(FLAG_ROGUE_DEBUG_DISABLED))
+    {
+        // Invalidate quicksave if we've just jumped from a DEBUG build
+        gRogueLocal.hasValidQuickSave = FALSE;
+    }
+#endif
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
