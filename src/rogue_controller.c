@@ -130,6 +130,7 @@ struct RouteMonPreview
 struct RogueLocalData
 {
     bool8 hasQuickLoadPending;
+    bool8 hasValidQuickSave;
     bool8 hasSaveWarningPending;
     bool8 hasVersionUpdateMsgPending;
     struct RogueTrainerTemp trainerTemp;
@@ -1362,7 +1363,7 @@ static void SelectStartMons(void)
 #endif
 }
 
-#define ROGUE_SAVE_VERSION 3    // The version to use for tracking/updating internal save game data
+#define ROGUE_SAVE_VERSION 4    // The version to use for tracking/updating internal save game data
 // ROGUE_COMPAT_VERSION moved to constants/rogue.h
 
 static bool8 IsPreReleaseCompatVersion(u16 version)
@@ -1617,19 +1618,41 @@ static void* GetBoxDataEndPtr()
     return baseAddr;
 }
 
-static void SerializeBoxData(size_t* offset, void* src, size_t size)
+static void FlipEncryptMemory(void* ptr, size_t size, u32 encryptionKey)
+{
+    if(encryptionKey)
+    {
+        size_t i;
+        u8* write;
+        u8* encryptionBytes = (u8*)&encryptionKey;
+
+        for(i = 0; i < size; ++i)
+        {
+            write = (u8*)(ptr) + i;
+            *write = *write ^ encryptionBytes[i % 4];
+        }
+    }
+}
+
+static void SerializeBoxData(size_t* offset, void* src, size_t size, u32 encryptionKey)
 {
     void* addr = GetBoxDataPtr(*offset);
     AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(addr, src, size);
+
+    FlipEncryptMemory(addr, size, encryptionKey);
+
     *offset += size;
 }
 
-static void DeserializeBoxData(size_t* offset, void* dst, size_t size)
+static void DeserializeBoxData(size_t* offset, void* dst, size_t size, u32 encryptionKey)
 {
     void* addr = GetBoxDataPtr(*offset);
     AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
     memcpy(dst, addr, size);
+
+    FlipEncryptMemory(dst, size, encryptionKey);
+
     *offset += size;
 }
 
@@ -1708,64 +1731,84 @@ extern const u8 Rogue_QuickSaveVersionUpdate[];
 void Rogue_OnSaveGame(void)
 {
     u8 i;
+    u32 encryptionKey = Random32();
 
     gSaveBlock1Ptr->rogueSaveVersion = ROGUE_SAVE_VERSION;
     gSaveBlock1Ptr->rogueCompatVersion = ROGUE_COMPAT_VERSION;
 
     gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
 
-    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
-    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
-
     {
         size_t offset = 0;
+
+        SerializeBoxData(&offset, &encryptionKey, sizeof(encryptionKey), 0);
 
         // Serialize more global data
         {
             u16 count;
 
             count = QUEST_CAPACITY;
-            SerializeBoxData(&offset, &count, sizeof(count));
-            SerializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * count);
+            SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
+            SerializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * count, encryptionKey);
 
             count = ROGUE_CAMPAIGN_COUNT;
-            SerializeBoxData(&offset, &count, sizeof(count));
-            SerializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * count);
+            SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
+            SerializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * count, encryptionKey);
 
-            SerializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead));
-            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
-            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality));
+            SerializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
+            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
+            SerializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
         }
 
         // Serialize temporary per-run data
-        SerializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
-        SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
-        SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+        SerializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData), encryptionKey);
+        SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath), encryptionKey);
+        SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData), encryptionKey);
 
         // Encounter preview
         {
             u16 i;
 
             for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
-                SerializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible));
+                SerializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible), encryptionKey);
         }
 
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax));
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation));
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount), encryptionKey);
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin), encryptionKey);
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax), encryptionKey);
+        SerializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation), encryptionKey);
+
+        // Encode save reload state here
+        gRogueLocal.hasQuickLoadPending = (Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED));
+        gRogueLocal.hasValidQuickSave = FlagGet(FLAG_ROGUE_VALID_QUICK_SAVE);
+
+        SerializeBoxData(&offset, &gRogueLocal.hasQuickLoadPending, sizeof(gRogueLocal.hasQuickLoadPending), encryptionKey);
+        SerializeBoxData(&offset, &gRogueLocal.hasValidQuickSave, sizeof(gRogueLocal.hasValidQuickSave), encryptionKey);
+
+        // Clear out otherwise, they'll immediately retrigger
+        gRogueLocal.hasQuickLoadPending = FALSE;
+        gRogueLocal.hasValidQuickSave = FALSE;
     }
+    
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
+    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
+
+    FlipEncryptMemory(&gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun), encryptionKey);
+    FlipEncryptMemory(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData), encryptionKey);
 }
 
 void Rogue_OnLoadGame(void)
 {
     u8 i;
+    u32 encryptionKey = 0;
+
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
-    gRngRogueValue = gSaveBlock1Ptr->rogueBlock.saveData.rngSeed;
+    DebugPrintf("Save Version: %d", gSaveBlock1Ptr->rogueSaveVersion);
+    DebugPrintf("Compat Version: %d", gSaveBlock1Ptr->rogueCompatVersion);
+    DebugPrintf("Debug Save: %s", FlagGet(FLAG_ROGUE_DEBUG_DISABLED) ? "-" : "DEBUG PREVIOUSLY ACTIVE");
 
-    memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
-    memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
+    gRngRogueValue = gSaveBlock1Ptr->rogueBlock.saveData.rngSeed;
 
     {
         size_t offset = 0;
@@ -1782,53 +1825,63 @@ void Rogue_OnLoadGame(void)
             offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
-            DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * questCapacity);
+            DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * questCapacity, 0);
             ResetQuestStateAfter(questCapacity);
             Rogue_ResetCampaignAfter(0);
         }
         else
         {
+            if(gSaveBlock1Ptr->rogueSaveVersion >= 4)
+            {
+                DeserializeBoxData(&offset, &encryptionKey, sizeof(encryptionKey), 0);
+            }
+
             // Serialize more global data
             {
                 u16 count;
                 
-                DeserializeBoxData(&offset, &count, sizeof(count));
-                DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * min(count, QUEST_CAPACITY));
+                DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
+                DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * min(count, QUEST_CAPACITY), encryptionKey);
                 ResetQuestStateAfter(count);
 
-                DeserializeBoxData(&offset, &count, sizeof(count));
-                DeserializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * min(count, ROGUE_CAMPAIGN_COUNT));
+                DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
+                DeserializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * min(count, ROGUE_CAMPAIGN_COUNT), encryptionKey);
                 Rogue_ResetCampaignAfter(count);
 
-                DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead));
-                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
-                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality));
+                DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
+                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
+                DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
             }
 
             // Serialize temporary per-run data
-            DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData));
-            DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath));
-            DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData));
+            DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData), encryptionKey);
             
             // Encounter preview
             {
                 u16 i;
 
                 for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
-                    DeserializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible));
+                    DeserializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible), encryptionKey);
             }
 
-            DeserializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount));
-            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin));
-            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax));
-            DeserializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation));
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation), encryptionKey);
+
+            DeserializeBoxData(&offset, &gRogueLocal.hasQuickLoadPending, sizeof(gRogueLocal.hasQuickLoadPending), encryptionKey);
+            DeserializeBoxData(&offset, &gRogueLocal.hasValidQuickSave, sizeof(gRogueLocal.hasValidQuickSave), encryptionKey);
         }
     }
 
-    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
-    {
-        gRogueLocal.hasQuickLoadPending = TRUE;
-    }
+    memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
+    memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
+
+    FlipEncryptMemory(&gRogueRun, sizeof(gRogueRun), encryptionKey);
+    FlipEncryptMemory(&gRogueHubData, sizeof(gRogueHubData), encryptionKey);
+
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
@@ -1868,6 +1921,12 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     else if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
+
+        if(gRogueLocal.hasValidQuickSave)
+            FlagSet(FLAG_ROGUE_VALID_QUICK_SAVE);
+        else
+            FlagClear(FLAG_ROGUE_VALID_QUICK_SAVE);
+
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
