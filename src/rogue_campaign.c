@@ -58,6 +58,26 @@ void Rogue_ResetCampaignAfter(u16 count)
     }
 }
 
+bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
+{
+    u16 i;
+
+    for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
+    {
+        // These campaigns don't contribute to trainer card
+        switch (i)
+        {
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            continue;
+        }
+
+        if(!gRogueGlobalData.campaignData[i].isCompleted)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 u16 Rogue_GetActiveCampaign(void)
 {
     return VarGet(VAR_ROGUE_ACTIVE_CAMPAIGN);
