@@ -2065,6 +2065,13 @@ u16 GetStartDifficulty(void)
 {
     u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
 
+#ifdef ROGUE_DEBUG
+    if(skipToDifficulty == 8)
+    {
+        skipToDifficulty = BOSS_COUNT - 1;
+    }
+#endif
+
     if(skipToDifficulty != 0)
     {
         return skipToDifficulty;
