@@ -979,9 +979,7 @@ void RogueQuery_SpeciesIsNotWeakLegendary(void)
         {
             if(IsSpeciesLegendary(species))
             {
-                bool8 isStrong = ((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0);
-
-                if(!isStrong)
+                if(!CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
                 {
                     SetQueryState(species, FALSE);
                 }
@@ -1000,9 +998,7 @@ void RogueQuery_SpeciesIsNotStrongLegendary(void)
         {
             if(IsSpeciesLegendary(species))
             {
-                bool8 isStrong = ((gPresetMonTable[species].flags & MON_FLAG_STRONG_WILD) != 0);
-
-                if(isStrong)
+                if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
                 {
                     SetQueryState(species, FALSE);
                 }
@@ -1022,7 +1018,7 @@ void RogueQuery_SpeciesIncludeMonFlags(u16 flags)
     {
         if(GetQueryState(species))
         {
-            if((gPresetMonTable[species].flags & flags) == 0)
+            if((gPresetMonTable[species].flags & flags) == 0) // Could use CheckPresetMonFlags, but don't as likely want it separate
             {
                 SetQueryState(species, FALSE);
             }
@@ -1041,7 +1037,7 @@ void RogueQuery_SpeciesExcludeMonFlags(u16 flags)
     {
         if(GetQueryState(species))
         {
-            if((gPresetMonTable[species].flags & flags) != 0)
+            if((gPresetMonTable[species].flags & flags) != 0) // Could use CheckPresetMonFlags, but don't as likely want it separate
             {
                 SetQueryState(species, FALSE);
             }

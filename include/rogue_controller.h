@@ -44,6 +44,8 @@ bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);
 bool8 IsDynamaxEnabled(void);
 
+bool8 CheckPresetMonFlags(u16 species, u32 flag);
+
 void Rogue_ResetConfigHubSettings(void);
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);
