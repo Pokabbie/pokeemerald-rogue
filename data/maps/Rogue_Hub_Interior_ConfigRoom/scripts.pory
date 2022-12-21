@@ -103,30 +103,6 @@ script Rogue_ConfigRoom_TalkAssistantInternal
     }
 }
 
-script Rogue_ConfigRoom_Campaign_BufferCampaignName
-{
-    switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
-    {
-        case ROGUE_CAMPAIGN_LOW_BST:
-            bufferstring(STR_VAR_1, gText_Campaign_LowBST)
-
-        case ROGUE_CAMPAIGN_CLASSIC:
-            bufferstring(STR_VAR_1, gText_Campaign_Classic)
-
-        case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
-            bufferstring(STR_VAR_1, gText_Campaign_MiniBossBattler)
-
-        case ROGUE_CAMPAIGN_AUTO_BATTLER:
-            bufferstring(STR_VAR_1, gText_Campaign_AutoBattler)
-
-        case ROGUE_CAMPAIGN_LATERMANNER:
-            bufferstring(STR_VAR_1, gText_Campaign_LaterManner)
-
-        default:
-            bufferstring(STR_VAR_1, gText_Campaign_None)
-    }
-}
-
 script Rogue_ConfigRoom_Campaign_CampaignDescription
 {
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
@@ -151,6 +127,11 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
             msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a POKéMON faints...\pAnd well... You'll figure out the rest."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
+        case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+            msgbox(format("Limited Capture Mode will provide you a limited number of POKé BALLs and your goal is simply to complete an Adventure.\pYou will not be able to purchase or find new POKé BALLs during the Adventure and encounters which give you POKéMON, such as the POKéMON LAB, will no longer appear.\pThis can be played in any adventure type and will force Bag Wipe in Config Lab."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+
+
         default:
             msgbox(format("???"))
     }
@@ -158,7 +139,7 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
 
 script Rogue_ConfigRoom_Campaign_Choice
 {
-    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+    special(Rogue_BufferCampaignName)
     special(Rogue_GetCampaignHighScore)
 
     if(var(VAR_RESULT) == 0)
@@ -193,7 +174,7 @@ script Rogue_ConfigRoom_Campaign_Choice
 
 script Rogue_ConfigRoom_Campaign_ReplayChoice
 {
-    call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+    special(Rogue_BufferCampaignName)
     special(Rogue_GetCampaignHighScore)
 
     if(var(VAR_RESULT) == 0)
@@ -238,7 +219,7 @@ script Rogue_ConfigRoom_Campaign_NewPhrase
         faceplayer
         completequest(QUEST_CampaignTease)
 
-        call(Rogue_ConfigRoom_Campaign_BufferCampaignName)
+        special(Rogue_BufferCampaignName)
         msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
 
         if(var(VAR_TEMP_F) == YES)

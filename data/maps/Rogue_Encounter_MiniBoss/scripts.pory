@@ -156,7 +156,12 @@ script Rogue_BattleDefeated_MiniBoss
     call(Rogue_GiveItem_Internal)
 
     special(Rogue_ChooseMiniBossRewardMons)
-    call(Rogue_BattleDefeated_GiveMon)
+
+    if(var(VAR_ROGUE_ACTIVE_CAMPAIGN) != ROGUE_CAMPAIGN_POKEBALL_LIMIT)
+    {
+        // Pokeball limited mode won't give mons as rewards
+        call(Rogue_BattleDefeated_GiveMon)
+    }
 
     special(HealPlayerParty)
     special(RemoveCameraObject)

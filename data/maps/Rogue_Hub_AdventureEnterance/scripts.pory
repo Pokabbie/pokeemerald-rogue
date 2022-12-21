@@ -66,7 +66,7 @@ script Rogue_Adventure_RedrawMap
 script Rogue_Adventure_ScottGiveQuestLog
 {
     giveitem(ITEM_QUEST_LOG, 1)
-    msgbox(format("That log has a lot of optional Quests for you do complete whilst you're out on an Adventure.\pCompleting Quests can give you some nice rewards too.\pOnce you complete any, come and chat to me and I'll give your rewards."))
+    msgbox(format("That log has a lot of optional Quests for you to complete whilst you're out on an Adventure.\pCompleting Quests can give you some nice rewards too.\pOnce you complete any, come and chat to me and I'll give your rewards."))
 }
 
 script Rogue_Adventure_ScottIntro

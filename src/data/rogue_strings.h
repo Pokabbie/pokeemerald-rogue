@@ -300,6 +300,7 @@ const u8 gText_Campaign_Classic[] = _("Classic Mode");
 const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
 const u8 gText_Campaign_AutoBattler[] = _("Auto Battler");
 const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
+const u8 gText_Campaign_PokeballLimit[] = _("Limited Capture");
 
 // Popups
 //

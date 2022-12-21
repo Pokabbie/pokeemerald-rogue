@@ -576,7 +576,7 @@ Rogue_Hub_ProfLab_SpeakProf_Text_1:
 
 Rogue_Hub_ProfLab_SpeakProf_Text_2:
 	.string "BIRCH: OK then!\n"
-	.string "If you ever need an explaination, you\l"
+	.string "If you ever need an explanation, you\l"
 	.string "know where to find me.$"
 
 Rogue_Hub_ProfLab_ProfExplain_Text_0:

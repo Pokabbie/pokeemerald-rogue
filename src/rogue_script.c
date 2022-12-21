@@ -736,3 +736,8 @@ void Rogue_GetCampaignHighScore(void)
     gSpecialVar_Result = 0;
     return;
 }
+
+void Rogue_BufferCampaignName(void)
+{
+    StringCopy(&gStringVar1[0], GetCampaignTitle(VarGet(VAR_ROGUE_DESIRED_CAMPAIGN)));
+}

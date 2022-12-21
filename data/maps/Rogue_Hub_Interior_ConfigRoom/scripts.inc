@@ -95,37 +95,6 @@ Rogue_ConfigRoom_TalkAssistantInternal_16:
 	return
 
 
-Rogue_ConfigRoom_Campaign_BufferCampaignName::
-	switch VAR_ROGUE_DESIRED_CAMPAIGN
-	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_BufferCampaignName_2
-	case ROGUE_CAMPAIGN_CLASSIC, Rogue_ConfigRoom_Campaign_BufferCampaignName_3
-	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_4
-	case ROGUE_CAMPAIGN_AUTO_BATTLER, Rogue_ConfigRoom_Campaign_BufferCampaignName_5
-	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_BufferCampaignName_6
-	bufferstring STR_VAR_1, gText_Campaign_None
-	return
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_2:
-	bufferstring STR_VAR_1, gText_Campaign_LowBST
-	return
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_3:
-	bufferstring STR_VAR_1, gText_Campaign_Classic
-	return
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_4:
-	bufferstring STR_VAR_1, gText_Campaign_MiniBossBattler
-	return
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_5:
-	bufferstring STR_VAR_1, gText_Campaign_AutoBattler
-	return
-
-Rogue_ConfigRoom_Campaign_BufferCampaignName_6:
-	bufferstring STR_VAR_1, gText_Campaign_LaterManner
-	return
-
-
 Rogue_ConfigRoom_Campaign_CampaignDescription::
 	switch VAR_ROGUE_DESIRED_CAMPAIGN
 	case ROGUE_CAMPAIGN_LOW_BST, Rogue_ConfigRoom_Campaign_CampaignDescription_2
@@ -133,7 +102,8 @@ Rogue_ConfigRoom_Campaign_CampaignDescription::
 	case ROGUE_CAMPAIGN_MINIBOSS_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_4
 	case ROGUE_CAMPAIGN_AUTO_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_5
 	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_CampaignDescription_6
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
+	case ROGUE_CAMPAIGN_POKEBALL_LIMIT, Rogue_ConfigRoom_Campaign_CampaignDescription_7
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -161,9 +131,14 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_6:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
+Rogue_ConfigRoom_Campaign_CampaignDescription_7:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
+	return
+
 
 Rogue_ConfigRoom_Campaign_Choice::
-	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	special Rogue_BufferCampaignName
 	special Rogue_GetCampaignHighScore
 	compare VAR_RESULT, 0
 	goto_if_eq Rogue_ConfigRoom_Campaign_Choice_2
@@ -200,7 +175,7 @@ Rogue_ConfigRoom_Campaign_Choice_8:
 
 
 Rogue_ConfigRoom_Campaign_ReplayChoice::
-	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	special Rogue_BufferCampaignName
 	special Rogue_GetCampaignHighScore
 	compare VAR_RESULT, 0
 	goto_if_eq Rogue_ConfigRoom_Campaign_ReplayChoice_2
@@ -248,7 +223,7 @@ Rogue_ConfigRoom_Campaign_NewPhrase::
 Rogue_ConfigRoom_Campaign_NewPhrase_1:
 	faceplayer
 	completequest QUEST_CampaignTease
-	call Rogue_ConfigRoom_Campaign_BufferCampaignName
+	special Rogue_BufferCampaignName
 	msgbox Rogue_ConfigRoom_Campaign_NewPhrase_Text_1, MSGBOX_DEFAULT
 	compare VAR_TEMP_F, YES
 	goto_if_eq Rogue_ConfigRoom_Campaign_NewPhrase_5
@@ -582,7 +557,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -750,7 +725,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -799,7 +774,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1767,6 +1742,20 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_6:
 	.string "And well... You'll figure out the rest.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7:
+	.string "Limited Capture Mode will provide you a\n"
+	.string "limited number of POKé BALLs and your\l"
+	.string "goal is simply to complete an\l"
+	.string "Adventure.\p"
+	.string "You will not be able to purchase or find\n"
+	.string "new POKé BALLs during the Adventure\l"
+	.string "and encounters which give you POKéMON,\l"
+	.string "such as the POKéMON LAB, will no longer\l"
+	.string "appear.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and will force Bag Wipe in Config\l"
+	.string "Lab.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:

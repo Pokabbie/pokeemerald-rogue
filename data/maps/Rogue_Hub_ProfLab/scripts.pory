@@ -49,7 +49,7 @@ script Rogue_Hub_ProfLab_SpeakProf
 
     if(var(VAR_RESULT) == NO)
     {
-        msgbox(format("BIRCH: OK then!\nIf you ever need an explaination, you know where to find me."), MSGBOX_DEFAULT)
+        msgbox(format("BIRCH: OK then!\nIf you ever need an explanation, you know where to find me."), MSGBOX_DEFAULT)
     }
 
     releaseall
