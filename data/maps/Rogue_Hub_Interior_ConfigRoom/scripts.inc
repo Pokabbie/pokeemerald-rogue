@@ -315,6 +315,7 @@ Rogue_ConfigRoom_Campaign::
 	goto_if_eq Rogue_ConfigRoom_Campaign_2
 	faceplayer
 	msgbox Rogue_ConfigRoom_Campaign_Text_0
+	completequest QUEST_CampaignTease
 	compare VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE
 	goto_if_ne Rogue_ConfigRoom_Campaign_5
 	message Rogue_ConfigRoom_Campaign_Text_2
