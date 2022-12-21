@@ -63,6 +63,8 @@ bool32 CheckBoxMonSanityAt(u32 boxId, u32 boxPosition);
 u32 CountStorageNonEggMons(void);
 u32 CountAllStorageMons(void);
 bool32 AnyStorageMonWithMove(u16 moveId);
+bool8 AnyStorageMonOfSpecies(u16 species);
+bool8 AnyPlayerPartyMonOfSpecies(u16 species);
 
 void ResetWaldaWallpaper(void);
 void SetWaldaWallpaperLockedOrUnlocked(bool32 unlocked);

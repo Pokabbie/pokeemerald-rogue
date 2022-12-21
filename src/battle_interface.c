@@ -21,6 +21,7 @@
 #include "battle_anim.h"
 #include "data.h"
 #include "pokemon_summary_screen.h"
+#include "pokemon_storage_system.h"
 #include "strings.h"
 #include "constants/battle_anim.h"
 #include "constants/rgb.h"
@@ -1945,6 +1946,7 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
 static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 {
     u8 battlerId, healthBarSpriteId;
+    u16 targetGfxId = HEALTHBOX_GFX_STATUS_BALL_CAUGHT;
 
     if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
         return;
@@ -1957,10 +1959,17 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
     if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
         return;
 
+    if(GetSafariZoneFlag())
+    {
+        if(!AnyPlayerPartyMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES))
+            && !AnyStorageMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)))
+            targetGfxId = HEALTHBOX_GFX_STATUS_BALL_STATUSED;
+    }
+
     healthBarSpriteId = gSprites[healthboxSpriteId].hMain_HealthBarSpriteId;
 
     if (noStatus)
-        CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT), (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
+        CpuCopy32(GetHealthboxElementGfxPtr(targetGfxId), (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
     else
         CpuFill32(0, (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
 }
