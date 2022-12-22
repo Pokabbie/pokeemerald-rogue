@@ -106,10 +106,10 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
-            return itemCount * (isCurse ? 25 : 25);
+            return itemCount * (isCurse ? 40 : 40);
 
         case EFFECT_FLINCH_CHANCE:
-            return min(itemCount * (isCurse ? 5 : 10), 90);
+            return min(itemCount * (isCurse ? 10 : 10), 90);
 
         case EFFECT_CRIT_CHANCE:
             {
