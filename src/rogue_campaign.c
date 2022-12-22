@@ -71,6 +71,7 @@ bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
         // These campaigns don't contribute to trainer card
         switch (i)
         {
+        case ROGUE_CAMPAIGN_LOW_BST:
         case ROGUE_CAMPAIGN_LATERMANNER:
             continue;
         }

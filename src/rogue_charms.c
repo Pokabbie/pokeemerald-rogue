@@ -123,7 +123,7 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
             return min(itemCount * (isCurse ? 15 : 20), 100);
 
         case EFFECT_WILD_IV_RATE:
-            return itemCount * 10;
+            return itemCount * 20;
             
         case EFFECT_CATCH_RATE:
             return itemCount * (isCurse ? 25 : 100);

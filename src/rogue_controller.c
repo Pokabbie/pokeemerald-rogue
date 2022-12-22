@@ -2032,7 +2032,10 @@ void Rogue_MainCallback(void)
 {
     //Additional 3rd maincallback which is always called
 
-    UpdateHotTracking();
+    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_NONE)
+    {
+        UpdateHotTracking();
+    }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
