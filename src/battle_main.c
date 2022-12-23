@@ -4615,7 +4615,7 @@ static bool8 ActivateMovePriorityCharm(u8 battler)
     {
         rand = (gRandomTurnNumber & 0xFF);
 
-        if((battler % 2) == 1)
+        if((battler / 2) != 0) // Flip for right side
             rand = ~rand;
 
         return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
@@ -4624,7 +4624,7 @@ static bool8 ActivateMovePriorityCharm(u8 battler)
     {
         rand = ((gRandomTurnNumber & 0xFF00) >> 8);
 
-        if((battler % 2) == 1)
+        if((battler / 2) != 0) // Flip for right side
             rand = ~rand;
 
         return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
