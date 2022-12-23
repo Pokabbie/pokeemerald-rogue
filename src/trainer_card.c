@@ -32,6 +32,7 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 
+#include "rogue_campaign.h"
 #include "rogue_quest.h"
 
 struct TrainerCardData
@@ -673,11 +674,11 @@ u32 CountPlayerTrainerStars(void)
 
     if (GetGameStat(GAME_STAT_ENTERED_HOF))
         stars++;
-    if (GetCompletedQuestPerc())
+    if (GetCompletedQuestPerc() == 100)
         stars++;
     if (IsQuestCollected(QUEST_GlitchMode))
         stars++;
-    if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED))
+    if (Rogue_CheckTrainerCardCampaignCompletion())
         stars++;
 
     return stars;
@@ -758,28 +759,30 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
 
     StringCopy(trainerCard->playerName, gSaveBlock2Ptr->playerName);
 
-    switch (cardType)
-    {
-    case CARD_TYPE_EMERALD:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-    // Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
-    case CARD_TYPE_FRLG:
-        trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
-        trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
-        if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
-            trainerCard->hasAllPaintings = TRUE;
-        trainerCard->stars = GetRubyTrainerStars(trainerCard);
-        break;
-    case CARD_TYPE_RS:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-        trainerCard->contestsWithFriends = 0;
-        trainerCard->pokeblocksWithFriends = 0;
-        trainerCard->hasAllPaintings = 0;
-        trainerCard->stars = 0;
-        break;
-    }
+    trainerCard->stars = CountPlayerTrainerStars(); // TODO - Doesn't work for multiplayer
+    //switch (cardType)
+    //{
+    //case CARD_TYPE_EMERALD:
+    //    trainerCard->battleTowerWins = 0;
+    //    trainerCard->battleTowerStraightWins = 0;
+    //    trainerCard->stars = CountPlayerTrainerStars(); // TODO - Doesn't work for line
+    //// Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
+    //case CARD_TYPE_FRLG:
+    //    trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
+    //    trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
+    //    if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
+    //        trainerCard->hasAllPaintings = TRUE;
+    //    trainerCard->stars = GetRubyTrainerStars(trainerCard);
+    //    break;
+    //case CARD_TYPE_RS:
+    //    trainerCard->battleTowerWins = 0;
+    //    trainerCard->battleTowerStraightWins = 0;
+    //    trainerCard->contestsWithFriends = 0;
+    //    trainerCard->pokeblocksWithFriends = 0;
+    //    trainerCard->hasAllPaintings = 0;
+    //    trainerCard->stars = 0;
+    //    break;
+    //}
 }
 
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)

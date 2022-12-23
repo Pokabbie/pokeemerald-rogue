@@ -194,8 +194,8 @@ script RogueHub_OnMapLoad
     {
     }
     
-    // Shop
-    questcollected(QUEST_LegendOnly)
+    // Pokeball changer
+    questcollected(QUEST_ShinyOnly)
     if(var(VAR_RESULT) == NO)
     {
         setflag(FLAG_ROGUE_TRAINER9)
@@ -204,6 +204,19 @@ script RogueHub_OnMapLoad
     {
         
         clearflag(FLAG_ROGUE_TRAINER9)
+    }
+
+    // Combiner (Only needed for EX)
+    questcollected(QUEST_LegendOnly)
+    if(var(VAR_RESULT) == NO || !flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        setflag(FLAG_ROGUE_TRAINER12)
+        fillmetatile(42, 30, 49, 39, METATILE_Grass, FALSE)
+    }
+    else
+    {
+        
+        clearflag(FLAG_ROGUE_TRAINER12)
     }
 
     // Campaign Man
@@ -827,6 +840,99 @@ script RogueHub_ChangeMonBall
     if(var(VAR_RESULT) == NO)
     {
         msgbox(format("Oh... OK..."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script RogueHub_CombineMons
+{
+    lock
+
+    msgbox(format("I found a powerful artefact in the ground here...\pThe deeper a dig...\nThe more I find...\pThe artefacts I've found have the power to combine specific POKéMON together!"), MSGBOX_DEFAULT)
+
+    specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+    faceplayer
+    if(var(VAR_RESULT) > 1)
+    {
+        msgbox(format("Have you got any POKéMON you'd like me to attempt to combine?"), MSGBOX_YESNO)
+    
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Which POKéMON would you like me to check?"), MSGBOX_DEFAULT)
+
+            // 1st mon
+            special(ChoosePartyMon)
+            waitstate
+            copyvar(VAR_0x8003, VAR_0x8004)
+
+            if(var(VAR_0x8003) == PARTY_NOTHING_CHOSEN)
+            {
+                setvar(VAR_RESULT, NO)
+            }
+
+            // 2nd mon
+            if(var(VAR_RESULT) == YES)
+            {
+                special(ChoosePartyMon)
+                waitstate
+
+                if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+                {
+                    setvar(VAR_RESULT, NO)
+                }
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                if(var(VAR_0x8003) == VAR_0x8004)
+                {
+                    msgbox(format("I can't combine the same POKéMON..."), MSGBOX_DEFAULT)
+                }
+                else
+                {
+                    special(Rogue_CheckMonCombo)
+
+                    if(var(VAR_0x8005) != 0)
+                    {
+                        bufferitemname(STR_VAR_1, VAR_0x8005)
+                        bufferspeciesname(STR_VAR_2, VAR_0x8006)
+        
+                        msgbox(format("Oh yes!\nMy artefacts!\p{STR_VAR_1} is responding!\pWhat's that {STR_VAR_1}..?\pMhm..."), MSGBOX_DEFAULT)
+                        msgbox(format("I can combine those POKéMON together!\pAlthough once it's done..\nit can NEVER be undone...\pWould you like to combine those POKéMON into {STR_VAR_2}?"), MSGBOX_YESNO)
+
+                        if(var(VAR_RESULT) == YES)
+                        {
+                            fadescreen(FADE_TO_BLACK)
+                            playfanfare(MUS_AWAKEN_LEGEND)
+                            special(Rogue_ApplyMonCombo)
+                            waitfanfare
+
+                            playmoncry(VAR_0x8006, CRY_MODE_ENCOUNTER)
+                            waitmoncry
+
+                            fadescreen(FADE_FROM_BLACK)
+    
+                            msgbox(format("{STR_VAR_2} has awakened!"), MSGBOX_DEFAULT)
+                        }
+                    }
+                    else
+                    {
+                        msgbox(format("Hmm...\nMy artefacts don't seem to be responding..."), MSGBOX_DEFAULT)
+                        setvar(VAR_RESULT, YES)
+                    }
+                }
+            }
+        }
+
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("That's a shame...\nThe artefacts are gonna be sad now..."), MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        msgbox(format("If you come back with 2 POKéMON I could check them... if you'd like..."), MSGBOX_DEFAULT)
     }
 
     release

@@ -152,7 +152,7 @@ const u8 gText_ItemQuestLogDesc[] = _(
 
 const u8 sItemShoppingCharmDesc[] = _(
     "Shop prices are\n"
-    "reduced by 25%");
+    "reduced by 40%");
 
 const u8 sItemFlinchCharmDesc[] = _(
     "Friendly moves\n"
@@ -191,12 +191,12 @@ const u8 sItemEncounterCharmDesc[] = _(
     
 const u8 sItemShoppingCurseDesc[] = _(
     "Shop prices are\n"
-    "increased by 25%");
+    "increased by 40%");
 
 
 const u8 sItemFlinchCurseDesc[] = _(
     "Opponent moves\n"
-    "have an extra 5%\n"
+    "have an extra 10%\n"
     "chance to flinch.");
 
 const u8 sItemCritCurseDesc[] = _(
@@ -233,9 +233,9 @@ const u8 sItemPartyCurseDesc[] = _(
     "party is reduced.");
 
 const u8 sItemEverstoneCurseDesc[] = _(
-    "LVL UP Evolutions\n"
-    "become LVL whilst\n"
-    "holding LINK CABLE.");
+    "'LVL UP' Evolutions\n"
+    "turn into 'LVL whilst\n"
+    "holding LINK CABLE'.");
 
 const u8 sItemBattleItemCurseDesc[] = _(
     "Items cannot be\n"
@@ -300,6 +300,7 @@ const u8 gText_Campaign_Classic[] = _("Classic Mode");
 const u8 gText_Campaign_MiniBossBattler[] = _("Battle Addict");
 const u8 gText_Campaign_AutoBattler[] = _("Auto Battler");
 const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
+const u8 gText_Campaign_PokeballLimit[] = _("Limited Capture");
 
 // Popups
 //

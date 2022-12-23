@@ -108,19 +108,22 @@ Rogue_Encounter_GameShow_DisplayGood_5:
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_6:
+	compare VAR_ROGUE_ACTIVE_CAMPAIGN, ROGUE_CAMPAIGN_POKEBALL_LIMIT
+	goto_if_eq Rogue_Encounter_GameShow_DisplayGood_10
 	random 10
+Rogue_Encounter_GameShow_DisplayGood_9:
 	msgbox Rogue_Encounter_GameShow_DisplayGood_Text_4, MSGBOX_DEFAULT
 	switch VAR_RESULT
-	case 0, Rogue_Encounter_GameShow_DisplayGood_10
-	case 1, Rogue_Encounter_GameShow_DisplayGood_11
-	case 2, Rogue_Encounter_GameShow_DisplayGood_12
-	case 3, Rogue_Encounter_GameShow_DisplayGood_13
-	case 4, Rogue_Encounter_GameShow_DisplayGood_14
-	case 5, Rogue_Encounter_GameShow_DisplayGood_15
-	case 6, Rogue_Encounter_GameShow_DisplayGood_16
-	case 7, Rogue_Encounter_GameShow_DisplayGood_17
-	case 8, Rogue_Encounter_GameShow_DisplayGood_18
-	case 9, Rogue_Encounter_GameShow_DisplayGood_19
+	case 0, Rogue_Encounter_GameShow_DisplayGood_14
+	case 1, Rogue_Encounter_GameShow_DisplayGood_15
+	case 2, Rogue_Encounter_GameShow_DisplayGood_16
+	case 3, Rogue_Encounter_GameShow_DisplayGood_17
+	case 4, Rogue_Encounter_GameShow_DisplayGood_18
+	case 5, Rogue_Encounter_GameShow_DisplayGood_19
+	case 6, Rogue_Encounter_GameShow_DisplayGood_20
+	case 7, Rogue_Encounter_GameShow_DisplayGood_21
+	case 8, Rogue_Encounter_GameShow_DisplayGood_22
+	case 9, Rogue_Encounter_GameShow_DisplayGood_23
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_7:
@@ -134,42 +137,46 @@ Rogue_Encounter_GameShow_DisplayGood_8:
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
 Rogue_Encounter_GameShow_DisplayGood_10:
+	random 8
+	goto Rogue_Encounter_GameShow_DisplayGood_9
+
+Rogue_Encounter_GameShow_DisplayGood_14:
 	giveitem ITEM_MAX_POTION, 3
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_11:
+Rogue_Encounter_GameShow_DisplayGood_15:
 	giveitem ITEM_FULL_RESTORE, 3
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_12:
+Rogue_Encounter_GameShow_DisplayGood_16:
 	giveitem ITEM_MASTER_BALL, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_13:
+Rogue_Encounter_GameShow_DisplayGood_17:
 	giveitem ITEM_TM26_EARTHQUAKE, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_14:
+Rogue_Encounter_GameShow_DisplayGood_18:
 	giveitem ITEM_TM15_HYPER_BEAM, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_15:
+Rogue_Encounter_GameShow_DisplayGood_19:
 	giveitem ITEM_TM14_BLIZZARD, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_16:
+Rogue_Encounter_GameShow_DisplayGood_20:
 	giveitem ITEM_TM38_FIRE_BLAST, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_17:
+Rogue_Encounter_GameShow_DisplayGood_21:
 	giveitem ITEM_TM25_THUNDER, 1
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_18:
+Rogue_Encounter_GameShow_DisplayGood_22:
 	giveitem ITEM_PREMIER_BALL, 50
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 
-Rogue_Encounter_GameShow_DisplayGood_19:
+Rogue_Encounter_GameShow_DisplayGood_23:
 	giveitem ITEM_ULTRA_BALL, 20
 	goto Rogue_Encounter_GameShow_DisplayGood_1
 

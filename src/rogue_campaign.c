@@ -16,6 +16,7 @@ extern const u8 gText_Campaign_Classic[];
 extern const u8 gText_Campaign_MiniBossBattler[];
 extern const u8 gText_Campaign_AutoBattler[];
 extern const u8 gText_Campaign_LaterManner[];
+extern const u8 gText_Campaign_PokeballLimit[];
 
 static void Campaign_LowBst_RecalculateScore(void);
 static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
@@ -38,6 +39,9 @@ const u8* GetCampaignTitle(u16 campaignId)
 
     case ROGUE_CAMPAIGN_LATERMANNER:
         return &gText_Campaign_LaterManner[0];
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        return &gText_Campaign_PokeballLimit[0];
     
     default:
         return &gText_Campaign_None[0];
@@ -56,6 +60,27 @@ void Rogue_ResetCampaignAfter(u16 count)
             memset(&gRogueGlobalData.campaignData[i], 0, sizeof(struct RogueCampaignState));
         }
     }
+}
+
+bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
+{
+    u16 i;
+
+    for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
+    {
+        // These campaigns don't contribute to trainer card
+        switch (i)
+        {
+        case ROGUE_CAMPAIGN_LOW_BST:
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            continue;
+        }
+
+        if(!gRogueGlobalData.campaignData[i].isCompleted)
+            return FALSE;
+    }
+
+    return TRUE;
 }
 
 u16 Rogue_GetActiveCampaign(void)
@@ -84,6 +109,9 @@ u16 TryGetCampaignId(u16 word0, u16 word1)
 
     if(word0 == 7184 && word1 == 2579) // LATER MAN
         return ROGUE_CAMPAIGN_LATERMANNER;
+
+    if(word0 == 6701 && word1 == 4152) // BALL OUT
+        return ROGUE_CAMPAIGN_POKEBALL_LIMIT;
 
     return ROGUE_CAMPAIGN_NONE;
 }
@@ -151,6 +179,10 @@ u16 Rogue_PreActivateDesiredCampaign(void)
         Rogue_ResetConfigHubSettings();
         FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
         break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        break;
     }
 }
 
@@ -191,6 +223,12 @@ u16 Rogue_PostActivateDesiredCampaign(void)
             CreateMon(&gPlayerParty[0], SPECIES_FARFETCHD, 15, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
             CalculatePlayerPartyCount();
         }
+        break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        RemoveBagItem(ITEM_POKE_BALL, 5);
+
+        AddBagItem(ITEM_ULTRA_BALL, 5);
         break;
 
     default:
@@ -283,6 +321,13 @@ bool8 Rogue_CheckCampaignBansItem(u16 item)
     case ROGUE_CAMPAIGN_LOW_BST:
         {
             if(item == ITEM_TM06_TOXIC)
+                return TRUE;
+        }
+        break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        {
+            if(item >= FIRST_BALL && item <= LAST_BALL)
                 return TRUE;
         }
         break;

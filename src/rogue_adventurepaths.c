@@ -602,6 +602,10 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         weights[ADVPATH_ROOM_MINIBOSS] = 0;
         weights[ADVPATH_ROOM_LAB] = 0;
     }
+    else if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_POKEBALL_LIMIT)
+    {
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
 
     // We have limited number of certain encounters
     if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))

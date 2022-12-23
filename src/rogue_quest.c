@@ -764,6 +764,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_IronMono1);
         TryDeactivateQuest(QUEST_IronMono2);
         TryDeactivateQuest(QUEST_LegendOnly);
+        TryDeactivateQuest(QUEST_ShinyOnly);
 
         TryDeactivateQuest(QUEST_KantoMode);
         TryDeactivateQuest(QUEST_JohtoMode);
@@ -897,6 +898,23 @@ static void OnStartBattle(void)
                 else
                 {
                     TryDeactivateQuest(QUEST_LegendOnly);
+                }
+            }
+        }
+    }
+
+    if(IsQuestActive(QUEST_ShinyOnly))
+    {
+        u16 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                if(!IsMonShiny(&gPlayerParty[i]))
+                {
+                    TryDeactivateQuest(QUEST_ShinyOnly);
                 }
             }
         }
@@ -1054,6 +1072,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 TryMarkQuestAsComplete(QUEST_IronMono1);
                 TryMarkQuestAsComplete(QUEST_IronMono2);
                 TryMarkQuestAsComplete(QUEST_LegendOnly);
+                TryMarkQuestAsComplete(QUEST_ShinyOnly);
                 TryMarkQuestAsComplete(QUEST_GauntletMode);
 
                 TryMarkQuestAsComplete(QUEST_KantoMode);

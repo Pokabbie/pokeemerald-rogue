@@ -128,7 +128,15 @@ script Rogue_Encounter_GameShow_DisplayGood
             msgbox(format("All of your POKéMON all just got a bit stronger!"), MSGBOX_DEFAULT)
 
         case 3:
-            random(10)
+            if(var(VAR_ROGUE_ACTIVE_CAMPAIGN) == ROGUE_CAMPAIGN_POKEBALL_LIMIT)
+            {
+                random(8)
+            }
+            else
+            {
+                random(10)
+            }
+
             msgbox(format("You will recieve a special item!"), MSGBOX_DEFAULT)
 
             switch(var(VAR_RESULT))
@@ -157,6 +165,7 @@ script Rogue_Encounter_GameShow_DisplayGood
                 case 7:
                     giveitem(ITEM_TM25_THUNDER, 1)
 
+                // These are placed here so they can be turned off easily
                 case 8:
                     giveitem(ITEM_PREMIER_BALL, 50)
 

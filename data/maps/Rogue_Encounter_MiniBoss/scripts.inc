@@ -131,7 +131,9 @@ Rogue_BattleDefeated_MiniBoss_1:
 	copyvar VAR_0x8001, VAR_ROGUE_ITEM0
 	call Rogue_GiveItem_Internal
 	special Rogue_ChooseMiniBossRewardMons
-	call Rogue_BattleDefeated_GiveMon
+	compare VAR_ROGUE_ACTIVE_CAMPAIGN, ROGUE_CAMPAIGN_POKEBALL_LIMIT
+	goto_if_ne Rogue_BattleDefeated_MiniBoss_7
+Rogue_BattleDefeated_MiniBoss_6:
 	special HealPlayerParty
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
@@ -146,6 +148,10 @@ Rogue_BattleDefeated_MiniBoss_3:
 Rogue_BattleDefeated_MiniBoss_4:
 	msgbox Rogue_BattleDefeated_MiniBoss_Text_1, MSGBOX_DEFAULT
 	goto Rogue_BattleDefeated_MiniBoss_1
+
+Rogue_BattleDefeated_MiniBoss_7:
+	call Rogue_BattleDefeated_GiveMon
+	goto Rogue_BattleDefeated_MiniBoss_6
 
 
 MiniBoss_PlayerToBattleField:

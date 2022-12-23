@@ -2032,7 +2032,10 @@ void Rogue_MainCallback(void)
 {
     //Additional 3rd maincallback which is always called
 
-    UpdateHotTracking();
+    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_NONE)
+    {
+        UpdateHotTracking();
+    }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
@@ -2064,6 +2067,13 @@ void Rogue_OnLoadMap(void)
 u16 GetStartDifficulty(void)
 {
     u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+
+#ifdef ROGUE_DEBUG
+    if(skipToDifficulty == 8)
+    {
+        skipToDifficulty = BOSS_COUNT - 1;
+    }
+#endif
 
     if(skipToDifficulty != 0)
     {

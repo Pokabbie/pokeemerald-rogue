@@ -767,7 +767,33 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
     gTasks[taskId].func = Task_Hof_WaitAndPrintPlayerInfo;
 }
 
-static void HotTrackingAssignPostfix(u8* str, u16 count, u16 value, u16 threshold0, u16 threshold1)
+static void HotTrackingAssignSpacing(u8* str, u16 count, u16 value, u16 threshold0, u16 threshold1)
+{
+    if(count == 0)
+    {
+        str[0] = EOS;
+    }
+    else
+    {
+        if(value > threshold1)
+        {
+            str[0] = 0x00;
+            str[1] = 0x00;
+            str[2] = EOS;
+        }
+        else if(value > threshold0)
+        {
+            str[0] = 0x00;
+            str[1] = EOS;
+        }
+        else
+        {
+            str[0] = EOS;
+        }
+    }
+}
+
+static void HotTrackingAssignChars(u8* str, u16 count, u16 value, u16 threshold0, u16 threshold1)
 {
     if(count == 0)
     {
@@ -788,8 +814,9 @@ static void HotTrackingAssignPostfix(u8* str, u16 count, u16 value, u16 threshol
         }
         else
         {
-            str[0] = 0xAB; // !
-            str[1] = EOS;
+            str[0] = 0x00;
+            str[1] = 0xAB; // !
+            str[2] = EOS;
         }
     }
 }
@@ -813,8 +840,9 @@ static void Task_Hof_WaitAndPrintPlayerInfo(u8 taskId)
         HallOfFame_PrintPlayerInfo(1, 2);
         DrawDialogueFrame(0, FALSE);
 
-        HotTrackingAssignPostfix(&gStringVar1[0], count, average, 0, 5);
-        HotTrackingAssignPostfix(&gStringVar2[0], count, max, 30, 600);
+        HotTrackingAssignChars(&gStringVar1[0], count, average, 5, 15);
+        HotTrackingAssignChars(&gStringVar2[0], count, max, 30, 600);
+        HotTrackingAssignSpacing(&gStringVar3[0], count, count, 2, 20);
         StringExpandPlaceholders(gStringVar4, gText_LeagueChamp);
 
         AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, 0, NULL, 2, 1, 3);

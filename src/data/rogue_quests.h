@@ -10,6 +10,7 @@ static const u8 gText_GiveUnlocksDaycare[] = _("New HUB Unlocks:\nDay Care!");
 static const u8 gText_GiveUnlocksBerries[] = _("New HUB Unlocks:\nBerry Patch!");
 static const u8 gText_GiveUnlocksBakery[] = _("New HUB Unlocks:\nBakery!");
 static const u8 gText_GiveUnlocksBallSwitch[] = _("New HUB Unlocks:\nPOKé BALL swapper!");
+static const u8 gText_GiveUnlocksPokemonCombiner[] = _("New HUB Unlocks:\nPOKéMON combiner!");
 static const u8 gText_PreviewUnlocksCurseStart[] = _("New HUB Unlocks:\nCurses now avaliable in Config Lab!");
 
 static const u8 gText_PreviewUnlocksLegendarySafari[] = _("Safari Upgrade");
@@ -301,6 +302,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
+        },
+        .unlockedQuests = { 
+            QUEST_ShinyOnly,
         }
     },
     [QUEST_CollectorLegend] = 
@@ -480,7 +484,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_Nuzlocke,
         }
     },
-
     [QUEST_CursedBody] = 
     {
         .title = _("Cursed Body"),
@@ -545,9 +548,24 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("Apotheosis"),
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever using legendary\n"
-                    "POKéMON."
+                    "Win a full Run, only ever\n"
+                    "enter battle with legendary\n"
+                    "POKéMON in your party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+#ifdef ROGUE_EXPANSION
+            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksPokemonCombiner },
+#endif
+        }
+    },
+    [QUEST_ShinyOnly] = 
+    {
+        .title = _("Aesthetics"),
+        .desc = _(
+                    "Win a full Run, only ever\n"
+                    "entering battle with shiny\n"
+                    "POKéMON in your party."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },

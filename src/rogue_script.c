@@ -736,3 +736,79 @@ void Rogue_GetCampaignHighScore(void)
     gSpecialVar_Result = 0;
     return;
 }
+
+void Rogue_BufferCampaignName(void)
+{
+    StringCopy(&gStringVar1[0], GetCampaignTitle(VarGet(VAR_ROGUE_DESIRED_CAMPAIGN)));
+}
+
+static bool8 CheckSpeciesCombo(u16 speciesCheckA, u16 speciesCheckB, u16 speciesTargetA, u16 speciesTargetB)
+{
+    return (speciesCheckA == speciesTargetA && speciesCheckB == speciesTargetB)
+        || (speciesCheckB == speciesTargetA && speciesCheckA == speciesTargetB);
+}
+
+static u16 GetSpeciesComboOutput(u16 speciesA, u16 speciesB, bool8 getItem)
+{
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_EEVEE, SPECIES_CHARMANDER))
+    //    return getItem ? ITEM_PECHA_BERRY : SPECIES_ABSOL;
+
+#ifdef ROGUE_EXPANSION
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_RESHIRAM))
+        return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_WHITE;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_ZEKROM))
+        return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_BLACK;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_COMPLETE, SPECIES_ZYGARDE_COMPLETE))
+        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_10;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_10, SPECIES_ZYGARDE_10))
+        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE, SPECIES_ZYGARDE))
+        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_COMPLETE;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_SOLGALEO))
+        return getItem ? ITEM_N_SOLARIZER : SPECIES_NECROZMA_DAWN_WINGS;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_LUNALA))
+        return getItem ? ITEM_N_LUNARIZER : SPECIES_NECROZMA_DUSK_MANE;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_GLASTRIER))
+        return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_ICE_RIDER;
+
+    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_SPECTRIER))
+        return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_ICE_RIDER;
+#endif
+
+    return 0;
+}
+
+void Rogue_CheckMonCombo(void)
+{
+    u16 speciesA = GetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES);
+    u16 speciesB = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+
+    gSpecialVar_0x8005 = GetSpeciesComboOutput(speciesA, speciesB, TRUE);
+    gSpecialVar_0x8006 = GetSpeciesComboOutput(speciesA, speciesB, FALSE);
+}
+
+void Rogue_ApplyMonCombo(void)
+{
+    u16 speciesA = GetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES);
+    u16 speciesB = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+    u16 outputSpecies = GetSpeciesComboOutput(speciesA, speciesB, FALSE);
+
+    if(outputSpecies)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
+        RemoveMonAtSlot(gSpecialVar_0x8004, TRUE, TRUE, FALSE);
+
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+}

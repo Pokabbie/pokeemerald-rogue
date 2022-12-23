@@ -536,7 +536,7 @@ Rogue_ReturnAdventureCommon_13:
 
 Rogue_Adventure_ScottGiveQuestLog_Text_0:
 	.string "That log has a lot of optional Quests\n"
-	.string "for you do complete whilst you're out\l"
+	.string "for you to complete whilst you're out\l"
 	.string "on an Adventure.\p"
 	.string "Completing Quests can give you some\n"
 	.string "nice rewards too.\p"
