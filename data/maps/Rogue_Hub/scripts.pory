@@ -899,7 +899,7 @@ script RogueHub_CombineMons
                         bufferspeciesname(STR_VAR_2, VAR_0x8006)
         
                         msgbox(format("Oh yes!\nMy artefacts!\p{STR_VAR_1} is responding!\pWhat's that {STR_VAR_1}..?\pMhm..."), MSGBOX_DEFAULT)
-                        msgbox(format("I can combine those POKéMON together!\pAlthough once it's done..\nit can NEVER be undone...\pWould you like to combine those POKéMON into {STR_VAR_2}?"), MSGBOX_YESNO)
+                        msgbox(format("I can combine those POKéMON together!\pAlthough once it's done..\nit can NEVER be undone...\pWould you like to combine those POKéMON?"), MSGBOX_YESNO)
 
                         if(var(VAR_RESULT) == YES)
                         {

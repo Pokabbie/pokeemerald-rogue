@@ -1207,8 +1207,8 @@ RogueHub_CombineMons_Text_5:
 	.string "I can combine those POKéMON together!\p"
 	.string "Although once it's done..\n"
 	.string "it can NEVER be undone...\p"
-	.string "Would you like to combine those POKéMON\n"
-	.string "into {STR_VAR_2}?$"
+	.string "Would you like to combine those\n"
+	.string "POKéMON?$"
 
 RogueHub_CombineMons_Text_6:
 	.string "{STR_VAR_2} has awakened!$"
