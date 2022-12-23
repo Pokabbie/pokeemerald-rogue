@@ -4927,7 +4927,14 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 gBattleMons[battler].status1 = 0;
                 gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                 gBattleScripting.battler = gActiveBattler = battler;
-                BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+                if(gBattleMons[battler].ability == ABILITY_SHED_SKIN)
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+                }
+                else
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinCharmActivates);
+                }
                 BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                 MarkBattlerForControllerExec(gActiveBattler);
                 effect++;
