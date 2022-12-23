@@ -79,16 +79,22 @@ RogueHub_OnMapLoad_31:
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_OnMapLoad_38
 RogueHub_OnMapLoad_37:
-	questcollected QUEST_LegendOnly
+	questcollected QUEST_ShinyOnly
 	compare VAR_RESULT, NO
 	goto_if_eq RogueHub_OnMapLoad_42
 	clearflag FLAG_ROGUE_TRAINER9
 RogueHub_OnMapLoad_41:
-	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_OnMapLoad_46
-	setflag FLAG_ROGUE_TRAINER11
+	questcollected QUEST_LegendOnly
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_OnMapLoad_46
+	goto_if_unset FLAG_ROGUE_EXPANSION_ACTIVE, RogueHub_OnMapLoad_46
+	clearflag FLAG_ROGUE_TRAINER12
 RogueHub_OnMapLoad_45:
+	goto_if_set FLAG_ROGUE_MET_POKABBIE, RogueHub_OnMapLoad_52
+	setflag FLAG_ROGUE_TRAINER11
+RogueHub_OnMapLoad_51:
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
-	goto_if_gt RogueHub_OnMapLoad_49
+	goto_if_gt RogueHub_OnMapLoad_55
 	return
 
 RogueHub_OnMapLoad_2:
@@ -156,10 +162,15 @@ RogueHub_OnMapLoad_42:
 	goto RogueHub_OnMapLoad_41
 
 RogueHub_OnMapLoad_46:
-	clearflag FLAG_ROGUE_TRAINER11
+	setflag FLAG_ROGUE_TRAINER12
+	fillmetatile 42, 30, 49, 39, 0x001, FALSE
 	goto RogueHub_OnMapLoad_45
 
-RogueHub_OnMapLoad_49:
+RogueHub_OnMapLoad_52:
+	clearflag FLAG_ROGUE_TRAINER11
+	goto RogueHub_OnMapLoad_51
+
+RogueHub_OnMapLoad_55:
 	setflag FLAG_ROGUE_TRAINER6
 	return
 
@@ -735,6 +746,96 @@ RogueHub_ChangeMonBall_7:
 	goto RogueHub_ChangeMonBall_1
 
 
+RogueHub_CombineMons::
+	lock
+	msgbox RogueHub_CombineMons_Text_0, MSGBOX_DEFAULT
+	specialvar VAR_RESULT, CalculatePlayerPartyCount
+	faceplayer
+	compare VAR_RESULT, 1
+	goto_if_gt RogueHub_CombineMons_2
+	msgbox RogueHub_CombineMons_Text_9, MSGBOX_DEFAULT
+RogueHub_CombineMons_1:
+	release
+	return
+
+RogueHub_CombineMons_2:
+	msgbox RogueHub_CombineMons_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CombineMons_6
+RogueHub_CombineMons_5:
+	compare VAR_RESULT, NO
+	goto_if_eq RogueHub_CombineMons_8
+	goto RogueHub_CombineMons_1
+
+RogueHub_CombineMons_6:
+	msgbox RogueHub_CombineMons_Text_2, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x8003, VAR_0x8004
+	compare VAR_0x8003, PARTY_NOTHING_CHOSEN
+	goto_if_eq RogueHub_CombineMons_11
+RogueHub_CombineMons_10:
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CombineMons_14
+RogueHub_CombineMons_13:
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CombineMons_16
+	goto RogueHub_CombineMons_5
+
+RogueHub_CombineMons_8:
+	msgbox RogueHub_CombineMons_Text_8, MSGBOX_DEFAULT
+	goto RogueHub_CombineMons_1
+
+RogueHub_CombineMons_11:
+	setvar VAR_RESULT, NO
+	goto RogueHub_CombineMons_10
+
+RogueHub_CombineMons_14:
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq RogueHub_CombineMons_18
+	goto RogueHub_CombineMons_13
+
+RogueHub_CombineMons_16:
+	compare VAR_0x8003, VAR_0x8004
+	goto_if_eq RogueHub_CombineMons_20
+	special Rogue_CheckMonCombo
+	compare VAR_0x8005, 0
+	goto_if_ne RogueHub_CombineMons_23
+	msgbox RogueHub_CombineMons_Text_7, MSGBOX_DEFAULT
+	setvar VAR_RESULT, YES
+	goto RogueHub_CombineMons_5
+
+RogueHub_CombineMons_18:
+	setvar VAR_RESULT, NO
+	goto RogueHub_CombineMons_13
+
+RogueHub_CombineMons_20:
+	msgbox RogueHub_CombineMons_Text_3, MSGBOX_DEFAULT
+	goto RogueHub_CombineMons_5
+
+RogueHub_CombineMons_23:
+	bufferitemname STR_VAR_1, VAR_0x8005
+	bufferspeciesname STR_VAR_2, VAR_0x8006
+	msgbox RogueHub_CombineMons_Text_4, MSGBOX_DEFAULT
+	msgbox RogueHub_CombineMons_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RogueHub_CombineMons_26
+	goto RogueHub_CombineMons_5
+
+RogueHub_CombineMons_26:
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_AWAKEN_LEGEND
+	special Rogue_ApplyMonCombo
+	waitfanfare
+	playmoncry VAR_0x8006, CRY_MODE_ENCOUNTER
+	waitmoncry
+	fadescreen FADE_FROM_BLACK
+	msgbox RogueHub_CombineMons_Text_6, MSGBOX_DEFAULT
+	goto RogueHub_CombineMons_5
+
+
 RogueHub_HintQuickRun1::
 	lockall
 	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
@@ -1074,6 +1175,56 @@ RogueHub_ChangeMonBall_Text_2:
 
 RogueHub_ChangeMonBall_Text_3:
 	.string "Oh... OK...$"
+
+RogueHub_CombineMons_Text_0:
+	.string "I found a powerful artefact in the\n"
+	.string "ground here...\p"
+	.string "The deeper a dig...\n"
+	.string "The more I find...\p"
+	.string "The artefacts I've found have the\n"
+	.string "power to combine specific POKéMON\l"
+	.string "together!$"
+
+RogueHub_CombineMons_Text_1:
+	.string "Have you got any POKéMON you'd like me\n"
+	.string "to attempt to combine?$"
+
+RogueHub_CombineMons_Text_2:
+	.string "Which POKéMON would you like me to\n"
+	.string "check?$"
+
+RogueHub_CombineMons_Text_3:
+	.string "I can't combine the same POKéMON...$"
+
+RogueHub_CombineMons_Text_4:
+	.string "Oh yes!\n"
+	.string "My artefacts!\p"
+	.string "{STR_VAR_1} is responding!\p"
+	.string "What's that {STR_VAR_1}..?\p"
+	.string "Mhm...$"
+
+RogueHub_CombineMons_Text_5:
+	.string "I can combine those POKéMON together!\p"
+	.string "Although once it's done..\n"
+	.string "it can NEVER be undone...\p"
+	.string "Would you like to combine those POKéMON\n"
+	.string "into {STR_VAR_2}?$"
+
+RogueHub_CombineMons_Text_6:
+	.string "{STR_VAR_2} has awakened!$"
+
+RogueHub_CombineMons_Text_7:
+	.string "Hmm...\n"
+	.string "My artefacts don't seem to be\l"
+	.string "responding...$"
+
+RogueHub_CombineMons_Text_8:
+	.string "That's a shame...\n"
+	.string "The artefacts are gonna be sad now...$"
+
+RogueHub_CombineMons_Text_9:
+	.string "If you come back with 2 POKéMON I could\n"
+	.string "check them... if you'd like...$"
 
 RogueHub_HintQuickRun1_Text_0:
 	.string "I'm double tapping B to run super fast!\p"
