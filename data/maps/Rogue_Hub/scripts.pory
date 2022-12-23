@@ -849,13 +849,13 @@ script RogueHub_CombineMons
 {
     lock
 
-    msgbox(format("I found a powerful artefact in the ground here...\pThe deeper a dig...\nThe more I find...\pThe artefacts I've found have the power to combine specific POKéMON together!"), MSGBOX_DEFAULT)
+    msgbox(format("I found a powerful artefact in the ground here...\pThe deeper I dig...\nThe more I find...\pThe artefacts I've found have the power to combine specific POKéMON together!"), MSGBOX_DEFAULT)
 
     specialvar(VAR_RESULT, CalculatePlayerPartyCount)
     faceplayer
     if(var(VAR_RESULT) > 1)
     {
-        msgbox(format("Have you got any POKéMON you'd like me to attempt to combine?"), MSGBOX_YESNO)
+        msgbox(format("Would you like me to check 2 of your POKéMON?"), MSGBOX_YESNO)
     
         if(var(VAR_RESULT) == YES)
         {
