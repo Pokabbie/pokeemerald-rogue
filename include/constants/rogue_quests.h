@@ -134,8 +134,10 @@
 #define _QUEST_LAST_1_3 QUEST_CampaignTease
 #endif
 
+#define QUEST_ShinyOnly             (_QUEST_LAST_1_3 + 1)
+#define _QUEST_LAST_1_3_2 QUEST_ShinyOnly
 
 #define QUEST_FIRST QUEST_FirstAdventure
-#define QUEST_LAST _QUEST_LAST_1_3
+#define QUEST_LAST _QUEST_LAST_1_3_2
 
 #define QUEST_CAPACITY (QUEST_LAST + 1)

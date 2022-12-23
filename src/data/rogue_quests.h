@@ -301,6 +301,9 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
+        },
+        .unlockedQuests = { 
+            QUEST_ShinyOnly,
         }
     },
     [QUEST_CollectorLegend] = 
@@ -480,7 +483,6 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             QUEST_Nuzlocke,
         }
     },
-
     [QUEST_CursedBody] = 
     {
         .title = _("Cursed Body"),
@@ -545,13 +547,26 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
     {
         .title = _("Apotheosis"),
         .desc = _(
-                    "Win a full Run, only\n"
-                    "ever using legendary\n"
-                    "POKéMON."
+                    "Win a full Run, only ever\n"
+                    "enter battle with legendary\n"
+                    "POKéMON in your party."
                 ),
         .rewards = {
             { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
             { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksBallSwitch },
+        }
+    },
+    [QUEST_ShinyOnly] = 
+    {
+        .title = _("Aesthetics"),
+        .desc = _(
+                    "Win a full Run, only ever\n"
+                    "entering battle with shiny\n"
+                    "POKéMON in your party."
+                ),
+        .rewards = {
+            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+            //{ .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksBallSwitch },
         }
     },
 
