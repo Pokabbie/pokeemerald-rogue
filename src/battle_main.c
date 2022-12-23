@@ -63,6 +63,7 @@
 #include "cable_club.h"
 
 #include "rogue_automation.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
 
@@ -4606,6 +4607,30 @@ void SwapTurnOrder(u8 id1, u8 id2)
     SWAP(gBattlerByTurnOrder[id1], gBattlerByTurnOrder[id2], temp);
 }
 
+static bool8 ActivateMovePriorityCharm(u8 battler)
+{
+    u8 rand;
+
+    if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+    {
+        rand = (gRandomTurnNumber & 0xFF);
+
+        if((battler % 2) == 1)
+            rand = ~rand;
+
+        return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
+    else // B_SIDE_PLAYER
+    {
+        rand = ((gRandomTurnNumber & 0xFF00) >> 8);
+
+        if((battler % 2) == 1)
+            rand = ~rand;
+
+        return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
+}
+
 u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 {
     u8 strikesFirst = 0;
@@ -4664,7 +4689,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
         speedBattler1 /= 4;
 
-    if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
+    if ((holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100) || ActivateMovePriorityCharm(battler1))
         speedBattler1 = UINT_MAX;
 
     // check second battlerId's speed
@@ -4698,7 +4723,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)
         speedBattler2 /= 4;
 
-    if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
+    if ((holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100) || ActivateMovePriorityCharm(battler2))
         speedBattler2 = UINT_MAX;
 
     if (ignoreChosenMoves)

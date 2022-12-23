@@ -39,6 +39,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_WILD_ENCOUNTER_COUNT:
             return ITEM_WILD_ENCOUNTER_CHARM;
 
+        case EFFECT_MOVE_PRIORITY_CHANCE:
+            return ITEM_MOVE_PRIORITY_CHARM;
+
         // Unused
         // EFFECT_PARTY_SIZE
         // EFFECT_EVERSTONE_EVOS
@@ -77,6 +80,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_WILD_ENCOUNTER_COUNT:
             return ITEM_WILD_ENCOUNTER_CURSE;
+
+        case EFFECT_MOVE_PRIORITY_CHANCE:
+            return ITEM_MOVE_PRIORITY_CURSE;
 
         // Just curse effects
         case EFFECT_PARTY_SIZE:
@@ -133,6 +139,9 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 
         case EFFECT_WILD_ENCOUNTER_COUNT:
             return itemCount * (isCurse ? 1 : 2);
+
+        case EFFECT_MOVE_PRIORITY_CHANCE:
+            return itemCount * (isCurse ? 10 : 10);
     }
 
     return itemCount;
