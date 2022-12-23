@@ -9479,6 +9479,13 @@ BattleScript_CustapBerryActivation::
 	removeitem BS_ATTACKER
 	end2
 
+BattleScript_PriorityCharmActivation::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	end2
+
 BattleScript_MicleBerryActivateEnd2::
 	jumpifability BS_ATTACKER, ABILITY_RIPEN, BattleScript_MicleBerryActivateEnd2_Ripen
 	goto BattleScript_MicleBerryActivateEnd2_Anim

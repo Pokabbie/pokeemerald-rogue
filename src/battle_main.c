@@ -4953,18 +4953,23 @@ static void CheckQuickClaw_CustapBerryActivation(void)
             {
                 if (gProtectStructs[gActiveBattler].usedCustapBerry)
                 {
+                    u16 holdEffect = GetBattlerHoldEffect(gActiveBattler, FALSE);
                     gProtectStructs[gActiveBattler].usedCustapBerry = FALSE;
                     gLastUsedItem = gBattleMons[gActiveBattler].item;
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
-                    if (GetBattlerHoldEffect(gActiveBattler, FALSE) == HOLD_EFFECT_CUSTAP_BERRY)
+                    if (holdEffect == HOLD_EFFECT_CUSTAP_BERRY)
                     {
                         // don't record berry since its gone now
                         BattleScriptExecute(BattleScript_CustapBerryActivation);
                     }
+                    else if(holdEffect == HOLD_EFFECT_QUICK_CLAW)
+                    {
+                        RecordItemEffectBattle(gActiveBattler, holdEffect);
+                        BattleScriptExecute(BattleScript_QuickClawActivation);
+                    }
                     else
                     {
-                        RecordItemEffectBattle(gActiveBattler, GetBattlerHoldEffect(gActiveBattler, FALSE));
-                        BattleScriptExecute(BattleScript_QuickClawActivation);
+                        BattleScriptExecute(BattleScript_PriorityCharmActivation);
                     }
                 }
                 else if (gProtectStructs[gActiveBattler].quickDraw)

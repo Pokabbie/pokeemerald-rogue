@@ -372,6 +372,7 @@ extern const u8 BattleScript_RaiseStatOnFaintingTarget[];
 extern const u8 BattleScript_QuickClawActivation[];
 extern const u8 BattleScript_QuickDrawActivation[];
 extern const u8 BattleScript_CustapBerryActivation[];
+extern const u8 BattleScript_PriorityCharmActivation[];
 extern const u8 BattleScript_MicleBerryActivateEnd2[];
 extern const u8 BattleScript_MicleBerryActivateRet[];
 extern const u8 BattleScript_JabocaRowapBerryActivates[];
