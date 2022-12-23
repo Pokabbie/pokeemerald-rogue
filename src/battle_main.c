@@ -68,6 +68,7 @@
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 #include "rogue_automation.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
 
@@ -4456,6 +4457,30 @@ void SwapTurnOrder(u8 id1, u8 id2)
     SWAP(gBattlerByTurnOrder[id1], gBattlerByTurnOrder[id2], temp);
 }
 
+static bool8 ActivateMovePriorityCharm(u8 battler)
+{
+    u8 rand;
+
+    if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+    {
+        rand = (gRandomTurnNumber & 0xFF);
+
+        if((battler % 2) == 1)
+            rand = ~rand;
+
+        return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
+    else // B_SIDE_PLAYER
+    {
+        rand = ((gRandomTurnNumber & 0xFF00) >> 8);
+
+        if((battler % 2) == 1)
+            rand = ~rand;
+
+        return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
+}
+
 u32 GetBattlerTotalSpeedStat(u8 battlerId)
 {
     u32 speed = gBattleMons[battlerId].speed;
@@ -4593,7 +4618,8 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler1].quickDraw
      && ((holdEffectBattler1 == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * GetBattlerHoldEffectParam(battler1)) / 100)
-     || (holdEffectBattler1 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler1, 4, gBattleMons[battler1].item))))
+     || (holdEffectBattler1 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler1, 4, gBattleMons[battler1].item))
+     || ActivateMovePriorityCharm(battler1)))
         gProtectStructs[battler1].usedCustapBerry = TRUE;
 
     // Battler 2
@@ -4605,7 +4631,8 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler2].quickDraw
      && ((holdEffectBattler2 == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * GetBattlerHoldEffectParam(battler2)) / 100)
-     || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))))
+     || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))
+     || ActivateMovePriorityCharm(battler2)))
         gProtectStructs[battler2].usedCustapBerry = TRUE;
 
     if (!ignoreChosenMoves)

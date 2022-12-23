@@ -84,6 +84,7 @@ const u8 gText_ItemWildIVCharm[] = _("Strength Charm");
 const u8 gText_ItemCatchingCharm[] = _("Catching Charm");
 const u8 gText_ItemGraceCharm[] = _("Grace Charm");
 const u8 gText_ItemEncounterCharm[] = _("Wild Charm");
+const u8 gText_ItemMovePriorityCharm[] = _("Priority Charm");
 
 const u8 gText_ItemShoppingCurse[] = _("Discount Curse");
 const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
@@ -98,6 +99,7 @@ const u8 gText_ItemEverstoneCurse[] = _("Everstone Curse");
 const u8 gText_ItemBattleItemCurse[] = _("Embargo Curse");
 const u8 gText_ItemSpeciesClauseCurse[] = _("Species Curse");
 const u8 gText_ItemItemShuffleCurse[] = _("Shuffle Curse");
+const u8 gText_ItemMovePriorityCurse[] = _("Priority Curse");
 
 #else
 
@@ -112,6 +114,7 @@ const u8 gText_ItemWildIVCharm[] = _("STRENGTH CHARM");
 const u8 gText_ItemCatchingCharm[] = _("CATCHING CHARM");
 const u8 gText_ItemGraceCharm[] = _("GRACE CHARM");
 const u8 gText_ItemEncounterCharm[] = _("WILD CHARM");
+const u8 gText_ItemMovePriorityCharm[] = _("PRIORITY CHARM");
 
 const u8 gText_ItemShoppingCurse[] = _("DISCOUNT CURSE");
 const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
@@ -126,6 +129,7 @@ const u8 gText_ItemEverstoneCurse[] = _("EVERSTONE CURSE");
 const u8 gText_ItemBattleItemCurse[] = _("EMBARGO CURSE");
 const u8 gText_ItemSpeciesClauseCurse[] = _("SPECIES CURSE");
 const u8 gText_ItemItemShuffleCurse[] = _("SHUFFLE CURSE");
+const u8 gText_ItemMovePriorityCurse[] = _("PRIORITY CURSE");
 
 #endif
 
@@ -187,7 +191,11 @@ const u8 sItemEncounterCharmDesc[] = _(
     "Routes contain 2\n"
     "additional wild\n"
     "POKéMON.");
-    
+
+const u8 sItemMovePriorityCharmDesc[] = _(
+    "Friendly moves\n"
+    "have 10% chance to\n"
+    "activate Quick Claw.");
     
 const u8 sItemShoppingCurseDesc[] = _(
     "Shop prices are\n"
@@ -251,6 +259,11 @@ const u8 sItemItemShuffleCurseDesc[] = _(
     "Entering a Battle\n"
     "will shuffle Held\n"
     "Items between {PKMN}.");
+
+const u8 sItemMovePriorityCurseDesc[] = _(
+    "Opponent moves\n"
+    "have 10% chance to\n"
+    "activate Quick Claw.");
 
 
 // Quest Log
