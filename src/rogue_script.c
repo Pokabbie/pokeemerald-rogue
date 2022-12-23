@@ -802,7 +802,11 @@ void Rogue_ApplyMonCombo(void)
 
     if(outputSpecies)
     {
+        u8 speciesName[POKEMON_NAME_LENGTH + 1];
+        GetSpeciesName(speciesName, speciesA);
+
         SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
+        SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_NICKNAME, speciesName);
         RemoveMonAtSlot(gSpecialVar_0x8004, TRUE, TRUE, FALSE);
 
         gSpecialVar_Result = TRUE;

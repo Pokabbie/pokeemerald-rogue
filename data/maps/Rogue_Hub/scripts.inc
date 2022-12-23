@@ -1179,15 +1179,15 @@ RogueHub_ChangeMonBall_Text_3:
 RogueHub_CombineMons_Text_0:
 	.string "I found a powerful artefact in the\n"
 	.string "ground here...\p"
-	.string "The deeper a dig...\n"
+	.string "The deeper I dig...\n"
 	.string "The more I find...\p"
 	.string "The artefacts I've found have the\n"
 	.string "power to combine specific POKéMON\l"
 	.string "together!$"
 
 RogueHub_CombineMons_Text_1:
-	.string "Have you got any POKéMON you'd like me\n"
-	.string "to attempt to combine?$"
+	.string "Would you like me to check 2 of your\n"
+	.string "POKéMON?$"
 
 RogueHub_CombineMons_Text_2:
 	.string "Which POKéMON would you like me to\n"
