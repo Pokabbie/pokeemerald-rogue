@@ -6051,6 +6051,23 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
         {
             *itemId = 0;
         }
+        else
+        {
+            // Banned Items
+            switch (*itemId)
+            {
+            case ITEM_SACRED_ASH:
+            case ITEM_REVIVAL_HERB:
+            case ITEM_REVIVE:
+            case ITEM_MAX_REVIVE:
+            case ITEM_RARE_CANDY:
+            case ITEM_HEART_SCALE:
+            case ITEM_LUCKY_EGG:
+                *itemId = 0;
+                break;
+            }
+        }
+
     }
     else if(GetSafariZoneFlag())
     {
