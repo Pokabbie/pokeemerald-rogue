@@ -42,6 +42,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_MOVE_PRIORITY_CHANCE:
             return ITEM_MOVE_PRIORITY_CHARM;
 
+        case EFFECT_ENDURE_CHANCE:
+            return ITEM_ENDURE_CHARM;
+
         // Unused
         // EFFECT_PARTY_SIZE
         // EFFECT_EVERSTONE_EVOS
@@ -83,6 +86,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
             return ITEM_MOVE_PRIORITY_CURSE;
+
+        case EFFECT_ENDURE_CHANCE:
+            return ITEM_ENDURE_CURSE;
 
         // Just curse effects
         case EFFECT_PARTY_SIZE:
@@ -134,6 +140,9 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
             return itemCount * (isCurse ? 10 : 10);
+
+        case EFFECT_ENDURE_CHANCE:
+            return itemCount * (isCurse ? 20 : 20);
     }
 
     return itemCount;

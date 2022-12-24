@@ -1662,11 +1662,29 @@ static inline void ApplyRandomDmgMultiplier(void)
 static void Unused_ApplyRandomDmgMultiplier(void)
 {
     ApplyRandomDmgMultiplier();
+} 
+
+static bool8 ActivateEndureCharm(u8 battler)
+{
+    if(gBattleMons[battler].hp == gBattleMons[battler].maxHP && gBattleMons[battler].hp <= gBattleMoveDamage)
+    {
+        if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        {
+            return Random() % 100 < GetCurseValue(EFFECT_ENDURE_CHANCE);
+        }
+        else // B_SIDE_PLAYER
+        {
+            return Random() % 100 < GetCharmValue(EFFECT_ENDURE_CHANCE);
+        }
+    }
+
+    return FALSE;
 }
 
 static void Cmd_adjustnormaldamage(void)
 {
     u8 holdEffect, param;
+    bool8 endureCharmActive = FALSE;
 
     ApplyRandomDmgMultiplier();
 
@@ -1688,8 +1706,13 @@ static void Cmd_adjustnormaldamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || endureCharmActive)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1701,6 +1724,10 @@ static void Cmd_adjustnormaldamage(void)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
+        else if(endureCharmActive)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
     }
     gBattlescriptCurrInstr++;
@@ -1709,6 +1736,7 @@ static void Cmd_adjustnormaldamage(void)
 static void Cmd_adjustnormaldamage2(void) // The same as adjustnormaldamage except it doesn't check for false swipe move effect.
 {
     u8 holdEffect, param;
+    bool8 endureCharmActive = FALSE;
 
     ApplyRandomDmgMultiplier();
 
@@ -1730,8 +1758,13 @@ static void Cmd_adjustnormaldamage2(void) // The same as adjustnormaldamage exce
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || endureCharmActive)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1743,6 +1776,10 @@ static void Cmd_adjustnormaldamage2(void) // The same as adjustnormaldamage exce
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
+        else if(endureCharmActive)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
     }
     gBattlescriptCurrInstr++;
@@ -5896,6 +5933,7 @@ static void Cmd_cancelallactions(void)
 static void Cmd_adjustsetdamage(void) // The same as adjustnormaldamage, except there's no random damage multiplier.
 {
     u8 holdEffect, param;
+    bool8 endureCharmActive = FALSE;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -5915,8 +5953,13 @@ static void Cmd_adjustsetdamage(void) // The same as adjustnormaldamage, except 
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || endureCharmActive)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -5928,6 +5971,10 @@ static void Cmd_adjustsetdamage(void) // The same as adjustnormaldamage, except 
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
+        else if(endureCharmActive)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
     }
     gBattlescriptCurrInstr++;
@@ -7490,6 +7537,7 @@ static void Cmd_setlightscreen(void)
 static void Cmd_tryKO(void)
 {
     u8 holdEffect, param;
+    bool8 endureCharmActive = FALSE;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -7508,6 +7556,10 @@ static void Cmd_tryKO(void)
     {
         RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_BAND);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
+    }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
     }
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY)
@@ -7553,6 +7605,11 @@ static void Cmd_tryKO(void)
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
                 gLastUsedItem = gBattleMons[gBattlerTarget].item;
+            }
+            else if(endureCharmActive)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+                gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
             }
             else
             {
