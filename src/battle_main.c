@@ -690,8 +690,7 @@ static void CB2_InitBattleInternal(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             CreateNPCTrainerParty(&gEnemyParty[PARTY_SIZE / 2], gTrainerBattleOpponent_B, FALSE);
 
-        if(Rogue_AllowWildMonItems())
-            SetWildMonHeldItem();
+        SetWildMonHeldItem();
     }
 
     gMain.inBattle = TRUE;

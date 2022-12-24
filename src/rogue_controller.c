@@ -6037,21 +6037,26 @@ static u8 GetCurrentWildEncounterCount()
     return count;
 }
 
-bool8 Rogue_AllowWildMonItems(void)
+void Rogue_ModifyWildMonHeldItem(u16* itemId)
 {
     if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
-            return FALSE;
+        {
+            *itemId = 0;
+            return;
+        }
 
-        return TRUE;
+        if(!IsGenEnabled(ItemToGen(*itemId)))
+        {
+            *itemId = 0;
+        }
     }
     else if(GetSafariZoneFlag())
     {
-        return FALSE;
+        *itemId = 0;
     }
 
-    return TRUE;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality)
