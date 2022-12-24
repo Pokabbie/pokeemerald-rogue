@@ -5240,9 +5240,41 @@ static void ApplyUniqueCoverageTrainerQuery(u16 trainerNum, bool8 isBoss, struct
     }
 }
 
+// Base species that is used for duplicate checks
+static u16 GetTrainerQueryBaseSpeciesToCheck(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    u16 baseSpecies = GET_BASE_SPECIES_ID(species);
+
+    switch (baseSpecies)
+    {
+    case SPECIES_DEOXYS:
+    case SPECIES_SHAYMIN:
+    case SPECIES_ARCEUS:
+    case SPECIES_TORNADUS:
+    case SPECIES_THUNDURUS:
+    case SPECIES_LANDORUS:
+    case SPECIES_KYUREM:
+    case SPECIES_GENESECT:
+    case SPECIES_ORICORIO:
+    case SPECIES_LYCANROC:
+    case SPECIES_NECROZMA:
+    case SPECIES_ALCREMIE:
+    case SPECIES_URSHIFU:
+    case SPECIES_CALYREX:
+        return baseSpecies;
+    }
+
+#endif
+
+    // No need to check against any other base species
+    return SPECIES_NONE;
+}
+
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
+    u16 baseSpecies;
     u16 randIdx;
     u16 queryCount;
     bool8 skipDupeCheck = FALSE;
@@ -5381,16 +5413,18 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
                 }
             }
 
-            #ifdef ROGUE_EXPANSION
-			// Special case for Arceus as all species can be enabled at once
-            if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+            // Check if this base species exists in the party (If it's already there skip adding this mon to the party)
+#ifdef ROGUE_EXPANSION
+            baseSpecies = GetTrainerQueryBaseSpeciesToCheck(species);
+
+            if(baseSpecies != SPECIES_NONE)
             {
-                if(PartyContainsBaseSpecies(party, monIdx, SPECIES_ARCEUS))
+                if(PartyContainsBaseSpecies(party, monIdx, baseSpecies))
                 {
                     continue;
                 }
             }
-            #endif
+#endif
         }
         while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
