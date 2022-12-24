@@ -85,6 +85,7 @@ const u8 gText_ItemCatchingCharm[] = _("Catching Charm");
 const u8 gText_ItemGraceCharm[] = _("Grace Charm");
 const u8 gText_ItemEncounterCharm[] = _("Wild Charm");
 const u8 gText_ItemMovePriorityCharm[] = _("Priority Charm");
+const u8 gText_ItemEndureCharm[] = _("Endure Charm");
 
 const u8 gText_ItemShoppingCurse[] = _("Discount Curse");
 const u8 gText_ItemFlinchCurse[] = _("Flinch Curse");
@@ -100,6 +101,7 @@ const u8 gText_ItemBattleItemCurse[] = _("Embargo Curse");
 const u8 gText_ItemSpeciesClauseCurse[] = _("Species Curse");
 const u8 gText_ItemItemShuffleCurse[] = _("Shuffle Curse");
 const u8 gText_ItemMovePriorityCurse[] = _("Priority Curse");
+const u8 gText_ItemEndureCurse[] = _("Endure Curse");
 
 #else
 
@@ -115,6 +117,7 @@ const u8 gText_ItemCatchingCharm[] = _("CATCHING CHARM");
 const u8 gText_ItemGraceCharm[] = _("GRACE CHARM");
 const u8 gText_ItemEncounterCharm[] = _("WILD CHARM");
 const u8 gText_ItemMovePriorityCharm[] = _("PRIORITY CHARM");
+const u8 gText_ItemEndureCharm[] = _("ENDURE CHARM");
 
 const u8 gText_ItemShoppingCurse[] = _("DISCOUNT CURSE");
 const u8 gText_ItemFlinchCurse[] = _("FLINCH CURSE");
@@ -130,6 +133,7 @@ const u8 gText_ItemBattleItemCurse[] = _("EMBARGO CURSE");
 const u8 gText_ItemSpeciesClauseCurse[] = _("SPECIES CURSE");
 const u8 gText_ItemItemShuffleCurse[] = _("SHUFFLE CURSE");
 const u8 gText_ItemMovePriorityCurse[] = _("PRIORITY CURSE");
+const u8 gText_ItemEndureCurse[] = _("ENDURE CURSE");
 
 #endif
 
@@ -196,11 +200,16 @@ const u8 sItemMovePriorityCharmDesc[] = _(
     "Friendly moves\n"
     "have 10% chance to\n"
     "activate Quick Claw.");
-    
+
+const u8 sItemEndureCharmDesc[] = _(
+    "Friendly POKéMON\n"
+    "have a 20% chance\n"
+    "to endure OHKOs.");
+
+
 const u8 sItemShoppingCurseDesc[] = _(
     "Shop prices are\n"
     "increased by 40%");
-
 
 const u8 sItemFlinchCurseDesc[] = _(
     "Opponent moves\n"
@@ -264,6 +273,11 @@ const u8 sItemMovePriorityCurseDesc[] = _(
     "Opponent moves\n"
     "have 10% chance to\n"
     "activate Quick Claw.");
+
+const u8 sItemEndureCurseDesc[] = _(
+    "Opponent POKéMON\n"
+    "have a 20% chance\n"
+    "to endure OHKOs.");
 
 
 // Quest Log

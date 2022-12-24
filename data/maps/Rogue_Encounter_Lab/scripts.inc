@@ -67,30 +67,55 @@ Rogue_Encounter_Lab_Pokeball_GiveMon::
 	message Rogue_Encounter_Lab_Pokeball_GiveMon_Text_0
 	waitmessage
 	waitfanfare
+	random 100
 	compare VAR_ROGUE_DIFFICULTY, 12
 	goto_if_ge Rogue_Encounter_Lab_Pokeball_GiveMon_2
 	compare VAR_ROGUE_DIFFICULTY, 8
 	goto_if_ge Rogue_Encounter_Lab_Pokeball_GiveMon_3
-	random 3
+	compare VAR_ROGUE_DIFFICULTY, 5
+	goto_if_ge Rogue_Encounter_Lab_Pokeball_GiveMon_4
+	compare VAR_RESULT, 25
+	goto_if_lt Rogue_Encounter_Lab_Pokeball_GiveMon_18
+	setvar VAR_RESULT, NO
 Rogue_Encounter_Lab_Pokeball_GiveMon_1:
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_1
-	compare VAR_RESULT, 0
-	goto_if_eq Rogue_Encounter_Lab_Pokeball_GiveMon_7
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Encounter_Lab_Pokeball_GiveMon_9
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_3
 	return
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_2:
-	setvar VAR_RESULT, 0
+	setvar VAR_RESULT, YES
 	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
 
 Rogue_Encounter_Lab_Pokeball_GiveMon_3:
-	random 2
+	compare VAR_RESULT, 60
+	goto_if_lt Rogue_Encounter_Lab_Pokeball_GiveMon_12
+	setvar VAR_RESULT, NO
 	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
 
-Rogue_Encounter_Lab_Pokeball_GiveMon_7:
+Rogue_Encounter_Lab_Pokeball_GiveMon_4:
+	compare VAR_RESULT, 40
+	goto_if_lt Rogue_Encounter_Lab_Pokeball_GiveMon_15
+	setvar VAR_RESULT, NO
+	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
+
+Rogue_Encounter_Lab_Pokeball_GiveMon_9:
 	msgbox Rogue_Encounter_Lab_Pokeball_GiveMon_Text_2
 	finditem VAR_ROGUE_ITEM10, 1
 	return
+
+Rogue_Encounter_Lab_Pokeball_GiveMon_12:
+	setvar VAR_RESULT, YES
+	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
+
+Rogue_Encounter_Lab_Pokeball_GiveMon_15:
+	setvar VAR_RESULT, YES
+	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
+
+Rogue_Encounter_Lab_Pokeball_GiveMon_18:
+	setvar VAR_RESULT, YES
+	goto Rogue_Encounter_Lab_Pokeball_GiveMon_1
 
 
 Rogue_Encounter_Lab_Pokeball0::

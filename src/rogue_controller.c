@@ -5240,9 +5240,41 @@ static void ApplyUniqueCoverageTrainerQuery(u16 trainerNum, bool8 isBoss, struct
     }
 }
 
+// Base species that is used for duplicate checks
+static u16 GetTrainerQueryBaseSpeciesToCheck(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    u16 baseSpecies = GET_BASE_SPECIES_ID(species);
+
+    switch (baseSpecies)
+    {
+    case SPECIES_DEOXYS:
+    case SPECIES_SHAYMIN:
+    case SPECIES_ARCEUS:
+    case SPECIES_TORNADUS:
+    case SPECIES_THUNDURUS:
+    case SPECIES_LANDORUS:
+    case SPECIES_KYUREM:
+    case SPECIES_GENESECT:
+    case SPECIES_ORICORIO:
+    case SPECIES_LYCANROC:
+    case SPECIES_NECROZMA:
+    case SPECIES_ALCREMIE:
+    case SPECIES_URSHIFU:
+    case SPECIES_CALYREX:
+        return baseSpecies;
+    }
+
+#endif
+
+    // No need to check against any other base species
+    return SPECIES_NONE;
+}
+
 static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
 {
     u16 species;
+    u16 baseSpecies;
     u16 randIdx;
     u16 queryCount;
     bool8 skipDupeCheck = FALSE;
@@ -5381,16 +5413,18 @@ static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *part
                 }
             }
 
-            #ifdef ROGUE_EXPANSION
-			// Special case for Arceus as all species can be enabled at once
-            if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+            // Check if this base species exists in the party (If it's already there skip adding this mon to the party)
+#ifdef ROGUE_EXPANSION
+            baseSpecies = GetTrainerQueryBaseSpeciesToCheck(species);
+
+            if(baseSpecies != SPECIES_NONE)
             {
-                if(PartyContainsBaseSpecies(party, monIdx, SPECIES_ARCEUS))
+                if(PartyContainsBaseSpecies(party, monIdx, baseSpecies))
                 {
                     continue;
                 }
             }
-            #endif
+#endif
         }
         while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
     }
@@ -6037,21 +6071,43 @@ static u8 GetCurrentWildEncounterCount()
     return count;
 }
 
-bool8 Rogue_AllowWildMonItems(void)
+void Rogue_ModifyWildMonHeldItem(u16* itemId)
 {
     if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
-            return FALSE;
+        {
+            *itemId = 0;
+            return;
+        }
 
-        return TRUE;
+        if(!IsGenEnabled(ItemToGen(*itemId)))
+        {
+            *itemId = 0;
+        }
+        else
+        {
+            // Banned Items
+            switch (*itemId)
+            {
+            case ITEM_SACRED_ASH:
+            case ITEM_REVIVAL_HERB:
+            case ITEM_REVIVE:
+            case ITEM_MAX_REVIVE:
+            case ITEM_RARE_CANDY:
+            case ITEM_HEART_SCALE:
+            case ITEM_LUCKY_EGG:
+                *itemId = 0;
+                break;
+            }
+        }
+
     }
     else if(GetSafariZoneFlag())
     {
-        return FALSE;
+        *itemId = 0;
     }
 
-    return TRUE;
 }
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality)

@@ -1975,10 +1975,28 @@ static void Cmd_typecalc(void)
     gBattlescriptCurrInstr++;
 }
 
+static bool8 ActivateEndureCharm(u8 battler)
+{
+    if(gBattleMons[battler].hp == gBattleMons[battler].maxHP && gBattleMons[battler].hp <= gBattleMoveDamage)
+    {
+        if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        {
+            return Random() % 100 < GetCurseValue(EFFECT_ENDURE_CHANCE);
+        }
+        else // B_SIDE_PLAYER
+        {
+            return Random() % 100 < GetCharmValue(EFFECT_ENDURE_CHANCE);
+        }
+    }
+
+    return FALSE;
+}
+
 static void Cmd_adjustdamage(void)
 {
     u8 holdEffect, param;
     u32 moveType;
+    bool8 endureCharmActive = FALSE;
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
@@ -2011,12 +2029,17 @@ static void Cmd_adjustdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
     }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
+    }
 
     if (gBattleMoves[gCurrentMove].effect != EFFECT_FALSE_SWIPE
         && !gProtectStructs[gBattlerTarget].endured
         && !gSpecialStatuses[gBattlerTarget].focusBanded
         && !gSpecialStatuses[gBattlerTarget].focusSashed
-        && !gSpecialStatuses[gBattlerTarget].sturdied)
+        && !gSpecialStatuses[gBattlerTarget].sturdied
+        && !endureCharmActive)
         goto END;
 
     // Handle reducing the dmg to 1 hp.
@@ -2035,6 +2058,10 @@ static void Cmd_adjustdamage(void)
     {
         gMoveResultFlags |= MOVE_RESULT_STURDIED;
         gLastUsedAbility = ABILITY_STURDY;
+    }
+    else if (endureCharmActive)
+    {
+        gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
     }
 
 END:
@@ -11064,6 +11091,7 @@ static void Cmd_setlightscreen(void)
 static void Cmd_tryKO(void)
 {
     bool32 lands = FALSE;
+    bool8 endureCharmActive = FALSE;
     u32 holdEffect = GetBattlerHoldEffect(gBattlerTarget, TRUE);
     u16 targetAbility = GetBattlerAbility(gBattlerTarget);
 
@@ -11078,6 +11106,10 @@ static void Cmd_tryKO(void)
     {
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
     }
 
     if (targetAbility == ABILITY_STURDY)
@@ -11120,6 +11152,11 @@ static void Cmd_tryKO(void)
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
                 gLastUsedItem = gBattleMons[gBattlerTarget].item;
+            }
+            else if (endureCharmActive)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+                gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
             }
             else
             {

@@ -1077,6 +1077,7 @@ extern const u8 gText_ItemCatchingCharm[];
 extern const u8 gText_ItemGraceCharm[];
 extern const u8 gText_ItemEncounterCharm[];
 extern const u8 gText_ItemMovePriorityCharm[];
+extern const u8 gText_ItemEndureCharm[];
 
 extern const u8 gText_ItemShoppingCurse[];
 extern const u8 gText_ItemFlinchCurse[];
@@ -1092,6 +1093,7 @@ extern const u8 gText_ItemBattleItemCurse[];
 extern const u8 gText_ItemSpeciesClauseCurse[];
 extern const u8 gText_ItemItemShuffleCurse[];
 extern const u8 gText_ItemMovePriorityCurse[];
+extern const u8 gText_ItemEndureCurse[];
 
 
 extern const u8 sItemShoppingCharmDesc[];
@@ -1103,6 +1105,7 @@ extern const u8 sItemCatchingCharmDesc[];
 extern const u8 sItemGraceCharmDesc[];
 extern const u8 sItemEncounterCharmDesc[];
 extern const u8 sItemMovePriorityCharmDesc[];
+extern const u8 sItemEndureCharmDesc[];
 
 extern const u8 sItemShoppingCurseDesc[];
 extern const u8 sItemFlinchCurseDesc[];
@@ -1118,6 +1121,7 @@ extern const u8 sItemBattleItemCurseDesc[];
 extern const u8 sItemSpeciesClauseCurseDesc[];
 extern const u8 sItemItemShuffleCurseDesc[];
 extern const u8 sItemMovePriorityCurseDesc[];
+extern const u8 sItemEndureCurseDesc[];
 
 
 extern const u8 gText_ItemPlaceholderDesc[];
@@ -1167,6 +1171,9 @@ const u8* Rogue_GetItemName(u16 itemId)
         case ITEM_MOVE_PRIORITY_CHARM:
             return gText_ItemMovePriorityCharm;
 
+        case ITEM_ENDURE_CHARM:
+            return gText_ItemEndureCharm;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             return gText_ItemShoppingCurse;
@@ -1209,6 +1216,9 @@ const u8* Rogue_GetItemName(u16 itemId)
 
         case ITEM_MOVE_PRIORITY_CURSE:
             return gText_ItemMovePriorityCurse;
+
+        case ITEM_ENDURE_CURSE:
+            return gText_ItemEndureCurse;
     }
 
     return gItems[itemId].name;
@@ -1306,6 +1316,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->description = sItemMovePriorityCharmDesc;
             break;
 
+        case ITEM_ENDURE_CHARM:
+            outItem->description = sItemEndureCharmDesc;
+            break;
+
 
         case ITEM_SHOP_PRICE_CURSE:
             outItem->description = sItemShoppingCurseDesc;
@@ -1361,6 +1375,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_MOVE_PRIORITY_CURSE:
             outItem->description = sItemMovePriorityCurseDesc;
+            break;
+
+        case ITEM_ENDURE_CURSE:
+            outItem->description = sItemEndureCurseDesc;
             break;
 
     }
