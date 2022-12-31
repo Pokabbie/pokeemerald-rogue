@@ -20,6 +20,8 @@
 #include "window.h"
 #include "constants/songs.h"
 
+#include "rogue_quest.h"
+
 #define DLG_WINDOW_PALETTE_NUM 15
 #define DLG_WINDOW_BASE_TILE_NUM 0x200
 #define STD_WINDOW_PALETTE_NUM 14
@@ -2195,6 +2197,11 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             }
             *string = flagCount + CHAR_0;
             *endOfString = EOS;
+            break;
+        case SAVE_MENU_QUESTS:
+            string = ConvertIntToDecimalStringN(string, GetCompletedQuestPerc(), STR_CONV_MODE_LEFT_ALIGN, 3);
+            string[0] = 0x5B; // %
+            string[1] = EOS;
             break;
     }
 }

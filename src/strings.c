@@ -1692,6 +1692,7 @@ const u8 gText_DecimalPoint[] = _(".");
 const u8 gText_SavingPlayer[] = _("PLAYER");
 const u8 gText_SavingBadges[] = _("BADGES");
 const u8 gText_SavingPokedex[] = _("POKéDEX");
+const u8 gText_SavingQuests[] = _("QUESTS");
 const u8 gText_SavingTime[] = _("TIME");
 const u8 gText_WirelessCommStatus[] = _("Wireless Communication Status");
 const u8 gText_PeopleTrading[] = _("People trading:");

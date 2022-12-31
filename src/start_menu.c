@@ -1478,22 +1478,36 @@ static void ShowSaveInfoWindow(void)
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
     PrintPlayerNameOnWindow(sSaveInfoWindowId, gStringVar4, xOffset, yOffset);
 
-    // Print badge count
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingBadges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
-
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    // When in run print badge count, when in hub print pokedex
+    //
+    if(Rogue_IsRunActive())
     {
-        // Print pokedex count
+        // Print badge count
         yOffset += 16;
-        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingPokedex, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-        BufferSaveMenuText(SAVE_MENU_CAUGHT, gStringVar4, color);
+        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingBadges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+        BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
         xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
         AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
     }
+    else
+    {
+        if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+        {
+            // Print pokedex count
+            yOffset += 16;
+            AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingPokedex, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+            BufferSaveMenuText(SAVE_MENU_CAUGHT, gStringVar4, color);
+            xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
+            AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
+        }
+    }
+    
+    // Print quest percentage
+    yOffset += 16;
+    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingQuests, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+    BufferSaveMenuText(SAVE_MENU_QUESTS, gStringVar4, color);
+    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
+    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
 
     // Print play time
     yOffset += 16;
