@@ -11,12 +11,11 @@
 // Debugging defines
 // Override these when debugging
 //
-#define ROGUE_DEBUG
+//#define ROGUE_DEBUG
 //#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
-#define ROGUE_DEBUG_LVL_5_TRAINERS
-#define ROGUE_DEBUG_LOGGING
-
+//#define ROGUE_DEBUG_LVL_5_TRAINERS
+//#define ROGUE_DEBUG_LOGGING
 #else
 
 // Automation defines
@@ -34,7 +33,7 @@
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
 
-#define ROGUE_COMPAT_VERSION 5  // The version to bump every time there is a patch so players cannot patch incorrectly
+#define ROGUE_COMPAT_VERSION 6  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 #define ROGUE_HUB_BERRY_TREE_COUNT 20
 
