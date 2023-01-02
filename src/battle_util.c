@@ -9653,12 +9653,12 @@ void UndoPlayerMegaEvolution(u32 monId)
         CalculateMonStats(&gPlayerParty[monId]);
     }
     // While not exactly a mega evolution, Zygarde follows the same rules.
-    else if (GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, NULL) == SPECIES_ZYGARDE_COMPLETE)
-    {
-        SetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
-        gBattleStruct->changedSpecies[monId] = 0;
-        CalculateMonStats(&gPlayerParty[monId]);
-    }
+    //else if (GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, NULL) == SPECIES_ZYGARDE_COMPLETE)
+    //{
+    //    SetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
+    //    gBattleStruct->changedSpecies[monId] = 0;
+    //    CalculateMonStats(&gPlayerParty[monId]);
+    //}
 }
 
 void UndoEnemyMegaEvolution(u32 monId)
@@ -9678,12 +9678,12 @@ void UndoEnemyMegaEvolution(u32 monId)
         CalculateMonStats(&gEnemyParty[monId]);
     }
     // While not exactly a mega evolution, Zygarde follows the same rules.
-    else if (GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL) == SPECIES_ZYGARDE_COMPLETE)
-    {
-        SetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
-        gBattleStruct->changedSpecies[monId] = 0;
-        CalculateMonStats(&gEnemyParty[monId]);
-    }
+    //else if (GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL) == SPECIES_ZYGARDE_COMPLETE)
+    //{
+    //    SetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, &gBattleStruct->changedSpecies[monId]);
+    //    gBattleStruct->changedSpecies[monId] = 0;
+    //    CalculateMonStats(&gEnemyParty[monId]);
+    //}
 }
 
 void UndoFormChange(u32 monId, u32 side, bool32 isSwitchingOut)
