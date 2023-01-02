@@ -1336,8 +1336,9 @@ RogueHub_HintCampaignLowBst_Text_0:
 
 RogueHub_HintCampaignPokeballLimit_Text_0:
 	.string "There's nothing worse than when I'm on\n"
-	.string "and Adventure and I all OUT of BALLs so\l"
-	.string "I can't catch any new POKéMON.$"
+	.string "and Adventure and I end up all OUT of\l"
+	.string "BALLs so I can't catch any new\l"
+	.string "POKéMON.$"
 
 RogueHub_HintCampaignOneHit_Text_0:
 	.string "I've got a great new strategy for my\n"
