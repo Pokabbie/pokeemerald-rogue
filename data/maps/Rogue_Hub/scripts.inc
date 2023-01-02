@@ -909,6 +909,30 @@ RogueHub_HintCampaignAutoBattle::
 	return
 
 
+RogueHub_HintCampaignLowBst::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignLowBst_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintCampaignPokeballLimit::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignPokeballLimit_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+RogueHub_HintCampaignOneHit::
+	lock
+	faceplayer
+	msgbox RogueHub_HintCampaignOneHit_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
 RogueHub_Intro0_Text_0:
 	.string "SCOTT: Well we're here!\p"
 	.string "The POKéMON HUB!\p"
@@ -1302,3 +1326,23 @@ RogueHub_HintCampaignClassic_Text_0:
 
 RogueHub_HintCampaignAutoBattle_Text_0:
 	.string "WHAT are you going to ATTACK?!$"
+
+RogueHub_HintCampaignLowBst_Text_0:
+	.string "You know there was once a Competition\n"
+	.string "to try and complete and Adventure with\l"
+	.string "the weakest POKéMON possible?\p"
+	.string "You can join in on our own SMALL\n"
+	.string "HOLIDAY if you'd like.$"
+
+RogueHub_HintCampaignPokeballLimit_Text_0:
+	.string "There's nothing worse than when I'm on\n"
+	.string "and Adventure and I all OUT of BALLs so\l"
+	.string "I can't catch any new POKéMON.$"
+
+RogueHub_HintCampaignOneHit_Text_0:
+	.string "I've got a great new strategy for my\n"
+	.string "next Adventure...\p"
+	.string "I'm going to increase my POKéMON's\n"
+	.string "evasion and keep chanting PLEASE MISS\l"
+	.string "over and over.\p"
+	.string "It's bound to work eventually!$"
