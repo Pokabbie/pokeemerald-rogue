@@ -2129,7 +2129,8 @@ static void GiveMonPartnerRibbon(void)
         }
     }
 
-    if(hasDisabledEvo)
+    // No need to display popup if haven't unlocked gen settings
+    if(FlagGet(FLAG_ROGUE_MET_POKABBIE) && hasDisabledEvo)
         Rogue_PushPopup(POPUP_MSG_PARTNER_EVO_WARNING, 0);
 }
 

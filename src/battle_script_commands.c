@@ -52,6 +52,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_script.h"
@@ -1309,6 +1310,14 @@ static void Cmd_damagecalc(void)
         gBattleMoveDamage *= 2;
     if (gProtectStructs[gBattlerAttacker].helpingHand)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
+
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP && gBattleMoveDamage != 0)
+    {
+        if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP + 2;
+        }
+    }
 
     gBattlescriptCurrInstr++;
 }

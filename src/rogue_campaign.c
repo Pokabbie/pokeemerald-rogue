@@ -17,6 +17,7 @@ extern const u8 gText_Campaign_MiniBossBattler[];
 extern const u8 gText_Campaign_AutoBattler[];
 extern const u8 gText_Campaign_LaterManner[];
 extern const u8 gText_Campaign_PokeballLimit[];
+extern const u8 gText_Campaign_OneHp[];
 
 static void Campaign_LowBst_RecalculateScore(void);
 static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
@@ -42,6 +43,9 @@ const u8* GetCampaignTitle(u16 campaignId)
 
     case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
         return &gText_Campaign_PokeballLimit[0];
+
+    case ROGUE_CAMPAIGN_ONE_HP:
+        return &gText_Campaign_OneHp[0];
     
     default:
         return &gText_Campaign_None[0];
@@ -112,6 +116,9 @@ u16 TryGetCampaignId(u16 word0, u16 word1)
 
     if(word0 == 6701 && word1 == 4152) // BALL OUT
         return ROGUE_CAMPAIGN_POKEBALL_LIMIT;
+
+    if(word0 == 5649 && word1 == 3598) // PLEASE MISS
+        return ROGUE_CAMPAIGN_ONE_HP;
 
     return ROGUE_CAMPAIGN_NONE;
 }
@@ -262,6 +269,7 @@ bool8 Rogue_IsActiveCampaignScored(void)
     case ROGUE_CAMPAIGN_LATERMANNER:
     case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
     case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
         return TRUE;
     }
 
@@ -276,6 +284,7 @@ bool8 Rogue_IsActiveCampaignLowScoreGood(void)
     case ROGUE_CAMPAIGN_LATERMANNER:
     case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
     case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
         return TRUE;
     }
 
@@ -363,6 +372,7 @@ void Rogue_CampaignNotify_OnMonFainted(void)
     case ROGUE_CAMPAIGN_LATERMANNER:
     case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
     case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
         ++gRogueRun.campaignData.generic.score;
         break;
     }
