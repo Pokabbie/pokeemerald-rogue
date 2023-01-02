@@ -331,9 +331,10 @@
 #define ROGUE_CAMPAIGN_AUTO_BATTLER             4
 #define ROGUE_CAMPAIGN_LATERMANNER              5
 #define ROGUE_CAMPAIGN_POKEBALL_LIMIT           6
+#define ROGUE_CAMPAIGN_ONE_HP                   7
 
 #define ROGUE_CAMPAIGN_FIRST                    ROGUE_CAMPAIGN_LOW_BST
-#define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_POKEBALL_LIMIT
+#define ROGUE_CAMPAIGN_LAST                     ROGUE_CAMPAIGN_ONE_HP
 #define ROGUE_CAMPAIGN_COUNT                    (ROGUE_CAMPAIGN_LAST - ROGUE_CAMPAIGN_FIRST + 1)
 
 // Popups

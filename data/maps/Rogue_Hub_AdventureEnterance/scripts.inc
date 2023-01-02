@@ -688,7 +688,7 @@ Rogue_StartAdventureCommon_Text_4:
 
 Rogue_StartAdventureCommon_Text_5:
 	.string "Would you like to skip ahead and start\n"
-	.string "at BADGE {STR_VAR_1}?$"
+	.string "just after BADGE {STR_VAR_1}?$"
 
 Rogue_StartAdventureCommon_Text_6:
 	.string "Good luck {PLAYER}!$"

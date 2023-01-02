@@ -1918,6 +1918,7 @@ s32 CalcCritChanceStage(u8 battlerAtk, u8 battlerDef, u32 move, bool32 recordAbi
     }
 
     return critChance;
+
 }
 #undef BENEFITS_FROM_LEEK
 
@@ -1962,7 +1963,16 @@ static void Cmd_damagecalc(void)
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
     gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
-    gBattlescriptCurrInstr++;
+    
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP && gBattleMoveDamage != 0)
+    {
+        if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP + 2;
+        }
+    }
+
+	gBattlescriptCurrInstr++;
 }
 
 static void Cmd_typecalc(void)

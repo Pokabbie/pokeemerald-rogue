@@ -103,7 +103,8 @@ Rogue_ConfigRoom_Campaign_CampaignDescription::
 	case ROGUE_CAMPAIGN_AUTO_BATTLER, Rogue_ConfigRoom_Campaign_CampaignDescription_5
 	case ROGUE_CAMPAIGN_LATERMANNER, Rogue_ConfigRoom_Campaign_CampaignDescription_6
 	case ROGUE_CAMPAIGN_POKEBALL_LIMIT, Rogue_ConfigRoom_Campaign_CampaignDescription_7
-	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
+	case ROGUE_CAMPAIGN_ONE_HP, Rogue_ConfigRoom_Campaign_CampaignDescription_8
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_9
 	return
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_2:
@@ -134,6 +135,11 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_6:
 Rogue_ConfigRoom_Campaign_CampaignDescription_7:
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7
 	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_3, MSGBOX_DEFAULT
+	return
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_8:
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
+	msgbox Rogue_ConfigRoom_Campaign_CampaignDescription_Text_1, MSGBOX_DEFAULT
 	return
 
 
@@ -557,7 +563,7 @@ Rogue_ConfigRoom_BufferRegionName::
 	case 6, Rogue_ConfigRoom_BufferRegionName_7
 	case 7, Rogue_ConfigRoom_BufferRegionName_8
 	case 8, Rogue_ConfigRoom_BufferRegionName_9
-	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
+	bufferstring STR_VAR_1, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_9
 	return
 
 Rogue_ConfigRoom_BufferRegionName_2:
@@ -725,7 +731,7 @@ Rogue_ConfigRoom_PreButtonInternal::
 	switch VAR_0x8000
 	case 0, Rogue_ConfigRoom_PreButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreButtonInternal_4
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_9
 Rogue_ConfigRoom_PreButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -774,7 +780,7 @@ Rogue_ConfigRoom_PreEAHButtonInternal::
 	case 0, Rogue_ConfigRoom_PreEAHButtonInternal_3
 	case 1, Rogue_ConfigRoom_PreEAHButtonInternal_4
 	case 2, Rogue_ConfigRoom_PreEAHButtonInternal_5
-	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8
+	bufferstring STR_VAR_2, Rogue_ConfigRoom_Campaign_CampaignDescription_Text_9
 Rogue_ConfigRoom_PreEAHButtonInternal_1:
 	message Rogue_ConfigRoom_PreButtonInternal_Text_2
 	waitmessage
@@ -1756,6 +1762,21 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_7:
 	.string "Lab.$"
 
 Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8:
+	.string "One Hit Mode will cause all of your\n"
+	.string "POKéMON to take enough damage to\l"
+	.string "faint from every hit.\p"
+	.string "Damage over time and status effects,\n"
+	.string "such as poison or hail damage, will act\l"
+	.string "as normal.\p"
+	.string "This can be played in any adventure\n"
+	.string "type and doesn't adjust any of the\l"
+	.string "settings in the Config Lab.\p"
+	.string "Your score is based on how many\n"
+	.string "POKéMON faint during the run.\p"
+	.string "The aim is to get the lowest score\n"
+	.string "possible.$"
+
+Rogue_ConfigRoom_Campaign_CampaignDescription_Text_9:
 	.string "???$"
 
 Rogue_ConfigRoom_Campaign_Choice_Text_0:

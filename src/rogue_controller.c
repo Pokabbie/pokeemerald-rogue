@@ -2129,7 +2129,8 @@ static void GiveMonPartnerRibbon(void)
         }
     }
 
-    if(hasDisabledEvo)
+    // No need to display popup if haven't unlocked gen settings
+    if(FlagGet(FLAG_ROGUE_MET_POKABBIE) && hasDisabledEvo)
         Rogue_PushPopup(POPUP_MSG_PARTNER_EVO_WARNING, 0);
 }
 
@@ -4573,19 +4574,13 @@ static void ApplyTrainerQuery(u16 trainerNum)
                 }
             }
 
-            // Genesect - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
-            {
-                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
-            }
-
             // Oricorio - Allow all forms
             if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
             {
                 RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
             }
 
-            // Oricorio - Allow all forms
+            // Lycanroc - Allow all forms
             if(RogueQuery_CheckIncluded(SPECIES_LYCANROC))
             {
                 RogueQuery_IncludeRange(SPECIES_LYCANROC_MIDNIGHT, SPECIES_LYCANROC_DUSK);
@@ -4596,6 +4591,13 @@ static void ApplyTrainerQuery(u16 trainerNum)
             {
                 RogueQuery_IncludeRange(SPECIES_NECROZMA_DUSK_MANE, SPECIES_NECROZMA_DAWN_WINGS);
             }
+
+            // Alcreamie - Allow all forms
+            if(RogueQuery_CheckIncluded(SPECIES_ALCREMIE))
+            {
+                RogueQuery_IncludeRange(SPECIES_ALCREMIE_RUBY_CREAM, SPECIES_ALCREMIE_RAINBOW_SWIRL);
+            }
+
 
             // Urshifu - One of 2 forms
             if(RogueQuery_CheckIncluded(SPECIES_URSHIFU))
