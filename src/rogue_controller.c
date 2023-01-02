@@ -3517,7 +3517,7 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
     bool8 hasMonFainted = FALSE;
 
     // If we're finished, we don't want to release any mons, just check if anything has fainted or not
-    if(gRogueRun.currentDifficulty >= BOSS_COUNT)
+    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty >= BOSS_COUNT)
     {
         for(read = 0; read < PARTY_SIZE; ++read)
         {
