@@ -1026,3 +1026,33 @@ script RogueHub_HintCampaignAutoBattle
 
     release
 }
+
+script RogueHub_HintCampaignLowBst
+{
+    lock
+
+    faceplayer
+    msgbox(format("You know there was once a Competition to try and complete and Adventure with the weakest POKéMON possible?\pYou can join in on our own SMALL HOLIDAY if you'd like."), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_HintCampaignPokeballLimit
+{
+    lock
+
+    faceplayer
+    msgbox(format("There's nothing worse than when I'm on and Adventure and I all OUT of BALLs so I can't catch any new POKéMON."), MSGBOX_DEFAULT)
+
+    release
+}
+
+script RogueHub_HintCampaignOneHit
+{
+    lock
+
+    faceplayer
+    msgbox(format("I've got a great new strategy for my next Adventure...\pI'm going to increase my POKéMON's evasion and keep chanting PLEASE MISS over and over.\pIt's bound to work eventually!"), MSGBOX_DEFAULT)
+
+    release
+}

@@ -1966,9 +1966,12 @@ static void Cmd_damagecalc(void)
     
     if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP && gBattleMoveDamage != 0)
     {
-        if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP + 2;
+            if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP * 4;
+            }
         }
     }
 

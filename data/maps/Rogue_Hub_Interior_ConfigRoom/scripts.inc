@@ -1765,6 +1765,8 @@ Rogue_ConfigRoom_Campaign_CampaignDescription_Text_8:
 	.string "One Hit Mode will cause all of your\n"
 	.string "POKéMON to take enough damage to\l"
 	.string "faint from every hit.\p"
+	.string "Battles with wild POKéMON will still\n"
+	.string "behave normally.\p"
 	.string "Damage over time and status effects,\n"
 	.string "such as poison or hail damage, will act\l"
 	.string "as normal.\p"
