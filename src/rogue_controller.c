@@ -1875,6 +1875,7 @@ void Rogue_OnLoadGame(void)
                 DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
+                EnsureSafariShinyBufferIsValid();
             }
 
             // Serialize temporary per-run data
