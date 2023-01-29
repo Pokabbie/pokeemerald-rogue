@@ -83,6 +83,7 @@ bool8 TryGetObjectEventIdByLocalIdAndMap(u8, u8, u8, u8 *);
 u8 GetObjectEventIdByXY(s16, s16);
 void SetObjectEventDirection(struct ObjectEvent *, u8);
 u8 GetFirstInactiveObjectEventId(void);
+void RemoveObjectEvent(struct ObjectEvent *objectEvent);
 void RemoveObjectEventByLocalIdAndMap(u8, u8, u8);
 void LoadPlayerObjectReflectionPalette(u16, u8);
 void LoadSpecialObjectReflectionPalette(u16, u8);
@@ -194,6 +195,8 @@ void CameraObjectReset2(void);
 u8 GetObjectEventBerryTreeId(u8 objectEventId);
 void SetBerryTreeJustPicked(u8 mapId, u8 mapNumber, u8 mapGroup);
 bool8 IsBerryTreeSparkling(u8, u8, u8);
+struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
+u8 TrySpawnObjectEventTemplate(struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY);
 
 void MovementType_None(struct Sprite *);
 void MovementType_LookAround(struct Sprite *);
@@ -419,5 +422,9 @@ void SetVirtualObjectInvisibility(u8 virtualObjId, bool32 invisible);
 bool32 IsVirtualObjectInvisible(u8 virtualObjId);
 void SetVirtualObjectSpriteAnim(u8 virtualObjId, u8 animNum);
 bool32 IsVirtualObjectAnimating(u8 virtualObjId);
+
+u16 GetMiniStepCount(u8 speed);
+void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame);
+bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent);
 
 #endif //GUARD_EVENT_OBJECT_MOVEMENT_H
