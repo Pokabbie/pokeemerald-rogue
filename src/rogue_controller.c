@@ -43,9 +43,11 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -2063,6 +2065,8 @@ void Rogue_OnLoadMap(void)
         RandomiseSafariWildEncounters();
         Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
+
+    SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)

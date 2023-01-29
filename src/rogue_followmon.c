@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/event_objects.h"
+#include "constants/event_object_movement.h"
 //#include "constants/abilities.h"
 //#include "constants/heal_locations.h"
 //#include "constants/hold_effects.h"
@@ -11,6 +12,9 @@
 //#include "battle.h"
 //#include "battle_setup.h"
 #include "event_data.h"
+#include "event_object_movement.h"
+#include "fieldmap.h"
+#include "follow_me.h"
 //#include "item.h"
 //#include "item_use.h"
 //#include "money.h"
@@ -76,4 +80,22 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
     // Return a fallback sprite
     return gObjectEventShinyMonGraphicsInfoPointers[SPECIES_BULBASAUR];
+}
+
+void SetupFollowParterMonObjectEvent()
+{
+    if(!PlayerHasFollower())
+    {
+        u8 objectEventId = SpawnSpecialObjectEventParameterized2(
+            OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
+            MOVEMENT_TYPE_FACE_DOWN,
+            OBJ_EVENT_ID_FOLLOWER,
+            gSaveBlock1Ptr->pos.x + MAP_OFFSET,
+            gSaveBlock1Ptr->pos.y + MAP_OFFSET,
+            3,
+            NULL // TODO - Script
+        );
+
+        SetUpFollowerSprite(OBJ_EVENT_ID_FOLLOWER, 0); // Check FOLLOWER_FLAG_ALL
+    }
 }

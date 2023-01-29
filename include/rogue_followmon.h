@@ -2,5 +2,6 @@
 #define ROGUE_FOLLOWMON_H
 
 const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId);
+void SetupFollowParterMonObjectEvent();
 
 #endif
