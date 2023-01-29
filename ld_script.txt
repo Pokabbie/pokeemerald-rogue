@@ -335,10 +335,12 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
+        src/follow_me.o(.text);
         src/pokemon_debug.o(.text);
         src/rogue_automation.o(.text);
         src/rogue_campaign.o(.text);
         src/rogue_controller.o(.text);
+        src/rogue_followmon.o(.text);
         src/rogue_query.o(.text);
         src/rogue_baked.o(.text);
         src/rogue_script.o(.text);
@@ -712,10 +714,12 @@ SECTIONS {
         data/mystery_gift.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
+        src/follow_me.o(.rodata);
         src/pokemon_debug.o(.rodata);
         src/rogue_automation.o(.rodata);
         src/rogue_campaign.o(.rodata);
         src/rogue_controller.o(.rodata);
+        src/rogue_followmon.o(.rodata);
         src/rogue_query.o(.rodata);
         src/rogue_baked.o(.rodata);
         src/rogue_script.o(.rodata);

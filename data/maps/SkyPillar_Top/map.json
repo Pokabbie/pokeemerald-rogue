@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA",
-      "x": 14,
+      "x": 16,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -28,7 +28,7 @@
       "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA_STILL",
+      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_0",
       "x": 14,
       "y": 6,
       "elevation": 3,
@@ -129,15 +129,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 9,
-      "elevation": 3,
-      "var": "VAR_SKY_PILLAR_RAQUAZA_CRY_DONE",
-      "var_value": "0",
-      "script": "SkyPillar_Top_EventScript_AwakenRayquaza"
-    }
+
   ],
   "bg_events": [
 

@@ -267,6 +267,7 @@ include map_data_rules.mk
 include spritesheet_rules.mk
 include json_data_rules.mk
 include songs.mk
+include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 
 %.s: ;
 %.png: ;

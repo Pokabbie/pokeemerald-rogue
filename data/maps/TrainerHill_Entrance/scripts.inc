@@ -94,7 +94,6 @@ TrainerHill_Entrance_EventScript_PlayerExitChallenge::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, TrainerHill_Entrance_Movement_PushPlayerBackFromCounter
 	waitmovement 0
-	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special HealPlayerParty
 	releaseall
 TrainerHill_Entrance_EventScript_EndExitChallenge::
@@ -153,17 +152,6 @@ TrainerHill_Entrance_EventScript_Info::
 	end
 
 TrainerHill_Entrance_EventScript_ChooseChallenge::
-	multichoice 13, 2, MULTI_TAG_MATCH_TYPE, FALSE
-	switch VAR_RESULT
-	case 4, TrainerHill_Entrance_EventScript_CancelEntry
-	case MULTI_B_PRESSED, TrainerHill_Entrance_EventScript_CancelEntry
-	trainerhill_setmode VAR_RESULT
-	setvar VAR_TRAINER_HILL_IS_ACTIVE, 1
-	setvar VAR_TEMP_5, 0
-	special HealPlayerParty
-	msgbox TrainerHill_Entrance_Text_TimeProgessGetSetGo, MSGBOX_DEFAULT
-	trainerhill_start
-	releaseall
 	end
 
 TrainerHill_Entrance_EventScript_CancelEntry::

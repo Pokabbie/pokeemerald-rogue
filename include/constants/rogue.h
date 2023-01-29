@@ -11,11 +11,11 @@
 // Debugging defines
 // Override these when debugging
 //
-//#define ROGUE_DEBUG
+#define ROGUE_DEBUG
 //#define ROGUE_DEBUG_PAUSE_PANEL
 //#define ROGUE_DEBUG_STEAL_TEAM
-//#define ROGUE_DEBUG_LVL_5_TRAINERS
-//#define ROGUE_DEBUG_LOGGING
+#define ROGUE_DEBUG_LVL_5_TRAINERS
+#define ROGUE_DEBUG_LOGGING
 #else
 
 // Automation defines
@@ -344,6 +344,10 @@
 #define POPUP_MSG_CAMPAIGN_ANNOUNCE             3
 #define POPUP_MSG_SAFARI_ENCOUNTERS             4
 #define POPUP_MSG_PARTNER_EVO_WARNING           5
+
+// Misc.
+//
+#define FOLLOWMON_SHINY_OFFSET 10000
 
 #include "rogue_quests.h"
 

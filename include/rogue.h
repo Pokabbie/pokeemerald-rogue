@@ -258,7 +258,17 @@ struct RogueAutomationHeader
 extern const struct RogueAutomationHeader gRogueAutomationHeader;
 #endif
 
-extern const struct SpeciesTable gRogueSpeciesTable[];
+struct PokemonObjectEventInfo
+{
+    const u32* defaultPic;
+    const u32* shinyPic;
+    u8 width;
+    u8 height;
+    u8 defaultPaletteOffset;
+    u8 shinyPaletteOffset;
+};
+
+
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;

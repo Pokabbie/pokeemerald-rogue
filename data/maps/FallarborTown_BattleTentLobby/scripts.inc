@@ -120,7 +120,6 @@ FallarborTown_BattleTentLobby_EventScript_AskEnterChallenge::
 	case MULTI_B_PRESSED, FallarborTown_BattleTentLobby_EventScript_CancelChallenge
 
 FallarborTown_BattleTentLobby_EventScript_TryEnterChallenge::
-	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_ARENA
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
 	setvar VAR_RESULT, 2
 	frontier_checkineligible
@@ -239,13 +238,6 @@ FallarborTown_BattleTentLobby_EventScript_Lass::
 	end
 
 FallarborTown_BattleTentLobby_EventScript_Scott::
-	lock
-	faceplayer
-	goto_if_set FLAG_MET_SCOTT_IN_FALLARBOR, FallarborTown_BattleTentLobby_EventScript_ScottAlreadySpokenTo
-	msgbox FallarborTown_BattleTentLobby_Text_ScottLookingForSomeone, MSGBOX_DEFAULT
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_IN_FALLARBOR
-	release
 	end
 
 FallarborTown_BattleTentLobby_EventScript_ScottAlreadySpokenTo::

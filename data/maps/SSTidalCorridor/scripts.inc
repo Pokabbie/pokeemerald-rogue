@@ -6,7 +6,6 @@ SSTidalCorridor_MapScripts::
 	.byte 0
 
 SSTidalCorridor_OnFrame:
-	map_script_2 VAR_SS_TIDAL_SCOTT_STATE, 0, SSTidalCorridor_EventScript_ScottScene
 	map_script_2 VAR_SS_TIDAL_STATE, SS_TIDAL_BOARD_SLATEPORT, SSTidalCorridor_EventScript_DepartSlateportForLilycove
 	map_script_2 VAR_SS_TIDAL_STATE, SS_TIDAL_BOARD_LILYCOVE, SSTidalCorridor_EventScript_DepartLilycoveForSlateport
 	map_script_2 VAR_SS_TIDAL_STATE, SS_TIDAL_EXIT_CURRENTS_RIGHT, SSTidalCorridor_EventScript_HalfwayToLilycove
@@ -187,26 +186,6 @@ SSTidalCorridor_EventScript_TrainerNotDefeated::
 	return
 
 SSTidalCorridor_EventScript_ScottScene::
-	lockall
-	applymovement LOCALID_SCOTT, SSTidalCorridor_Movement_ScottApproachPlayer
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	msgbox SSTidalCorridor_Text_ScottBattleFrontierInvite, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, SSTidalCorridor_Movement_PlayerWatchScottExit
-	applymovement LOCALID_SAILOR, SSTidalCorridor_Movement_SailorMoveForScott
-	applymovement LOCALID_SCOTT, SSTidalCorridor_Movement_ScottExit
-	waitmovement 0
-	playse SE_EXIT
-	waitse
-	removeobject LOCALID_SCOTT
-	applymovement LOCALID_SAILOR, SSTidalCorridor_Movement_SailorReturn
-	waitmovement 0
-	delay 30
-	setflag FLAG_MET_SCOTT_ON_SS_TIDAL
-	setvar VAR_SS_TIDAL_SCOTT_STATE, 1
-	releaseall
 	end
 
 SSTidalCorridor_Movement_ScottApproachPlayer:

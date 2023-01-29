@@ -52,13 +52,6 @@ LilycoveCity_CoveLilyMotel_2F_EventScript_GameBoyKid::
 	end
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_Scott::
-	lock
-	faceplayer
-	goto_if_set FLAG_MET_SCOTT_IN_LILYCOVE, LilycoveCity_CoveLilyMotel_2F_EventScript_MetScott
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_SnoozingPreferBattles, MSGBOX_DEFAULT
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_IN_LILYCOVE
-	release
 	end
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_MetScott::

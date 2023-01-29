@@ -43,9 +43,11 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -1875,6 +1877,7 @@ void Rogue_OnLoadGame(void)
                 DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
+                EnsureSafariShinyBufferIsValid();
             }
 
             // Serialize temporary per-run data
@@ -2062,6 +2065,8 @@ void Rogue_OnLoadMap(void)
         RandomiseSafariWildEncounters();
         Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
+
+    SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)
@@ -2900,7 +2905,7 @@ static void ResetSpecialEncounterStates(void)
     // Special states
     // Rayquaza
     VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
-    VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
+    //VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
     FlagClear(FLAG_DEFEATED_RAYQUAZA);
     FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
     FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
@@ -3276,10 +3281,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_LEGENDARY:
                 {
+                    u16 species = gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
                     ResetSpecialEncounterStates();
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
+                    VarSet(VAR_FOLLOW_MON_0, species);
                     break;
                 }
 
@@ -3287,6 +3294,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
+                    VarSet(VAR_FOLLOW_MON_0, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
                     break;
                 }
 

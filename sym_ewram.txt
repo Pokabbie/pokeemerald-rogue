@@ -38,6 +38,7 @@
 	.include "src/rogue_automation.o"
 	.include "src/rogue_campaign.o"
 	.include "src/rogue_controller.o"
+	.include "src/rogue_followmon.o"
 	.include "src/rogue_query.o"
 	.include "src/rogue_quest.o"
 	.include "src/rogue_questmenu.o"

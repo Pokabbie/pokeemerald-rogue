@@ -120,6 +120,10 @@ const u16 gObjectEventPal_Npc1Reflection[] = INCBIN_U16("graphics/object_events/
 const u16 gObjectEventPal_Npc2Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_2_reflection.gbapal");
 const u16 gObjectEventPal_Npc3Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_3_reflection.gbapal");
 const u16 gObjectEventPal_Npc4Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_4_reflection.gbapal");
+const u16 gObjectEventPal_FollowMon1[] = INCBIN_U16("graphics/object_events/palettes/followmon_1.gbapal");
+const u16 gObjectEventPal_FollowMon2[] = INCBIN_U16("graphics/object_events/palettes/followmon_2.gbapal");
+const u16 gObjectEventPal_FollowMon3[] = INCBIN_U16("graphics/object_events/palettes/followmon_3.gbapal");
+const u16 gObjectEventPal_FollowMon4[] = INCBIN_U16("graphics/object_events/palettes/followmon_4.gbapal");
 const u32 gObjectEventPic_NinjaBoy[] = INCBIN_U32("graphics/object_events/pics/people/ninja_boy.4bpp");
 const u32 gObjectEventPic_Twin[] = INCBIN_U32("graphics/object_events/pics/people/twin.4bpp");
 const u32 gObjectEventPic_Boy1[] = INCBIN_U32("graphics/object_events/pics/people/boy_1.4bpp");
@@ -540,3 +544,5 @@ const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
+
+#include "../../../graphics/object_events/pics/pokemon_ow/include/object_event_graphics_gen.h"

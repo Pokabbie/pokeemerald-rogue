@@ -33,19 +33,6 @@ EverGrandeCity_PokemonCenter_1F_EventScript_ExpertM::
 	end
 
 EverGrandeCity_PokemonCenter_1F_EventScript_Scott::
-	lock
-	faceplayer
-	msgbox EverGrandeCity_PokemonCenter_1F_Text_ScottHappyForYou, MSGBOX_DEFAULT
-	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, EverGrandeCity_PokemonCenter_1F_EventScript_ScottExitNorth
-	call_if_eq VAR_FACING, DIR_EAST, EverGrandeCity_PokemonCenter_1F_EventScript_ScottExit
-	call_if_eq VAR_FACING, DIR_WEST, EverGrandeCity_PokemonCenter_1F_EventScript_ScottExit
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_IN_EVERGRANDE
-	playse SE_EXIT
-	waitse
-	removeobject LOCALID_SCOTT
-	release
 	end
 
 EverGrandeCity_PokemonCenter_1F_EventScript_ScottExitNorth::

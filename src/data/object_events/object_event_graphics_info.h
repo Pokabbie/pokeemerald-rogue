@@ -312,3 +312,5 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt = {TAG_NO
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate = {TAG_NONE, OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Glitch_Kate, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma = {TAG_NONE, OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_Glitch_Erma, gDummySpriteAffineAnimTable};
+
+#include "../../../graphics/object_events/pics/pokemon_ow/include/object_event_graphics_info_gen.h"
