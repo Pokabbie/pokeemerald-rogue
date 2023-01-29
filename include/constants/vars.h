@@ -216,26 +216,26 @@
 #define VAR_WHICH_FOSSIL_REVIVED             0x40C5
 #define VAR_STEVENS_HOUSE_STATE              0x40C6
 #define VAR_OLDALE_RIVAL_STATE               0x40C7
-#define VAR_JAGGED_PASS_STATE                0x40C8
-#define VAR_SCOTT_PETALBURG_ENCOUNTER        0x40C9
-#define VAR_SKY_PILLAR_STATE                 0x40CA
-#define VAR_MIRAGE_TOWER_STATE               0x40CB
-#define VAR_FOSSIL_MANIAC_STATE              0x40CC
-#define VAR_CABLE_CLUB_TUTORIAL_STATE        0x40CD
-#define VAR_FRONTIER_BATTLE_MODE             0x40CE
-#define VAR_FRONTIER_FACILITY                0x40CF
-#define VAR_HAS_ENTERED_BATTLE_FRONTIER      0x40D0 // Var is used like a flag.
-#define VAR_SCOTT_STATE                      0x40D1
-#define VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE   0x40D2
-#define VAR_DEX_UPGRADE_JOHTO_STARTER_STATE  0x40D3
-#define VAR_SS_TIDAL_SCOTT_STATE             0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
-#define VAR_ROAMER_POKEMON                   0x40D5 // 0 = Latias, 1 = Latios
-#define VAR_TRAINER_HILL_IS_ACTIVE           0x40D6
-#define VAR_SKY_PILLAR_RAQUAZA_CRY_DONE      0x40D7
-#define VAR_SOOTOPOLIS_WALLACE_STATE         0x40D8
-#define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
-#define VAR_REGISTER_BIRCH_STATE             0x40DA
-#define VAR_UNUSED_ROGUE_MAX_PARTY_SIZE      0x40DB
+#define VAR_FOLLOW_MON_0                     0x40C8 // VAR_JAGGED_PASS_STATE
+#define VAR_FOLLOW_MON_1                     0x40C9 // VAR_SCOTT_PETALBURG_ENCOUNTER
+#define VAR_FOLLOW_MON_2                     0x40CA // (was VAR_SKY_PILLAR_STATE moved)
+#define VAR_FOLLOW_MON_3                     0x40CB // VAR_MIRAGE_TOWER_STATE
+#define VAR_FOLLOW_MON_4                     0x40CC // VAR_FOSSIL_MANIAC_STATE
+#define VAR_FOLLOW_MON_5                     0x40CD // VAR_CABLE_CLUB_TUTORIAL_STATE
+#define VAR_FOLLOW_MON_6                     0x40CE // (was VAR_FRONTIER_BATTLE_MODE moved)
+#define VAR_FOLLOW_MON_7                     0x40CF // (was VAR_FRONTIER_BATTLE_MODE moved)
+#define VAR_FOLLOW_MON_8                     0x40D0 // VAR_HAS_ENTERED_BATTLE_FRONTIER
+#define VAR_FOLLOW_MON_9                     0x40D1 // VAR_SCOTT_STATE
+#define VAR_FOLLOW_MON_A                     0x40D2 // VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE
+#define VAR_FOLLOW_MON_B                     0x40D3 // VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
+#define VAR_FOLLOW_MON_C                     0x40D4 // VAR_SS_TIDAL_SCOTT_STATE
+#define VAR_FOLLOW_MON_D                     0x40D5 // (was VAR_ROAMER_POKEMON moved)
+#define VAR_FOLLOW_MON_E                     0x40D6 // VAR_TRAINER_HILL_IS_ACTIVE
+#define VAR_FOLLOW_MON_F                     0x40D7 // VAR_SKY_PILLAR_RAQUAZA_CRY_DONE
+#define VAR_SKY_PILLAR_STATE                 0x40D8 // VAR_SOOTOPOLIS_WALLACE_STATE
+#define VAR_FRONTIER_BATTLE_MODE             0x40D9 // VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT
+#define VAR_FRONTIER_FACILITY                0x40DA // VAR_REGISTER_BIRCH_STATE
+#define VAR_ROAMER_POKEMON                   0x40DB
 #define VAR_ROGUE_REGION_DEX_LIMIT           0x40DC
 #define VAR_GIFT_PICHU_SLOT                  0x40DD
 #define VAR_GIFT_UNUSED_1                    0x40DE // Var is written to, but never read

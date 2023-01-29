@@ -525,3 +525,6 @@ const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
+
+//const u32 gObjectEventPic_Overworld_GenericOverworldMon[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/bulbasaur.4bpp");
+#include "../../../graphics/object_events/pics/pokemon_ow/include/object_event_graphics_gen.h"

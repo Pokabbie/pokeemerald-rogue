@@ -52,24 +52,6 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_FOSSIL_MANIAC_STATE",
-      "var_value": "1",
-      "script": "Route114_FossilManiacsTunnel_EventScript_ManiacMentionCaveIn"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_FOSSIL_MANIAC_STATE",
-      "var_value": "1",
-      "script": "Route114_FossilManiacsTunnel_EventScript_ManiacMentionCaveIn"
-    }
   ],
   "bg_events": []
 }

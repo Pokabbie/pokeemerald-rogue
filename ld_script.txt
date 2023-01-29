@@ -3,12 +3,6 @@ ENTRY(Start)
 gNumMusicPlayers = 4;
 gMaxLines = 0;
 
-/* Modify the following load addresses as needed to make more room. Alternately, delete both the
-   declarations below and their references further down to get rid of the gaps.                  */
-
-__anim_mon_load_address = 0x8c00000;
-__gfx_load_address = 0x8d00000;
-
 SECTIONS {
     . = 0x2000000;
 
@@ -340,6 +334,7 @@ SECTIONS {
         src/rogue_automation.o(.text);
         src/rogue_campaign.o(.text);
         src/rogue_controller.o(.text);
+        src/rogue_followmon.o(.text);
         src/rogue_query.o(.text);
         src/rogue_baked.o(.text);
         src/rogue_script.o(.text);
@@ -713,6 +708,7 @@ SECTIONS {
         src/rogue_automation.o(.rodata);
         src/rogue_campaign.o(.rodata);
         src/rogue_controller.o(.rodata);
+        src/rogue_followmon.o(.rodata);
         src/rogue_query.o(.rodata);
         src/rogue_baked.o(.rodata);
         src/rogue_script.o(.rodata);
@@ -1334,13 +1330,13 @@ SECTIONS {
         data/multiboot_pokemon_colosseum.o(.rodata);
     } =0
 
-    anim_mon_front_pic_data __anim_mon_load_address :
+    anim_mon_front_pic_data :
     ALIGN(4)
     {
         src/anim_mon_front_pics.o(.rodata);
     } =0
 
-    gfx_data __gfx_load_address :
+    gfx_data :
     ALIGN(4)
     {
         src/graphics.o(.rodata);

@@ -2901,7 +2901,7 @@ static void ResetSpecialEncounterStates(void)
     // Special states
     // Rayquaza
     VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
-    VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
+    //VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
     FlagClear(FLAG_DEFEATED_RAYQUAZA);
     FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
     FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
@@ -3277,10 +3277,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_LEGENDARY:
                 {
+                    u16 species = gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
                     ResetSpecialEncounterStates();
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
+                    VarSet(VAR_FOLLOW_MON_0, species);
                     break;
                 }
 
@@ -3288,6 +3290,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
+                    VarSet(VAR_FOLLOW_MON_0, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
                     break;
                 }
 

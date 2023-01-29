@@ -17,6 +17,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "random.h"
+#include "rogue.h"
 #include "sprite.h"
 #include "task.h"
 #include "trainer_see.h"
@@ -31,6 +32,7 @@
 #include "constants/union_room.h"
 
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -1584,7 +1586,7 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
     u8 spriteId;
 
     spriteTemplate = malloc(sizeof(struct SpriteTemplate));
-    CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables);
+    CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables); // ?
     if (spriteTemplate->paletteTag != TAG_NONE)
         LoadObjectEventPalette(spriteTemplate->paletteTag);
 
@@ -1922,12 +1924,22 @@ static void SetBerryTreeGraphics(struct ObjectEvent *objectEvent, struct Sprite 
     }
 }
 
+static void UpdateDynamicObjectEventPicTable(struct SpriteFrameImage* imgTable, u16 slot, u16 idx, const u32* data, u16 width, u16 height, u16 frame)
+{
+    struct SpriteFrameImage imgFrame = overworld_frame(data, width, height, frame);
+    imgTable[idx].data = imgFrame.data;
+    imgTable[idx].size = imgFrame.size;
+}
+
 const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
 {
     u8 bard;
 
     if (graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
+
+    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+        return GetFollowMonObjectEventInfo(graphicsId);
 
     if (graphicsId == OBJ_EVENT_GFX_BARD)
     {

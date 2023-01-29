@@ -555,13 +555,13 @@ static void GetInEReaderMode(void)
 
 bool8 InTrainerHillChallenge(void)
 {
-    if (VarGet(VAR_TRAINER_HILL_IS_ACTIVE) == 0)
-        return FALSE;
-    else if (gSaveBlock1Ptr->trainerHill.spokeToOwner)
-        return FALSE;
-    else if (GetCurrentTrainerHillMapId() != 0)
-        return TRUE;
-    else
+    //if (VarGet(VAR_TRAINER_HILL_IS_ACTIVE) == 0)
+    //    return FALSE;
+    //else if (gSaveBlock1Ptr->trainerHill.spokeToOwner)
+    //    return FALSE;
+    //else if (GetCurrentTrainerHillMapId() != 0)
+    //    return TRUE;
+    //else
         return FALSE;
 }
 

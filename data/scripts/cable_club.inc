@@ -101,7 +101,6 @@ CableClub_EventScript_OnLoadFromGameCorner::
 	end
 
 CableClub_OnFrame:
-	map_script_2 VAR_CABLE_CLUB_TUTORIAL_STATE, 1, CableClub_EventScript_Tutorial
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_SINGLE_BATTLE, CableClub_EventScript_ExitLinkRoom
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_DOUBLE_BATTLE, CableClub_EventScript_ExitLinkRoom
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_MULTI_BATTLE, CableClub_EventScript_ExitLinkRoom
@@ -225,17 +224,6 @@ CableClub_EventScript_PlayerExitLinkRoom::
 	return
 
 CableClub_EventScript_Tutorial::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox CableClub_Text_FirstTimeRightThisWay, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, CableClub_Movement_PlayerApproachCounter
-	waitmovement 0
-	delay 30
-	msgbox CableClub_Text_ExplainWirelessClubFirstTime, MSGBOX_DEFAULT
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 2
-	releaseall
 	end
 
 CableClub_Movement_PlayerApproachCounter:
@@ -852,18 +840,6 @@ EventScript_DoLinkRoomExit::
 	end
 
 CableClub_EventScript_UnionRoomAttendant::
-	lock
-	faceplayer
-	setvar VAR_FRONTIER_FACILITY, FACILITY_UNION_ROOM
-	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
-	specialvar VAR_RESULT, IsBadEggInParty
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg
-	copyvar VAR_0x8007, VAR_LAST_TALKED
-	specialvar VAR_RESULT, IsWirelessAdapterConnected
-	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_UnionRoomAdapterNotConnected
-	message CableClub_Text_WelcomeUnionRoomEnter
-	waitmessage
-	goto CableClub_EventScript_UnionRoomSelect
 	end
 
 CableClub_EventScript_UnionRoomSelect::
@@ -955,7 +931,6 @@ CableClub_EventScript_DontAskAboutLinking::
 CableClub_EventScript_DirectCornerAttendant::
 	lock
 	faceplayer
-	setvar VAR_FRONTIER_FACILITY, FACILITY_MULTI_OR_EREADER  @ Set preemptively for multi battles, ignored otherwise
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
 	specialvar VAR_RESULT, IsBadEggInParty
 	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg

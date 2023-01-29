@@ -7,8 +7,6 @@ JaggedPass_MapScripts::
 	.byte 0
 
 JaggedPass_OnResume:
-	setstepcallback STEP_CB_ASH
-	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
 
 JaggedPass_EventScript_CheckHasMagmaEmblem::
@@ -17,7 +15,6 @@ JaggedPass_EventScript_CheckHasMagmaEmblem::
 	return
 
 JaggedPass_EventScript_SetReadyToOpenHideout::
-	setvar VAR_JAGGED_PASS_STATE, 1
 	return
 
 JaggedPass_OnTransition:
@@ -30,7 +27,6 @@ JaggedPass_EventScript_SetWeatherAsh::
 	return
 
 JaggedPass_OnLoad:
-	goto_if_le VAR_JAGGED_PASS_STATE, 1, JaggedPass_EventScript_ConcealHideoutEntrance
 	end
 
 JaggedPass_EventScript_ConcealHideoutEntrance::
@@ -39,29 +35,6 @@ JaggedPass_EventScript_ConcealHideoutEntrance::
 	end
 
 JaggedPass_EventScript_OpenMagmaHideout::
-	lockall
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 5  @ shake delay
-	special ShakeCamera
-	waitstate
-	msgbox JaggedPass_Text_BoulderShakingInResponseToEmblem, MSGBOX_DEFAULT
-	closemessage
-	setvar VAR_0x8004, 1   @ vertical pan
-	setvar VAR_0x8005, 1   @ horizontal pan
-	setvar VAR_0x8006, 16  @ num shakes
-	setvar VAR_0x8007, 3   @ shake delay
-	special ShakeCamera
-	waitstate
-	playse SE_EFFECTIVE
-	setmetatile 16, 17, METATILE_Lavaridge_CaveEntrance_Top, TRUE
-	setmetatile 16, 18, METATILE_Lavaridge_CaveEntrance_Bottom, FALSE
-	special DrawWholeMapView
-	delay 30
-	setvar VAR_JAGGED_PASS_STATE, 2
-	waitse
-	releaseall
 	end
 
 JaggedPass_EventScript_MagmaHideoutGuard::
