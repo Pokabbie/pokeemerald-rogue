@@ -38,17 +38,18 @@
 extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
 extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
 
-static u16 MonSpeciesToFollowSpecies(u16 species)
+static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 {
-    return species;
+    if(species == SPECIES_NONE)
+        return SPECIES_BULBASAUR + FOLLOWMON_SHINY_OFFSET;
+
+    return species + (isShiny ? FOLLOWMON_SHINY_OFFSET : 0);
 }
 
 static u16 MonToFollowSpecies(struct Pokemon* mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u16 offset = IsMonShiny(mon) ? FOLLOWMON_SHINY_OFFSET : 0;
-
-    return MonSpeciesToFollowSpecies(species) + offset;
+    return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
 }
 
 const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId)
@@ -58,7 +59,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
     {
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-        species = MonSpeciesToFollowSpecies(VarGet(VAR_FOLLOW_MON_0 + varNo));
+        species = MonSpeciesToFollowSpecies(VarGet(VAR_FOLLOW_MON_0 + varNo), FALSE);
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
@@ -79,12 +80,12 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         return gObjectEventMonGraphicsInfoPointers[species];
 
     // Return a fallback sprite
-    return gObjectEventShinyMonGraphicsInfoPointers[SPECIES_BULBASAUR];
+    return gObjectEventMonGraphicsInfoPointers[SPECIES_UNOWN];
 }
 
 void SetupFollowParterMonObjectEvent()
 {
-    if(!PlayerHasFollower())
+    if(!PlayerHasFollower() && GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) != SPECIES_NONE)
     {
         u8 objectEventId = SpawnSpecialObjectEventParameterized2(
             OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,

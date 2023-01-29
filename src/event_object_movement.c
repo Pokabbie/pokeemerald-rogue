@@ -5095,9 +5095,20 @@ static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite
 {
     SetObjectEventDirection(objectEvent, direction);
     ShiftStillObjectEventCoords(objectEvent);
-    SetStepAnim(objectEvent, sprite, GetMoveDirectionAnimNum(objectEvent->facingDirection));
-    sprite->animPaused = TRUE;
-    sprite->sActionFuncId = 1;
+
+    // Special case for follower mons who we want to animator always
+    if(objectEvent->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && objectEvent->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+    {
+        SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+        sprite->animPaused = FALSE;
+        sprite->sActionFuncId = 1;
+    }
+    else
+    {
+        SetStepAnim(objectEvent, sprite, GetMoveDirectionAnimNum(objectEvent->facingDirection));
+        sprite->animPaused = TRUE;
+        sprite->sActionFuncId = 1;
+    }
 }
 
 bool8 MovementAction_FaceDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)

@@ -894,95 +894,128 @@ static const union AnimCmd *const sAnimTable_GroudonSide[] = {
 
 static const union AnimCmd sAnim_GenericOverworldMon_FaceSouth[] =
 {
-    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(4, 12),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_FaceNorth[] =
 {
-    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_FRAME(1, 12),
+    ANIMCMD_FRAME(6, 12),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_FaceWest[] =
 {
-    ANIMCMD_FRAME(2, 16),
+    ANIMCMD_FRAME(2, 12),
+    ANIMCMD_FRAME(8, 12),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_FaceEast[] =
 {
-    ANIMCMD_FRAME(2, 16, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 12, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 12, .hFlip = TRUE),
     ANIMCMD_JUMP(0),
 };
 
-
 static const union AnimCmd sAnim_GenericOverworldMon_GoSouth[] =
 {
-    ANIMCMD_FRAME(0, 6),
-    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_GoNorth[] =
 {
-    ANIMCMD_FRAME(1, 6),
-    ANIMCMD_FRAME(6, 6),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(6, 8),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_GoWest[] =
 {
-    ANIMCMD_FRAME(2, 6),
-    ANIMCMD_FRAME(8, 6),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(8, 8),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnim_GenericOverworldMon_GoEast[] =
 {
-    ANIMCMD_FRAME(2, 6, .hFlip = TRUE),
-    ANIMCMD_FRAME(8, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 8, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sAnim_GenericOverworldMon_GoSouthFast[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoNorthFast[] =
+{
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoWestFast[] =
+{
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoEastFast[] =
+{
+    ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 4, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sAnim_GenericOverworldMon_GoSouthFaster[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(4, 2),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoNorthFaster[] =
+{
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_FRAME(6, 2),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoWestFaster[] =
+{
+    ANIMCMD_FRAME(2, 2),
+    ANIMCMD_FRAME(8, 2),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GenericOverworldMon_GoEastFaster[] =
+{
+    ANIMCMD_FRAME(2, 2, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 2, .hFlip = TRUE),
     ANIMCMD_JUMP(0),
 };
 
 static const union AnimCmd *const sAnimTable_GenericOverworldMon[] = {
 
-    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
-    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
-    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
-    [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
+    [ANIM_STD_FACE_SOUTH] = sAnim_GenericOverworldMon_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_GenericOverworldMon_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_GenericOverworldMon_FaceEast,
     [ANIM_STD_GO_SOUTH] = sAnim_GenericOverworldMon_GoSouth,
     [ANIM_STD_GO_NORTH] = sAnim_GenericOverworldMon_GoNorth,
     [ANIM_STD_GO_WEST] = sAnim_GenericOverworldMon_GoWest,
     [ANIM_STD_GO_EAST] = sAnim_GenericOverworldMon_GoEast,
-    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastNorth,
-    [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth,
-    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
-    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast,
-    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth,
-    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth,
-    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
-    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast,
-    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
-    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
-    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
-    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
-
-    
-    //[ANIM_STD_FACE_SOUTH] = sAnim_GenericOverworldMon_FaceSouth,
-    //[ANIM_STD_FACE_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
-    //[ANIM_STD_FACE_WEST] = sAnim_GenericOverworldMon_FaceWest,
-    //[ANIM_STD_FACE_EAST] = sAnim_GenericOverworldMon_FaceEast,
-    //[ANIM_STD_GO_SOUTH] = sAnim_GenericOverworldMon_GoSouth,
-    //[ANIM_STD_GO_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
-    //[ANIM_STD_GO_WEST] = sAnim_GenericOverworldMon_FaceWest,
-    //[ANIM_STD_GO_EAST] = sAnim_GenericOverworldMon_FaceEast,
-    //[ANIM_STD_GO_FAST_SOUTH] = sAnim_GenericOverworldMon_GoSouth,
-    //[ANIM_STD_GO_FAST_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
-    //[ANIM_STD_GO_FAST_WEST] = sAnim_GenericOverworldMon_FaceWest,
-    //[ANIM_STD_GO_FAST_EAST] = sAnim_GenericOverworldMon_FaceEast,
-    //[ANIM_STD_GO_FASTER_SOUTH] = sAnim_GenericOverworldMon_GoSouth,
-    //[ANIM_STD_GO_FASTER_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
-    //[ANIM_STD_GO_FASTER_WEST] = sAnim_GenericOverworldMon_FaceWest,
-    //[ANIM_STD_GO_FASTER_EAST] = sAnim_GenericOverworldMon_FaceEast,
-    //[ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GenericOverworldMon_GoSouth,
-    //[ANIM_STD_GO_FASTEST_NORTH] = sAnim_GenericOverworldMon_FaceNorth,
-    //[ANIM_STD_GO_FASTEST_WEST] = sAnim_GenericOverworldMon_FaceWest,
-    //[ANIM_STD_GO_FASTEST_EAST] = sAnim_GenericOverworldMon_FaceEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GenericOverworldMon_GoSouthFast,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_GenericOverworldMon_GoNorthFast,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GenericOverworldMon_GoWestFast,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GenericOverworldMon_GoEastFast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GenericOverworldMon_GoSouthFaster,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GenericOverworldMon_GoNorthFaster,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GenericOverworldMon_GoWestFaster,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GenericOverworldMon_GoEastFaster,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GenericOverworldMon_GoSouthFaster,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GenericOverworldMon_GoNorthFaster,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GenericOverworldMon_GoWestFaster,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GenericOverworldMon_GoEastFaster,
 };
 
 static const union AnimCmd sAnim_RayquazaCoiledAwake[] =
