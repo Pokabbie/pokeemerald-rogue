@@ -178,8 +178,8 @@ namespace PokemonDataGenerator
 			//hDev = Math.Sqrt(hDev / (totalSamples - 1));
 			//sDev = Math.Sqrt(sDev / (totalSamples - 1));
 			//vDev = Math.Sqrt(vDev / (totalSamples - 1));
-
-			// Now calculate the score with the calculated weights
+			//
+			//// Now calculate the score with the calculated weights
 			//
 			//double totalScore = 0.0f;
 			//for (int y = 0; y < src.Height; y += 1)
@@ -197,20 +197,33 @@ namespace PokemonDataGenerator
 
 			double totalScore = 0.0f;
 			double totalSamples = 0.0f;
+			HashSet<int> coloursUsed = new HashSet<int>();
+
 			for (int y = 0; y < src.Height; y += 1)
 				for (int x = 0; x < src.Width; x += 1)
 				{
 					Color col = src.GetPixel(x + 0, y + 0);
-
+			
 					if (col.A != 0)
 					{
 						++totalSamples;
 						int index = GetClosestMatchIndex(col);
-						totalScore += GetColorDistance(col, m_Colors[index]);
+						coloursUsed.Add(index);
+
+						float hueWeight = 1.0f - (Math.Abs(col.GetBrightness() - 0.5f) * 2.0f);
+
+						totalScore += GetColorDistance_Scoring(col, m_Colors[index], hueWeight * 2, 1.0f - hueWeight, 0.5f);
+						//totalScore += GetColorDistance_HSV(col, m_Colors[index]);
+
+						//totalScore += GetColorDistance(col, m_Colors[index]);
 					}
 				}
 
-			return totalSamples != 0.0f ? (totalScore / totalSamples) : double.MaxValue;
+			totalScore = totalSamples != 0.0f ? (totalScore / totalSamples) : double.MaxValue; // Avg score diff
+
+			totalScore += 0.5f * ((16.0 - coloursUsed.Count) / 16.0); // Consider colors used
+
+			return totalScore;
 		}
 
 		public Bitmap CreateIndexedBitmap(Bitmap src)

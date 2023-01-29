@@ -172,7 +172,7 @@ static bool8 AreElevationsCompatible(u8, u8);
 
 static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
 
-const u8 gReflectionEffectPaletteMap[] = {1, 1, 6, 7, 8, 9, 6, 7, 8, 9, 11, 11, 0, 0, 0, 0};
+//const u8 gReflectionEffectPaletteMap[] = {1, 1, 6, 7, 8, 9, 6, 7, 8, 9, 11, 11, 0, 0, 0, 0};
 
 static const struct SpriteTemplate sCameraSpriteTemplate = {
     .tileTag = 0,
@@ -413,10 +413,10 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_NPC_2                   0x1104
 #define OBJ_EVENT_PAL_TAG_NPC_3                   0x1105
 #define OBJ_EVENT_PAL_TAG_NPC_4                   0x1106
-#define OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION        0x1107
-#define OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION        0x1108
-#define OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION        0x1109
-#define OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION        0x110A
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_1            0x1107 // OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_2            0x1108 // OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_3            0x1109 // OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_4            0x110A // OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION
 #define OBJ_EVENT_PAL_TAG_QUINTY_PLUMP            0x110B
 #define OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION 0x110C
 #define OBJ_EVENT_PAL_TAG_TRUCK                   0x110D
@@ -480,10 +480,14 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
     {gObjectEventPal_Npc3,                  OBJ_EVENT_PAL_TAG_NPC_3},
     {gObjectEventPal_Npc4,                  OBJ_EVENT_PAL_TAG_NPC_4},
-    {gObjectEventPal_Npc1Reflection,        OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION},
-    {gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
-    {gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
-    {gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
+    {gObjectEventPal_FollowMon1,            OBJ_EVENT_PAL_TAG_FOLLOW_MON_1},
+    {gObjectEventPal_FollowMon2,            OBJ_EVENT_PAL_TAG_FOLLOW_MON_2},
+    {gObjectEventPal_FollowMon3,            OBJ_EVENT_PAL_TAG_FOLLOW_MON_3},
+    {gObjectEventPal_FollowMon4,            OBJ_EVENT_PAL_TAG_FOLLOW_MON_4},
+    //{gObjectEventPal_Npc1Reflection,        OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION},
+    //{gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
+    //{gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
+    //{gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
     {gObjectEventPal_Brendan_0_0,           OBJ_EVENT_PAL_TAG_BRENDAN},
     {gObjectEventPal_Brendan_0_0,           OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
     {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
@@ -624,12 +628,12 @@ static const u16 sReflectionPaletteTags_Groudon[] = {
     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
 };
 
-static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge Kecleon
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-};
+//static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge Kecleon
+//    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
+//    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
+//    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
+//    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
+//};
 
 static const u16 sReflectionPaletteTags_RedLeaf[] = {
     OBJ_EVENT_PAL_TAG_RED_LEAF,
@@ -649,7 +653,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_SSTIDAL,          sReflectionPaletteTags_SSTidal},
     {OBJ_EVENT_PAL_TAG_KYOGRE,           sReflectionPaletteTags_Kyogre},
     {OBJ_EVENT_PAL_TAG_GROUDON,          sReflectionPaletteTags_Groudon},
-    {OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
+    //{OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
@@ -662,10 +666,10 @@ static const u16 sObjectPaletteTags0[] = {
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
     OBJ_EVENT_PAL_TAG_NPC_4,
-    OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_1,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_2,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_3,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_4,
 };
 
 static const u16 sObjectPaletteTags1[] = {
@@ -675,10 +679,10 @@ static const u16 sObjectPaletteTags1[] = {
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
     OBJ_EVENT_PAL_TAG_NPC_4,
-    OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_1,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_2,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_3,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_4,
 };
 
 static const u16 sObjectPaletteTags2[] = {
@@ -688,10 +692,10 @@ static const u16 sObjectPaletteTags2[] = {
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
     OBJ_EVENT_PAL_TAG_NPC_4,
-    OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_1,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_2,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_3,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_4,
 };
 
 static const u16 sObjectPaletteTags3[] = {
@@ -701,10 +705,10 @@ static const u16 sObjectPaletteTags3[] = {
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
     OBJ_EVENT_PAL_TAG_NPC_4,
-    OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
-    OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_1,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_2,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_3,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_4,
 };
 
 static const u16 *const sObjectPaletteTagSets[] = {
@@ -1488,7 +1492,7 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
 
 static u8 TrySpawnObjectEventTemplate(struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
-    // TODO - Hook up some callback here?
+    // TODO - Hook up some callback here?  
 
     u8 objectEventId;
     struct SpriteTemplate spriteTemplate;
@@ -2110,14 +2114,14 @@ void LoadSpecialObjectReflectionPalette(u16 tag, u8 slot)
 
     sCurrentSpecialObjectPaletteTag = tag;
     PatchObjectPalette(tag, slot);
-    for (i = 0; sSpecialObjectReflectionPaletteSets[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
-    {
-        if (sSpecialObjectReflectionPaletteSets[i].tag == tag)
-        {
-            PatchObjectPalette(sSpecialObjectReflectionPaletteSets[i].data[sCurrentReflectionType], gReflectionEffectPaletteMap[slot]);
-            return;
-        }
-    }
+    //for (i = 0; sSpecialObjectReflectionPaletteSets[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
+    //{
+    //    if (sSpecialObjectReflectionPaletteSets[i].tag == tag)
+    //    {
+    //        PatchObjectPalette(sSpecialObjectReflectionPaletteSets[i].data[sCurrentReflectionType], gReflectionEffectPaletteMap[slot]);
+    //        return;
+    //    }
+    //}
 }
 
 static void _PatchObjectPalette(u16 tag, u8 slot)

@@ -61,20 +61,30 @@ namespace PokemonDataGenerator
 
 
 
+			// Note: these palettes are intentionally ordered in the matching order as loaded when in game
+			//
 			Tuple<string, ImagePalette>[] c_PaletteOptions0 =
 			{
-				new Tuple<string, ImagePalette>("npc_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", false)),
-				new Tuple<string, ImagePalette>("npc_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", false)),
-				new Tuple<string, ImagePalette>("npc_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", false)),
-				new Tuple<string, ImagePalette>("npc_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_1.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_2.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_3.pal", false)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_4.pal", false)),
 			};
 
 			Tuple<string, ImagePalette>[] c_PaletteOptions1 =
 			{
-				new Tuple<string, ImagePalette>("npc_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", true)),
-				new Tuple<string, ImagePalette>("npc_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", true)),
-				new Tuple<string, ImagePalette>("npc_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", true)),
-				new Tuple<string, ImagePalette>("npc_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_1.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_2.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_3.pal", true)),
+				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_4.pal", true)),
 			};
 
 			string tempDir0 = Path.GetFullPath("sprite_temp_alt");
@@ -240,16 +250,16 @@ namespace PokemonDataGenerator
 					int dims = data.spriteSize / 8;
 
 					if (dims == 8) // 64x64
-						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, OBJ_EVENT_PAL_TAG_NPC_{1 + data.paletteIdx}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
 					else
-						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, OBJ_EVENT_PAL_TAG_NPC_{1 + data.paletteIdx}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
 
 					if (s_GenerateShinies)
 					{
 						if (dims == 8) // 64x64
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, OBJ_EVENT_PAL_TAG_NPC_{1 + data.paletteIdx}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
+							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
 						else
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, OBJ_EVENT_PAL_TAG_NPC_{1 + data.paletteIdx}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
+							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
 
 					}
 				}
