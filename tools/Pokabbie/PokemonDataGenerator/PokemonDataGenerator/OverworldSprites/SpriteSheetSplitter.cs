@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,8 @@ namespace PokemonDataGenerator.OverworldSprites
 						int tl_x = originX + x * settings.CellSize;
 						int tl_y = originY + y * settings.CellSize;
 
-						Bitmap spriteFrame = settings.Source.Clone(new Rectangle(tl_x, tl_y, settings.CellSize, settings.CellSize), settings.Source.PixelFormat);
+						Bitmap spriteFrame = settings.Source.Clone(new Rectangle(tl_x, tl_y, settings.CellSize, settings.CellSize), PixelFormat.Format32bppArgb);
+						ApplyTransparencyToAlphaChannel(spriteFrame);
 						spriteFrame.Save(localFilePath);
 					}
 
@@ -74,6 +76,17 @@ namespace PokemonDataGenerator.OverworldSprites
 					originY += settings.CellSize * (settings.FrameNames.Length / settings.FrameStride);
 				}
 			}
+		}
+
+		private static void ApplyTransparencyToAlphaChannel(Bitmap dst)
+		{
+			Color transparentColour = dst.GetPixel(0, 0);
+			for(int x = 0; x < dst.Width; ++x)
+				for (int y = 0; y < dst.Height; ++y)
+				{
+					if (dst.GetPixel(x, y) == transparentColour)
+						dst.SetPixel(x, y, Color.Transparent);
+				}
 		}
 	}
 }

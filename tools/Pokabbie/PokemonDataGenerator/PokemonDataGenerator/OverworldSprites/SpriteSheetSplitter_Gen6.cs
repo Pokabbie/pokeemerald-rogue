@@ -23,7 +23,7 @@ namespace PokemonDataGenerator.OverworldSprites
 			int originY = 0;
 
 			SpriteSheetSplitter.Settings settings = new SpriteSheetSplitter.Settings();
-			settings.CategoryName = "gen6";
+			settings.CategoryName = "gen6" + groupKey;
 			settings.CellSize = 32;
 			settings.FrameNames = new string[] 
 			{

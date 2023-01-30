@@ -56,6 +56,7 @@
     <Compile Include="OverworldSprites\SpriteSheetSplitter.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen5.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen6.cs" />
+    <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen7.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContentCache.cs" />

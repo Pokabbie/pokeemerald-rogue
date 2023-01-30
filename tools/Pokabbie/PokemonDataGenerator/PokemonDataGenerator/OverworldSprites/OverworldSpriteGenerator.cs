@@ -70,7 +70,8 @@ namespace PokemonDataGenerator
 
 			if (!s_TargettingVanilla)
 			{
-				SpriteSheetSplitter_Gen6.AppendMonSprites();
+				//SpriteSheetSplitter_Gen6.AppendMonSprites();
+				SpriteSheetSplitter_Gen7.AppendMonSprites();
 			}
 
 			// Note: these palettes are intentionally ordered in the matching order as loaded when in game
