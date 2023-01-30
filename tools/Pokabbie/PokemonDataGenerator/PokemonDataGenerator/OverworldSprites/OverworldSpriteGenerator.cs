@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonDataGenerator.OverworldSprites;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -47,19 +48,30 @@ namespace PokemonDataGenerator
 
 		private static Dictionary<string, MonSpriteData> s_MonToSpriteData = new Dictionary<string, MonSpriteData>();
 
+		public static bool IsValidSpriteKey(string key)
+		{
+			return c_Subpaths.Where((p) => p.key + "_1" == key || p.key + "_2" == key).Any();
+		}
+
 		public static void GenerateFromURL()
 		{
+			if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
+			{
 			// Gather source paths
-			foreach(var subpath in c_Subpaths)
+			foreach (var subpath in c_Subpaths)
 			{
 				string fullUrl = c_BaseURL + "/" + subpath.path;
 				Console.WriteLine($"Gathering '{fullUrl}'");
 
-				string content = WebCacheable.GetHttpContent(fullUrl);
+				string content = ContentCache.GetHttpContent(fullUrl);
 				AppendSpriteResults(content, subpath.key);
 			}
+			}
 
-
+			if (!s_TargettingVanilla)
+			{
+				SpriteSheetSplitter_Gen6.AppendMonSprites();
+			}
 
 			// Note: these palettes are intentionally ordered in the matching order as loaded when in game
 			//
@@ -257,9 +269,9 @@ namespace PokemonDataGenerator
 					if (s_GenerateShinies)
 					{
 						if (dims == 8) // 64x64
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
+							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.shinyPaletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.shinyPaletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
 						else
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.paletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
+							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.shinyPaletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {2 + data.shinyPaletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
 
 					}
 				}
@@ -298,11 +310,11 @@ namespace PokemonDataGenerator
 		public static void AppendMonSpriteUri(string mon, int pokedexNumber, string key, string uri)
 		{
 			// Debug - Smaller set for testing
-			if (s_TargettingDebugSet && pokedexNumber >= 10)
-			{
-				Console.WriteLine($"\tSkipping '{mon}' '{key}' (Entry number too high)");
-				return;
-			}
+			//if (s_TargettingDebugSet && pokedexNumber >= 10)
+			//{
+			//	Console.WriteLine($"\tSkipping '{mon}' '{key}' (Entry number too high)");
+			//	return;
+			//}
 
 			if (s_TargettingVanilla && pokedexNumber >= 387)
 			{
@@ -328,7 +340,7 @@ namespace PokemonDataGenerator
 						return;
 				}
 
-				// Temp hack until decide what is happening with unown
+				// Temp hack until decide what is happening with unown (JUST FOR VANILLA)
 				if (mon.StartsWith("unown"))
 				{
 					if (mon == "unown_qmark")
@@ -340,6 +352,68 @@ namespace PokemonDataGenerator
 						Console.WriteLine($"\tSkipping '{mon}' '{key}' (Excluded from set)");
 						return;
 					}
+				}
+			}
+			else
+			{
+				if (mon.EndsWith("_forme"))
+					mon = mon.Substring(0, mon.Length - "_forme".Length);
+
+				if(mon.StartsWith("arceus_") && mon.EndsWith("_type"))
+				{
+					mon = mon.Substring(0, mon.Length - "_type".Length);
+				}
+
+				switch (mon)
+				{
+					// Renames
+					//
+					case "unown_a":
+						mon = "unown";
+						break;
+
+					case "burmy_plant_cloak":
+						mon = "burmy";
+						break;
+					case "wormadam_plant_cloak":
+						mon = "wormadam";
+						break;
+
+					case "shellos_west_sea":
+						mon = "shellos";
+						break;
+					case "gastrodon_west_sea":
+						mon = "gastrodon";
+						break;
+
+					case "heat_rotom":
+						mon = "rotom_heat";
+						break;
+					case "wash_rotom":
+						mon = "rotom_wash";
+						break;
+					case "frost_rotom":
+						mon = "rotom_frost";
+						break;
+					case "fan_rotom":
+						mon = "rotom_fan";
+						break;
+					case "mow_rotom":
+						mon = "rotom_mow";
+						break;
+
+					case "shaymin_land":
+						mon = "shaymin";
+						break;
+					case "giratina_altered":
+						mon = "giratina";
+						break;
+
+					// Excludes
+					//
+					case "arceus_qmarkqmarkqmark":
+						Console.WriteLine($"\tSkipping '{mon}' '{key}' (Excluded from set)");
+						return;
 				}
 			}
 
@@ -407,7 +481,7 @@ namespace PokemonDataGenerator
 			Bitmap DownloadBitmap(string key)
 			{
 				string url = s_MonToSpriteData[mon].spriteUri[key];
-				return WebCacheable.GetImageContent(url);
+				return ContentCache.GetImageContent(url);
 			}
 
 			void BlitBitmap(Bitmap dst, Bitmap src, int offsetX, int offsetY)

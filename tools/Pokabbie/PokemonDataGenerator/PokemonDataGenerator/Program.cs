@@ -19,7 +19,7 @@ namespace PokemonDataGenerator
 			Console.WriteLine("1 - Generate Presets");
 			Console.WriteLine("2 - Generate OW Sprites");
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
-			int action = ReadOption(1, 2);
+			int action = ReadOption(1, 3);
 
 			switch(action)
 			{

@@ -10,26 +10,43 @@ using System.Threading.Tasks;
 
 namespace PokemonDataGenerator
 {
-	public static class WebCacheable
+	public static class ContentCache
 	{
-		public static readonly string c_CacheFolder = Path.GetFullPath("web_cache");
+		public static readonly string c_CacheFolder = Path.GetFullPath("content_cache");
+		public static readonly string c_ResourcesFolder = Path.GetFullPath("../../Resources");
 
 		private static string UriToCachePath(string uri)
 		{
-			string key = uri.ToLower()
-				.Replace("://", "__")
-				.Replace("?", "Q")
-				.Replace("=", "E")
-				.Replace("c", "c")
-				.Replace(":", "S")
-				.Replace(";", "S");
+			if (uri.StartsWith(c_CacheFolder, StringComparison.CurrentCultureIgnoreCase))
+			{
+				return uri.ToLower();
+			}
+			else if (uri.StartsWith("res://", StringComparison.CurrentCultureIgnoreCase))
+			{
+				return uri.Replace("res://", c_ResourcesFolder + "/").ToLower();
+			}
+			else
+			{
+				string key = uri.ToLower()
+					.Replace("://", "__")
+					.Replace("?", "Q")
+					.Replace("=", "E")
+					.Replace("c", "c")
+					.Replace(":", "S")
+					.Replace(";", "S");
 
-			string path = Path.Combine(c_CacheFolder, key);
+				string path = Path.Combine(c_CacheFolder, key);
 
-			string baseDir = Path.GetDirectoryName(path);
-			Directory.CreateDirectory(baseDir);
+				string baseDir = Path.GetDirectoryName(path);
+				Directory.CreateDirectory(baseDir);
 
-			return path;
+				return path;
+			}
+		}
+
+		public static string GetWriteableCachePath(string path)
+		{
+			return UriToCachePath(path);
 		}
 
 		public static string GetHttpContent(string uri)

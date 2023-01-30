@@ -1954,7 +1954,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
 
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
     {
-        struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
+        const struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
 
         if(info)
             return info;

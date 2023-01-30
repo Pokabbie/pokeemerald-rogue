@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,10 +52,13 @@
   <ItemGroup>
     <Compile Include="ImagePalette.cs" />
     <Compile Include="MonPresetGenerator.cs" />
-    <Compile Include="OverworldSpriteGenerator.cs" />
+    <Compile Include="OverworldSprites\OverworldSpriteGenerator.cs" />
+    <Compile Include="OverworldSprites\SpriteSheetSplitter.cs" />
+    <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen5.cs" />
+    <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen6.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebCacheable.cs" />
+    <Compile Include="ContentCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
