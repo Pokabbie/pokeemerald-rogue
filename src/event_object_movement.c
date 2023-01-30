@@ -1953,7 +1953,14 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
 
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
-        return GetFollowMonObjectEventInfo(graphicsId);
+    {
+        struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
+
+        if(info)
+            return info;
+        else
+            return gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_TRICK_HOUSE_STATUE];
+    }
 
     if (graphicsId == OBJ_EVENT_GFX_BARD)
     {
