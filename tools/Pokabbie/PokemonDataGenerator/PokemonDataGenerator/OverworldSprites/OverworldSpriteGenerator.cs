@@ -70,9 +70,10 @@ namespace PokemonDataGenerator
 
 			if (!s_TargettingVanilla)
 			{
+				SpriteSheetSplitter_Gen5.AppendMonSprites();
 				//SpriteSheetSplitter_Gen6.AppendMonSprites();
 				//SpriteSheetSplitter_Gen7.AppendMonSprites();
-				SpriteSheetSplitter_Gen8.AppendMonSprites();
+				//SpriteSheetSplitter_Gen8.AppendMonSprites();
 			}
 
 			// Note: these palettes are intentionally ordered in the matching order as loaded when in game
@@ -103,18 +104,27 @@ namespace PokemonDataGenerator
 
 			string tempDir0 = Path.GetFullPath("sprite_temp_alt");
 			string tempDir1 = Path.GetFullPath("sprite_temp_YUV");
+			string tempDirRaw = Path.GetFullPath("sprite_temp_RAW"); // Feed in to get raw outputs
 
-			GenerateIdealSetForPalettes(c_PaletteOptions1, tempDir1); // YUV set is going to be the default set
-			GenerateIdealSetForPalettes(c_PaletteOptions0, tempDir0); // Export some extras, just in case we want them? (TODO - Maybe should mark up which ones we want to keep alternate palette for?
+			GenerateIdealSetForPalettes(c_PaletteOptions1, tempDir1, tempDirRaw); // YUV set is going to be the default set
+			GenerateIdealSetForPalettes(c_PaletteOptions0, tempDir0, null); // Export some extras, just in case we want them? (TODO - Maybe should mark up which ones we want to keep alternate palette for?
 		}
 
-		private static void GenerateIdealSetForPalettes(Tuple<string, ImagePalette>[] palettes, string tempDir)
+		private static void GenerateIdealSetForPalettes(Tuple<string, ImagePalette>[] palettes, string tempDir, string rawTempDir)
 		{
 			if (Directory.Exists(tempDir))
 				Directory.Delete(tempDir, true);
 
 			Console.WriteLine($"Using temp dir '{tempDir}'");
 			Directory.CreateDirectory(tempDir);
+
+			if (rawTempDir != null)
+			{
+				if (Directory.Exists(rawTempDir))
+					Directory.Delete(rawTempDir, true);
+
+				Directory.CreateDirectory(rawTempDir);
+			}
 
 			foreach (var kvp in s_MonToSpriteData)
 			{
@@ -124,6 +134,10 @@ namespace PokemonDataGenerator
 				data.localPath = Path.Combine(tempDir, mon + ".png");
 
 				Bitmap spriteSheet = CollateSpriteSheet(mon, "");
+
+				if (rawTempDir != null)
+					spriteSheet.Save(Path.Combine(rawTempDir, mon + ".png"));
+
 				data.spriteSize = spriteSheet.Height;
 				data.paletteIdx = SelectBestPaletteOption(palettes, spriteSheet);
 
@@ -145,6 +159,10 @@ namespace PokemonDataGenerator
 					data.localShinyPath = Path.Combine(tempDir, mon + "_shiny.png");
 
 					Bitmap shinySpriteSheet = CollateSpriteSheet(mon, "_shiny");
+
+					if (rawTempDir != null)
+						shinySpriteSheet.Save(Path.Combine(rawTempDir, mon + "_shiny.png"));
+
 					data.shinyPaletteIdx = SelectBestPaletteOption(palettes, shinySpriteSheet);
 
 					var shinyPalPair = palettes[data.shinyPaletteIdx];
