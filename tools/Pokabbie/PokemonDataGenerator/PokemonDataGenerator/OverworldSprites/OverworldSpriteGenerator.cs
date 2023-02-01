@@ -55,8 +55,8 @@ namespace PokemonDataGenerator
 
 		public static void GenerateFromURL()
 		{
-			if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
-			{
+			//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
+			//{
 			// Gather source paths
 			foreach (var subpath in c_Subpaths)
 			{
@@ -66,14 +66,14 @@ namespace PokemonDataGenerator
 				string content = ContentCache.GetHttpContent(fullUrl);
 				AppendSpriteResults(content, subpath.key);
 			}
-			}
+			//}
 
 			if (!s_TargettingVanilla)
 			{
 				SpriteSheetSplitter_Gen5.AppendMonSprites();
-				//SpriteSheetSplitter_Gen6.AppendMonSprites();
-				//SpriteSheetSplitter_Gen7.AppendMonSprites();
-				//SpriteSheetSplitter_Gen8.AppendMonSprites();
+				SpriteSheetSplitter_Gen6.AppendMonSprites();
+				SpriteSheetSplitter_Gen7.AppendMonSprites();
+				SpriteSheetSplitter_Gen8.AppendMonSprites();
 			}
 
 			// Note: these palettes are intentionally ordered in the matching order as loaded when in game

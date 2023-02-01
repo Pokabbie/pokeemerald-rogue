@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonDataGenerator.OverworldSprites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace PokemonDataGenerator
 			Console.WriteLine("1 - Generate Presets");
 			Console.WriteLine("2 - Generate OW Sprites");
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
-			int action = ReadOption(1, 3);
+			Console.WriteLine("4 - OW Sprites Palette Generator");
+			int action = ReadOption(1, 4);
 
 			switch(action)
 			{
@@ -52,6 +54,12 @@ namespace PokemonDataGenerator
 					OverworldSpriteGenerator.GenerateFromURL();
 					break;
 
+				case 4:
+					Console.WriteLine("==OW Sprites Palette Generator==");
+					SpritePaletteGenerator.s_OutputCount = ReadNumber("Number of palettes?", 1, 100);
+					SpritePaletteGenerator.GenerateFromLocalData();
+					break;
+
 			}
 
 
@@ -64,6 +72,22 @@ namespace PokemonDataGenerator
 			do
 			{
 				Console.WriteLine("Select an option:");
+				string raw = Console.ReadLine();
+
+				if (int.TryParse(raw, out int result))
+				{
+					if (result >= min && result <= max)
+						return result;
+				}
+			}
+			while (true);
+		}
+
+		private static int ReadNumber(string prompt, int min, int max)
+		{
+			do
+			{
+				Console.WriteLine(prompt);
 				string raw = Console.ReadLine();
 
 				if (int.TryParse(raw, out int result))

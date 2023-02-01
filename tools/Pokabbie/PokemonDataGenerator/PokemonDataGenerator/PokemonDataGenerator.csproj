@@ -53,6 +53,7 @@
     <Compile Include="ImagePalette.cs" />
     <Compile Include="MonPresetGenerator.cs" />
     <Compile Include="OverworldSprites\OverworldSpriteGenerator.cs" />
+    <Compile Include="OverworldSprites\SpritePaletteGenerator.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen5.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen6.cs" />

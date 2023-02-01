@@ -66,18 +66,20 @@ namespace PokemonDataGenerator.OverworldSprites
 				}
 			}
 
-
-			if (settings.AutomaticCentredFrames != null)
+			if (gatheredSprites.Count != 0)
 			{
-				foreach (var pair in settings.AutomaticCentredFrames)
-					RecentreSpritesInGroup(gatheredSprites, pair.Item1, pair.Item2);
-			}
+				if (settings.AutomaticCentredFrames != null)
+				{
+					foreach (var pair in settings.AutomaticCentredFrames)
+						RecentreSpritesInGroup(gatheredSprites, pair.Item1, pair.Item2);
+				}
 
-			// Now finally save the sprites to disk
-			foreach (var pair in gatheredSprites)
-			{
-				string localFilePath = ContentCache.GetWriteableCachePath($"sprite_splitting\\{settings.CategoryName}\\{pair.Key}\\{dexNumber.ToString("D4")}_{mon}.png");
-				pair.Value.Save(localFilePath);
+				// Now finally save the sprites to disk
+				foreach (var pair in gatheredSprites)
+				{
+					string localFilePath = ContentCache.GetWriteableCachePath($"sprite_splitting\\{settings.CategoryName}\\{pair.Key}\\{dexNumber.ToString("D4")}_{mon}.png");
+					pair.Value.Save(localFilePath);
+				}
 			}
 		}
 
@@ -353,18 +355,21 @@ namespace PokemonDataGenerator.OverworldSprites
 				}
 			}
 
-			if(settings.AutomaticCentredFrames != null)
+			if (gatheredSprites.Count != 0)
 			{
-				foreach(var pair in settings.AutomaticCentredFrames)
-					RecentreSpritesInGroup(gatheredSprites, pair.Item1, pair.Item2);
-			}
+				if (settings.AutomaticCentredFrames != null)
+				{
+					foreach (var pair in settings.AutomaticCentredFrames)
+						RecentreSpritesInGroup(gatheredSprites, pair.Item1, pair.Item2);
+				}
 
 
-			// Now finally save the sprites to disk
-			foreach (var pair in gatheredSprites)
-			{
-				string localFilePath = ContentCache.GetWriteableCachePath($"sprite_splitting\\{settings.CategoryName}\\{pair.Key}\\{dexNumber.ToString("D4")}_{mon}.png");
-				pair.Value.Save(localFilePath);
+				// Now finally save the sprites to disk
+				foreach (var pair in gatheredSprites)
+				{
+					string localFilePath = ContentCache.GetWriteableCachePath($"sprite_splitting\\{settings.CategoryName}\\{pair.Key}\\{dexNumber.ToString("D4")}_{mon}.png");
+					pair.Value.Save(localFilePath);
+				}
 			}
 		}
 
@@ -595,7 +600,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				Bitmap temp = new Bitmap(sprite.Width, sprite.Height, sprite.PixelFormat);
 
 				// Place in average centre for X?
-				int currentCentreX = (min.X + max.X) / 2;
+				int currentCentreX = (int)Math.Ceiling((min.X + max.X) / 2.0f);
 				int desiredCentreX = sprite.Width / 2;// (totalMin.X + totalMax.X) / 2;
 
 				// Want to place 1 pixel above bottom
