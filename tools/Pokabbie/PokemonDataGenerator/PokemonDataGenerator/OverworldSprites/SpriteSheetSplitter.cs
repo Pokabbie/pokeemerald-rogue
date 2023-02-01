@@ -32,6 +32,8 @@ namespace PokemonDataGenerator.OverworldSprites
 
 			Console.WriteLine($"\tSplitting {settings.CategoryName} {mon}..");
 
+			Dictionary<string, Bitmap> gatheredSprites = new Dictionary<string, Bitmap>();
+
 			foreach (var frameKey in settings.FrameNames)
 			{
 				if(OverworldSpriteGenerator.IsValidSpriteKey(frameKey))
@@ -50,7 +52,8 @@ namespace PokemonDataGenerator.OverworldSprites
 						Bitmap spriteFrame = settings.Source.Clone(new Rectangle(tl_x, tl_y, settings.CellSize, settings.CellSize), PixelFormat.Format32bppArgb);
 						ApplyTransparencyToAlphaChannel(spriteFrame);
 
-						spriteFrame.Save(localFilePath);
+						gatheredSprites.Add(frameKey, spriteFrame);
+						//spriteFrame.Save(localFilePath);
 					}
 
 					OverworldSpriteGenerator.AppendMonSpriteUri(mon, dexNumber, frameKey, localFilePath);
@@ -61,6 +64,20 @@ namespace PokemonDataGenerator.OverworldSprites
 					x = 0;
 					y++;
 				}
+			}
+
+
+			if (settings.AutomaticCentredFrames != null)
+			{
+				foreach (var pair in settings.AutomaticCentredFrames)
+					RecentreSpritesInGroup(gatheredSprites, pair.Item1, pair.Item2);
+			}
+
+			// Now finally save the sprites to disk
+			foreach (var pair in gatheredSprites)
+			{
+				string localFilePath = ContentCache.GetWriteableCachePath($"sprite_splitting\\{settings.CategoryName}\\{pair.Key}\\{dexNumber.ToString("D4")}_{mon}.png");
+				pair.Value.Save(localFilePath);
 			}
 		}
 
@@ -584,6 +601,9 @@ namespace PokemonDataGenerator.OverworldSprites
 				// Want to place 1 pixel above bottom
 				int desiredY = sprite.Height - 2;
 
+				// Don't shift if at bottom
+				if(max.Y == 31 || max.Y == 63)
+					desiredY = max.Y;
 
 				ShiftPixels(sprite, temp, 0, desiredY - max.Y);
 				ShiftPixels(temp, sprite, desiredCentreX - currentCentreX, 0);

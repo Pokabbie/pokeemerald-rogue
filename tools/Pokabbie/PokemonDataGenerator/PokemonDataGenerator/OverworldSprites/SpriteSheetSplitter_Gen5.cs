@@ -103,7 +103,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				"sewaddle",
 				"swadloon",
 				"leavanny",
-				"venidpede",
+				"venipede",
 				"whirlipede",
 				"scolipede",
 				"cottonee",
@@ -125,7 +125,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				"yamask",
 				"cofagrigus",
 				"tirtouga",
-				"carracost",
+				"carracosta",
 				"archen",
 				"archeops",
 				"trubbish",
@@ -179,8 +179,8 @@ namespace PokemonDataGenerator.OverworldSprites
 				"shelmet",
 				"accelgor",
 				"stunfisk",
-				"meinfoo",
-				"meinshao",
+				"mienfoo",
+				"mienshao",
 				"_",  // wrong look direction (see below)
 				"golett",
 				"golurk",
@@ -371,7 +371,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				"elgyem",
 				"beheeyem",
 				"litwick", 
-				"lampent", // fucked? in it's own order
+				"lampent", // ?? in it's own order for non shiny
 				"chandelure",
 				"_",
 				"_",
@@ -400,6 +400,13 @@ namespace PokemonDataGenerator.OverworldSprites
 				"_",
 				"hydreigon",
 			};
+
+
+			if (groupKey == "")
+			{
+				monNames[Array.IndexOf(monNames, "lampent")] = "_";
+			}
+
 			originX = 6;
 			originY = 206;
 			SpriteSheetSplitter.AppendNonUniformMonBlockSprites(monNames, ref pokedexNumber, settings, lineOffset, ref originX, ref originY, blockWidth, blockHeight);
@@ -413,6 +420,26 @@ namespace PokemonDataGenerator.OverworldSprites
 			originX = 900;
 			originY = 1596;
 			SpriteSheetSplitter.AppendNonUniformMonBlockSprites(monNames, ref pokedexNumber, settings, lineOffset, ref originX, ref originY, blockWidth, blockHeight);
+
+
+			// Is in it's own weird order for non shiny
+			if (groupKey == "")
+			{
+				monNames = new string[]
+				{
+					"lampent",
+				};
+				settings.FrameNames = new string[]
+				{
+					$"front{groupKey}_2", $"front{groupKey}_1",
+					$"back{groupKey}_1", $"back{groupKey}_2",
+					$"side{groupKey}_1", $"side{groupKey}_2",
+					"_", "_",
+				};
+				originX = 708;
+				originY = 1179;
+				SpriteSheetSplitter.AppendNonUniformMonBlockSprites(monNames, ref pokedexNumber, settings, lineOffset, ref originX, ref originY, blockWidth, blockHeight);
+			}
 
 
 			// Special large format

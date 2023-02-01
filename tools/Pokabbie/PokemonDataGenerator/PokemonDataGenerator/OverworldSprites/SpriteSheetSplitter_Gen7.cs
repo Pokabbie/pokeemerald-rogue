@@ -33,6 +33,12 @@ namespace PokemonDataGenerator.OverworldSprites
 				$"back{groupKey}_1",	$"back{groupKey}_2"
 			};
 			settings.FrameStride = 2;
+			settings.AutomaticCentredFrames = new Tuple<string, string>[]
+			{
+				new Tuple<string, string>($"front{groupKey}_1", $"front{groupKey}_2"),
+				new Tuple<string, string>($"back{groupKey}_1", $"back{groupKey}_2"),
+				new Tuple<string, string>($"side{groupKey}_1", $"side{groupKey}_2"),
+			};
 			settings.Source = ContentCache.GetImageContent(sourcePath);
 
 			Console.WriteLine($"Gathering '{settings.CategoryName}'");

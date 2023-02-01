@@ -381,7 +381,9 @@ namespace PokemonDataGenerator
 
 				if(mon.StartsWith("arceus_") && mon.EndsWith("_type"))
 				{
-					mon = mon.Substring(0, mon.Length - "_type".Length);
+					//mon = mon.Substring(0, mon.Length - "_type".Length);
+					Console.WriteLine($"\tSkipping '{mon}' '{key}' (Excluded from set)");
+					return;
 				}
 
 				switch (mon)
