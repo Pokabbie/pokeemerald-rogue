@@ -32,6 +32,7 @@ namespace PokemonDataGenerator
 			public int paletteIdx;
 			public int shinyPaletteIdx;
 			public int spriteSize;
+			public int shinySpriteSize;
 		}
 
 		private static readonly string c_BaseURI = @"https://www.pokencyclopedia.info";
@@ -168,6 +169,7 @@ namespace PokemonDataGenerator
 					if (rawTempDir != null)
 						shinySpriteSheet.Save(Path.Combine(rawTempDir, mon + "_shiny.png"));
 
+					data.shinySpriteSize = shinySpriteSheet.Height;
 					data.shinyPaletteIdx = SelectBestPaletteOption(palettes, shinySpriteSheet);
 
 					var shinyPalPair = palettes[data.shinyPaletteIdx];
@@ -199,6 +201,8 @@ namespace PokemonDataGenerator
 
 					if (s_GenerateShinies)
 					{
+						dims = data.shinySpriteSize / 8;
+
 						writer.WriteLine($"$(OBJEVENTGFXDIR)/pokemon_ow/{mon}_shiny.4bpp: %.4bpp: %.png");
 						writer.WriteLine($"	$(GFX) $< $@ -mwidth {dims} -mheight {dims}");
 						writer.WriteLine($"");
@@ -262,6 +266,8 @@ namespace PokemonDataGenerator
 
 					if (s_GenerateShinies)
 					{
+						dims = data.shinySpriteSize / 8;
+
 						writer.WriteLine($"static const struct SpriteFrameImage sPicTable_Mon_{mon}_shiny[] = {{");
 						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 0),");
 						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 1),");
@@ -293,6 +299,8 @@ namespace PokemonDataGenerator
 
 					if (s_GenerateShinies)
 					{
+						dims = data.shinySpriteSize / 8;
+
 						if (dims == 8) // 64x64
 							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.shinyPaletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {2 + data.shinyPaletteIdx}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
 						else
@@ -323,7 +331,7 @@ namespace PokemonDataGenerator
 					{
 						var mon = kvp.Key;
 						var data = kvp.Value;
-						int dims = data.spriteSize / 8;
+						int dims = data.shinySpriteSize / 8;
 
 						writer.WriteLine($"	[SPECIES_{mon.ToUpper()}] = &gObjectEventGraphicsInfo_Mon_{mon}_shiny,");
 					}
