@@ -80,7 +80,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         return gObjectEventMonGraphicsInfoPointers[species];
 
     // Return a fallback sprite
-    return gObjectEventMonGraphicsInfoPointers[SPECIES_UNOWN];
+    return gObjectEventMonGraphicsInfoPointers[SPECIES_NONE];
 }
 
 void SetupFollowParterMonObjectEvent()

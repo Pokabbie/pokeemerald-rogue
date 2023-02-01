@@ -20,6 +20,11 @@ namespace PokemonDataGenerator
 
 		}
 
+		public ImagePalette(Color[] colors)
+		{
+			m_Colors = colors.ToArray();
+		}
+
 		public static ImagePalette FromFile(string path, bool useSimpleColorDistance = false)
 		{
 			ImagePalette palette = new ImagePalette();
@@ -53,7 +58,23 @@ namespace PokemonDataGenerator
 			return palette;
 		}
 
-		public static double GetColorDistance_0(Color e1, Color e2)
+		public void Save(string filePath)
+		{
+			using(FileStream stream = new FileStream(filePath, FileMode.Create))
+			using(StreamWriter writer = new StreamWriter(stream))
+			{
+				writer.WriteLine("JASC-PAL");
+				writer.WriteLine("0100");
+				writer.WriteLine("16");
+
+				for (int i = 0; i < 16; ++i)
+				{
+					writer.WriteLine($"{m_Colors[i].R} {m_Colors[i].G} {m_Colors[i].B}");
+				}
+			}
+		}
+
+		public static double GetColorDistance_RGB(Color e1, Color e2)
 		{
 			long rmean = ((long)e1.R + (long)e2.R) / 2;
 			long r = (long)e1.R - (long)e2.R;
@@ -74,7 +95,7 @@ namespace PokemonDataGenerator
 			V = 0.439f * R - 0.368f * G - 0.071f * B + 128.0f;
 		}
 
-		public static double GetColorDistance_1(Color e1, Color e2)
+		public static double GetColorDistance_YUV(Color e1, Color e2)
 		{
 			RGBtoYUV(e1, out float e1Y, out float e1U, out float e1V);
 			RGBtoYUV(e2, out float e2Y, out float e2U, out float e2V);
@@ -106,7 +127,7 @@ namespace PokemonDataGenerator
 
 		public double GetColorDistance(Color e1, Color e2)
 		{
-			return m_UseSimpleColorDistance ? GetColorDistance_1(e1, e2) : GetColorDistance_0(e1, e2);
+			return m_UseSimpleColorDistance ? GetColorDistance_YUV(e1, e2) : GetColorDistance_RGB(e1, e2);
 		}
 
 		private int GetClosestMatchIndex(Color input)
