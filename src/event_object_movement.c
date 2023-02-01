@@ -1959,7 +1959,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         if(info)
             return info;
         else
-            return gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_TRICK_HOUSE_STATUE];
+            return gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_BOY_1];
     }
 
     if (graphicsId == OBJ_EVENT_GFX_BARD)

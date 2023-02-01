@@ -55,6 +55,11 @@ namespace PokemonDataGenerator
 
 		public static void GenerateFromURL()
 		{
+			SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "", "res://none_overworld.png");
+
+			if(s_GenerateShinies)
+				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://none_overworld_shiny.png");
+
 			//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
 			//{
 			// Gather source paths

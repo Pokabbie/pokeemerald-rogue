@@ -116,6 +116,29 @@ namespace PokemonDataGenerator.OverworldSprites
 			}
 		}
 
+
+		public static void AppendGenericMonSprites32(string mon, int dexNumber, string groupKey, string sourcePath)
+		{
+			Settings settings = new Settings();
+			settings.CategoryName = "generic32" + groupKey;
+			settings.CellSize = 32;
+			settings.FrameNames = new string[]
+			{
+				$"front{groupKey}_1", $"back{groupKey}_1", $"side{groupKey}_1", $"front{groupKey}_2", $"back{groupKey}_2", $"side{groupKey}_2",
+			};
+			settings.FrameStride = 6;
+			settings.AutomaticCentredFrames = new Tuple<string, string>[]
+			{
+				new Tuple<string, string>($"front{groupKey}_1", $"front{groupKey}_2"),
+				new Tuple<string, string>($"back{groupKey}_1", $"back{groupKey}_2"),
+				new Tuple<string, string>($"side{groupKey}_1", $"side{groupKey}_2"),
+			};
+			settings.Source = ContentCache.GetImageContent(sourcePath);
+
+			AppendMonSprites(mon, dexNumber, settings, 0, 0);
+		}
+
+
 		// Needed for the very irregular sprite placement of the gen5 sprite sheet
 		public static void AppendNonUniformMonSprites(string mon, int dexNumber, Settings settings, Rectangle sourceRect)
 		{
