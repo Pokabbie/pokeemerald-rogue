@@ -41,7 +41,7 @@ extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsI
 static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 {
     if(species == SPECIES_NONE)
-        return SPECIES_BULBASAUR + FOLLOWMON_SHINY_OFFSET;
+        return SPECIES_NONE;
 
     return species + (isShiny ? FOLLOWMON_SHINY_OFFSET : 0);
 }
@@ -50,6 +50,11 @@ static u16 MonToFollowSpecies(struct Pokemon* mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
+}
+
+static u16 GetPartnerFollowSpecies()
+{
+    return MonToFollowSpecies(&gPlayerParty[0]);
 }
 
 const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId)
@@ -63,7 +68,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
-        species = MonToFollowSpecies(&gPlayerParty[0]);
+        species = GetPartnerFollowSpecies();
     }
 
     if(species >= FOLLOWMON_SHINY_OFFSET)
@@ -85,18 +90,39 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
 void SetupFollowParterMonObjectEvent()
 {
-    if(!PlayerHasFollower() && GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) != SPECIES_NONE)
-    {
-        u8 objectEventId = SpawnSpecialObjectEventParameterized2(
-            OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
-            MOVEMENT_TYPE_FACE_DOWN,
-            OBJ_EVENT_ID_FOLLOWER,
-            gSaveBlock1Ptr->pos.x + MAP_OFFSET,
-            gSaveBlock1Ptr->pos.y + MAP_OFFSET,
-            3,
-            NULL // TODO - Script
-        );
+    bool8 shouldFollowMonBeVisible = TRUE;
 
-        SetUpFollowerSprite(OBJ_EVENT_ID_FOLLOWER, 0); // Check FOLLOWER_FLAG_ALL
+    if(GetPartnerFollowSpecies() == SPECIES_NONE)
+        shouldFollowMonBeVisible = FALSE;
+
+    if(shouldFollowMonBeVisible)
+    {
+        if(!PlayerHasFollower())
+        {
+            u8 localId = 63;
+            u8 objectEventId = SpawnSpecialObjectEventParameterized2(
+                OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
+                MOVEMENT_TYPE_FACE_DOWN,
+                localId,
+                gSaveBlock1Ptr->pos.x + MAP_OFFSET,
+                gSaveBlock1Ptr->pos.y + MAP_OFFSET,
+                3,
+                NULL
+            );
+
+            SetUpFollowerSprite(localId, FOLLOWER_FLAG_CAN_LEAVE_ROUTE | FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT); // Check FOLLOWER_FLAG_ALL
+            gSaveBlock2Ptr->follower.scriptId = FOLLOW_SCRIPT_ID_FOLLOW_MON;
+        }
     }
+    else
+    {
+        if(PlayerHasFollower())
+            DestroyFollower();
+    }
+}
+
+void ResetFollowParterMonObjectEvent()
+{
+    if(PlayerHasFollower())
+        DestroyFollower();
 }

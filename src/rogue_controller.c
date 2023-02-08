@@ -1935,6 +1935,8 @@ void Rogue_OnLoadGame(void)
 
     EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
     RecalcCharmCurseValues();
+    
+    ResetFollowParterMonObjectEvent();
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)

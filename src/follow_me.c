@@ -107,12 +107,21 @@ u8 GetFollowerLocalId(void)
     return gObjectEvents[gSaveBlock2Ptr->follower.objId].localId;
 }
 
+extern const u8 Rogue_InteractWithFollowMon[];
+
 const u8* GetFollowerScriptPointer(void)
 {
     if (!gSaveBlock2Ptr->follower.inProgress)
         return NULL;
 
-    return gSaveBlock2Ptr->follower.script;
+    switch(gSaveBlock2Ptr->follower.scriptId)
+    {
+        case FOLLOW_SCRIPT_ID_FOLLOW_MON:
+            return Rogue_InteractWithFollowMon;
+
+        default:
+            return NULL;
+    }
 }
 
 void HideFollower(void)
@@ -228,6 +237,9 @@ void FollowMe(struct ObjectEvent* npc, u8 state, bool8 ignoreScriptActive)
     u8 dir;
     u8 newState;
     u8 taskId;
+
+    if(CheckFollowerFlag(FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT))
+        ignoreScriptActive = TRUE;
 
     if (player != npc) //Only when the player moves
         return;
@@ -1232,10 +1244,10 @@ static void TurnNPCIntoFollower(u8 localId, u16 followerFlags)
             follower->movementType = MOVEMENT_TYPE_NONE; //Doesn't get to move on its own anymore
             gSprites[follower->spriteId].callback = MovementType_None; //MovementType_None
             SetObjEventTemplateMovementType(localId, 0);
-            if (followerFlags & FOLLOWER_FLAG_CUSTOM_FOLLOW_SCRIPT)
-                script = (const u8 *)ReadWord(0);
-            else
-                script = GetObjectEventScriptPointerByObjectEventId(eventObjId);
+            //if (followerFlags & FOLLOWER_FLAG_CUSTOM_FOLLOW_SCRIPT)
+            //    script = (const u8 *)ReadWord(0);
+            //else
+            //    script = GetObjectEventScriptPointerByObjectEventId(eventObjId);
             
             flag = GetObjectEventTemplateByLocalIdAndMap(follower->localId, follower->mapNum, follower->mapGroup)->flagId;
             gSaveBlock2Ptr->follower.inProgress = TRUE;
@@ -1244,7 +1256,8 @@ static void TurnNPCIntoFollower(u8 localId, u16 followerFlags)
             gSaveBlock2Ptr->follower.map.id = gObjectEvents[eventObjId].localId;
             gSaveBlock2Ptr->follower.map.number = gSaveBlock1Ptr->location.mapNum;
             gSaveBlock2Ptr->follower.map.group = gSaveBlock1Ptr->location.mapGroup;
-            gSaveBlock2Ptr->follower.script = script;
+            //gSaveBlock2Ptr->follower.script = script;
+            gSaveBlock2Ptr->follower.scriptId = FOLLOW_SCRIPT_ID_NONE;
             gSaveBlock2Ptr->follower.flag = flag;
             gSaveBlock2Ptr->follower.flags = followerFlags;
             gSaveBlock2Ptr->follower.createSurfBlob = 0;
