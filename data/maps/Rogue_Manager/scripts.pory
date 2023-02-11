@@ -178,6 +178,21 @@ script Rogue_ReturnToHub
     return
 }
 
+script Rogue_InteractWithFollowMon
+{
+    lock
+    faceplayer
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+
+    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+
+    msgbox(format("{STR_VAR_1}: TODO!"))
+
+    release
+}
+
 script Rogue_SetDesiredWeather
 {
     if(var(VAR_ROGUE_DESIRED_WEATHER) != WEATHER_NONE)

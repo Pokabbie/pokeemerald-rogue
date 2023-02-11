@@ -3,5 +3,6 @@
 
 const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId);
 void SetupFollowParterMonObjectEvent();
+void ResetFollowParterMonObjectEvent();
 
 #endif

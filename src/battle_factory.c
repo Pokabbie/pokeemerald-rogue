@@ -709,8 +709,7 @@ static u8 GetMoveBattleStyle(u16 move)
 
 bool8 InBattleFactory(void)
 {
-    return gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_FACTORY_PRE_BATTLE_ROOM
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_FACTORY_BATTLE_ROOM;
+    return FALSE;
 }
 
 static void RestorePlayerPartyHeldItems(void)

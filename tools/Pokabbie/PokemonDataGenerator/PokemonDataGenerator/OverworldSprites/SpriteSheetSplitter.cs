@@ -569,10 +569,13 @@ namespace PokemonDataGenerator.OverworldSprites
 			}
 		}
 
-		private static void GetSpriteMinMax(Bitmap target, out Point min, out Point max)
+		private static void GetSpriteMetrics(Bitmap target, out Point min, out Point max, out Point avg)
 		{
 			min = new Point(target.Width - 1, target.Height - 1);
 			max = new Point(0, 0);
+
+			avg = new Point(0, 0);
+			int count = 0;
 
 			for(int x = 0; x < target.Width; ++x)
 				for(int y = 0; y < target.Height; ++y) 
@@ -584,8 +587,18 @@ namespace PokemonDataGenerator.OverworldSprites
 
 						max.X = Math.Max(max.X, x);
 						max.Y = Math.Max(max.Y, y);
+
+						avg.X += x;
+						avg.Y += y;
+						++count;
 					}
 				}
+
+			if(count != 0)
+			{
+				avg.X = avg.X / count;
+				avg.Y = avg.Y / count;
+			}
 		}
 
 		private static void ShiftPixels(Bitmap src, Bitmap dst, int offsetX, int offsetY)
@@ -605,8 +618,8 @@ namespace PokemonDataGenerator.OverworldSprites
 
 		private static void RecentreSpritesInGroup(Dictionary<string, Bitmap> spriteSet, string key0, string key1)
 		{
-			GetSpriteMinMax(spriteSet[key0], out Point min0, out Point max0);
-			GetSpriteMinMax(spriteSet[key1], out Point min1, out Point max1);
+			GetSpriteMetrics(spriteSet[key0], out Point min0, out Point max0, out Point avg0);
+			GetSpriteMetrics(spriteSet[key1], out Point min1, out Point max1, out Point avg1);
 
 			Point totalMin = new Point(
 				Math.Min(min0.X, min1.X),
@@ -616,6 +629,10 @@ namespace PokemonDataGenerator.OverworldSprites
 				Math.Max(max0.X, max1.X),
 				Math.Max(max0.Y, max1.Y)
 			);
+			Point totalAvg = new Point(
+				(int)Math.Ceiling((avg0.X + avg1.X) / 2.0f),
+				(int)Math.Ceiling((avg0.Y + avg1.Y) / 2.0f)
+			);
 
 			void Run(string key, Point min, Point max)
 			{
@@ -623,7 +640,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				Bitmap temp = new Bitmap(sprite.Width, sprite.Height, sprite.PixelFormat);
 
 				// Place in average centre for X?
-				int currentCentreX = (int)Math.Ceiling((min.X + max.X) / 2.0f);
+				int currentCentreX = totalAvg.X + 1;
 				int desiredCentreX = sprite.Width / 2;// (totalMin.X + totalMax.X) / 2;
 
 				// Want to place 1 pixel above bottom

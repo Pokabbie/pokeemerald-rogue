@@ -153,6 +153,17 @@ Rogue_ReturnToHub::
 	return
 
 
+Rogue_InteractWithFollowMon::
+	lock
+	faceplayer
+	setvar VAR_0x8004, 0
+	special BufferMonNickname
+	playmoncry SPECIES_DITTO, CRY_MODE_NORMAL
+	msgbox Rogue_InteractWithFollowMon_Text_0
+	release
+	return
+
+
 Rogue_SetDesiredWeather::
 	compare VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE
 	goto_if_ne Rogue_SetDesiredWeather_1
@@ -1127,6 +1138,9 @@ Rogue_QuickSaveVersionUpdateMessage_Text_2:
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"
 	.string "HUB?$"
+
+Rogue_InteractWithFollowMon_Text_0:
+	.string "{STR_VAR_1}: TODO!$"
 
 Rogue_Shop_Balls_Text_0:
 	.string "Welcome to the POKéBALL Shop!$"

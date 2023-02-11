@@ -495,7 +495,7 @@ struct Follower
     /*0x03*/ u8 delayedState;
     /*0x04*/ struct FollowerMapData map;
     /*0x08*/ struct Coords16 log;
-    /*0x0C*/ const u8* script;
+    /*0x0C*/ u8 scriptId;
     /*0x10*/ u16 flag;
     /*0x12*/ u16 graphicsId;
     /*0x14*/ u16 flags;

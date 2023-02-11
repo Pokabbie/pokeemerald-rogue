@@ -51,8 +51,6 @@ static const u16 sSaveLocationPokeCenterList[] =
     MAP_EVER_GRANDE_CITY_POKEMON_CENTER_2F,
     MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F,
     MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_2F,
-    MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F,
-    MAP_BATTLE_FRONTIER_POKEMON_CENTER_2F,
     MAP_BATTLE_COLOSSEUM_2P,
     MAP_TRADE_CENTER,
     MAP_RECORD_CORNER,
@@ -67,7 +65,6 @@ static bool32 IsCurMapPokeCenter(void)
 
 static const u16 sSaveLocationReloadLocList[] = // There's only 1 location, and it's presumed its for the save reload feature for battle tower.
 {
-    MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY,
     LIST_END,
 };
 

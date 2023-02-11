@@ -94,11 +94,6 @@ LilycoveCity_Harbor_EventScript_GoToSlateport::
 	end
 
 LilycoveCity_Harbor_EventScript_GoToBattleFrontier::
-	msgbox LilycoveCity_Harbor_Text_BattleFrontierItIs, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 19, 67
-	waitstate
 	release
 	end
 
@@ -374,11 +369,6 @@ LilycoveCity_Harbor_EventScript_GoToSlateportUnused::
 
 @ Unused
 LilycoveCity_Harbor_EventScript_GoToBattleFrontierUnused::
-	msgbox LilycoveCity_Harbor_Text_BattleFrontierItIs, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 19, 67
-	waitstate
 	release
 	end
 

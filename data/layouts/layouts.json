@@ -1852,116 +1852,6 @@
       "blockdata_filepath": "data/layouts/NewMauville_Inside/map.bin"
     },
     {
-      "id": "LAYOUT_ABANDONED_SHIP_DECK",
-      "name": "AbandonedShip_Deck_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
-      "border_filepath": "data/layouts/AbandonedShip_Deck/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Deck/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_CORRIDORS_1F",
-      "name": "AbandonedShip_Corridors_1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Corridors_1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_ROOMS_1F",
-      "name": "AbandonedShip_Rooms_1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Rooms_1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_CORRIDORS_B1F",
-      "name": "AbandonedShip_Corridors_B1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Corridors_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Corridors_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_ROOMS_B1F",
-      "name": "AbandonedShip_Rooms_B1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Rooms_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_B1F",
-      "name": "AbandonedShip_Rooms2_B1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_UNDERWATER1",
-      "name": "AbandonedShip_Underwater1_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Underwater1/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Underwater1/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_ROOM_B1F",
-      "name": "AbandonedShip_Room_B1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Room_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Room_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_ROOMS2_1F",
-      "name": "AbandonedShip_Rooms2_1F_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Rooms2_1F/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Rooms2_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_CAPTAINS_OFFICE",
-      "name": "AbandonedShip_CaptainsOffice_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
-      "border_filepath": "data/layouts/AbandonedShip_CaptainsOffice/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_CaptainsOffice/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_UNDERWATER2",
-      "name": "AbandonedShip_Underwater2_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_Underwater2/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_Underwater2/map.bin"
-    },
-    {
       "id": "LAYOUT_SECRET_BASE_RED_CAVE1",
       "name": "SecretBase_RedCave1_Layout",
       "width": 11,
@@ -2632,26 +2522,6 @@
       "blockdata_filepath": "data/layouts/Route130/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-      "name": "BattleFrontier_BattleTowerLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_BattleTowerLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleTowerLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "name": "BattleFrontier_OutsideWest_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
-      "border_filepath": "data/layouts/BattleFrontier_OutsideWest/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_OutsideWest/map.bin"
-    },
-    {
       "id": "LAYOUT_BATTLE_ELEVATOR",
       "name": "BattleElevator_Layout",
       "width": 1,
@@ -2660,26 +2530,6 @@
       "secondary_tileset": "gTileset_BattleFrontier",
       "border_filepath": "data/layouts/BattleElevator/border.bin",
       "blockdata_filepath": "data/layouts/BattleElevator/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_CORRIDOR",
-      "name": "BattleFrontier_BattleTowerCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_BattleTowerCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleTowerCorridor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleTowerBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_BattleTowerBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleTowerBattleRoom/map.bin"
     },
     {
       "id": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_3F",
@@ -2882,16 +2732,6 @@
       "blockdata_filepath": "data/layouts/GraniteCave_StevensRoom/map.bin"
     },
     {
-      "id": "LAYOUT_ABANDONED_SHIP_HIDDEN_FLOOR_CORRIDORS",
-      "name": "AbandonedShip_HiddenFloorCorridors_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_HiddenFloorCorridors/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_HiddenFloorCorridors/map.bin"
-    },
-    {
       "id": "LAYOUT_SOUTHERN_ISLAND_EXTERIOR",
       "name": "SouthernIsland_Exterior_Layout",
       "width": 33,
@@ -3090,16 +2930,6 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SootopolisCity_House3/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_House3/map.bin"
-    },
-    {
-      "id": "LAYOUT_ABANDONED_SHIP_HIDDEN_FLOOR_ROOMS",
-      "name": "AbandonedShip_HiddenFloorRooms_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/AbandonedShip_HiddenFloorRooms/border.bin",
-      "blockdata_filepath": "data/layouts/AbandonedShip_HiddenFloorRooms/map.bin"
     },
     {
       "id": "LAYOUT_SCORCHED_SLAB",
@@ -3312,46 +3142,6 @@
       "blockdata_filepath": "data/layouts/SkyPillar_Top/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_LOBBY",
-      "name": "BattleFrontier_BattleDomeLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleDome",
-      "border_filepath": "data/layouts/BattleFrontier_BattleDomeLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleDomeLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR",
-      "name": "BattleFrontier_BattleDomeCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleDome",
-      "border_filepath": "data/layouts/BattleFrontier_BattleDomeCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleDomeCorridor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_PRE_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleDomePreBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleDome",
-      "border_filepath": "data/layouts/BattleFrontier_BattleDomePreBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleDomePreBattleRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleDomeBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleDome",
-      "border_filepath": "data/layouts/BattleFrontier_BattleDomeBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleDomeBattleRoom/map.bin"
-    },
-    {
       "id": "LAYOUT_MAGMA_HIDEOUT_1F",
       "name": "MagmaHideout_1F_Layout",
       "width": 37,
@@ -3412,156 +3202,6 @@
       "blockdata_filepath": "data/layouts/MagmaHideout_4F/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PALACE_LOBBY",
-      "name": "BattleFrontier_BattlePalaceLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePalace",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePalaceLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePalaceLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PALACE_CORRIDOR",
-      "name": "BattleFrontier_BattlePalaceCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattlePalace",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePalaceCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePalaceCorridor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PALACE_BATTLE_ROOM",
-      "name": "BattleFrontier_BattlePalaceBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattlePalace",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePalaceBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePalaceBattleRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_OUTSIDE_EAST",
-      "name": "BattleFrontier_OutsideEast_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
-      "border_filepath": "data/layouts/BattleFrontier_OutsideEast/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_OutsideEast/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY",
-      "name": "BattleFrontier_BattleFactoryLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFactory",
-      "border_filepath": "data/layouts/BattleFrontier_BattleFactoryLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleFactoryLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_FACTORY_PRE_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleFactoryPreBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFactory",
-      "border_filepath": "data/layouts/BattleFrontier_BattleFactoryPreBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleFactoryPreBattleRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_FACTORY_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleFactoryBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFactory",
-      "border_filepath": "data/layouts/BattleFrontier_BattleFactoryBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleFactoryBattleRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_LOBBY",
-      "name": "BattleFrontier_BattlePikeLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_CORRIDOR",
-      "name": "BattleFrontier_BattlePikeCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeCorridor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_THREE_PATH_ROOM",
-      "name": "BattleFrontier_BattlePikeThreePathRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeThreePathRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeThreePathRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_NORMAL",
-      "name": "BattleFrontier_BattlePikeRoomNormal_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeRoomNormal/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeRoomNormal/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_FINAL",
-      "name": "BattleFrontier_BattlePikeRoomFinal_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeRoomFinal/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeRoomFinal/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_ARENA_LOBBY",
-      "name": "BattleFrontier_BattleArenaLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleArena",
-      "border_filepath": "data/layouts/BattleFrontier_BattleArenaLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleArenaLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_ARENA_CORRIDOR",
-      "name": "BattleFrontier_BattleArenaCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleArena",
-      "border_filepath": "data/layouts/BattleFrontier_BattleArenaCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleArenaCorridor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_ARENA_BATTLE_ROOM",
-      "name": "BattleFrontier_BattleArenaBattleRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleArena",
-      "border_filepath": "data/layouts/BattleFrontier_BattleArenaBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleArenaBattleRoom/map.bin"
-    },
-    {
       "id": "LAYOUT_SOOTOPOLIS_CITY_LEGENDS_BATTLE",
       "name": "SootopolisCity_LegendsBattle_Layout",
       "width": 60,
@@ -3572,16 +3212,6 @@
       "blockdata_filepath": "data/layouts/SootopolisCity_LegendsBattle/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS",
-      "name": "BattleFrontier_BattlePikeRoomWildMons_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePikeRoomWildMons/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeRoomWildMons/map.bin"
-    },
-    {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_UNUSED",
       "name": "BattleFrontier_BattlePikeRoomUnused_Layout",
       "width": 1,
@@ -3590,196 +3220,6 @@
       "secondary_tileset": "gTileset_BattlePike",
       "border_filepath": "data/layouts/BattleFrontier_BattlePikeRoomUnused/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeRoomUnused/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_LOBBY",
-      "name": "BattleFrontier_BattlePyramidLobby_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePyramidLobby/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePyramidLobby/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR",
-      "name": "BattleFrontier_BattlePyramidFloor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePyramidFloor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePyramidFloor/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE01",
-      "name": "BattlePyramidSquare01_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare01/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare01/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE02",
-      "name": "BattlePyramidSquare02_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare02/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare02/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE03",
-      "name": "BattlePyramidSquare03_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare03/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare03/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE04",
-      "name": "BattlePyramidSquare04_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare04/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare04/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE05",
-      "name": "BattlePyramidSquare05_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare05/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare05/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE06",
-      "name": "BattlePyramidSquare06_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare06/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare06/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE07",
-      "name": "BattlePyramidSquare07_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare07/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare07/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE08",
-      "name": "BattlePyramidSquare08_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare08/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare08/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE09",
-      "name": "BattlePyramidSquare09_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare09/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare09/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE10",
-      "name": "BattlePyramidSquare10_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare10/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare10/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE11",
-      "name": "BattlePyramidSquare11_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare11/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare11/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE12",
-      "name": "BattlePyramidSquare12_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare12/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare12/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE13",
-      "name": "BattlePyramidSquare13_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare13/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare13/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE14",
-      "name": "BattlePyramidSquare14_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare14/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare14/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE15",
-      "name": "BattlePyramidSquare15_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare15/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare15/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_PYRAMID_SQUARE16",
-      "name": "BattlePyramidSquare16_Layout",
-      "width": 8,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattlePyramidSquare16/border.bin",
-      "blockdata_filepath": "data/layouts/BattlePyramidSquare16/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
-      "name": "BattleFrontier_BattlePyramidTop_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePyramid",
-      "border_filepath": "data/layouts/BattleFrontier_BattlePyramidTop/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattlePyramidTop/map.bin"
     },
     {
       "id": "LAYOUT_MAGMA_HIDEOUT_3F_3R",
@@ -3892,26 +3332,6 @@
       "blockdata_filepath": "data/layouts/DesertUnderpass/map.bin"
     },
     {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM",
-      "name": "BattleFrontier_BattleTowerMultiPartnerRoom_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_BattleTowerMultiPartnerRoom/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleTowerMultiPartnerRoom/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_MULTI_CORRIDOR",
-      "name": "BattleFrontier_BattleTowerMultiCorridor_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_BattleTowerMultiCorridor/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_BattleTowerMultiCorridor/map.bin"
-    },
-    {
       "id": "LAYOUT_ROUTE111_NO_MIRAGE_TOWER",
       "name": "Route111_NoMirageTower_Layout",
       "width": 40,
@@ -3950,46 +3370,6 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/SafariZone_Southeast/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Southeast/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_RANKING_HALL",
-      "name": "BattleFrontier_RankingHall_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontierRankingHall",
-      "border_filepath": "data/layouts/BattleFrontier_RankingHall/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_RankingHall/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_LOUNGE1",
-      "name": "BattleFrontier_Lounge1_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_Lounge1/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_Lounge1/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_EXCHANGE_SERVICE_CORNER",
-      "name": "BattleFrontier_ExchangeServiceCorner_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_ExchangeServiceCorner/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_ExchangeServiceCorner/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_RECEPTION_GATE",
-      "name": "BattleFrontier_ReceptionGate_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_ReceptionGate/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_ReceptionGate/map.bin"
     },
     {
       "id": "LAYOUT_ARTISAN_CAVE_B1F",
@@ -4280,26 +3660,6 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/NavelRock_Fork/border.bin",
       "blockdata_filepath": "data/layouts/NavelRock_Fork/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_LOUNGE2",
-      "name": "BattleFrontier_Lounge2_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_Lounge2/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_Lounge2/map.bin"
-    },
-    {
-      "id": "LAYOUT_BATTLE_FRONTIER_SCOTTS_HOUSE",
-      "name": "BattleFrontier_ScottsHouse_Layout",
-      "width": 1,
-      "height": 1,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattleFrontier",
-      "border_filepath": "data/layouts/BattleFrontier_ScottsHouse/border.bin",
-      "blockdata_filepath": "data/layouts/BattleFrontier_ScottsHouse/map.bin"
     },
     {
       "id": "LAYOUT_METEOR_FALLS_STEVENS_CAVE",
