@@ -93,13 +93,5 @@ static void UpdateGymLeaderRematchFromArray(const u16 *data, size_t size, u32 ma
 
 static s32 GetRematchIndex(u32 trainerIdx)
 {
-    s32 i;
-    for (i = 0; i < 5; i++)
-    {
-        if (!HasTrainerBeenFought(gRematchTable[trainerIdx].trainerIds[i]))
-        {
-            return i;
-        }
-    }
     return 5;
 }

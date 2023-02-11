@@ -290,6 +290,11 @@ RogueHub_Bakery_SpeakIVEVInspector::
 	return
 
 
+RogueHub_Bakery_SpeakFriendshipInspector::
+	msgbox RogueHub_Bakery_SpeakFriendshipInspector_Text_0
+	return
+
+
 RogueHub_Bakery_SpeakChef_ApplyTreat_Text_0:
 	.string "Coming right up!$"
 
@@ -416,3 +421,8 @@ RogueHub_Bakery_SpeakIVEVInspector_Text_0:
 	.string "IVs and EVs by pressing A on the\l"
 	.string "POKéMON summary screen?\p"
 	.string "Modern technology sure is great huh!$"
+
+RogueHub_Bakery_SpeakFriendshipInspector_Text_0:
+	.string "TODO port VerdanturfTown\n"
+	.string "FriendshipRatersHouse EventScript\l"
+	.string "FriendshipRater$"

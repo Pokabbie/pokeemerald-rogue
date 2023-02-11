@@ -23,14 +23,15 @@ namespace PokemonDataRemover
 		private static JObject s_MapGroupContent = null;
 		private static JObject s_LayoutsContent = null;
 		private static JObject s_EncountersContent = null;
+		private static Dictionary<string, JObject> s_AlteredJsons = new Dictionary<string, JObject>();
 
 		public static void Setup()
 		{
 			Console.WriteLine($"Loading project files");
 			s_EventScriptContent = File.ReadAllLines(c_EventScriptsFile).ToList();
-			s_MapGroupContent = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(c_MapGroupsFile));
-			s_LayoutsContent = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(c_LayoutsFile));
-			s_EncountersContent = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(c_EncountersFile));
+			s_MapGroupContent = LoadJson(c_MapGroupsFile);
+			s_LayoutsContent = LoadJson(c_LayoutsFile);
+			s_EncountersContent = LoadJson(c_EncountersFile);
 		}
 
 		public static void Shutdown()
@@ -42,10 +43,28 @@ namespace PokemonDataRemover
 			};
 
 			File.WriteAllLines(c_EventScriptsFile, s_EventScriptContent);
-			File.WriteAllText(c_MapGroupsFile, JsonConvert.SerializeObject(s_MapGroupContent, settings));
-			File.WriteAllText(c_LayoutsFile, JsonConvert.SerializeObject(s_LayoutsContent, settings));
-			File.WriteAllText(c_EncountersFile, JsonConvert.SerializeObject(s_EncountersContent, settings));
 
+			foreach(var kvp in s_AlteredJsons)
+			{
+				// If still exists
+				if(File.Exists(kvp.Key))
+				{
+					Console.WriteLine($"Updating '{kvp.Key}'");
+					File.WriteAllText(kvp.Key, JsonConvert.SerializeObject(kvp.Value, settings));
+				}
+			}
+		}
+
+		private static JObject LoadJson(string path)
+		{
+			string key = path.Trim().ToLower().Replace("\\", "/");
+
+			if (s_AlteredJsons.TryGetValue(key, out JObject obj))
+				return obj;
+
+			obj = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(path));
+			s_AlteredJsons.Add(key, obj);
+			return obj;
 		}
 
 		public static void DeleteSingleMap(string map)
@@ -54,18 +73,24 @@ namespace PokemonDataRemover
 			{
 				Console.WriteLine($"Deleting '{map}'..");
 
+				string mapFilePath = Path.Combine(c_MapsDirectory, map, "map.json");
+				JObject mapFile = LoadJson(mapFilePath);
+				string mapId = mapFile["id"].ToString();
+
+				RemoveWarpEventsFor(mapId);
+								
+				RemoveEventScriptLine($".include \"data/maps/{map}/scripts.inc\"");
+				RemoveMapLayout(map + "_Layout");
+				RemoveMapGroupEntry(map);
+				RemoveEncounters(mapId);
+
 				string mapDir = Path.Combine(c_MapsDirectory, map);
 				if (Directory.Exists(mapDir))
 					Directory.Delete(mapDir, true);
 
 				string layoutDir = Path.Combine(c_LayoutsDirectory, map);
-				if(Directory.Exists(layoutDir))
+				if (Directory.Exists(layoutDir))
 					Directory.Delete(layoutDir, true);
-				
-				RemoveEventScriptLine($".include \"data/maps/{map}/scripts.inc\"");
-				RemoveMapLayout(map + "_Layout");
-				RemoveMapGroupEntry(map);
-				RemoveEncounters(map);
 			}
 			else
 			{
@@ -80,12 +105,84 @@ namespace PokemonDataRemover
 			{
 				"AbandonedShip_",
 				"BattleFrontier_",
-				"BattlePyramid"
+				"BattlePyramid",
+				"AlteringCave",
+				"AquaHideout_",
+				"ArtisanCave_",
+				"BattleColosseum_",
+				"CaveOfOrigin_",
+				"ContestHall",
+				"DesertUnderpass",
+				"DewfordTown",
+				"EverGrandeCity",
+				"FallarborTown",
+				"FieryPath",
+				"FortreeCity",
+				"GraniteCave_",
+				"JaggedPass",
+				"LavaridgeTown",
+				"LilycoveCity",
+				"LittlerootTown",
+				"MagmaHideout_",
+				"MauvilleCity",
+				"MeteorFalls_",
+				"MirageTower_",
+				"MossdeepCity",
+				"MtChimney",
+				"MtPyre_",
+				"NavelRock_Down",
+				"NavelRock_Up",
+				"NewMauville_",
+				"OldaleTown",
+				"PacifidlogTown",
+				"Petalburg",
+				"RecordCorner",
+				"Route",
+				"RustboroCity",
+				"RusturfTunnel",
+				"ScorchedSlab",
+				"SeafloorCavern_",
+				"SealedChamber_",
+				"SecretBase_",
+				"ShoalCave_",
+				"SlateportCity",
+				"SootopolisCity",
+				"SSTidal",
+				"TradeCenter",
+				"TrainerHill",
+				"Underwater",
+				"UnionRoom",
+				"UnusedContestHall",
+				"VerdanturfTown",
+				"VictoryRoad",
+
+				"BirthIsland_Harbor",
+				"FarawayIsland_Entrance",
+				"MarineCave_Entrance",
+				"NavelRock_B1F",
+				"NavelRock_Entrance",
+				"NavelRock_Exterior",
+				"NavelRock_Fork",
+				"NavelRock_Harbor",
+				"SkyPillar_1F",
+				"SkyPillar_2F",
+				"SkyPillar_3F",
+				"SkyPillar_4F",
+				"SkyPillar_5F",
+				"SkyPillar_Entrance",
+				"SkyPillar_Outside",
+				"SouthernIsland_Exterior",
+				"TerraCave_Entrance",
 			};
 
 			bool ShouldDelete(string mapName)
 			{
-				return mapPatternsToDelete.Where((p) => mapName.StartsWith(p, StringComparison.CurrentCultureIgnoreCase)).Any();
+				if(mapPatternsToDelete.Where((p) => mapName.StartsWith(p, StringComparison.CurrentCultureIgnoreCase)).Any())
+				{
+					return !mapName.Equals("Route121_SafariZoneEntrance", StringComparison.CurrentCultureIgnoreCase);
+				}
+
+				return false;
 			}
 
 			foreach(var mapPath in Directory.EnumerateDirectories(c_MapsDirectory))
@@ -105,7 +202,7 @@ namespace PokemonDataRemover
 
 		private static bool VerifyMapPathsExist(string map)
 		{
-			return Directory.Exists(Path.Combine(c_MapsDirectory, map));// && Directory.Exists(Path.Combine(c_LayoutsDirectory, map));
+			return true;// Directory.Exists(Path.Combine(c_MapsDirectory, map));// && Directory.Exists(Path.Combine(c_LayoutsDirectory, map));
 		}
 
 		private static bool RemoveEventScriptLine(string line)
@@ -149,6 +246,8 @@ namespace PokemonDataRemover
 
 		private static bool RemoveMapGroupEntry(string map)
 		{
+			bool success = false;
+
 			foreach(var kvp in s_MapGroupContent)
 			{
 				var entryArray = kvp.Value as JArray;
@@ -160,17 +259,20 @@ namespace PokemonDataRemover
 						if (entryArray[i].ToString().Equals(map, StringComparison.CurrentCultureIgnoreCase))
 						{
 							entryArray.RemoveAt(i);
-							return true;
+							success = true;
 						}
 					}
 				}
 			}
 
+			if (success)
+				return true;
+
 			Console.Error.WriteLine($"Error: \tFailed to locate map group entry '{map}'");
 			return false;
 		}
 
-		private static bool RemoveEncounters(string encounterLabel)
+		private static bool RemoveEncounters(string mapId)
 		{
 			var encounterGroups = (JArray)s_EncountersContent["wild_encounter_groups"];
 
@@ -180,7 +282,9 @@ namespace PokemonDataRemover
 
 				for (int j = 0; j < encounters.Count; ++j)
 				{
-					if (encounters[j]["base_label"].ToString().Equals(encounterLabel, StringComparison.CurrentCultureIgnoreCase))
+					var encounterEntry = (JObject)encounters[j];
+
+					if (encounterEntry.ContainsKey("map") && encounterEntry["map"].ToString().Equals(mapId, StringComparison.CurrentCultureIgnoreCase))
 					{
 						encounters.RemoveAt(j);
 						return true;
@@ -188,8 +292,38 @@ namespace PokemonDataRemover
 				}
 			}
 
-			Console.Error.WriteLine($"Error: \tFailed to locate wild encounters '{encounterLabel}'");
+			Console.Error.WriteLine($"Error: \tFailed to locate wild encounters '{mapId}'");
 			return false;
+		}
+
+		private static void RemoveWarpEventsFor(string mapId)
+		{
+			foreach (var otherMapFilePath in Directory.EnumerateDirectories(c_MapsDirectory, "map.json", SearchOption.AllDirectories))
+			{
+				JObject otherMapFile = LoadJson(otherMapFilePath);
+
+				if(otherMapFile["map"].ToString() != mapId)
+				{
+					var conns = (JArray)otherMapFile["connections"];
+					var warps = (JArray)otherMapFile["warp_events"];
+
+					for(int i = 0; i < conns.Count;)
+					{
+						if (conns[i]["map"].ToString() == mapId)
+							conns.RemoveAt(i);
+						else
+							++i;
+					}
+					
+					for (int i = 0; i < warps.Count;)
+					{
+						if (warps[i]["dest_map"].ToString() == mapId)
+							warps.RemoveAt(i);
+						else
+							++i;
+					}
+				}
+			}
 		}
 	}
 }

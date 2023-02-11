@@ -111,7 +111,7 @@
       "x": 20,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_MARINE_CAVE_ENTRANCE",
+      "dest_map": "MAP_MARINE_CAVE_END",
       "dest_warp_id": 0
     }
   ],

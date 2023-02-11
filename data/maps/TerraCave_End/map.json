@@ -111,7 +111,7 @@
       "x": 5,
       "y": 4,
       "elevation": 3,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_map": "MAP_TERRA_CAVE_END",
       "dest_warp_id": 1
     }
   ],

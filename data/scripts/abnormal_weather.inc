@@ -381,45 +381,4 @@ AbnormalWeather_EventScript_CleanupRoute129East::
 	return
 
 AbnormalWeather_Underwater_SetupEscapeWarp::
-	switch VAR_ABNORMAL_WEATHER_LOCATION
-	case ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_Underwater_SetupEscapeWarpRoute105North
-	case ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_Underwater_SetupEscapeWarpRoute105South
-	case ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_Underwater_SetupEscapeWarpRoute125West
-	case ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_Underwater_SetupEscapeWarpRoute125East
-	case ABNORMAL_WEATHER_ROUTE_127_NORTH, AbnormalWeather_Underwater_SetupEscapeWarpRoute127North
-	case ABNORMAL_WEATHER_ROUTE_127_SOUTH, AbnormalWeather_Underwater_SetupEscapeWarpRoute127South
-	case ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_Underwater_SetupEscapeWarpRoute129West
-	case ABNORMAL_WEATHER_ROUTE_129_EAST, AbnormalWeather_Underwater_SetupEscapeWarpRoute129East
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute105North::
-	setescapewarp MAP_ROUTE105, 11, 29
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute105South::
-	setescapewarp MAP_ROUTE105, 21, 54
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute125West::
-	setescapewarp MAP_ROUTE125, 9, 17
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute125East::
-	setescapewarp MAP_ROUTE125, 54, 19
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute127North::
-	setescapewarp MAP_ROUTE127, 58, 10
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute127South::
-	setescapewarp MAP_ROUTE127, 62, 31
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute129West::
-	setescapewarp MAP_ROUTE129, 17, 15
-	return
-
-AbnormalWeather_Underwater_SetupEscapeWarpRoute129East::
-	setescapewarp MAP_ROUTE129, 43, 20
 	return

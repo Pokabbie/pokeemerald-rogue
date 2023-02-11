@@ -1130,18 +1130,6 @@ static u32 GetNumRegisteredNPCs(void)
 
 static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
 {
-    u32 i;
-    for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
-        {
-            if (!activeMatchCallId)
-                return gRematchTable[i].trainerIds[0];
-
-            activeMatchCallId--;
-        }
-    }
-
     return REMATCH_TABLE_ENTRIES;
 }
 
@@ -1466,20 +1454,12 @@ static bool32 TrainerIsEligibleForRematch(int matchCallId)
 
 static u16 GetRematchTrainerLocation(int matchCallId)
 {
-    const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(gRematchTable[matchCallId].mapGroup, gRematchTable[matchCallId].mapNum);
-    return mapHeader->regionMapSectionId;
+    return 0;
 }
 
 static u32 GetNumRematchTrainersFought(void)
 {
-    u32 i, count;
-    for (i = 0, count = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (HasTrainerBeenFought(gRematchTable[i].trainerIds[0]))
-            count++;
-    }
-
-    return count;
+    return 0;
 }
 
 // Look through the rematch table for trainers that have been defeated once before.
@@ -1487,19 +1467,6 @@ static u32 GetNumRematchTrainersFought(void)
 // or REMATCH_TABLE_ENTRIES if fewer than n rematch trainers have been defeated.
 static u32 GetNthRematchTrainerFought(int n)
 {
-    u32 i, count;
-
-    for (i = 0, count = 0; i < REMATCH_TABLE_ENTRIES; i++)
-    {
-        if (HasTrainerBeenFought(gRematchTable[i].trainerIds[0]))
-        {
-            if (count == n)
-                return i;
-
-            count++;
-        }
-    }
-
     return REMATCH_TABLE_ENTRIES;
 }
 
@@ -1746,48 +1713,6 @@ static u8 GetWaterEncounterSlot(void)
 
 static void PopulateSpeciesFromTrainerLocation(int matchCallId, u8 *destStr)
 {
-    u16 species[2];
-    int numSpecies;
-    u8 slot;
-    int i = 0;
-
-    if (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED)) // ??? This check is nonsense.
-    {
-        while (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED))
-        {
-            if (gWildMonHeaders[i].mapGroup == gRematchTable[matchCallId].mapGroup
-             && gWildMonHeaders[i].mapNum == gRematchTable[matchCallId].mapNum)
-                break;
-
-            i++;
-        }
-
-        if (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED))
-        {
-            numSpecies = 0;
-            if (gWildMonHeaders[i].landMonsInfo)
-            {
-                slot = GetLandEncounterSlot();
-                species[numSpecies] = gWildMonHeaders[i].landMonsInfo->wildPokemon[slot].species;
-                numSpecies++;
-            }
-
-            if (gWildMonHeaders[i].waterMonsInfo)
-            {
-                slot = GetWaterEncounterSlot();
-                species[numSpecies] = gWildMonHeaders[i].waterMonsInfo->wildPokemon[slot].species;
-                numSpecies++;
-            }
-
-            if (numSpecies)
-            {
-                StringCopy(destStr, gSpeciesNames[species[Random() % numSpecies]]);
-                return;
-            }
-        }
-    }
-
-    destStr[0] = EOS;
 }
 
 static void PopulateSpeciesFromTrainerParty(int matchCallId, u8 *destStr)

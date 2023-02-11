@@ -104,40 +104,10 @@ static const struct SecretBaseEntranceMetatiles sSecretBaseEntranceMetatiles[] =
     {.closedMetatileId = METATILE_Fortree_SecretBase_Shrub,     .openMetatileId = METATILE_Fortree_SecretBase_ShrubOpen},
 };
 
-// mapNum, warpId, x, y
-// x, y positions are for when the player warps in for the first time (in front of the computer)
-static const u8 sSecretBaseEntrancePositions[NUM_SECRET_BASE_GROUPS * 4] =
-{
-    [SECRET_BASE_RED_CAVE1]    = MAP_NUM(SECRET_BASE_RED_CAVE1),    0,  1,  3,
-    [SECRET_BASE_RED_CAVE2]    = MAP_NUM(SECRET_BASE_RED_CAVE2),    0,  5,  9,
-    [SECRET_BASE_RED_CAVE3]    = MAP_NUM(SECRET_BASE_RED_CAVE3),    0,  1,  3,
-    [SECRET_BASE_RED_CAVE4]    = MAP_NUM(SECRET_BASE_RED_CAVE4),    0,  7, 13,
-    [SECRET_BASE_BROWN_CAVE1]  = MAP_NUM(SECRET_BASE_BROWN_CAVE1),  0,  2,  3,
-    [SECRET_BASE_BROWN_CAVE2]  = MAP_NUM(SECRET_BASE_BROWN_CAVE2),  0,  9,  2,
-    [SECRET_BASE_BROWN_CAVE3]  = MAP_NUM(SECRET_BASE_BROWN_CAVE3),  0, 13,  4,
-    [SECRET_BASE_BROWN_CAVE4]  = MAP_NUM(SECRET_BASE_BROWN_CAVE4),  0,  1,  2,
-    [SECRET_BASE_BLUE_CAVE1]   = MAP_NUM(SECRET_BASE_BLUE_CAVE1),   0,  1,  3,
-    [SECRET_BASE_BLUE_CAVE2]   = MAP_NUM(SECRET_BASE_BLUE_CAVE2),   0,  1,  2,
-    [SECRET_BASE_BLUE_CAVE3]   = MAP_NUM(SECRET_BASE_BLUE_CAVE3),   0,  3, 15,
-    [SECRET_BASE_BLUE_CAVE4]   = MAP_NUM(SECRET_BASE_BLUE_CAVE4),   0,  3, 14,
-    [SECRET_BASE_YELLOW_CAVE1] = MAP_NUM(SECRET_BASE_YELLOW_CAVE1), 0,  9,  3,
-    [SECRET_BASE_YELLOW_CAVE2] = MAP_NUM(SECRET_BASE_YELLOW_CAVE2), 0,  8,  7,
-    [SECRET_BASE_YELLOW_CAVE3] = MAP_NUM(SECRET_BASE_YELLOW_CAVE3), 0,  3,  6,
-    [SECRET_BASE_YELLOW_CAVE4] = MAP_NUM(SECRET_BASE_YELLOW_CAVE4), 0,  5,  9,
-    [SECRET_BASE_TREE1]        = MAP_NUM(SECRET_BASE_TREE1),        0,  2,  3,
-    [SECRET_BASE_TREE2]        = MAP_NUM(SECRET_BASE_TREE2),        0,  5,  6,
-    [SECRET_BASE_TREE3]        = MAP_NUM(SECRET_BASE_TREE3),        0, 15,  3,
-    [SECRET_BASE_TREE4]        = MAP_NUM(SECRET_BASE_TREE4),        0,  4, 10,
-    [SECRET_BASE_SHRUB1]       = MAP_NUM(SECRET_BASE_SHRUB1),       0,  3,  3,
-    [SECRET_BASE_SHRUB2]       = MAP_NUM(SECRET_BASE_SHRUB2),       0,  1,  2,
-    [SECRET_BASE_SHRUB3]       = MAP_NUM(SECRET_BASE_SHRUB3),       0,  7,  8,
-    [SECRET_BASE_SHRUB4]       = MAP_NUM(SECRET_BASE_SHRUB4),       0,  9,  6,
-};
-
-#define GET_BASE_MAP_NUM(group)    (sSecretBaseEntrancePositions[(group) + 0])
-#define GET_BASE_WARP_ID(group)    (sSecretBaseEntrancePositions[(group) + 1])
-#define GET_BASE_COMPUTER_X(group) (sSecretBaseEntrancePositions[(group) + 2])
-#define GET_BASE_COMPUTER_Y(group) (sSecretBaseEntrancePositions[(group) + 3])
+#define GET_BASE_MAP_NUM(group)    (0)
+#define GET_BASE_WARP_ID(group)    (0)
+#define GET_BASE_COMPUTER_X(group) (0)
+#define GET_BASE_COMPUTER_Y(group) (0)
 
 static const struct MenuAction sRegistryMenuActions[] =
 {
@@ -409,8 +379,6 @@ void SetOccupiedSecretBaseEntranceMetatiles(struct MapEvents const *events)
 
 static void SetSecretBaseWarpDestination(void)
 {
-    s8 secretBaseGroup = SECRET_BASE_ID_TO_GROUP(sCurSecretBaseId);
-    SetWarpDestinationToMapWarp(MAP_GROUP(SECRET_BASE_RED_CAVE1), GET_BASE_MAP_NUM(secretBaseGroup), GET_BASE_WARP_ID(secretBaseGroup));
 }
 
 #define tState data[0]
@@ -507,11 +475,7 @@ void EnterNewlyCreatedSecretBase(void)
 
 bool8 CurMapIsSecretBase(void)
 {
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SECRET_BASE_RED_CAVE1)
-     && (u8)gSaveBlock1Ptr->location.mapNum <= MAP_NUM(SECRET_BASE_SHRUB4))
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 void InitSecretBaseAppearance(bool8 hidePC)
@@ -671,9 +635,6 @@ void SetCurSecretBaseIdFromPosition(const struct MapPosition *position, const st
 
 void WarpIntoSecretBase(const struct MapPosition *position, const struct MapEvents *events)
 {
-    SetCurSecretBaseIdFromPosition(position, events);
-    TrySetCurSecretBaseIndex();
-    ScriptContext1_SetupScript(SecretBase_EventScript_Enter);
 }
 
 bool8 TrySetCurSecretBase(void)
@@ -1109,11 +1070,6 @@ static void ReturnToMainRegistryMenu(u8 taskId)
 
 static void GoToSecretBasePCRegisterMenu(u8 taskId)
 {
-    if (VarGet(VAR_CURRENT_SECRET_BASE) == 0)
-        ScriptContext1_SetupScript(SecretBase_EventScript_PCCancel);
-    else
-        ScriptContext1_SetupScript(SecretBase_EventScript_ShowRegisterMenu);
-
     DestroyTask(taskId);
 }
 
@@ -1728,65 +1684,6 @@ static void SaveRecordMixBases(struct SecretBaseRecordMixer *mixers)
 
 void ReceiveSecretBasesData(void *secretBases, size_t recordSize, u8 linkIdx)
 {
-    struct SecretBaseRecordMixer mixers[3];
-    u16 i;
-
-    if (FlagGet(FLAG_RECEIVED_SECRET_POWER))
-    {
-        switch (GetLinkPlayerCount())
-        {
-        case 2:
-            memset(secretBases + 2 * recordSize, 0, recordSize);
-            memset(secretBases + 3 * recordSize, 0, recordSize);
-            break;
-        case 3:
-            memset(secretBases + 3 * recordSize, 0, recordSize);
-            break;
-        }
-
-        switch (linkIdx)
-        {
-        case 0:
-            INIT_SECRET_BASE_RECORD_MIXER(1, 2, 3)
-            break;
-        case 1:
-            INIT_SECRET_BASE_RECORD_MIXER(2, 3, 0)
-            break;
-        case 2:
-            INIT_SECRET_BASE_RECORD_MIXER(3, 0, 1)
-            break;
-        case 3:
-            INIT_SECRET_BASE_RECORD_MIXER(0, 1, 2)
-            break;
-        }
-
-        SaveRecordMixBases(mixers);
-
-        for (i = 1; i < SECRET_BASES_COUNT; i++)
-        {
-            // In the process of deleting duplicate bases, if a base the player has registered is deleted it is
-            // flagged with the temporary toRegister flag, so it can be re-registered after it has been newly saved
-            if (gSaveBlock1Ptr->secretBases[i].toRegister == TRUE)
-            {
-                gSaveBlock1Ptr->secretBases[i].registryStatus = REGISTERED;
-                gSaveBlock1Ptr->secretBases[i].toRegister = FALSE;
-            }
-        }
-
-        SortSecretBasesByRegistryStatus();
-        for (i = 1; i < SECRET_BASES_COUNT; i++)
-        {
-            // Unmark "new" bases, they've been saved now and are no longer important
-            if (gSaveBlock1Ptr->secretBases[i].registryStatus == NEW)
-                gSaveBlock1Ptr->secretBases[i].registryStatus = UNREGISTERED;
-        }
-
-        if (gSaveBlock1Ptr->secretBases[0].secretBaseId != 0
-         && gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived != 0xFFFF)
-        {
-            gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived++;
-        }
-    }
 }
 
 void ClearJapaneseSecretBases(struct SecretBase *bases)

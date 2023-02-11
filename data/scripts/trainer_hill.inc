@@ -23,10 +23,6 @@ TrainerHill_OnFrame:
 	.2byte 0
 
 EventScript_TrainerHillTimer::
-	lockall
-	trainerhill_gettime
-	msgbox TrainerHill_Entrance_Text_ChallengeTime, MSGBOX_DEFAULT
-	releaseall
 	end
 
 TrainerHill_1F_EventScript_DummyWarpToEntranceCounter::
@@ -37,8 +33,6 @@ TrainerHill_1F_EventScript_DummyWarpToEntranceCounter::
 
 @ Never reached
 TrainerHill_1F_EventScript_WarpSilentToEntranceCounter::
-	warpsilent MAP_TRAINER_HILL_ENTRANCE, 9, 6
-	waitstate
 	end
 
 TrainerHill_1F_EventScript_Lost::
@@ -49,8 +43,6 @@ TrainerHill_1F_EventScript_Lost::
 
 TrainerHill_EventScript_WarpToEntranceCounter::
 	setvar VAR_TEMP_1, 0
-	warp MAP_TRAINER_HILL_ENTRANCE, 9, 6
-	waitstate
 	end
 
 @ Unused

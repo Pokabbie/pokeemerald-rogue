@@ -111,7 +111,7 @@
       "x": 13,
       "y": 20,
       "elevation": 3,
-      "dest_map": "MAP_NAVEL_ROCK_UP4",
+      "dest_map": "MAP_NAVEL_ROCK_TOP",
       "dest_warp_id": 1
     }
   ],

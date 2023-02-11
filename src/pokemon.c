@@ -7979,43 +7979,19 @@ void SetWildMonHeldItem(void)
             
             rnd = Random() % 100;
             species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, 0);
-            if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
+            if (gBaseStats[species].itemCommon == gBaseStats[species].itemRare && gBaseStats[species].itemCommon != ITEM_NONE)
             {
-                s32 alteringCaveId = GetWildMonTableIdInAlteringCave(species);
-                if (alteringCaveId != 0)
-                {
-                    // In active Altering Cave, use special item list
-                    if (rnd < chanceNotRare)
-                        continue;
-                    heldItem = sAlteringCaveWildMonHeldItems[alteringCaveId].item;
-                }
-                else
-                {
-                    // In inactive Altering Cave, use normal items
-                    if (rnd < chanceNoItem)
-                        continue;
-                    if (rnd < chanceNotRare)
-                        heldItem = gBaseStats[species].itemCommon;
-                    else
-                        heldItem = gBaseStats[species].itemRare;
-                }
+                // Both held items are the same, 100% chance to hold item
+                heldItem = gBaseStats[species].itemCommon;
             }
             else
             {
-                if (gBaseStats[species].itemCommon == gBaseStats[species].itemRare && gBaseStats[species].itemCommon != ITEM_NONE)
-                {
-                    // Both held items are the same, 100% chance to hold item
+                if (rnd < chanceNoItem)
+                    continue;
+                if (rnd < chanceNotRare)
                     heldItem = gBaseStats[species].itemCommon;
-                }
                 else
-                {
-                    if (rnd < chanceNoItem)
-                        continue;
-                    if (rnd < chanceNotRare)
-                        heldItem = gBaseStats[species].itemCommon;
-                    else
-                        heldItem = gBaseStats[species].itemRare;
-                }
+                    heldItem = gBaseStats[species].itemRare;
             }
         }
 
