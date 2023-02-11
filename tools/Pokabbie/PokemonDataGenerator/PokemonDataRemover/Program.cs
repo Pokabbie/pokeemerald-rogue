@@ -18,7 +18,8 @@ namespace PokemonDataRemover
 			//bool isVanillaVersion = ReadOption(1, 2) == 1;
 
 			Console.WriteLine("1 - Delete Single Map");
-			int action = ReadOption(1, 1);
+			Console.WriteLine("2 - Delete Non Rogue Maps");
+			int action = ReadOption(1, 2);
 
 			switch (action)
 			{
@@ -30,6 +31,14 @@ namespace PokemonDataRemover
 
 					MapDeleter.Setup();
 					MapDeleter.DeleteSingleMap(mapName);
+					MapDeleter.Shutdown();
+					break;
+
+				case 2:
+					Console.WriteLine("==Deleting Multi Map==");
+
+					MapDeleter.Setup();
+					MapDeleter.DeleteNonRogueMaps();
 					MapDeleter.Shutdown();
 					break;
 			}

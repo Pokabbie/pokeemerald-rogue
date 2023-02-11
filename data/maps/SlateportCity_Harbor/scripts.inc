@@ -210,11 +210,6 @@ SlateportCity_Harbor_EventScript_Lilycove::
 	end
 
 SlateportCity_Harbor_EventScript_BattleFrontier::
-	msgbox SlateportCity_Harbor_Text_BattleFrontierItIs, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseNewDestination
-	call SlateportCity_Harbor_EventScript_BoardFerry
-	warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 19, 67
-	waitstate
 	release
 	end
 

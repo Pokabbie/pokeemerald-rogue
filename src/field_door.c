@@ -558,13 +558,5 @@ u32 GetDoorSoundEffect(u32 x, u32 y)
 // Opens the Battle Tower multi partner's door in sync with the player's door
 static bool8 ShouldUseMultiCorridorDoor(void)
 {
-    if (FlagGet(FLAG_ENABLE_MULTI_CORRIDOR_DOOR))
-    {
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_CORRIDOR)
-            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_CORRIDOR))
-        {
-            return TRUE;
-        }
-    }
     return FALSE;
 }

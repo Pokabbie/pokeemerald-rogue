@@ -19,6 +19,5 @@ void GenerateBattlePyramidFloorLayout(u16 *mapArg, bool8 setPlayerPosition);
 void LoadBattlePyramidObjectEventTemplates(void);
 void LoadBattlePyramidFloorObjectEventScripts(void);
 u8 GetNumBattlePyramidObjectEvents(void);
-u16 GetBattlePyramidPickupItemId(void);
 
 #endif // GUARD_BATTLE_PYRAMID_H

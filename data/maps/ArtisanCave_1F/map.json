@@ -30,13 +30,6 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
-      "dest_warp_id": 13
-    },
-    {
       "x": 6,
       "y": 5,
       "elevation": 0,
