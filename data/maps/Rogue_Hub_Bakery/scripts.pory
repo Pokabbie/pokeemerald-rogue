@@ -271,3 +271,8 @@ script RogueHub_Bakery_SpeakIVEVInspector
 
     release
 }
+
+script RogueHub_Bakery_SpeakFriendshipInspector
+{
+    msgbox(format("TODO port VerdanturfTown FriendshipRatersHouse EventScript FriendshipRater"))
+}

@@ -6825,28 +6825,7 @@ void SetWildMonHeldItem(void)
             chanceNoItem = 20;
             chanceNotRare = 80;
         }
-        if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
-        {
-            s32 alteringCaveId = GetWildMonTableIdInAlteringCave(species);
-            if (alteringCaveId != 0)
-            {
-                // In active Altering Cave, use special item list
-                if (rnd < chanceNotRare)
-                    return;
-                heldItem = sAlteringCaveWildMonHeldItems[alteringCaveId].item;
-            }
-            else
-            {
-                // In inactive Altering Cave, use normal items
-                if (rnd < chanceNoItem)
-                    return;
-                if (rnd < chanceNotRare)
-                    heldItem = gBaseStats[species].itemCommon;
-                else
-                    heldItem = gBaseStats[species].itemRare;
-            }
-        }
-        else
+        
         {
             if (gBaseStats[species].itemCommon == gBaseStats[species].itemRare && gBaseStats[species].itemCommon != ITEM_NONE)
             {

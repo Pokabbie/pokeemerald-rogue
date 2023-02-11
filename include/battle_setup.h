@@ -12,8 +12,6 @@ struct RematchTrainer
     u16 mapNum;
 };
 
-extern const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES];
-
 extern u16 gTrainerBattleOpponent_A;
 extern u16 gTrainerBattleOpponent_B;
 extern u16 gPartnerTrainerId;

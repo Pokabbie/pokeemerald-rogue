@@ -717,18 +717,11 @@ static u32 MatchCallGetFunctionIndex(match_call_t matchCall)
 
 u32 GetTrainerIdxByRematchIdx(u32 rematchIdx)
 {
-    return gRematchTable[rematchIdx].trainerIds[0];
+    return 0;
 }
 
 s32 GetRematchIdxByTrainerIdx(s32 trainerIdx)
 {
-    s32 rematchIdx;
-
-    for (rematchIdx = 0; rematchIdx < REMATCH_TABLE_ENTRIES; rematchIdx++)
-    {
-        if (gRematchTable[rematchIdx].trainerIds[0] == trainerIdx)
-            return rematchIdx;
-    }
     return -1;
 }
 

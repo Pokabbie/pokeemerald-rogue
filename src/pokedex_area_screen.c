@@ -121,7 +121,7 @@ static const u16 sMovingRegionMapSections[3] =
 
 static const u16 sFeebasData[][3] =
 {
-    {SPECIES_FEEBAS, MAP_GROUP(ROUTE119), MAP_NUM(ROUTE119)},
+    //{SPECIES_FEEBAS, MAP_GROUP(ROUTE119), MAP_NUM(ROUTE119)},
     {NUM_SPECIES}
 };
 
@@ -269,37 +269,37 @@ static void FindMapsWithMon(u16 species)
         // up to allow handling others.
         for (i = 0; sFeebasData[i][0] != NUM_SPECIES; i++)
         {
-            if (species == sFeebasData[i][0])
-            {
-                switch (sFeebasData[i][1])
-                {
-                case MAP_GROUP_TOWNS_AND_ROUTES:
-                    SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
-                    break;
-                case MAP_GROUP_DUNGEONS:
-                case MAP_GROUP_SPECIAL_AREA:
-                    SetSpecialMapHasMon(sFeebasData[i][1], sFeebasData[i][2]);
-                    break;
-                }
-            }
+            //if (species == sFeebasData[i][0])
+            //{
+            //    switch (sFeebasData[i][1])
+            //    {
+            //    case MAP_GROUP_TOWNS_AND_ROUTES:
+            //        SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
+            //        break;
+            //    case MAP_GROUP_DUNGEONS:
+            //    case MAP_GROUP_SPECIAL_AREA:
+            //        SetSpecialMapHasMon(sFeebasData[i][1], sFeebasData[i][2]);
+            //        break;
+            //    }
+            //}
         }
 
         // Add regular species to the area map
         for (i = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED); i++)
         {
-            if (MapHasSpecies(&gWildMonHeaders[i], species))
-            {
-                switch (gWildMonHeaders[i].mapGroup)
-                {
-                case MAP_GROUP_TOWNS_AND_ROUTES:
-                    SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
-                    break;
-                case MAP_GROUP_DUNGEONS:
-                case MAP_GROUP_SPECIAL_AREA:
-                    SetSpecialMapHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
-                    break;
-                }
-            }
+            //if (MapHasSpecies(&gWildMonHeaders[i], species))
+            //{
+            //    switch (gWildMonHeaders[i].mapGroup)
+            //    {
+            //    case MAP_GROUP_TOWNS_AND_ROUTES:
+            //        SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
+            //        break;
+            //    case MAP_GROUP_DUNGEONS:
+            //    case MAP_GROUP_SPECIAL_AREA:
+            //        SetSpecialMapHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
+            //        break;
+            //    }
+            //}
         }
     }
     else
