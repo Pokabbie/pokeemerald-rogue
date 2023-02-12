@@ -762,14 +762,6 @@ static void AshGrassPerStepCallback(u8 taskId)
             StartAshFieldEffect(x, y, METATILE_Fallarbor_NormalGrass, 4);
         else
             StartAshFieldEffect(x, y, METATILE_Lavaridge_NormalGrass, 4);
-
-        // Try to gather ash
-        if (CheckBagHasItem(ITEM_SOOT_SACK, 1))
-        {
-            ashGatherCount = GetVarPointer(VAR_ASH_GATHER_COUNT);
-            if (*ashGatherCount < 9999)
-                (*ashGatherCount)++;
-        }
     }
 }
 

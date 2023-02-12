@@ -1187,29 +1187,13 @@ static u16 CorrectSpecialMapSecId_Internal(u16 mapSecId)
 
 static u16 GetTerraOrMarineCaveMapSecId(void)
 {
-    s16 idx;
-
-    idx = VarGet(VAR_ABNORMAL_WEATHER_LOCATION) - 1;
-
-    if (idx < 0 || idx > ABNORMAL_WEATHER_LOCATIONS - 1)
-        idx = 0;
-
-    return sTerraOrMarineCaveMapSecIds[idx];
+    return 0;
 }
 
 static void GetMarineCaveCoords(u16 *x, u16 *y)
 {
-    u16 idx;
-
-    idx = VarGet(VAR_ABNORMAL_WEATHER_LOCATION);
-    if (idx < MARINE_CAVE_LOCATIONS_START || idx > ABNORMAL_WEATHER_LOCATIONS)
-    {
-        idx = MARINE_CAVE_LOCATIONS_START;
-    }
-    idx -= MARINE_CAVE_LOCATIONS_START;
-
-    *x = sMarineCaveLocationCoords[idx].x + MAPCURSOR_X_MIN;
-    *y = sMarineCaveLocationCoords[idx].y + MAPCURSOR_Y_MIN;
+    *x = MAPCURSOR_X_MIN;
+    *y = MAPCURSOR_Y_MIN;
 }
 
 // Probably meant to be an "IsPlayerInIndoorDungeon" function, but in practice it only has the one mapsec
