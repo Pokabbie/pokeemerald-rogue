@@ -834,17 +834,6 @@ static void Task_SecretBasePCTurnOn(u8 taskId)
 
 void DoSecretBasePCTurnOffEffect(void)
 {
-    s16 x, y;
-
-    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
-    PlaySE(SE_PC_OFF);
-
-    if (!VarGet(VAR_CURRENT_SECRET_BASE))
-        MapGridSetMetatileIdAt(x, y, METATILE_SecretBase_PC | MAPGRID_COLLISION_MASK);
-    else
-        MapGridSetMetatileIdAt(x, y, METATILE_SecretBase_RegisterPC | MAPGRID_COLLISION_MASK);
-
-    CurrentMapDrawMetatileAt(x, y);
 }
 
 void PopSecretBaseBalloon(s16 metatileId, s16 x, s16 y)
@@ -1130,48 +1119,19 @@ void InteractWithShieldOrTVDecoration(void)
     case METATILE_SecretBase_GoldShield_Base1:
         ConvertIntToDecimalStringN(gStringVar1, 100, STR_CONV_MODE_LEFT_ALIGN, 3);
         StringCopy(gStringVar2, gText_Gold);
-
-        gSpecialVar_Result = 0;
-
-        if (!VarGet(VAR_CURRENT_SECRET_BASE))
-            return;
-
-        VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_GOLD_SHIELD);
         break;
     case METATILE_SecretBase_SilverShield_Base1:
         ConvertIntToDecimalStringN(gStringVar1, 50, STR_CONV_MODE_LEFT_ALIGN, 2);
         StringCopy(gStringVar2, gText_Silver);
-
-        gSpecialVar_Result = 0;
-
-        if (!VarGet(VAR_CURRENT_SECRET_BASE))
-            return;
-
-        VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_SILVER_SHIELD);
         break;
     case METATILE_SecretBase_TV:
         gSpecialVar_Result = 1;
-
-        if (!VarGet(VAR_CURRENT_SECRET_BASE))
-            return;
-
-        VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_TV);
         break;
     case METATILE_SecretBase_RoundTV:
         gSpecialVar_Result = 2;
-
-        if (!VarGet(VAR_CURRENT_SECRET_BASE))
-            return;
-
-        VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_TV);
         break;
     case METATILE_SecretBase_CuteTV:
         gSpecialVar_Result = 3;
-
-        if (!VarGet(VAR_CURRENT_SECRET_BASE))
-            return;
-
-        VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_TV);
         break;
     }
 }

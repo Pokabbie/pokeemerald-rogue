@@ -128,7 +128,6 @@ static void Task_LoopWingFlapSE(u8);
 static void Task_CloseBattlePikeCurtain(u8);
 static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
-static u16 PlayerGainRandomTrainerFan(void);
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
 
 void Special_ShowDiploma(void)
@@ -265,8 +264,6 @@ void UpdateCyclingRoadState(void)
 
 void SetSSTidalFlag(void)
 {
-    FlagSet(FLAG_SYS_CRUISE_MODE);
-    *GetVarPointer(VAR_CRUISE_STEP_COUNT) = 0;
 }
 
 void ResetSSTidalFlag(void)
@@ -277,9 +274,6 @@ void ResetSSTidalFlag(void)
 // Returns TRUE if the Cruise is over
 bool32 CountSSTidalStep(u16 delta)
 {
-    if (!FlagGet(FLAG_SYS_CRUISE_MODE) || (*GetVarPointer(VAR_CRUISE_STEP_COUNT) += delta) < SS_TIDAL_MAX_STEPS)
-        return FALSE;
-
     return TRUE;
 }
 
@@ -1828,156 +1822,8 @@ bool32 PlayerNotAtTrainerHillEntrance(void)
     return TRUE;
 }
 
-void UpdateFrontierManiac(u16 daysSince)
-{
-    u16 *var = GetVarPointer(VAR_FRONTIER_MANIAC_FACILITY);
-    *var += daysSince;
-    *var %= FRONTIER_MANIAC_FACILITY_COUNT;
-}
-
 void ShowFrontierManiacMessage(void)
 {
-    static const u8 *const sFrontierManiacMessages[][FRONTIER_MANIAC_MESSAGE_COUNT] =
-    {
-        [FRONTIER_MANIAC_TOWER_SINGLES] =
-        {
-            BattleFrontier_Lounge2_Text_SalonMaidenIsThere,
-            BattleFrontier_Lounge2_Text_SalonMaidenSilverMons,
-            BattleFrontier_Lounge2_Text_SalonMaidenGoldMons
-        },
-        [FRONTIER_MANIAC_TOWER_DOUBLES] =
-        {
-            BattleFrontier_Lounge2_Text_DoubleBattleAdvice1,
-            BattleFrontier_Lounge2_Text_DoubleBattleAdvice2,
-            BattleFrontier_Lounge2_Text_DoubleBattleAdvice3
-        },
-        [FRONTIER_MANIAC_TOWER_MULTIS] =
-        {
-            BattleFrontier_Lounge2_Text_MultiBattleAdvice,
-            BattleFrontier_Lounge2_Text_MultiBattleAdvice,
-            BattleFrontier_Lounge2_Text_MultiBattleAdvice
-        },
-        [FRONTIER_MANIAC_TOWER_LINK] =
-        {
-            BattleFrontier_Lounge2_Text_LinkMultiBattleAdvice,
-            BattleFrontier_Lounge2_Text_LinkMultiBattleAdvice,
-            BattleFrontier_Lounge2_Text_LinkMultiBattleAdvice
-        },
-        [FRONTIER_MANIAC_DOME] =
-        {
-            BattleFrontier_Lounge2_Text_DomeAceIsThere,
-            BattleFrontier_Lounge2_Text_DomeAceSilverMons,
-            BattleFrontier_Lounge2_Text_DomeAceGoldMons
-        },
-        [FRONTIER_MANIAC_FACTORY] =
-        {
-            BattleFrontier_Lounge2_Text_FactoryHeadIsThere,
-            BattleFrontier_Lounge2_Text_FactoryHeadSilverMons,
-            BattleFrontier_Lounge2_Text_FactoryHeadGoldMons
-        },
-        [FRONTIER_MANIAC_PALACE] =
-        {
-            BattleFrontier_Lounge2_Text_PalaceMavenIsThere,
-            BattleFrontier_Lounge2_Text_PalaceMavenSilverMons,
-            BattleFrontier_Lounge2_Text_PalaceMavenGoldMons
-        },
-        [FRONTIER_MANIAC_ARENA] =
-        {
-            BattleFrontier_Lounge2_Text_ArenaTycoonIsThere,
-            BattleFrontier_Lounge2_Text_ArenaTycoonSilverMons,
-            BattleFrontier_Lounge2_Text_ArenaTycoonGoldMons
-        },
-        [FRONTIER_MANIAC_PIKE] =
-        {
-            BattleFrontier_Lounge2_Text_PikeQueenIsThere,
-            BattleFrontier_Lounge2_Text_PikeQueenSilverMons,
-            BattleFrontier_Lounge2_Text_PikeQueenGoldMons
-        },
-        [FRONTIER_MANIAC_PYRAMID] =
-        {
-            BattleFrontier_Lounge2_Text_PyramidKingIsThere,
-            BattleFrontier_Lounge2_Text_PyramidKingSilverMons,
-            BattleFrontier_Lounge2_Text_PyramidKingGoldMons
-        },
-    };
-
-    static const u8 sFrontierManiacStreakThresholds[][FRONTIER_MANIAC_MESSAGE_COUNT - 1] =
-    {
-        [FRONTIER_MANIAC_TOWER_SINGLES] = { 21, 56 },
-        [FRONTIER_MANIAC_TOWER_DOUBLES] = { 21, 35 },
-        [FRONTIER_MANIAC_TOWER_MULTIS]  = { 255, 255 },
-        [FRONTIER_MANIAC_TOWER_LINK]    = { 255, 255 },
-        [FRONTIER_MANIAC_DOME]          = { 2, 4 },
-        [FRONTIER_MANIAC_FACTORY]       = { 7, 21 },
-        [FRONTIER_MANIAC_PALACE]        = { 7, 21 },
-        [FRONTIER_MANIAC_ARENA]         = { 14, 28 },
-        [FRONTIER_MANIAC_PIKE]          = { 13, 112 }, //BUG: 112 (0x70) is probably a mistake; the Pike Queen is battled twice well before that
-        [FRONTIER_MANIAC_PYRAMID]       = { 7, 56 }
-    };
-
-    u8 i;
-    u16 winStreak = 0;
-    u16 facility = VarGet(VAR_FRONTIER_MANIAC_FACILITY);
-
-    switch (facility)
-    {
-    case FRONTIER_MANIAC_TOWER_SINGLES:
-    case FRONTIER_MANIAC_TOWER_DOUBLES:
-    case FRONTIER_MANIAC_TOWER_MULTIS:
-    case FRONTIER_MANIAC_TOWER_LINK:
-        if (gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_DOME:
-        if (gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_FACTORY:
-        if (gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_PALACE:
-        if (gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_ARENA:
-        if (gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_PIKE:
-        if (gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_OPEN];
-        break;
-    case FRONTIER_MANIAC_PYRAMID:
-        if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_50]
-            >= gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_OPEN])
-            winStreak = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_50];
-        else
-            winStreak = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_OPEN];
-        break;
-    }
-
-    for (i = 0; i < FRONTIER_MANIAC_MESSAGE_COUNT - 1 && sFrontierManiacStreakThresholds[facility][i] < winStreak; i++);
-
-    ShowFieldMessage(sFrontierManiacMessages[facility][i]);
 }
 
 // gSpecialVar_0x8005 and 0x8006 here are used by MoveElevator
@@ -2594,89 +2440,16 @@ void ShowNatureGirlMessage(void)
     ShowFieldMessage(sNatureGirlMessages[nature]);
 }
 
-void UpdateFrontierGambler(u16 daysSince)
-{
-    u16 *var = GetVarPointer(VAR_FRONTIER_GAMBLER_CHALLENGE);
-    *var += daysSince;
-    *var %= FRONTIER_GAMBLER_CHALLENGE_COUNT;
-}
-
 void ShowFrontierGamblerLookingMessage(void)
 {
-    static const u8 *const sFrontierGamblerLookingMessages[] =
-    {
-        BattleFrontier_Lounge3_Text_ChallengeBattleTowerSingle,
-        BattleFrontier_Lounge3_Text_ChallengeBattleTowerDouble,
-        BattleFrontier_Lounge3_Text_ChallengeBattleTowerMulti,
-        BattleFrontier_Lounge3_Text_ChallengeBattleDomeSingle,
-        BattleFrontier_Lounge3_Text_ChallengeBattleDomeDouble,
-        BattleFrontier_Lounge3_Text_ChallengeBattleFactorySingle,
-        BattleFrontier_Lounge3_Text_ChallengeBattleFactoryDouble,
-        BattleFrontier_Lounge3_Text_ChallengeBattlePalaceSingle,
-        BattleFrontier_Lounge3_Text_ChallengeBattlePalaceDouble,
-        BattleFrontier_Lounge3_Text_ChallengeBattleArena,
-        BattleFrontier_Lounge3_Text_ChallengeBattlePike,
-        BattleFrontier_Lounge3_Text_ChallengeBattlePyramid,
-    };
-
-    u16 challenge = VarGet(VAR_FRONTIER_GAMBLER_CHALLENGE);
-    ShowFieldMessage(sFrontierGamblerLookingMessages[challenge]);
-    VarSet(VAR_FRONTIER_GAMBLER_SET_CHALLENGE, challenge);
 }
 
 void ShowFrontierGamblerGoMessage(void)
 {
-    static const u8 *const sFrontierGamblerGoMessages[] =
-    {
-        BattleFrontier_Lounge3_Text_GetToBattleTowerSingle,
-        BattleFrontier_Lounge3_Text_GetToBattleTowerDouble,
-        BattleFrontier_Lounge3_Text_GetToBattleTowerMulti,
-        BattleFrontier_Lounge3_Text_GetToBattleDomeSingle,
-        BattleFrontier_Lounge3_Text_GetToBattleDomeDouble,
-        BattleFrontier_Lounge3_Text_GetToBattleFactorySingle,
-        BattleFrontier_Lounge3_Text_GetToBattleFactoryDouble,
-        BattleFrontier_Lounge3_Text_GetToBattlePalaceSingle,
-        BattleFrontier_Lounge3_Text_GetToBattlePalaceDouble,
-        BattleFrontier_Lounge3_Text_GetToBattleArena,
-        BattleFrontier_Lounge3_Text_GetToBattlePike,
-        BattleFrontier_Lounge3_Text_GetToBattlePyramid,
-    };
-
-    ShowFieldMessage(sFrontierGamblerGoMessages[VarGet(VAR_FRONTIER_GAMBLER_SET_CHALLENGE)]);
 }
 
 void FrontierGamblerSetWonOrLost(bool8 won)
 {
-    static const u16 sFrontierChallenges[] =
-    {
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_TOWER,   FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_TOWER,   FRONTIER_MODE_DOUBLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_TOWER,   FRONTIER_MODE_MULTIS),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_DOME,    FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_DOME,    FRONTIER_MODE_DOUBLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_FACTORY, FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_FACTORY, FRONTIER_MODE_DOUBLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_PALACE,  FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_PALACE,  FRONTIER_MODE_DOUBLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_ARENA,   FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_PIKE,    FRONTIER_MODE_SINGLES),
-        FRONTIER_CHALLENGE(FRONTIER_FACILITY_PYRAMID, FRONTIER_MODE_SINGLES)
-    };
-
-    u16 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
-    u16 challenge = VarGet(VAR_FRONTIER_GAMBLER_SET_CHALLENGE);
-    u16 frontierFacilityId = VarGet(VAR_FRONTIER_FACILITY);
-
-    if (VarGet(VAR_FRONTIER_GAMBLER_STATE) == FRONTIER_GAMBLER_PLACED_BET)
-    {
-        if (sFrontierChallenges[challenge] ==  FRONTIER_CHALLENGE(frontierFacilityId, battleMode))
-        {
-            if (won)
-                VarSet(VAR_FRONTIER_GAMBLER_STATE, FRONTIER_GAMBLER_WON);
-            else
-                VarSet(VAR_FRONTIER_GAMBLER_STATE, FRONTIER_GAMBLER_LOST);
-        }
-    }
 }
 
 void UpdateBattlePointsWindow(void)
@@ -3220,27 +2993,6 @@ bool8 IsDestinationBoxFull(void)
 
 void CreateAbnormalWeatherEvent(void)
 {
-    u16 randomValue = Random();
-    VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, 0);
-
-    if (FlagGet(FLAG_DEFEATED_KYOGRE) == TRUE)
-    {
-        VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % TERRA_CAVE_LOCATIONS) + TERRA_CAVE_LOCATIONS_START);
-    }
-    else if (FlagGet(FLAG_DEFEATED_GROUDON) == TRUE)
-    {
-        VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % MARINE_CAVE_LOCATIONS) + MARINE_CAVE_LOCATIONS_START);
-    }
-    else if ((randomValue & 1) == 0)
-    {
-        randomValue = Random();
-        VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % TERRA_CAVE_LOCATIONS) + TERRA_CAVE_LOCATIONS_START);
-    }
-    else
-    {
-        randomValue = Random();
-        VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % MARINE_CAVE_LOCATIONS) + MARINE_CAVE_LOCATIONS_START);
-    }
 }
 
 // Saves the map name for the current abnormal weather location in gStringVar1, then
@@ -3280,10 +3032,7 @@ bool32 IsTrainerRegistered(void)
 // Always returns FALSE
 bool32 ShouldDistributeEonTicket(void)
 {
-    if (!VarGet(VAR_DISTRIBUTE_EON_TICKET))
-        return FALSE;
-
-    return TRUE;
+    return FALSE;
 }
 
 #define tState data[0]
@@ -3568,48 +3317,19 @@ bool8 InPokemonCenter(void)
       2: Player has met their initial fans
 */
 
-#define FANCLUB_BITFIELD (gSaveBlock1Ptr->vars[VAR_FANCLUB_FAN_COUNTER - VARS_START])
 #define FANCLUB_COUNTER    0x007F
 #define FANCLUB_FAN_FLAGS  0xFF80
 
-#define GET_TRAINER_FAN_CLUB_FLAG(flag) (FANCLUB_BITFIELD >> (flag) & 1)
-#define SET_TRAINER_FAN_CLUB_FLAG(flag) (FANCLUB_BITFIELD |= 1 << (flag))
-#define FLIP_TRAINER_FAN_CLUB_FLAG(flag)(FANCLUB_BITFIELD ^= 1 << (flag))
-
-#define GET_TRAINER_FAN_CLUB_COUNTER        (FANCLUB_BITFIELD & FANCLUB_COUNTER)
-#define SET_TRAINER_FAN_CLUB_COUNTER(count) (FANCLUB_BITFIELD = (FANCLUB_BITFIELD & FANCLUB_FAN_FLAGS) | (count))
-#define INCR_TRAINER_FAN_CLUB_COUNTER(count)(FANCLUB_BITFIELD += (count))
-#define CLEAR_TRAINER_FAN_CLUB_COUNTER      (FANCLUB_BITFIELD &= ~(FANCLUB_COUNTER))
-
 void ResetFanClub(void)
 {
-    gSaveBlock1Ptr->vars[VAR_FANCLUB_FAN_COUNTER - VARS_START] = 0;
-    gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = 0;
 }
 
 void TryLoseFansFromPlayTimeAfterLinkBattle(void)
 {
-    if (DidPlayerGetFirstFans())
-    {
-        TryLoseFansFromPlayTime();
-        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
-    }
 }
 
 void UpdateTrainerFanClubGameClear(void)
 {
-    if (!GET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS))
-    {
-        SetPlayerGotFirstFans();
-        SetInitialFansOfPlayer();
-        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
-        FlagClear(FLAG_HIDE_FANCLUB_OLD_LADY);
-        FlagClear(FLAG_HIDE_FANCLUB_BOY);
-        FlagClear(FLAG_HIDE_FANCLUB_LITTLE_BOY);
-        FlagClear(FLAG_HIDE_FANCLUB_LADY);
-        FlagClear(FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER);
-        VarSet(VAR_LILYCOVE_FAN_CLUB_STATE, 1);
-    }
 }
 
 // If the player has < 3 fans, gain a new fan whenever the counter reaches 20+
@@ -3617,169 +3337,26 @@ void UpdateTrainerFanClubGameClear(void)
 // Participating at Battle Tower or in a Secret Base battle increments the counter by 1
 u8 TryGainNewFanFromCounter(u8 incrementId)
 {
-    static const u8 sCounterIncrements[] =
-    {
-        [FANCOUNTER_DEFEATED_DRAKE]    = 2,
-        [FANCOUNTER_BATTLED_AT_BASE]   = 1,
-        [FANCOUNTER_FINISHED_CONTEST]  = 2,
-        [FANCOUNTER_USED_BATTLE_TOWER] = 1
-    };
-
-    if (VarGet(VAR_LILYCOVE_FAN_CLUB_STATE) == 2)
-    {
-        if (GET_TRAINER_FAN_CLUB_COUNTER + sCounterIncrements[incrementId] > 19)
-        {
-            if (GetNumFansOfPlayerInTrainerFanClub() < 3)
-            {
-                PlayerGainRandomTrainerFan();
-                CLEAR_TRAINER_FAN_CLUB_COUNTER;
-            }
-            else
-            {
-                SET_TRAINER_FAN_CLUB_COUNTER(20);
-            }
-        }
-        else
-        {
-            INCR_TRAINER_FAN_CLUB_COUNTER(sCounterIncrements[incrementId]);
-        }
-    }
-
-    return GET_TRAINER_FAN_CLUB_COUNTER;
-}
-
-
-// Loop through the fan club members, and if theyre not a fan of the player there is a 50% chance for them to become a fan
-// Stops when a fan is gained
-// If no new fan was gained while looping, the last non-fan in the list becomes a fan
-// If all the members are already fans of the player then this redundantly sets the first fan in the list to be a fan
-static u16 PlayerGainRandomTrainerFan(void)
-{
-    static const u8 sFanClubMemberIds[NUM_TRAINER_FAN_CLUB_MEMBERS] =
-    {
-        FANCLUB_MEMBER1,
-        FANCLUB_MEMBER2,
-        FANCLUB_MEMBER3,
-        FANCLUB_MEMBER4,
-        FANCLUB_MEMBER5,
-        FANCLUB_MEMBER6,
-        FANCLUB_MEMBER7,
-        FANCLUB_MEMBER8
-    };
-
-    u8 i;
-    u8 idx = 0;
-
-    for (i = 0; i < ARRAY_COUNT(sFanClubMemberIds); i++)
-    {
-        if (!GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[i]))
-        {
-            idx = i;
-            if (Random() & 1)
-            {
-                SET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-                return idx;
-            }
-        }
-    }
-    SET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-    return idx;
-}
-
-// Loops through the fan club members, and if theyre a fan of the player there is a 50% chance for them to stop being a fan
-// Stops if a fan is removed, or if the player has only one fan left
-// If no fan was lost while looping, the last current fan in the list will stop being a fan
-static u16 PlayerLoseRandomTrainerFan(void)
-{
-    static const u8 sFanClubMemberIds[NUM_TRAINER_FAN_CLUB_MEMBERS] =
-    {
-        FANCLUB_MEMBER1,
-        FANCLUB_MEMBER6,
-        FANCLUB_MEMBER7,
-        FANCLUB_MEMBER4,
-        FANCLUB_MEMBER3,
-        FANCLUB_MEMBER5,
-        FANCLUB_MEMBER8,
-        FANCLUB_MEMBER2
-    };
-
-    u8 i;
-    u8 idx = 0;
-
-    if (GetNumFansOfPlayerInTrainerFanClub() == 1)
-        return 0;
-
-    for (i = 0; i < ARRAY_COUNT(sFanClubMemberIds); i++)
-    {
-        if (GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[i]))
-        {
-            idx = i;
-            if (Random() & 1)
-            {
-                FLIP_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-                return idx;
-            }
-        }
-    }
-
-    if (GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]))
-        FLIP_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-
-    return idx;
+    return 0;
 }
 
 u16 GetNumFansOfPlayerInTrainerFanClub(void)
 {
-    u8 i;
-    u8 numFans = 0;
-
-    for (i = 0; i < NUM_TRAINER_FAN_CLUB_MEMBERS; i++)
-    {
-        if (GET_TRAINER_FAN_CLUB_FLAG(i + FANCLUB_MEMBER1))
-            numFans++;
-    }
-
-    return numFans;
+    return 0;
 }
 
 // If the player has > 5 fans in the Trainer Fan Club, then lose 1 fan for every 12 hours since the last fan loss / timer reset
 void TryLoseFansFromPlayTime(void)
 {
-    u8 i = 0;
-    if (gSaveBlock2Ptr->playTimeHours < 999)
-    {
-        while (TRUE)
-        {
-            if (GetNumFansOfPlayerInTrainerFanClub() < 5)
-            {
-                gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
-                break;
-            }
-            else if (i == NUM_TRAINER_FAN_CLUB_MEMBERS)
-            {
-                break;
-            }
-            else if (gSaveBlock2Ptr->playTimeHours - gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] < 12)
-            {
-                return;
-            }
-            PlayerLoseRandomTrainerFan();
-            gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] += 12;
-            i++;
-        }
-    }
 }
 
 bool8 IsFanClubMemberFanOfPlayer(void)
 {
-    return GET_TRAINER_FAN_CLUB_FLAG(gSpecialVar_0x8004);
+    return FALSE;
 }
 
 static void SetInitialFansOfPlayer(void)
 {
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER6);
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER1);
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER3);
 }
 
 void BufferFanClubTrainerName(void)
@@ -3858,24 +3435,15 @@ static void BufferFanClubTrainerName_(struct LinkBattleRecords *linkRecords, u8 
 
 void UpdateTrainerFansAfterLinkBattle(void)
 {
-    if (VarGet(VAR_LILYCOVE_FAN_CLUB_STATE) == 2)
-    {
-        TryLoseFansFromPlayTimeAfterLinkBattle();
-        if (gBattleOutcome == B_OUTCOME_WON)
-            PlayerGainRandomTrainerFan();
-        else
-            PlayerLoseRandomTrainerFan();
-    }
 }
 
 static bool8 DidPlayerGetFirstFans(void)
 {
-    return GET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS);
+    return FALSE;
 }
 
 void SetPlayerGotFirstFans(void)
 {
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS);
 }
 
 // return value is always ignored

@@ -2248,33 +2248,6 @@ void TryPutFrontierTVShowOnAir(u16 winStreak, u8 facilityAndMode)
 
 void TryPutSecretBaseSecretsOnAir(void)
 {
-    TVShow *show;
-    u8 strbuf[32];
-
-    if (IsRecordMixShowAlreadySpawned(TVSHOW_SECRET_BASE_SECRETS, FALSE) != TRUE)
-    {
-        sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
-        if (sCurTVShowSlot != -1)
-        {
-            show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
-            show->secretBaseSecrets.kind = TVSHOW_SECRET_BASE_SECRETS;
-            show->secretBaseSecrets.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-            StringCopy(show->secretBaseSecrets.playerName, gSaveBlock2Ptr->playerName);
-            show->secretBaseSecrets.stepsInBase = VarGet(VAR_SECRET_BASE_STEP_COUNTER);
-            CopyCurSecretBaseOwnerName_StrVar1();
-            StringCopy(strbuf, gStringVar1);
-            StripExtCtrlCodes(strbuf);
-            StringCopy(show->secretBaseSecrets.baseOwnersName, strbuf);
-            show->secretBaseSecrets.item = VarGet(VAR_SECRET_BASE_LAST_ITEM_USED);
-            show->secretBaseSecrets.flags = VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) + (VarGet(VAR_SECRET_BASE_HIGH_TV_FLAGS) << 16);
-            StorePlayerIdInRecordMixShow(show);
-            show->secretBaseSecrets.language = gGameLanguage;
-            if (show->secretBaseSecrets.language == LANGUAGE_JAPANESE || gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language == LANGUAGE_JAPANESE)
-                show->secretBaseSecrets.baseOwnersNameLanguage = LANGUAGE_JAPANESE;
-            else
-                show->secretBaseSecrets.baseOwnersNameLanguage = gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language;
-        }
-    }
 }
 
 // Check var thresholds required to trigger the Number One show

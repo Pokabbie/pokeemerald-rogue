@@ -107,12 +107,8 @@ void WaitWeather(void)
 
 void InitBirchState(void)
 {
-    *GetVarPointer(VAR_BIRCH_STATE) = 0;
 }
 
 void UpdateBirchState(u16 days)
 {
-    u16 *state = GetVarPointer(VAR_BIRCH_STATE);
-    *state += days;
-    *state %= 7;
 }
