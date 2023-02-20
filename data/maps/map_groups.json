@@ -70,22 +70,6 @@
     "Rogue_Route_Johto_Urban0",
     "Rogue_Route_Johto_Mountain0",
     "Rogue_Route_Chaos0",
-    "Rogue_Boss_0",
-    "Rogue_Boss_8",
-    "Rogue_Boss_9",
-    "Rogue_Boss_10",
-    "Rogue_Boss_11",
-    "Rogue_Boss_12",
-    "Rogue_Boss_13",
-    "Rogue_Encounter_RestStop",
-    "Rogue_Encounter_Healing",
-    "Rogue_Encounter_Shops",
-    "Rogue_Encounter_Tutors",
-    "Rogue_Encounter_MiniBoss",
-    "Rogue_Encounter_Den",
-    "Rogue_Encounter_GameShow",
-    "Rogue_Encounter_Graveyard",
-    "Rogue_Encounter_Lab",
     "Rogue_SouthernIsland_Latios",
     "Rogue_SouthernIsland_Latias",
     "Rogue_Special_Articuno",
@@ -104,7 +88,27 @@
     "Rogue_Special_Gen7_Mon",
     "Rogue_Special_Gen8_Mon"
   ],
-  "gMapGroup_RogueAdventureGeneral": [],
-  "gMapGroup_RogueAdventureRoutes": [],
-  "gMapGroup_RogueAdventureEncounters": []
+  "gMapGroup_RogueAdventureGeneral": [
+  ],
+  "gMapGroup_RogueAdventureRoutes": [
+
+  ],
+  "gMapGroup_RogueAdventureEncounters": [
+    "Rogue_Encounter_RestStop",
+    "Rogue_Encounter_Healing",
+    "Rogue_Encounter_Shops",
+    "Rogue_Encounter_Tutors",
+    "Rogue_Encounter_MiniBoss",
+    "Rogue_Encounter_Den",
+    "Rogue_Encounter_GameShow",
+    "Rogue_Encounter_Graveyard",
+    "Rogue_Encounter_Lab",
+    "Rogue_Boss_0",
+    "Rogue_Boss_8",
+    "Rogue_Boss_9",
+    "Rogue_Boss_10",
+    "Rogue_Boss_11",
+    "Rogue_Boss_12",
+    "Rogue_Boss_13"
+  ]
 }

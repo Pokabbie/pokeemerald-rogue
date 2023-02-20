@@ -2,23 +2,15 @@ const VAR_NODE_ID = VAR_0x8004
 const VAR_NODE_PARAM0 = VAR_0x8005
 const VAR_NODE_PARAM1 = VAR_0x8006
 
-
-const ADVPATH_ROOM_NONE = 0
-const ADVPATH_ROOM_ROUTE = 1
-const ADVPATH_ROOM_RESTSTOP = 2
-const ADVPATH_ROOM_LEGENDARY = 3
-const ADVPATH_ROOM_MINIBOSS = 4
-const ADVPATH_ROOM_WILD_DEN = 5
-const ADVPATH_ROOM_GAMESHOW = 6
-const ADVPATH_ROOM_GRAVEYARD = 7
-const ADVPATH_ROOM_LAB = 8
-// ADVPATH_ROOM_COUNT
-const ADVPATH_ROOM_BOSS = 10
+const VAR_LOAD_STATE = VAR_TEMP_0
 
 mapscripts Rogue_AdventurePaths_MapScripts 
 {
-    //MAP_SCRIPT_ON_LOAD: Rogue_AdventurePaths_OnLoad
     MAP_SCRIPT_ON_RESUME: Rogue_AdventurePaths_OnLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_LOAD_STATE, 0: Rogue_AdventurePaths_PreviewCutscene
+    ]
 }
 
 script Rogue_AdventurePaths_OnLoad
@@ -27,20 +19,19 @@ script Rogue_AdventurePaths_OnLoad
     //special(SpawnCameraObject)
     //applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
 
-    call(Rogue_AdventurePaths_RedrawMap)
+    special(RogueAdv_ApplyAdventureMetatiles)
+}
+
+script Rogue_AdventurePaths_PreviewCutscene
+{
+    setvar(VAR_LOAD_STATE, 1)
 }
 
 movement AdventurePaths_OffsetCamera {
     walk_right * 4
 }
 
-script Rogue_AdventurePaths_RedrawMap
-{
-    special(RogueAdv_ApplyAdventureMetatiles)
-    special(RogueAdv_UpdateObjectGFX)
-}
-
-script Rogue_AdventurePaths_InteractNodeInternal
+script Rogue_AdventurePaths_InteractNode
 {
     lock
     special(RogueAdv_GetNodeParams)
@@ -60,7 +51,7 @@ script Rogue_AdventurePaths_InteractNodeInternal
         case ADVPATH_ROOM_GAMESHOW:
             msgbox(format("It's a... Game Show?\nEnter this encounter?"), MSGBOX_YESNO)
 
-        case ADVPATH_ROOM_GRAVEYARD:
+        case ADVPATH_ROOM_DARK_DEAL:
             msgbox(format("It's a Dark Deal...?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_LAB:
@@ -111,100 +102,4 @@ script Rogue_AdventurePaths_InteractNodeInternal
     }
 
     release
-}
-
-script Rogue_AdventurePaths_InteractNode0
-{
-    setvar(VAR_NODE_ID, 0)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode1
-{
-    setvar(VAR_NODE_ID, 1)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode2
-{
-    setvar(VAR_NODE_ID, 2)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode3
-{
-    setvar(VAR_NODE_ID, 3)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode4
-{
-    setvar(VAR_NODE_ID, 4)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode5
-{
-    setvar(VAR_NODE_ID, 5)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode6
-{
-    setvar(VAR_NODE_ID, 6)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode7
-{
-    setvar(VAR_NODE_ID, 7)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode8
-{
-    setvar(VAR_NODE_ID, 8)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode9
-{
-    setvar(VAR_NODE_ID, 9)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode10
-{
-    setvar(VAR_NODE_ID, 10)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode11
-{
-    setvar(VAR_NODE_ID, 11)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode12
-{
-    setvar(VAR_NODE_ID, 12)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode13
-{
-    setvar(VAR_NODE_ID, 13)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode14
-{
-    setvar(VAR_NODE_ID, 14)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
-}
-
-script Rogue_AdventurePaths_InteractNode15
-{
-    setvar(VAR_NODE_ID, 15)
-    call(Rogue_AdventurePaths_InteractNodeInternal)
 }

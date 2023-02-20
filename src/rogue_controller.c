@@ -251,6 +251,9 @@ u16 RogueRandomRange(u16 range, u8 flag)
     // Always use rogue random to avoid seeding issues based on flag
     u16 res = RogueRandom();
 
+    if(range <= 1)
+        return 0;
+
     if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
         return res % range;
     else
@@ -2335,15 +2338,15 @@ static void BeginRogueRun(void)
                     AddBagItem(itemId, quantity);
             }
         }
-
-#ifdef ROGUE_DEBUG
-        AddBagItem(ITEM_ESCAPE_ROPE, 101);
-#endif
     }
     else
     {
         SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
     }
+
+#ifdef ROGUE_DEBUG
+    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+#endif
 
     RecalcCharmCurseValues();
 
@@ -3401,7 +3404,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     break;
                 }
 
-                case ADVPATH_ROOM_GRAVEYARD:
+                case ADVPATH_ROOM_DARK_DEAL:
                 {
                     RandomiseCharmItems();
                     break;
@@ -3433,6 +3436,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 
     QuestNotify_OnWarp(warp);
+}
+
+
+void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
+{
+}
+
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+    if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    {
+        RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+    }
 }
 
 static void PushFaintedMonToLab(struct Pokemon* srcMon)

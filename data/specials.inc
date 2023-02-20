@@ -210,7 +210,6 @@ gSpecials::
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
 	def_special RogueAdv_ApplyAdventureMetatiles
-	def_special RogueAdv_UpdateObjectGFX
 	def_special RogueAdv_GetNodeParams
 	def_special RogueAdv_ExecuteNodeAction
 	def_special GetFirstFreePokeblockSlot

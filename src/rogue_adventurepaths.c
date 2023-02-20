@@ -1,8 +1,11 @@
 #include "global.h"
 #include "constants/event_objects.h"
+#include "constants/event_object_movement.h"
+#include "constants/trainer_types.h"
 #include "constants/rogue.h"
 #include "gba/isagbprint.h"
 #include "event_data.h"
+#include "event_object_movement.h"
 #include "fieldmap.h"
 #include "field_screen_effect.h"
 #include "malloc.h"
@@ -15,6 +18,7 @@
 #include "rogue_controller.h"
 
 #include "rogue_adventurepaths.h"
+#include "rogue_adventure.h"
 #include "rogue_campaign.h"
 
 // Bridge refers to horizontal paths
@@ -45,6 +49,7 @@
 const u16 c_MetaTile_Sign = 0x003;
 const u16 c_MetaTile_Grass = 0x001;
 const u16 c_MetaTile_Water = 0x170;
+const u16 c_MetaTile_Stone = 0x0E2;
 
 
 // Difficulty rating is from 1-10 (5 being average, 1 easy, 10 hard)
@@ -56,24 +61,30 @@ struct AdvEventScratch
 
 struct AdvMapScratch
 {
-    u8 legendaryCount;
-    u8 wildDenCount;
-    u8 gameShowCount;
-    u8 graveYardCount;
-    u8 minibossCount;
-    u8 labCount;
     bool8 readWriteFlip;
+    const struct RogueAdvPathGenerator* generator;
+    u8 roomCount[ADVPATH_ROOM_WEIGHT_COUNT];
     struct AdvEventScratch nodesA[MAX_PATH_ROWS];
     struct AdvEventScratch nodesB[MAX_PATH_ROWS];
 };
 
+// TODO - Make more generic and usable by any map to save RAM
+struct AdvPathLayoutData
+{
+    u16 objectCount;
+    struct ObjectEventTemplate* objects;
+};
+
 EWRAM_DATA struct AdvMapScratch* gAdvPathScratch = NULL;
+EWRAM_DATA struct AdvPathLayoutData gAdvPathLayoutData = { 0, NULL };
 
 static void AllocAdvPathScratch(void);
 static void FreeAdvPathScratch(void);
 static void FlipAdvPathNodes(void);
 static struct AdvEventScratch* GetScratchReadNode(u16 i);
 static struct AdvEventScratch* GetScratchWriteNode(u16 i);
+
+static u16 GetInitialGFXColumn();
 
 
 static void NodeToCoords(u16 nodeX, u16 nodeY, u16* x, u16* y)
@@ -110,6 +121,15 @@ static void DisableCrossoverMetatiles(u16 nodeX, u16 nodeY)
     MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET_X, y + PATH_MAP_OFFSET_Y, c_MetaTile_Grass | MAPGRID_COLLISION_MASK);
 }
 
+static void PlaceStoneMetatile(u16 nodeX, u16 nodeY)
+{
+    u16 x, y, i, j;
+
+    NodeToCoords(nodeX, nodeY, &x, &y);
+
+    MapGridSetMetatileIdAt(x + PATH_MAP_OFFSET_X + 2, y + PATH_MAP_OFFSET_Y, c_MetaTile_Stone | MAPGRID_COLLISION_MASK);
+}
+
 static struct RogueAdvPathNode* GetNodeInfo(u16 x, u16 y)
 {
     return &gRogueAdvPath.nodes[y * MAX_PATH_COLUMNS + x];
@@ -129,8 +149,8 @@ static void ResetNodeInfo()
 
 static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* breakChance, u8* extraSplitChance)
 {
-    *breakChance = 0;
-    *extraSplitChance = 0;
+    *breakChance = 50;
+    *extraSplitChance = 10;
 
     switch(roomType)
     {
@@ -140,58 +160,24 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
                 *breakChance = 100;
                 *extraSplitChance = 10;
             }
-            else
-            {
-                *breakChance = 100;
-                *extraSplitChance = gRogueRun.currentDifficulty < 8 ? 90 : 50;
-            }
             break;
 
         case ADVPATH_ROOM_NONE:
-            *breakChance = 5;
-            break;
-
-        case ADVPATH_ROOM_ROUTE:
-            if(columnIdx >= columnCount - 2)
-            {
-                *breakChance = 50;
-                *extraSplitChance = 34;
-            }
-            else
-            {
-                *breakChance = 20;
-                *extraSplitChance = 20;
-            }
+            *breakChance = 50;
+            *extraSplitChance = 0;
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
-            *breakChance = 5;
+            *breakChance = 10;
             *extraSplitChance = 0;
             break;
 
         case ADVPATH_ROOM_LEGENDARY:
+        case ADVPATH_ROOM_DARK_DEAL:
+        case ADVPATH_ROOM_LAB:
             *breakChance = 0;
             *extraSplitChance = 50;
             break;
-
-        case ADVPATH_ROOM_MINIBOSS:
-        case ADVPATH_ROOM_WILD_DEN:
-        case ADVPATH_ROOM_GAMESHOW:
-        case ADVPATH_ROOM_GRAVEYARD:
-            *breakChance = 2;
-            *extraSplitChance = 50;
-            break;
-
-        case ADVPATH_ROOM_LAB:
-            *breakChance = 2;
-            *extraSplitChance = 0;
-            break;
-    }
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
-    {
-        *breakChance = 0;
-        *extraSplitChance = 0;
     }
 
 #ifdef ROGUE_DEBUG
@@ -347,19 +333,40 @@ static void GenerateAdventureColumnPath(u8 columnIdx, u8 columnCount)
             }
         }
     }
+}
 
+static u16 SelectIndexFromWeights(u16* weights, u16 count)
+{
+    u16 totalWeight;
+    u16 targetWeight;
+    u8 i;
+
+    totalWeight = 0;
+    for(i = 0; i < count; ++i)
+    {
+        totalWeight += weights[i];
+    }
+
+    targetWeight = 1 + RogueRandomRange(totalWeight, OVERWORLD_FLAG);
+    totalWeight = 0;
+
+    for(i = 0; i < count; ++i)
+    {
+        totalWeight += weights[i];
+
+        if(targetWeight <= totalWeight)
+        {
+            return i;
+        }
+    }
+
+    return 0;
 }
 
 static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 {
-    u16 weights[ADVPATH_ROOM_COUNT];
-    u16 totalWeight;
-    u16 targetWeight;
-    u8 i;
+    u16 weights[ADVPATH_ROOM_WEIGHT_COUNT];
     struct AdvEventScratch* writeNodeScratch = GetScratchWriteNode(nodeY);
-
-    // 500 is default weight
-    memset(&weights[0], 500, sizeof(u16) * ARRAY_COUNT(weights));
 
     if(nodeX == columnCount - 1)
     {
@@ -368,310 +375,28 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
         return;
     }
 
+    // Copy generators initial weights
+    memcpy(weights, gAdvPathScratch->generator->roomWeights, sizeof(weights));
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        // Turn everything off
-        memset(&weights[0], 0, sizeof(u16) * ARRAY_COUNT(weights));
+    // TODO - Adjust weights
 
-        // We should only be here for the first loop, as we should have no other encounters
-        if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-        {
-            weights[ADVPATH_ROOM_RESTSTOP] = 1500;
-        }
-        else
-        {
-            weights[ADVPATH_ROOM_ROUTE] = 1500;
-            weights[ADVPATH_ROOM_LEGENDARY] = 200;
-            weights[ADVPATH_ROOM_WILD_DEN] = 250;
-            weights[ADVPATH_ROOM_GAMESHOW] = 70;
-            weights[ADVPATH_ROOM_GRAVEYARD] = 70;
-        }
-    }
-    else
-    {
-        // Normal routes
-        if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-        {
-            // Very unlikely at end
-            weights[ADVPATH_ROOM_ROUTE] = 100;
-        }
-        else
-        {            
-            // If we've reached elite 4 we want to swap odds of none and routes
-            if(gRogueRun.currentDifficulty >= 8)
-            {
-                // Unlikely but not impossible
-                weights[ADVPATH_ROOM_ROUTE] = 400;
-            }
-            else
-            {
-                // Most common but gets less common over time
-                weights[ADVPATH_ROOM_ROUTE] = 2000 - min(100 * gRogueRun.currentDifficulty, 500);
-            }
-        }
-
-        // NONE / Skip encounters
-        if(nodeX == columnCount - 2) 
-        {
-            // Final encounter cannot be none, to avoid GFX obj running out
-            weights[ADVPATH_ROOM_NONE] = 0;
-        }
-        else
-        {
-            // If we've reached elite 4 we want to swap odds of none and routes
-            if(gRogueRun.currentDifficulty >= 8)
-            {
-                weights[ADVPATH_ROOM_NONE] = 1200;
-            }
-            else
-            {
-                // Unlikely but not impossible
-                weights[ADVPATH_ROOM_NONE] = min(50 * (gRogueRun.currentDifficulty + 1), 200);
-            }
-        }
-
-        // Rest stops
-        if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-        {
-            weights[ADVPATH_ROOM_RESTSTOP] = 1500;
-        }
-        else if(gRogueRun.currentDifficulty == 0)
-        {
-            weights[ADVPATH_ROOM_RESTSTOP] = 0;
-        }
-        else
-        {
-            // Unlikely but not impossible
-            weights[ADVPATH_ROOM_RESTSTOP] = 100;
-        }
-
-        // Legendaries/Mini encounters
-        if(gRogueRun.currentDifficulty == 0)
-        {
-            weights[ADVPATH_ROOM_MINIBOSS] = 0;
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-            weights[ADVPATH_ROOM_WILD_DEN] = 40;
-            weights[ADVPATH_ROOM_GAMESHOW] = 0;
-            weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-            weights[ADVPATH_ROOM_LAB] = 0;
-        }
-        else
-        {
-            weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
-            weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
-
-            if(gRogueRun.currentDifficulty < 3)
-                weights[ADVPATH_ROOM_LAB] = 0;
-            else
-                weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
-
-            // These should start trading with each other deeper into the run
-            if(gRogueRun.currentDifficulty < 6)
-            {
-                weights[ADVPATH_ROOM_GAMESHOW] = 320 - 40 * min(8, gRogueRun.currentDifficulty);
-                weights[ADVPATH_ROOM_GRAVEYARD] = 10;
-            }
-            else
-            {
-                weights[ADVPATH_ROOM_GAMESHOW] = 10;
-                weights[ADVPATH_ROOM_GRAVEYARD] = 360 - 30 * min(5, gRogueRun.currentDifficulty - 6);
-            }
-
-            // Every 3rd encounter becomes more common
-            if((gRogueRun.currentDifficulty % 3) != 0)
-            {
-                weights[ADVPATH_ROOM_GRAVEYARD] = 5;
-            }
-
-            if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-            {
-                if((gRogueRun.currentDifficulty % 4) == 0)
-                    // Every 4 badges chances get really high
-                    weights[ADVPATH_ROOM_LEGENDARY] = 600;
-                else
-                    // Otherwise the chances are just quite low
-                    weights[ADVPATH_ROOM_LEGENDARY] = 100;
-            }
-            else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-            {
-                if((gRogueRun.currentDifficulty % 5) == 0)
-                    // Every 5 badges chances get really high
-                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
-                else
-                    // Otherwise impossible
-                    weights[ADVPATH_ROOM_LEGENDARY] = 0;
-            }
-            else 
-            {
-                // Pre E4 settings
-                if(gRogueRun.currentDifficulty < 8)
-                {
-                    if((gRogueRun.currentDifficulty % 3) == 0)
-                        // Every 5 badges chances get really high
-                        weights[ADVPATH_ROOM_LEGENDARY] = 800;
-                    else
-                        // Otherwise the chances are just quite low
-                        weights[ADVPATH_ROOM_LEGENDARY] = 20;
-                }
-                // E4 settings
-                else 
-                {
-                    if((gRogueRun.currentDifficulty % 9) == 0)
-                        // Shortly in we have chance to get an uber legendary
-                        weights[ADVPATH_ROOM_LEGENDARY] = 800;
-                    else
-                        // Otherwise the chances are just quite low
-                        weights[ADVPATH_ROOM_LEGENDARY] = 20;
-                }
-            }
-        }
-
-        if(nodeX == 0)
-        {
-            // Impossible in first column
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-
-        // Less likely in first column and/or last
-        if(nodeX == 0)
-        {
-            weights[ADVPATH_ROOM_MINIBOSS] /= 2;
-            weights[ADVPATH_ROOM_LEGENDARY] /= 2;
-            weights[ADVPATH_ROOM_WILD_DEN] /= 2;
-        }
-        if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-        {
-            weights[ADVPATH_ROOM_MINIBOSS] /= 3;
-            weights[ADVPATH_ROOM_LEGENDARY] /= 2;
-            weights[ADVPATH_ROOM_WILD_DEN] /= 3;
-            weights[ADVPATH_ROOM_GAMESHOW] /= 4;
-            weights[ADVPATH_ROOM_GRAVEYARD] /= 4;
-            weights[ADVPATH_ROOM_LAB] /= 2;
-        }
-
-        // Now we've applied the default weights for this column, consider what out next encounter is
-        switch(writeNodeScratch->nextRoomType)
-        {
-            case ADVPATH_ROOM_LEGENDARY:
-                weights[ADVPATH_ROOM_RESTSTOP] = 0;
-                weights[ADVPATH_ROOM_NONE] = 0;
-                weights[ADVPATH_ROOM_WILD_DEN] = 0;
-                weights[ADVPATH_ROOM_LEGENDARY] = 0;
-                weights[ADVPATH_ROOM_MINIBOSS] *= 2;
-                break;
-
-            case ADVPATH_ROOM_MINIBOSS:
-                weights[ADVPATH_ROOM_MINIBOSS] = 0;
-                weights[ADVPATH_ROOM_GRAVEYARD] *= 2;
-                weights[ADVPATH_ROOM_LAB] *= 2;
-                break;
-
-            case ADVPATH_ROOM_GAMESHOW:
-                weights[ADVPATH_ROOM_GAMESHOW] = 0;
-                break;
-
-            case ADVPATH_ROOM_GRAVEYARD:
-                weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-                break;
-
-            case ADVPATH_ROOM_LAB:
-                weights[ADVPATH_ROOM_LAB] = 0;
-                break;
-
-            case ADVPATH_ROOM_RESTSTOP:
-                weights[ADVPATH_ROOM_RESTSTOP] = 0;
-                break;
-
-            case ADVPATH_ROOM_ROUTE:
-                weights[ADVPATH_ROOM_NONE] += 300;
-                break;
-
-            case ADVPATH_ROOM_NONE:
-                weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
-                break;
-        }
-    }
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
-    {
-        weights[ADVPATH_ROOM_RESTSTOP] /= 2;
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-    else if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_POKEBALL_LIMIT)
-    {
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-
-    // We have limited number of certain encounters
-    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-    {
-        if(gAdvPathScratch->legendaryCount >= 2)
-        {
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-    }
-    else
-    {
-        if(gAdvPathScratch->legendaryCount >= 1)
-        {
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-    }
-
-    if(gAdvPathScratch->wildDenCount >= 2)
-    {
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-    }
-
-    if(gAdvPathScratch->minibossCount >= 2)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-    }
-
-    if(gAdvPathScratch->gameShowCount >= 2)
-    {
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-    }
-
-    // Only 1 at once
-    if(gAdvPathScratch->graveYardCount >= 1 || gAdvPathScratch->labCount >= 1)
-    {
-        weights[ADVPATH_ROOM_GRAVEYARD] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
-    {
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
         weights[ADVPATH_ROOM_LEGENDARY] = 0;
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
         weights[ADVPATH_ROOM_WILD_DEN] = 0;
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1)
+        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
         weights[ADVPATH_ROOM_LAB] = 0;
-    }
 
-    totalWeight = 0;
-    for(i = 0; i < ADVPATH_ROOM_COUNT; ++i)
-    {
-        totalWeight += weights[i];
-    }
 
-    targetWeight = 1 + RogueRandomRange(totalWeight, OVERWORLD_FLAG);
-    totalWeight = 0;
-
-    for(i = 0; i < ADVPATH_ROOM_COUNT; ++i)
-    {
-        totalWeight += weights[i];
-
-        if(targetWeight <= totalWeight)
-        {
-            // Found the room we want
-            writeNodeScratch->roomType = i;
-            break;
-        }
-    }
+    writeNodeScratch->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights));
     
     if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_MINIBOSS_BATTLER)
     {
@@ -687,57 +412,18 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 
 static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nodeInfo)
 {
-    u16 temp;
+    u16 weights[ADVPATH_SUBROOM_WEIGHT_COUNT];
+
+    memset(weights, 0, sizeof(weights));
 
     switch(nodeInfo->roomType)
     {
-        // Handled below as this is a special case
-        //case ADVPATH_ROOM_BOSS:
-
         case ADVPATH_ROOM_RESTSTOP:
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
-            {
-                // Always full rest stop
-                nodeInfo->roomParams.roomIdx = 0; // Heals
-            }
-            else
-            {
-                temp = RogueRandomRange(7, OVERWORLD_FLAG);
-                
-                if(gRogueRun.currentDifficulty >= 12)
-                {
-                    // Always always a full rest stop
-                    if(temp == 0)
-                        nodeInfo->roomParams.roomIdx = 1; // Shops
-                    else if(temp == 1)
-                        nodeInfo->roomParams.roomIdx = 2; // Battle prep.
-                    else
-                        nodeInfo->roomParams.roomIdx = 0; // Heals
-                }
-                else if(temp == 0)
-                {
-                    // Small chance for full rest stop
-                    nodeInfo->roomParams.roomIdx = 0; // Heals
-                }
-                else
-                {
-                    // We want to ping pong the options rather then have them appear in the same order
-                    if(nodeY % 2 == 0)
-                    {
-                        if(temp <= 2)
-                            nodeInfo->roomParams.roomIdx = 1; // Shops
-                        else
-                            nodeInfo->roomParams.roomIdx = 2; // Battle prep.
-                    }
-                    else
-                    {
-                        if(temp <= 2)
-                            nodeInfo->roomParams.roomIdx = 2; // Battle prep.
-                        else
-                            nodeInfo->roomParams.roomIdx = 1; // Shops
-                    }
-                }
-            }
+            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_BATTLE];
+            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_SHOP];
+            weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_FULL];
+
+            nodeInfo->roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights)) - ADVPATH_SUBROOM_RESTSTOP_BATTLE;
             break;
 
         case ADVPATH_ROOM_LEGENDARY:
@@ -753,59 +439,15 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
             nodeInfo->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
             break;
 
-        case ADVPATH_ROOM_GAMESHOW:
-            break;
-
-        case ADVPATH_ROOM_GRAVEYARD:
-            break;
-
-        case ADVPATH_ROOM_LAB:
-            break;
-
         case ADVPATH_ROOM_ROUTE:
         {
             nodeInfo->roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                // All calm to maximise encounters
-                nodeInfo->roomParams.perType.route.difficulty = 0;
-            }
-            else if(gRogueRun.currentDifficulty >= 8)
-            {
-                // Low chance if getting a calm route, but otherwise is difficult
-                switch(RogueRandomRange(6, OVERWORLD_FLAG))
-                {
-                    case 0:
-                        nodeInfo->roomParams.perType.route.difficulty = 0;
-                        break;
+            weights[ADVPATH_SUBROOM_ROUTE_CALM] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_CALM];
+            weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_AVERAGE];
+            weights[ADVPATH_SUBROOM_ROUTE_TOUGH] = gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_TOUGH];
 
-                    default:
-                        nodeInfo->roomParams.perType.route.difficulty = 2;
-                        break;
-                };
-            }
-            else
-            {
-                switch(RogueRandomRange(6, OVERWORLD_FLAG))
-                {
-                    case 0:
-                    case 1:
-                        nodeInfo->roomParams.perType.route.difficulty = 0;
-                        break;
-
-                    case 2:
-                    case 3:
-                    case 4:
-                        nodeInfo->roomParams.perType.route.difficulty = 1;
-                        break;
-
-                    //case 5:
-                    default:
-                        nodeInfo->roomParams.perType.route.difficulty = 2;
-                        break;
-                };
-            }
+            nodeInfo->roomParams.perType.route.difficulty = SelectIndexFromWeights(weights, ARRAY_COUNT(weights)) - ADVPATH_SUBROOM_ROUTE_CALM;
             break;
         }
     }
@@ -825,33 +467,7 @@ static void GenerateAdventureColumnEvents(u8 columnIdx, u8 columnCount)
 
             // Post event choose
             nodeInfo->roomType = GetScratchWriteNode(i)->roomType;
-            
-            switch(nodeInfo->roomType)
-            {
-                case ADVPATH_ROOM_LEGENDARY:
-                    ++gAdvPathScratch->legendaryCount;
-                    break;
-
-                case ADVPATH_ROOM_WILD_DEN:
-                    ++gAdvPathScratch->wildDenCount;
-                    break;
-
-                case ADVPATH_ROOM_MINIBOSS:
-                    ++gAdvPathScratch->minibossCount;
-                    break;
-
-                case ADVPATH_ROOM_GAMESHOW:
-                    ++gAdvPathScratch->gameShowCount;
-                    break;
-
-                case ADVPATH_ROOM_GRAVEYARD:
-                    ++gAdvPathScratch->graveYardCount;
-                    break;
-
-                case ADVPATH_ROOM_LAB:
-                    ++gAdvPathScratch->labCount;
-                    break;
-            }
+            ++gAdvPathScratch->roomCount[nodeInfo->roomType];
 
             CreateEventParams(columnIdx, i, nodeInfo);
         }
@@ -872,6 +488,7 @@ static void SetRogueSeedForNode()
 bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 {
     struct RogueAdvPathNode* nodeInfo;
+    struct RogueAdventurePhase* adventurePhase;
     u8 i;
     u8 totalDistance;
     u8 minY, maxY;
@@ -883,25 +500,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
 
     AllocAdvPathScratch();
+    gAdvPathScratch->generator = &Rogue_GetAdventurePhase()->pathGenerator;
 
     SetRogueSeedForPath();
 
     ResetNodeInfo();
 
     // Setup defaults
-    totalDistance = 4;
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        if(gRogueRun.currentDifficulty == 0)
-        {
-            totalDistance = 6;
-        }
-        else
-        {
-            totalDistance = 0;
-        }
-    }
+    totalDistance = gAdvPathScratch->generator->minLength + RogueRandomRange(gAdvPathScratch->generator->maxLength - gAdvPathScratch->generator->minLength + 1, OVERWORLD_FLAG);
 
     // Exit node
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);
@@ -958,6 +564,18 @@ void RogueAdv_ApplyAdventureMetatiles()
         if(!nodeInfo->isBridgeActive)
         {
             DisableBridgeMetatiles(x, y);
+        }
+        else
+        {
+            if(GetInitialGFXColumn() == x + 1)
+            {
+                PlaceStoneMetatile(x, y);
+            }
+        }
+
+        if(nodeInfo->roomType != ADVPATH_ROOM_NONE && x >= GetInitialGFXColumn())
+        {
+            PlaceStoneMetatile(x, y);
         }
 
         if(!nodeInfo->isLadderActive)
@@ -1061,7 +679,7 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
                 warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
                 break;
 
-            case ADVPATH_ROOM_GRAVEYARD:
+            case ADVPATH_ROOM_DARK_DEAL:
                 warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GRAVEYARD);
                 warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GRAVEYARD);
                 break;
@@ -1079,6 +697,13 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
 
 u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
 {
+    if(gAdvPathLayoutData.objects != NULL)
+    {
+        free(gAdvPathLayoutData.objects);
+        gAdvPathLayoutData.objectCount = 0;
+        gAdvPathLayoutData.objects = NULL;
+    }
+
     // Should already be set correctly for RogueAdv_ExecuteNodeAction
     if(!gRogueAdvPath.isOverviewActive)
     {
@@ -1104,6 +729,49 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         ApplyCurrentNodeWarp(warp);
         return ROGUE_WARP_TO_ROOM;
     }
+}
+
+extern const u8 Rogue_AdventurePaths_InteractNode[];
+
+static u16 GetInitialGFXColumn();
+static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo);
+
+void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+    struct RogueAdvPathNode* nodeInfo;
+    u16 i, x, y, mapX, mapY;
+    u16 encounterCount = 0;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueAdvPath.nodes); ++i)
+    {
+        nodeInfo = &gRogueAdvPath.nodes[i];
+        if(nodeInfo->roomType != ADVPATH_ROOM_NONE)
+        {
+            x = i % MAX_PATH_COLUMNS;
+            y = i / MAX_PATH_COLUMNS;
+            NodeToCoords(x, y, &mapX, &mapY);
+
+            if(x >= GetInitialGFXColumn())
+            {
+                u16 idx = encounterCount++;
+                AGB_ASSERT(idx < objectEventCapacity);
+
+                objectEvents[idx].localId = idx;
+                objectEvents[idx].graphicsId = SelectGFXForNode(nodeInfo);
+                objectEvents[idx].x = mapX + 2;//+ MAP_OFFSET;
+                objectEvents[idx].y = mapY + 1;//+ MAP_OFFSET;
+                objectEvents[idx].elevation = 3;
+                objectEvents[idx].trainerType = TRAINER_TYPE_NONE;
+                objectEvents[idx].movementType = MOVEMENT_TYPE_NONE;
+                // Pack node into movement vars
+                objectEvents[idx].movementRangeX = x;
+                objectEvents[idx].movementRangeY = y;
+                objectEvents[idx].script = Rogue_AdventurePaths_InteractNode;
+            }
+        }
+    }
+
+    *objectEventCount = encounterCount;
 }
 
 bool8 RogueAdv_CanUseEscapeRope(void)
@@ -1164,7 +832,7 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
         case ADVPATH_ROOM_GAMESHOW:
             return OBJ_EVENT_GFX_CONTEST_JUDGE;
 
-        case ADVPATH_ROOM_GRAVEYARD:
+        case ADVPATH_ROOM_DARK_DEAL:
             return OBJ_EVENT_GFX_DEVIL_MAN;
 
         case ADVPATH_ROOM_LAB:
@@ -1183,117 +851,6 @@ static u16 GetInitialGFXColumn()
         return 0;
     else
         return gRogueAdvPath.currentNodeX + 1;
-}
-
-static u16 GetGFXVarCount()
-{
-    return VAR_OBJ_GFX_ID_F - VAR_OBJ_GFX_ID_0 + 1;
-}
-
-void RogueAdv_UpdateObjectGFX()
-{
-    struct RogueAdvPathNode* nodeInfo;
-    u8 currentID;
-    u16 x, y;
-    u16 mapX, mapY;
-    u16 objGFX;
-    u8 maxID = 0;
-
-    // Only place future GFX
-    for(x = GetInitialGFXColumn(); x < MAX_PATH_COLUMNS; ++x)
-    for(y = 0; y < MAX_PATH_ROWS; ++y)
-    {
-        nodeInfo = GetNodeInfo(x, y);
-        if(nodeInfo->isBridgeActive)
-        {
-            currentID = maxID++;
-            NodeToCoords(x, y, &mapX, &mapY);
-
-            objGFX = SelectGFXForNode(nodeInfo);
-
-            if(objGFX && currentID < GetGFXVarCount())
-            {
-                VarSet(VAR_OBJ_GFX_ID_0 + currentID, objGFX);
-
-                // Want them to sit on the bridge not the node
-                SetObjEventTemplateCoords(currentID + 1, mapX + 2, mapY + 1);
-            }
-        }
-    }
-}
-
-
-static struct RogueAdvPathNode* GetScriptNodeWithCoords(u16* outX, u16* outY)
-{
-    struct RogueAdvPathNode* nodeInfo;
-    u16 x, y;
-    u8 currentID;
-    u8 targetNodeId = gSpecialVar_ScriptNodeID;
-    u8 maxID = 0;
-
-    for(x = GetInitialGFXColumn(); x < MAX_PATH_COLUMNS; ++x)
-    for(y = 0; y < MAX_PATH_ROWS; ++y)
-    {
-        nodeInfo = GetNodeInfo(x, y);
-        if(nodeInfo->isBridgeActive)
-        {
-            currentID = maxID++;
-
-            if(currentID == targetNodeId)
-            {
-                *outX = x;
-                *outY = y;
-                return nodeInfo;
-            }
-        }
-    }
-
-    *outX = 0;
-    *outY = 0;
-    return NULL;
-}
-
-static struct RogueAdvPathNode* GetScriptNode()
-{
-    u16 x, y;
-    return GetScriptNodeWithCoords(&x, &y);
-}
-
-static void BufferRoomType(u8* dst, u8 roomType)
-{
-    const u8 gText_AdvRoom_None[] = _("None");
-    const u8 gText_AdvRoom_Route[] = _("Route");
-    const u8 gText_AdvRoom_RestStop[] = _("Rest");
-    const u8 gText_AdvRoom_Lengendary[] = _("Legend");
-    const u8 gText_AdvRoom_MiniBoss[] = _("Mini Boss");
-    const u8 gText_AdvRoom_Boss[] = _("Boss");
-
-    switch(roomType)
-    {
-        case ADVPATH_ROOM_NONE:
-            StringCopy(dst, gText_AdvRoom_None);
-            return;
-
-        case ADVPATH_ROOM_ROUTE:
-            StringCopy(dst, gText_AdvRoom_Route);
-            return;
-
-        case ADVPATH_ROOM_RESTSTOP:
-            StringCopy(dst, gText_AdvRoom_RestStop);
-            return;
-
-        case ADVPATH_ROOM_LEGENDARY:
-            StringCopy(dst, gText_AdvRoom_Lengendary);
-            return;
-
-        case ADVPATH_ROOM_MINIBOSS:
-            StringCopy(dst, gText_AdvRoom_MiniBoss);
-            return;
-
-        case ADVPATH_ROOM_BOSS:
-            StringCopy(dst, gText_AdvRoom_Boss);
-            return;
-    }
 }
 
 static void BufferTypeAdjective(u8 type)
@@ -1402,10 +959,20 @@ static void BufferTypeAdjective(u8 type)
     }
 }
 
+static struct RogueAdvPathNode* GetScriptInteractNode(u16* outX, u16* outY)
+{
+    struct RogueAdvPathNode* node; 
+    u16 lastTalkedId = VarGet(VAR_LAST_TALKED);
+
+    *outX = gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].movementRangeX;
+    *outY = gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].movementRangeY;
+    return GetNodeInfo(*outX, *outY);
+}
+
 void RogueAdv_GetNodeParams()
 {
     u16 nodeX, nodeY;
-    struct RogueAdvPathNode* node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+    struct RogueAdvPathNode* node = GetScriptInteractNode(&nodeX, &nodeY);
 
     if(node)
     {
@@ -1429,9 +996,11 @@ void RogueAdv_GetNodeParams()
 
 void RogueAdv_ExecuteNodeAction()
 {
-    u16 nodeX, nodeY;
+    struct RogueAdvPathNode* node; 
     struct WarpData warp;
-    struct RogueAdvPathNode* node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+    u16 x, y;
+    
+    node = GetScriptInteractNode(&x, &y);
 
     // Fill with dud warp
     warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
@@ -1443,8 +1012,8 @@ void RogueAdv_ExecuteNodeAction()
     if(node)
     {
         // Move to the selected node
-        gRogueAdvPath.currentNodeX = nodeX;
-        gRogueAdvPath.currentNodeY = nodeY;
+        gRogueAdvPath.currentNodeX = x;
+        gRogueAdvPath.currentNodeY = y;
         gRogueAdvPath.currentRoomType = node->roomType;
         memcpy(&gRogueAdvPath.currentRoomParams, &node->roomParams, sizeof(struct RogueAdvPathRoomParams));
     }
@@ -1457,39 +1026,39 @@ void RogueAdv_ExecuteNodeAction()
 void RogueAdv_DebugExecuteRandomNextNode()
 {
 #ifdef ROGUE_DEBUG
-    u16 i;
-    struct RogueAdvPathNode* node;
-
-    u16 nodeX, nodeY;
-
-    for(i = 0; i < 100; ++i)
-    {
-        VarSet(gSpecialVar_ScriptNodeID, Random() % 16);
-
-        // Look for encounter in next column (Don't care if these can actually connect or not)
-        node = GetScriptNodeWithCoords(&nodeX, &nodeY);
-        if(node && nodeX == GetInitialGFXColumn() && node->roomType != ADVPATH_ROOM_NONE)
-        {
-            RogueAdv_ExecuteNodeAction();
-            return;
-        }
-    }
-
-    // Failed so fallback to next gym warp
-    for(i = 0; i < 16; ++i)
-    {
-        VarSet(gSpecialVar_ScriptNodeID, i);
-
-        node = GetScriptNodeWithCoords(&nodeX, &nodeY);
-        if(node && node->roomType == ADVPATH_ROOM_BOSS)
-        {
-            RogueAdv_ExecuteNodeAction();
-            return;
-        }
-    }
-
-    VarSet(gSpecialVar_ScriptNodeID, 0);
-    RogueAdv_ExecuteNodeAction();
+    //u16 i;
+    //struct RogueAdvPathNode* node;
+//
+    //u16 nodeX, nodeY;
+//
+    //for(i = 0; i < 100; ++i)
+    //{
+    //    VarSet(gSpecialVar_ScriptNodeID, Random() % 16);
+//
+    //    // Look for encounter in next column (Don't care if these can actually connect or not)
+    //    node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+    //    if(node && nodeX == GetInitialGFXColumn() && node->roomType != ADVPATH_ROOM_NONE)
+    //    {
+    //        RogueAdv_ExecuteNodeAction();
+    //        return;
+    //    }
+    //}
+//
+    //// Failed so fallback to next gym warp
+    //for(i = 0; i < 16; ++i)
+    //{
+    //    VarSet(gSpecialVar_ScriptNodeID, i);
+//
+    //    node = GetScriptNodeWithCoords(&nodeX, &nodeY);
+    //    if(node && node->roomType == ADVPATH_ROOM_BOSS)
+    //    {
+    //        RogueAdv_ExecuteNodeAction();
+    //        return;
+    //    }
+    //}
+//
+    //VarSet(gSpecialVar_ScriptNodeID, 0);
+    //RogueAdv_ExecuteNodeAction();
 #endif
 }
 

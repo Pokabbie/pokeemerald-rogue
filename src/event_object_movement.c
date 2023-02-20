@@ -1362,7 +1362,7 @@ u8 Unref_TryInitLocalObjectEvent(u8 localId)
         else if (InTrainerHill())
             objectEventCount = 2;
         else
-            objectEventCount = gMapHeader.events->objectEventCount;
+            objectEventCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
         for (i = 0; i < objectEventCount; i++)
         {
@@ -1686,7 +1686,7 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else if (InTrainerHill())
             objectCount = 2;
         else
-            objectCount = gMapHeader.events->objectEventCount;
+            objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
         for (i = 0; i < objectCount; i++)
         {
@@ -2486,7 +2486,7 @@ struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 localId, u8
     if (gSaveBlock1Ptr->location.mapNum == mapNum && gSaveBlock1Ptr->location.mapGroup == mapGroup)
     {
         templates = gSaveBlock1Ptr->objectEventTemplates;
-        count = gMapHeader.events->objectEventCount;
+        count = gSaveBlock1Ptr->objectEventTemplatesCount;
     }
     else
     {
