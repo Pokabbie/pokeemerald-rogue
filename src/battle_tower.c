@@ -2986,7 +2986,7 @@ static void FillPartnerParty(u16 trainerId)
             do
             {
                 j = Random32();
-            } while (IsShinyOtIdPersonality(STEVEN_OTID, j) || sStevenMons[i].nature != GetNatureFromPersonality(j));
+            } while (sStevenMons[i].nature != GetNatureFromPersonality(j));
             CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
                       sStevenMons[i].species,
                       sStevenMons[i].level,

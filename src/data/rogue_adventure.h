@@ -8,6 +8,8 @@ static const struct RogueAdventurePhase sAdventure_Standard[] =
         .bossTrainerFlagsExclude = TRAINER_FLAG_NONE,
         .pathGenerator = 
         {
+            //.minLength = 1,
+            //.maxLength = 1,
             .minLength = 5,
             .maxLength = 6,
             //.minLength = 10,

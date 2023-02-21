@@ -504,6 +504,7 @@ struct PokemonStorageSystemData
     u8 displayMonMarkings;
     u8 displayMonLevel;
     bool8 displayMonIsEgg;
+    bool8 displayMonIsShiny;
     u8 displayMonName[POKEMON_NAME_LENGTH + 1];
     u8 displayMonNameText[36];
     u8 displayMonSpeciesName[36];
@@ -6862,6 +6863,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         struct Pokemon *mon = (struct Pokemon *)pokemon;
 
         sStorage->displayMonSpecies = GetMonData(mon, MON_DATA_SPECIES2);
+        sStorage->displayMonIsShiny = GetMonData(mon, MON_DATA_IS_SHINY);
         if (sStorage->displayMonSpecies != SPECIES_NONE)
         {
             sanityIsBadEgg = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
@@ -6885,6 +6887,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         struct BoxPokemon *boxMon = (struct BoxPokemon *)pokemon;
 
         sStorage->displayMonSpecies = GetBoxMonData(pokemon, MON_DATA_SPECIES2);
+        sStorage->displayMonIsShiny = GetMonData(pokemon, MON_DATA_IS_SHINY);
         if (sStorage->displayMonSpecies != SPECIES_NONE)
         {
             u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
@@ -6900,7 +6903,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
             sStorage->displayMonLevel = GetLevelFromBoxMonExp(boxMon);
             sStorage->displayMonMarkings = GetBoxMonData(boxMon, MON_DATA_MARKINGS);
             sStorage->displayMonPersonality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-            sStorage->displayMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sStorage->displayMonSpecies, otId, sStorage->displayMonPersonality);
+            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, sStorage->displayMonIsShiny);
             gender = GetGenderFromSpeciesAndPersonality(sStorage->displayMonSpecies, sStorage->displayMonPersonality);
             sStorage->displayMonItemId = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
         }

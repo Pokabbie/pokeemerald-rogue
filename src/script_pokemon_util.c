@@ -141,7 +141,7 @@ bool8 DoesPartyHaveEnigmaBerry(void)
     return hasItem;
 }
 
-void CreateScriptedWildMon(u16 species, u8 level, u16 item)
+void CreateScriptedWildMon(u16 species, u8 level, u16 item, bool8 isShiny)
 {
     // RogueNote: wild encounters
     u8 heldItem[2];
@@ -155,6 +155,12 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
         heldItem[0] = item;
         heldItem[1] = item >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
+    }
+
+    if(isShiny)
+    {
+        u8 shiny = 1;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
     }
 
     Rogue_ModifyEventMon(&gEnemyParty[0]);

@@ -212,6 +212,7 @@ void BeginEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopE
 void EvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopEvo, u8 partyId)
 {
     u8 name[20];
+    bool8 isShiny;
     u16 currSpecies;
     u32 trainerId, personality;
     const struct CompressedSpritePalette* pokePal;
@@ -260,12 +261,13 @@ void EvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopEvo, u
 
     // preEvo sprite
     currSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
     DecompressPicFromTable_2(&gMonFrontPicTable[currSpecies],
                              gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                              currSpecies);
-    pokePal = GetMonSpritePalStructFromOtIdPersonality(currSpecies, trainerId, personality);
+    pokePal = GetMonSpritePalStructFromSpecies(currSpecies, isShiny);
     LoadCompressedPalette(pokePal->data, 0x110, 0x20);
 
     SetMultiuseSpriteTemplateToPokemon(currSpecies, B_POSITION_OPPONENT_LEFT);
@@ -280,7 +282,7 @@ void EvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopEvo, u
     DecompressPicFromTable_2(&gMonFrontPicTable[postEvoSpecies],
                              gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                              postEvoSpecies);
-    pokePal = GetMonSpritePalStructFromOtIdPersonality(postEvoSpecies, trainerId, personality);
+    pokePal = GetMonSpritePalStructFromSpecies(postEvoSpecies, isShiny);
     LoadCompressedPalette(pokePal->data, 0x120, 0x20);
 
     SetMultiuseSpriteTemplateToPokemon(postEvoSpecies, B_POSITION_OPPONENT_RIGHT);
@@ -314,12 +316,14 @@ void EvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopEvo, u
 static void CB2_EvolutionSceneLoadGraphics(void)
 {
     u8 ID;
+    bool8 isShiny;
     const struct CompressedSpritePalette* pokePal;
     u16 postEvoSpecies;
     u32 trainerId, personality;
     struct Pokemon* mon = &gPlayerParty[gTasks[sEvoStructPtr->evoTaskId].tPartyId];
 
     postEvoSpecies = gTasks[sEvoStructPtr->evoTaskId].tPostEvoSpecies;
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
@@ -357,7 +361,7 @@ static void CB2_EvolutionSceneLoadGraphics(void)
     DecompressPicFromTable_2(&gMonFrontPicTable[postEvoSpecies],
                              gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                              postEvoSpecies);
-    pokePal = GetMonSpritePalStructFromOtIdPersonality(postEvoSpecies, trainerId, personality);
+    pokePal = GetMonSpritePalStructFromSpecies(postEvoSpecies, isShiny);
 
     LoadCompressedPalette(pokePal->data, 0x120, 0x20);
 
@@ -424,12 +428,11 @@ static void CB2_TradeEvolutionSceneLoadGraphics(void)
     case 4:
         {
             const struct CompressedSpritePalette* pokePal;
-            u32 trainerId = GetMonData(mon, MON_DATA_OT_ID);
-            u32 personality = GetMonData(mon, MON_DATA_PERSONALITY);
+            bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
             DecompressPicFromTable_2(&gMonFrontPicTable[postEvoSpecies],
                                      gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                                      postEvoSpecies);
-            pokePal = GetMonSpritePalStructFromOtIdPersonality(postEvoSpecies, trainerId, personality);
+            pokePal = GetMonSpritePalStructFromSpecies(postEvoSpecies, isShiny);
             LoadCompressedPalette(pokePal->data, 0x120, 0x20);
             gMain.state++;
         }
@@ -471,6 +474,7 @@ static void CB2_TradeEvolutionSceneLoadGraphics(void)
 void TradeEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, u8 preEvoSpriteId, u8 partyId)
 {
     u8 name[20];
+    bool8 isShiny;
     u16 currSpecies;
     u32 trainerId, personality;
     const struct CompressedSpritePalette* pokePal;
@@ -484,6 +488,7 @@ void TradeEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, u8 preEvoSprit
 
     // preEvo sprite
     currSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
 
@@ -494,7 +499,7 @@ void TradeEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, u8 preEvoSprit
                             gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                             postEvoSpecies);
 
-    pokePal = GetMonSpritePalStructFromOtIdPersonality(postEvoSpecies, trainerId, personality);
+    pokePal = GetMonSpritePalStructFromSpecies(postEvoSpecies, isShiny);
     LoadCompressedPalette(pokePal->data, 0x120, 0x20);
 
     SetMultiuseSpriteTemplateToPokemon(postEvoSpecies, B_POSITION_OPPONENT_LEFT);
@@ -569,7 +574,7 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon* mon)
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_MARKINGS, &data);
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_ENCRYPT_SEPARATOR, &data);
 
-        for (i = MON_DATA_COOL_RIBBON; i < MON_DATA_COOL_RIBBON + CONTEST_CATEGORIES_COUNT; i++)
+        for (i = MON_DATA_BEAUTY_RIBBON; i < MON_DATA_BEAUTY_RIBBON + CONTEST_CATEGORIES_COUNT - 1; i++)
             SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);
         for (i = MON_DATA_CHAMPION_RIBBON; i <= MON_DATA_UNUSED_RIBBONS; i++)
             SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);

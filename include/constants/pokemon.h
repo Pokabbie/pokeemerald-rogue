@@ -93,6 +93,7 @@
 // Shiny odds
 // RogueNote: odds are currently ~1/100
 #define SHINY_ODDS 655 // Actual probability is SHINY_ODDS/65536
+#define NON_SHINY_PLACEHOLDER (SHINY_ODDS + 1)
 
 // Flags for Get(Box)MonData / Set(Box)MonData
 #define MON_DATA_PERSONALITY        0
@@ -145,7 +146,7 @@
 #define MON_DATA_TOUGH             47
 #define MON_DATA_SHEEN             48
 #define MON_DATA_OT_GENDER         49
-#define MON_DATA_COOL_RIBBON       50
+#define MON_DATA_IS_SHINY          50 // Originally MON_DATA_COOL_RIBBON
 #define MON_DATA_BEAUTY_RIBBON     51
 #define MON_DATA_CUTE_RIBBON       52
 #define MON_DATA_SMART_RIBBON      53

@@ -2104,7 +2104,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
         gMonSpritesGfxPtr->buffer = AllocZeroed(0x2000);
     if (!isBackpic)
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), (palette * 0x10) + 0x100, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), (palette * 0x10) + 0x100, 0x20);
         if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
             LoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
                                                 gMonSpritesGfxPtr->buffer,
@@ -2120,7 +2120,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     }
     else
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), (palette * 0x10) + 0x100, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), (palette * 0x10) + 0x100, 0x20);
         if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
             LoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[species],
                                                 gMonSpritesGfxPtr->buffer,

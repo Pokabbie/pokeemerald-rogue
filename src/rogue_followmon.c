@@ -44,7 +44,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
     {
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-        species = MonSpeciesToFollowSpecies(VarGet(VAR_FOLLOW_MON_0 + varNo), FALSE);
+        species = VarGet(VAR_FOLLOW_MON_0 + varNo);
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
@@ -107,9 +107,29 @@ void ResetFollowParterMonObjectEvent()
         DestroyFollower();
 }
 
+void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
+{
+    u16 gfxSpecies = MonSpeciesToFollowSpecies(species, isShiny);
+    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
 static bool8 IsFollowMonObject(struct ObjectEvent* object)
 {
-    return object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F;
+    if(object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+    {
+        return TRUE;
+    }
+
+    if(object->graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && object->graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
+    {
+        u16 gfxId = VarGet(VAR_OBJ_GFX_ID_0 + (object->graphicsId - OBJ_EVENT_GFX_VAR_FIRST));
+        if(gfxId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && gfxId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static bool8 AreElevationsCompatible(u8 a, u8 b)
@@ -184,4 +204,35 @@ bool8 FollowMon_ProcessMonInteraction()
     }
 
     return FALSE;
+}
+
+void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
+{
+    struct ObjectEvent *curObject;
+    u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
+    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+    *species = FALSE;
+    *isShiny = FALSE;
+
+    if(objEventId < OBJECT_EVENTS_COUNT)
+    {
+        curObject = &gObjectEvents[objEventId];
+        if(IsFollowMonObject(curObject))
+        {
+            u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+            u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+
+            if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+            {
+                *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+                *isShiny = TRUE;
+            }
+            else
+            {
+                *species = gfxSpecies;
+                *isShiny = FALSE;
+            }
+        }
+    }
 }

@@ -3295,7 +3295,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
-                    VarSet(VAR_FOLLOW_MON_0, species);
+                    FollowMon_SetGraphics(0, species, TRUE);
                     break;
                 }
 
@@ -3303,7 +3303,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
-                    VarSet(VAR_FOLLOW_MON_0, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
+                    FollowMon_SetGraphics(0, gRogueAdvPath.currentRoomParams.perType.wildDen.species, TRUE);
                     break;
                 }
 
@@ -6234,6 +6234,23 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         // Clear held item
         temp = 0;
         SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+    }
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    {
+        u8 i;
+        u16 moveId;
+
+        // Replace roar with hidden power to avoid pokemon roaring itself out of battle
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
+            if(moveId == MOVE_ROAR || moveId == MOVE_TELEPORT)
+            {
+                moveId = MOVE_HIDDEN_POWER;
+                SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
+                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+            }
+        }
     }
 }
 

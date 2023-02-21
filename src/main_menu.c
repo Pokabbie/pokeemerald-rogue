@@ -2110,7 +2110,7 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
 
 static u8 NewGameBirchSpeech_CreateLotadSprite(u8 x, u8 y)
 {
-    return CreateMonPicSprite_Affine(DISPLAY_MON_SPECIES, SHINY_ODDS, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
+    return CreateMonPicSprite_Affine(DISPLAY_MON_SPECIES, NON_SHINY_PLACEHOLDER, 0, FALSE, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
 }
 
 static void FreeTrainerSprites(u8 taskId)

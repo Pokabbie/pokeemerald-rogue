@@ -209,6 +209,7 @@ gSpecials::
 	def_special Rogue_BufferCampaignName
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
+	def_special Rogue_GetFollowMonSpecies
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetNodeParams
 	def_special RogueAdv_ExecuteNodeAction

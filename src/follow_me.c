@@ -107,7 +107,7 @@ u8 GetFollowerLocalId(void)
     return gObjectEvents[gSaveBlock2Ptr->follower.objId].localId;
 }
 
-extern const u8 Rogue_InteractWithFollowMon[];
+extern const u8 Rogue_InteractWithPartnerFollowMon[];
 
 const u8* GetFollowerScriptPointer(void)
 {
@@ -117,7 +117,7 @@ const u8* GetFollowerScriptPointer(void)
     switch(gSaveBlock2Ptr->follower.scriptId)
     {
         case FOLLOW_SCRIPT_ID_FOLLOW_MON:
-            return Rogue_InteractWithFollowMon;
+            return Rogue_InteractWithPartnerFollowMon;
 
         default:
             return NULL;

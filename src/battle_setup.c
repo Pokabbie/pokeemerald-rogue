@@ -460,6 +460,16 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_DEOXYS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
         break;
+
+    case SPECIES_REGIROCK:
+        CreateBattleStartTask(B_TRANSITION_REGIROCK, MUS_VS_REGI);
+        break;
+    case SPECIES_REGICE:
+        CreateBattleStartTask(B_TRANSITION_REGICE, MUS_VS_REGI);
+        break;
+    case SPECIES_REGISTEEL:
+        CreateBattleStartTask(B_TRANSITION_REGISTEEL, MUS_VS_REGI);
+        break;
     case SPECIES_ARTICUNO:
     case SPECIES_ZAPDOS:
     case SPECIES_MOLTRES:
@@ -482,7 +492,7 @@ void BattleSetup_StartLegendaryBattle(void)
         if(IsSpeciesLegendary(species))
             CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_RAYQUAZA);
         else
-            CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD);
+            CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD); // RogueNote: todo - change music dynamically
         break;
     }
 

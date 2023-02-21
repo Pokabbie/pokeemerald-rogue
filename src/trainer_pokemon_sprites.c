@@ -106,19 +106,19 @@ static bool16 DecompressPic_HandleDeoxys(u16 species, u32 personality, bool8 isF
     return DecompressPic(species, personality, isFrontPic, dest, isTrainer, FALSE);
 }
 
-static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, u16 paletteTag, bool8 isTrainer)
+static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, bool8 isShiny, u8 paletteSlot, u16 paletteTag, bool8 isTrainer)
 {
     if (!isTrainer)
     {
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), 0x100 + paletteSlot * 0x10, 0x20);
+            LoadCompressedPalette(GetMonSpritePalFromSpecies(species, isShiny), 0x100 + paletteSlot * 0x10, 0x20);
         }
         else
         {
             sCreatingSpriteTemplate.paletteTag = paletteTag;
-            LoadCompressedSpritePalette(GetMonSpritePalStructFromOtIdPersonality(species, otId, personality));
+            LoadCompressedSpritePalette(GetMonSpritePalStructFromSpecies(species, isShiny));
         }
     }
     else
@@ -139,7 +139,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8
 static void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, bool8 isTrainer)
 {
     if (!isTrainer)
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), paletteSlot * 0x10, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), paletteSlot * 0x10, 0x20);
     else
         LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[species].data), paletteSlot * 0x10, 0x20);
 }
@@ -194,7 +194,7 @@ static u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFront
     sCreatingSpriteTemplate.images = images;
     sCreatingSpriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     sCreatingSpriteTemplate.callback = DummyPicSpriteCallback;
-    LoadPicPaletteByTagOrSlot(species, otId, personality, paletteSlot, paletteTag, isTrainer);
+    LoadPicPaletteByTagOrSlot(species, otId, personality, FALSE, paletteSlot, paletteTag, isTrainer);
     spriteId = CreateSprite(&sCreatingSpriteTemplate, x, y, 0);
     if (paletteTag == TAG_NONE)
         gSprites[spriteId].oam.paletteNum = paletteSlot;
@@ -211,7 +211,7 @@ static u16 CreatePicSprite_HandleDeoxys(u16 species, u32 otId, u32 personality, 
     return CreatePicSprite(species, otId, personality, isFrontPic, x, y, paletteSlot, paletteTag, isTrainer, FALSE);
 }
 
-u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, s16 x, s16 y, u8 paletteSlot, u16 paletteTag)
+u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, bool8 isShiny, u8 flags, s16 x, s16 y, u8 paletteSlot, u16 paletteTag)
 {
     u8 *framePics;
     struct SpriteFrameImage *images;
@@ -276,7 +276,7 @@ u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, 
         sCreatingSpriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     }
     sCreatingSpriteTemplate.callback = DummyPicSpriteCallback;
-    LoadPicPaletteByTagOrSlot(species, otId, personality, paletteSlot, paletteTag, FALSE);
+    LoadPicPaletteByTagOrSlot(species, otId, personality, isShiny, paletteSlot, paletteTag, FALSE);
     spriteId = CreateSprite(&sCreatingSpriteTemplate, x, y, 0);
     if (paletteTag == TAG_NONE)
         gSprites[spriteId].oam.paletteNum = paletteSlot;

@@ -20,6 +20,7 @@
 #include "rogue.h"
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
+#include "rogue_followmon.h"
 #include "rogue_script.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
@@ -815,4 +816,14 @@ void Rogue_ApplyMonCombo(void)
     {
         gSpecialVar_Result = FALSE;
     }
+}
+
+void Rogue_GetFollowMonSpecies(void)
+{
+    u16 species;
+    bool8 isShiny;
+    FollowMon_GetSpeciesFromLastInteracted(&species, &isShiny);
+
+    gSpecialVar_0x800A = species;
+    gSpecialVar_0x800B = isShiny;
 }
