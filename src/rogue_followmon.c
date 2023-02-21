@@ -1,39 +1,19 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
-//#include "constants/abilities.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
-//#include "constants/items.h"
-//#include "constants/layouts.h"
 #include "constants/rogue.h"
-//#include "data.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
+
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
 #include "follow_me.h"
-//#include "item.h"
-//#include "item_use.h"
-//#include "money.h"
-//#include "overworld.h"
-//#include "pokedex.h"
 #include "pokemon.h"
-//#include "random.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
+#include "script.h"
 
 #include "rogue.h"
-
-//#include "rogue_query.h"
-//#include "rogue_baked.h"
-//#include "rogue_campaign.h"
-//#include "rogue_controller.h"
-
 #include "rogue_followmon.h"
+
+static EWRAM_DATA bool8 sPendingFollowMonInteraction = FALSE;
 
 extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
 extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
@@ -125,4 +105,83 @@ void ResetFollowParterMonObjectEvent()
 {
     if(PlayerHasFollower())
         DestroyFollower();
+}
+
+static bool8 IsFollowMonObject(struct ObjectEvent* object)
+{
+    return object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F;
+}
+
+static bool8 AreElevationsCompatible(u8 a, u8 b)
+{
+    if (a == 0 || b == 0)
+        return TRUE;
+
+    if (a != b)
+        return FALSE;
+
+    return TRUE;
+}
+
+bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    
+    if (collider == player)
+    {
+        // Player can walk on top of follow mon
+        if(IsFollowMonObject(obstacle))
+        {
+            sPendingFollowMonInteraction = TRUE;
+            return TRUE;
+        }
+    }
+    else if(obstacle == player)
+    {
+        // Follow mon can walk onto player
+        if(IsFollowMonObject(collider))
+        {
+            sPendingFollowMonInteraction = TRUE;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+bool8 FollowMon_ProcessMonInteraction()
+{
+    if(sPendingFollowMonInteraction)
+    {
+        u8 i;
+        struct ObjectEvent *curObject;
+        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    
+        sPendingFollowMonInteraction = FALSE;
+        
+        for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+        {
+            curObject = &gObjectEvents[i];
+            if (curObject->active && curObject != player && IsFollowMonObject(curObject))
+            {
+                if ((curObject->currentCoords.x == player->currentCoords.x && curObject->currentCoords.y == player->currentCoords.y) || (curObject->previousCoords.x == player->currentCoords.x && curObject->previousCoords.y == player->currentCoords.y))
+                {
+                    if (AreElevationsCompatible(curObject->currentElevation, player->currentElevation))
+                    {
+                        // There is a valid collision so exectute the attached script
+                        const u8* script = GetObjectEventScriptPointerByObjectEventId(i);
+
+                        if(script != NULL)
+                        {
+                            VarSet(VAR_LAST_TALKED, curObject->localId);
+                            ScriptContext1_SetupScript(script);
+                            return TRUE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return FALSE;
 }

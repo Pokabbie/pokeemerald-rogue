@@ -1970,6 +1970,10 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         return TRUE;
     }
 #endif
+    else if(FollowMon_ProcessMonInteraction() == TRUE)
+    {
+        return TRUE;
+    }
 
     return FALSE;
 }
