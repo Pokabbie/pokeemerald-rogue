@@ -484,6 +484,8 @@ void ApplyNewEncryptionKeyToGameStats(u32 newKey)
 
 void LoadObjEventTemplatesFromHeader(void)
 {
+    u8 objectCount = gMapHeader.events->objectEventCount;
+
     // Clear map object templates
     CpuFill32(0, gSaveBlock1Ptr->objectEventTemplates, sizeof(gSaveBlock1Ptr->objectEventTemplates));
 
@@ -491,16 +493,23 @@ void LoadObjEventTemplatesFromHeader(void)
     CpuCopy32(gMapHeader.events->objectEvents,
               gSaveBlock1Ptr->objectEventTemplates,
               gMapHeader.events->objectEventCount * sizeof(struct ObjectEventTemplate));
+    
+    Rogue_ModifyObjectEvents(&gMapHeader, gSaveBlock1Ptr->objectEventTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+    gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
 void LoadSaveblockObjEventScripts(void)
 {
     struct ObjectEventTemplate *mapHeaderObjTemplates = gMapHeader.events->objectEvents;
     struct ObjectEventTemplate *savObjTemplates = gSaveBlock1Ptr->objectEventTemplates;
+    u8 objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
     s32 i;
 
     for (i = 0; i < OBJECT_EVENT_TEMPLATES_COUNT; i++)
         savObjTemplates[i].script = mapHeaderObjTemplates[i].script;
+
+    Rogue_ModifyObjectEvents(&gMapHeader, savObjTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+    gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
 void SetObjEventTemplateCoords(u8 localId, s16 x, s16 y)
@@ -610,12 +619,16 @@ static void LoadCurrentMapData(void)
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     gSaveBlock1Ptr->mapLayoutId = gMapHeader.mapLayoutId;
     gMapHeader.mapLayout = GetMapLayout();
+
+    Rogue_ModifyMapHeader(&gMapHeader);
 }
 
 static void LoadSaveblockMapHeader(void)
 {
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     gMapHeader.mapLayout = GetMapLayout();
+
+    Rogue_ModifyMapHeader(&gMapHeader);
 }
 
 static void SetPlayerCoordsFromWarp(void)

@@ -37,7 +37,7 @@ void Task_LinkContest_StartCommunicationEm(u8 taskId)
     switch (gTasks[taskId].tCategory)
     {
     case CONTEST_CATEGORY_COOL:
-        gHighestRibbonRank = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_COOL_RIBBON);
+        gHighestRibbonRank = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_BEAUTY_RIBBON);
         break;
     case CONTEST_CATEGORY_BEAUTY:
         gHighestRibbonRank = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_BEAUTY_RIBBON);

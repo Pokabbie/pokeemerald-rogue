@@ -153,14 +153,34 @@ Rogue_ReturnToHub::
 	return
 
 
-Rogue_InteractWithFollowMon::
+Rogue_InteractWithPartnerFollowMon::
 	lock
 	faceplayer
 	setvar VAR_0x8004, 0
 	special BufferMonNickname
 	playmoncry SPECIES_DITTO, CRY_MODE_NORMAL
-	msgbox Rogue_InteractWithFollowMon_Text_0
+	msgbox Rogue_InteractWithPartnerFollowMon_Text_0
 	release
+	return
+
+
+Rogue_InteractWithWildFollowMonInternal::
+	special Rogue_GetFollowMonSpecies
+	playmoncry VAR_0x800A, CRY_MODE_ENCOUNTER
+	waitmoncry
+	seteventmon VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	removeobject 1
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	return
+
+
+Rogue_InteractWithWildFollowMon::
+	lockall
+	call Rogue_InteractWithWildFollowMonInternal
+	releaseall
 	return
 
 
@@ -1139,7 +1159,7 @@ Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"
 	.string "HUB?$"
 
-Rogue_InteractWithFollowMon_Text_0:
+Rogue_InteractWithPartnerFollowMon_Text_0:
 	.string "{STR_VAR_1}: TODO!$"
 
 Rogue_Shop_Balls_Text_0:

@@ -37,8 +37,8 @@
 
 #define ROGUE_HUB_BERRY_TREE_COUNT 20
 
-#define ROGUE_MAX_ADVPATH_ROWS 7
-#define ROGUE_MAX_ADVPATH_COLUMNS 7
+#define ROGUE_MAX_ADVPATH_ROWS 14
+#define ROGUE_MAX_ADVPATH_COLUMNS 14
 
 
 // Items
@@ -104,6 +104,42 @@
 #define ROUTE_FLAG_KANTO                  (1 << 2)
 #define ROUTE_FLAG_JOHTO                  (1 << 3)
 #define ROUTE_FLAG_FALLBACK_REGION        (1 << 4) // If the player unselects all route expansions, use this custom fallback set
+
+// Adventure
+//
+#define ROGUE_ADV_STANDARD      0
+#define ROGUE_ADV_RAINBOW       1
+#define ROGUE_ADV_GAUNTLET      2
+
+// AdvPath
+//
+#define ADVPATH_ROOM_NONE       0
+#define ADVPATH_ROOM_ROUTE      1
+#define ADVPATH_ROOM_RESTSTOP   2
+#define ADVPATH_ROOM_LEGENDARY  3
+#define ADVPATH_ROOM_MINIBOSS   4
+#define ADVPATH_ROOM_WILD_DEN   5
+#define ADVPATH_ROOM_GAMESHOW   6
+#define ADVPATH_ROOM_DARK_DEAL  7
+#define ADVPATH_ROOM_LAB        8
+
+#define ADVPATH_ROOM_BOSS       9
+
+#define ADVPATH_ROOM_COUNT      10
+
+
+#define ADVPATH_SUBROOM_ROUTE_CALM          0
+#define ADVPATH_SUBROOM_ROUTE_AVERAGE       1
+#define ADVPATH_SUBROOM_ROUTE_TOUGH         2
+#define ADVPATH_SUBROOM_RESTSTOP_BATTLE     3
+#define ADVPATH_SUBROOM_RESTSTOP_SHOP       4
+#define ADVPATH_SUBROOM_RESTSTOP_FULL       5
+
+#define ADVPATH_SUBROOM_COUNT 6
+
+
+#define ADVPATH_ROOM_WEIGHT_COUNT       (ADVPATH_ROOM_LAB + 1) // Ignore boss room
+#define ADVPATH_SUBROOM_WEIGHT_COUNT    ADVPATH_SUBROOM_COUNT
 
 // Trainers
 //

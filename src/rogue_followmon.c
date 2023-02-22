@@ -1,39 +1,19 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
-//#include "constants/abilities.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
-//#include "constants/items.h"
-//#include "constants/layouts.h"
 #include "constants/rogue.h"
-//#include "data.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
+
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
 #include "follow_me.h"
-//#include "item.h"
-//#include "item_use.h"
-//#include "money.h"
-//#include "overworld.h"
-//#include "pokedex.h"
 #include "pokemon.h"
-//#include "random.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
+#include "script.h"
 
 #include "rogue.h"
-
-//#include "rogue_query.h"
-//#include "rogue_baked.h"
-//#include "rogue_campaign.h"
-//#include "rogue_controller.h"
-
 #include "rogue_followmon.h"
+
+static EWRAM_DATA bool8 sPendingFollowMonInteraction = FALSE;
 
 extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
 extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
@@ -64,7 +44,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
     {
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-        species = MonSpeciesToFollowSpecies(VarGet(VAR_FOLLOW_MON_0 + varNo), FALSE);
+        species = VarGet(VAR_FOLLOW_MON_0 + varNo);
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
@@ -125,4 +105,134 @@ void ResetFollowParterMonObjectEvent()
 {
     if(PlayerHasFollower())
         DestroyFollower();
+}
+
+void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
+{
+    u16 gfxSpecies = MonSpeciesToFollowSpecies(species, isShiny);
+    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
+static bool8 IsFollowMonObject(struct ObjectEvent* object)
+{
+    if(object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+    {
+        return TRUE;
+    }
+
+    if(object->graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && object->graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
+    {
+        u16 gfxId = VarGet(VAR_OBJ_GFX_ID_0 + (object->graphicsId - OBJ_EVENT_GFX_VAR_FIRST));
+        if(gfxId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && gfxId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static bool8 AreElevationsCompatible(u8 a, u8 b)
+{
+    if (a == 0 || b == 0)
+        return TRUE;
+
+    if (a != b)
+        return FALSE;
+
+    return TRUE;
+}
+
+bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    
+    if (collider == player)
+    {
+        // Player can walk on top of follow mon
+        if(IsFollowMonObject(obstacle))
+        {
+            sPendingFollowMonInteraction = TRUE;
+            return TRUE;
+        }
+    }
+    else if(obstacle == player)
+    {
+        // Follow mon can walk onto player
+        if(IsFollowMonObject(collider))
+        {
+            sPendingFollowMonInteraction = TRUE;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+bool8 FollowMon_ProcessMonInteraction()
+{
+    if(sPendingFollowMonInteraction)
+    {
+        u8 i;
+        struct ObjectEvent *curObject;
+        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    
+        sPendingFollowMonInteraction = FALSE;
+        
+        for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+        {
+            curObject = &gObjectEvents[i];
+            if (curObject->active && curObject != player && IsFollowMonObject(curObject))
+            {
+                if ((curObject->currentCoords.x == player->currentCoords.x && curObject->currentCoords.y == player->currentCoords.y) || (curObject->previousCoords.x == player->currentCoords.x && curObject->previousCoords.y == player->currentCoords.y))
+                {
+                    if (AreElevationsCompatible(curObject->currentElevation, player->currentElevation))
+                    {
+                        // There is a valid collision so exectute the attached script
+                        const u8* script = GetObjectEventScriptPointerByObjectEventId(i);
+
+                        if(script != NULL)
+                        {
+                            VarSet(VAR_LAST_TALKED, curObject->localId);
+                            ScriptContext1_SetupScript(script);
+                            return TRUE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
+{
+    struct ObjectEvent *curObject;
+    u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
+    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+    *species = FALSE;
+    *isShiny = FALSE;
+
+    if(objEventId < OBJECT_EVENTS_COUNT)
+    {
+        curObject = &gObjectEvents[objEventId];
+        if(IsFollowMonObject(curObject))
+        {
+            u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+            u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+
+            if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+            {
+                *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+                *isShiny = TRUE;
+            }
+            else
+            {
+                *species = gfxSpecies;
+                *isShiny = FALSE;
+            }
+        }
+    }
 }

@@ -344,5 +344,9 @@ const struct RogueEncounterData gRogueRestStopEncounterInfo =
     .mapTable = sRouteMapsRestStop
 };
 
+
+
+
+
 #undef ROUTE_MAP
 #undef ENCOUNTER_MAP

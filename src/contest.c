@@ -2965,7 +2965,7 @@ u8 GetContestEntryEligibility(struct Pokemon *pkmn)
     switch (gSpecialVar_ContestCategory)
     {
     case CONTEST_CATEGORY_COOL:
-        ribbon = GetMonData(pkmn, MON_DATA_COOL_RIBBON);
+        ribbon = GetMonData(pkmn, MON_DATA_BEAUTY_RIBBON);
         break;
     case CONTEST_CATEGORY_BEAUTY:
         ribbon = GetMonData(pkmn, MON_DATA_BEAUTY_RIBBON);
@@ -3123,7 +3123,7 @@ static u8 CreateContestantSprite(u16 species, u32 otId, u32 personality, u32 ind
 
     HandleLoadSpecialPokePic(&gMonBackPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT], species, personality);
 
-    LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), 0x120, 0x20);
+    LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), 0x120, 0x20);
     SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_PLAYER_LEFT);
 
     spriteId = CreateSprite(&gMultiuseSpriteTemplate, 0x70, GetBattlerSpriteFinal_Y(2, species, FALSE), 30);

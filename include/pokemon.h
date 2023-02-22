@@ -60,7 +60,7 @@ struct PokemonSubstruct3
  /* 0x06 */ u32 spDefenseIV:5;
  /* 0x07 */ u32 isEgg:1;
 
- /* 0x08 */ u32 coolRibbon:3;
+ /* 0x08 */ u32 isShiny:3;
  /* 0x08 */ u32 beautyRibbon:3;
  /* 0x08 */ u32 cuteRibbon:3;
  /* 0x09 */ u32 smartRibbon:3;
@@ -435,9 +435,9 @@ void PlayBattleBGM(void);
 void PlayMapChosenOrBattleBGM(u16 songId);
 void CreateTask_PlayMapChosenOrBattleBGM(u16 songId);
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon);
-const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 personality);
+const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny);
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon);
-const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u32 otId , u32 personality);
+const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, bool8 isShiny);
 bool32 IsHMMove2_LearnReplaceCheck(u16 move);
 bool32 CanUseHMMove2(u16 move);
 bool8 IsMonSpriteNotFlipped(u16 species);
@@ -450,7 +450,6 @@ void BoxMonRestorePP(struct BoxPokemon *boxMon);
 void SetMonPreventsSwitchingString(void);
 void SetWildMonHeldItem(void);
 bool8 IsMonShiny(struct Pokemon *mon);
-bool8 IsShinyOtIdPersonality(u32 otId, u32 personality);
 const u8 *GetTrainerPartnerName(void);
 void BattleAnimateFrontSprite(struct Sprite* sprite, u16 species, bool8 noCry, u8 panMode);
 void DoMonFrontSpriteAnimation(struct Sprite* sprite, u16 species, bool8 noCry, u8 panModeAnimFlag);

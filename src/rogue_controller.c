@@ -251,6 +251,9 @@ u16 RogueRandomRange(u16 range, u8 flag)
     // Always use rogue random to avoid seeding issues based on flag
     u16 res = RogueRandom();
 
+    if(range <= 1)
+        return 0;
+
     if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
         return res % range;
     else
@@ -1967,6 +1970,10 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         return TRUE;
     }
 #endif
+    else if(FollowMon_ProcessMonInteraction() == TRUE)
+    {
+        return TRUE;
+    }
 
     return FALSE;
 }
@@ -2335,15 +2342,15 @@ static void BeginRogueRun(void)
                     AddBagItem(itemId, quantity);
             }
         }
-
-#ifdef ROGUE_DEBUG
-        AddBagItem(ITEM_ESCAPE_ROPE, 101);
-#endif
     }
     else
     {
         SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
     }
+
+#ifdef ROGUE_DEBUG
+    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+#endif
 
     RecalcCharmCurseValues();
 
@@ -3288,7 +3295,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
-                    VarSet(VAR_FOLLOW_MON_0, species);
+                    FollowMon_SetGraphics(0, species, TRUE);
                     break;
                 }
 
@@ -3296,7 +3303,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
-                    VarSet(VAR_FOLLOW_MON_0, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
+                    FollowMon_SetGraphics(0, gRogueAdvPath.currentRoomParams.perType.wildDen.species, TRUE);
                     break;
                 }
 
@@ -3401,7 +3408,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     break;
                 }
 
-                case ADVPATH_ROOM_GRAVEYARD:
+                case ADVPATH_ROOM_DARK_DEAL:
                 {
                     RandomiseCharmItems();
                     break;
@@ -3433,6 +3440,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     }
 
     QuestNotify_OnWarp(warp);
+}
+
+
+void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
+{
+}
+
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+    if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    {
+        RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+    }
 }
 
 static void PushFaintedMonToLab(struct Pokemon* srcMon)
@@ -6214,6 +6234,23 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         // Clear held item
         temp = 0;
         SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+    }
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    {
+        u8 i;
+        u16 moveId;
+
+        // Replace roar with hidden power to avoid pokemon roaring itself out of battle
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
+            if(moveId == MOVE_ROAR || moveId == MOVE_TELEPORT)
+            {
+                moveId = MOVE_HIDDEN_POWER;
+                SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
+                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+            }
+        }
     }
 }
 

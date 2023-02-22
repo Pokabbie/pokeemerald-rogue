@@ -63,6 +63,8 @@ u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
+void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectBossEncounter(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
