@@ -363,7 +363,7 @@ static void VBlankCB_ContestPainting(void)
 
 static void InitContestMonPixels(u16 species, bool8 backPic)
 {
-    const void *pal = GetMonSpritePalFromSpecies(species, FALSE);
+    const void *pal = GetMonSpritePalFromSpecies(species, 0, FALSE);
     LZDecompressVram(pal, gContestPaintingMonPalette);
     if (!backPic)
     {

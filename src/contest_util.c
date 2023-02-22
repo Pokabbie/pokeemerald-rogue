@@ -876,6 +876,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
 {
     int i;
     u8 spriteId;
+    u8 gender;
     u16 species;
     u32 otId;
     u32 personality;
@@ -890,6 +891,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
         GET_CONTEST_WINNER_ID(i);
         species = gContestMons[i].species;
         personality = gContestMons[i].personality;
+        gender = GetGenderFromSpeciesAndPersonality(species, personality);
         otId = gContestMons[i].otId;
         HandleLoadSpecialPokePic(
             &gMonFrontPicTable[species],
@@ -897,7 +899,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
             species,
             personality);
 
-        pokePal = GetMonSpritePalStructFromSpecies(species, FALSE);
+        pokePal = GetMonSpritePalStructFromSpecies(species, gender, FALSE);
         LoadCompressedSpritePalette(pokePal);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = pokePal->tag;
@@ -2559,6 +2561,7 @@ void ShowContestEntryMonPic(void)
     u8 spriteId;
     u8 taskId;
     u8 left, top;
+    u8 gender;
 
     if (FindTaskIdByFunc(Task_ShowContestEntryMonPic) == TASK_NONE)
     {
@@ -2567,13 +2570,14 @@ void ShowContestEntryMonPic(void)
         top = 3;
         species = gContestMons[gSpecialVar_0x8006].species;
         personality = gContestMons[gSpecialVar_0x8006].personality;
+        gender = GetGenderFromSpeciesAndPersonality(species, personality);
         otId = gContestMons[gSpecialVar_0x8006].otId;
         taskId = CreateTask(Task_ShowContestEntryMonPic, 0x50);
         gTasks[taskId].data[0] = 0;
         gTasks[taskId].data[1] = species;
         HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
 
-        palette = GetMonSpritePalStructFromSpecies(species, FALSE);
+        palette = GetMonSpritePalStructFromSpecies(species, gender, FALSE);
         LoadCompressedSpritePalette(palette);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = palette->tag;

@@ -719,6 +719,7 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
 {
     u16 species;
     bool8 isShiny;
+    u8 gender;
     u32 personality, trainerId;
     const struct CompressedSpritePalette *palette;
 
@@ -735,7 +736,8 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         // Load mon palette
         species = GetMonData(mon, MON_DATA_SPECIES2);
         isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        palette = GetMonSpritePalStructFromSpecies(species, isShiny);
+        gender = GetMonGender(mon);
+        palette = GetMonSpritePalStructFromSpecies(species, gender, isShiny);
 
         LoadCompressedSpritePalette(palette);
         SetMultiuseSpriteTemplateToPokemon(palette->tag, B_POSITION_OPPONENT_LEFT);

@@ -6954,7 +6954,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
             sStorage->displayMonLevel = GetLevelFromBoxMonExp(boxMon);
             sStorage->displayMonMarkings = GetBoxMonData(boxMon, MON_DATA_MARKINGS);
             sStorage->displayMonPersonality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, sStorage->displayMonIsShiny);
+            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, GetBoxMonGender(boxMon),sStorage->displayMonIsShiny);
             gender = GetGenderFromSpeciesAndPersonality(sStorage->displayMonSpecies, sStorage->displayMonPersonality);
             sStorage->displayMonItemId = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
         }
@@ -10169,7 +10169,7 @@ void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
 
     // Update front sprite
     sStorage->displayMonSpecies = species;
-    sStorage->displayMonPalette = GetMonSpritePalFromSpecies(species, isShiny);
+    sStorage->displayMonPalette = GetMonSpritePalFromSpecies(species, GetBoxMonGender(boxMon), isShiny);
     if (!sJustOpenedBag)
     {
         LoadDisplayMonGfx(species, pid);

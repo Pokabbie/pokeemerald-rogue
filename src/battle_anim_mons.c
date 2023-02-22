@@ -2143,12 +2143,13 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     u8 spriteId;
     u16 sheet = LoadSpriteSheet(&sSpriteSheet_MoveEffectMons[id]);
     u16 palette = AllocSpritePalette(sSpriteTemplate_MoveEffectMons[id].paletteTag);
+    u8 gender = GetGenderFromSpeciesAndPersonality(species, personality);
 
     if (gMonSpritesGfxPtr != NULL && gMonSpritesGfxPtr->buffer == NULL)
         gMonSpritesGfxPtr->buffer = AllocZeroed(0x2000);
     if (!isBackpic)
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), (palette * 0x10) + 0x100, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), (palette * 0x10) + 0x100, 0x20);
         LoadSpecialPokePic(&gMonFrontPicTable[species],
                            gMonSpritesGfxPtr->buffer,
                            species,
@@ -2157,7 +2158,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     }
     else
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), (palette * 0x10) + 0x100, 0x20);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), (palette * 0x10) + 0x100, 0x20);
         LoadSpecialPokePic(&gMonBackPicTable[species],
                            gMonSpritesGfxPtr->buffer,
                            species,

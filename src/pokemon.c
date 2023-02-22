@@ -7749,55 +7749,42 @@ const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalFromSpecies(species, shiny);
+    u8 gender = GetMonGender(mon);
+    return GetMonSpritePalFromSpecies(species, gender, shiny);
 }
 
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny)
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny)
 {
     u32 shinyValue;
 
     if (species > NUM_SPECIES)
-        return gMonPaletteTable[SPECIES_NONE].data;
+        species = SPECIES_NONE;
 
-    // RogueNote: todo fixup alternate palettes
-    if (shiny)
-    {
-        //if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-        //    return gMonShinyPaletteTableFemale[species].data;
-        //else
-            return gMonShinyPaletteTable[species].data;
-    }
-    else
-    {
-        //if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-        //    return gMonPaletteTableFemale[species].data;
-        //else
-            return gMonPaletteTable[species].data;
-    }
+    return GetMonSpritePalStructFromSpecies(species, gender, shiny)->data;
 }
 
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalStructFromSpecies(species, isShiny);
+    u8 gender = GetMonGender(mon);
+    return GetMonSpritePalStructFromSpecies(species, gender, isShiny);
 }
 
-const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, bool8 isShiny)
+const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, u8 gender, bool8 isShiny)
 {
-    // RogueNote: todo fixup alternate palettes
     if (isShiny)
     {
-        //if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-        //    return &gMonShinyPaletteTableFemale[species];
-        //else
+        if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && gender == MON_FEMALE)
+            return &gMonShinyPaletteTableFemale[species];
+        else
             return &gMonShinyPaletteTable[species];
     }
     else
     {
-        //if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-        //    return &gMonPaletteTableFemale[species];
-        //else
+        if ((gBaseStats[species].flags & FLAG_GENDER_DIFFERENCE) && gender == MON_FEMALE)
+            return &gMonPaletteTableFemale[species];
+        else
             return &gMonPaletteTable[species];
     }
 }
