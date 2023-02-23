@@ -4329,6 +4329,24 @@ static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
     }
 }
 
+bool8 Rogue_AllowItemUse(u16 itemId)
+{
+    //if (gMain.inBattle)
+    //{
+    //    return FALSE;
+    //}
+
+    return TRUE;
+}
+
+void Rogue_OnItemUse(u16 itemId)
+{
+    if (gMain.inBattle)
+    {
+
+    }
+}
+
 void Rogue_PreBattleSetup(void)
 {
     if(IsCurseActive(EFFECT_ITEM_SHUFFLE))

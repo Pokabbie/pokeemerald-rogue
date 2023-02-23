@@ -25,6 +25,29 @@ struct Item
     u8 flingPower;
 };
 
+// This struct is to accomodate custom Rogue items without in both branches more easily
+// It will be applied in rogue_baked.c
+//
+struct RogueItem
+{
+    const u8 name[ROGUE_ITEM_NAME_LENGTH];
+    const u8 description[ROGUE_ITEM_DESC_LENGTH];
+    u16 itemId;
+    u16 price;
+    u8 holdEffect;
+    u8 holdEffectParam;
+    u8 importance;
+    bool8 registrability; // unused
+    u8 pocket;
+    u8 type;
+    ItemUseFunc fieldUseFunc;
+    u8 battleUsage;
+    ItemUseFunc battleUseFunc;
+    u8 secondaryId;
+    const u32 * const iconImage;
+    const u32 * const iconPalette;
+};
+
 struct BagPocket
 {
     struct ItemSlot *itemSlots;
