@@ -275,7 +275,6 @@ struct PokemonObjectEventInfo
     u8 shinyPaletteOffset;
 };
 
-
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;

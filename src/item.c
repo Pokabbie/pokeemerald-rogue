@@ -35,6 +35,7 @@ EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 // rodata
 #include "data/text/item_descriptions.h"
 #include "data/items.h"
+#include "data/rogue_items.h"
 
 // code
 u16 GetBagItemQuantity(u16 *quantity)
@@ -1000,9 +1001,7 @@ u8 ItemId_GetHoldEffectParam(u16 itemId)
 
 const u8 *ItemId_GetDescription(u16 itemId)
 {
-    struct Item item;
-    Rogue_ModifyItem(itemId, &item);
-    return item.description;
+    return Rogue_GetItemDesc(itemId);
 }
 
 u8 ItemId_GetImportance(u16 itemId)
