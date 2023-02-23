@@ -153,6 +153,50 @@ Rogue_ReturnToHub::
 	return
 
 
+Rogue_EventScript_ItemUseHealingFlask::
+	lock
+	goto_if_set FLAG_ROGUE_RUN_ACTIVE, Rogue_EventScript_ItemUseHealingFlask_2
+	buffernumberstring STR_VAR_1, VAR_ROGUE_FLASK_HEALS_MAX
+	msgbox Rogue_EventScript_ItemUseHealingFlask_Text_2, MSGBOX_DEFAULT
+Rogue_EventScript_ItemUseHealingFlask_1:
+	release
+	return
+
+Rogue_EventScript_ItemUseHealingFlask_2:
+	copyvar VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX
+	subvar VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED
+	buffernumberstring STR_VAR_1, VAR_0x8004
+	compare VAR_ROGUE_FLASK_HEALS_USED, VAR_ROGUE_FLASK_HEALS_MAX
+	goto_if_lt Rogue_EventScript_ItemUseHealingFlask_5
+	msgbox Rogue_EventScript_ItemUseHealingFlask_Text_1, MSGBOX_DEFAULT
+	goto Rogue_EventScript_ItemUseHealingFlask_1
+
+Rogue_EventScript_ItemUseHealingFlask_5:
+	msgbox Rogue_EventScript_ItemUseHealingFlask_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_EventScript_ItemUseHealingFlask_8
+	goto Rogue_EventScript_ItemUseHealingFlask_1
+
+Rogue_EventScript_ItemUseHealingFlask_8:
+	addvar VAR_ROGUE_FLASK_HEALS_USED, 1
+	call Common_EventScript_OutOfCenterPartyHeal
+	copyvar VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX
+	subvar VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED
+	buffernumberstring STR_VAR_1, VAR_0x8004
+	msgbox Rogue_EventScript_ItemUseHealingFlask_Text_1, MSGBOX_DEFAULT
+	goto Rogue_EventScript_ItemUseHealingFlask_1
+
+
+Rogue_EventScript_AttemptPostGymHeal::
+	return
+
+
+Rogue_EventScript_AttemptNurseHeal::
+	call Common_EventScript_OutOfCenterPartyHeal
+	setvar VAR_ROGUE_FLASK_HEALS_USED, 0
+	return
+
+
 Rogue_InteractWithPartnerFollowMon::
 	lock
 	faceplayer
@@ -1158,6 +1202,15 @@ Rogue_QuickSaveVersionUpdateMessage_Text_2:
 Rogue_RetireFromRun_Text_0:
 	.string "Are you sure you'd like to return to the\n"
 	.string "HUB?$"
+
+Rogue_EventScript_ItemUseHealingFlask_Text_0:
+	.string "The flask has {STR_VAR_1} uses remaining.\nWould you like to heal?$"
+
+Rogue_EventScript_ItemUseHealingFlask_Text_1:
+	.string "The flask has {STR_VAR_1} uses remaining.$"
+
+Rogue_EventScript_ItemUseHealingFlask_Text_2:
+	.string "The flask has {STR_VAR_1} total uses.$"
 
 Rogue_InteractWithPartnerFollowMon_Text_0:
 	.string "{STR_VAR_1}: TODO!$"

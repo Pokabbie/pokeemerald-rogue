@@ -56,6 +56,7 @@
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
+#define ITEM_HEALING_FLASK              (ITEM_ROGUE_ITEM_FIRST + 2)
 
 // TODO - Classify these as dynamic items, to be wiped every patch (Allows easily moving them around)
 #define ITEM_SHOP_PRICE_CHARM           (ITEM_ROGUE_ITEM_FIRST + 50)

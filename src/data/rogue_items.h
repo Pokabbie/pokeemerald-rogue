@@ -42,6 +42,26 @@ const struct RogueItem gRogueItems[] =
         .iconPalette = gItemIconPalette_FameChecker,
     },
 
+    [ITEM_HEALING_FLASK - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Healing Flask"),
+#else
+        .name = _("HEALING FLASK"),
+#endif
+        .itemId = ITEM_HEALING_FLASK,
+        .price = 0,
+        .description = _(
+            "todo flash desc."),
+        .pocket = POCKET_KEY_ITEMS,
+        .importance = 0,
+        .registrability = TRUE,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_HealingFlask,
+        .iconImage = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_HyperPotion,
+    },
+
 
     [ITEM_SHOP_PRICE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
     {

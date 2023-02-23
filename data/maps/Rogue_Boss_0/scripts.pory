@@ -202,7 +202,7 @@ script Rogue_BattleDefeated_Boss0
 
     msgbox(format("Good luck in your future battles!"))
     waitmessage()
-    special(HealPlayerParty)
+    call(Rogue_EventScript_AttemptPostGymHeal)
     special(RemoveCameraObject)
     warp(MAP_ROGUE_HUB_TRANSITION, 0)
     waitstate

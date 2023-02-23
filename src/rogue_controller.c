@@ -2298,6 +2298,9 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
+    VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
+    VarSet(VAR_ROGUE_FLASK_HEALS_MAX, 4);
+
     SaveHubStates();
 
     ClearBerryTrees();

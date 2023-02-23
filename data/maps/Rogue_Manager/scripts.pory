@@ -178,6 +178,61 @@ script Rogue_ReturnToHub
     return
 }
 
+script Rogue_EventScript_ItemUseHealingFlask
+{
+    lock
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        copyvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX)
+        subvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED)
+
+        buffernumberstring(STR_VAR_1, VAR_0x8004)
+
+        if(var(VAR_ROGUE_FLASK_HEALS_USED) < VAR_ROGUE_FLASK_HEALS_MAX)
+        {
+            msgbox("The flask has {STR_VAR_1} uses remaining.\nWould you like to heal?", MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                //playse(SE_SHOP)
+                //special(HealPlayerParty)
+                addvar(VAR_ROGUE_FLASK_HEALS_USED, 1)
+                call(Common_EventScript_OutOfCenterPartyHeal)
+                
+                copyvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX)
+                subvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED)
+
+                buffernumberstring(STR_VAR_1, VAR_0x8004)
+                msgbox("The flask has {STR_VAR_1} uses remaining.", MSGBOX_DEFAULT)
+            }
+        }
+        else
+        {
+            msgbox("The flask has {STR_VAR_1} uses remaining.", MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_FLASK_HEALS_MAX)
+        msgbox("The flask has {STR_VAR_1} total uses.", MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_EventScript_AttemptPostGymHeal
+{
+    // Don't do it anymore?
+    //special(HealPlayerParty)
+}
+
+script Rogue_EventScript_AttemptNurseHeal
+{
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    setvar(VAR_ROGUE_FLASK_HEALS_USED, 0)
+}
+
 script Rogue_InteractWithPartnerFollowMon
 {
     lock
