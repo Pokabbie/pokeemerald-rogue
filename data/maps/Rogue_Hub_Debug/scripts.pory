@@ -99,6 +99,12 @@ script Rogue_Debug_AddMoney
     addmoney(10000)
     msgbox(format("Lots of stuff."), MSGBOX_DEFAULT)
 
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == NO)
+    {
+        giveitem(ITEM_HEALING_FLASK, 1)
+    }
+
     giveitem(ITEM_STAR_PIECE, 999)
     giveitem(ITEM_RARE_CANDY, 999)
     giveitem(ITEM_ESCAPE_ROPE, 999)

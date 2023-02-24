@@ -95,11 +95,19 @@ Rogue_Debug_AddMoney::
 	lock
 	addmoney 10000
 	msgbox Rogue_Debug_AddMoney_Text_0, MSGBOX_DEFAULT
+	checkitem ITEM_HEALING_FLASK
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Debug_AddMoney_2
+Rogue_Debug_AddMoney_1:
 	giveitem ITEM_STAR_PIECE, 999
 	giveitem ITEM_RARE_CANDY, 999
 	giveitem ITEM_ESCAPE_ROPE, 999
 	release
 	return
+
+Rogue_Debug_AddMoney_2:
+	giveitem ITEM_HEALING_FLASK, 1
+	goto Rogue_Debug_AddMoney_1
 
 
 Rogue_Debug_TrainerBattleSingle::

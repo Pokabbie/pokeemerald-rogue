@@ -12,7 +12,7 @@ script Rogue_Encounter_RestStop_Heal
     lock
     faceplayer
     msgbox(format("You look tired.\nLet me patch you up!"), MSGBOX_DEFAULT)
-    call(Common_EventScript_OutOfCenterPartyHeal)
+    call(Rogue_EventScript_AttemptNurseHeal)
     msgbox(format("Take care!"), MSGBOX_DEFAULT)
     release
 }

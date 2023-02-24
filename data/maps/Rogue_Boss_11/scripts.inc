@@ -29,7 +29,7 @@ Rogue_BattleDefeated_Boss11::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox Rogue_BattleDefeated_Boss11_Text_1
 	waitmessage
-	special HealPlayerParty
+	call Rogue_EventScript_AttemptPostGymHeal
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	waitstate

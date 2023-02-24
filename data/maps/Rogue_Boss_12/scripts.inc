@@ -55,7 +55,7 @@ Rogue_BattleDefeated_Boss12::
 	msgbox Rogue_BattleDefeated_Boss12_Text_4
 Rogue_BattleDefeated_Boss12_1:
 	waitmessage
-	special HealPlayerParty
+	call Rogue_EventScript_AttemptPostGymHeal
 	special RemoveCameraObject
 	warp MAP_ROGUE_HUB_TRANSITION, 0
 	waitstate

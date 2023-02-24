@@ -62,6 +62,7 @@ static void CheckForHiddenItemsInMapConnection(u8);
 static void Task_OpenRegisteredPokeblockCase(u8);
 static void ItemUseOnFieldCB_Bike(u8);
 static void ItemUseOnFieldCB_Rod(u8);
+static void ItemUseOnFieldCB_HealingFlask(u8);
 static void ItemUseOnFieldCB_Itemfinder(u8);
 static void ItemUseOnFieldCB_Berry(u8);
 static void ItemUseOnFieldCB_WailmerPailBerry(u8);
@@ -277,6 +278,19 @@ void ItemUseOutOfBattle_Rod(u8 taskId)
 static void ItemUseOnFieldCB_Rod(u8 taskId)
 {
     StartFishing(ItemId_GetSecondaryId(gSpecialVar_ItemId));
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_HealingFlask(u8 taskId)
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_HealingFlask;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+static void ItemUseOnFieldCB_HealingFlask(u8 taskId)
+{
+    ScriptContext2_Enable();
+    ScriptContext1_SetupScript(Rogue_EventScript_ItemUseHealingFlask);
     DestroyTask(taskId);
 }
 

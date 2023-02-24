@@ -293,7 +293,8 @@ static void PrintEggMemo(void);
 static void Task_PrintSkillsPage(u8);
 static void PrintHeldItemName(void);
 static void PrintSkillsPageText(void);
-static void PrintRibbonCount(void);
+//static void PrintRibbonCount(void);
+static void PrintFriendship(void);
 static void BufferLeftColumnStats(void);
 static void PrintLeftColumnStats(void);
 static void BufferRightColumnStats(void);
@@ -3463,7 +3464,8 @@ static void PrintEggMemo(void)
 static void PrintSkillsPageText(void)
 {
     PrintHeldItemName();
-    PrintRibbonCount();
+    //PrintRibbonCount();
+    PrintFriendship();
     BufferLeftColumnStats();
     PrintLeftColumnStats();
     BufferRightColumnStats();
@@ -3481,7 +3483,8 @@ static void Task_PrintSkillsPage(u8 taskId)
         PrintHeldItemName();
         break;
     case 2:
-        PrintRibbonCount();
+        //PrintRibbonCount();
+        PrintFriendship();
         break;
     case 3:
         BufferLeftColumnStats();
@@ -3530,21 +3533,35 @@ static void PrintHeldItemName(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_HELD_ITEM), text, x, 1, 0, 0);
 }
 
-static void PrintRibbonCount(void)
+//static void PrintRibbonCount(void)
+//{
+//    const u8 *text;
+//    int x;
+//
+//    if (sMonSummaryScreen->summary.ribbonCount == 0)
+//    {
+//        text = gText_None;
+//    }
+//    else
+//    {
+//        ConvertIntToDecimalStringN(gStringVar1, sMonSummaryScreen->summary.ribbonCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
+//        StringExpandPlaceholders(gStringVar4, gText_RibbonsVar1);
+//        text = gStringVar4;
+//    }
+//
+//    x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 70) + 6;
+//    PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
+//}
+
+static void PrintFriendship(void)
 {
     const u8 *text;
     int x;
+    u16 value;
 
-    if (sMonSummaryScreen->summary.ribbonCount == 0)
-    {
-        text = gText_None;
-    }
-    else
-    {
-        ConvertIntToDecimalStringN(gStringVar1, sMonSummaryScreen->summary.ribbonCount, STR_CONV_MODE_RIGHT_ALIGN, 2);
-        StringExpandPlaceholders(gStringVar4, gText_RibbonsVar1);
-        text = gStringVar4;
-    }
+    //TODO - MAX_FRIENDSHIP to 1 -> 100 range?
+    ConvertIntToDecimalStringN(gStringVar1, sMonSummaryScreen->summary.friendship, STR_CONV_MODE_LEFT_ALIGN, 3);
+    text = gStringVar1;
 
     x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 70) + 6;
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
