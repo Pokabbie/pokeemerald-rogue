@@ -7,6 +7,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/rogue.h"
+#include "constants/rgb.h"
 #include "constants/weather.h"
 #include "data.h"
 #include "gba/isagbprint.h"
@@ -693,6 +694,42 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 }
 
 #undef PLAYER_STYLE
+
+void TintPalette_CustomMultiply(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 bTone)
+{
+    s32 r, g, b, i;
+    u32 gray;
+
+    for (i = 0; i < count; i++)
+    {
+        r = GET_R(*palette);
+        g = GET_G(*palette);
+        b = GET_B(*palette);
+
+        r = (r * rTone) / 31;
+        g = (g * gTone) / 31;
+        b = (b * bTone) / 31;
+
+        if (r > 31)
+            r = 31;
+        if (g > 31)
+            g = 31;
+        if (b > 31)
+            b = 31;
+
+        *palette++ = RGB2(r, g, b);
+    }
+}
+
+void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
+{
+    //TintPalette_CustomMultiply(&gPlttBufferUnfaded[offset], count * 16, rTone, gTone, bTone);
+    TintPalette_CustomMultiply(&gPlttBufferUnfaded[offset], count * 16, 30, 25, 16);
+    CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
+
+    //9 8 13 (night)
+    //30 25 16 (sunrise)
+}
 
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {

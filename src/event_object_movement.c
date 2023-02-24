@@ -2060,7 +2060,14 @@ static void LoadObjectEventPalette(u16 paletteTag)
     u16 i = FindObjectEventPaletteIndexByTag(paletteTag);
 
     if (i != OBJ_EVENT_PAL_TAG_NONE) // always true
-        LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+    {
+        u16 paletteOffset = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+
+        //if(paletteOffset != 0xFF)
+        //{
+        //    Rogue_ModifyOverworldPalette(paletteOffset * 16 + 0x100, 1);
+        //}
+    }
 }
 
 // Unused
@@ -2085,6 +2092,8 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
     LoadPalette(Rogue_ModifyPallete16(sObjectEventSpritePalettes[paletteIndex].data), 16 * paletteSlot + 0x100, 0x20);
+
+    Rogue_ModifyOverworldPalette(paletteSlot * 16 + 0x100, 1);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)

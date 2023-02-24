@@ -939,5 +939,6 @@ void LoadMapTilesetPalettes(struct MapLayout const *mapLayout)
     {
         LoadPrimaryTilesetPalette(mapLayout);
         LoadSecondaryTilesetPalette(mapLayout);
+        Rogue_ModifyOverworldPalette(0, NUM_PALS_TOTAL);
     }
 }
