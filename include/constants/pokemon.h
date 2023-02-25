@@ -332,16 +332,16 @@
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 #define EVO_LEVEL_ITEM       16 // Pokémon levels up whilst holding item
+#define EVO_LEVEL_NIGHT      17 // Pokémon reaches the specified level, is night
+#define EVO_LEVEL_DAY        18 // Pokémon reaches the specified level, is day
 
-// RogueNote: Dud evolution types no avaliable outside of ROGUE_EXPANSION, but easier to define here
+// RogueNote: Dud evolution types no avaliable outside of ROGUE_EXPANSION, but easier to define here (Ones that are used are pulled out into methods above)
 // (Note that these values don't match either)
 #define EVO_MEGA_EVOLUTION                0xffff // Not an actual evolution, used to temporarily mega evolve in battle.
 #define EVO_MOVE_MEGA_EVOLUTION           0xfffe // Mega Evolution that checks for a move instead of held item.
 #define EVO_PRIMAL_REVERSION              0xfffd // Not an actual evolution, used to undergo primal reversion in battle.
-#define EVO_LEVEL_FEMALE                  17     // Pokémon reaches the specified level, is female
-#define EVO_LEVEL_MALE                    18     // Pokémon reaches the specified level, is male
-#define EVO_LEVEL_NIGHT                   19     // Pokémon reaches the specified level, is night
-#define EVO_LEVEL_DAY                     20     // Pokémon reaches the specified level, is day
+#define EVO_LEVEL_FEMALE                  19     // Pokémon reaches the specified level, is female
+#define EVO_LEVEL_MALE                    20     // Pokémon reaches the specified level, is male
 #define EVO_LEVEL_DUSK                    21     // Pokémon reaches the specified level, is dusk (5-6 P.M)
 #define EVO_ITEM_HOLD_DAY                 22     // Pokémon levels up, holds specified item at day
 #define EVO_ITEM_HOLD_NIGHT               23     // Pokémon levels up, holds specified item at night

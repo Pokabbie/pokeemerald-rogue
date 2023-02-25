@@ -34,6 +34,7 @@ const u32* Rogue_ModifyPallete32(const u32* input);
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
+u16 Rogue_MiniMenuHeight(void);
 u8* Rogue_GetMiniMenuContent(void);
 void Rogue_CreateMiniMenuExtraGFX(void);
 void Rogue_RemoveMiniMenuExtraGFX(void);
