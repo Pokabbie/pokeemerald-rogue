@@ -7881,7 +7881,8 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
-    gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
+    //gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
+    gFieldEffectArguments[7] = TRUE; // skip to end of anim // RogueNote: Skip to end of anim to stop follower lag (FollowMon_IsMonObject)
     FieldEffectStart(FLDEFF_TALL_GRASS);
 }
 

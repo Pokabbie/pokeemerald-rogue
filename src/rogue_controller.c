@@ -1591,6 +1591,8 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
 
+    RogueToD_SetTime(60 * 10);
+
     // Reset shiny safari
     gRogueGlobalData.safairShinyBufferHead = 0;
     memset(&gRogueGlobalData.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
