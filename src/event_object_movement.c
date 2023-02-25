@@ -2093,7 +2093,7 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 
     LoadPalette(Rogue_ModifyPallete16(sObjectEventSpritePalettes[paletteIndex].data), 16 * paletteSlot + 0x100, 0x20);
 
-    Rogue_ModifyOverworldPalette(paletteSlot * 16 + 0x100, 1);
+    Rogue_ModifyOverworldPalette(paletteSlot * 16 + 0x100, 2);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)
