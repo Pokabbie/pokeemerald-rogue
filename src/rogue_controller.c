@@ -48,6 +48,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_timeofday.h"
 
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
@@ -695,40 +696,9 @@ const u32* Rogue_ModifyPallete32(const u32* input)
 
 #undef PLAYER_STYLE
 
-void TintPalette_CustomMultiply(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 bTone)
-{
-    s32 r, g, b, i;
-    u32 gray;
-
-    for (i = 0; i < count; i++)
-    {
-        r = GET_R(*palette);
-        g = GET_G(*palette);
-        b = GET_B(*palette);
-
-        r = (r * rTone) / 31;
-        g = (g * gTone) / 31;
-        b = (b * bTone) / 31;
-
-        if (r > 31)
-            r = 31;
-        if (g > 31)
-            g = 31;
-        if (b > 31)
-            b = 31;
-
-        *palette++ = RGB2(r, g, b);
-    }
-}
-
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
 {
-    //TintPalette_CustomMultiply(&gPlttBufferUnfaded[offset], count * 16, rTone, gTone, bTone);
-    TintPalette_CustomMultiply(&gPlttBufferUnfaded[offset], count * 16, 30, 25, 16);
-    CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
-
-    //9 8 13 (night)
-    //30 25 16 (sunrise)
+    RogueToD_ModifyOverworldPalette(offset, count);
 }
 
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
@@ -1172,6 +1142,12 @@ bool8 Rogue_ShouldShowMiniMenu(void)
     return TRUE;
 }
 
+u16 Rogue_MiniMenuHeight(void)
+{
+    u16 height = 10;
+    return height;
+}
+
 static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
 {
     u8 pow = 2;
@@ -1279,33 +1255,63 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
-    return Rogue_IsRunActive();
+    return TRUE;
 }
+
+u16 Rogue_MiniMenuHeight(void)
+{
+    u16 height = Rogue_IsRunActive() ? 3 : 1;
+
+    if(Rogue_IsActiveCampaignScored())
+    {
+        ++height;
+    }
+
+    return height;
+}
+
+extern const u8 gText_StatusRoute[];
+extern const u8 gText_StatusBadges[];
+extern const u8 gText_StatusScore[];
+extern const u8 gText_StatusTimer[];
+extern const u8 gText_StatusClock[];
 
 u8* Rogue_GetMiniMenuContent(void)
 {
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8* strPointer = &gStringVar4[0];
 
-    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 4);
-    ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringExpandPlaceholders(gStringVar3, gText_RogueHourMinute);
-
-    ConvertIntToDecimalStringN(gStringVar2, difficultyLevel, STR_CONV_MODE_RIGHT_ALIGN, 4);
+    *strPointer = EOS;
+        
+    // Clock
+    ConvertIntToDecimalStringN(gStringVar1, RogueToD_GetHours(), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar2, RogueToD_GetMinutes(), STR_CONV_MODE_LEADING_ZEROS, 2);
+    StringExpandPlaceholders(gStringVar3, gText_StatusClock);
+    strPointer = StringAppend(strPointer, gStringVar3);
     
+    if(Rogue_IsRunActive())
+    {
+        // Run time
+        ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+        StringExpandPlaceholders(gStringVar3, gText_StatusTimer);
+        strPointer = StringAppend(strPointer, gStringVar3);
+
+        // Badges
+        ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentDifficulty, STR_CONV_MODE_RIGHT_ALIGN, 4);
+        StringExpandPlaceholders(gStringVar3, gText_StatusBadges);
+        strPointer = StringAppend(strPointer, gStringVar3);
+    }
+
+    // Score
     if(Rogue_IsActiveCampaignScored())
     {
         ConvertIntToDecimalStringN(gStringVar1, Rogue_GetCampaignScore(), STR_CONV_MODE_RIGHT_ALIGN, 6);
 
-        StringExpandPlaceholders(gStringVar4, gText_RogueCampaignProgress);
+        StringExpandPlaceholders(gStringVar3, gText_StatusScore);
+        strPointer = StringAppend(strPointer, gStringVar3);
     }
-    else
-    {
-        ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentRoomIdx, STR_CONV_MODE_RIGHT_ALIGN, 5);
 
-        StringExpandPlaceholders(gStringVar4, gText_RogueRoomProgress);
-    }
-    
-
+    *(strPointer - 1) = EOS; // Remove trailing \n
     return gStringVar4;
 }
 
@@ -1318,6 +1324,8 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
+        u16 yOffset = 24 + Rogue_MiniMenuHeight() * 16;
+
         //LoadMonIconPalettes();
 
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
@@ -1330,14 +1338,14 @@ void Rogue_CreateMiniMenuExtraGFX(void)
                 gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
                 LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
-                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i % 3) * 32), 72 + (i / 3) * 32, oamPriority, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, paletteOffset);
             }
             else
             {
                 gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
                 LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
-                gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i % 3) * 32), 72 + (i / 3) * 32, 0, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, 0, paletteOffset);
             }
 
             // Have to grey out icon as I can't figure out why custom palette offsets still seem to be stomping over each other
@@ -1824,6 +1832,11 @@ void Rogue_OnSaveGame(void)
             SerializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
             SerializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
             SerializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
+
+            {
+                u16 tod = RogueToD_GetTime();
+                SerializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+            }
         }
 
         // Serialize temporary per-run data
@@ -1918,6 +1931,12 @@ void Rogue_OnLoadGame(void)
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
                 DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
                 EnsureSafariShinyBufferIsValid();
+                
+                {
+                    u16 tod = 0;
+                    DeserializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+                    RogueToD_SetTime(tod);
+                }
             }
 
             // Serialize temporary per-run data
@@ -3130,6 +3149,15 @@ void Rogue_OnWarpIntoMap(void)
 //
         //RandomiseSafariWildEncounters();
         //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
+    }
+
+    if(Rogue_IsRunActive())
+    {
+        RogueToD_AddMinutes(60);
+    }
+    else
+    {
+        RogueToD_AddMinutes(30);
     }
 }
 

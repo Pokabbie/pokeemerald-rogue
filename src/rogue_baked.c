@@ -255,12 +255,12 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_FRIENDSHIP_DAY):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_SUN_STONE;
+                outEvo->method = EVO_LEVEL_DAY;
+                outEvo->param = 20;
                 break;
             case(EVO_FRIENDSHIP_NIGHT):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_MOON_STONE;
+                outEvo->method = EVO_LEVEL_NIGHT;
+                outEvo->param = 20;
                 break;
 
 #ifdef ROGUE_EXPANSION
@@ -269,21 +269,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_SCRIPT_TRIGGER_DMG):
                 outEvo->method = EVO_LEVEL;
                 outEvo->param = 20;
-                break;
-
-            case(EVO_ITEM_HOLD_DAY):
-            case(EVO_ITEM_HOLD_NIGHT):
-                outEvo->method = EVO_LEVEL_ITEM;
-                break;
-
-            case(EVO_LEVEL_DAY):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_SUN_STONE;
-                break;
-            case(EVO_LEVEL_DUSK):
-            case(EVO_LEVEL_NIGHT):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_MOON_STONE;
                 break;
 
             case(EVO_WATER_SCROLL):

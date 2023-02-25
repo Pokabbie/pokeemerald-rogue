@@ -19,6 +19,13 @@ const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 const u8 gText_RogueVersionSuffix[] = _("The Regional Update");
 #endif
 
+// UI String
+//
+const u8 gText_StatusRoute[] = _("ROUTE: {STR_VAR_1}\n");
+const u8 gText_StatusBadges[] = _("BADGES: {STR_VAR_1}\n");
+const u8 gText_StatusScore[] = _("SCORE: {STR_VAR_1}\n");
+const u8 gText_StatusTimer[] = _("TIMER: {STR_VAR_1}:{STR_VAR_2}\n");
+const u8 gText_StatusClock[] = _("CLOCK: {STR_VAR_1}:{STR_VAR_2}\n");
 
 // Trainers
 //

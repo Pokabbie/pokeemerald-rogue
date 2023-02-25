@@ -54,6 +54,7 @@
 #include "constants/battle_config.h"
 
 #include "rogue_controller.h"
+#include "rogue_timeofday.h"
 
 struct SpeciesItem
 {
@@ -6520,8 +6521,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 220)
+                if ((RogueToD_IsDay() || RogueToD_IsDawn()) && friendship >= 220)
+                    targetSpecies = currentEvo.targetSpecies;
+                break;
+            case EVO_LEVEL_DAY:
+                if ((RogueToD_IsDay() || RogueToD_IsDawn()) && currentEvo.param <= level)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_LEVEL_DAY:
@@ -6530,8 +6534,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 220)
+                if ((RogueToD_IsNight() || RogueToD_IsDusk()) && friendship >= 220)
+                    targetSpecies = currentEvo.targetSpecies;
+                break;
+            case EVO_LEVEL_NIGHT:
+                if ((RogueToD_IsNight() || RogueToD_IsDusk()) && currentEvo.param <= level)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:

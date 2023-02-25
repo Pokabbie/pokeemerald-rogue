@@ -69,6 +69,7 @@
 	.include "src/rogue_query.o"
 	.include "src/rogue_baked.o"
 	.include "src/rogue_script.o"
+	.include "src/rogue_timeofday.o"
 	.include "src/rogue_quest.o"
 	.include "src/rogue_questmenu.o"
 	.include "src/rogue_popup.o"
