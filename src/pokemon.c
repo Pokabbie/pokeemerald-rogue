@@ -6528,11 +6528,6 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if ((RogueToD_IsDay() || RogueToD_IsDawn()) && currentEvo.param <= level)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
-            case EVO_LEVEL_DAY:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && currentEvo.param <= level)
-                    targetSpecies = currentEvo.targetSpecies;
-                break;
             case EVO_FRIENDSHIP_NIGHT:
                 if ((RogueToD_IsNight() || RogueToD_IsDusk()) && friendship >= 220)
                     targetSpecies = currentEvo.targetSpecies;
@@ -6541,14 +6536,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if ((RogueToD_IsNight() || RogueToD_IsDusk()) && currentEvo.param <= level)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
-            case EVO_LEVEL_NIGHT:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && currentEvo.param <= level)
-                    targetSpecies = currentEvo.targetSpecies;
-                break;
             case EVO_ITEM_HOLD_NIGHT:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && heldItem == currentEvo.param)
+                if ((RogueToD_IsNight() || RogueToD_IsDusk()) && heldItem == currentEvo.param)
                 {
                     heldItem = 0;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
@@ -6556,8 +6545,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 }
                 break;
             case EVO_ITEM_HOLD_DAY:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && heldItem == currentEvo.param)
+                if ((RogueToD_IsDay() || RogueToD_IsDawn()) && heldItem == currentEvo.param)
                 {
                     heldItem = 0;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
@@ -6565,8 +6553,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 }
                 break;
             case EVO_LEVEL_DUSK:
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 17 && gLocalTime.hours < 18 && currentEvo.param <= level)
+                if (RogueToD_IsDusk() && currentEvo.param <= level)
                     targetSpecies = currentEvo.targetSpecies;
                 break;
             case EVO_LEVEL:
