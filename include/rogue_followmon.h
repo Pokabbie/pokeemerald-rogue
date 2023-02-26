@@ -14,4 +14,6 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 bool8 FollowMon_ProcessMonInteraction();
 void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny);
 
+void FollowMon_OverworldCB();
+
 #endif

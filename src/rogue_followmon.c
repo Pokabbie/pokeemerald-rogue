@@ -6,14 +6,25 @@
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
+#include "field_player_avatar.h"
 #include "follow_me.h"
+#include "metatile_behavior.h"
 #include "pokemon.h"
+#include "random.h"
 #include "script.h"
 
 #include "rogue.h"
+#include "rogue_controller.h"
 #include "rogue_followmon.h"
 
-static EWRAM_DATA bool8 sPendingFollowMonInteraction = FALSE;
+struct FollowMonData
+{
+    bool8 pendingInterction;
+    u16 spawnCountdown;
+    u16 spawnSlot;
+};
+
+static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
 
 extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
 extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
@@ -79,7 +90,7 @@ void SetupFollowParterMonObjectEvent()
     {
         if(!FollowMon_IsPartnerMonActive())
         {
-            u8 localId = 63;
+            u16 localId = OBJ_EVENT_ID_FOLLOWER;
             u8 objectEventId = SpawnSpecialObjectEventParameterized2(
                 OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
                 MOVEMENT_TYPE_FACE_DOWN,
@@ -121,8 +132,16 @@ bool8 FollowMon_IsPartnerMonActive()
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
 {
+    u16 localId = object->localId;
     u16 graphicsId = object->graphicsId;
 
+    if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
+    {
+        // Fast check
+        return TRUE;
+    }
+
+    // Check gfx id
     if(graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
     {
         graphicsId = VarGet(VAR_OBJ_GFX_ID_0 + (object->graphicsId - OBJ_EVENT_GFX_VAR_FIRST));
@@ -157,7 +176,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
         // Player can walk on top of follow mon
         if(FollowMon_IsMonObject(obstacle, TRUE))
         {
-            sPendingFollowMonInteraction = TRUE;
+            sFollowMonData.pendingInterction = TRUE;
             return TRUE;
         }
     }
@@ -166,7 +185,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
         // Follow mon can walk onto player
         if(FollowMon_IsMonObject(collider, TRUE))
         {
-            sPendingFollowMonInteraction = TRUE;
+            sFollowMonData.pendingInterction = TRUE;
             return TRUE;
         }
     }
@@ -176,13 +195,13 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 
 bool8 FollowMon_ProcessMonInteraction()
 {
-    if(sPendingFollowMonInteraction)
+    if(sFollowMonData.pendingInterction)
     {
         u8 i;
         struct ObjectEvent *curObject;
         struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
-        sPendingFollowMonInteraction = FALSE;
+        sFollowMonData.pendingInterction = FALSE;
         
         for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         {
@@ -239,5 +258,91 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
                 *isShiny = FALSE;
             }
         }
+    }
+}
+
+static u16 NextSpawnMonSlot()
+{
+    u16 slot;
+    u16 species;
+    u8 level; // ignore
+    u32 personality; // ignore
+
+    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % 8; // Only use 8 slots to reduce lag??
+    slot = sFollowMonData.spawnSlot;
+
+    Rogue_CreateWildMon(0, &species, &level, &personality);
+
+    FollowMon_SetGraphics(slot, species, (Random() % Rogue_GetShinyOdds()) == 0);
+
+    RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    return slot;
+}
+
+static bool8 TrySelectTile(s16* outX, s16* outY)
+{
+    u16 tileBehavior;
+    s16 playerX, playerY;
+    s16 x, y;
+
+    // Select a random tile in [-7, -4] [7, 4] range
+    // Make sure is not directly next to player
+    do
+    {
+        x = (s16)(Random() % 15) - 7;
+        y = (s16)(Random() % 9) - 4;
+    }
+    while (abs(x) <= 2 && abs(y) <= 2);
+    
+    PlayerGetDestCoords(&playerX, &playerY);
+    x += playerX;
+    y += playerY;
+    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    //bool8 MetatileBehavior_IsLandWildEncounter(u8);
+    //bool8 MetatileBehavior_IsWaterWildEncounter(u8);
+    if(MetatileBehavior_IsLandWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
+    {
+        *outX = x;
+        *outY = y;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+void FollowMon_OverworldCB()
+{
+    if(sFollowMonData.spawnCountdown == 0)
+    {
+        s16 x, y;
+
+        if(TrySelectTile(&x, &y))
+        {
+            u16 spawnSlot = NextSpawnMonSlot();
+
+            if(spawnSlot != 0xF)
+            {
+                u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
+                u8 objectEventId = SpawnSpecialObjectEventParameterized(
+                    OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,
+                    MOVEMENT_TYPE_WANDER_AROUND,
+                    localId,
+                    x,
+                    y,
+                    MapGridGetElevationAt(x, y)
+                );
+
+                gObjectEvents[objectEventId].rangeX = 8;
+                gObjectEvents[objectEventId].rangeY = 8;
+
+                // TODO - Spawn faster if running or cycling
+                sFollowMonData.spawnCountdown = 60 * (3 + Random() % 3);
+            }
+        }
+    }
+    else
+    {
+        --sFollowMonData.spawnCountdown;
     }
 }

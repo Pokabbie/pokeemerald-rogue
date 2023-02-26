@@ -2806,7 +2806,7 @@ void CreateEventLegalEnemyMon(void)
     u16 species = VarGet(gSpecialVar_0x8004);
     u8 level = gSpecialVar_0x8005;
     u16 itemId = gSpecialVar_0x8006;
-    bool8 isShiny = gSpecialVar_0x8007 != 0;
+    bool8 isShiny = VarGet(gSpecialVar_0x8007) != 0;
 
     Rogue_CreateEventMon(&species, &level, &itemId);
 

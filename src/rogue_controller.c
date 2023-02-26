@@ -286,6 +286,11 @@ u16 Rogue_GetStartSeed(void)
     return (u16)(word0 + word1 * offset);
 }
 
+u16 Rogue_GetShinyOdds(void)
+{
+    return 100;
+}
+
 bool8 Rogue_IsRunActive(void)
 {
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
