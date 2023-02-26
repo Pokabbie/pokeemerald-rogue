@@ -51,6 +51,7 @@ namespace SpriteSheetSelector
 			this.pictureBox17 = new System.Windows.Forms.PictureBox();
 			this.pictureBox18 = new System.Windows.Forms.PictureBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.secondaryLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.sourcePictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -254,11 +255,22 @@ namespace SpriteSheetSelector
 			this.textBox1.TabIndex = 36;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
+			// secondaryLabel
+			// 
+			this.secondaryLabel.AutoSize = true;
+			this.secondaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.secondaryLabel.Location = new System.Drawing.Point(625, 12);
+			this.secondaryLabel.Name = "secondaryLabel";
+			this.secondaryLabel.Size = new System.Drawing.Size(109, 39);
+			this.secondaryLabel.TabIndex = 37;
+			this.secondaryLabel.Text = "label1";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1930, 848);
+			this.Controls.Add(this.secondaryLabel);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.pictureBox18);
 			this.Controls.Add(this.pictureBox17);
@@ -331,6 +343,7 @@ namespace SpriteSheetSelector
 		private System.Windows.Forms.PictureBox pictureBox17;
 		private System.Windows.Forms.PictureBox pictureBox18;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label secondaryLabel;
 	}
 }
 
