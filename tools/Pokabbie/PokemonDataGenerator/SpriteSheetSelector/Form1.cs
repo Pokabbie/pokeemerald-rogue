@@ -156,6 +156,7 @@ namespace SpriteSheetSelector
 		private void SetupMon(string mon)
 		{
 			primaryLabel.Text = mon;
+			secondaryLabel.Text = $"{m_MonsToCheck.Count} / {m_MonsToCheck.Count + m_OutputData.monPaletteAssignment.Count} Remaining";
 
 			m_OutputData.monPaletteAssignment.TryGetValue(mon, out string assignedPal);
 
