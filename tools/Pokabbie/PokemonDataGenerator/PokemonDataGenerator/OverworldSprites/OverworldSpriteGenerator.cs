@@ -147,21 +147,23 @@ namespace PokemonDataGenerator
 					var mon = kvp.Key;
 					var data = kvp.Value;
 
-					// Remove "pal_"
-					string mappedPallete = importData.monPaletteAssignment[mon];
-					data.paletteIdx = int.Parse(mappedPallete.Substring("pal_".Length));
+					{
+						// Remove "pal_"
+						string mappedPallete = importData.monPaletteAssignment[mon];
+						data.paletteIdx = int.Parse(mappedPallete.Substring("pal_".Length));
 
-					string sourceFile = Path.Combine(outDir, mappedPallete, mon + ".png");
-					data.spriteSize = Bitmap.FromFile(sourceFile).Height;
+						string sourceFile = Path.Combine(outDir, mappedPallete, mon + ".png");
+						data.spriteSize = Bitmap.FromFile(sourceFile).Height;
 
-					File.Copy(sourceFile, Path.Combine(finalOutputDir, mon + ".png"));
+						File.Copy(sourceFile, Path.Combine(finalOutputDir, mon + ".png"));
+					}
 
 					if (s_GenerateShinies)
 					{
 						string mappedShinyPallete = importData.monPaletteAssignment[mon + "_shiny"];
 						data.shinyPaletteIdx = int.Parse(mappedShinyPallete.Substring("pal_".Length));
 
-						string sourceShinyFile = Path.Combine(outDir, mappedPallete, mon + "_shiny.png");
+						string sourceShinyFile = Path.Combine(outDir, mappedShinyPallete, mon + "_shiny.png");
 						data.shinySpriteSize = Bitmap.FromFile(sourceShinyFile).Height;
 
 						File.Copy(sourceShinyFile, Path.Combine(finalOutputDir, mon + "_shiny.png"));
