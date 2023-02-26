@@ -701,6 +701,11 @@ void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
     RogueToD_ModifyOverworldPalette(offset, count);
 }
 
+void Rogue_ModifyBattlePalette(u16 offset, u16 count)
+{
+    RogueToD_ModifyBattlePalette(offset, count);
+}
+
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {
     if(Rogue_IsRunActive())
@@ -1590,6 +1595,8 @@ void Rogue_OnNewGame(void)
 
     FlagSet(FLAG_SYS_B_DASH);
     EnableNationalPokedex();
+
+    RogueToD_SetTime(60 * 10);
 
     // Reset shiny safari
     gRogueGlobalData.safairShinyBufferHead = 0;

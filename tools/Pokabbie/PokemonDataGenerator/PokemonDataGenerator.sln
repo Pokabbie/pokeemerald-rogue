@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDataGenerator", "Pok
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDataRemover", "PokemonDataRemover\PokemonDataRemover.csproj", "{67E1796F-103C-490F-9F4F-D2B282A06C25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpriteSheetSelector", "SpriteSheetSelector\SpriteSheetSelector.csproj", "{745874D6-042D-48F4-A800-2D80154B9DF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{67E1796F-103C-490F-9F4F-D2B282A06C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67E1796F-103C-490F-9F4F-D2B282A06C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67E1796F-103C-490F-9F4F-D2B282A06C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745874D6-042D-48F4-A800-2D80154B9DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745874D6-042D-48F4-A800-2D80154B9DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745874D6-042D-48F4-A800-2D80154B9DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745874D6-042D-48F4-A800-2D80154B9DF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

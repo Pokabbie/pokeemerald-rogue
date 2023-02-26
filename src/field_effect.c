@@ -773,16 +773,34 @@ void FieldEffectScript_LoadTiles(u8 **script)
 
 void FieldEffectScript_LoadFadedPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+    }
+
     UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(palette->tag));
     (*script) += 4;
 }
 
 void FieldEffectScript_LoadPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+    }
+
     (*script) += 4;
 }
 

@@ -14,5 +14,6 @@ bool8 RogueToD_IsDusk();
 bool8 RogueToD_IsNight();
 
 void RogueToD_ModifyOverworldPalette(u16 offset, u16 count);
+void RogueToD_ModifyBattlePalette(u16 offset, u16 count);
 
 #endif

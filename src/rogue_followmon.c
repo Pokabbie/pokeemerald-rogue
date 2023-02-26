@@ -77,7 +77,7 @@ void SetupFollowParterMonObjectEvent()
 
     if(shouldFollowMonBeVisible)
     {
-        if(!PlayerHasFollower())
+        if(!FollowMon_IsPartnerMonActive())
         {
             u8 localId = 63;
             u8 objectEventId = SpawnSpecialObjectEventParameterized2(
@@ -96,14 +96,14 @@ void SetupFollowParterMonObjectEvent()
     }
     else
     {
-        if(PlayerHasFollower())
+        if(FollowMon_IsPartnerMonActive())
             DestroyFollower();
     }
 }
 
 void ResetFollowParterMonObjectEvent()
 {
-    if(PlayerHasFollower())
+    if(FollowMon_IsPartnerMonActive())
         DestroyFollower();
 }
 
@@ -113,20 +113,25 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
 }
 
-static bool8 IsFollowMonObject(struct ObjectEvent* object)
+bool8 FollowMon_IsPartnerMonActive()
 {
-    if(object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+    // TODO - If we use other partners, gonna have to check object too
+    return PlayerHasFollower();
+}
+
+bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
+{
+    u16 graphicsId = object->graphicsId;
+
+    if(graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
     {
-        return TRUE;
+        graphicsId = VarGet(VAR_OBJ_GFX_ID_0 + (object->graphicsId - OBJ_EVENT_GFX_VAR_FIRST));
     }
 
-    if(object->graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && object->graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
+    if(object->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && object->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
     {
-        u16 gfxId = VarGet(VAR_OBJ_GFX_ID_0 + (object->graphicsId - OBJ_EVENT_GFX_VAR_FIRST));
-        if(gfxId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && gfxId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
-        {
+        if(!ignorePartnerMon || graphicsId != OBJ_EVENT_GFX_FOLLOW_MON_PARTNER )
             return TRUE;
-        }
     }
 
     return FALSE;
@@ -150,7 +155,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
     if (collider == player)
     {
         // Player can walk on top of follow mon
-        if(IsFollowMonObject(obstacle))
+        if(FollowMon_IsMonObject(obstacle, TRUE))
         {
             sPendingFollowMonInteraction = TRUE;
             return TRUE;
@@ -159,7 +164,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
     else if(obstacle == player)
     {
         // Follow mon can walk onto player
-        if(IsFollowMonObject(collider))
+        if(FollowMon_IsMonObject(collider, TRUE))
         {
             sPendingFollowMonInteraction = TRUE;
             return TRUE;
@@ -182,7 +187,7 @@ bool8 FollowMon_ProcessMonInteraction()
         for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         {
             curObject = &gObjectEvents[i];
-            if (curObject->active && curObject != player && IsFollowMonObject(curObject))
+            if (curObject->active && curObject != player && FollowMon_IsMonObject(curObject, TRUE))
             {
                 if ((curObject->currentCoords.x == player->currentCoords.x && curObject->currentCoords.y == player->currentCoords.y) || (curObject->previousCoords.x == player->currentCoords.x && curObject->previousCoords.y == player->currentCoords.y))
                 {
@@ -218,7 +223,7 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
     if(objEventId < OBJECT_EVENTS_COUNT)
     {
         curObject = &gObjectEvents[objEventId];
-        if(IsFollowMonObject(curObject))
+        if(FollowMon_IsMonObject(curObject, TRUE))
         {
             u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
             u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);

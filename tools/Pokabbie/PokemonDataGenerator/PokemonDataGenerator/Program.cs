@@ -40,19 +40,33 @@ namespace PokemonDataGenerator
 					break;
 
 				case 2:
-					Console.WriteLine("==Generate OW Sprites==");
-					OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
-					OverworldSpriteGenerator.s_GenerateShinies = ReadBool("Include Shinies?");
-					OverworldSpriteGenerator.GenerateFromURL();
-					break;
+					{
+						Console.WriteLine("==Generate OW Sprites==");
+						OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
+						OverworldSpriteGenerator.s_GenerateShinies = ReadBool("Include Shinies?");
+
+						Console.WriteLine("1 - Collate Sprites");
+						Console.WriteLine("2 - Export Sprites");
+						bool isCollating = ReadOption(1, 2) == 1;
+
+						OverworldSpriteGenerator.GenerateFromURL(isCollating);
+						break;
+					}
 
 				case 3:
-					Console.WriteLine("==Generate OW Sprites (DEBUG FAST SET)==");
-					OverworldSpriteGenerator.s_TargettingDebugSet = true;
-					OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
-					OverworldSpriteGenerator.s_GenerateShinies = ReadBool("Include Shinies?");
-					OverworldSpriteGenerator.GenerateFromURL();
-					break;
+					{
+						Console.WriteLine("==Generate OW Sprites (DEBUG FAST SET)==");
+						OverworldSpriteGenerator.s_TargettingDebugSet = true;
+						OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
+						OverworldSpriteGenerator.s_GenerateShinies = ReadBool("Include Shinies?");
+
+						Console.WriteLine("1 - Collate Sprites");
+						Console.WriteLine("2 - Export Sprites");
+						bool isCollating = ReadOption(1, 2) == 1;
+
+						OverworldSpriteGenerator.GenerateFromURL(isCollating);
+						break;
+					}
 
 				case 4:
 					Console.WriteLine("==OW Sprites Palette Generator==");

@@ -832,6 +832,11 @@ void DrawMainBattleBackground(void)
             LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(sBattleTerrainTable[gBattleTerrain].palette, 0x20, 0x60);
             break;
+        case MAP_BATTLE_SCENE_UNDERGROUND:
+            LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tileset, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].palette, 0x20, 0x60);
+            break;
         case MAP_BATTLE_SCENE_GYM:
             LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
@@ -873,6 +878,8 @@ void DrawMainBattleBackground(void)
             LoadCompressedPalette(gBattleTerrainPalette_Frontier, 0x20, 0x60);
             break;
         }
+
+        Rogue_ModifyBattlePalette(0x20, 6);
     }
 }
 
@@ -1282,6 +1289,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
             case MAP_BATTLE_SCENE_NORMAL:
                 LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tileset, (void*)(BG_CHAR_ADDR(2)));
                 break;
+            case MAP_BATTLE_SCENE_UNDERGROUND:
+                LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tileset, (void*)(BG_CHAR_ADDR(2)));
+                break;
             case MAP_BATTLE_SCENE_GYM:
                 LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
                 break;
@@ -1345,6 +1355,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
             default:
             case MAP_BATTLE_SCENE_NORMAL:
                 LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
+                break;
+            case MAP_BATTLE_SCENE_UNDERGROUND:
+                LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
                 break;
             case MAP_BATTLE_SCENE_GYM:
                 LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
@@ -1416,6 +1429,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
             default:
             case MAP_BATTLE_SCENE_NORMAL:
                 LoadCompressedPalette(sBattleTerrainTable[gBattleTerrain].palette, 0x20, 0x60);
+                break;
+            case MAP_BATTLE_SCENE_UNDERGROUND:
+                LoadCompressedPalette(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].palette, 0x20, 0x60);
                 break;
             case MAP_BATTLE_SCENE_GYM:
                 LoadCompressedPalette(gBattleTerrainPalette_BuildingGym, 0x20, 0x60);

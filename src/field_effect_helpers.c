@@ -13,6 +13,8 @@
 #include "constants/field_effects.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 
 static void UpdateObjectReflectionSprite(struct Sprite *);
@@ -314,6 +316,8 @@ u32 FldEff_TallGrass(void)
         sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
         sprite->sMapGroup = gFieldEffectArguments[5];
         sprite->sCurrentMap = gFieldEffectArguments[6];
+
+        //Rogue_ModifySpritePalette(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS]);
 
         if (gFieldEffectArguments[7])
             SeekSpriteAnim(sprite, 4); // Skip to end of anim
