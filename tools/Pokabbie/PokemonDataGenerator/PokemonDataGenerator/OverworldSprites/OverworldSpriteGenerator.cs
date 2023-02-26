@@ -151,14 +151,20 @@ namespace PokemonDataGenerator
 					string mappedPallete = importData.monPaletteAssignment[mon];
 					data.paletteIdx = int.Parse(mappedPallete.Substring("pal_".Length));
 
-					File.Copy(Path.Combine(outDir, mappedPallete, mon + ".png"), Path.Combine(finalOutputDir, mon + ".png"));
+					string sourceFile = Path.Combine(outDir, mappedPallete, mon + ".png");
+					data.spriteSize = Bitmap.FromFile(sourceFile).Height;
+
+					File.Copy(sourceFile, Path.Combine(finalOutputDir, mon + ".png"));
 
 					if (s_GenerateShinies)
 					{
 						string mappedShinyPallete = importData.monPaletteAssignment[mon + "_shiny"];
 						data.shinyPaletteIdx = int.Parse(mappedShinyPallete.Substring("pal_".Length));
 
-						File.Copy(Path.Combine(outDir, mappedShinyPallete, mon + "_shiny.png"), Path.Combine(finalOutputDir, mon + "_shiny.png"));
+						string sourceShinyFile = Path.Combine(outDir, mappedPallete, mon + "_shiny.png");
+						data.shinySpriteSize = Bitmap.FromFile(sourceShinyFile).Height;
+
+						File.Copy(sourceShinyFile, Path.Combine(finalOutputDir, mon + "_shiny.png"));
 					}
 
 					Console.WriteLine($"\t{mon} using palletes normal:{data.paletteIdx} shiny:{data.shinyPaletteIdx}");
