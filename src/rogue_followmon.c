@@ -268,7 +268,7 @@ static u16 NextSpawnMonSlot()
     u8 level; // ignore
     u32 personality; // ignore
 
-    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % 8; // Only use 8 slots to reduce lag??
+    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % 6; // Care with increasing slot count as it can cause lag
     slot = sFollowMonData.spawnSlot;
 
     Rogue_CreateWildMon(0, &species, &level, &personality);
@@ -313,6 +313,11 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
 
 void FollowMon_OverworldCB()
 {
+    if(!Rogue_AreWildMonEnabled())
+    {
+        return;
+    }
+
     if(sFollowMonData.spawnCountdown == 0)
     {
         s16 x, y;

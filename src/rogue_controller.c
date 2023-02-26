@@ -6303,6 +6303,16 @@ u16 Rogue_SelectRandomWildMon(void)
     return SPECIES_NONE;
 }
 
+bool8 Rogue_AreWildMonEnabled(void)
+{
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    {
+        return GetCurrentWildEncounterCount() > 0;
+    }
+
+    return FALSE;
+}
+
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
     *level = CalculateWildLevel(3);
