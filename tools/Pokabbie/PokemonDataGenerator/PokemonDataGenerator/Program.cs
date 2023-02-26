@@ -43,7 +43,7 @@ namespace PokemonDataGenerator
 					{
 						Console.WriteLine("==Generate OW Sprites==");
 						OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
-						OverworldSpriteGenerator.s_GenerateShinies = ReadBool("Include Shinies?");
+						OverworldSpriteGenerator.s_GenerateShinies = true;// ReadBool("Include Shinies?");
 
 						Console.WriteLine("1 - Collate Sprites");
 						Console.WriteLine("2 - Export Sprites");
