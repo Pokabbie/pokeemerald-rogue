@@ -37,6 +37,7 @@
 	.include "src/fieldmap.o"
 	.include "src/rogue_adventure.o"
 	.include "src/rogue_automation.o"
+	.include "src/rogue_assistant.o"
 	.include "src/rogue_campaign.o"
 	.include "src/rogue_controller.o"
 	.include "src/rogue_followmon.o"

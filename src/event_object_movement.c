@@ -6544,6 +6544,26 @@ bool8 MovementAction_SetVisible_Step0(struct ObjectEvent *objectEvent, struct Sp
     return TRUE;
 }
 
+bool8 ExclamationMark_TEST(struct ObjectEvent *objEvent)
+{
+    u8 direction;
+
+    //ObjectEventGetLocalIdAndMap(objEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);
+    //FieldEffectStart(FLDEFF_EXCLAMATION_MARK_ICON);
+    
+    //gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    //gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    //gFieldEffectArguments[2] = objEvent->previousElevation;
+    //gFieldEffectArguments[3] = gSprites[objEvent->spriteId].oam.priority;
+    //FieldEffectStart(FLDEFF_DUST);
+
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = gSprites[objEvent->spriteId].oam.priority + 1;
+    FieldEffectStart(FLDEFF_BUBBLES);
+    return TRUE;
+}
+
 bool8 MovementAction_EmoteExclamationMark_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     ObjectEventGetLocalIdAndMap(objectEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);

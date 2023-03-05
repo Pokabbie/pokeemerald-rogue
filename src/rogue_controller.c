@@ -39,6 +39,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_campaign.h"
@@ -2102,6 +2103,7 @@ static void UpdateHotTracking()
 void Rogue_MainInit(void)
 {
     ResetHotTracking();
+    Rogue_AssistantInit();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationInit();
@@ -2116,6 +2118,8 @@ void Rogue_MainCallback(void)
     {
         UpdateHotTracking();
     }
+
+    Rogue_AssistantCallback();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();

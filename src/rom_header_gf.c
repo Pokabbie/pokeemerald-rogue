@@ -35,10 +35,10 @@ struct GFRomHeader
     u8 unk2;
     u8 pokemonNameLength1;
     u8 pokemonNameLength2;
-#ifdef ROGUE_FEATURE_AUTOMATION
-    u32 rogueAutomationHandshake1;
-    const struct RogueAutomationHeader * automationHeader;
-    u32 rogueAutomationHandshake2;
+#if 1
+    u32 rogueAssistantHandshake1;
+    const struct RogueAssistantHeader * rogueAssistantHeader;
+    u32 rogueAssistantHandshake2;
 #else
     // Chuck these out!
     u8 unk5;
@@ -124,10 +124,10 @@ static const struct GFRomHeader sGFRomHeader = {
     .unk2 = 10,
     .pokemonNameLength1 = POKEMON_NAME_LENGTH,
     .pokemonNameLength2 = POKEMON_NAME_LENGTH,
-#ifdef ROGUE_FEATURE_AUTOMATION
-    .rogueAutomationHandshake1 = 20012,
-    .automationHeader = &gRogueAutomationHeader,
-    .rogueAutomationHandshake2 = 30035,
+#if 1
+    .rogueAssistantHandshake1 = 20012,
+    .rogueAssistantHeader = &gRogueAssistantHeader,
+    .rogueAssistantHandshake2 = 30035,
 #else
     // Two of the below 12s are likely move/ability name length, given their presence in this header
     .unk5 = 12,
