@@ -5108,7 +5108,7 @@ static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite
     ShiftStillObjectEventCoords(objectEvent);
 
     // Special case for follower mons who we want to animator always
-    if(objectEvent->graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && objectEvent->graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+    if(FollowMon_IsMonObject(objectEvent, FALSE) && FollowMon_ShouldAlwaysAnimation(objectEvent))
     {
         SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
         sprite->animPaused = FALSE;
@@ -6544,7 +6544,7 @@ bool8 MovementAction_SetVisible_Step0(struct ObjectEvent *objectEvent, struct Sp
     return TRUE;
 }
 
-bool8 ExclamationMark_TEST(struct ObjectEvent *objEvent)
+bool8 MovementAction_EmoteShinySparkle(struct ObjectEvent *objEvent)
 {
     u8 direction;
 
@@ -7890,7 +7890,7 @@ static bool8 AreElevationsCompatible(u8 a, u8 b)
 void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE))
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
@@ -7907,7 +7907,7 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
 void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE))
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;

@@ -158,6 +158,16 @@ bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
     return FALSE;
 }
 
+bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
+{
+    return FALSE;
+}
+
+bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
+{
+    return FALSE;
+}
+
 static bool8 AreElevationsCompatible(u8 a, u8 b)
 {
     if (a == 0 || b == 0)
@@ -313,7 +323,7 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     return FALSE;
 }
 
-bool8 ExclamationMark_TEST(struct ObjectEvent *eventObj);
+bool8 MovementAction_EmoteShinySparkle(struct ObjectEvent *eventObj);
 
 void FollowMon_OverworldCB()
 {
@@ -325,8 +335,13 @@ void FollowMon_OverworldCB()
     if(sFollowMonData.spawnCountdown == 0)
     {
         s16 x, y;
+        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-        if(TrySelectTile(&x, &y))
+        // Only spawn when player is at a valid tile position
+        if(player->currentCoords.x == player->previousCoords.x 
+            && player->currentCoords.y == player->previousCoords.y
+            && TrySelectTile(&x, &y)
+        )
         {
             u16 spawnSlot = NextSpawnMonSlot();
 
@@ -348,9 +363,8 @@ void FollowMon_OverworldCB()
 
                 if(isShiny)
                 {
-                    ExclamationMark_TEST(&gObjectEvents[objectEventId]);
+                    MovementAction_EmoteShinySparkle(&gObjectEvents[objectEventId]);
                     PlaySE(SE_SHINY);
-                    //GroundEffect_JumpOnWater
                 }
 
                 // TODO - Spawn faster if running or cycling
