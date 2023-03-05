@@ -334,6 +334,7 @@ SECTIONS {
         src/follow_me.o(.text);
         src/rogue_adventure.o(.text);
         src/rogue_automation.o(.text);
+        src/rogue_assistant.o(.text);
         src/rogue_campaign.o(.text);
         src/rogue_controller.o(.text);
         src/rogue_followmon.o(.text);
@@ -711,6 +712,7 @@ SECTIONS {
         src/follow_me.o(.rodata);
         src/rogue_adventure.o(.rodata);
         src/rogue_automation.o(.rodata);
+        src/rogue_assistant.o(.rodata);
         src/rogue_campaign.o(.rodata);
         src/rogue_controller.o(.rodata);
         src/rogue_followmon.o(.rodata);

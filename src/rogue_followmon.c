@@ -2,6 +2,7 @@
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
 #include "constants/rogue.h"
+#include "constants/songs.h"
 
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -10,6 +11,7 @@
 #include "follow_me.h"
 #include "metatile_behavior.h"
 #include "pokemon.h"
+#include "sound.h"
 #include "random.h"
 #include "script.h"
 
@@ -311,6 +313,8 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     return FALSE;
 }
 
+bool8 ExclamationMark_TEST(struct ObjectEvent *eventObj);
+
 void FollowMon_OverworldCB()
 {
     if(!Rogue_AreWildMonEnabled())
@@ -328,6 +332,7 @@ void FollowMon_OverworldCB()
 
             if(spawnSlot != 0xF)
             {
+                bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
                 u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
                 u8 objectEventId = SpawnSpecialObjectEventParameterized(
                     OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,
@@ -340,6 +345,13 @@ void FollowMon_OverworldCB()
 
                 gObjectEvents[objectEventId].rangeX = 8;
                 gObjectEvents[objectEventId].rangeY = 8;
+
+                if(isShiny)
+                {
+                    ExclamationMark_TEST(&gObjectEvents[objectEventId]);
+                    PlaySE(SE_SHINY);
+                    //GroundEffect_JumpOnWater
+                }
 
                 // TODO - Spawn faster if running or cycling
                 sFollowMonData.spawnCountdown = 60 * (3 + Random() % 3);

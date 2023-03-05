@@ -255,6 +255,16 @@ struct RogueMonPresetCollection
     const u16* moves;
 };
 
+struct RogueAssistantHeader
+{
+    u32 inCommCapacity;
+    u32 outCommCapacity;
+    u8* inCommBuffer;
+    u8* outCommBuffer;
+};
+
+extern const struct RogueAssistantHeader gRogueAssistantHeader;
+
 #ifdef ROGUE_FEATURE_AUTOMATION
 struct RogueAutomationHeader
 {
