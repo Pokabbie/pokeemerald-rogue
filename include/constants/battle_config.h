@@ -146,7 +146,7 @@
 #define B_TRAINER_EXP_MULTIPLIER    GEN_7 // In Gen7+, trainer battles no longer give a 1.5 multiplier to EXP gain.
 #define B_SPLIT_EXP                 GEN_7 // In Gen6+, all participating mon get full experience.
 #define B_SCALED_EXP                GEN_7 // In Gen5 and Gen7+, experience is weighted by level difference.
-#define B_BADGE_BOOST               GEN_3 // In Gen4+, Gym Badges no longer boost a Pokémon's stats.
+#define B_BADGE_BOOST               GEN_7 // In Gen4+, Gym Badges no longer boost a Pokémon's stats.
 #define B_MAX_LEVEL_EV_GAINS        GEN_7 // In Gen5+, Lv100 Pokémon can obtain Effort Values normally.
 #define B_RECALCULATE_STATS         GEN_7 // In Gen5+, the stats of the Pokémon who participate in battle are recalculated at the end of each battle.
 
