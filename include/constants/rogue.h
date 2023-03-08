@@ -269,6 +269,9 @@
 #define TRAINER_ROGUE_MINI_BOSS_NOLAND       TRAINER_NOLAND
 #define TRAINER_ROGUE_MINI_BOSS_ANABEL       TRAINER_ANABEL
 
+// 8 badges, 4 elite, 2 champion
+#define ROGUE_MAX_BOSS_COUNT 14
+
 // Mon Preset flags
 //
 #define MON_FLAG_NONE                   0

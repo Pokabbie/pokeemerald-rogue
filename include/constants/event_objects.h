@@ -375,6 +375,10 @@
 #define OBJ_EVENT_ID_FOLLOWER 0xFE
 #define OBJ_EVENT_ID_CAMERA 0x7F
 
+// IDs for dynamic object event spawns
+#define OBJ_EVENT_ID_FOLLOW_MON_FIRST 0xED
+#define OBJ_EVENT_ID_FOLLOW_MON_LAST 0xFD
+
 // Object event local ids referenced in C files
 #define LOCALID_ROUTE111_PLAYER_FALLING 45
 #define LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK 1

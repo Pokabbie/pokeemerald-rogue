@@ -74,8 +74,10 @@
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_quest.h"
 #include "rogue_popup.h"
+
 
 struct CableClubPlayer
 {
@@ -1431,6 +1433,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         {
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
             Rogue_UpdatePopups(TRUE, TRUE);
+            FollowMon_OverworldCB();
         }
     }
     else

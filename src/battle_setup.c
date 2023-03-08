@@ -256,12 +256,6 @@ static const struct TrainerBattleParameter sTrainerBContinueScriptBattleParams[]
     .mapNum = MAP_NUM(map),                                             \
 }
 
-static const u16 sBadgeFlags[NUM_BADGES] =
-{
-    FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
-    FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
-};
-
 #define tState data[0]
 #define tTransition data[1]
 
@@ -1778,16 +1772,16 @@ static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBa
 
 static bool32 HasAtLeastFiveBadges(void)
 {
-    s32 i, count;
-
-    for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
-    {
-        if (FlagGet(sBadgeFlags[i]) == TRUE)
-        {
-            if (++count >= 5)
-                return TRUE;
-        }
-    }
+    //s32 i, count;
+//
+    //for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
+    //{
+    //    if (FlagGet(sBadgeFlags[i]) == TRUE)
+    //    {
+    //        if (++count >= 5)
+    //            return TRUE;
+    //    }
+    //}
 
     return FALSE;
 }

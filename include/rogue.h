@@ -134,6 +134,7 @@ struct RogueRunData
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
 #endif
+    u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     u16 wildEncounters[9];
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[12];
@@ -213,7 +214,6 @@ struct RogueTrainerEncounter
 {
     u16 gfxId;
     u16 trainerId;
-    u16 victorySetFlag;
     u16 trainerFlags;
     u16 partyFlags;
     u16 querySpeciesCount;
@@ -254,6 +254,16 @@ struct RogueMonPresetCollection
     const struct RogueMonPreset* presets;
     const u16* moves;
 };
+
+struct RogueAssistantHeader
+{
+    u32 inCommCapacity;
+    u32 outCommCapacity;
+    u8* inCommBuffer;
+    u8* outCommBuffer;
+};
+
+extern const struct RogueAssistantHeader gRogueAssistantHeader;
 
 #ifdef ROGUE_FEATURE_AUTOMATION
 struct RogueAutomationHeader

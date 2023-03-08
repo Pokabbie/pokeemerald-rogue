@@ -208,22 +208,26 @@ Rogue_InteractWithPartnerFollowMon::
 	return
 
 
-Rogue_InteractWithWildFollowMonInternal::
+Rogue_InteractWithWildFollowMon::
+	lockall
 	special Rogue_GetFollowMonSpecies
 	playmoncry VAR_0x800A, CRY_MODE_ENCOUNTER
 	waitmoncry
+	removeobject VAR_LAST_TALKED
 	seteventmon VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
-	removeobject 1
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	releaseall
 	return
 
 
-Rogue_InteractWithWildFollowMon::
+Rogue_InteractWithDynamicWildFollowMon::
 	lockall
-	call Rogue_InteractWithWildFollowMonInternal
+	special Rogue_GetFollowMonSpecies
+	removeobject VAR_LAST_TALKED
+	seteventmon VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B
+	special BattleSetup_StartWildBattle
+	waitstate
 	releaseall
 	return
 

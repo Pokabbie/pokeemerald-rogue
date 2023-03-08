@@ -39,6 +39,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_campaign.h"
@@ -53,9 +54,6 @@
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
-
-// 8 badges, 4 elite, 2 champion
-#define BOSS_COUNT 14
 
 #ifdef ROGUE_DEBUG
 EWRAM_DATA u8 gDebug_CurrentTab = 0;
@@ -284,6 +282,11 @@ u16 Rogue_GetStartSeed(void)
     //}
 
     return (u16)(word0 + word1 * offset);
+}
+
+u16 Rogue_GetShinyOdds(void)
+{
+    return 100;
 }
 
 bool8 Rogue_IsRunActive(void)
@@ -778,7 +781,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     {
         *waitTime = awaitingMessage ? 8 : 0;
     }
-    else if(difficulty < (BOSS_COUNT - 1)) // Go at default speed for final fight
+    else if(difficulty < (ROGUE_MAX_BOSS_COUNT - 1)) // Go at default speed for final fight
     {
         
         if(IsMiniBossTrainer(gTrainerBattleOpponent_A))
@@ -801,7 +804,7 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
         else
             return rate * 2 + 1;
     }
-    //else if(difficulty == (BOSS_COUNT - 1))
+    //else if(difficulty == (ROGUE_MAX_BOSS_COUNT - 1))
     //{
     //    // Go at default speed for final fight
     //    return rate * 2;
@@ -2097,6 +2100,7 @@ static void UpdateHotTracking()
 void Rogue_MainInit(void)
 {
     ResetHotTracking();
+    Rogue_AssistantInit();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationInit();
@@ -2111,6 +2115,8 @@ void Rogue_MainCallback(void)
     {
         UpdateHotTracking();
     }
+
+    Rogue_AssistantCallback();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
@@ -2148,7 +2154,7 @@ u16 GetStartDifficulty(void)
 #ifdef ROGUE_DEBUG
     if(skipToDifficulty == 8)
     {
-        skipToDifficulty = BOSS_COUNT - 1;
+        skipToDifficulty = ROGUE_MAX_BOSS_COUNT - 1;
     }
 #endif
 
@@ -2350,6 +2356,8 @@ static void BeginRogueRun(void)
     gRogueAdvPath.currentNodeY = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
+    memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
+
     memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
     memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
     memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
@@ -2421,16 +2429,6 @@ static void BeginRogueRun(void)
     RecalcCharmCurseValues();
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
-
-    FlagClear(FLAG_BADGE01_GET);
-    FlagClear(FLAG_BADGE02_GET);
-    FlagClear(FLAG_BADGE03_GET);
-    FlagClear(FLAG_BADGE04_GET);
-    FlagClear(FLAG_BADGE05_GET);
-    FlagClear(FLAG_BADGE06_GET);
-    FlagClear(FLAG_BADGE07_GET);
-    FlagClear(FLAG_BADGE08_GET);
-
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
 
     // Enable randoman trader at start
@@ -3494,20 +3492,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
     #endif
 
-            
-            // Ensure we have all badges by this point
-            if(gRogueRun.currentDifficulty >= 8)
-            {
-                FlagSet(FLAG_BADGE01_GET);
-                FlagSet(FLAG_BADGE02_GET);
-                FlagSet(FLAG_BADGE03_GET);
-                FlagSet(FLAG_BADGE04_GET);
-                FlagSet(FLAG_BADGE05_GET);
-                FlagSet(FLAG_BADGE06_GET);
-                FlagSet(FLAG_BADGE07_GET);
-                FlagSet(FLAG_BADGE08_GET);
-            }
-            
             // Update VARs
             VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
             VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
@@ -3622,7 +3606,7 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
     bool8 hasMonFainted = FALSE;
 
     // If we're finished, we don't want to release any mons, just check if anything has fainted or not
-    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty >= BOSS_COUNT)
+    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty >= ROGUE_MAX_BOSS_COUNT)
     {
         for(read = 0; read < PARTY_SIZE; ++read)
         {
@@ -3864,16 +3848,12 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             u8 prevLevel = CalculateBossLevel();
             const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
 
+            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = trainer->incTypes[0] != TYPE_NONE ? trainer->incTypes[0] : TYPE_MYSTERY;
+
             ++gRogueRun.currentDifficulty;
             nextLevel = CalculateBossLevel();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
-
-            if(trainer->victorySetFlag)
-            {
-                // Set any extra flags
-                FlagSet(trainer->victorySetFlag);
-            }
 
             // Clear the history buffer, as we track based on types
             // In rainbow mode, the type can only appear once though
@@ -3889,7 +3869,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                     }
             }
 
-            if(gRogueRun.currentDifficulty >= BOSS_COUNT)
+            if(gRogueRun.currentDifficulty >= ROGUE_MAX_BOSS_COUNT)
             {
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
@@ -6296,6 +6276,16 @@ u16 Rogue_SelectRandomWildMon(void)
     }
 
     return SPECIES_NONE;
+}
+
+bool8 Rogue_AreWildMonEnabled(void)
+{
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    {
+        return GetCurrentWildEncounterCount() > 0;
+    }
+
+    return FALSE;
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)

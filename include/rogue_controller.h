@@ -13,6 +13,8 @@ u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 u16 Rogue_GetStartSeed(void);
 
+u16 Rogue_GetShinyOdds(void);
+
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab);
 void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 
@@ -95,6 +97,7 @@ void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8
 void Rogue_ModifyWildMonHeldItem(u16* itemId);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality);
 u16 Rogue_SelectRandomWildMon(void);
+bool8 Rogue_AreWildMonEnabled(void);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
