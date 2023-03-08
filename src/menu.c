@@ -20,6 +20,7 @@
 #include "window.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
 #include "rogue_quest.h"
 
 #define DLG_WINDOW_PALETTE_NUM 15
@@ -2190,12 +2191,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
             break;
         case SAVE_MENU_BADGES:
-            for (curFlag = FLAG_BADGE01_GET, flagCount = 0, endOfString = string + 1; curFlag < FLAG_BADGE01_GET + NUM_BADGES; curFlag++)
-            {
-                if (FlagGet(curFlag))
-                    flagCount++;
-            }
-            *string = flagCount + CHAR_0;
+            *string = (Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0) + CHAR_0;
             *endOfString = EOS;
             break;
         case SAVE_MENU_QUESTS:

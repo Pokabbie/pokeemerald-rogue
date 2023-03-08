@@ -134,6 +134,7 @@ struct RogueRunData
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
 #endif
+    u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     u16 wildEncounters[9];
     u16 fishingEncounters[2];
     u16 routeHistoryBuffer[12];
@@ -213,7 +214,6 @@ struct RogueTrainerEncounter
 {
     u16 gfxId;
     u16 trainerId;
-    u16 victorySetFlag;
     u16 trainerFlags;
     u16 partyFlags;
     u16 querySpeciesCount;

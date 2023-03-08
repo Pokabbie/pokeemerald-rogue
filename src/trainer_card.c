@@ -33,7 +33,11 @@
 #include "constants/trainers.h"
 
 #include "rogue_campaign.h"
+#include "rogue_controller.h"
 #include "rogue_quest.h"
+
+#define NUM_DISPLAY_BADGES NUM_BADGES
+#define NUM_TYPED_BADGES 19
 
 struct TrainerCardData
 {
@@ -54,7 +58,7 @@ struct TrainerCardData
     bool8 unused_E;
     bool8 unused_F;
     bool8 hasTrades;
-    u8 badgeCount[NUM_BADGES];
+    u8 badgeCount[NUM_DISPLAY_BADGES];
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 textPlayersCard[70];
     u8 textHofTime[70];
@@ -78,7 +82,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTiles[0x80 * NUM_TYPED_BADGES];
     u8 stickerTiles[0x200];
     u8 cardTiles[0x2300];
     u16 cardTilemapBuffer[0x1000];
@@ -178,6 +182,7 @@ static const u16 sHoennTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_
 static const u16 sKantoTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_card/female_bg_fr.gbapal");
 static const u16 sHoennTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges.gbapal");
 static const u16 sKantoTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges_fr.gbapal");
+static const u16 sTypedTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges_types.gbapal");
 static const u16 sTrainerCardGold_Pal[]          = INCBIN_U16("graphics/trainer_card/gold.gbapal");
 static const u16 sTrainerCardSticker1_Pal[]      = INCBIN_U16("graphics/trainer_card/stickers_fr1.gbapal");
 static const u16 sTrainerCardSticker2_Pal[]      = INCBIN_U16("graphics/trainer_card/stickers_fr2.gbapal");
@@ -185,6 +190,7 @@ static const u16 sTrainerCardSticker3_Pal[]      = INCBIN_U16("graphics/trainer_
 static const u16 sTrainerCardSticker4_Pal[]      = INCBIN_U16("graphics/trainer_card/stickers_fr4.gbapal");
 static const u32 sHoennTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
 static const u32 sKantoTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges_fr.4bpp.lz");
+static const u32 sTypedTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges_types.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] =
 {
@@ -571,7 +577,8 @@ static bool8 LoadCardGfx(void)
         break;
     case 3:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+            //LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+            LZ77UnCompWram(sTypedTrainerCardBadges_Gfx, sData->badgeTiles);
         else
             LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
         break;
@@ -842,7 +849,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 static void SetDataFromTrainerCard(void)
 {
     u8 i;
-    u32 badgeFlag;
 
     sData->hasPokedex = FALSE;
     sData->hasHofResult = FALSE;
@@ -867,10 +873,10 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
+    for (i = 0; i < NUM_DISPLAY_BADGES; i++)
     {
-        if (FlagGet(badgeFlag))
-            sData->badgeCount[i]++;
+        u8 offset = gRogueRun.currentDifficulty > 8 ? (i + gRogueRun.currentDifficulty - 8) : i;
+        sData->badgeCount[i] = gRogueRun.completedBadges[offset];
     }
 }
 
@@ -1460,7 +1466,8 @@ static u8 SetCardBgsAndPals(void)
         if (sData->cardType != CARD_TYPE_FRLG)
         {
             LoadPalette(sHoennTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
-            LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
+            //LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
+            LoadPalette(sTypedTrainerCardBadges_Pal, 48, 32);
             if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sHoennTrainerCardFemaleBg_Pal, 16, 32);
         }
@@ -1536,14 +1543,16 @@ static void DrawStarsAndBadgesOnCard(void)
     if (!sData->isLink)
     {
         x = 4;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        for (i = 0; i < NUM_DISPLAY_BADGES; i++, x += 3)
         {
-            if (sData->badgeCount[i])
+            if (sData->badgeCount[i] != TYPE_NONE)
             {
+                tileNum = 192 + sData->badgeCount[i] * 2;
+
                 FillBgTilemapBufferRect(3, tileNum, x, 15, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 15, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 16, x, 16, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 16, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2, x, 16, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2 + 1, x + 1, 16, 1, 1, palNum);
             }
         }
     }
