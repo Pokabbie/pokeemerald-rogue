@@ -2107,7 +2107,7 @@ void Rogue_MainInit(void)
 #endif
 }
 
-void Rogue_MainCallback(void)
+void Rogue_MainCB(void)
 {
     //Additional 3rd maincallback which is always called
 
@@ -2116,11 +2116,16 @@ void Rogue_MainCallback(void)
         UpdateHotTracking();
     }
 
-    Rogue_AssistantCallback();
+    Rogue_AssistantMainCB();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
 #endif
+}
+
+void Rogue_OverworldCB(void)
+{
+    Rogue_AssistantOverworldCB();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)

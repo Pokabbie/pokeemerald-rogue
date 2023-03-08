@@ -199,7 +199,7 @@ static void CallCallbacks(void)
     if (gMain.callback2)
         gMain.callback2();
 
-    Rogue_MainCallback();
+    Rogue_MainCB();
 }
 
 void SetMainCallback2(MainCallback callback)

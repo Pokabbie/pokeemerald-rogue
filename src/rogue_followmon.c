@@ -93,14 +93,13 @@ void SetupFollowParterMonObjectEvent()
         if(!FollowMon_IsPartnerMonActive())
         {
             u16 localId = OBJ_EVENT_ID_FOLLOWER;
-            u8 objectEventId = SpawnSpecialObjectEventParameterized2(
+            u8 objectEventId = SpawnSpecialObjectEventParameterized(
                 OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
                 MOVEMENT_TYPE_FACE_DOWN,
                 localId,
                 gSaveBlock1Ptr->pos.x + MAP_OFFSET,
                 gSaveBlock1Ptr->pos.y + MAP_OFFSET,
-                3,
-                NULL
+                3
             );
 
             SetUpFollowerSprite(localId, FOLLOWER_FLAG_CAN_LEAVE_ROUTE | FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT); // Check FOLLOWER_FLAG_ALL

@@ -2,6 +2,7 @@
 #define ROGUE_ASSISTANT_H
 
 void Rogue_AssistantInit();
-void Rogue_AssistantCallback();
+void Rogue_AssistantMainCB();
+void Rogue_AssistantOverworldCB();
 
 #endif

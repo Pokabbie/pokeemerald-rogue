@@ -1530,11 +1530,6 @@ u8 SpawnSpecialObjectEvent(struct ObjectEventTemplate *objectEventTemplate)
 
 u8 SpawnSpecialObjectEventParameterized(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation)
 {
-    return SpawnSpecialObjectEventParameterized2(graphicsId, movementBehavior, localId, x, y, elevation, NULL);
-}
-
-u8 SpawnSpecialObjectEventParameterized2(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation, const u8* script)
-{
     struct ObjectEventTemplate objectEventTemplate;
 
     x -= MAP_OFFSET;
@@ -1550,7 +1545,7 @@ u8 SpawnSpecialObjectEventParameterized2(u16 graphicsId, u8 movementBehavior, u8
     objectEventTemplate.movementRangeY = 0;
     objectEventTemplate.trainerType = TRAINER_TYPE_NONE;
     objectEventTemplate.trainerRange_berryTreeId = 0;
-    objectEventTemplate.script = script;
+    objectEventTemplate.script = NULL;
     return SpawnSpecialObjectEvent(&objectEventTemplate);
 }
 
