@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,6 +59,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assistant\Behaviours\MultiplayerClientBehaviour.cs" />
+    <Compile Include="Assistant\Behaviours\MultiplayerServerBehaviour.cs" />
+    <Compile Include="Assistant\Behaviours\NetPlayerSyncBehaviour.cs" />
+    <Compile Include="Assistant\IRogueAssistantBehaviour.cs" />
+    <Compile Include="Assistant\RogueAssistantController.cs" />
+    <Compile Include="Assistant\Utilities\NetworkPacket.cs" />
+    <Compile Include="Assistant\Utilities\TcpListenerServer.cs" />
+    <Compile Include="Assistant\RogueAssistant.cs" />
     <Compile Include="Game\Commands\CommandRequest.cs" />
     <Compile Include="Game\Commands\Game\EchoGameCommand.cs" />
     <Compile Include="Game\Commands\Connection\VerifyGameCommand.cs" />
@@ -67,7 +78,6 @@
     <Compile Include="Game\GameString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,4 +85,11 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\ENet-CSharp.2.4.8\build\ENet-CSharp.targets" Condition="Exists('..\packages\ENet-CSharp.2.4.8\build\ENet-CSharp.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ENet-CSharp.2.4.8\build\ENet-CSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ENet-CSharp.2.4.8\build\ENet-CSharp.targets'))" />
+  </Target>
 </Project>

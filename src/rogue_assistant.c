@@ -69,8 +69,8 @@ struct RogueAssistantState
 {
     u8 inCommBuffer[16];
     u8 outCommBuffer[16];
-    struct NetPlayerProfile netPlayerProfile[NET_PLAYER_CAPACITY + 1];
-    struct NetPlayerState netPlayerState[NET_PLAYER_CAPACITY + 1];
+    struct NetPlayerProfile netPlayerProfile[NET_PLAYER_CAPACITY];
+    struct NetPlayerState netPlayerState[NET_PLAYER_CAPACITY];
 };
 
 EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
@@ -157,7 +157,6 @@ void Rogue_AssistantOverworldCB()
         }
 
         gRogueAssistantState.netPlayerState[0].pos = gSaveBlock1Ptr->pos;
-        gRogueAssistantState.netPlayerState[0].pos.x -= 3;
         gRogueAssistantState.netPlayerState[0].mapGroup = gSaveBlock1Ptr->location.mapGroup;
         gRogueAssistantState.netPlayerState[0].mapNum = gSaveBlock1Ptr->location.mapNum;
     }
