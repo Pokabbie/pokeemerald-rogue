@@ -1,5 +1,6 @@
 ﻿using RogueAssistantNET.Assistant.Utilities;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,9 +12,13 @@ namespace RogueAssistantNET.Assistant.Behaviours
 {
 	public class MultiplayerServerBehaviour : IRogueAssistantBehaviour
 	{
+		public const string c_Handshake1 = "8Tr3tolLRgywSHHKmI0gGWbdNhuplYhB";
+		public const string c_Handshake2 = "lyCOm4XQIj8UEaoManH7wB4lKEm6zBAF"; 
+
 		private NetPlayerSyncBehaviour m_PlayerSync;
 		private TcpListenerServer m_Server;
 
+		private ConcurrentQueue<TcpClient> m_NewConnections = new ConcurrentQueue<TcpClient>();
 		private List<TcpClient> m_ActiveConnections = new List<TcpClient>();
 		private Dictionary<Socket, NetPlayerData> m_ConnectionPlayerData = new Dictionary<Socket, NetPlayerData>();
 
@@ -44,18 +49,24 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		{
 			if(m_Server.TryAccept(out TcpClient newClient))
 			{
-				if (TryAccept(newClient))
+				Task.Run(() =>
 				{
-					m_ActiveConnections.Add(newClient);
+					if (TryAccept(assistant, newClient))
+						m_NewConnections.Enqueue(newClient);
+					else
+						newClient.Close();
+				});
+			}
 
-					var asyncArgs = new SocketAsyncEventArgs();
-					asyncArgs.SetBuffer(new byte[2048], 0, 2048);
-					asyncArgs.Completed += OnTcpClientRecieve;
+			if(m_NewConnections.Count != 0 && m_NewConnections.TryDequeue(out newClient))
+			{
+				m_ActiveConnections.Add(newClient);
 
-					newClient.Client.ReceiveAsync(asyncArgs);
-				}
-				else
-					newClient.Close();
+				var asyncArgs = new SocketAsyncEventArgs();
+				asyncArgs.SetBuffer(new byte[2048], 0, 2048);
+				asyncArgs.Completed += OnTcpClientRecieve;
+
+				newClient.Client.ReceiveAsync(asyncArgs);
 			}
 
 			foreach(var client in m_ActiveConnections)
@@ -105,13 +116,48 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			socket.ReceiveAsync(asyncArgs);
 		}
 
-		public bool TryAccept(TcpClient client)
+		public bool TryAccept(RogueAssistant assistant, TcpClient client)
 		{
-			if (ReachedMaxPlayerCount)
-				return false;
-
 			Console.WriteLine($"Player connecting...");
-			// TODO - Verify this is a valid connection
+			client.ReceiveTimeout = 15 * 1000;
+			client.SendTimeout = 15 * 1000;
+
+			if (ReachedMaxPlayerCount)
+			{
+				Console.WriteLine($"Rejecting (Reached Max Players)");
+				return false;
+			}
+
+			byte[] buffer = new byte[4096];
+
+			bool VerifyString(string match)
+			{
+				int readCount = client.Client.Receive(buffer);
+				string incoming = Encoding.ASCII.GetString(buffer, 0, readCount);
+
+				if (incoming != match)
+					return false;
+
+				// Send 2nd continue signal
+				int count = Encoding.ASCII.GetBytes("OK", 0, 2, buffer, 0);
+				client.Client.Send(buffer, 0, count, SocketFlags.None);
+				return true;
+			}
+
+			// Check handshakes
+			if(!VerifyString(c_Handshake1) || !VerifyString(c_Handshake2))
+			{
+				Console.WriteLine($"Rejecting (Failed to verify)");
+				return false;
+			}
+
+			// Check game version
+			if (!VerifyString(assistant.Connection.Header.GameEdition.ToString()))
+			{
+				Console.WriteLine($"Rejecting (Incompatible GameEdition)");
+				return false;
+			}
+
 			return true;
 		}
 

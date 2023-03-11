@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace RogueAssistantNET.Game
 {
+	public enum GameEdition
+	{
+		Vanilla,
+		EX,
+	}
+
 	public struct GameConnectionHeader
 	{
 		public uint GameVersion;
 		public uint GameLanguage;
 		public string GameName;
-		public uint MonSpeciesNamesAddress;
-		public uint MoveNamesAddress;
-		public uint NationalDexCount;
+
+		public GameEdition GameEdition;
 		public uint RogueHeaderAddress;
 
 		public uint RogueInputBufferSize;

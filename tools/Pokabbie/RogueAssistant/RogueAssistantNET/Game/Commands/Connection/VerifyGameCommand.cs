@@ -30,14 +30,11 @@ namespace RogueAssistantNET.Game.Commands.Connection
 			uint offsetHeaderAddr = exOffset ? GameConstants.GFHeaderAddress - 4 : GameConstants.GFHeaderAddress;
 
 			GameConnectionHeader header = new GameConnectionHeader();
+			header.GameEdition = exOffset ? GameEdition.EX : GameEdition.Vanilla;
 
 			header.GameVersion = conn.ReadU32(GameConstants.GFHeaderAddress + 0);
 			header.GameLanguage = conn.ReadU32(GameConstants.GFHeaderAddress + 4);
 			header.GameName = conn.ReadAsciiStringFixed(GameConstants.GFHeaderAddress + 8, 32);
-
-			header.MonSpeciesNamesAddress = conn.ReadU32(GameConstants.GFHeaderAddress + 68);
-			header.MoveNamesAddress = conn.ReadU32(GameConstants.GFHeaderAddress + 68);
-			header.NationalDexCount = conn.ReadU32(offsetHeaderAddr + 112);
 
 			uint handshakeCode = conn.ReadU32(offsetHeaderAddr + 120);
 			if (handshakeCode != 20012)

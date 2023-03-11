@@ -11,11 +11,20 @@ namespace RogueAssistantNET.Assistant.Behaviours
 {
 	public class MultiplayerClientBehaviour : IRogueAssistantBehaviour
 	{
+		private enum ConnectionState
+		{
+			Connecting,
+			PostConnect,
+			Active,
+			Disconnected
+		}
+
 		private NetPlayerSyncBehaviour m_PlayerSync;
 		private string m_Hostname;
 		private int m_Port;
 
 		private TcpClient m_Client;
+		private ConnectionState m_State;
 		private List<NetPlayerData> m_NetworkPlayers = new List<NetPlayerData>();
 
 		public MultiplayerClientBehaviour(string address, int port)
@@ -34,16 +43,20 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			Console.WriteLine($"== Openning Client ({m_Hostname}:{m_Port}) ==");
 			m_Client.Connect(m_Hostname, m_Port);
 
-			var asyncArgs = new SocketAsyncEventArgs();
-			asyncArgs.SetBuffer(new byte[2048], 0, 2048);
-			asyncArgs.Completed += OnTcpClientRecieve;
-			m_Client.Client.ReceiveAsync(asyncArgs);
+			Task.Run(() =>
+			{
+				if (TryConnect(assistant))
+				{
+					m_State = ConnectionState.Active;
+				}
+				else
+				{
+					m_Client.Close();
+					m_Client = null;
+					m_State = ConnectionState.Disconnected;
+				}
+			});
 
-			NetworkPacket profilePacket = new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData);
-			NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
-
-			m_Client.Client.Send(profilePacket.ToBinaryBlob());
-			m_Client.Client.Send(statePacket.ToBinaryBlob());
 		}
 
 		public void OnDetach(RogueAssistant assistant)
@@ -52,8 +65,70 @@ namespace RogueAssistantNET.Assistant.Behaviours
 
 		public void OnUpdate(RogueAssistant assistant)
 		{
-			NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
-			m_Client.Client.Send(statePacket.ToBinaryBlob());
+			switch(m_State)
+			{
+				case ConnectionState.Active:
+					{
+						NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
+						m_Client.Client.Send(statePacket.ToBinaryBlob());
+					}
+					break;
+
+				case ConnectionState.PostConnect:
+					{
+						m_State = ConnectionState.Active;
+
+						var asyncArgs = new SocketAsyncEventArgs();
+						asyncArgs.SetBuffer(new byte[2048], 0, 2048);
+						asyncArgs.Completed += OnTcpClientRecieve;
+						m_Client.Client.ReceiveAsync(asyncArgs);
+
+						NetworkPacket profilePacket = new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData);
+						NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
+
+						m_Client.Client.Send(profilePacket.ToBinaryBlob());
+						m_Client.Client.Send(statePacket.ToBinaryBlob());
+					}
+					break;
+
+				case ConnectionState.Disconnected:
+					assistant.RemoveBehaviour(this);
+					break;
+			}
+		}
+
+		private bool TryConnect(RogueAssistant assistant)
+		{
+			Console.WriteLine($"Connecting...");
+			byte[] buffer = new byte[4096];
+
+			bool VerifyString(string input)
+			{
+				int count = Encoding.ASCII.GetBytes(input, 0, input.Length, buffer, 0);
+				m_Client.Client.Send(buffer, 0, count, SocketFlags.None);
+
+				int readCount = m_Client.Client.Receive(buffer);
+				string response = Encoding.ASCII.GetString(buffer, 0, readCount);
+
+				return response == "OK";
+			}
+
+			// Check handshakes
+			if (!VerifyString(MultiplayerServerBehaviour.c_Handshake1) || !VerifyString(MultiplayerServerBehaviour.c_Handshake2))
+			{
+				Console.WriteLine($"Rejected (Failed to verify)");
+				return false;
+			}
+
+			// Check game version
+			if (!VerifyString(assistant.Connection.Header.GameEdition.ToString()))
+			{
+				Console.WriteLine($"Rejected (Incompatible GameEdition)");
+				return false;
+			}
+
+			// accepted
+			return true;
 		}
 
 		private void OnTcpClientRecieve(object sender, SocketAsyncEventArgs asyncArgs)
