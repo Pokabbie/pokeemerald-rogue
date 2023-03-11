@@ -5,4 +5,6 @@ void Rogue_AssistantInit();
 void Rogue_AssistantMainCB();
 void Rogue_AssistantOverworldCB();
 
+void Rogue_RemoveNetObjectEvents();
+
 #endif

@@ -78,6 +78,7 @@ extern const u8 *const gBerryTreePaletteSlotTablePointers[];
 
 void ResetObjectEvents(void);
 u8 GetMoveDirectionAnimNum(u8);
+u8 GetSpecialObjectEventIdByLocalId(u8);
 u8 GetObjectEventIdByLocalIdAndMap(u8, u8, u8);
 bool8 TryGetObjectEventIdByLocalIdAndMap(u8, u8, u8, u8 *);
 u8 GetObjectEventIdByXY(s16, s16);

@@ -1248,6 +1248,14 @@ u8 GetFirstInactiveObjectEventId(void)
     return i;
 }
 
+u8 GetSpecialObjectEventIdByLocalId(u8 localId)
+{
+    if (localId == OBJ_EVENT_ID_FOLLOWER)
+        return GetFollowerObjectId();
+
+    return GetObjectEventIdByLocalId(localId);
+}
+
 u8 GetObjectEventIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroupId)
 {
     if (localId == OBJ_EVENT_ID_FOLLOWER)
@@ -7920,8 +7928,8 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    //if(!FollowMon_IsMonObject(objEvent, FALSE))
-    //{
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
         gFieldEffectArguments[2] = objEvent->previousElevation;
@@ -7929,22 +7937,27 @@ void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *
         gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
         gFieldEffectArguments[5] = objEvent->mapGroup;
         gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
-        gFieldEffectArguments[7] = 1;
+        gFieldEffectArguments[7] = TRUE; // skip to end of anim
         FieldEffectStart(FLDEFF_LONG_GRASS);
-    //}
+    }
 }
 
 void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    gFieldEffectArguments[0] = objEvent->currentCoords.x;
-    gFieldEffectArguments[1] = objEvent->currentCoords.y;
-    gFieldEffectArguments[2] = objEvent->previousElevation;
-    gFieldEffectArguments[3] = 2;
-    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
-    gFieldEffectArguments[5] = objEvent->mapGroup;
-    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
-    gFieldEffectArguments[7] = 0;
-    FieldEffectStart(FLDEFF_LONG_GRASS);
+    // RogueNote: Skip to end of anim to stop follower lag
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    {
+        gFieldEffectArguments[0] = objEvent->currentCoords.x;
+        gFieldEffectArguments[1] = objEvent->currentCoords.y;
+        gFieldEffectArguments[2] = objEvent->previousElevation;
+        gFieldEffectArguments[3] = 2;
+        gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+        gFieldEffectArguments[5] = objEvent->mapGroup;
+        gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+        //gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
+        gFieldEffectArguments[7] = TRUE; // skip to end of anim 
+        FieldEffectStart(FLDEFF_LONG_GRASS);
+    }
 }
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)

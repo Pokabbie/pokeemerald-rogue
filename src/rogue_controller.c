@@ -2006,6 +2006,8 @@ void Rogue_OnLoadGame(void)
     RecalcCharmCurseValues();
     
     ResetFollowParterMonObjectEvent();
+
+    Rogue_RemoveNetObjectEvents();
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)

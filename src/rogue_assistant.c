@@ -18,6 +18,7 @@
 #include "fieldmap.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
+#include "follow_me.h"
 #include "intro.h"
 #include "main.h"
 #include "overworld.h"
@@ -26,6 +27,7 @@
 #include "rogue_assistant.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 
 // Constants
 //
@@ -61,6 +63,10 @@ struct NetPlayerProfile
 struct NetPlayerState
 {
     struct Coords16 pos;
+    struct Coords16 partnerPos;
+    u16 facingDirection;
+    u16 partnerFacingDirection;
+    u16 partnerMon;
     s8 mapGroup;
     s8 mapNum;
 };
@@ -133,7 +139,6 @@ static const CommandCallback sCommCommands[] =
 
 void Rogue_AssistantInit()
 {
-
 }
 
 void Rogue_AssistantMainCB()
@@ -150,6 +155,8 @@ void Rogue_AssistantOverworldCB()
 {
     // Populate current player state
     {
+        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
         if(!IsNetPlayerActive(0))
         {
             gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_ACTIVE;
@@ -157,8 +164,22 @@ void Rogue_AssistantOverworldCB()
         }
 
         gRogueAssistantState.netPlayerState[0].pos = gSaveBlock1Ptr->pos;
+        gRogueAssistantState.netPlayerState[0].facingDirection = player->facingDirection;
         gRogueAssistantState.netPlayerState[0].mapGroup = gSaveBlock1Ptr->location.mapGroup;
         gRogueAssistantState.netPlayerState[0].mapNum = gSaveBlock1Ptr->location.mapNum;
+
+        if(FollowMon_IsPartnerMonActive())
+        {
+            struct ObjectEvent* follower = &gObjectEvents[gSaveBlock2Ptr->follower.objId];
+
+            gRogueAssistantState.netPlayerState[0].partnerMon = FollowMon_GetPartnerFollowSpecies();
+            gRogueAssistantState.netPlayerState[0].partnerPos = follower->currentCoords;
+            gRogueAssistantState.netPlayerState[0].partnerFacingDirection = follower->facingDirection;
+        }
+        else
+        {
+            gRogueAssistantState.netPlayerState[0].partnerMon = 0;
+        }
     }
 
     // Do external net update, if needed
@@ -178,106 +199,174 @@ void Rogue_AssistantOverworldCB()
 // Multiplayer
 //
 
-static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile, struct NetPlayerState* playerState)
+struct SyncObjectEventInfo
 {
-    bool8 shouldBeVisible = FALSE;
-    u8 localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 0;
-    u8 localFollowId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1;
+    u8 localId;
+    u16 gfxId;
+    u16 facingDirection;
+    s16 mapX;
+    s16 mapY;
+    s8 mapNum;
+    s8 mapGroup;
+};
 
-    if(playerState->mapGroup == gSaveBlock1Ptr->location.mapGroup && playerState->mapNum == gSaveBlock1Ptr->location.mapNum)
+static void SyncObjectEvent(struct SyncObjectEventInfo objectInfo)
+{
+    bool8 shouldBeVisible = (objectInfo.gfxId != 0) && (objectInfo.mapGroup == gSaveBlock1Ptr->location.mapGroup && objectInfo.mapNum == gSaveBlock1Ptr->location.mapNum);
+    u8 objectId = GetSpecialObjectEventIdByLocalId(objectInfo.localId);
+    s16 xDist = abs(objectInfo.mapX - gSaveBlock1Ptr->pos.x - MAP_OFFSET);
+    s16 yDist = abs(objectInfo.mapY - gSaveBlock1Ptr->pos.y - MAP_OFFSET);
+
+    if(shouldBeVisible && xDist <= 8 && yDist <= 5)
     {
-        s16 xDist = abs(playerState->pos.x - gSaveBlock1Ptr->pos.x);
-        s16 yDist = abs(playerState->pos.y - gSaveBlock1Ptr->pos.y);
-        if(xDist <= 8 && yDist <= 5)
+        shouldBeVisible = TRUE;
+    }
+
+    if(shouldBeVisible)
+    {
+        if(objectId == OBJECT_EVENTS_COUNT && IsSafeToSpawnObjectEvents())
         {
-            shouldBeVisible = TRUE;
+            objectId = SpawnSpecialObjectEventParameterized(
+                objectInfo.gfxId,
+                MOVEMENT_TYPE_NONE,
+                objectInfo.localId,
+                objectInfo.mapX,
+                objectInfo.mapY,
+                MapGridGetElevationAt(objectInfo.mapX, objectInfo.mapY)
+            );
         }
 
-        if(shouldBeVisible)
+        if(objectId != OBJECT_EVENTS_COUNT)
         {
-            u8 objectId = GetObjectEventIdByLocalIdAndMap(localId, playerState->mapNum, playerState->mapGroup);
-            s16 mapX = playerState->pos.x + MAP_OFFSET;
-            s16 mapY = playerState->pos.y + MAP_OFFSET;
+            s16 totalDist;
+            u8 heldMovement = MOVEMENT_ACTION_NONE;
+            struct ObjectEvent* object = &gObjectEvents[objectId];
+            s16 xDiff = objectInfo.mapX - object->currentCoords.x;
+            s16 yDiff = objectInfo.mapY - object->currentCoords.y;
 
-            if(objectId == OBJECT_EVENTS_COUNT)
+            xDist = abs(xDiff);
+            yDist = abs(yDiff);
+            totalDist = xDist + yDist;
+
+            // Close enough to animate
+            if(totalDist < 12)
             {
-                objectId = SpawnSpecialObjectEventParameterized(
-                    OBJ_EVENT_GFX_ANABEL,
-                    MOVEMENT_TYPE_NONE,
-                    localId,
-                    mapX,
-                    mapY,
-                    MapGridGetElevationAt(mapX, mapY)
-                );
-
-                //gObjectEvents[objectEventId].rangeX = 8;
-                //gObjectEvents[objectEventId].rangeY = 8;
-            }
-
-            if(objectId != OBJECT_EVENTS_COUNT)
-            {
-                s16 totalDist;
                 u8 heldMovement = MOVEMENT_ACTION_NONE;
-                struct ObjectEvent* object = &gObjectEvents[objectId];
-                s16 xDiff = mapX - object->currentCoords.x;
-                s16 yDiff = mapY - object->currentCoords.y;
+                u8 idealMovement = GetWalkNormalMovementAction(objectInfo.facingDirection);
 
-                xDist = abs(xDiff);
-                yDist = abs(yDiff);
-                totalDist = xDist + yDist;
-
-                // Close enough to animate
-                if(totalDist < 12)
+                // If we're facing a direction we need to go, do that preferably
+                if((idealMovement == MOVEMENT_ACTION_WALK_NORMAL_LEFT && xDiff < 0)
+                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_RIGHT && xDiff > 0)
+                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_UP && yDiff < 0)
+                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_DOWN && yDiff > 0)
+                )
                 {
-                    u8 heldMovement = MOVEMENT_ACTION_NONE;
-
-                    // Try to move on smallest axis distance first
-                    if(xDist > 0 && (yDist == 0 || xDist > yDist))
-                    {
-                        heldMovement = xDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_LEFT : MOVEMENT_ACTION_WALK_NORMAL_RIGHT;
-                    }
-                    else if(yDist > 0)
-                    {
-                        heldMovement = yDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_UP : MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-                    }
-
-                    // Speed up movement action if far away
-                    if(totalDist >= 5)
-                        heldMovement += MOVEMENT_ACTION_WALK_FASTER_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-                    else if(totalDist >= 2)
-                        heldMovement += MOVEMENT_ACTION_WALK_FAST_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-
-                    if(ObjectEventClearHeldMovementIfFinished(object))
-                    {
-                        if(heldMovement != MOVEMENT_ACTION_NONE)
-                        {
-                            // Keep queuing up the correct movement
-                            ObjectEventSetHeldMovement(object, heldMovement);
-                        }
-                    }
+                    heldMovement = idealMovement;
                 }
-                else
+                // Otherwise try to move on smallest axis distance first
+                else if(xDist > 0 && (yDist == 0 || xDist > yDist))
                 {
-                    // Teleport, as too far
-                    MoveObjectEventToMapCoords(object, mapX, mapY);
+                    heldMovement = xDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_LEFT : MOVEMENT_ACTION_WALK_NORMAL_RIGHT;
+                }
+                else if(yDist > 0)
+                {
+                    heldMovement = yDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_UP : MOVEMENT_ACTION_WALK_NORMAL_DOWN;
                 }
 
-                
-    //if (newState == MOVEMENT_INVALID)
-    //ObjectEventClearHeldMovementIfActive(follower);
-    //ObjectEventSetHeldMovement(follower, newState);
-    //ObjectEventClearHeldMovementIfFinished(follower);
+                // Speed up movement action if far away
+                if(totalDist >= 5)
+                    heldMovement += MOVEMENT_ACTION_WALK_FASTER_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
+                else if(totalDist >= 2)
+                    heldMovement += MOVEMENT_ACTION_WALK_FAST_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
 
-                //SetObjEventTemplateMovementType
-
-                //gObjectEvents[objectId].previousCoords.x = netPlayer->pos.x;
-                //gObjectEvents[objectId].previousCoords.y = netPlayer->pos.y;
-//
-                //gObjectEvents[objectId].currentCoords.x = netPlayer->pos.x;
-                //gObjectEvents[objectId].currentCoords.y = netPlayer->pos.y;
+                if(ObjectEventClearHeldMovementIfFinished(object))
+                {
+                    if(heldMovement != MOVEMENT_ACTION_NONE)
+                    {
+                        // Keep queuing up the correct movement
+                        ObjectEventSetHeldMovement(object, heldMovement);
+                    }
+                    else if(object->facingDirection != objectInfo.facingDirection)
+                    {
+                        // Finished movement, so sync up facing direction
+                        ObjectEventSetHeldMovement(object, GetFaceDirectionMovementAction(objectInfo.facingDirection));
+                    }
+                }
+            }
+            else
+            {
+                // Teleport, as too far
+                MoveObjectEventToMapCoords(object, objectInfo.mapX, objectInfo.mapY);
             }
         }
     }
+    else
+    {
+        // Remove object if currently exists
+        if(objectId != OBJECT_EVENTS_COUNT)
+        {
+            RemoveObjectEvent(&gObjectEvents[objectId]);
+        }
+    }
+}
+
+void Rogue_RemoveNetObjectEvents()
+{
+    u8 i, j;
+    u8 objectId;
+
+    for(i = OBJ_EVENT_ID_MULTIPLAYER_FIRST; i <= OBJ_EVENT_ID_MULTIPLAYER_LAST; ++i)
+    {
+        objectId = GetSpecialObjectEventIdByLocalId(i);
+        if(objectId != OBJECT_EVENTS_COUNT)
+        {
+            RemoveObjectEvent(&gObjectEvents[objectId]);
+        }
+    }
+}
+
+
+static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile, struct NetPlayerState* playerState)
+{
+    struct SyncObjectEventInfo syncObject;
+
+    syncObject.localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 0;
+    syncObject.gfxId = OBJ_EVENT_GFX_ANABEL;
+    syncObject.facingDirection = playerState->facingDirection;
+    syncObject.mapX = playerState->pos.x + MAP_OFFSET;
+    syncObject.mapY = playerState->pos.y + MAP_OFFSET;
+    syncObject.mapNum = playerState->mapNum;
+    syncObject.mapGroup = playerState->mapGroup;
+
+    SyncObjectEvent(syncObject);
+
+    // Follower
+    syncObject.localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1;
+    syncObject.facingDirection = playerState->partnerFacingDirection;
+    syncObject.mapX = playerState->partnerPos.x;
+    syncObject.mapY = playerState->partnerPos.y;
+    syncObject.mapNum = playerState->mapNum;
+    syncObject.mapGroup = playerState->mapGroup;
+
+    if(playerState->partnerMon != 0 && !Rogue_IsRunActive())
+    {
+        if(VarGet(VAR_FOLLOW_MON_4 + playerId) != playerState->partnerMon)
+        {
+            // Remove the object for one frame to reset the gfx
+            VarSet(VAR_FOLLOW_MON_4 + playerId, playerState->partnerMon);
+            syncObject.gfxId = 0;
+        }
+        else
+        {
+            syncObject.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_4 + playerId;
+        }
+    }
+    else
+    {
+        syncObject.gfxId = 0;
+    }
+
+    SyncObjectEvent(syncObject);
 }
 
 
