@@ -1,0 +1,19 @@
+
+script Rogue_InteractMultiplayerPlayer
+{
+    lock
+
+    msgbox(format("TODO"))
+
+    release
+}
+
+script Rogue_InteractMultiplayerFollowMon
+{
+    lock
+
+    special(Rogue_GetFollowMonSpecies)
+    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+
+    release
+}

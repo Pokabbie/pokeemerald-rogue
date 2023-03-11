@@ -2430,13 +2430,19 @@ void SetObjectEventDirection(struct ObjectEvent *objectEvent, u8 direction)
     objectEvent->movementDirection = direction;
 }
 
+extern const u8 Rogue_InteractMultiplayerPlayer[];
+extern const u8 Rogue_InteractMultiplayerFollowMon[];
 extern const u8 Rogue_InteractWithDynamicWildFollowMon[];
 
 static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
 {
-    if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
+    // Force override script here
+    if(localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
     {
-        // Force override script here
+        return (localId % 2) == 0 ? Rogue_InteractMultiplayerPlayer : Rogue_InteractMultiplayerFollowMon;
+    }
+    else if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
+    {
         return Rogue_InteractWithDynamicWildFollowMon;
     }
 

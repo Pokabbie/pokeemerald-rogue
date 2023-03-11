@@ -256,28 +256,47 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 {
     struct ObjectEvent *curObject;
     u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
-    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
 
-    *species = FALSE;
-    *isShiny = FALSE;
-
-    if(objEventId < OBJECT_EVENTS_COUNT)
+    if(lastTalkedId == OBJ_EVENT_ID_FOLLOWER)
     {
-        curObject = &gObjectEvents[objEventId];
-        if(FollowMon_IsMonObject(curObject, TRUE))
-        {
-            u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-            u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies();
 
-            if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+        if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+        {
+            *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+            *isShiny = TRUE;
+        }
+        else
+        {
+            *species = gfxSpecies;
+            *isShiny = FALSE;
+        }
+    }
+    else
+    {
+        u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+        *species = FALSE;
+        *isShiny = FALSE;
+
+        if(objEventId < OBJECT_EVENTS_COUNT)
+        {
+            curObject = &gObjectEvents[objEventId];
+            if(FollowMon_IsMonObject(curObject, TRUE))
             {
-                *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
-                *isShiny = TRUE;
-            }
-            else
-            {
-                *species = gfxSpecies;
-                *isShiny = FALSE;
+                u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+                u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+
+                if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+                {
+                    *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+                    *isShiny = TRUE;
+                }
+                else
+                {
+                    *species = gfxSpecies;
+                    *isShiny = FALSE;
+                }
             }
         }
     }
