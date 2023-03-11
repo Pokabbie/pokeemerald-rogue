@@ -1441,6 +1441,8 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         Rogue_UpdatePopups(TRUE, FALSE);
     }
 
+    Rogue_OverworldCB();
+
     // if stop running but keep holding B -> fix follower frame
     if (PlayerHasFollower() && IsPlayerOnFoot() && IsPlayerStandingStill())
         ObjectEventSetHeldMovement(&gObjectEvents[GetFollowerObjectId()], GetFaceDirectionAnimNum(gObjectEvents[GetFollowerObjectId()].facingDirection));

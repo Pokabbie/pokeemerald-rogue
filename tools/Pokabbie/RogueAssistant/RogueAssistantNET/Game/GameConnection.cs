@@ -52,9 +52,6 @@ namespace RogueAssistantNET.Game
 
 					m_State = new GameState(this);
 
-					uint a = m_State.GetConstantValue(GameStateConstant.NetPlayerCapacity);
-					uint b = m_State.GetConstantValue(GameStateConstant.NetPlayerAddress);
-
 					EnqueueCommand(new EchoGameCommand());
 				}
 				else
@@ -84,6 +81,11 @@ namespace RogueAssistantNET.Game
 		public Random RNG
 		{
 			get => m_RNG;
+		}
+
+		public bool HasInitialised
+		{
+			get => m_State != null;
 		}
 
 		public void Update()
@@ -199,6 +201,12 @@ namespace RogueAssistantNET.Game
 			return BitConverter.ToInt32(res.Buffer, 0);
 		}
 
+		public byte[] ReadBytes(uint address, uint length)
+		{
+			GameConnectionResponse res = SendInternal("readBytes", address, length);
+			return res.Buffer.Take((int)length).ToArray();
+		}
+
 		public void WriteU8(uint address, byte value)
 		{
 			SendInternal("writeByte", address, value);
@@ -233,7 +241,7 @@ namespace RogueAssistantNET.Game
 			SendInternal("writeBytes", address, bytes);
 		}
 
-		public void WriteRange(uint address, byte[] data)
+		public void WriteBytes(uint address, byte[] data)
 		{
 			SendInternal("writeBytes", address, data);
 		}

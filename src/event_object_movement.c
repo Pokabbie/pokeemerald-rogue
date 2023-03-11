@@ -1248,6 +1248,14 @@ u8 GetFirstInactiveObjectEventId(void)
     return i;
 }
 
+u8 GetSpecialObjectEventIdByLocalId(u8 localId)
+{
+    if (localId == OBJ_EVENT_ID_FOLLOWER)
+        return GetFollowerObjectId();
+
+    return GetObjectEventIdByLocalId(localId);
+}
+
 u8 GetObjectEventIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroupId)
 {
     if (localId == OBJ_EVENT_ID_FOLLOWER)
@@ -1530,11 +1538,6 @@ u8 SpawnSpecialObjectEvent(struct ObjectEventTemplate *objectEventTemplate)
 
 u8 SpawnSpecialObjectEventParameterized(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation)
 {
-    return SpawnSpecialObjectEventParameterized2(graphicsId, movementBehavior, localId, x, y, elevation, NULL);
-}
-
-u8 SpawnSpecialObjectEventParameterized2(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation, const u8* script)
-{
     struct ObjectEventTemplate objectEventTemplate;
 
     x -= MAP_OFFSET;
@@ -1550,7 +1553,7 @@ u8 SpawnSpecialObjectEventParameterized2(u16 graphicsId, u8 movementBehavior, u8
     objectEventTemplate.movementRangeY = 0;
     objectEventTemplate.trainerType = TRAINER_TYPE_NONE;
     objectEventTemplate.trainerRange_berryTreeId = 0;
-    objectEventTemplate.script = script;
+    objectEventTemplate.script = NULL;
     return SpawnSpecialObjectEvent(&objectEventTemplate);
 }
 
@@ -2427,13 +2430,19 @@ void SetObjectEventDirection(struct ObjectEvent *objectEvent, u8 direction)
     objectEvent->movementDirection = direction;
 }
 
+extern const u8 Rogue_InteractMultiplayerPlayer[];
+extern const u8 Rogue_InteractMultiplayerFollowMon[];
 extern const u8 Rogue_InteractWithDynamicWildFollowMon[];
 
 static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
 {
-    if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
+    // Force override script here
+    if(localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
     {
-        // Force override script here
+        return (localId % 2) == 0 ? Rogue_InteractMultiplayerPlayer : Rogue_InteractMultiplayerFollowMon;
+    }
+    else if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
+    {
         return Rogue_InteractWithDynamicWildFollowMon;
     }
 
@@ -7925,8 +7934,8 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    //if(!FollowMon_IsMonObject(objEvent, FALSE))
-    //{
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
         gFieldEffectArguments[2] = objEvent->previousElevation;
@@ -7934,22 +7943,27 @@ void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *
         gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
         gFieldEffectArguments[5] = objEvent->mapGroup;
         gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
-        gFieldEffectArguments[7] = 1;
+        gFieldEffectArguments[7] = TRUE; // skip to end of anim
         FieldEffectStart(FLDEFF_LONG_GRASS);
-    //}
+    }
 }
 
 void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    gFieldEffectArguments[0] = objEvent->currentCoords.x;
-    gFieldEffectArguments[1] = objEvent->currentCoords.y;
-    gFieldEffectArguments[2] = objEvent->previousElevation;
-    gFieldEffectArguments[3] = 2;
-    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
-    gFieldEffectArguments[5] = objEvent->mapGroup;
-    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
-    gFieldEffectArguments[7] = 0;
-    FieldEffectStart(FLDEFF_LONG_GRASS);
+    // RogueNote: Skip to end of anim to stop follower lag
+    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    {
+        gFieldEffectArguments[0] = objEvent->currentCoords.x;
+        gFieldEffectArguments[1] = objEvent->currentCoords.y;
+        gFieldEffectArguments[2] = objEvent->previousElevation;
+        gFieldEffectArguments[3] = 2;
+        gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+        gFieldEffectArguments[5] = objEvent->mapGroup;
+        gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+        //gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
+        gFieldEffectArguments[7] = TRUE; // skip to end of anim 
+        FieldEffectStart(FLDEFF_LONG_GRASS);
+    }
 }
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)

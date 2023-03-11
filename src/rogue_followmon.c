@@ -45,11 +45,6 @@ static u16 MonToFollowSpecies(struct Pokemon* mon)
     return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
 }
 
-static u16 GetPartnerFollowSpecies()
-{
-    return MonToFollowSpecies(&gPlayerParty[0]);
-}
-
 const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId)
 {
     u16 species;
@@ -61,7 +56,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
-        species = GetPartnerFollowSpecies();
+        species = FollowMon_GetPartnerFollowSpecies();
     }
 
     if(species >= FOLLOWMON_SHINY_OFFSET)
@@ -85,7 +80,7 @@ void SetupFollowParterMonObjectEvent()
 {
     bool8 shouldFollowMonBeVisible = TRUE;
 
-    if(GetPartnerFollowSpecies() == SPECIES_NONE)
+    if(FollowMon_GetPartnerFollowSpecies() == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible)
@@ -93,14 +88,13 @@ void SetupFollowParterMonObjectEvent()
         if(!FollowMon_IsPartnerMonActive())
         {
             u16 localId = OBJ_EVENT_ID_FOLLOWER;
-            u8 objectEventId = SpawnSpecialObjectEventParameterized2(
+            u8 objectEventId = SpawnSpecialObjectEventParameterized(
                 OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
                 MOVEMENT_TYPE_FACE_DOWN,
                 localId,
                 gSaveBlock1Ptr->pos.x + MAP_OFFSET,
                 gSaveBlock1Ptr->pos.y + MAP_OFFSET,
-                3,
-                NULL
+                3
             );
 
             SetUpFollowerSprite(localId, FOLLOWER_FLAG_CAN_LEAVE_ROUTE | FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT); // Check FOLLOWER_FLAG_ALL
@@ -132,6 +126,11 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
+u16 FollowMon_GetPartnerFollowSpecies()
+{
+    return MonToFollowSpecies(&gPlayerParty[0]);
+}
+
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
 {
     u16 localId = object->localId;
@@ -160,6 +159,14 @@ bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
 
 bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
 {
+    // TODO - Should animate in legendary rooms???
+
+    if(!Rogue_IsRunActive() || objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
+    {
+        // Only fully animate partner mons
+        return TRUE;
+    }
+
     return FALSE;
 }
 
@@ -183,22 +190,25 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
-    if (collider == player)
+    if(Rogue_IsRunActive())
     {
-        // Player can walk on top of follow mon
-        if(FollowMon_IsMonObject(obstacle, TRUE))
+        if (collider == player)
         {
-            sFollowMonData.pendingInterction = TRUE;
-            return TRUE;
+            // Player can walk on top of follow mon
+            if(FollowMon_IsMonObject(obstacle, TRUE))
+            {
+                sFollowMonData.pendingInterction = TRUE;
+                return TRUE;
+            }
         }
-    }
-    else if(obstacle == player)
-    {
-        // Follow mon can walk onto player
-        if(FollowMon_IsMonObject(collider, TRUE))
+        else if(obstacle == player)
         {
-            sFollowMonData.pendingInterction = TRUE;
-            return TRUE;
+            // Follow mon can walk onto player
+            if(FollowMon_IsMonObject(collider, TRUE))
+            {
+                sFollowMonData.pendingInterction = TRUE;
+                return TRUE;
+            }
         }
     }
 
@@ -246,28 +256,47 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 {
     struct ObjectEvent *curObject;
     u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
-    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
 
-    *species = FALSE;
-    *isShiny = FALSE;
-
-    if(objEventId < OBJECT_EVENTS_COUNT)
+    if(lastTalkedId == OBJ_EVENT_ID_FOLLOWER)
     {
-        curObject = &gObjectEvents[objEventId];
-        if(FollowMon_IsMonObject(curObject, TRUE))
-        {
-            u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-            u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies();
 
-            if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+        if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+        {
+            *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+            *isShiny = TRUE;
+        }
+        else
+        {
+            *species = gfxSpecies;
+            *isShiny = FALSE;
+        }
+    }
+    else
+    {
+        u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+        *species = FALSE;
+        *isShiny = FALSE;
+
+        if(objEventId < OBJECT_EVENTS_COUNT)
+        {
+            curObject = &gObjectEvents[objEventId];
+            if(FollowMon_IsMonObject(curObject, TRUE))
             {
-                *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
-                *isShiny = TRUE;
-            }
-            else
-            {
-                *species = gfxSpecies;
-                *isShiny = FALSE;
+                u16 varNo = curObject->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+                u16 gfxSpecies = VarGet(VAR_FOLLOW_MON_0 + varNo);
+
+                if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
+                {
+                    *species = gfxSpecies - FOLLOWMON_SHINY_OFFSET;
+                    *isShiny = TRUE;
+                }
+                else
+                {
+                    *species = gfxSpecies;
+                    *isShiny = FALSE;
+                }
             }
         }
     }
@@ -335,13 +364,8 @@ void FollowMon_OverworldCB()
     if(sFollowMonData.spawnCountdown == 0)
     {
         s16 x, y;
-        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-        // Only spawn when player is at a valid tile position
-        if(player->currentCoords.x == player->previousCoords.x 
-            && player->currentCoords.y == player->previousCoords.y
-            && TrySelectTile(&x, &y)
-        )
+        if(IsSafeToSpawnObjectEvents() && TrySelectTile(&x, &y))
         {
             u16 spawnSlot = NextSpawnMonSlot();
 
@@ -376,4 +400,13 @@ void FollowMon_OverworldCB()
     {
         --sFollowMonData.spawnCountdown;
     }
+}
+
+
+bool8 IsSafeToSpawnObjectEvents()
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    // Only spawn when player is at a valid tile position
+    return (player->currentCoords.x == player->previousCoords.x && player->currentCoords.y == player->previousCoords.y);
 }

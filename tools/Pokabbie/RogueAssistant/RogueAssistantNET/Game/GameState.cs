@@ -10,8 +10,12 @@ namespace RogueAssistantNET.Game
 	public enum GameStateConstant
 	{
 		SaveBlock1Ptr,
-		NetPlayerAddress,
+		SaveBlock2Ptr,
 		NetPlayerCapacity,
+		NetPlayerProfileAddress,
+		NetPlayerProfileSize,
+		NetPlayerStateAddress,
+		NetPlayerStateSize,
 	}
 
 	public struct PlayerPositionData
@@ -30,11 +34,13 @@ namespace RogueAssistantNET.Game
 	public class GameState
 	{
 		private GameConnection m_Connection;
+		private bool m_FirstUpdate = true;
 
 		private ushort m_CommandTokenCounter = 0;
 		private Dictionary<GameStateConstant, uint> m_CachedConstants = new Dictionary<GameStateConstant, uint>();
 
-		public PlayerPositionData m_PlayerPosition;
+		private byte[] m_PlayerNameData;
+		private byte m_PlayerAvatar;
 
 		public GameState(GameConnection connection)
 		{
@@ -42,20 +48,36 @@ namespace RogueAssistantNET.Game
 			m_CommandTokenCounter = connection.ReadU16(connection.Header.RogueOutputBufferAddress);
 		}
 
-		static bool aweae = false;
+		public string PlayerNameStr
+		{
+			get => m_PlayerNameData != null ? GameString.ConvertBytes(m_PlayerNameData, (uint)m_PlayerNameData.Length) : "";
+		}
+		public byte[] PlayerNameBytes
+		{
+			get => m_PlayerNameData;
+		}
+
+		public byte PlayerAvatar
+		{
+			get => m_PlayerAvatar;
+		}
 
 		public void Update()
 		{
-			// Update player position
-			uint saveBlock1PtrAddress = GetConstantValue(GameStateConstant.SaveBlock1Ptr);
-			uint saveBlock1Address = m_Connection.ReadU32(saveBlock1PtrAddress);
+			if(m_FirstUpdate)
+			{
+				m_FirstUpdate = false;
+				RefreshInfrequentData();
+			}
+		}
 
-			m_PlayerPosition.x = m_Connection.ReadS16(saveBlock1Address + 0);
-			m_PlayerPosition.y = m_Connection.ReadS16(saveBlock1Address + 2);
-			m_PlayerPosition.mapGroup = m_Connection.ReadS8(saveBlock1Address + 4);
-			m_PlayerPosition.mapNum = m_Connection.ReadS8(saveBlock1Address + 5);
+		public void RefreshInfrequentData()
+		{
+			uint saveBlock2PtrAddress = GetConstantValue(GameStateConstant.SaveBlock2Ptr);
+			uint saveBlock2Address = m_Connection.ReadU32(saveBlock2PtrAddress);
 
-			Console.WriteLine(m_PlayerPosition);
+			m_PlayerNameData = m_Connection.ReadBytes(saveBlock2Address + 0, GameConstants.PlayerNameLength + 1);
+			m_PlayerAvatar = m_Connection.ReadU8(saveBlock2Address + 8);
 		}
 
 		public ushort NextCommandToken()

@@ -379,6 +379,10 @@
 #define OBJ_EVENT_ID_FOLLOW_MON_FIRST 0xED
 #define OBJ_EVENT_ID_FOLLOW_MON_LAST 0xFD
 
+// IDs for dynamic multiplayer objects
+#define OBJ_EVENT_ID_MULTIPLAYER_FIRST 0xE4
+#define OBJ_EVENT_ID_MULTIPLAYER_LAST 0xEC
+
 // Object event local ids referenced in C files
 #define LOCALID_ROUTE111_PLAYER_FALLING 45
 #define LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK 1

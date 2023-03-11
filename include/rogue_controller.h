@@ -62,7 +62,8 @@ bool8 Rogue_OnProcessPlayerFieldInput(void);
 bool8 Rogue_IsPartnerMonInTeam(void);
 
 void Rogue_MainInit(void);
-void Rogue_MainCallback(void);
+void Rogue_MainCB(void);
+void Rogue_OverworldCB(void);
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 

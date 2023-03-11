@@ -1,0 +1,61 @@
+
+script Rogue_InteractWithPartnerFollowMon
+{
+    lock
+    faceplayer
+
+    special(Rogue_GetFollowMonSpecies)
+    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+    msgbox(format("{STR_VAR_1} is TODO!"))
+
+    release
+}
+
+// For static spawned encounters
+script Rogue_InteractWithWildFollowMon
+{
+    lockall
+
+    special(Rogue_GetFollowMonSpecies)
+
+    playmoncry(VAR_0x800A, CRY_MODE_ENCOUNTER)
+    waitmoncry
+
+    removeobject(VAR_LAST_TALKED)
+
+    seteventmon(VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B)
+
+    special(BattleSetup_StartLegendaryBattle)
+    waitstate
+
+    releaseall
+}
+
+script Rogue_InteractWithDynamicWildFollowMon
+{
+    lockall
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        special(Rogue_GetFollowMonSpecies)
+
+        //playmoncry(VAR_0x800A, CRY_MODE_ENCOUNTER)
+        //waitmoncry
+
+        removeobject(VAR_LAST_TALKED)
+
+        seteventmon(VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B)
+        special(BattleSetup_StartWildBattle)
+        waitstate
+    }
+    else
+    {
+        special(Rogue_GetFollowMonSpecies)
+        playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+    }
+
+    releaseall
+}

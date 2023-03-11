@@ -11,6 +11,8 @@ namespace RogueAssistantNET.Game
 		public const uint RomAddress = 0x08000000;
 
 		public const uint GFHeaderAddress = RomAddress + 0x100;
+
+		public const uint PlayerNameLength = 7;
 	}
 
 	public enum GameCommandCode
