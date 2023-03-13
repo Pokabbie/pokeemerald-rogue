@@ -94,6 +94,8 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
     gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+    gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
+    gSaveBlock2Ptr->optionsSoundChannelSE = 10;
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;

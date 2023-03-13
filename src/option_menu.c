@@ -13,6 +13,7 @@
 #include "text_window.h"
 #include "international_string_util.h"
 #include "strings.h"
+#include "string_util.h"
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
 
@@ -36,6 +37,8 @@ enum
     MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_TIME_OF_DAY,
     MENUITEM_SOUND,
+    MENUITEM_SOUND_CHANNEL_BGM,
+    MENUITEM_SOUND_CHANNEL_SE,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_CANCEL,
@@ -84,6 +87,10 @@ static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection);
 static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection);
 static void Sound_DrawChoices(u8 menuOffset, u8 selection);
+static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection);
+static void SoundChannelBGM_DrawChoices(u8 menuOffset, u8 selection);
+static u8 SoundChannelSE_ProcessInput(u8 menuOffset, u8 selection);
+static void SoundChannelSE_DrawChoices(u8 menuOffset, u8 selection);
 static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection);
 static void ButtonMode_DrawChoices(u8 menuOffset, u8 selection);
 static u8 FrameType_ProcessInput(u8 menuOffset, u8 selection);
@@ -169,6 +176,18 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Sound_ProcessInput,
         .drawChoices = Sound_DrawChoices
     },
+    [MENUITEM_SOUND_CHANNEL_BGM] = 
+    {
+        .itemName = gText_SoundChannelBGM,
+        .processInput = SoundChannelBGM_ProcessInput,
+        .drawChoices = SoundChannelBGM_DrawChoices
+    },
+    [MENUITEM_SOUND_CHANNEL_SE] = 
+    {
+        .itemName = gText_SoundChannelSE,
+        .processInput = SoundChannelSE_ProcessInput,
+        .drawChoices = SoundChannelSE_DrawChoices
+    },
     [MENUITEM_BUTTONMODE] = 
     {
         .itemName = gText_ButtonMode,
@@ -231,6 +250,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_SOUND,
+            MENUITEM_SOUND_CHANNEL_BGM,
+            MENUITEM_SOUND_CHANNEL_SE,
             MENUITEM_CANCEL
         }
     }
@@ -707,6 +728,82 @@ static void Sound_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_SoundStereo, GetStringRightAlignXOffset(FONT_NORMAL, gText_SoundStereo, 198), menuOffset* YPOS_SPACING, styles[1]);
 }
 
+static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < 10)
+            selection++;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void SoundChannelBGM_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 text[16];
+    u8* textPtr;
+    u16 i;
+
+    for (i = 0; gText_FrameTypeNumber[i] != EOS && i <= 5; i++)
+        text[i] = gText_FrameTypeNumber[i];
+
+    textPtr = ConvertUIntToDecimalStringN(&text[i], selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
+
+    textPtr[0] = 0x5B; // %
+    textPtr[1] = 0; // ' '
+    textPtr[2] = 0; // ' '
+    textPtr[3] = EOS;
+
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 1);
+}
+
+static u8 SoundChannelSE_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < 10)
+            selection++;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void SoundChannelSE_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 text[16];
+    u8* textPtr;
+    u16 i;
+
+    for (i = 0; gText_FrameTypeNumber[i] != EOS && i <= 5; i++)
+        text[i] = gText_FrameTypeNumber[i];
+
+    textPtr = ConvertUIntToDecimalStringN(&text[i], selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
+
+    textPtr[0] = 0x5B; // %
+    textPtr[1] = 0; // ' '
+    textPtr[2] = 0; // ' '
+    textPtr[3] = EOS;
+
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 1);
+}
+
 static u8 FrameType_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_RIGHT))
@@ -880,6 +977,12 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
+
+    case MENUITEM_SOUND_CHANNEL_BGM:
+        return gSaveBlock2Ptr->optionsSoundChannelBGM;
+
+    case MENUITEM_SOUND_CHANNEL_SE:
+        return gSaveBlock2Ptr->optionsSoundChannelSE;
         
     case MENUITEM_BUTTONMODE:
         return gSaveBlock2Ptr->optionsButtonMode;
@@ -917,6 +1020,14 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         
     case MENUITEM_SOUND:
         gSaveBlock2Ptr->optionsSound = value;
+        break;
+        
+    case MENUITEM_SOUND_CHANNEL_BGM:
+        gSaveBlock2Ptr->optionsSoundChannelBGM = value;
+        break;
+        
+    case MENUITEM_SOUND_CHANNEL_SE:
+        gSaveBlock2Ptr->optionsSoundChannelSE = value;
         break;
         
     case MENUITEM_BUTTONMODE:
