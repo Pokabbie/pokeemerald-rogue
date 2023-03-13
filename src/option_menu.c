@@ -34,6 +34,7 @@ enum
     MENUITEM_BATTLESCENE,
     MENUITEM_BATTLESTYLE,
     MENUITEM_AUTORUN_TOGGLE,
+    MENUITEM_TIME_OF_DAY,
     MENUITEM_SOUND,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
@@ -79,6 +80,8 @@ static u8 BattleStyle_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
+static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection);
+static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection);
 static void Sound_DrawChoices(u8 menuOffset, u8 selection);
 static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection);
@@ -154,6 +157,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = AutoRun_ProcessInput,
         .drawChoices = AutoRun_DrawChoices
     },
+    [MENUITEM_TIME_OF_DAY] = 
+    {
+        .itemName = gText_TimeOfDay,
+        .processInput = TimeOfDay_ProcessInput,
+        .drawChoices = TimeOfDay_DrawChoices
+    },
     [MENUITEM_SOUND] = 
     {
         .itemName = gText_Sound,
@@ -200,6 +209,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_AUTORUN_TOGGLE,
             MENUITEM_BUTTONMODE,
+            MENUITEM_TIME_OF_DAY,
             MENUITEM_BATTLESCENE,
             MENUITEM_BATTLESTYLE,
             MENUITEM_CANCEL
@@ -650,6 +660,29 @@ static void AutoRun_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_AutoRunToggle, GetStringRightAlignXOffset(FONT_NORMAL, gText_AutoRunToggle, 198), menuOffset* YPOS_SPACING, styles[1]);
 }
 
+static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 styles[2];
+
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+
+    DrawOptionMenuChoice(gText_TimeOfDayHidden, 104, menuOffset* YPOS_SPACING, styles[0]);
+    DrawOptionMenuChoice(gText_TimeOfDayVisible, GetStringRightAlignXOffset(FONT_NORMAL, gText_TimeOfDayVisible, 198), menuOffset* YPOS_SPACING, styles[1]);
+}
+
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
@@ -842,6 +875,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_AUTORUN_TOGGLE:
         return gSaveBlock2Ptr->optionsAutoRunToggle;
 
+    case MENUITEM_TIME_OF_DAY:
+        return gSaveBlock2Ptr->timeOfDayVisuals;
+
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
         
@@ -873,6 +909,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_AUTORUN_TOGGLE:
         gSaveBlock2Ptr->optionsAutoRunToggle = value;
+        break;
+
+    case MENUITEM_TIME_OF_DAY:
+        gSaveBlock2Ptr->timeOfDayVisuals = value;
         break;
         
     case MENUITEM_SOUND:

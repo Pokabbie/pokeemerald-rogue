@@ -49,7 +49,7 @@
 #define CALC_HOUR_FROM_TIME(time) (time / 60)
 #define CALC_MINS_FROM_TIME(time) (time % 60 )
 
-#define RGB_NIGHT           RGB(9, 7, 13)
+#define RGB_NIGHT           RGB(11, 9, 15) // RGB(9, 7, 13)
 #define RGB_NIGHT_BATTLE    RGB(14, 12, 18)
 #define RGB_SUNRISE         RGB(30, 18, 8)
 #define RGB_DAYTIME         RGB_WHITE
@@ -201,7 +201,7 @@ static void TintPalette_ToD(u16 *palette, u16 count, u16 colour)
 
 static bool8 ShouldApplyTintForCurrentMap()
 {
-    return gMapHeader.mapType != MAP_TYPE_INDOOR;
+    return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
 
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
