@@ -66,7 +66,7 @@ static bool8 ForcedMovement_MatJump(void);
 static bool8 ForcedMovement_MatSpin(void);
 static bool8 ForcedMovement_MuddySlope(void);
 
-static void MovePlayerNotOnBike(u8, u16);
+static void MovePlayerNotOnBike(u8, u16, u16);
 static u8 CheckMovementInputNotOnBike(u8);
 static void PlayerNotOnBikeNotMoving(u8, u16);
 static void PlayerNotOnBikeTurningInPlace(u8, u16);
@@ -427,7 +427,7 @@ static void MovePlayerAvatarUsingKeypadInput(u8 direction, u16 newKeys, u16 held
     if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         MovePlayerOnBike(direction, newKeys, heldKeys);
     else
-        MovePlayerNotOnBike(direction, heldKeys);
+        MovePlayerNotOnBike(direction, newKeys, heldKeys);
 }
 
 static void PlayerAllowForcedMovementIfMovingSameDirection(void)
@@ -612,8 +612,22 @@ static bool8 ForcedMovement_MuddySlope(void)
     }
 }
 
-static void MovePlayerNotOnBike(u8 direction, u16 heldKeys)
+static void MovePlayerNotOnBike(u8 direction, u16 newKeys, u16 heldKeys)
 {
+    if(gSaveBlock2Ptr->optionsAutoRunToggle)
+    {
+        bool8 prevCheck = gPlayerAvatar.runningCheck;
+
+        // Can't use newKeys as it causes weird issues with it being ignored
+        if(heldKeys & B_BUTTON)
+            gPlayerAvatar.runningCheck = TRUE;
+        else
+            gPlayerAvatar.runningCheck = FALSE;
+
+        if(!prevCheck && gPlayerAvatar.runningCheck)
+            gPlayerAvatar.runningToggle = !gPlayerAvatar.runningToggle;
+    }
+
     sPlayerNotOnBikeFuncs[CheckMovementInputNotOnBike(direction)](direction, heldKeys);
 }
 
@@ -635,6 +649,19 @@ static void PlayerNotOnBikeNotMoving(u8 direction, u16 heldKeys)
 static void PlayerNotOnBikeTurningInPlace(u8 direction, u16 heldKeys)
 {
     PlayerTurnInPlace(direction);
+}
+
+static bool8 GetPlayerSpritingState(u16 heldKeys)
+{
+    if(FlagGet(FLAG_SYS_B_DASH))
+    {
+        if(gSaveBlock2Ptr->optionsAutoRunToggle)
+            return gPlayerAvatar.runningToggle;
+        else
+            return (heldKeys & B_BUTTON);
+    }
+
+    return FALSE;
 }
 
 static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
@@ -669,7 +696,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         return;
     }
 
-    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && GetPlayerSpritingState(heldKeys)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
     {
         PlayerRun(direction);

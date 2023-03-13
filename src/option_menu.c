@@ -33,6 +33,7 @@ enum
     MENUITEM_TEXTSPEED,
     MENUITEM_BATTLESCENE,
     MENUITEM_BATTLESTYLE,
+    MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_SOUND,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
@@ -56,14 +57,7 @@ enum
 };
 
 #define MAX_MENUITEM_COUNT 7
-
 #define YPOS_SPACING      16
-#define YPOS_TEXTSPEED    (MENUITEM_TEXTSPEED * 16)
-#define YPOS_BATTLESCENE  (MENUITEM_BATTLESCENE * 16)
-#define YPOS_BATTLESTYLE  (MENUITEM_BATTLESTYLE * 16)
-#define YPOS_SOUND        (MENUITEM_SOUND * 16)
-#define YPOS_BUTTONMODE   (MENUITEM_BUTTONMODE * 16)
-#define YPOS_FRAMETYPE    (MENUITEM_FRAMETYPE * 16)
 
 // this file's functions
 static void Task_OptionMenuFadeIn(u8 taskId);
@@ -83,6 +77,8 @@ static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleScene_DrawChoices(u8 menuOffset, u8 selection);
 static u8 BattleStyle_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection);
+static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
+static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection);
 static void Sound_DrawChoices(u8 menuOffset, u8 selection);
 static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection);
@@ -152,6 +148,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = BattleStyle_ProcessInput,
         .drawChoices = BattleStyle_DrawChoices
     },
+    [MENUITEM_AUTORUN_TOGGLE] = 
+    {
+        .itemName = gText_AutoRun,
+        .processInput = AutoRun_ProcessInput,
+        .drawChoices = AutoRun_DrawChoices
+    },
     [MENUITEM_SOUND] = 
     {
         .itemName = gText_Sound,
@@ -196,9 +198,10 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .titleName = gText_OptionGame,
         .menuOptions = 
         {
+            MENUITEM_AUTORUN_TOGGLE,
+            MENUITEM_BUTTONMODE,
             MENUITEM_BATTLESCENE,
             MENUITEM_BATTLESTYLE,
-            MENUITEM_BUTTONMODE,
             MENUITEM_CANCEL
         }
     },
@@ -624,6 +627,29 @@ static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_BattleStyleSet, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleStyleSet, 198), menuOffset* YPOS_SPACING, styles[1]);
 }
 
+static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void AutoRun_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 styles[2];
+
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+
+    DrawOptionMenuChoice(gText_AutoRunHold, 104, menuOffset* YPOS_SPACING, styles[0]);
+    DrawOptionMenuChoice(gText_AutoRunToggle, GetStringRightAlignXOffset(FONT_NORMAL, gText_AutoRunToggle, 198), menuOffset* YPOS_SPACING, styles[1]);
+}
+
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
@@ -813,6 +839,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_BATTLESTYLE:
         return gSaveBlock2Ptr->optionsBattleStyle;
         
+    case MENUITEM_AUTORUN_TOGGLE:
+        return gSaveBlock2Ptr->optionsAutoRunToggle;
+
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
         
@@ -840,6 +869,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         
     case MENUITEM_BATTLESTYLE:
         gSaveBlock2Ptr->optionsBattleStyle = value;
+        break;
+
+    case MENUITEM_AUTORUN_TOGGLE:
+        gSaveBlock2Ptr->optionsAutoRunToggle = value;
         break;
         
     case MENUITEM_SOUND:
