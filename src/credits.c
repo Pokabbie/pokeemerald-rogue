@@ -75,9 +75,8 @@ struct CreditsData
 
 struct CreditsEntry
 {
-    u8 unk; // Never read
-    bool8 isTitle;
     const u8 *text;
+    u16 flags;
 };
 
 static EWRAM_DATA s16 sUnkVar = 0; // Never read, only set to 0
@@ -719,8 +718,9 @@ static void ResetGpuAndVram(void)
     DmaFill16(3, 0, (void *)(PLTT + 2), PLTT_SIZE - 2);
 }
 
-#define tCurrentPage data[2]
-#define tDelay       data[3]
+#define tCurrentPage    data[2]
+#define tCurrentIndex   data[3]
+#define tDelay          data[4]
 
 static void Task_UpdatePage(u8 taskId)
 {
@@ -753,14 +753,38 @@ static void Task_UpdatePage(u8 taskId)
     case 2:
         if (gTasks[gTasks[taskId].tMainTaskId].func == Task_CreditsMain)
         {
-            if (gTasks[taskId].tCurrentPage < PAGE_COUNT)
+            if (gTasks[taskId].tCurrentIndex < ARRAY_COUNT(sCreditsEntryPointerTable))
             {
                 // Print text for this Credits page
+                u16 entryIdx, entryCount, offset;
+                u16 entryIndices[ENTRIES_PER_PAGE];
+
+                entryCount = 0;
+                
                 for (i = 0; i < ENTRIES_PER_PAGE; i++)
+                {
+                    entryIdx = gTasks[taskId].tCurrentIndex++;
+                    entryIndices[entryCount++] = entryIdx;
+
+                    if((sCreditsEntryPointerTable[entryIdx].flags & CREDITS_FLAG_BREAK) != 0)
+                        break;
+                }
+
+                if(entryCount <= 2)
+                    offset = 2;
+                else
+                    offset = 0;
+
+                for (i = 0; i < entryCount; i++)
+                {
+                    entryIdx = entryIndices[i];
+
                     PrintCreditsText(
-                        sCreditsEntryPointerTable[gTasks[taskId].tCurrentPage][i]->text,
-                         5 + i * 16,
-                         sCreditsEntryPointerTable[gTasks[taskId].tCurrentPage][i]->isTitle);
+                        sCreditsEntryPointerTable[entryIdx].text,
+                        5 + i * 16,
+                        ((sCreditsEntryPointerTable[entryIdx].flags & CREDITS_FLAG_TITLE) != 0)
+                    );
+                }
                 CopyWindowToVram(0, COPYWIN_GFX);
 
                 gTasks[taskId].tCurrentPage++;
@@ -826,7 +850,7 @@ static void Task_UpdatePage(u8 taskId)
 
 #undef tDelay
 
-#define PAGE_INTERVAL (PAGE_COUNT / 9) // 9 scenes (5 bike scenes, 4 Pokémon interludes)
+#define PAGE_INTERVAL 3 // 9 scenes (5 bike scenes, 4 Pokémon interludes)
 
 static u8 CheckChangeScene(u8 page, u8 taskId)
 {
@@ -880,6 +904,12 @@ static u8 CheckChangeScene(u8 page, u8 taskId)
     if (page == PAGE_INTERVAL * 8)
     {
         // Bike + town + night
+        gTasks[taskId].tSceneNum = SCENE_CITY_NIGHT;
+        gTasks[taskId].tNextMode = MODE_BIKE_SCENE;
+    }
+
+    if(gTasks[taskId].tCurrentIndex >= ARRAY_COUNT(sCreditsEntryPointerTable))
+    {
         gTasks[taskId].tSceneNum = SCENE_CITY_NIGHT;
         gTasks[taskId].tNextMode = MODE_BIKE_SCENE;
     }
