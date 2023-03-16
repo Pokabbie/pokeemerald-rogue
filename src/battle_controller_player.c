@@ -1519,13 +1519,17 @@ static void MoveSelectionDisplayPpNumber(void)
 
 static u8 GetMoveDisplayTyping(u16 move)
 {
-    //if(gBattleMoves[move].power == 0)
-    //    return TYPE_NONE;
-
+    u8 moveType;
     if(move == MOVE_HIDDEN_POWER)
         return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]]);
-    else
-        return gBattleMoves[move].type;
+
+#ifdef ROGUE_EXPANSION
+    SetTypeBeforeUsingMove(move, gActiveBattler);
+#endif
+    
+    GET_MOVE_TYPE(move, moveType);
+    
+    return moveType;
 }
 
 #define TYPE_x0     0
@@ -1535,7 +1539,7 @@ static u8 GetMoveDisplayTyping(u16 move)
 #define TYPE_x2     40
 #define TYPE_x4     80
 
-int GetMovePower(int move, int targetSpecies, int mode);
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
 
 extern const u8 gText_MoveEffective[];
 extern const u8 gText_MoveNoEffect[];
@@ -1545,7 +1549,11 @@ extern const u8 gText_MoveNotVeryEffective[];
 static void MoveSelectionDisplayMoveType(void)
 {
     u8 *txtPtr;
+#ifdef ROGUE_EXPANSION
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
+#else
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+#endif
     u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
     u8 displayType = GetMoveDisplayTyping(move);
 
@@ -1567,6 +1575,7 @@ static void MoveSelectionDisplayMoveType(void)
     }
     else
     {
+        u8 opposingBattler;
         u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler));
         u16 opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
         
@@ -1575,6 +1584,8 @@ static void MoveSelectionDisplayMoveType(void)
             opposingPosition = BATTLE_PARTNER(opposingPosition);
             opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
         }
+
+        opposingBattler = GetBattlerAtPosition(opposingPosition);
 
         //if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(opposingSpecies), FLAG_GET_CAUGHT))
         //{
@@ -1586,7 +1597,29 @@ static void MoveSelectionDisplayMoveType(void)
         //}
         //else
         {
-            int typeEffect = GetMovePower(move, gBattleMons[GetBattlerAtPosition(opposingPosition)].species, 0);
+            u8 type1;
+            u8 type2;
+            int typeEffect;
+            u16 ability = 0;
+#ifdef ROGUE_EXPANSION
+            struct Pokemon *illusionMon = GetIllusionMonPtr(opposingBattler);
+
+            if(illusionMon != NULL)
+            {
+                u16 species = GetMonData(illusionMon, MON_DATA_SPECIES);
+                type1 = gBaseStats[species].type1;
+                type2 = gBaseStats[species].type2;
+                //ability = GetMonAbility(illusionMon);
+            }
+            else
+#endif
+            {
+                type1 = gBattleMons[opposingBattler].type1;
+                type2 = gBattleMons[opposingBattler].type2;
+                //ability = GetBattlerAbility(opposingBattler);
+            }
+
+            typeEffect = GetMovePower(move, displayType, type1, type2, ability, 0);
 
             if(typeEffect == TYPE_x0)
             {
