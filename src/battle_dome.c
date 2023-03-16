@@ -2743,7 +2743,7 @@ static int SelectOpponentMonsFromParty(int *partyMovePoints, bool8 allowRandom)
 #define TYPE_x2     40
 #define TYPE_x4     80
 
-static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
+int GetMovePower(int move, int targetSpecies, int mode)
 {
     int defType1, defType2, defAbility, moveType;
     int i = 0;
@@ -2756,7 +2756,7 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
     defType2 = gBaseStats[targetSpecies].type2;
     defAbility = gBaseStats[targetSpecies].abilities[0];
     moveType = gBattleMoves[move].type;
-
+    
     if (defAbility == ABILITY_LEVITATE && moveType == TYPE_GROUND)
     {
         // They likely meant to return here, as 8 is the number of points normally used in this mode for moves with no effect.
@@ -2764,9 +2764,7 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
         if (mode == EFFECTIVENESS_MODE_BAD)
         {
             typePower = 8;
-        #ifdef BUGFIX
-            return;
-        #endif
+            return typePower;
         }
     }
     else
@@ -2781,6 +2779,13 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
         if (defAbility == ABILITY_WONDER_GUARD && typeEffectiveness1 != TYPE_x1 && typeEffectiveness2 != TYPE_x1)
             typePower = 0;
     }
+
+    return typePower;
+}
+
+static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
+{
+    int typePower = GetMovePower(move, targetSpecies, mode);
 
     switch (mode)
     {

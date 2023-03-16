@@ -21,6 +21,7 @@
 #include "load_save.h"
 #include "main.h"
 #include "money.h"
+#include "m4a.h"
 #include "overworld.h"
 #include "party_menu.h"
 #include "palette.h"
@@ -707,6 +708,18 @@ void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
 void Rogue_ModifyBattlePalette(u16 offset, u16 count)
 {
     RogueToD_ModifyBattlePalette(offset, count);
+}
+
+u16 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u16 volume)
+{
+    if(mplayInfo == &gMPlayInfo_BGM)
+    {
+        return (volume * gSaveBlock2Ptr->optionsSoundChannelBGM) / 10;
+    }
+    else // gMPlayInfo_SE1 -> gMPlayInfo_SE3
+    {
+        return (volume * gSaveBlock2Ptr->optionsSoundChannelSE) / 10;
+    }
 }
 
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
