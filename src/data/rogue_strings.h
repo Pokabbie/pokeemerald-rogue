@@ -27,6 +27,13 @@ const u8 gText_StatusScore[] = _("SCORE: {STR_VAR_1}\n");
 const u8 gText_StatusTimer[] = _("TIMER: {STR_VAR_1}:{STR_VAR_2}\n");
 const u8 gText_StatusClock[] = _("CLOCK: {STR_VAR_1}:{STR_VAR_2}\n");
 
+// Colours aren't exact as they'll be used in battle UI
+const u8 gText_MoveEffective[] = _("{COLOR RED}Neutral");
+const u8 gText_MoveNoEffect[] = _("{COLOR TRANSPARENT}No Effect...");
+const u8 gText_MoveSuperEffective[] = _("{COLOR LIGHT_GRAY}Effective!");
+const u8 gText_MoveNotVeryEffective[] = _("{COLOR GREEN}Not Effective");
+
+
 // Trainers
 //
 const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");

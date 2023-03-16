@@ -18,6 +18,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
@@ -1511,27 +1512,102 @@ static void MoveSelectionDisplayPpNumber(void)
     moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
     txtPtr = ConvertIntToDecimalStringN(gDisplayedStringBattle, moveInfo->currentPp[gMoveSelectionCursor[gActiveBattler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
     *(txtPtr)++ = CHAR_SLASH;
-    ConvertIntToDecimalStringN(txtPtr, moveInfo->maxPp[gMoveSelectionCursor[gActiveBattler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(txtPtr, moveInfo->maxPp[gMoveSelectionCursor[gActiveBattler]], STR_CONV_MODE_RIGHT_ALIGN, 2); // ?
 
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
 }
+
+static u8 GetMoveDisplayTyping(u16 move)
+{
+    //if(gBattleMoves[move].power == 0)
+    //    return TYPE_NONE;
+
+    if(move == MOVE_HIDDEN_POWER)
+        return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]]);
+    else
+        return gBattleMoves[move].type;
+}
+
+#define TYPE_x0     0
+#define TYPE_x0_25  5
+#define TYPE_x0_50  10
+#define TYPE_x1     20
+#define TYPE_x2     40
+#define TYPE_x4     80
+
+int GetMovePower(int move, int targetSpecies, int mode);
+
+extern const u8 gText_MoveEffective[];
+extern const u8 gText_MoveNoEffect[];
+extern const u8 gText_MoveSuperEffective[];
+extern const u8 gText_MoveNotVeryEffective[];
 
 static void MoveSelectionDisplayMoveType(void)
 {
     u8 *txtPtr;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
     u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
+    u8 displayType = GetMoveDisplayTyping(move);
 
-    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-    *(txtPtr)++ = EXT_CTRL_CODE_FONT;
-    *(txtPtr)++ = FONT_NORMAL;
+    txtPtr = gDisplayedStringBattle;
+    txtPtr = StringCopy(txtPtr, gTypeNames[displayType]);
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 
-    if(move == MOVE_HIDDEN_POWER)
-        StringCopy(txtPtr, gTypeNames[CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]])]);
+    txtPtr = gDisplayedStringBattle;
+    //*(txtPtr)++ = CHAR_SPACER;
+    //*(txtPtr)++ = CHAR_SPACER;
+    //*(txtPtr)++ = CHAR_SLASH;
+    //*(txtPtr)++ = CHAR_NEWLINE;
+
+    if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || gBattleMoves[move].power == 0)
+    {
+        // -
+        *(txtPtr)++ = CHAR_HYPHEN;
+        *(txtPtr)++ = EOS;
+    }
     else
-        StringCopy(txtPtr, gTypeNames[gBattleMoves[move].type]);
+    {
+        u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler));
+        u16 opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
+        
+        if(opposingSpecies == SPECIES_NONE)
+        {
+            opposingPosition = BATTLE_PARTNER(opposingPosition);
+            opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
+        }
 
+        //if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(opposingSpecies), FLAG_GET_CAUGHT))
+        //{
+        //    // ???
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = EOS;
+        //}
+        //else
+        {
+            int typeEffect = GetMovePower(move, gBattleMons[GetBattlerAtPosition(opposingPosition)].species, 0);
+
+            if(typeEffect == TYPE_x0)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveNoEffect);
+            }
+            else if(typeEffect == TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveEffective);
+            }
+            else if(typeEffect < TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveNotVeryEffective);
+            }
+            else //if(typeEffect > TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveSuperEffective);
+            }
+        }
+    }
+
+    *(txtPtr)++ = EOS;
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 }
 
