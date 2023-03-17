@@ -617,6 +617,13 @@ gSongTable::
 	song mus_hg_vs_champion, 0, 0
 	song mus_hg_victory_trainer, 0, 0
 	song mus_hg_victory_gym_leader, 0, 0
+	song mus_hg_vs_rival, 0, 0
+	song mus_hg_vs_rocket, 0, 0
+	song mus_hg_vs_suicune, 0, 0
+	song mus_hg_vs_entei, 0, 0
+	song mus_hg_vs_raikou, 0, 0
+	song mus_hg_vs_ho_oh, 0, 0
+	song mus_hg_vs_lugia, 0, 0
 	song mus_hg_route29, 0, 0
 	song mus_hg_route30, 0, 0
 	song mus_hg_route34, 0, 0
@@ -624,8 +631,20 @@ gSongTable::
 	song mus_hg_route42, 0, 0
 	song mus_hg_route47, 0, 0
 	song mus_hg_ice_path, 0, 0
-	song mus_dp_vs_elite_four, 0, 0
+	song mus_dp_vs_wild, 0, 0
+	song mus_dp_vs_gym_leader, 0, 0
+	song mus_dp_vs_uxie_mesprit_azelf, 0, 0
+	song mus_dp_vs_trainer, 0, 0
+	song mus_dp_vs_galactic_boss, 0, 0
+	song mus_dp_vs_dialga_palkia, 0, 0
 	song mus_dp_vs_champion, 0, 0
+	song mus_dp_vs_galactic, 0, 0
+	song mus_dp_vs_rival, 0, 0
+	song mus_dp_vs_arceus, 0, 0
+	song mus_dp_vs_legend, 0, 0
+	song mus_dp_vs_galactic_commander, 0, 0
+	song mus_dp_vs_elite_four, 0, 0
+	song mus_pl_vs_giratina, 0, 0
 
 	.align 2
 dummy_song_header:

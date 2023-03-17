@@ -798,6 +798,27 @@ $(MID_SUBDIR)/mus_hg_vs_gym_leader.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_vs_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V113 -P1
 
+$(MID_SUBDIR)/mus_hg_vs_rival.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V084
+
+$(MID_SUBDIR)/mus_hg_vs_rocket.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V102
+
+$(MID_SUBDIR)/mus_hg_vs_suicune.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V098
+
+$(MID_SUBDIR)/mus_hg_vs_entei.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V098
+
+$(MID_SUBDIR)/mus_hg_vs_raikou.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V098
+
+$(MID_SUBDIR)/mus_hg_vs_ho_oh.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V079
+
+$(MID_SUBDIR)/mus_hg_vs_lugia.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V102
+
 $(MID_SUBDIR)/mus_hg_victory_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V100
 
@@ -825,11 +846,47 @@ $(MID_SUBDIR)/mus_hg_route47.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_ice_path.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V072
 
-$(MID_SUBDIR)/mus_dp_vs_elite_four.s: %.s: %.mid
-	$(MID) $< $@ -E -R0 -G191 -V094
+$(MID_SUBDIR)/mus_dp_vs_wild.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_vs_gym_leader.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_vs_uxie_mesprit_azelf.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V078
+
+$(MID_SUBDIR)/mus_dp_vs_trainer.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_vs_galactic_boss.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_vs_dialga_palkia.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
 
 $(MID_SUBDIR)/mus_dp_vs_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_vs_galactic.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_vs_rival.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_vs_arceus.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V092
+
+$(MID_SUBDIR)/mus_dp_vs_legend.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V092
+
+$(MID_SUBDIR)/mus_dp_vs_galactic_commander.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_vs_elite_four.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V094
+
+$(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
 
 $(MID_SUBDIR)/se_a.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G128 -V095 -P4

@@ -1264,6 +1264,13 @@ SECTIONS {
         sound/songs/midi/mus_hg_vs_trainer.o(.rodata);
         sound/songs/midi/mus_hg_vs_gym_leader.o(.rodata);
         sound/songs/midi/mus_hg_vs_champion.o(.rodata);
+        sound/songs/midi/mus_hg_vs_rival.o(.rodata);
+        sound/songs/midi/mus_hg_vs_rocket.o(.rodata);
+        sound/songs/midi/mus_hg_vs_suicune.o(.rodata);
+        sound/songs/midi/mus_hg_vs_entei.o(.rodata);
+        sound/songs/midi/mus_hg_vs_raikou.o(.rodata);
+        sound/songs/midi/mus_hg_vs_ho_oh.o(.rodata);
+        sound/songs/midi/mus_hg_vs_lugia.o(.rodata);
         sound/songs/midi/mus_hg_victory_trainer.o(.rodata);
         sound/songs/midi/mus_hg_victory_gym_leader.o(.rodata);
         sound/songs/midi/mus_hg_route29.o(.rodata);
@@ -1273,8 +1280,20 @@ SECTIONS {
         sound/songs/midi/mus_hg_route42.o(.rodata);
         sound/songs/midi/mus_hg_route47.o(.rodata);
         sound/songs/midi/mus_hg_ice_path.o(.rodata);
-        sound/songs/midi/mus_dp_vs_elite_four.o(.rodata);
+        sound/songs/midi/mus_dp_vs_wild.o(.rodata);
+        sound/songs/midi/mus_dp_vs_gym_leader.o(.rodata);
+        sound/songs/midi/mus_dp_vs_uxie_mesprit_azelf.o(.rodata);
+        sound/songs/midi/mus_dp_vs_trainer.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic_boss.o(.rodata);
+        sound/songs/midi/mus_dp_vs_dialga_palkia.o(.rodata);
         sound/songs/midi/mus_dp_vs_champion.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic.o(.rodata);
+        sound/songs/midi/mus_dp_vs_rival.o(.rodata);
+        sound/songs/midi/mus_dp_vs_arceus.o(.rodata);
+        sound/songs/midi/mus_dp_vs_legend.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic_commander.o(.rodata);
+        sound/songs/midi/mus_dp_vs_elite_four.o(.rodata);
+        sound/songs/midi/mus_pl_vs_giratina.o(.rodata);
     } =0
 
     lib_rodata :
