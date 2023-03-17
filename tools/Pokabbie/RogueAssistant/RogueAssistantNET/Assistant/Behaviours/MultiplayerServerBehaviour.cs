@@ -119,6 +119,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		public bool TryAccept(RogueAssistant assistant, TcpClient client)
 		{
 			Console.WriteLine($"Player connecting...");
+			client.NoDelay = true;
 			client.ReceiveTimeout = 15 * 1000;
 			client.SendTimeout = 15 * 1000;
 
@@ -158,6 +159,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 				return false;
 			}
 
+			Console.WriteLine($"Player connected!");
 			return true;
 		}
 

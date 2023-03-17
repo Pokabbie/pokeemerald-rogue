@@ -30,6 +30,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		public MultiplayerClientBehaviour(string address, int port)
 		{
 			m_Client = new TcpClient();
+			m_Client.NoDelay = true;
 			m_Hostname = address;
 			m_Port = port;
 		}
@@ -47,7 +48,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			{
 				if (TryConnect(assistant))
 				{
-					m_State = ConnectionState.Active;
+					m_State = ConnectionState.PostConnect;
 				}
 				else
 				{
@@ -128,6 +129,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			}
 
 			// accepted
+			Console.WriteLine($"Connected!");
 			return true;
 		}
 
