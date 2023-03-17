@@ -29,31 +29,40 @@ namespace RogueAssistantNET.Assistant
 			set => m_OnConnect = value;
 		}
 
+		public IEnumerable<RogueAssistant> ActiveAssistants
+		{
+			get => m_ActiveAssistants;
+        }
+
 		public void Run()
 		{
-			Console.WriteLine("Entering main loop..");
+			Open();
 
-			m_Server = new TcpListenerServer(IPAddress.Loopback, 30150);
-			m_Server.Open();
-
-			while (true)
+            while (true)
 			{
 				Update();
 				Thread.Sleep(1000 / 60);
 			}
-
-			//Console.WriteLine("Exiting main loop");
-			//m_Server.Close();
 		}
 
-		private void Update()
+		public void Open()
+        {
+            Console.WriteLine("Entering main loop..");
+
+            m_Server = new TcpListenerServer(IPAddress.Loopback, 30150);
+            m_Server.Open();
+        }
+
+		public void Update()
 		{
 			if(m_Server.TryAccept(out TcpClient client))
 			{
 				if(RogueAssistant.TryAccept(client, out RogueAssistant assistant))
 				{
 					m_ActiveAssistants.Add(assistant);
-					m_OnConnect.Invoke(assistant);
+
+					if(m_OnConnect != null)
+						m_OnConnect.Invoke(assistant);
 				}
 				else
 				{
@@ -66,5 +75,10 @@ namespace RogueAssistantNET.Assistant
 				assistant.Update();
 			}
 		}
+
+		public void RemoveAssistant(RogueAssistant assistant)
+		{
+			m_ActiveAssistants.Remove(assistant);
+        }
 	}
 }

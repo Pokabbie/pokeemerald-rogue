@@ -19,6 +19,7 @@ namespace RogueAssistantNET.Assistant
 		private List<IRogueAssistantBehaviour> m_Behaviours = new List<IRogueAssistantBehaviour>();
 
 		private bool m_IsFirstUpdate = true;
+		private string m_DisconnectionMessage = null;
 
 		private RogueAssistant(TcpClient client)
 		{
@@ -30,7 +31,27 @@ namespace RogueAssistantNET.Assistant
 			get => m_Connection;
 		}
 
-		public void AddBehaviour(IRogueAssistantBehaviour behaviour)
+		public bool HasInitialised
+		{
+			get => m_Connection != null && m_Connection.HasInitialised;
+        }
+
+        public bool HasDisconnected
+        {
+            get => m_DisconnectionMessage != null;
+        }
+
+        public string DisconnectionMessage
+        {
+            get => m_DisconnectionMessage;
+        }
+
+        public IEnumerable<IRogueAssistantBehaviour> ActiveBehaviours
+		{
+			get => m_Behaviours;
+		}
+
+        public void AddBehaviour(IRogueAssistantBehaviour behaviour)
 		{
 			m_Behaviours.Add(behaviour);
 
@@ -50,9 +71,14 @@ namespace RogueAssistantNET.Assistant
 		public T FindBehaviour<T>()
 		{
 			return m_Behaviours.Where((b) => b is T).Select((b) => (T)b) .FirstOrDefault();
-		}
+        }
 
-		public T FindOrCreateBehaviour<T>() where T : IRogueAssistantBehaviour, new()
+        public bool HasBehaviour<T>()
+        {
+            return m_Behaviours.Where((b) => b is T).Any();
+        }
+
+        public T FindOrCreateBehaviour<T>() where T : IRogueAssistantBehaviour, new()
 		{
 			T behaviour = FindBehaviour<T>();
 
@@ -67,24 +93,35 @@ namespace RogueAssistantNET.Assistant
 
 		public void Update()
 		{
-			m_Connection.Update();
+			if (HasDisconnected)
+				return;
 
-			var behavioursToUpdate = m_Behaviours.ToArray();
-
-			if (m_IsFirstUpdate && m_Connection.HasInitialised)
+			try
 			{
-				m_IsFirstUpdate = false;
+				m_Connection.Update();
+
+				var behavioursToUpdate = m_Behaviours.ToArray();
+
+				if (m_IsFirstUpdate && m_Connection.HasInitialised)
+				{
+					m_IsFirstUpdate = false;
+
+					foreach (var behaviour in behavioursToUpdate)
+						behaviour.OnAttach(this);
+				}
 
 				foreach (var behaviour in behavioursToUpdate)
-					behaviour.OnAttach(this);
+				{
+					behaviour.OnUpdate(this);
+				}
 			}
-
-			foreach (var behaviour in behavioursToUpdate)
-			{
-				behaviour.OnUpdate(this);
+			catch(Exception e)
+            {
+                m_DisconnectionMessage = e.Message;
+#if DEBUG
+                m_DisconnectionMessage += "\n[" + e.GetType().Name + "]\n" + e.StackTrace;
+#endif
 			}
-
-			// TODO - detach
 		}
 
 		public static bool TryAccept(TcpClient client, out RogueAssistant assistant)

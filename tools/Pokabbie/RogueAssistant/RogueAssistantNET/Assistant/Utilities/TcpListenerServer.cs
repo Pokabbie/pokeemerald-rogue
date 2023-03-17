@@ -34,7 +34,7 @@ namespace RogueAssistantNET.Assistant.Utilities
 					m_Server.Start();
 					return true;
 				}
-				catch (SocketException e)
+				catch (SocketException)
 				{
 					//Console.WriteLine($"\tFailed to bind Port:{port} ({e.Message})");
 				}

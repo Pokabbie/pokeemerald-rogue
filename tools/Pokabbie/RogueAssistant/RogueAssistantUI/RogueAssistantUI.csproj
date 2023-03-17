@@ -29,4 +29,8 @@
     <Content Include="$(ProjectDir)/deps/cimgui/win-x86/cimgui.dll" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RogueAssistantNET\RogueAssistantNET.csproj" />
+  </ItemGroup>
+
 </Project>

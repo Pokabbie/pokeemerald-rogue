@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RogueAssistantUI.Assistant;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
@@ -16,6 +17,7 @@ namespace ImGuiNET
         private static GraphicsDevice _gd;
         private static CommandList _cl;
         private static ImGuiController _controller;
+        private static RogueAssistantUIController _assistant;
         // private static MemoryEditor _memoryEditor;
 
         // UI state
@@ -36,7 +38,7 @@ namespace ImGuiNET
         {
             // Create window, GraphicsDevice, and all resources necessary for the demo.
             VeldridStartup.CreateWindowAndGraphicsDevice(
-                new WindowCreateInfo(50, 50, 1280, 720, WindowState.Normal, "ImGui.NET Sample Program"),
+                new WindowCreateInfo(50, 50, 500, 500, WindowState.Normal, "Rogue Assistant"),
                 new GraphicsDeviceOptions(true, null, true, ResourceBindingModel.Improved, true, true),
                 out _window,
                 out _gd);
@@ -47,6 +49,7 @@ namespace ImGuiNET
             };
             _cl = _gd.ResourceFactory.CreateCommandList();
             _controller = new ImGuiController(_gd, _gd.MainSwapchain.Framebuffer.OutputDescription, _window.Width, _window.Height);
+            _assistant = new RogueAssistantUIController();
             // _memoryEditor = new MemoryEditor();
             Random random = new Random();
             _memoryEditorData = Enumerable.Range(0, 1024).Select(i => (byte)random.Next(255)).ToArray();
@@ -62,7 +65,8 @@ namespace ImGuiNET
                 if (!_window.Exists) { break; }
                 _controller.Update(deltaTime, snapshot); // Feed the input events to our ImGui controller, which passes them through to ImGui.
 
-                SubmitUI();
+                _assistant.SubmitUI();
+                //SubmitUI();
 
                 _cl.Begin();
                 _cl.SetFramebuffer(_gd.MainSwapchain.Framebuffer);
