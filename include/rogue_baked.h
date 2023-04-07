@@ -9,6 +9,9 @@ struct Evolution;
 struct Item;
 struct Trainer;
 
+void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
+bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo);
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo);
 const u8* Rogue_GetItemName(u16 itemIdx);

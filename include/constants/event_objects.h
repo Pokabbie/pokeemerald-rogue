@@ -356,6 +356,9 @@
 
 #define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_FOLLOW_MON_LAST + 1)
 
+#define OBJ_EVENT_GFX_PLAYER_AVATAR             (0xFF00)
+#define OBJ_EVENT_GFX_PLAYER_RIVAL              (0xFF01)
+
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1
 #define SHADOW_SIZE_L   2

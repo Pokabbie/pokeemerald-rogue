@@ -29,7 +29,9 @@ void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
 
 // Species
 void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3);
+void RogueQuery_SpeciesAlternateForms(bool8 includeItemForms);
 void RogueQuery_SpeciesExcludeCommon(void);
+void RogueQuery_SpeciesFilterRelevantTypes(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3);
 void RogueQuery_SpeciesExcludeRange(u16 fromId, u16 toId);
 void RogueQuery_SpeciesInPokedex(void);
 void RogueQuery_SpeciesInGeneration(u8 gen);

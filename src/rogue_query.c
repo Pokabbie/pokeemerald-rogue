@@ -462,6 +462,243 @@ bool8 IsLegendaryEnabled(u16 species)
     }
 }
 
+void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3)
+{
+//    // Handle for ?? species mainly
+//    // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
+//    u16 species;
+//    bool8 state;
+//    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+//
+//    // No need to do this, as we're going to exclude everything below anyway
+//    if(dexLimit != 0) 
+//        return;
+//
+//    if(earlyCullType1 != TYPE_NONE || earlyCullType2 != TYPE_NONE)
+//    {
+//        RogueQuery_ExcludeAll();
+//        TryApplyTypeEarlyCull(earlyCullType1);
+//        TryApplyTypeEarlyCull(earlyCullType2);
+//        TryApplyTypeEarlyCull(earlyCullType3);
+//    }
+//
+//    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+//    {
+//        if(GetQueryState(species))
+//        {
+//            if(gBaseStats[species].abilities[0] == ABILITY_NONE || gBaseStats[species].catchRate == 0)
+//            {
+//                SetQueryState(species, FALSE);
+//            }
+//#ifdef ROGUE_EXPANSION
+//            else if(species > FORMS_START)
+//            {
+//                // Include regional forms
+//                if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
+//                {
+//                    SetQueryState(species, TRUE);
+//                }
+//            }
+//#endif
+//        }
+//    }
+}
+
+void RogueQuery_SpeciesAlternateForms(bool8 includeItemForms)
+{
+#ifdef ROGUE_EXPANSION
+    if(includeItemForms && GetQueryState(SPECIES_DEOXYS))
+        RogueQuery_IncludeRange(SPECIES_DEOXYS_ATTACK, SPECIES_DEOXYS_SPEED);
+
+
+    if(GetQueryState(SPECIES_BURMY))
+        RogueQuery_IncludeRange(SPECIES_BURMY_SANDY_CLOAK, SPECIES_BURMY_TRASH_CLOAK);
+
+    if(GetQueryState(SPECIES_WORMADAM))
+        RogueQuery_IncludeRange(SPECIES_WORMADAM_SANDY_CLOAK, SPECIES_WORMADAM_TRASH_CLOAK);
+
+    if(GetQueryState(SPECIES_SHELLOS))
+        RogueQuery_Include(SPECIES_SHELLOS_EAST_SEA);
+
+    if(GetQueryState(SPECIES_GASTRODON))
+        RogueQuery_Include(SPECIES_GASTRODON_EAST_SEA);
+
+    if(GetQueryState(SPECIES_ROTOM))
+        RogueQuery_IncludeRange(SPECIES_ROTOM_HEAT, SPECIES_ROTOM_MOW);
+
+    if(includeItemForms && GetQueryState(SPECIES_GIRATINA))
+        RogueQuery_Include(SPECIES_GIRATINA_ORIGIN);
+
+    if(includeItemForms && GetQueryState(SPECIES_SHAYMIN))
+        RogueQuery_Include(SPECIES_SHAYMIN_SKY);
+
+    if(includeItemForms && GetQueryState(SPECIES_ARCEUS))
+        RogueQuery_IncludeRange(SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_FAIRY);
+
+
+    if(GetQueryState(SPECIES_BASCULIN))
+        RogueQuery_Include(SPECIES_BASCULIN_BLUE_STRIPED);
+
+    if(GetQueryState(SPECIES_DARMANITAN))
+        RogueQuery_Include(SPECIES_DARMANITAN_ZEN_MODE);
+
+    if(GetQueryState(SPECIES_DARMANITAN_GALARIAN))
+        RogueQuery_Include(SPECIES_DARMANITAN_ZEN_MODE_GALARIAN);
+
+    if(GetQueryState(SPECIES_DEERLING))
+        RogueQuery_IncludeRange(SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_WINTER);
+
+    if(GetQueryState(SPECIES_SAWSBUCK))
+        RogueQuery_IncludeRange(SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_WINTER);
+
+    if(includeItemForms && GetQueryState(SPECIES_TORNADUS))
+        RogueQuery_Include(SPECIES_TORNADUS_THERIAN);
+
+    if(includeItemForms && GetQueryState(SPECIES_THUNDURUS))
+        RogueQuery_Include(SPECIES_THUNDURUS_THERIAN);
+
+    if(includeItemForms && GetQueryState(SPECIES_LANDORUS))
+        RogueQuery_Include(SPECIES_LANDORUS_THERIAN);
+
+    if(includeItemForms && GetQueryState(SPECIES_KYUREM))
+        RogueQuery_IncludeRange(SPECIES_KYUREM_WHITE, SPECIES_KYUREM_BLACK);
+
+    if(includeItemForms && GetQueryState(SPECIES_KELDEO))
+        RogueQuery_Include(SPECIES_KELDEO_RESOLUTE);
+
+    if(includeItemForms && GetQueryState(SPECIES_MELOETTA))
+        RogueQuery_Include(SPECIES_MELOETTA_PIROUETTE);
+
+    if(includeItemForms && GetQueryState(SPECIES_GENESECT))
+        RogueQuery_IncludeRange(SPECIES_GENESECT_DOUSE_DRIVE, SPECIES_GENESECT_CHILL_DRIVE);
+
+
+    if(GetQueryState(SPECIES_VIVILLON))
+        RogueQuery_IncludeRange(SPECIES_VIVILLON_POLAR, SPECIES_VIVILLON_POKE_BALL);
+
+    if(GetQueryState(SPECIES_FLABEBE))
+        RogueQuery_IncludeRange(SPECIES_FLABEBE_YELLOW_FLOWER, SPECIES_FLABEBE_WHITE_FLOWER);
+
+    if(GetQueryState(SPECIES_FLOETTE))
+        RogueQuery_IncludeRange(SPECIES_FLOETTE_YELLOW_FLOWER, SPECIES_FLOETTE_WHITE_FLOWER);
+
+    if(GetQueryState(SPECIES_FLORGES))
+        RogueQuery_IncludeRange(SPECIES_FLORGES_YELLOW_FLOWER, SPECIES_FLORGES_WHITE_FLOWER);
+
+    if(GetQueryState(SPECIES_FURFROU))
+        RogueQuery_IncludeRange(SPECIES_FURFROU_HEART_TRIM, SPECIES_FURFROU_PHARAOH_TRIM);
+
+    if(GetQueryState(SPECIES_MEOWSTIC))
+        RogueQuery_Include(SPECIES_MEOWSTIC_FEMALE);
+
+    // TODO - Powerconstruct
+
+    if(includeItemForms && GetQueryState(SPECIES_HOOPA))
+        RogueQuery_Include(SPECIES_HOOPA_UNBOUND);
+
+
+    if(GetQueryState(SPECIES_ORICORIO))
+        RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
+
+    if(GetQueryState(SPECIES_LYCANROC))
+        RogueQuery_IncludeRange(SPECIES_LYCANROC_MIDNIGHT, SPECIES_LYCANROC_DUSK);
+
+    if(includeItemForms && GetQueryState(SPECIES_SILVALLY))
+        RogueQuery_IncludeRange(SPECIES_SILVALLY_FIGHTING, SPECIES_SILVALLY_FAIRY);
+
+    if(includeItemForms && GetQueryState(SPECIES_NECROZMA))
+        RogueQuery_IncludeRange(SPECIES_NECROZMA_DUSK_MANE, SPECIES_NECROZMA_DAWN_WINGS);
+
+
+    if(GetQueryState(SPECIES_TOXTRICITY))
+        RogueQuery_Include(SPECIES_TOXTRICITY_LOW_KEY);
+
+    if(GetQueryState(SPECIES_SINISTEA))
+        RogueQuery_Include(SPECIES_SINISTEA_ANTIQUE);
+
+    if(GetQueryState(SPECIES_POLTEAGEIST))
+        RogueQuery_Include(SPECIES_POLTEAGEIST_ANTIQUE);
+
+    if(GetQueryState(SPECIES_ALCREMIE))
+        RogueQuery_IncludeRange(SPECIES_ALCREMIE_RUBY_CREAM, SPECIES_ALCREMIE_RAINBOW_SWIRL);
+
+    if(GetQueryState(SPECIES_INDEEDEE))
+        RogueQuery_Include(SPECIES_INDEEDEE_FEMALE);
+
+    if(includeItemForms && GetQueryState(SPECIES_ZACIAN))
+        RogueQuery_Include(SPECIES_ZACIAN_CROWNED_SWORD);
+
+    if(includeItemForms && GetQueryState(SPECIES_ZAMAZENTA))
+        RogueQuery_Include(SPECIES_ZAMAZENTA_CROWNED_SHIELD);
+
+    if(includeItemForms && GetQueryState(SPECIES_URSHIFU))
+        RogueQuery_Include(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
+
+    if(includeItemForms && GetQueryState(SPECIES_CALYREX))
+        RogueQuery_IncludeRange(SPECIES_CALYREX_ICE_RIDER, SPECIES_CALYREX_SHADOW_RIDER);
+#endif
+}
+
+static bool8 IsMonEnabled(u16 regionalDexGen, u16 species)
+{
+    // Check if mon has valid data
+    if(gBaseStats[species].abilities[0] != ABILITY_NONE && gBaseStats[species].catchRate != 0)
+    {
+#ifdef ROGUE_EXPANSION
+        if(species > FORMS_START)
+        {
+            // Include regional variant
+            if(!(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN))
+                return FALSE;
+        }
+#endif
+
+        // Regional dex
+        if(regionalDexGen != 0)
+        {
+            u16 i;
+            const u16 eggSpecies = Rogue_GetEggSpecies(species);
+            const u16 targetDexIdx = regionalDexGen - 1;
+            const u16 targetDexCount = gRegionalDexSpeciesCount[targetDexIdx];
+
+            if(SpeciesToGen(species) > regionalDexGen)
+                return FALSE;
+
+            for(i = 0; i < targetDexCount; ++i)
+            {
+                if(gRegionalDexSpecies[targetDexIdx][i] == eggSpecies || gRegionalDexSpecies[targetDexIdx][i] == species)
+                    return TRUE;
+            }
+
+            return FALSE;
+        }
+        // National dex
+        else
+        {
+            return IsGenEnabled(SpeciesToGen(species));
+        }
+    }
+
+    return FALSE;
+}
+
+void RogueQuery_SpeciesExcludeCommon(void)
+{
+    u16 species;
+    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryState(species))
+        {
+            if(!IsMonEnabled(dexLimit, species))
+            {
+                SetQueryState(species, FALSE);
+            }
+        }
+    }
+}
+
 static void TryApplyTypeEarlyCull(u8 type)
 {
     if(type != TYPE_NONE)
@@ -482,103 +719,11 @@ static void TryApplyTypeEarlyCull(u8 type)
     }
 }
 
-void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3)
+void RogueQuery_SpeciesFilterRelevantTypes(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3)
 {
-    // Handle for ?? species mainly
-    // Just going to base this off ability 1 being none as that seems safest whilst allowing new mons
-    u16 species;
-    bool8 state;
-    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-
-    // No need to do this, as we're going to exclude everything below anyway
-    if(dexLimit != 0) 
-        return;
-
-    if(earlyCullType1 != TYPE_NONE || earlyCullType2 != TYPE_NONE)
-    {
-        RogueQuery_ExcludeAll();
-        TryApplyTypeEarlyCull(earlyCullType1);
-        TryApplyTypeEarlyCull(earlyCullType2);
-        TryApplyTypeEarlyCull(earlyCullType3);
-    }
-
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
-    {
-        if(GetQueryState(species))
-        {
-            if(gBaseStats[species].abilities[0] == ABILITY_NONE || gBaseStats[species].catchRate == 0)
-            {
-                SetQueryState(species, FALSE);
-            }
-#ifdef ROGUE_EXPANSION
-            else if(species > FORMS_START)
-            {
-                // Only validate certain forms here
-                // (A lot of them are manual transform methods)
-                state = FALSE;
-
-                if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
-                {
-                    state = TRUE;
-                }
-                else if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_WORMADAM_TRASH_CLOAK)
-                {
-                    state = TRUE;
-                }
-                else if(species >= SPECIES_SHELLOS_EAST_SEA && species <= SPECIES_ROTOM_MOW)
-                {
-                    state = TRUE;
-                }
-
-                SetQueryState(species, state);
-            }
-#endif
-        }
-    }
-}
-
-void RogueQuery_SpeciesExcludeCommon(void)
-{
-    u16 species;
-    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-
-    // Use a specific regional dex (Ignore previous state)
-    if(dexLimit != 0)
-    {
-        u16 i;
-        const u16 targetDex = dexLimit - 1;
-        
-        RogueQuery_ExcludeAll();
-
-        for(i = 0; i < gRegionalDexSpeciesCount[targetDex]; ++i)
-        {
-            species = gRegionalDexSpecies[targetDex][i];
-            SetQueryState(Rogue_GetEggSpecies(species), TRUE);
-        }
-
-        // Re-apply to remove any invalid mons
-        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
-    }
-    // Using national mode gen limiter
-    else
-    {
-        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
-        {
-            if(GetQueryState(species))
-            {
-                if(!IsGenEnabled(SpeciesToGen(species)))
-                {
-                    SetQueryState(species, FALSE);
-                }
-            }
-        }
-    }
-
-#ifdef ROGUE_EXPANSION
-    // We can only evolve into these forms, they will never spawn otherwise
-    RogueQuery_SpeciesExcludeRange(SPECIES_ALCREMIE_RUBY_CREAM, SPECIES_ALCREMIE_RAINBOW_SWIRL);
-#endif
+    TryApplyTypeEarlyCull(earlyCullType1);
+    TryApplyTypeEarlyCull(earlyCullType2);
+    TryApplyTypeEarlyCull(earlyCullType3);
 }
 
 void RogueQuery_SpeciesExcludeRange(u16 fromId, u16 toId)

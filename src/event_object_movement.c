@@ -1972,7 +1972,72 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     }
 
     if (graphicsId >= NUM_OBJ_EVENT_GFX)
-        graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+    {
+        switch (graphicsId)
+        {
+        case OBJ_EVENT_GFX_PLAYER_AVATAR:
+            switch(gSaveBlock2Ptr->playerGender)
+            {
+                case(STYLE_EMR_BRENDAN):
+                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
+                    break;
+                case(STYLE_EMR_MAY):
+                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
+                    break;
+
+                case(STYLE_RED):
+                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
+                    break;
+                case(STYLE_LEAF):
+                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
+                    break;
+
+                case(STYLE_ETHAN):
+                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
+                    break;
+                case(STYLE_LYRA):
+                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
+                    break;
+                default:
+                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+                    break;
+            };
+            break;
+
+        case OBJ_EVENT_GFX_PLAYER_RIVAL:
+            switch(gSaveBlock2Ptr->playerGender)
+            {
+                case(STYLE_EMR_BRENDAN):
+                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
+                    break;
+                case(STYLE_EMR_MAY):
+                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
+                    break;
+
+                case(STYLE_RED):
+                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
+                    break;
+                case(STYLE_LEAF):
+                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
+                    break;
+
+                case(STYLE_ETHAN):
+                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
+                    break;
+                case(STYLE_LYRA):
+                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
+                    break;
+                default:
+                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+                    break;
+            };
+            break;
+        
+        default:
+            graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+            break;
+        }
+    }
 
     return gObjectEventGraphicsInfoPointers[graphicsId];
 }

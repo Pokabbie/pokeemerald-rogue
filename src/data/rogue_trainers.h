@@ -2,6 +2,8 @@
 #include "constants/layouts.h"
 #include "constants/maps.h"
 #include "constants/pokemon.h"
+#include "constants/rogue.h"
+#include "constants/trainers.h"
 #include "constants/weather.h"
 
 #define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
@@ -634,620 +636,6 @@ static const u16 sQuerySpecies_Raven[] =
 #endif
 };
 
-static const struct RogueTrainerEncounter sRouteBossEncounters[] = 
-{
-    // Hoenn Gyms
-    //
-    {
-        .gfxId = OBJ_EVENT_GFX_ROXANNE,
-        .trainerId = TRAINER_ROGUE_BOSS_ROXANNE,
-        .incTypes = { TYPE_ROCK, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRAWLY,
-        .trainerId = TRAINER_ROGUE_BOSS_BRAWLY,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WATTSON,
-        .trainerId = TRAINER_ROGUE_BOSS_WATTSON,
-        .incTypes = { TYPE_ELECTRIC, TYPE_NONE, TYPE_ELECTRIC },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_FLANNERY,
-        .trainerId = TRAINER_ROGUE_BOSS_FLANNERY,
-        .incTypes = { TYPE_FIRE, TYPE_NONE, TYPE_FIRE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_NORMAN,
-        .trainerId = TRAINER_ROGUE_BOSS_NORMAN,
-        .incTypes = { TYPE_NORMAL, TYPE_NONE, TYPE_DRAGON },
-        .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WINONA,
-        .trainerId = TRAINER_ROGUE_BOSS_WINONA,
-        .incTypes = { TYPE_FLYING, TYPE_NONE, TYPE_FLYING  },
-        .excTypes = { TYPE_NORMAL, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_LIZA,
-        .trainerId = TRAINER_ROGUE_BOSS_TATE_AND_LIZA,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NONE, TYPE_PSYCHIC  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JUAN,
-        .trainerId = TRAINER_ROGUE_BOSS_JUAN,
-        .incTypes = { TYPE_WATER, TYPE_NONE, TYPE_WATER  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-
-    // Hoenn Elite
-    {
-        .gfxId = OBJ_EVENT_GFX_SIDNEY,
-        .trainerId = TRAINER_ROGUE_BOSS_SIDNEY,
-        .incTypes = { TYPE_DARK, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_PHOEBE,
-        .trainerId = TRAINER_ROGUE_BOSS_PHOEBE,
-        .incTypes = { TYPE_GHOST, TYPE_NONE, TYPE_PSYCHIC },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_GLACIA,
-        .trainerId = TRAINER_ROGUE_BOSS_GLACIA,
-        .incTypes = { TYPE_ICE, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_DRAKE,
-        .trainerId = TRAINER_ROGUE_BOSS_DRAKE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_DRAGON },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
-    },
-
-    // Hoenn Champs
-    {
-        .gfxId = OBJ_EVENT_GFX_WALLACE,
-        .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
-        .incTypes = { TYPE_WATER, TYPE_NONE, TYPE_WATER },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_STEVEN,
-        .trainerId = TRAINER_ROGUE_BOSS_STEVEN,
-        .incTypes = { TYPE_STEEL, TYPE_NONE, TYPE_PSYCHIC },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-
-    // Kanto Gyms
-    //
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BROCK,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
-        .incTypes = { TYPE_ROCK, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
-        .trainerId = TRAINER_ROGUE_BOSS_MISTY,
-        .incTypes = { TYPE_WATER, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
-        .trainerId = TRAINER_ROGUE_BOSS_LTSURGE,
-        .incTypes = { TYPE_ELECTRIC, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
-        .trainerId = TRAINER_ROGUE_BOSS_ERIKA,
-        .incTypes = { TYPE_GRASS, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
-        .trainerId = TRAINER_ROGUE_BOSS_KOGA,
-        .incTypes = { TYPE_POISON, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
-        .trainerId = TRAINER_ROGUE_BOSS_SABRINA,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
-        .trainerId = TRAINER_ROGUE_BOSS_BLAINE,
-        .incTypes = { TYPE_FIRE, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
-        .trainerId = TRAINER_ROGUE_BOSS_GIOVANNI,
-        .incTypes = { TYPE_GROUND, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-
-    // Kanto Elite 4
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LORELEI,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
-        .incTypes = { TYPE_ICE, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
-        .trainerId = TRAINER_ROGUE_BOSS_BRUNO,
-        .incTypes = { TYPE_FIGHTING, TYPE_GROUND, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
-        .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_GHOST, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
-        .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_FLYING },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
-        .querySpecies = sQuerySpecies_Kanto,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kanto),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
-    },
-
-    // Kanto Champs
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BLUE,
-        .trainerId = TRAINER_ROGUE_BOSS_BLUE,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
-        .querySpecies = sQuerySpecies_Blue,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Blue),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE | PARTY_FLAG_UNIQUE_COVERAGE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_PROFOAK,
-        .trainerId = TRAINER_ROGUE_BOSS_PROFOAK,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
-        .querySpecies = sQuerySpecies_ProfOak,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_ProfOak),
-        .partyFlags = PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_REGION_DEX_DISABLE_QUERY | PARTY_FLAG_UNIQUE_COVERAGE,
-    },
-
-    // Johto gyms
-    //
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_FALKNER,
-        .trainerId = TRAINER_ROGUE_BOSS_FALKNER,
-        .incTypes = { TYPE_FLYING, TYPE_NONE, TYPE_FLYING  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_BUGSY,
-        .trainerId = TRAINER_ROGUE_BOSS_BUGSY,
-        .incTypes = { TYPE_BUG, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_WHITNEY,
-        .trainerId = TRAINER_ROGUE_BOSS_WHITNEY,
-        .incTypes = { TYPE_NORMAL, TYPE_NONE  },
-        .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_MORTY,
-        .trainerId = TRAINER_ROGUE_BOSS_MORTY,
-        .incTypes = { TYPE_GHOST, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_CHUCK,
-        .trainerId = TRAINER_ROGUE_BOSS_CHUCK,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_JASMINE,
-        .trainerId = TRAINER_ROGUE_BOSS_JASMINE,
-        .incTypes = { TYPE_STEEL, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_PRYCE,
-        .trainerId = TRAINER_ROGUE_BOSS_PRYCE,
-        .incTypes = { TYPE_ICE, TYPE_NONE, TYPE_ICE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_CLAIR,
-        .trainerId = TRAINER_ROGUE_BOSS_CLAIR,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_WATER },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM | TRAINER_FLAG_THIRDSLOT_WEATHER,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE | PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
-    },
-
-    // Johto Elite 4
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_WILL,
-        .trainerId = TRAINER_ROGUE_BOSS_WILL,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NONE, TYPE_PSYCHIC },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
-        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_KOGA,
-        .incTypes = { TYPE_POISON, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
-        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_BRUNO,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_KAREN,
-        .trainerId = TRAINER_ROGUE_BOSS_KAREN,
-        .incTypes = { TYPE_DARK, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
-    },
-
-    // Johto Champs
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
-        .trainerId = TRAINER_ROGUE_BOSS_JOHTO_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_FLYING },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_DISABLE_WEATHER,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_ACE_TYPE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_RED,
-        .trainerId = TRAINER_ROGUE_BOSS_RED,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP | TRAINER_FLAG_RAINBOW_CHAMP,
-        .partyFlags = PARTY_FLAG_UNIQUE_COVERAGE,
-    },
-    
-
-    // Placeholder Rainbow mode bosses for missing types
-#ifdef ROGUE_EXPANSION
-    {
-        .gfxId = OBJ_EVENT_GFX_ANABEL,
-        .trainerId = TRAINER_ROGUE_BOSS_ANABEL,
-        .incTypes = { TYPE_FAIRY, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_NONE,
-    },
-#endif
-    // Kanto Rainbow Version
-    //
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BROCK,
-        .trainerId = TRAINER_ROGUE_BOSS_BROCK,
-        .incTypes = { TYPE_ROCK, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_MISTY,
-        .trainerId = TRAINER_ROGUE_BOSS_MISTY,
-        .incTypes = { TYPE_WATER, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LTSURGE,
-        .trainerId = TRAINER_ROGUE_BOSS_LTSURGE,
-        .incTypes = { TYPE_ELECTRIC, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_ERIKA,
-        .trainerId = TRAINER_ROGUE_BOSS_ERIKA,
-        .incTypes = { TYPE_GRASS, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_KOGA,
-        .trainerId = TRAINER_ROGUE_BOSS_KOGA,
-        .incTypes = { TYPE_POISON, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
-        .trainerId = TRAINER_ROGUE_BOSS_SABRINA,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
-        .trainerId = TRAINER_ROGUE_BOSS_BLAINE,
-        .incTypes = { TYPE_FIRE, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_GIOVANNI,
-        .trainerId = TRAINER_ROGUE_BOSS_GIOVANNI,
-        .incTypes = { TYPE_GROUND, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_GYM,
-    },
-
-    // Kanto Elite 4
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LORELEI,
-        .trainerId = TRAINER_ROGUE_BOSS_LORELEI,
-        .incTypes = { TYPE_ICE, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BRUNO,
-        .trainerId = TRAINER_ROGUE_BOSS_BRUNO,
-        .incTypes = { TYPE_FIGHTING, TYPE_GROUND, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
-        .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_GHOST, TYPE_NONE  },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_ELITE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_LANCE,
-        .trainerId = TRAINER_ROGUE_BOSS_LANCE,
-        .incTypes = { TYPE_DRAGON, TYPE_NONE, TYPE_FLYING },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_ELITE | TRAINER_FLAG_DISABLE_WEATHER,
-        .partyFlags = PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE,
-    },
-
-    // Fallback set
-    //
-    // gyms
-    {
-        .gfxId = OBJ_EVENT_GFX_PHOEBE,
-        .trainerId = TRAINER_ROGUE_BOSS_PHOEBE,
-        .incTypes = { TYPE_GROUND, TYPE_ELECTRIC, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_JOHTO_BUGSY,
-        .trainerId = TRAINER_ROGUE_BOSS_BUGSY,
-#ifdef ROGUE_EXPANSION
-        .incTypes = { TYPE_DRAGON, TYPE_FAIRY, TYPE_NONE },
-#else
-        .incTypes = { TYPE_DRAGON, TYPE_DARK, TYPE_NONE },
-#endif
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WALLACE,
-        .trainerId = TRAINER_ROGUE_BOSS_WALLACE,
-        .incTypes = { TYPE_GRASS, TYPE_WATER, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_ANABEL,
-        .trainerId = TRAINER_ROGUE_BOSS_ANABEL,
-        .incTypes = { TYPE_PSYCHIC, TYPE_FIGHTING, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_SABRINA,
-        .trainerId = TRAINER_ROGUE_BOSS_SABRINA,
-        .incTypes = { TYPE_FLYING, TYPE_BUG, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_BLAINE,
-        .trainerId = TRAINER_ROGUE_BOSS_BLAINE,
-        .incTypes = { TYPE_NORMAL, TYPE_GHOST, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_LIZA,
-        .trainerId = TRAINER_ROGUE_BOSS_TATE_AND_LIZA,
-        .incTypes = { TYPE_ICE, TYPE_STEEL, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_KANTO_AGATHA,
-        .trainerId = TRAINER_ROGUE_BOSS_AGATHA,
-        .incTypes = { TYPE_FIRE, TYPE_WATER, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_GYM,
-    },
-
-    // Elite 4
-    {
-        .gfxId = OBJ_EVENT_GFX_GLITCH_KATE,
-        .trainerId = TRAINER_ROGUE_BOSS_KATE,
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_POISON },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_WEATHER,
-        .querySpecies = sQuerySpecies_Kate,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Kate),
-        .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_SCIENTIST_2,
-        .trainerId = TRAINER_ROGUE_BOSS_TAILS,
-#ifdef ROGUE_EXPANSION
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_FAIRY },
-#else
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_PSYCHIC }, // Give fog but don't do anything with it
-#endif
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_WEATHER,
-        .querySpecies = sQuerySpecies_Tails,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Tails),
-        .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WOMAN_2,
-        .trainerId = TRAINER_ROGUE_BOSS_RAVEN,
-#ifdef ROGUE_EXPANSION
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_FAIRY },
-#else
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_PSYCHIC }, // Give fog but don't do anything with it
-#endif
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_WEATHER,
-        .querySpecies = sQuerySpecies_Raven,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Raven),
-        .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_GLITCH_ERMA,
-        .trainerId = TRAINER_ROGUE_BOSS_ERMA,
-        .incTypes = { TYPE_NONE, TYPE_NONE, TYPE_ROCK },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_ELITE | TRAINER_FLAG_THIRDSLOT_WEATHER,
-        .querySpecies = sQuerySpecies_Erma,
-        .querySpeciesCount = ARRAY_COUNT(sQuerySpecies_Erma),
-        .partyFlags = PARTY_FLAG_CUSTOM_FINAL_QUERY | PARTY_FLAG_STRONG_PRESETS_IGNORE,
-    },
-
-    // Champions
-    {
-        .gfxId = OBJ_EVENT_GFX_BRENDAN_ALT,
-        .trainerId = TRAINER_ROGUE_BOSS_MIRROR,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_PRE_CHAMP,
-        .partyFlags = PARTY_FLAG_MIRROR_SPECIES,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_GIRL_2,
-        .trainerId = TRAINER_ROGUE_BOSS_POKABBIE,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_FALLBACK_REGION | TRAINER_FLAG_RAINBOW_EXCLUDE | TRAINER_FLAG_FINAL_CHAMP,
-        .partyFlags = PARTY_FLAG_COUNTER_TYPINGS,
-    },
-};
-
-const struct RogueTrainerData gRogueBossEncounters = 
-{
-    .count = ARRAY_COUNT(sRouteBossEncounters),
-    .trainers = sRouteBossEncounters
-};
-
 #define TRAINER_FLAG_MINI_BOSS (TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO | TRAINER_FLAG_JOHTO)
 
 static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] = 
@@ -1346,7 +734,1096 @@ static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] =
 const struct RogueTrainerData gRogueMiniBossEncounters = 
 {
     .count = ARRAY_COUNT(sRouteMiniBossEncounters),
-    .trainers = sRouteMiniBossEncounters
+    .trainers = sRouteMiniBossEncounters,
 };
 
 #undef ENCOUNTER_MAP
+
+
+
+
+
+
+//
+// NEW TRAINER DATA
+//
+
+static const struct RogueTrainer sRouteTrainers_Bosses[] = 
+{
+    // Kanto Gyms
+    //
+    {
+        .trainerName = _("BROCK"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_BROCK,
+        .trainerPic = TRAINER_PIC_KANTO_BROCK,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ROCK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("MISTY"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_MISTY,
+        .trainerPic = TRAINER_PIC_KANTO_MISTY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FLYING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("LT. SURGE"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_LTSURGE,
+        .trainerPic = TRAINER_PIC_KANTO_LTSURGE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ELECTRIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("ERIKA"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_ERIKA,
+        .trainerPic = TRAINER_PIC_KANTO_ERIKA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GRASS, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+#ifdef ROGUE_EXPANSION
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FAIRY, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+#endif
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("KOGA"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_KOGA,
+        .trainerPic = TRAINER_PIC_KANTO_KOGA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("SABRINA"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_SABRINA,
+        .trainerPic = TRAINER_PIC_KANTO_SABRINA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DARK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("BLAINE"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_BLAINE,
+        .trainerPic = TRAINER_PIC_KANTO_BLAINE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("GIOVANNI"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_GIOVANNI,
+        .trainerPic = TRAINER_PIC_KANTO_GIOVANNI,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    // Kanto Elite
+    //
+
+    {
+        .trainerName = _("LORELEI"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_LORELEI,
+        .trainerPic = TRAINER_PIC_KANTO_LORELEI,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ICE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("BRUNO"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_BRUNO,
+        .trainerPic = TRAINER_PIC_KANTO_BRUNO,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("AGATHA"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_AGATHA,
+        .trainerPic = TRAINER_PIC_KANTO_AGATHA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_BUG, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("LANCE"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_LANCE,
+        .trainerPic = TRAINER_PIC_KANTO_LANCE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_NONE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 3,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FLYING, TYPE_NONE },
+                .excTypes = { TYPE_NORMAL, TYPE_NONE },
+            },
+        }
+    },
+
+    // Kanto Champions
+    //
+
+    {
+        .trainerName = _("BLUE"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_BLUE,
+        .trainerPic = TRAINER_PIC_KANTO_BLUE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_NONE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_PRE_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE | TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("PROF. OAK"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_PROFOAK,
+        .trainerPic = TRAINER_PIC_KANTO_PROFOAK,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_NONE,
+        .trainerFlags = TRAINER_FLAG_KANTO | TRAINER_FLAG_FINAL_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE | TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    // Johto Gyms
+    //
+    {
+        .trainerName = _("FALKNER"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_FALKNER,
+        .trainerPic = TRAINER_PIC_JOHTO_FALKNER,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FLYING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("BUGSY"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_BUGSY,
+        .trainerPic = TRAINER_PIC_JOHTO_BUGSY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_BUG, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("WHITNEY"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_WHITNEY,
+        .trainerPic = TRAINER_PIC_JOHTO_WHITNEY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_NORMAL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("MORTY"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_MORTY,
+        .trainerPic = TRAINER_PIC_JOHTO_MORTY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DROUGHT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("CHUCK"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_CHUCK,
+        .trainerPic = TRAINER_PIC_JOHTO_CHUCK,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("JASMINE"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_JASMINE,
+        .trainerPic = TRAINER_PIC_JOHTO_JASMINE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("PRYCE"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_PRYCE,
+        .trainerPic = TRAINER_PIC_JOHTO_PRYCE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ICE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ROCK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("CLAIR"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_CLAIR,
+        .trainerPic = TRAINER_PIC_JOHTO_CLAIR,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_RAIN,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 3,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    // Johto Elite
+    //
+
+    {
+        .trainerName = _("WILL"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_WILL,
+        .trainerPic = TRAINER_PIC_JOHTO_WILL,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+#ifdef ROGUE_EXPANSION
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FAIRY, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+#endif
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DARK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("KOGA"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_KOGA,
+        .trainerPic = TRAINER_PIC_KANTO_KOGA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DARK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("BRUNO"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_BRUNO,
+        .trainerPic = TRAINER_PIC_KANTO_BRUNO,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 3,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("KAREN"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_KAREN,
+        .trainerPic = TRAINER_PIC_JOHTO_KAREN,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DARK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_NORMAL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    // Johto Champions
+    //
+    {
+        .trainerName = _("LANCE"),
+        .objectEventGfx = OBJ_EVENT_GFX_KANTO_LANCE,
+        .trainerPic = TRAINER_PIC_KANTO_LANCE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_PRE_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 3,
+                .incTypes = { TYPE_DRAGON, TYPE_FLYING },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+
+    {
+        .trainerName = _("RED"),
+        .objectEventGfx = OBJ_EVENT_GFX_JOHTO_RED,
+        .trainerPic = TRAINER_PIC_JOHTO_RED,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_JOHTO | TRAINER_FLAG_FINAL_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .generatorFlags = TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE | TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+                .incTypes = { TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            }
+        }
+    },
+    
+    // Hoenn Gyms
+    //
+    {
+        .trainerName = _("ROXANNE"),
+        .objectEventGfx = OBJ_EVENT_GFX_ROXANNE,
+        .trainerPic = TRAINER_PIC_LEADER_ROXANNE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ROCK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("BRAWLY"),
+        .objectEventGfx = OBJ_EVENT_GFX_BRAWLY,
+        .trainerPic = TRAINER_PIC_LEADER_BRAWLY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DARK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("WATTSON"),
+        .objectEventGfx = OBJ_EVENT_GFX_WATTSON,
+        .trainerPic = TRAINER_PIC_LEADER_WATTSON,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ELECTRIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("FLANNERY"),
+        .objectEventGfx = OBJ_EVENT_GFX_FLANNERY,
+        .trainerPic = TRAINER_PIC_LEADER_FLANNERY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("NORMAN"),
+        .objectEventGfx = OBJ_EVENT_GFX_NORMAN,
+        .trainerPic = TRAINER_PIC_LEADER_NORMAN,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_NORMAL, TYPE_NONE },
+                .excTypes = { TYPE_FLYING, TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+                .generatorFlags = TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("WINONA"),
+        .objectEventGfx = OBJ_EVENT_GFX_WINONA,
+        .trainerPic = TRAINER_PIC_LEADER_WINONA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FLYING, TYPE_NONE },
+                .excTypes = { TYPE_NORMAL, TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_NORMAL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("LIZA"),
+        .objectEventGfx = OBJ_EVENT_GFX_LIZA,
+        .trainerPic = TRAINER_PIC_LEADER_TATE_AND_LIZA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    {
+        .trainerName = _("JUAN"),
+        .objectEventGfx = OBJ_EVENT_GFX_JUAN,
+        .trainerPic = TRAINER_PIC_LEADER_JUAN,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_GYM,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ICE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    // Hoenn Elite
+    //
+    {
+        .trainerName = _("SIDNEY"),
+        .objectEventGfx = OBJ_EVENT_GFX_SIDNEY,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_SIDNEY,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ROCK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("PHOEBE"),
+        .objectEventGfx = OBJ_EVENT_GFX_PHOEBE,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_PHOEBE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_POISON, TYPE_BUG },
+                .excTypes = { TYPE_NONE },
+            },
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+                .generatorFlags = TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+            },
+        }
+    },
+
+    {
+        .trainerName = _("GLACIA"),
+        .objectEventGfx = OBJ_EVENT_GFX_GLACIA,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_GLACIA,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ICE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("DRAKE"),
+        .objectEventGfx = OBJ_EVENT_GFX_DRAKE,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_ELITE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    
+    // Hoenn Champs
+    //
+    {
+        .trainerName = _("WALLACE"),
+        .objectEventGfx = OBJ_EVENT_GFX_WALLACE,
+        .trainerPic = TRAINER_PIC_CHAMPION_WALLACE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_PRE_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    {
+        .trainerName = _("STEVEN"),
+        .objectEventGfx = OBJ_EVENT_GFX_STEVEN,
+        .trainerPic = TRAINER_PIC_STEVEN,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_HOENN | TRAINER_FLAG_FINAL_CHAMP,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_STEEL, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        },
+        .aceMonGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+                .generatorFlags = TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY,
+            },
+        }
+    },
+
+    // Placeholder Rainbow mode bosses for missing types
+#ifdef ROGUE_EXPANSION
+    {
+        .trainerName = _("ANABEL"),
+        .objectEventGfx = OBJ_EVENT_GFX_ANABEL,
+        .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_NONE,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FAIRY, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        },
+    },
+#endif
+
+	// TODO - Glitch set
+};
+
+const struct RogueTrainerCollection gRogueTrainers = 
+{
+    .bossCount = ARRAY_COUNT(sRouteTrainers_Bosses),
+    .boss = sRouteTrainers_Bosses,
+};

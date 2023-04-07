@@ -51,6 +51,7 @@
 #include "rogue_query.h"
 #include "rogue_quest.h"
 #include "rogue_timeofday.h"
+#include "rogue_trainers.h"
 
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
@@ -99,30 +100,6 @@ struct RogueBoxHubData
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
 
-struct RogueTrainerTemp
-{
-    u32 seedToRestore;
-    u8 allowedType[2];
-    u8 disallowedType[2];
-    u16 customQuerySpeciesCount;
-    const u16* customQuerySpecies;
-    bool8 customQueryProvidesOutput;
-    bool8 allowItemEvos;
-    bool8 allowWeakLegendaries;
-    bool8 allowStrongLegendaries;
-    bool8 forceLegendaries;
-    bool8 preferStrongPresets;
-    bool8 forceStrongPresets;
-    bool8 hasAppliedFallback;
-    u8 queryMonOffset;
-    bool8 hasUsedLeftovers;
-    bool8 hasUsedShellbell;
-#ifdef ROGUE_EXPANSION
-    bool8 hasUsedMegaStone;
-    bool8 hasUsedZMove;
-#endif
-};
-
 struct RouteMonPreview
 {
     u16 species;
@@ -137,7 +114,6 @@ struct RogueLocalData
     bool8 hasValidQuickSave;
     bool8 hasSaveWarningPending;
     bool8 hasVersionUpdateMsgPending;
-    struct RogueTrainerTemp trainerTemp;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
 };
 
@@ -175,19 +151,10 @@ bool8 IsLegendaryEnabled(u16 species);
 
 static void ResetHotTracking();
 
-static bool8 IsBossTrainer(u16 trainerNum);
-static bool8 IsMiniBossTrainer(u16 trainerNum);
-static bool8 IsAnyBossTrainer(u16 trainerNum);
-
-static u8 CalculateBossLevel(void);
-static u8 CalculatePlayerLevel(void);
 static u8 CalculateWildLevel(u8 variation);
-static u8 CalculateTrainerLevel(u16 trainerNum);
 static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
-static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
-void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 static u8 GetCurrentWildEncounterCount(void);
 
@@ -203,9 +170,6 @@ static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 
 static void RandomiseCharmItems(void);
-
-static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
-static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
 static void EnsureSafariShinyBufferIsValid()
 {
@@ -310,7 +274,7 @@ bool8 Rogue_FastBattleAnims(void)
     if(Rogue_IsRunActive())
     {
         // Force fast anims for non-bosses
-        if(IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        if(Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
             return FALSE;
 
         return TRUE;
@@ -330,8 +294,8 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
     
     if(Rogue_IsRunActive() && species != SPECIES_NONE)
     {
-        u8 targetLevel = CalculatePlayerLevel();
-        u8 maxLevel = CalculateBossLevel();
+        u8 targetLevel = Rogue_CalculatePlayerMonLvl();
+        u8 maxLevel = Rogue_CalculateBossMonLvl();
         u8 currentLevel = GetMonData(mon, MON_DATA_LEVEL);
 
         if(currentLevel != MAX_LEVEL)
@@ -732,7 +696,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
-            if(IsBossTrainer(trainerNum))
+            if(Rogue_IsBossTrainer(trainerNum))
             {
                 u8 difficulty = gRogueRun.currentDifficulty;
                 *money = (difficulty + 1) * 500;
@@ -797,7 +761,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     else if(difficulty < (ROGUE_MAX_BOSS_COUNT - 1)) // Go at default speed for final fight
     {
         
-        if(IsMiniBossTrainer(gTrainerBattleOpponent_A))
+        if(Rogue_IsMiniBossTrainer(gTrainerBattleOpponent_A))
             // Go faster, but not quite gym leader slow
             *waitTime = *waitTime / 4;
         else
@@ -1207,7 +1171,7 @@ u8* Rogue_GetMiniMenuContent(void)
     if(gDebug_CurrentTab == 0)
     {
         u8 difficultyLevel = gRogueRun.currentDifficulty;
-        u8 playerLevel = CalculatePlayerLevel();
+        u8 playerLevel = Rogue_CalculatePlayerMonLvl();
         u8 wildLevel = CalculateWildLevel(0);
 
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
@@ -2582,124 +2546,6 @@ static void EndRogueRun(void)
     }
 }
 
-static u16 GetBossHistoryKey(u16 bossId)
-{
-    //if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
-    //    return gRogueBossEncounters.trainers[bossId].incTypes[0];
-    //else
-    //    return bossId;
-
-    // We're gonna always use the trainer's assigned type to prevent dupes
-    // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-    u16 type = gRogueBossEncounters.trainers[bossId].incTypes[0];
-
-    // None type trainers are unqiue, so we don't care about the type repeat
-    if(type == TYPE_NONE)
-        return NUMBER_OF_MON_TYPES + bossId;
-
-    return type;
-}
-
-static bool8 IsBossEnabled(u16 bossId)
-{
-    const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
-    u16 includeFlags = TRAINER_FLAG_NONE;
-    u16 excludeFlags = TRAINER_FLAG_NONE;
-    
-    if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
-    {
-        if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
-            includeFlags |= TRAINER_FLAG_HOENN;
-
-        if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
-            includeFlags |= TRAINER_FLAG_KANTO;
-
-        if(FlagGet(FLAG_ROGUE_JOHTO_BOSSES))
-            includeFlags |= TRAINER_FLAG_JOHTO;
-
-        // Use the custom fallback set >:3
-        if(includeFlags == TRAINER_FLAG_NONE)
-        {
-            includeFlags |= TRAINER_FLAG_FALLBACK_REGION;
-        }
-
-        if(gRogueRun.currentDifficulty < 8)
-            excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 12)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 13)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 14)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
-    }
-    else
-    {
-        excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
-
-        if(gRogueRun.currentDifficulty >= 13)
-            includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
-        else
-        {
-            // Don't use special trainers for rainbow mode
-            if(gRogueBossEncounters.trainers[bossId].incTypes[0] == TYPE_NONE)
-                return FALSE;
-        }
-    }
-
-    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
-    {
-        return FALSE;
-    }
-
-    if(includeFlags == TRAINER_FLAG_NONE || (trainer->trainerFlags & includeFlags) != 0)
-    {
-        if(!HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId)))
-        {
-            return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
-static u16 NextBossId()
-{
-    u16 i;
-    u16 randIdx;
-    u16 enabledBossesCount = 0;
-
-    for(i = 0; i < gRogueBossEncounters.count; ++i)
-    {
-        if(IsBossEnabled(i))
-            ++enabledBossesCount;
-    }
-
-    randIdx = RogueRandomRange(enabledBossesCount, OVERWORLD_FLAG);
-    enabledBossesCount = 0;
-
-    for(i = 0; i < gRogueBossEncounters.count; ++i)
-    {
-        if(IsBossEnabled(i))
-        {
-            if(enabledBossesCount == randIdx)
-                return i;
-            else
-                ++enabledBossesCount;
-        }
-    }
-
-    return gRogueBossEncounters.count - 1;
-}
-
-u8 Rogue_SelectBossEncounter(void)
-{
-    u16 bossId = NextBossId();
-
-    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId));
-
-    return bossId;
-}
-
 static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDifficulty)
 {
     u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
@@ -2896,7 +2742,7 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
 
     if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_LOW_BST)
     {
-        RogueQuery_EvolveSpecies(CalculatePlayerLevel(), TRUE);
+        RogueQuery_EvolveSpecies(Rogue_CalculatePlayerMonLvl(), TRUE);
     }
 
     // Have to use uncollapsed queries as this query is too large otherwise
@@ -3033,75 +2879,6 @@ static void ResetSpecialEncounterStates(void)
 
     // Reset ledgendary encounters
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
-}
-
-bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
-{
-    u8 i;
-    u16 s;
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = GetMonData(&party[i], MON_DATA_SPECIES);
-
-        if(s == species)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species)
-{
-    u8 i;
-    u16 s;
-
-#ifdef ROGUE_EXPANSION
-    species = GET_BASE_SPECIES_ID(species);
-#endif
-
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = GetMonData(&party[i], MON_DATA_SPECIES);
-
-#ifdef ROGUE_EXPANSION
-        s = GET_BASE_SPECIES_ID(species);
-#endif
-
-        if(s == species)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-bool8 PartyContainsType(struct Pokemon *party, u8 partyCount, u16 type)
-{
-    u8 i;
-    u16 s;
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = GetMonData(&party[i], MON_DATA_SPECIES);
-
-        if(IsSpeciesType(s, type))
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-bool8 PartyContainsLegendary(struct Pokemon *party, u8 partyCount)
-{
-    u8 i;
-    u16 s;
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = GetMonData(&party[i], MON_DATA_SPECIES);
-
-        if(IsSpeciesLegendary(s))
-            return TRUE;
-    }
-
-    return FALSE;
 }
 
 static bool8 IsRareShopActive()
@@ -3276,108 +3053,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_BOSS:
                 {
-                    const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+                    u16 trainerNum;
+                    const struct RogueTrainer* trainer;
+
+                    trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
 
                     gRogueRun.currentLevelOffset = 0;
                     RandomiseEnabledItems();
 
-                    // Mirror trainer
-                    if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
-                    {
-                        switch(gSaveBlock2Ptr->playerGender)
-                        {
-                            case(STYLE_EMR_BRENDAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                                break;
-                            case(STYLE_EMR_MAY):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                                break;
+                    VarSet(VAR_OBJ_GFX_ID_0, Rogue_GetTrainerObjectEventGfx(trainerNum));
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, Rogue_GetTrainerWeather(trainerNum));
 
-                            case(STYLE_RED):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                                break;
-                            case(STYLE_LEAF):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                                break;
-
-                            case(STYLE_ETHAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
-                                break;
-                            case(STYLE_LYRA):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
-                                break;
-                        };
-                    }
-                    // Rival Trainer
-                    else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
-                    {
-                        switch(gSaveBlock2Ptr->playerGender)
-                        {
-                            case(STYLE_EMR_BRENDAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                                break;
-                            case(STYLE_EMR_MAY):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                                break;
-
-                            case(STYLE_RED):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                                break;
-                            case(STYLE_LEAF):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                                break;
-
-                            case(STYLE_ETHAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
-                                break;
-                            case(STYLE_LYRA):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
-                                break;
-                        };
-                    }
-                    else
-                    {
-                        VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
-                    }
-
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
-
-                    if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                    {
-                        // No Weather
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                    }
-
-                    // Set weather type
-                    if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
-                    {
-                        // No Weather
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                    }
-                    else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-                    {
-                        // No Weather
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                    }
-                    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty > 0)
-                    {
-                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                    }
-                    else if(gRogueRun.currentDifficulty > 2)
-                    {
-                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                    }
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainerNum);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, Rogue_GetTrainerTypeAssignment(trainerNum));
                     break;
                 }
 
@@ -3508,13 +3196,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 }
             };
 
-    #ifdef ROGUE_DEBUG
-            //VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_LEAVES);
-    #endif
-
             // Update VARs
             VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
-            VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, CalculateBossLevel());
+            VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, Rogue_CalculateBossMonLvl());
         }
     }
 
@@ -3860,18 +3544,26 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsRunActive())
     {
-        bool8 isBossTrainer = IsBossTrainer(trainerNum);
+        bool8 isBossTrainer = Rogue_IsBossTrainer(trainerNum);
 
         if(isBossTrainer)
         {
+            const struct RogueTrainer* trainer;
             u8 nextLevel;
-            u8 prevLevel = CalculateBossLevel();
-            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
+            u8 prevLevel = Rogue_CalculateBossMonLvl();
 
-            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = trainer->incTypes[0] != TYPE_NONE ? trainer->incTypes[0] : TYPE_MYSTERY;
+            // Update badge for trainer card
+            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_NONE;
 
+            if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                gRogueRun.completedBadges[gRogueRun.currentDifficulty] = trainer->monGenerators[0].incTypes[0];
+
+            if(gRogueRun.completedBadges[gRogueRun.currentDifficulty] == TYPE_NONE)
+                gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_MYSTERY;
+
+            // Increment difficulty
             ++gRogueRun.currentDifficulty;
-            nextLevel = CalculateBossLevel();
+            nextLevel = Rogue_CalculateBossMonLvl();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
 
@@ -4017,393 +3709,6 @@ void Rogue_Safari_EndWildBattle(void)
     Battle_UpdateEncounterTracker();
 }
 
-static bool8 IsBossTrainer(u16 trainerNum)
-{
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
-    {
-        if(trainerNum == TRAINER_ROGUE_POKEFAN_F)
-            return FALSE;
-        else
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 IsMiniBossTrainer(u16 trainerNum)
-{
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 IsAnyBossTrainer(u16 trainerNum)
-{
-    return IsBossTrainer(trainerNum) || IsMiniBossTrainer(trainerNum);
-}
-
-static bool8 UseCompetitiveMoveset(u16 trainerNum, u8 monIdx, u8 totalMonCount)
-{
-    bool8 preferCompetitive = FALSE;
-    bool8 result = FALSE;
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
-
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
-    {
-        // For regular trainers, Last and first mon can have competitive sets
-        preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));
-    }
-
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_FORCE_COMP_MOVESETS))
-    {
-        return TRUE;
-    }
-#endif
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        return IsAnyBossTrainer(trainerNum);
-    }
-    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-    {
-        return FALSE;
-    }
-    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-    {
-        if(difficultyLevel == 0) // Last mon has competitive set
-            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
-        else if(difficultyLevel == 1)
-            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
-        else
-            return TRUE;
-    }
-    else
-    {
-        // Start using competitive movesets on 3rd gym
-        if(difficultyLevel == 0) // Last mon has competitive set
-            return FALSE;
-        else if(difficultyLevel == 1)
-            return (preferCompetitive || IsAnyBossTrainer(trainerNum)) && monIdx == (totalMonCount - 1);
-        else
-            return (preferCompetitive || IsAnyBossTrainer(trainerNum));
-    }
-
-    return FALSE;
-}
-
-static void SeedRogueTrainer(u16 seed, u16 trainerNum, u16 offset)
-{
-    gRngRogueValue = seed + trainerNum * 3 + offset * 7;
-}
-
-static void ConfigureTrainer(u16 trainerNum, u8* monsCount)
-{
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8* forceType = &gRogueLocal.trainerTemp.allowedType[0];
-    u8* disabledType = &gRogueLocal.trainerTemp.disallowedType[0];
-    bool8 attemptForceStrongPresets = FALSE;
-
-    if(IsBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        // Mirror trainer uses custom logic
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
-        {
-            *monsCount = gPlayerPartyCount;
-            return;
-        }
-
-        forceType[0] = trainer->incTypes[0];
-        forceType[1] = trainer->incTypes[1];
-
-        disabledType[0] = trainer->excTypes[0];
-        disabledType[1] = trainer->excTypes[1];
-
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
-        {
-            // Disable query if regional dex is active
-            if(VarGet(VAR_ROGUE_REGION_DEX_LIMIT) == 0 || !(trainer->partyFlags & PARTY_FLAG_REGION_DEX_DISABLE_QUERY) != 0)
-            {
-                gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
-                gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
-                gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
-            }
-        }
-
-        if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0 || (trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
-        {
-            attemptForceStrongPresets = TRUE;
-        }
-    }
-    else if(IsMiniBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        // Mirror trainer uses custom logic
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
-        {
-            *monsCount = gPlayerPartyCount;
-            return;
-        }
-
-        forceType[0] = trainer->incTypes[0];
-        forceType[1] = trainer->incTypes[1];
-
-        disabledType[0] = trainer->excTypes[0];
-        disabledType[1] = trainer->excTypes[1];
-
-        if((trainer->partyFlags & PARTY_FLAG_CUSTOM_QUERY_ANY) != 0)
-        {
-            // Disable query if regional dex is active
-            if(VarGet(VAR_ROGUE_REGION_DEX_LIMIT) == 0 || !(trainer->partyFlags & PARTY_FLAG_REGION_DEX_DISABLE_QUERY) != 0)
-            {
-                gRogueLocal.trainerTemp.customQuerySpeciesCount = trainer->querySpeciesCount;
-                gRogueLocal.trainerTemp.customQuerySpecies = trainer->querySpecies;
-                gRogueLocal.trainerTemp.customQueryProvidesOutput = (trainer->partyFlags & PARTY_FLAG_CUSTOM_FINAL_QUERY) != 0;
-            }
-        }
-    }
-    else
-    {
-        switch(trainerNum)
-        {
-            // Specific trainers
-            case TRAINER_ROGUE_AQUA_F:
-            case TRAINER_ROGUE_AQUA_M:
-                forceType[0] = TYPE_DARK;
-
-                if(difficultyLevel > 0)
-                    forceType[1] = TYPE_WATER;
-                break;
-
-            case TRAINER_ROGUE_MAGMA_F:
-            case TRAINER_ROGUE_MAGMA_M:
-                forceType[0] = TYPE_DARK;
-
-                if(difficultyLevel > 0)
-                    forceType[1] = TYPE_FIRE;
-                break;
-        };
-    }
-
-    if(IsAnyBossTrainer(trainerNum)) 
-    {
-        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        {
-            *monsCount = 6;
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
-        }
-        else if(difficultyLevel == 0)
-        {
-            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 4 : 3;
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel == 1)
-        {
-            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 5 : 4;
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel == 2)
-        {
-            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 4;
-            gRogueLocal.trainerTemp.allowItemEvos = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel <= 5)
-        {
-            *monsCount = FlagGet(FLAG_ROGUE_HARD_TRAINERS) ? 6 : 5;
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel <= 6) 
-        {
-            *monsCount = 6;
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-            gRogueLocal.trainerTemp.preferStrongPresets = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-        }
-        else if(difficultyLevel <= 7) // From last gym leader we can see ledgendaries
-        {
-            *monsCount = 6;
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FlagGet(FLAG_ROGUE_HARD_TRAINERS);
-        }
-        else // From last gym leader we can see ledgendaries
-        {
-            *monsCount = 6;
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
-        }
-        
-        // We don't want to use strong presets
-        if(IsBossTrainer(trainerNum))
-        {
-            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-            if((trainer->partyFlags & PARTY_FLAG_STRONG_PRESETS_IGNORE) != 0)
-            {
-                gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-            }
-        }
-        else if(IsMiniBossTrainer(trainerNum))
-        {
-            const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-            // If we somehow get a mini boss early, it should be easy going
-            if(difficultyLevel < 3)
-            {
-                *monsCount /= 2;
-
-                if(*monsCount == 0)
-                    *monsCount = 1;
-            }
-
-            if((trainer->partyFlags & PARTY_FLAG_STRONG_PRESETS_IGNORE) != 0)
-            {
-                gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-            }
-        }
-    }
-    else
-    {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
-        {
-            // EXP trainer
-            *monsCount = 1;
-            *forceType = TYPE_NORMAL;
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel == 0)
-        {
-            *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
-            *forceType = TYPE_NORMAL;
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel == 1)
-        {
-            *monsCount = 1 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
-            *forceType = TYPE_NORMAL;
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel == 2)
-        {
-            *monsCount = 1 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel <= 7)
-        {
-            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
-            gRogueLocal.trainerTemp.allowItemEvos = FALSE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = FALSE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = FALSE;
-            gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-        }
-        else if(difficultyLevel <= 11)
-        {
-            // Elite 4
-            *monsCount = 2 + RogueRandomRange(3, FLAG_SET_SEED_TRAINERS);
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
-        }
-        else
-        {
-            // Champion
-            *monsCount = 3 + RogueRandomRange(2, FLAG_SET_SEED_TRAINERS);
-            gRogueLocal.trainerTemp.allowItemEvos = TRUE;
-            gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
-            gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-            gRogueLocal.trainerTemp.preferStrongPresets = TRUE;
-        }
-
-        // We fill up the buffer with too many mons, so in higher gen count we're going to randomally select types for trainers to use
-        if(forceType[0] == TYPE_NONE)
-        {
-            forceType[0] = RogueRandomRange(NUMBER_OF_MON_TYPES, FLAG_SET_SEED_TRAINERS);
-            forceType[1] = RogueRandomRange(NUMBER_OF_MON_TYPES, FLAG_SET_SEED_TRAINERS);
-
-            // Normal types techincally most likely
-            if(forceType[0] == TYPE_MYSTERY)
-                forceType[0] = TYPE_NORMAL;
-            if(forceType[1] == TYPE_MYSTERY)
-                forceType[1] = TYPE_NORMAL;
-
-            if(forceType[0] == forceType[1])
-                forceType[1] = TYPE_NONE;
-        }
-    }
-
-    if(FlagGet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
-    {
-        gRogueLocal.trainerTemp.allowWeakLegendaries = TRUE;
-    }
-
-    if(FlagGet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
-    {
-        gRogueLocal.trainerTemp.allowStrongLegendaries = TRUE;
-    }
-
-    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-    {
-        gRogueLocal.trainerTemp.preferStrongPresets = FALSE;
-    }
-
-    if(attemptForceStrongPresets && gRogueLocal.trainerTemp.preferStrongPresets)
-    {
-        if(!Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LOW_BST)
-        {
-            // Temp don't apply this change during the low bst cup as it'll make it harder mid competition
-            // TODO - Remove this check once competition is over
-            gRogueLocal.trainerTemp.forceStrongPresets = TRUE;
-        }
-    }
-
-    if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) 
-    {
-        if(*monsCount < 2 && gPlayerPartyCount >= 2)
-        {
-            *monsCount = 2;
-        }
-    }
-}
-
 bool8 Rogue_AllowItemUse(u16 itemId)
 {
     //if (gMain.inBattle)
@@ -4416,10 +3721,9 @@ bool8 Rogue_AllowItemUse(u16 itemId)
 
 void Rogue_OnItemUse(u16 itemId)
 {
-    if (gMain.inBattle)
-    {
-
-    }
+    //if (gMain.inBattle)
+    //{
+    //}
 }
 
 void Rogue_PreBattleSetup(void)
@@ -4487,506 +3791,6 @@ static bool8 IsSpeciesEnabledForCustomQuery(u16 species)
     }
 }
 
-
-static void ApplyTrainerQuery(u16 trainerNum)
-{
-    bool8 skipToEnd = FALSE;
-    bool8 isBossTrainer = IsBossTrainer(trainerNum);
-
-    // Query for the current trainer team
-    RogueQuery_Clear();
-
-    if(gRogueLocal.trainerTemp.customQuerySpeciesCount)
-    {
-        // Trainer has provided it's own initial query set
-        u16 i;
-
-        RogueQuery_ExcludeAll();
-
-        for(i = 0; i < gRogueLocal.trainerTemp.customQuerySpeciesCount; ++i)
-        {
-            u16 species = gRogueLocal.trainerTemp.customQuerySpecies[i];
-
-            if(IsSpeciesEnabledForCustomQuery(species))
-            {
-                RogueQuery_Include(species);
-            }
-        }
-
-        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE); // Already done early cull above
-        //RogueQuery_SpeciesExcludeCommon(); // We cull gen above (Doesn't entirely work for custom queries as regional dex culls)
-
-        if(gRogueLocal.trainerTemp.forceLegendaries)
-            RogueQuery_SpeciesIsLegendary();
-        else 
-        {
-            if(!gRogueLocal.trainerTemp.allowWeakLegendaries && !gRogueLocal.trainerTemp.allowStrongLegendaries)
-                RogueQuery_SpeciesIsNotLegendary();
-            else if(!gRogueLocal.trainerTemp.allowStrongLegendaries)
-                RogueQuery_SpeciesIsNotStrongLegendary();
-            else if(!gRogueLocal.trainerTemp.allowWeakLegendaries)
-                RogueQuery_SpeciesIsNotWeakLegendary();
-        }
-
-        if(gRogueLocal.trainerTemp.customQueryProvidesOutput)
-        {
-            skipToEnd = TRUE;
-        }
-
-        // We ignore the first type check, as we're using a smaller subset anyway
-        // which are likely all egg species so we only care about the check at the end
-    }
-    else
-    {
-        RogueQuery_SpeciesIsValid(gRogueLocal.trainerTemp.allowedType[0], gRogueLocal.trainerTemp.allowedType[1], TYPE_NONE);
-        RogueQuery_SpeciesExcludeCommon();
-        RogueQuery_Exclude(SPECIES_UNOWN);
-
-        // Apply alternate forms
-        //
-#ifdef ROGUE_EXPANSION
-        {
-            // Deoxys - One of forms
-            if(RogueQuery_CheckIncluded(SPECIES_DEOXYS))
-            {
-                switch(RogueRandomRange(4, FLAG_SET_SEED_TRAINERS))
-                {
-                    case 0:
-                        RogueQuery_Include(SPECIES_DEOXYS);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
-                        break;
-
-                    case 1:
-                        RogueQuery_Exclude(SPECIES_DEOXYS);
-                        RogueQuery_Include(SPECIES_DEOXYS_ATTACK);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
-                        break;
-
-                    case 2:
-                        RogueQuery_Exclude(SPECIES_DEOXYS);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
-                        RogueQuery_Include(SPECIES_DEOXYS_DEFENSE);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_SPEED);
-                        break;
-
-                    case 3:
-                        RogueQuery_Exclude(SPECIES_DEOXYS);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_ATTACK);
-                        RogueQuery_Exclude(SPECIES_DEOXYS_DEFENSE);
-                        RogueQuery_Include(SPECIES_DEOXYS_SPEED);
-                        break;
-                }
-            }
-
-            // Shaymin - One of land or sky forme
-            if(RogueQuery_CheckIncluded(SPECIES_SHAYMIN))
-            {
-                // One of land or sky forme
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_SHAYMIN);
-                    RogueQuery_Exclude(SPECIES_SHAYMIN_SKY);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_SHAYMIN);
-                    RogueQuery_Include(SPECIES_SHAYMIN_SKY);
-                }
-            }
-
-            // Arceus - Allow all forms
-            if(isBossTrainer && gRogueRun.currentDifficulty >= 12 && RogueQuery_CheckIncluded(SPECIES_ARCEUS))
-            {
-                RogueQuery_IncludeRange(SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_FAIRY);
-            }
-            else
-            {
-                RogueQuery_Exclude(SPECIES_ARCEUS);
-            }
-            
-
-            // Genies - One of forms
-            if(RogueQuery_CheckIncluded(SPECIES_TORNADUS))
-            {
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_TORNADUS);
-                    RogueQuery_Exclude(SPECIES_TORNADUS_THERIAN);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_TORNADUS);
-                    RogueQuery_Include(SPECIES_TORNADUS_THERIAN);
-                }
-            }
-
-            if(RogueQuery_CheckIncluded(SPECIES_THUNDURUS))
-            {
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_TORNADUS);
-                    RogueQuery_Exclude(SPECIES_THUNDURUS_THERIAN);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_THUNDURUS);
-                    RogueQuery_Include(SPECIES_THUNDURUS_THERIAN);
-                }
-            }
-
-            if(RogueQuery_CheckIncluded(SPECIES_LANDORUS))
-            {
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_LANDORUS);
-                    RogueQuery_Exclude(SPECIES_LANDORUS_THERIAN);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_LANDORUS);
-                    RogueQuery_Include(SPECIES_LANDORUS_THERIAN);
-                }
-            }
-
-            // Kyurem - One of forms
-            if(RogueQuery_CheckIncluded(SPECIES_KYUREM))
-            {
-                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
-                {
-                    case 0:
-                        RogueQuery_Include(SPECIES_KYUREM);
-                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
-                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
-                        break;
-
-                    case 1:
-                        RogueQuery_Exclude(SPECIES_KYUREM);
-                        RogueQuery_Include(SPECIES_KYUREM_WHITE);
-                        RogueQuery_Exclude(SPECIES_KYUREM_BLACK);
-                        break;
-                    case 2:
-
-                        RogueQuery_Exclude(SPECIES_KYUREM);
-                        RogueQuery_Exclude(SPECIES_KYUREM_WHITE);
-                        RogueQuery_Include(SPECIES_KYUREM_BLACK);
-                        break;
-                }
-            }
-
-            // Genesect - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_GENESECT))
-            {
-                RogueQuery_IncludeRange(SPECIES_GENESECT_DOUSE_DRIVE, SPECIES_GENESECT_CHILL_DRIVE);
-            }
-
-            // Hoopa - Allow one of the forms
-            if(RogueQuery_CheckIncluded(SPECIES_HOOPA))
-            {
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_HOOPA);
-                    RogueQuery_Exclude(SPECIES_HOOPA_UNBOUND);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_HOOPA);
-                    RogueQuery_Include(SPECIES_HOOPA_UNBOUND);
-                }
-            }
-
-            // Oricorio - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_ORICORIO))
-            {
-                RogueQuery_IncludeRange(SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_SENSU);
-            }
-
-            // Lycanroc - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_LYCANROC))
-            {
-                RogueQuery_IncludeRange(SPECIES_LYCANROC_MIDNIGHT, SPECIES_LYCANROC_DUSK);
-            }
-
-            // Necrozma - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_NECROZMA))
-            {
-                RogueQuery_IncludeRange(SPECIES_NECROZMA_DUSK_MANE, SPECIES_NECROZMA_DAWN_WINGS);
-            }
-
-            // Alcreamie - Allow all forms
-            if(RogueQuery_CheckIncluded(SPECIES_ALCREMIE))
-            {
-                RogueQuery_IncludeRange(SPECIES_ALCREMIE_RUBY_CREAM, SPECIES_ALCREMIE_RAINBOW_SWIRL);
-            }
-
-
-            // Urshifu - One of 2 forms
-            if(RogueQuery_CheckIncluded(SPECIES_URSHIFU))
-            {
-                if(RogueRandomRange(2, FLAG_SET_SEED_TRAINERS) == 0)
-                {
-                    RogueQuery_Include(SPECIES_URSHIFU);
-                    RogueQuery_Exclude(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
-                }
-                else
-                {
-                    RogueQuery_Exclude(SPECIES_URSHIFU);
-                    RogueQuery_Include(SPECIES_URSHIFU_RAPID_STRIKE_STYLE);
-                }
-            }
-
-            // Calyrex - One of forms
-            if(RogueQuery_CheckIncluded(SPECIES_CALYREX))
-            {
-                switch(RogueRandomRange(3, FLAG_SET_SEED_TRAINERS))
-                {
-                    case 0:
-                        RogueQuery_Include(SPECIES_CALYREX);
-                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
-                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
-                        break;
-
-                    case 1:
-                        RogueQuery_Exclude(SPECIES_CALYREX);
-                        RogueQuery_Include(SPECIES_CALYREX_ICE_RIDER);
-                        RogueQuery_Exclude(SPECIES_CALYREX_SHADOW_RIDER);
-                        break;
-                    case 2:
-
-                        RogueQuery_Exclude(SPECIES_CALYREX);
-                        RogueQuery_Exclude(SPECIES_CALYREX_ICE_RIDER);
-                        RogueQuery_Include(SPECIES_CALYREX_SHADOW_RIDER);
-                        break;
-                }
-            }
-        }
-#endif
-
-        if(gRogueLocal.trainerTemp.forceLegendaries)
-            RogueQuery_SpeciesIsLegendary();
-        else 
-        {
-            if(!gRogueLocal.trainerTemp.allowWeakLegendaries && !gRogueLocal.trainerTemp.allowStrongLegendaries)
-                RogueQuery_SpeciesIsNotLegendary();
-            else if(!gRogueLocal.trainerTemp.allowStrongLegendaries)
-                RogueQuery_SpeciesIsNotStrongLegendary();
-            else if(!gRogueLocal.trainerTemp.allowWeakLegendaries)
-                RogueQuery_SpeciesIsNotWeakLegendary();
-        }
-    }
-
-    if(!skipToEnd)
-    {
-        RogueQuery_TransformToEggSpecies();
-
-        // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpecies(CalculateTrainerLevel(trainerNum), gRogueLocal.trainerTemp.allowItemEvos);
-
-        if(gRogueLocal.trainerTemp.allowedType[0] != TYPE_NONE)
-        {
-            if(gRogueLocal.trainerTemp.allowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&gRogueLocal.trainerTemp.allowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesOfType(gRogueLocal.trainerTemp.allowedType[0]); // 1 type
-        }
-
-        // Disable types
-        if(gRogueLocal.trainerTemp.disallowedType[0] != TYPE_NONE)
-        {
-            if(gRogueLocal.trainerTemp.disallowedType[1] != TYPE_NONE)
-                RogueQuery_SpeciesNotOfTypes(&gRogueLocal.trainerTemp.disallowedType[0], 2); // 2 types
-            else
-                RogueQuery_SpeciesNotOfType(gRogueLocal.trainerTemp.disallowedType[0]); // 1 type
-        }
-    }
-
-//#ifdef ROGUE_EXPANSION
-    if(gRogueLocal.trainerTemp.preferStrongPresets)
-    {
-        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-        u16 targetDex = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-
-        // Regional dex and national mode gen prior to gen 2 has strong mons disabled
-        if(gRogueLocal.trainerTemp.forceStrongPresets || (targetDex == 0 && maxGen >= 3))
-        { 
-            RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
-        }
-    }
-//#endif
-
-    if((gRogueLocal.trainerTemp.forceLegendaries || gRogueLocal.trainerTemp.allowStrongLegendaries) && trainerNum == TRAINER_ROGUE_MINI_BOSS_MAXIE)
-    {
-        if(IsSpeciesEnabledForCustomQuery(SPECIES_GROUDON))
-        {
-            RogueQuery_Include(SPECIES_GROUDON);
-        }
-    }
-
-    RogueQuery_CollapseSpeciesBuffer();
-}
-
-static bool8 ApplyFallbackTrainerQuery(u16 trainerNum)
-{
-    bool8 hasFallback = FALSE;
-
-    // Apply a custom fallback but only once
-    if(!gRogueLocal.trainerTemp.hasAppliedFallback)
-    {
-        if(IsBossTrainer(trainerNum))
-        {
-            const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-            if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE) != 0)
-            {
-                gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                hasFallback = TRUE;
-            }
-        }
-        else if(IsMiniBossTrainer(trainerNum))
-        {
-            const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-            if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE) != 0)
-            {
-                gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                hasFallback = TRUE;
-            }
-        }
-    }
-
-    if(!hasFallback)
-    {
-        switch(gRogueLocal.trainerTemp.allowedType[0])
-        {
-            case TYPE_DARK:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
-                break;
-
-            case TYPE_PSYCHIC:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-
-            case TYPE_STEEL:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_DRAGON;
-                break;
-
-            case TYPE_FIGHTING:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-
-            case TYPE_GHOST:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
-                break;
-
-            case TYPE_DRAGON:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_WATER;
-                break;
-
-            case TYPE_FIRE:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-
-            case TYPE_FLYING:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NORMAL;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-
-            case TYPE_ICE:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
-                gRogueLocal
-                .trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-
-            case TYPE_NORMAL:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_GHOST;
-                break;
-
-            default:
-                hasFallback = TRUE;
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-                gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-                break;
-        }
-    }
-
-    if(hasFallback && !gRogueLocal.trainerTemp.hasAppliedFallback)
-    {
-        gRogueLocal.trainerTemp.hasAppliedFallback = TRUE;
-        gRogueLocal.trainerTemp.forceLegendaries = FALSE;
-        ApplyTrainerQuery(trainerNum);
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount)
-{
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(!Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
-#else
-    if(Rogue_IsRunActive())
-#endif
-    {        // Reset trainer temp
-        memset(&gRogueLocal.trainerTemp, 0, sizeof(gRogueLocal.trainerTemp));
-        gRogueLocal.trainerTemp.seedToRestore = gRngRogueValue;
-
-        gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-        gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-
-        gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
-        gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
-
-        SeedRogueTrainer(gRngRogueValue, trainerNum, RogueRandom() % 17);
-        ConfigureTrainer(trainerNum, monsCount);
-
-        ApplyTrainerQuery(trainerNum);
-
-#ifdef ROGUE_DEBUG
-        gDebug_TrainerOptionCount = RogueQuery_BufferSize();
-#endif
-
-        *useRogueCreateMon = TRUE;
-        return;
-    }
-
-    *useRogueCreateMon = FALSE;
-}
-
-static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
-{
-    if(aIdx != bIdx)
-    {
-        struct Pokemon tempMon;
-        CopyMon(&tempMon, &party[aIdx], sizeof(struct Pokemon));
-
-        CopyMon(&party[aIdx], &party[bIdx], sizeof(struct Pokemon));
-        CopyMon(&party[bIdx], &tempMon, sizeof(struct Pokemon));
-    }
-}
-
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
 {
     if(aIdx != bIdx)
@@ -4997,569 +3801,6 @@ static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
         SetMonData(&party[aIdx], MON_DATA_HELD_ITEM, &itemB);
         SetMonData(&party[bIdx], MON_DATA_HELD_ITEM, &itemA);
     }
-}
-
-// + go to the front - go to the back
-s16 CalulcateMonSortScore(struct Pokemon* mon)
-{
-    s16 score = 0;
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
-
-#ifdef ROGUE_EXPANSION
-    if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
-    {
-        score -= 20;
-    }
-#endif
-
-    if(IsSpeciesLegendary(species))
-    {
-        score -= 20;
-    }
-
-    // Early pri moves
-    //
-    if(MonKnowsMove(mon, MOVE_FAKE_OUT))
-    {
-        score += 1;
-    }
-    if(MonKnowsMove(mon, MOVE_LIGHT_SCREEN))
-    {
-        score += 1;
-    }
-    if(MonKnowsMove(mon, MOVE_REFLECT))
-    {
-        score += 1;
-    }
-    if(MonKnowsMove(mon, MOVE_SPIKES))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_TAUNT))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_TRICK))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_TOXIC))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_BATON_PASS))
-    {
-        score += 1;
-
-        // Only prioritse sub if we want to baton pass out
-        if(MonKnowsMove(mon, MOVE_SUBSTITUTE))
-        {
-            score += 1;
-        }
-    }
-
-#ifdef ROGUE_EXPANSION
-    if(MonKnowsMove(mon, MOVE_U_TURN))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_FLIP_TURN))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_PARTING_SHOT))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_VOLT_SWITCH))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_TOXIC_SPIKES))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_STEALTH_ROCK))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_STICKY_WEB))
-    {
-        score += 1;
-    }
-
-    if(MonKnowsMove(mon, MOVE_TRICK_ROOM))
-    {
-        score += 1;
-    }
-#endif
-
-    return score;
-}
-
-void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount)
-{
-    bool8 keepExistingLead = FALSE;
-    bool8 reorganiseParty = TRUE;
-    bool8 clampLeadScore = FALSE;
-
-    if(IsBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
-        {
-            reorganiseParty = FALSE;
-        }
-
-        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
-        {
-            keepExistingLead = TRUE;
-        }
-    }
-    else if(IsMiniBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0)
-        {
-            reorganiseParty = FALSE;
-        }
-
-        if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0)
-        {
-            keepExistingLead = TRUE;
-        }
-    }
-    else
-    {
-        // Always reoganise hard trainers
-        if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-        {
-            // Basic trainers don't care and can do whatever with their team order
-            reorganiseParty = FALSE;
-        }
-    }
-
-    if(reorganiseParty)
-    {
-        u16 i;
-        s16 scoreA, scoreB;
-        bool8 anySwaps;
-        u16 startIndex = keepExistingLead ? 1 : 0;
-        u16 sortLength = monsCount - 1;
-
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && !FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty < 8)
-        {
-            // Prior to E4 we don't want to force forward the best lead mon#
-            // We just want to push final mons to the back
-            clampLeadScore = TRUE;
-        }
-
-        // Bubble sort party
-        while(sortLength != 0)
-        {
-            anySwaps = FALSE;
-
-            for(i = startIndex; i < monsCount - 1; ++i)
-            {
-                scoreA = CalulcateMonSortScore(&party[i]);
-                scoreB = CalulcateMonSortScore(&party[i + 1]);
-
-                if(clampLeadScore)
-                {
-                    scoreA = min(scoreA, 0);
-                    scoreB = min(scoreB, 0);
-                }
-                
-                if(scoreB > scoreA)
-                {
-                    anySwaps = TRUE;
-                    SwapMons(i, i + 1, party);
-                }
-            }
-        
-            if(anySwaps)
-                --sortLength;
-            else
-                sortLength = 0;
-        }
-    }
-
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
-    {
-        u8 i;
-        u16 exp = Rogue_ModifyExperienceTables(1, 100);
-
-        for(i = 0; i < PARTY_SIZE; ++i)
-        {
-            ZeroMonData(&gPlayerParty[i]);
-        }
-
-        gPlayerPartyCount = monsCount;
-
-        for(i = 0; i < gPlayerPartyCount; ++i)
-        {
-            CopyMon(&gPlayerParty[i], &party[i], sizeof(gPlayerParty[i]));
-
-            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
-            CalculateMonStats(&gPlayerParty[i]);
-        }
-    }
-#endif
-
-    gRngRogueValue = gRogueLocal.trainerTemp.seedToRestore;
-}
-
-static void ApplyCounterTrainerQuery(u16 trainerNum, bool8 isBoss, u8 monIdx)
-{
-    u16 baseType = TYPE_NONE;
-
-    monIdx %= gPlayerPartyCount;
-
-    {
-        u16 species = GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
-
-        if(gBaseStats[species].type1 != gBaseStats[species].type2)
-        {
-            baseType = RogueRandomRange(2, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS) == 0 ? gBaseStats[species].type1 : gBaseStats[species].type2;
-        }
-        else
-        {
-            baseType = gBaseStats[species].type1;
-        }
-    }
-
-    gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-
-    gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
-    gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
-
-    switch(baseType)
-    {
-        case TYPE_NORMAL:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-            break;
-        case TYPE_FIGHTING:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FLYING;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
-            break;
-        case TYPE_FLYING:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_ROCK;
-            break;
-        case TYPE_POISON:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_PSYCHIC;
-            break;
-        case TYPE_GROUND:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
-            break;
-        case TYPE_ROCK:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
-            break;
-        case TYPE_BUG:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
-            break;
-        case TYPE_GHOST:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_DARK;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_NORMAL;
-            break;
-        case TYPE_STEEL:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FIRE;
-            break;
-        case TYPE_FIRE:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_WATER;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GROUND;
-            break;
-        case TYPE_WATER:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ELECTRIC;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_GRASS;
-            break;
-        case TYPE_GRASS:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIRE;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FLYING;
-            break;
-        case TYPE_ELECTRIC:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GROUND;
-            break;
-        case TYPE_PSYCHIC:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_GHOST;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_BUG;
-            break;
-        case TYPE_ICE:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ROCK;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
-            break;
-        case TYPE_DRAGON:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_ICE;
-#ifdef ROGUE_EXPANSION
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_FAIRY;
-#endif
-            break;
-        case TYPE_DARK:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_FIGHTING;
-            break;
-#ifdef ROGUE_EXPANSION
-        case TYPE_FAIRY:
-            gRogueLocal.trainerTemp.allowedType[0] = TYPE_POISON;
-            gRogueLocal.trainerTemp.allowedType[1] = TYPE_STEEL;
-            break;
-#endif
-        default:
-            gRogueLocal.trainerTemp.allowedType[0] = RogueRandomRange(NUMBER_OF_MON_TYPES, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-
-            if(gRogueLocal.trainerTemp.allowedType[0] == TYPE_MYSTERY)
-                gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-            break;
-    };
-
-    ApplyTrainerQuery(trainerNum);
-}
-
-static void ApplyUniqueCoverageTrainerQuery(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx)
-{
-    u16 i;
-    u16 type = RogueRandomRange(NUMBER_OF_MON_TYPES, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-
-    for(i = 0; i < NUMBER_OF_MON_TYPES; ++i)
-    {
-        type = (type + 1) % NUMBER_OF_MON_TYPES;
-
-        if(type == TYPE_MYSTERY)
-            ++type;
-        
-        if(!PartyContainsType(party, monIdx, type))
-            break;
-    }
-
-    gRogueLocal.trainerTemp.allowedType[0] = type;
-    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-
-    gRogueLocal.trainerTemp.disallowedType[0] = TYPE_NONE;
-    gRogueLocal.trainerTemp.disallowedType[1] = TYPE_NONE;
-
-    ApplyTrainerQuery(trainerNum);
-
-    // This query has failed so we're going to just pick anything at this point
-    if(RogueQuery_BufferSize() == 0)
-    {
-        gRogueLocal.trainerTemp.allowedType[0] = TYPE_NONE;
-        ApplyTrainerQuery(trainerNum);
-    }
-}
-
-// Base species that is used for duplicate checks
-static u16 GetTrainerQueryBaseSpeciesToCheck(u16 species)
-{
-#ifdef ROGUE_EXPANSION
-    u16 baseSpecies = GET_BASE_SPECIES_ID(species);
-
-    switch (baseSpecies)
-    {
-    case SPECIES_DEOXYS:
-    case SPECIES_SHAYMIN:
-    case SPECIES_ARCEUS:
-    case SPECIES_TORNADUS:
-    case SPECIES_THUNDURUS:
-    case SPECIES_LANDORUS:
-    case SPECIES_KYUREM:
-    case SPECIES_GENESECT:
-    case SPECIES_ORICORIO:
-    case SPECIES_LYCANROC:
-    case SPECIES_NECROZMA:
-    case SPECIES_ALCREMIE:
-    case SPECIES_URSHIFU:
-    case SPECIES_CALYREX:
-        return baseSpecies;
-    }
-
-#endif
-
-    // No need to check against any other base species
-    return SPECIES_NONE;
-}
-
-static u16 NextTrainerSpecies(u16 trainerNum, bool8 isBoss, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
-{
-    u16 species;
-    u16 baseSpecies;
-    u16 randIdx;
-    u16 queryCount;
-    bool8 skipDupeCheck = FALSE;
-    u16 queryCheckIdx = (monIdx - gRogueLocal.trainerTemp.queryMonOffset);
-    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS && !isBoss)
-    {
-        // EXP trainer
-        return SPECIES_CHANSEY;
-    }
-    
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
-    {
-        return SPECIES_FARFETCHD;
-    }
-
-    if(IsBossTrainer(trainerNum))
-    {
-        bool8 preferAceMode = FALSE;
-        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        preferAceMode = (gRogueRun.currentDifficulty == 12 && monIdx == 5) || (gRogueRun.currentDifficulty >= 13 && monIdx == 4);
-
-        if((trainer->partyFlags & PARTY_FLAG_THIRDSLOT_ACE_TYPE) != 0) // Ace type
-        {
-            // Pre champ final mon and final champ last 2 mons
-            if(preferAceMode)
-            {
-                bool8 executeAceQuery = TRUE;
-
-                // We are trying to ace type our default type, but we already contain a legendary
-                // Can cause soft locks depending on type/gen so just turn off this feature
-                if(trainer->incTypes[0] == trainer->incTypes[2] && PartyContainsLegendary(party, monIdx))
-                    executeAceQuery = FALSE;
-
-                if(executeAceQuery)
-                {
-                    gRogueLocal.trainerTemp.allowedType[0] = trainer->incTypes[2];
-                    gRogueLocal.trainerTemp.allowedType[1] = TYPE_NONE;
-
-                    // Force legendaries for last mon
-                    queryCheckIdx = 0;
-                    gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-                    gRogueLocal.trainerTemp.forceLegendaries = TRUE;
-                    ApplyTrainerQuery(trainerNum);
-                }
-            }
-        }
-        else if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0) // Mirror species
-        {
-            return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
-        }
-        else if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0) // Counter type
-        {
-            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
-
-            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
-            queryCheckIdx = 0;
-            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-        }
-        else if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0) // Unique type
-        {
-            gRogueLocal.trainerTemp.forceLegendaries = preferAceMode && !PartyContainsLegendary(party, monIdx);
-
-            ApplyUniqueCoverageTrainerQuery(trainerNum, isBoss, party, monIdx);
-            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-            queryCheckIdx = 0;
-            skipDupeCheck = (RogueQuery_BufferSize() == 1);
-        }
-    }
-    else if(IsMiniBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        // PARTY_FLAG_THIRDSLOT_ACE_TYPE not supported for mini bosses
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_ANY) != 0) // Mirror species
-        {
-            return GetMonData(&gPlayerParty[monIdx], MON_DATA_SPECIES);
-        }
-        else if((trainer->partyFlags & PARTY_FLAG_COUNTER_TYPINGS) != 0) // Counter type
-        {
-            ApplyCounterTrainerQuery(trainerNum, isBoss, monIdx);
-            queryCheckIdx = 0;
-            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-        }
-        else if((trainer->partyFlags & PARTY_FLAG_UNIQUE_COVERAGE) != 0) // Unique type
-        {
-            ApplyUniqueCoverageTrainerQuery(trainerNum, isBoss, party, monIdx);
-            queryCheckIdx = 0;
-            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-            skipDupeCheck = (RogueQuery_BufferSize() == 1);
-        }
-    }
-
-    queryCount = RogueQuery_BufferSize();
-
-    if(queryCheckIdx >= queryCount || queryCount == 0)
-    {
-        // Apply the fallback query (If we have one)
-        // This will allow for secondary types if we've exhausted the primary one
-        if(ApplyFallbackTrainerQuery(trainerNum))
-        {
-            gRogueLocal.trainerTemp.queryMonOffset = monIdx;
-            queryCheckIdx = 0;
-            queryCount = RogueQuery_BufferSize();
-        }
-    }
-
-#ifdef ROGUE_DEBUG
-    if(queryCount == 0)
-        species = SPECIES_FEEBAS;
-#endif
-
-    // Prevent duplicates, if possible
-    // *Only allow duplicates after we've already seen everything in the query
-    {
-        u8 stuckCount = 0;
-
-        do
-        {
-            randIdx = RogueRandomRange(queryCount, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS);
-            species = RogueQuery_BufferPtr()[randIdx];
-
-            if(stuckCount++ >= 100)
-            {
-                if(skipDupeCheck == FALSE)
-                {
-                    stuckCount = 0;
-                    skipDupeCheck = TRUE;
-                }
-                else
-                {
-                    // Was unable to find a valid species, so just handle whatever we return
-                    break;
-                }
-            }
-
-            // Check if this base species exists in the party (If it's already there skip adding this mon to the party)
-#ifdef ROGUE_EXPANSION
-            baseSpecies = GetTrainerQueryBaseSpeciesToCheck(species);
-
-            if(baseSpecies != SPECIES_NONE)
-            {
-                if(PartyContainsBaseSpecies(party, monIdx, baseSpecies))
-                {
-                    continue;
-                }
-            }
-#endif
-        }
-        while(!skipDupeCheck && PartyContainsSpecies(party, monIdx, species) && queryCheckIdx < queryCount);
-    }
-
-#ifdef ROGUE_DEBUG
-    if(species == SPECIES_NONE)
-        species = SPECIES_MAGIKARP;
-#endif
-
-    return species;
 }
 
 extern const struct LevelUpMove *const gLevelUpLearnsets[];
@@ -5598,235 +3839,7 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
-bool8 SelectNextPreset(u16 species, u16 trainerNum, u8 monIdx, u16 randFlag, struct RogueMonPreset* outPreset)
-{
-    u8 randOffset;
-    u8 i;
-    bool8 isPresetValid;
-    bool8 exactMirrorPlayer = FALSE;
-    u8 presetCount = gPresetMonTable[species].presetCount;
-
-    if(IsBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_EXACT) != 0)
-        {
-            exactMirrorPlayer = TRUE;
-        }
-    }
-    else if(IsMiniBossTrainer(trainerNum))
-    {
-        const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-        if((trainer->partyFlags & PARTY_FLAG_MIRROR_EXACT) != 0)
-        {
-            exactMirrorPlayer = TRUE;
-        }
-    }
-
-    if(exactMirrorPlayer)
-    {
-        // Populate mon preset based on exact same team
-        outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
-        outPreset->abilityNum = GetMonData(&gPlayerParty[monIdx], MON_DATA_ABILITY_NUM);
-
-        for(i = 0; i < MAX_MON_MOVES; ++i)
-        {
-            outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
-        }
-
-        return TRUE;
-    }
-    else if(presetCount != 0)
-    {
-        const struct RogueMonPreset* currPreset;
-        randOffset = presetCount == 1 ? 0 : RogueRandomRange(presetCount, randFlag);
-
-        // Work from random offset and attempt to find the best preset which slots into this team
-        // If none is found, we will use the last option and adjust below
-        for(i = 0; i < presetCount; ++i)
-        {
-            currPreset = &gPresetMonTable[species].presets[((randOffset + i) % presetCount)];
-            isPresetValid = TRUE;
-
-            if(currPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
-            {
-                isPresetValid = FALSE;
-            }
-
-            if(currPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
-            {
-                isPresetValid = FALSE;
-            }
-
-#ifdef ROGUE_EXPANSION
-            if(!IsMegaEvolutionEnabled())
-            {
-                // Special case for primal reversion
-                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
-                {
-                    isPresetValid = FALSE;
-                }
-            }
-
-            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
-                {
-                    isPresetValid = FALSE;
-                }
-            }
-
-            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
-                {
-                    isPresetValid = FALSE;
-                }
-            }
-#endif
-
-            if(isPresetValid)
-            {
-                break;
-            }
-        }
-
-        memcpy(outPreset, currPreset, sizeof(struct RogueMonPreset));
-
-        // Swap out limited count items, if they already exist
-        if(!isPresetValid)
-        {
-            if(outPreset->heldItem == ITEM_LEFTOVERS && gRogueLocal.trainerTemp.hasUsedLeftovers)
-            {
-                // Swap left overs to shell bell
-                outPreset->heldItem = ITEM_SHELL_BELL;
-            }
-
-            if(outPreset->heldItem == ITEM_SHELL_BELL && gRogueLocal.trainerTemp.hasUsedShellbell)
-            {
-                // Swap shell bell to NONE (i.e. berry)
-                outPreset->heldItem = ITEM_NONE;
-            }
-
-#ifdef ROGUE_EXPANSION
-            if(!IsMegaEvolutionEnabled())
-            {
-                // Special case for primal reversion
-                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-
-            if(gRogueLocal.trainerTemp.hasUsedMegaStone || !IsMegaEvolutionEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-
-            if(gRogueLocal.trainerTemp.hasUsedZMove || !IsZMovesEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-#endif
-        }
-
-        if(outPreset->heldItem == ITEM_NONE)
-        {
-            // Swap empty item to a berry either lum or sitrus
-            outPreset->heldItem = RogueRandomRange(2, randFlag) == 0 ? ITEM_LUM_BERRY : ITEM_SITRUS_BERRY;
-        }
-        else if(outPreset->heldItem == ITEM_LEFTOVERS)
-        {
-            gRogueLocal.trainerTemp.hasUsedLeftovers = TRUE;
-        }
-        else if(outPreset->heldItem == ITEM_SHELL_BELL)
-        {
-            gRogueLocal.trainerTemp.hasUsedShellbell = TRUE;
-        }
-#ifdef ROGUE_EXPANSION
-        else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
-        {
-            gRogueLocal.trainerTemp.hasUsedMegaStone = TRUE;
-        }
-        else if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
-        {
-            gRogueLocal.trainerTemp.hasUsedZMove = TRUE;
-        }
-#endif
-
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 MonPresetHasChoiceItem(struct RogueMonPreset* preset)
-{
-    return preset->heldItem == ITEM_CHOICE_BAND
-#ifdef ROGUE_EXPANSION
-        || preset->heldItem == ITEM_CHOICE_SPECS
-        || preset->heldItem == ITEM_CHOICE_SCARF
-#endif
-    ;
-}
-
-static u8 MonPresetCountMoves(struct RogueMonPreset* preset)
-{
-    u8 i;
-    u8 count = 0;
-
-    for(i = 0; i < MAX_MON_MOVES; ++i)
-    {
-        if(preset->moves[i] != MOVE_NONE)
-            ++count;
-    }
-
-    return count;
-}
-
-static bool8 MonPresetReplaceMove(struct RogueMonPreset* preset, u16 fromMove, u16 toMove)
-{
-    u8 i;
-
-    for(i = 0; i < MAX_MON_MOVES; ++i)
-    {
-        if(preset->moves[i] == fromMove)
-            preset->moves[i] == toMove;
-    }
-}
-
-static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
-{
-#ifndef ROGUE_EXPANSION
-    // Vanilla only: AI can't use trick
-    if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
-        preset->allowMissingMoves = TRUE;
-#endif
-
-    // Edge case to handle scarfed ditto
-    if(MonPresetHasChoiceItem(preset) && (MonPresetCountMoves(preset) > 2))
-    {
-        // Need to make sure this mon only has attacking moves
-        u8 i = 0;
-        preset->allowMissingMoves = TRUE;
-
-        for(i = 0; i < MAX_MON_MOVES; ++i)
-        {
-            if(gBattleMoves[preset->moves[i]].power == 0)
-                preset->moves[i] = MOVE_NONE;
-        }
-    }
-}
-
-void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
+void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
 {
 #ifdef ROGUE_EXPANSION
     u16 const abilityCount = 3;
@@ -6058,113 +4071,20 @@ void ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* 
     }
 }
 
-
-void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount)
-{
-    u16 species;
-    u8 level;
-    u8 fixedIV;
-    struct RogueMonPreset preset;
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
-    bool8 isBoss = IsBossTrainer(trainerNum);
-    struct Pokemon *mon = &party[monIdx];
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        difficultyLevel = 13;
-
-    species = NextTrainerSpecies(trainerNum, isBoss, party, monIdx, totalMonCount);
-    level = CalculateTrainerLevel(trainerNum);
-
-    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-        fixedIV = 0;
-    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-    {
-        if(isBoss)
-        {
-            if(difficultyLevel >= 12)
-                fixedIV = 31;
-            else if(difficultyLevel >= 8)
-                fixedIV = 21;
-            else if(difficultyLevel >= 6)
-                fixedIV = 19;
-            else if(difficultyLevel >= 3)
-                fixedIV = 15;
-            else if(difficultyLevel >= 1)
-                fixedIV = 11;
-            else
-                fixedIV = 5;
-        }
-        else
-        {
-            fixedIV = (difficultyLevel > 8) ? 13 : 5;
-        }
-    }
-    else
-    {
-        if(isBoss)
-        {
-            if(difficultyLevel >= 6)
-                fixedIV = 16;
-            else if(difficultyLevel >= 6)
-                fixedIV = 11;
-            else if(difficultyLevel >= 5)
-                fixedIV = 10;
-            else if(difficultyLevel >= 4)
-                fixedIV = 8;
-            else if(difficultyLevel >= 3)
-                fixedIV = 6;
-            else
-                fixedIV = 0;
-        }
-        else
-        {
-            fixedIV = 0;
-        }
-    }
-
-    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS) && difficultyLevel != 0 && (!isBoss || difficultyLevel < 4))
-    {
-        // Team average is something like -2, -1, -1, 0
-        level--;
-
-        if(monIdx == 0)
-            level--;
-
-        if(level != 100 && monIdx == totalMonCount - 1)
-            level++;
-    }
-
-#if defined(ROGUE_FEATURE_AUTOMATION)
-    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_LVL_5))
-#elif defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-    if(TRUE) // Debug - Force Lvl 5
-#else
-    if(FALSE)
-#endif
-        // Just force the level down so it can be one shotted but do the rest of the calcs corectly
-        CreateMon(mon, species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-    else
-        CreateMon(mon, species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-
-    if(UseCompetitiveMoveset(trainerNum, monIdx, totalMonCount) && SelectNextPreset(species, trainerNum, monIdx, isBoss ? FLAG_SET_SEED_BOSSES : FLAG_SET_SEED_TRAINERS, &preset))
-    {
-        ModifyTrainerMonPreset(&preset);
-        ApplyMonPreset(mon, level, &preset);
-    }
-}
-
 static u8 GetCurrentWildEncounterCount()
 {    
-    u16 count = 6;
+    u16 count = 0;
     u8 difficultyModifier = GetRoomTypeDifficulty();
 
     if(GetSafariZoneFlag())
     {
         count = 6;
     }
-    else
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
         u8 difficultyModifier = GetRoomTypeDifficulty();
+        count = 6;
+
         if(difficultyModifier == 2) // Hard route
         {
             // Less encounters
@@ -6327,7 +4247,7 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         if(presetCount != 0)
         {
             presetIndex = Random() % presetCount;
-            ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+            Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
         }
 
         // Bump 2 of the IVs to max
@@ -6385,12 +4305,12 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
             {
                 struct RogueMonPreset customPreset;
                 customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
-                customPreset.abilityNum = GetMonData(&gEnemyParty[target], MON_DATA_ABILITY_NUM);
+                customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
 
                 for(i = 0; i < MAX_MON_MOVES; ++i)
                     customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
 
-                ApplyMonPreset(mon, CalculatePlayerLevel(), &customPreset);
+                Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
             }
         }
 
@@ -6404,7 +4324,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
         SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
 
         // Set to the correct level
-        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, CalculatePlayerLevel());
+        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
         SetMonData(mon, MON_DATA_EXP, &temp);
         CalculateMonStats(mon);
 
@@ -7082,7 +5002,7 @@ u8 GetLeadMonLevel(void);
 static u8 CalculateWildLevel(u8 variation)
 {
     u8 wildLevel;
-    u8 playerLevel = CalculatePlayerLevel();
+    u8 playerLevel = Rogue_CalculatePlayerMonLvl();
 
     if(GetSafariZoneFlag())
     {
@@ -7115,95 +5035,6 @@ static u8 CalculateWildLevel(u8 variation)
         return wildLevel - (Random() % variation);
     else
         return wildLevel;
-}
-
-static u8 CalculateBossLevelForDifficulty(u8 difficulty)
-{
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        return MAX_LEVEL;
-    }
-
-    // Gym leaders lvs 15 -> 85
-    if(difficulty <= 7)
-    {
-        return min(100, 15 + 10 * difficulty);
-    }
-    else
-    {
-        // Both champions are lvl 100
-        difficulty -= 7; // (1 - 6)
-        return min(100, 85 + 3 * difficulty);
-    }
-}
-
-static u8 CalculateBossLevel()
-{
-    u8 currLevel = gRogueRun.currentDifficulty;
-    return CalculateBossLevelForDifficulty(currLevel);
-}
-
-static u8 CalculatePlayerLevel(void)
-{
-    return CalculateBossLevel() - gRogueRun.currentLevelOffset;
-}
-
-static u8 CalculateTrainerLevel(u16 trainerNum)
-{
-    u8 level;
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(!Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
-#else
-    if(IsBossTrainer(trainerNum))
-#endif
-    {
-        level = CalculatePlayerLevel();
-    }
-    else
-    {
-        u8 prevBossLevel;
-        u8 nextBossLevel;
-        u8 difficultyLevel = gRogueRun.currentDifficulty;
-        u8 difficultyModifier = GetRoomTypeDifficulty();
-
-        if(difficultyLevel == 0)
-        {
-            prevBossLevel = 5;
-            nextBossLevel = CalculatePlayerLevel();
-        }
-        else
-        {
-            prevBossLevel = CalculateBossLevelForDifficulty(difficultyModifier - 1);
-            nextBossLevel = CalculatePlayerLevel();
-        }
-
-        prevBossLevel = min(prevBossLevel, nextBossLevel);
-
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
-        {
-            // Not boss trainer so must be EXP trainer
-            level = 5;
-        }
-        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
-        {
-            level = CalculatePlayerLevel() - 5;
-        }
-        else if(difficultyModifier == 0) // Easy
-        {
-            level = prevBossLevel;
-        }
-        else if(difficultyModifier == 2) // Hard
-        {
-            level =  nextBossLevel - 5;
-        }
-        else
-        {
-            level =  nextBossLevel - 10;
-        }
-    }
-
-    // Trainers shouldn't ever be weaker than this
-    return max(5, level);
 }
 
 static u8 GetRoomTypeDifficulty(void)
@@ -7521,30 +5352,4 @@ static void RandomiseBerryTrees(void)
             RemoveBerryTree(i);
         }
     }
-}
-
-static void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
-{
-    u16 i;
-    u16 j;
-    for(i = 1; i < capacity; ++i)
-    {
-        // Reverse to avoid stomping on top of old values
-        j = capacity - i - 1;
-        buffer[j] = buffer[j - 1];
-    }
-
-    buffer[0] = value;
-}
-
-static bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
-{
-    u16 i;
-    for(i = 0; i < capacity; ++i)
-    {
-        if(buffer[i] == value)
-            return TRUE;
-    }
-
-    return FALSE;
 }
