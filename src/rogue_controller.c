@@ -3206,8 +3206,64 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 }
 
 
+//EWRAM_DATA static struct MapConnection sDynamicMapConnection[8];
+//EWRAM_DATA static struct MapConnections sDynamicMapConnections;
+
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
 {
+    //if(mapHeader->mapLayoutId == LAYOUT_ROGUE_TILE_ADVENTURE_ENTRANCE)
+    //{
+    //    sDynamicMapConnection[0].direction = CONNECTION_WEST;
+    //    sDynamicMapConnection[0].offset = 0;
+    //    sDynamicMapConnection[0].mapGroup = MAP_GROUP(ROGUE_TILE_EMPTY);
+    //    sDynamicMapConnection[0].mapNum = MAP_NUM(ROGUE_TILE_EMPTY);
+//
+    //    sDynamicMapConnections.count = 1;
+    //    sDynamicMapConnections.connections = &sDynamicMapConnection[0];
+    //}
+    //else if(mapHeader->mapLayoutId == LAYOUT_ROGUE_TILE_EMPTY)
+    //{
+    //    sDynamicMapConnection[0].direction = CONNECTION_EAST;
+    //    sDynamicMapConnection[0].offset = 0;
+    //    sDynamicMapConnection[0].mapGroup = MAP_GROUP(ROGUE_TILE_ADVENTURE_ENTRANCE);
+    //    sDynamicMapConnection[0].mapNum = MAP_NUM(ROGUE_TILE_ADVENTURE_ENTRANCE);
+    //    
+    //    sDynamicMapConnection[1].direction = CONNECTION_WEST;
+    //    sDynamicMapConnection[1].offset = 0;
+    //    sDynamicMapConnection[1].mapGroup = MAP_GROUP(ROGUE_TILE_MART);
+    //    sDynamicMapConnection[1].mapNum = MAP_NUM(ROGUE_TILE_MART);
+//
+    //    sDynamicMapConnections.count = 2;
+    //    sDynamicMapConnections.connections = &sDynamicMapConnection[0];
+    //}
+//
+    //else if(mapHeader->mapLayoutId == LAYOUT_ROGUE_TILE_MART)
+    //{
+    //    sDynamicMapConnection[0].direction = CONNECTION_EAST;
+    //    sDynamicMapConnection[0].offset = 0;
+    //    sDynamicMapConnection[0].mapGroup = MAP_GROUP(ROGUE_TILE_EMPTY);
+    //    sDynamicMapConnection[0].mapNum = MAP_NUM(ROGUE_TILE_EMPTY);
+    //    
+    //    sDynamicMapConnection[1].direction = CONNECTION_WEST;
+    //    sDynamicMapConnection[1].offset = 0;
+    //    sDynamicMapConnection[1].mapGroup = MAP_GROUP(ROGUE_TILE_SAFARI_ENTRANCE);
+    //    sDynamicMapConnection[1].mapNum = MAP_NUM(ROGUE_TILE_SAFARI_ENTRANCE);
+//
+    //    sDynamicMapConnections.count = 2;
+    //    sDynamicMapConnections.connections = &sDynamicMapConnection[0];
+    //}
+    //else if(mapHeader->mapLayoutId == LAYOUT_ROGUE_TILE_SAFARI_ENTRANCE)
+    //{
+    //    sDynamicMapConnection[0].direction = CONNECTION_EAST;
+    //    sDynamicMapConnection[0].offset = 0;
+    //    sDynamicMapConnection[0].mapGroup = MAP_GROUP(ROGUE_TILE_MART);
+    //    sDynamicMapConnection[0].mapNum = MAP_NUM(ROGUE_TILE_MART);
+//
+    //    sDynamicMapConnections.count = 1;
+    //    sDynamicMapConnections.connections = &sDynamicMapConnection[0];
+    //}
+
+    //mapHeader->connections = &sDynamicMapConnections;
 }
 
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
