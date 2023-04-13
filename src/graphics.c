@@ -369,6 +369,7 @@ const u8 gHealthboxElementsGfxTable[] = INCBIN_U8("graphics/battle_interface/hpb
                                                   "graphics/battle_interface/status2.4bpp",  // these three duplicate sets of graphics are for the opponent pokemon
                                                   "graphics/battle_interface/status3.4bpp",  // and are also for use in double battles. they use dynamic palettes so
                                                   "graphics/battle_interface/status4.4bpp",  // coloring them is an extreme headache and wont be done for now
+                                                  "graphics/battle_interface/rogue_status1.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend_bar.4bpp");
 const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCBIN_U32("graphics/battle_interface/unused_window3.4bpp.lz");

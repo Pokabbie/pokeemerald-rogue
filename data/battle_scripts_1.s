@@ -3609,6 +3609,7 @@ BattleScript_WishButFullHp::
 BattleScript_AlphaMonWeakens::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNISCALM
+	updatestatusicon BS_TARGET
 	waitstate
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE
 	healthbarupdate BS_TARGET
@@ -4087,6 +4088,7 @@ BattleScript_StatUpEndAlpha::
 BattleScript_AlphaMonActivates::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNISANGRY
+	updatestatusicon BS_TARGET
 	waitstate
 	playanimation BS_TARGET, B_ANIM_FOCUS_PUNCH_SETUP
 	
