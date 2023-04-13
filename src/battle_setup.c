@@ -539,7 +539,10 @@ void BattleSetup_StartLegendaryBattle(void)
         if(IsSpeciesLegendary(species))
             CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         else
+        {
+            gBattleTypeFlags &= ~BATTLE_TYPE_LEGENDARY;
             CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD); // RogueNote: todo - change music dynamically
+        }
         break;
     }
 
