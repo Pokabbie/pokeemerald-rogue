@@ -31,7 +31,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDefenseUp              @ EFFECT_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_SPEED_UP
 	.4byte BattleScript_EffectSpecialAttackUp        @ EFFECT_SPECIAL_ATTACK_UP
-	.4byte BattleScript_EffectHit                    @ EFFECT_SPECIAL_DEFENSE_UP
+	.4byte BattleScript_EffectSpecialDefenseUp       @ EFFECT_SPECIAL_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ACCURACY_UP
 	.4byte BattleScript_EffectEvasionUp              @ EFFECT_EVASION_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ALWAYS_HIT
@@ -481,6 +481,10 @@ BattleScript_EffectDefenseUp::
 
 BattleScript_EffectSpecialAttackUp::
 	setstatchanger STAT_SPATK, 1, FALSE
+	goto BattleScript_EffectStatUp
+
+BattleScript_EffectSpecialDefenseUp::
+	setstatchanger STAT_SPDEF, 1, FALSE
 	goto BattleScript_EffectStatUp
 
 BattleScript_EffectEvasionUp::
@@ -3602,6 +3606,19 @@ BattleScript_WishButFullHp::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_AlphaMonWeakens::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISCALM
+	waitstate
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	setstatchanger STAT_ATK, 2, TRUE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 2, TRUE
+	call BattleScript_EffectStatUpAlpha
+	end2
+
 BattleScript_IngrainTurnHeal::
 	playanimation BS_ATTACKER, B_ANIM_INGRAIN_HEAL
 	printstring STRINGID_PKMNABSORBEDNUTRIENTS
@@ -4049,6 +4066,38 @@ BattleScript_DroughtActivates::
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
 	call BattleScript_WeatherFormChanges
+	end3
+
+
+BattleScript_EffectStatUpAlpha::
+	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_StatUpEndAlpha
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnimAlpha
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatUpPrintStringAlpha
+BattleScript_StatUpAttackAnimAlpha::
+BattleScript_StatUpDoAnimAlpha::
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_StatUpPrintStringAlpha::
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_StatUpEndAlpha::
+	return
+
+BattleScript_AlphaMonActivates::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISANGRY
+	waitstate
+	playanimation BS_TARGET, B_ANIM_FOCUS_PUNCH_SETUP
+	
+	setstatchanger STAT_ATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_DEF, 2, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPDEF, 2, FALSE
+	call BattleScript_EffectStatUpAlpha
 	end3
 
 BattleScript_TookAttack::

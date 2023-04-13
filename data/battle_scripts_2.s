@@ -122,6 +122,12 @@ BattleScript_ExternalBallBlock::
 	waitmessage B_WAIT_TIME_EXTRA_LONG
 	finishaction
 
+BattleScript_AlphaMonBallBlock::
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNISANGRY
+	waitmessage B_WAIT_TIME_EXTRA_LONG
+	finishaction
+
 BattleScript_PlayerUsesItem::
 	moveendcase MOVEEND_MIRROR_MOVE
 	end

@@ -3780,6 +3780,8 @@ static void BattleIntroPlayer2SendsOutMonAnimation(void)
     gBattleStruct->switchInAbilitiesCounter = 0;
     gBattleStruct->switchInItemsCounter = 0;
     gBattleStruct->overworldWeatherDone = FALSE;
+    gBattleStruct->rogueAlphaMonActive = 0;
+    gBattleStruct->rogueAlphaMonWeakened = 0;
 
     gBattleMainFunc = TryDoEventsBeforeFirstTurn;
 }
@@ -3820,6 +3822,8 @@ static void BattleIntroPlayer1SendsOutMonAnimation(void)
     gBattleStruct->switchInAbilitiesCounter = 0;
     gBattleStruct->switchInItemsCounter = 0;
     gBattleStruct->overworldWeatherDone = FALSE;
+    gBattleStruct->rogueAlphaMonActive = 0;
+    gBattleStruct->rogueAlphaMonWeakened = 0;
 
     gBattleMainFunc = TryDoEventsBeforeFirstTurn;
 }
@@ -3841,6 +3845,8 @@ static void BattleIntroSwitchInPlayerMons(void)
         gBattleStruct->switchInAbilitiesCounter = 0;
         gBattleStruct->switchInItemsCounter = 0;
         gBattleStruct->overworldWeatherDone = FALSE;
+        gBattleStruct->rogueAlphaMonActive = 0;
+        gBattleStruct->rogueAlphaMonWeakened = 0;
 
         gBattleMainFunc = TryDoEventsBeforeFirstTurn;
     }
@@ -3885,6 +3891,16 @@ static void TryDoEventsBeforeFirstTurn(void)
         if (effect)
             return;
     }
+
+    // RogueNote: Activate alpha battle for legendaries
+    if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0 && gBattleStruct->rogueAlphaMonActive == 0)
+    {
+        gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        BattleScriptPushCursorAndCallback(BattleScript_AlphaMonActivates);
+        gBattleStruct->rogueAlphaMonActive = 1;
+        return;
+    }
+
     if (AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE1, 0, 0, 0, 0) != 0)
         return;
     if (AbilityBattleEffects(ABILITYEFFECT_TRACE, 0, 0, 0, 0) != 0)
