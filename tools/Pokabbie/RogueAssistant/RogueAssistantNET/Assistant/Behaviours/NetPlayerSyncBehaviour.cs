@@ -11,7 +11,46 @@ namespace RogueAssistantNET.Assistant.Behaviours
 	{
 		public byte[] ProfileData;
 		public byte[] StateData;
-	}
+
+		public string PlayerName
+		{
+			get 
+			{ 
+				if(ProfileData != null) 
+				{
+					return GameString.ConvertBytes(ProfileData, 0, GameConstants.PlayerNameLength);
+				}
+
+				return "???";
+			}
+        }
+
+        public int PosX
+        {
+            get
+            {
+                if (StateData != null)
+                {
+                    return BitConverter.ToInt16(StateData.Skip(0).Take(2).ToArray(), 0);
+                }
+
+                return -1;
+            }
+        }
+
+        public int PosY
+        {
+            get
+            {
+                if (StateData != null)
+                {
+                    return BitConverter.ToInt16(StateData.Skip(2).Take(2).ToArray(), 0);
+                }
+
+                return -1;
+            }
+        }
+    }
 
 	public class NetPlayerSyncBehaviour : IRogueAssistantBehaviour
 	{

@@ -7645,9 +7645,8 @@ u16 GetBattleBGM(void)
         {
             switch (trainerClass)
             {
-                // For now us the FR music, should change for later
                 case TRAINER_CLASS_LEADER:
-                    return MUS_RG_VS_GYM_LEADER;
+                    return MUS_DP_VS_GYM_LEADER;
                 case TRAINER_CLASS_ELITE_FOUR:
                     return MUS_DP_VS_ELITE_FOUR;
                 case TRAINER_CLASS_CHAMPION:

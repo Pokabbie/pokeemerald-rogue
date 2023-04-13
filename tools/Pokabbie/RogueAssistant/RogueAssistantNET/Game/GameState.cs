@@ -18,19 +18,6 @@ namespace RogueAssistantNET.Game
 		NetPlayerStateSize,
 	}
 
-	public struct PlayerPositionData
-	{
-		public short x;
-		public short y;
-		public sbyte mapGroup;
-		public sbyte mapNum;
-
-		public override string ToString()
-		{
-			return $"{x}, {y} ({mapGroup}:{mapNum})";
-		}
-	}
-
 	public class GameState
 	{
 		private GameConnection m_Connection;
@@ -50,7 +37,7 @@ namespace RogueAssistantNET.Game
 
 		public string PlayerNameStr
 		{
-			get => m_PlayerNameData != null ? GameString.ConvertBytes(m_PlayerNameData, (uint)m_PlayerNameData.Length) : "";
+			get => m_PlayerNameData != null ? GameString.ConvertBytes(m_PlayerNameData, 0, (uint)m_PlayerNameData.Length) : "";
 		}
 		public byte[] PlayerNameBytes
 		{
@@ -69,7 +56,11 @@ namespace RogueAssistantNET.Game
 				m_FirstUpdate = false;
 				RefreshInfrequentData();
 			}
-		}
+
+			// Always do a read to check we're still connection
+			m_Connection.ReadU8(GameConstants.GFHeaderAddress);
+
+        }
 
 		public void RefreshInfrequentData()
 		{

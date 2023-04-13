@@ -467,6 +467,7 @@ void BattleSetup_StartLegendaryBattle(void)
         gBattleTypeFlags |= BATTLE_TYPE_RAYQUAZA;
         CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
         break;
+
     case SPECIES_JIRACHI:
     case SPECIES_DEOXYS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
@@ -481,17 +482,34 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_REGISTEEL:
         CreateBattleStartTask(B_TRANSITION_REGISTEEL, MUS_VS_REGI);
         break;
+
     case SPECIES_ARTICUNO:
     case SPECIES_ZAPDOS:
     case SPECIES_MOLTRES:
-    case SPECIES_RAIKOU:
-    case SPECIES_ENTEI:
-    case SPECIES_SUICUNE:
-    case SPECIES_CELEBI:
-    case SPECIES_LUGIA:
-    case SPECIES_HO_OH:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
+
+    case SPECIES_RAIKOU:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_RAIKOU);
+        break;
+    case SPECIES_ENTEI:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_ENTEI);
+        break;
+    case SPECIES_SUICUNE:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_SUICUNE);
+        break;
+
+    case SPECIES_CELEBI:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
+
+    case SPECIES_HO_OH:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_HO_OH);
+        break;
+    case SPECIES_LUGIA:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_LUGIA);
+        break;
+
     case SPECIES_MEW:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
@@ -499,9 +517,44 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_MEWTWO);
         break;
 
+#ifdef ROGUE_EXPANSION
+    case SPECIES_UXIE:
+    case SPECIES_MESPRIT:
+    case SPECIES_AZELF:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_UXIE_MESPRIT_AZELF);
+        break;
+
+    case SPECIES_DIALGA:
+    case SPECIES_PALKIA:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_DIALGA_PALKIA);
+        break;
+
+    case SPECIES_GIRATINA:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_PL_VS_GIRATINA);
+        break;
+
+    case SPECIES_ARCEUS:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        break;
+
+    case SPECIES_REGIGIGAS:
+        CreateBattleStartTask(B_TRANSITION_REGISTEEL, MUS_VS_REGI); // RogueNote: TODO - Custom transition??
+        break;
+
+    case SPECIES_HEATRAN:
+    case SPECIES_REGIGIGAS:
+    case SPECIES_CRESSELIA:
+    case SPECIES_PHIONE:
+    case SPECIES_MANAPHY:
+    case SPECIES_DARKRAI:
+    case SPECIES_SHAYMIN:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        break;
+#endif
+
     default:
         if(IsSpeciesLegendary(species))
-            CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_RAYQUAZA);
+            CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         else
             CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD); // RogueNote: todo - change music dynamically
         break;

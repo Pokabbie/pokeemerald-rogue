@@ -744,3 +744,21 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/Rogue_Route_Johto_Mountain0/scripts.inc"
 
+
+	.include "data/maps/Rogue_Tile_Test1/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Test2/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Test3/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_AdventureEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Empty/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Mart/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_SafariEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_OutdoorMart/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_BerryPatch1/scripts.inc"

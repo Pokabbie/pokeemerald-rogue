@@ -193,14 +193,19 @@ namespace RogueAssistantNET.Game
 			}
 
 			return "!?!";
-		}
+        }
 
-		public static string ConvertBytes(byte[] src, uint length = 0)
+        public static string ConvertBytes(byte[] src)
+		{
+			return ConvertBytes(src, 0, 0);
+        }
+
+        public static string ConvertBytes(byte[] src, uint offset, uint length)
 		{
 			StringBuilder builder = new StringBuilder();
 			int i = 0;
 
-			foreach (var code in src)
+			foreach (var code in src.Skip((int)offset))
 			{
 				// Escape char
 				if (code == 0xFF)

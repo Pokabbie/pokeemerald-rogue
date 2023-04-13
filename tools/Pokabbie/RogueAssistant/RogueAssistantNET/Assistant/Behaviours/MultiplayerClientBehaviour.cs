@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RogueAssistantNET.Assistant.Behaviours
 {
 	public class MultiplayerClientBehaviour : IRogueAssistantBehaviour
-	{
+    {
 		private enum ConnectionState
 		{
 			Connecting,
@@ -26,10 +26,13 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		private TcpClient m_Client;
 		private ConnectionState m_State;
 		private List<NetPlayerData> m_NetworkPlayers = new List<NetPlayerData>();
+		private byte[] m_TempBuffer = new byte[2048];
 
-		public MultiplayerClientBehaviour(string address, int port)
+        public MultiplayerClientBehaviour(string address, int port)
 		{
 			m_Client = new TcpClient();
+			m_Client.NoDelay = true;
+
 			m_Hostname = address;
 			m_Port = port;
 		}
@@ -46,14 +49,16 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			Task.Run(() =>
 			{
 				if (TryConnect(assistant))
-				{
-					m_State = ConnectionState.Active;
+                {
+                    //m_Client.Client.Blocking = false;
+                    m_State = ConnectionState.PostConnect;
 				}
 				else
 				{
 					m_Client.Close();
 					m_Client = null;
 					m_State = ConnectionState.Disconnected;
+					assistant.RemoveBehaviour(this);
 				}
 			});
 
@@ -65,29 +70,30 @@ namespace RogueAssistantNET.Assistant.Behaviours
 
 		public void OnUpdate(RogueAssistant assistant)
 		{
-			switch(m_State)
+			NetworkPacketBatch batch = new NetworkPacketBatch();
+
+            switch (m_State)
 			{
 				case ConnectionState.Active:
 					{
-						NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
-						m_Client.Client.Send(statePacket.ToBinaryBlob());
-					}
+                        var asyncArgs = new SocketAsyncEventArgs();
+                        asyncArgs.SetBuffer(m_TempBuffer, 0, m_TempBuffer.Length);
+
+						// Read
+						//
+                        if (!m_Client.Client.ReceiveAsync(asyncArgs))
+                            OnTcpClientRecieve(asyncArgs);
+
+						batch.Push(new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData));
+                    }
 					break;
 
 				case ConnectionState.PostConnect:
 					{
 						m_State = ConnectionState.Active;
 
-						var asyncArgs = new SocketAsyncEventArgs();
-						asyncArgs.SetBuffer(new byte[2048], 0, 2048);
-						asyncArgs.Completed += OnTcpClientRecieve;
-						m_Client.Client.ReceiveAsync(asyncArgs);
-
-						NetworkPacket profilePacket = new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData);
-						NetworkPacket statePacket = new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData);
-
-						m_Client.Client.Send(profilePacket.ToBinaryBlob());
-						m_Client.Client.Send(statePacket.ToBinaryBlob());
+                        batch.Push(new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData));
+                        batch.Push(new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData));
 					}
 					break;
 
@@ -95,7 +101,9 @@ namespace RogueAssistantNET.Assistant.Behaviours
 					assistant.RemoveBehaviour(this);
 					break;
 			}
-		}
+
+			batch.Send(m_Client.Client);
+        }
 
 		private bool TryConnect(RogueAssistant assistant)
 		{
@@ -128,16 +136,17 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			}
 
 			// accepted
+			Console.WriteLine($"Connected!");
 			return true;
 		}
 
-		private void OnTcpClientRecieve(object sender, SocketAsyncEventArgs asyncArgs)
+		private void OnTcpClientRecieve(SocketAsyncEventArgs asyncArgs)
 		{
-			Socket socket = (Socket)sender;
-
 			int profileId = 0;
 			int stateId = 0;
-			foreach (var packet in NetworkPacket.ParsePackets(asyncArgs.Buffer, asyncArgs.Offset, asyncArgs.BytesTransferred))
+			var batch = NetworkPacketBatch.From(asyncArgs.Buffer, asyncArgs.Offset, asyncArgs.BytesTransferred);
+
+            foreach (var packet in batch.Packets)
 			{
 				switch (packet.Channel)
 				{
@@ -158,8 +167,6 @@ namespace RogueAssistantNET.Assistant.Behaviours
 						}
 				}
 			}
-
-			socket.ReceiveAsync(asyncArgs);
 		}
 
 		public NetPlayerData GetPlayerData(int id)

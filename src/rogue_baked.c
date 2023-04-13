@@ -23,6 +23,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_trainers.h"
 #endif
 
 #include "rogue_baked.h"
@@ -93,6 +94,32 @@ extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
 extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
 extern const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES];
 #endif
+
+void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    u16 j;
+    for(i = 1; i < capacity; ++i)
+    {
+        // Reverse to avoid stomping on top of old values
+        j = capacity - i - 1;
+        buffer[j] = buffer[j - 1];
+    }
+
+    buffer[0] = value;
+}
+
+bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
+{
+    u16 i;
+    for(i = 0; i < capacity; ++i)
+    {
+        if(buffer[i] == value)
+            return TRUE;
+    }
+
+    return FALSE;
+}
 
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
@@ -358,6 +385,38 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 const u8* Rogue_GetTrainerName(u16 trainerNum)
 {
 #ifndef ROGUE_BAKING
+    const struct RogueTrainer* trainer;
+    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+    {
+        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_PLAYER))
+        {
+            return gSaveBlock2Ptr->playerName;
+        }
+
+        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_RIVAL))
+        {
+            switch(gSaveBlock2Ptr->playerGender)
+            {
+                case(STYLE_EMR_BRENDAN):
+                    return gText_TrainerName_May;
+                case(STYLE_EMR_MAY):
+                    return gText_TrainerName_Brendan;
+
+                case(STYLE_RED):
+                    return gText_TrainerName_Leaf;
+                case(STYLE_LEAF):
+                    return gText_TrainerName_Red;
+
+                case(STYLE_ETHAN):
+                    return gText_TrainerName_Lyra;
+                case(STYLE_LYRA):
+                    return gText_TrainerName_Ethan;
+            };
+        }
+
+        return trainer->trainerName;
+    }
+
     // TODO - Replace name with _("CHALLENGER")
 
     if(trainerNum >= TRAINER_ROGUE_BREEDER_F && trainerNum <= TRAINER_ROGUE_POSH_M)
@@ -489,6 +548,70 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 {
 #ifndef ROGUE_BAKING
+    const struct RogueTrainer* trainer;
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+    {
+        memcpy(outTrainer, &gTrainers[TRAINER_NONE], sizeof(struct Trainer));
+
+        outTrainer->trainerClass = trainer->trainerClass;
+        outTrainer->encounterMusic_gender = trainer->encounterMusic_gender;
+        outTrainer->trainerPic = trainer->trainerPic;
+
+        outTrainer->partyFlags = 0;
+        outTrainer->doubleBattle = FALSE;
+#ifdef ROGUE_EXPANSION
+        outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
+#else
+        outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
+#endif
+        if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+        {
+            // AI will be dump for this campaign
+            outTrainer->aiFlags = 0;
+        }
+#ifdef ROGUE_FEATURE_AUTOMATION
+        else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
+        {
+#ifdef ROGUE_EXPANSION
+            // Still want AI to still do weird switching just for completeness?
+            outTrainer->aiFlags = AI_FLAG_SMART_SWITCHING;
+#else
+            outTrainer->aiFlags = 0;
+#endif
+        }
+#endif
+
+        // Upgrade leaders to current boss trainer class
+        if(trainer->trainerClass == TRAINER_CLASS_LEADER)
+        {
+            if(gRogueRun.currentDifficulty >= 12)
+            {
+                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
+                outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR | (trainer->encounterMusic_gender & F_TRAINER_FEMALE);
+            }
+            else if(gRogueRun.currentDifficulty >= 8)
+            {
+                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            }
+        }
+
+        if(trainer->trainerFlags & TRAINER_FLAG_KANTO) 
+        {
+            outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+        }
+        else if(trainer->trainerFlags & TRAINER_FLAG_JOHTO) 
+        {
+            outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
+        }
+        else if(trainer->trainerFlags & TRAINER_FLAG_FALLBACK_REGION) 
+        {
+            outTrainer->partyFlags |= F_TRAINER_PARTY_SINNOH_MUS;
+        }
+
+        return;
+    }
+
     memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
 
     // We can do this, but ideally we should fixup to use the method above

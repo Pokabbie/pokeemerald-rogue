@@ -1,0 +1,39 @@
+{
+  "id": "MAP_ROGUE_TILE_MART",
+  "name": "Rogue_Tile_Mart",
+  "layout": "LAYOUT_ROGUE_TILE_MART",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "right",
+      "offset": -2,
+      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE"
+    },
+    {
+      "direction": "left",
+      "offset": -2,
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

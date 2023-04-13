@@ -255,7 +255,7 @@ namespace RogueAssistantNET.Game
 		public string ReadGameStringFixed(uint address, uint length)
 		{
 			GameConnectionResponse res = SendInternal("readBytes", address, length);
-			return GameString.ConvertBytes(res.Buffer, length);
+			return GameString.ConvertBytes(res.Buffer, 0, length);
 		}
 	}
 }

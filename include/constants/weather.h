@@ -20,6 +20,7 @@
 #define WEATHER_LEAVES                  16  // Grassy Terrain
 #define WEATHER_ROUTE119_CYCLE          20
 #define WEATHER_ROUTE123_CYCLE          21
+#define WEATHER_DEFAULT                 22
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's

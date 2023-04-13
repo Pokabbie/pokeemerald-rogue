@@ -3,6 +3,7 @@
   "group_order": [
     "gMapGroup_VanillaMaps",
     "gMapGroup_RogueHub",
+    "gMapGroup_RogueHubTiles",
     "gMapGroup_RogueRun",
     "gMapGroup_RogueAdventureGeneral",
     "gMapGroup_RogueAdventureRoutes",
@@ -41,6 +42,17 @@
     "Rogue_Hub_AdventureEnterance",
     "Rogue_Hub_Bakery",
     "Rogue_Hub_Debug"
+  ],
+  "gMapGroup_RogueHubTiles": [
+    "Rogue_Tile_Test1",
+    "Rogue_Tile_Test2",
+    "Rogue_Tile_Test3",
+    "Rogue_Tile_AdventureEntrance",
+    "Rogue_Tile_Empty",
+    "Rogue_Tile_Mart",
+    "Rogue_Tile_SafariEntrance",
+    "Rogue_Tile_OutdoorMart",
+    "Rogue_Tile_BerryPatch1"
   ],
   "gMapGroup_RogueRun": [
     "Rogue_AdventurePaths",

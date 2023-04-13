@@ -91,9 +91,8 @@ void Rogue_OnItemUse(u16 itemId);
 
 void Rogue_PreBattleSetup(void);
 bool8 Rogue_OverrideTrainerItems(u16* items);
-void Rogue_PreCreateTrainerParty(u16 trainerNum, bool8* useRogueCreateMon, u8* monsCount);
-void Rogue_PostCreateTrainerParty(u16 trainerNum, struct Pokemon *party, u8 monsCount);
-void Rogue_CreateTrainerMon(u16 trainerNum, struct Pokemon *party, u8 monIdx, u8 totalMonCount);
+
+void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 void Rogue_ModifyWildMonHeldItem(u16* itemId);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality);

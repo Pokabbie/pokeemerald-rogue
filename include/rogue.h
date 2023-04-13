@@ -14,6 +14,10 @@ struct RogueAdvPathRoomParams
         {
             u16 species;
         } wildDen;
+        struct 
+        {
+            u16 trainerNum;
+        } boss;
     } perType;
 };
 
@@ -224,8 +228,41 @@ struct RogueTrainerEncounter
 
 struct RogueTrainerData
 {
+    // old
     u8 count;
     const struct RogueTrainerEncounter* trainers;
+};
+
+
+struct RogueTrainerMonGenerator
+{
+    u8 monCount;
+    u8 targetLevel;
+    u8 incTypes[2];
+    u8 excTypes[2];
+    u16 generatorFlags;
+    u16 customSpeciesCount;
+    const u16* customSpecies;
+};
+
+struct RogueTrainer
+{
+    u8 trainerClass;
+    u8 encounterMusic_gender; // last bit is gender
+    u8 trainerPic;
+    u8 preferredWeather;
+    u8 trainerName[12];
+    u16 objectEventGfx;
+    u16 trainerFlags;
+    struct RogueTrainerMonGenerator monGenerators[3];
+    struct RogueTrainerMonGenerator aceMonGenerators[1];
+};
+
+struct RogueTrainerCollection
+{
+    // new
+    u16 bossCount;
+    const struct RogueTrainer* boss;
 };
 
 struct SpeciesTable
@@ -288,8 +325,9 @@ struct PokemonObjectEventInfo
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
-extern const struct RogueTrainerData gRogueBossEncounters;
 extern const struct RogueTrainerData gRogueMiniBossEncounters;
+extern const struct RogueTrainerCollection gRogueTrainers;
+
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 extern const u8 gRogueTypeWeatherTable[];

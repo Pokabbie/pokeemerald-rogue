@@ -541,22 +541,41 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
-#define MUS_HG_VS_WILD              610
-#define MUS_HG_VS_TRAINER           611
-#define MUS_HG_VS_GYM_LEADER        612
-#define MUS_HG_VS_CHAMPION          613
-#define MUS_HG_VICTORY_TRAINER      614
-#define MUS_HG_VICTORY_GYM_LEADER   615
-#define MUS_HG_ROUTE29              616
-#define MUS_HG_ROUTE30              617
-#define MUS_HG_ROUTE34              618
-#define MUS_HG_ROUTE38              619
-#define MUS_HG_ROUTE42              620
-#define MUS_HG_ROUTE47              621
-#define MUS_HG_ICE_PATH             622
+#define MUS_HG_VS_WILD              (PH_NURSE_SOLO + 1)
+#define MUS_HG_VS_TRAINER           (PH_NURSE_SOLO + 2)
+#define MUS_HG_VS_GYM_LEADER        (PH_NURSE_SOLO + 3)
+#define MUS_HG_VS_CHAMPION          (PH_NURSE_SOLO + 4)
+#define MUS_HG_VICTORY_TRAINER      (PH_NURSE_SOLO + 5)
+#define MUS_HG_VICTORY_GYM_LEADER   (PH_NURSE_SOLO + 6)
+#define MUS_HG_VS_RIVAL             (PH_NURSE_SOLO + 7)
+#define MUS_HG_VS_ROCKET            (PH_NURSE_SOLO + 8)
+#define MUS_HG_VS_SUICUNE           (PH_NURSE_SOLO + 9)
+#define MUS_HG_VS_ENTEI             (PH_NURSE_SOLO + 10)
+#define MUS_HG_VS_RAIKOU            (PH_NURSE_SOLO + 11)
+#define MUS_HG_VS_HO_OH             (PH_NURSE_SOLO + 12)
+#define MUS_HG_VS_LUGIA             (PH_NURSE_SOLO + 13)
+#define MUS_HG_ROUTE29              (PH_NURSE_SOLO + 14)
+#define MUS_HG_ROUTE30              (PH_NURSE_SOLO + 15)
+#define MUS_HG_ROUTE34              (PH_NURSE_SOLO + 16)
+#define MUS_HG_ROUTE38              (PH_NURSE_SOLO + 17)
+#define MUS_HG_ROUTE42              (PH_NURSE_SOLO + 18)
+#define MUS_HG_ROUTE47              (PH_NURSE_SOLO + 19)
+#define MUS_HG_ICE_PATH             (PH_NURSE_SOLO + 20)
 
-#define MUS_DP_VS_ELITE_FOUR        623
-#define MUS_DP_VS_CHAMPION          624
+#define MUS_DP_VS_WILD                  (MUS_HG_ICE_PATH + 1)
+#define MUS_DP_VS_GYM_LEADER            (MUS_HG_ICE_PATH + 2)
+#define MUS_DP_VS_UXIE_MESPRIT_AZELF    (MUS_HG_ICE_PATH + 3)
+#define MUS_DP_VS_TRAINER               (MUS_HG_ICE_PATH + 4) 
+#define MUS_DP_VS_GALACTIC_BOSS         (MUS_HG_ICE_PATH + 5)
+#define MUS_DP_VS_DIALGA_PALKIA         (MUS_HG_ICE_PATH + 6) 
+#define MUS_DP_VS_CHAMPION              (MUS_HG_ICE_PATH + 7) 
+#define MUS_DP_VS_GALACTIC              (MUS_HG_ICE_PATH + 8) 
+#define MUS_DP_VS_RIVAL                 (MUS_HG_ICE_PATH + 9) 
+#define MUS_DP_VS_ARCEUS                (MUS_HG_ICE_PATH + 10) 
+#define MUS_DP_VS_LEGEND                (MUS_HG_ICE_PATH + 11)
+#define MUS_DP_VS_GALACTIC_COMMANDER    (MUS_HG_ICE_PATH + 12)
+#define MUS_DP_VS_ELITE_FOUR            (MUS_HG_ICE_PATH + 13)
+#define MUS_PL_VS_GIRATINA              (MUS_HG_ICE_PATH + 14)
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

@@ -20,6 +20,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_adventure.h"
 #include "rogue_campaign.h"
+#include "rogue_trainers.h"
 
 // Bridge refers to horizontal paths
 // Ladder refers to vertical
@@ -513,7 +514,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);
     nodeInfo->isBridgeActive = TRUE;
     nodeInfo->roomType = ADVPATH_ROOM_BOSS;
-    nodeInfo->roomParams.roomIdx = Rogue_SelectBossEncounter();
+    nodeInfo->roomParams.roomIdx = 0;
+    nodeInfo->roomParams.perType.boss.trainerNum = Rogue_NextBossTrainerId();
 
     for(i = 0; i < totalDistance; ++i)
     {
@@ -603,7 +605,7 @@ void RogueAdv_ApplyAdventureMetatiles()
 }
 
 
-static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
+static void SetBossRoomWarp(u16 trainerNum, struct WarpData* warp)
 {
     if(gRogueRun.currentDifficulty < 8)
     {
@@ -612,16 +614,7 @@ static void SetBossRoomWarp(u8 bossId, struct WarpData* warp)
     }
     else if(gRogueRun.currentDifficulty < 12)
     {
-        const struct RogueTrainerEncounter* trainer = &gRogueBossEncounters.trainers[bossId];
-        u8 type = trainer->incTypes[0];
-
-        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-        {
-            type = trainer->incTypes[2];
-        }
-
-        warp->mapGroup = gRogueTypeToEliteRoom[type].group;
-        warp->mapNum = gRogueTypeToEliteRoom[type].num;
+        Rogue_GetPreferredElite4Map(trainerNum, &warp->mapGroup, &warp->mapNum);
     }
     else if(gRogueRun.currentDifficulty < 13)
     {
@@ -646,7 +639,7 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
         switch(node->roomType)
         {
             case ADVPATH_ROOM_BOSS:
-                SetBossRoomWarp(node->roomParams.roomIdx, warp);
+                SetBossRoomWarp(node->roomParams.perType.boss.trainerNum, warp);
                 break;
 
             case ADVPATH_ROOM_RESTSTOP:

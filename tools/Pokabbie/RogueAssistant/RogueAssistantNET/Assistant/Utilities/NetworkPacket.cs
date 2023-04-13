@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,21 +50,56 @@ namespace RogueAssistantNET.Assistant.Utilities
 				return stream.ToArray();
 			}
 		}
+	}
 
-		public static IEnumerable<NetworkPacket> ParsePackets(byte[] data, int offset, int length)
+	public class NetworkPacketBatch
+	{
+		private List<NetworkPacket> m_Packets = new List<NetworkPacket>();
+
+		public IEnumerable<NetworkPacket> Packets
 		{
-			using (MemoryStream stream = new MemoryStream(data, offset, length, false))
+			get => m_Packets;
+		}
+
+		public void Push(NetworkPacket packet)
+		{
+			m_Packets.Add(packet);
+        }
+
+		public void Send(Socket socket)
+        {
+			if (m_Packets.Count != 0)
 			{
-				using (BinaryReader reader = new BinaryReader(stream))
-				{
-					NetworkChannel channel = (NetworkChannel)reader.ReadByte();
+				List<byte> data = new List<byte>();
 
-					int contentLength = reader.ReadInt32();
-					byte[] content = reader.ReadBytes(contentLength);
+				foreach (var blob in m_Packets.Select((p) => p.ToBinaryBlob()))
+					data.AddRange(blob);
 
-					yield return new NetworkPacket(channel, content);
+				socket.Send(data.ToArray());
+			}
+        }
+        public static NetworkPacketBatch From(byte[] data, int offset, int length)
+        {
+			NetworkPacketBatch batch = new NetworkPacketBatch();
+
+            using (MemoryStream stream = new MemoryStream(data, offset, length, false))
+            {
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+					while (stream.Position < stream.Length)
+					{
+
+						NetworkChannel channel = (NetworkChannel)reader.ReadByte();
+
+						int contentLength = reader.ReadInt32();
+						byte[] content = reader.ReadBytes(contentLength);
+
+						batch.Push(new NetworkPacket(channel, content));
+					}
 				}
 			}
-		}
-	}
+
+			return batch;
+        }
+    }
 }
