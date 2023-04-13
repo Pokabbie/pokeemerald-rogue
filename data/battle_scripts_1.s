@@ -3635,6 +3635,18 @@ BattleScript_ImmunityProtected::
 	call BattleScript_PSNPrevention
 	goto BattleScript_MoveEnd
 
+BattleScript_AlphaMonWeakens::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISCALM
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	setstatchanger STAT_ATK, 2, TRUE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 2, TRUE
+	call BattleScript_EffectStatUpAlpha
+	end2
+
 BattleScript_EffectPayDay::
 	setmoveeffect MOVE_EFFECT_PAYDAY
 	goto BattleScript_EffectHit
@@ -4224,6 +4236,38 @@ BattleScript_DoLeechSeed::
 	printfromtable gLeechSeedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectStatUpAlpha::
+	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_StatUpEndAlpha
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnimAlpha
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatUpPrintStringAlpha
+BattleScript_StatUpAttackAnimAlpha::
+BattleScript_StatUpDoAnimAlpha::
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_StatUpPrintStringAlpha::
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_StatUpEndAlpha::
+	return
+
+BattleScript_AlphaMonActivates::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISANGRY
+	waitstate
+	playanimation BS_TARGET, B_ANIM_FOCUS_PUNCH_SETUP
+	
+	setstatchanger STAT_ATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_DEF, 2, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPDEF, 2, FALSE
+	call BattleScript_EffectStatUpAlpha
+	end3
 
 BattleScript_EffectDoNothing::
 	attackcanceler

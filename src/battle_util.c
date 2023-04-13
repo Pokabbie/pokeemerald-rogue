@@ -2103,6 +2103,7 @@ enum
     ENDTURN_MIST,
     ENDTURN_LUCKY_CHANT,
     ENDTURN_SAFEGUARD,
+	ENDTURN_ALPHA_WEAKENED,
     ENDTURN_TAILWIND,
     ENDTURN_WISH,
     ENDTURN_RAIN,
@@ -2285,6 +2286,25 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnCountersTracker++;
                 gBattleStruct->turnSideTracker = 0;
             }
+            break;
+        case ENDTURN_ALPHA_WEAKENED:
+            if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
+            {
+                gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+
+                if(gBattleMons[gBattlerTarget].hp == 1)
+                {
+                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+
+                    BattleScriptExecute(BattleScript_AlphaMonWeakens);
+                    gBattleStruct->rogueAlphaMonWeakened = 1;
+                    effect++;
+                }
+            }
+            gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_LUCKY_CHANT:
             while (gBattleStruct->turnSideTracker < 2)

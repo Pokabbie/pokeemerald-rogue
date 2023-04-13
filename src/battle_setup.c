@@ -542,7 +542,6 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
 
     case SPECIES_HEATRAN:
-    case SPECIES_REGIGIGAS:
     case SPECIES_CRESSELIA:
     case SPECIES_PHIONE:
     case SPECIES_MANAPHY:

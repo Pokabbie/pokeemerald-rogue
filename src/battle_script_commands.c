@@ -1988,8 +1988,24 @@ static void Cmd_typecalc(void)
     gBattlescriptCurrInstr++;
 }
 
+static bool8 ActiveAlphaMonEndure(u8 battler)
+{
+    if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
+    {
+        // Activate endure is the alpha mon is about to faint
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 ActivateEndureCharm(u8 battler)
 {
+    if(ActiveAlphaMonEndure(battler))
+    {
+        return TRUE;
+    }
+
     if(gBattleMons[battler].hp == gBattleMons[battler].maxHP && gBattleMons[battler].hp <= gBattleMoveDamage)
     {
         if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
@@ -13774,6 +13790,11 @@ static bool8 CurseBlocksPokeball(void)
     return FALSE;
 }
 
+static bool8 AlphaMonBlocksPokeball(void)
+{
+    return (gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0);
+}
+
 static void Cmd_handleballthrow(void)
 {
     u16 ballMultiplier = 10;
@@ -13797,6 +13818,12 @@ static void Cmd_handleballthrow(void)
         BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_WallyBallThrow;
+    }
+    else if(AlphaMonBlocksPokeball())
+    {
+        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_AlphaMonBallBlock;
     }
     else if(CurseBlocksPokeball())
     {
