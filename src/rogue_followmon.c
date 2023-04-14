@@ -24,6 +24,7 @@
 struct FollowMonData
 {
     bool8 pendingInterction;
+    u8 activeCount;
     u16 spawnCountdown;
     u16 spawnSlot;
     u16 pendingShinyAnim;
@@ -325,31 +326,35 @@ static u16 NextSpawnMonSlot()
 
 static bool8 TrySelectTile(s16* outX, s16* outY)
 {
+    u8 tryCount;
     u16 tileBehavior;
     s16 playerX, playerY;
     s16 x, y;
 
-    // Select a random tile in [-7, -4] [7, 4] range
-    // Make sure is not directly next to player
-    do
+    for(tryCount = 0; tryCount < 3; ++tryCount)
     {
-        x = (s16)(Random() % 15) - 7;
-        y = (s16)(Random() % 9) - 4;
-    }
-    while (abs(x) <= 2 && abs(y) <= 2);
-    
-    PlayerGetDestCoords(&playerX, &playerY);
-    x += playerX;
-    y += playerY;
-    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+        // Select a random tile in [-7, -4] [7, 4] range
+        // Make sure is not directly next to player
+        do
+        {
+            x = (s16)(Random() % 15) - 7;
+            y = (s16)(Random() % 9) - 4;
+        }
+        while (abs(x) <= 1 && abs(y) <= 1);
+        
+        PlayerGetDestCoords(&playerX, &playerY);
+        x += playerX;
+        y += playerY;
+        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    //bool8 MetatileBehavior_IsLandWildEncounter(u8);
-    //bool8 MetatileBehavior_IsWaterWildEncounter(u8);
-    if(MetatileBehavior_IsLandWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
-    {
-        *outX = x;
-        *outY = y;
-        return TRUE;
+        //bool8 MetatileBehavior_IsLandWildEncounter(u8);
+        //bool8 MetatileBehavior_IsWaterWildEncounter(u8);
+        if(MetatileBehavior_IsLandWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
+        {
+            *outX = x;
+            *outY = y;
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -405,6 +410,7 @@ void FollowMon_OverworldCB()
 
                 if(spawnSlot != 0xF)
                 {
+                    u16 spawnRate;
                     bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
                     u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
                     u8 objectEventId = SpawnSpecialObjectEventParameterized(
@@ -419,8 +425,21 @@ void FollowMon_OverworldCB()
                     gObjectEvents[objectEventId].rangeX = 8;
                     gObjectEvents[objectEventId].rangeY = 8;
 
-                    // TODO - Spawn faster if running or cycling
-                    sFollowMonData.spawnCountdown = 60 * (3 + Random() % 3);
+                    if(sFollowMonData.activeCount <= 1)
+                    {
+                        // Super fast spawn for new things on screen
+                        sFollowMonData.spawnCountdown = 15;
+                    }
+                    if(sFollowMonData.activeCount <= (MAX_SPAWN_SLOTS - 1))
+                    {
+                        // Fast spawn to reach capacity
+                        sFollowMonData.spawnCountdown = 60;
+                    }
+                    else
+                    {
+                        // Slower replacement spawning
+                        sFollowMonData.spawnCountdown = 60 * (3 + Random() % 2);
+                    }
                 }
             }
         }
@@ -469,13 +488,16 @@ bool8 IsSafeToSpawnObjectEvents()
 
 void FollowMon_OnWarp()
 {
-
+    sFollowMonData.spawnCountdown = 0;
+    sFollowMonData.activeCount = 0;
 }
 
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 {
     u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
     bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
+
+    ++sFollowMonData.activeCount;
 
     if(isShiny)
     {
@@ -485,5 +507,5 @@ void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
 {
-
+    --sFollowMonData.activeCount;
 }

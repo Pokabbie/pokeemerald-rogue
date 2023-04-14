@@ -273,16 +273,15 @@ bool8 Rogue_FastBattleAnims(void)
 
     if(Rogue_IsRunActive())
     {
-        // Force fast anims for non-bosses
-        if(Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        // Force slow anims for bosses
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+            return FALSE;
+
+        // Force slow anims for legendaries
+        if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
             return FALSE;
 
         return TRUE;
-        //if(
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        ////gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS))
-        //    return TRUE;
     }
 
     return FALSE;
