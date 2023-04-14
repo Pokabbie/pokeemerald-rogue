@@ -4338,7 +4338,11 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
-            if(moveId == MOVE_ROAR || moveId == MOVE_TELEPORT)
+            if( moveId == MOVE_ROAR || 
+                moveId == MOVE_WHIRLWIND || 
+                moveId == MOVE_EXPLOSION ||
+                moveId == MOVE_SELF_DESTRUCT || 
+                moveId == MOVE_TELEPORT)
             {
                 moveId = MOVE_HIDDEN_POWER;
                 SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
