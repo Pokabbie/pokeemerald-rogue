@@ -5,31 +5,19 @@
     "gMapGroup_RogueHub",
     "gMapGroup_RogueHubTiles",
     "gMapGroup_RogueRun",
-    "gMapGroup_RogueAdventureGeneral",
-    "gMapGroup_RogueAdventureRoutes",
-    "gMapGroup_RogueAdventureEncounters"
+    "gMapGroup_RogueAdventureEncounters",
+    "gMapGroup_RogueAdventureMonEncounters"
   ],
   "gMapGroup_VanillaMaps": [
     "InsideOfTruck",
-    "DesertRuins",
-    "IslandCave",
-    "AncientTomb",
-    "SkyPillar_Top",
-    "MarineCave_End",
-    "TerraCave_End",
     "Route121_SafariZoneEntrance",
     "SafariZone_Northwest",
     "SafariZone_North",
     "SafariZone_Southwest",
     "SafariZone_South",
-    "SouthernIsland_Interior",
     "SafariZone_RestHouse",
     "SafariZone_Northeast",
-    "SafariZone_Southeast",
-    "FarawayIsland_Interior",
-    "BirthIsland_Exterior",
-    "NavelRock_Top",
-    "NavelRock_Bottom"
+    "SafariZone_Southeast"
   ],
   "gMapGroup_RogueHub": [
     "Rogue_Manager",
@@ -81,30 +69,7 @@
     "Rogue_Route_Johto_WaterFront0",
     "Rogue_Route_Johto_Urban0",
     "Rogue_Route_Johto_Mountain0",
-    "Rogue_Route_Chaos0",
-    "Rogue_SouthernIsland_Latios",
-    "Rogue_SouthernIsland_Latias",
-    "Rogue_Special_Articuno",
-    "Rogue_Special_Zapdos",
-    "Rogue_Special_Moltres",
-    "Rogue_Special_Mewtwo",
-    "Rogue_Special_Raikou",
-    "Rogue_Special_Entei",
-    "Rogue_Special_Suicune",
-    "Rogue_Special_Celebi",
-    "Rogue_Special_Jirachi",
-    "Rogue_Special_GenericWildMon",
-    "Rogue_Special_Gen4_Mon",
-    "Rogue_Special_Gen5_Mon",
-    "Rogue_Special_Gen6_Mon",
-    "Rogue_Special_Gen7_Mon",
-    "Rogue_Special_Gen8_Mon"
-  ],
-  "gMapGroup_RogueAdventureGeneral": [
-
-  ],
-  "gMapGroup_RogueAdventureRoutes": [
-
+    "Rogue_Route_Chaos0"
   ],
   "gMapGroup_RogueAdventureEncounters": [
     "Rogue_Encounter_RestStop",
@@ -123,5 +88,32 @@
     "Rogue_Boss_11",
     "Rogue_Boss_12",
     "Rogue_Boss_13"
+  ],
+  "gMapGroup_RogueAdventureMonEncounters": [
+    "Rogue_SouthernIsland_Latios",
+    "Rogue_SouthernIsland_Latias",
+    "Rogue_Special_Articuno",
+    "Rogue_Special_Zapdos",
+    "Rogue_Special_Moltres",
+    "Rogue_Special_Mewtwo",
+    "Rogue_Special_Mew",
+    "Rogue_Special_Raikou",
+    "Rogue_Special_Entei",
+    "Rogue_Special_Suicune",
+    "Rogue_Special_Hooh",
+    "Rogue_Special_Lugia",
+    "Rogue_Special_Celebi",
+    "Rogue_Special_Regi",
+    "Rogue_Special_Kyogre",
+    "Rogue_Special_Groudon",
+    "Rogue_Special_Rayquaza",
+    "Rogue_Special_Jirachi",
+    "Rogue_Special_Deoxys",
+    "Rogue_Special_GenericWildMon",
+    "Rogue_Special_Gen4_Mon",
+    "Rogue_Special_Gen5_Mon",
+    "Rogue_Special_Gen6_Mon",
+    "Rogue_Special_Gen7_Mon",
+    "Rogue_Special_Gen8_Mon"
   ]
 }

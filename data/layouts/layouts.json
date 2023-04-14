@@ -192,16 +192,6 @@
       "blockdata_filepath": "data/layouts/Route121_SafariZoneEntrance/map.bin"
     },
     {
-      "id": "LAYOUT_DESERT_RUINS",
-      "name": "DesertRuins_Layout",
-      "width": 17,
-      "height": 33,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/DesertRuins/border.bin",
-      "blockdata_filepath": "data/layouts/DesertRuins/map.bin"
-    },
-    {
       "id": "LAYOUT_UNUSED_CAVE1",
       "name": "UnusedCave1_Layout",
       "width": 1,
@@ -422,36 +412,6 @@
       "blockdata_filepath": "data/layouts/BattleElevator/map.bin"
     },
     {
-      "id": "LAYOUT_ISLAND_CAVE",
-      "name": "IslandCave_Layout",
-      "width": 17,
-      "height": 33,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/IslandCave/border.bin",
-      "blockdata_filepath": "data/layouts/IslandCave/map.bin"
-    },
-    {
-      "id": "LAYOUT_ANCIENT_TOMB",
-      "name": "AncientTomb_Layout",
-      "width": 17,
-      "height": 33,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/AncientTomb/border.bin",
-      "blockdata_filepath": "data/layouts/AncientTomb/map.bin"
-    },
-    {
-      "id": "LAYOUT_SOUTHERN_ISLAND_INTERIOR",
-      "name": "SouthernIsland_Interior_Layout",
-      "width": 27,
-      "height": 24,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
-      "border_filepath": "data/layouts/SouthernIsland_Interior/border.bin",
-      "blockdata_filepath": "data/layouts/SouthernIsland_Interior/map.bin"
-    },
-    {
       "id": "LAYOUT_CAVE_OF_ORIGIN_UNUSED_B4F_LAVA",
       "name": "CaveOfOrigin_Unused_B4F_Lava_Layout",
       "width": 19,
@@ -490,16 +450,6 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SafariZone_RestHouse/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_RestHouse/map.bin"
-    },
-    {
-      "id": "LAYOUT_SKY_PILLAR_TOP",
-      "name": "SkyPillar_Top_Layout",
-      "width": 27,
-      "height": 24,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Pacifidlog",
-      "border_filepath": "data/layouts/SkyPillar_Top/border.bin",
-      "blockdata_filepath": "data/layouts/SkyPillar_Top/map.bin"
     },
     {
       "id": "LAYOUT_SOOTOPOLIS_CITY_LEGENDS_BATTLE",
@@ -582,26 +532,6 @@
       "blockdata_filepath": "data/layouts/SafariZone_Southeast/map.bin"
     },
     {
-      "id": "LAYOUT_FARAWAY_ISLAND_INTERIOR",
-      "name": "FarawayIsland_Interior_Layout",
-      "width": 29,
-      "height": 26,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
-      "border_filepath": "data/layouts/FarawayIsland_Interior/border.bin",
-      "blockdata_filepath": "data/layouts/FarawayIsland_Interior/map.bin"
-    },
-    {
-      "id": "LAYOUT_BIRTH_ISLAND_EXTERIOR",
-      "name": "BirthIsland_Exterior_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
-      "border_filepath": "data/layouts/BirthIsland_Exterior/border.bin",
-      "blockdata_filepath": "data/layouts/BirthIsland_Exterior/map.bin"
-    },
-    {
       "id": "LAYOUT_ISLAND_HARBOR",
       "name": "IslandHarbor_Layout",
       "width": 17,
@@ -610,46 +540,6 @@
       "secondary_tileset": "gTileset_IslandHarbor",
       "border_filepath": "data/layouts/IslandHarbor/border.bin",
       "blockdata_filepath": "data/layouts/IslandHarbor/map.bin"
-    },
-    {
-      "id": "LAYOUT_TERRA_CAVE_END",
-      "name": "TerraCave_End_Layout",
-      "width": 27,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/TerraCave_End/border.bin",
-      "blockdata_filepath": "data/layouts/TerraCave_End/map.bin"
-    },
-    {
-      "id": "LAYOUT_MARINE_CAVE_END",
-      "name": "MarineCave_End_Layout",
-      "width": 27,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/MarineCave_End/border.bin",
-      "blockdata_filepath": "data/layouts/MarineCave_End/map.bin"
-    },
-    {
-      "id": "LAYOUT_NAVEL_ROCK_TOP",
-      "name": "NavelRock_Top_Layout",
-      "width": 25,
-      "height": 28,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NavelRock",
-      "border_filepath": "data/layouts/NavelRock_Top/border.bin",
-      "blockdata_filepath": "data/layouts/NavelRock_Top/map.bin"
-    },
-    {
-      "id": "LAYOUT_NAVEL_ROCK_BOTTOM",
-      "name": "NavelRock_Bottom_Layout",
-      "width": 22,
-      "height": 22,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NavelRock",
-      "border_filepath": "data/layouts/NavelRock_Bottom/border.bin",
-      "blockdata_filepath": "data/layouts/NavelRock_Bottom/map.bin"
     },
     {
       "id": "LAYOUT_NAVEL_ROCK_LADDER_ROOM1",
@@ -1025,7 +915,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_ARTICUNO",
       "name": "Rogue_Special_Articuno_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Articuno/border.bin",
@@ -1035,7 +925,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_ZAPDOS",
       "name": "Rogue_Special_Zapdos_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Zapdos/border.bin",
@@ -1045,7 +935,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_MOLTRES",
       "name": "Rogue_Special_Moltres_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Moltres/border.bin",
@@ -1055,7 +945,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_MEWTWO",
       "name": "Rogue_Special_Mewtwo_Layout",
       "width": 19,
-      "height": 28,
+      "height": 21,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Mewtwo/border.bin",
@@ -1065,7 +955,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_RAIKOU",
       "name": "Rogue_Special_Raikou_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Raikou/border.bin",
@@ -1075,7 +965,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_ENTEI",
       "name": "Rogue_Special_Entei_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Entei/border.bin",
@@ -1085,7 +975,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_SUICUNE",
       "name": "Rogue_Special_Suicune_Layout",
       "width": 9,
-      "height": 18,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Suicune/border.bin",
@@ -1095,7 +985,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_CELEBI",
       "name": "Rogue_Special_Celebi_Layout",
       "width": 9,
-      "height": 18,
+      "height": 12,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Celebi/border.bin",
@@ -1105,7 +995,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_JIRACHI",
       "name": "Rogue_Special_Jirachi_Layout",
       "width": 19,
-      "height": 28,
+      "height": 21,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Jirachi/border.bin",
@@ -1385,7 +1275,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_GEN5_MON",
       "name": "Rogue_Special_Gen5_Mon_Layout",
       "width": 21,
-      "height": 29,
+      "height": 23,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Special_Gen5_Mon/border.bin",
@@ -1395,7 +1285,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_GEN6_MON",
       "name": "Rogue_Special_Gen6_Mon_Layout",
       "width": 20,
-      "height": 27,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Gen6_Mon/border.bin",
@@ -1405,7 +1295,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_GEN7_MON",
       "name": "Rogue_Special_Gen7_Mon_Layout",
       "width": 9,
-      "height": 19,
+      "height": 12,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Gen7_Mon/border.bin",
@@ -1415,7 +1305,7 @@
       "id": "LAYOUT_ROGUE_SPECIAL_GEN8_MON",
       "name": "Rogue_Special_Gen8_Mon_Layout",
       "width": 20,
-      "height": 27,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Gen8_Mon/border.bin",
@@ -1540,6 +1430,86 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Tile_BerryPatch1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_BerryPatch1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_REGI",
+      "name": "Rogue_Special_Regi_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Regi/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Regi/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_DEOXYS",
+      "name": "Rogue_Special_Deoxys_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/Rogue_Special_Deoxys/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Deoxys/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_MEW",
+      "name": "Rogue_Special_Mew_Layout",
+      "width": 29,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Special_Mew/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Mew/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_KYOGRE",
+      "name": "Rogue_Special_Kyogre_Layout",
+      "width": 18,
+      "height": 17,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Kyogre/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Kyogre/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GROUDON",
+      "name": "Rogue_Special_Groudon_Layout",
+      "width": 19,
+      "height": 17,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Groudon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Groudon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_RAYQUAZA",
+      "name": "Rogue_Special_Rayquaza_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/Rogue_Special_Rayquaza/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Rayquaza/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_HOOH",
+      "name": "Rogue_Special_Hooh_Layout",
+      "width": 25,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Special_Hooh/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Hooh/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_LUGIA",
+      "name": "Rogue_Special_Lugia_Layout",
+      "width": 22,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Special_Lugia/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Lugia/map.bin"
     }
   ]
 }

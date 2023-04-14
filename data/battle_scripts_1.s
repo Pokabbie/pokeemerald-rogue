@@ -3643,9 +3643,9 @@ BattleScript_AlphaMonWeakens::
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-	setstatchanger STAT_ATK, 2, TRUE
+	setstatchanger STAT_ATK, 3, TRUE
 	call BattleScript_EffectStatUpAlpha
-	setstatchanger STAT_SPATK, 2, TRUE
+	setstatchanger STAT_SPATK, 3, TRUE
 	call BattleScript_EffectStatUpAlpha
 	end2
 
@@ -4266,9 +4266,9 @@ BattleScript_AlphaMonActivates::
 	call BattleScript_EffectStatUpAlpha
 	setstatchanger STAT_SPATK, 1, FALSE
 	call BattleScript_EffectStatUpAlpha
-	setstatchanger STAT_DEF, 2, FALSE
+	setstatchanger STAT_DEF, 3, FALSE
 	call BattleScript_EffectStatUpAlpha
-	setstatchanger STAT_SPDEF, 2, FALSE
+	setstatchanger STAT_SPDEF, 3, FALSE
 	call BattleScript_EffectStatUpAlpha
 	end3
 

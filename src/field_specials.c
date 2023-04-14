@@ -2890,29 +2890,6 @@ static void Task_DeoxysRockInteraction(u8 taskId)
 
 static void ChangeDeoxysRockLevel(u8 rockLevel)
 {
-    u8 objectEventId;
-    LoadPalette(&sDeoxysRockPalettes[rockLevel], 0x1A0, 8);
-    TryGetObjectEventIdByLocalIdAndMap(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objectEventId);
-
-    if (rockLevel == 0)
-        PlaySE(SE_M_CONFUSE_RAY);
-    else
-        PlaySE(SE_RG_DEOXYS_MOVE);
-
-    CreateTask(WaitForDeoxysRockMovement, 8);
-    gFieldEffectArguments[0] = LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK;
-    gFieldEffectArguments[1] = MAP_NUM(BIRTH_ISLAND_EXTERIOR);
-    gFieldEffectArguments[2] = MAP_GROUP(BIRTH_ISLAND_EXTERIOR);
-    gFieldEffectArguments[3] = sDeoxysRockCoords[rockLevel][0];
-    gFieldEffectArguments[4] = sDeoxysRockCoords[rockLevel][1];
-
-    if (rockLevel == 0)
-        gFieldEffectArguments[5] = 60;
-    else
-        gFieldEffectArguments[5] = 5;
-
-    FieldEffectStart(FLDEFF_MOVE_DEOXYS_ROCK);
-    SetObjEventTemplateCoords(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, sDeoxysRockCoords[rockLevel][0], sDeoxysRockCoords[rockLevel][1]);
 }
 
 static void WaitForDeoxysRockMovement(u8 taskId)
@@ -2926,15 +2903,6 @@ static void WaitForDeoxysRockMovement(u8 taskId)
 
 void IncrementBirthIslandRockStepCount(void)
 {
-    u16 var = VarGet(VAR_DEOXYS_ROCK_STEP_COUNT);
-    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR))
-    {
-        var++;
-        if (var > 99)
-            VarSet(VAR_DEOXYS_ROCK_STEP_COUNT, 0);
-        else
-            VarSet(VAR_DEOXYS_ROCK_STEP_COUNT, var);
-    }
 }
 
 void SetDeoxysRockPalette(void)

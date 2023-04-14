@@ -381,8 +381,8 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 
     // TODO - Adjust weights
 
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
+    //    weights[ADVPATH_ROOM_LEGENDARY] = 0;
 
     if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
         weights[ADVPATH_ROOM_WILD_DEN] = 0;

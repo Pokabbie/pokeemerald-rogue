@@ -273,16 +273,15 @@ bool8 Rogue_FastBattleAnims(void)
 
     if(Rogue_IsRunActive())
     {
-        // Force fast anims for non-bosses
-        if(Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        // Force slow anims for bosses
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+            return FALSE;
+
+        // Force slow anims for legendaries
+        if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
             return FALSE;
 
         return TRUE;
-        //if(
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_BOSS && 
-        ////gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
-        //gRogueAdvPath.currentRoomType != ADVPATH_ROOM_MINIBOSS))
-        //    return TRUE;
     }
 
     return FALSE;
@@ -760,13 +759,12 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
     else if(difficulty < (ROGUE_MAX_BOSS_COUNT - 1)) // Go at default speed for final fight
     {
-        
-        if(Rogue_IsMiniBossTrainer(gTrainerBattleOpponent_A))
-            // Go faster, but not quite gym leader slow
-            *waitTime = *waitTime / 4;
-        else
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
             // Still run faster and default game because it's way too slow :(
             *waitTime = *waitTime / 2;
+        else
+            // Go faster, but not quite gym leader slow
+            *waitTime = *waitTime / 4;
     }
 }
 
@@ -2107,6 +2105,22 @@ void Rogue_OverworldCB(void)
     Rogue_AssistantOverworldCB();
 }
 
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent)
+{
+    if(FollowMon_IsMonObject(objectEvent, TRUE))
+    {
+        FollowMon_OnObjectEventSpawned(objectEvent);
+    }
+}
+
+void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
+{
+    if(FollowMon_IsMonObject(objectEvent, TRUE))
+    {
+        FollowMon_OnObjectEventRemoved(objectEvent);
+    }
+}
+
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
 {
     *count = gRogueHotTracking.triggerCount;
@@ -3202,6 +3216,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
     }
 
+    FollowMon_OnWarp();
     QuestNotify_OnWarp(warp);
 }
 
@@ -4323,7 +4338,11 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
-            if(moveId == MOVE_ROAR || moveId == MOVE_TELEPORT)
+            if( moveId == MOVE_ROAR || 
+                moveId == MOVE_WHIRLWIND || 
+                moveId == MOVE_EXPLOSION ||
+                moveId == MOVE_SELF_DESTRUCT || 
+                moveId == MOVE_TELEPORT)
             {
                 moveId = MOVE_HIDDEN_POWER;
                 SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
