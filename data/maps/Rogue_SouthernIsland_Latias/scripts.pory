@@ -1,19 +1,2 @@
 mapscripts Rogue_SouthernIsland_Latias_MapScripts 
-{
-    MAP_SCRIPT_ON_RESUME: SouthernIsland_Interior_OnResume
-}
-
-script Rogue_SouthernIsland_Interior_Latias_TryLatiEncounter
-{
-    setvar(VAR_ROAMER_POKEMON, 1)
-    //setvar(VAR_TEMP_4, SPECIES_LATIAS)
-
-    setflag(FLAG_ENABLE_SHIP_SOUTHERN_ISLAND)
-    clearflag(FLAG_DEFEATED_LATIAS_OR_LATIOS)
-    clearflag(FLAG_CAUGHT_LATIAS_OR_LATIOS)
-
-    call(SouthernIsland_Interior_EventScript_SetUpLatias)
-    call(SouthernIsland_Interior_EventScript_TryLatiEncounter)
-
-    call(Common_EventScript_RemoveStaticPokemon)
-}
+{}

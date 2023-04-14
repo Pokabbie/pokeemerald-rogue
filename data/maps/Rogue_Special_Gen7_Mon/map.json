@@ -31,7 +31,7 @@
   "warp_events": [
     {
       "x": 4,
-      "y": 14,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_SPECIAL_JIRACHI",
       "dest_warp_id": 0

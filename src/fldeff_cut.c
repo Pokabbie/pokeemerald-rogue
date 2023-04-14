@@ -25,8 +25,6 @@
 
 extern struct MapPosition gPlayerFacingPosition;
 
-extern const u8 FarawayIsland_Interior_EventScript_HideMewWhenGrassCut[];
-
 extern const u8 gFieldEffectPic_CutGrass[];
 extern const u16 gFieldEffectPal_CutGrass[];
 
@@ -579,9 +577,6 @@ static void CutGrassSpriteCallbackEnd(struct Sprite *sprite)
     FREE_AND_SET_NULL(sCutGrassSpriteArrayPtr);
     ScriptUnfreezeObjectEvents();
     ScriptContext2_Disable();
-
-    if (IsMewPlayingHideAndSeek() == TRUE)
-        ScriptContext1_SetupScript(FarawayIsland_Interior_EventScript_HideMewWhenGrassCut);
 }
 
 void FixLongGrassMetatilesWindowTop(s16 x, s16 y)

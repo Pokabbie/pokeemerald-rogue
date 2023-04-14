@@ -104,26 +104,15 @@ gStdScripts::
 gStdScripts_End::
 
 	.include "data/maps/Route121_SafariZoneEntrance/scripts.inc"
-	.include "data/maps/DesertRuins/scripts.inc"
-	.include "data/maps/IslandCave/scripts.inc"
-	.include "data/maps/AncientTomb/scripts.inc"
-	.include "data/maps/SkyPillar_Top/scripts.inc"
-	.include "data/maps/MarineCave_End/scripts.inc"
-	.include "data/maps/TerraCave_End/scripts.inc"
 	.include "data/scripts/shared_secret_base.inc"
 	.include "data/maps/InsideOfTruck/scripts.inc"
 	.include "data/maps/SafariZone_Northwest/scripts.inc"
 	.include "data/maps/SafariZone_North/scripts.inc"
 	.include "data/maps/SafariZone_Southwest/scripts.inc"
 	.include "data/maps/SafariZone_South/scripts.inc"
-	.include "data/maps/SouthernIsland_Interior/scripts.inc"
 	.include "data/maps/SafariZone_RestHouse/scripts.inc"
 	.include "data/maps/SafariZone_Northeast/scripts.inc"
 	.include "data/maps/SafariZone_Southeast/scripts.inc"
-	.include "data/maps/FarawayIsland_Interior/scripts.inc"
-	.include "data/maps/BirthIsland_Exterior/scripts.inc"
-	.include "data/maps/NavelRock_Top/scripts.inc"
-	.include "data/maps/NavelRock_Bottom/scripts.inc"
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
 	.include "data/scripts/new_game.inc"
@@ -761,3 +750,19 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Tile_OutdoorMart/scripts.inc"
 
 	.include "data/maps/Rogue_Tile_BerryPatch1/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Regi/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Deoxys/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Mew/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Kyogre/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Groudon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Rayquaza/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Hooh/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Lugia/scripts.inc"
