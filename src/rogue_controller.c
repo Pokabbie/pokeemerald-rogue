@@ -2107,6 +2107,22 @@ void Rogue_OverworldCB(void)
     Rogue_AssistantOverworldCB();
 }
 
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent)
+{
+    if(FollowMon_IsMonObject(objectEvent, TRUE))
+    {
+        FollowMon_OnObjectEventSpawned(objectEvent);
+    }
+}
+
+void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
+{
+    if(FollowMon_IsMonObject(objectEvent, TRUE))
+    {
+        FollowMon_OnObjectEventRemoved(objectEvent);
+    }
+}
+
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
 {
     *count = gRogueHotTracking.triggerCount;
@@ -3202,6 +3218,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         }
     }
 
+    FollowMon_OnWarp();
     QuestNotify_OnWarp(warp);
 }
 

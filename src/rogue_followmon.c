@@ -19,11 +19,14 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 
+#define MAX_SPAWN_SLOTS 6
+
 struct FollowMonData
 {
     bool8 pendingInterction;
     u16 spawnCountdown;
     u16 spawnSlot;
+    u16 pendingShinyAnim;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -309,7 +312,7 @@ static u16 NextSpawnMonSlot()
     u8 level; // ignore
     u32 personality; // ignore
 
-    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % 6; // Care with increasing slot count as it can cause lag
+    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % MAX_SPAWN_SLOTS; // Care with increasing slot count as it can cause lag
     slot = sFollowMonData.spawnSlot;
 
     Rogue_CreateWildMon(0, &species, &level, &personality);
@@ -354,54 +357,107 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
 
 bool8 MovementAction_EmoteShinySparkle(struct ObjectEvent *eventObj);
 
-void FollowMon_OverworldCB()
+static u8 FindObjectEventForGfx(u16 gfxId)
 {
-    if(!Rogue_AreWildMonEnabled())
+    u8 i;
+    for(i = 0; i < OBJECT_EVENTS_COUNT; ++i)
     {
-        return;
+        if(gObjectEvents[i].active && gObjectEvents[i].graphicsId == gfxId)
+        {
+            return i;
+        }
     }
 
-    if(sFollowMonData.spawnCountdown == 0)
+    return OBJECT_EVENTS_COUNT;
+}
+
+static bool8 InShinyAnimationRange(u8 objectEventId)
+{
+    if(Rogue_AreWildMonEnabled())
     {
-        s16 x, y;
-
-        if(IsSafeToSpawnObjectEvents() && TrySelectTile(&x, &y))
-        {
-            u16 spawnSlot = NextSpawnMonSlot();
-
-            if(spawnSlot != 0xF)
-            {
-                bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
-                u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
-                u8 objectEventId = SpawnSpecialObjectEventParameterized(
-                    OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,
-                    MOVEMENT_TYPE_WANDER_AROUND,
-                    localId,
-                    x,
-                    y,
-                    MapGridGetElevationAt(x, y)
-                );
-
-                gObjectEvents[objectEventId].rangeX = 8;
-                gObjectEvents[objectEventId].rangeY = 8;
-
-                if(isShiny)
-                {
-                    MovementAction_EmoteShinySparkle(&gObjectEvents[objectEventId]);
-                    PlaySE(SE_SHINY);
-                }
-
-                // TODO - Spawn faster if running or cycling
-                sFollowMonData.spawnCountdown = 60 * (3 + Random() % 3);
-            }
-        }
+        // Wild spawns instantly play animation
+        return TRUE;
     }
     else
     {
-        --sFollowMonData.spawnCountdown;
+        // Static spawns only play anim when you're close enough to see it
+        s16 x, y;
+        PlayerGetDestCoords(&x, &y);
+
+        x = gObjectEvents[objectEventId].currentCoords.x - x;
+        y = gObjectEvents[objectEventId].currentCoords.y - y;
+
+        return abs(x) <= 4 && abs(y) <= 4;
     }
 }
 
+void FollowMon_OverworldCB()
+{
+    if(Rogue_AreWildMonEnabled())
+    {
+        if(sFollowMonData.spawnCountdown == 0)
+        {
+            s16 x, y;
+
+            if(IsSafeToSpawnObjectEvents() && TrySelectTile(&x, &y))
+            {
+                u16 spawnSlot = NextSpawnMonSlot();
+
+                if(spawnSlot != 0xF)
+                {
+                    bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
+                    u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
+                    u8 objectEventId = SpawnSpecialObjectEventParameterized(
+                        OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,
+                        MOVEMENT_TYPE_WANDER_AROUND,
+                        localId,
+                        x,
+                        y,
+                        MapGridGetElevationAt(x, y)
+                    );
+
+                    gObjectEvents[objectEventId].rangeX = 8;
+                    gObjectEvents[objectEventId].rangeY = 8;
+
+                    // TODO - Spawn faster if running or cycling
+                    sFollowMonData.spawnCountdown = 60 * (3 + Random() % 3);
+                }
+            }
+        }
+        else
+        {
+            --sFollowMonData.spawnCountdown;
+        }
+    }
+
+    // Play shiny animation when player is close enough
+    if(sFollowMonData.pendingShinyAnim != 0)
+    {
+        u16 spawnSlot;
+        u16 gfxId;
+        u16 bitFlag;
+        u8 objectEventId;
+
+        for(gfxId = OBJ_EVENT_GFX_FOLLOW_MON_0; gfxId < OBJ_EVENT_GFX_FOLLOW_MON_LAST; ++gfxId)
+        {
+            spawnSlot = gfxId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+            bitFlag = (1 << spawnSlot);
+
+            if((sFollowMonData.pendingShinyAnim & bitFlag) != 0)
+            {
+                objectEventId = FindObjectEventForGfx(gfxId);
+
+                if(objectEventId != OBJECT_EVENTS_COUNT && InShinyAnimationRange(objectEventId))
+                {
+                    MovementAction_EmoteShinySparkle(&gObjectEvents[objectEventId]);
+                    PlaySE(SE_SHINY);
+
+                    sFollowMonData.pendingShinyAnim &= ~bitFlag;
+                }
+            }
+        }
+    }
+}
 
 bool8 IsSafeToSpawnObjectEvents()
 {
@@ -409,4 +465,25 @@ bool8 IsSafeToSpawnObjectEvents()
 
     // Only spawn when player is at a valid tile position
     return (player->currentCoords.x == player->previousCoords.x && player->currentCoords.y == player->previousCoords.y);
+}
+
+void FollowMon_OnWarp()
+{
+
+}
+
+void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
+{
+    u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+    bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
+
+    if(isShiny)
+    {
+        sFollowMonData.pendingShinyAnim |= (1 << spawnSlot);
+    }
+}
+
+void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
+{
+
 }

@@ -65,6 +65,9 @@ void Rogue_MainInit(void);
 void Rogue_MainCB(void);
 void Rogue_OverworldCB(void);
 
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
+void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
+
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 
 void Rogue_OnLoadMap(void);

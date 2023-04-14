@@ -95,6 +95,7 @@
 #define MAP_ROGUE_SPECIAL_GEN6_MON         (41 | (3 << 8))
 #define MAP_ROGUE_SPECIAL_GEN7_MON         (42 | (3 << 8))
 #define MAP_ROGUE_SPECIAL_GEN8_MON         (43 | (3 << 8))
+#define MAP_ROGUE_SPECIAL_REGI             (44 | (3 << 8))
 
 // gMapGroup_RogueAdventureGeneral
 
