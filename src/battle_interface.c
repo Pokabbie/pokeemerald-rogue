@@ -156,6 +156,21 @@ enum
     HEALTHBOX_GFX_STATUS_BRN_BATTLER3, //status4 "BRN"
     HEALTHBOX_GFX_114,
     HEALTHBOX_GFX_115,
+    HEALTHBOX_GFX_STATUS_ANGRY, //RogueNote: used for AlphaMon
+    HEALTHBOX_GFX_117,
+    HEALTHBOX_GFX_118,
+    HEALTHBOX_GFX_STATUS_1,
+    HEALTHBOX_GFX_119,
+    HEALTHBOX_GFX_120,
+    HEALTHBOX_GFX_STATUS_2,
+    HEALTHBOX_GFX_121,
+    HEALTHBOX_GFX_122,
+    HEALTHBOX_GFX_STATUS_3,
+    HEALTHBOX_GFX_123,
+    HEALTHBOX_GFX_124,
+    HEALTHBOX_GFX_STATUS_4,
+    HEALTHBOX_GFX_125,
+    HEALTHBOX_GFX_126,
     HEALTHBOX_GFX_FRAME_END,
     HEALTHBOX_GFX_FRAME_END_BAR,
 };
@@ -570,7 +585,8 @@ enum
     PAL_STATUS_PAR,
     PAL_STATUS_SLP,
     PAL_STATUS_FRZ,
-    PAL_STATUS_BRN
+    PAL_STATUS_BRN,
+    PAL_STATUS_ROGUE_ANGRY
 };
 
 static const u16 sStatusIconColors[] =
@@ -580,6 +596,7 @@ static const u16 sStatusIconColors[] =
     [PAL_STATUS_SLP] = RGB(20, 20, 17),
     [PAL_STATUS_FRZ] = RGB(17, 22, 28),
     [PAL_STATUS_BRN] = RGB(28, 14, 10),
+    [PAL_STATUS_ROGUE_ANGRY] = RGB(31, 4, 4)
 };
 
 static const struct WindowTemplate sHealthboxWindowTemplate = {
@@ -2249,6 +2266,11 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     {
         statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PRZ_BATTLER0, battlerId));
         statusPalId = PAL_STATUS_PAR;
+    }
+    else if((GetBattlerSide(battlerId) == B_SIDE_OPPONENT) && gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
+    {
+        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_ANGRY, battlerId));
+        statusPalId = PAL_STATUS_ROGUE_ANGRY;
     }
     else
     {

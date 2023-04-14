@@ -2294,7 +2294,7 @@ u8 DoFieldEndTurnEffects(void)
 
                 if(gBattleMons[gBattlerTarget].hp == 1)
                 {
-                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
+                    gBattleMoveDamage = (gBattleMons[gBattlerTarget].maxHP * 2) / 3;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;
