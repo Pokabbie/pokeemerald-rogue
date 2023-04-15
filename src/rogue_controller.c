@@ -27,6 +27,7 @@
 #include "palette.h"
 #include "play_time.h"
 #include "player_pc.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -1315,10 +1316,13 @@ void Rogue_CreateMiniMenuExtraGFX(void)
         {
             //u8 paletteOffset = i;
             u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
+            u16 targetSpecies = gRogueRun.wildEncounters[i];
+
+            gRogueLocal.encounterPreview[i].isVisible = GetSetPokedexFlag(SpeciesToNationalPokedexNum(targetSpecies), FLAG_GET_SEEN);
 
             if(gRogueLocal.encounterPreview[i].isVisible)
             {
-                gRogueLocal.encounterPreview[i].species = gRogueRun.wildEncounters[i];
+                gRogueLocal.encounterPreview[i].species = targetSpecies;
                 LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
 
                 gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, paletteOffset);
@@ -3706,43 +3710,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     }
 }
 
-static void Battle_UpdateEncounterTrackerInternal(u16 wildSpecies)
-{
-    // Update encounter tracker (For both in run and safari)
-    u8 i;
-
-#ifdef ROGUE_EXPANSION
-    wildSpecies = GET_BASE_SPECIES_ID(wildSpecies);
-#endif
-
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-    {
-#ifdef ROGUE_EXPANSION
-        if(GET_BASE_SPECIES_ID(gRogueRun.wildEncounters[i]) == wildSpecies)
-#else
-        if(gRogueRun.wildEncounters[i] == wildSpecies)
-#endif
-        {
-            gRogueLocal.encounterPreview[i].isVisible = TRUE;
-        }
-    }
-}
-
-static void Battle_UpdateEncounterTracker(void)
-{
-    //u16 wildSpecies = gBattleMons[gActiveBattler].species;
-    u16 wildSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_SPECIES);
-    //u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-
-    Battle_UpdateEncounterTrackerInternal(wildSpecies);
-}
-
 void Rogue_Battle_EndWildBattle(void)
 {
     if(Rogue_IsRunActive())
     {
-        Battle_UpdateEncounterTracker();
-
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
             u8 levelOffsetDelta = 3;
@@ -3777,7 +3748,6 @@ void Rogue_Battle_EndWildBattle(void)
 
 void Rogue_Safari_EndWildBattle(void)
 {
-    Battle_UpdateEncounterTracker();
 }
 
 bool8 Rogue_AllowItemUse(u16 itemId)
@@ -4262,13 +4232,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
             while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
-        }
-
-        // This method gets called for repel and intimidate
-        // Only update tracker if repel is active otherwise update tracker when enter battle
-        if(VarGet(VAR_REPEL_STEP_COUNT) != 0)
-        {
-            Battle_UpdateEncounterTrackerInternal(*species);
         }
 
         if(GetSafariZoneFlag())
