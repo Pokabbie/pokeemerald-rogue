@@ -36,6 +36,7 @@ namespace RogueAssistantNET.Game
 	{
 		private GameConnectionHeader m_Header = default;
 		private TcpClient m_Client = null;
+		private object m_Lock = new object();
 
 		private Queue<CommandRequest> m_CommandQueue = new Queue<CommandRequest>();
 		private GameState m_State = null;
@@ -44,6 +45,7 @@ namespace RogueAssistantNET.Game
 		public GameConnection(TcpClient client)
 		{
 			m_Client = client;
+			//m_Client.NoDelay = true;
 			EnqueueCommand(new VerifyGameCommand()).Then((VerifyGameCommand result) => 
 			{
 				if(result.HasConnected)
@@ -111,14 +113,17 @@ namespace RogueAssistantNET.Game
 
 		public GameConnectionResponse SendInternal(string command, params object[] args)
 		{
-			string commandStr = CreateToCommandString(command, args);
-			byte[] commandBuffer = Encoding.ASCII.GetBytes(commandStr);
+			lock (m_Lock)
+			{
+				string commandStr = CreateToCommandString(command, args);
+				byte[] commandBuffer = Encoding.ASCII.GetBytes(commandStr);
 
-			m_Client.Client.Send(commandBuffer, 0, commandBuffer.Length, SocketFlags.None);
+				m_Client.Client.Send(commandBuffer, 0, commandBuffer.Length, SocketFlags.None);
 
-			GameConnectionResponse res = new GameConnectionResponse();
-			res.Count = m_Client.Client.Receive(res.Buffer);
-			return res;
+				GameConnectionResponse res = new GameConnectionResponse();
+				res.Count = m_Client.Client.Receive(res.Buffer);
+				return res;
+			}
 		}
 
 		public static string CreateToCommandString(string command, params object[] args)
@@ -134,7 +139,7 @@ namespace RogueAssistantNET.Game
 					command += ";" + arg;
 			}
 
-			return command;
+			return command;// + ':'; // terminate with :
 		}
 
 

@@ -1,8 +1,10 @@
 ﻿using ENet;
 using RogueAssistantNET.Assistant.Utilities;
+using RogueAssistantNET.Game;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -49,16 +51,21 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		{
 			Console.WriteLine($"== Openning Server ==");
 			m_PlayerSync = assistant.FindOrCreateBehaviour<NetPlayerSyncBehaviour>();
-			m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
 
-			if(!m_Server.Open(1))
+			if(m_Server.Open(1))
 			{
-                assistant.RemoveBehaviour(this);
-            }
+				assistant.Connection.SendReliable(GameCommandCode.BeginMultiplayerHost);
+				m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
+			}
+			else
+			{
+				assistant.RemoveBehaviour(this);
+			}
 		}
 
 		public void OnDetach(RogueAssistant assistant)
 		{
+			assistant.Connection.SendReliable(GameCommandCode.EndMultiplayer);
 		}
 
 		public void OnUpdate(RogueAssistant assistant)

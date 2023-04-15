@@ -16,6 +16,8 @@ namespace RogueAssistantNET.Game
 		NetPlayerProfileSize,
 		NetPlayerStateAddress,
 		NetPlayerStateSize,
+
+		DebugMainAddress,
 	}
 
 	public class GameState

@@ -104,7 +104,7 @@ namespace RogueAssistantUI.Assistant
                 {
                     var state = assistant.Connection.State;
 
-                    ImGui.Text($"Attached to Game (Name: {state.PlayerNameStr})");
+                    ImGui.Text($"Attached to Game [Version: {assistant.Connection.Header.GameEdition}, Player: {state.PlayerNameStr}]");
 
                     if (ImGui.BeginTabBar("###views"))
                     {

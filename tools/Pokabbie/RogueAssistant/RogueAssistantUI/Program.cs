@@ -38,7 +38,7 @@ namespace ImGuiNET
         {
             // Create window, GraphicsDevice, and all resources necessary for the demo.
             VeldridStartup.CreateWindowAndGraphicsDevice(
-                new WindowCreateInfo(50, 50, 500, 500, WindowState.Normal, "Rogue Assistant"),
+                new WindowCreateInfo(50, 50, 500, 300, WindowState.Normal, "Rogue Assistant"),
                 new GraphicsDeviceOptions(true, null, true, ResourceBindingModel.Improved, true, true),
                 out _window,
                 out _gd);

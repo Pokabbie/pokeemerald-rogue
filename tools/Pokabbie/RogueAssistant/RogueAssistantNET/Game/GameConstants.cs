@@ -19,5 +19,8 @@ namespace RogueAssistantNET.Game
 	{
 		Echo,
 		ReadConstant,
+		BeginMultiplayerHost,
+		BeginMultiplayerClient,
+		EndMultiplayer
 	}
 }

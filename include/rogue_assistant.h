@@ -5,6 +5,7 @@ void Rogue_AssistantInit();
 void Rogue_AssistantMainCB();
 void Rogue_AssistantOverworldCB();
 
+bool8 Rogue_IsNetMultiplayerActive();
 void Rogue_RemoveNetObjectEvents();
 
 #endif

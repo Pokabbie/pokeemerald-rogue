@@ -1,4 +1,5 @@
 ﻿using RogueAssistantNET.Assistant.Utilities;
+using RogueAssistantNET.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,6 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		public void OnAttach(RogueAssistant assistant)
 		{
 			m_PlayerSync = assistant.FindOrCreateBehaviour<NetPlayerSyncBehaviour>();
-			m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
 
 			Console.WriteLine($"== Openning Client ({m_Hostname}:{m_Port}) ==");
 			m_Client.Connect(m_Hostname, m_Port);
@@ -52,6 +52,8 @@ namespace RogueAssistantNET.Assistant.Behaviours
                 {
                     //m_Client.Client.Blocking = false;
                     m_State = ConnectionState.PostConnect;
+					assistant.Connection.SendReliable(GameCommandCode.BeginMultiplayerClient);
+					m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
 				}
 				else
 				{
@@ -66,6 +68,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 
 		public void OnDetach(RogueAssistant assistant)
 		{
+			assistant.Connection.SendReliable(GameCommandCode.EndMultiplayer);
 		}
 
 		public void OnUpdate(RogueAssistant assistant)

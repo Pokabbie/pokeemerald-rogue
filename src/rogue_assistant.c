@@ -46,10 +46,13 @@ enum
     GAME_CONSTANT_NET_PLAYER_PROFILE_SIZE,
     GAME_CONSTANT_NET_PLAYER_STATE_ADDRESS,
     GAME_CONSTANT_NET_PLAYER_STATE_SIZE,
+
+    GAME_CONSTANT_DEBUG_MAIN_ADDRESS,
 };
 
 #define NETPLAYER_FLAGS_NONE        0
 #define NETPLAYER_FLAGS_ACTIVE      (1 << 0)
+#define NETPLAYER_FLAGS_HOST        (2 << 0)
 
 // Global states
 //
@@ -126,11 +129,17 @@ static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile,
 static bool8 CommCmd_ProcessNext();
 static void CommCmd_Echo(buffer_offset_t inputPos, buffer_offset_t outputPos);
 static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outputPos);
+static void CommCmd_BeginMultiplayerHost(buffer_offset_t inputPos, buffer_offset_t outputPos);
+static void CommCmd_BeginMultiplayerClient(buffer_offset_t inputPos, buffer_offset_t outputPos);
+static void CommCmd_EndMultiplayer(buffer_offset_t inputPos, buffer_offset_t outputPos);
 
 static const CommandCallback sCommCommands[] = 
 {
     CommCmd_Echo,
     CommCmd_ReadConstant,
+    CommCmd_BeginMultiplayerHost,
+    CommCmd_BeginMultiplayerClient,
+    CommCmd_EndMultiplayer,
 };
 
 
@@ -153,43 +162,40 @@ static bool8 IsNetPlayerActive(u8 id)
 
 void Rogue_AssistantOverworldCB()
 {
-    // Populate current player state
+    if(Rogue_IsNetMultiplayerActive())
     {
-        struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
-
-        if(!IsNetPlayerActive(0))
+        // Populate current player state
         {
-            gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_ACTIVE;
-            memcpy(gRogueAssistantState.netPlayerProfile->trainerName, gSaveBlock2Ptr->playerName, sizeof(gRogueAssistantState.netPlayerProfile->trainerName));
-        }
+            struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-        gRogueAssistantState.netPlayerState[0].pos = gSaveBlock1Ptr->pos;
-        gRogueAssistantState.netPlayerState[0].facingDirection = player->facingDirection;
-        gRogueAssistantState.netPlayerState[0].mapGroup = gSaveBlock1Ptr->location.mapGroup;
-        gRogueAssistantState.netPlayerState[0].mapNum = gSaveBlock1Ptr->location.mapNum;
+            gRogueAssistantState.netPlayerState[0].pos = gSaveBlock1Ptr->pos;
+            gRogueAssistantState.netPlayerState[0].facingDirection = player->facingDirection;
+            gRogueAssistantState.netPlayerState[0].mapGroup = gSaveBlock1Ptr->location.mapGroup;
+            gRogueAssistantState.netPlayerState[0].mapNum = gSaveBlock1Ptr->location.mapNum;
 
-        if(FollowMon_IsPartnerMonActive())
-        {
-            struct ObjectEvent* follower = &gObjectEvents[gSaveBlock2Ptr->follower.objId];
-
-            gRogueAssistantState.netPlayerState[0].partnerMon = FollowMon_GetPartnerFollowSpecies();
-            gRogueAssistantState.netPlayerState[0].partnerPos = follower->currentCoords;
-            gRogueAssistantState.netPlayerState[0].partnerFacingDirection = follower->facingDirection;
-        }
-        else
-        {
-            gRogueAssistantState.netPlayerState[0].partnerMon = 0;
-        }
-    }
-
-    // Do external net update, if needed
-    {
-        u8 i;
-        for(i = 1; i < NET_PLAYER_CAPACITY; ++i)
-        {
-            if(IsNetPlayerActive(i))
+            if(FollowMon_IsPartnerMonActive())
             {
-                NetPlayerUpdate(i, &gRogueAssistantState.netPlayerProfile[i], &gRogueAssistantState.netPlayerState[i]);
+                struct ObjectEvent* follower = &gObjectEvents[gSaveBlock2Ptr->follower.objId];
+
+                gRogueAssistantState.netPlayerState[0].partnerMon = FollowMon_GetPartnerFollowSpecies();
+                gRogueAssistantState.netPlayerState[0].partnerPos = follower->currentCoords;
+                gRogueAssistantState.netPlayerState[0].partnerFacingDirection = follower->facingDirection;
+            }
+            else
+            {
+                gRogueAssistantState.netPlayerState[0].partnerMon = 0;
+            }
+        }
+
+        // Do external net update, if needed
+        {
+            u8 i;
+            for(i = 1; i < NET_PLAYER_CAPACITY; ++i)
+            {
+                if(IsNetPlayerActive(i))
+                {
+                    NetPlayerUpdate(i, &gRogueAssistantState.netPlayerProfile[i], &gRogueAssistantState.netPlayerState[i]);
+                }
             }
         }
     }
@@ -308,6 +314,11 @@ static void SyncObjectEvent(struct SyncObjectEventInfo objectInfo)
             RemoveObjectEvent(&gObjectEvents[objectId]);
         }
     }
+}
+
+bool8 Rogue_IsNetMultiplayerActive()
+{
+    return IsNetPlayerActive(0);
 }
 
 void Rogue_RemoveNetObjectEvents()
@@ -518,10 +529,31 @@ static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outpu
         value = sizeof(gRogueAssistantState.netPlayerState[0]);
         break;
 
+    case GAME_CONSTANT_DEBUG_MAIN_ADDRESS:
+        value = (u32)&gMain;
+        break;
+
     default: // Error
         value = (u32)-1;
         break;
     }
 
     WRITE_OUTPUT_32(value);
+}
+
+static void CommCmd_BeginMultiplayerHost(buffer_offset_t inputPos, buffer_offset_t outputPos)
+{
+    gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_ACTIVE | NETPLAYER_FLAGS_HOST;
+    memcpy(gRogueAssistantState.netPlayerProfile->trainerName, gSaveBlock2Ptr->playerName, sizeof(gRogueAssistantState.netPlayerProfile->trainerName));
+}
+
+static void CommCmd_BeginMultiplayerClient(buffer_offset_t inputPos, buffer_offset_t outputPos)
+{
+    gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_ACTIVE;
+    memcpy(gRogueAssistantState.netPlayerProfile->trainerName, gSaveBlock2Ptr->playerName, sizeof(gRogueAssistantState.netPlayerProfile->trainerName));
+}
+
+static void CommCmd_EndMultiplayer(buffer_offset_t inputPos, buffer_offset_t outputPos)
+{
+    gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_NONE;
 }
