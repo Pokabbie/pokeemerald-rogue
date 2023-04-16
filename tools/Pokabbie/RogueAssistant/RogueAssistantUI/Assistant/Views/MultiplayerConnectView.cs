@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ImGuiNET;
 using System.Numerics;
+using RogueAssistantNET.Game;
 
 namespace RogueAssistantUI.Assistant.Views
 {
@@ -45,7 +46,7 @@ namespace RogueAssistantUI.Assistant.Views
 
 		public override bool IsViewVisible(RogueAssistant assistant)
 		{
-			return !assistant.HasBehaviour<MultiplayerServerBehaviour>();
+			return assistant.Connection.State.InternalGameState == InternalGameState.MultiplayerJoin || assistant.HasBehaviour<MultiplayerClientBehaviour>();
 		}
 
 		public override void SubmitUI(RogueAssistant assistant)
