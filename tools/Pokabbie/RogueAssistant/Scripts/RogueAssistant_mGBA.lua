@@ -100,7 +100,7 @@ function Conn_ProcessCmd(msg)
         if constants.debugLog then
             console:log("\tReq: " .. req)
         end
-        local params = splitStr(req)
+        local params = splitParamStr(req)
 
         for k, v in pairs(commCmds) do
             if k == params[1] then

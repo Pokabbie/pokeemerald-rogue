@@ -101,7 +101,8 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			var conn = assistant.Connection;
 
 			uint playerId = 0;
-			ReadPlayerState(conn, playerId, m_LocalPlayerData);
+			RefreshLocalPlayer(conn);
+			//ReadPlayerState(conn, playerId, m_LocalPlayerData);
 
 			++playerId;
 
@@ -134,6 +135,11 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		public bool RemoveOnlinePlayer(NetPlayerData player)
 		{
 			return m_OnlinePlayerData.Remove(player);
+		}
+
+		public void RemoveAllOnlinePlayers()
+		{
+			m_OnlinePlayerData.Clear();
 		}
 
 		private void ReadPlayerProfile(GameConnection conn, uint index, NetPlayerData player)

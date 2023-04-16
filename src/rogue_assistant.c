@@ -192,10 +192,7 @@ void Rogue_AssistantOverworldCB()
             u8 i;
             for(i = 1; i < NET_PLAYER_CAPACITY; ++i)
             {
-                if(IsNetPlayerActive(i))
-                {
-                    NetPlayerUpdate(i, &gRogueAssistantState.netPlayerProfile[i], &gRogueAssistantState.netPlayerState[i]);
-                }
+                NetPlayerUpdate(i, &gRogueAssistantState.netPlayerProfile[i], &gRogueAssistantState.netPlayerState[i]);
             }
         }
     }
@@ -336,10 +333,37 @@ void Rogue_RemoveNetObjectEvents()
     }
 }
 
+static bool8 AllowNetPartnerMons()
+{
+    return !Rogue_IsRunActive();
+}
 
 static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile, struct NetPlayerState* playerState)
 {
     struct SyncObjectEventInfo syncObject;
+
+    if(!IsNetPlayerActive(playerId))
+    {
+        // Remove player object
+        u8 objectId = GetSpecialObjectEventIdByLocalId(OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 0);
+
+        if(objectId != OBJECT_EVENTS_COUNT)
+        {
+            RemoveObjectEvent(&gObjectEvents[objectId]);
+        }
+
+        // Remove partner object
+        if(AllowNetPartnerMons())
+        {
+            objectId = GetSpecialObjectEventIdByLocalId(OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1);
+
+            if(objectId != OBJECT_EVENTS_COUNT)
+            {
+                RemoveObjectEvent(&gObjectEvents[objectId]);
+            }
+        }
+        return;
+    }
 
     syncObject.localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 0;
     syncObject.gfxId = OBJ_EVENT_GFX_ANABEL;
@@ -352,32 +376,35 @@ static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile,
     SyncObjectEvent(syncObject);
 
     // Follower
-    syncObject.localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1;
-    syncObject.facingDirection = playerState->partnerFacingDirection;
-    syncObject.mapX = playerState->partnerPos.x;
-    syncObject.mapY = playerState->partnerPos.y;
-    syncObject.mapNum = playerState->mapNum;
-    syncObject.mapGroup = playerState->mapGroup;
-
-    if(playerState->partnerMon != 0 && !Rogue_IsRunActive())
+    if(AllowNetPartnerMons())
     {
-        if(VarGet(VAR_FOLLOW_MON_4 + playerId) != playerState->partnerMon)
+        syncObject.localId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1;
+        syncObject.facingDirection = playerState->partnerFacingDirection;
+        syncObject.mapX = playerState->partnerPos.x;
+        syncObject.mapY = playerState->partnerPos.y;
+        syncObject.mapNum = playerState->mapNum;
+        syncObject.mapGroup = playerState->mapGroup;
+
+        if(playerState->partnerMon != 0)
         {
-            // Remove the object for one frame to reset the gfx
-            VarSet(VAR_FOLLOW_MON_4 + playerId, playerState->partnerMon);
-            syncObject.gfxId = 0;
+            if(VarGet(VAR_FOLLOW_MON_4 + playerId) != playerState->partnerMon)
+            {
+                // Remove the object for one frame to reset the gfx
+                VarSet(VAR_FOLLOW_MON_4 + playerId, playerState->partnerMon);
+                syncObject.gfxId = 0;
+            }
+            else
+            {
+                syncObject.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_4 + playerId;
+            }
         }
         else
         {
-            syncObject.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_4 + playerId;
+            syncObject.gfxId = 0;
         }
-    }
-    else
-    {
-        syncObject.gfxId = 0;
-    }
 
-    SyncObjectEvent(syncObject);
+        SyncObjectEvent(syncObject);
+    }
 }
 
 
@@ -556,4 +583,5 @@ static void CommCmd_BeginMultiplayerClient(buffer_offset_t inputPos, buffer_offs
 static void CommCmd_EndMultiplayer(buffer_offset_t inputPos, buffer_offset_t outputPos)
 {
     gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_NONE;
+    Rogue_RemoveNetObjectEvents();
 }

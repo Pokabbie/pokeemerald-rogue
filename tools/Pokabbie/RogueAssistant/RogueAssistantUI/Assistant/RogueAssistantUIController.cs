@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RogueAssistantUI.Assistant
@@ -12,17 +13,21 @@ namespace RogueAssistantUI.Assistant
 	public class RogueAssistantUIController
 	{
         private RogueAssistantController m_Assistant = null;
+        private Thread m_UpdateThread = null;
         private uint m_ViewportDockID = 0;
+        private float m_DeltaTime = 0.0f;
 
         private List<IRogueAssistantView> m_AvailableViews = new List<IRogueAssistantView>();
 
         public RogueAssistantUIController()
         {
             m_Assistant = new RogueAssistantController();
-            m_Assistant.Open();
 
-            // Construct views
-            var viewtypes = AppDomain.CurrentDomain.GetAssemblies()
+			m_UpdateThread = new Thread(ThreadFunc);
+            m_UpdateThread.Start();
+
+			// Construct views
+			var viewtypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
                 .Where(p => typeof(IRogueAssistantView).IsAssignableFrom(p) && !p.IsAbstract && p.IsClass);
 
@@ -32,31 +37,30 @@ namespace RogueAssistantUI.Assistant
             }
         }
 
-        private void Update()
+        private void ThreadFunc()
         {
-            m_Assistant.Update();
+			m_Assistant.Run();
         }
 
-		public void SubmitUI()
+        public void SubmitUI(float deltaTime)
         {
-            Update();
-
             m_ViewportDockID = ImGui.DockSpaceOverViewport();
+            m_DeltaTime = deltaTime;
 
-            //if (ImGui.BeginMainMenuBar())
-            //{
-            //    if (ImGui.BeginMenu("File"))
-            //    {
-            //        ImGui.EndMenu();
-            //    }
-            //    if (ImGui.BeginMenu("Edit"))
-            //    {
-            //        ImGui.EndMenu();
-            //    }
-            //    ImGui.EndMainMenuBar();
-            //}
+			//if (ImGui.BeginMainMenuBar())
+			//{
+			//    if (ImGui.BeginMenu("File"))
+			//    {
+			//        ImGui.EndMenu();
+			//    }
+			//    if (ImGui.BeginMenu("Edit"))
+			//    {
+			//        ImGui.EndMenu();
+			//    }
+			//    ImGui.EndMainMenuBar();
+			//}
 
-            if (!m_Assistant.ActiveAssistants.Any())
+			if (!m_Assistant.ActiveAssistants.Any())
             {
                 ImGui.SetNextWindowDockID(m_ViewportDockID, ImGuiCond.FirstUseEver);
 

@@ -65,7 +65,7 @@ namespace ImGuiNET
                 if (!_window.Exists) { break; }
                 _controller.Update(deltaTime, snapshot); // Feed the input events to our ImGui controller, which passes them through to ImGui.
 
-                _assistant.SubmitUI();
+                _assistant.SubmitUI(deltaTime);
                 //SubmitUI();
 
                 _cl.Begin();
