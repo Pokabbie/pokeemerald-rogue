@@ -23,6 +23,8 @@
 #include "main.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "script.h"
+#include "task.h"
 
 #include "rogue_assistant.h"
 #include "rogue_adventurepaths.h"
@@ -37,8 +39,18 @@
 
 #define NET_PLAYER_CAPACITY 4
 
+enum GAME_STATE_NUM
+{
+    GAME_STATE_NONE,
+    GAME_STATE_MULTIPLAYER_HOST,
+    GAME_STATE_MULTIPLAYER_JOIN,
+};
+
 enum 
 {
+    GAME_CONSTANT_STATE_NUM_ADDRESS,
+    GAME_CONSTANT_SUB_STATE_NUM_ADDRESS,
+
     GAME_CONSTANT_SAVE_BLOCK1_PTR_ADDRESS,
     GAME_CONSTANT_SAVE_BLOCK2_PTR_ADDRESS,
     GAME_CONSTANT_NET_PLAYER_CAPACITY,
@@ -76,6 +88,8 @@ struct NetPlayerState
 
 struct RogueAssistantState
 {
+    u16 gameState;
+    u16 gameSubState;
     u8 inCommBuffer[16];
     u8 outCommBuffer[16];
     struct NetPlayerProfile netPlayerProfile[NET_PLAYER_CAPACITY];
@@ -91,6 +105,9 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
     .inCommBuffer = gRogueAssistantState.inCommBuffer,
     .outCommBuffer = gRogueAssistantState.outCommBuffer
 };
+
+
+static void Task_ConnectMultiplayer(u8 taskId);
 
 
 // Read/Write utils
@@ -148,6 +165,7 @@ static const CommandCallback sCommCommands[] =
 
 void Rogue_AssistantInit()
 {
+    gRogueAssistantState.gameState = GAME_STATE_NONE;
 }
 
 void Rogue_AssistantMainCB()
@@ -318,6 +336,11 @@ bool8 Rogue_IsNetMultiplayerActive()
     return IsNetPlayerActive(0);
 }
 
+bool8 Rogue_IsNetMultiplayerHost()
+{
+    return IsNetPlayerActive(0) && (gRogueAssistantState.netPlayerProfile[0].flags & NETPLAYER_FLAGS_HOST) != 0;
+}
+
 void Rogue_RemoveNetObjectEvents()
 {
     u8 i, j;
@@ -407,6 +430,43 @@ static void NetPlayerUpdate(u8 playerId, struct NetPlayerProfile* playerProfile,
     }
 }
 
+#define tConnectAsHost data[1]
+
+void Rogue_CreateMultiplayerConnectTask(bool8 asHost)
+{
+    if (FindTaskIdByFunc(Task_ConnectMultiplayer) == TASK_NONE)
+    {
+        u8 taskId1;
+
+        taskId1 = CreateTask(Task_ConnectMultiplayer, 80);
+        gTasks[taskId1].tConnectAsHost = asHost;
+
+        gRogueAssistantState.gameState = (asHost ? GAME_STATE_MULTIPLAYER_HOST : GAME_STATE_MULTIPLAYER_JOIN);
+    }
+}
+
+static void Task_ConnectMultiplayer(u8 taskId)
+{
+    // Wait for connections
+    if (JOY_NEW(B_BUTTON))
+    {
+        // Cancelled
+        gRogueAssistantState.gameState = GAME_STATE_NONE;
+        gSpecialVar_Result = FALSE;
+        EnableBothScriptContexts();
+        DestroyTask(taskId);
+    }
+    else if(Rogue_IsNetMultiplayerActive())
+    {
+        // Has connected
+        gRogueAssistantState.gameState = GAME_STATE_NONE;
+        gSpecialVar_Result = TRUE;
+        EnableBothScriptContexts();
+        DestroyTask(taskId);
+    }
+}
+
+#undef tConnectAsHost
 
 // Commands
 //
@@ -533,6 +593,13 @@ static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outpu
 
     switch (constant)
     {
+    case GAME_CONSTANT_STATE_NUM_ADDRESS:
+        value = (u32)&gRogueAssistantState.gameState;
+        break;
+    case GAME_CONSTANT_SUB_STATE_NUM_ADDRESS:
+        value = (u32)&gRogueAssistantState.gameSubState;
+        break;
+
     case GAME_CONSTANT_SAVE_BLOCK1_PTR_ADDRESS:
         value = (u32)&gSaveBlock1Ptr;
         break;

@@ -210,6 +210,10 @@ gSpecials::
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
 	def_special Rogue_GetFollowMonSpecies
+	def_special Rogue_IsMultiplayerActive
+	def_special Rogue_IsMultiplayerHost
+	def_special Rogue_HostMultiplayer
+	def_special Rogue_JoinMultiplayer
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetNodeParams
 	def_special RogueAdv_ExecuteNodeAction

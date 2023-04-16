@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace RogueAssistantNET.Game
 {
+	public enum InternalGameState
+	{
+		None,
+		MultiplayerHost,
+		MultiplayerJoin
+	}
+
 	public enum GameStateConstant
 	{
+		GameStateAddress,
+		GameSubStateAddress,
 		SaveBlock1Ptr,
 		SaveBlock2Ptr,
 		NetPlayerCapacity,
@@ -30,6 +39,7 @@ namespace RogueAssistantNET.Game
 
 		private byte[] m_PlayerNameData;
 		private byte m_PlayerAvatar;
+		private InternalGameState m_InternalGameStateId;
 
 		public GameState(GameConnection connection)
 		{
@@ -46,6 +56,11 @@ namespace RogueAssistantNET.Game
 			get => m_PlayerNameData;
 		}
 
+		public InternalGameState InternalGameState
+		{
+			get => m_InternalGameStateId;
+		}
+
 		public byte PlayerAvatar
 		{
 			get => m_PlayerAvatar;
@@ -58,6 +73,9 @@ namespace RogueAssistantNET.Game
 				m_FirstUpdate = false;
 				RefreshInfrequentData();
 			}
+
+			uint gameStateAddr = GetConstantValue(GameStateConstant.GameStateAddress);
+			m_InternalGameStateId = (InternalGameState)m_Connection.ReadU16(gameStateAddr);
 
 			// Always do a read to check we're still connection
 			m_Connection.ReadU8(GameConstants.GFHeaderAddress);

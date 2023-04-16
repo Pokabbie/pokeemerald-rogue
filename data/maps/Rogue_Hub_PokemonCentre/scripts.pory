@@ -1,0 +1,67 @@
+mapscripts Rogue_Hub_PokemonCentre_MapScripts
+{
+
+}
+
+script Rogue_Hub_PokemonCentre_EventScript_Nurse
+{
+    lock
+
+    special(Rogue_IsMultiplayerActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("Hello {PLAYER}!\pI hope you've been enjoying your multiplayer Adventure!"), MSGBOX_DEFAULT)
+        //msgbox(format("Would you like to disconnect and?"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("Hello {PLAYER}!\pI can help you to setup multiplayer Adventures for you and your friends!"), MSGBOX_DEFAULT)
+
+        msgbox(format("Please launch RogueAssistant.exe now."), MSGBOX_DEFAULT)
+
+        // TODO - RogueAssistant tutorial
+
+        message(format("Please decide which of you will become the GROUP HOST.\pThe other players must then choose JOIN GROUP."))
+        waitmessage
+        
+        multichoice(16, 6, MULTI_LINK_HOST_JOIN, FALSE)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Join
+                message(format("Attempting to join group\n… … B Button: Cancel"))
+                waitmessage
+
+                special(Rogue_JoinMultiplayer)
+                waitstate
+
+                if(var(VAR_RESULT) == TRUE)
+                {
+                    msgbox(format("All set!\nHave fun on your Adventures!"))
+                }
+
+            case 1: // Host
+                message(format("Attempting to setup group\n… … B Button: Cancel"))
+                waitmessage
+
+                special(Rogue_HostMultiplayer)
+                waitstate
+
+                if(var(VAR_RESULT) == TRUE)
+                {
+                    msgbox(format("All set!\nYour friends should now be able to join you for Adventures!"))
+                }
+
+            case 2: // Exit
+                setvar(VAR_RESULT, FALSE)
+
+        }
+
+        if(var(VAR_RESULT) == FALSE)
+        {
+            msgbox(format("If you change your mind, please feel free to speak with me again."))
+        }
+    }
+
+    release
+}
