@@ -16,29 +16,6 @@ namespace RogueAssistantUI.Assistant.Views
 		private string m_AddressWithPort = "localhost:" + MultiplayerServerBehaviour.c_DefaultPort;
 		private bool m_WasSuccessful = true;
 
-		public string DesiredHostname
-		{
-			get
-			{
-				return m_AddressWithPort.Split(':')[0];
-			}
-		}
-
-		public int DesiredPort
-		{
-			get
-			{
-				var parts = m_AddressWithPort.Split(':');
-
-				if (parts.Length == 2 && int.TryParse(parts[1], out int val))
-				{
-					return val;
-				}
-
-				return 0;
-			}
-		}
-
 		public override string GetViewName(RogueAssistant assistant)
 		{
 			return "Multiplayer [CONNECT]";
@@ -59,7 +36,7 @@ namespace RogueAssistantUI.Assistant.Views
 				if (ImGui.Button("Connect to Host"))
 				{
 					m_WasSuccessful = false;
-					assistant.AddBehaviour(new MultiplayerClientBehaviour(DesiredHostname, DesiredPort));
+					assistant.AddBehaviour(new MultiplayerClientBehaviour(m_AddressWithPort));
 				}
 				else if(!m_WasSuccessful)
 				{

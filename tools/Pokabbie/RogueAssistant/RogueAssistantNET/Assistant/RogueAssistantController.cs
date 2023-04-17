@@ -18,6 +18,7 @@ namespace RogueAssistantNET.Assistant
 		private List<RogueAssistant> m_ActiveAssistants = new List<RogueAssistant>();
 
 		private event AssistantCallback m_OnConnect;
+		private event AssistantCallback m_OnUpdate;
 
 		public RogueAssistantController()
 		{
@@ -27,6 +28,12 @@ namespace RogueAssistantNET.Assistant
 		{
 			get => m_OnConnect;
 			set => m_OnConnect = value;
+		}
+
+		public AssistantCallback OnUpdate
+		{
+			get => m_OnUpdate;
+			set => m_OnUpdate = value;
 		}
 
 		public IEnumerable<RogueAssistant> ActiveAssistants
@@ -72,6 +79,12 @@ namespace RogueAssistantNET.Assistant
 
 			foreach(var assistant in m_ActiveAssistants)
 			{
+				if (assistant.HasInitialised)
+				{
+					if (m_OnUpdate != null)
+						m_OnUpdate.Invoke(assistant);
+				}
+
 				assistant.Update();
 			}
 		}

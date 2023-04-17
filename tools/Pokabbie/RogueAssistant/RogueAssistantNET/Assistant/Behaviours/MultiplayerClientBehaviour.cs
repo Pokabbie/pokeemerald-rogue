@@ -38,6 +38,21 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			m_Port = port;
 		}
 
+		public MultiplayerClientBehaviour(string addressWithPort)
+		{
+			m_Client = new TcpClient();
+			m_Client.NoDelay = true;
+
+			var parts = addressWithPort.Split(':');
+
+			m_Hostname = parts[0];
+
+			if (!(parts.Length == 2 && int.TryParse(parts[1], out m_Port)))
+			{
+				m_Port = MultiplayerServerBehaviour.c_DefaultPort;
+			}
+		}
+
 		public bool IsConnecting
 		{
 			get => m_State == ConnectionState.Connecting;

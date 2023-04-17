@@ -38,6 +38,11 @@ namespace RogueAssistantNET.Assistant
 			get => m_Connection;
 		}
 
+		public GameState State
+		{
+			get => m_Connection?.State;
+		}
+
 		public bool HasInitialised
 		{
 			get => m_Connection != null && m_Connection.HasInitialised;

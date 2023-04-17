@@ -1,5 +1,4 @@
-﻿using ENet;
-using RogueAssistantNET.Assistant.Utilities;
+﻿using RogueAssistantNET.Assistant.Utilities;
 using RogueAssistantNET.Game;
 using System;
 using System.Collections.Concurrent;
