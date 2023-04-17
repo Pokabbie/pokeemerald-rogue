@@ -14,6 +14,7 @@ namespace RogueAssistantNET.Assistant
 	{
 		public delegate void AssistantCallback(RogueAssistant assistant);
 
+		private bool m_IsRunning = false;
 		private TcpListenerServer m_Server;
 		private List<RogueAssistant> m_ActiveAssistants = new List<RogueAssistant>();
 
@@ -43,9 +44,11 @@ namespace RogueAssistantNET.Assistant
 
 		public void Run()
 		{
+			m_IsRunning = true;
+
 			Open();
 
-            while (true)
+            while (m_IsRunning)
 			{
 				Update();
 				Thread.Sleep(1000 / 60);
@@ -59,6 +62,11 @@ namespace RogueAssistantNET.Assistant
             m_Server = new TcpListenerServer(IPAddress.Loopback, 30150);
             m_Server.Open();
         }
+
+		public void Stop()
+		{
+			m_IsRunning = false;
+		}
 
 		public void Update()
 		{

@@ -3,6 +3,7 @@ using RogueAssistantNET.Assistant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -21,8 +22,7 @@ namespace RogueAssistantUI.Assistant
 
         private RogueAssistantController m_Assistant = null;
         private Thread m_UpdateThread = null;
-        private uint m_ViewportDockID = 0;
-        private float m_DeltaTime = 0.0f;
+        //private uint m_ViewportDockID = 0;
 
 		private EmulatorOption m_TutorialOption = EmulatorOption.None;
 		private List<IRogueAssistantView> m_AvailableViews = new List<IRogueAssistantView>();
@@ -50,15 +50,33 @@ namespace RogueAssistantUI.Assistant
             }
         }
 
+        public void Destroy()
+        {
+            m_Assistant.Stop();
+            m_UpdateThread.Join();
+		}
+
         private void ThreadFunc()
         {
 			m_Assistant.Run();
         }
 
-        public void SubmitUI(float deltaTime)
+        private void NextWindowFullsceen()
         {
-            m_ViewportDockID = ImGui.DockSpaceOverViewport();
-            m_DeltaTime = deltaTime;
+            var io = ImGui.GetIO();
+#if DEBUG
+            ImGui.SetNextWindowPos(new Vector2(0, 19), ImGuiCond.Always);
+#else
+            ImGui.SetNextWindowPos(new Vector2(0, 0), ImGuiCond.Always);
+#endif
+			ImGui.SetNextWindowSize(io.DisplaySize, ImGuiCond.Always);
+
+			//ImGui.SetNextWindowDockID(m_ViewportDockID, ImGuiCond.Appearing);
+		}
+
+		public void SubmitUI()
+        {
+            //m_ViewportDockID = ImGui.DockSpaceOverViewport();
 
 #if DEBUG
             if (ImGui.BeginMainMenuBar())
@@ -97,9 +115,9 @@ namespace RogueAssistantUI.Assistant
 
             if (!m_Assistant.ActiveAssistants.Any())
             {
-                ImGui.SetNextWindowDockID(m_ViewportDockID, ImGuiCond.FirstUseEver);
+                NextWindowFullsceen();
 
-                if (ImGui.Begin("Waiting for connection"))
+				if (ImGui.Begin("Waiting for connection", ImGuiWindowFlags.NoCollapse))
 				{
 					ImGui.Text("How to connect to Pokemon Emerald Rogue");
 					ImGui.Separator();
@@ -159,13 +177,13 @@ namespace RogueAssistantUI.Assistant
         }
 
         private void SubmitAssistantUI(RogueAssistant assistant, int id)
-        {
-            ImGui.SetNextWindowDockID(m_ViewportDockID, ImGuiCond.FirstUseEver);
+		{
+			NextWindowFullsceen();
 
-            var activeViews = m_AvailableViews.Where((v) => IsViewVisible(assistant, v));
+			var activeViews = m_AvailableViews.Where((v) => IsViewVisible(assistant, v));
 
             // Primary UI window
-            if (ImGui.Begin($"Connection {id}###{assistant.GetHashCode()}"))
+            if (ImGui.Begin($"Connection {id}###{assistant.GetHashCode()}", ImGuiWindowFlags.NoCollapse))
             {
                 if (assistant.HasDisconnected)
                 {

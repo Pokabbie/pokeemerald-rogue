@@ -14,4 +14,8 @@
       <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RogueAssistantNET\RogueAssistantNET.csproj" />
+    </ItemGroup>
+
 </Project>

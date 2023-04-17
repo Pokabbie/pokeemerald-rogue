@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RogueAssistantNET.Assistant;
+using RogueAssistantUI.Assistant;
 using System;
 using System.IO;
 using Num = System.Numerics;
@@ -13,29 +15,45 @@ namespace ImGuiNET.SampleProgram.XNA
     {
         private GraphicsDeviceManager _graphics;
         private ImGuiRenderer _imGuiRenderer;
+        private RogueAssistantUIController _rogueAssistant;
 
-        private Texture2D _xnaTexture;
+		private Texture2D _xnaTexture;
         private IntPtr _imGuiTexture;
 
         public SampleGame()
         {
-            _graphics = new GraphicsDeviceManager(this);
-            _graphics.PreferredBackBufferWidth = 1024;
-            _graphics.PreferredBackBufferHeight = 768;
-            _graphics.PreferMultiSampling = true;
 
-            IsMouseVisible = true;
+			//new WindowCreateInfo(50, 50, 550, 300, WindowState.Normal, "Rogue Assistant"),
+
+            _graphics = new GraphicsDeviceManager(this);
+
+			IsMouseVisible = true;
         }
 
         protected override void Initialize()
-        {
+		{
+            _graphics.IsFullScreen = false;
+			_graphics.PreferredBackBufferWidth = 650;
+			_graphics.PreferredBackBufferHeight = 400;
+			_graphics.PreferMultiSampling = false;
+			_graphics.ApplyChanges();
+			
             _imGuiRenderer = new ImGuiRenderer(this);
             _imGuiRenderer.RebuildFontAtlas();
 
             base.Initialize();
-        }
 
-        protected override void LoadContent()
+            _rogueAssistant = new RogueAssistantUIController();
+
+		}
+
+		protected override void OnExiting(object sender, EventArgs args)
+		{
+            _rogueAssistant.Destroy();
+			base.OnExiting(sender, args);
+		}
+
+		protected override void LoadContent()
         {
             // Texture loading example
 
@@ -60,10 +78,11 @@ namespace ImGuiNET.SampleProgram.XNA
             _imGuiRenderer.BeforeLayout(gameTime);
 
             // Draw our UI
-            ImGuiLayout();
+            //ImGuiLayout();
+            _rogueAssistant.SubmitUI();
 
-            // Call AfterLayout now to finish up and draw all the things
-            _imGuiRenderer.AfterLayout();
+			// Call AfterLayout now to finish up and draw all the things
+			_imGuiRenderer.AfterLayout();
 
             base.Draw(gameTime);
         }
