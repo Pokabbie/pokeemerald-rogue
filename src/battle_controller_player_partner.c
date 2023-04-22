@@ -1550,7 +1550,7 @@ static void PlayerPartnerHandleChooseItem(void)
 
 static void PlayerPartnerHandleChoosePokemon(void)
 {
-    s32 chosenMonId = GetMostSuitableMonToSwitchInto();
+    s32 chosenMonId = GetMostSuitableMonToSwitchInto(TRUE);
 
     if (chosenMonId == 6) // just switch to the next mon
     {

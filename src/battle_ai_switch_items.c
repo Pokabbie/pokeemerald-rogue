@@ -11,6 +11,7 @@
 #include "random.h"
 #include "util.h"
 #include "constants/abilities.h"
+#include "constants/battle_ai.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -21,6 +22,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u16 flags, u8 moduloPercent);
 static bool8 ShouldUseItem(void);
 static bool32 AI_ShouldHeal(u32 healAmount);
 static bool32 AI_OpponentCanFaintAiWithMod(u32 healAmount);
+static bool32 AI_CheckSurvivabilty(bool8 checkSurvivability, int playerPokemon, int aiPokemon);
 
 void GetAIPartyIndexes(u32 battlerId, s32 *firstId, s32 *lastId)
 {
@@ -527,7 +529,7 @@ void AI_TrySwitchOrUseItem(void)
         {
             if (*(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) == PARTY_SIZE)
             {
-                s32 monToSwitchId = GetMostSuitableMonToSwitchInto();
+                s32 monToSwitchId = GetMostSuitableMonToSwitchInto(TRUE);
                 if (monToSwitchId == PARTY_SIZE)
                 {
                     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
@@ -577,13 +579,16 @@ void AI_TrySwitchOrUseItem(void)
 
 // If there are two(or more) mons to choose from, always choose one that has baton pass
 // as most often it can't do much on its own.
-static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, int aliveCount)
+static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, int aliveCount, bool8 checkSurvivability)
 {
     int i, j, bits = 0;
 
     for (i = firstId; i < lastId; i++)
     {
         if (invalidMons & gBitTable[i])
+            continue;
+
+        if (AI_CheckSurvivabilty(checkSurvivability, BATTLE_OPPOSITE(gActiveBattler), i))
             continue;
 
         for (j = 0; j < MAX_MON_MOVES; j++)
@@ -608,69 +613,70 @@ static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u
     return PARTY_SIZE;
 }
 
-static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
+static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler, bool8 checkSurvivability)
 {
     int i, bits = 0;
-
-    while (bits != 0x3F) // All mons were checked.
+    u32 bestResist = UQ_4_12(1.0);
+    int bestMonId = PARTY_SIZE;
+    // Find the mon whose type is the most suitable defensively.
+    for (i = firstId; i < lastId; i++)
     {
-        u32 bestResist = UQ_4_12(1.0);
-        int bestMonId = PARTY_SIZE;
-        // Find the mon whose type is the most suitable defensively.
-        for (i = firstId; i < lastId; i++)
+        if (AI_CheckSurvivabilty(checkSurvivability, BATTLE_OPPOSITE(gActiveBattler), i))
+            continue;
+
+        if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
         {
-            if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
+            u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
+            u32 typeEffectiveness = UQ_4_12(1.0);
+
+            u8 atkType1 = gBattleMons[opposingBattler].type1;
+            u8 atkType2 = gBattleMons[opposingBattler].type2;
+            u8 defType1 = gBaseStats[species].type1;
+            u8 defType2 = gBaseStats[species].type2;
+
+            typeEffectiveness *= GetTypeModifier(atkType1, defType1);
+            if (atkType2 != atkType1)
+                typeEffectiveness *= GetTypeModifier(atkType2, defType1);
+            if (defType2 != defType1)
             {
-                u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
-                u32 typeEffectiveness = UQ_4_12(1.0);
-
-                u8 atkType1 = gBattleMons[opposingBattler].type1;
-                u8 atkType2 = gBattleMons[opposingBattler].type2;
-                u8 defType1 = gBaseStats[species].type1;
-                u8 defType2 = gBaseStats[species].type2;
-
-                typeEffectiveness *= GetTypeModifier(atkType1, defType1);
+                typeEffectiveness *= GetTypeModifier(atkType1, defType2);
                 if (atkType2 != atkType1)
-                    typeEffectiveness *= GetTypeModifier(atkType2, defType1);
-                if (defType2 != defType1)
-                {
-                    typeEffectiveness *= GetTypeModifier(atkType1, defType2);
-                    if (atkType2 != atkType1)
-                        typeEffectiveness *= GetTypeModifier(atkType2, defType2);
-                }
-                if (typeEffectiveness < bestResist)
-                {
-                    bestResist = typeEffectiveness;
-                    bestMonId = i;
-                }
+                    typeEffectiveness *= GetTypeModifier(atkType2, defType2);
+            }
+            if ((typeEffectiveness < bestResist) 
+                || ((typeEffectiveness <= bestResist) && !checkSurvivability)) //Fine with a nuetral matchup on second time through
+            {
+                bestResist = typeEffectiveness;
+                bestMonId = i;
             }
         }
+    }
 
-        // Ok, we know the mon has the right typing but does it have at least one super effective move?
-        if (bestMonId != PARTY_SIZE)
+    // Ok, we don't have anything that type resists. But do we at least have something with a super effective move?
+    if (bestMonId == PARTY_SIZE)
+    {
+         // Find the mon that has an attack most suited offensively
+        for (i = firstId; i < lastId; i++)
         {
+            if (AI_CheckSurvivabilty(checkSurvivability, BATTLE_OPPOSITE(gActiveBattler), i))
+                continue;
+
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
                 u32 move = GetMonData(&party[bestMonId], MON_DATA_MOVE1 + i);
                 if (move != MOVE_NONE && AI_GetTypeEffectiveness(move, gActiveBattler, opposingBattler) >= UQ_4_12(2.0))
                     break;
+
+                if (i != MAX_MON_MOVES)
+                    return bestMonId; // Has at least one super effective move.
             }
-
-            if (i != MAX_MON_MOVES)
-                return bestMonId; // Has both the typing and at least one super effective move.
-
-            bits |= gBitTable[bestMonId]; // Sorry buddy, we want something better.
-        }
-        else
-        {
-            bits = 0x3F; // No viable mon to switch.
         }
     }
 
-    return PARTY_SIZE;
+    return bestMonId;
 }
 
-static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
+static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler, bool8 checkSurvivability)
 {
     int i, j;
     int bestDmg = 0;
@@ -681,6 +687,9 @@ static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 inva
     for (i = firstId; i < lastId; i++)
     {
         if (gBitTable[i] & invalidMons)
+            continue;
+
+        if (AI_CheckSurvivabilty(checkSurvivability, BATTLE_OPPOSITE(gActiveBattler), i))
             continue;
 
         for (j = 0; j < MAX_MON_MOVES; j++)
@@ -701,10 +710,10 @@ static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 inva
     return bestMonId;
 }
 
-u8 GetMostSuitableMonToSwitchInto(void)
+u8 GetMostSuitableMonToSwitchInto(bool8 checkSurvivability)
 {
     u32 opposingBattler = 0;
-    u32 bestMonId = 0;
+    u32 bestMonId = PARTY_SIZE;
     u8 battlerIn1 = 0, battlerIn2 = 0;
     s32 firstId = 0;
     s32 lastId = 0; // + 1
@@ -758,17 +767,23 @@ u8 GetMostSuitableMonToSwitchInto(void)
             aliveCount++;
     }
 
-    bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount);
+    bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount, checkSurvivability);
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
 
-    bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, opposingBattler);
+    bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, opposingBattler, checkSurvivability);
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
 
-    bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler);
+    bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler, checkSurvivability);
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
+
+    //Didn't find any good options first time around. Try again without checking survivabilty, better than a random mon
+    if (checkSurvivability && bestMonId == PARTY_SIZE)
+        bestMonId = GetMostSuitableMonToSwitchInto(FALSE);
+        return bestMonId;
+
 
     return PARTY_SIZE;
 }
@@ -991,5 +1006,26 @@ static bool32 AI_OpponentCanFaintAiWithMod(u32 healAmount)
             }
         }
     }
+    return FALSE;
+}
+
+static bool32 AI_CheckSurvivabilty(bool8 checkSurvivability, int playerPokemon, int aiPokemon)
+{
+    if (!checkSurvivability)
+        return FALSE;
+
+    if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_SMART_SWITCHING)
+        {
+            //Opponent can OHKO AI, don't send this Pokemon out
+            if (CanTargetFaintAiWithMod(playerPokemon, aiPokemon, 0, 0)) 
+                return TRUE;
+
+            //Opponent can 2HKO AI and AI cannot strike first
+            //ToDo: Modify for switches when AI has already attacked (Volt Switch etc.)
+            if (CanTargetFaintAiWithMod(playerPokemon, aiPokemon, 0, 2)        
+                && GetWhoStrikesFirst(playerPokemon, aiPokemon, TRUE) == 0)
+                 return TRUE;  
+        }
+
     return FALSE;
 }
