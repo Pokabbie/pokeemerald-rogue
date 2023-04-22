@@ -39,17 +39,11 @@
 
 #define NET_PLAYER_CAPACITY 4
 
-enum GAME_STATE_NUM
-{
-    GAME_STATE_NONE,
-    GAME_STATE_MULTIPLAYER_HOST,
-    GAME_STATE_MULTIPLAYER_JOIN,
-};
-
 enum 
 {
-    GAME_CONSTANT_STATE_NUM_ADDRESS,
-    GAME_CONSTANT_SUB_STATE_NUM_ADDRESS,
+    GAME_CONSTANT_ASSISTANT_STATE_NUM_ADDRESS,
+    GAME_CONSTANT_ASSISTANT_SUBSTATE_NUM_ADDRESS,
+    GAME_CONSTANT_REQUEST_STATE_NUM_ADDRESS,
 
     GAME_CONSTANT_SAVE_BLOCK1_PTR_ADDRESS,
     GAME_CONSTANT_SAVE_BLOCK2_PTR_ADDRESS,
@@ -88,8 +82,9 @@ struct NetPlayerState
 
 struct RogueAssistantState
 {
-    u16 gameState;
-    u16 gameSubState;
+    u16 assistantState;
+    u16 assistantSubstate;
+    u16 requestState;
     u8 inCommBuffer[16];
     u8 outCommBuffer[16];
     struct NetPlayerProfile netPlayerProfile[NET_PLAYER_CAPACITY];
@@ -165,7 +160,19 @@ static const CommandCallback sCommCommands[] =
 
 void Rogue_AssistantInit()
 {
-    gRogueAssistantState.gameState = GAME_STATE_NONE;
+    PUSH_ASSISTANT_STATE(NONE);
+    Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
+}
+
+void Rogue_UpdateAssistantState(u16 state, u16 substate)
+{
+    gRogueAssistantState.assistantState = state;
+    gRogueAssistantState.assistantSubstate = substate;
+}
+
+void Rogue_UpdateAssistantRequestState(u16 state)
+{
+    gRogueAssistantState.requestState = state;
 }
 
 void Rogue_AssistantMainCB()
@@ -441,7 +448,10 @@ void Rogue_CreateMultiplayerConnectTask(bool8 asHost)
         taskId1 = CreateTask(Task_ConnectMultiplayer, 80);
         gTasks[taskId1].tConnectAsHost = asHost;
 
-        gRogueAssistantState.gameState = (asHost ? GAME_STATE_MULTIPLAYER_HOST : GAME_STATE_MULTIPLAYER_JOIN);
+        if(asHost)
+            Rogue_UpdateAssistantRequestState(REQUEST_STATE_MULTIPLAYER_HOST);
+        else
+            Rogue_UpdateAssistantRequestState(REQUEST_STATE_MULTIPLAYER_JOIN);
     }
 }
 
@@ -451,7 +461,7 @@ static void Task_ConnectMultiplayer(u8 taskId)
     if (JOY_NEW(B_BUTTON))
     {
         // Cancelled
-        gRogueAssistantState.gameState = GAME_STATE_NONE;
+        Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
         gSpecialVar_Result = FALSE;
         EnableBothScriptContexts();
         DestroyTask(taskId);
@@ -459,7 +469,7 @@ static void Task_ConnectMultiplayer(u8 taskId)
     else if(Rogue_IsNetMultiplayerActive())
     {
         // Has connected
-        gRogueAssistantState.gameState = GAME_STATE_NONE;
+        Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
         gSpecialVar_Result = TRUE;
         EnableBothScriptContexts();
         DestroyTask(taskId);
@@ -593,11 +603,15 @@ static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outpu
 
     switch (constant)
     {
-    case GAME_CONSTANT_STATE_NUM_ADDRESS:
-        value = (u32)&gRogueAssistantState.gameState;
+    case GAME_CONSTANT_ASSISTANT_STATE_NUM_ADDRESS:
+        value = (u32)&gRogueAssistantState.assistantState;
         break;
-    case GAME_CONSTANT_SUB_STATE_NUM_ADDRESS:
-        value = (u32)&gRogueAssistantState.gameSubState;
+    case GAME_CONSTANT_ASSISTANT_SUBSTATE_NUM_ADDRESS:
+        value = (u32)&gRogueAssistantState.assistantSubstate;
+        break;
+
+    case GAME_CONSTANT_REQUEST_STATE_NUM_ADDRESS:
+        value = (u32)&gRogueAssistantState.requestState;
         break;
 
     case GAME_CONSTANT_SAVE_BLOCK1_PTR_ADDRESS:

@@ -26,6 +26,8 @@
 #include "constants/rgb.h"
 #include "constants/battle_anim.h"
 
+#include "rogue_assistant.h"
+
 /*
     The intro is grouped into the following scenes
     Scene 0. Copyright screen
@@ -1035,6 +1037,8 @@ static void VBlankCB_Intro(void)
 
 static void MainCB2_Intro(void)
 {
+    PUSH_ASSISTANT_STATE2(TITLE_SCREEN, INTRO);
+
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();

@@ -22,9 +22,6 @@ namespace ImGuiNET.SampleProgram.XNA
 
         public SampleGame()
         {
-
-			//new WindowCreateInfo(50, 50, 550, 300, WindowState.Normal, "Rogue Assistant"),
-
             _graphics = new GraphicsDeviceManager(this);
 
 			IsMouseVisible = true;
@@ -43,7 +40,11 @@ namespace ImGuiNET.SampleProgram.XNA
 
             base.Initialize();
 
-            _rogueAssistant = new RogueAssistantUIController();
+            Window.Title = "Rogue Assistant";
+            Window.AllowUserResizing = true;
+            Window.AllowAltF4 = true;
+
+			_rogueAssistant = new RogueAssistantUIController();
 
 		}
 

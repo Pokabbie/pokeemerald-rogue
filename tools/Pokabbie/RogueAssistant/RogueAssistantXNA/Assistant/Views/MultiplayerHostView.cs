@@ -23,7 +23,7 @@ namespace RogueAssistantUI.Assistant.Views
 
 		public override bool IsViewVisible(RogueAssistant assistant)
 		{
-			return assistant.Connection.State.InternalGameState == InternalGameState.MultiplayerHost || assistant.HasBehaviour<MultiplayerServerBehaviour>();
+			return assistant.Connection.State.RequestState == GameRequestState.MultiplayerHost || assistant.HasBehaviour<MultiplayerServerBehaviour>();
 		}
 
 		public override void SubmitUI(RogueAssistant assistant)

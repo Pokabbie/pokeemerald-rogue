@@ -62,6 +62,7 @@
 #include "constants/trainers.h"
 #include "cable_club.h"
 
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
@@ -577,6 +578,8 @@ const u8 * const gStatusConditionStringsTable[][2] =
 
 void CB2_InitBattle(void)
 {
+    PUSH_ASSISTANT_STATE2(BATTLE, INIT);
+
     MoveSaveBlocks_ResetHeap();
     AllocateBattleResources();
     AllocateBattleSpritesData();
@@ -4984,6 +4987,8 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
 
 static void RunTurnActionsFunctions(void)
 {
+    PUSH_ASSISTANT_STATE2(BATTLE, TURN_ACTIONS);
+
     Rogue_UpdatePopups(FALSE, FALSE);
 
     if (gBattleOutcome != 0)
@@ -4996,6 +5001,11 @@ static void RunTurnActionsFunctions(void)
     {
         gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
         gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+
+        if(gBattleMainFunc != HandleEndTurn_ContinueBattle)
+        {
+            PUSH_ASSISTANT_STATE2(BATTLE, END);
+        }
     }
     else
     {

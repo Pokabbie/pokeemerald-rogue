@@ -21,7 +21,7 @@ namespace RogueAssistantNET
 
 		private static void OnUpdate(RogueAssistant assistant)
 		{
-			if (assistant.State.InternalGameState == InternalGameState.MultiplayerHost)
+			if (assistant.State.RequestState == GameRequestState.MultiplayerHost)
 			{
 				if (!assistant.HasBehaviour<MultiplayerServerBehaviour>())
 				{
@@ -36,7 +36,7 @@ namespace RogueAssistantNET
 					assistant.AddBehaviour(new MultiplayerServerBehaviour(port));
 				}
 			}
-			else if (assistant.State.InternalGameState == InternalGameState.MultiplayerJoin)
+			else if (assistant.State.RequestState == GameRequestState.MultiplayerJoin)
 			{
 				if (!assistant.HasBehaviour<MultiplayerClientBehaviour>())
 				{

@@ -23,6 +23,7 @@ namespace RogueAssistantUI.Assistant
         private RogueAssistantController m_Assistant = null;
         private Thread m_UpdateThread = null;
         //private uint m_ViewportDockID = 0;
+        private int m_WindowCounter = 0;
 
 		private EmulatorOption m_TutorialOption = EmulatorOption.None;
 		private List<IRogueAssistantView> m_AvailableViews = new List<IRogueAssistantView>();
@@ -64,22 +65,31 @@ namespace RogueAssistantUI.Assistant
         private void NextWindowFullsceen()
         {
             var io = ImGui.GetIO();
+
+            int windowId = m_WindowCounter++;
+            int totalWindowCount = Math.Max(1, m_Assistant.ActiveAssistants.Count());
+
+            var windowSize = new Vector2(io.DisplaySize.X / totalWindowCount, io.DisplaySize.Y);
+            var windowOffset = new Vector2(windowSize.X * windowId, 0);
+
 #if DEBUG
-            ImGui.SetNextWindowPos(new Vector2(0, 19), ImGuiCond.Always);
-#else
-            ImGui.SetNextWindowPos(new Vector2(0, 0), ImGuiCond.Always);
+            // Offset for menu bar
+            windowOffset += new Vector2(0, 19);
 #endif
-			ImGui.SetNextWindowSize(io.DisplaySize, ImGuiCond.Always);
+
+            ImGui.SetNextWindowPos(windowOffset, ImGuiCond.Always);
+			ImGui.SetNextWindowSize(windowSize, ImGuiCond.Always);
 
 			//ImGui.SetNextWindowDockID(m_ViewportDockID, ImGuiCond.Appearing);
 		}
 
 		public void SubmitUI()
         {
-            //m_ViewportDockID = ImGui.DockSpaceOverViewport();
+            m_WindowCounter = 0;
+			//m_ViewportDockID = ImGui.DockSpaceOverViewport();
 
 #if DEBUG
-            if (ImGui.BeginMainMenuBar())
+			if (ImGui.BeginMainMenuBar())
             {
                 if (ImGui.BeginMenu("Debug"))
 				{

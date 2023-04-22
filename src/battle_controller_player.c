@@ -37,6 +37,7 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
@@ -2715,6 +2716,8 @@ static void PlayerHandleChooseAction(void)
 {
     s32 i;
 
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ACTION);
+
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
     BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
@@ -2844,6 +2847,7 @@ static void PlayerHandleChooseMove(void)
     else
     {
         InitMoveSelectionsVarsAndStrings();
+        PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_MOVE);
         gBattlerControllerFuncs[gActiveBattler] = HandleChooseMoveAfterDma3;
     }
 }
@@ -2862,6 +2866,8 @@ static void PlayerHandleChooseItem(void)
 {
     s32 i;
 
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ITEM);
+
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
     gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
     gBattlerInMenuId = gActiveBattler;
@@ -2873,6 +2879,8 @@ static void PlayerHandleChooseItem(void)
 static void PlayerHandleChoosePokemon(void)
 {
     s32 i;
+
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_POKEMON);
 
     for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];

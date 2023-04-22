@@ -85,7 +85,7 @@ namespace RogueAssistantNET.Assistant
 				}
 			}
 
-			foreach(var assistant in m_ActiveAssistants)
+			foreach(var assistant in m_ActiveAssistants.ToArray())
 			{
 				if (assistant.HasInitialised)
 				{
