@@ -3094,7 +3094,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
-                    FollowMon_SetGraphics(0, species, TRUE);
+                    FollowMon_SetGraphics(
+                        0, 
+                        species,
+                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState
+                    );
                     break;
                 }
 
@@ -3102,7 +3106,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
-                    FollowMon_SetGraphics(0, gRogueAdvPath.currentRoomParams.perType.wildDen.species, TRUE);
+                    
+                    FollowMon_SetGraphics(
+                        0, 
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.species, 
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState
+                    );
                     break;
                 }
 

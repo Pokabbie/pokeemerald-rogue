@@ -13,7 +13,12 @@ struct RogueAdvPathRoomParams
         struct
         {
             u16 species;
+            bool8 shinyState;
         } wildDen;
+        struct
+        {
+            bool8 shinyState;
+        } legendary;
         struct 
         {
             u16 trainerNum;

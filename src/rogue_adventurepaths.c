@@ -433,11 +433,13 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
 
         case ADVPATH_ROOM_MINIBOSS:
             nodeInfo->roomParams.roomIdx = Rogue_SelectMiniBossEncounterRoom();
+            nodeInfo->roomParams.perType.legendary.shinyState = RogueRandomChance(Rogue_GetShinyOdds(), OVERWORLD_FLAG);
             break;
 
         case ADVPATH_ROOM_WILD_DEN:
             nodeInfo->roomParams.roomIdx = 0;
             nodeInfo->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
+            nodeInfo->roomParams.perType.wildDen.shinyState = RogueRandomChance(Rogue_GetShinyOdds(), OVERWORLD_FLAG);
             break;
 
         case ADVPATH_ROOM_ROUTE:
