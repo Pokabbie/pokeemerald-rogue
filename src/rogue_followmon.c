@@ -11,6 +11,7 @@
 #include "follow_me.h"
 #include "metatile_behavior.h"
 #include "pokemon.h"
+#include "safari_zone.h"
 #include "sound.h"
 #include "random.h"
 #include "script.h"
@@ -19,6 +20,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 
+// Care with increasing slot count as it can cause lag
 #define MAX_SPAWN_SLOTS 6
 
 struct FollowMonData
@@ -194,7 +196,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         if (collider == player)
         {
@@ -313,6 +315,8 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
     }
 }
 
+static u8 FindObjectEventForGfx(u16 gfxId);
+
 static u16 NextSpawnMonSlot()
 {
     u16 slot;
@@ -320,8 +324,20 @@ static u16 NextSpawnMonSlot()
     u8 level; // ignore
     u32 personality; // ignore
 
-    sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % MAX_SPAWN_SLOTS; // Care with increasing slot count as it can cause lag
-    slot = sFollowMonData.spawnSlot;
+    // Attempt to find a free slot first
+    for(slot = 0; slot < MAX_SPAWN_SLOTS; ++slot)
+    {
+        if(FindObjectEventForGfx(OBJ_EVENT_GFX_FOLLOW_MON_0 + slot) == OBJECT_EVENTS_COUNT)
+            break;
+    }
+
+    // All mon slots are in use
+    if(slot == MAX_SPAWN_SLOTS)
+    {
+        // Cycle through so we remove the oldest mon first
+        sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % MAX_SPAWN_SLOTS;
+        slot = sFollowMonData.spawnSlot;
+    }
 
     Rogue_CreateWildMon(0, &species, &level, &personality);
 
@@ -407,6 +423,18 @@ void FollowMon_OverworldCB()
 {
     if(Rogue_AreWildMonEnabled())
     {
+        // Speed up spawning
+        if(sFollowMonData.activeCount <= 1)
+        {
+            // Super fast spawn for new things on screen
+            sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 15);
+        }
+        else if(sFollowMonData.activeCount <= (MAX_SPAWN_SLOTS - 1))
+        {
+            // Fast spawn to reach capacity
+            sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 60);
+        }
+
         if(sFollowMonData.spawnCountdown == 0)
         {
             s16 x, y;
@@ -432,21 +460,8 @@ void FollowMon_OverworldCB()
                     gObjectEvents[objectEventId].rangeX = 8;
                     gObjectEvents[objectEventId].rangeY = 8;
 
-                    if(sFollowMonData.activeCount <= 1)
-                    {
-                        // Super fast spawn for new things on screen
-                        sFollowMonData.spawnCountdown = 15;
-                    }
-                    if(sFollowMonData.activeCount <= (MAX_SPAWN_SLOTS - 1))
-                    {
-                        // Fast spawn to reach capacity
-                        sFollowMonData.spawnCountdown = 60;
-                    }
-                    else
-                    {
-                        // Slower replacement spawning
-                        sFollowMonData.spawnCountdown = 60 * (3 + Random() % 2);
-                    }
+                    // Slower replacement spawning
+                    sFollowMonData.spawnCountdown = 60 * (3 + Random() % 2);
                 }
             }
         }
@@ -504,7 +519,8 @@ void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
     u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
     bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
 
-    ++sFollowMonData.activeCount;
+    if(sFollowMonData.activeCount != 255)
+        ++sFollowMonData.activeCount;
 
     if(isShiny)
     {
@@ -514,5 +530,6 @@ void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
 {
-    --sFollowMonData.activeCount;
+    if(sFollowMonData.activeCount != 0)
+        --sFollowMonData.activeCount;
 }

@@ -1239,12 +1239,20 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
+    if(GetSafariZoneFlag())
+        return FALSE;
+
     return TRUE;
 }
 
 u16 Rogue_MiniMenuHeight(void)
 {
     u16 height = Rogue_IsRunActive() ? 3 : 1;
+
+    if(GetSafariZoneFlag())
+    {
+        return 2;
+    }
 
     if(Rogue_IsActiveCampaignScored())
     {
