@@ -99,6 +99,7 @@ RogueHub_OnMapLoad_51:
 
 RogueHub_OnMapLoad_2:
 	fillmetatile 4, 20, 4, 20, 0x001, FALSE
+	fillmetatile 4, 24, 4, 24, 0x001, FALSE
 	goto RogueHub_OnMapLoad_1
 
 RogueHub_OnMapLoad_5:
@@ -524,8 +525,8 @@ RogueHub_Sign_BikeShop::
 	return
 
 
-RogueHub_Sign_NameRater::
-	msgbox RogueHub_Sign_NameRater_Text_0, MSGBOX_SIGN
+RogueHub_Sign_PokeConnect::
+	msgbox RogueHub_Sign_PokeConnect_Text_0, MSGBOX_SIGN
 	return
 
 
@@ -1146,8 +1147,8 @@ RogueHub_Sign_Shop_Text_0:
 RogueHub_Sign_BikeShop_Text_0:
 	.string "BIKE SHOP$"
 
-RogueHub_Sign_NameRater_Text_0:
-	.string "NAME RATER's HOUSE$"
+RogueHub_Sign_PokeConnect_Text_0:
+	.string "POKéCONNECT CENTRE$"
 
 RogueHub_Sign_Bank_Text_0:
 	.string "BANK$"

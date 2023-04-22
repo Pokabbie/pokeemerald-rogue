@@ -72,6 +72,7 @@ script RogueHub_OnMapLoad
     if(flag(FLAG_ROGUE_DEBUG_DISABLED))
     {
         fillmetatile(4, 20, 4, 20, METATILE_Grass, FALSE)
+        fillmetatile(4, 24, 4, 24, METATILE_Grass, FALSE)
     }
 
     // Shop
@@ -621,9 +622,9 @@ script RogueHub_Sign_BikeShop
     msgbox(format("BIKE SHOP"), MSGBOX_SIGN)
 }
 
-script RogueHub_Sign_NameRater
+script RogueHub_Sign_PokeConnect
 {
-    msgbox(format("NAME RATER's HOUSE"), MSGBOX_SIGN)
+    msgbox(format("POKéCONNECT CENTRE"), MSGBOX_SIGN)
 }
 
 script RogueHub_Sign_Bank
