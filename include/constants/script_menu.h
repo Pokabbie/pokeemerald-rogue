@@ -90,7 +90,7 @@
 #define MULTI_WIRELESS_ALL_SERVICES        79
 #define MULTI_WIRELESS_MINIGAME            80
 #define MULTI_LINK_LEADER                  81
-#define MULTI_CONTEST_RANK                 82
+#define MULTI_LINK_HOST_JOIN               82
 #define MULTI_FRONTIER_ITEM_CHOOSE         83
 #define MULTI_LINK_CONTEST_INFO            84
 #define MULTI_LINK_CONTEST_MODE            85

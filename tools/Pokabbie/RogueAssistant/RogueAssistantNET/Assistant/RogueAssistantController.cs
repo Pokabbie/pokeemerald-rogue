@@ -14,10 +14,12 @@ namespace RogueAssistantNET.Assistant
 	{
 		public delegate void AssistantCallback(RogueAssistant assistant);
 
+		private bool m_IsRunning = false;
 		private TcpListenerServer m_Server;
 		private List<RogueAssistant> m_ActiveAssistants = new List<RogueAssistant>();
 
 		private event AssistantCallback m_OnConnect;
+		private event AssistantCallback m_OnUpdate;
 
 		public RogueAssistantController()
 		{
@@ -29,6 +31,12 @@ namespace RogueAssistantNET.Assistant
 			set => m_OnConnect = value;
 		}
 
+		public AssistantCallback OnUpdate
+		{
+			get => m_OnUpdate;
+			set => m_OnUpdate = value;
+		}
+
 		public IEnumerable<RogueAssistant> ActiveAssistants
 		{
 			get => m_ActiveAssistants;
@@ -36,9 +44,11 @@ namespace RogueAssistantNET.Assistant
 
 		public void Run()
 		{
+			m_IsRunning = true;
+
 			Open();
 
-            while (true)
+            while (m_IsRunning)
 			{
 				Update();
 				Thread.Sleep(1000 / 60);
@@ -52,6 +62,11 @@ namespace RogueAssistantNET.Assistant
             m_Server = new TcpListenerServer(IPAddress.Loopback, 30150);
             m_Server.Open();
         }
+
+		public void Stop()
+		{
+			m_IsRunning = false;
+		}
 
 		public void Update()
 		{
@@ -70,8 +85,14 @@ namespace RogueAssistantNET.Assistant
 				}
 			}
 
-			foreach(var assistant in m_ActiveAssistants)
+			foreach(var assistant in m_ActiveAssistants.ToArray())
 			{
+				if (assistant.HasInitialised)
+				{
+					if (m_OnUpdate != null)
+						m_OnUpdate.Invoke(assistant);
+				}
+
 				assistant.Update();
 			}
 		}

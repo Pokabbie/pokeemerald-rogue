@@ -38,6 +38,7 @@
 #include "mystery_gift_menu.h"
 
 #include "rogue.h"
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_quest.h"
 
@@ -595,6 +596,8 @@ void CB2_ReinitMainMenu(void)
 
 static u32 InitMainMenu(bool8 returningFromOptionsMenu)
 {
+    PUSH_ASSISTANT_STATE2(TITLE_SCREEN, MAIN_MENU);
+
     SetVBlankCallback(NULL);
 
     SetGpuReg(REG_OFFSET_DISPCNT, 0);

@@ -98,8 +98,8 @@ script RogueHub_OnMapLoad
         fillmetatile(1, 12, 6, 12, METATILE_Grass, FALSE)
 
         // +name rater
-        fillmetatile(31, 21, 37, 26, METATILE_Grass, FALSE)
-        setflag(FLAG_ROGUE_TRAINER4)
+        //fillmetatile(31, 21, 37, 26, METATILE_Grass, FALSE)
+        //setflag(FLAG_ROGUE_TRAINER4)
     }
     else
     {

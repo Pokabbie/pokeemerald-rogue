@@ -18,6 +18,7 @@
 #include "rogue_query.h"
 
 #include "rogue.h"
+#include "rogue_assistant.h"
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
@@ -826,4 +827,24 @@ void Rogue_GetFollowMonSpecies(void)
 
     gSpecialVar_0x800A = species;
     gSpecialVar_0x800B = isShiny;
+}
+
+void Rogue_IsMultiplayerActive(void)
+{
+    gSpecialVar_Result = Rogue_IsNetMultiplayerActive();
+}
+
+void Rogue_IsMultiplayerHost(void)
+{
+    gSpecialVar_Result = Rogue_IsNetMultiplayerHost();
+}
+
+void Rogue_HostMultiplayer()
+{
+    Rogue_CreateMultiplayerConnectTask(TRUE);
+}
+
+void Rogue_JoinMultiplayer()
+{
+    Rogue_CreateMultiplayerConnectTask(FALSE);
 }

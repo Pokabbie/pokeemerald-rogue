@@ -1286,6 +1286,8 @@ extern const u8 gText_PokemonJump[];
 extern const u8 gText_DodrioBerryPicking[];
 extern const u8 gText_JoinGroup[];
 extern const u8 gText_BecomeLeader[];
+extern const u8 gText_HostAdventure[];
+extern const u8 gText_JoinAdventure[];
 extern const u8 gText_NormalRank[];
 extern const u8 gText_SuperRank[];
 extern const u8 gText_HyperRank[];

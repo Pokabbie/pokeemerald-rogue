@@ -221,6 +221,13 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 
 bool8 FollowMon_ProcessMonInteraction()
 {
+    if(Rogue_AreWildMonEnabled() && VarGet(VAR_REPEL_STEP_COUNT) != 0)
+    {
+        // Never auto trigger battle whilst repel is active
+        sFollowMonData.pendingInterction = FALSE;
+        return FALSE;
+    }
+
     if(sFollowMonData.pendingInterction)
     {
         u8 i;

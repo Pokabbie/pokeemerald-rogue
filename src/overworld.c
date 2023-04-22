@@ -71,6 +71,7 @@
 
 #include "constants/heal_locations.h"
 
+#include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
@@ -1428,16 +1429,19 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             ScriptContext2_Enable();
             HideMapNamePopUpWindow(); 
             Rogue_UpdatePopups(TRUE, FALSE);
+            PUSH_ASSISTANT_STATE2(OVERWORLD, LOCKED);
         }
         else
         {
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
             Rogue_UpdatePopups(TRUE, TRUE);
             FollowMon_OverworldCB();
+            PUSH_ASSISTANT_STATE2(OVERWORLD, MOVEMENT);
         }
     }
     else
     {
+        PUSH_ASSISTANT_STATE2(OVERWORLD, LOCKED);
         Rogue_UpdatePopups(TRUE, FALSE);
     }
 

@@ -1,8 +1,9 @@
-﻿using ENet;
-using RogueAssistantNET.Assistant.Utilities;
+﻿using RogueAssistantNET.Assistant.Utilities;
+using RogueAssistantNET.Game;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -49,16 +50,31 @@ namespace RogueAssistantNET.Assistant.Behaviours
 		{
 			Console.WriteLine($"== Openning Server ==");
 			m_PlayerSync = assistant.FindOrCreateBehaviour<NetPlayerSyncBehaviour>();
-			m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
+			m_PlayerSync.RemoveAllOnlinePlayers();
 
-			if(!m_Server.Open(1))
+			if (m_Server.Open(1))
 			{
-                assistant.RemoveBehaviour(this);
-            }
+				assistant.Connection.SendReliable(GameCommandCode.BeginMultiplayerHost);
+				m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
+			}
+			else
+			{
+				m_Server = null;
+				assistant.RemoveBehaviour(this);
+			}
 		}
 
 		public void OnDetach(RogueAssistant assistant)
 		{
+			m_PlayerSync.RemoveAllOnlinePlayers();
+
+			assistant.Connection.SendReliable(GameCommandCode.EndMultiplayer);
+
+			if (m_Server != null)
+			{
+				m_Server.Close();
+				m_Server = null;
+			}
 		}
 
 		public void OnUpdate(RogueAssistant assistant)
@@ -80,8 +96,17 @@ namespace RogueAssistantNET.Assistant.Behaviours
 				m_ActiveConnections.Add(newClient);
 			}
 
-			foreach(var client in m_ActiveConnections)
+			var activeConnections = m_ActiveConnections.ToArray();
+
+			foreach(var client in activeConnections)
             {
+				if(!client.Client.Connected)
+				{
+					RemovePlayerData(client.Client);
+					m_ActiveConnections.Remove(client);
+					continue;
+				}
+
 				// Read
 				//
                 var asyncArgs = new SocketAsyncEventArgs();
@@ -94,7 +119,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
 				//
                 NetworkPacketBatch batch = new NetworkPacketBatch();
 
-                PushPlayerData(batch, m_PlayerSync.LocalPlayer);
+				PushPlayerData(batch, m_PlayerSync.LocalPlayer);
 
 				foreach(var kvp in m_ConnectionPlayerData)
 				{
@@ -199,6 +224,16 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			m_PlayerSync.AddOnlinePlayer(player);
 
 			return player;
+		}
+
+		private void RemovePlayerData(Socket socket)
+		{
+			NetPlayerData player;
+			if (m_ConnectionPlayerData.TryGetValue(socket, out player))
+			{
+				m_ConnectionPlayerData.Remove(socket);
+				m_PlayerSync.RemoveOnlinePlayer(player);
+			}
 		}
 	}
 }

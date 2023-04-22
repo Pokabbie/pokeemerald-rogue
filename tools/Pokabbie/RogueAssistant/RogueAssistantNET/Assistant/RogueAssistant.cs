@@ -1,5 +1,6 @@
 ﻿using RogueAssistantNET.Game;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,7 +17,12 @@ namespace RogueAssistantNET.Assistant
 		private const string c_RogueHandshake2 = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY";
 
 		private GameConnection m_Connection = null;
+		private Thread m_MainThread = null;
+		private ReaderWriterLock m_BehaviourLock = new ReaderWriterLock();
+
 		private List<IRogueAssistantBehaviour> m_Behaviours = new List<IRogueAssistantBehaviour>();
+		private ConcurrentQueue<IRogueAssistantBehaviour> m_BehavioursToAdd = new ConcurrentQueue<IRogueAssistantBehaviour>();
+		private ConcurrentQueue<IRogueAssistantBehaviour> m_BehavioursToRemove = new ConcurrentQueue<IRogueAssistantBehaviour>();
 
 		private bool m_IsFirstUpdate = true;
 		private string m_DisconnectionMessage = null;
@@ -24,11 +30,17 @@ namespace RogueAssistantNET.Assistant
 		private RogueAssistant(TcpClient client)
 		{
 			m_Connection = new GameConnection(client);
+			m_MainThread = Thread.CurrentThread;
 		}
 
 		public GameConnection Connection
 		{
 			get => m_Connection;
+		}
+
+		public GameState State
+		{
+			get => m_Connection?.State;
 		}
 
 		public bool HasInitialised
@@ -48,35 +60,54 @@ namespace RogueAssistantNET.Assistant
 
         public IEnumerable<IRogueAssistantBehaviour> ActiveBehaviours
 		{
-			get => m_Behaviours;
+			get
+			{
+				m_BehaviourLock.AcquireReaderLock(10000);
+				var behaviours = m_Behaviours.ToArray();
+				m_BehaviourLock.ReleaseReaderLock();
+
+				return behaviours;
+			}
 		}
 
-        public void AddBehaviour(IRogueAssistantBehaviour behaviour)
-		{
-			m_Behaviours.Add(behaviour);
 
-			if(m_Connection != null && m_Connection.HasInitialised)
-				behaviour.OnAttach(this);
+		public void AddBehaviour(IRogueAssistantBehaviour behaviour)
+		{
+			if (m_MainThread == Thread.CurrentThread)
+			{
+				m_BehaviourLock.AcquireWriterLock(10000);
+				m_Behaviours.Add(behaviour);
+				m_BehaviourLock.ReleaseWriterLock();
+
+				if (m_Connection != null && m_Connection.HasInitialised)
+					behaviour.OnAttach(this);
+			}
+			else
+			{
+				m_BehavioursToAdd.Enqueue(behaviour);
+			}
 		}
 
 		public void RemoveBehaviour(IRogueAssistantBehaviour behaviour)
 		{
-			if (m_Behaviours.Remove(behaviour))
-			{
-				if (m_Connection != null && m_Connection.HasInitialised)
-					behaviour.OnDetach(this);
-			}
+			m_BehavioursToRemove.Enqueue(behaviour);
 		}
 
 		public T FindBehaviour<T>()
 		{
-			return m_Behaviours.Where((b) => b is T).Select((b) => (T)b) .FirstOrDefault();
+			m_BehaviourLock.AcquireReaderLock(10000);
+			T output = m_Behaviours.Where((b) => b is T).Select((b) => (T)b).FirstOrDefault();
+			m_BehaviourLock.ReleaseReaderLock();
+			return output;
         }
 
         public bool HasBehaviour<T>()
-        {
-            return m_Behaviours.Where((b) => b is T).Any();
-        }
+		{
+			m_BehaviourLock.AcquireReaderLock(10000);
+			bool output = m_Behaviours.Where((b) => b is T).Any();
+			m_BehaviourLock.ReleaseReaderLock();
+			return output;
+		}
 
         public T FindOrCreateBehaviour<T>() where T : IRogueAssistantBehaviour, new()
 		{
@@ -98,9 +129,29 @@ namespace RogueAssistantNET.Assistant
 
 			try
 			{
+				while (m_BehavioursToAdd.Count != 0)
+				{
+					if(m_BehavioursToAdd.TryDequeue(out IRogueAssistantBehaviour behaviour))
+						AddBehaviour(behaviour);
+				}
+
 				m_Connection.Update();
 
+				while (m_BehavioursToRemove.Count != 0)
+				{
+					if (m_BehavioursToRemove.TryDequeue(out IRogueAssistantBehaviour behaviour))
+					{
+						behaviour.OnDetach(this);
+
+						m_BehaviourLock.AcquireWriterLock(10000);
+						m_Behaviours.Remove(behaviour);
+						m_BehaviourLock.ReleaseWriterLock();
+					}
+				}
+
+				m_BehaviourLock.AcquireReaderLock(10000);
 				var behavioursToUpdate = m_Behaviours.ToArray();
+				m_BehaviourLock.ReleaseReaderLock();
 
 				if (m_IsFirstUpdate && m_Connection.HasInitialised)
 				{

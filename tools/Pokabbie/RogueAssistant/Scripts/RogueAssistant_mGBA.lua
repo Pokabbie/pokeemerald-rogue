@@ -18,7 +18,16 @@ globals =
 -- Utils
 --
 
-function splitStr(inputstr)
+function splitRequestStr(inputstr)
+    words = {}
+    for word in string.gmatch(inputstr, '([^:]+)') do
+        table.insert(words, word) 
+    end
+
+    return words
+end
+
+function splitParamStr(inputstr)
     words = {}
     for word in string.gmatch(inputstr, '([^;]+)') do
         table.insert(words, word) 
@@ -82,15 +91,22 @@ commCmds =
 
 function Conn_ProcessCmd(msg)
     if constants.debugLog then
-        console:log("Cmd: " .. msg)
+        console:log("In: " .. msg)
     end
+    
+    local requests = splitRequestStr(msg)
 
-    local params = splitStr(msg)
+    for i, req in ipairs(requests) do
+        if constants.debugLog then
+            console:log("\tReq: " .. req)
+        end
+        local params = splitParamStr(req)
 
-    for k, v in pairs(commCmds) do
-        if k == params[1] then
-            v(params)
-            return true
+        for k, v in pairs(commCmds) do
+            if k == params[1] then
+                v(params)
+                return true
+            end
         end
     end
 

@@ -1,4 +1,5 @@
 ﻿using RogueAssistantNET.Assistant.Utilities;
+using RogueAssistantNET.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,14 +38,37 @@ namespace RogueAssistantNET.Assistant.Behaviours
 			m_Port = port;
 		}
 
+		public MultiplayerClientBehaviour(string addressWithPort)
+		{
+			m_Client = new TcpClient();
+			m_Client.NoDelay = true;
+
+			var parts = addressWithPort.Split(':');
+
+			m_Hostname = parts[0];
+
+			if (!(parts.Length == 2 && int.TryParse(parts[1], out m_Port)))
+			{
+				m_Port = MultiplayerServerBehaviour.c_DefaultPort;
+			}
+		}
+
+		public bool IsConnecting
+		{
+			get => m_State == ConnectionState.Connecting;
+		}
+
+		public bool IsDisconnected
+		{
+			get => m_State == ConnectionState.Disconnected;
+		}
 
 		public void OnAttach(RogueAssistant assistant)
 		{
 			m_PlayerSync = assistant.FindOrCreateBehaviour<NetPlayerSyncBehaviour>();
-			m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
+			m_PlayerSync.RemoveAllOnlinePlayers();
 
 			Console.WriteLine($"== Openning Client ({m_Hostname}:{m_Port}) ==");
-			m_Client.Connect(m_Hostname, m_Port);
 
 			Task.Run(() =>
 			{
@@ -52,6 +76,8 @@ namespace RogueAssistantNET.Assistant.Behaviours
                 {
                     //m_Client.Client.Blocking = false;
                     m_State = ConnectionState.PostConnect;
+					assistant.Connection.SendReliable(GameCommandCode.BeginMultiplayerClient);
+					m_PlayerSync.RefreshLocalPlayer(assistant.Connection);
 				}
 				else
 				{
@@ -66,6 +92,9 @@ namespace RogueAssistantNET.Assistant.Behaviours
 
 		public void OnDetach(RogueAssistant assistant)
 		{
+			m_PlayerSync.RemoveAllOnlinePlayers();
+
+			assistant.Connection.SendReliable(GameCommandCode.EndMultiplayer);
 		}
 
 		public void OnUpdate(RogueAssistant assistant)
@@ -84,8 +113,10 @@ namespace RogueAssistantNET.Assistant.Behaviours
                         if (!m_Client.Client.ReceiveAsync(asyncArgs))
                             OnTcpClientRecieve(asyncArgs);
 
+						batch.Push(new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData));
 						batch.Push(new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData));
-                    }
+					}
+					batch.Send(m_Client.Client);
 					break;
 
 				case ConnectionState.PostConnect:
@@ -95,6 +126,7 @@ namespace RogueAssistantNET.Assistant.Behaviours
                         batch.Push(new NetworkPacket(NetworkChannel.NetPlayerProfile, m_PlayerSync.LocalPlayer.ProfileData));
                         batch.Push(new NetworkPacket(NetworkChannel.NetPlayerState, m_PlayerSync.LocalPlayer.StateData));
 					}
+					batch.Send(m_Client.Client);
 					break;
 
 				case ConnectionState.Disconnected:
@@ -102,12 +134,23 @@ namespace RogueAssistantNET.Assistant.Behaviours
 					break;
 			}
 
-			batch.Send(m_Client.Client);
         }
 
 		private bool TryConnect(RogueAssistant assistant)
 		{
 			Console.WriteLine($"Connecting...");
+
+			try
+			{
+				m_Client.Connect(m_Hostname, m_Port);
+			}
+			catch (Exception ex) 
+			{
+				Console.Error.WriteLine($"Failed to connect: {ex.Message}");
+				return false;
+			}
+
+
 			byte[] buffer = new byte[4096];
 
 			bool VerifyString(string input)

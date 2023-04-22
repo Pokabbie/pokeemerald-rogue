@@ -24,6 +24,8 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 
+#include "rogue_assistant.h"
+
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
 #define VERSION_BANNER_RIGHT_X 162
@@ -521,6 +523,8 @@ static void VBlankCB(void)
 
 void CB2_InitTitleScreen(void)
 {
+    PUSH_ASSISTANT_STATE2(TITLE_SCREEN, PRESS_START);
+
     switch (gMain.state)
     {
     default:

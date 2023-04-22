@@ -172,7 +172,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 34,
+      "x": 35,
       "y": 25,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -760,6 +760,13 @@
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 33,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_POKEMON_CENTRE",
       "dest_warp_id": 0
     }
   ],

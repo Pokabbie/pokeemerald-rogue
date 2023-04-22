@@ -7,8 +7,44 @@ using System.Threading.Tasks;
 
 namespace RogueAssistantNET.Game
 {
+	public enum GameAssistantState
+	{
+		None,
+		TitleScreen,
+		Overworld,
+		Battle,
+	}
+
+	public enum GameAssistantSubstate
+	{
+		None,
+		TitleScreen_Intro,
+		TitleScreen_PressStart,
+		TitleScreen_MainMenu,
+		Overworld_Movement,
+		Overworld_Locked,
+		Battle_Init,
+		Battle_ChooseAction,
+		Battle_ChooseMove,
+		Battle_ChooseItem,
+		Battle_ChoosePokemon,
+		Battle_TurnActions,
+		Battle_End,
+	}
+
+	public enum GameRequestState
+	{
+		None,
+		MultiplayerHost,
+		MultiplayerJoin
+	}
+
 	public enum GameStateConstant
 	{
+		GameAssistantStateAddress,
+		GameAssistantSubstateAddress,
+		GameRequestStateAddress,
+
 		SaveBlock1Ptr,
 		SaveBlock2Ptr,
 		NetPlayerCapacity,
@@ -16,6 +52,8 @@ namespace RogueAssistantNET.Game
 		NetPlayerProfileSize,
 		NetPlayerStateAddress,
 		NetPlayerStateSize,
+
+		DebugMainAddress,
 	}
 
 	public class GameState
@@ -28,6 +66,9 @@ namespace RogueAssistantNET.Game
 
 		private byte[] m_PlayerNameData;
 		private byte m_PlayerAvatar;
+		private GameAssistantState m_AssistantState;
+		private GameAssistantSubstate m_AssistantSubstate;
+		private GameRequestState m_RequestState;
 
 		public GameState(GameConnection connection)
 		{
@@ -44,6 +85,21 @@ namespace RogueAssistantNET.Game
 			get => m_PlayerNameData;
 		}
 
+		public GameAssistantState AssistantState
+		{
+			get => m_AssistantState;
+		}
+
+		public GameAssistantSubstate AssistantSubstate
+		{
+			get => m_AssistantSubstate;
+		}
+
+		public GameRequestState RequestState
+		{
+			get => m_RequestState;
+		}
+
 		public byte PlayerAvatar
 		{
 			get => m_PlayerAvatar;
@@ -56,6 +112,10 @@ namespace RogueAssistantNET.Game
 				m_FirstUpdate = false;
 				RefreshInfrequentData();
 			}
+
+			m_AssistantState = (GameAssistantState)m_Connection.ReadU16(GetConstantValue(GameStateConstant.GameAssistantStateAddress));
+			m_AssistantSubstate = (GameAssistantSubstate)m_Connection.ReadU16(GetConstantValue(GameStateConstant.GameAssistantSubstateAddress));
+			m_RequestState = (GameRequestState)m_Connection.ReadU16(GetConstantValue(GameStateConstant.GameRequestStateAddress));
 
 			// Always do a read to check we're still connection
 			m_Connection.ReadU8(GameConstants.GFHeaderAddress);

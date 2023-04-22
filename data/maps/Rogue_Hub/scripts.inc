@@ -111,8 +111,6 @@ RogueHub_OnMapLoad_9:
 	fillmetatile 1, 3, 14, 10, 0x001, FALSE
 	fillmetatile 1, 11, 12, 11, 0x001, FALSE
 	fillmetatile 1, 12, 6, 12, 0x001, FALSE
-	fillmetatile 31, 21, 37, 26, 0x001, FALSE
-	setflag FLAG_ROGUE_TRAINER4
 	goto RogueHub_OnMapLoad_8
 
 RogueHub_OnMapLoad_13:
