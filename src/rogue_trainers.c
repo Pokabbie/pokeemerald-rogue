@@ -92,19 +92,28 @@ static void NextMonGenerator();
 static void ApplyMonGeneratorQuery(struct RogueTrainerMonGenerator* generator);
 
 static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount);
-static bool8 SelectNextPreset(u16 species, struct RogueMonPreset* outPreset);
+static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* outPreset);
 static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
 
 static void ReorderPartyMons(struct Pokemon *party, u8 monCount);
 
+// Manual start offsets to make it clearer which trainer nums are which trainer types
+#define TRAINER_NUM_BOSS_START          100
+#define TRAINER_NUM_BOSS_COUNT          (gRogueTrainers.bossCount)
+#define TRAINER_NUM_BOSS_END            (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
+
+#define TRAINER_NUM_MINIBOSS_START      200
+#define TRAINER_NUM_MINIBOSS_COUNT      (gRogueTrainers.minibossCount)
+#define TRAINER_NUM_MINIBOSS_END        (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
+
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
-    return trainerNum < gRogueTrainers.bossCount;
+    return trainerNum >= TRAINER_NUM_BOSS_START && trainerNum <= TRAINER_NUM_BOSS_END;
 }
 
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
 {
-    return FALSE;
+    return trainerNum >= TRAINER_NUM_MINIBOSS_START && trainerNum <= TRAINER_NUM_MINIBOSS_END;
 }
 
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
@@ -134,9 +143,15 @@ static u8 GetTrainerLevel(u16 trainerNum)
 
 bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr)
 {
-    if(trainerNum < gRogueTrainers.bossCount)
+    if(Rogue_IsBossTrainer(trainerNum))
     {
-        *trainerPtr = &gRogueTrainers.boss[trainerNum];
+        *trainerPtr = &gRogueTrainers.boss[trainerNum - TRAINER_NUM_BOSS_START];
+        return TRUE;
+    }
+
+    if(Rogue_IsMiniBossTrainer(trainerNum))
+    {
+        *trainerPtr = &gRogueTrainers.miniboss[trainerNum - TRAINER_NUM_MINIBOSS_START];
         return TRUE;
     }
 
@@ -253,22 +268,27 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 }
 
 
-static u16 GetBossHistoryKey(u16 bossId)
+static u16 GetTrainerHistoryKey(u16 trainerNum, const struct RogueTrainer* trainerPtr)
 {
-    // We're gonna always use the trainer's assigned type to prevent dupes
-    // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-    u16 type = gRogueTrainers.boss[bossId].monGenerators[0].incTypes[0];
+    if(Rogue_IsBossTrainer(trainerNum))
+    {
+        // We're gonna always use the trainer's assigned type to prevent dupes
+        // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
+        u16 type = trainerPtr->monGenerators[0].incTypes[0];
 
-    // None type trainers are unqiue, so we don't care about the type repeat
-    if(type == TYPE_NONE)
-        return NUMBER_OF_MON_TYPES + bossId;
+        // None type trainers are unqiue, so we don't care about the type repeat
+        if(type == TYPE_NONE)
+            return NUMBER_OF_MON_TYPES + trainerNum;
 
-    return type;
+        return type;
+    }
+
+    // Just avoid repeating this trainer
+    return trainerNum;
 }
 
-static bool8 IsBossEnabled(u16 bossId)
+static bool8 IsTrainerEnabled(u16 trainerNum, const struct RogueTrainer* trainer, u16* historyBuffer, u16 historyBufferCount)
 {
-    const struct RogueTrainer* trainer = &gRogueTrainers.boss[bossId];
     u16 includeFlags = TRAINER_FLAG_NONE;
     u16 excludeFlags = TRAINER_FLAG_NONE;
     
@@ -289,26 +309,32 @@ static bool8 IsBossEnabled(u16 bossId)
             includeFlags |= TRAINER_FLAG_FALLBACK_REGION;
         }
 
-        if(gRogueRun.currentDifficulty < 8)
-            excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 12)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 13)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
-        else if(gRogueRun.currentDifficulty < 14)
-            excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+        if(Rogue_IsBossTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty < 8)
+                excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+            else if(gRogueRun.currentDifficulty < 12)
+                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
+            else if(gRogueRun.currentDifficulty < 13)
+                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
+            else if(gRogueRun.currentDifficulty < 14)
+                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
+        }
     }
     else
     {
         excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
 
-        if(gRogueRun.currentDifficulty >= 13)
-            includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
-        else
+        if(Rogue_IsBossTrainer(trainerNum))
         {
-            // Don't use special trainers for rainbow mode
-            if(gRogueTrainers.boss[bossId].monGenerators[0].incTypes[0] == TYPE_NONE)
-                return FALSE;
+            if(gRogueRun.currentDifficulty >= 13)
+                includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
+            else
+            {
+                // Don't use special trainers for rainbow mode
+                if(trainer->monGenerators[0].incTypes[0] == TYPE_NONE)
+                    return FALSE;
+            }
         }
     }
 
@@ -319,7 +345,7 @@ static bool8 IsBossEnabled(u16 bossId)
 
     if(includeFlags == TRAINER_FLAG_NONE || (trainer->trainerFlags & includeFlags) != 0)
     {
-        if(!HistoryBufferContains(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId)))
+        if(!HistoryBufferContains(historyBuffer, historyBufferCount, GetTrainerHistoryKey(trainerNum, trainer)))
         {
             return TRUE;
         }
@@ -328,42 +354,66 @@ static bool8 IsBossEnabled(u16 bossId)
     return FALSE;
 }
 
-static u16 NextBossId()
+static u16 NextTrainerNum(u16 startNum, u16 endNum, u16* historyBuffer, u16 historyBufferCount)
 {
-    u16 i;
+    u16 trainerNum;
     u16 randIdx;
-    u16 enabledBossesCount = 0;
+    u16 enabledTrainerCount;
+    const struct RogueTrainer* trainerPtr;
 
-    for(i = 0; i < gRogueTrainers.bossCount; ++i)
+    enabledTrainerCount = 0;
+
+
+    for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
     {
-        if(IsBossEnabled(i))
-            ++enabledBossesCount;
-    }
-
-    randIdx = RogueRandomRange(enabledBossesCount, OVERWORLD_FLAG);
-    enabledBossesCount = 0;
-
-    for(i = 0; i < gRogueTrainers.bossCount; ++i)
-    {
-        if(IsBossEnabled(i))
+        if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
         {
-            if(enabledBossesCount == randIdx)
-                return i;
-            else
-                ++enabledBossesCount;
+            ++enabledTrainerCount;
         }
     }
 
-    return gRogueTrainers.bossCount - 1;
+    randIdx = RogueRandomRange(enabledTrainerCount, OVERWORLD_FLAG);
+    enabledTrainerCount = 0;
+
+    for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
+    {
+        if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
+        {
+            if(enabledTrainerCount == randIdx)
+                return trainerNum;
+            else
+                ++enabledTrainerCount;
+        }
+    }
+
+    AGB_ASSERT(trainerNum >= endNum);
+    return endNum;
 }
 
 u16 Rogue_NextBossTrainerId()
 {
-    u16 bossId = NextBossId();
+    const struct RogueTrainer* trainerPtr;
+    u16 trainerNum = NextTrainerNum(TRAINER_NUM_BOSS_START, TRAINER_NUM_BOSS_END, &gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
 
-    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetBossHistoryKey(bossId));
+    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    {
+        HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
+    }
 
-    return bossId;
+    return trainerNum;
+}
+
+u16 Rogue_NextMinibossTrainerId()
+{
+    const struct RogueTrainer* trainerPtr;
+    u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    {
+        HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
+    }
+
+    return trainerNum;
 }
 
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
@@ -499,28 +549,35 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
             monCount = minMonCount + RogueRandomRange(maxMonCount - minMonCount, FLAG_SET_SEED_TRAINERS);
         }
 
+        if(trainerPtr->monGenerators->generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
+        {
+            monCount = gPlayerPartyCount;
+        }
+
         monCount = min(monCount, monCapacity);
     }
 
     // Generate team
     BeginTrainerSpeciesQuery(trainerNum, party);
     {
+        u8 monIdx;
         struct RogueMonPreset preset;
 
         for(i = 0; i < monCount; ++i)
         {
+            monIdx = sTrainerScratch->totalMonCount;
             species = NextTrainerSpecies(party);
 
 #if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-            CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            CreateMon(&party[monIdx], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #else
-            CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            CreateMon(&party[monIdx], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #endif
 
-            if(UseCompetitiveMoveset(i, monCount) && SelectNextPreset(species, &preset))
+            if(UseCompetitiveMoveset(monIdx, monCount) && SelectNextPreset(species, monIdx, &preset))
             {
                 ModifyTrainerMonPreset(&preset);
-                Rogue_ApplyMonPreset(&party[i], level, &preset);
+                Rogue_ApplyMonPreset(&party[monIdx], level, &preset);
             }
         }
 
@@ -561,6 +618,7 @@ static void BeginTrainerSpeciesQuery(u16 trainerNum, struct Pokemon* party)
 
     sTrainerScratch->trainerNum = trainerNum;
     sTrainerScratch->partyPtr = party;
+    sTrainerScratch->useFinalChampionGen = Rogue_IsBossTrainer(trainerNum) && gRogueRun.currentDifficulty >= 13;
     Rogue_TryGetTrainer(trainerNum, &sTrainerScratch->trainerPtr);
 
     NextMonGenerator();
@@ -653,8 +711,6 @@ static u16 NextTrainerSpecies(struct Pokemon* party)
 
     AGB_ASSERT(sTrainerScratch != NULL);
 
-    sTrainerScratch->useFinalChampionGen = Rogue_IsBossTrainer(sTrainerScratch->trainerNum) && gRogueRun.currentDifficulty >= 13;
-
     while(species == SPECIES_NONE)
     {
         ++sTrainerScratch->generatorUseCount;
@@ -688,7 +744,15 @@ static u16 NextTrainerSpecies(struct Pokemon* party)
             ApplyMonGeneratorQuery(&sTrainerScratch->monGenerator);
         }
 
+    
+        // Apply mirrorred mon
+        if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
+        {
+            species = GetMonData(&gPlayerParty[sTrainerScratch->totalMonCount], MON_DATA_SPECIES);
+            break;
+        }
         // Attempt to select a random mon from query
+        else 
         {
             u8 tryCount;
             u16 randIdx;
@@ -724,8 +788,12 @@ static u16 NextTrainerSpecies(struct Pokemon* party)
         }
     }
 
-    // Increment generation stats
-    ++sTrainerScratch->totalMonCount;
+    if(species != SPECIES_NONE)
+    {
+        // Increment generation stats
+        ++sTrainerScratch->totalMonCount;
+    }
+
     return species;
 }
 
@@ -954,7 +1022,14 @@ static void AppendWeakTypes(u8 baseType, u8* typesBuffer, u8* typeCount)
 static void ApplyMonGeneratorQuery(struct RogueTrainerMonGenerator* generator)
 {
     // TODO - Support custom queries
-    
+
+    // Early out if we are mirroring
+    if(generator->generatorFlags & (TRAINER_GENERATOR_FLAG_MIRROR_ANY))
+    {
+        sTrainerScratch->isGeneratorQueryValid = FALSE;
+        return;
+    }
+
     // Only valid for this run
     if(generator->generatorFlags & (TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE | TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE))
         sTrainerScratch->isGeneratorQueryValid = FALSE;
@@ -1078,6 +1153,12 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
 
     AGB_ASSERT(sTrainerScratch != NULL);
 
+    if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
+    {
+        // Exact mirror force competitive set and we'll override it later
+        return TRUE;
+    }
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
     {
         // For regular trainers, Last and first mon can have competitive sets
@@ -1122,12 +1203,27 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
     return FALSE;
 }
 
-static bool8 SelectNextPreset(u16 species, struct RogueMonPreset* outPreset)
+static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* outPreset)
 {
     u8 i;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
     AGB_ASSERT(sTrainerScratch != NULL);
+
+    // Exact mirror copy trainer party
+    if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
+    {
+        outPreset->allowMissingMoves = TRUE;
+        outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+        outPreset->abilityNum = GetMonAbility(&gPlayerParty[monIdx]);
+        outPreset->hiddenPowerType = CalcMonHiddenPowerType(&gPlayerParty[monIdx]);
+        outPreset->flags = 0;
+
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+            outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
+
+        return TRUE;
+    }
 
     if(presetCount != 0)
     {

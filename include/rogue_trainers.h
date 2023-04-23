@@ -17,6 +17,7 @@ u8 Rogue_CalculateBossMonLvl();
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 
 u16 Rogue_NextBossTrainerId();
+u16 Rogue_NextMinibossTrainerId();
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum);
 
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer);

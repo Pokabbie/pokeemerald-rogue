@@ -23,6 +23,10 @@ struct RogueAdvPathRoomParams
         {
             u16 trainerNum;
         } boss;
+        struct 
+        {
+            u16 trainerNum;
+        } miniboss;
     } perType;
 };
 
@@ -265,9 +269,10 @@ struct RogueTrainer
 
 struct RogueTrainerCollection
 {
-    // new
     u16 bossCount;
+    u16 minibossCount;
     const struct RogueTrainer* boss;
+    const struct RogueTrainer* miniboss;
 };
 
 struct SpeciesTable
@@ -282,7 +287,7 @@ struct RogueMonPreset
 {
     bool8 allowMissingMoves;
     u16 heldItem;
-    u16 abilityNum;
+    u16 abilityNum; // not actually abilityNum, should be the abilityId
     u16 hiddenPowerType;
     u16 flags;
     u16 moves[MAX_MON_MOVES];
@@ -330,7 +335,6 @@ struct PokemonObjectEventInfo
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
-extern const struct RogueTrainerData gRogueMiniBossEncounters;
 extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
