@@ -398,6 +398,12 @@ Rogue_ConfigRoom_TalkHiddenEnterance_3:
 	return
 
 Rogue_ConfigRoom_TalkHiddenEnterance_4:
+	msgbox Rogue_ConfigRoom_TalkHiddenEnterance_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_TalkHiddenEnterance_6
+	goto Rogue_ConfigRoom_TalkHiddenEnterance_3
+
+Rogue_ConfigRoom_TalkHiddenEnterance_6:
 	setflag FLAG_ROGUE_UNCOVERRED_POKABBIE
 	waitse
 	playse SE_TRUCK_DOOR
@@ -1839,6 +1845,14 @@ Rogue_ConfigRoom_Campaign_Text_2:
 Rogue_ConfigRoom_TalkHiddenEnterance_Text_0:
 	.string "What's this?\p"
 	.string "A hidden switch!\p"
+	.string "Press the switch?$"
+
+Rogue_ConfigRoom_TalkHiddenEnterance_Text_1:
+	.string "WARNING!\n"
+	.string "Pressing this switch will skip ahead and\l"
+	.string "activate post-game content.\p"
+	.string "You're recommended to complete a run\n"
+	.string "normally before pressing this switch.\p"
 	.string "Press the switch?$"
 
 Rogue_ConfigRoom_MeetPokabbie_Text_0:
