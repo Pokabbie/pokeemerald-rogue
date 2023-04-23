@@ -835,45 +835,6 @@ RogueHub_CombineMons_26:
 	goto RogueHub_CombineMons_5
 
 
-RogueHub_RenameMon::
-	lock
-	msgbox RogueHub_RenameMon_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_RenameMon_2
-	msgbox RogueHub_RenameMon_Text_6, MSGBOX_DEFAULT
-RogueHub_RenameMon_1:
-	release
-	return
-
-RogueHub_RenameMon_2:
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq RogueHub_RenameMon_5
-	special BufferMonNickname
-	msgbox RogueHub_RenameMon_Text_2, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RogueHub_RenameMon_8
-	msgbox RogueHub_RenameMon_Text_6, MSGBOX_DEFAULT
-	goto RogueHub_RenameMon_1
-
-RogueHub_RenameMon_5:
-	msgbox RogueHub_RenameMon_Text_1, MSGBOX_DEFAULT
-	goto RogueHub_RenameMon_1
-
-RogueHub_RenameMon_8:
-	msgbox RogueHub_RenameMon_Text_3, MSGBOX_DEFAULT
-	call Common_EventScript_NameReceivedPartyMon
-	special BufferMonNickname
-	compare VAR_RESULT, TRUE
-	goto_if_eq RogueHub_RenameMon_11
-	msgbox RogueHub_RenameMon_Text_5, MSGBOX_DEFAULT
-	goto RogueHub_RenameMon_1
-
-RogueHub_RenameMon_11:
-	msgbox RogueHub_RenameMon_Text_4, MSGBOX_DEFAULT
-	goto RogueHub_RenameMon_1
-
-
 RogueHub_HintQuickRun1::
 	lockall
 	msgbox RogueHub_HintQuickRun1_Text_0, MSGBOX_DEFAULT
@@ -1287,43 +1248,6 @@ RogueHub_CombineMons_Text_8:
 RogueHub_CombineMons_Text_9:
 	.string "If you come back with 2 POKéMON I could\n"
 	.string "check them... if you'd like...$"
-
-RogueHub_RenameMon_Text_0:
-	.string "Hi, hi! I'm the NAME RATER!\n"
-	.string "I'm the fortune-teller of names!\p"
-	.string "I shall be pleased to rate your\n"
-	.string "POKéMON's nickname.$"
-
-RogueHub_RenameMon_Text_1:
-	.string "Now, now.\n"
-	.string "That is merely an EGG!$"
-
-RogueHub_RenameMon_Text_2:
-	.string "Hmmm… {STR_VAR_1}, is it? That is\n"
-	.string "quite a fine name you bestowed.\p"
-	.string "But! What say you, if I were to suggest\n"
-	.string "a slightly better name?$"
-
-RogueHub_RenameMon_Text_3:
-	.string "Ah, good. Then, what shall the new\n"
-	.string "nickname be?$"
-
-RogueHub_RenameMon_Text_4:
-	.string "Done! From now on, this POKéMON shall be\n"
-	.string "known as {STR_VAR_1}!\p"
-	.string "It is a better name than before!\n"
-	.string "How fortunate for you!$"
-
-RogueHub_RenameMon_Text_5:
-	.string "Done! From now on, this POKéMON shall be\n"
-	.string "known as {STR_VAR_1}!\p"
-	.string "It looks no different from before, and\n"
-	.string "yet, this is vastly superior!\p"
-	.string "How fortunate for you!$"
-
-RogueHub_RenameMon_Text_6:
-	.string "I see.\n"
-	.string "Do come visit againt.$"
 
 RogueHub_HintQuickRun1_Text_0:
 	.string "I'm double tapping B to run super fast!\p"

@@ -686,6 +686,7 @@ enum
     MENU_TOSS,
     MENU_RELEASE,
     MENU_RELEASE_FIELD,
+    MENU_RENAME,
     MENU_FIELD_MOVES,
 };
 
@@ -736,7 +737,8 @@ struct
     [MENU_TRADE2] = {gText_Trade4, CursorCb_Trade2},
     [MENU_TOSS] = {gMenuText_Toss, CursorCb_Toss},
     [MENU_RELEASE] = {gText_Release, CursorCb_Release},
-    [MENU_RELEASE_FIELD] = {gText_Release, CursorCb_ReleaseField},
+    [MENU_RELEASE_FIELD] = {gText_Release, CursorCb_RenameField},
+    [MENU_RENAME] = {gText_Rename, CursorCb_RenameField},
     [MENU_FIELD_MOVES + FIELD_MOVE_CUT] = {gMoveNames[MOVE_CUT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_FLASH] = {gMoveNames[MOVE_FLASH], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH] = {gMoveNames[MOVE_ROCK_SMASH], CursorCb_FieldMove},
@@ -828,10 +830,8 @@ static const u8 sPartyMenuActionCounts[] =
 
 static const u16 sFieldMoves[] =
 {
-    //MOVE_CUT, MOVE_FLASH, MOVE_ROCK_SMASH, MOVE_STRENGTH, MOVE_SURF, MOVE_FLY, MOVE_DIVE, MOVE_WATERFALL, MOVE_TELEPORT,
-    //MOVE_DIG, MOVE_SECRET_POWER, MOVE_SWEET_SCENT
-    // RogueNote: these are the only valid options for field moves
-    MOVE_MILK_DRINK, MOVE_SOFT_BOILED, FIELD_MOVE_TERMINATOR
+    MOVE_CUT, MOVE_FLASH, MOVE_ROCK_SMASH, MOVE_STRENGTH, MOVE_SURF, MOVE_FLY, MOVE_DIVE, MOVE_WATERFALL, MOVE_TELEPORT,
+    MOVE_DIG, MOVE_SECRET_POWER, MOVE_MILK_DRINK, MOVE_SOFT_BOILED, MOVE_SWEET_SCENT, FIELD_MOVE_TERMINATOR
 };
 
 struct
