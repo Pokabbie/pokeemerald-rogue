@@ -1193,6 +1193,7 @@ void CreateFollowerAvatar(void)
     player = &gObjectEvents[gPlayerAvatar.objectEventId];
     clone = *GetObjectEventTemplateByLocalIdAndMap(gSaveBlock2Ptr->follower.map.id, gSaveBlock2Ptr->follower.map.number, gSaveBlock2Ptr->follower.map.group);
 
+    clone.localId = gSaveBlock2Ptr->follower.map.id; // if fail to get template, can stomp over otherwise valid NPC
     clone.graphicsId = GetFollowerSprite();
     //clone.graphicsIdUpperByte = GetFollowerSprite() >> 8;
     clone.x = player->currentCoords.x - 7;
