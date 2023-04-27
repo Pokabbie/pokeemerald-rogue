@@ -6,6 +6,7 @@
 #include "config.h" // we need to define config before gba headers as print stuff needs the functions nulled before defines.
 #include "gba/gba.h"
 #include "constants/global.h"
+#include "constants/sandbox.h"
 #include "constants/flags.h"
 #include "constants/vars.h"
 #include "constants/species.h"
