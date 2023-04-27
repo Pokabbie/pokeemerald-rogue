@@ -200,8 +200,8 @@ EWRAM_DATA u32 gHitMarker = 0;
 EWRAM_DATA static u8 sUnusedBattlersArray[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gUnusedFirstBattleVar2 = 0; // Never read
-EWRAM_DATA u16 gSideStatuses[2] = {0};
-EWRAM_DATA struct SideTimer gSideTimers[2] = {0};
+EWRAM_DATA u16 gSideStatuses[NUM_BATTLE_SIDES] = {0};
+EWRAM_DATA struct SideTimer gSideTimers[NUM_BATTLE_SIDES] = {0};
 EWRAM_DATA u32 gStatuses3[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gPauseCounterBattle = 0;
@@ -302,11 +302,28 @@ const struct OamData gOamData_BattleSpritePlayerSide =
     .affineParam = 0,
 };
 
-// Unknown and unused data. Feel free to remove.
-static const u16 sUnused1[] = {0, 5, 0xfffe, 0};
-static const u16 *const sUnused1Ptr = sUnused1;
-static const u16 sUnused2[] = {0xfff0, 0, 0x0400, 0, 0, 0, 0x3c00, 0, 0x7ffe, 1, 0, 0};
-static const u16 *const sUnused2Ptr = sUnused2;
+static const union AnimCmd sAnim_Unused[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Unused[] =
+{
+    sAnim_Unused,
+};
+
+static const union AffineAnimCmd sAffineAnim_Unused[] =
+{
+    AFFINEANIMCMD_FRAME(-0x10, 0x0, 0, 4),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 0x3C),
+    AFFINEANIMCMD_JUMP(1),
+};
+
+static const union AffineAnimCmd *const sAffineAnims_Unused[] =
+{
+    sAffineAnim_Unused,
+};
 
 static const s8 sCenterToCornerVecXs[8] ={-32, -16, -16, -32, -32};
 
@@ -715,33 +732,33 @@ static void CB2_InitBattleInternal(void)
     gBattleCommunication[MULTIUSE_STATE] = 0;
 }
 
-#define BUFFER_PARTY_VS_SCREEN_STATUS(party, flags, i)              \
-    for ((i) = 0; (i) < PARTY_SIZE; (i)++)                          \
-    {                                                               \
-        u16 species = GetMonData(&(party)[(i)], MON_DATA_SPECIES2); \
-        u16 hp = GetMonData(&(party)[(i)], MON_DATA_HP);            \
-        u32 status = GetMonData(&(party)[(i)], MON_DATA_STATUS);    \
-                                                                    \
-        if (species == SPECIES_NONE)                                \
-            continue;                                               \
-                                                                    \
-        /* Is healthy mon? */                                       \
-        if (species != SPECIES_EGG && hp != 0 && status == 0)       \
-            (flags) |= 1 << (i) * 2;                                \
-                                                                    \
-        if (species == SPECIES_NONE) /* Redundant */                \
-            continue;                                               \
-                                                                    \
-        /* Is Egg or statused? */                                   \
-        if (hp != 0 && (species == SPECIES_EGG || status != 0))     \
-            (flags) |= 2 << (i) * 2;                                \
-                                                                    \
-        if (species == SPECIES_NONE) /* Redundant */                \
-            continue;                                               \
-                                                                    \
-        /* Is fainted? */                                           \
-        if (species != SPECIES_EGG && hp == 0)                      \
-            (flags) |= 3 << (i) * 2;                                \
+#define BUFFER_PARTY_VS_SCREEN_STATUS(party, flags, i)                      \
+    for ((i) = 0; (i) < PARTY_SIZE; (i)++)                                  \
+    {                                                                       \
+        u16 species = GetMonData(&(party)[(i)], MON_DATA_SPECIES_OR_EGG);   \
+        u16 hp = GetMonData(&(party)[(i)], MON_DATA_HP);                    \
+        u32 status = GetMonData(&(party)[(i)], MON_DATA_STATUS);            \
+                                                                            \
+        if (species == SPECIES_NONE)                                        \
+            continue;                                                       \
+                                                                            \
+        /* Is healthy mon? */                                               \
+        if (species != SPECIES_EGG && hp != 0 && status == 0)               \
+            (flags) |= 1 << (i) * 2;                                        \
+                                                                            \
+        if (species == SPECIES_NONE) /* Redundant */                        \
+            continue;                                                       \
+                                                                            \
+        /* Is Egg or statused? */                                           \
+        if (hp != 0 && (species == SPECIES_EGG || status != 0))             \
+            (flags) |= 2 << (i) * 2;                                        \
+                                                                            \
+        if (species == SPECIES_NONE) /* Redundant */                        \
+            continue;                                                       \
+                                                                            \
+        /* Is fainted? */                                                   \
+        if (species != SPECIES_EGG && hp == 0)                              \
+            (flags) |= 3 << (i) * 2;                                        \
     }
 
 // For Vs Screen at link battle start
@@ -2234,7 +2251,7 @@ void CB2_InitEndLinkBattle(void)
         gBattle_BG3_Y = 0;
 
         InitBattleBgsVideo();
-        LoadCompressedPalette(gBattleTextboxPalette, 0, 64);
+        LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
         LoadBattleMenuWindowGfx();
         ResetSpriteData();
         ResetTasks();
@@ -3117,7 +3134,7 @@ static void BattleStartClearSetData(void)
     gBattleStruct->runTries = 0;
     gBattleStruct->safariGoNearCounter = 0;
     gBattleStruct->safariPkblThrowCounter = 0;
-    *(&gBattleStruct->safariCatchFactor) = gBaseStats[GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)].catchRate * 100 / 1275;
+    *(&gBattleStruct->safariCatchFactor) = gSpeciesInfo[GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)].catchRate * 100 / 1275;
     gBattleStruct->safariEscapeFactor = 3;
     gBattleStruct->wildVictorySong = 0;
     gBattleStruct->moneyMultiplier = 1;
@@ -3352,8 +3369,8 @@ void FaintClearSetData(void)
 
     gBattleResources->flags->flags[gActiveBattler] = 0;
 
-    gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-    gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
+    gBattleMons[gActiveBattler].type1 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
+    gBattleMons[gActiveBattler].type2 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
 
     ClearBattlerMoveHistory(gActiveBattler);
     ClearBattlerAbilityHistory(gActiveBattler);
@@ -3420,8 +3437,8 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
             for (i = 0; i < sizeof(struct BattlePokemon); i++)
                 ptr[i] = gBattleBufferB[gActiveBattler][4 + i];
 
-            gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-            gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
+            gBattleMons[gActiveBattler].type1 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
+            gBattleMons[gActiveBattler].type2 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
             gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
             hpOnSwitchout = &gBattleStruct->hpOnSwitchout[GetBattlerSide(gActiveBattler)];
             *hpOnSwitchout = gBattleMons[gActiveBattler].hp;
@@ -3505,8 +3522,8 @@ static void BattleIntroDrawPartySummaryScreens(void)
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2) == SPECIES_NONE
-             || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+            if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+             || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
             {
                 hpStatus[i].hp = HP_EMPTY_SLOT;
                 hpStatus[i].status = 0;
@@ -3523,8 +3540,8 @@ static void BattleIntroDrawPartySummaryScreens(void)
 
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_NONE
-             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
             {
                 hpStatus[i].hp = HP_EMPTY_SLOT;
                 hpStatus[i].status = 0;
@@ -3549,8 +3566,8 @@ static void BattleIntroDrawPartySummaryScreens(void)
 
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_NONE
-             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
             {
                 hpStatus[i].hp = HP_EMPTY_SLOT;
                 hpStatus[i].status = 0;

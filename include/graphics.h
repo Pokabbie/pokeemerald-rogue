@@ -4949,9 +4949,9 @@ extern const u16 gContestResultsTitle_Tough_Tilemap[];
 extern const u16 gContestResultsTitle_Tilemap[];
 
 // Trainer Card.
-extern const u16 gHoennTrainerCard0Star_Pal[];
+extern const u16 gHoennTrainerCardGreen_Pal[];
 extern const u32 gHoennTrainerCard_Gfx[];
-extern const u16 gKantoTrainerCard0Star_Pal[];
+extern const u16 gKantoTrainerCardBlue_Pal[];
 extern const u32 gKantoTrainerCard_Gfx[];
 extern const u32 gKantoTrainerCardBg_Tilemap[];
 extern const u32 gHoennTrainerCardBack_Tilemap[];
@@ -4992,10 +4992,10 @@ extern const u32 gUsePokeblockCondition_Gfx[];
 extern const u16 gUnionRoomChat_Background_Pal[];
 extern const u32 gUnionRoomChat_Background_Gfx[];
 extern const u32 gUnionRoomChat_Background_Tilemap[];
-extern const u16 gUnionRoomChat_Window_Pal1[];
-extern const u16 gUnionRoomChat_Window_Pal2[];
-extern const u32 gUnionRoomChat_Border_Gfx[];
-extern const u32 gUnionRoomChat_Border_Tilemap[];
+extern const u16 gUnionRoomChat_InputText_Pal[];
+extern const u16 gUnionRoomChat_Keyboard_Pal[];
+extern const u32 gUnionRoomChat_Keyboard_Gfx[];
+extern const u32 gUnionRoomChat_Keyboard_Tilemap[];
 extern const u32 gUnionRoomChat_RButtonLabels[];
 
 // Use Pokeblock
