@@ -345,7 +345,7 @@ static const struct EditPokemonStruct DebugPkmCreator_Options[] =
         [VAL_RIBBON_SMARTRIBBON]   = {Str_SmartRibbon, EDIT_NORMAL, 0, 3, 0, MON_DATA_SMART_RIBBON, 1},
         [VAL_RIBBON_TOUGHRIBBON]   = {Str_ToughRibbon, EDIT_NORMAL, 0, 3, 0, MON_DATA_TOUGH_RIBBON, 1},
         [VAL_RIBBON_GIFTRIBBON]    = {Str_GiftRibbon, EDIT_HEX, 0, 127, 0, MON_DATA_MARINE_RIBBON, 2},
-        [VAL_RIBBON_FATEFUL]       = {Str_Fateful, EDIT_BOOL, 0, 1, 0, MON_DATA_EVENT_LEGAL, 1},
+        [VAL_RIBBON_FATEFUL]       = {Str_Fateful, EDIT_BOOL, 0, 1, 0, MON_DATA_MODERN_FATEFUL_ENCOUNTER, 1},
         [VAL_RIBBON_FATEFUL2]      = {Str_Fateful2, EDIT_NORMAL, 0, 3, 0, MON_DATA_UNUSED_RIBBONS, 1},
         // Move data
         [VAL_MOVE_1]               = {Str_Move, EDIT_NORMAL, 0, MOVES_COUNT - 1, MOVE_POUND, MON_DATA_MOVE1, 3},
@@ -608,7 +608,7 @@ static void DebugPkmCreator_Init_SetDefaults(void)
             sDebugPkmCreatorData.data[i] = (*(u32*) &gSaveBlock2Ptr->playerTrainerId) >> 16;
             break;
         case VAL_EXP:
-            sDebugPkmCreatorData.data[i] = gExperienceTables[gBaseStats[DebugPkmCreator_Options[0].initial].growthRate][DebugPkmCreator_Options[15].initial];
+            sDebugPkmCreatorData.data[i] = gExperienceTables[gSpeciesInfo[DebugPkmCreator_Options[0].initial].growthRate][DebugPkmCreator_Options[15].initial];
             break;
         }
     }
@@ -655,7 +655,7 @@ static void DebugPkmCreator_Init_SetNewMonData(bool8 setMoves)
         case VAL_ABILITY:
             if (setMoves)
             {
-                if (gBaseStats[sDebugPkmCreatorData.data[0]].abilities[1])
+                if (gSpeciesInfo[sDebugPkmCreatorData.data[0]].abilities[1])
                 {
                     data = sDebugPkmCreatorData.data[1] & 1;
                     SetMonData(mons, DebugPkmCreator_Options[i].SetMonDataParam, &data);
@@ -1311,7 +1311,7 @@ static void DebugPkmCreator_EditModeRedraw(u32 digit, u8 editIndex)
         ConvertIntToDecimalStringN(gStringVar1, DebugPkmCreator_editingVal[editIndex], STR_CONV_MODE_LEADING_ZEROS, data->digitCount);
         if (editIndex == 0)
         {
-            //u32 newExp = gExperienceTables[gBaseStats[sDebugPkmCreatorData.data[VAL_SPECIES]].growthRate][DebugPkmCreator_editingVal[editIndex]];
+            //u32 newExp = gExperienceTables[gSpeciesInfo[sDebugPkmCreatorData.data[VAL_SPECIES]].growthRate][DebugPkmCreator_editingVal[editIndex]];
             x = 140;
             FillWindowPixelRect(sDebugPkmCreatorData.menuWindowId, 0x11, x, y, 120, 16);
             ConvertIntToDecimalStringN(gStringVar2, sDebugPkmCreatorData.data[VAL_EXP], STR_CONV_MODE_LEADING_ZEROS, DebugPkmCreator_Options[VAL_EXP].digitCount);
@@ -1806,7 +1806,7 @@ static void DebugPkmCreator_EditModeProcessInput(u8 taskid)
                     SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_PP4, &z);
                     GiveMonInitialMoveset(&sDebugPkmCreatorData.mon);
                     // preserve level
-                    SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_EXP, &gExperienceTables[gBaseStats[DebugPkmCreator_editingVal[i]].growthRate][sDebugPkmCreatorData.data[15]]);
+                    SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[DebugPkmCreator_editingVal[i]].growthRate][sDebugPkmCreatorData.data[15]]);
                     CalculateMonStats(&sDebugPkmCreatorData.mon);
                     // preserve sanity bit
                     SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_SANITY_HAS_SPECIES, &sDebugPkmCreatorData.data[11]);
@@ -1817,7 +1817,7 @@ static void DebugPkmCreator_EditModeProcessInput(u8 taskid)
                     DebugPkmCreator_PopulateDataStruct();
                     break;
                 case VAL_LEVEL:
-                    SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_EXP, &gExperienceTables[gBaseStats[sDebugPkmCreatorData.data[VAL_SPECIES]].growthRate][sDebugPkmCreatorData.data[VAL_LEVEL]]);
+                    SetMonData(&sDebugPkmCreatorData.mon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[sDebugPkmCreatorData.data[VAL_SPECIES]].growthRate][sDebugPkmCreatorData.data[VAL_LEVEL]]);
                     CalculateMonStats(&sDebugPkmCreatorData.mon);
                     DebugPkmCreator_PopulateDataStruct();
                     DebugPkmCreator_editingVal[0] = sDebugPkmCreatorData.data[VAL_LEVEL];
