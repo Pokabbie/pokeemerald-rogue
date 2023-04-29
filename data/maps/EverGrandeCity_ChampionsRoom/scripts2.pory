@@ -1,0 +1,66 @@
+const LOCALID_BLUE = 4
+const LOCALID_WALLACE = 1
+
+script EverGrandeCity_ChampionsRoom_EventScript_Blue
+{
+    playbgm(MUS_NONE, FALSE)
+    msgbox(format("Hold it right there!"))
+
+    playse(SE_EXIT)
+
+    addobject(LOCALID_BLUE)
+    setobjectxy(LOCALID_BLUE, 6, 3)
+    waitse
+
+    playbgm(MUS_RG_ENCOUNTER_RIVAL, FALSE)
+    //playbgm(MUS_RG_VICTORY_ROAD, TRUE)
+    msgbox(format("No way is this dork the new Champion!"))
+
+    applymovement(LOCALID_BLUE, EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach1)
+    waitmovement(0)
+
+    applymovement(LOCALID_BLUE, EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach2)
+    applymovement(LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_EventScript_Wallace_Approach)
+    waitmovement(0)
+
+    msgbox(format("Not whilst I'm still standing!"))
+    trainerbattle_no_intro(TRAINER_BLUE, format("No way…\nThis can't be!"))
+
+    msgbox(format("… … …\n I can't believe it…\nI can't believe I lost… … …\nAgain… … …"))
+
+    applymovement(LOCALID_BLUE, EverGrandeCity_ChampionsRoom_EventScript_Blue_Victory)
+    applymovement(LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_EventScript_Wallace_Victory)
+
+    playse(SE_WALL_HIT)
+    waitmovement(0)
+
+
+    msgbox(format("WALLACE: As I was saying…\pI now proclaim you to be the new\nHOENN region…"))
+    return
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach1
+{
+    walk_down
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach2
+{
+    walk_down
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_Approach
+{
+    walk_left
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_Victory
+{
+    walk_fast_right
+    face_down
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Blue_Victory
+{
+    jump_2_right
+}

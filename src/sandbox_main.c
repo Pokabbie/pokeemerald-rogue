@@ -19,6 +19,7 @@ static bool8 IsKeyTrainerBattle()
     case TRAINER_CLASS_ELITE_FOUR:
     case TRAINER_CLASS_LEADER:
     case TRAINER_CLASS_CHAMPION:
+    case TRAINER_CLASS_KANTO_CHAMPION:
     case TRAINER_CLASS_MAGMA_ADMIN:
     case TRAINER_CLASS_MAGMA_LEADER:
     case TRAINER_CLASS_RIVAL:
@@ -62,7 +63,7 @@ u16 Sandbox_ModifyBattleWaitTime(u16 waitTime, bool8 awaitingMessage)
             u8 trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
 
             // Champ fight at engine default
-            if(trainerClass == TRAINER_CLASS_CHAMPION)
+            if(trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
                 return waitTime;
 
             // Still run faster and default game because it's way too slow :(
