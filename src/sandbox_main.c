@@ -5,6 +5,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "data.h"
+#include "graphics.h"
 
 #include "sandbox_main.h"
 
@@ -86,4 +87,45 @@ s16 Sandbox_ModifyBattleSlideAnim(s16 speed)
     }
 
     return speed;
+}
+
+const void* Sandbox_ModifyLoadPalette(const void *src)
+{
+    // ObjectEvent palette
+    if(src == gObjectEventPal_Brendan)
+    {
+        return gObjectEventPal_RubySapphireBrendan;
+    }
+    if(src == gObjectEventPal_May)
+    {
+        return gObjectEventPal_RubySapphireMay;
+    }
+
+    // Trainer
+    // front pics
+    if(src == gTrainerPalette_Brendan)
+    {
+        return gTrainerPalette_RubySapphireBrendan;
+    }
+    if(src == gTrainerPalette_May)
+    {
+        return gTrainerPalette_RubySapphireMay;
+    }
+
+    // back pics
+    if(src == gTrainerBackPic_Brendan)
+    {
+        return gTrainerBackPic_RubySapphireBrendan;
+    }
+    if(src == gTrainerBackPic_May)
+    {
+        return gTrainerBackPic_RubySapphireMay;
+    }
+
+    return src;
+}
+
+const void* Sandbox_ModifyLoadCompressedPalette(const void *src)
+{
+    return Sandbox_ModifyLoadPalette(src);
 }

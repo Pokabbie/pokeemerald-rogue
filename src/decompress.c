@@ -5,6 +5,8 @@
 #include "pokemon.h"
 #include "text.h"
 
+#include "sandbox_main.h"
+
 EWRAM_DATA ALIGNED(4) u8 gDecompressionBuffer[0x4000] = {0};
 
 static void DuplicateDeoxysTiles(void *pointer, s32 species);
@@ -45,7 +47,7 @@ void LoadCompressedSpritePalette(const struct CompressedSpritePalette *src)
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, gDecompressionBuffer);
+    LZ77UnCompWram(Sandbox_ModifyLoadCompressedPalette(src->data), gDecompressionBuffer);
     dest.data = (void *) gDecompressionBuffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -55,7 +57,7 @@ void LoadCompressedSpritePaletteOverrideBuffer(const struct CompressedSpritePale
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, buffer);
+    LZ77UnCompWram(Sandbox_ModifyLoadCompressedPalette(src->data), buffer);
     dest.data = buffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -284,9 +286,10 @@ bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette 
 {
     struct SpritePalette dest;
     void *buffer;
+    const u32* data = Sandbox_ModifyLoadCompressedPalette(src->data);
 
-    buffer = AllocZeroed(src->data[0] >> 8);
-    LZ77UnCompWram(src->data, buffer);
+    buffer = AllocZeroed(data[0] >> 8);
+    LZ77UnCompWram(data, buffer);
     dest.data = buffer;
     dest.tag = src->tag;
 
