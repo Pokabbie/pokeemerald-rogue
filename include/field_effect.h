@@ -16,6 +16,7 @@ void ReturnToFieldFromFlyMapSelect(void);
 u8 AddNewGameBirchObject(s16, s16, u8);
 void FieldEffectStop(struct Sprite *sprite, u8 id);
 u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer);
+u8 UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer);
 void FldEff_TeleportWarpOut(void);
 void FieldEffectActiveListRemove(u8 id);
 void MultiplyInvertedPaletteRGBComponents(u16 i, u8 r, u8 g, u8 b);

@@ -32,12 +32,20 @@ gText_Birch_AndYouAre::
 	.string "And you are?$"
 
 gText_Birch_BoyOrGirl::
-	.string "Are you a boy?\n"
-	.string "Or are you a girl?$"
+	.string "Select an avatar$"
+	
+gText_Birch_AvatarStyle0::
+	.string "Select an appearance$"
+
+gText_Birch_AvatarStyle1::
+	.string "Select clothing style$"
 
 gText_Birch_WhatsYourName::
 	.string "All right.\n"
 	.string "What's your name?$"
+
+gText_Birch_HappyWithAvatar::
+	.string "So this is your avatar?$"
 
 gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"

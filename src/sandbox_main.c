@@ -89,37 +89,41 @@ s16 Sandbox_ModifyBattleSlideAnim(s16 speed)
     return speed;
 }
 
+#define PLAYER_STYLE(prefix, x, y) if(style1 == x && style2 == y) return prefix ## _ ## x ## _ ## y
+
 const void* Sandbox_ModifyLoadPalette(const void *src)
 {
+    const u8 gender = gSaveBlock2Ptr->playerGender;
+    const u8 style1 = gSaveBlock2Ptr->playerStyle[0];
+    const u8 style2 = gSaveBlock2Ptr->playerStyle[1];
+
     // ObjectEvent palette
-    if(src == gObjectEventPal_Brendan)
+    if(gender == 0 && src == gObjectEventPal_Brendan)
     {
-        return gObjectEventPal_RubySapphireBrendan;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
-    if(src == gObjectEventPal_May)
+    if(gender == 1 && src == gObjectEventPal_May)
     {
-        return gObjectEventPal_RubySapphireMay;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     // Trainer
-    // front pics
-    if(src == gTrainerPalette_Brendan)
+    // front/back pics
+    if(gender == 0 && (src == gTrainerPalette_Brendan || src == gTrainerBackPic_Brendan))
     {
-        return gTrainerPalette_RubySapphireBrendan;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
-    if(src == gTrainerPalette_May)
+    if(gender == 1 && (src == gTrainerPalette_May || src == gTrainerBackPic_May))
     {
-        return gTrainerPalette_RubySapphireMay;
-    }
-
-    // back pics
-    if(src == gTrainerBackPic_Brendan)
-    {
-        return gTrainerBackPic_RubySapphireBrendan;
-    }
-    if(src == gTrainerBackPic_May)
-    {
-        return gTrainerBackPic_RubySapphireMay;
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
     }
 
     return src;

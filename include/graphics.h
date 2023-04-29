@@ -3071,6 +3071,14 @@ extern const u8 gTrainerBackPic_Steven[];
 extern const u32 gTrainerBackPicPalette_Red[];
 extern const u32 gTrainerBackPicPalette_Leaf[];
 
+#define BRENDAN_PALETTE(x, y) extern const u32 gTrainerPalette_Brendan_ ## x ## _ ## y[];
+FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
+#undef BRENDAN_PALETTE
+
+#define MAY_PALETTE(x, y) extern const u32 gTrainerPalette_May_ ## x ## _ ## y[];
+FOREACH_VISUAL_PRESETS(MAY_PALETTE)
+#undef MAY_PALETTE
+
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
 extern const u32 gMenuPokeblock_Pal[];
@@ -5023,6 +5031,15 @@ extern const u16 gPokenavOptions_Pal[];
 extern const u8 gFrontierFactorySelectMenu_Gfx[];
 extern const u8 gFrontierFactorySelectMenu_Tilemap[];
 extern const u16 gFrontierFactorySelectMenu_Pal[];
+
+// Object event pals
+#define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];
+FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
+#undef BRENDAN_PALETTE
+
+#define MAY_PALETTE(x, y) extern const u16 gObjectEventPal_May_ ## x ## _ ## y [];
+FOREACH_VISUAL_PRESETS(MAY_PALETTE)
+#undef MAY_PALETTE
 
 // Object event pals
 extern const u16 gObjectEventPal_Brendan[];
