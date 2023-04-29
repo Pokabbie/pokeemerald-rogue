@@ -319,6 +319,7 @@ gStdScripts_End::
 	.include "data/maps/EverGrandeCity_GlaciasRoom/scripts.inc"
 	.include "data/maps/EverGrandeCity_DrakesRoom/scripts.inc"
 	.include "data/maps/EverGrandeCity_ChampionsRoom/scripts.inc"
+	.include "data/maps/EverGrandeCity_ChampionsRoom/scripts2.inc"
 	.include "data/maps/EverGrandeCity_Hall1/scripts.inc"
 	.include "data/maps/EverGrandeCity_Hall2/scripts.inc"
 	.include "data/maps/EverGrandeCity_Hall3/scripts.inc"

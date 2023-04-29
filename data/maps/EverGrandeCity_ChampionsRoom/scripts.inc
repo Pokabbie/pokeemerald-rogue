@@ -1,6 +1,7 @@
 .set LOCALID_WALLACE, 1
 .set LOCALID_RIVAL, 2
 .set LOCALID_BIRCH, 3
+.set LOCALID_BLUE, 4
 
 EverGrandeCity_ChampionsRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_ChampionsRoom_OnTransition
@@ -55,6 +56,11 @@ EverGrandeCity_ChampionsRoom_EventScript_Defeated::
 	special DrawWholeMapView
 	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	closemessage
+	call EverGrandeCity_ChampionsRoom_EventScript_Blue
+	goto EverGrandeCity_ChampionsRoom_EventScript_Defeated2
+	end
+	
+EverGrandeCity_ChampionsRoom_EventScript_Defeated2::
 	playse SE_DOOR
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, EverGrandeCity_ChampionsRoom_EventScript_PlayMayMusic

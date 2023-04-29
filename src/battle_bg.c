@@ -802,7 +802,7 @@ void DrawMainBattleBackground(void)
                 LoadCompressedPalette(gBattleTerrainPalette_BuildingLeader, 0x20, 0x60);
                 return;
             }
-            else if (trainerClass == TRAINER_CLASS_CHAMPION)
+            else if (trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
             {
                 LZDecompressVram(gBattleTerrainTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                 LZDecompressVram(gBattleTerrainTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
@@ -1196,7 +1196,7 @@ void DrawBattleEntryBackground(void)
                 LZDecompressVram(gBattleTerrainAnimTilemap_Building, (void *)(BG_SCREEN_ADDR(28)));
                 return;
             }
-            else if (trainerClass == TRAINER_CLASS_CHAMPION)
+            else if (trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
             {
                 LZDecompressVram(gBattleTerrainAnimTiles_Building, (void *)(BG_CHAR_ADDR(1)));
                 LZDecompressVram(gBattleTerrainAnimTilemap_Building, (void *)(BG_SCREEN_ADDR(28)));
@@ -1252,7 +1252,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                     LZDecompressVram(gBattleTerrainTiles_Building, (void *)(BG_CHAR_ADDR(2)));
                     break;
                 }
-                else if (trainerClass == TRAINER_CLASS_CHAMPION)
+                else if (trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
                 {
                     LZDecompressVram(gBattleTerrainTiles_Stadium, (void *)(BG_CHAR_ADDR(2)));
                     break;
@@ -1314,7 +1314,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                     LZDecompressVram(gBattleTerrainTilemap_Building, (void *)(BG_SCREEN_ADDR(26)));
                     break;
                 }
-                else if (trainerClass == TRAINER_CLASS_CHAMPION)
+                else if (trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
                 {
                     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void *)(BG_SCREEN_ADDR(26)));
                     break;
@@ -1376,7 +1376,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                     LoadCompressedPalette(gBattleTerrainPalette_BuildingLeader, 0x20, 0x60);
                     break;
                 }
-                else if (trainerClass == TRAINER_CLASS_CHAMPION)
+                else if (trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
                 {
                     LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
                     break;

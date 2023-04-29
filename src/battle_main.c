@@ -368,6 +368,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_EXPERT, 10},
     {TRAINER_CLASS_YOUNGSTER, 4},
     {TRAINER_CLASS_CHAMPION, 50},
+    {TRAINER_CLASS_KANTO_CHAMPION, 50},
     {TRAINER_CLASS_FISHERMAN, 10},
     {TRAINER_CLASS_TRIATHLETE, 10},
     {TRAINER_CLASS_DRAGON_TAMER, 12},
@@ -5065,6 +5066,9 @@ static void HandleEndTurn_BattleWon(void)
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_CHAMPION:
             PlayBGM(MUS_VICTORY_LEAGUE);
+            break;
+        case TRAINER_CLASS_KANTO_CHAMPION:
+            PlayBGM(MUS_RG_VICTORY_GYM_LEADER);
             break;
         case TRAINER_CLASS_TEAM_AQUA:
         case TRAINER_CLASS_TEAM_MAGMA:
