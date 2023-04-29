@@ -73,10 +73,11 @@ static const u8 sDarkDownArrowTiles[] = INCBIN_U8("graphics/fonts/down_arrow_alt
 static const u8 sUnusedFRLGBlankedDownArrow[] = INCBIN_U8("graphics/fonts/unused_frlg_blanked_down_arrow.4bpp");
 static const u8 sUnusedFRLGDownArrow[] = INCBIN_U8("graphics/fonts/unused_frlg_down_arrow.4bpp");
 static const u8 sDownArrowYCoords[] = { 0, 1, 2, 1 };
+// TEXT_INSTANT_DRAW
 static const u8 sWindowVerticalScrollSpeeds[] = {
-    [OPTIONS_TEXT_SPEED_SLOW] = 1,
-    [OPTIONS_TEXT_SPEED_MID] = 2,
-    [OPTIONS_TEXT_SPEED_FAST] = 4,
+    [OPTIONS_TEXT_SPEED_SLOW] = 2, // 1
+    [OPTIONS_TEXT_SPEED_MID] = 4,  // 2
+    [OPTIONS_TEXT_SPEED_FAST] = 16, // 4
 };
 
 static const struct GlyphWidthFunc sGlyphWidthFuncs[] =
@@ -291,7 +292,11 @@ bool16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, voi
     sTempTextPrinter.japanese = 0;
 
     GenerateFontHalfRowLookupTable(printerTemplate->fgColor, printerTemplate->bgColor, printerTemplate->shadowColor);
-    if (speed != TEXT_SKIP_DRAW && speed != 0)
+    if(speed == TEXT_INSTANT_DRAW)
+    {
+        sTextPrinters[printerTemplate->windowId] = sTempTextPrinter;
+    }
+    else if (speed != TEXT_SKIP_DRAW && speed != 0)
     {
         --sTempTextPrinter.textSpeed;
         sTextPrinters[printerTemplate->windowId] = sTempTextPrinter;
@@ -336,6 +341,10 @@ void RunTextPrinters(void)
                         sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, renderCmd);
                     break;
                 case RENDER_FINISH:
+                    // Do one final print before finishing, just to make sure
+                    if(sTextPrinters[i].textSpeed == TEXT_INSTANT_DRAW)
+                        CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
+
                     sTextPrinters[i].active = FALSE;
                     break;
                 }
@@ -945,6 +954,9 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         if (JOY_HELD(A_BUTTON | B_BUTTON) && subStruct->hasPrintBeenSpedUp)
             textPrinter->delayCounter = 0;
 
+        if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+            textPrinter->delayCounter = 0;
+
         if (textPrinter->delayCounter && textPrinter->textSpeed)
         {
             textPrinter->delayCounter--;
@@ -1015,14 +1027,26 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
                 textPrinter->state = RENDER_STATE_PAUSE;
+
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_PAUSE_UNTIL_PRESS:
                 textPrinter->state = RENDER_STATE_WAIT;
                 if (gTextFlags.autoScroll)
                     subStruct->autoScrollDelay = 0;
+
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+
                 return RENDER_UPDATE;
             case EXT_CTRL_CODE_WAIT_SE:
                 textPrinter->state = RENDER_STATE_WAIT_SE;
+
+                if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+                    return RENDER_PRINT;
+
                 return RENDER_UPDATE;
             case EXT_CTRL_CODE_PLAY_BGM:
                 currChar = *textPrinter->printerTemplate.currentChar;
@@ -1164,6 +1188,10 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             else
                 textPrinter->printerTemplate.currentX += gCurGlyph.width;
         }
+
+        if(textPrinter->textSpeed == TEXT_INSTANT_DRAW)
+            return RENDER_REPEAT;
+
         return RENDER_PRINT;
     case RENDER_STATE_WAIT:
         if (TextPrinterWait(textPrinter))

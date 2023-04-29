@@ -76,9 +76,9 @@ const u16 gStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapa
 
 static const u8 sTextSpeedFrameDelays[] =
 {
-    [OPTIONS_TEXT_SPEED_SLOW] = 8,
-    [OPTIONS_TEXT_SPEED_MID]  = 4,
-    [OPTIONS_TEXT_SPEED_FAST] = 1
+    [OPTIONS_TEXT_SPEED_SLOW] = 4, // 8
+    [OPTIONS_TEXT_SPEED_MID]  = 1, // 4
+    [OPTIONS_TEXT_SPEED_FAST] = TEXT_INSTANT_DRAW // 1
 };
 
 static const struct WindowTemplate sStandardTextBox_WindowTemplates[] =

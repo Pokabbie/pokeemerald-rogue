@@ -204,6 +204,9 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+
+    // Auto running shoes
+    FlagSet(FLAG_SYS_B_DASH);
 }
 
 static void ResetMiniGamesRecords(void)
