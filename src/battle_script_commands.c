@@ -63,6 +63,8 @@
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
+#include "sandbox_main.h"
+
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
@@ -2684,6 +2686,8 @@ static void Cmd_waitmessage(void)
         else
         {
             u16 toWait = T2_READ_16(gBattlescriptCurrInstr + 1);
+            toWait = Sandbox_ModifyBattleWaitTime(toWait, TRUE);
+
             if (++gPauseCounterBattle >= toWait)
             {
                 gPauseCounterBattle = 0;
@@ -4731,6 +4735,8 @@ static void Cmd_pause(void)
     if (gBattleControllerExecFlags == 0)
     {
         u16 value = T2_READ_16(gBattlescriptCurrInstr + 1);
+        value = Sandbox_ModifyBattleWaitTime(value, FALSE);
+
         if (++gPauseCounterBattle >= value)
         {
             gPauseCounterBattle = 0;

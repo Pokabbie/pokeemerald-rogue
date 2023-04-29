@@ -1159,14 +1159,15 @@ static void SetNamesAndTextSpeed(struct BerryCrushGame *game)
 
     switch (gSaveBlock2Ptr->optionsTextSpeed)
     {
+    //TEXT_INSTANT_DRAW
     case OPTIONS_TEXT_SPEED_SLOW:
-        game->textSpeed = 8;
+        game->textSpeed = 4; // 8
         break;
     case OPTIONS_TEXT_SPEED_MID:
-        game->textSpeed = 4;
+        game->textSpeed = 1; // 4
         break;
     case OPTIONS_TEXT_SPEED_FAST:
-        game->textSpeed = 1;
+        game->textSpeed = TEXT_INSTANT_DRAW; // 1
         break;
     }
 }

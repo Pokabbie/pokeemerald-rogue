@@ -53,6 +53,8 @@
 #include "constants/union_room.h"
 #include "constants/weather.h"
 
+#include "sandbox_main.h"
+
 struct SpeciesItem
 {
     u16 species;
@@ -8053,9 +8055,14 @@ static void Task_PokemonSummaryAnimateAfterDelay(u8 taskId)
     }
 }
 
+static bool8 FastSpriteAnimations()
+{
+    return Sandbox_UseFastBattleAnims() || (gHitMarker & HITMARKER_NO_ANIMATIONS);
+}
+
 void BattleAnimateFrontSprite(struct Sprite *sprite, u16 species, bool8 noCry, u8 panMode)
 {
-    if (gHitMarker & HITMARKER_NO_ANIMATIONS && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)))
+    if (FastSpriteAnimations() && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)))
         DoMonFrontSpriteAnimation(sprite, species, noCry, panMode | SKIP_FRONT_ANIM);
     else
         DoMonFrontSpriteAnimation(sprite, species, noCry, panMode);
@@ -8138,7 +8145,7 @@ void StopPokemonAnimationDelayTask(void)
 
 void BattleAnimateBackSprite(struct Sprite *sprite, u16 species)
 {
-    if (gHitMarker & HITMARKER_NO_ANIMATIONS && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)))
+    if (FastSpriteAnimations() && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)))
     {
         sprite->callback = SpriteCallbackDummy;
     }
