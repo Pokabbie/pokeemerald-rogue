@@ -62,6 +62,8 @@
 #include "constants/trainers.h"
 #include "cable_club.h"
 
+#include "sandbox_main.h"
+
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
 
@@ -2697,7 +2699,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
 {
     if ((gIntroSlideFlags & 1) == 0)
     {
-        sprite->x2 += 2;
+        sprite->x2 += Sandbox_ModifyBattleSlideAnim(2);
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_WildMonShowHealthbox;

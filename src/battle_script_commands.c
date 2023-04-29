@@ -52,6 +52,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "sandbox_main.h"
+
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
@@ -2144,6 +2146,8 @@ static void Cmd_waitmessage(void)
         else
         {
             u16 toWait = T2_READ_16(gBattlescriptCurrInstr + 1);
+            toWait = Sandbox_ModifyBattleWaitTime(toWait, TRUE);
+
             if (++gPauseCounterBattle >= toWait)
             {
                 gPauseCounterBattle = 0;
@@ -3886,6 +3890,8 @@ static void Cmd_pause(void)
     if (gBattleControllerExecFlags == 0)
     {
         u16 value = T2_READ_16(gBattlescriptCurrInstr + 1);
+        value = Sandbox_ModifyBattleWaitTime(value, FALSE);
+
         if (++gPauseCounterBattle >= value)
         {
             gPauseCounterBattle = 0;

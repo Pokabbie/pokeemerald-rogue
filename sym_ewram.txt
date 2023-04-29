@@ -150,3 +150,4 @@
 	.include "src/rayquaza_scene.o"
 	.include "src/debug.o"
 	.include "src/debug_pokemon_creator.o"
+	.include "src/sandbox_main.o"

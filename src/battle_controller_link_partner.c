@@ -29,6 +29,8 @@
 #include "constants/trainers.h"
 #include "recorded_battle.h"
 
+#include "sandbox_main.h"
+
 static void LinkPartnerHandleGetMonData(void);
 static void LinkPartnerHandleGetRawMonData(void);
 static void LinkPartnerHandleSetMonData(void);
@@ -1144,7 +1146,7 @@ static void LinkPartnerHandleDrawTrainerPic(void)
 
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Sandbox_ModifyBattleSlideAnim(-2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;

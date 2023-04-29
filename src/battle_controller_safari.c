@@ -24,6 +24,8 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
+#include "sandbox_main.h"
+
 static void SafariHandleGetMonData(void);
 static void SafariHandleGetRawMonData(void);
 static void SafariHandleSetMonData(void);
@@ -361,7 +363,7 @@ static void SafariHandleDrawTrainerPic(void)
       30);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = -2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Sandbox_ModifyBattleSlideAnim(-2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;
 }

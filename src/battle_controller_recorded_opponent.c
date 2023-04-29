@@ -29,6 +29,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "sandbox_main.h"
+
 static void RecordedOpponentHandleGetMonData(void);
 static void RecordedOpponentHandleGetRawMonData(void);
 static void RecordedOpponentHandleSetMonData(void);
@@ -1243,7 +1245,7 @@ static void RecordedOpponentHandleDrawTrainerPic(void)
                                                GetBattlerSpriteSubpriority(gActiveBattler));
 
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = -DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = 2;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].sSpeedX = Sandbox_ModifyBattleSlideAnim(2);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.affineParam = trainerPicId;
     gSprites[gBattlerSpriteIds[gActiveBattler]].callback = SpriteCB_TrainerSlideIn;
