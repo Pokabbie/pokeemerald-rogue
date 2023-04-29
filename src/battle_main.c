@@ -2702,6 +2702,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
         sprite->x2 += Sandbox_ModifyBattleSlideAnim(2);
         if (sprite->x2 == 0)
         {
+            sprite->x2 = 0;
             sprite->callback = SpriteCB_WildMonShowHealthbox;
         }
     }
