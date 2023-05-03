@@ -2419,7 +2419,8 @@ static void BeginRogueRun(void)
 
             if(itemId != ITEM_NONE && quantity != 0)
             {
-                if(GetPocketByItemId(itemId) == POCKET_KEY_ITEMS)
+                u8 pocket = GetPocketByItemId(itemId);
+                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
                     AddBagItem(itemId, quantity);
                 else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
                     AddBagItem(itemId, quantity);
@@ -4350,6 +4351,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     RogueQuery_ItemsExcludeCommon();
 
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
+    RogueQuery_ItemsNotInPocket(POCKET_CHARMS);
 
     if(itemCategory != ROGUE_SHOP_BERRIES)
     {
@@ -5165,6 +5167,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
     RogueQuery_ItemsIsValid();
     RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
+    RogueQuery_ItemsNotInPocket(POCKET_CHARMS);
     RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
 
     RogueQuery_ItemsExcludeCommon();

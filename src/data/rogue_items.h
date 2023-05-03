@@ -75,7 +75,7 @@ const struct RogueItem gRogueItems[] =
         .description = _(
             "Shop prices are\n"
             "reduced by 40%$"),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -96,7 +96,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly moves\n"
             "have an extra 10%\n"
             "chance to flinch."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -117,7 +117,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly POKéMON\n"
             "have an increased\n"
             "crit rate."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -138,7 +138,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly POKéMON\n"
             "have a 20% chance\n"
             "to cure status."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -158,7 +158,7 @@ const struct RogueItem gRogueItems[] =
         .description = _(
             "Caught POKéMON are\n"
             "slightly stronger."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -179,7 +179,7 @@ const struct RogueItem gRogueItems[] =
             "BALL effectiveness\n"
             "is increased by\n"
             "100%."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -200,7 +200,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly moves\n"
             "have an extra 75%\n"
             "for extra effects."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -221,7 +221,7 @@ const struct RogueItem gRogueItems[] =
             "Routes contain 2\n"
             "additional wild\n"
             "POKéMON."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -242,7 +242,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly moves\n"
             "have 10% chance to\n"
             "activate Quick Claw."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -263,7 +263,7 @@ const struct RogueItem gRogueItems[] =
             "Friendly POKéMON\n"
             "have a 20% chance\n"
             "to endure OHKOs."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -284,7 +284,7 @@ const struct RogueItem gRogueItems[] =
         .description = _(
             "Shop prices are\n"
             "increased by 40%"),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -305,7 +305,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent moves\n"
             "have an extra 10%\n"
             "chance to flinch."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -326,7 +326,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent POKéMON\n"
             "have an increased\n"
             "crit rate."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -347,7 +347,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent POKéMON\n"
             "have a 15% chance\n"
             "to cure status."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -367,7 +367,7 @@ const struct RogueItem gRogueItems[] =
         .description = _(
             "Caught POKéMON are\n"
             "slightly weaker."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -388,7 +388,7 @@ const struct RogueItem gRogueItems[] =
             "BALL effectiveness\n"
             "is decreased by\n"
             "25%."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -409,7 +409,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent moves\n"
             "have an extra 50%\n"
             "for extra effects."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -429,7 +429,7 @@ const struct RogueItem gRogueItems[] =
         .description = _(
             "Routes contain 1\n"
             "less wild POKéMON."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -450,7 +450,7 @@ const struct RogueItem gRogueItems[] =
             "The maximum number\n"
             "of POKéMON in your\n"
             "party is reduced."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -471,7 +471,7 @@ const struct RogueItem gRogueItems[] =
             "'LVL UP' Evolutions\n"
             "turn into 'LVL whilst\n"
             "holding LINK CABLE'."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -492,7 +492,7 @@ const struct RogueItem gRogueItems[] =
             "Items cannot be\n"
             "used in battle.\n"
             "(Except POKéBALLS)"),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -513,7 +513,7 @@ const struct RogueItem gRogueItems[] =
             "POKéMON can't be\n"
             "caught if species\n"
             "already in party."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -534,7 +534,7 @@ const struct RogueItem gRogueItems[] =
             "Entering a Battle\n"
             "will shuffle Held\n"
             "Items between {PKMN}."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -555,7 +555,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent moves\n"
             "have 10% chance to\n"
             "activate Quick Claw."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,
@@ -576,7 +576,7 @@ const struct RogueItem gRogueItems[] =
             "Opponent POKéMON\n"
             "have a 20% chance\n"
             "to endure OHKOs."),
-        .pocket = POCKET_KEY_ITEMS,
+        .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .importance = 0,
         .registrability = FALSE,

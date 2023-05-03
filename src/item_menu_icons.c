@@ -38,6 +38,17 @@ static const u8 sRotatingBall_Gfx[] = INCBIN_U8("graphics/bag/rotating_ball.4bpp
 static const u8 sCherryUnused[] = INCBIN_U8("graphics/unused/cherry.4bpp");
 static const u16 sCherryUnused_Pal[] = INCBIN_U16("graphics/unused/cherry.gbapal");
 
+static const u8 sPocketVisualIndex[POCKETS_COUNT] =
+{
+    [ITEMS_POCKET] = 0,
+    [MEDICINE_POCKET] = 2,
+    [BALLS_POCKET] = 1,
+    [TMHM_POCKET]  = 2,
+    [BERRIES_POCKET] = 3,
+    [CHARMS_POCKET] = 1,
+    [KEYITEMS_POCKET] = 4
+};
+
 static const struct OamData sBagOamData =
 {
     .y = 0,
@@ -443,12 +454,12 @@ void SetBagVisualPocketId(u8 bagPocketId, bool8 isSwitchingPockets)
     {
         sprite->y2 = -5;
         sprite->callback = SpriteCB_BagVisualSwitchingPockets;
-        sprite->data[0] = bagPocketId + 1;
+        sprite->data[0] = sPocketVisualIndex[bagPocketId] + 1;
         StartSpriteAnim(sprite, 0);
     }
     else
     {
-        StartSpriteAnim(sprite, bagPocketId + 1);
+        StartSpriteAnim(sprite, sPocketVisualIndex[bagPocketId] + 1);
     }
 }
 
