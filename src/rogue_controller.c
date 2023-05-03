@@ -84,20 +84,12 @@ extern const u8 gText_RogueDebug_Y[];
 
 #define LAB_MON_COUNT 3
 
-#define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
-                            max(BAG_BERRIES_COUNT,           \
-                            max(BAG_ITEMS_COUNT,             \
-                            max(BAG_KEYITEMS_COUNT,          \
-                                BAG_POKEBALLS_COUNT))))) + 1)
-
-#define TOTAL_POCKET_ITEM_COUNT (BAG_TMHM_COUNT + BAG_BERRIES_COUNT + BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + 1)
-
 // RogueNote: TODO - Modify pocket structure
 
 struct RogueBoxHubData
 {
     struct Pokemon playerParty[PARTY_SIZE];
-    struct ItemSlot bagItems[TOTAL_POCKET_ITEM_COUNT];
+    struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
 
@@ -1750,7 +1742,7 @@ static void SaveHubStates(void)
     for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
         AppendItemsFromPocket(pocketId, &gRogueBoxHubData.bagItems[0], &bagItemIdx);
 
-    for(; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    for(; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
     {
         gRogueBoxHubData.bagItems[bagItemIdx].itemId = ITEM_NONE;
         gRogueBoxHubData.bagItems[bagItemIdx].quantity = 0;
@@ -1779,7 +1771,7 @@ static void LoadHubStates(void)
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();
 
-    for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
     {
         const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
         const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
@@ -1894,11 +1886,18 @@ void Rogue_OnLoadGame(void)
         {
             const u16 questCapacity = _QUEST_LAST_1_2 + 1;
 
+            // Old consts
+            const u16 cBAG_ITEMS_COUNT = 30;
+            const u16 cBAG_KEYITEMS_COUNT = 30;
+            const u16 cBAG_POKEBALLS_COUNT = 16;
+            const u16 cBAG_TMHM_COUNT = 64;
+            const u16 cBAG_BERRIES_COUNT = 46;
+
             // This was a very chaotically organised struct, so skip over most thingg
             // as that's just hub data to restore and we can't load previous versions whilst in a run
             offset += sizeof(u32); // encryptionKey
             offset += sizeof(struct Pokemon) * PARTY_SIZE; // playerParty
-            offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
+            offset += sizeof(struct ItemSlot) * (cBAG_ITEMS_COUNT + cBAG_KEYITEMS_COUNT + cBAG_POKEBALLS_COUNT + cBAG_TMHM_COUNT + cBAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
             DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * questCapacity, 0);
@@ -2413,7 +2412,7 @@ static void BeginRogueRun(void)
         SetMoney(&gSaveBlock1Ptr->money, 0);
 
         // Add back some of the items we want to keep
-        for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+        for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
         {
             const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
             const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;

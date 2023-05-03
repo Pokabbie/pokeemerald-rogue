@@ -170,12 +170,6 @@ struct RogueHubData
     u8 playTimeMinutes;
     u8 playTimeSeconds;
     u8 playTimeVBlanks;
-    //struct Pokemon playerParty[PARTY_SIZE];
-    //struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    //struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    //struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    //struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    //struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
 };
 
 // Can at most be 384 bytes
