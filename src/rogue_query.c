@@ -118,6 +118,16 @@ u16 RogueQuery_BufferSize(void)
     return gRogueQueryBufferSize;
 }
 
+struct RogueQueryDebug RogueQuery_GetDebugData(void)
+{
+    struct RogueQueryDebug data;
+    data.uncollapsedBufferPtr = &gRogueQueryBits[0];
+    data.uncollapsedBufferCapacity = ARRAY_COUNT(gRogueQueryBits);
+    data.collapseBufferPtr = &gRogueQueryBuffer[0];
+    data.collapseSizePtr = &gRogueQueryBufferSize;
+    return data;
+}
+
 bool8 RogueQuery_CheckIncluded(u16 id)
 {
     return GetQueryState(id);

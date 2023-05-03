@@ -3,6 +3,14 @@
 
 typedef bool8 (*QueryCallback)(u16 elem, u16 usrData);
 
+struct RogueQueryDebug
+{
+    u16 uncollapsedBufferCapacity;
+    u8* uncollapsedBufferPtr;
+    u16* collapseBufferPtr;
+    u16* collapseSizePtr;
+};
+
 u16 RogueUtil_GetEggSpecies(u16 species);
 
 void RogueQuery_Clear(void);
@@ -11,6 +19,8 @@ void RogueQuery_CollapseItemBuffer(void);
 u16* RogueQuery_BufferPtr(void);
 u16 RogueQuery_BufferSize(void);
 bool8 RogueQuery_CheckIncluded(u16 id);
+
+struct RogueQueryDebug RogueQuery_GetDebugData(void);
 
 // Uncollapsed queries are slow but can be used to query the entire range
 u16 RogueQuery_UncollapsedSpeciesSize(void);

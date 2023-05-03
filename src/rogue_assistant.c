@@ -20,6 +20,7 @@
 #include "field_weather.h"
 #include "follow_me.h"
 #include "intro.h"
+#include "item.h"
 #include "main.h"
 #include "overworld.h"
 #include "pokemon.h"
@@ -28,8 +29,10 @@
 
 #include "rogue_assistant.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_query.h"
 
 // Constants
 //
@@ -54,6 +57,10 @@ enum
     GAME_CONSTANT_NET_PLAYER_STATE_SIZE,
 
     GAME_CONSTANT_DEBUG_MAIN_ADDRESS,
+    GAME_CONSTANT_DEBUG_QUERY_UNCOLLAPSE_BUFFER_PTR,
+    GAME_CONSTANT_DEBUG_QUERY_UNCOLLAPSE_CAPACITY,
+    GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_BUFFER_PTR,
+    GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_SIZE_PTR,
 };
 
 #define NETPLAYER_FLAGS_NONE        0
@@ -86,7 +93,7 @@ struct RogueAssistantState
     u16 assistantSubstate;
     u16 requestState;
     u8 inCommBuffer[16];
-    u8 outCommBuffer[16];
+    u8 outCommBuffer[32];
     struct NetPlayerProfile netPlayerProfile[NET_PLAYER_CAPACITY];
     struct NetPlayerState netPlayerState[NET_PLAYER_CAPACITY];
 };
@@ -144,6 +151,8 @@ static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outpu
 static void CommCmd_BeginMultiplayerHost(buffer_offset_t inputPos, buffer_offset_t outputPos);
 static void CommCmd_BeginMultiplayerClient(buffer_offset_t inputPos, buffer_offset_t outputPos);
 static void CommCmd_EndMultiplayer(buffer_offset_t inputPos, buffer_offset_t outputPos);
+static void CommCmd_GetSpeciesName(buffer_offset_t inputPos, buffer_offset_t outputPos);
+static void CommCmd_GetItemName(buffer_offset_t inputPos, buffer_offset_t outputPos);
 
 static const CommandCallback sCommCommands[] = 
 {
@@ -152,6 +161,8 @@ static const CommandCallback sCommCommands[] =
     CommCmd_BeginMultiplayerHost,
     CommCmd_BeginMultiplayerClient,
     CommCmd_EndMultiplayer,
+    CommCmd_GetSpeciesName,
+    CommCmd_GetItemName,
 };
 
 
@@ -641,6 +652,34 @@ static void CommCmd_ReadConstant(buffer_offset_t inputPos, buffer_offset_t outpu
         value = (u32)&gMain;
         break;
 
+    case GAME_CONSTANT_DEBUG_QUERY_UNCOLLAPSE_BUFFER_PTR:
+        {
+            struct RogueQueryDebug debugData = RogueQuery_GetDebugData();
+            value = (u32)debugData.uncollapsedBufferPtr;
+        }
+        break;
+
+    case GAME_CONSTANT_DEBUG_QUERY_UNCOLLAPSE_CAPACITY:
+        {
+            struct RogueQueryDebug debugData = RogueQuery_GetDebugData();
+            value = (u32)debugData.uncollapsedBufferCapacity;
+        }
+        break;
+
+    case GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_BUFFER_PTR:
+        {
+            struct RogueQueryDebug debugData = RogueQuery_GetDebugData();
+            value = (u32)debugData.collapseBufferPtr;
+        }
+        break;
+
+    case GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_SIZE_PTR:
+        {
+            struct RogueQueryDebug debugData = RogueQuery_GetDebugData();
+            value = (u32)debugData.collapseSizePtr;
+        }
+        break;
+
     default: // Error
         value = (u32)-1;
         break;
@@ -665,4 +704,40 @@ static void CommCmd_EndMultiplayer(buffer_offset_t inputPos, buffer_offset_t out
 {
     gRogueAssistantState.netPlayerProfile[0].flags = NETPLAYER_FLAGS_NONE;
     Rogue_RemoveNetObjectEvents();
+}
+
+static void CommCmd_GetSpeciesName(buffer_offset_t inputPos, buffer_offset_t outputPos)
+{
+    u8 i;
+    u16 value = READ_INPUT_16();
+
+    for(i = 0; i < POKEMON_NAME_LENGTH + 1; ++i)
+    {
+        if(value < NUM_SPECIES)
+        {
+            WRITE_OUTPUT_8(gSpeciesNames[value][i]);
+        }
+        else
+        {
+            WRITE_OUTPUT_8(0xAC); // '?'
+        }
+    }
+}
+
+static void CommCmd_GetItemName(buffer_offset_t inputPos, buffer_offset_t outputPos)
+{
+    u8 i;
+    u16 value = READ_INPUT_16();
+
+    for(i = 0; i < ITEM_NAME_LENGTH; ++i)
+    {
+        if(value < ITEMS_COUNT)
+        {
+            WRITE_OUTPUT_8(Rogue_GetItemName(value)[i]);
+        }
+        else
+        {
+            WRITE_OUTPUT_8(0xAC); // '?'
+        }
+    }
 }
