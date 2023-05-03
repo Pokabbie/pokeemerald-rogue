@@ -7,9 +7,9 @@ script Rogue_InteractWithPartnerFollowMon
     special(Rogue_GetFollowMonSpecies)
     playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
 
-    setvar(VAR_0x8004, 0)
-    special(BufferMonNickname)
-    msgbox(format("{STR_VAR_1} is TODO!"))
+    //setvar(VAR_0x8004, 0)
+    //special(BufferMonNickname)
+    //msgbox(format("{STR_VAR_1} is TODO!"))
 
     release
 }
@@ -38,7 +38,7 @@ script Rogue_InteractWithDynamicWildFollowMon
 {
     lockall
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    if(flag(FLAG_ROGUE_RUN_ACTIVE) || flag(FLAG_SYS_SAFARI_MODE))
     {
         special(Rogue_GetFollowMonSpecies)
 

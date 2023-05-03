@@ -74,6 +74,8 @@
     <Compile Include="Game\Commands\CommandRequest.cs" />
     <Compile Include="Game\Commands\Game\EchoGameCommand.cs" />
     <Compile Include="Game\Commands\Connection\VerifyGameCommand.cs" />
+    <Compile Include="Game\Commands\Game\GetItemNameCommand.cs" />
+    <Compile Include="Game\Commands\Game\GetSpeciesNameCommand.cs" />
     <Compile Include="Game\Commands\IConnectionCommandBehaviour.cs" />
     <Compile Include="Game\GameConnection.cs" />
     <Compile Include="Game\GameConnectionHeader.cs" />

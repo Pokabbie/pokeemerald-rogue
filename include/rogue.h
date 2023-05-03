@@ -13,11 +13,20 @@ struct RogueAdvPathRoomParams
         struct
         {
             u16 species;
+            bool8 shinyState;
         } wildDen;
+        struct
+        {
+            bool8 shinyState;
+        } legendary;
         struct 
         {
             u16 trainerNum;
         } boss;
+        struct 
+        {
+            u16 trainerNum;
+        } miniboss;
     } perType;
 };
 
@@ -161,12 +170,6 @@ struct RogueHubData
     u8 playTimeMinutes;
     u8 playTimeSeconds;
     u8 playTimeVBlanks;
-    //struct Pokemon playerParty[PARTY_SIZE];
-    //struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    //struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    //struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    //struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    //struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
 };
 
 // Can at most be 384 bytes
@@ -260,9 +263,10 @@ struct RogueTrainer
 
 struct RogueTrainerCollection
 {
-    // new
     u16 bossCount;
+    u16 minibossCount;
     const struct RogueTrainer* boss;
+    const struct RogueTrainer* miniboss;
 };
 
 struct SpeciesTable
@@ -277,7 +281,7 @@ struct RogueMonPreset
 {
     bool8 allowMissingMoves;
     u16 heldItem;
-    u16 abilityNum;
+    u16 abilityNum; // not actually abilityNum, should be the abilityId
     u16 hiddenPowerType;
     u16 flags;
     u16 moves[MAX_MON_MOVES];
@@ -325,7 +329,6 @@ struct PokemonObjectEventInfo
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
-extern const struct RogueTrainerData gRogueMiniBossEncounters;
 extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];

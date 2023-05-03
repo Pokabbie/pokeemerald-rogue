@@ -238,7 +238,7 @@ void FollowMe(struct ObjectEvent* npc, u8 state, bool8 ignoreScriptActive)
     u8 newState;
     u8 taskId;
 
-    if(CheckFollowerFlag(FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT) && gSaveBlock2Ptr->follower.comeOutDoorStairs == 0)
+    if(CheckFollowerFlag(FOLLOWER_FLAG_FOLLOW_DURING_SCRIPT) && gSaveBlock2Ptr->follower.warpEnd == 0)
         ignoreScriptActive = TRUE;
 
     if (player != npc) //Only when the player moves
@@ -1193,6 +1193,7 @@ void CreateFollowerAvatar(void)
     player = &gObjectEvents[gPlayerAvatar.objectEventId];
     clone = *GetObjectEventTemplateByLocalIdAndMap(gSaveBlock2Ptr->follower.map.id, gSaveBlock2Ptr->follower.map.number, gSaveBlock2Ptr->follower.map.group);
 
+    clone.localId = gSaveBlock2Ptr->follower.map.id; // if fail to get template, can stomp over otherwise valid NPC
     clone.graphicsId = GetFollowerSprite();
     //clone.graphicsIdUpperByte = GetFollowerSprite() >> 8;
     clone.x = player->currentCoords.x - 7;

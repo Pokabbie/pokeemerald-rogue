@@ -72,6 +72,7 @@ script RogueHub_OnMapLoad
     if(flag(FLAG_ROGUE_DEBUG_DISABLED))
     {
         fillmetatile(4, 20, 4, 20, METATILE_Grass, FALSE)
+        fillmetatile(4, 24, 4, 24, METATILE_Grass, FALSE)
     }
 
     // Shop
@@ -621,9 +622,9 @@ script RogueHub_Sign_BikeShop
     msgbox(format("BIKE SHOP"), MSGBOX_SIGN)
 }
 
-script RogueHub_Sign_NameRater
+script RogueHub_Sign_PokeConnect
 {
-    msgbox(format("NAME RATER's HOUSE"), MSGBOX_SIGN)
+    msgbox(format("POKéCONNECT CENTRE"), MSGBOX_SIGN)
 }
 
 script RogueHub_Sign_Bank
@@ -933,53 +934,6 @@ script RogueHub_CombineMons
     else
     {
         msgbox(format("If you come back with 2 POKéMON I could check them... if you'd like..."), MSGBOX_DEFAULT)
-    }
-
-    release
-}
-
-script RogueHub_RenameMon
-{
-    lock
-
-    msgbox(format("Hi, hi! I'm the NAME RATER!\nI'm the fortune-teller of names!\pI shall be pleased to rate your POKéMON's nickname."), MSGBOX_YESNO)
-
-    if(var(VAR_RESULT) == YES)
-    {
-        specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-        if(var(VAR_RESULT) == SPECIES_EGG)
-        {
-            msgbox(format("Now, now.\nThat is merely an EGG!"), MSGBOX_DEFAULT)
-        }
-        else
-        {
-            special(BufferMonNickname)
-            msgbox(format("Hmmm… {STR_VAR_1}, is it? That is quite a fine name you bestowed.\pBut! What say you, if I were to suggest a slightly better name?"), MSGBOX_YESNO)
-            
-            if(var(VAR_RESULT) == YES)
-            {
-                msgbox(format("Ah, good. Then, what shall the new nickname be?"), MSGBOX_DEFAULT)
-                call(Common_EventScript_NameReceivedPartyMon)
-                special(BufferMonNickname)
-
-                if(var(VAR_RESULT) == TRUE)
-                {
-                    msgbox(format("Done! From now on, this POKéMON shall be known as {STR_VAR_1}!\pIt is a better name than before!\nHow fortunate for you!"), MSGBOX_DEFAULT)
-                }
-                else
-                {
-                    msgbox(format("Done! From now on, this POKéMON shall be known as {STR_VAR_1}!\pIt looks no different from before, and yet, this is vastly superior!\pHow fortunate for you!"), MSGBOX_DEFAULT)
-                }
-            }
-            else
-            {
-                msgbox(format("I see.\nDo come visit againt."), MSGBOX_DEFAULT)
-            }
-        }
-    }
-    else
-    {
-        msgbox(format("I see.\nDo come visit againt."), MSGBOX_DEFAULT)
     }
 
     release

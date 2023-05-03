@@ -358,7 +358,7 @@ static const u8 sSwapArrowTextColors[] = {TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRA
 #define GET_QUANTITY(i) ((u16)((u16 *)sNewGamePCItems + 1)[i * 2])
 void NewGameInitPCItems(void)
 {
-    u8 i = 0;
+    u16 i = 0;
     ClearItemSlots(gSaveBlock1Ptr->pcItems, PC_ITEMS_COUNT);
     for(; sNewGamePCItems[i].itemId != ITEM_NONE && GET_QUANTITY(i) &&
         AddPCItem(sNewGamePCItems[i].itemId, GET_QUANTITY(i)) == TRUE; i++);

@@ -84,20 +84,12 @@ extern const u8 gText_RogueDebug_Y[];
 
 #define LAB_MON_COUNT 3
 
-#define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
-                            max(BAG_BERRIES_COUNT,           \
-                            max(BAG_ITEMS_COUNT,             \
-                            max(BAG_KEYITEMS_COUNT,          \
-                                BAG_POKEBALLS_COUNT))))) + 1)
-
-#define TOTAL_POCKET_ITEM_COUNT (BAG_TMHM_COUNT + BAG_BERRIES_COUNT + BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + 1)
-
 // RogueNote: TODO - Modify pocket structure
 
 struct RogueBoxHubData
 {
     struct Pokemon playerParty[PARTY_SIZE];
-    struct ItemSlot bagItems[TOTAL_POCKET_ITEM_COUNT];
+    struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
     struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
 };
 
@@ -275,7 +267,7 @@ bool8 Rogue_FastBattleAnims(void)
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
             return FALSE;
 
         // Force slow anims for legendaries
@@ -1239,12 +1231,20 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
+    if(GetSafariZoneFlag())
+        return FALSE;
+
     return TRUE;
 }
 
 u16 Rogue_MiniMenuHeight(void)
 {
     u16 height = Rogue_IsRunActive() ? 3 : 1;
+
+    if(GetSafariZoneFlag())
+    {
+        return 2;
+    }
 
     if(Rogue_IsActiveCampaignScored())
     {
@@ -1742,7 +1742,7 @@ static void SaveHubStates(void)
     for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
         AppendItemsFromPocket(pocketId, &gRogueBoxHubData.bagItems[0], &bagItemIdx);
 
-    for(; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    for(; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
     {
         gRogueBoxHubData.bagItems[bagItemIdx].itemId = ITEM_NONE;
         gRogueBoxHubData.bagItems[bagItemIdx].quantity = 0;
@@ -1771,7 +1771,7 @@ static void LoadHubStates(void)
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();
 
-    for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+    for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
     {
         const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
         const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
@@ -1886,11 +1886,18 @@ void Rogue_OnLoadGame(void)
         {
             const u16 questCapacity = _QUEST_LAST_1_2 + 1;
 
+            // Old consts
+            const u16 cBAG_ITEMS_COUNT = 30;
+            const u16 cBAG_KEYITEMS_COUNT = 30;
+            const u16 cBAG_POKEBALLS_COUNT = 16;
+            const u16 cBAG_TMHM_COUNT = 64;
+            const u16 cBAG_BERRIES_COUNT = 46;
+
             // This was a very chaotically organised struct, so skip over most thingg
             // as that's just hub data to restore and we can't load previous versions whilst in a run
             offset += sizeof(u32); // encryptionKey
             offset += sizeof(struct Pokemon) * PARTY_SIZE; // playerParty
-            offset += sizeof(struct ItemSlot) * (BAG_ITEMS_COUNT + BAG_KEYITEMS_COUNT + BAG_POKEBALLS_COUNT + BAG_TMHM_COUNT + BAG_BERRIES_COUNT); // bagPocket_POCKET
+            offset += sizeof(struct ItemSlot) * (cBAG_ITEMS_COUNT + cBAG_KEYITEMS_COUNT + cBAG_POKEBALLS_COUNT + cBAG_TMHM_COUNT + cBAG_BERRIES_COUNT); // bagPocket_POCKET
             offset += sizeof(struct RogueAdvPath); // advPath
 
             DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * questCapacity, 0);
@@ -2405,7 +2412,7 @@ static void BeginRogueRun(void)
         SetMoney(&gSaveBlock1Ptr->money, 0);
 
         // Add back some of the items we want to keep
-        for(bagItemIdx = 0; bagItemIdx < TOTAL_POCKET_ITEM_COUNT; ++bagItemIdx)
+        for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
         {
             const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
             const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
@@ -2655,22 +2662,6 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
 
     return legendaryId;
 }
-
-u8 Rogue_SelectMiniBossEncounterRoom(void)
-{
-    u8 bossId = 0;
-
-    do
-    {
-        bossId = RogueRandomRange(gRogueMiniBossEncounters.count, OVERWORLD_FLAG);
-    }
-    while(HistoryBufferContains(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId));
-
-    HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), bossId);
-
-    return bossId;
-}
-
 
 
 void Rogue_SelectMiniBossRewardMons()
@@ -3087,6 +3078,23 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     break;
                 }
 
+                case ADVPATH_ROOM_MINIBOSS:
+                {
+                    u16 trainerNum;
+                    const struct RogueTrainer* trainer;
+
+                    trainerNum = gRogueAdvPath.currentRoomParams.perType.miniboss.trainerNum;
+
+                    RandomiseEnabledItems();
+
+                    VarSet(VAR_OBJ_GFX_ID_0, Rogue_GetTrainerObjectEventGfx(trainerNum));
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, Rogue_GetTrainerWeather(trainerNum));
+
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainerNum);
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, Rogue_GetTrainerTypeAssignment(trainerNum));
+                    break;
+                }
+
                 case ADVPATH_ROOM_LEGENDARY:
                 {
                     u16 species = gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
@@ -3094,7 +3102,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
-                    FollowMon_SetGraphics(0, species, TRUE);
+                    FollowMon_SetGraphics(
+                        0, 
+                        species,
+                        gRogueAdvPath.currentRoomParams.perType.legendary.shinyState
+                    );
                     break;
                 }
 
@@ -3102,98 +3114,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     ResetSpecialEncounterStates();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.wildDen.species);
-                    FollowMon_SetGraphics(0, gRogueAdvPath.currentRoomParams.perType.wildDen.species, TRUE);
-                    break;
-                }
-
-                case ADVPATH_ROOM_MINIBOSS:
-                {
-                    const struct RogueTrainerEncounter* trainer = &gRogueMiniBossEncounters.trainers[gRogueAdvPath.currentRoomParams.roomIdx];
-
-                    RandomiseEnabledItems(); // We only want this for the item content
                     
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainer->trainerId);
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, trainer->incTypes[0]);
-
-                    // Mirror trainer
-                    if(trainer->gfxId == OBJ_EVENT_GFX_BRENDAN_ALT)
-                    {
-                        switch(gSaveBlock2Ptr->playerGender)
-                        {
-                            case(STYLE_EMR_BRENDAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                                break;
-                            case(STYLE_EMR_MAY):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                                break;
-
-                            case(STYLE_RED):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                                break;
-                            case(STYLE_LEAF):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                                break;
-
-                            case(STYLE_ETHAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
-                                break;
-                            case(STYLE_LYRA):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
-                                break;
-                        };
-                    }
-                    // Rival Trainer
-                    else if(trainer->gfxId == OBJ_EVENT_GFX_MAY_ALT)
-                    {
-                        switch(gSaveBlock2Ptr->playerGender)
-                        {
-                            case(STYLE_EMR_BRENDAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ALT);
-                                break;
-                            case(STYLE_EMR_MAY):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ALT);
-                                break;
-
-                            case(STYLE_RED):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LEAF_ALT);
-                                break;
-                            case(STYLE_LEAF):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_ALT);
-                                break;
-
-                            case(STYLE_ETHAN):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LYRA_ALT);
-                                break;
-                            case(STYLE_LYRA):
-                                VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ETHAN_ALT);
-                                break;
-                        };
-                    }
-                    else
-                    {
-                        VarSet(VAR_OBJ_GFX_ID_0, trainer->gfxId);
-                    }
-
-                    // Set weather type
-                    if((trainer->trainerFlags & TRAINER_FLAG_DISABLE_WEATHER) != 0)
-                    {
-                        // No Weather
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                    }
-                    else if(gRogueRun.currentDifficulty == 0 || FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-                    {
-                        // No Weather
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
-                    }
-                    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS) || gRogueRun.currentDifficulty > 2)
-                    {
-                        u8 weatherType = gRogueTypeWeatherTable[trainer->incTypes[0]];
-
-                        if((trainer->trainerFlags & TRAINER_FLAG_THIRDSLOT_WEATHER) != 0)
-                            weatherType = gRogueTypeWeatherTable[trainer->incTypes[2]];
-
-                        VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
-                    }
+                    FollowMon_SetGraphics(
+                        0, 
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.species, 
+                        gRogueAdvPath.currentRoomParams.perType.wildDen.shinyState
+                    );
                     break;
                 }
 
@@ -3904,6 +3830,7 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
         SetMonData(mon, MON_DATA_MOVE1 + i, &move);
     }
 
+    // abilityNum is actually the abilityId
     if(preset->abilityNum != ABILITY_NONE)
     {
         // We need to set the ability index

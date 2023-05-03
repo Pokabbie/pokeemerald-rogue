@@ -401,11 +401,16 @@ script Rogue_ConfigRoom_TalkHiddenEnterance
 
         if(var(VAR_RESULT) == YES)
         {
-            setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+            msgbox(format("WARNING!\nPressing this switch will skip ahead and activate post-game content.\pYou're recommended to complete a run normally before pressing this switch.\pPress the switch?"), MSGBOX_YESNO)
 
-            waitse
-            playse(SE_TRUCK_DOOR)
-            call(Rogue_ConfigRoom_RedrawMap)
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+                waitse
+                playse(SE_TRUCK_DOOR)
+                call(Rogue_ConfigRoom_RedrawMap)
+            }
         }
 
         release

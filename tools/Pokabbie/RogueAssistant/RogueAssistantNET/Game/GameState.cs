@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RogueAssistantNET.Game.Commands.Connection;
+using RogueAssistantNET.Game.Commands.Game;
+using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +56,10 @@ namespace RogueAssistantNET.Game
 		NetPlayerStateSize,
 
 		DebugMainAddress,
+		DebugQueryUncollapsedBufferPtr,
+		DebugQueryUncollapsedCapacity,
+		DebugQueryCollapsedBufferPtr,
+		DebugQueryCollapsedSizePtr,
 	}
 
 	public class GameState
@@ -63,6 +69,8 @@ namespace RogueAssistantNET.Game
 
 		private ushort m_CommandTokenCounter = 0;
 		private Dictionary<GameStateConstant, uint> m_CachedConstants = new Dictionary<GameStateConstant, uint>();
+		private Dictionary<ushort, string> m_CachedSpeciesNames = new Dictionary<ushort, string>();
+		private Dictionary<ushort, string> m_CachedItemNames = new Dictionary<ushort, string>();
 
 		private byte[] m_PlayerNameData;
 		private byte m_PlayerAvatar;
@@ -159,6 +167,40 @@ namespace RogueAssistantNET.Game
 		public void ClearConstantValueCache(GameStateConstant constant)
 		{
 			m_CachedConstants.Remove(constant);
+		}
+
+		public string GetSpeciesName(ushort species)
+		{
+			if (m_CachedSpeciesNames.TryGetValue(species, out string value))
+				return value;
+
+			// add placeholder and then request from game
+			value = "[???]";
+			m_CachedSpeciesNames.Add(species, value);
+
+			m_Connection.EnqueueCommand(new GetSpeciesNameCommand(species)).Then((GetSpeciesNameCommand result) =>
+			{
+				m_CachedSpeciesNames[species] = result.Result;
+			});
+
+			return value;
+		}
+
+		public string GetItemName(ushort item)
+		{
+			if (m_CachedItemNames.TryGetValue(item, out string value))
+				return value;
+
+			// add placeholder and then request from game
+			value = "[???]";
+			m_CachedItemNames.Add(item, value);
+
+			m_Connection.EnqueueCommand(new GetItemNameCommand(item)).Then((GetItemNameCommand result) =>
+			{
+				m_CachedItemNames[item] = result.Result;
+			});
+
+			return value;
 		}
 	}
 }

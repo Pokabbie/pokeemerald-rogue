@@ -383,18 +383,18 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 
     //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
     //    weights[ADVPATH_ROOM_LEGENDARY] = 0;
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1)
-        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
-        weights[ADVPATH_ROOM_LAB] = 0;
+//
+    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
+    //    weights[ADVPATH_ROOM_WILD_DEN] = 0;
+//
+    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
+    //    weights[ADVPATH_ROOM_GAMESHOW] = 0;
+//
+    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1)
+    //    weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+//
+    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
+    //    weights[ADVPATH_ROOM_LAB] = 0;
 
 
     writeNodeScratch->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights));
@@ -429,15 +429,18 @@ static void CreateEventParams(u16 nodeX, u16 nodeY, struct RogueAdvPathNode* nod
 
         case ADVPATH_ROOM_LEGENDARY:
             nodeInfo->roomParams.roomIdx = Rogue_SelectLegendaryEncounterRoom();
+            nodeInfo->roomParams.perType.legendary.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
             break;
 
         case ADVPATH_ROOM_MINIBOSS:
-            nodeInfo->roomParams.roomIdx = Rogue_SelectMiniBossEncounterRoom();
+            nodeInfo->roomParams.roomIdx = 0;
+            nodeInfo->roomParams.perType.miniboss.trainerNum = Rogue_NextMinibossTrainerId();
             break;
 
         case ADVPATH_ROOM_WILD_DEN:
             nodeInfo->roomParams.roomIdx = 0;
             nodeInfo->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
+            nodeInfo->roomParams.perType.wildDen.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
             break;
 
         case ADVPATH_ROOM_ROUTE:

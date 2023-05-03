@@ -152,6 +152,11 @@
 #define TRAINER_PIC_GLITCH_TAILS          123
 #define TRAINER_PIC_GLITCH_ERMA           124
 
+
+// Special cases
+#define TRAINER_PIC_PLAYER_AVATAR         254
+#define TRAINER_PIC_PLAYER_RIVAL          255
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

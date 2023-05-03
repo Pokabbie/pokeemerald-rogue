@@ -76,9 +76,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp);
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 u8 Rogue_SelectRouteRoom(void);
-u8 Rogue_SelectBossEncounter(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
-u8 Rogue_SelectMiniBossEncounterRoom(void);
 u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();

@@ -22,12 +22,8 @@ static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 
 struct LoadedSaveData
 {
- /*0x0000*/ struct ItemSlot items[BAG_ITEMS_COUNT];
- /*0x0078*/ struct ItemSlot keyItems[BAG_KEYITEMS_COUNT];
- /*0x00F0*/ struct ItemSlot pokeBalls[BAG_POKEBALLS_COUNT];
- /*0x0130*/ struct ItemSlot TMsHMs[BAG_TMHM_COUNT];
- /*0x0230*/ struct ItemSlot berries[BAG_BERRIES_COUNT];
- /*0x02E8*/ struct Mail mail[MAIL_COUNT];
+    struct ItemSlot items[BAG_ITEM_CAPACITY];
+    struct Mail mail[MAIL_COUNT];
 };
 
 // EWRAM DATA
@@ -79,7 +75,6 @@ void SetSaveBlocksPointers(u16 offset)
     *sav1_LocalVar = (void*)(&gSaveblock1) + offset;
     gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
 
-    SetBagItemsPointers();
     SetDecorationInventoriesPointers();
 }
 
@@ -119,6 +114,9 @@ void MoveSaveBlocks_ResetHeap(void)
     *gSaveBlock2Ptr = *saveBlock2Copy;
     *gSaveBlock1Ptr = *saveBlock1Copy;
     *gPokemonStoragePtr = *pokemonStorageCopy;
+
+    // Must be done after copy back, as the ptrs can dynamically change
+    UpdateBagItemsPointers();
 
     // heap was destroyed in the copying process, so reset it
     InitHeap(gHeap, HEAP_SIZE);
@@ -215,25 +213,9 @@ void LoadPlayerBag(void)
 {
     int i;
 
-    // load player items.
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gLoadedSaveData.items[i] = gSaveBlock1Ptr->bagPocket_Items[i];
-
-    // load player key items.
-    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gLoadedSaveData.keyItems[i] = gSaveBlock1Ptr->bagPocket_KeyItems[i];
-
-    // load player pokeballs.
-    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gLoadedSaveData.pokeBalls[i] = gSaveBlock1Ptr->bagPocket_PokeBalls[i];
-
-    // load player TMs and HMs.
-    for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
-
-    // load player berries.
-    for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gLoadedSaveData.berries[i] = gSaveBlock1Ptr->bagPocket_Berries[i];
+    // load bag items.
+    for (i = 0; i < BAG_ITEM_CAPACITY; i++)
+        gLoadedSaveData.items[i] = gSaveBlock1Ptr->bagPockets[i];
 
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
@@ -248,24 +230,8 @@ void SavePlayerBag(void)
     u32 encryptionKeyBackup;
 
     // save player items.
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
-
-    // save player key items.
-    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_KeyItems[i] = gLoadedSaveData.keyItems[i];
-
-    // save player pokeballs.
-    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_PokeBalls[i] = gLoadedSaveData.pokeBalls[i];
-
-    // save player TMs and HMs.
-    for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
-
-    // save player berries.
-    for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
+    for (i = 0; i < BAG_ITEM_CAPACITY; i++)
+        gSaveBlock1Ptr->bagPockets[i] = gLoadedSaveData.items[i];
 
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)

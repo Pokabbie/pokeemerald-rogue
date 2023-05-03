@@ -407,6 +407,7 @@ static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
 static void CursorCb_Release(u8);
 static void CursorCb_ReleaseField(u8);
+static void CursorCb_RenameField(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
@@ -2611,11 +2612,30 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
+
     // Add field moves to action list
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         for (j = 0; sFieldMoves[j] != FIELD_MOVE_TERMINATOR; j++)
         {
+            // Moves are invalid in rogue
+            switch (sFieldMoves[j])
+            {
+                case MOVE_CUT:
+                case MOVE_FLASH:
+                case MOVE_ROCK_SMASH:
+                case MOVE_STRENGTH:
+                case MOVE_SURF:
+                case MOVE_FLY:
+                case MOVE_DIVE:
+                case MOVE_WATERFALL:
+                case MOVE_TELEPORT:
+                case MOVE_DIG:
+                case MOVE_SECRET_POWER:
+                    continue;
+            };
+
             if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
             {
                 AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
@@ -3381,6 +3401,15 @@ static void Task_ReleaseSelectedMonYesNoInput(u8 taskId)
     }
 }
 
+void ChangePokemonNickname(void);
+
+static void CursorCb_RenameField(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gSpecialVar_0x8004 = GetCursorSelectionMonId();
+    ChangePokemonNickname();
+    //gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+}
 
 static void Task_TossHeldItemYesNo(u8 taskId)
 {

@@ -12,7 +12,11 @@ namespace RogueAssistantNET.Game
 
 		public const uint GFHeaderAddress = RomAddress + 0x100;
 
-		public const uint PlayerNameLength = 7;
+		public const uint PlayerNameLength = 7; // TODO - Move into runtime
+
+		public const uint PokemonNameLength = 10;
+
+		public const uint ItemNameLength = 14;
 	}
 
 	public enum GameCommandCode
@@ -21,6 +25,8 @@ namespace RogueAssistantNET.Game
 		ReadConstant,
 		BeginMultiplayerHost,
 		BeginMultiplayerClient,
-		EndMultiplayer
+		EndMultiplayer,
+		GetSpeciesName,
+		GetItemName,
 	}
 }
