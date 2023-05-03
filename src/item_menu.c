@@ -823,13 +823,13 @@ static bool8 LoadBagMenu_Graphics(void)
         break;
     case 3:
         if (IsWallysBag() == TRUE || (gSaveBlock2Ptr->playerGender % 2) == MALE)
-            LoadCompressedSpriteSheet(&gBagMaleSpriteSheet);
+            LoadCompressedSpriteSheet(&gBagMaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         else
-            LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet);
+            LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         gBagMenu->graphicsLoadState++;
         break;
     case 4:
-        LoadCompressedSpritePalette(&gBagPaletteTable);
+        LoadCompressedSpritePalette(&gBagPaletteTable[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         gBagMenu->graphicsLoadState++;
         break;
     default:

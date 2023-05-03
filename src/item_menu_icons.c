@@ -133,19 +133,25 @@ static const union AffineAnimCmd *const sBagAffineAnimCmds[] =
     sSpriteAffineAnim_BagShake
 };
 
-const struct CompressedSpriteSheet gBagMaleSpriteSheet =
+const struct CompressedSpriteSheet gBagMaleSpriteSheet[BAG_VARIANT_COUNT] =
 {
-    gBagMaleTiles, 0x3000, TAG_BAG_GFX
+    { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
 };
 
-const struct CompressedSpriteSheet gBagFemaleSpriteSheet =
+const struct CompressedSpriteSheet gBagFemaleSpriteSheet[BAG_VARIANT_COUNT] =
 {
-    gBagFemaleTiles, 0x3000, TAG_BAG_GFX
+    { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
 };
 
-const struct CompressedSpritePalette gBagPaletteTable =
+const struct CompressedSpritePalette gBagPaletteTable[BAG_VARIANT_COUNT] =
 {
-    gBagPalette, TAG_BAG_GFX
+    { gBagPalette, TAG_BAG_GFX },
+    { gBagKantoPalette, TAG_BAG_GFX },
+    { gBagJohtoPalette, TAG_BAG_GFX },
 };
 
 static const struct SpriteTemplate sBagSpriteTemplate =

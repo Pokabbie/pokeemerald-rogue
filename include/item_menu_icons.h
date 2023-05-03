@@ -1,9 +1,11 @@
 #ifndef GUARD_ITEM_MENU_ICONS_H
 #define GUARD_ITEM_MENU_ICONS_H
 
-extern const struct CompressedSpriteSheet gBagMaleSpriteSheet;
-extern const struct CompressedSpriteSheet gBagFemaleSpriteSheet;
-extern const struct CompressedSpritePalette gBagPaletteTable;
+#define BAG_VARIANT_COUNT 3
+
+extern const struct CompressedSpriteSheet gBagMaleSpriteSheet[BAG_VARIANT_COUNT];
+extern const struct CompressedSpriteSheet gBagFemaleSpriteSheet[BAG_VARIANT_COUNT];
+extern const struct CompressedSpritePalette gBagPaletteTable[BAG_VARIANT_COUNT];
 extern const struct CompressedSpriteSheet gBerryCheckCircleSpriteSheet;
 extern const struct CompressedSpritePalette gBerryCheckCirclePaletteTable;
 
