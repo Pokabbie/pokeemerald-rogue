@@ -178,7 +178,7 @@ static void EnsureSafariShinyBufferIsValid()
     }
 }
 
-static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
+static bool8 ConsumeSafariShinyBufferIfPresent(u16 species)
 {
     u8 i;
 
@@ -189,19 +189,19 @@ static u32 ConsumeSafariShinyBufferIfPresent(u16 species)
         if(Rogue_GetEggSpecies(gRogueGlobalData.safariShinyBuffer[i]) == Rogue_GetEggSpecies(species))
         {
             gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
-            return gRogueGlobalData.safariShinyPersonality;
+            return TRUE;//gRogueGlobalData.safariShinyPersonality;
         }
 #ifdef ROGUE_EXPANSION
         // Support shiny buffering for alternate forms
         else if(GET_BASE_SPECIES_ID(gRogueGlobalData.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
         {
             gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
-            return gRogueGlobalData.safariShinyPersonality;
+            return TRUE;//gRogueGlobalData.safariShinyPersonality;
         }
 #endif
     }
 
-    return 0;
+    return FALSE;
 }
 
 u16 RogueRandomRange(u16 range, u8 flag)
@@ -1527,6 +1527,7 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
+    FlagClear(FLAG_ROGUE_STD_WILD_MONS);
     FlagClear(FLAG_ROGUE_EASY_TRAINERS);
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
@@ -4124,7 +4125,7 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
 
 }
 
-void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality)
+void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 {
     // Note: Don't seed individual encounters
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
@@ -4162,9 +4163,12 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
+        *forceShiny = (Random() % Rogue_GetShinyOdds()) == 0;
+
         if(GetSafariZoneFlag())
         {
-            *forcePersonality = ConsumeSafariShinyBufferIfPresent(*species);
+            if(ConsumeSafariShinyBufferIfPresent(*species))
+                *forceShiny = TRUE;
         }
     }
 }
@@ -4180,8 +4184,18 @@ u16 Rogue_SelectRandomWildMon(void)
     return SPECIES_NONE;
 }
 
+bool8 Rogue_PreferTraditionalWildMons(void)
+{
+    return FlagGet(FLAG_ROGUE_STD_WILD_MONS);
+}
+
 bool8 Rogue_AreWildMonEnabled(void)
 {
+    if(Rogue_PreferTraditionalWildMons())
+    {
+        return FALSE;
+    }
+
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         return GetCurrentWildEncounterCount() > 0;

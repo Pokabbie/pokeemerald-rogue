@@ -393,7 +393,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "Rogue_ConfigRoom_Button_BasicBag"
+      "script": "Rogue_ConfigRoom_Button_WildMons"
     }
   ],
   "bg_events": [

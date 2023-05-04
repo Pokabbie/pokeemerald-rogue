@@ -914,7 +914,7 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
-    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    if(flag(FLAG_ROGUE_STD_WILD_MONS))
     {
         setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
     }
@@ -1185,6 +1185,38 @@ script Rogue_ConfigRoom_Button_BasicBag
     {
         // Print Info
         msgbox(format("If enabled, when embarking on an Adventure the contents of your bag will be wiped and you will be given the starter items instead.\pKey items are the only pocket which will remain untouched."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_WildMons
+{
+    bufferstring(STR_VAR_1, format("HIDDEN WILD SPAWNS"))
+
+    if(flag(FLAG_ROGUE_STD_WILD_MONS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_STD_WILD_MONS)
+        case 1:
+            clearflag(FLAG_ROGUE_STD_WILD_MONS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If enabled, rather than WILD POKéMON spawning in the overworld and roaming around, they will appear randomly when walking around in tall grass in the same fashion they do in older games.\pIt is recommended to keep this off."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

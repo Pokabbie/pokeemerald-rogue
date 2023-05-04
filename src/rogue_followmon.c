@@ -322,7 +322,7 @@ static u16 NextSpawnMonSlot()
     u16 slot;
     u16 species;
     u8 level; // ignore
-    u32 personality; // ignore
+    bool8 isShiny; // ignore
 
     // Attempt to find a free slot first
     for(slot = 0; slot < MAX_SPAWN_SLOTS; ++slot)
@@ -339,9 +339,9 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    Rogue_CreateWildMon(0, &species, &level, &personality);
+    Rogue_CreateWildMon(0, &species, &level, &isShiny);
 
-    FollowMon_SetGraphics(slot, species, (Random() % Rogue_GetShinyOdds()) == 0);
+    FollowMon_SetGraphics(slot, species, isShiny);
 
     RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
     return slot;
