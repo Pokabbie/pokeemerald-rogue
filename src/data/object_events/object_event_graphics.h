@@ -530,4 +530,23 @@ const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
 
+const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
+const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");
+const u32 gObjectEventPic_Route_Dragon[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dragon.4bpp");
+const u32 gObjectEventPic_Route_Electric[] = INCBIN_U32("graphics/object_events/pics/rogue/route/electric.4bpp");
+const u32 gObjectEventPic_Route_Fairy[] = INCBIN_U32("graphics/object_events/pics/rogue/route/fairy.4bpp");
+const u32 gObjectEventPic_Route_Fighting[] = INCBIN_U32("graphics/object_events/pics/rogue/route/fighting.4bpp");
+const u32 gObjectEventPic_Route_Fire[] = INCBIN_U32("graphics/object_events/pics/rogue/route/fire.4bpp");
+const u32 gObjectEventPic_Route_Flying[] = INCBIN_U32("graphics/object_events/pics/rogue/route/flying.4bpp");
+const u32 gObjectEventPic_Route_Ghost[] = INCBIN_U32("graphics/object_events/pics/rogue/route/ghost.4bpp");
+const u32 gObjectEventPic_Route_Grass[] = INCBIN_U32("graphics/object_events/pics/rogue/route/grass.4bpp");
+const u32 gObjectEventPic_Route_Ground[] = INCBIN_U32("graphics/object_events/pics/rogue/route/ground.4bpp");
+const u32 gObjectEventPic_Route_Ice[] = INCBIN_U32("graphics/object_events/pics/rogue/route/ice.4bpp");
+const u32 gObjectEventPic_Route_Normal[] = INCBIN_U32("graphics/object_events/pics/rogue/route/normal.4bpp");
+const u32 gObjectEventPic_Route_Poison[] = INCBIN_U32("graphics/object_events/pics/rogue/route/poison.4bpp");
+const u32 gObjectEventPic_Route_Psychic[] = INCBIN_U32("graphics/object_events/pics/rogue/route/psychic.4bpp");
+const u32 gObjectEventPic_Route_Rock[] = INCBIN_U32("graphics/object_events/pics/rogue/route/rock.4bpp");
+const u32 gObjectEventPic_Route_Steel[] = INCBIN_U32("graphics/object_events/pics/rogue/route/steel.4bpp");
+const u32 gObjectEventPic_Route_Water[] = INCBIN_U32("graphics/object_events/pics/rogue/route/water.4bpp");
+
 #include "../../../graphics/object_events/pics/pokemon_ow/include/object_event_graphics_gen.h"

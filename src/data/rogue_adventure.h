@@ -20,11 +20,23 @@ static const struct RogueAdventurePhase sAdventure_Standard[] =
                 [ADVPATH_ROOM_ROUTE] = 100,
                 [ADVPATH_ROOM_RESTSTOP] = 50,
                 [ADVPATH_ROOM_LEGENDARY] = 10,
-                [ADVPATH_ROOM_MINIBOSS] = 2000,
+                [ADVPATH_ROOM_MINIBOSS] = 20,
                 [ADVPATH_ROOM_WILD_DEN] = 30,
                 [ADVPATH_ROOM_GAMESHOW] = 30,
                 [ADVPATH_ROOM_DARK_DEAL] = 30,
                 [ADVPATH_ROOM_LAB] = 10
+            },
+            .maxRoomCount = 
+            {
+                [ADVPATH_ROOM_NONE] = 0,
+                [ADVPATH_ROOM_ROUTE] = 0,
+                [ADVPATH_ROOM_RESTSTOP] = 0,
+                [ADVPATH_ROOM_LEGENDARY] = 1,
+                [ADVPATH_ROOM_MINIBOSS] = 0,
+                [ADVPATH_ROOM_WILD_DEN] = 2,
+                [ADVPATH_ROOM_GAMESHOW] = 2,
+                [ADVPATH_ROOM_DARK_DEAL] = 1,
+                [ADVPATH_ROOM_LAB] = 1
             },
             .subRoomWeights = 
             {

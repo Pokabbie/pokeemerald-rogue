@@ -311,6 +311,27 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dragon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Electric;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Fairy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Fighting;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Fire;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Flying;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Ghost;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Grass;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Ground;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Ice;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Mystery;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Normal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Poison;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Psychic;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Rock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Steel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Water;
+
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -617,6 +638,26 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_GLITCH_KATE] =              &gObjectEventGraphicsInfo_Glitch_Kate,
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
+
+    [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
+    [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,
+    [OBJ_EVENT_GFX_ROUTE_DRAGON] =             &gObjectEventGraphicsInfo_Route_Dragon,
+    [OBJ_EVENT_GFX_ROUTE_ELECTRIC] =           &gObjectEventGraphicsInfo_Route_Electric,
+    [OBJ_EVENT_GFX_ROUTE_FAIRY] =              &gObjectEventGraphicsInfo_Route_Fairy,
+    [OBJ_EVENT_GFX_ROUTE_FIGHTING] =           &gObjectEventGraphicsInfo_Route_Fighting,
+    [OBJ_EVENT_GFX_ROUTE_FIRE] =               &gObjectEventGraphicsInfo_Route_Fire,
+    [OBJ_EVENT_GFX_ROUTE_FLYING] =             &gObjectEventGraphicsInfo_Route_Flying,
+    [OBJ_EVENT_GFX_ROUTE_GHOST] =              &gObjectEventGraphicsInfo_Route_Ghost,
+    [OBJ_EVENT_GFX_ROUTE_GRASS] =              &gObjectEventGraphicsInfo_Route_Grass,
+    [OBJ_EVENT_GFX_ROUTE_GROUND] =             &gObjectEventGraphicsInfo_Route_Ground,
+    [OBJ_EVENT_GFX_ROUTE_ICE] =                &gObjectEventGraphicsInfo_Route_Ice,
+    [OBJ_EVENT_GFX_ROUTE_MYSTERY] =            &gObjectEventGraphicsInfo_Route_Mystery,
+    [OBJ_EVENT_GFX_ROUTE_NORMAL] =             &gObjectEventGraphicsInfo_Route_Normal,
+    [OBJ_EVENT_GFX_ROUTE_POISON] =             &gObjectEventGraphicsInfo_Route_Poison,
+    [OBJ_EVENT_GFX_ROUTE_PSYCHIC] =            &gObjectEventGraphicsInfo_Route_Psychic,
+    [OBJ_EVENT_GFX_ROUTE_ROCK] =               &gObjectEventGraphicsInfo_Route_Rock,
+    [OBJ_EVENT_GFX_ROUTE_STEEL] =              &gObjectEventGraphicsInfo_Route_Steel,
+    [OBJ_EVENT_GFX_ROUTE_WATER] =              &gObjectEventGraphicsInfo_Route_Water,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
