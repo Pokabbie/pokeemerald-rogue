@@ -877,7 +877,7 @@ Rogue_ConfigRoom_RedrawMap_20:
 	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_25
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_24:
-	goto_if_set FLAG_ROGUE_STD_WILD_MONS, Rogue_ConfigRoom_RedrawMap_29
+	goto_if_set FLAG_ROGUE_OVERWORLD_WILD_MONS, Rogue_ConfigRoom_RedrawMap_29
 	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_28:
 	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_33
@@ -1162,7 +1162,7 @@ Rogue_ConfigRoom_Button_BasicBag_10:
 
 Rogue_ConfigRoom_Button_WildMons::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_WildMons_Text_0
-	goto_if_set FLAG_ROGUE_STD_WILD_MONS, Rogue_ConfigRoom_Button_WildMons_2
+	goto_if_set FLAG_ROGUE_OVERWORLD_WILD_MONS, Rogue_ConfigRoom_Button_WildMons_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_WildMons_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1181,11 +1181,11 @@ Rogue_ConfigRoom_Button_WildMons_2:
 	goto Rogue_ConfigRoom_Button_WildMons_1
 
 Rogue_ConfigRoom_Button_WildMons_7:
-	setflag FLAG_ROGUE_STD_WILD_MONS
+	setflag FLAG_ROGUE_OVERWORLD_WILD_MONS
 	goto Rogue_ConfigRoom_Button_WildMons_5
 
 Rogue_ConfigRoom_Button_WildMons_8:
-	clearflag FLAG_ROGUE_STD_WILD_MONS
+	clearflag FLAG_ROGUE_OVERWORLD_WILD_MONS
 	goto Rogue_ConfigRoom_Button_WildMons_5
 
 Rogue_ConfigRoom_Button_WildMons_10:
@@ -2091,15 +2091,17 @@ Rogue_ConfigRoom_Button_BasicBag_Text_1:
 	.string "remain untouched.$"
 
 Rogue_ConfigRoom_Button_WildMons_Text_0:
-	.string "HIDDEN WILD SPAWNS$"
+	.string "OVERWORLD WILD SPAWNS$"
 
 Rogue_ConfigRoom_Button_WildMons_Text_1:
-	.string "If enabled, rather than WILD POKéMON\n"
-	.string "spawning in the overworld and roaming\l"
-	.string "around, they will appear randomly when\l"
-	.string "walking around in tall grass in the same\l"
-	.string "fashion they do in older games.\p"
-	.string "It is recommended to keep this off.$"
+	.string "If enabled, WILD POKéMON will spawn in\n"
+	.string "the overworld and roam around.\p"
+	.string "If disabled, WILD POKéMON will appear\n"
+	.string "randomly when walking around in tall\l"
+	.string "grass in the same fashion they do in\l"
+	.string "older games.\p"
+	.string "It is recommended to keep this setting\n"
+	.string "enabled.$"
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0:
 	.string "TRAINER DIFFICULTY$"

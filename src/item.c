@@ -340,6 +340,24 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     return FALSE;
 }
 
+static u16 GetPokeballSortScore(struct Item* item)
+{
+    switch (item->itemId)
+    {
+    case ITEM_POKE_BALL:
+        return 0;
+    case ITEM_GREAT_BALL:
+        return 1;
+    case ITEM_ULTRA_BALL:
+        return 2;
+    case ITEM_MASTER_BALL:
+        return 3;
+
+    default:
+        return 10 + item->price;
+    }
+}
+
 static bool8 SortItem(struct ItemSlot slotA, struct ItemSlot slotB)
 {
     if(slotA.itemId == slotB.itemId)
@@ -349,17 +367,54 @@ static bool8 SortItem(struct ItemSlot slotA, struct ItemSlot slotB)
     }
     else
     {
-        u8 pocketA = ItemId_GetPocket(slotA.itemId);
-        u8 pocketB = ItemId_GetPocket(slotB.itemId);
+        struct Item itemA;
+        struct Item itemB;
+        Rogue_ModifyItem(slotA.itemId, &itemA);
+        Rogue_ModifyItem(slotB.itemId, &itemB);
 
-        if(pocketA == pocketB)
+        if(itemA.pocket != itemB.pocket)
         {
-            // TODO - Different sort type here, name, sub type etc.
-            return slotA.itemId < slotB.itemId;
+            // Always store items in pocket order, as we need this to calculate pointers/pocket size
+            return itemA.pocket < itemB.pocket;
         }
 
-        // Always store items in pocket order
-        return pocketA < pocketB;
+        // For poke balls pocket, custom sort
+        if(itemA.pocket == POCKET_POKE_BALLS)
+        {
+            return GetPokeballSortScore(&itemA) < GetPokeballSortScore(&itemB);
+        }
+
+        // Within the pocket attempt to sort items
+        {
+            if(itemA.fieldUseFunc != itemB.fieldUseFunc)
+            {
+                // Prefer showing items which have a field func first
+                return itemA.fieldUseFunc > itemB.fieldUseFunc;
+            }
+
+            if(itemA.battleUsage != 0 || itemB.battleUsage != 0)
+            {
+                if(itemA.battleUsage != itemB.battleUsage)
+                {
+                    return itemA.battleUsage < itemB.battleUsage;
+                }
+
+                if(itemA.battleUseFunc != itemB.battleUseFunc)
+                {
+                    // Prefer showing items which have a battle func first
+                    return itemA.battleUseFunc > itemB.battleUseFunc;
+                }
+            }
+
+            if(itemA.holdEffectParam != itemB.holdEffectParam)
+            {
+                // Show best item of this type first
+                return itemA.holdEffectParam > itemB.holdEffectParam;
+            }
+
+            // Sort by ID if all else has failed
+            return slotA.itemId < slotB.itemId;
+        }
     }
 }
 

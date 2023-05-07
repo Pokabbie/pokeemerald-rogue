@@ -1524,10 +1524,10 @@ void Rogue_ResetConfigHubSettings(void)
     
     // Basic settings
     FlagSet(FLAG_ROGUE_EXP_ALL);
+    FlagSet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
     FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_CAN_OVERLVL);
-    FlagClear(FLAG_ROGUE_STD_WILD_MONS);
     FlagClear(FLAG_ROGUE_EASY_TRAINERS);
     FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
@@ -4186,7 +4186,7 @@ u16 Rogue_SelectRandomWildMon(void)
 
 bool8 Rogue_PreferTraditionalWildMons(void)
 {
-    return FlagGet(FLAG_ROGUE_STD_WILD_MONS);
+    return !FlagGet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
 }
 
 bool8 Rogue_AreWildMonEnabled(void)
