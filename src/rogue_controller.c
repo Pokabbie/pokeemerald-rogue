@@ -3236,7 +3236,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     destMon = &gRogueLabEncounterData.party[i];
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
-    temp = GetMonData(destMon, MON_DATA_MAX_HP) / 2;
+    temp = max(1, GetMonData(destMon, MON_DATA_MAX_HP) / 2));
     SetMonData(destMon, MON_DATA_HP, &temp);
 
     // Wipe EVs
