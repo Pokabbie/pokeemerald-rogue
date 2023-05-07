@@ -1,6 +1,12 @@
 Rogue_Hub_Interior_ConfigRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Rogue_ConfigRoom_RedrawMap
+	map_script MAP_SCRIPT_ON_LOAD, Rogue_ConfigRoom_OnLoad
 	.byte 0
+
+
+Rogue_ConfigRoom_OnLoad::
+	setvar VAR_FOLLOW_MON_0, SPECIES_DITTO
+	call Rogue_ConfigRoom_RedrawMap
+	return
 
 
 Rogue_ConfigRoom_TalkLanette::

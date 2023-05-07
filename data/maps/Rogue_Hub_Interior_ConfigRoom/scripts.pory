@@ -9,7 +9,13 @@ const METATILE_BikeShop_Button_Red = 0x23E
 
 mapscripts Rogue_Hub_Interior_ConfigRoom_MapScripts 
 {
-    MAP_SCRIPT_ON_LOAD: Rogue_ConfigRoom_RedrawMap
+    MAP_SCRIPT_ON_LOAD: Rogue_ConfigRoom_OnLoad
+}
+
+script Rogue_ConfigRoom_OnLoad
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_DITTO)
+    call(Rogue_ConfigRoom_RedrawMap)
 }
 
 script Rogue_ConfigRoom_TalkLanette
