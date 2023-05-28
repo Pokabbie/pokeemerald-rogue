@@ -11286,8 +11286,6 @@ static void Cmd_weatherdamage(void)
 static void Cmd_tryinfatuating(void)
 {
     struct Pokemon *monAttacker, *monTarget;
-    u16 speciesAttacker, speciesTarget;
-    u32 personalityAttacker, personalityTarget;
 
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
@@ -11299,12 +11297,6 @@ static void Cmd_tryinfatuating(void)
     else
         monTarget = &gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]];
 
-    speciesAttacker = GetMonData(monAttacker, MON_DATA_SPECIES);
-    personalityAttacker = GetMonData(monAttacker, MON_DATA_PERSONALITY);
-
-    speciesTarget = GetMonData(monTarget, MON_DATA_SPECIES);
-    personalityTarget = GetMonData(monTarget, MON_DATA_PERSONALITY);
-
     if (GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)
     {
         gBattlescriptCurrInstr = BattleScript_NotAffectedAbilityPopUp;
@@ -11313,10 +11305,10 @@ static void Cmd_tryinfatuating(void)
     }
     else
     {
-        if (GetGenderFromSpeciesAndPersonality(speciesAttacker, personalityAttacker) == GetGenderFromSpeciesAndPersonality(speciesTarget, personalityTarget)
+        if (GetMonGender(monAttacker) == GetMonGender(monTarget)
             || gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION
-            || GetGenderFromSpeciesAndPersonality(speciesAttacker, personalityAttacker) == MON_GENDERLESS
-            || GetGenderFromSpeciesAndPersonality(speciesTarget, personalityTarget) == MON_GENDERLESS)
+            || GetMonGender(monAttacker) == MON_GENDERLESS
+            || GetMonGender(monTarget) == MON_GENDERLESS)
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         }

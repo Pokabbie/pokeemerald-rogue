@@ -61,7 +61,7 @@ struct PokemonSubstruct3
  /* 0x07 */ u32 isEgg:1;
 
  /* 0x08 */ u32 isShiny:3;
- /* 0x08 */ u32 beautyRibbon:3;
+ /* 0x08 */ u32 genderFlag:3;
  /* 0x08 */ u32 cuteRibbon:3;
  /* 0x09 */ u32 smartRibbon:3;
  /* 0x09 */ u32 toughRibbon:3;
@@ -353,7 +353,9 @@ u8 CountAliveMonsInBattle(u8 caseId);
 u8 GetDefaultMoveTarget(u8 battlerId);
 u8 GetMonGender(struct Pokemon *mon);
 u8 GetBoxMonGender(struct BoxPokemon *boxMon);
-u8 GetGenderFromSpeciesAndPersonality(u16 species, u32 personality);
+u8 GetGenderForSpecies(u16 species, u8 genderFlag);
+u8 CalcGenderForMon(struct Pokemon *mon);
+u8 CalcGenderForBoxMon(struct BoxPokemon *boxMon);
 u32 GetUnownSpeciesId(u32 personality);
 void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerSpriteId, u8 battlerPosition);

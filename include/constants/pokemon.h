@@ -148,7 +148,7 @@
 #define MON_DATA_SHEEN             48
 #define MON_DATA_OT_GENDER         49
 #define MON_DATA_IS_SHINY          50 // Originally MON_DATA_COOL_RIBBON
-#define MON_DATA_BEAUTY_RIBBON     51
+#define MON_DATA_GENDER_FLAG       51 // MON_DATA_BEAUTY_RIBBON
 #define MON_DATA_CUTE_RIBBON       52
 #define MON_DATA_SMART_RIBBON      53
 #define MON_DATA_TOUGH_RIBBON      54

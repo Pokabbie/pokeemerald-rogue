@@ -1079,7 +1079,7 @@ static u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
         species[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
         trainerIds[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_OT_ID);
         personality = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_PERSONALITY);
-        genders[i] = GetGenderFromSpeciesAndPersonality(species[i], personality);
+        genders[i] = GetBoxMonGender(&daycare->mons[i].mon);
         eggGroups[i][0] = gBaseStats[species[i]].eggGroup1;
         eggGroups[i][1] = gBaseStats[species[i]].eggGroup2;
     }
