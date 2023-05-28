@@ -40,6 +40,7 @@
 #include "rogue.h"
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
+#include "rogue_controller.h"
 #include "rogue_quest.h"
 
 /*
@@ -861,7 +862,7 @@ static void Task_DisplayMainMenu(u8 taskId)
                 FillWindowPixelBuffer(2, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(3, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(4, PIXEL_FILL(0xA));
-                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuContinue);
+                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, Rogue_IsRunActive() ? gText_MainMenuContinueRun : gText_MainMenuContinue);
                 AddTextPrinterParameterized3(3, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuNewGame);
                 AddTextPrinterParameterized3(4, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuOption);
                 AddTextPrinterParameterized3(5, FONT_NORMAL, 0, 1, sTextColor_Version, TEXT_SKIP_DRAW, gStringVar1);
@@ -883,7 +884,7 @@ static void Task_DisplayMainMenu(u8 taskId)
                 FillWindowPixelBuffer(3, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(4, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(5, PIXEL_FILL(0xA));
-                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuContinue);
+                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, Rogue_IsRunActive() ? gText_MainMenuContinueRun : gText_MainMenuContinue);
                 AddTextPrinterParameterized3(3, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuNewGame);
                 AddTextPrinterParameterized3(4, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuMysteryGift);
                 AddTextPrinterParameterized3(5, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuOption);
@@ -910,7 +911,7 @@ static void Task_DisplayMainMenu(u8 taskId)
                 FillWindowPixelBuffer(4, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(5, PIXEL_FILL(0xA));
                 FillWindowPixelBuffer(6, PIXEL_FILL(0xA));
-                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuContinue);
+                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, Rogue_IsRunActive() ? gText_MainMenuContinueRun : gText_MainMenuContinue);
                 AddTextPrinterParameterized3(3, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuNewGame);
                 AddTextPrinterParameterized3(4, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuMysteryGift2);
                 AddTextPrinterParameterized3(5, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_MainMenuMysteryEvents);
@@ -2467,16 +2468,29 @@ static void MainMenu_FormatSavegamePokedex(void)
     u8 str[0x20];
     u16 dexCount;
 
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    if(Rogue_IsRunActive())
     {
-        if (IsNationalPokedexEnabled())
-            dexCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
-        else
-            dexCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
-        StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPokedex);
+        // Whilst in adventure display badges instead of pokedex
+        dexCount = gRogueRun.currentDifficulty;
+
+        StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
         AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
         ConvertIntToDecimalStringN(str, dexCount, STR_CONV_MODE_LEFT_ALIGN, 3);
         AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 100), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
+    }
+    else
+    {
+        if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+        {
+            if (IsNationalPokedexEnabled())
+                dexCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+            else
+                dexCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
+            StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPokedex);
+            AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
+            ConvertIntToDecimalStringN(str, dexCount, STR_CONV_MODE_LEFT_ALIGN, 3);
+            AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 100), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
+        }
     }
 }
 
@@ -2486,7 +2500,7 @@ static void MainMenu_FormatSavegameBadges(void)
     u8 str[0x20];
     u16 questPercentage = GetCompletedQuestPerc();
 
-    StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
+    StringExpandPlaceholders(gStringVar4, gText_ContinueMenuQuests);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
 
     ConvertUIntToDecimalStringN(gStringVar1, questPercentage, STR_CONV_MODE_LEFT_ALIGN, 6);
