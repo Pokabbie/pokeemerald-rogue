@@ -1353,9 +1353,17 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 1500;
     }
 
-    if(outItem->fieldUseFunc == ItemUseOutOfBattle_EvolutionStone)
+    if(outItem->pocket == POCKET_ITEMS && 
+        (
+            outItem->fieldUseFunc == ItemUseOutOfBattle_Medicine ||
+            outItem->fieldUseFunc == ItemUseOutOfBattle_ReduceEV ||
+            outItem->fieldUseFunc == ItemUseOutOfBattle_SacredAsh ||
+            outItem->fieldUseFunc == ItemUseOutOfBattle_PPRecovery ||
+            outItem->fieldUseFunc == ItemUseOutOfBattle_PPUp ||
+            outItem->fieldUseFunc == ItemUseOutOfBattle_RareCandy
+        ))
     {
-        outItem->price = 2100;
+        outItem->pocket = POCKET_MEDICINE;
     }
 
     // Hold items set price (Ignore berries)

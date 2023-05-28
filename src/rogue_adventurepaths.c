@@ -86,6 +86,10 @@ static struct AdvEventScratch* GetScratchReadNode(u16 i);
 static struct AdvEventScratch* GetScratchWriteNode(u16 i);
 
 static u16 GetInitialGFXColumn();
+static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo, u16 nodeX, u16 nodeY);
+static u8 SelectMovementTypeForNode(struct RogueAdvPathNode* nodeInfo, u16 nodeX, u16 nodeY);
+static u16 GetTypeForHint(struct RogueAdvPathNode* node, u16 nodeX, u16 nodeY);
+static void BufferTypeAdjective(u8 type);
 
 
 static void NodeToCoords(u16 nodeX, u16 nodeY, u16* x, u16* y)
@@ -366,6 +370,7 @@ static u16 SelectIndexFromWeights(u16* weights, u16 count)
 
 static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 {
+    u16 i;
     u16 weights[ADVPATH_ROOM_WEIGHT_COUNT];
     struct AdvEventScratch* writeNodeScratch = GetScratchWriteNode(nodeY);
 
@@ -380,22 +385,16 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
     memcpy(weights, gAdvPathScratch->generator->roomWeights, sizeof(weights));
 
     // TODO - Adjust weights
+    for(i = 0; i < ADVPATH_ROOM_WEIGHT_COUNT; ++i)
+    {
+        // We can have as many rooms as we want for this type
+        if(gAdvPathScratch->generator->maxRoomCount[i] == 0)
+            continue;
 
-    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
-    //    weights[ADVPATH_ROOM_LEGENDARY] = 0;
-//
-    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
-    //    weights[ADVPATH_ROOM_WILD_DEN] = 0;
-//
-    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
-    //    weights[ADVPATH_ROOM_GAMESHOW] = 0;
-//
-    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1)
-    //    weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-//
-    //if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
-    //    weights[ADVPATH_ROOM_LAB] = 0;
-
+        // We've reached capacity
+        if(gAdvPathScratch->roomCount[i] >= gAdvPathScratch->generator->maxRoomCount[i])
+            weights[i] = 0;
+    }
 
     writeNodeScratch->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights));
     
@@ -729,9 +728,6 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
 
 extern const u8 Rogue_AdventurePaths_InteractNode[];
 
-static u16 GetInitialGFXColumn();
-static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo);
-
 void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
     struct RogueAdvPathNode* nodeInfo;
@@ -753,12 +749,12 @@ void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEvent
                 AGB_ASSERT(idx < objectEventCapacity);
 
                 objectEvents[idx].localId = idx;
-                objectEvents[idx].graphicsId = SelectGFXForNode(nodeInfo);
+                objectEvents[idx].graphicsId = SelectGFXForNode(nodeInfo, x, y);
                 objectEvents[idx].x = mapX + 2;//+ MAP_OFFSET;
                 objectEvents[idx].y = mapY + 1;//+ MAP_OFFSET;
                 objectEvents[idx].elevation = 3;
                 objectEvents[idx].trainerType = TRAINER_TYPE_NONE;
-                objectEvents[idx].movementType = MOVEMENT_TYPE_NONE;
+                objectEvents[idx].movementType = SelectMovementTypeForNode(nodeInfo, x, y);
                 // Pack node into movement vars
                 objectEvents[idx].movementRangeX = x;
                 objectEvents[idx].movementRangeY = y;
@@ -791,7 +787,7 @@ bool8 RogueAdv_CanUseEscapeRope(void)
     return FALSE;
 }
 
-static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
+static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo, u16 nodeX, u16 nodeY)
 {
     switch(nodeInfo->roomType)
     {
@@ -800,17 +796,51 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
             
         case ADVPATH_ROOM_ROUTE:
         {
-            switch(nodeInfo->roomParams.perType.route.difficulty)
+            switch(GetTypeForHint(nodeInfo, nodeX, nodeY))
             {
-                case 0:
-                    return OBJ_EVENT_GFX_CUTTABLE_TREE;
-                case 1:
-                    return OBJ_EVENT_GFX_BREAKABLE_ROCK;
-                case 2:
-                    return OBJ_EVENT_GFX_PUSHABLE_BOULDER;
+                case TYPE_BUG:
+                    return OBJ_EVENT_GFX_ROUTE_BUG;
+                case TYPE_DARK:
+                    return OBJ_EVENT_GFX_ROUTE_DARK;
+                case TYPE_DRAGON:
+                    return OBJ_EVENT_GFX_ROUTE_DRAGON;
+                case TYPE_ELECTRIC:
+                    return OBJ_EVENT_GFX_ROUTE_ELECTRIC;
+#ifdef ROGUE_EXPANSION
+                case TYPE_FAIRY:
+                    return OBJ_EVENT_GFX_ROUTE_FAIRY;
+#endif
+                case TYPE_FIGHTING:
+                    return OBJ_EVENT_GFX_ROUTE_FIGHTING;
+                case TYPE_FIRE:
+                    return OBJ_EVENT_GFX_ROUTE_FIRE;
+                case TYPE_FLYING:
+                    return OBJ_EVENT_GFX_ROUTE_FLYING;
+                case TYPE_GHOST:
+                    return OBJ_EVENT_GFX_ROUTE_GHOST;
+                case TYPE_GRASS:
+                    return OBJ_EVENT_GFX_ROUTE_GRASS;
+                case TYPE_GROUND:
+                    return OBJ_EVENT_GFX_ROUTE_GROUND;
+                case TYPE_ICE:
+                    return OBJ_EVENT_GFX_ROUTE_ICE;
+                case TYPE_NORMAL:
+                    return OBJ_EVENT_GFX_ROUTE_NORMAL;
+                case TYPE_POISON:
+                    return OBJ_EVENT_GFX_ROUTE_POISON;
+                case TYPE_PSYCHIC:
+                    return OBJ_EVENT_GFX_ROUTE_PSYCHIC;
+                case TYPE_ROCK:
+                    return OBJ_EVENT_GFX_ROUTE_ROCK;
+                case TYPE_STEEL:
+                    return OBJ_EVENT_GFX_ROUTE_STEEL;
+                case TYPE_WATER:
+                    return OBJ_EVENT_GFX_ROUTE_WATER;
+
                 default:
-                    return OBJ_EVENT_GFX_CUTTABLE_TREE;
-            };
+                //case TYPE_MYSTERY:
+                    return OBJ_EVENT_GFX_ROUTE_MYSTERY;
+            }
         }
 
         case ADVPATH_ROOM_RESTSTOP:
@@ -841,12 +871,38 @@ static u16 SelectGFXForNode(struct RogueAdvPathNode* nodeInfo)
     return 0;
 }
 
+static u8 SelectMovementTypeForNode(struct RogueAdvPathNode* nodeInfo, u16 nodeX, u16 nodeY)
+{
+    switch(nodeInfo->roomType)
+    {
+        case ADVPATH_ROOM_ROUTE:
+        {
+            switch(nodeInfo->roomParams.perType.route.difficulty)
+            {
+                case 1: // ADVPATH_SUBROOM_ROUTE_AVERAGE
+                    return MOVEMENT_TYPE_FACE_UP;
+                case 2: // ADVPATH_SUBROOM_ROUTE_TOUGH
+                    return MOVEMENT_TYPE_FACE_LEFT;
+                default: // ADVPATH_SUBROOM_ROUTE_CALM
+                    return MOVEMENT_TYPE_NONE;
+            };
+        }
+    }
+
+    return MOVEMENT_TYPE_NONE;
+}
+
 static u16 GetInitialGFXColumn()
 {
     if(gRogueAdvPath.justGenerated)
         return 0;
     else
         return gRogueAdvPath.currentNodeX + 1;
+}
+
+static u16 GetTypeForHint(struct RogueAdvPathNode* node, u16 nodeX, u16 nodeY)
+{
+    return gRogueRouteTable.routes[node->roomParams.roomIdx].wildTypeTable[(nodeX + nodeY) % 3];
 }
 
 static void BufferTypeAdjective(u8 type)
@@ -979,7 +1035,7 @@ void RogueAdv_GetNodeParams()
         {
             case ADVPATH_ROOM_ROUTE:
                 gSpecialVar_ScriptNodeParam1 = node->roomParams.perType.route.difficulty;
-                BufferTypeAdjective(gRogueRouteTable.routes[node->roomParams.roomIdx].wildTypeTable[(nodeX + nodeY) % 3]);
+                BufferTypeAdjective(GetTypeForHint(node, nodeX, nodeY));
                 break;
         }
     }

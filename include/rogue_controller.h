@@ -96,8 +96,9 @@ bool8 Rogue_OverrideTrainerItems(u16* items);
 void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
 
 void Rogue_ModifyWildMonHeldItem(u16* itemId);
-void Rogue_CreateWildMon(u8 area, u16* species, u8* level, u32* forcePersonality);
+void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny);
 u16 Rogue_SelectRandomWildMon(void);
+bool8 Rogue_PreferTraditionalWildMons(void);
 bool8 Rogue_AreWildMonEnabled(void);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);

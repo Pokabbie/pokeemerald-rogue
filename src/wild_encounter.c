@@ -316,7 +316,7 @@ static u8 PickWildMonNature(void)
     return Random() % NUM_NATURES;
 }
 
-static void CreateWildMon(u16 species, u8 level, u32 forcePersonality)
+static void CreateWildMon(u16 species, u8 level, bool8 isShiny)
 {
     bool32 checkCuteCharm;
 
@@ -332,11 +332,6 @@ static void CreateWildMon(u16 species, u8 level, u32 forcePersonality)
         break;
     }
 
-    if(forcePersonality)
-    {
-        CreateMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, TRUE, forcePersonality, OT_ID_PLAYER_ID, 0);
-    }
-    else
     {
         if (checkCuteCharm
             && !GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
@@ -358,6 +353,8 @@ static void CreateWildMon(u16 species, u8 level, u32 forcePersonality)
         }
 
         CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &isShiny);
     }
 }
 
@@ -366,7 +363,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     u16 species = 0;
     u8 level = 0;
     u8 wildMonIndex = 0;
-    u32 forcePersonality = 0;
+    bool8 isShiny = FALSE;
 
     switch (area)
     {
@@ -411,12 +408,12 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
 
     // Allow Rogue to re-choose the wildmon
-    Rogue_CreateWildMon(area, &species, &level, &forcePersonality);
+    Rogue_CreateWildMon(area, &species, &level, &isShiny);
 
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
 
-    CreateWildMon(species, level, forcePersonality);
+    CreateWildMon(species, level, isShiny);
     return TRUE;
 }
 
@@ -425,12 +422,12 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
     u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
     u8 level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
-    u32 forcePersonality = 0;
+    bool8 isShiny = FALSE;
 
     // Allow Rogue to re-choose the wildmon
-    Rogue_CreateWildMon(WILD_AREA_WATER, &species, &level, &forcePersonality);
+    Rogue_CreateWildMon(WILD_AREA_WATER, &species, &level, &isShiny);
 
-    CreateWildMon(species, level, forcePersonality);
+    CreateWildMon(species, level, isShiny);
     return species;
 }
 
@@ -441,7 +438,7 @@ static bool8 SetUpMassOutbreakEncounter(u8 flags)
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
         return FALSE;
 
-    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel, 0);
+    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel, FALSE);
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
 
@@ -527,12 +524,12 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
     headerId = GetCurrentMapWildMonHeaderId();
 
     // RogueNote: disable normal wild encounters
-    if (headerId == HEADER_NONE || TRUE)
+    if (headerId == HEADER_NONE || !Rogue_PreferTraditionalWildMons())
     {
     }
     else
     {
-        if (MetatileBehavior_IsLandWildEncounter(currMetaTileBehavior) == TRUE && FALSE)
+        if (MetatileBehavior_IsLandWildEncounter(currMetaTileBehavior) == TRUE)
         {
             if (gWildMonHeaders[headerId].landMonsInfo == NULL)
                 return FALSE;
@@ -727,7 +724,7 @@ void FishingWildEncounter(u8 rod)
         u8 level = ChooseWildMonLevel(&sWildFeebas);
 
         species = sWildFeebas.species;
-        CreateWildMon(species, level, 0);
+        CreateWildMon(species, level, FALSE);
     }
     else
     {

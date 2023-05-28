@@ -732,7 +732,13 @@ static bool8 SetupBagMenu(void)
     case 13:
         PrintPocketNames(gPocketNamesStringsTable[gBagPosition.pocket], 0);
         CopyPocketNameToWindow(0);
-        DrawPocketIndicatorSquare(gBagPosition.pocket, TRUE);
+
+        {
+            u8 i;
+            for(i = 0; i < POCKETS_COUNT; ++i)
+                DrawPocketIndicatorSquare(i, (i == gBagPosition.pocket));
+        }
+
         gMain.state++;
         break;
     case 14:
@@ -817,13 +823,13 @@ static bool8 LoadBagMenu_Graphics(void)
         break;
     case 3:
         if (IsWallysBag() == TRUE || (gSaveBlock2Ptr->playerGender % 2) == MALE)
-            LoadCompressedSpriteSheet(&gBagMaleSpriteSheet);
+            LoadCompressedSpriteSheet(&gBagMaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         else
-            LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet);
+            LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         gBagMenu->graphicsLoadState++;
         break;
     case 4:
-        LoadCompressedSpritePalette(&gBagPaletteTable);
+        LoadCompressedSpritePalette(&gBagPaletteTable[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
         gBagMenu->graphicsLoadState++;
         break;
     default:
@@ -968,7 +974,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
         }
-        else if (gBagPosition.pocket != KEYITEMS_POCKET)
+        else if (gBagPosition.pocket != KEYITEMS_POCKET && gBagPosition.pocket != CHARMS_POCKET)
         {
             // RogueNote: Always print item count
             // Print item quantity
@@ -1306,12 +1312,34 @@ static u8 GetSwitchBagPocketDirection(void)
 
 static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
 {
-    if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 1)
-        *bagPocketId = 0;
-    else if (deltaBagPocketId == MENU_CURSOR_DELTA_LEFT && *bagPocketId == 0)
-        *bagPocketId = POCKETS_COUNT - 1;
-    else
-        *bagPocketId += deltaBagPocketId;
+    u8 i;
+    s16 pocket = *bagPocketId;
+    for(i = 0; i < POCKETS_COUNT; ++i)
+    {
+        pocket = (pocket + deltaBagPocketId);
+
+        if(pocket >= 0)
+            pocket %= POCKETS_COUNT;
+        else
+            pocket += POCKETS_COUNT;
+
+        if(gBagPockets[pocket].capacity != 0)
+        {
+            // Found an non-empty pocket to jump to
+            *bagPocketId = (u8)pocket;
+            return;
+        }
+    }
+
+    // If we've gotten here, it means there isn't any other valid pocket to move to
+
+
+    //if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 1)
+    //    *bagPocketId = 0;
+    //else if (deltaBagPocketId == MENU_CURSOR_DELTA_LEFT && *bagPocketId == 0)
+    //    *bagPocketId = POCKETS_COUNT - 1;
+    //else
+    //    *bagPocketId += deltaBagPocketId;
 }
 
 static void SwitchBagPocket(u8 taskId, s16 deltaBagPocketId, bool16 skipEraseList)
@@ -1410,10 +1438,23 @@ static void DrawItemListBgRow(u8 y)
 
 static void DrawPocketIndicatorSquare(u8 x, bool8 isCurrentPocket)
 {
+    u8 offset = 5;
+
+    if(POCKETS_COUNT > 4)
+    {
+        offset -= (POCKETS_COUNT - 4) / 2;
+    }
+
     if (!isCurrentPocket)
-        FillBgTilemapBufferRect_Palette0(2, 0x1017, x + 5, 3, 1, 1);
+    {
+        if(gBagPockets[x].capacity == 0)
+            FillBgTilemapBufferRect_Palette0(2, 0x102C, x + offset, 3, 1, 1);
+        else
+            FillBgTilemapBufferRect_Palette0(2, 0x1017, x + offset, 3, 1, 1);
+    }
     else
-        FillBgTilemapBufferRect_Palette0(2, 0x102B, x + 5, 3, 1, 1);
+        FillBgTilemapBufferRect_Palette0(2, 0x102B, x + offset, 3, 1, 1);
+
     ScheduleBgCopyTilemapToVram(2);
 }
 
@@ -1594,7 +1635,7 @@ static void OpenContextMenu(u8 taskId)
     default:
         if (MenuHelpers_IsLinkActive() == TRUE || InUnionRoom() == TRUE)
         {
-            if (gBagPosition.pocket == KEYITEMS_POCKET || !IsHoldingItemAllowed(gSpecialVar_ItemId))
+            if (gBagPosition.pocket == KEYITEMS_POCKET || gBagPosition.pocket == CHARMS_POCKET || !IsHoldingItemAllowed(gSpecialVar_ItemId))
             {
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_Cancel;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
@@ -1609,13 +1650,6 @@ static void OpenContextMenu(u8 taskId)
         {
             switch (gBagPosition.pocket)
             {
-            case ITEMS_POCKET:
-                gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
-                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
-                memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_ItemsPocket, sizeof(sContextMenuItems_ItemsPocket));
-                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
-                    gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
-                break;
             case KEYITEMS_POCKET:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
@@ -1628,6 +1662,10 @@ static void OpenContextMenu(u8 taskId)
                         gBagMenu->contextMenuItemsBuffer[0] = ACTION_WALK;
                 }
                 break;
+            case CHARMS_POCKET:
+                gBagMenu->contextMenuItemsPtr = sContextMenuItems_Cancel;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
+                break;
             case BALLS_POCKET:
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_BallsPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BallsPocket);
@@ -1639,6 +1677,14 @@ static void OpenContextMenu(u8 taskId)
             case BERRIES_POCKET:
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_BerriesPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BerriesPocket);
+                break;
+            //case ITEMS_POCKET:
+            default:
+                gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
+                memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_ItemsPocket, sizeof(sContextMenuItems_ItemsPocket));
+                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
+                    gBagMenu->contextMenuItemsBuffer[0] = ACTION_CHECK;
                 break;
             }
         }
@@ -2014,7 +2060,7 @@ static void Task_ItemContext_GiveToParty(u8 taskId)
         StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeldHere);
         DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, HandleErrorMessage);
     }
-    else if (gBagPosition.pocket != KEYITEMS_POCKET && !ItemId_GetImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != KEYITEMS_POCKET && gBagPosition.pocket != CHARMS_POCKET && !ItemId_GetImportance(gSpecialVar_ItemId))
     {
         Task_FadeAndCloseBagMenu(taskId);
     }
@@ -2029,7 +2075,7 @@ static void Task_ItemContext_GiveToPC(u8 taskId)
 {
     if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
         DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
-    else if (gBagPosition.pocket != KEYITEMS_POCKET && !ItemId_GetImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != KEYITEMS_POCKET && gBagPosition.pocket != CHARMS_POCKET && !ItemId_GetImportance(gSpecialVar_ItemId))
         gTasks[taskId].func = Task_FadeAndCloseBagMenu;
     else
         PrintItemCantBeHeld(taskId);
