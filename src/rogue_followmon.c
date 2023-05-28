@@ -20,6 +20,7 @@
 #include "rogue.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_popup.h"
 
 // Care with increasing slot count as it can cause lag
 #define MAX_SPAWN_SLOTS 6
@@ -28,9 +29,11 @@ struct FollowMonData
 {
     bool8 pendingInterction;
     u8 activeCount;
+    u8 encounterChainCount;
     u16 spawnCountdown;
     u16 spawnSlot;
     u16 pendingSpawnAnim;
+    u16 encounterChainSpecies;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -122,6 +125,37 @@ void ResetFollowParterMonObjectEvent()
 {
     if(FollowMon_IsPartnerMonActive())
         DestroyFollower();
+}
+
+void UpdateWildEncounterChain(u16 species)
+{
+    if(sFollowMonData.encounterChainSpecies != species)
+    {
+        if(sFollowMonData.encounterChainCount > 3)
+            Rogue_PushPopup(POPUP_MSG_ENCOUNTER_CHAIN_END, sFollowMonData.encounterChainSpecies);
+
+        sFollowMonData.encounterChainSpecies = species;
+        sFollowMonData.encounterChainCount = 0;
+    }
+
+    if(species != SPECIES_NONE)
+    {
+        if(sFollowMonData.encounterChainCount < 255)
+            ++sFollowMonData.encounterChainCount;
+
+        if(sFollowMonData.encounterChainCount >= 3)
+            Rogue_PushPopup(POPUP_MSG_ENCOUNTER_CHAIN, 0);
+    }
+}
+
+u16 GetWildChainSpecies()
+{
+    return sFollowMonData.encounterChainSpecies;
+}
+
+u8 GetWildChainCount()
+{
+    return sFollowMonData.encounterChainCount;
 }
 
 void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)

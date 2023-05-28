@@ -1273,6 +1273,7 @@ u32 FldEff_Bubbles(void)
     u8 spriteId;
     u8 visual;
     struct Sprite *sprite;
+    struct SpriteTemplate template;
     s16 xOffset, yOffset;
     u8 spriteData;
 
@@ -1304,8 +1305,12 @@ u32 FldEff_Bubbles(void)
         break;
     }
 
+    // RogueNote: This is hacky, calling through FldEff_Bubbles will expect this to go through FLDEFF_PAL_TAG_GENERAL_0, so override this here
+    memcpy(&template, gFieldEffectObjectTemplatePointers[visual], sizeof(template));
+    //template.paletteTag = FLDEFF_PAL_TAG_GENERAL_0; // <- enable this to free up the palette slots
+
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 0);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[visual], gFieldEffectArguments[0] + xOffset, gFieldEffectArguments[1] + yOffset, 0x52);
+    spriteId = CreateSpriteAtEnd(&template, gFieldEffectArguments[0] + xOffset, gFieldEffectArguments[1] + yOffset, 0x52);
     if (spriteId != MAX_SPRITES)
     {
         sprite = &gSprites[spriteId];

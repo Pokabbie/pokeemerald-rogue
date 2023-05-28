@@ -2,6 +2,7 @@
 #include "battle_pyramid.h"
 #include "bg.h"
 #include "event_data.h"
+#include "data.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "menu.h"
@@ -20,6 +21,7 @@
 #include "rogue.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_popup.h"
 
 #define POPUP_QUEUE_CAPACITY 8
@@ -59,6 +61,12 @@ extern const u8 gPopupText_CampaignLowScore[];
 extern const u8 gPopupText_SafariArea[];
 extern const u8 gPopupText_StarterWarning[];
 
+extern const u8 gPopupText_EncounterChain[];
+extern const u8 gPopupText_EncounterChainEnd[];
+
+#define sStateNum data[0]
+#define sDisplayTimer data[2]
+
 
 static const u16 sQuestPopupMessageSoundEffect[] =
 {
@@ -68,6 +76,8 @@ static const u16 sQuestPopupMessageSoundEffect[] =
     [POPUP_MSG_CAMPAIGN_ANNOUNCE] = SE_EXP_MAX,
     [POPUP_MSG_SAFARI_ENCOUNTERS] = 0,
     [POPUP_MSG_PARTNER_EVO_WARNING] = SE_NOT_EFFECTIVE,
+    [POPUP_MSG_ENCOUNTER_CHAIN] = 0,
+    [POPUP_MSG_ENCOUNTER_CHAIN_END] = SE_NOT_EFFECTIVE,
     //SE_SUCCESS, SE_FAILURE
 };
 
@@ -77,13 +87,13 @@ static void ShowQuestPopup(void)
     {
         sPopupTaskId = CreateTask(Task_QuestPopUpWindow, 90);
         SetGpuReg(REG_OFFSET_BG0VOFS, 40);
-        gTasks[sPopupTaskId].data[0] = 6;
-        gTasks[sPopupTaskId].data[2] = 40;
+        gTasks[sPopupTaskId].sStateNum = 6;
+        gTasks[sPopupTaskId].sDisplayTimer = 40;
     }
     else
     {
-        if (gTasks[sPopupTaskId].data[0] != 2)
-            gTasks[sPopupTaskId].data[0] = 2;
+        if (gTasks[sPopupTaskId].sStateNum != 2)
+            gTasks[sPopupTaskId].sStateNum = 2;
         gTasks[sPopupTaskId].data[3] = 1;
     }
 }
@@ -128,23 +138,23 @@ static void Task_QuestPopUpWindow(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
-    switch (task->data[0])
+    switch (task->sStateNum)
     {
     case 6:
         task->data[4]++;
         if (task->data[4] > 5)
         {
-            task->data[0] = 0;
+            task->sStateNum = 0;
             task->data[4] = 0;
             ShowQuestPopUpWindow();
         }
         break;
     case 0:
-        task->data[2] -= 2;
-        if (task->data[2] <= 0 )
+        task->sDisplayTimer -= 2;
+        if (task->sDisplayTimer <= 0 )
         {
-            task->data[2] = 0;
-            task->data[0] = 1;
+            task->sDisplayTimer = 0;
+            task->sStateNum = 1;
             gTasks[sPopupTaskId].data[1] = 0;
         }
         break;
@@ -153,37 +163,39 @@ static void Task_QuestPopUpWindow(u8 taskId)
         if (task->data[1] > 120 )
         {
             task->data[1] = 0;
-            task->data[0] = 2;
+            task->sStateNum = 2;
         }
         break;
     case 2:
-        task->data[2] += 2;
-        if (task->data[2] > 39)
+        task->sDisplayTimer += 2;
+        if (task->sDisplayTimer > 39)
         {
-            task->data[2] = 40;
+            task->sDisplayTimer = 40;
             if (task->data[3])
             {
-                task->data[0] = 6;
+                task->sStateNum = 6;
                 task->data[4] = 0;
                 task->data[3] = 0;
             }
             else
             {
-                task->data[0] = 4;
+                task->sStateNum = 4;
                 return;
             }
         }
         break;
     case 4:
         ClearStdWindowAndFrame(GetQuestPopUpWindowId(), TRUE);
-        task->data[0] = 5;
+        task->sStateNum = 5;
         break;
     case 5:
         HideQuestPopUpWindow();
         return;
     }
-    SetGpuReg(REG_OFFSET_BG0VOFS, task->data[2]);
+    SetGpuReg(REG_OFFSET_BG0VOFS, task->sDisplayTimer);
 }
+
+#undef sStateNum
 
 static void HideQuestPopUpWindow(void)
 {
@@ -406,6 +418,37 @@ static void ShowQuestPopUpWindow(void)
         x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StarterWarning, 80);
         AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StarterWarning, x, 0, TEXT_SKIP_DRAW, NULL);
         break;
+
+    case POPUP_MSG_ENCOUNTER_CHAIN:
+    {
+        u8* strPtr;
+
+        // Title contains types
+        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_EncounterChain, 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_EncounterChain, x, 2, TEXT_SKIP_DRAW, NULL);
+
+        // Subheader
+        strPtr = ConvertUIntToDecimalStringN(gStringVar4, GetWildChainCount(), STR_CONV_MODE_RIGHT_ALIGN, 3);
+        strPtr = StringAppend(strPtr, gText_Space);
+        strPtr = StringAppend(strPtr, gSpeciesNames[GetWildChainSpecies()]);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, gStringVar4, 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gStringVar4, x, 16, TEXT_SKIP_DRAW, NULL);
+        break;
+    }
+
+    case POPUP_MSG_ENCOUNTER_CHAIN_END:
+    {
+        u8* strPtr;
+
+        // Title contains types
+        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_EncounterChainEnd, 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_EncounterChainEnd, x, 2, TEXT_SKIP_DRAW, NULL);
+
+        // Subheader
+        x = GetStringCenterAlignXOffset(FONT_SMALL, gSpeciesNames[param], 80);
+        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gSpeciesNames[param], x, 16, TEXT_SKIP_DRAW, NULL);
+        break;
+    }
 
     default:
         break;

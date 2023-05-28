@@ -394,6 +394,8 @@
 #define POPUP_MSG_CAMPAIGN_ANNOUNCE             3
 #define POPUP_MSG_SAFARI_ENCOUNTERS             4
 #define POPUP_MSG_PARTNER_EVO_WARNING           5
+#define POPUP_MSG_ENCOUNTER_CHAIN               6
+#define POPUP_MSG_ENCOUNTER_CHAIN_END           7
 
 // Misc.
 //
