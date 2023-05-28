@@ -198,6 +198,7 @@ struct BattlePokemon
     /*0x4D*/ u32 status1;
     /*0x51*/ u32 status2;
     /*0x55*/ u32 otId;
+             u8 genderFlag : 1;
 };
 
 struct BaseStats

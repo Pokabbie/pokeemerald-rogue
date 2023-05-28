@@ -778,7 +778,7 @@ static void Task_ShowAiPoints(u8 taskId)
             #else
                 data->aiIconSpriteIds[i] = CreateMonIcon(gBattleMons[i].species,
                                                          SpriteCallbackDummy,
-                                                         95 + (count * 60), 17, 0, 0);
+                                                         95 + (count * 60), 17, 0, 0, GetGenderForSpecies(gBattleMons[i].species, gBattleMons[i].genderFlag));
             #endif
                 gSprites[data->aiIconSpriteIds[i]].data[0] = i; // battler id
                 count++;
@@ -798,6 +798,7 @@ static void Task_ShowAiPoints(u8 taskId)
         data->aiMonSpriteId = CreateMonPicSprite(gBattleMons[data->aiBattlerId].species,
                                                  gBattleMons[data->aiBattlerId].otId,
                                                  gBattleMons[data->aiBattlerId].personality,
+                                                 GetGenderForSpecies(gBattleMons[data->aiBattlerId].species, gBattleMons[data->aiBattlerId].genderFlag),
                                                  TRUE,
                                                  39, 130, 15, TAG_NONE);
         #endif
@@ -901,7 +902,7 @@ static void Task_ShowAiKnowledge(u8 taskId)
             #else
                 data->aiIconSpriteIds[i] = CreateMonIcon(gBattleMons[i].species,
                                                          SpriteCallbackDummy,
-                                                         95 + (count * 80), 17, 0, 0);
+                                                         95 + (count * 80), 17, 0, 0, GetGenderForSpecies(gBattleMons[i].species, gBattleMons[i].genderFlag));
             #endif
                 gSprites[data->aiIconSpriteIds[i]].data[0] = i; // battler id
                 count++;
@@ -921,6 +922,7 @@ static void Task_ShowAiKnowledge(u8 taskId)
         data->aiMonSpriteId = CreateMonPicSprite(gBattleMons[data->aiBattlerId].species,
                                                  gBattleMons[data->aiBattlerId].otId,
                                                  gBattleMons[data->aiBattlerId].personality,
+                                                 GetGenderForSpecies(gBattleMons[data->aiBattlerId].species, gBattleMons[data->aiBattlerId].genderFlag),
                                                  TRUE,
                                                  39, 130, 15, TAG_NONE);
         #endif

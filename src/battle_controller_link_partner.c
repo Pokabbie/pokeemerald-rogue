@@ -491,6 +491,7 @@ static u32 CopyLinkPartnerMonData(u8 monId, u8 *dst)
         battleMon.spDefense = GetMonData(&gPlayerParty[monId], MON_DATA_SPDEF);
         battleMon.abilityNum = GetMonData(&gPlayerParty[monId], MON_DATA_ABILITY_NUM);
         battleMon.otId = GetMonData(&gPlayerParty[monId], MON_DATA_OT_ID);
+        battleMon.genderFlag = GetMonData(&gPlayerParty[monId], MON_DATA_GENDER_FLAG);
         GetMonData(&gPlayerParty[monId], MON_DATA_NICKNAME, nickname);
         StringCopy_Nickname(battleMon.nickname, nickname);
         GetMonData(&gPlayerParty[monId], MON_DATA_OT_NAME, battleMon.otName);

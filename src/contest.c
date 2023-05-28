@@ -3120,8 +3120,7 @@ static u8 CreateContestantSprite(u16 species, u32 otId, u32 personality, u32 ind
 {
     u8 spriteId, gender;
     species = SanitizeSpecies(species);
-    gender = GetGenderFromSpeciesAndPersonality(species, personality);
-
+    gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
     HandleLoadSpecialPokePic(&gMonBackPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT], species, personality);
 
     LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), 0x120, 0x20);

@@ -3991,7 +3991,7 @@ static void Task_DisplayCaughtMonDexPage(u8 taskId)
         gTasks[taskId].tState++;
         break;
     case 4:
-        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
+        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, GetGenderForSpecies(NationalPokedexNumToSpecies(dexNum), 0), TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
         gSprites[spriteId].oam.priority = 0;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         SetVBlankCallback(gPokedexVBlankCB);
@@ -4062,7 +4062,7 @@ static void Task_ExitCaughtMonPage(u8 taskId)
         otId = ((u16)gTasks[taskId].tOtIdHi << 16) | (u16)gTasks[taskId].tOtIdLo;
         personality = ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo;
         paletteNum = gSprites[gTasks[taskId].tMonSpriteId].oam.paletteNum;
-        gender = GetGenderFromSpeciesAndPersonality(species, personality);
+        gender = GetGenderForSpecies(species, 0); // RogueNote: Not a good way to feed this in here
         lzPaletteData = GetMonSpritePalFromSpecies(species, gender, FALSE);
         LoadCompressedPalette(lzPaletteData, 0x100 | paletteNum * 16, 32);
         DestroyTask(taskId);
@@ -4622,7 +4622,7 @@ static u32 GetPokedexMonPersonality(u16 species)
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
 {
     nationalNum = NationalPokedexNumToSpecies(nationalNum);
-    return CreateMonPicSprite_Affine(nationalNum, NON_SHINY_PLACEHOLDER, GetPokedexMonPersonality(nationalNum), FALSE, 0, x, y, paletteSlot, TAG_NONE);
+    return CreateMonPicSprite_Affine(nationalNum, NON_SHINY_PLACEHOLDER, GetPokedexMonPersonality(nationalNum), GetGenderForSpecies(nationalNum, 0), FALSE, 0, x, y, paletteSlot, TAG_NONE);
 }
 
 static u16 CreateSizeScreenTrainerPic(u16 species, s16 x, s16 y, s8 paletteSlot)

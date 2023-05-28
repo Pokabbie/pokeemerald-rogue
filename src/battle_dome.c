@@ -4327,7 +4327,7 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
                                                                   SpriteCb_MonIcon,
                                                                   x | sInfoTrainerMonX[i],
                                                                   y + sInfoTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[trainerTourneyId][i], 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
         else if (trainerId == TRAINER_FRONTIER_BRAIN)
@@ -4336,7 +4336,7 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
                                                                   SpriteCb_MonIcon,
                                                                   x | sInfoTrainerMonX[i],
                                                                   y + sInfoTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[trainerTourneyId][i], 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
         else
@@ -4345,7 +4345,7 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
                                                                   SpriteCb_MonIcon,
                                                                   x | sInfoTrainerMonX[i],
                                                                   y + sInfoTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(gFacilityTrainerMons[DOME_MONS[trainerTourneyId][i]].species, 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
 
@@ -4815,7 +4815,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sLeftTrainerMonX[i],
                                                                   y + sLeftTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[tournamentIds[0]][i], 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
         else if (trainerIds[0] == TRAINER_FRONTIER_BRAIN)
@@ -4824,7 +4824,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sLeftTrainerMonX[i],
                                                                   y + sLeftTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[tournamentIds[0]][i], 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
         else
@@ -4833,7 +4833,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sLeftTrainerMonX[i],
                                                                   y + sLeftTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(gFacilityTrainerMons[DOME_MONS[tournamentIds[0]][i]].species, 0));
             gSprites[sInfoCard->spriteIds[2 + i + arrId]].oam.priority = 0;
         }
 
@@ -4855,7 +4855,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sRightTrainerMonX[i],
                                                                   y + sRightTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[tournamentIds[1]][i], 0));
             gSprites[sInfoCard->spriteIds[5 + i + arrId]].oam.priority = 0;
         }
         else if (trainerIds[1] == TRAINER_FRONTIER_BRAIN)
@@ -4864,7 +4864,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sRightTrainerMonX[i],
                                                                   y + sRightTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(DOME_MONS[tournamentIds[1]][i], 0));
             gSprites[sInfoCard->spriteIds[5 + i + arrId]].oam.priority = 0;
         }
         else
@@ -4873,7 +4873,7 @@ static void DisplayMatchInfoOnCard(u8 flags, u8 matchNo)
                                                                   SpriteCb_MonIcon,
                                                                   x | sRightTrainerMonX[i],
                                                                   y + sRightTrainerMonY[i],
-                                                                  0, 0);
+                                                                  0, 0, GetGenderForSpecies(gFacilityTrainerMons[DOME_MONS[tournamentIds[1]][i]].species, 0));
             gSprites[sInfoCard->spriteIds[5 + i + arrId]].oam.priority = 0;
         }
 

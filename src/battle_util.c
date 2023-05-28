@@ -4194,6 +4194,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
     u32 pidAtk, pidDef;
     u32 moveType, move;
     u32 i, j;
+    u8 genderAtk, genderDef;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return 0;
@@ -4203,9 +4204,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
 
     speciesAtk = gBattleMons[gBattlerAttacker].species;
     pidAtk = gBattleMons[gBattlerAttacker].personality;
+    genderAtk = gBattleMons[gBattlerAttacker].genderFlag;
 
     speciesDef = gBattleMons[gBattlerTarget].species;
     pidDef = gBattleMons[gBattlerTarget].personality;
+    genderDef = gBattleMons[gBattlerTarget].genderFlag;
 
     if (special)
         gLastUsedAbility = special;
@@ -5473,10 +5476,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
              && (Random() % 3) == 0
              && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS
              && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
-             && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != GetGenderFromSpeciesAndPersonality(speciesDef, pidDef)
+             && GetGenderForSpecies(speciesAtk, genderAtk) != GetGenderForSpecies(speciesDef, genderDef)
              && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
-             && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != MON_GENDERLESS
-             && GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) != MON_GENDERLESS)
+             && GetGenderForSpecies(speciesAtk, genderAtk) != MON_GENDERLESS
+             && GetGenderForSpecies(speciesDef, genderDef) != MON_GENDERLESS)
             {
                 gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(gBattlerTarget);
                 BattleScriptPushCursor();
@@ -8458,11 +8461,11 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
            MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_RIVALRY:
-        if (GetGenderFromSpeciesAndPersonality(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].personality) != MON_GENDERLESS
-            && GetGenderFromSpeciesAndPersonality(gBattleMons[battlerDef].species, gBattleMons[battlerDef].personality) != MON_GENDERLESS)
+        if (GetGenderForSpecies(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].genderFlag) != MON_GENDERLESS
+            && GetGenderForSpecies(gBattleMons[battlerDef].species, gBattleMons[battlerDef].genderFlag) != MON_GENDERLESS)
         {
-            if (GetGenderFromSpeciesAndPersonality(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].personality)
-             == GetGenderFromSpeciesAndPersonality(gBattleMons[battlerDef].species, gBattleMons[battlerDef].personality))
+            if (GetGenderForSpecies(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].genderFlag)
+             == GetGenderForSpecies(gBattleMons[battlerDef].species, gBattleMons[battlerDef].genderFlag))
                MulModifier(&modifier, UQ_4_12(1.25));
             else
                MulModifier(&modifier, UQ_4_12(0.75));

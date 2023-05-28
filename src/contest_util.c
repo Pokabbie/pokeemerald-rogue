@@ -891,7 +891,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
         GET_CONTEST_WINNER_ID(i);
         species = gContestMons[i].species;
         personality = gContestMons[i].personality;
-        gender = GetGenderFromSpeciesAndPersonality(species, personality);
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         otId = gContestMons[i].otId;
         HandleLoadSpecialPokePic(
             &gMonFrontPicTable[species],
@@ -1097,8 +1097,9 @@ static void LoadContestMonIcon(u16 species, u8 monIndex, u8 srcOffset, u8 useDma
 {
     const u8 *iconPtr;
     u16 var0, var1;
+    u8 gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
 
-    iconPtr = GetMonIconPtr(species, personality);
+    iconPtr = GetMonIconPtr(species, personality, gender);
     iconPtr += srcOffset * 0x200 + 0x80;
     if (useDmaNow)
     {
@@ -2570,7 +2571,7 @@ void ShowContestEntryMonPic(void)
         top = 3;
         species = gContestMons[gSpecialVar_0x8006].species;
         personality = gContestMons[gSpecialVar_0x8006].personality;
-        gender = GetGenderFromSpeciesAndPersonality(species, personality);
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         otId = gContestMons[gSpecialVar_0x8006].otId;
         taskId = CreateTask(Task_ShowContestEntryMonPic, 0x50);
         gTasks[taskId].data[0] = 0;

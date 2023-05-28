@@ -635,7 +635,7 @@ static u8 CreatePokemonFrontSprite(u16 species, u8 x, u8 y)
 {
     u8 spriteId;
 
-    spriteId = CreateMonPicSprite_Affine(species, NON_SHINY_PLACEHOLDER, 0, FALSE, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
+    spriteId = CreateMonPicSprite_Affine(species, NON_SHINY_PLACEHOLDER, 0, GetGenderForSpecies(species, 0), FALSE, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
     gSprites[spriteId].oam.priority = 0;
     return spriteId;
 }

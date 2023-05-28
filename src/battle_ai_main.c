@@ -1213,8 +1213,8 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             break;
         case EFFECT_CAPTIVATE:
             {
-                u8 atkGender = GetGenderFromSpeciesAndPersonality(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].personality);
-                u8 defGender = GetGenderFromSpeciesAndPersonality(gBattleMons[battlerDef].species, gBattleMons[battlerDef].personality);
+                u8 atkGender = GetGenderForSpecies(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].genderFlag);
+                u8 defGender = GetGenderForSpecies(gBattleMons[battlerDef].species, gBattleMons[battlerDef].genderFlag);
                 if (atkGender == MON_GENDERLESS || defGender == MON_GENDERLESS || atkGender == defGender)
                     score -= 10;
             }
@@ -1503,8 +1503,8 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             break;
         case EFFECT_ATTRACT:
             if (!AI_CanBeInfatuated(battlerAtk, battlerDef, AI_DATA->abilities[battlerDef],
-             GetGenderFromSpeciesAndPersonality(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].personality),
-             GetGenderFromSpeciesAndPersonality(gBattleMons[battlerDef].species, gBattleMons[battlerDef].personality)))
+             GetGenderForSpecies(gBattleMons[battlerAtk].species, gBattleMons[battlerAtk].genderFlag),
+             GetGenderForSpecies(gBattleMons[battlerDef].species, gBattleMons[battlerDef].genderFlag)))
                 score -= 10;
             break;
         case EFFECT_SAFEGUARD:

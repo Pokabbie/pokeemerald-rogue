@@ -7514,8 +7514,9 @@ static void PutMonIconOnLvlUpBanner(void)
 
     u16 species = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES);
     u32 personality = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_PERSONALITY);
+    u8 gender = GetMonGender(&gPlayerParty[gBattleStruct->expGetterMonId]);
 
-    const u8* iconPtr = GetMonIconPtr(species, personality);
+    const u8* iconPtr = GetMonIconPtr(species, personality, gender);
     iconSheet.data = iconPtr;
     iconSheet.size = 0x200;
     iconSheet.tag = TAG_LVLUP_BANNER_MON_ICON;
@@ -14475,8 +14476,8 @@ static void Cmd_averagestats(void)
 
 static void Cmd_jumpifoppositegenders(void)
 {
-    u32 atkGender = GetGenderFromSpeciesAndPersonality(gBattleMons[gBattlerAttacker].species, gBattleMons[gBattlerAttacker].personality);
-    u32 defGender = GetGenderFromSpeciesAndPersonality(gBattleMons[gBattlerTarget].species, gBattleMons[gBattlerTarget].personality);
+    u32 atkGender = GetGenderForSpecies(gBattleMons[gBattlerAttacker].species, gBattleMons[gBattlerAttacker].genderFlag);
+    u32 defGender = GetGenderForSpecies(gBattleMons[gBattlerTarget].species, gBattleMons[gBattlerTarget].genderFlag);
 
     if ((atkGender == MON_MALE && defGender == MON_FEMALE) || (atkGender == MON_FEMALE && defGender == MON_MALE))
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);

@@ -143,6 +143,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 species2; // 0x2
         u8 isEgg : 1; // 0x4
         u8 isShiny : 1; // 0x4
+        u8 genderFlag;
         u8 level; // 0x5
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
@@ -1505,6 +1506,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->species = GetMonData(mon, MON_DATA_SPECIES);
         sum->species2 = GetMonData(mon, MON_DATA_SPECIES2);
         sum->isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
+        sum->genderFlag = GetMonData(mon, MON_DATA_GENDER_FLAG);
         sum->exp = GetMonData(mon, MON_DATA_EXP);
         sum->level = GetMonData(mon, MON_DATA_LEVEL);
         sum->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
@@ -4175,7 +4177,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
         (*state)++;
         return 0xFF;
     case 1:
-        pal = GetMonSpritePalStructFromSpecies(summary->species2, GetGenderFromSpeciesAndPersonality(summary->species2, summary->pid), summary->isShiny);
+        pal = GetMonSpritePalStructFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny);
         LoadCompressedSpritePalette(pal);
         SetMultiuseSpriteTemplateToPokemon(pal->tag, B_POSITION_OPPONENT_LEFT);
         (*state)++;

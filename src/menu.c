@@ -2125,12 +2125,6 @@ static void LoadMonIconPalAtOffset(u8 palOffset, u16 speciesId)
     LoadPalette(GetValidMonIconPalettePtr(speciesId), palOffset, 0x20);
 }
 
-// Unused
-static void DrawMonIconAtPos(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y)
-{
-    BlitBitmapToWindow(windowId, GetMonIconPtr(speciesId, personality), x, y, 32, 32);
-}
-
 void ListMenuLoadStdPalAt(u8 palOffset, u8 palId)
 {
     const u16 *palette;

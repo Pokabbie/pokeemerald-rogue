@@ -619,7 +619,7 @@ static void Task_Hof_DisplayMon(u8 taskId)
     if (currMon->species == SPECIES_EGG)
         destY += 10;
 
-    spriteId = CreateMonPicSprite_Affine(currMon->species, currMon->tid, currMon->personality, currMon->shiny, MON_PIC_AFFINE_FRONT, startX, startY, currMonId, TAG_NONE);
+    spriteId = CreateMonPicSprite_Affine(currMon->species, currMon->tid, currMon->personality, GetGenderForSpecies(currMon->species, currMon->genderFlag), currMon->shiny, MON_PIC_AFFINE_FRONT, startX, startY, currMonId, TAG_NONE);
     gSprites[spriteId].tDestinationX = destX;
     gSprites[spriteId].tDestinationY = destY;
     gSprites[spriteId].data[0] = 0;
@@ -1061,7 +1061,7 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
             if (currMon->species == SPECIES_EGG)
                 posY += 10;
 
-            spriteId = CreateMonPicSprite_Affine(currMon->species, currMon->tid, currMon->personality, currMon->shiny, MON_PIC_AFFINE_FRONT, posX, posY, i, TAG_NONE);
+            spriteId = CreateMonPicSprite_Affine(currMon->species, currMon->tid, currMon->personality, GetGenderForSpecies(currMon->species, currMon->genderFlag), currMon->shiny, MON_PIC_AFFINE_FRONT, posX, posY, i, TAG_NONE);
             gSprites[spriteId].oam.priority = 1;
             gTasks[taskId].tMonSpriteId(i) = spriteId;
 
