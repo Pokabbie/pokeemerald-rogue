@@ -66,6 +66,7 @@
 #include "rogue_script.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
+#include "rogue_timeofday.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -13912,8 +13913,7 @@ static void Cmd_handleballthrow(void)
             break;
         #ifdef ITEM_EXPANSION
         case ITEM_DUSK_BALL:
-            RtcCalcLocalTime();
-            if ((gLocalTime.hours >= 20 && gLocalTime.hours <= 3) || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+            if ((RogueToD_IsDusk() || RogueToD_IsNight()) || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
                 #if B_DUSK_BALL_MODIFIER >= GEN_7
                     ballMultiplier = 30;
                 #else
