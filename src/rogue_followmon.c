@@ -325,7 +325,7 @@ static u16 NextSpawnMonSlot()
     u16 slot;
     u16 species;
     u8 level; // ignore
-    bool8 isShiny; // ignore
+    bool8 isShiny;
 
     // Attempt to find a free slot first
     for(slot = 0; slot < MAX_SPAWN_SLOTS; ++slot)
@@ -342,7 +342,10 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    Rogue_CreateWildMon(0, &species, &level, &isShiny);
+    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        Rogue_CreateWildMon(1, &species, &level, &isShiny); // WILD_AREA_WATER
+    else
+        Rogue_CreateWildMon(0, &species, &level, &isShiny);
 
     FollowMon_SetGraphics(slot, species, isShiny);
 
@@ -356,9 +359,16 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     u16 tileBehavior;
     s16 playerX, playerY;
     s16 x, y;
+    u8 closeDistance;
 
     for(tryCount = 0; tryCount < 3; ++tryCount)
     {
+        // Spawn further away when surfing
+        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+            closeDistance = 3;
+        else
+            closeDistance = 1;
+
         // Select a random tile in [-7, -4] [7, 4] range
         // Make sure is not directly next to player
         do
@@ -366,20 +376,30 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
             x = (s16)(Random() % 15) - 7;
             y = (s16)(Random() % 9) - 4;
         }
-        while (abs(x) <= 1 && abs(y) <= 1);
+        while (abs(x) <= closeDistance && abs(y) <= closeDistance);
         
         PlayerGetDestCoords(&playerX, &playerY);
         x += playerX;
         y += playerY;
         tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-        //bool8 MetatileBehavior_IsLandWildEncounter(u8);
-        //bool8 MetatileBehavior_IsWaterWildEncounter(u8);
-        if(MetatileBehavior_IsLandWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
+        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
         {
-            *outX = x;
-            *outY = y;
-            return TRUE;
+            if(MetatileBehavior_IsWaterWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
+            {
+                *outX = x;
+                *outY = y;
+                return TRUE;
+            }
+        }
+        else
+        {
+            if(MetatileBehavior_IsLandWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
+            {
+                *outX = x;
+                *outY = y;
+                return TRUE;
+            }
         }
     }
 
