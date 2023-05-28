@@ -2442,6 +2442,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
     u16 speciesDef;
     u32 pidAtk;
     u32 pidDef;
+    u8 genderAtk;
+    u8 genderDef;
 
     if (gBattlerAttacker >= gBattlersCount)
         gBattlerAttacker = battler;
@@ -2461,9 +2463,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 
     speciesAtk = GetMonData(pokeAtk, MON_DATA_SPECIES);
     pidAtk = GetMonData(pokeAtk, MON_DATA_PERSONALITY);
+    genderAtk = GetMonGender(pokeAtk);
 
     speciesDef = GetMonData(pokeDef, MON_DATA_SPECIES);
     pidDef = GetMonData(pokeDef, MON_DATA_PERSONALITY);
+    genderDef = GetMonGender(pokeDef);
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI)) // Why isn't that check done at the beginning?
     {
@@ -2892,10 +2896,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                  && gBattleMons[gBattlerTarget].hp != 0
                  && (Random() % 3) == 0
                  && gBattleMons[gBattlerAttacker].ability != ABILITY_OBLIVIOUS
-                 && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != GetGenderFromSpeciesAndPersonality(speciesDef, pidDef)
+                 && genderAtk != genderDef
                  && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
-                 && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != MON_GENDERLESS
-                 && GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) != MON_GENDERLESS)
+                 && genderAtk != MON_GENDERLESS
+                 && genderDef != MON_GENDERLESS)
                 {
                     gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(gBattlerTarget);
                     BattleScriptPushCursor();

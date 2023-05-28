@@ -66,6 +66,7 @@ static bool8 ShouldGetStatBadgeBoost(u16 flagId, u8 battlerId);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
 static u8 SendMonToPC(struct Pokemon* mon);
+static u8 CalcGenderFromSpeciesAndPersonality(u16 species, u32 personality);
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPlayerPartyCount = 0;
@@ -2280,6 +2281,9 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     value = 0;
     SetBoxMonData(boxMon, MON_DATA_IS_SHINY, &value);
 
+    value = (CalcGenderForBoxMon(boxMon) == MON_MALE) ? 0 : 1;
+    SetBoxMonData(boxMon, MON_DATA_GENDER_FLAG, &value);
+
     {
         u16 gender = gSaveBlock2Ptr->playerGender % 2;
         SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gender);
@@ -2352,7 +2356,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
             actualLetter = GET_UNOWN_LETTER(personality);
         }
         while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality)
+            || gender != CalcGenderFromSpeciesAndPersonality(species, personality)
             || actualLetter != unownLetter - 1);
     }
     else
@@ -2362,7 +2366,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
             personality = Random32();
         }
         while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality));
+            || gender != CalcGenderFromSpeciesAndPersonality(species, personality));
     }
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
@@ -2379,7 +2383,7 @@ void CreateMaleMon(struct Pokemon *mon, u16 species, u8 level)
         otId = Random32();
         personality = Random32();
     }
-    while (GetGenderFromSpeciesAndPersonality(species, personality) != MON_MALE);
+    while (CalcGenderFromSpeciesAndPersonality(species, personality) != MON_MALE);
     CreateMon(mon, species, level, USE_RANDOM_IVS, TRUE, personality, OT_ID_PRESET, otId);
 }
 
@@ -3507,8 +3511,30 @@ u8 GetMonGender(struct Pokemon *mon)
 u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 {
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
-    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL);
+    u16 genderFlag = GetBoxMonData(boxMon, MON_DATA_GENDER_FLAG, NULL);
 
+    return GetGenderForSpecies(species, genderFlag);
+}
+
+u8 GetGenderForSpecies(u16 species, u8 genderFlag)
+{
+    // Ignore gender flag for 100% 
+    switch (gBaseStats[species].genderRatio)
+    {
+    case MON_MALE:
+    case MON_FEMALE:
+    case MON_GENDERLESS:
+        return gBaseStats[species].genderRatio;
+    }
+
+    if(genderFlag == 0)
+        return MON_MALE;
+    else
+        return MON_FEMALE;
+}
+
+static u8 CalcGenderFromSpeciesAndPersonality(u16 species, u32 personality)
+{
     switch (gBaseStats[species].genderRatio)
     {
     case MON_MALE:
@@ -3523,20 +3549,17 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
         return MON_MALE;
 }
 
-u8 GetGenderFromSpeciesAndPersonality(u16 species, u32 personality)
+u8 CalcGenderForMon(struct Pokemon *mon)
 {
-    switch (gBaseStats[species].genderRatio)
-    {
-    case MON_MALE:
-    case MON_FEMALE:
-    case MON_GENDERLESS:
-        return gBaseStats[species].genderRatio;
-    }
+    return CalcGenderForBoxMon(&mon->box);
+}
 
-    if (gBaseStats[species].genderRatio > (personality & 0xFF))
-        return MON_FEMALE;
-    else
-        return MON_MALE;
+u8 CalcGenderForBoxMon(struct BoxPokemon *boxMon)
+{
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
+    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL);
+
+    return CalcGenderFromSpeciesAndPersonality(species, personality);
 }
 
 void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition)
@@ -4005,8 +4028,8 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_IS_SHINY:
         retVal = substruct3->isShiny;
         break;
-    case MON_DATA_BEAUTY_RIBBON:
-        retVal = substruct3->beautyRibbon;
+    case MON_DATA_GENDER_FLAG:
+        retVal = substruct3->genderFlag;
         break;
     case MON_DATA_CUTE_RIBBON:
         retVal = substruct3->cuteRibbon;
@@ -4094,7 +4117,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = 0;
         if (substruct0->species && !substruct3->isEgg)
         {
-            retVal += substruct3->beautyRibbon;
             retVal += substruct3->cuteRibbon;
             retVal += substruct3->smartRibbon;
             retVal += substruct3->toughRibbon;
@@ -4117,7 +4139,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         if (substruct0->species && !substruct3->isEgg)
         {
             retVal = substruct3->championRibbon
-                | (substruct3->beautyRibbon << 4)
                 | (substruct3->cuteRibbon << 7)
                 | (substruct3->smartRibbon << 10)
                 | (substruct3->toughRibbon << 13)
@@ -4387,8 +4408,8 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_IS_SHINY:
         SET8(substruct3->isShiny);
         break;
-    case MON_DATA_BEAUTY_RIBBON:
-        SET8(substruct3->beautyRibbon);
+    case MON_DATA_GENDER_FLAG:
+        SET8(substruct3->genderFlag);
         break;
     case MON_DATA_CUTE_RIBBON:
         SET8(substruct3->cuteRibbon);

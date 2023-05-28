@@ -2965,10 +2965,10 @@ u8 GetContestEntryEligibility(struct Pokemon *pkmn)
     switch (gSpecialVar_ContestCategory)
     {
     case CONTEST_CATEGORY_COOL:
-        ribbon = GetMonData(pkmn, MON_DATA_BEAUTY_RIBBON);
+        ribbon = GetMonData(pkmn, MON_DATA_CUTE_RIBBON);
         break;
     case CONTEST_CATEGORY_BEAUTY:
-        ribbon = GetMonData(pkmn, MON_DATA_BEAUTY_RIBBON);
+        ribbon = GetMonData(pkmn, MON_DATA_CUTE_RIBBON);
         break;
     case CONTEST_CATEGORY_CUTE:
         ribbon = GetMonData(pkmn, MON_DATA_CUTE_RIBBON);

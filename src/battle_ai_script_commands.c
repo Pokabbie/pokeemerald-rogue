@@ -2082,13 +2082,21 @@ static void Cmd_if_holds_item(void)
 static void Cmd_get_gender(void)
 {
     u8 battlerId;
+    struct Pokemon* mon;
 
     if (gAIScriptPtr[1] == AI_USER)
         battlerId = sBattler_AI;
     else
         battlerId = gBattlerTarget;
 
-    AI_THINKING_STRUCT->funcResult = GetGenderFromSpeciesAndPersonality(gBattleMons[battlerId].species, gBattleMons[battlerId].personality);
+
+    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        mon = &gPlayerParty[gBattlerPartyIndexes[battlerId]];
+    else
+        mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
+
+
+    AI_THINKING_STRUCT->funcResult = GetMonGender(mon);
 
     gAIScriptPtr += 2;
 }

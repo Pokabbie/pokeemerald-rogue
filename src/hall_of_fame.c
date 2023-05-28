@@ -53,7 +53,8 @@ struct HallofFameMon
     u16 pad0 : 7;
     u8 fainted : 1;
     u8 shiny : 1;
-    u8 pad1 : 6;
+    u8 genderFlag : 1;
+    u8 pad1 : 5;
     u8 nick[POKEMON_NAME_LENGTH];
 };
 
@@ -362,6 +363,7 @@ static const struct HallofFameMon sDummyFameMon =
     .species = SPECIES_NONE,
     .fainted = 0,
     .shiny = FALSE,
+    .genderFlag = 0,
     .pad0 = 0,
     .pad1 = 0,
     .nick = {0}
@@ -476,6 +478,7 @@ static void Task_Hof_InitMonData(u8 taskId)
             sHofMonPtr->mon[i].personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
             sHofMonPtr->mon[i].fainted = GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0;
             sHofMonPtr->mon[i].shiny = GetMonData(&gPlayerParty[i], MON_DATA_IS_SHINY);
+            sHofMonPtr->mon[i].genderFlag = GetMonData(&gPlayerParty[i], MON_DATA_GENDER_FLAG);
             GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, nick);
             for (j = 0; j < POKEMON_NAME_LENGTH; j++)
             {
@@ -490,6 +493,7 @@ static void Task_Hof_InitMonData(u8 taskId)
             sHofMonPtr->mon[i].personality = 0;
             sHofMonPtr->mon[i].fainted = TRUE;
             sHofMonPtr->mon[i].shiny = FALSE;
+            sHofMonPtr->mon[i].genderFlag = 0;
             sHofMonPtr->mon[i].nick[0] = EOS;
         }
     }
@@ -1307,7 +1311,7 @@ static void HallOfFame_PrintMonInfo(struct HallofFameMon* currMon, u8 unused1, u
 
         if (currMon->species != SPECIES_NIDORAN_M && currMon->species != SPECIES_NIDORAN_F)
         {
-            switch (GetGenderFromSpeciesAndPersonality(currMon->species, currMon->personality))
+            switch (GetGenderForSpecies(currMon->species, currMon->genderFlag))
             {
             case MON_MALE:
                 stringPtr[0] = CHAR_MALE;

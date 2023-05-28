@@ -2094,7 +2094,6 @@ u8 GetRibbonCount(struct Pokemon *pokemon)
     u8 nRibbons;
 
     nRibbons = 0;
-    nRibbons += GetMonData(pokemon, MON_DATA_BEAUTY_RIBBON);
     nRibbons += GetMonData(pokemon, MON_DATA_CUTE_RIBBON);
     nRibbons += GetMonData(pokemon, MON_DATA_SMART_RIBBON);
     nRibbons += GetMonData(pokemon, MON_DATA_TOUGH_RIBBON);
@@ -2116,7 +2115,6 @@ u8 GetRibbonCount(struct Pokemon *pokemon)
 static u8 MonDataIdxToRibbon(u8 monDataIdx)
 {
     if (monDataIdx == MON_DATA_CHAMPION_RIBBON) return CHAMPION_RIBBON;
-    if (monDataIdx == MON_DATA_BEAUTY_RIBBON)   return BEAUTY_RIBBON_NORMAL;
     if (monDataIdx == MON_DATA_CUTE_RIBBON)     return CUTE_RIBBON_NORMAL;
     if (monDataIdx == MON_DATA_SMART_RIBBON)    return SMART_RIBBON_NORMAL;
     if (monDataIdx == MON_DATA_TOUGH_RIBBON)    return TOUGH_RIBBON_NORMAL;

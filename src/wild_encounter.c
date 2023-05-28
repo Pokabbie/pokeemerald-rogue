@@ -334,9 +334,7 @@ static void CreateWildMon(u16 species, u8 level, bool8 isShiny)
             && GetMonAbility(&gPlayerParty[0]) == ABILITY_CUTE_CHARM
             && Random() % 3 != 0)
         {
-            u16 leadingMonSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
-            u32 leadingMonPersonality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
-            u8 gender = GetGenderFromSpeciesAndPersonality(leadingMonSpecies, leadingMonPersonality);
+            u8 gender = GetMonGender(&gPlayerParty[0]);
 
             // misses mon is genderless check, although no genderless mon can have cute charm as ability
             if (gender == MON_FEMALE)
