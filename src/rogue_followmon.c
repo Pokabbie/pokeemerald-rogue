@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/songs.h"
 
@@ -29,7 +30,7 @@ struct FollowMonData
     u8 activeCount;
     u16 spawnCountdown;
     u16 spawnSlot;
-    u16 pendingShinyAnim;
+    u16 pendingSpawnAnim;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -353,6 +354,20 @@ static u16 NextSpawnMonSlot()
     return slot;
 }
 
+static bool8 CheckForObjectEventAtLocation(s16 x, s16 y)
+{
+    u8 i;
+    for(i = 0; i < OBJECT_EVENTS_COUNT; ++i)
+    {
+        if(gObjectEvents[i].active && gObjectEvents[i].currentCoords.x == x && gObjectEvents[i].currentCoords.y == y)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static bool8 TrySelectTile(s16* outX, s16* outY)
 {
     u8 tryCount;
@@ -389,7 +404,9 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
             {
                 *outX = x;
                 *outY = y;
-                return TRUE;
+
+                if(!CheckForObjectEventAtLocation(x, y))
+                    return TRUE;
             }
         }
         else
@@ -398,7 +415,9 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
             {
                 *outX = x;
                 *outY = y;
-                return TRUE;
+
+                if(!CheckForObjectEventAtLocation(x, y))
+                    return TRUE;
             }
         }
     }
@@ -406,7 +425,11 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     return FALSE;
 }
 
-bool8 MovementAction_EmoteShinySparkle(struct ObjectEvent *eventObj);
+// MovementAction_EmoteFollowMonSpawn
+bool8 MovementAction_FollowMonGrassSpawn(struct ObjectEvent *objEvent);
+bool8 MovementAction_FollowMonWaterSpawn(struct ObjectEvent *objEvent);
+bool8 MovementAction_FollowMonCaveSpawn(struct ObjectEvent *objEvent);
+bool8 MovementAction_FollowMonShinySpawn(struct ObjectEvent *objEvent);
 
 static u8 FindObjectEventForGfx(u16 gfxId)
 {
@@ -494,12 +517,13 @@ void FollowMon_OverworldCB()
         }
     }
 
-    // Play shiny animation when player is close enough
-    if(sFollowMonData.pendingShinyAnim != 0)
+    // Play spawn animation when player is close enough
+    if(sFollowMonData.pendingSpawnAnim != 0)
     {
         u16 spawnSlot;
         u16 gfxId;
         u16 bitFlag;
+        bool8 isShiny;
         u8 objectEventId;
 
         for(gfxId = OBJ_EVENT_GFX_FOLLOW_MON_0; gfxId < OBJ_EVENT_GFX_FOLLOW_MON_LAST; ++gfxId)
@@ -507,16 +531,43 @@ void FollowMon_OverworldCB()
             spawnSlot = gfxId - OBJ_EVENT_GFX_FOLLOW_MON_0;
             bitFlag = (1 << spawnSlot);
 
-            if((sFollowMonData.pendingShinyAnim & bitFlag) != 0)
+            if((sFollowMonData.pendingSpawnAnim & bitFlag) != 0)
             {
                 objectEventId = FindObjectEventForGfx(gfxId);
 
-                if(objectEventId != OBJECT_EVENTS_COUNT && InShinyAnimationRange(objectEventId))
+                if(objectEventId != OBJECT_EVENTS_COUNT)
                 {
-                    MovementAction_EmoteShinySparkle(&gObjectEvents[objectEventId]);
-                    PlaySE(SE_SHINY);
+                    isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
 
-                    sFollowMonData.pendingShinyAnim &= ~bitFlag;
+                    if(isShiny)
+                    {
+                        // Play special shiny animation only once in range
+                        if(InShinyAnimationRange(objectEventId))
+                        {
+                            MovementAction_FollowMonShinySpawn(&gObjectEvents[objectEventId]);
+                            PlaySE(SE_SHINY);
+
+                            sFollowMonData.pendingSpawnAnim &= ~bitFlag;
+                        }
+                    }
+                    else 
+                    {
+                        // Instantly play a small animation to ground the spawning a bit
+                        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                        {
+                            MovementAction_FollowMonWaterSpawn(&gObjectEvents[objectEventId]);
+                        }
+                        else if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+                        {
+                            MovementAction_FollowMonCaveSpawn(&gObjectEvents[objectEventId]);
+                        }
+                        else
+                        {
+                            MovementAction_FollowMonGrassSpawn(&gObjectEvents[objectEventId]);
+                        }
+
+                        sFollowMonData.pendingSpawnAnim &= ~bitFlag;
+                    }
                 }
             }
         }
@@ -540,15 +591,11 @@ void FollowMon_OnWarp()
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 {
     u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-    bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
 
     if(sFollowMonData.activeCount != 255)
         ++sFollowMonData.activeCount;
 
-    if(isShiny)
-    {
-        sFollowMonData.pendingShinyAnim |= (1 << spawnSlot);
-    }
+    sFollowMonData.pendingSpawnAnim |= (1 << spawnSlot);
 }
 
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)

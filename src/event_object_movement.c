@@ -6621,23 +6621,44 @@ bool8 MovementAction_SetVisible_Step0(struct ObjectEvent *objectEvent, struct Sp
     return TRUE;
 }
 
-bool8 MovementAction_EmoteShinySparkle(struct ObjectEvent *objEvent)
+// MovementAction_EmoteFollowMonSpawn
+bool8 MovementAction_FollowMonGrassSpawn(struct ObjectEvent *objEvent)
 {
-    u8 direction;
-
-    //ObjectEventGetLocalIdAndMap(objEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);
-    //FieldEffectStart(FLDEFF_EXCLAMATION_MARK_ICON);
-    
-    //gFieldEffectArguments[0] = objEvent->currentCoords.x;
-    //gFieldEffectArguments[1] = objEvent->currentCoords.y;
-    //gFieldEffectArguments[2] = objEvent->previousElevation;
-    //gFieldEffectArguments[3] = gSprites[objEvent->spriteId].oam.priority;
-    //FieldEffectStart(FLDEFF_DUST);
-
     gFieldEffectArguments[0] = objEvent->currentCoords.x;
     gFieldEffectArguments[1] = objEvent->currentCoords.y;
     gFieldEffectArguments[2] = gSprites[objEvent->spriteId].oam.priority + 1;
-    FieldEffectStart(FLDEFF_BUBBLES);
+    gFieldEffectArguments[3] = 0;
+    FieldEffectStart(FLDEFF_BUBBLES); // Commandeer this field effect for the spawn anims
+    return TRUE;
+}
+
+bool8 MovementAction_FollowMonWaterSpawn(struct ObjectEvent *objEvent)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = gSprites[objEvent->spriteId].oam.priority + 1;
+    gFieldEffectArguments[3] = 1;
+    FieldEffectStart(FLDEFF_BUBBLES); // Commandeer this field effect for the spawn anims
+    return TRUE;
+}
+
+bool8 MovementAction_FollowMonCaveSpawn(struct ObjectEvent *objEvent)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = gSprites[objEvent->spriteId].oam.priority + 1;
+    gFieldEffectArguments[3] = 2;
+    FieldEffectStart(FLDEFF_BUBBLES); // Commandeer this field effect for the spawn anims
+    return TRUE;
+}
+
+bool8 MovementAction_FollowMonShinySpawn(struct ObjectEvent *objEvent)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = gSprites[objEvent->spriteId].oam.priority + 1;
+    gFieldEffectArguments[3] = 3;
+    FieldEffectStart(FLDEFF_BUBBLES); // Commandeer this field effect for the spawn anims
     return TRUE;
 }
 
