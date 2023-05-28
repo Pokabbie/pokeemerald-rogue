@@ -25,6 +25,9 @@
 #include "constants/map_types.h"
 #include "constants/field_effects.h"
 #include "constants/metatile_behaviors.h"
+
+#include "rogue_followmon.h"
+
 /*
     -FollowMe_StairsMoveHook ?
     -FollowMe_WarpStairsEndHook ?
@@ -629,13 +632,14 @@ bool8 FollowMe_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEven
 
 void FollowMe_FollowerToWater(void)
 {
-    if (!gSaveBlock2Ptr->follower.inProgress)
-        return;
+    // RogueNote: ignore this here
+    //if (!gSaveBlock2Ptr->follower.inProgress)
+    //    return;
 
     //Prepare for making the follower do the jump and spawn the surf head
     //right in front of the follower's location.
-    FollowMe(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_JUMP_DOWN, TRUE);
-    gSaveBlock2Ptr->follower.createSurfBlob = 1;
+    //FollowMe(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_JUMP_DOWN, TRUE);
+    //gSaveBlock2Ptr->follower.createSurfBlob = 1;
 }
 
 void FollowMe_BindToSurbBlobOnReloadScreen(void)
@@ -721,11 +725,12 @@ static void SetUpSurfBlobFieldEffect(struct ObjectEvent* npc)
 
 void PrepareFollowerDismountSurf(void)
 {
-    if (!gSaveBlock2Ptr->follower.inProgress)
-        return;
-
-    FollowMe(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_WALK_NORMAL_DOWN, TRUE);
-    gSaveBlock2Ptr->follower.createSurfBlob = 3;
+    // RogueNote: ignore this
+    //if (!gSaveBlock2Ptr->follower.inProgress)
+    //    return;
+//
+    //FollowMe(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_WALK_NORMAL_DOWN, TRUE);
+    //gSaveBlock2Ptr->follower.createSurfBlob = 3;
 }
 
 static void SetSurfDismount(void)
@@ -1076,12 +1081,15 @@ static void CalculateFollowerEscalatorTrajectoryUp(struct Task *task)
 
 bool8 FollowerCanBike(void)
 {
-    if (!gSaveBlock2Ptr->follower.inProgress)
-        return TRUE;
-    else if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CAN_BIKE)
-        return TRUE;
-    else
-        return FALSE;
+    // RogueNote: Don't prevent biking
+    return TRUE;
+
+    //if (!gSaveBlock2Ptr->follower.inProgress)
+    //    return TRUE;
+    //else if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CAN_BIKE)
+    //    return TRUE;
+    //else
+    //    return FALSE;
 }
 
 void FollowMe_HandleBike(void)

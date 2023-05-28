@@ -89,6 +89,10 @@ void SetupFollowParterMonObjectEvent()
     if(FollowMon_GetPartnerFollowSpecies() == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
+    // Don't show if on bike or surfing
+    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        shouldFollowMonBeVisible = FALSE;
+
     if(shouldFollowMonBeVisible)
     {
         if(!FollowMon_IsPartnerMonActive())
@@ -109,8 +113,7 @@ void SetupFollowParterMonObjectEvent()
     }
     else
     {
-        if(FollowMon_IsPartnerMonActive())
-            DestroyFollower();
+        ResetFollowParterMonObjectEvent();
     }
 }
 

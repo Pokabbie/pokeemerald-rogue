@@ -10,6 +10,8 @@
 #include "constants/map_types.h"
 #include "constants/songs.h"
 
+#include "rogue_followmon.h"
+
 // this file's functions
 static void MovePlayerOnMachBike(u8, u16, u16);
 static u8 GetMachBikeTransition(u8 *);
@@ -985,6 +987,8 @@ void GetOnOffBike(u8 transitionFlags)
         Overworld_SetSavedMusic(MUS_CYCLING);
         Overworld_ChangeMusicTo(MUS_CYCLING);
     }
+
+    SetupFollowParterMonObjectEvent();
 }
 
 void BikeClearState(int newDirHistory, int newAbStartHistory)
