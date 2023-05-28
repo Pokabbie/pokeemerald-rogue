@@ -514,6 +514,7 @@ Rogue_Hub_ProfLab_PostStarterSelect::
 	setvar VAR_LITTLEROOT_INTRO_STATE, 4
 	msgbox Rogue_Hub_ProfLab_PostStarterSelect_Text_1, MSGBOX_DEFAULT
 	call Rogue_Hub_ProfLab_ProfExplain
+	special Rogue_SetupFollowParterMonObjectEvent
 	return
 
 

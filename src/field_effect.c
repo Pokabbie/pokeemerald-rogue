@@ -688,6 +688,10 @@ u32 FieldEffectStart(u8 id)
     u8 *script;
     u32 val;
 
+    // RogueNote: Skip this animation
+    //if(id == FLDEFF_FIELD_MOVE_SHOW_MON_INIT)
+    //    return 0;
+
     FieldEffectActiveListAdd(id);
 
     script = gFieldEffectScriptPointers[id];
