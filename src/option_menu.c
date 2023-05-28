@@ -29,12 +29,14 @@ enum
 enum
 {
     MENUITEM_MENU_GAME,
+    MENUITEM_MENU_CONTROLS,
     MENUITEM_MENU_UI,
     MENUITEM_MENU_AUDIO,
     MENUITEM_TEXTSPEED,
     MENUITEM_BATTLESCENE,
     MENUITEM_BATTLESTYLE,
     MENUITEM_AUTORUN_TOGGLE,
+    MENUITEM_NICKNAME_MODE,
     MENUITEM_TIME_OF_DAY,
     MENUITEM_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
@@ -48,6 +50,7 @@ enum
 {
     SUBMENUITEM_NONE,
     SUBMENUITEM_GAME,
+    SUBMENUITEM_CONTROLS,
     SUBMENUITEM_UI,
     SUBMENUITEM_AUDIO,
     SUBMENUITEM_COUNT,
@@ -83,6 +86,8 @@ static u8 BattleStyle_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
+static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection);
+static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection);
 static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection);
 static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection);
@@ -128,6 +133,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Empty_ProcessInput,
         .drawChoices = Empty_DrawChoices
     },
+    [MENUITEM_MENU_CONTROLS] = 
+    {
+        .itemName = gText_OptionControls,
+        .processInput = Empty_ProcessInput,
+        .drawChoices = Empty_DrawChoices
+    },
     [MENUITEM_MENU_UI] = 
     {
         .itemName = gText_OptionUI,
@@ -163,6 +174,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .itemName = gText_AutoRun,
         .processInput = AutoRun_ProcessInput,
         .drawChoices = AutoRun_DrawChoices
+    },
+    [MENUITEM_NICKNAME_MODE] = 
+    {
+        .itemName = gText_NicknameMode,
+        .processInput = NicknameMode_ProcessInput,
+        .drawChoices = NicknameMode_DrawChoices
     },
     [MENUITEM_TIME_OF_DAY] = 
     {
@@ -216,6 +233,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_MENU_GAME,
+            MENUITEM_MENU_CONTROLS,
             MENUITEM_MENU_UI,
             MENUITEM_MENU_AUDIO,
             MENUITEM_CANCEL
@@ -226,11 +244,20 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .titleName = gText_OptionGame,
         .menuOptions = 
         {
-            MENUITEM_AUTORUN_TOGGLE,
-            MENUITEM_BUTTONMODE,
             MENUITEM_TIME_OF_DAY,
             MENUITEM_BATTLESCENE,
             MENUITEM_BATTLESTYLE,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_CONTROLS] = 
+    {
+        .titleName = gText_OptionControls,
+        .menuOptions = 
+        {
+            MENUITEM_AUTORUN_TOGGLE,
+            MENUITEM_NICKNAME_MODE,
+            MENUITEM_BUTTONMODE,
             MENUITEM_CANCEL
         }
     },
@@ -447,6 +474,11 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         {
         case MENUITEM_MENU_GAME:
             submenuSelection = SUBMENUITEM_GAME;
+            submenuChanged = TRUE;
+            break;
+
+        case MENUITEM_MENU_CONTROLS:
+            submenuSelection = SUBMENUITEM_CONTROLS;
             submenuChanged = TRUE;
             break;
 
@@ -679,6 +711,53 @@ static void AutoRun_DrawChoices(u8 menuOffset, u8 selection)
 
     DrawOptionMenuChoice(gText_AutoRunHold, 104, menuOffset* YPOS_SPACING, styles[0]);
     DrawOptionMenuChoice(gText_AutoRunToggle, GetStringRightAlignXOffset(FONT_NORMAL, gText_AutoRunToggle, 198), menuOffset* YPOS_SPACING, styles[1]);
+}
+
+static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection <= 1)
+            selection++;
+        else
+            selection = 0;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+        else
+            selection = 2;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 styles[3];
+    u8 height;
+    s32 widthAsk, widthAlways, widthNever, xMid;
+
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[2] = 0;
+    styles[selection] = 1;
+
+    DrawOptionMenuChoice(gText_TextNicknameAsk, 104, menuOffset* YPOS_SPACING, styles[0]);
+
+    widthAsk = GetStringWidth(FONT_NORMAL, gText_TextNicknameAsk, 0);
+    widthAlways = GetStringWidth(FONT_NORMAL, gText_TextNicknameAlways, 0);
+    widthNever = GetStringWidth(FONT_NORMAL, gText_TextNicknameNever, 0);
+
+    widthAlways -= 94;
+    xMid = (widthAsk - widthAlways - widthNever) / 2 + 104;
+    DrawOptionMenuChoice(gText_TextNicknameAlways, xMid, menuOffset* YPOS_SPACING, styles[1]);
+
+    DrawOptionMenuChoice(gText_TextNicknameNever, GetStringRightAlignXOffset(FONT_NORMAL, gText_TextNicknameNever, 198), menuOffset* YPOS_SPACING, styles[2]);
 }
 
 static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection)
@@ -971,6 +1050,9 @@ static u8 GetMenuItemValue(u8 menuItem)
         
     case MENUITEM_AUTORUN_TOGGLE:
         return gSaveBlock2Ptr->optionsAutoRunToggle;
+        
+    case MENUITEM_NICKNAME_MODE:
+        return gSaveBlock2Ptr->optionsNicknameMode;
 
     case MENUITEM_TIME_OF_DAY:
         return gSaveBlock2Ptr->timeOfDayVisuals;
@@ -1012,6 +1094,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_AUTORUN_TOGGLE:
         gSaveBlock2Ptr->optionsAutoRunToggle = value;
+        break;
+
+    case MENUITEM_NICKNAME_MODE:
+        gSaveBlock2Ptr->optionsNicknameMode = value;
         break;
 
     case MENUITEM_TIME_OF_DAY:

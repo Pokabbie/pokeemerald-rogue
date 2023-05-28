@@ -10331,14 +10331,32 @@ void BattleDestroyYesNoCursorAt(u8 cursorPosition)
 
 static void Cmd_trygivecaughtmonnick(void)
 {
+    if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER)
+    {
+        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+            gBattlescriptCurrInstr += 5;
+        else
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        return;
+    }
+
     switch (gBattleCommunication[MULTIUSE_STATE])
     {
     case 0:
         HandleBattleWindow(24, 8, 29, 13, 0);
-        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
-        gBattleCommunication[MULTIUSE_STATE]++;
-        gBattleCommunication[CURSOR_POSITION] = 0;
-        BattleCreateYesNoCursorAt(0);
+        
+        if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_ALWAYS)
+        {
+            gBattleCommunication[MULTIUSE_STATE] = 2;
+            BeginFastPaletteFade(3);
+        }
+        else
+        {
+            BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+            gBattleCommunication[MULTIUSE_STATE]++;
+            gBattleCommunication[CURSOR_POSITION] = 0;
+            BattleCreateYesNoCursorAt(0);
+        }
         break;
     case 1:
         if (JOY_NEW(DPAD_UP) && gBattleCommunication[CURSOR_POSITION] != 0)

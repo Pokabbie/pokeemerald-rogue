@@ -99,6 +99,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
+    gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
     
