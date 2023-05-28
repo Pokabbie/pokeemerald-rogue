@@ -206,7 +206,7 @@ static bool8 ShouldApplyTintForCurrentMap()
 
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 {
-    if(gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+    if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
     {
         return isOverworld ? RGB(21, 21, 21) : RGB_WHITE;
     }
@@ -216,6 +216,14 @@ static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 
 void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
 {
+    bool8 isObjectPal = (offset / 16 + count) >= 16;
+
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS && isObjectPal)
+    {
+        // We don't want to tint the overworld sprites in the adventure paths screen
+        return;
+    }
+
     if(ShouldApplyTintForCurrentMap())
     {
         TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayOverworldColour, TRUE));
