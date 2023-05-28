@@ -49,11 +49,11 @@
 #define CALC_HOUR_FROM_TIME(time) (time / 60)
 #define CALC_MINS_FROM_TIME(time) (time % 60 )
 
-#define RGB_NIGHT           RGB(11, 9, 15) // RGB(9, 7, 13)
+#define RGB_NIGHT           RGB(13, 11, 17)
 #define RGB_NIGHT_BATTLE    RGB(14, 12, 18)
-#define RGB_SUNRISE         RGB(30, 18, 8)
+#define RGB_SUNRISE         RGB(31, 20, 10)
 #define RGB_DAYTIME         RGB_WHITE
-#define RGB_SUNSET          RGB(29, 16, 5)
+#define RGB_SUNSET          RGB(31, 18, 7)
 
 struct ToDPalette
 {
