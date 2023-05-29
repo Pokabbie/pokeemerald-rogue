@@ -1574,6 +1574,7 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+    FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
@@ -1591,7 +1592,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
-    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -2262,6 +2262,82 @@ bool8 Rogue_IsPartnerMonInTeam(void)
     return FALSE;
 }
 
+static u16 CalculateRewardLvlMonCount()
+{
+    u8 i;
+    u16 validCount = 0;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
+        {
+            ++validCount;
+        }
+    }
+
+    return validCount;
+}
+
+u16 Rogue_PostRunRewardLvls()
+{
+    u16 lvlCount = 2;
+    u16 targettedMons = CalculateRewardLvlMonCount();
+
+    if(targettedMons == 0)
+    {
+        lvlCount = 0;
+    }
+    else if(targettedMons > 1)
+    {
+        // Only give 1 lvl per mon
+        lvlCount = 1;
+    }
+
+    lvlCount *= gRogueRun.currentDifficulty;
+
+    if(lvlCount != 0)
+    {
+        u8 i, j;
+        u32 exp;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            for(j = 0; j < lvlCount; ++j)
+            {
+                if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
+                {
+                    exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL) + 1);
+                    SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+                    CalculateMonStats(&gPlayerParty[i]);
+                }
+            }
+        }
+    }
+
+    return lvlCount;
+}
+
+u16 Rogue_PostRunRewardMoney()
+{
+    u16 amount = 0;
+
+    if(gRogueRun.currentRoomIdx > 1)
+    {
+        u16 i = gRogueRun.currentRoomIdx - 1;
+
+        amount = i * 250;
+
+        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            amount += i * 100;
+
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+            amount += i * 100;
+    }
+
+    AddMoney(&gSaveBlock1Ptr->money, amount);
+    return amount;
+}
+
 static void ResetFaintedLabMonAtSlot(u16 slot)
 {
     u16 species;
@@ -2330,6 +2406,7 @@ static void BeginRogueRun_ModifyParty(void)
     {
         u16 i;
         u16 temp = 0;
+        u32 exp;
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
@@ -2341,6 +2418,11 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
+
+                // Force to starter lvl
+                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 7);
+                SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+
                 CalculateMonStats(&gPlayerParty[i]);
             }
         }
@@ -2452,7 +2534,6 @@ static void BeginRogueRun(void)
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
-    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
@@ -2518,10 +2599,7 @@ static void EndRogueRun(void)
 
     //gRogueRun.currentRoomIdx = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
-
-    // Restore money and give reward here too, as it's a bit easier
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
-    AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
     //gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
@@ -3042,14 +3120,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         else if(warpType == ROGUE_WARP_TO_ROOM)
         {
             ++gRogueRun.currentRoomIdx;
-
-            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
-
-            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
-
-            if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 

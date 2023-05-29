@@ -484,23 +484,25 @@ Rogue_ReturnAdventureCommon::
 	compare VAR_LITTLEROOT_INTRO_STATE, 6
 	goto_if_eq Rogue_ReturnAdventureCommon_2
 Rogue_ReturnAdventureCommon_1:
-	buffernumberstring STR_VAR_1, VAR_ROGUE_REWARD_MONEY
-	message Rogue_ReturnAdventureCommon_Text_4
-	playfanfare MUS_OBTAIN_ITEM
-	waitmessage
-	waitfanfare
-	compare VAR_LITTLEROOT_INTRO_STATE, 6
-	goto_if_eq Rogue_ReturnAdventureCommon_5
+	special Rogue_RunRewardMoney
+	copyvar VAR_0x8000, VAR_RESULT
+	special Rogue_RunRewardLvls
+	copyvar VAR_0x8001, VAR_RESULT
+	compare VAR_0x8000, 0
+	goto_if_ne Rogue_ReturnAdventureCommon_5
+	compare VAR_0x8001, 0
+	goto_if_ne Rogue_ReturnAdventureCommon_5
+	msgbox Rogue_ReturnAdventureCommon_Text_9
 Rogue_ReturnAdventureCommon_4:
 	clearflag FLAG_ROGUE_LEFT_ON_RUN
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
-	goto_if_set FLAG_SET_SEED_ENABLED, Rogue_ReturnAdventureCommon_8
-Rogue_ReturnAdventureCommon_7:
-	msgbox Rogue_ReturnAdventureCommon_Text_10, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ReturnAdventureCommon_11
+	goto_if_set FLAG_SET_SEED_ENABLED, Rogue_ReturnAdventureCommon_11
 Rogue_ReturnAdventureCommon_10:
-	msgbox Rogue_ReturnAdventureCommon_Text_11, MSGBOX_DEFAULT
+	msgbox Rogue_ReturnAdventureCommon_Text_13, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ReturnAdventureCommon_17
+Rogue_ReturnAdventureCommon_16:
+	msgbox Rogue_ReturnAdventureCommon_Text_14, MSGBOX_DEFAULT
 	releaseall
 	return
 
@@ -512,26 +514,58 @@ Rogue_ReturnAdventureCommon_2:
 	goto Rogue_ReturnAdventureCommon_1
 
 Rogue_ReturnAdventureCommon_5:
-	bufferitemname STR_VAR_2, ITEM_RARE_CANDY
-	msgbox Rogue_ReturnAdventureCommon_Text_5, MSGBOX_DEFAULT
-	msgbox Rogue_ReturnAdventureCommon_Text_6, MSGBOX_DEFAULT
+	msgbox Rogue_ReturnAdventureCommon_Text_4
+	compare VAR_0x8000, 0
+	goto_if_ne Rogue_ReturnAdventureCommon_14
+Rogue_ReturnAdventureCommon_13:
+	compare VAR_0x8001, 0
+	goto_if_ne Rogue_ReturnAdventureCommon_22
 	goto Rogue_ReturnAdventureCommon_4
 
-Rogue_ReturnAdventureCommon_8:
-	msgbox Rogue_ReturnAdventureCommon_Text_7, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ReturnAdventureCommon_13
-	msgbox Rogue_ReturnAdventureCommon_Text_9, MSGBOX_DEFAULT
-	clearflag FLAG_SET_SEED_ENABLED
-	goto Rogue_ReturnAdventureCommon_7
-
 Rogue_ReturnAdventureCommon_11:
-	call Common_EventScript_SaveGame
+	msgbox Rogue_ReturnAdventureCommon_Text_10, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ReturnAdventureCommon_19
+	msgbox Rogue_ReturnAdventureCommon_Text_12, MSGBOX_DEFAULT
+	clearflag FLAG_SET_SEED_ENABLED
 	goto Rogue_ReturnAdventureCommon_10
 
-Rogue_ReturnAdventureCommon_13:
-	msgbox Rogue_ReturnAdventureCommon_Text_8, MSGBOX_DEFAULT
-	goto Rogue_ReturnAdventureCommon_7
+Rogue_ReturnAdventureCommon_14:
+	buffernumberstring STR_VAR_1, VAR_0x8000
+	message Rogue_ReturnAdventureCommon_Text_5
+	playfanfare MUS_OBTAIN_ITEM
+	waitmessage
+	waitfanfare
+	goto Rogue_ReturnAdventureCommon_13
+
+Rogue_ReturnAdventureCommon_17:
+	call Common_EventScript_SaveGame
+	goto Rogue_ReturnAdventureCommon_16
+
+Rogue_ReturnAdventureCommon_19:
+	msgbox Rogue_ReturnAdventureCommon_Text_11, MSGBOX_DEFAULT
+	goto Rogue_ReturnAdventureCommon_10
+
+Rogue_ReturnAdventureCommon_22:
+	compare VAR_0x8001, 1
+	goto_if_eq Rogue_ReturnAdventureCommon_25
+	buffernumberstring STR_VAR_1, VAR_0x8001
+	message Rogue_ReturnAdventureCommon_Text_7
+Rogue_ReturnAdventureCommon_24:
+	playfanfare FANFARE_LEVEL_UP
+	waitmessage
+	waitfanfare
+	goto_if_unset FLAG_ROGUE_LVL_TUTORIAL, Rogue_ReturnAdventureCommon_28
+	goto Rogue_ReturnAdventureCommon_4
+
+Rogue_ReturnAdventureCommon_25:
+	message Rogue_ReturnAdventureCommon_Text_6
+	goto Rogue_ReturnAdventureCommon_24
+
+Rogue_ReturnAdventureCommon_28:
+	msgbox Rogue_ReturnAdventureCommon_Text_8
+	setflag FLAG_ROGUE_LVL_TUTORIAL
+	goto Rogue_ReturnAdventureCommon_4
 
 
 Rogue_Adventure_ScottGiveQuestLog_Text_0:
@@ -714,37 +748,54 @@ Rogue_ReturnAdventureCommon_Text_3:
 	.string "Your rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.$"
 
 Rogue_ReturnAdventureCommon_Text_4:
-	.string "You recieve ¥{STR_VAR_1}$"
+	.string "Your rewards for this time are...$"
 
 Rogue_ReturnAdventureCommon_Text_5:
-	.string "Since you're back from your first\n"
-	.string "adventure, you should speak to Scott\l"
-	.string "and collect any rewards for Quests\l"
-	.string "you've completed.$"
+	.string "You recieved ¥{STR_VAR_1}$"
 
 Rogue_ReturnAdventureCommon_Text_6:
-	.string "Quests will often reward you with\n"
-	.string "{STR_VAR_2}.\p"
-	.string "By leveling up your PARTNER with these\n"
-	.string "you will gain the option to skip over\l"
-	.string "GYM badges in future Adventures.$"
+	.string "Party recieved 1 LVL$"
 
 Rogue_ReturnAdventureCommon_Text_7:
+	.string "Party recieved {STR_VAR_1} LVLs$"
+
+Rogue_ReturnAdventureCommon_Text_8:
+	.string "Ah!\n"
+	.string "Is this the first time your party has\l"
+	.string "leveled up in the HUB?\p"
+	.string "These LVLs don't work entirely the same\n"
+	.string "as they do whilst out on Adventures.\p"
+	.string "POKéMON will not naturally learn moves\n"
+	.string "or evolve whilst in the HUB.\p"
+	.string "You will need to find specialist NPCs\n"
+	.string "who will be able to help out, once your\l"
+	.string "POKéMON has reached the correct level.\p"
+	.string "Any levels you gain in the HUB will be\n"
+	.string "temporarily reset when you embark on\l"
+	.string "Adventures.\p"
+	.string "The HUB level will be restored once you\n"
+	.string "return.$"
+
+Rogue_ReturnAdventureCommon_Text_9:
+	.string "Looks like there aren't any rewards for\n"
+	.string "this Adventure.$"
+
+Rogue_ReturnAdventureCommon_Text_10:
 	.string "Would you like to keep the same SEED\n"
 	.string "enabled for your next Adventure?$"
 
-Rogue_ReturnAdventureCommon_Text_8:
+Rogue_ReturnAdventureCommon_Text_11:
 	.string "OK.\n"
 	.string "I'll remember the same SEED then.$"
 
-Rogue_ReturnAdventureCommon_Text_9:
+Rogue_ReturnAdventureCommon_Text_12:
 	.string "OK.\n"
 	.string "The SEED will be removed for the next\l"
 	.string "Adventure.$"
 
-Rogue_ReturnAdventureCommon_Text_10:
+Rogue_ReturnAdventureCommon_Text_13:
 	.string "Would you like to SAVE your progress?$"
 
-Rogue_ReturnAdventureCommon_Text_11:
+Rogue_ReturnAdventureCommon_Text_14:
 	.string "Come speak to me once you're ready for\n"
 	.string "your next adventure.$"

@@ -853,3 +853,13 @@ void Rogue_SetupFollowParterMonObjectEvent()
 {
     SetupFollowParterMonObjectEvent();
 }
+
+void Rogue_RunRewardLvls()
+{
+    gSpecialVar_Result = Rogue_PostRunRewardLvls();
+}
+
+void Rogue_RunRewardMoney()
+{
+    gSpecialVar_Result = Rogue_PostRunRewardMoney();
+}
