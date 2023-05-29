@@ -2,7 +2,6 @@ const OBJ_ASSISTANT_ID =  1
 const OBJ_POKABBIE_ID =  4
 
 const VAR_FLAG_STATE = VAR_0x8000
-const VAR_CONFIG_ITEM = VAR_0x8000
 const FLAG_SEED_APPLY_MOVEMENT = FLAG_TEMP_2
 
 const METATILE_BikeShop_Button_Red = 0x23E
@@ -532,68 +531,117 @@ movement ConfigRoom_Pokabbie_Spin
     delay_1
 }
 
-script Rogue_ConfigRoom_ItemBag
-{
-    bufferitemname(STR_VAR_1, VAR_CONFIG_ITEM)
-    checkitem(VAR_CONFIG_ITEM)
-
-    if(var(VAR_RESULT) == NO)
-    {
-        msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
-        {
-            giveitem(VAR_CONFIG_ITEM)
-        }
-    }
-    else
-    {
-        msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
-            removeitem(VAR_CONFIG_ITEM)
-        }
-    }
-    return
-}
-
 script Rogue_ConfigRoom_MegaBag
 {
     lock
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+
+    poryswitch(ROGUE_VERSION)
     {
-        //ITEM_MEGA_RING
-        setvar(VAR_CONFIG_ITEM, 703)
-        call(Rogue_ConfigRoom_ItemBag)
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_MEGA_RING)
+            checkitem(ITEM_MEGA_RING)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_MEGA_RING)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_MEGA_RING)
+                }
+            }
+        }
     }
-    else
-    {
-        msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
-    }
+
     release
 }
 
 script Rogue_ConfigRoom_ZMoveBag
 {
     lock
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+
+    poryswitch(ROGUE_VERSION)
     {
-        //ITEM_Z_POWER_RING
-        setvar(VAR_CONFIG_ITEM, 704)
-        call(Rogue_ConfigRoom_ItemBag)
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_Z_POWER_RING)
+            checkitem(ITEM_Z_POWER_RING)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_Z_POWER_RING)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_Z_POWER_RING)
+                }
+            }
+        }
     }
+
     release
 }
 
 script Rogue_ConfigRoom_DynamaxBag
 {
     lock
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+
+    poryswitch(ROGUE_VERSION)
     {
-        //ITEM_DYNAMAX_BAND
-        setvar(VAR_CONFIG_ITEM, 705)
-        call(Rogue_ConfigRoom_ItemBag)
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_DYNAMAX_BAND)
+            checkitem(ITEM_DYNAMAX_BAND)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_DYNAMAX_BAND)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_DYNAMAX_BAND)
+                }
+            }
+        }
     }
+
     release
 }
 

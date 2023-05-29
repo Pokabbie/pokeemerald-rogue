@@ -3,6 +3,15 @@
 
 #define ROGUE_EXPANSION
 
+#define ROGUE_VERSION_VANILLA       0
+#define ROGUE_VERSION_EXPANSION     1
+
+#ifdef ROGUE_EXPANSION
+#define ROGUE_VERSION ROGUE_VERSION_EXPANSION
+#else
+#define ROGUE_VERSION ROGUE_VERSION_VANILLA
+#endif
+
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 

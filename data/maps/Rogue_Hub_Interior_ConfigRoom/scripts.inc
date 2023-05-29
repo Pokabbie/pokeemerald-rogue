@@ -498,71 +498,25 @@ ConfigRoom_Pokabbie_Spin:
 	delay_1
 	step_end
 
-Rogue_ConfigRoom_ItemBag::
-	bufferitemname STR_VAR_1, VAR_0x8000
-	checkitem VAR_0x8000
-	compare VAR_RESULT, NO
-	goto_if_eq Rogue_ConfigRoom_ItemBag_2
-	msgbox Rogue_ConfigRoom_ItemBag_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_ItemBag_7
-Rogue_ConfigRoom_ItemBag_1:
-	return
-
-Rogue_ConfigRoom_ItemBag_2:
-	msgbox Rogue_ConfigRoom_ItemBag_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Rogue_ConfigRoom_ItemBag_5
-	goto Rogue_ConfigRoom_ItemBag_1
-
-Rogue_ConfigRoom_ItemBag_5:
-	giveitem VAR_0x8000
-	goto Rogue_ConfigRoom_ItemBag_1
-
-Rogue_ConfigRoom_ItemBag_7:
-	msgbox Rogue_ConfigRoom_ItemBag_Text_2, MSGBOX_DEFAULT
-	removeitem VAR_0x8000
-	goto Rogue_ConfigRoom_ItemBag_1
-
-
 Rogue_ConfigRoom_MegaBag::
 	lock
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_MegaBag_2
 	msgbox Rogue_ConfigRoom_MegaBag_Text_0
-Rogue_ConfigRoom_MegaBag_1:
 	release
 	return
-
-Rogue_ConfigRoom_MegaBag_2:
-	setvar VAR_0x8000, 703
-	call Rogue_ConfigRoom_ItemBag
-	goto Rogue_ConfigRoom_MegaBag_1
 
 
 Rogue_ConfigRoom_ZMoveBag::
 	lock
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_ZMoveBag_2
-Rogue_ConfigRoom_ZMoveBag_1:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0
 	release
 	return
-
-Rogue_ConfigRoom_ZMoveBag_2:
-	setvar VAR_0x8000, 704
-	call Rogue_ConfigRoom_ItemBag
-	goto Rogue_ConfigRoom_ZMoveBag_1
 
 
 Rogue_ConfigRoom_DynamaxBag::
 	lock
-	goto_if_set FLAG_ROGUE_EXPANSION_ACTIVE, Rogue_ConfigRoom_DynamaxBag_2
-Rogue_ConfigRoom_DynamaxBag_1:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0
 	release
 	return
-
-Rogue_ConfigRoom_DynamaxBag_2:
-	setvar VAR_0x8000, 705
-	call Rogue_ConfigRoom_ItemBag
-	goto Rogue_ConfigRoom_DynamaxBag_1
 
 
 Rogue_ConfigRoom_BufferRegionName::
@@ -1941,18 +1895,6 @@ Rogue_ConfigRoom_TalkPokabbie_Text_0:
 Rogue_ConfigRoom_TalkDitto_Text_0:
 	.string "A Ditto!\p"
 	.string "Why is it here?$"
-
-Rogue_ConfigRoom_ItemBag_Text_0:
-	.string "Would you like to take the\n"
-	.string "{STR_VAR_1}?$"
-
-Rogue_ConfigRoom_ItemBag_Text_1:
-	.string "Would you like to put back the\n"
-	.string "{STR_VAR_1}?$"
-
-Rogue_ConfigRoom_ItemBag_Text_2:
-	.string "The {STR_VAR_1} was placed back\n"
-	.string "into the bag.$"
 
 Rogue_ConfigRoom_MegaBag_Text_0:
 	.string "It's an bag with a note attached...\p"
