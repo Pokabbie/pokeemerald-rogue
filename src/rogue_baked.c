@@ -1406,14 +1406,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 5000;
     }
 
+    if(itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
         outItem->price = 5000;
-    }
-
-    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
-    {
-        outItem->price = 1000;
+        outItem->pocket = POCKET_STONES;
     }
 
     if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
