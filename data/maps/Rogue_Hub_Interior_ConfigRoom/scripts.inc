@@ -500,23 +500,89 @@ ConfigRoom_Pokabbie_Spin:
 
 Rogue_ConfigRoom_MegaBag::
 	lock
-	msgbox Rogue_ConfigRoom_MegaBag_Text_0
+	bufferitemname STR_VAR_1, ITEM_MEGA_RING
+	checkitem ITEM_MEGA_RING
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_MegaBag_2
+	msgbox Rogue_ConfigRoom_MegaBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_MegaBag_7
+Rogue_ConfigRoom_MegaBag_1:
 	release
 	return
+
+Rogue_ConfigRoom_MegaBag_2:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_MegaBag_5
+	goto Rogue_ConfigRoom_MegaBag_1
+
+Rogue_ConfigRoom_MegaBag_5:
+	giveitem ITEM_MEGA_RING
+	goto Rogue_ConfigRoom_MegaBag_1
+
+Rogue_ConfigRoom_MegaBag_7:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_2, MSGBOX_DEFAULT
+	removeitem ITEM_MEGA_RING
+	goto Rogue_ConfigRoom_MegaBag_1
 
 
 Rogue_ConfigRoom_ZMoveBag::
 	lock
-	msgbox Rogue_ConfigRoom_MegaBag_Text_0
+	bufferitemname STR_VAR_1, ITEM_Z_POWER_RING
+	checkitem ITEM_Z_POWER_RING
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_2
+	msgbox Rogue_ConfigRoom_MegaBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_7
+Rogue_ConfigRoom_ZMoveBag_1:
 	release
 	return
+
+Rogue_ConfigRoom_ZMoveBag_2:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_ZMoveBag_5
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+Rogue_ConfigRoom_ZMoveBag_5:
+	giveitem ITEM_Z_POWER_RING
+	goto Rogue_ConfigRoom_ZMoveBag_1
+
+Rogue_ConfigRoom_ZMoveBag_7:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_2, MSGBOX_DEFAULT
+	removeitem ITEM_Z_POWER_RING
+	goto Rogue_ConfigRoom_ZMoveBag_1
 
 
 Rogue_ConfigRoom_DynamaxBag::
 	lock
-	msgbox Rogue_ConfigRoom_MegaBag_Text_0
+	bufferitemname STR_VAR_1, ITEM_DYNAMAX_BAND
+	checkitem ITEM_DYNAMAX_BAND
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_2
+	msgbox Rogue_ConfigRoom_MegaBag_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_7
+Rogue_ConfigRoom_DynamaxBag_1:
 	release
 	return
+
+Rogue_ConfigRoom_DynamaxBag_2:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_ConfigRoom_DynamaxBag_5
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+Rogue_ConfigRoom_DynamaxBag_5:
+	giveitem ITEM_DYNAMAX_BAND
+	goto Rogue_ConfigRoom_DynamaxBag_1
+
+Rogue_ConfigRoom_DynamaxBag_7:
+	msgbox Rogue_ConfigRoom_MegaBag_Text_2, MSGBOX_DEFAULT
+	removeitem ITEM_DYNAMAX_BAND
+	goto Rogue_ConfigRoom_DynamaxBag_1
 
 
 Rogue_ConfigRoom_BufferRegionName::
@@ -1897,15 +1963,16 @@ Rogue_ConfigRoom_TalkDitto_Text_0:
 	.string "Why is it here?$"
 
 Rogue_ConfigRoom_MegaBag_Text_0:
-	.string "It's an bag with a note attached...\p"
-	.string "Thanks for player Vanilla Version!\p"
-	.string "In EX Version this room can be used to\n"
-	.string "enable POKéMON from future\l"
-	.string "generations!\p"
-	.string "If that sounds fun, you can start a New\n"
-	.string "Game on EX version and immediately\l"
-	.string "unlock this room by interacting with\l"
-	.string "the window inside the Config Lab.$"
+	.string "Would you like to take the\n"
+	.string "{STR_VAR_1}?$"
+
+Rogue_ConfigRoom_MegaBag_Text_1:
+	.string "Would you like to put back the\n"
+	.string "{STR_VAR_1}?$"
+
+Rogue_ConfigRoom_MegaBag_Text_2:
+	.string "The {STR_VAR_1} was placed back\n"
+	.string "into the bag.$"
 
 Rogue_ConfigRoom_BufferRegionName_Text_0:
 	.string "KANTO$"
