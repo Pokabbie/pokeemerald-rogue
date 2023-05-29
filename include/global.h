@@ -739,17 +739,6 @@ struct RecordMixingGift
     struct RecordMixingGiftData data;
 };
 
-struct ContestWinner
-{
-    u32 personality;
-    u32 trainerId;
-    u16 species;
-    u8 contestCategory;
-    u8 monName[POKEMON_NAME_LENGTH + 1];
-    u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    u8 contestRank;
-};
-
 struct Mail
 {
     /*0x00*/ u16 words[MAIL_WORDS_COUNT];
@@ -845,21 +834,6 @@ struct TrainerNameRecord
 {
     u32 trainerId;
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
-};
-
-struct TrainerHillSave
-{
-    /*0x3D64*/ u32 timer;
-    /*0x3D68*/ u32 bestTime;
-    /*0x3D6C*/ u8 unk_3D6C;
-    /*0x3D6D*/ u8 unused;
-    /*0x3D6E*/ u16 receivedPrize:1;
-    /*0x3D6E*/ u16 checkedFinalTime:1;
-    /*0x3D6E*/ u16 spokeToOwner:1;
-    /*0x3D6E*/ u16 hasLost:1;
-    /*0x3D6E*/ u16 maybeECardScanDuringChallenge:1;
-    /*0x3D6E*/ u16 field_3D6E_0f:1;
-    /*0x3D6E*/ u16 mode:2; // HILL_MODE_*
 };
 
 struct WonderNewsMetadata
@@ -1021,7 +995,6 @@ struct SaveBlock1
     /*0x2BA0*/ u8 outbreakUnused3;
     /*0x2BA1*/ u8 outbreakPokemonProbability;
     /*0x2BA2*/ u16 outbreakDaysLeft;
-    /*0x2BA4*/ struct GabbyAndTyData gabbyAndTyData;
     /*0x2BB0*/ u16 easyChatProfile[EASY_CHAT_BATTLE_WORDS_COUNT];
     /*0x2BBC*/ u16 easyChatBattleStart[EASY_CHAT_BATTLE_WORDS_COUNT];
     /*0x2BC8*/ u16 easyChatBattleWon[EASY_CHAT_BATTLE_WORDS_COUNT];
@@ -1030,7 +1003,6 @@ struct SaveBlock1
     /*0x2E20*/ u8 additionalPhrases[NUM_ADDITIONAL_PHRASE_BYTES]; // bitfield for 33 additional phrases in easy chat system
     /*0x2E28*/ OldMan oldMan;
     /*0x2e64*/ struct DewfordTrend dewfordTrends[SAVED_TRENDS_COUNT];
-    /*0x2e90*/ struct ContestWinner contestWinners[NUM_CONTEST_WINNERS]; // see CONTEST_WINNER_*
     /*0x3030*/ struct DayCare daycare;
     /*0x3150*/ struct LinkBattleRecords linkBattleRecords;
     /*0x31A8*/ u8 giftRibbons[GIFT_RIBBONS_COUNT];
@@ -1051,8 +1023,6 @@ struct SaveBlock1
     /*0x3B58*/ LilycoveLady lilycoveLady;
     /*0x3B98*/ struct TrainerNameRecord trainerNameRecords[20];
     /*0x3C88*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
-    /*0x3D5A*/ u8 unused_3D5A[10];
-    /*0x3D64*/ struct TrainerHillSave trainerHill;
     /*0x3D70*/ struct WaldaPhrase waldaPhrase;
     // sizeof: 0x3D88
 };

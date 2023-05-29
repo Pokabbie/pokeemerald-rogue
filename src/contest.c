@@ -353,7 +353,6 @@ EWRAM_DATA u8 gNumLinkContestPlayers = 0;
 EWRAM_DATA u8 gHighestRibbonRank = 0;
 EWRAM_DATA struct ContestResources *gContestResources = NULL;
 static EWRAM_DATA u8 sContestBgCopyFlags = 0;
-EWRAM_DATA struct ContestWinner gCurContestWinner = {0};
 EWRAM_DATA bool8 gCurContestWinnerIsForArtist = 0;
 EWRAM_DATA u8 gCurContestWinnerSaveIdx = 0;
 
@@ -5554,34 +5553,9 @@ bool8 SaveContestWinner(u8 rank)
 
     if (rank != CONTEST_SAVE_FOR_ARTIST)
     {
-        // Save winner in the saveblock
-        // Used to save any winner for the Contest Hall or the Museum
-        // but excludes the temporary save used by the artist
-        u8 id = GetContestWinnerSaveIdx(rank, TRUE);
-        gSaveBlock1Ptr->contestWinners[id].personality = gContestMons[i].personality;
-        gSaveBlock1Ptr->contestWinners[id].species = gContestMons[i].species;
-        gSaveBlock1Ptr->contestWinners[id].trainerId = gContestMons[i].otId;
-        StringCopy(gSaveBlock1Ptr->contestWinners[id].monName, gContestMons[i].nickname);
-        StringCopy(gSaveBlock1Ptr->contestWinners[id].trainerName, gContestMons[i].trainerName);
-        if(gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
-            gSaveBlock1Ptr->contestWinners[id].contestRank = CONTEST_RANK_LINK;
-        else
-            gSaveBlock1Ptr->contestWinners[id].contestRank = gSpecialVar_ContestRank;
-
-        if (rank != CONTEST_SAVE_FOR_MUSEUM)
-            gSaveBlock1Ptr->contestWinners[id].contestCategory = gSpecialVar_ContestCategory;
-        else
-            gSaveBlock1Ptr->contestWinners[id].contestCategory = captionId;
     }
     else
     {
-        // Set the most recent winner so the artist can show the player their painting
-        gCurContestWinner.personality = gContestMons[i].personality;
-        gCurContestWinner.trainerId = gContestMons[i].otId;
-        gCurContestWinner.species = gContestMons[i].species;
-        StringCopy(gCurContestWinner.monName, gContestMons[i].nickname);
-        StringCopy(gCurContestWinner.trainerName, gContestMons[i].trainerName);
-        gCurContestWinner.contestCategory = captionId;
     }
     return TRUE;
 }
@@ -5600,11 +5574,6 @@ u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
     case CONTEST_RANK_SUPER:
     case CONTEST_RANK_HYPER:
     case CONTEST_RANK_MASTER:
-        if (shift)
-        {
-            for (i = NUM_CONTEST_HALL_WINNERS - 1; i > 0; i--)
-                memcpy(&gSaveBlock1Ptr->contestWinners[i], &gSaveBlock1Ptr->contestWinners[i - 1], sizeof(struct ContestWinner));
-        }
         return CONTEST_WINNER_HALL_1 - 1;
     default:
 //  case CONTEST_SAVE_FOR_MUSEUM:
@@ -5628,10 +5597,6 @@ u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
 
 void ClearContestWinnerPicsInContestHall(void)
 {
-    s32 i;
-
-    for (i = 0; i < MUSEUM_CONTEST_WINNERS_START; i++)
-        gSaveBlock1Ptr->contestWinners[i] = gDefaultContestWinners[i];
 }
 
 static void SetContestLiveUpdateFlags(u8 contestant)

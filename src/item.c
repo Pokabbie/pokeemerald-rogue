@@ -149,6 +149,7 @@ u16 GetBagUnreservedFreeSlots()
 
 u16 GetBagUnreservedTotalSlots()
 {
+    // TODO - Adjust bag slots when in adventure
     return BAG_ITEM_CAPACITY - BAG_ITEM_RESERVED_SLOTS;
 }
 
@@ -488,11 +489,11 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
     if(ItemPocketUsesReservedSlots(itemPocket))
     {
-        hasFreeSlots = GetBagReservedFreeSlots() < GetBagReservedTotalSlots();
+        hasFreeSlots = GetBagReservedFreeSlots() > 0;
     }
     else
     {
-        hasFreeSlots = GetBagUnreservedFreeSlots() < GetBagUnreservedTotalSlots();
+        hasFreeSlots = GetBagUnreservedFreeSlots() > 0;
     }
 
     // Try find existing stack and check if can merge into

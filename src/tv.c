@@ -837,126 +837,37 @@ u8 GetNextActiveShowIfMassOutbreak(void)
 
 void ResetGabbyAndTy(void)
 {
-    gSaveBlock1Ptr->gabbyAndTyData.mon1 = SPECIES_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.mon2 = SPECIES_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.lastMove = MOVE_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.valA_5 = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.valB_4 = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.mapnum = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.battleNum = 0;
 }
 
 void GabbyAndTyBeforeInterview(void)
 {
-    u8 i;
-
-    gSaveBlock1Ptr->gabbyAndTyData.mon1 = gBattleResults.playerMon1Species;
-    gSaveBlock1Ptr->gabbyAndTyData.mon2 = gBattleResults.playerMon2Species;
-    gSaveBlock1Ptr->gabbyAndTyData.lastMove = gBattleResults.lastUsedMovePlayer;
-    if (gSaveBlock1Ptr->gabbyAndTyData.battleNum != 0xFF)
-    {
-        gSaveBlock1Ptr->gabbyAndTyData.battleNum++;
-    }
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = gBattleResults.playerMonWasDamaged;
-
-    if (gBattleResults.playerFaintCounter != 0)
-        gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = TRUE;
-    else
-        gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
-
-    if (gBattleResults.numHealingItemsUsed != 0)
-        gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = TRUE;
-    else
-        gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
-
-    if (!gBattleResults.usedMasterBall)
-    {
-        for (i = 0; i < POKEBALL_COUNT - 1; i++)
-        {
-            if (gBattleResults.catchAttempts[i])
-            {
-                gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
-                break;
-            }
-        }
-    }
-    else
-    {
-        // Player threw a Master Ball at Gabby and Ty
-        gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
-    }
-
-    TakeGabbyAndTyOffTheAir();
-    if (gSaveBlock1Ptr->gabbyAndTyData.lastMove == MOVE_NONE)
-    {
-        FlagSet(FLAG_TEMP_1);
-    }
 }
 
 void GabbyAndTyAfterInterview(void)
 {
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall;
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = TRUE;
-    gSaveBlock1Ptr->gabbyAndTyData.mapnum = gMapHeader.regionMapSectionId;
-    IncrementGameStat(GAME_STAT_GOT_INTERVIEWED);
 }
 
 static void TakeGabbyAndTyOffTheAir(void)
 {
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
 }
 
 u8 GabbyAndTyGetBattleNum(void)
 {
-    if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 5)
-        return (gSaveBlock1Ptr->gabbyAndTyData.battleNum % 3) + 6;
-
-    return gSaveBlock1Ptr->gabbyAndTyData.battleNum;
+    return 0;
 }
 
 bool8 IsGabbyAndTyShowOnTheAir(void)
 {
-    return gSaveBlock1Ptr->gabbyAndTyData.onAir;
+    return FALSE;
 }
 
 bool8 GabbyAndTyGetLastQuote(void)
 {
-    if (gSaveBlock1Ptr->gabbyAndTyData.quote[0] == EC_EMPTY_WORD)
-    {
-        return FALSE;
-    }
-    CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
-    gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
-    return TRUE;
+    return FALSE;
 }
 
 u8 GabbyAndTyGetLastBattleTrivia(void)
 {
-    if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2)
-        return 1;
-
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2)
-        return 2;
-
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2)
-        return 3;
-
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2)
-        return 4;
-
     return 0;
 }
 
@@ -5121,31 +5032,15 @@ void DoTVShowInSearchOfTrainers(void)
     switch (state)
     {
     case 0:
-        GetMapName(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.mapnum, 0);
-        if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 1)
-            sTVShowState = 1;
-        else
-            sTVShowState = 2;
+        sTVShowState = 2;
         break;
     case 1:
         sTVShowState = 2;
         break;
     case 2:
-        if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn)
-            sTVShowState = 4;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall)
-            sTVShowState = 5;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem)
-            sTVShowState = 6;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon)
-            sTVShowState = 7;
-        else
-            sTVShowState = 3;
+        sTVShowState = 3;
         break;
     case 3:
-        StringCopy(gStringVar1, gSpeciesNames[gSaveBlock1Ptr->gabbyAndTyData.mon1]);
-        StringCopy(gStringVar2, gMoveNames[gSaveBlock1Ptr->gabbyAndTyData.lastMove]);
-        StringCopy(gStringVar3, gSpeciesNames[gSaveBlock1Ptr->gabbyAndTyData.mon2]);
         sTVShowState = 8;
         break;
     case 4:
@@ -5155,9 +5050,6 @@ void DoTVShowInSearchOfTrainers(void)
         sTVShowState = 8;
         break;
     case 8:
-        CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
-        StringCopy(gStringVar2, gSpeciesNames[gSaveBlock1Ptr->gabbyAndTyData.mon1]);
-        StringCopy(gStringVar3, gSpeciesNames[gSaveBlock1Ptr->gabbyAndTyData.mon2]);
         gSpecialVar_Result = TRUE;
         sTVShowState = 0;
         TakeGabbyAndTyOffTheAir();
