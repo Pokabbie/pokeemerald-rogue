@@ -5,7 +5,7 @@ ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
 endif
 
-SCRIPT := tools/poryscript/poryscript$(EXE)
+SCRIPT := tools/poryscript/poryscript$(EXE) -s ROGUE_VERSION=ROGUE_VERSION_VANILLA
 
 # don't use dkP's base_tools anymore
 # because the redefinition of $(CC) conflicts

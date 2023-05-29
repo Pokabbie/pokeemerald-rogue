@@ -1,6 +1,7 @@
 #ifndef GUARD_ITEM_H
 #define GUARD_ITEM_H
 
+#include "constants/rogue.h"
 #include "constants/item.h"
 
 typedef void (*ItemUseFunc)(u8);

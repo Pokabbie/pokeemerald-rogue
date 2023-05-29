@@ -1,4 +1,5 @@
 #include "constants/global.h"
+#include "constants/rogue.h"
 #include "constants/apprentice.h"
 #include "constants/battle.h"
 #include "constants/battle_arena.h"
@@ -54,7 +55,6 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "constants/follow_me.h"
-#include "constants/rogue.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
