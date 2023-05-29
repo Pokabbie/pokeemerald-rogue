@@ -50,12 +50,12 @@ void SetBagItemQuantity(u16 *quantity, u16 newValue)
     *quantity =  newValue ^ gSaveBlock2Ptr->encryptionKey;
 }
 
-static u16 GetPCItemQuantity(u16 *quantity)
+u16 GetPCItemQuantity(u16 *quantity)
 {
     return *quantity;
 }
 
-static void SetPCItemQuantity(u16 *quantity, u16 newValue)
+void SetPCItemQuantity(u16 *quantity, u16 newValue)
 {
     *quantity = newValue;
 }

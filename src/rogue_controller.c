@@ -2347,6 +2347,63 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
+static void SetupRogueRunBag()
+{
+    u16 i;
+    u16 itemId;
+    u16 quantity;
+
+    ClearBag();
+    SetMoney(&gSaveBlock1Ptr->money, 0);
+
+    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        // Add default items
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+
+        // Add back some of the items we want to keep
+        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+        {
+            itemId = gRogueBoxHubData.bagItems[i].itemId;
+            quantity = gRogueBoxHubData.bagItems[i].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                u8 pocket = GetPocketByItemId(itemId);
+                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+                    AddBagItem(itemId, quantity);
+                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                    AddBagItem(itemId, quantity);
+            }
+        }
+    }
+    else
+    {
+        // Re-add all the items
+        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+        {
+            // TODO - Convert here for special case like money bags
+            itemId = gRogueBoxHubData.bagItems[i].itemId;
+            quantity = gRogueBoxHubData.bagItems[i].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                AddBagItem(itemId, quantity);
+            }
+        }
+    }
+
+#ifdef ROGUE_DEBUG
+    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+#endif
+
+    RecalcCharmCurseValues();
+
+    // TODO - Rework this??
+    //SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
+}
+
 static void BeginRogueRun(void)
 {
     DebugPrint("BeginRogueRun");
@@ -2419,44 +2476,7 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Start();
 
     BeginRogueRun_ModifyParty();
-
-    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        u16 bagItemIdx;
-        
-        ClearBag();
-
-        // Add default items
-        AddBagItem(ITEM_POKE_BALL, 5);
-        AddBagItem(ITEM_POTION, 1);
-        SetMoney(&gSaveBlock1Ptr->money, 0);
-
-        // Add back some of the items we want to keep
-        for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
-        {
-            const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
-            const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
-
-            if(itemId != ITEM_NONE && quantity != 0)
-            {
-                u8 pocket = GetPocketByItemId(itemId);
-                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
-                    AddBagItem(itemId, quantity);
-                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-                    AddBagItem(itemId, quantity);
-            }
-        }
-    }
-    else
-    {
-        SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
-    }
-
-#ifdef ROGUE_DEBUG
-    AddBagItem(ITEM_ESCAPE_ROPE, 101);
-#endif
-
-    RecalcCharmCurseValues();
+    SetupRogueRunBag();
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
