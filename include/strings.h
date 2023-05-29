@@ -176,6 +176,7 @@ extern const u8 gText_NoRegistry[];
 extern const u8 gText_OkayToDeleteFromRegistry[];
 extern const u8 gText_RegisteredDataDeleted[];
 extern const u8 gText_DelRegist[];
+extern const u8 gText_Var1SlashVar2[];
 extern const u8 gText_CommErrorEllipsis[];
 extern const u8 gText_MoveCloserToLinkPartner[];
 extern const u8 gText_CommErrorCheckConnections[];

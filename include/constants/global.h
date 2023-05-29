@@ -49,6 +49,9 @@
 #define PC_ITEMS_COUNT 50
 #define BAG_ITEM_CAPACITY (236) //236 from old slots + 40 * 2 from pokeblock
 
+// These slots will be shared between charms & key items
+#define BAG_ITEM_RESERVED_SLOTS 50
+
 // Old capacities
 //#define BAG_ITEMS_COUNT 30
 //#define BAG_KEYITEMS_COUNT 30

@@ -28,6 +28,8 @@ extern u16 gUnknown_0203CF30[];
 // this file's functions
 static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count);
 static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
+static bool8 ItemPocketUsesReservedSlots(u8 pocket);
+static bool8 BagPocketUsesReservedSlots(u8 pocket);
 
 // EWRAM variables
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
@@ -111,6 +113,63 @@ void UpdateBagItemsPointers(void)
             gBagPockets[bagPocket].capacity = 0;
         }
     }
+}
+
+static bool8 ItemPocketUsesReservedSlots(u8 pocket)
+{
+    return BagPocketUsesReservedSlots(pocket - 1);
+}
+
+static bool8 BagPocketUsesReservedSlots(u8 pocket)
+{
+    switch (pocket)
+    {
+    case CHARMS_POCKET:
+    case KEYITEMS_POCKET:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+u16 GetBagUnreservedFreeSlots()
+{
+    u8 bagPocket;
+    u16 freeSlots = GetBagUnreservedTotalSlots();
+
+    // Expects items to always be sorted
+    for(bagPocket = 0; bagPocket < POCKETS_COUNT; ++bagPocket)
+    {
+        if(!BagPocketUsesReservedSlots(bagPocket))
+            freeSlots -= gBagPockets[bagPocket].capacity;
+    }
+
+    return freeSlots;
+}
+
+u16 GetBagUnreservedTotalSlots()
+{
+    return BAG_ITEM_CAPACITY - BAG_ITEM_RESERVED_SLOTS;
+}
+
+u16 GetBagReservedFreeSlots()
+{
+    u8 bagPocket;
+    u16 freeSlots = GetBagReservedTotalSlots();
+
+    // Expects items to always be sorted
+    for(bagPocket = 0; bagPocket < POCKETS_COUNT; ++bagPocket)
+    {
+        if(BagPocketUsesReservedSlots(bagPocket))
+            freeSlots -= gBagPockets[bagPocket].capacity;
+    }
+
+    return freeSlots;
+}
+
+u16 GetBagReservedTotalSlots()
+{
+    return BAG_ITEM_RESERVED_SLOTS;
 }
 
 void CompactBagItems(void)
@@ -421,9 +480,20 @@ static bool8 SortItem(struct ItemSlot slotA, struct ItemSlot slotB)
 bool8 AddBagItem(u16 itemId, u16 count)
 {
     u16 i;
+    bool8 hasFreeSlots;
+    u8 itemPocket = ItemId_GetPocket(itemId);
 
-    if (ItemId_GetPocket(itemId) == POCKET_NONE)
+    if (itemPocket == POCKET_NONE)
         return FALSE;
+
+    if(ItemPocketUsesReservedSlots(itemPocket))
+    {
+        hasFreeSlots = GetBagReservedFreeSlots() < GetBagReservedTotalSlots();
+    }
+    else
+    {
+        hasFreeSlots = GetBagUnreservedFreeSlots() < GetBagUnreservedTotalSlots();
+    }
 
     // Try find existing stack and check if can merge into
     {
@@ -431,7 +501,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
         u16 slotCapacity;
         u16 itemCount;
 
-        pocket = ItemId_GetPocket(itemId) - 1;
+        pocket = itemPocket - 1;
         if (pocket != BERRIES_POCKET)
             slotCapacity = MAX_BAG_ITEM_CAPACITY;
         else
@@ -459,7 +529,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                         return TRUE;
                     }
-                    else
+                    else if(hasFreeSlots)
                     {
                         // Can only partially fit into the existing slot
                         count -= (slotCapacity - itemCount);
@@ -475,7 +545,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
         }
     }
 
-    // Insert sort
+    // Insert new sort if we can
+    if(hasFreeSlots)
     {
         struct ItemSlot tempSlot;
         struct ItemSlot currItemSlot;
