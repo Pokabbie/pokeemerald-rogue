@@ -848,3 +848,8 @@ void Rogue_JoinMultiplayer()
 {
     Rogue_CreateMultiplayerConnectTask(FALSE);
 }
+
+void Rogue_SetupFollowParterMonObjectEvent()
+{
+    SetupFollowParterMonObjectEvent();
+}

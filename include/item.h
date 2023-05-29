@@ -63,6 +63,11 @@ void SetBagItemQuantity(u16 *quantity, u16 newValue);
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
 void UpdateBagItemsPointers(void);
+u16 GetBagUnreservedFreeSlots();
+u16 GetBagUnreservedTotalSlots();
+u16 GetBagReservedFreeSlots();
+u16 GetBagReservedTotalSlots();
+
 void CompactBagItems(void);
 void CopyItemName(u16 itemId, u8 *dst);
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity);

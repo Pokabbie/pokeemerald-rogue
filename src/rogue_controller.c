@@ -244,7 +244,26 @@ u16 Rogue_GetStartSeed(void)
 
 u16 Rogue_GetShinyOdds(void)
 {
-    return 100;
+    return 512;
+}
+
+static u16 GetEncounterChainShinyOdds(u8 count)
+{
+    u16 baseOdds = Rogue_GetShinyOdds();
+
+    // By the time we reach 32 encounters, we want to be at max odds
+    // Don't start increasing shiny rate until we pass 8 encounters
+    if(count <= 8)
+    {
+        return baseOdds;
+    }
+    else
+    {
+        u16 range = 32 - 8;
+        count = min(count - 8, range);
+
+        return max(32, baseOdds - ((baseOdds * count) / range));
+    }
 }
 
 bool8 Rogue_IsRunActive(void)
@@ -3433,6 +3452,45 @@ static bool32 DidPlayerCatch(u32 battleOutcome)
     }
 }
 
+static bool32 DidCompleteWildChain(u32 battleOutcome)
+{
+    switch (battleOutcome)
+    {
+    case B_OUTCOME_WON:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool32 DidFailWildChain(u32 battleOutcome, u16 species)
+{
+    switch (battleOutcome)
+    {
+    // If you catch anything, you end the chain
+    case B_OUTCOME_CAUGHT:
+        return TRUE;
+    }
+
+    // If we fail a battle against the mon we're chaining, end the chain
+    if(GetWildChainSpecies() == species)
+    {
+        switch (battleOutcome)
+        {
+        case B_OUTCOME_LOST:
+        case B_OUTCOME_DREW:
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+        case B_OUTCOME_MON_FLED:
+        case B_OUTCOME_FORFEITED:
+        case B_OUTCOME_MON_TELEPORTED:
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 const u16 gNatureEvRewardStatTable[NUM_NATURES][NUM_STATS] =
 {
                        // Hp  Atk Def Spd Sp.Atk Sp.Def
@@ -3640,6 +3698,13 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
 void Rogue_Battle_EndWildBattle(void)
 {
+    u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+    if(DidCompleteWildChain(gBattleOutcome))
+        UpdateWildEncounterChain(wildSpecies);
+    else if(DidFailWildChain(gBattleOutcome, wildSpecies))
+        UpdateWildEncounterChain(SPECIES_NONE);
+
     if(Rogue_IsRunActive())
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
@@ -4125,17 +4190,69 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
 
 }
 
+static bool8 IsChainSpeciesValidForSpawning(u8 area, u16 species)
+{
+    u8 i;
+
+    if(species == SPECIES_NONE)
+        return FALSE;
+
+    if(area == 1) //WILD_AREA_WATER)
+    {
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
+        {
+            if(gRogueRun.fishingEncounters[i] == species)
+                return TRUE;
+        }
+    }
+    else
+    {
+        u16 count = GetCurrentWildEncounterCount();
+
+        for(i = 0; i < count; ++i)
+        {
+            if(gRogueRun.wildEncounters[i] == species)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static u16 GetChainSpawnOdds(u8 encounterCount)
+{
+    return 10 - min(encounterCount, 9);
+}
+
+static bool8 ForceChainSpeciesSpawn(u8 area)
+{
+    if(GetWildChainCount() > 1 && IsChainSpeciesValidForSpawning(area, GetWildChainSpecies()))
+    {
+        // We're allow to spawn the chain species in for this area
+        return ((Random() % GetChainSpawnOdds(GetWildChainCount())) == 0);
+    }
+
+    return FALSE;
+}
+
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 {
     // Note: Don't seed individual encounters
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
+        u16 shinyOdds = Rogue_GetShinyOdds();
+
         if(GetSafariZoneFlag())
             *level  = CalculateWildLevel(3);
         else
             *level  = CalculateWildLevel(6);
 
-        if(area == 1) //WILD_AREA_WATER)
+        if(ForceChainSpeciesSpawn(area))
+        {
+            *species = GetWildChainSpecies();
+            shinyOdds = GetEncounterChainShinyOdds(GetWildChainCount());
+        }
+        else if(area == 1) //WILD_AREA_WATER)
         {
             const u16 count = ARRAY_COUNT(gRogueRun.fishingEncounters);
             u16 randIdx = Random() % count; 
@@ -4163,7 +4280,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
             HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
-        *forceShiny = (Random() % Rogue_GetShinyOdds()) == 0;
+        *forceShiny = (Random() % shinyOdds) == 0;
 
         if(GetSafariZoneFlag())
         {
@@ -4599,8 +4716,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             
         case ROGUE_SHOP_CHARMS:
             {
-                // Include berries from collected quests
-                u16 i, j;
                 RogueQuery_ExcludeAll();
 
                 #ifdef ROGUE_DEBUG

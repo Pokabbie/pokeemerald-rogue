@@ -1509,7 +1509,6 @@ void ShowEasyChatScreen(void)
         words[1] = gSaveBlock1Ptr->dewfordTrends[1].words[1];
         break;
     case EASY_CHAT_TYPE_GABBY_AND_TY:
-        words = gSaveBlock1Ptr->gabbyAndTyData.quote;
         *words = EC_EMPTY_WORD;
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_FEMALE;
         break;

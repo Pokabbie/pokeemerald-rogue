@@ -57,12 +57,6 @@ static void ResetMiniGamesRecords(void);
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 EWRAM_DATA bool8 gEnableContestDebugging = FALSE;
 
-static const struct ContestWinner sContestWinnerPicDummy =
-{
-    .monName = _(""),
-    .trainerName = _("")
-};
-
 void SetTrainerId(u32 trainerId, u8 *dst)
 {
     dst[0] = trainerId;
@@ -100,6 +94,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
+    gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
     
@@ -115,13 +110,7 @@ static void ClearPokedexFlags(void)
 
 void ClearAllContestWinnerPics(void)
 {
-    s32 i;
-
     ClearContestWinnerPicsInContestHall();
-
-    // Clear Museum paintings
-    for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
-        gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
 }
 
 static void ClearFrontierRecord(void)

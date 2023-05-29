@@ -5,6 +5,10 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 void SetupFollowParterMonObjectEvent();
 void ResetFollowParterMonObjectEvent();
 
+void UpdateWildEncounterChain(u16 species);
+u16 GetWildChainSpecies();
+u8 GetWildChainCount();
+
 void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny);
 
 bool8 FollowMon_IsPartnerMonActive();

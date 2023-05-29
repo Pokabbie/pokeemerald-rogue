@@ -2155,7 +2155,6 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
 {
     s32 curFlag;
     s32 flagCount;
-    u8 *endOfString;
     u8 *string = dest;
 
     *(string++) = EXT_CTRL_CODE_BEGIN;
@@ -2186,8 +2185,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
             break;
         case SAVE_MENU_BADGES:
-            *string = (Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0) + CHAR_0;
-            *endOfString = EOS;
+            string = ConvertIntToDecimalStringN(string, Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
             break;
         case SAVE_MENU_QUESTS:
             string = ConvertIntToDecimalStringN(string, GetCompletedQuestPerc(), STR_CONV_MODE_LEFT_ALIGN, 3);

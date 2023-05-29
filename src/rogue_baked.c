@@ -1300,7 +1300,6 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
 
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
-    bool8 isCurseOrCharm = FALSE;
     itemId = SanitizeItemId(itemId);
 
     // Rogue items copy in parts
@@ -1323,7 +1322,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->battleUsage = rogueItem->battleUsage;
             outItem->secondaryId = rogueItem->secondaryId;
 
-            isCurseOrCharm = (itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE);
+            if(outItem->pocket == POCKET_CHARMS)
+            {
+                // Early out here for charms (We can end up in an infinite loop below)
+                return;
+            }
         }
         else
             memcpy(outItem, &gItems[ITEM_NONE], sizeof(struct Item));
@@ -1342,6 +1345,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
     {
         outItem->price = 4000;
+        outItem->pocket = POCKET_MEDICINE;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1351,6 +1355,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 #endif
     {
         outItem->price = 1500;
+        outItem->pocket = POCKET_MEDICINE;
     }
 
     if(outItem->pocket == POCKET_ITEMS && 
@@ -1366,10 +1371,18 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->pocket = POCKET_MEDICINE;
     }
 
-    // Hold items set price (Ignore berries)
-    if(outItem->holdEffect != 0 && !(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
+    if(outItem->holdEffect != 0)
     {
-        outItem->price = 500;
+        // Hold items set price (Ignore berries)
+        if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
+        {
+            outItem->price = 500;
+        }
+
+        if(outItem->pocket == POCKET_ITEMS)
+        {
+            outItem->pocket = POCKET_HELD_ITEMS;
+        }
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1393,14 +1406,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 5000;
     }
 
+    if(itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
         outItem->price = 5000;
-    }
-
-    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
-    {
-        outItem->price = 1000;
+        outItem->pocket = POCKET_STONES;
     }
 
     if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
@@ -1582,7 +1596,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 
     // Check we're not a charm/curse otherwise we can get infinite loops here
-    if(!isCurseOrCharm)
     {
         if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
         {

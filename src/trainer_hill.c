@@ -279,7 +279,6 @@ void ResetTrainerHillResults(void)
 
     gSaveBlock2Ptr->frontier.savedGame = 0;
     gSaveBlock2Ptr->frontier.unk_EF9 = 0;
-    gSaveBlock1Ptr->trainerHill.bestTime = 0;
     for (i = 0; i < NUM_TRAINER_HILL_MODES; i++)
         SetTimerValue(&gSaveBlock1Ptr->trainerHillTimes[i], HILL_MAX_TIME);
 }
@@ -331,7 +330,6 @@ void InitTrainerHillBattleStruct(void)
 
         sFloorTrainers->facilityClass[i] = sHillData->floors[sHillData->floorId].trainers[i].facilityClass;
     }
-    SetTrainerHillVBlankCounter(&gSaveBlock1Ptr->trainerHill.timer);
     FreeDataStruct();
 }
 
@@ -378,132 +376,36 @@ void CopyTrainerHillTrainerText(u8 which, u16 trainerId)
 
 static void TrainerHillStartChallenge(void)
 {
-    TrainerHillDummy();
-    if (!ReadTrainerHillAndValidate())
-        gSaveBlock1Ptr->trainerHill.field_3D6E_0f = 1;
-    else
-        gSaveBlock1Ptr->trainerHill.field_3D6E_0f = 0;
-
-    gSaveBlock1Ptr->trainerHill.unk_3D6C = 0;
-    SetTrainerHillVBlankCounter(&gSaveBlock1Ptr->trainerHill.timer);
-    gSaveBlock1Ptr->trainerHill.timer = 0;
-    gSaveBlock1Ptr->trainerHill.spokeToOwner = 0;
-    gSaveBlock1Ptr->trainerHill.checkedFinalTime = 0;
-    gSaveBlock1Ptr->trainerHill.maybeECardScanDuringChallenge = 0;
-    gSaveBlock2Ptr->frontier.trainerFlags = 0;
-    gBattleOutcome = 0;
-    gSaveBlock1Ptr->trainerHill.receivedPrize = 0;
 }
 
 static void GetOwnerState(void)
 {
-    ClearTrainerHillVBlankCounter();
-    gSpecialVar_Result = 0;
-    if (gSaveBlock1Ptr->trainerHill.spokeToOwner)
-        gSpecialVar_Result++;
-    if (gSaveBlock1Ptr->trainerHill.receivedPrize && gSaveBlock1Ptr->trainerHill.checkedFinalTime)
-        gSpecialVar_Result++;
-
-    gSaveBlock1Ptr->trainerHill.spokeToOwner = TRUE;
 }
 
 static void GiveChallengePrize(void)
 {
-    u16 itemId = GetPrizeItemId();
-
-    if (sHillData->challenge.numFloors != NUM_TRAINER_HILL_FLOORS || gSaveBlock1Ptr->trainerHill.receivedPrize)
-    {
-        gSpecialVar_Result = 2;
-    }
-    else if (AddBagItem(itemId, 1) == TRUE)
-    {
-        CopyItemName(itemId, gStringVar2);
-        gSaveBlock1Ptr->trainerHill.receivedPrize = TRUE;
-        gSaveBlock2Ptr->frontier.unk_EF9 = 0;
-        gSpecialVar_Result = 0;
-    }
-    else
-    {
-        gSpecialVar_Result = 1;
-    }
 }
 
 // If bestTime > timer, the challenge was completed faster and its a new record
 // Otherwise the owner says it was a slow time and to complete it faster next time
 static void CheckFinalTime(void)
 {
-    if (gSaveBlock1Ptr->trainerHill.checkedFinalTime)
-    {
-        gSpecialVar_Result = 2;
-    }
-    else if (GetTimerValue(&gSaveBlock1Ptr->trainerHill.bestTime) > gSaveBlock1Ptr->trainerHill.timer)
-    {
-        SetTimerValue(&gSaveBlock1Ptr->trainerHill.bestTime, gSaveBlock1Ptr->trainerHill.timer);
-        gSaveBlock1Ptr->trainerHillTimes[gSaveBlock1Ptr->trainerHill.mode] = gSaveBlock1Ptr->trainerHill.bestTime;
-        gSpecialVar_Result = 0;
-    }
-    else
-    {
-        gSpecialVar_Result = 1;
-    }
-
-    gSaveBlock1Ptr->trainerHill.checkedFinalTime = TRUE;
 }
 
 static void TrainerHillResumeTimer(void)
 {
-    if (!gSaveBlock1Ptr->trainerHill.spokeToOwner)
-    {
-        if (gSaveBlock1Ptr->trainerHill.timer >= HILL_MAX_TIME)
-            gSaveBlock1Ptr->trainerHill.timer = HILL_MAX_TIME;
-        else
-            SetTrainerHillVBlankCounter(&gSaveBlock1Ptr->trainerHill.timer);
-    }
 }
 
 static void TrainerHillSetPlayerLost(void)
 {
-    gSaveBlock1Ptr->trainerHill.hasLost = TRUE;
 }
 
 static void TrainerHillGetChallengeStatus(void)
 {
-    if (gSaveBlock1Ptr->trainerHill.hasLost)
-    {
-        // The player lost their last match.
-        gSaveBlock1Ptr->trainerHill.hasLost = FALSE;
-        gSpecialVar_Result = TRAINER_HILL_PLAYER_STATUS_LOST;
-    }
-    else if (gSaveBlock1Ptr->trainerHill.maybeECardScanDuringChallenge)
-    {
-        // Unreachable code. Something relating to eCards?
-        gSaveBlock1Ptr->trainerHill.maybeECardScanDuringChallenge = 0;
-        gSpecialVar_Result = TRAINER_HILL_PLAYER_STATUS_ECARD_SCANNED;
-    }
-    else
-    {
-        // Continue playing.
-        gSpecialVar_Result = TRAINER_HILL_PLAYER_STATUS_NORMAL;
-    }
 }
 
 static void BufferChallengeTime(void)
 {
-    s32 total, minutes, secondsWhole, secondsFraction;
-
-    total = gSaveBlock1Ptr->trainerHill.timer;
-    if (total >= HILL_MAX_TIME)
-        total = HILL_MAX_TIME;
-
-    minutes = total / (60 * 60);
-    total %= (60 * 60);
-    secondsWhole = total / 60;
-    total %= 60;
-    secondsFraction = (total * 168) / 100;
-
-    ConvertIntToDecimalStringN(gStringVar1, minutes, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar2, secondsWhole, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar3, secondsFraction, STR_CONV_MODE_LEADING_ZEROS, 2);
 }
 
 // Returns TRUE if all 4 floors are used
@@ -536,14 +438,7 @@ static void GetInEReaderMode(void)
 
 bool8 InTrainerHillChallenge(void)
 {
-    //if (VarGet(VAR_TRAINER_HILL_IS_ACTIVE) == 0)
-    //    return FALSE;
-    //else if (gSaveBlock1Ptr->trainerHill.spokeToOwner)
-    //    return FALSE;
-    //else if (GetCurrentTrainerHillMapId() != 0)
-    //    return TRUE;
-    //else
-        return FALSE;
+    return FALSE;
 }
 
 static void IsTrainerHillChallengeActive(void)
@@ -914,16 +809,10 @@ bool32 OnTrainerHillEReaderChallengeFloor(void)
 
 static void GetChallengeWon(void)
 {
-    if (gSaveBlock1Ptr->trainerHill.hasLost)
-        gSpecialVar_Result = FALSE;
-    else
-        gSpecialVar_Result = TRUE;
 }
 
 static void TrainerHillSetMode(void)
 {
-    gSaveBlock1Ptr->trainerHill.mode = gSpecialVar_0x8005;
-    gSaveBlock1Ptr->trainerHill.bestTime = gSaveBlock1Ptr->trainerHillTimes[gSpecialVar_0x8005];
 }
 
 // Determines which prize list to use from the set of prize lists.
@@ -955,66 +844,5 @@ static u8 GetPrizeListId(bool8 allowTMs)
 
 static u16 GetPrizeItemId(void)
 {
-    u8 i;
-    const u16 *prizeList;
-    s32 trainerNumSum = 0, prizeListSetId, minutes, id;
-
-    // First determine which set of prize lists to use. The sets of lists only differ in
-    // what TMs they can offer as the "grand prize" for a time under 12 minutes.
-    // Which set of lists gets used is based on the sum of all the trainer numbers for that
-    // challenge. These don't change with the available challenge modes, so Normal will always
-    // have a prizeListSetId of 0, and Unique/Variety/Expert will have a prizeListSetId of 1.
-    for (i = 0; i < NUM_TRAINER_HILL_FLOORS; i++)
-    {
-        trainerNumSum += sHillData->floors[i].trainerNum1;
-        trainerNumSum += sHillData->floors[i].trainerNum2;
-    }
-    prizeListSetId = trainerNumSum / 256;
-    prizeListSetId %= (int)ARRAY_COUNT(sPrizeListSets);
-
-    // Now get which prize list to use from the set. See GetPrizeListId for details.
-    // The below conditional will always be true, because a Trainer Hill challenge can't be entered
-    // until the player has entered the Hall of Fame (FLAG_SYS_GAME_CLEAR is set) and because all
-    // of the available challenge modes have the full 8 trainers (NUM_TRAINER_HILL_TRAINERS).
-    if (FlagGet(FLAG_SYS_GAME_CLEAR) && sHillData->challenge.numTrainers == NUM_TRAINER_HILL_TRAINERS)
-        i = GetPrizeListId(TRUE);
-    else
-        i = GetPrizeListId(FALSE);
-
-    // 1 is added to Expert mode's prize list selection because otherwise it has the same prizes as Variety
-    if (gSaveBlock1Ptr->trainerHill.mode == HILL_MODE_EXPERT)
-        i = (i + 1) % NUM_TRAINER_HILL_PRIZE_LISTS;
-
-    // After the above (non-random) calculations, the following are the possible prize list selections:
-    // sPrizeListSets[0][8] (Normal)
-    // sPrizeListSets[1][4] (Variety)
-    // sPrizeListSets[1][8] (Unique)
-    // sPrizeListSets[1][5] (Expert)
-    prizeList = sPrizeListSets[prizeListSetId][i];
-
-    // Which prize is given from the list depends on the time scored.
-    // The prize for any time after 12 minutes is the same in every list.
-    // The prizes for a time under 12 minutes are:
-    // - ITEM_TM11_SUNNY_DAY   (Normal)
-    // - ITEM_ELIXIR           (Variety)
-    // - ITEM_TM19_GIGA_DRAIN  (Unique)
-    // - ITEM_TM31_BRICK_BREAK (Expert)
-    // As an additional note, if players were allowed to enter a Trainer Hill challenge before
-    // entering the Hall of Fame, there would be 1 additional prize possibility (ITEM_MAX_ETHER)
-    // as Normal / Unique modes would use sPrizeListSets[0][3] / sPrizeListSets[1][3] respectively.
-    minutes = (signed)(gSaveBlock1Ptr->trainerHill.timer) / (60 * 60);
-    if (minutes < 12)
-        id = 0; // Depends on list
-    else if (minutes < 13)
-        id = 1; // ITEM_ETHER
-    else if (minutes < 14)
-        id = 2; // ITEM_MAX_POTION
-    else if (minutes < 16)
-        id = 3; // ITEM_REVIVE
-    else if (minutes < 18)
-        id = 4; // ITEM_FLUFFY_TAIL
-    else
-        id = 5; // ITEM_GREAT_BALL
-
-    return prizeList[id];
+    return ITEM_POKE_BALL;
 }

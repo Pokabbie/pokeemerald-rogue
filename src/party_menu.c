@@ -3953,8 +3953,9 @@ static void FieldCallback_Surf(void)
 
 static bool8 SetUpFieldMove_Surf(void)
 {
-    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_SURF))
-        return FALSE;
+    // RogueNote: Always allow surf
+    //if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_SURF))
+    //    return FALSE;
 
     if (PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
     {
@@ -3999,8 +4000,9 @@ static bool8 SetUpFieldMove_Waterfall(void)
 {
     s16 x, y;
 
-    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_WATERFALL))
-        return FALSE;
+    // RogueNote: Always allow waterfall
+    //if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_WATERFALL))
+    //    return FALSE;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     if (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE && IsPlayerSurfingNorth() == TRUE)
@@ -4020,8 +4022,9 @@ static void FieldCallback_Dive(void)
 
 static bool8 SetUpFieldMove_Dive(void)
 {
-    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_DIVE))
-        return FALSE;
+    // RogueNote: always allow dive
+    //if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_DIVE))
+    //    return FALSE;
 
     gFieldEffectArguments[1] = TrySetDiveWarp();
     if (gFieldEffectArguments[1] != 0)

@@ -1267,18 +1267,56 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
     }
 }
 
+// RogueNote: Called from MovementAction_EmoteFollowMonSpawn
 u32 FldEff_Bubbles(void)
 {
     u8 spriteId;
+    u8 visual;
     struct Sprite *sprite;
+    struct SpriteTemplate template;
+    s16 xOffset, yOffset;
+    u8 spriteData;
+
+    switch (gFieldEffectArguments[3])
+    {
+    case 0: // Grass spawn
+        visual = FLDEFFOBJ_JUMP_TALL_GRASS;
+        xOffset = 0;
+        yOffset = 8;
+        break;
+
+    case 1: // Water spawn
+        visual = FLDEFFOBJ_JUMP_BIG_SPLASH; //FldEff_SecretPowerShrub
+        xOffset = 0;
+        yOffset = 0;
+        spriteData = FLDEFF_WATER_SURFACING;
+        break;
+
+    case 2: // Cave spawn
+        visual = FLDEFFOBJ_GROUND_IMPACT_DUST;
+        xOffset = 0;
+        yOffset = 8;
+        break;
+    
+    default: // Shiny spawn
+        visual = FLDEFFOBJ_BUBBLES;
+        xOffset = 0;
+        yOffset = 0;
+        break;
+    }
+
+    // RogueNote: This is hacky, calling through FldEff_Bubbles will expect this to go through FLDEFF_PAL_TAG_GENERAL_0, so override this here
+    memcpy(&template, gFieldEffectObjectTemplatePointers[visual], sizeof(template));
+    //template.paletteTag = FLDEFF_PAL_TAG_GENERAL_0; // <- enable this to free up the palette slots
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 0);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_BUBBLES], gFieldEffectArguments[0], gFieldEffectArguments[1], 0x52);
+    spriteId = CreateSpriteAtEnd(&template, gFieldEffectArguments[0] + xOffset, gFieldEffectArguments[1] + yOffset, 0x52);
     if (spriteId != MAX_SPRITES)
     {
         sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
-        sprite->oam.priority = 1;
+        sprite->oam.priority = 1;//gFieldEffectArguments[2];
+        //sprite->data[0] = spriteData;
     }
     return 0;
 }

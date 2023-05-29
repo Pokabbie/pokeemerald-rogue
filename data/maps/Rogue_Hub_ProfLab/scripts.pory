@@ -481,6 +481,8 @@ script Rogue_Hub_ProfLab_PostStarterSelect
     msgbox(format("You're now ready to go on adventures!"), MSGBOX_DEFAULT)
 
     call(Rogue_Hub_ProfLab_ProfExplain)
+
+    special(Rogue_SetupFollowParterMonObjectEvent)
     return
 }
 

@@ -15,7 +15,7 @@ const struct RogueItem gRogueItems[] =
             "Makes certain\n"
             "species of POKéMON\n"
             "evolve when held."),
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_HELD_ITEMS,
         .iconImage = gItemIcon_ExpShare,
         .iconPalette = gItemIconPalette_ExpShare,
     },
@@ -299,7 +299,7 @@ const struct RogueItem gRogueItems[] =
 #else
         .name = _("FLINCH CURSE"),
 #endif
-        .itemId = ITEM_SHOP_PRICE_CURSE,
+        .itemId = ITEM_FLINCH_CURSE,
         .price = 0,
         .description = _(
             "Opponent moves\n"
@@ -444,7 +444,7 @@ const struct RogueItem gRogueItems[] =
 #else
         .name = _("CAPACITY CURSE"),
 #endif
-        .itemId = ITEM_WILD_ENCOUNTER_CURSE,
+        .itemId = ITEM_PARTY_CURSE,
         .price = 0,
         .description = _(
             "The maximum number\n"
@@ -465,7 +465,7 @@ const struct RogueItem gRogueItems[] =
 #else
         .name = _("EVERSTONE CURSE"),
 #endif
-        .itemId = ITEM_WILD_ENCOUNTER_CURSE,
+        .itemId = ITEM_EVERSTONE_CURSE,
         .price = 0,
         .description = _(
             "'LVL UP' Evolutions\n"
@@ -570,7 +570,7 @@ const struct RogueItem gRogueItems[] =
 #else
         .name = _("ENDURE CURSE"),
 #endif
-        .itemId = ITEM_MOVE_PRIORITY_CURSE,
+        .itemId = ITEM_ENDURE_CURSE,
         .price = 0,
         .description = _(
             "Opponent POKéMON\n"

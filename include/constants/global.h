@@ -50,7 +50,10 @@
 #define POKE_NEWS_COUNT 16
 
 #define PC_ITEMS_COUNT 50
-#define BAG_ITEM_CAPACITY (236) //236 from old slots + 40 * 2 from pokeblock
+#define BAG_ITEM_CAPACITY (250) //236 from old slots + 40 * 2 from pokeblock
+
+// These slots will be shared between charms & key items
+#define BAG_ITEM_RESERVED_SLOTS 50
 
 // Old capacities
 //#define BAG_ITEMS_COUNT 30
@@ -149,6 +152,10 @@
 
 #define OPTIONS_BATTLE_STYLE_SHIFT 0
 #define OPTIONS_BATTLE_STYLE_SET 1
+
+#define OPTIONS_NICKNAME_MODE_ASK 0
+#define OPTIONS_NICKNAME_MODE_ALWAYS 1
+#define OPTIONS_NICKNAME_MODE_NEVER 2
 
 #define DIR_NONE        0
 #define DIR_SOUTH       1

@@ -160,6 +160,9 @@ const u8 gPopupText_SafariArea[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Safari Area
 
 const u8 gPopupText_StarterWarning[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Unable to evolve\npartner in gen");
 
+const u8 gPopupText_EncounterChain[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Encounter Chain");
+const u8 gPopupText_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
+
 // Debug
 //
 #ifdef ROGUE_DEBUG

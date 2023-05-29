@@ -34,6 +34,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
@@ -686,6 +687,10 @@ u32 FieldEffectStart(u8 id)
 {
     u8 *script;
     u32 val;
+
+    // RogueNote: Skip this animation
+    //if(id == FLDEFF_FIELD_MOVE_SHOW_MON_INIT)
+    //    return 0;
 
     FieldEffectActiveListAdd(id);
 
@@ -3043,6 +3048,7 @@ static void SurfFieldEffect_Init(struct Task *task)
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_SURFING);
     PlayerGetDestCoords(&task->tDestX, &task->tDestY);
     MoveCoords(gObjectEvents[gPlayerAvatar.objectEventId].movementDirection, &task->tDestX, &task->tDestY);
+    SetupFollowParterMonObjectEvent();
     task->tState++;
 }
 

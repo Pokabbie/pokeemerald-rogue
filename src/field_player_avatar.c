@@ -31,6 +31,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 
+#include "rogue_followmon.h"
+
 #define NUM_FORCED_MOVEMENTS 18
 #define NUM_ACRO_BIKE_COLLISIONS 5
 
@@ -1745,6 +1747,8 @@ static void Task_WaitStopSurfing(u8 taskId)
         ScriptContext2_Disable();
         DestroySprite(&gSprites[playerObjEvent->fieldEffectSpriteId]);
         DestroyTask(taskId);
+
+        SetupFollowParterMonObjectEvent();
     }
 }
 
