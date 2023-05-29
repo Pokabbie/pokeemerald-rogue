@@ -525,7 +525,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                         QuestNotify_OnAddBagItem(itemId, count);
 
-                        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                        if(itemPocket == POCKET_CHARMS)
                             RecalcCharmCurseValues();
 
                         return TRUE;
@@ -538,7 +538,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                         QuestNotify_OnAddBagItem(itemId, slotCapacity - itemCount);
 
-                        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                        if(itemPocket == POCKET_CHARMS)
                             RecalcCharmCurseValues();
                     }
                 }
@@ -564,7 +564,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                 QuestNotify_OnAddBagItem(itemId, count);
 
-                if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
                     RecalcCharmCurseValues();
 
                 return TRUE;
@@ -641,7 +641,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
                 QuestNotify_OnRemoveBagItem(itemId, count);
 
-                if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
                     RecalcCharmCurseValues();
 
                 return TRUE;
@@ -673,7 +673,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
                     QuestNotify_OnRemoveBagItem(itemId, count);
 
-                    if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+                    if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
                         RecalcCharmCurseValues();
 
                     return TRUE;
@@ -685,7 +685,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
         QuestNotify_OnRemoveBagItem(itemId, count);
         
-        if((itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE))
+        if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
             RecalcCharmCurseValues();
 
         return TRUE;

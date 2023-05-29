@@ -41,12 +41,16 @@ static const u16 sCherryUnused_Pal[] = INCBIN_U16("graphics/unused/cherry.gbapal
 static const u8 sPocketVisualIndex[POCKETS_COUNT] =
 {
     [ITEMS_POCKET] = 0,
+    [HELD_ITEMS_POCKET] = 4,
     [MEDICINE_POCKET] = 2,
     [BALLS_POCKET] = 1,
     [TMHM_POCKET]  = 2,
     [BERRIES_POCKET] = 3,
     [CHARMS_POCKET] = 1,
-    [KEYITEMS_POCKET] = 4
+    [KEYITEMS_POCKET] = 4,
+#ifdef ROGUE_EXPANSION
+    [STONES_POCKET] = 3,
+#endif
 };
 
 static const struct OamData sBagOamData =

@@ -296,6 +296,8 @@ const u8 gText_PokeBallsPocket[] = _("POKé BALLS");
 const u8 gText_TMHMPocket[] = _("TMs & HMs");
 const u8 gText_BerriesPocket[] = _("BERRIES");
 const u8 gText_CharmsPocket[] = _("CHARMS");
+const u8 gText_StonesPocket[] = _("STONES");
+const u8 gText_HeldItemsPocket[] = _("HELD ITEMS");
 const u8 gText_KeyItemsPocket[] = _("KEY ITEMS");
 
 const u8 *const gPocketNamesStringsTable[] =
@@ -306,7 +308,11 @@ const u8 *const gPocketNamesStringsTable[] =
     [TMHM_POCKET]  = gText_TMHMPocket,
     [BERRIES_POCKET] = gText_BerriesPocket,
     [CHARMS_POCKET] = gText_CharmsPocket,
-    [KEYITEMS_POCKET] = gText_KeyItemsPocket
+    [KEYITEMS_POCKET] = gText_KeyItemsPocket,
+    [HELD_ITEMS_POCKET] = gText_HeldItemsPocket,
+#ifdef ROGUE_EXPANSION
+    [STONES_POCKET] = gText_StonesPocket,
+#endif
 };
 
 const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
@@ -746,6 +752,8 @@ const u8 gText_Tough2[] = _("TOUGH");
 const u8 gText_Items[] = _("ITEMS");
 const u8 gText_Medicine[] = _("MEDICINE");
 const u8 gText_Charms[] = _("CHARMS");
+const u8 gText_Stones[] = _("STONES");
+const u8 gText_HeldItems[] = _("HELD ITEMS");
 const u8 gText_Key_Items[] = _("KEY ITEMS");
 const u8 gText_Poke_Balls[] = _("POKé BALLS");
 const u8 gText_TMs_Hms[] = _("TMs & HMs");
@@ -846,7 +854,6 @@ const u8 gText_PyramidTrainers[] = _("PYRAMID: TRAINERS");
 const u8 gText_PyramidMaze[] = _("PYRAMID: MAZE");
 const u8 gText_BattleBag2[] = _("BATTLE BAG");
 const u8 gText_PokenavAndBag[] = _("POKéNAV AND BAG");
-const u8 gText_HeldItems[] = _("HELD ITEMS");
 const u8 gText_PokemonOrder[] = _("POKéMON ORDER");
 const u8 gText_BattlePokemon[] = _("BATTLE POKéMON");
 const u8 gText_BattleTrainers[] = _("BATTLE TRAINERS");

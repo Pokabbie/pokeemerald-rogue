@@ -59,38 +59,43 @@
 #define ITEM_HEALING_FLASK              (ITEM_ROGUE_ITEM_FIRST + 2)
 
 // TODO - Classify these as dynamic items, to be wiped every patch (Allows easily moving them around)
-#define ITEM_SHOP_PRICE_CHARM           (ITEM_ROGUE_ITEM_FIRST + 50)
-#define ITEM_FLINCH_CHARM               (ITEM_ROGUE_ITEM_FIRST + 51)
-#define ITEM_CRIT_CHARM                 (ITEM_ROGUE_ITEM_FIRST + 52)
-#define ITEM_SHED_SKIN_CHARM            (ITEM_ROGUE_ITEM_FIRST + 53)
-#define ITEM_WILD_IV_CHARM              (ITEM_ROGUE_ITEM_FIRST + 54)
-#define ITEM_CATCHING_CHARM             (ITEM_ROGUE_ITEM_FIRST + 55)
-#define ITEM_GRACE_CHARM                (ITEM_ROGUE_ITEM_FIRST + 56)
-#define ITEM_WILD_ENCOUNTER_CHARM       (ITEM_ROGUE_ITEM_FIRST + 57)
-#define ITEM_MOVE_PRIORITY_CHARM        (ITEM_ROGUE_ITEM_FIRST + 58)
-#define ITEM_ENDURE_CHARM               (ITEM_ROGUE_ITEM_FIRST + 59)
+// Reserved 30 charms then 30 items
+#define FIRST_ITEM_CHARM                (ITEM_ROGUE_ITEM_FIRST + 50)
 
-#define ITEM_SHOP_PRICE_CURSE           (ITEM_ROGUE_ITEM_FIRST + 60)
-#define ITEM_FLINCH_CURSE               (ITEM_ROGUE_ITEM_FIRST + 61)
-#define ITEM_CRIT_CURSE                 (ITEM_ROGUE_ITEM_FIRST + 62)
-#define ITEM_SHED_SKIN_CURSE            (ITEM_ROGUE_ITEM_FIRST + 63)
-#define ITEM_WILD_IV_CURSE              (ITEM_ROGUE_ITEM_FIRST + 64)
-#define ITEM_CATCHING_CURSE             (ITEM_ROGUE_ITEM_FIRST + 65)
-#define ITEM_GRACE_CURSE                (ITEM_ROGUE_ITEM_FIRST + 66)
-#define ITEM_WILD_ENCOUNTER_CURSE       (ITEM_ROGUE_ITEM_FIRST + 67)
-#define ITEM_PARTY_CURSE                (ITEM_ROGUE_ITEM_FIRST + 68)
-#define ITEM_EVERSTONE_CURSE            (ITEM_ROGUE_ITEM_FIRST + 69)
-#define ITEM_BATTLE_ITEM_CURSE          (ITEM_ROGUE_ITEM_FIRST + 70)
-#define ITEM_SPECIES_CLAUSE_CURSE       (ITEM_ROGUE_ITEM_FIRST + 71)
-#define ITEM_ITEM_SHUFFLE_CURSE         (ITEM_ROGUE_ITEM_FIRST + 72)
-#define ITEM_MOVE_PRIORITY_CURSE        (ITEM_ROGUE_ITEM_FIRST + 73)
-#define ITEM_ENDURE_CURSE               (ITEM_ROGUE_ITEM_FIRST + 74)
+#define ITEM_SHOP_PRICE_CHARM           (FIRST_ITEM_CHARM + 0)
+#define ITEM_FLINCH_CHARM               (FIRST_ITEM_CHARM + 1)
+#define ITEM_CRIT_CHARM                 (FIRST_ITEM_CHARM + 2)
+#define ITEM_SHED_SKIN_CHARM            (FIRST_ITEM_CHARM + 3)
+#define ITEM_WILD_IV_CHARM              (FIRST_ITEM_CHARM + 4)
+#define ITEM_CATCHING_CHARM             (FIRST_ITEM_CHARM + 5)
+#define ITEM_GRACE_CHARM                (FIRST_ITEM_CHARM + 6)
+#define ITEM_WILD_ENCOUNTER_CHARM       (FIRST_ITEM_CHARM + 7)
+#define ITEM_MOVE_PRIORITY_CHARM        (FIRST_ITEM_CHARM + 8)
+#define ITEM_ENDURE_CHARM               (FIRST_ITEM_CHARM + 9)
 
-#define FIRST_ITEM_CHARM        ITEM_SHOP_PRICE_CHARM
-#define LAST_ITEM_CHARM         ITEM_ENDURE_CHARM
+#define LAST_ITEM_CHARM                 (ITEM_ENDURE_CHARM)
 
-#define FIRST_ITEM_CURSE        ITEM_SHOP_PRICE_CURSE
-#define LAST_ITEM_CURSE         ITEM_ENDURE_CURSE
+
+#define FIRST_ITEM_CURSE                (ITEM_ROGUE_ITEM_FIRST + 80)
+
+#define ITEM_SHOP_PRICE_CURSE           (FIRST_ITEM_CURSE + 0)
+#define ITEM_FLINCH_CURSE               (FIRST_ITEM_CURSE + 1)
+#define ITEM_CRIT_CURSE                 (FIRST_ITEM_CURSE + 2)
+#define ITEM_SHED_SKIN_CURSE            (FIRST_ITEM_CURSE + 3)
+#define ITEM_WILD_IV_CURSE              (FIRST_ITEM_CURSE + 4)
+#define ITEM_CATCHING_CURSE             (FIRST_ITEM_CURSE + 5)
+#define ITEM_GRACE_CURSE                (FIRST_ITEM_CURSE + 6)
+#define ITEM_WILD_ENCOUNTER_CURSE       (FIRST_ITEM_CURSE + 7)
+#define ITEM_PARTY_CURSE                (FIRST_ITEM_CURSE + 8)
+#define ITEM_EVERSTONE_CURSE            (FIRST_ITEM_CURSE + 9)
+#define ITEM_BATTLE_ITEM_CURSE          (FIRST_ITEM_CURSE + 10)
+#define ITEM_SPECIES_CLAUSE_CURSE       (FIRST_ITEM_CURSE + 11)
+#define ITEM_ITEM_SHUFFLE_CURSE         (FIRST_ITEM_CURSE + 12)
+#define ITEM_MOVE_PRIORITY_CURSE        (FIRST_ITEM_CURSE + 13)
+#define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
+
+#define LAST_ITEM_CURSE                 (ITEM_ENDURE_CURSE)
+
 
 // Routes
 //

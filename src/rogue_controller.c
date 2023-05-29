@@ -4716,8 +4716,6 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
             
         case ROGUE_SHOP_CHARMS:
             {
-                // Include berries from collected quests
-                u16 i, j;
                 RogueQuery_ExcludeAll();
 
                 #ifdef ROGUE_DEBUG
