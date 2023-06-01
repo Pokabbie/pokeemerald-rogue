@@ -1,0 +1,38 @@
+
+script LilycoveCity_DepartmentStore_3F_EventScript_BottomClerkLeft
+{
+    lock
+    faceplayer
+    message(gText_HowMayIServeYou)
+    waitmessage
+    pokemart(LilycoveCity_DepartmentStore_3F_Pokemart_MegaStones)
+
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+    release
+}
+
+script LilycoveCity_DepartmentStore_3F_EventScript_BottomClerkRight
+{
+    lock
+    faceplayer
+    message(gText_HowMayIServeYou)
+    waitmessage
+    pokemart(LilycoveCity_DepartmentStore_3F_Pokemart_ZCrystals)
+
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+    release
+}
+
+mart LilycoveCity_DepartmentStore_3F_Pokemart_MegaStones
+{
+    ITEM_LAVA_COOKIE
+    ITEM_MOOMOO_MILK
+    ITEM_RARE_CANDY
+    ITEM_LEMONADE
+    ITEM_BERRY_JUICE
+}
+
+mart LilycoveCity_DepartmentStore_3F_Pokemart_ZCrystals
+{
+    ITEM_RARE_CANDY
+}
