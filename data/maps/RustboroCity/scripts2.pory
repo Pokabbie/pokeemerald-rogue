@@ -1,0 +1,14 @@
+
+script RustboroCity_EventScript_MayBrineyHint_PostBattle
+{
+    msgbox(format("MAY: Wow you've gotten pretty good {PLAYER}{KUN}!\pI know!\pI've got something that might help you get even stronger!\pHere take this!"))
+    giveitem(ITEM_QUICK_CLAW)
+    goto(RustboroCity_EventScript_MayBrineyHint)
+}
+
+script RustboroCity_EventScript_BrendanBrineyHint_PostBattle
+{
+    msgbox(format("BRENDAN: Wow you've gotten pretty good {PLAYER}{KUN}!\pI know!\pI've got something that might help you get even stronger!\pHere take this!"))
+    giveitem(ITEM_QUICK_CLAW)
+    goto(RustboroCity_EventScript_BrendanBrineyHint)
+}
