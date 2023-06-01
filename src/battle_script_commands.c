@@ -5589,6 +5589,12 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
                 lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
             }
             break;
+        case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_ABILITY:
+            {
+                const struct TrainerMonItemCustomMovesAbility *party = gTrainers[trainerId].party.ItemCustomMovesAbility;
+                lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
+            }
+            break;
         }
 
         for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
