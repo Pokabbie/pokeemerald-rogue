@@ -8,4 +8,6 @@ s16 Sandbox_ModifyBattleSlideAnim(s16 speed);
 const void* Sandbox_ModifyLoadPalette(const void *src);
 const void* Sandbox_ModifyLoadCompressedPalette(const void *src);
 
+u32 Sandbox_GetTrainerAIFlags(u16 trainerNum);
+
 #endif

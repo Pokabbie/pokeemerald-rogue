@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/battle.h"
+#include "constants/battle_ai.h"
 #include "constants/trainers.h"
 
 #include "battle.h"
@@ -132,4 +133,28 @@ const void* Sandbox_ModifyLoadPalette(const void *src)
 const void* Sandbox_ModifyLoadCompressedPalette(const void *src)
 {
     return Sandbox_ModifyLoadPalette(src);
+}
+
+u32 Sandbox_GetTrainerAIFlags(u16 trainerNum)
+{
+    u32 flags = gTrainers[trainerNum].aiFlags;
+
+
+#ifdef POKEMON_EXPANSION
+    // Every trainer is smart
+    flags |= AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_HP_AWARE;
+
+    // EX only flags
+    flags |= AI_FLAG_WILL_SUICIDE | AI_FLAG_SMART_SWITCHING;
+
+    if(gTrainers[trainerNum].doubleBattle)
+    {
+        flags |= AI_FLAG_HELP_PARTNER;
+    }
+#else
+    // Every trainer is smart
+    flags |= AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE | AI_SCRIPT_TRY_SUNNY_DAY_START;
+#endif
+
+    return flags;
 }
