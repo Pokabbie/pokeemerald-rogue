@@ -5,7 +5,7 @@ script LilycoveCity_DepartmentStore_3F_EventScript_BottomClerkLeft
     faceplayer
     message(gText_HowMayIServeYou)
     waitmessage
-    pokemart(LilycoveCity_DepartmentStore_3F_Pokemart_MegaStones)
+    pokemartcapped(LilycoveCity_DepartmentStore_3F_Pokemart_MegaStones, 5000, 0)
 
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
     release
@@ -17,7 +17,7 @@ script LilycoveCity_DepartmentStore_3F_EventScript_BottomClerkRight
     faceplayer
     message(gText_HowMayIServeYou)
     waitmessage
-    pokemart(LilycoveCity_DepartmentStore_3F_Pokemart_ZCrystals)
+    pokemartcapped(LilycoveCity_DepartmentStore_3F_Pokemart_ZCrystals, 5000, 0)
 
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
     release

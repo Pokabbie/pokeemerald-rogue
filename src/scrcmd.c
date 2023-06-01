@@ -1930,6 +1930,17 @@ bool8 ScrCmd_pokemartdecoration2(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_pokemartcapped(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+    u16 minPrice = ScriptReadHalfword(ctx);
+    u16 maxPrice = ScriptReadHalfword(ctx);
+
+    CreatePokemartMenuCapped(ptr, minPrice, maxPrice);
+    ScriptContext_Stop();
+    return TRUE;
+}
+
 bool8 ScrCmd_playslotmachine(struct ScriptContext *ctx)
 {
     u8 machineId = VarGet(ScriptReadHalfword(ctx));

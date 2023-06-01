@@ -86,6 +86,8 @@ struct MartInfo
     const struct MenuAction *menuActions;
     const u16 *itemList;
     u16 itemCount;
+    u16 minItemPrice;
+    u16 maxItemPrice;
     u8 windowId;
     u8 martType;
 };
@@ -374,12 +376,14 @@ static void SetShopMenuCallback(void (* callback)(void))
     sMartInfo.callback = callback;
 }
 
-static void SetShopItemsForSale(const u16 *items)
+static void SetShopItemsForSale(const u16 *items, u16 minPrice, u16 maxPrice)
 {
     u16 i = 0;
 
     sMartInfo.itemList = items;
     sMartInfo.itemCount = 0;
+    sMartInfo.minItemPrice = minPrice;
+    sMartInfo.maxItemPrice = maxPrice;
 
     // Read items until ITEM_NONE / DECOR_NONE is reached
     while (sMartInfo.itemList[i])
@@ -616,6 +620,23 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 3, 1, 0, COLORID_NORMAL);
 }
 
+static u16 GetItem_ShopPrice(u16 itemId)
+{
+    u16 price = ItemId_GetPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
+
+    if(sMartInfo.minItemPrice != 0)
+    {
+        price = max(price, sMartInfo.minItemPrice);
+    }
+
+    if(sMartInfo.maxItemPrice != 0)
+    {
+        price = min(price, sMartInfo.maxItemPrice);
+    }
+
+    return price;
+}
+
 static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
 {
     u8 x;
@@ -626,7 +647,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
         {
             ConvertIntToDecimalStringN(
                 gStringVar1,
-                ItemId_GetPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT),
+                GetItem_ShopPrice(itemId),
                 STR_CONV_MODE_LEFT_ALIGN,
                 5);
         }
@@ -985,7 +1006,7 @@ static void Task_BuyMenu(u8 taskId)
             BuyMenuPrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
 
             if (sMartInfo.martType == MART_TYPE_NORMAL)
-                sShopData->totalCost = (ItemId_GetPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT));
+                sShopData->totalCost = GetItem_ShopPrice(itemId);
             else
                 sShopData->totalCost = gDecorations[itemId].price;
 
@@ -1058,7 +1079,7 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
 
     if (AdjustQuantityAccordingToDPadInput(&tItemCount, sShopData->maxQuantity) == TRUE)
     {
-        sShopData->totalCost = (ItemId_GetPrice(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
+        sShopData->totalCost = GetItem_ShopPrice(tItemId) * tItemCount;
         BuyMenuPrintItemQuantityAndPrice(taskId);
     }
     else
@@ -1248,7 +1269,15 @@ static void RecordItemPurchase(u8 taskId)
 void CreatePokemartMenu(const u16 *itemsForSale)
 {
     CreateShopMenu(MART_TYPE_NORMAL);
-    SetShopItemsForSale(itemsForSale);
+    SetShopItemsForSale(itemsForSale, 0 ,0);
+    ClearItemPurchases();
+    SetShopMenuCallback(ScriptContext_Enable);
+}
+
+void CreatePokemartMenuCapped(const u16 *itemsForSale, u16 minPrice, u16 maxPrice)
+{
+    CreateShopMenu(MART_TYPE_NORMAL);
+    SetShopItemsForSale(itemsForSale, minPrice, maxPrice);
     ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
 }
@@ -1256,13 +1285,13 @@ void CreatePokemartMenu(const u16 *itemsForSale)
 void CreateDecorationShop1Menu(const u16 *itemsForSale)
 {
     CreateShopMenu(MART_TYPE_DECOR);
-    SetShopItemsForSale(itemsForSale);
+    SetShopItemsForSale(itemsForSale, 0 ,0);
     SetShopMenuCallback(ScriptContext_Enable);
 }
 
 void CreateDecorationShop2Menu(const u16 *itemsForSale)
 {
     CreateShopMenu(MART_TYPE_DECOR2);
-    SetShopItemsForSale(itemsForSale);
+    SetShopItemsForSale(itemsForSale, 0 ,0);
     SetShopMenuCallback(ScriptContext_Enable);
 }
