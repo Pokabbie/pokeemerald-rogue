@@ -1,5 +1,32 @@
 const u32 gObjectEventPic_BrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/brendan/walking.4bpp");
 const u32 gObjectEventPic_BrendanRunning[] = INCBIN_U32("graphics/object_events/pics/people/brendan/running.4bpp");
+
+// Manual FOREACH_VISUAL_PRESETS
+const u16 gObjectEventPal_Brendan_0_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_0.gbapal");
+const u16 gObjectEventPal_Brendan_0_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_1.gbapal");
+const u16 gObjectEventPal_Brendan_0_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_2.gbapal");
+const u16 gObjectEventPal_Brendan_0_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_3.gbapal");
+const u16 gObjectEventPal_Brendan_0_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_4.gbapal");
+const u16 gObjectEventPal_Brendan_0_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/0_5.gbapal");
+const u16 gObjectEventPal_Brendan_1_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_0.gbapal");
+const u16 gObjectEventPal_Brendan_1_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_1.gbapal");
+const u16 gObjectEventPal_Brendan_1_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_2.gbapal");
+const u16 gObjectEventPal_Brendan_1_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_3.gbapal");
+const u16 gObjectEventPal_Brendan_1_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_4.gbapal");
+const u16 gObjectEventPal_Brendan_1_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/1_5.gbapal");
+const u16 gObjectEventPal_Brendan_2_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_0.gbapal");
+const u16 gObjectEventPal_Brendan_2_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_1.gbapal");
+const u16 gObjectEventPal_Brendan_2_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_2.gbapal");
+const u16 gObjectEventPal_Brendan_2_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_3.gbapal");
+const u16 gObjectEventPal_Brendan_2_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_4.gbapal");
+const u16 gObjectEventPal_Brendan_2_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/2_5.gbapal");
+const u16 gObjectEventPal_Brendan_3_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_0.gbapal");
+const u16 gObjectEventPal_Brendan_3_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_1.gbapal");
+const u16 gObjectEventPal_Brendan_3_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_2.gbapal");
+const u16 gObjectEventPal_Brendan_3_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_3.gbapal");
+const u16 gObjectEventPal_Brendan_3_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_4.gbapal");
+const u16 gObjectEventPal_Brendan_3_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/brendan/3_5.gbapal");
+
 const u16 gObjectEventPal_Brendan[] = INCBIN_U16("graphics/object_events/palettes/brendan.gbapal");
 const u32 gObjectEventPic_RubySapphireBrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/walking.4bpp");
 const u32 gObjectEventPic_RubySapphireBrendanRunning[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/running.4bpp");
@@ -34,6 +61,33 @@ const u32 gObjectEventPic_MayUnderwater[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_PlayerUnderwater[] = INCBIN_U16("graphics/object_events/palettes/player_underwater.gbapal");
 const u32 gObjectEventPic_MayNormal[] = INCBIN_U32("graphics/object_events/pics/people/may/walking.4bpp");
 const u32 gObjectEventPic_MayRunning[] = INCBIN_U32("graphics/object_events/pics/people/may/running.4bpp");
+
+// Manual FOREACH_VISUAL_PRESETS
+const u16 gObjectEventPal_May_0_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_0.gbapal");
+const u16 gObjectEventPal_May_0_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_1.gbapal");
+const u16 gObjectEventPal_May_0_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_2.gbapal");
+const u16 gObjectEventPal_May_0_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_3.gbapal");
+const u16 gObjectEventPal_May_0_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_4.gbapal");
+const u16 gObjectEventPal_May_0_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/0_5.gbapal");
+const u16 gObjectEventPal_May_1_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_0.gbapal");
+const u16 gObjectEventPal_May_1_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_1.gbapal");
+const u16 gObjectEventPal_May_1_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_2.gbapal");
+const u16 gObjectEventPal_May_1_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_3.gbapal");
+const u16 gObjectEventPal_May_1_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_4.gbapal");
+const u16 gObjectEventPal_May_1_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/1_5.gbapal");
+const u16 gObjectEventPal_May_2_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_0.gbapal");
+const u16 gObjectEventPal_May_2_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_1.gbapal");
+const u16 gObjectEventPal_May_2_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_2.gbapal");
+const u16 gObjectEventPal_May_2_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_3.gbapal");
+const u16 gObjectEventPal_May_2_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_4.gbapal");
+const u16 gObjectEventPal_May_2_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/2_5.gbapal");
+const u16 gObjectEventPal_May_3_0[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_0.gbapal");
+const u16 gObjectEventPal_May_3_1[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_1.gbapal");
+const u16 gObjectEventPal_May_3_2[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_2.gbapal");
+const u16 gObjectEventPal_May_3_3[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_3.gbapal");
+const u16 gObjectEventPal_May_3_4[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_4.gbapal");
+const u16 gObjectEventPal_May_3_5[] = INCBIN_U16("graphics/object_events/palettes/sandbox/may/3_5.gbapal");
+
 const u16 gObjectEventPal_May[] = INCBIN_U16("graphics/object_events/palettes/may.gbapal");
 const u16 gObjectEventPal_MayReflection[] = INCBIN_U16("graphics/object_events/palettes/may_reflection.gbapal");
 const u32 gObjectEventPic_RubySapphireMayNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_may/walking.4bpp");

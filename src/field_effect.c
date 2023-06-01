@@ -900,6 +900,21 @@ u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buf
     return CreateSprite(&spriteTemplate, x, y, subpriority);
 }
 
+u8 UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+{
+    struct SpriteTemplate spriteTemplate;
+    LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
+    LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
+    spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
+    spriteTemplate.paletteTag = gTrainerFrontPicPaletteTable[trainerSpriteID].tag;
+    spriteTemplate.oam = &sOam_64x64;
+    spriteTemplate.anims = gDummySpriteAnimTable;
+    spriteTemplate.images = NULL;
+    spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
+    spriteTemplate.callback = SpriteCallbackDummy;
+    return CreateSpriteAt(spriteID, &spriteTemplate, x, y, subpriority);
+}
+
 void LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest)
 {
     LZDecompressVram(gTrainerFrontPicTable[gender].data, dest);

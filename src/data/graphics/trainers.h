@@ -217,8 +217,60 @@ const u32 gTrainerPalette_Wally[] = INCBIN_U32("graphics/trainers/palettes/wally
 const u32 gTrainerFrontPic_Brendan[] = INCBIN_U32("graphics/trainers/front_pics/brendan.4bpp.lz");
 const u32 gTrainerPalette_Brendan[] = INCBIN_U32("graphics/trainers/palettes/brendan.gbapal.lz");
 
+// Manual FOREACH_VISUAL_PRESETS
+const u32 gTrainerPalette_Brendan_0_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_0.gbapal.lz");
+const u32 gTrainerPalette_Brendan_0_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_1.gbapal.lz");
+const u32 gTrainerPalette_Brendan_0_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_2.gbapal.lz");
+const u32 gTrainerPalette_Brendan_0_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_3.gbapal.lz");
+const u32 gTrainerPalette_Brendan_0_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_4.gbapal.lz");
+const u32 gTrainerPalette_Brendan_0_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/0_5.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_0.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_1.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_2.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_3.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_4.gbapal.lz");
+const u32 gTrainerPalette_Brendan_1_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/1_5.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_0.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_1.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_2.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_3.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_4.gbapal.lz");
+const u32 gTrainerPalette_Brendan_2_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/2_5.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_0.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_1.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_2.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_3.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_4.gbapal.lz");
+const u32 gTrainerPalette_Brendan_3_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/brendan/3_5.gbapal.lz");
+
 const u32 gTrainerFrontPic_May[] = INCBIN_U32("graphics/trainers/front_pics/may.4bpp.lz");
 const u32 gTrainerPalette_May[] = INCBIN_U32("graphics/trainers/palettes/may.gbapal.lz");
+
+// Manual FOREACH_VISUAL_PRESETS
+const u32 gTrainerPalette_May_0_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_0.gbapal.lz");
+const u32 gTrainerPalette_May_0_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_1.gbapal.lz");
+const u32 gTrainerPalette_May_0_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_2.gbapal.lz");
+const u32 gTrainerPalette_May_0_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_3.gbapal.lz");
+const u32 gTrainerPalette_May_0_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_4.gbapal.lz");
+const u32 gTrainerPalette_May_0_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/0_5.gbapal.lz");
+const u32 gTrainerPalette_May_1_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_0.gbapal.lz");
+const u32 gTrainerPalette_May_1_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_1.gbapal.lz");
+const u32 gTrainerPalette_May_1_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_2.gbapal.lz");
+const u32 gTrainerPalette_May_1_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_3.gbapal.lz");
+const u32 gTrainerPalette_May_1_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_4.gbapal.lz");
+const u32 gTrainerPalette_May_1_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/1_5.gbapal.lz");
+const u32 gTrainerPalette_May_2_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_0.gbapal.lz");
+const u32 gTrainerPalette_May_2_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_1.gbapal.lz");
+const u32 gTrainerPalette_May_2_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_2.gbapal.lz");
+const u32 gTrainerPalette_May_2_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_3.gbapal.lz");
+const u32 gTrainerPalette_May_2_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_4.gbapal.lz");
+const u32 gTrainerPalette_May_2_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/2_5.gbapal.lz");
+const u32 gTrainerPalette_May_3_0[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_0.gbapal.lz");
+const u32 gTrainerPalette_May_3_1[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_1.gbapal.lz");
+const u32 gTrainerPalette_May_3_2[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_2.gbapal.lz");
+const u32 gTrainerPalette_May_3_3[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_3.gbapal.lz");
+const u32 gTrainerPalette_May_3_4[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_4.gbapal.lz");
+const u32 gTrainerPalette_May_3_5[] = INCBIN_U32("graphics/trainers/palettes/sandbox/may/3_5.gbapal.lz");
 
 const u32 gTrainerFrontPic_BugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/bug_catcher.4bpp.lz");
 const u32 gTrainerPalette_BugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/bug_catcher.gbapal.lz");

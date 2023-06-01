@@ -5,6 +5,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "data.h"
+#include "graphics.h"
 
 #include "sandbox_main.h"
 
@@ -86,4 +87,49 @@ s16 Sandbox_ModifyBattleSlideAnim(s16 speed)
     }
 
     return speed;
+}
+
+#define PLAYER_STYLE(prefix, x, y) if(style1 == x && style2 == y) return prefix ## _ ## x ## _ ## y
+
+const void* Sandbox_ModifyLoadPalette(const void *src)
+{
+    const u8 gender = gSaveBlock2Ptr->playerGender;
+    const u8 style1 = gSaveBlock2Ptr->playerStyle[0];
+    const u8 style2 = gSaveBlock2Ptr->playerStyle[1];
+
+    // ObjectEvent palette
+    if(gender == 0 && src == gObjectEventPal_Brendan)
+    {
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
+    }
+    if(gender == 1 && src == gObjectEventPal_May)
+    {
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
+    }
+
+    // Trainer
+    // front/back pics
+    if(gender == 0 && (src == gTrainerPalette_Brendan || src == gTrainerBackPic_Brendan))
+    {
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Brendan, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
+    }
+    if(gender == 1 && (src == gTrainerPalette_May || src == gTrainerBackPic_May))
+    {
+        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_May, x, y);
+        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
+        #undef PALETTE_FUNC
+    }
+
+    return src;
+}
+
+const void* Sandbox_ModifyLoadCompressedPalette(const void *src)
+{
+    return Sandbox_ModifyLoadPalette(src);
 }
