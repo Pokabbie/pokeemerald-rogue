@@ -1,5 +1,6 @@
 #ifndef GUARD_GRAPHICS_H
 #define GUARD_GRAPHICS_H
+#include "constants/sandbox.h"
 
 // overworld
 extern const u32 gMessageBox_Gfx[];
@@ -10409,6 +10410,8 @@ FOREACH_VISUAL_PRESETS(MAY_PALETTE)
 // Object event pals
 extern const u16 gObjectEventPal_Brendan[];
 extern const u16 gObjectEventPal_May[];
+extern const u16 gObjectEventPal_BrendanReflection[];
+extern const u16 gObjectEventPal_MayReflection[];
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
 

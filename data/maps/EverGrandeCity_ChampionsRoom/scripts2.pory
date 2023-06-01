@@ -1,8 +1,30 @@
 const LOCALID_BLUE = 4
-const LOCALID_WALLACE = 1
+const LOCALID_STEVEN = 1
+const LOCALID_WALLACE = 5
+
+script EverGrandeCity_ChampionsRoom_ApproachPause
+{
+    applymovement(OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_EventScript_Blue_ApproachPause)
+    waitmovement(0)
+}
+
+script EverGrandeCity_ChampionsRoom_EventScript_Steven
+{
+    playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+    msgbox(format("STEVEN: Ahem…\p{PLAYER}{KUN}!\pWelcome!\pWALLACE?\pHe and I just had just had a little disagreement, don't mind him.\pYou see {PLAYER}{KUN}, much like you, I am a trainer of great passion!\pFor many years I held the title of CHAMPION.\pWALLACE merely filled in during my absence.\pAnd now…\nI see the fire in your eyes.\pIf you wish to take the title from HOENN's true CHAMPION…\pCome at me with your full force!"), MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_STEVEN_CHAMPION, format("I, the true HOENN CHAMPION, fall in defeat…\pI possess nothing but respect for you, {PLAYER}{KUN}!\pYou are a truly noble POKéMON TRAINER!"))
+    goto(EverGrandeCity_ChampionsRoom_EventScript_Defeated)
+}
+
+script EverGrandeCity_ChampionsRoom_EventScript_WallaceRun
+{
+    applymovement(LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_EventScript_Wallace_RunAway)
+    return
+}
 
 script EverGrandeCity_ChampionsRoom_EventScript_Blue
 {
+    special(HealUnfaintedPlayerParty)
     playbgm(MUS_NONE, FALSE)
     msgbox(format("Hold it right there!"))
 
@@ -20,7 +42,7 @@ script EverGrandeCity_ChampionsRoom_EventScript_Blue
     waitmovement(0)
 
     applymovement(LOCALID_BLUE, EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach2)
-    applymovement(LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_EventScript_Wallace_Approach)
+    applymovement(LOCALID_STEVEN, EverGrandeCity_ChampionsRoom_EventScript_Wallace_Approach)
     waitmovement(0)
 
     msgbox(format("Not whilst I'm still standing!"))
@@ -29,14 +51,34 @@ script EverGrandeCity_ChampionsRoom_EventScript_Blue
     msgbox(format("… … …\n I can't believe it…\nI can't believe I lost… … …\nAgain… … …"))
 
     applymovement(LOCALID_BLUE, EverGrandeCity_ChampionsRoom_EventScript_Blue_Victory)
-    applymovement(LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_EventScript_Wallace_Victory)
+    applymovement(LOCALID_STEVEN, EverGrandeCity_ChampionsRoom_EventScript_Steven_Victory)
 
     playse(SE_WALL_HIT)
     waitmovement(0)
 
-
-    msgbox(format("WALLACE: As I was saying…\pI now proclaim you to be the new\nHOENN region…"))
+    msgbox(format("STEVEN: As I was saying…\pI now proclaim you to be the new\nHOENN region…"))
     return
+}
+
+script EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame_BlueBaby
+{
+    // Maybe?
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Blue_ApproachPause
+{
+    face_left
+    delay_16 * 3
+    face_up
+    delay_16 * 3
+    face_left
+    delay_16
+    face_up
+    delay_16
+    face_left
+    delay_16
+    face_up
+    delay_16 * 2
 }
 
 movement EverGrandeCity_ChampionsRoom_EventScript_Blue_Approach1
@@ -54,7 +96,29 @@ movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_Approach
     walk_left
 }
 
-movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_Victory
+movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_RunAway
+{
+    delay_16 * 2
+    face_down
+    delay_16 * 2
+    emote_question_mark
+    delay_16
+    face_right
+    delay_16
+    face_left
+    delay_16
+    face_right
+    delay_16
+    face_left
+    delay_16
+    face_down
+    delay_16
+
+    walk_fast_right * 2
+    walk_fast_down * 4
+}
+
+movement EverGrandeCity_ChampionsRoom_EventScript_Steven_Victory
 {
     walk_fast_right
     face_down
@@ -63,4 +127,13 @@ movement EverGrandeCity_ChampionsRoom_EventScript_Wallace_Victory
 movement EverGrandeCity_ChampionsRoom_EventScript_Blue_Victory
 {
     jump_2_right
+    face_right
+    emote_exclamation_mark
+    delay_16 * 2
+    walk_fast_left
+    delay_16 * 3
+    walk_slow_up
+    walk_slow_left
+    walk_slow_up * 2
+    set_invisible
 }
