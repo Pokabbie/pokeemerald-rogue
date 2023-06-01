@@ -100,11 +100,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Gabrielle1[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntPetalburgWoods[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_GruntPetalburgWoods[] = {
     {
     .iv = 0,
-    .lvl = 9,
+    .lvl = 11,
     .species = SPECIES_POOCHYENA,
+    .moves = {MOVE_BITE, MOVE_HOWL, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -9478,11 +9479,13 @@ static const struct TrainerMonItemDefaultMoves sParty_Sarah[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Darian[] = {
+static const struct TrainerMonItemCustomMoves sParty_Darian[] = {
     {
     .iv = 0,
-    .lvl = 9,
+    .lvl = 12,
     .species = SPECIES_MAGIKARP,
+    .heldItem = ITEM_NORMALIUM_Z,
+    .moves = {MOVE_SPLASH, MOVE_AQUA_JET, MOVE_BOUNCE, MOVE_NONE}
     }
 };
 

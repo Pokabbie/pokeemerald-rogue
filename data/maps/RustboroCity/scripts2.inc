@@ -1,13 +1,13 @@
 RustboroCity_EventScript_MayBrineyHint_PostBattle::
 	msgbox RustboroCity_EventScript_MayBrineyHint_PostBattle_Text_0
-	giveitem ITEM_QUICK_CLAW
+	giveitem ITEM_EVIOLITE
 	goto RustboroCity_EventScript_MayBrineyHint
 	return
 
 
 RustboroCity_EventScript_BrendanBrineyHint_PostBattle::
 	msgbox RustboroCity_EventScript_BrendanBrineyHint_PostBattle_Text_0
-	giveitem ITEM_QUICK_CLAW
+	giveitem ITEM_EVIOLITE
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	return
 

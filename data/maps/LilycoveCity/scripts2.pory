@@ -1,13 +1,15 @@
 script LilycoveCity_EventScript_DefeatedMay2
 {
-    msgbox(format("MAY: Wow you keep just getting stronger and stronger {PLAYER}{KUN}!\pOh wait one second.\pI was suppose to give you this before we fought…\pMy bad…"))
-    giveitem(ITEM_AMULET_COIN)
+    msgbox(format("MAY: Wow you keep just getting stronger and stronger {PLAYER}{KUN}!\pOh wait one second.\pI was suppose to give you these before we fought…\pMy bad…"))
+    giveitem(ITEM_MEGA_RING)
+    giveitem(ITEM_Z_POWER_RING)
     return
 }
 
 script LilycoveCity_EventScript_DefeatedBrendan2
 {
-    msgbox(format("BRENDAN: Wow you keep just getting stronger and stronger {PLAYER}{KUN}!\pOh wait one second.\pI was suppose to give you this before we fought…\pMy bad…"))
-    giveitem(ITEM_AMULET_COIN)
+    msgbox(format("BRENDAN: Wow you keep just getting stronger and stronger {PLAYER}{KUN}!\pOh wait one second.\pI was suppose to give you these before we fought…\pMy bad…"))
+    giveitem(ITEM_MEGA_RING)
+    giveitem(ITEM_Z_POWER_RING)
     return
 }
