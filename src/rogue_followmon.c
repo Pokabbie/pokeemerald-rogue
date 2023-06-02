@@ -540,6 +540,13 @@ void FollowMon_OverworldCB()
                     gObjectEvents[objectEventId].rangeX = 8;
                     gObjectEvents[objectEventId].rangeY = 8;
 
+                    // Hide reflections for spawns in water
+                    // (It just looks weird)
+                    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                    {
+                        gObjectEvents[objectEventId].hideReflection = TRUE; 
+                    }
+
                     // Slower replacement spawning
                     sFollowMonData.spawnCountdown = 60 * (3 + Random() % 2);
                 }
