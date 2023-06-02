@@ -1551,6 +1551,7 @@ const u8 gText_BattleStyle[] = _("BATTLE STYLE");
 const u8 gText_AutoRun[] = _("RUN STYLE");
 const u8 gText_NicknameMode[] = _("NICKNAME MODE");
 const u8 gText_TimeOfDay[] = _("DAY/NIGHT");
+const u8 gText_Seasons[] = _("SEASONS");
 const u8 gText_Sound[] = _("SOUND");
 const u8 gText_SoundChannelBGM[] = _("MUSIC VOLUME");
 const u8 gText_SoundChannelSE[] = _("EFFECTS VOLUME");

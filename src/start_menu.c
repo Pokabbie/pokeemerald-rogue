@@ -148,7 +148,15 @@ static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
-static const struct WindowTemplate sRogueRunWindowTemplate = {0, 1, 1, 9, 6, 0xF, 8};
+static const struct WindowTemplate sRogueRunWindowTemplate = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 9,
+    .height = 6,
+    .paletteNum = 0xF,
+    .baseBlock = 8,
+};
 
 static const u8* const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {
@@ -456,7 +464,7 @@ static void ShowRogueRunWindow(void)
 {
     struct WindowTemplate windowTemplate;
     memcpy(&windowTemplate, &sRogueRunWindowTemplate, sizeof(windowTemplate));
-    windowTemplate.height = Rogue_MiniMenuHeight() * 2;
+    windowTemplate.height = Rogue_MiniMenuHeight();
 
     sRogueRunWindowId = AddWindow(&windowTemplate);
     PutWindowTilemap(sRogueRunWindowId);

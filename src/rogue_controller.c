@@ -1262,15 +1262,17 @@ u16 Rogue_MiniMenuHeight(void)
 
     if(GetSafariZoneFlag())
     {
-        return 2;
+        height = 3;
     }
-
-    if(Rogue_IsActiveCampaignScored())
+    else
     {
-        ++height;
+        if(Rogue_IsActiveCampaignScored())
+        {
+            ++height;
+        }
     }
 
-    return height;
+    return height * 2;
 }
 
 extern const u8 gText_StatusRoute[];
@@ -1278,16 +1280,38 @@ extern const u8 gText_StatusBadges[];
 extern const u8 gText_StatusScore[];
 extern const u8 gText_StatusTimer[];
 extern const u8 gText_StatusClock[];
+extern const u8 gText_StatusSeasonSpring[];
+extern const u8 gText_StatusSeasonSummer[];
+extern const u8 gText_StatusSeasonAutumn[];
+extern const u8 gText_StatusSeasonWinter[];
 
 u8* Rogue_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
 
     *strPointer = EOS;
-        
+
+    // Season stamp
+    switch(RogueToD_GetSeason())
+    {
+        case SEASON_SPRING:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonSpring);
+            break;
+        case SEASON_SUMMER:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonSummer);
+            break;
+        case SEASON_AUTUMN:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonAutumn);
+            break;
+        case SEASON_WINTER:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonWinter);
+            break;
+    }
+
     // Clock
-    ConvertIntToDecimalStringN(gStringVar1, RogueToD_GetHours(), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar1, RogueToD_GetHours(), STR_CONV_MODE_RIGHT_ALIGN, 2);
     ConvertIntToDecimalStringN(gStringVar2, RogueToD_GetMinutes(), STR_CONV_MODE_LEADING_ZEROS, 2);
+
     StringExpandPlaceholders(gStringVar3, gText_StatusClock);
     strPointer = StringAppend(strPointer, gStringVar3);
     
@@ -1327,7 +1351,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
-        u16 yOffset = 24 + Rogue_MiniMenuHeight() * 16;
+        u16 yOffset = 24 + Rogue_MiniMenuHeight() * 8;
 
         //LoadMonIconPalettes();
 
@@ -1844,7 +1868,9 @@ void Rogue_OnSaveGame(void)
 
             {
                 u16 tod = RogueToD_GetTime();
+                u8 seasonCounter = RogueToD_GetSeasonCounter();
                 SerializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+                SerializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
             }
         }
 
@@ -1950,8 +1976,11 @@ void Rogue_OnLoadGame(void)
                 
                 {
                     u16 tod = 0;
+                    u8 seasonCounter = RogueToD_GetSeasonCounter();
                     DeserializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+                    DeserializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
                     RogueToD_SetTime(tod);
+                    RogueToD_SetSeasonCounter(seasonCounter);
                 }
             }
 

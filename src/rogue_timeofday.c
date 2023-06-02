@@ -55,6 +55,12 @@
 #define RGB_DAYTIME         RGB_WHITE
 #define RGB_SUNSET          RGB(31, 18, 7)
 
+
+#define RGB_255_CHANNEL(v) (u8)(((u32)v * (u32)31) / (u32)255)
+#define RGB_255(r, g, b) RGB(RGB_255_CHANNEL(r), RGB_255_CHANNEL(g), RGB_255_CHANNEL(b))
+
+#define DAYS_PER_SEASON     2 
+
 struct ToDPalette
 {
     u16 time;
@@ -119,8 +125,14 @@ static const struct ToDPalette sToDPaletteLookup[] =
 
 EWRAM_DATA static u16 sTimeOfDayMinutes = 0; // Maybe should have this in IWRAM?
 EWRAM_DATA static u8 sTimeOfDayTimeCode = TIME_CODE_NIGHT;
+EWRAM_DATA static u8 sSeasonCounter = 0;
 EWRAM_DATA static u16 sTimeOfDayOverworldColour = 0;
 EWRAM_DATA static u16 sTimeOfDayBattleColour = 0;
+
+extern const u16 gTilesetPalettes_General[][16];
+extern const u16 gTilesetPalettes_General02_Summer[];
+extern const u16 gTilesetPalettes_General02_Autumn[];
+extern const u16 gTilesetPalettes_General02_Winter[];
 
 u16 RogueToD_GetTime()
 {
@@ -129,8 +141,38 @@ u16 RogueToD_GetTime()
 
 void RogueToD_SetTime(u16 time)
 {
+    u16 prevMins = sTimeOfDayMinutes;
     sTimeOfDayMinutes = time % CALC_TIME(24, 00);
+
+    // Just changed day
+    if(prevMins > sTimeOfDayMinutes)
+    {
+        RogueToD_SetSeasonCounter(sSeasonCounter + 1);
+    }
+
     RecalculateToDData(sTimeOfDayMinutes);
+}
+
+u8 RogueToD_GetSeason()
+{
+    u8 season = sSeasonCounter / DAYS_PER_SEASON;
+    return min(season, SEASON_COUNT - 1);
+}
+
+void RogueToD_SetSeason(u8 season)
+{
+    season = min(season, SEASON_COUNT - 1);
+    RogueToD_SetSeasonCounter(season * DAYS_PER_SEASON);
+}
+
+u8 RogueToD_GetSeasonCounter()
+{
+    return sSeasonCounter;
+}
+
+void RogueToD_SetSeasonCounter(u8 value)
+{
+    sSeasonCounter = (value) % (DAYS_PER_SEASON * SEASON_COUNT);
 }
 
 u16 RogueToD_GetHours()
@@ -168,9 +210,33 @@ bool8 RogueToD_IsNight()
     return sTimeOfDayTimeCode == TIME_CODE_NIGHT;
 }
 
+// Will only apply override palette if the input matches
+static void TintPalette_CompareOverride(u16 *palette, u16 count, const u16* comparePalette, const u16* overridePalette)
+{
+    u16 i, j;
+    u16 colour;
+
+    for (i = 0; i < count; i++)
+    {
+        colour = *palette;
+
+        for(j = 0; j < 16; ++j)
+        {
+            if(comparePalette[j] == colour)
+            {
+                colour = overridePalette[j];
+                break;
+            }
+        }
+
+        *palette++ = colour;
+    }
+}
+
 static void TintPalette_CustomMultiply(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 bTone)
 {
-    s32 r, g, b, i;
+    s32 r, g, b;
+    u16 i, j;
     u32 gray;
 
     for (i = 0; i < count; i++)
@@ -194,12 +260,35 @@ static void TintPalette_CustomMultiply(u16 *palette, u16 count, u16 rTone, u16 g
     }
 }
 
+static void TintPalette_Season(u16 *palette, u16 count)
+{
+    switch (RogueToD_GetSeason())
+    {
+    case SEASON_SPRING:
+        break;
+    case SEASON_SUMMER:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Summer);
+        break;
+    case SEASON_AUTUMN:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Autumn);
+        break;
+    case SEASON_WINTER:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Winter);
+        break;
+    }
+}
+
 static void TintPalette_ToD(u16 *palette, u16 count, u16 colour)
 {
     TintPalette_CustomMultiply(palette, count, GET_R(colour), GET_G(colour), GET_B(colour));
 }
 
-static bool8 ShouldApplyTintForCurrentMap()
+static bool8 ShouldApplySeasonTintForCurrentMap()
+{
+    return gSaveBlock2Ptr->seasonVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
+}
+
+static bool8 ShouldApplyTodTintForCurrentMap()
 {
     return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
@@ -217,6 +306,7 @@ static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
 {
     bool8 isObjectPal = (offset / 16 + count) >= 16;
+    bool8 isDirty = FALSE;
 
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS && isObjectPal)
     {
@@ -224,18 +314,36 @@ void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
         return;
     }
 
-    if(ShouldApplyTintForCurrentMap())
+    if(ShouldApplySeasonTintForCurrentMap())
+    {
+        TintPalette_Season(&gPlttBufferUnfaded[offset], count * 16);
+        isDirty = TRUE;
+    }
+
+    if(ShouldApplyTodTintForCurrentMap())
     {
         TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayOverworldColour, TRUE));
+        isDirty = TRUE;
+    }
+
+    if(isDirty)
+    {
         CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
     }
 }
 
 void RogueToD_ModifyBattlePalette(u16 offset, u16 count)
 {
-    if(ShouldApplyTintForCurrentMap())
+    bool8 isDirty = FALSE;
+
+    if(ShouldApplyTodTintForCurrentMap())
     {
         TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayBattleColour, TRUE));
+        isDirty = TRUE;
+    }
+
+    if(isDirty)
+    {
         CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
     }
 }

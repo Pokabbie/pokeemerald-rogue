@@ -38,6 +38,7 @@ enum
     MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_NICKNAME_MODE,
     MENUITEM_TIME_OF_DAY,
+    MENUITEM_SEASON,
     MENUITEM_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
     MENUITEM_SOUND_CHANNEL_SE,
@@ -88,8 +89,8 @@ static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
 static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection);
 static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection);
-static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection);
-static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection);
+static u8 TimeOfDaySeason_ProcessInput(u8 menuOffset, u8 selection);
+static void TimeOfDaySeason_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection);
 static void Sound_DrawChoices(u8 menuOffset, u8 selection);
 static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection);
@@ -184,8 +185,14 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_TIME_OF_DAY] = 
     {
         .itemName = gText_TimeOfDay,
-        .processInput = TimeOfDay_ProcessInput,
-        .drawChoices = TimeOfDay_DrawChoices
+        .processInput = TimeOfDaySeason_ProcessInput,
+        .drawChoices = TimeOfDaySeason_DrawChoices
+    },
+    [MENUITEM_SEASON] = 
+    {
+        .itemName = gText_Seasons,
+        .processInput = TimeOfDaySeason_ProcessInput,
+        .drawChoices = TimeOfDaySeason_DrawChoices
     },
     [MENUITEM_SOUND] = 
     {
@@ -245,6 +252,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_TIME_OF_DAY,
+            MENUITEM_SEASON,
             MENUITEM_BATTLESCENE,
             MENUITEM_BATTLESTYLE,
             MENUITEM_CANCEL
@@ -760,7 +768,7 @@ static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_TextNicknameNever, GetStringRightAlignXOffset(FONT_NORMAL, gText_TextNicknameNever, 198), menuOffset* YPOS_SPACING, styles[2]);
 }
 
-static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection)
+static u8 TimeOfDaySeason_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
     {
@@ -771,7 +779,7 @@ static u8 TimeOfDay_ProcessInput(u8 menuOffset, u8 selection)
     return selection;
 }
 
-static void TimeOfDay_DrawChoices(u8 menuOffset, u8 selection)
+static void TimeOfDaySeason_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 styles[2];
 
@@ -1057,6 +1065,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_TIME_OF_DAY:
         return gSaveBlock2Ptr->timeOfDayVisuals;
 
+    case MENUITEM_SEASON:
+        return gSaveBlock2Ptr->seasonVisuals;
+
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
 
@@ -1102,6 +1113,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_TIME_OF_DAY:
         gSaveBlock2Ptr->timeOfDayVisuals = value;
+        break;
+
+    case MENUITEM_SEASON:
+        gSaveBlock2Ptr->seasonVisuals = value;
         break;
         
     case MENUITEM_SOUND:
