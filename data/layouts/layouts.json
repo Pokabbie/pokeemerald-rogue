@@ -646,7 +646,7 @@
       "name": "Rogue_Hub_Layout",
       "width": 58,
       "height": 46,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Hub/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Hub/map.bin"

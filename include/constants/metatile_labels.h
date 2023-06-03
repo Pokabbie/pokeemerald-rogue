@@ -204,6 +204,9 @@
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
+// gTileset_GeneralHub
+#define METATILE_GeneralHub_Door_PokeConnect  0x062
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1
@@ -285,17 +288,16 @@
 #define METATILE_LilycoveMuseum_Painting4_Right  0x263
 
 // gTileset_Lilycove
-#define METATILE_Lilycove_Door              0x246
-#define METATILE_Lilycove_Door_DeptStore    0x30C
-#define METATILE_Lilycove_Door_PokeConnect  0x2AA
-#define METATILE_Lilycove_Door_SafariZone   0x32D
-#define METATILE_Lilycove_Door_Wooden       0x28E
-#define METATILE_Lilycove_Wailmer0          0x290
-#define METATILE_Lilycove_Wailmer0_Alt      0x298
-#define METATILE_Lilycove_Wailmer1          0x291
-#define METATILE_Lilycove_Wailmer1_Alt      0x299
-#define METATILE_Lilycove_Wailmer2          0x2A0
-#define METATILE_Lilycove_Wailmer3          0x2A1
+#define METATILE_Lilycove_Door             0x246
+#define METATILE_Lilycove_Door_DeptStore   0x30C
+#define METATILE_Lilycove_Door_SafariZone  0x32D
+#define METATILE_Lilycove_Door_Wooden      0x28E
+#define METATILE_Lilycove_Wailmer0         0x290
+#define METATILE_Lilycove_Wailmer0_Alt     0x298
+#define METATILE_Lilycove_Wailmer1         0x291
+#define METATILE_Lilycove_Wailmer1_Alt     0x299
+#define METATILE_Lilycove_Wailmer2         0x2A0
+#define METATILE_Lilycove_Wailmer3         0x2A1
 
 // gTileset_MauvilleGym
 #define METATILE_MauvilleGym_FloorTile        0x21A

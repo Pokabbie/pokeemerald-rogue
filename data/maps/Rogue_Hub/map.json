@@ -683,78 +683,78 @@
       "x": 24,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_NONE",
-      "dest_warp_id": 0
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "x": 23,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_PROF_LAB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 29,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_ADVENTURE_ENTERANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 15,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 45,
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_INTERIOR_CLOTHES_SHOP",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 20,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_DEBUG",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 33,
       "y": 35,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_BAKERY",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 29,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_DEBUG",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 33,
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_POKEMON_CENTRE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_HUB_POKEMON_CENTRE",
   "name": "Rogue_Hub_PokemonCentre",
   "layout": "LAYOUT_ROGUE_HUB_POKEMON_CENTRE",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_RG_NET_CENTER",
   "region_map_section": "MAPSEC_TRAINER_HILL",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -34,14 +34,14 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 10
+      "dest_warp_id": "10"
     },
     {
       "x": 7,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 10
+      "dest_warp_id": "10"
     }
   ],
   "coord_events": [
