@@ -17,6 +17,8 @@
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 
+#include "sandbox_main.h"
+
 struct ConnectionFlags
 {
     u8 south:1;
@@ -936,5 +938,6 @@ void LoadMapTilesetPalettes(struct MapLayout const *mapLayout)
     {
         LoadPrimaryTilesetPalette(mapLayout);
         LoadSecondaryTilesetPalette(mapLayout);
+        Sandbox_ModifyOverworldPalette(0, NUM_PALS_TOTAL);
     }
 }

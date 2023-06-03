@@ -1944,6 +1944,12 @@ const u16 gTilesetPalettes_General[][16] =
     INCBIN_U16("data/tilesets/primary/general/palettes/15.gbapal"),
 };
 
+// Pal 02 contains all the greens we want to override for season
+const u16 gTilesetPalettes_General02_Spring[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_spring.gbapal");
+const u16 gTilesetPalettes_General02_Summer[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_summer.gbapal");
+const u16 gTilesetPalettes_General02_Autumn[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_autumn.gbapal");
+const u16 gTilesetPalettes_General02_Winter[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_winter.gbapal");
+
 const u32 gTilesetTiles_General[] = INCBIN_U32("data/tilesets/primary/general/tiles.4bpp.lz");
 
 // trade/egg hatch

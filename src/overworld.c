@@ -67,6 +67,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "sandbox_main.h"
+
 struct CableClubPlayer
 {
     u8 playerId;
@@ -816,6 +818,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     InitMap();
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
     LoadSecondaryTilesetPalette(gMapHeader.mapLayout);
+    Sandbox_ModifyOverworldPalette(BG_PLTT_ID(NUM_PALS_IN_PRIMARY), NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY);
 
     for (paletteIndex = NUM_PALS_IN_PRIMARY; paletteIndex < NUM_PALS_TOTAL; paletteIndex++)
         ApplyWeatherColorMapToPal(paletteIndex);
