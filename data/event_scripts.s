@@ -766,3 +766,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Special_Hooh/scripts.inc"
 
 	.include "data/maps/Rogue_Special_Lugia/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Horizontal/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Vertical/scripts.inc"

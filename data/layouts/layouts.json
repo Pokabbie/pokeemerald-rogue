@@ -1346,7 +1346,7 @@
       "name": "Rogue_Tile_Test1_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Tile_Test1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_Test1/map.bin"
@@ -1366,7 +1366,7 @@
       "name": "Rogue_Tile_Test3_Layout",
       "width": 10,
       "height": 10,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Tile_Test3/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_Test3/map.bin"
@@ -1376,8 +1376,8 @@
       "name": "Rogue_Tile_AdventureEntrance_Layout",
       "width": 20,
       "height": 16,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Tile_AdventureEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_AdventureEntrance/map.bin"
     },
@@ -1386,7 +1386,7 @@
       "name": "Rogue_Tile_Empty_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Tile_Empty/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_Empty/map.bin"
@@ -1396,7 +1396,7 @@
       "name": "Rogue_Tile_Mart_Layout",
       "width": 14,
       "height": 14,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Tile_Mart/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_Mart/map.bin"
@@ -1406,7 +1406,7 @@
       "name": "Rogue_Tile_SafariEntrance_Layout",
       "width": 20,
       "height": 16,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Tile_SafariEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_SafariEntrance/map.bin"
@@ -1416,7 +1416,7 @@
       "name": "Rogue_Tile_OutdoorMart_Layout",
       "width": 32,
       "height": 22,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Tile_OutdoorMart/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_OutdoorMart/map.bin"
@@ -1424,9 +1424,9 @@
     {
       "id": "LAYOUT_ROGUE_TILE_BERRY_PATCH1",
       "name": "Rogue_Tile_BerryPatch1_Layout",
-      "width": 24,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
+      "width": 18,
+      "height": 12,
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Tile_BerryPatch1/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_BerryPatch1/map.bin"
@@ -1510,6 +1510,26 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Special_Lugia/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Lugia/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "name": "Rogue_HallwayFacade_Horizontal_Layout",
+      "width": 16,
+      "height": 8,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_HallwayFacade_Horizontal/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_HallwayFacade_Horizontal/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "name": "Rogue_HallwayFacade_Vertical_Layout",
+      "width": 8,
+      "height": 12,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_HallwayFacade_Vertical/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_HallwayFacade_Vertical/map.bin"
     }
   ]
 }

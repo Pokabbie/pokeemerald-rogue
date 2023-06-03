@@ -29,15 +29,17 @@
 #define MAP_ROGUE_HUB_DEBUG                 (9 | (1 << 8))
 
 // gMapGroup_RogueHubTiles
-#define MAP_ROGUE_TILE_TEST1              (0 | (2 << 8))
-#define MAP_ROGUE_TILE_TEST2              (1 | (2 << 8))
-#define MAP_ROGUE_TILE_TEST3              (2 | (2 << 8))
-#define MAP_ROGUE_TILE_ADVENTURE_ENTRANCE (3 | (2 << 8))
-#define MAP_ROGUE_TILE_EMPTY              (4 | (2 << 8))
-#define MAP_ROGUE_TILE_MART               (5 | (2 << 8))
-#define MAP_ROGUE_TILE_SAFARI_ENTRANCE    (6 | (2 << 8))
-#define MAP_ROGUE_TILE_OUTDOOR_MART       (7 | (2 << 8))
-#define MAP_ROGUE_TILE_BERRY_PATCH1       (8 | (2 << 8))
+#define MAP_ROGUE_TILE_TEST1                (0 | (2 << 8))
+#define MAP_ROGUE_TILE_TEST2                (1 | (2 << 8))
+#define MAP_ROGUE_TILE_TEST3                (2 | (2 << 8))
+#define MAP_ROGUE_TILE_ADVENTURE_ENTRANCE   (3 | (2 << 8))
+#define MAP_ROGUE_TILE_EMPTY                (4 | (2 << 8))
+#define MAP_ROGUE_TILE_MART                 (5 | (2 << 8))
+#define MAP_ROGUE_TILE_SAFARI_ENTRANCE      (6 | (2 << 8))
+#define MAP_ROGUE_TILE_OUTDOOR_MART         (7 | (2 << 8))
+#define MAP_ROGUE_TILE_BERRY_PATCH1         (8 | (2 << 8))
+#define MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL (9 | (2 << 8))
+#define MAP_ROGUE_HALLWAY_FACADE_VERTICAL   (10 | (2 << 8))
 
 // gMapGroup_RogueRun
 #define MAP_ROGUE_ADVENTURE_PATHS          (0 | (3 << 8))

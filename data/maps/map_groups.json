@@ -39,7 +39,9 @@
     "Rogue_Tile_Mart",
     "Rogue_Tile_SafariEntrance",
     "Rogue_Tile_OutdoorMart",
-    "Rogue_Tile_BerryPatch1"
+    "Rogue_Tile_BerryPatch1",
+    "Rogue_HallwayFacade_Horizontal",
+    "Rogue_HallwayFacade_Vertical"
   ],
   "gMapGroup_RogueRun": [
     "Rogue_AdventurePaths",

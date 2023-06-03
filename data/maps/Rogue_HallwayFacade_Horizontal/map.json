@@ -1,0 +1,39 @@
+{
+  "id": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+  "name": "Rogue_HallwayFacade_Horizontal",
+  "layout": "LAYOUT_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "offset": -8,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "offset": -8,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "right",
+      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE",
       "offset": -2,
-      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE"
+      "direction": "right"
     },
     {
-      "direction": "left",
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
       "offset": -2,
-      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
+      "direction": "left"
     }
   ],
   "object_events": [
