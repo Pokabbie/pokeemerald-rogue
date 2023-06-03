@@ -46,7 +46,23 @@ script EverGrandeCity_ChampionsRoom_EventScript_Blue
     waitmovement(0)
 
     msgbox(format("Not whilst I'm still standing!"))
-    trainerbattle_no_intro(TRAINER_BLUE, format("No way…\nThis can't be!"))
+
+    random(6)
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            trainerbattle_no_intro(TRAINER_BLUE_1, format("No way…\nThis can't be!"))
+        case 1:
+            trainerbattle_no_intro(TRAINER_BLUE_2, format("No way…\nThis can't be!"))
+        case 2:
+            trainerbattle_no_intro(TRAINER_BLUE_3, format("No way…\nThis can't be!"))
+        case 3:
+            trainerbattle_no_intro(TRAINER_BLUE_4, format("No way…\nThis can't be!"))
+        case 4:
+            trainerbattle_no_intro(TRAINER_BLUE_5, format("No way…\nThis can't be!"))
+        case 5:
+            trainerbattle_no_intro(TRAINER_BLUE_6, format("No way…\nThis can't be!"))
+    }
 
     msgbox(format("… … …\n I can't believe it…\nI can't believe I lost… … …\nAgain… … …"))
 

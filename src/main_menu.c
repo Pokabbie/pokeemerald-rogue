@@ -164,7 +164,7 @@
 
 #define OPTION_MENU_FLAG (1 << 15)
 
-#define DISPLAY_MON_SPECIES SPECIES_ABSOL
+#define DISPLAY_MON_SPECIES SPECIES_COTTONEE
 
 // Static type declarations
 
