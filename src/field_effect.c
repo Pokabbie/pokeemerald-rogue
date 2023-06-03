@@ -32,6 +32,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "sandbox_main.h"
+
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
 EWRAM_DATA s32 gFieldEffectArguments[8] = {0};
@@ -780,16 +782,34 @@ void FieldEffectScript_LoadTiles(u8 **script)
 
 void FieldEffectScript_LoadFadedPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+    
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Sandbox_ModifyOverworldPalette(OBJ_PLTT_ID(palIndex), 1);
+    }
+
     UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(palette->tag));
     (*script) += 4;
 }
 
 void FieldEffectScript_LoadPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Sandbox_ModifyOverworldPalette(OBJ_PLTT_ID(palIndex), 1);
+    }
+
     (*script) += 4;
 }
 

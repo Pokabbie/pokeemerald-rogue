@@ -1,14 +1,23 @@
 #include "global.h"
 #include "constants/battle.h"
 #include "constants/battle_ai.h"
+#include "constants/map_types.h"
 #include "constants/trainers.h"
 
 #include "battle.h"
 #include "battle_setup.h"
 #include "data.h"
+#include "event_data.h"
 #include "graphics.h"
+#include "palette.h"
 
 #include "sandbox_main.h"
+
+//extern const u16 gTilesetPalettes_General[][16];
+extern const u16 gTilesetPalettes_General02_Spring[];
+extern const u16 gTilesetPalettes_General02_Summer[];
+extern const u16 gTilesetPalettes_General02_Autumn[];
+extern const u16 gTilesetPalettes_General02_Winter[];
 
 static bool8 IsKeyTrainerBattle()
 {
@@ -157,4 +166,73 @@ u32 Sandbox_GetTrainerAIFlags(u16 trainerNum)
 #endif
 
     return flags;
+}
+
+static bool8 ShouldApplySeasonTintForCurrentMap()
+{
+    return gMapHeader.mapType != MAP_TYPE_INDOOR;
+}
+
+// Will only apply override palette if the input matches
+static void TintPalette_CompareOverride(u16 *palette, u16 count, const u16* comparePalette, const u16* overridePalette)
+{
+    u16 i, j;
+    u16 colour;
+
+    for (i = 0; i < count; i++)
+    {
+        colour = *palette;
+
+        for(j = 0; j < 16; ++j)
+        {
+            if(comparePalette[j] == colour)
+            {
+                colour = overridePalette[j];
+                break;
+            }
+        }
+
+        *palette++ = colour;
+    }
+}
+
+static u8 CalcCurrentSeason()
+{
+    u8 badgeCount = 0;
+    u32 i;
+
+    for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
+    {
+        if (FlagGet(i))
+            badgeCount++;
+    }
+
+    return badgeCount % SEASON_COUNT;
+}
+
+static void TintPalette_Season(u16 *palette, u16 count)
+{
+    switch (CalcCurrentSeason())
+    {
+    case SEASON_SPRING:
+        break;
+    case SEASON_SUMMER:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Summer);
+        break;
+    case SEASON_AUTUMN:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Autumn);
+        break;
+    case SEASON_WINTER:
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Winter);
+        break;
+    }
+}
+
+void Sandbox_ModifyOverworldPalette(u16 offset, u16 count)
+{
+    if(ShouldApplySeasonTintForCurrentMap)
+    {
+        TintPalette_Season(&gPlttBufferUnfaded[offset], count * 16);
+        CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
+    }
 }

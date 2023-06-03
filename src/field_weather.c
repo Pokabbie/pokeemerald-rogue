@@ -17,6 +17,8 @@
 #include "trig.h"
 #include "gpu_regs.h"
 
+#include "sandbox_main.h"
+
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
 enum
@@ -157,6 +159,8 @@ void StartWeather(void)
     {
         u8 index = AllocSpritePalette(PALTAG_WEATHER);
         CpuCopy32(gFogPalette, &gPlttBufferUnfaded[0x100 + index * 16], 32);
+        Sandbox_ModifyOverworldPalette(OBJ_PLTT_ID(index), 2);
+
         BuildColorMaps();
         gWeatherPtr->contrastColorMapSpritePalIndex = index;
         gWeatherPtr->weatherPicSpritePalIndex = AllocSpritePalette(PALTAG_WEATHER_2);
@@ -868,6 +872,7 @@ void LoadCustomWeatherSpritePalette(const u16 *palette)
 {
     LoadPalette(palette, OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
     UpdateSpritePaletteWithWeather(gWeatherPtr->weatherPicSpritePalIndex);
+    Sandbox_ModifyOverworldPalette(OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), 2);
 }
 
 static void LoadDroughtWeatherPalette(u8 *palsIndex, u8 *palsOffset)

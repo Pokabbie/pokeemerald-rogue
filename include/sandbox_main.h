@@ -10,4 +10,6 @@ const void* Sandbox_ModifyLoadCompressedPalette(const void *src);
 
 u32 Sandbox_GetTrainerAIFlags(u16 trainerNum);
 
+void Sandbox_ModifyOverworldPalette(u16 offset, u16 count);
+
 #endif

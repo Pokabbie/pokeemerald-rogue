@@ -31,6 +31,8 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 
+#include "sandbox_main.h"
+
 // this file was known as evobjmv.c in Game Freak's original source
 
 enum {
@@ -2031,6 +2033,8 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
     LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+
+    Sandbox_ModifyOverworldPalette(OBJ_PLTT_ID(paletteSlot), 2);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)

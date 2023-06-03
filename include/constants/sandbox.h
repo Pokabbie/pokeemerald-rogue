@@ -32,3 +32,9 @@
     callback(3, 4) \
     callback(3, 5)
 
+
+#define SEASON_SPRING   0
+#define SEASON_SUMMER   1
+#define SEASON_AUTUMN   2
+#define SEASON_WINTER   3
+#define SEASON_COUNT    4
