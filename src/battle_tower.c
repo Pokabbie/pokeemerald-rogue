@@ -765,6 +765,7 @@ static const u8 *const *const sPartnerApprenticeTextTables[NUM_APPRENTICES] =
 struct
 {
     u16 species;
+    u16 heldItem;
     u8 fixedIV;
     u8 level;
     u8 nature;
@@ -773,28 +774,31 @@ struct
 } static const sStevenMons[MULTI_PARTY_SIZE] =
 {
     {
-        .species = SPECIES_METANG,
+        .species = SPECIES_AGGRON,
+        .heldItem = ITEM_SHUCA_BERRY,
         .fixedIV = MAX_PER_STAT_IVS,
-        .level = 42,
+        .level = 53,
         .nature = NATURE_BRAVE,
         .evs = {0, 252, 252, 0, 6, 0},
-        .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_METAL_CLAW}
+        .moves = {MOVE_HEAD_SMASH, MOVE_EARTHQUAKE, MOVE_IRON_HEAD, MOVE_DOUBLE_EDGE}
     },
     {
-        .species = SPECIES_SKARMORY,
+        .species = SPECIES_ARMALDO,
+        .heldItem = ITEM_LEFTOVERS,
         .fixedIV = MAX_PER_STAT_IVS,
-        .level = 43,
+        .level = 53,
         .nature = NATURE_IMPISH,
         .evs = {252, 0, 0, 0, 6, 252},
-        .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING}
+        .moves = {MOVE_X_SCISSOR, MOVE_ROCK_SLIDE, MOVE_SWORDS_DANCE, MOVE_AQUA_TAIL}
     },
     {
-        .species = SPECIES_AGGRON,
+        .species = SPECIES_METAGROSS,
+        .heldItem = ITEM_METAGROSSITE,
         .fixedIV = MAX_PER_STAT_IVS,
-        .level = 44,
+        .level = 55,
         .nature = NATURE_ADAMANT,
         .evs = {0, 252, 0, 0, 252, 6},
-        .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
+        .moves = {MOVE_EARTHQUAKE, MOVE_ZEN_HEADBUTT, MOVE_METEOR_MASH, MOVE_HAMMER_ARM}
     }
 };
 
@@ -3018,17 +3022,39 @@ static void FillPartnerParty(u16 trainerId)
             {
                 j = Random32();
             } while (IsShinyOtIdPersonality(STEVEN_OTID, j) || sStevenMons[i].nature != GetNatureFromPersonality(j));
-            CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
-                      sStevenMons[i].species,
-                      sStevenMons[i].level,
-                      sStevenMons[i].fixedIV,
-                      TRUE,
-                      #ifdef BUGFIX
-                      j,
-                      #else
-                      i, // BUG: personality was stored in the 'j' variable. As a result, Steven's pokemon do not have the intended natures.
-                      #endif
-                      OT_ID_PRESET, STEVEN_OTID);
+
+            if(sStevenMons[i].species == SPECIES_METAGROSS)
+            {
+
+                CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
+                        sStevenMons[i].species,
+                        sStevenMons[i].level,
+                        sStevenMons[i].fixedIV,
+                        TRUE,
+                        #ifdef BUGFIX
+                        j,
+                        #else
+                        i, // BUG: personality was stored in the 'j' variable. As a result, Steven's pokemon do not have the intended natures.
+                        #endif
+                        OT_ID_FORCE_SHINY, 0);
+            }
+            else
+            {
+                CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
+                        sStevenMons[i].species,
+                        sStevenMons[i].level,
+                        sStevenMons[i].fixedIV,
+                        TRUE,
+                        #ifdef BUGFIX
+                        j,
+                        #else
+                        i, // BUG: personality was stored in the 'j' variable. As a result, Steven's pokemon do not have the intended natures.
+                        #endif
+                        OT_ID_PRESET, STEVEN_OTID);
+            }
+
+            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_HELD_ITEM, &sStevenMons[i].heldItem);
+
             for (j = 0; j < PARTY_SIZE; j++)
                 SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_HP_EV + j, &sStevenMons[i].evs[j]);
             for (j = 0; j < MAX_MON_MOVES; j++)

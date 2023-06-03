@@ -3456,6 +3456,11 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             shinyValue = GET_SHINY_VALUE(value, personality);
         } while (shinyValue < SHINY_ODDS);
     }
+    else if (otIdType == OT_ID_FORCE_SHINY)
+    {
+        // Hack: Just an easy edge case to always consider as shiny
+        value = 12321;
+    }
     else if (otIdType == OT_ID_PRESET)
     {
         value = fixedOtId;
