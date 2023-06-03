@@ -129,7 +129,8 @@ EWRAM_DATA static u8 sSeasonCounter = 0;
 EWRAM_DATA static u16 sTimeOfDayOverworldColour = 0;
 EWRAM_DATA static u16 sTimeOfDayBattleColour = 0;
 
-extern const u16 gTilesetPalettes_General[][16];
+//extern const u16 gTilesetPalettes_General[][16];
+extern const u16 gTilesetPalettes_General02_Spring[];
 extern const u16 gTilesetPalettes_General02_Summer[];
 extern const u16 gTilesetPalettes_General02_Autumn[];
 extern const u16 gTilesetPalettes_General02_Winter[];
@@ -267,13 +268,13 @@ static void TintPalette_Season(u16 *palette, u16 count)
     case SEASON_SPRING:
         break;
     case SEASON_SUMMER:
-        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Summer);
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Summer);
         break;
     case SEASON_AUTUMN:
-        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Autumn);
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Autumn);
         break;
     case SEASON_WINTER:
-        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General[2], gTilesetPalettes_General02_Winter);
+        TintPalette_CompareOverride(palette, count, gTilesetPalettes_General02_Spring, gTilesetPalettes_General02_Winter);
         break;
     }
 }
