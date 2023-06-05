@@ -46,7 +46,7 @@
       "x": 5,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
@@ -60,7 +60,7 @@
       "x": 5,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {

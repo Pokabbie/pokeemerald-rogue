@@ -1,12 +1,12 @@
 {
-  "id": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
-  "name": "Rogue_Tile_AdventureEntrance",
-  "layout": "LAYOUT_ROGUE_TILE_ADVENTURE_ENTRANCE",
+  "id": "MAP_ROGUE_AREA_HOME",
+  "name": "Rogue_Area_Home",
+  "layout": "LAYOUT_ROGUE_AREA_HOME",
   "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_TOWN",
+  "map_type": "MAP_TYPE_NONE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -15,26 +15,29 @@
   "connections": [
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 8,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 8,
+      "offset": 12,
       "direction": "right"
-    },
-    {
-      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 6,
-      "direction": "down"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
-      "x": 8,
-      "y": 6,
-      "elevation": 3,
+      "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_QUEST_BOARD",
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
@@ -46,31 +49,24 @@
   ],
   "warp_events": [
     {
-      "x": 0,
-      "y": 11,
+      "x": 19,
+      "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 0,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "dest_warp_id": "1"
     },
     {
       "x": 19,
-      "y": 11,
+      "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "dest_warp_id": "1"
     },
     {
-      "x": 19,
+      "x": 16,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB",
+      "dest_map": "MAP_ROGUE_INTERIOR_HOME",
       "dest_warp_id": "0"
     }
   ],

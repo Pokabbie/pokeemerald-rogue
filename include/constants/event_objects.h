@@ -321,17 +321,19 @@
 
 #define OBJ_EVENT_GFX_PC                         (OBJ_EVENT_GFX_JOHTO_RED + 1)
 #define OBJ_EVENT_GFX_DEVIL_MAN                  (OBJ_EVENT_GFX_JOHTO_RED + 2)
+#define OBJ_EVENT_GFX_WORK_TABLE                 (OBJ_EVENT_GFX_JOHTO_RED + 3)
+#define OBJ_EVENT_GFX_QUEST_BOARD                (OBJ_EVENT_GFX_JOHTO_RED + 4)
 
-#define OBJ_EVENT_GFX_BRENDAN_ALT                (OBJ_EVENT_GFX_JOHTO_RED + 3)
-#define OBJ_EVENT_GFX_MAY_ALT                    (OBJ_EVENT_GFX_JOHTO_RED + 4)
-#define OBJ_EVENT_GFX_RED_ALT                    (OBJ_EVENT_GFX_JOHTO_RED + 5)
-#define OBJ_EVENT_GFX_LEAF_ALT                   (OBJ_EVENT_GFX_JOHTO_RED + 6)
-#define OBJ_EVENT_GFX_LYRA_ALT                   (OBJ_EVENT_GFX_JOHTO_RED + 7)
-#define OBJ_EVENT_GFX_ETHAN_ALT                  (OBJ_EVENT_GFX_JOHTO_RED + 8)
+#define OBJ_EVENT_GFX_BRENDAN_ALT                (OBJ_EVENT_GFX_QUEST_BOARD + 1)
+#define OBJ_EVENT_GFX_MAY_ALT                    (OBJ_EVENT_GFX_QUEST_BOARD + 2)
+#define OBJ_EVENT_GFX_RED_ALT                    (OBJ_EVENT_GFX_QUEST_BOARD + 3)
+#define OBJ_EVENT_GFX_LEAF_ALT                   (OBJ_EVENT_GFX_QUEST_BOARD + 4)
+#define OBJ_EVENT_GFX_LYRA_ALT                   (OBJ_EVENT_GFX_QUEST_BOARD + 5)
+#define OBJ_EVENT_GFX_ETHAN_ALT                  (OBJ_EVENT_GFX_QUEST_BOARD + 6)
 
-#define OBJ_EVENT_GFX_GLITCH_KATE                (OBJ_EVENT_GFX_JOHTO_RED + 9)
-#define OBJ_EVENT_GFX_GLITCH_ERMA                (OBJ_EVENT_GFX_JOHTO_RED + 10)
-//#define OBJ_EVENT_GFX_GLITCH_RAVEN               (OBJ_EVENT_GFX_JOHTO_RED + 11)
+#define OBJ_EVENT_GFX_GLITCH_KATE                (OBJ_EVENT_GFX_QUEST_BOARD + 7)
+#define OBJ_EVENT_GFX_GLITCH_ERMA                (OBJ_EVENT_GFX_QUEST_BOARD + 8)
+//#define OBJ_EVENT_GFX_GLITCH_RAVEN               (OBJ_EVENT_GFX_QUEST_BOARD + 9)
 
 #define OBJ_EVENT_GFX_ROUTE_BUG                  (OBJ_EVENT_GFX_GLITCH_ERMA + 1)
 #define OBJ_EVENT_GFX_ROUTE_DARK                 (OBJ_EVENT_GFX_GLITCH_ERMA + 2)

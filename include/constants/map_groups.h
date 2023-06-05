@@ -40,6 +40,9 @@
 #define MAP_ROGUE_TILE_BERRY_PATCH1         (8 | (2 << 8))
 #define MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL (9 | (2 << 8))
 #define MAP_ROGUE_HALLWAY_FACADE_VERTICAL   (10 | (2 << 8))
+#define MAP_ROGUE_AREA_HOME                 (11 | (2 << 8))
+#define MAP_ROGUE_INTERIOR_HOME             (12 | (2 << 8))
+#define MAP_ROGUE_INTERIOR_HOME_UPPER       (13 | (2 << 8))
 
 // gMapGroup_RogueRun
 #define MAP_ROGUE_ADVENTURE_PATHS          (0 | (3 << 8))

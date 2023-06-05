@@ -1530,6 +1530,36 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_HallwayFacade_Vertical/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_HallwayFacade_Vertical/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_HOME",
+      "name": "Rogue_Area_Home_Layout",
+      "width": 20,
+      "height": 18,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_Home/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_HOME",
+      "name": "Rogue_Interior_Home_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Rogue_Interior_Home/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_Home/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_HOME_UPPER",
+      "name": "Rogue_Interior_HomeUpper_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Rogue_Interior_HomeUpper/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_HomeUpper/map.bin"
     }
   ]
 }

@@ -2923,6 +2923,14 @@ static const struct SpriteFrameImage sPicTable_DevilMan[] = {
     overworld_frame(gObjectEventPic_DevilMan, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_WorkTable[] = {
+    obj_frame_tiles(gObjectEventPic_WorkTable),
+};
+
+static const struct SpriteFrameImage sPicTable_QuestBoard[] = {
+    obj_frame_tiles(gObjectEventPic_QuestBoard),
+};
+
 static const struct SpriteFrameImage sPicTable_Route_Bug[] = {
     overworld_frame(gObjectEventPic_Route_Bug, 2, 2, 0),
     overworld_frame(gObjectEventPic_Route_Bug, 2, 2, 1),
