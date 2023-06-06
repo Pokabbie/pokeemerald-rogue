@@ -350,6 +350,7 @@ const union AnimCmd *const gAnims_MonPic[] =
 #include "data/text/move_names.h"
 
 #include "data/rogue_adventure.h"
+#include "data/rogue_hub.h"
 #include "data/rogue_routes.h"
 #include "data/rogue_strings.h"
 #include "data/rogue_species.h"

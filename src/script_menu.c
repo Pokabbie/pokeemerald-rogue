@@ -18,6 +18,8 @@
 #include "constants/script_menu.h"
 #include "constants/songs.h"
 
+#include "rogue_hub.h"
+
 #include "data/script_menu.h"
 
 static EWRAM_DATA u8 sProcessInputDelay = 0;
@@ -48,6 +50,30 @@ bool8 ScriptMenu_Multichoice(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPre
         DrawMultichoiceMenu(left, top, multichoiceId, ignoreBPress, 0);
         return TRUE;
     }
+}
+
+static void MultichoiceLists_GetList(u8 list, struct MenuAction* dest, u8* outCount)
+{
+    if(list >= MULTI_DYNAMIC_CALLBACK_START)
+    {
+        sMultichoiceCallback[list](dest, outCount, MULTICHOICE_LIST_CAPACITY);
+    }
+    else
+    {
+        u8 count;
+        count = sMultichoiceLists[list].count;
+        memcpy(dest, sMultichoiceLists[list].list, sizeof(struct MenuAction) * count);
+
+        *outCount = count;
+    }
+}
+
+u8 ScriptMenu_MultichoiceLength(u8 multichoiceId)
+{
+    u8 count;
+    struct MenuAction actions[MULTICHOICE_LIST_CAPACITY];
+    MultichoiceLists_GetList(multichoiceId, &actions[0], &count);
+    return count;
 }
 
 bool8 ScriptMenu_MultichoiceWithDefault(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress, u8 defaultChoice)
@@ -94,10 +120,12 @@ static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreB
 {
     int i;
     u8 windowId;
-    u8 count = sMultichoiceLists[multichoiceId].count;
-    const struct MenuAction *actions = sMultichoiceLists[multichoiceId].list;
+    u8 count;
+    struct MenuAction actions[MULTICHOICE_LIST_CAPACITY];
     int width = 0;
     u8 newWidth;
+
+    MultichoiceLists_GetList(multichoiceId, &actions[0], &count);
 
     for (i = 0; i < count; i++)
     {
@@ -109,7 +137,7 @@ static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreB
     left = ScriptMenu_AdjustLeftCoordFromWidth(left, newWidth);
     windowId = CreateWindowFromRect(left, top, newWidth, count * 2);
     SetStandardWindowBorderStyle(windowId, 0);
-    PrintMenuTable(windowId, count, actions);
+    PrintMenuTable(windowId, count, &actions[0]);
     InitMenuInUpperLeftCornerNormal(windowId, count, cursorPos);
     ScheduleBgCopyTilemapToVram(0);
     InitMultichoiceCheckWrap(ignoreBPress, count, windowId, multichoiceId);
@@ -260,27 +288,31 @@ bool8 ScriptMenu_MultichoiceGrid(u8 left, u8 top, u8 multichoiceId, bool8 ignore
         u8 taskId;
         u8 rowCount, newWidth;
         int i, width;
+        u8 listCount;
+        struct MenuAction actions[MULTICHOICE_LIST_CAPACITY];
 
         gSpecialVar_Result = 0xFF;
         width = 0;
+        
+        MultichoiceLists_GetList(multichoiceId, &actions[0], &listCount);
 
-        for (i = 0; i < sMultichoiceLists[multichoiceId].count; i++)
+        for (i = 0; i < listCount; i++)
         {
-            StringExpandPlaceholders(gStringVar4, sMultichoiceLists[multichoiceId].list[i].text);
+            StringExpandPlaceholders(gStringVar4, actions[i].text);
             width = DisplayTextAndGetWidth(gStringVar4, width);
         }
 
         newWidth = ConvertPixelWidthToTileWidth(width);
 
         left = ScriptMenu_AdjustLeftCoordFromWidth(left, columnCount * newWidth);
-        rowCount = sMultichoiceLists[multichoiceId].count / columnCount;
+        rowCount = listCount / columnCount;
 
         taskId = CreateTask(Task_HandleMultichoiceGridInput, 80);
 
         gTasks[taskId].tIgnoreBPress = ignoreBPress;
         gTasks[taskId].tWindowId = CreateWindowFromRect(left, top, columnCount * newWidth, rowCount * 2);
         SetStandardWindowBorderStyle(gTasks[taskId].tWindowId, 0);
-        PrintMenuGridTable(gTasks[taskId].tWindowId, newWidth * 8, columnCount, rowCount, sMultichoiceLists[multichoiceId].list);
+        PrintMenuGridTable(gTasks[taskId].tWindowId, newWidth * 8, columnCount, rowCount, &actions[0]);
         InitMenuActionGrid(gTasks[taskId].tWindowId, newWidth * 8, columnCount, rowCount, 0);
         CopyWindowToVram(gTasks[taskId].tWindowId, COPYWIN_FULL);
         return TRUE;

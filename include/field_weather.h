@@ -163,6 +163,7 @@ void ApplyWeatherGammaShiftIfIdle(s8 gammaIndex);
 void ApplyWeatherGammaShiftIfIdle_Gradual(u8 gammaIndex, u8 gammaTargetIndex, u8 gammaStepDelay);
 void FadeScreen(u8 mode, s8 delay);
 bool8 IsWeatherNotFadingIn(void);
+bool8 IsFadingOut(void);
 void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex);
 void ApplyWeatherGammaShiftToPal(u8 paletteIndex);
 void LoadCustomWeatherSpritePalette(const u16 *palette);

@@ -1,1 +1,75 @@
+const VAR_CURR_HUB_UPGRADE = VAR_0x8004
+
 mapscripts Rogue_Area_Home_MapScripts {}
+
+
+// TODO - Move these scripts into separate file
+
+script Rogue_Area_InteractWithWorkbench
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
+    {
+        lock
+        message(format("What upgrade would you like to build?"))
+        waitmessage
+
+        multichoicedynamic(20, 10, TRUE, MULTI_HUB_AREA_UPGRADES, NO)
+        special(RogueHub_GetUpgradeFromMultichoiceResult)
+
+        if(var(VAR_RESULT) != HUB_UPGRADE_NONE)
+        {
+            copyvar(VAR_CURR_HUB_UPGRADE, VAR_RESULT)
+            call(Rogue_Area_ApplyHubUpgrade)
+        }
+
+        release
+    }
+}
+
+script Rogue_Area_ApplyHubUpgrade
+{
+    special(RogueHub_ApplyHubUpgrade)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        fadescreen(FADE_TO_BLACK)
+        playbgm(MUS_NONE, FALSE)
+        delay(15)
+
+        playse(SE_BRIDGE_WALK)
+        waitse
+        playse(SE_BRIDGE_WALK)
+        waitse
+        playse(SE_BRIDGE_WALK)
+        waitse
+        delay(15)
+
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        delay(15)
+
+        playse(SE_M_BUBBLE2)
+        waitse
+        playse(SE_M_BUBBLE2)
+        waitse
+        playse(SE_M_BUBBLE2)
+        waitse
+        delay(15)
+
+        playse(SE_M_VICEGRIP)
+        waitse
+        delay(15)
+
+        playfanfare(MUS_LEVEL_UP)
+        waitfanfare
+
+        msgbox(format("Upgrade message TODO"), MSGBOX_DEFAULT)
+
+        special(ReloadWarpSilent)
+    }
+}

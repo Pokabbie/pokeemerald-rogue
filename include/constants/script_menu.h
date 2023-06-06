@@ -126,6 +126,9 @@
 #define MULTI_REGION_UPTO_HOENN            115
 #define MULTI_REGION_FULL                  116
 
+#define MULTI_DYNAMIC_CALLBACK_START       (MULTI_REGION_FULL + 1)
+#define MULTI_HUB_AREA_UPGRADES            (MULTI_DYNAMIC_CALLBACK_START + 0)
+
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
 #define SSTIDAL_SELECTION_BATTLE_FRONTIER  1

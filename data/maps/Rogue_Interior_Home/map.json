@@ -22,21 +22,21 @@
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": "3"
+      "dest_warp_id": 2
     },
     {
       "x": 6,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": "3"
+      "dest_warp_id": 2
     },
     {
       "x": 7,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_HOME_UPPER",
-      "dest_warp_id": "0"
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

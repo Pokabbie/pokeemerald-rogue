@@ -5,7 +5,10 @@
 #include "constants/rogue.h"
 
 #include "event_data.h"
+#include "field_player_avatar.h"
+#include "field_screen_effect.h"
 #include "item_menu.h"
+#include "overworld.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -862,4 +865,17 @@ void Rogue_RunRewardLvls()
 void Rogue_RunRewardMoney()
 {
     gSpecialVar_Result = Rogue_PostRunRewardMoney();
+}
+
+void ReloadWarpSilent()
+{
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+    u8 warpId = (u8)-1;
+    u16 x = gSaveBlock1Ptr->pos.x;
+    u16 y = gSaveBlock1Ptr->pos.y;
+
+    StoreInitialPlayerAvatarStateForReloadWarp();
+    SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    DoDiveWarp();
 }

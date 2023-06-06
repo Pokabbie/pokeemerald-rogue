@@ -929,11 +929,13 @@ void ResetInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = DIR_SOUTH;
     sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
+    sInitialPlayerAvatarState.maintainDirection = FALSE;
 }
 
 void StoreInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = GetPlayerFacingDirection();
+    sInitialPlayerAvatarState.maintainDirection = FALSE;
 
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_MACH_BIKE;
@@ -945,6 +947,12 @@ void StoreInitialPlayerAvatarState(void)
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_UNDERWATER;
     else
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
+}
+
+void StoreInitialPlayerAvatarStateForReloadWarp(void)
+{
+    StoreInitialPlayerAvatarState();
+    sInitialPlayerAvatarState.maintainDirection = TRUE;
 }
 
 static struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
@@ -979,7 +987,9 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
 
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, u8 mapType)
 {
-    if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
+    if(playerStruct->maintainDirection)
+        return playerStruct->direction;
+    else if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
     else if (MetatileBehavior_IsDeepSouthWarp(metatileBehavior) == TRUE)
         return DIR_NORTH;

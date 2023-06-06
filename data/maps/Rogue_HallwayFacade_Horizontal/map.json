@@ -25,8 +25,13 @@
     },
     {
       "map": "MAP_ROGUE_AREA_HOME",
-      "offset": -12,
+      "offset": -14,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROGUE_AREA_HOME",
+      "offset": -14,
+      "direction": "right"
     }
   ],
   "object_events": [

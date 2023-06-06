@@ -1,3 +1,7 @@
+#define MULTICHOICE_LIST_CAPACITY 12
+
+typedef void (*MultichoiceList_Callback)(struct MenuAction* outList, u8* outCount, u8 listCapcity);
+
 // multichoice lists
 static const struct MenuAction MultichoiceList_BrineyOnDewford[] =
 {
@@ -977,6 +981,11 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGION_OR_NATIONAL]         = MULTICHOICE(MultichoiceList_RegionOrNational),
     [MULTI_REGION_UPTO_HOENN]          = MULTICHOICE(MultichoiceList_RegionUpToHoenn),
     [MULTI_REGION_FULL]                = MULTICHOICE(MultichoiceList_RegionFull),
+};
+
+static const MultichoiceList_Callback sMultichoiceCallback[] =
+{
+    [MULTI_HUB_AREA_UPGRADES] = RogueHub_GetAreaUpgradesMultichoice,
 };
 
 const u8 *const gStdStrings[] =

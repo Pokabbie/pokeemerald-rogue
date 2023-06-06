@@ -422,5 +422,6 @@
 #define SEASON_COUNT    4
 
 #include "rogue_quests.h"
+#include "rogue_hub.h"
 
 #endif

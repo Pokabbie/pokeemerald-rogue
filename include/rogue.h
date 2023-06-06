@@ -163,6 +163,13 @@ struct RogueRunData
     } campaignData;
 };
 
+struct RogueAreaUpgrade
+{
+    const u8 upgradeName[16];
+    u8 targetArea;
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
+};
+
 struct RogueHubData
 {
     u32 money;
@@ -334,6 +341,7 @@ extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
+extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
 

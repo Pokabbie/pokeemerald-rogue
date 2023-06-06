@@ -48,6 +48,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_hub.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -2200,6 +2201,11 @@ void Rogue_OnLoadMap(void)
 
         RandomiseSafariWildEncounters();
         Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
+    }
+    else if(!Rogue_IsRunActive())
+    {
+        // Apply metatiles for the map we're in
+        RogueHub_ApplyMapMetatiles();
     }
 
     SetupFollowParterMonObjectEvent();

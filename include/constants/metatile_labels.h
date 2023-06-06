@@ -205,7 +205,22 @@
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
 // gTileset_GeneralHub
-#define METATILE_GeneralHub_Door_PokeConnect  0x062
+#define METATILE_GeneralHub_Door_PokeConnect                    0x062
+#define METATILE_GeneralHub_Grass                               0x001
+#define METATILE_GeneralHub_Tree_BottomLeft_Dense               0x1E4
+#define METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped    0x1DC
+#define METATILE_GeneralHub_Tree_BottomLeft_Sparse              0x1E6
+#define METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped   0x1DE
+#define METATILE_GeneralHub_Tree_BottomRight_Dense              0x1E5
+#define METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped   0x1DD
+#define METATILE_GeneralHub_Tree_BottomRight_Sparse             0x1E7
+#define METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped  0x1DF
+#define METATILE_GeneralHub_Tree_TopLeft_CapGrass               0x1CE
+#define METATILE_GeneralHub_Tree_TopLeft_Dense                  0x1D4
+#define METATILE_GeneralHub_Tree_TopLeft_Sparse                 0x1D6
+#define METATILE_GeneralHub_Tree_TopRight_CapGrass              0x1CF
+#define METATILE_GeneralHub_Tree_TopRight_Dense                 0x1D5
+#define METATILE_GeneralHub_Tree_TopRight_Sparse                0x1D7
 
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
