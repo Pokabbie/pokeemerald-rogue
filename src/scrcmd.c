@@ -53,6 +53,7 @@
 
 #include "constants/rogue.h"
 #include "rogue.h"
+#include "rogue_hub.h"
 #include "rogue_quest.h"
 
 typedef u16 (*SpecialFunc)(void);
@@ -2517,6 +2518,13 @@ bool8 ScrCmd_deactivatequest(struct ScriptContext *ctx)
 {
     u16 index = ScriptReadHalfword(ctx);
     gSpecialVar_Result = TryDeactivateQuest(index);
+    return FALSE;
+}
+
+bool8 ScrCmd_hubupgradeunlocked(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = RogueHub_HasUpgrade(index);
     return FALSE;
 }
 

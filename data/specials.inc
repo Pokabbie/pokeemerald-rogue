@@ -219,6 +219,8 @@ gSpecials::
 	def_special Rogue_RunRewardMoney
 	def_special RogueHub_GetUpgradeFromMultichoiceResult
 	def_special RogueHub_ApplyHubUpgrade
+	def_special RogueHub_BufferUpgradeDescriptionText
+	def_special RogueHub_BufferUpgradeCompleteText
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetNodeParams
 	def_special RogueAdv_ExecuteNodeAction

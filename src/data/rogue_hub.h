@@ -1,5 +1,10 @@
 
-//static const u8 gText_GiveTravelShopPlates[] = _("Travelling Mart will now stock\nAdditional Plates and Memories!");
+static const u8 sText_Desc_Home_LowerFloor[] = _(
+    "The home can be used to store items and\n"
+    "change your outfits.\p"
+    "It has access to further upgrades\n"
+    "which provide extra convenience."
+);
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
@@ -7,11 +12,13 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     {
         .upgradeName = _("House"),
         .targetArea = HUB_AREA_HOME,
+        .descText = sText_Desc_Home_LowerFloor,
+        .completeText = sText_Desc_Home_LowerFloor,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_HOME_UPPER_FLOOR] = 
     {
-        .upgradeName = _("House (2)"),
+        .upgradeName = _("Upper Floor"),
         .targetArea = HUB_AREA_HOME,
         .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
@@ -20,7 +27,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     {
         .upgradeName = _("Berry Field"),
         .targetArea = HUB_AREA_HOME,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
+        .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_HOME_BERRY_FIELD2] = 
     {
@@ -31,9 +38,9 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
 
     [HUB_UPGRADE_HOME_GRASS_FIELD] = 
     {
-        .upgradeName = _("Open Field"),
+        .upgradeName = _("Open Garden"),
         .targetArea = HUB_AREA_HOME,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
+        .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
 
     [HUB_UPGRADE_HOME_GRASS_FIELD_SHED] = 

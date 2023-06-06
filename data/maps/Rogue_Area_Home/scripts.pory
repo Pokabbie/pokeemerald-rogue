@@ -1,75 +1,43 @@
-const VAR_CURR_HUB_UPGRADE = VAR_0x8004
+const FLAG_BERRY_FIELD1 = FLAG_TEMP_1
+const FLAG_BERRY_FIELD2 = FLAG_TEMP_2
+const FLAG_FIELD_MON0 = FLAG_TEMP_3
+const FLAG_FIELD_MON1 = FLAG_TEMP_4
+const FLAG_FIELD_MON2 = FLAG_TEMP_5
+const FLAG_FIELD_MON3 = FLAG_TEMP_6
 
-mapscripts Rogue_Area_Home_MapScripts {}
-
-
-// TODO - Move these scripts into separate file
-
-script Rogue_Area_InteractWithWorkbench
+mapscripts Rogue_Area_Home_MapScripts 
 {
-    specialvar(VAR_RESULT, GetPlayerFacingDirection)
-    if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
-    {
-        lock
-        message(format("What upgrade would you like to build?"))
-        waitmessage
-
-        multichoicedynamic(20, 10, TRUE, MULTI_HUB_AREA_UPGRADES, NO)
-        special(RogueHub_GetUpgradeFromMultichoiceResult)
-
-        if(var(VAR_RESULT) != HUB_UPGRADE_NONE)
-        {
-            copyvar(VAR_CURR_HUB_UPGRADE, VAR_RESULT)
-            call(Rogue_Area_ApplyHubUpgrade)
-        }
-
-        release
-    }
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Home_OnTransition
 }
 
-script Rogue_Area_ApplyHubUpgrade
+script Rogue_Area_Home_OnTransition
 {
-    special(RogueHub_ApplyHubUpgrade)
+    // Hide everything first
+    setflag(FLAG_BERRY_FIELD1)
+    setflag(FLAG_BERRY_FIELD2)
+    setflag(FLAG_FIELD_MON0)
+    setflag(FLAG_FIELD_MON1)
+    setflag(FLAG_FIELD_MON2)
+    setflag(FLAG_FIELD_MON3)
 
-    if(var(VAR_RESULT) == TRUE)
+    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
+    if(var(VAR_RESULT) == YES)
     {
-        fadescreen(FADE_TO_BLACK)
-        playbgm(MUS_NONE, FALSE)
-        delay(15)
+        clearflag(FLAG_BERRY_FIELD1)
+    }
 
-        playse(SE_BRIDGE_WALK)
-        waitse
-        playse(SE_BRIDGE_WALK)
-        waitse
-        playse(SE_BRIDGE_WALK)
-        waitse
-        delay(15)
+    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_BERRY_FIELD2)
+    }
 
-        playse(SE_M_DIG)
-        waitse
-        playse(SE_M_DIG)
-        waitse
-        playse(SE_M_DIG)
-        waitse
-        delay(15)
-
-        playse(SE_M_BUBBLE2)
-        waitse
-        playse(SE_M_BUBBLE2)
-        waitse
-        playse(SE_M_BUBBLE2)
-        waitse
-        delay(15)
-
-        playse(SE_M_VICEGRIP)
-        waitse
-        delay(15)
-
-        playfanfare(MUS_LEVEL_UP)
-        waitfanfare
-
-        msgbox(format("Upgrade message TODO"), MSGBOX_DEFAULT)
-
-        special(ReloadWarpSilent)
+    hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_FIELD_MON0)
+        clearflag(FLAG_FIELD_MON1)
+        clearflag(FLAG_FIELD_MON2)
+        clearflag(FLAG_FIELD_MON3)
     }
 }

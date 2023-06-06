@@ -245,6 +245,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_facefollower              @ 0xf2
 	.4byte ScrCmd_checkfollower             @ 0xf3
 	.4byte ScrCmd_multichoicedynamic        @ 0xf4
+	.4byte ScrCmd_hubupgradeunlocked        @ 0xf5
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

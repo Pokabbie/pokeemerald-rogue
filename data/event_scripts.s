@@ -589,6 +589,8 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/scripts/Rogue/Rogue_FollowMon.inc"
+	.include "data/scripts/Rogue/Rogue_Hub.inc"
+	.include "data/scripts/Rogue/Rogue_Hub_Strings.inc"
 	.include "data/scripts/Rogue/Rogue_Manager.inc"
 	.include "data/scripts/Rogue/Rogue_Multiplayer.inc"
 

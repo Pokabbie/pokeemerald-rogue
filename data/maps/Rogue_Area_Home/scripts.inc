@@ -1,74 +1,40 @@
 Rogue_Area_Home_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Rogue_Area_Home_OnTransition
 	.byte 0
 
 
-Rogue_Area_InteractWithWorkbench::
-	specialvar VAR_RESULT, GetPlayerFacingDirection
-	compare VAR_RESULT, DIR_SOUTH
-	goto_if_ne Rogue_Area_InteractWithWorkbench_1
+Rogue_Area_Home_OnTransition::
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_4
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_6
+	hubupgradeunlocked HUB_UPGRADE_HOME_BERRY_FIELD1
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Area_Home_OnTransition_2
+Rogue_Area_Home_OnTransition_1:
+	hubupgradeunlocked HUB_UPGRADE_HOME_BERRY_FIELD2
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Area_Home_OnTransition_5
+Rogue_Area_Home_OnTransition_4:
+	hubupgradeunlocked HUB_UPGRADE_HOME_GRASS_FIELD
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Area_Home_OnTransition_7
 	return
 
-Rogue_Area_InteractWithWorkbench_1:
-	lock
-	message Rogue_Area_InteractWithWorkbench_Text_0
-	waitmessage
-	multichoicedynamic 20, 10, TRUE, MULTI_HUB_AREA_UPGRADES, NO
-	special RogueHub_GetUpgradeFromMultichoiceResult
-	compare VAR_RESULT, HUB_UPGRADE_NONE
-	goto_if_ne Rogue_Area_InteractWithWorkbench_4
-Rogue_Area_InteractWithWorkbench_3:
-	release
+Rogue_Area_Home_OnTransition_2:
+	clearflag FLAG_TEMP_1
+	goto Rogue_Area_Home_OnTransition_1
+
+Rogue_Area_Home_OnTransition_5:
+	clearflag FLAG_TEMP_2
+	goto Rogue_Area_Home_OnTransition_4
+
+Rogue_Area_Home_OnTransition_7:
+	clearflag FLAG_TEMP_3
+	clearflag FLAG_TEMP_4
+	clearflag FLAG_TEMP_5
+	clearflag FLAG_TEMP_6
 	return
 
-Rogue_Area_InteractWithWorkbench_4:
-	copyvar VAR_0x8004, VAR_RESULT
-	call Rogue_Area_ApplyHubUpgrade
-	goto Rogue_Area_InteractWithWorkbench_3
-
-
-Rogue_Area_ApplyHubUpgrade::
-	special RogueHub_ApplyHubUpgrade
-	compare VAR_RESULT, TRUE
-	goto_if_eq Rogue_Area_ApplyHubUpgrade_1
-	return
-
-Rogue_Area_ApplyHubUpgrade_1:
-	fadescreen FADE_TO_BLACK
-	playbgm MUS_NONE, FALSE
-	delay 15
-	playse SE_BRIDGE_WALK
-	waitse
-	playse SE_BRIDGE_WALK
-	waitse
-	playse SE_BRIDGE_WALK
-	waitse
-	delay 15
-	playse SE_M_DIG
-	waitse
-	playse SE_M_DIG
-	waitse
-	playse SE_M_DIG
-	waitse
-	delay 15
-	playse SE_M_BUBBLE2
-	waitse
-	playse SE_M_BUBBLE2
-	waitse
-	playse SE_M_BUBBLE2
-	waitse
-	delay 15
-	playse SE_M_VICEGRIP
-	waitse
-	delay 15
-	playfanfare MUS_LEVEL_UP
-	waitfanfare
-	msgbox Rogue_Area_ApplyHubUpgrade_Text_0, MSGBOX_DEFAULT
-	special ReloadWarpSilent
-	return
-
-
-Rogue_Area_InteractWithWorkbench_Text_0:
-	.string "What upgrade would you like to build?$"
-
-Rogue_Area_ApplyHubUpgrade_Text_0:
-	.string "Upgrade message TODO$"

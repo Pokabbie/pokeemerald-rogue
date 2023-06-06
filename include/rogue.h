@@ -166,6 +166,8 @@ struct RogueRunData
 struct RogueAreaUpgrade
 {
     const u8 upgradeName[16];
+    const u8* descText;
+    const u8* completeText;
     u8 targetArea;
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
 };

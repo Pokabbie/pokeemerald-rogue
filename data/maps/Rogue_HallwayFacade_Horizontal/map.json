@@ -14,24 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "direction": "right",
       "offset": -8,
-      "direction": "right"
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
     },
     {
-      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "direction": "left",
       "offset": -8,
-      "direction": "left"
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
     },
     {
-      "map": "MAP_ROGUE_AREA_HOME",
+      "direction": "left",
       "offset": -14,
-      "direction": "left"
+      "map": "MAP_ROGUE_AREA_HOME"
     },
     {
-      "map": "MAP_ROGUE_AREA_HOME",
+      "direction": "right",
       "offset": -14,
-      "direction": "right"
+      "map": "MAP_ROGUE_AREA_HOME"
     }
   ],
   "object_events": [

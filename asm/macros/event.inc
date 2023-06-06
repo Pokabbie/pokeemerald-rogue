@@ -2039,3 +2039,9 @@
 	.2byte \questId
 	.endm
 	
+	@ Attempts to deactive the given quest and returns the result
+	.macro hubupgradeunlocked upgradeId:req
+	.byte 0xf5
+	.2byte \upgradeId
+	.endm
+	

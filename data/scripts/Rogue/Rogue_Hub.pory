@@ -1,0 +1,109 @@
+const VAR_CURR_HUB_UPGRADE = VAR_0x8004
+
+script Rogue_Area_InteractWithWorkbench
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
+    {
+        lock
+        call(Rogue_Area_DisplayAvaliableUpgrades)
+        release
+    }
+}
+
+script Rogue_Area_DisplayAvaliableUpgrades
+{
+    message(format("Which upgrade would you like to build?"))
+    waitmessage
+
+    multichoicedynamic(20, 10, TRUE, MULTI_HUB_AREA_UPGRADES, NO)
+    special(RogueHub_GetUpgradeFromMultichoiceResult)
+
+    if(var(VAR_RESULT) != HUB_UPGRADE_NONE)
+    {
+        copyvar(VAR_CURR_HUB_UPGRADE, VAR_RESULT)
+        call(Rogue_Area_ShouldApplyHubUpgrade)
+    }
+}
+
+script Rogue_Area_ShouldApplyHubUpgrade
+{
+    message(format("Would you like to build this upgrade?"))
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_Area_ApplyHubUpgrade)
+
+        case 2: // Info
+            
+            special(RogueHub_BufferUpgradeDescriptionText)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                special(ShowFieldMessageStringVar4)
+                waitmessage
+                waitbuttonpress
+            }
+            else
+            {
+                msgbox(format("TODO - Upgrade description."))
+            }
+                goto(Rogue_Area_ShouldApplyHubUpgrade)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            goto(Rogue_Area_DisplayAvaliableUpgrades)
+    }
+}
+
+script Rogue_Area_ApplyHubUpgrade
+{
+    special(RogueHub_ApplyHubUpgrade)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        fadescreen(FADE_TO_BLACK)
+        playbgm(MUS_NONE, FALSE)
+        delay(15)
+
+        playse(SE_BRIDGE_WALK)
+        waitse
+        playse(SE_BRIDGE_WALK)
+        waitse
+        playse(SE_BRIDGE_WALK)
+        waitse
+        delay(15)
+
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        delay(15)
+
+        playse(SE_M_VICEGRIP)
+        waitse
+        delay(15)
+
+        playfanfare(MUS_LEVEL_UP)
+
+        message("") // Need this otherwise for some reason previous text will breifly pop up on the screen
+        waitmessage
+
+        msgbox(format("Upgrade built!"), MSGBOX_DEFAULT)
+
+        special(RogueHub_BufferUpgradeCompleteText)
+        if(var(VAR_RESULT) == TRUE)
+        {
+            special(ShowFieldMessageStringVar4)
+            waitmessage
+            waitbuttonpress
+        }
+
+        waitfanfare
+        special(ReloadWarpSilent)
+    }
+}

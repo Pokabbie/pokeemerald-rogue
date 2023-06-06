@@ -20,6 +20,7 @@
 //#include "safari_zone.h"
 //#include "sound.h"
 #include "strings.h"
+#include "string_util.h"
 //#include "random.h"
 //#include "script.h"
 
@@ -69,7 +70,7 @@ bool8 RogueHub_HasUpgrade(u16 upgradeId)
     u8 bitMask = 1 << bit;
 
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueHubMap.upgradeFlags));
-    return gRogueHubMap.upgradeFlags[idx] & bitMask;
+    return (gRogueHubMap.upgradeFlags[idx] & bitMask) != 0;
 }
 
 void RogueHub_SetUpgrade(u16 upgradeId, bool8 state)
@@ -164,27 +165,24 @@ static void RogueHub_UpdateHomeAreaMetatiles()
     }
 
     // Fill shed (must unlock after field)
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD_SHED))
+    else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD_SHED))
     {
-        MetatileFill_TreesOverlapping(14, 3, 17, 6, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(15, 7, 17, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(14, 7, 14, TREE_TYPE_SPARSE);
+        MetatileFill_TreesOverlapping(14, 2, 17, 4, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(14, 5, 17, TREE_TYPE_DENSE);
     }
 
     // Fill left field
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD1))
     {
         // Unlocked no fields
-        MetatileFill_TreesOverlapping(0, 1, 7, 8, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(0, 5, 7, 8, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(0, 9, 7, TREE_TYPE_DENSE);
         MetatileFill_Tile(0, 10, 6, 14, METATILE_GeneralHub_Grass);
     }
     else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD2))
     {
-        // Unlocked bottom field
-        MetatileFill_TreesOverlapping(0, 1, 7, 7, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(0, 7, 7, TREE_TYPE_DENSE);
-        MetatileFill_Tile(0, 8, 6, 8, METATILE_GeneralHub_Grass);
+        // Unlocked right field
+        MetatileFill_Tile(4, 9, 6, 14, METATILE_GeneralHub_Grass);
     }
 
     // Remove house
@@ -359,5 +357,31 @@ void RogueHub_ApplyHubUpgrade()
     else
     {
         VarSet(VAR_RESULT, FALSE);
+    }
+}
+
+void RogueHub_BufferUpgradeDescriptionText()
+{
+    u16 upgrade = VarGet(VAR_0x8004);
+
+    VarSet(VAR_RESULT, FALSE);
+
+    if(upgrade < HUB_UPGRADE_COUNT && gRogueHubUpgrades[upgrade].descText)
+    {
+        StringCopy(gStringVar4, gRogueHubUpgrades[upgrade].descText);
+        VarSet(VAR_RESULT, TRUE);
+    }
+}
+
+void RogueHub_BufferUpgradeCompleteText()
+{
+    u16 upgrade = VarGet(VAR_0x8004);
+
+    VarSet(VAR_RESULT, FALSE);
+
+    if(upgrade < HUB_UPGRADE_COUNT && gRogueHubUpgrades[upgrade].completeText)
+    {
+        StringCopy(gStringVar4, gRogueHubUpgrades[upgrade].completeText);
+        VarSet(VAR_RESULT, TRUE);
     }
 }
