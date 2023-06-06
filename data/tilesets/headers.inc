@@ -840,4 +840,4 @@ gTileset_GeneralHub::
 	.4byte gTilesetPalettes_GeneralHub
 	.4byte gMetatiles_GeneralHub
 	.4byte gMetatileAttributes_GeneralHub
-	.4byte NULL @ animation callback
+	.4byte InitTilesetAnim_General

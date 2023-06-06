@@ -593,18 +593,22 @@ void FollowMon_OverworldCB()
                     }
                     else 
                     {
-                        // Instantly play a small animation to ground the spawning a bit
-                        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                        // Only play anim if they are wild spawning mons
+                        if(Rogue_AreWildMonEnabled())
                         {
-                            MovementAction_FollowMonWaterSpawn(&gObjectEvents[objectEventId]);
-                        }
-                        else if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
-                        {
-                            MovementAction_FollowMonCaveSpawn(&gObjectEvents[objectEventId]);
-                        }
-                        else
-                        {
-                            MovementAction_FollowMonGrassSpawn(&gObjectEvents[objectEventId]);
+                            // Instantly play a small animation to ground the spawning a bit
+                            if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                            {
+                                MovementAction_FollowMonWaterSpawn(&gObjectEvents[objectEventId]);
+                            }
+                            else if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+                            {
+                                MovementAction_FollowMonCaveSpawn(&gObjectEvents[objectEventId]);
+                            }
+                            else
+                            {
+                                MovementAction_FollowMonGrassSpawn(&gObjectEvents[objectEventId]);
+                            }
                         }
 
                         sFollowMonData.pendingSpawnAnim &= ~bitFlag;
