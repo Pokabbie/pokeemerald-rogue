@@ -1,0 +1,5 @@
+
+text gText_Test
+{
+    format("The home can be used to store items and change your outfits.\pIt has access to further upgrades which provide extra convenience.")
+}

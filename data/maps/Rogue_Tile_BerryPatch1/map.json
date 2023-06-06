@@ -12,7 +12,33 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_INSIDE_OF_TRUCK",
+      "offset": 0,
+      "direction": "dive"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 4,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 4,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "offset": 6,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "offset": 6,
+      "direction": "up"
+    }
+  ],
   "object_events": [
 
   ],

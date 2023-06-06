@@ -544,6 +544,8 @@ const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
+const u32 gObjectEventPic_WorkTable[] = INCBIN_U32("graphics/object_events/pics/rogue/work_table.4bpp");
+const u32 gObjectEventPic_QuestBoard[] = INCBIN_U32("graphics/object_events/pics/rogue/quest_board.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");

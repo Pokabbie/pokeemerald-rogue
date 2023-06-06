@@ -1,0 +1,43 @@
+const FLAG_BERRY_FIELD1 = FLAG_TEMP_1
+const FLAG_BERRY_FIELD2 = FLAG_TEMP_2
+const FLAG_FIELD_MON0 = FLAG_TEMP_3
+const FLAG_FIELD_MON1 = FLAG_TEMP_4
+const FLAG_FIELD_MON2 = FLAG_TEMP_5
+const FLAG_FIELD_MON3 = FLAG_TEMP_6
+
+mapscripts Rogue_Area_Home_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Home_OnTransition
+}
+
+script Rogue_Area_Home_OnTransition
+{
+    // Hide everything first
+    setflag(FLAG_BERRY_FIELD1)
+    setflag(FLAG_BERRY_FIELD2)
+    setflag(FLAG_FIELD_MON0)
+    setflag(FLAG_FIELD_MON1)
+    setflag(FLAG_FIELD_MON2)
+    setflag(FLAG_FIELD_MON3)
+
+    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_BERRY_FIELD1)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_BERRY_FIELD2)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_FIELD_MON0)
+        clearflag(FLAG_FIELD_MON1)
+        clearflag(FLAG_FIELD_MON2)
+        clearflag(FLAG_FIELD_MON3)
+    }
+}

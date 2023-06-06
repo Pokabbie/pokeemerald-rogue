@@ -14,21 +14,26 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE"
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 8,
+      "direction": "left"
     },
     {
-      "direction": "right",
-      "offset": -6,
-      "map": "MAP_ROGUE_TILE_MART"
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 8,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "offset": 6,
+      "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
       "x": 8,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -41,11 +46,32 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 9,
+      "x": 0,
+      "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_map": "MAP_ROGUE_AREA_HOME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_HOME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

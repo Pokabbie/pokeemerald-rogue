@@ -590,6 +590,8 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/scripts/Rogue/Rogue_FollowMon.inc"
+	.include "data/scripts/Rogue/Rogue_Hub.inc"
+	.include "data/scripts/Rogue/Rogue_Hub_Strings.inc"
 	.include "data/scripts/Rogue/Rogue_Manager.inc"
 	.include "data/scripts/Rogue/Rogue_Multiplayer.inc"
 
@@ -767,3 +769,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Special_Hooh/scripts.inc"
 
 	.include "data/maps/Rogue_Special_Lugia/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Horizontal/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Vertical/scripts.inc"
+
+	.include "data/maps/Rogue_Area_Home/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_Home/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_HomeUpper/scripts.inc"

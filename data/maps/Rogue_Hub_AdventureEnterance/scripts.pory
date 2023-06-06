@@ -492,19 +492,52 @@ script Rogue_ReturnAdventureCommon
         //turnobject(NPC_INTRO_SCOTT, DIR_SOUTH)
     }
 
-    buffernumberstring(STR_VAR_1, VAR_ROGUE_REWARD_MONEY)
+    special(Rogue_RunRewardMoney)
+    copyvar(VAR_0x8000, VAR_RESULT)
 
-    message(format("You recieve ¥{STR_VAR_1}"))
-    playfanfare(MUS_OBTAIN_ITEM)
-    waitmessage
-    waitfanfare
+    special(Rogue_RunRewardLvls)
+    copyvar(VAR_0x8001, VAR_RESULT)
 
-    if(var(VAR_ROGUE_INTRO_STATE) == 6)
+    if(var(VAR_0x8000) != 0 || var(VAR_0x8001) != 0)
     {
-        bufferitemname(STR_VAR_2, ITEM_RARE_CANDY)
+        msgbox(format("Your rewards for this time are..."))
 
-        msgbox(format("Since you're back from your first adventure, you should speak to Scott and collect any rewards for Quests you've completed."), MSGBOX_DEFAULT)
-        msgbox(format("Quests will often reward you with {STR_VAR_2}.\pBy leveling up your PARTNER with these you will gain the option to skip over GYM badges in future Adventures."), MSGBOX_DEFAULT)
+        if(var(VAR_0x8000) != 0)
+        {
+            buffernumberstring(STR_VAR_1, VAR_0x8000)
+
+            message(format("You recieved ¥{STR_VAR_1}"))
+            playfanfare(MUS_OBTAIN_ITEM)
+            waitmessage
+            waitfanfare
+        }
+
+        if(var(VAR_0x8001) != 0)
+        {
+            if(var(VAR_0x8001) == 1)
+            {
+                message(format("Party recieved 1 LVL"))
+            }
+            else
+            {
+                buffernumberstring(STR_VAR_1, VAR_0x8001)
+                message(format("Party recieved {STR_VAR_1} LVLs"))
+            }
+
+            playfanfare(FANFARE_LEVEL_UP)
+            waitmessage
+            waitfanfare
+            
+            if(!flag(FLAG_ROGUE_LVL_TUTORIAL))
+            {
+                msgbox(format("Ah!\nIs this the first time your party has leveled up in the HUB?\pThese LVLs don't work entirely the same as they do whilst out on Adventures.\pPOKéMON will not naturally learn moves or evolve whilst in the HUB.\pYou will need to find specialist NPCs who will be able to help out, once your POKéMON has reached the correct level.\pAny levels you gain in the HUB will be temporarily reset when you embark on Adventures.\pThe HUB level will be restored once you return."))
+                setflag(FLAG_ROGUE_LVL_TUTORIAL)
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("Looks like there aren't any rewards for this Adventure."))
     }
 
     clearflag(FLAG_ROGUE_LEFT_ON_RUN)

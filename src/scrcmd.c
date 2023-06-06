@@ -53,6 +53,7 @@
 
 #include "constants/rogue.h"
 #include "rogue.h"
+#include "rogue_hub.h"
 #include "rogue_quest.h"
 
 typedef u16 (*SpecialFunc)(void);
@@ -1377,6 +1378,31 @@ bool8 ScrCmd_multichoice(struct ScriptContext *ctx)
     }
 }
 
+bool8 ScrCmd_multichoicedynamic(struct ScriptContext *ctx)
+{
+    u8 left = ScriptReadByte(ctx);
+    u8 top = ScriptReadByte(ctx);
+    bool8 upward = ScriptReadByte(ctx);
+    u8 multichoiceId = ScriptReadByte(ctx);
+    bool8 ignoreBPress = ScriptReadByte(ctx);
+
+    u8 length = ScriptMenu_MultichoiceLength(multichoiceId);
+    if(upward && length > 1)
+    {
+        top -= min(top, (length - 1) * 2);
+    }
+
+    if (ScriptMenu_Multichoice(left, top, multichoiceId, ignoreBPress) == TRUE)
+    {
+        ScriptContext1_Stop();
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 bool8 ScrCmd_multichoicedefault(struct ScriptContext *ctx)
 {
     u8 left = ScriptReadByte(ctx);
@@ -2516,6 +2542,13 @@ bool8 ScrCmd_deactivatequest(struct ScriptContext *ctx)
 {
     u16 index = ScriptReadHalfword(ctx);
     gSpecialVar_Result = TryDeactivateQuest(index);
+    return FALSE;
+}
+
+bool8 ScrCmd_hubupgradeunlocked(struct ScriptContext *ctx)
+{
+    u16 index = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = RogueHub_HasUpgrade(index);
     return FALSE;
 }
 

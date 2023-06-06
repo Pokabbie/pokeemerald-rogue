@@ -25,7 +25,11 @@ const u8 gText_StatusRoute[] = _("ROUTE: {STR_VAR_1}\n");
 const u8 gText_StatusBadges[] = _("BADGES: {STR_VAR_1}\n");
 const u8 gText_StatusScore[] = _("SCORE: {STR_VAR_1}\n");
 const u8 gText_StatusTimer[] = _("TIMER: {STR_VAR_1}:{STR_VAR_2}\n");
-const u8 gText_StatusClock[] = _("CLOCK: {STR_VAR_1}:{STR_VAR_2}\n");
+const u8 gText_StatusClock[] = _("{STR_VAR_1}:{STR_VAR_2}\n");
+const u8 gText_StatusSeasonSpring[] = _("·Spring·");
+const u8 gText_StatusSeasonSummer[] = _("·Summer·");
+const u8 gText_StatusSeasonAutumn[] = _("·Autumn·");
+const u8 gText_StatusSeasonWinter[] = _("·Winter·");
 
 // Colours aren't exact as they'll be used in battle UI
 const u8 gText_MoveEffective[] = _("{COLOR RED}Neutral");

@@ -899,6 +899,18 @@
 
 	@ Displays a multichoice box from which the user can choose a selection, and blocks script execution until a selection is made.
 	@ Lists of options are predefined (sMultichoiceLists) and the one to be used is specified with multichoiceId.
+	@ If ignoreBPress is set to a non-zero value, then the user will not be allowed to back out of the multichoice with the B button.
+	.macro multichoicedynamic x:req, y:req, upwards:req, multichoiceId:req, ignoreBPress:req
+	.byte 0xf4
+	.byte \x
+	.byte \y
+	.byte \upwards
+	.byte \multichoiceId
+	.byte \ignoreBPress
+	.endm
+
+	@ Displays a multichoice box from which the user can choose a selection, and blocks script execution until a selection is made.
+	@ Lists of options are predefined (sMultichoiceLists) and the one to be used is specified with multichoiceId.
 	@ The default argument determines the initial position of the cursor when the box is first opened; it is zero-indexed, and if it is too large, it is treated as 0.
 	@ If ignoreBPress is set to a non-zero value, then the user will not be allowed to back out of the multichoice with the B button.
 	.macro multichoicedefault x:req, y:req, multichoiceId:req, default:req, ignoreBPress:req
@@ -2105,5 +2117,11 @@
 	.macro deactivatequest questId:req
 	.byte 0xef
 	.2byte \questId
+	.endm
+	
+	@ Attempts to deactive the given quest and returns the result
+	.macro hubupgradeunlocked upgradeId:req
+	.byte 0xf5
+	.2byte \upgradeId
 	.endm
 	

@@ -977,6 +977,15 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
     }
 
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setmetatile(9,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(9,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
 
     if(flag(FLAG_ROGUE_HARD_TRAINERS))
     {

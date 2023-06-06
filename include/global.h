@@ -523,6 +523,7 @@ struct SaveBlock2
              u16 optionsBattleSceneOff:1; // whether battle animations are disabled
              u16 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
              u16 timeOfDayVisuals:1;
+             u16 seasonVisuals:1;
              u16 regionMapZoom:1; // whether the map is zoomed in
     /*0x18*/ struct Pokedex pokedex;
              u8 playerStyle0;

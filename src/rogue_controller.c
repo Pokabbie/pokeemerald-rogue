@@ -48,6 +48,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_hub.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -1262,15 +1263,17 @@ u16 Rogue_MiniMenuHeight(void)
 
     if(GetSafariZoneFlag())
     {
-        return 2;
+        height = 3;
     }
-
-    if(Rogue_IsActiveCampaignScored())
+    else
     {
-        ++height;
+        if(Rogue_IsActiveCampaignScored())
+        {
+            ++height;
+        }
     }
 
-    return height;
+    return height * 2;
 }
 
 extern const u8 gText_StatusRoute[];
@@ -1278,16 +1281,38 @@ extern const u8 gText_StatusBadges[];
 extern const u8 gText_StatusScore[];
 extern const u8 gText_StatusTimer[];
 extern const u8 gText_StatusClock[];
+extern const u8 gText_StatusSeasonSpring[];
+extern const u8 gText_StatusSeasonSummer[];
+extern const u8 gText_StatusSeasonAutumn[];
+extern const u8 gText_StatusSeasonWinter[];
 
 u8* Rogue_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
 
     *strPointer = EOS;
-        
+
+    // Season stamp
+    switch(RogueToD_GetSeason())
+    {
+        case SEASON_SPRING:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonSpring);
+            break;
+        case SEASON_SUMMER:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonSummer);
+            break;
+        case SEASON_AUTUMN:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonAutumn);
+            break;
+        case SEASON_WINTER:
+            strPointer = StringAppend(strPointer, gText_StatusSeasonWinter);
+            break;
+    }
+
     // Clock
-    ConvertIntToDecimalStringN(gStringVar1, RogueToD_GetHours(), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar1, RogueToD_GetHours(), STR_CONV_MODE_RIGHT_ALIGN, 2);
     ConvertIntToDecimalStringN(gStringVar2, RogueToD_GetMinutes(), STR_CONV_MODE_LEADING_ZEROS, 2);
+
     StringExpandPlaceholders(gStringVar3, gText_StatusClock);
     strPointer = StringAppend(strPointer, gStringVar3);
     
@@ -1327,7 +1352,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
-        u16 yOffset = 24 + Rogue_MiniMenuHeight() * 16;
+        u16 yOffset = 24 + Rogue_MiniMenuHeight() * 8;
 
         //LoadMonIconPalettes();
 
@@ -1574,6 +1599,7 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
+    FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
@@ -1591,7 +1617,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
-    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_ADVENTURE_MONEY, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -1844,7 +1869,9 @@ void Rogue_OnSaveGame(void)
 
             {
                 u16 tod = RogueToD_GetTime();
+                u8 seasonCounter = RogueToD_GetSeasonCounter();
                 SerializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+                SerializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
             }
         }
 
@@ -1950,8 +1977,11 @@ void Rogue_OnLoadGame(void)
                 
                 {
                     u16 tod = 0;
+                    u8 seasonCounter = RogueToD_GetSeasonCounter();
                     DeserializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
+                    DeserializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
                     RogueToD_SetTime(tod);
+                    RogueToD_SetSeasonCounter(seasonCounter);
                 }
             }
 
@@ -2172,6 +2202,11 @@ void Rogue_OnLoadMap(void)
         RandomiseSafariWildEncounters();
         Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
+    else if(!Rogue_IsRunActive())
+    {
+        // Apply metatiles for the map we're in
+        RogueHub_ApplyMapMetatiles();
+    }
 
     SetupFollowParterMonObjectEvent();
 }
@@ -2262,6 +2297,82 @@ bool8 Rogue_IsPartnerMonInTeam(void)
     return FALSE;
 }
 
+static u16 CalculateRewardLvlMonCount()
+{
+    u8 i;
+    u16 validCount = 0;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
+        {
+            ++validCount;
+        }
+    }
+
+    return validCount;
+}
+
+u16 Rogue_PostRunRewardLvls()
+{
+    u16 lvlCount = 2;
+    u16 targettedMons = CalculateRewardLvlMonCount();
+
+    if(targettedMons == 0)
+    {
+        lvlCount = 0;
+    }
+    else if(targettedMons > 1)
+    {
+        // Only give 1 lvl per mon
+        lvlCount = 1;
+    }
+
+    lvlCount *= gRogueRun.currentDifficulty;
+
+    if(lvlCount != 0)
+    {
+        u8 i, j;
+        u32 exp;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            for(j = 0; j < lvlCount; ++j)
+            {
+                if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
+                {
+                    exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL) + 1);
+                    SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+                    CalculateMonStats(&gPlayerParty[i]);
+                }
+            }
+        }
+    }
+
+    return lvlCount;
+}
+
+u16 Rogue_PostRunRewardMoney()
+{
+    u16 amount = 0;
+
+    if(gRogueRun.currentRoomIdx > 1)
+    {
+        u16 i = gRogueRun.currentRoomIdx - 1;
+
+        amount = i * 250;
+
+        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+            amount += i * 100;
+
+        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+            amount += i * 100;
+    }
+
+    AddMoney(&gSaveBlock1Ptr->money, amount);
+    return amount;
+}
+
 static void ResetFaintedLabMonAtSlot(u16 slot)
 {
     u16 species;
@@ -2330,6 +2441,7 @@ static void BeginRogueRun_ModifyParty(void)
     {
         u16 i;
         u16 temp = 0;
+        u32 exp;
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
@@ -2341,10 +2453,72 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
+
+                // Force to starter lvl
+                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 7);
+                SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+
                 CalculateMonStats(&gPlayerParty[i]);
             }
         }
     }
+}
+
+static void SetupRogueRunBag()
+{
+    u16 i;
+    u16 itemId;
+    u16 quantity;
+
+    ClearBag();
+    SetMoney(&gSaveBlock1Ptr->money, 0);
+
+    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        // Add default items
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+
+        // Add back some of the items we want to keep
+        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+        {
+            itemId = gRogueBoxHubData.bagItems[i].itemId;
+            quantity = gRogueBoxHubData.bagItems[i].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                u8 pocket = GetPocketByItemId(itemId);
+                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+                    AddBagItem(itemId, quantity);
+                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+                    AddBagItem(itemId, quantity);
+            }
+        }
+    }
+    else
+    {
+        // Re-add all the items
+        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+        {
+            // TODO - Convert here for special case like money bags
+            itemId = gRogueBoxHubData.bagItems[i].itemId;
+            quantity = gRogueBoxHubData.bagItems[i].quantity;
+
+            if(itemId != ITEM_NONE && quantity != 0)
+            {
+                AddBagItem(itemId, quantity);
+            }
+        }
+    }
+
+#ifdef ROGUE_DEBUG
+    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+#endif
+
+    RecalcCharmCurseValues();
+
+    // TODO - Rework this??
+    //SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
 }
 
 static void BeginRogueRun(void)
@@ -2395,7 +2569,6 @@ static void BeginRogueRun(void)
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
-    VarSet(VAR_ROGUE_REWARD_MONEY, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
     VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
@@ -2419,44 +2592,7 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Start();
 
     BeginRogueRun_ModifyParty();
-
-    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
-    {
-        u16 bagItemIdx;
-        
-        ClearBag();
-
-        // Add default items
-        AddBagItem(ITEM_POKE_BALL, 5);
-        AddBagItem(ITEM_POTION, 1);
-        SetMoney(&gSaveBlock1Ptr->money, 0);
-
-        // Add back some of the items we want to keep
-        for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
-        {
-            const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
-            const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
-
-            if(itemId != ITEM_NONE && quantity != 0)
-            {
-                u8 pocket = GetPocketByItemId(itemId);
-                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
-                    AddBagItem(itemId, quantity);
-                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-                    AddBagItem(itemId, quantity);
-            }
-        }
-    }
-    else
-    {
-        SetMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_ADVENTURE_MONEY));
-    }
-
-#ifdef ROGUE_DEBUG
-    AddBagItem(ITEM_ESCAPE_ROPE, 101);
-#endif
-
-    RecalcCharmCurseValues();
+    SetupRogueRunBag();
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
@@ -2498,10 +2634,7 @@ static void EndRogueRun(void)
 
     //gRogueRun.currentRoomIdx = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
-
-    // Restore money and give reward here too, as it's a bit easier
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
-    AddMoney(&gSaveBlock1Ptr->money, VarGet(VAR_ROGUE_REWARD_MONEY));
 
     //gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
 
@@ -3022,14 +3155,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         else if(warpType == ROGUE_WARP_TO_ROOM)
         {
             ++gRogueRun.currentRoomIdx;
-
-            VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 250);
-
-            if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
-
-            if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-                VarSet(VAR_ROGUE_REWARD_MONEY, VarGet(VAR_ROGUE_REWARD_MONEY) + 100);
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 

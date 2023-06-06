@@ -680,13 +680,6 @@
   ],
   "warp_events": [
     {
-      "x": 24,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_NONE",
-      "dest_warp_id": 0
-    },
-    {
       "x": 23,
       "y": 22,
       "elevation": 0,
@@ -712,7 +705,7 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
-      "dest_warp_id": 2
+      "dest_warp_id": 0
     },
     {
       "x": 45,

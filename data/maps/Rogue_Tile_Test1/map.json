@@ -31,10 +31,10 @@
   "warp_events": [
     {
       "x": 3,
-      "y": 6,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_TILE_TEST1",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

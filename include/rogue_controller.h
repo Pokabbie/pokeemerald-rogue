@@ -61,6 +61,9 @@ void Rogue_OnLoadGame(void);
 bool8 Rogue_OnProcessPlayerFieldInput(void);
 bool8 Rogue_IsPartnerMonInTeam(void);
 
+u16 Rogue_PostRunRewardLvls();
+u16 Rogue_PostRunRewardMoney();
+
 void Rogue_MainInit(void);
 void Rogue_MainCB(void);
 void Rogue_OverworldCB(void);

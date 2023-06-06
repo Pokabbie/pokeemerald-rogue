@@ -830,3 +830,14 @@ gTileset_UnionRoom::
 	.4byte gMetatiles_UnionRoom
 	.4byte gMetatileAttributes_UnionRoom
 	.4byte NULL @ animation callback
+
+	.align 2
+gTileset_GeneralHub::
+	.byte TRUE @ is compressed
+	.byte FALSE @ is secondary
+	.2byte 0 @ padding
+	.4byte gTilesetTiles_GeneralHub
+	.4byte gTilesetPalettes_GeneralHub
+	.4byte gMetatiles_GeneralHub
+	.4byte gMetatileAttributes_GeneralHub
+	.4byte InitTilesetAnim_General

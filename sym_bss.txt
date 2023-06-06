@@ -67,6 +67,7 @@
 	.include "src/rogue_campaign.o"
 	.include "src/rogue_controller.o"
 	.include "src/rogue_followmon.o"
+	.include "src/rogue_hub.o"
 	.include "src/rogue_query.o"
 	.include "src/rogue_baked.o"
 	.include "src/rogue_script.o"
