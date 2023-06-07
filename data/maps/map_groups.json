@@ -3,7 +3,9 @@
   "group_order": [
     "gMapGroup_VanillaMaps",
     "gMapGroup_RogueHub",
-    "gMapGroup_RogueHubTiles",
+    "gMapGroup_RogueHubAreas",
+    "gMapGroup_RogueHubInteriors",
+    "gMapGroup_RogueHubTesting",
     "gMapGroup_RogueRun",
     "gMapGroup_RogueAdventureEncounters",
     "gMapGroup_RogueAdventureMonEncounters"
@@ -31,7 +33,16 @@
     "Rogue_Hub_Bakery",
     "Rogue_Hub_Debug"
   ],
-  "gMapGroup_RogueHubTiles": [
+  "gMapGroup_RogueHubAreas": [
+    "Rogue_HallwayFacade_Horizontal",
+    "Rogue_HallwayFacade_Vertical",
+    "Rogue_Area_Home"
+  ],
+  "gMapGroup_RogueHubInteriors": [
+    "Rogue_Interior_Home",
+    "Rogue_Interior_HomeUpper"
+  ],
+  "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
     "Rogue_Tile_Test2",
     "Rogue_Tile_Test3",
@@ -40,12 +51,7 @@
     "Rogue_Tile_Mart",
     "Rogue_Tile_SafariEntrance",
     "Rogue_Tile_OutdoorMart",
-    "Rogue_Tile_BerryPatch1",
-    "Rogue_HallwayFacade_Horizontal",
-    "Rogue_HallwayFacade_Vertical",
-    "Rogue_Area_Home",
-    "Rogue_Interior_Home",
-    "Rogue_Interior_HomeUpper"
+    "Rogue_Tile_BerryPatch1"
   ],
   "gMapGroup_RogueRun": [
     "Rogue_AdventurePaths",

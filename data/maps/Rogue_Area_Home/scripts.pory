@@ -35,9 +35,26 @@ script Rogue_Area_Home_OnTransition
     hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
     if(var(VAR_RESULT) == YES)
     {
-        clearflag(FLAG_FIELD_MON0)
-        clearflag(FLAG_FIELD_MON1)
-        clearflag(FLAG_FIELD_MON2)
-        clearflag(FLAG_FIELD_MON3)
+        special(RogueHub_SetRandomFollowMonsFromPC)
+
+        if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
+        {
+            clearflag(FLAG_FIELD_MON0)
+        }
+
+        if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
+        {
+            clearflag(FLAG_FIELD_MON1)
+        }
+
+        if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
+        {
+            clearflag(FLAG_FIELD_MON2)
+        }
+
+        if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
+        {
+            clearflag(FLAG_FIELD_MON3)
+        }
     }
 }
