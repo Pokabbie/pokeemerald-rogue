@@ -197,10 +197,20 @@ static void RogueHub_UpdateHomeInteriorMetatiles()
 {
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
     {
+        // Replace with back wall
         MetatileSet_Tile(8, 0, 0x20E | MAPGRID_COLLISION_MASK);
         MetatileSet_Tile(8, 1, 0x216 | MAPGRID_COLLISION_MASK);
         MetatileFill_Tile(6, 0, 7, 0, 0x254 | MAPGRID_COLLISION_MASK);
         MetatileFill_Tile(6, 1, 7, 1, 0x25C | MAPGRID_COLLISION_MASK);
+
+        // Replace with PC
+        MetatileSet_Tile(8, 0, 0x251 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(8, 1, 0x259 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(8, 2, 0x261);
+
+        MetatileSet_Tile(7, 1, 0x258 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(7, 2, 0x260);
+
     }
 }
 

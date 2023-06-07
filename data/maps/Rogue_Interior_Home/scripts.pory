@@ -1,1 +1,56 @@
-mapscripts Rogue_Interior_Home_MapScripts {}
+mapscripts Rogue_Interior_Home_MapScripts 
+{
+}
+
+script Rogue_Interior_Home_TurnOnPC
+{
+    lockall
+    setvar(VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE)
+    special(DoPCTurnOnEffect)
+
+    playse(SE_PC_ON)
+    msgbox(format("{PLAYER} booted up the PC."), MSGBOX_DEFAULT)
+    special(BedroomPC)
+    waitstate
+    
+    // Not sure why this shouldn't usually be done from script??
+    // Usually do it from PlayerPC_TurnOff
+    setvar(VAR_0x8004, PC_LOCATION_BRENDANS_HOUSE)
+    playse(SE_PC_OFF)
+    special(DoPCTurnOffEffect)
+
+    releaseall
+}
+
+script Rogue_Interior_Home_TurnOnPCLowerFloor
+{
+    hubupgradeunlocked(HUB_UPGRADE_HOME_UPPER_FLOOR)
+    if(var(VAR_RESULT) == NO)
+    {
+        lockall
+        setvar(VAR_0x8004, PC_LOCATION_MAYS_HOUSE)
+        special(DoPCTurnOnEffect)
+
+        playse(SE_PC_ON)
+        msgbox(format("{PLAYER} booted up the PC."), MSGBOX_DEFAULT)
+        special(BedroomPC)
+        waitstate
+        
+        // Not sure why this shouldn't usually be done from script??
+        // Usually do it from PlayerPC_TurnOff
+        setvar(VAR_0x8004, PC_LOCATION_MAYS_HOUSE)
+        playse(SE_PC_OFF)
+        special(DoPCTurnOffEffect)
+
+        releaseall
+    }
+}
+
+script Rogue_Interior_Home_NoteBook
+{
+    lockall
+
+    msgbox(format("It's a notebook!\pIt has a bunch of incoherent scribblings from…\psomeone called…\pTate?\pWhy's it here?"), MSGBOX_DEFAULT)
+
+    releaseall
+}
