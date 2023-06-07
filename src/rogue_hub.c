@@ -3,35 +3,22 @@
 #include "constants/metatile_labels.h"
 #include "constants/script_menu.h"
 
-//#include "constants/event_objects.h"
-//#include "constants/event_object_movement.h"
-//#include "constants/map_types.h"
-//#include "constants/rogue.h"
-//#include "constants/songs.h"
-//
 #include "event_data.h"
-//#include "event_object_movement.h"
 #include "fieldmap.h"
 #include "menu.h"
-//#include "field_player_avatar.h"
-//#include "follow_me.h"
-//#include "metatile_behavior.h"
-//#include "pokemon.h"
-//#include "safari_zone.h"
-//#include "sound.h"
+#include "pokemon.h"
+#include "pokemon_storage_system.h"
+#include "random.h"
 #include "strings.h"
 #include "string_util.h"
-//#include "random.h"
-//#include "script.h"
 
-//#include "rogue.h"
 #include "rogue_hub.h"
-//#include "rogue_controller.h"
-//#include "rogue_followmon.h"
-//#include "rogue_popup.h"
+#include "rogue_followmon.h"
 
 #define TREE_TYPE_DENSE     0
 #define TREE_TYPE_SPARSE    1
+
+#define HOME_AREA_DISPLAY_MONS 4
 
 struct RogueHubMap
 {
@@ -158,7 +145,7 @@ static void RogueHub_UpdateHomeAreaMetatiles()
     // Fill right field
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD))
     {
-        MetatileFill_TreesOverlapping(8, 3, 19, 9, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(8, 2, 19, 9, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(8, 9, 11, TREE_TYPE_DENSE);
         MetatileFill_TreesOverlapping(12, 10, 19, 12, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(12, 13, 19, TREE_TYPE_DENSE);
@@ -383,5 +370,51 @@ void RogueHub_BufferUpgradeCompleteText()
     {
         StringCopy(gStringVar4, gRogueHubUpgrades[upgrade].completeText);
         VarSet(VAR_RESULT, TRUE);
+    }
+}
+
+void RogueHub_SetRandomFollowMonsFromPC()
+{
+    // Try get from current box first
+    u8 tryCount;
+    u16 species;
+    u32 checkMask;
+    u32 tryMask = 0;
+    u8 foundCount = 0;
+
+    // Start with the final box as thats where most players keep their "cool" mons
+    u8 boxId = TOTAL_BOXES_COUNT - 1;
+
+    for(tryCount = 0; tryCount < 64; ++tryCount)
+    {
+        u8 pos = Random() % IN_BOX_COUNT;
+        checkMask = (1 << pos);
+
+        // If we've gotten this far, just try to take from the current box
+        if(tryCount == 32 && boxId != StorageGetCurrentBox())
+        {
+            tryMask = 0;
+            boxId = StorageGetCurrentBox();
+        }
+
+        // If we haven't already tried this pos
+        if((tryMask & checkMask) == 0)
+        {
+            tryMask |= checkMask;
+            species = GetBoxMonDataAt(boxId, pos, MON_DATA_SPECIES);
+
+            if(species != SPECIES_NONE)
+            {
+                FollowMon_SetGraphics(foundCount, species, GetBoxMonDataAt(boxId, pos, MON_DATA_IS_SHINY));
+                if(++foundCount >= HOME_AREA_DISPLAY_MONS)
+                    break;
+            }
+        }
+    }
+
+    // Fill in the rest of the slots with nothing
+    for(; foundCount < HOME_AREA_DISPLAY_MONS; ++foundCount)
+    {
+        FollowMon_SetGraphics(foundCount, SPECIES_NONE, FALSE);
     }
 }
