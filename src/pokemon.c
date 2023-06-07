@@ -45,6 +45,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/moves.h"
+#include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
@@ -3988,6 +3989,12 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_MET_LOCATION:
         retVal = substruct3->metLocation;
+
+        // If this mon is not from this trainer swap out the mapsec we met in
+        if(retVal == MAPSEC_POKEMON_HUB && IsOtherTrainer(boxMon->otId))
+        {
+            retVal = MAPSEC_OTHER_POKEMON_HUB;
+        }
         break;
     case MON_DATA_MET_LEVEL:
         retVal = substruct3->metLevel;
@@ -6732,14 +6739,14 @@ s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor)
 
 bool8 IsTradedMon(struct Pokemon *mon)
 {
-    u8 otName[PLAYER_NAME_LENGTH + 1];
+    //u8 otName[PLAYER_NAME_LENGTH + 1];
     u32 otId;
-    GetMonData(mon, MON_DATA_OT_NAME, otName);
+    //GetMonData(mon, MON_DATA_OT_NAME, otName);
     otId = GetMonData(mon, MON_DATA_OT_ID, 0);
-    return IsOtherTrainer(otId, otName);
+    return IsOtherTrainer(otId);//, otName);
 }
 
-bool8 IsOtherTrainer(u32 otId, u8 *otName)
+bool8 IsOtherTrainer(u32 otId)//, u8 *otName)
 {
     if (otId ==
         (gSaveBlock2Ptr->playerTrainerId[0]
@@ -6747,10 +6754,10 @@ bool8 IsOtherTrainer(u32 otId, u8 *otName)
       | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
       | (gSaveBlock2Ptr->playerTrainerId[3] << 24)))
     {
-        int i;
-        for (i = 0; otName[i] != EOS; i++)
-            if (otName[i] != gSaveBlock2Ptr->playerName[i])
-                return TRUE;
+        //int i;
+        //for (i = 0; otName[i] != EOS; i++)
+        //    if (otName[i] != gSaveBlock2Ptr->playerName[i])
+        //        return TRUE;
         return FALSE;
     }
 

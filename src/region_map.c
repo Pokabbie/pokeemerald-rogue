@@ -28,6 +28,8 @@
 #include "constants/rgb.h"
 #include "constants/weather.h"
 
+#include "rogue_assistant.h"
+
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
  *  Specific features of other region map uses are handled elsewhere
@@ -1122,7 +1124,7 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_LITTLEROOT_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_ADVENTURE:
         return FlagGet(FLAG_VISITED_OLDALE_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_DEWFORD_TOWN:
+    case MAPSEC_OTHER_POKEMON_HUB:
         return FlagGet(FLAG_VISITED_DEWFORD_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_LAVARIDGE_TOWN:
         return FlagGet(FLAG_VISITED_LAVARIDGE_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
@@ -1502,7 +1504,22 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     }
     else if (regionMapId < MAPSEC_NONE)
     {
-        str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
+        if(regionMapId == MAPSEC_POKEMON_HUB)
+        {
+            if(Rogue_IsNetMultiplayerClient())
+            {
+                // If we are the client, we're actual going to display as being in a different hub
+                str = StringCopy(dest, gRegionMapEntries[MAPSEC_OTHER_POKEMON_HUB].name);
+            }
+            else
+            {
+                str = StringCopyN(dest, gSaveBlock2Ptr->pokemonHubName, POKEMON_HUB_NAME_LENGTH + 1);
+            }
+        }
+        else
+        {
+            str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
+        }
     }
     else
     {

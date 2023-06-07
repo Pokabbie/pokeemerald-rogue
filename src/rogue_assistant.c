@@ -359,6 +359,11 @@ bool8 Rogue_IsNetMultiplayerHost()
     return IsNetPlayerActive(0) && (gRogueAssistantState.netPlayerProfile[0].flags & NETPLAYER_FLAGS_HOST) != 0;
 }
 
+bool8 Rogue_IsNetMultiplayerClient()
+{
+    return IsNetPlayerActive(0) && (gRogueAssistantState.netPlayerProfile[0].flags & NETPLAYER_FLAGS_HOST) == 0;
+}
+
 void Rogue_RemoveNetObjectEvents()
 {
     u8 i, j;

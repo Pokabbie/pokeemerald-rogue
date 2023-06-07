@@ -143,6 +143,7 @@ gSpecials::
 	def_special TryPutNameRaterShowOnTheAir
 	def_special BufferMonNickname
 	def_special ChangePlayerNickname
+	def_special ChangePokemonHubName
 	def_special IsMonOTIDNotPlayers
 	def_special BufferTrendyPhraseString
 	def_special IsTrendyPhraseBoring

@@ -3,7 +3,7 @@
   "name": "Rogue_Hub_ProfLab",
   "layout": "LAYOUT_ROGUE_HUB_PROF_LAB",
   "music": "MUS_BIRCH_LAB",
-  "region_map_section": "MAPSEC_ADVENTURE",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

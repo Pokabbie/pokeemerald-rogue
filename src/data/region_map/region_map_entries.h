@@ -1,9 +1,9 @@
 #ifndef GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
 #define GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
 
-static const u8 sMapName_PokemonHub[] = _("POKéMON HUB");
+static const u8 sMapName_PokemonHub[] = _(""); // Expanded later
 static const u8 sMapName_Adventure[] = _("ADVENTURE");
-static const u8 sMapName_DewfordTown[] = _("DEWFORD TOWN");
+static const u8 sMapName_OtherPokemonHub[] = _("DISTANT VILLAGE"); // Reserved for trading
 static const u8 sMapName_LavaridgeTown[] = _("LAVARIDGE TOWN");
 static const u8 sMapName_FallarborTown[] = _("FALLARBOR TOWN");
 static const u8 sMapName_VerdanturfTown[] = _("VERDANTURF TOWN");
@@ -202,7 +202,7 @@ static const u8 sMapName_TrainerHill[] = _("POKéMON HUB");
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_POKEMON_HUB]                = { 4, 11, 1, 1, sMapName_PokemonHub},
     [MAPSEC_ADVENTURE]                  = { 4,  9, 1, 1, sMapName_Adventure},
-    [MAPSEC_DEWFORD_TOWN]               = { 2, 14, 1, 1, sMapName_DewfordTown},
+    [MAPSEC_OTHER_POKEMON_HUB]          = { 2, 14, 1, 1, sMapName_OtherPokemonHub},
     [MAPSEC_LAVARIDGE_TOWN]             = { 5,  3, 1, 1, sMapName_LavaridgeTown},
     [MAPSEC_FALLARBOR_TOWN]             = { 3,  0, 1, 1, sMapName_FallarborTown},
     [MAPSEC_VERDANTURF_TOWN]            = { 4,  6, 1, 1, sMapName_VerdanturfTown},

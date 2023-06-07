@@ -32,6 +32,16 @@
       "direction": "right",
       "offset": -14,
       "map": "MAP_ROGUE_AREA_HOME"
+    },
+    {
+      "direction": "right",
+      "offset": -8,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
+    },
+    {
+      "direction": "left",
+      "offset": -8,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
     }
   ],
   "object_events": [

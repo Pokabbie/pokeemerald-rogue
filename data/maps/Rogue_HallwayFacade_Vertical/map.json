@@ -17,6 +17,21 @@
       "direction": "up",
       "offset": -6,
       "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
+    },
+    {
+      "direction": "up",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
+    },
+    {
+      "direction": "down",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
+    },
+    {
+      "direction": "up",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_HOME"
     }
   ],
   "object_events": [

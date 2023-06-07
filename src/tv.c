@@ -3012,6 +3012,11 @@ void ChangePlayerNickname(void)
     DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
+void ChangePokemonHubName(void)
+{
+    DoNamingScreen(NAMING_SCREEN_POKEMON_HUB, gSaveBlock2Ptr->pokemonHubName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
 void IsMonOTIDNotPlayers(void)
 {
     if (GetPlayerIDAsU32() == GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_OT_ID, NULL))

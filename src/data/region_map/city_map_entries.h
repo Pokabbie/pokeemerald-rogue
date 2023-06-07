@@ -11,7 +11,7 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Oldale_0,
     },
     {
-        .mapSecId = MAPSEC_DEWFORD_TOWN,
+        .mapSecId = MAPSEC_OTHER_POKEMON_HUB,
         .index = 0,
         .tilemap = gPokenavCityMap_Dewford_0,
     },
