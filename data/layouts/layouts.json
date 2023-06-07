@@ -1560,6 +1560,16 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/Rogue_Interior_HomeUpper/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_HomeUpper/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_FARMING_FIELD",
+      "name": "Rogue_Area_FarmingField_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Area_FarmingField/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_FarmingField/map.bin"
     }
   ]
 }

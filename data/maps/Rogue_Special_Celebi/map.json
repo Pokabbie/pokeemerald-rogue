@@ -3,7 +3,7 @@
   "name": "Rogue_Special_Celebi",
   "layout": "LAYOUT_ROGUE_SPECIAL_CELEBI",
   "music": "MUS_RG_VIRIDIAN_FOREST",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

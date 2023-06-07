@@ -3,7 +3,7 @@
   "name": "Rogue_Hub_Interior_ConfigRoom",
   "layout": "LAYOUT_ROGUE_HUB_INTERIOR_CONFIG_ROOM",
   "music": "MUS_BIRCH_LAB",
-  "region_map_section": "MAPSEC_TRAINER_HILL",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

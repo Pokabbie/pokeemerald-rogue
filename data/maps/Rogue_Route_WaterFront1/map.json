@@ -3,7 +3,7 @@
   "name": "Rogue_Route_WaterFront1",
   "layout": "LAYOUT_ROGUE_ROUTE_WATER_FRONT1",
   "music": "MUS_ROUTE119",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

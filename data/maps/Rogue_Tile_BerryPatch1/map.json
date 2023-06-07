@@ -3,7 +3,7 @@
   "name": "Rogue_Tile_BerryPatch1",
   "layout": "LAYOUT_ROGUE_TILE_BERRY_PATCH1",
   "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",

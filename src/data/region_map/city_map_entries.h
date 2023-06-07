@@ -1,12 +1,12 @@
 static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
 {
     {
-        .mapSecId = MAPSEC_LITTLEROOT_TOWN,
+        .mapSecId = MAPSEC_POKEMON_HUB,
         .index = 0,
         .tilemap = gPokenavCityMap_Littleroot_0,
     },
     {
-        .mapSecId = MAPSEC_OLDALE_TOWN,
+        .mapSecId = MAPSEC_ADVENTURE,
         .index = 0,
         .tilemap = gPokenavCityMap_Oldale_0,
     },
