@@ -207,6 +207,14 @@
 // gTileset_GeneralHub
 #define METATILE_GeneralHub_Door_PokeConnect                    0x062
 #define METATILE_GeneralHub_Grass                               0x001
+#define METATILE_GeneralHub_GrassWarpEast                       0x027
+#define METATILE_GeneralHub_GrassWarpNorth                      0x01E
+#define METATILE_GeneralHub_GrassWarpShadowEast                 0x037
+#define METATILE_GeneralHub_GrassWarpShadowNorth                0x02E
+#define METATILE_GeneralHub_GrassWarpShadowSouth                0x036
+#define METATILE_GeneralHub_GrassWarpShadowWest                 0x02F
+#define METATILE_GeneralHub_GrassWarpSouth                      0x026
+#define METATILE_GeneralHub_GrassWarpWest                       0x01F
 #define METATILE_GeneralHub_Tree_BottomLeft_Dense               0x1E4
 #define METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped    0x1DC
 #define METATILE_GeneralHub_Tree_BottomLeft_Sparse              0x1E6

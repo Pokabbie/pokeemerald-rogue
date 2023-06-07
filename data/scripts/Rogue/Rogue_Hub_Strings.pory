@@ -1,25 +1,5 @@
 
 text gText_Test
 {
-    format("This field is an area which will allow POKéMON from your PC to roam around freely.")
-}
-
-text gText_Test1
-{
-    format("The upper floor of the house will grant access to the bed, which will allow you to sleep so you may choose the time, weather and season.")
-}
-
-text gText_Test2
-{
-    format("The berry field will grant you a small patch where you may plant berries.\pThey will grow whilst you are out adventuring.")
-}
-
-text gText_Test3
-{
-    format("This will grant an additional berry field.")
-}
-
-text gText_Test4
-{
-    format("The shed is an area which will allow you to pose your party of POKéMON for photos.")
+    format("New Farming Field area expansion unlocked!")
 }

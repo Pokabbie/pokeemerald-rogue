@@ -856,6 +856,13 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_WorkbenchOptions[] =
+{
+    {gText_UpgradeArea},
+    {gText_ExpandArea},
+    {gText_Exit},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -981,10 +988,13 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGION_OR_NATIONAL]         = MULTICHOICE(MultichoiceList_RegionOrNational),
     [MULTI_REGION_UPTO_HOENN]          = MULTICHOICE(MultichoiceList_RegionUpToHoenn),
     [MULTI_REGION_FULL]                = MULTICHOICE(MultichoiceList_RegionFull),
+    [MULTI_WORKBENCH_OPTIONS]          = MULTICHOICE(MultichoiceList_WorkbenchOptions),
 };
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =
 {
+    [MULTI_HUB_AREA_BUILDS] = RogueHub_GetAreaBuildsMultichoice,
+    [MULTI_HUB_AREA_BUILD_DIRECTION] = RogueHub_GetAreaBuildDirectionMultichoice, 
     [MULTI_HUB_AREA_UPGRADES] = RogueHub_GetAreaUpgradesMultichoice,
 };
 

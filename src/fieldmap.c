@@ -149,6 +149,10 @@ static void InitBackupMapLayoutConnections(struct MapHeader *mapHeader)
         {
             struct MapHeader const *cMap = GetMapHeaderFromConnection(connection);
             u32 offset = connection->offset;
+
+            if(!Rogue_AcceptMapConnection(mapHeader, connection))
+                continue;
+
             switch (connection->direction)
             {
             case CONNECTION_SOUTH:
@@ -694,6 +698,9 @@ static struct MapConnection *GetIncomingConnection(u8 direction, int x, int y)
     connection = connections->connections;
     for (i = 0; i < count; i++, connection++)
     {
+        if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+            continue;
+
         if (connection->direction == direction && IsPosInIncomingConnectingMap(direction, x, y, connection) == TRUE)
             return connection;
     }
@@ -773,6 +780,9 @@ struct MapConnection *GetConnectionAtCoords(s16 x, s16 y)
         connection = gMapHeader.connections->connections;
         for (i = 0; i < count; i++, connection++)
         {
+            if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+                continue;
+
             direction = connection->direction;
             if ((direction == CONNECTION_DIVE || direction == CONNECTION_EMERGE)
              || (direction == CONNECTION_NORTH && y > MAP_OFFSET - 1)

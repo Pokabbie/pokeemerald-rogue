@@ -1,4 +1,6 @@
-const VAR_CURR_HUB_UPGRADE = VAR_0x8004
+const VAR_CURR_HUB_UPGRADE = VAR_0x8004 // NOT TO BE USED AT SAME TIME *[0]
+const VAR_CURR_HUB_AREA = VAR_0x8004 // NOT TO BE USED AT SAME TIME *[0]
+const VAR_CURR_DIRECTION = VAR_0x8005
 
 script Rogue_Area_InteractWithWorkbench
 {
@@ -6,10 +8,129 @@ script Rogue_Area_InteractWithWorkbench
     if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
     {
         lock
-        call(Rogue_Area_DisplayAvaliableUpgrades)
+        call(Rogue_Area_WorkbenchOptions)
         release
     }
 }
+
+script Rogue_Area_WorkbenchOptions
+{
+    message(format("What would you like to do?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_WORKBENCH_OPTIONS, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // upgrade
+            call(Rogue_Area_DisplayAvaliableUpgrades)
+            //goto(Rogue_Area_WorkbenchOptions)
+
+        case 1: // build
+            call(Rogue_Area_DisplayAvaliableAreasToBuild)
+            //goto(Rogue_Area_WorkbenchOptions)
+
+        // Fallthrough and exit
+    }
+}
+
+
+// Expand
+//
+
+script Rogue_Area_DisplayAvaliableAreasToBuild
+{
+    message(format("Which area would you like to build?"))
+    waitmessage
+
+    multichoicedynamic(20, 10, TRUE, MULTI_HUB_AREA_BUILDS, NO)
+    special(RogueHub_GetAreaFromMultichoiceResult)
+
+    if(var(VAR_RESULT) != HUB_AREA_NONE)
+    {
+        copyvar(VAR_CURR_HUB_AREA, VAR_RESULT)
+        call(Rogue_Area_ChooseBuildDirection)
+    }
+}
+
+script Rogue_Area_ChooseBuildDirection
+{
+    message(format("Which direction would you like to expand in?"))
+    waitmessage
+
+    multichoicedynamic(20, 10, TRUE, MULTI_HUB_AREA_BUILD_DIRECTION, NO)
+    special(RogueHub_GetAreaDirectionFromMultichoiceResult)
+
+    if(var(VAR_RESULT) != HUB_AREA_CONN_NONE)
+    {
+        copyvar(VAR_CURR_DIRECTION, VAR_RESULT)
+        call(Rogue_Area_ShouldBuildHubArea)
+    }
+}
+
+script Rogue_Area_ShouldBuildHubArea
+{
+    message(format("Would you like to build this area?"))
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_Area_BuildHubArea)
+
+        case 2: // Info
+            
+            special(RogueHub_BufferAreaDescriptionText)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                special(ShowFieldMessageStringVar4)
+                waitmessage
+                waitbuttonpress
+            }
+            else
+            {
+                msgbox(format("TODO - Area description."))
+            }
+            goto(Rogue_Area_ShouldBuildHubArea)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            goto(Rogue_Area_DisplayAvaliableAreasToBuild)
+    }
+}
+
+script Rogue_Area_BuildHubArea
+{
+    special(RogueHub_BuildHubArea)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        fadescreen(FADE_TO_BLACK)
+        
+        call(Rogue_Area_PlayBuildSound)
+
+        message("") // Need this otherwise for some reason previous text will breifly pop up on the screen
+        waitmessage
+
+        msgbox(format("{POKEMON_HUB} has been expanded!"), MSGBOX_DEFAULT)
+
+        special(RogueHub_BufferAreaCompleteText)
+        if(var(VAR_RESULT) == TRUE)
+        {
+            special(ShowFieldMessageStringVar4)
+            waitmessage
+            waitbuttonpress
+        }
+
+        waitfanfare
+        special(ReloadWarpSilent)
+    }
+}
+
+
+// Upgrades
+//
 
 script Rogue_Area_DisplayAvaliableUpgrades
 {
@@ -50,7 +171,7 @@ script Rogue_Area_ShouldApplyHubUpgrade
             {
                 msgbox(format("TODO - Upgrade description."))
             }
-                goto(Rogue_Area_ShouldApplyHubUpgrade)
+            goto(Rogue_Area_ShouldApplyHubUpgrade)
 
         case 1: // No
         case MULTI_B_PRESSED:
@@ -65,30 +186,8 @@ script Rogue_Area_ApplyHubUpgrade
     if(var(VAR_RESULT) == TRUE)
     {
         fadescreen(FADE_TO_BLACK)
-        playbgm(MUS_NONE, FALSE)
-        delay(15)
-
-        playse(SE_BRIDGE_WALK)
-        waitse
-        playse(SE_BRIDGE_WALK)
-        waitse
-        playse(SE_BRIDGE_WALK)
-        waitse
-        delay(15)
-
-        playse(SE_M_DIG)
-        waitse
-        playse(SE_M_DIG)
-        waitse
-        playse(SE_M_DIG)
-        waitse
-        delay(15)
-
-        playse(SE_M_VICEGRIP)
-        waitse
-        delay(15)
-
-        playfanfare(MUS_LEVEL_UP)
+        
+        call(Rogue_Area_PlayBuildSound)
 
         message("") // Need this otherwise for some reason previous text will breifly pop up on the screen
         waitmessage
@@ -106,4 +205,35 @@ script Rogue_Area_ApplyHubUpgrade
         waitfanfare
         special(ReloadWarpSilent)
     }
+}
+
+// Utils
+//
+
+script Rogue_Area_PlayBuildSound
+{
+    playbgm(MUS_NONE, FALSE)
+    delay(15)
+
+    playse(SE_BRIDGE_WALK)
+    waitse
+    playse(SE_BRIDGE_WALK)
+    waitse
+    playse(SE_BRIDGE_WALK)
+    waitse
+    delay(15)
+
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    delay(15)
+
+    playse(SE_M_VICEGRIP)
+    waitse
+    delay(15)
+
+    playfanfare(MUS_LEVEL_UP)
 }

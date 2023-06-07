@@ -22,7 +22,9 @@
 
 struct RogueHubMap
 {
+    u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
     u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+    struct Coords8 areaCoords[HUB_AREA_COUNT];
 };
 
 EWRAM_DATA struct RogueHubMap gRogueHubMap;
@@ -33,8 +35,12 @@ static void MetatileFill_TreesOverlapping(u16 xStart, u16 yStart, u16 xEnd, u16 
 static void MetatileFill_TreeStumps(u16 xStart, u16 yStart, u16 xEnd, u8 treeType);
 static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd);
 
+static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
+static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
+
 static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
+static void RogueHub_UpdateFarmingAreaMetatiles();
 
 void RogueHub_Enter()
 {
@@ -47,6 +53,15 @@ void RogueHub_Exit()
     //AGB_ASSERT(gRogueHubMap != NULL);
     //free(gRogueHubMap);
     //gRogueHubMap = NULL;
+}
+
+void RogueHub_ClearProgress()
+{
+    memset(&gRogueHubMap, 0, sizeof(gRogueHubMap));
+
+    // Build default area at 0,0
+    // TODO - change default area
+    RogueHub_BuildArea(HUB_AREA_HOME, 0, 0);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -96,15 +111,197 @@ bool8 RogueHub_HasUpgradeRequirements(u16 upgradeId)
     return TRUE;
 }
 
-u8 RogueHub_GetAreaFromCurrentMap()
+bool8 RogueHub_HasAreaBuilt(u8 area)
 {
-    switch (gMapHeader.mapLayoutId)
+    u16 idx = area / 8;
+    u16 bit = area % 8;
+
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueHubMap.areaBuiltFlags));
+    return (gRogueHubMap.areaBuiltFlags[idx] & bitMask) != 0;
+}
+
+void RogueHub_BuildArea(u8 area, s8 x, s8 y)
+{
+    u16 idx = area / 8;
+    u16 bit = area % 8;
+
+    u8 bitMask = 1 << bit;
+    
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueHubMap.areaBuiltFlags));
+    
+    gRogueHubMap.areaBuiltFlags[idx] |= bitMask;
+    gRogueHubMap.areaCoords[area].x = x;
+    gRogueHubMap.areaCoords[area].y = y;
+}
+
+bool8 RogueHub_HasAreaBuildRequirements(u8 area)
+{
+    u8 i;
+    u8 check;
+
+    for(i = 0; i < HUB_UPGRADE_MAX_REQUIREMENTS; ++i)
     {
-    case LAYOUT_ROGUE_AREA_HOME:
-        return HUB_AREA_HOME;
+        check = gRogueHubAreas[area].requiredUpgrades[i];
+        if(check == HUB_UPGRADE_NONE)
+            break;
+
+        if(!RogueHub_HasUpgrade(check))
+            return FALSE;
     }
 
-    return HUB_AREA_COUNT;
+    return TRUE;
+}
+
+u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < HUB_AREA_COUNT; ++i)
+    {
+        if(RogueHub_HasAreaBuilt(i))
+        {
+            if(gRogueHubMap.areaCoords[i].x == x && gRogueHubMap.areaCoords[i].y == y)
+                return i;
+        }
+    }
+
+    DIR_SOUTH;
+
+    return HUB_AREA_NONE;
+}
+
+static bool8 CanAreaConnect(u8 area, u8 dir)
+{
+    // If both warps aren't set to 0, this is a valid warp
+    return gRogueHubAreas[area].connectionWarps[dir][0] != 0 || gRogueHubAreas[area].connectionWarps[dir][1] != 0;
+}
+
+static u8 InvertConnDirection(u8 dir)
+{
+    switch (dir)
+    {
+    case HUB_AREA_CONN_SOUTH:
+        return HUB_AREA_CONN_NORTH;
+    case HUB_AREA_CONN_NORTH:
+        return HUB_AREA_CONN_SOUTH;
+    case HUB_AREA_CONN_WEST:
+        return HUB_AREA_CONN_EAST;
+    case HUB_AREA_CONN_EAST:
+        return HUB_AREA_CONN_WEST;
+    }
+
+    return dir;
+}
+
+static void IncrementCoordsByDirection(struct Coords8* coords, u8 dir)
+{
+    switch (dir)
+    {
+    case HUB_AREA_CONN_SOUTH:
+        --coords->y;
+        break;
+    case HUB_AREA_CONN_NORTH:
+        ++coords->y;
+        break;
+    case HUB_AREA_CONN_WEST:
+        --coords->x;
+        break;
+    case HUB_AREA_CONN_EAST:
+        ++coords->x;
+        break;
+    }
+}
+
+bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
+{
+    if(CanAreaConnect(area, dir))
+    {
+        struct Coords8 pos;
+        pos.x = gRogueHubMap.areaCoords[area].x;
+        pos.y = gRogueHubMap.areaCoords[area].y;
+        IncrementCoordsByDirection(&pos, dir);
+
+        return RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
+    }
+
+    return FALSE;
+}
+
+u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir)
+{
+    if(CanAreaConnect(area, dir))
+    {
+        struct Coords8 pos;
+        pos.x = gRogueHubMap.areaCoords[area].x;
+        pos.y = gRogueHubMap.areaCoords[area].y;
+        IncrementCoordsByDirection(&pos, dir);
+
+        return RogueHub_FindAreaAtCoord(pos.x, pos.y);
+    }
+
+    return HUB_AREA_NONE;
+}
+
+static u8 GetAreaForLayout(u16 layout)
+{
+    u8 area;
+
+    for(area = HUB_AREA_FIRST; area < HUB_AREA_COUNT; ++area)
+    {
+        if(gRogueHubAreas[area].primaryMapLayout == layout)
+            return area;
+    }
+
+    return HUB_AREA_NONE;
+}
+
+u8 RogueHub_GetAreaFromCurrentMap()
+{
+    return GetAreaForLayout(gMapHeader.mapLayoutId);
+}
+
+void RogueHub_GetAvaliableAreasToBuild(u8* outAreas, u8* outCount)
+{
+    u8 i;
+    u8 count = 0;
+    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
+
+    for(i = 0; i < HUB_AREA_COUNT; ++i)
+    {
+        // Avoid any bugs with self referenced map loops
+        if(i == currentArea)
+            continue;
+
+        if(!RogueHub_HasAreaBuilt(i) && RogueHub_HasAreaBuildRequirements(i))
+        {
+            outAreas[count++] = i;
+        }
+    }
+
+    *outCount = count;
+}
+
+void RogueHub_GetAvaliableDirectionsToBuild(u8* outDirs, u8* outCount)
+{
+    u8 dir;
+    u8 count = 0;
+    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
+
+    if(currentArea != HUB_AREA_NONE)
+    {
+        for(dir = HUB_AREA_CONN_SOUTH; dir <= HUB_AREA_CONN_EAST; ++dir)
+        {
+            if(RogueHub_AreaHasFreeConnection(currentArea, dir))
+            {
+                outDirs[count++] = dir;
+            }
+        }
+    }
+    
+    *outCount = count;
 }
 
 void RogueHub_GetAvaliableUpgrades(u8 area, u8* outUpgrades, u8* outUpgradeCount)
@@ -123,6 +320,62 @@ void RogueHub_GetAvaliableUpgrades(u8 area, u8* outUpgrades, u8* outUpgradeCount
     *outUpgradeCount = count;
 }
 
+void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
+{
+    u8 area = GetAreaForLayout(mapHeader->mapLayoutId);
+
+    if(area != HUB_AREA_NONE)
+    {
+        u8 dir;
+        u8 warpArea = HUB_AREA_NONE;
+        u8 enterDir = HUB_AREA_CONN_SOUTH;
+
+        for(dir = HUB_AREA_CONN_SOUTH; dir <= HUB_AREA_CONN_EAST; ++dir)
+        {
+            if(CanAreaConnect(area, dir))
+            {
+                if(gRogueHubAreas[area].connectionWarps[dir][0] == warpId || gRogueHubAreas[area].connectionWarps[dir][1] == warpId)
+                    break;
+            }
+        }
+
+        // We're trying to warp out into a valid direction
+        if(dir <= HUB_AREA_CONN_EAST)
+        {
+            warpArea = RogueHub_GetAreaAtConnection(area, dir);
+            enterDir = InvertConnDirection(dir);
+        }
+
+        // Warping into a valid area, so setup a valid warp
+        if(warpArea != HUB_AREA_NONE)
+        {
+            warp->mapGroup = gRogueHubAreas[warpArea].primaryMapGroup;
+            warp->mapNum = gRogueHubAreas[warpArea].primaryMapNum;
+            warp->warpId = gRogueHubAreas[warpArea].connectionWarps[enterDir][0];
+        }
+        else
+        {
+            // TODO - We should do safe warp back to main area if we get here
+        }
+    }
+}
+
+bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection)
+{
+    // Convert from CONNECTION_ to HUB_AREA_CONN_
+    u8 area = GetAreaForLayout(mapHeader->mapLayoutId);
+
+    if(area != HUB_AREA_NONE)
+    {
+        u8 connDir = connection->direction - 1;
+        
+        // Hide any connections, unless we actually have the connection built
+        return RogueHub_GetAreaAtConnection(area, connDir) != HUB_AREA_NONE;
+    }
+
+    return TRUE;
+}
+
 void RogueHub_ApplyMapMetatiles()
 {
     switch (gMapHeader.mapLayoutId)
@@ -133,6 +386,10 @@ void RogueHub_ApplyMapMetatiles()
     case LAYOUT_ROGUE_INTERIOR_HOME:
         RogueHub_UpdateHomeInteriorMetatiles();
         break;
+
+    case LAYOUT_ROGUE_AREA_FARMING_FIELD:
+        RogueHub_UpdateFarmingAreaMetatiles();
+        break;
     
     default:
         break;
@@ -142,6 +399,23 @@ void RogueHub_ApplyMapMetatiles()
 
 static void RogueHub_UpdateHomeAreaMetatiles()
 {
+    // Remove connections
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(18, 15);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreeCaps(8, 19, 11);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 15);
+    }
+
+
     // Fill right field
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD))
     {
@@ -211,6 +485,43 @@ static void RogueHub_UpdateHomeInteriorMetatiles()
         MetatileSet_Tile(7, 1, 0x258 | MAPGRID_COLLISION_MASK);
         MetatileSet_Tile(7, 2, 0x260);
 
+    }
+}
+
+static void RogueHub_UpdateFarmingAreaMetatiles()
+{
+    // Remove connectionss
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(7, 0, 12, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(7, 1, 12, TREE_TYPE_DENSE);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(18, 9);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitVertical(8, 14);
+        MetatileFill_TreeCaps(8, 15, 11);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 9);
+    }
+
+
+    // Fill right field
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD))
+    {
+        MetatileFill_TreesOverlapping(12, 1, 19, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(13, 7, 19, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(12, 7, 12, TREE_TYPE_SPARSE);
+        
+        MetatileFill_Tile(12, 8, 19, 8, METATILE_GeneralHub_Grass);
     }
 }
 
@@ -294,6 +605,225 @@ static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd)
     {
         tile = (x % 2) == 0 ? METATILE_GeneralHub_Tree_TopLeft_CapGrass : METATILE_GeneralHub_Tree_TopRight_CapGrass;
         MapGridSetMetatileIdAt(x + MAP_OFFSET, yStart + MAP_OFFSET, tile);
+    }
+}
+
+static void MetatileFill_CommonWarpExit(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd)
+{
+    u16 x, y;
+    u32 tile;
+
+    for(x = xStart; x <= xEnd; ++x)
+    {
+        for(y = yStart; y <= yEnd; ++y)
+        {
+            tile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+            switch (tile)
+            {
+            // Tree tops
+            case 0x00E:
+            case 0x00F:
+            case 0x03E:
+            case 0x03F:
+            case 0x047:
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_GeneralHub_Grass);
+                break;
+
+            // Tree bottoms
+            case 0x016:
+            case 0x017:
+            case 0x03D:
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_GeneralHub_Grass);
+                break;
+
+            // Tree overlap tree left
+            case 0x1F4:
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, 0x1CE);
+                break;
+            // Tree overlap tree right
+            case 0x1F5:
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, 0x1CF);
+                break;
+
+            // Grass warps/shadows
+            case METATILE_GeneralHub_GrassWarpNorth:
+            case METATILE_GeneralHub_GrassWarpEast:
+            case METATILE_GeneralHub_GrassWarpSouth:
+            case METATILE_GeneralHub_GrassWarpWest:
+            case METATILE_GeneralHub_GrassWarpShadowNorth:
+            case METATILE_GeneralHub_GrassWarpShadowEast:
+            case METATILE_GeneralHub_GrassWarpShadowSouth:
+            case METATILE_GeneralHub_GrassWarpShadowWest:
+                MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_GeneralHub_Grass);
+                break;
+            
+            default:
+                break;
+            }
+        }
+    }
+}
+
+static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart)
+{
+    MetatileFill_CommonWarpExit(xStart, yStart, xStart + 3, yStart + 1);
+}
+
+static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart)
+{
+    MetatileFill_CommonWarpExit(xStart, yStart, xStart + 1, yStart + 4);
+}
+
+void RogueHub_GetAreaBuildsMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
+{
+    u8 i;
+    u8 count;
+    u8 areas[HUB_AREA_COUNT];
+
+    RogueHub_GetAvaliableAreasToBuild(&areas[0], &count);
+
+    for(i = 0; i < count; ++i)
+    {
+        outList[i].text = &gRogueHubAreas[areas[i]].areaName[0];
+    }
+
+    outList[count].text = gText_MenuExit;
+    *outCount = count + 1;
+}
+
+void RogueHub_GetAreaBuildDirectionMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
+{
+    u8 i;
+    u8 count;
+    u8 directions[4];
+
+    RogueHub_GetAvaliableDirectionsToBuild(&directions[0], &count);
+
+    for(i = 0; i < count; ++i)
+    {
+        switch (directions[i])
+        {
+            case HUB_AREA_CONN_SOUTH:
+                outList[i].text = &gText_ExpandSouth[0];
+                break;
+            case HUB_AREA_CONN_NORTH:
+                outList[i].text = &gText_ExpandNorth[0];
+                break;
+            case HUB_AREA_CONN_EAST:
+                outList[i].text = &gText_ExpandEast[0];
+                break;
+            case HUB_AREA_CONN_WEST:
+                outList[i].text = &gText_ExpandWest[0];
+                break;
+            default:
+                // Should never reach here
+                outList[i].text = &gText_Toss2[0];
+                break;
+        }
+    }
+
+    outList[count].text = gText_MenuExit;
+    *outCount = count + 1;
+}
+
+void RogueHub_GetAreaFromMultichoiceResult()
+{
+    u16 result = VarGet(VAR_RESULT);
+
+    if(result == MULTI_B_PRESSED)
+    {
+        VarSet(VAR_RESULT, HUB_AREA_NONE);
+    }
+    else
+    {
+        u8 count;
+        u8 areas[HUB_AREA_COUNT];
+
+        RogueHub_GetAvaliableAreasToBuild(&areas[0], &count);
+
+        if(result < count)
+        {
+            VarSet(VAR_RESULT, areas[result]);
+        }
+        else
+        {
+            VarSet(VAR_RESULT, HUB_AREA_NONE);
+        }
+    }
+}
+
+void RogueHub_GetAreaDirectionFromMultichoiceResult()
+{
+    u16 result = VarGet(VAR_RESULT);
+
+    if(result == MULTI_B_PRESSED)
+    {
+        VarSet(VAR_RESULT, HUB_AREA_CONN_NONE);
+    }
+    else
+    {
+        u8 count;
+        u8 directions[4];
+
+        RogueHub_GetAvaliableDirectionsToBuild(&directions[0], &count);
+
+        if(result < count)
+        {
+            VarSet(VAR_RESULT, directions[result]);
+        }
+        else
+        {
+            VarSet(VAR_RESULT, HUB_AREA_CONN_NONE);
+        }
+    }
+}
+
+void RogueHub_BuildHubArea()
+{
+    u16 result = VarGet(VAR_0x8004);
+    u8 dir = VarGet(VAR_0x8005);
+    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
+
+    if(currentArea != HUB_AREA_NONE && !RogueHub_HasAreaBuilt(result) && dir <= HUB_AREA_CONN_EAST)
+    {
+        struct Coords8 pos;
+        pos.x = gRogueHubMap.areaCoords[currentArea].x;
+        pos.y = gRogueHubMap.areaCoords[currentArea].y;
+        IncrementCoordsByDirection(&pos, dir);
+
+        RogueHub_BuildArea(result, pos.x, pos.y);
+        VarSet(VAR_RESULT, TRUE);
+    }
+    else
+    {
+        VarSet(VAR_RESULT, FALSE);
+    }
+}
+
+void RogueHub_BufferAreaDescriptionText()
+{
+    u16 upgrade = VarGet(VAR_0x8004);
+
+    VarSet(VAR_RESULT, FALSE);
+
+    if(upgrade < HUB_AREA_COUNT && gRogueHubAreas[upgrade].descText)
+    {
+        StringCopy(gStringVar4, gRogueHubAreas[upgrade].descText);
+        VarSet(VAR_RESULT, TRUE);
+    }
+}
+
+void RogueHub_BufferAreaCompleteText()
+{
+    u16 upgrade = VarGet(VAR_0x8004);
+
+    VarSet(VAR_RESULT, FALSE);
+
+    if(upgrade < HUB_AREA_COUNT && gRogueHubAreas[upgrade].completeText)
+    {
+        StringCopy(gStringVar4, gRogueHubAreas[upgrade].completeText);
+        VarSet(VAR_RESULT, TRUE);
     }
 }
 

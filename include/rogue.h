@@ -163,9 +163,21 @@ struct RogueRunData
     } campaignData;
 };
 
+struct RogueHubArea
+{
+    const u8 areaName[16];
+    const u8* descText;
+    const u8* completeText;
+    u16 primaryMapGroup;
+    u16 primaryMapNum;
+    u16 primaryMapLayout;
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
+    u8 connectionWarps[4][2];
+};
+
 struct RogueAreaUpgrade
 {
-    const u8 upgradeName[16];
+    const u8 upgradeName[24];
     const u8* descText;
     const u8* completeText;
     u8 targetArea;
@@ -343,6 +355,7 @@ extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
+const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
