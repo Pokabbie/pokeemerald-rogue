@@ -17,8 +17,6 @@
 #include "constants/trainer_hill.h"
 #include "constants/rogue.h"
 
-#include "rogue.h"
-
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 
@@ -177,6 +175,8 @@ struct UCoords32
     u32 x;
     u32 y;
 };
+
+#include "rogue.h"
 
 struct Time
 {

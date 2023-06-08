@@ -116,6 +116,13 @@ struct RogueCampaignState
     u16 bestScore;
 };
 
+struct RogueHubMap
+{
+    struct Coords8 areaCoords[HUB_AREA_COUNT];
+    u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
+    u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+};
+
 struct RogueGlobalData
 {
     u8 safairShinyBufferHead;
@@ -123,6 +130,7 @@ struct RogueGlobalData
     u32 safariShinyPersonality;
     struct RogueQuestState questStates[QUEST_CAPACITY];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
+    struct RogueHubMap hubMap;
 };
 
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
