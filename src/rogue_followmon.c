@@ -46,6 +46,155 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
     if(species == SPECIES_NONE)
         return SPECIES_NONE;
 
+#ifdef ROGUE_EXPANSION
+    // Force special cases to reuse existing ones
+    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PIKACHU_WORLD_CAP)
+    {
+        species = SPECIES_PIKACHU;
+    }
+
+    if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+    {
+        species = SPECIES_ARCEUS;
+    }
+
+    if(species >= SPECIES_GENESECT_DOUSE_DRIVE && species <= SPECIES_GENESECT_CHILL_DRIVE)
+    {
+        species = SPECIES_GENESECT;
+    }
+
+    if(species >= SPECIES_VIVILLON_POLAR && species <= SPECIES_VIVILLON_POKE_BALL)
+    {
+        species = SPECIES_VIVILLON;
+    }
+
+    if(species >= SPECIES_FLABEBE_YELLOW_FLOWER && species <= SPECIES_FLABEBE_WHITE_FLOWER)
+    {
+        species = SPECIES_FLABEBE;
+    }
+
+    if(species >= SPECIES_FLOETTE_YELLOW_FLOWER && species <= SPECIES_FLOETTE_ETERNAL_FLOWER)
+    {
+        species = SPECIES_FLOETTE;
+    }
+
+    if(species >= SPECIES_FLORGES_YELLOW_FLOWER && species <= SPECIES_FLORGES_WHITE_FLOWER)
+    {
+        species = SPECIES_FLORGES;
+    }
+
+    if(species >= SPECIES_FURFROU_HEART_TRIM && species <= SPECIES_FURFROU_PHARAOH_TRIM)
+    {
+        species = SPECIES_FURFROU;
+    }
+
+    if(species >= SPECIES_PUMPKABOO_SMALL && species <= SPECIES_PUMPKABOO_SUPER)
+    {
+        species = SPECIES_PUMPKABOO;
+    }
+
+    if(species >= SPECIES_GOURGEIST_SMALL && species <= SPECIES_GOURGEIST_SUPER)
+    {
+        species = SPECIES_GOURGEIST;
+    }
+
+    if(species >= SPECIES_SILVALLY_FIGHTING && species <= SPECIES_SILVALLY_FAIRY)
+    {
+        species = SPECIES_SILVALLY;
+    }
+
+    if(species >= SPECIES_MINIOR_METEOR_ORANGE && species <= SPECIES_MINIOR_CORE_VIOLET)
+    {
+        species = SPECIES_MINIOR;
+    }
+
+    if(species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_RAINBOW_SWIRL)
+    {
+        species = SPECIES_ALCREMIE;
+    }
+
+    switch (species)
+    {
+    case SPECIES_PICHU_SPIKY_EARED:
+        species = SPECIES_PICHU;
+        break;
+
+    case SPECIES_DARMANITAN_ZEN_MODE: // TODO
+        species = SPECIES_DARMANITAN;
+        break;
+
+    case SPECIES_TORNADUS_THERIAN:
+        species = SPECIES_TORNADUS;
+        break;
+
+    case SPECIES_THUNDURUS_THERIAN: // TODO
+        species = SPECIES_THUNDURUS;
+        break;
+
+    case SPECIES_LANDORUS_THERIAN: // TODO
+        species = SPECIES_LANDORUS;
+        break;
+
+    case SPECIES_KYUREM_WHITE: // TODO
+        species = SPECIES_KYUREM;
+        break;
+
+    case SPECIES_KYUREM_BLACK: // TODO
+        species = SPECIES_KYUREM;
+        break;
+
+    case SPECIES_KELDEO_RESOLUTE:
+        species = SPECIES_KELDEO;
+        break;
+
+    case SPECIES_GRENINJA_BATTLE_BOND:
+    case SPECIES_GRENINJA_ASH:
+        species = SPECIES_GRENINJA;
+        break;
+
+    case SPECIES_XERNEAS_ACTIVE:
+        species = SPECIES_XERNEAS;
+        break;
+
+    case SPECIES_ZYGARDE_10:
+        species = SPECIES_ZYGARDE_10_POWER_CONSTRUCT;
+        break;
+
+    case SPECIES_ZYGARDE_50_POWER_CONSTRUCT:
+        species = SPECIES_ZYGARDE;
+        break;
+
+    case SPECIES_ROCKRUFF_OWN_TEMPO:
+        species = SPECIES_ROCKRUFF;
+        break;
+
+    case SPECIES_WISHIWASHI_SCHOOL:
+        species = SPECIES_WISHIWASHI;
+        break;
+
+    case SPECIES_MAGEARNA_ORIGINAL_COLOR:
+        species = SPECIES_MAGEARNA;
+        break;
+
+    case SPECIES_SINISTEA_ANTIQUE:
+        species = SPECIES_SINISTEA;
+        break;
+
+    case SPECIES_POLTEAGEIST_ANTIQUE:
+        species = SPECIES_POLTEAGEIST;
+        break;
+
+    case SPECIES_ETERNATUS_ETERNAMAX:
+        species = SPECIES_ETERNATUS;
+        break;
+
+    case SPECIES_ZARUDE_DADA:
+        species = SPECIES_ZARUDE;
+        break;
+    }
+
+#endif
+
     return species + (isShiny ? FOLLOWMON_SHINY_OFFSET : 0);
 }
 
