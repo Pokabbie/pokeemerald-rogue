@@ -3,7 +3,7 @@
   "name": "Rogue_Route_Field1",
   "layout": "LAYOUT_ROGUE_ROUTE_FIELD1",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

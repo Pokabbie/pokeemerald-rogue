@@ -3,7 +3,7 @@
   "name": "Rogue_HallwayFacade_Vertical",
   "layout": "LAYOUT_ROGUE_HALLWAY_FACADE_VERTICAL",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -17,6 +17,31 @@
       "direction": "up",
       "offset": -6,
       "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
+    },
+    {
+      "direction": "up",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
+    },
+    {
+      "direction": "down",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
+    },
+    {
+      "direction": "up",
+      "offset": -6,
+      "map": "MAP_ROGUE_AREA_HOME"
+    },
+    {
+      "direction": "up",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
+    },
+    {
+      "direction": "down",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
     }
   ],
   "object_events": [

@@ -732,7 +732,7 @@ static s8 GetWarpEventAtMapPosition(struct MapHeader *mapHeader, struct MapPosit
 
 static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosition *position)
 {
-    const struct WarpEvent *warpEvent;
+    struct WarpEvent warpEvent;
 
     u8 trainerHillMapId = GetCurrentTrainerHillMapId();
 
@@ -741,36 +741,38 @@ static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPositi
         if (trainerHillMapId == GetNumFloorsInTrainerHillChallenge())
         {
             if (warpEventId == 0)
-                warpEvent = &gMapHeader.events->warps[0];
+                warpEvent = gMapHeader.events->warps[0];
             else
-                warpEvent = SetWarpDestinationTrainerHill4F();
+                warpEvent = *SetWarpDestinationTrainerHill4F();
         }
         else if (trainerHillMapId == TRAINER_HILL_ROOF)
         {
-            warpEvent = SetWarpDestinationTrainerHillFinalFloor(warpEventId);
+            warpEvent = *SetWarpDestinationTrainerHillFinalFloor(warpEventId);
         }
         else
         {
-            warpEvent = &gMapHeader.events->warps[warpEventId];
+            warpEvent = gMapHeader.events->warps[warpEventId];
+            Rogue_ModifyMapWarpEvent(&gMapHeader, warpEventId, &warpEvent);
         }
     }
     else
     {
-        warpEvent = &gMapHeader.events->warps[warpEventId];
+        warpEvent = gMapHeader.events->warps[warpEventId];
+        Rogue_ModifyMapWarpEvent(&gMapHeader, warpEventId, &warpEvent);
     }
 
-    if (warpEvent->mapNum == MAP_NUM(NONE))
+    if (warpEvent.mapNum == MAP_NUM(NONE))
     {
-        SetWarpDestinationToDynamicWarp(warpEvent->warpId);
+        SetWarpDestinationToDynamicWarp(warpEvent.warpId);
     }
     else
     {
         const struct MapHeader *mapHeader;
 
-        SetWarpDestinationToMapWarp(warpEvent->mapGroup, warpEvent->mapNum, warpEvent->warpId);
+        SetWarpDestinationToMapWarp(warpEvent.mapGroup, warpEvent.mapNum, warpEvent.warpId);
         UpdateEscapeWarp(position->x, position->y);
-        mapHeader = Overworld_GetMapHeaderByGroupAndId(warpEvent->mapGroup, warpEvent->mapNum);
-        if (mapHeader->events->warps[warpEvent->warpId].mapNum == MAP_NUM(NONE))
+        mapHeader = Overworld_GetMapHeaderByGroupAndId(warpEvent.mapGroup, warpEvent.mapNum);
+        if (mapHeader->events->warps[warpEvent.warpId].mapNum == MAP_NUM(NONE))
             SetDynamicWarp(mapHeader->events->warps[warpEventId].warpId, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, warpEventId);
     }
 }

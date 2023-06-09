@@ -3,7 +3,7 @@
   "name": "Rogue_Tile_Mart",
   "layout": "LAYOUT_ROGUE_TILE_MART",
   "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE",
+      "direction": "right",
       "offset": -2,
-      "direction": "right"
+      "map": "MAP_ROGUE_TILE_SAFARI_ENTRANCE"
     },
     {
-      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "direction": "left",
       "offset": -2,
-      "direction": "left"
+      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
     }
   ],
   "object_events": [

@@ -3,7 +3,7 @@
   "name": "Rogue_Special_GenericWildMon",
   "layout": "LAYOUT_ROGUE_SPECIAL_GENERIC_WILD_MON",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_UNKNOWN",

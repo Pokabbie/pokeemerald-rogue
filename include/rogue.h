@@ -116,6 +116,13 @@ struct RogueCampaignState
     u16 bestScore;
 };
 
+struct RogueHubMap
+{
+    struct Coords8 areaCoords[HUB_AREA_COUNT];
+    u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
+    u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+};
+
 struct RogueGlobalData
 {
     u8 safairShinyBufferHead;
@@ -123,6 +130,7 @@ struct RogueGlobalData
     u32 safariShinyPersonality;
     struct RogueQuestState questStates[QUEST_CAPACITY];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
+    struct RogueHubMap hubMap;
 };
 
 //ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
@@ -163,9 +171,21 @@ struct RogueRunData
     } campaignData;
 };
 
+struct RogueHubArea
+{
+    const u8 areaName[16];
+    const u8* descText;
+    const u8* completeText;
+    u16 primaryMapGroup;
+    u16 primaryMapNum;
+    u16 primaryMapLayout;
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
+    u8 connectionWarps[4][2];
+};
+
 struct RogueAreaUpgrade
 {
-    const u8 upgradeName[16];
+    const u8 upgradeName[24];
     const u8* descText;
     const u8* completeText;
     u8 targetArea;
@@ -343,6 +363,7 @@ extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
+const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];

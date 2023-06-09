@@ -91,6 +91,24 @@ Rogue_Hub_Clothes_ChangeName_2:
 	goto Rogue_Hub_Clothes_ChangeName_1
 
 
+Rogue_Hub_Clothes_ChangePokemonHubName::
+	lock
+	msgbox Rogue_Hub_Clothes_ChangePokemonHubName_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Rogue_Hub_Clothes_ChangePokemonHubName_2
+	msgbox Rogue_Hub_Clothes_ChangeStyle0_Text_2
+Rogue_Hub_Clothes_ChangePokemonHubName_1:
+	release
+	return
+
+Rogue_Hub_Clothes_ChangePokemonHubName_2:
+	fadescreen FADE_TO_BLACK
+	special ChangePokemonHubName
+	waitstate
+	msgbox Rogue_Hub_Clothes_ChangePokemonHubName_Text_1
+	goto Rogue_Hub_Clothes_ChangePokemonHubName_1
+
+
 Rogue_Hub_Clothes_SetStyle_Brendan::
 	lock
 	msgbox Rogue_Hub_Clothes_SetStyle_Brendan_Text_0, MSGBOX_YESNO
@@ -225,6 +243,13 @@ Rogue_Hub_Clothes_ChangeName_Text_0:
 
 Rogue_Hub_Clothes_ChangeName_Text_1:
 	.string "{PLAYER} it is!$"
+
+Rogue_Hub_Clothes_ChangePokemonHubName_Text_0:
+	.string "Would you like to change the village\n"
+	.string "name?$"
+
+Rogue_Hub_Clothes_ChangePokemonHubName_Text_1:
+	.string "{POKEMON_HUB} it is!$"
 
 Rogue_Hub_Clothes_SetStyle_Brendan_Text_0:
 	.string "Change to this style?$"

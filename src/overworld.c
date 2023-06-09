@@ -807,8 +807,13 @@ const struct MapConnection *GetMapConnection(u8 dir)
         return NULL;
 
     for(i = 0; i < count; i++, connection++)
+    {
+        if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+            continue;
+
         if (connection->direction == dir)
             return connection;
+    }
 
     return NULL;
 }

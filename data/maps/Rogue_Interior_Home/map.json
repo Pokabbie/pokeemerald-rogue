@@ -3,7 +3,7 @@
   "name": "Rogue_Interior_Home",
   "layout": "LAYOUT_ROGUE_INTERIOR_HOME",
   "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -22,14 +22,14 @@
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": 2
+      "dest_warp_id": 0
     },
     {
       "x": 6,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": 2
+      "dest_warp_id": 0
     },
     {
       "x": 7,

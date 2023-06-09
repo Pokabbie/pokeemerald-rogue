@@ -3,7 +3,7 @@
   "name": "Rogue_Route_Mountain0",
   "layout": "LAYOUT_ROGUE_ROUTE_MOUNTAIN0",
   "music": "MUS_ROUTE111",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

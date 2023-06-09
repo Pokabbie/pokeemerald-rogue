@@ -3,7 +3,7 @@
   "name": "Rogue_Boss_0",
   "layout": "LAYOUT_ROGUE_BOSS_0",
   "music": "MUS_B_DOME",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

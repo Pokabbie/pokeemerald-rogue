@@ -3,7 +3,7 @@
   "name": "Rogue_Hub",
   "layout": "LAYOUT_ROGUE_HUB",
   "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_TRAINER_HILL",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",
@@ -739,7 +739,7 @@
       "x": 4,
       "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {

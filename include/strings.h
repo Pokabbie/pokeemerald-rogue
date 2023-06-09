@@ -16,6 +16,7 @@ extern const u8 gText_ExpandedPlaceholder_Kyogre[];
 extern const u8 gText_ExpandedPlaceholder_Groudon[];
 extern const u8 gText_ExpandedPlaceholder_Brendan[];
 extern const u8 gText_ExpandedPlaceholder_May[];
+extern const u8 gText_ExpandedPlaceholder_PokemonHub[];
 
 extern const u8 gText_FromSpace[];
 
@@ -1144,6 +1145,12 @@ extern const u8 gText_FullRun[];
 extern const u8 gText_SkipAhead[];
 extern const u8 gText_SwapOne[];
 extern const u8 gText_SwapAll[];
+extern const u8 gText_ExpandArea[];
+extern const u8 gText_UpgradeArea[];
+extern const u8 gText_ExpandSouth[];
+extern const u8 gText_ExpandNorth[];
+extern const u8 gText_ExpandEast[];
+extern const u8 gText_ExpandWest[];
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];

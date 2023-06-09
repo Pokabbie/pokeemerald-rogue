@@ -31,6 +31,9 @@
 #include "frontier_util.h"
 #include "pokedex.h"
 #include "save.h"
+#include "string.h"
+#include "strings.h"
+#include "string_util.h"
 #include "link_rfu.h"
 #include "main.h"
 #include "contest.h"
@@ -204,6 +207,8 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     Rogue_OnNewGame();
+
+    StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
 }

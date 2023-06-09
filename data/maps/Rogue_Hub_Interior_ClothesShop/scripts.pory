@@ -106,6 +106,29 @@ script Rogue_Hub_Clothes_ChangeName
     release
 }
 
+// This is just a temp script location
+script Rogue_Hub_Clothes_ChangePokemonHubName
+{
+    lock
+
+    msgbox(format("Would you like to change the village name?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+        special(ChangePokemonHubName)
+        waitstate
+
+        msgbox(format("{POKEMON_HUB} it is!"))
+    }
+    else
+    {
+        msgbox(format("Come back any time!"))
+    }
+
+    release
+}
+
 
 script Rogue_Hub_Clothes_SetStyle_Brendan
 {

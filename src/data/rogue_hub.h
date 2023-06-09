@@ -1,45 +1,70 @@
+#include "constants/layouts.h"
+#include "constants/rogue_hub.h"
 
-static const u8 sText_Desc_Home_LowerFloor[] = _(
-    "The home can be used to store items and\n"
-    "change your outfits.\p"
-    "It has access to further upgrades\n"
-    "which provide extra convenience."
-);
+#include "rogue_hub_strings.h"
 
-static const u8 sText_Desc_Home_UpperFloor[] = _(
-    "The upper floor of the house will grant\n"
-    "access to the bed, which will allow you\l"
-    "to sleep so you may choose the time,\l"
-    "weather and season."
-);
+#define SET_AREA_PRIMARY_MAP(map) \
+    .primaryMapGroup = MAP_GROUP(map), \
+    .primaryMapNum = MAP_NUM(map), \
+    .primaryMapLayout = LAYOUT_ ## map
 
-static const u8 sText_Desc_Home_BerryField1[] = _(
-    "The berry field will grant you a small\n"
-    "patch where you may plant berries.\p"
-    "They will grow whilst you are out\n"
-    "adventuring."
-);
 
-static const u8 sText_Desc_Home_BerryField2[] = _(
-    "This will grant an additional berry\n"
-    "field."
-);
+const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] = 
+{
+    [HUB_AREA_TOWN_SQUARE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
+        .areaName = _("Town Square"),
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        }
+    },
+    [HUB_AREA_HOME] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
+        .areaName = _("{PLAYER}'s house"),
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_EAST] = { 1, 2 },
+            [HUB_AREA_CONN_SOUTH] = { 3, 4 },
+            [HUB_AREA_CONN_WEST] = { 5, 6 },
+        }
+    },
+    [HUB_AREA_BERRY_FIELD] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_FARMING_FIELD),
+        .areaName = _("Farming field"),
+        .requiredUpgrades = { HUB_UPGRADE_HOME_BERRY_FIELD2, HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        }
+    },
+};
 
-static const u8 sText_Desc_Home_OpenField[] = _(
-    "This field is an area which will allow\n"
-    "POKéMON from your PC to roam around\l"
-    "freely."
-);
-
-// TODO - Is this what the shed should do??
-static const u8 sText_Desc_Home_Shed[] = _(
-    "The shed is an area which will allow you\n"
-    "to pose your party of POKéMON for\l"
-    "photos."
-);
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
+    // HUB_AREA_TOWN_SQUARE Upgrades
+    //
+    [HUB_UPGRADE_TOWN_SQUARE_POKE_CONNECT] = 
+    {
+        .upgradeName = _("Poké Connect"),
+        .targetArea = HUB_AREA_TOWN_SQUARE,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+
+    // HUB_AREA_HOME Upgrades
+    //
     [HUB_UPGRADE_HOME_LOWER_FLOOR] = 
     {
         .upgradeName = _("House"),
@@ -68,6 +93,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("Berry Field (2)"),
         .targetArea = HUB_AREA_HOME,
         .descText = sText_Desc_Home_BerryField2,
+        .completeText = sText_Complete_Home_BerryField2,
         .requiredUpgrades = { HUB_UPGRADE_HOME_BERRY_FIELD1, HUB_UPGRADE_NONE }
     },
 
@@ -84,5 +110,27 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("Shed"),
         .targetArea = HUB_AREA_HOME,
         .requiredUpgrades = { HUB_UPGRADE_HOME_GRASS_FIELD, HUB_UPGRADE_NONE }
+    },
+
+
+    // HUB_AREA_BERRY_FIELD Upgrades
+    //
+    [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD] = 
+    {
+        .upgradeName = _("Extra Field"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1] = 
+    {
+        .upgradeName = _("Increase yield"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2] = 
+    {
+        .upgradeName = _("Increased yield (2)"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1, HUB_UPGRADE_NONE }
     },
 };

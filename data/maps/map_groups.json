@@ -36,7 +36,9 @@
   "gMapGroup_RogueHubAreas": [
     "Rogue_HallwayFacade_Horizontal",
     "Rogue_HallwayFacade_Vertical",
-    "Rogue_Area_Home"
+    "Rogue_Area_TownSquare",
+    "Rogue_Area_Home",
+    "Rogue_Area_FarmingField"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",

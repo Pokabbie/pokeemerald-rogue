@@ -3,7 +3,7 @@
   "name": "Rogue_Encounter_GameShow",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_GAME_SHOW",
   "music": "MUS_GAME_CORNER",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

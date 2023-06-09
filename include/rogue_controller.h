@@ -77,6 +77,9 @@ void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);
+
+void Rogue_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
+bool8 Rogue_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);

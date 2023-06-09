@@ -3,7 +3,7 @@
   "name": "Rogue_Encounter_Den",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_DEN",
   "music": "MUS_PETALBURG_WOODS",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_ROUTE",

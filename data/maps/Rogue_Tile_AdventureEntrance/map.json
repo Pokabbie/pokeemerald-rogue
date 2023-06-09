@@ -3,7 +3,7 @@
   "name": "Rogue_Tile_AdventureEntrance",
   "layout": "LAYOUT_ROGUE_TILE_ADVENTURE_ENTRANCE",
   "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Rogue_Hub_Clothes_ChangePokemonHubName",
       "flag": "0"
     }
   ],
@@ -71,6 +71,20 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_FARMING_FIELD",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_FARMING_FIELD",
       "dest_warp_id": 0
     }
   ],

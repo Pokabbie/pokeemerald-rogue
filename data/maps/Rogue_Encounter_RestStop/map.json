@@ -3,7 +3,7 @@
   "name": "Rogue_Encounter_RestStop",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_REST_STOP",
   "music": "MUS_LILYCOVE",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
