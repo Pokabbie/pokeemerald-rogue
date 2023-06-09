@@ -30,6 +30,7 @@ static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd);
 static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
 
+static void RogueHub_UpdateTownSquareAreaMetatiles();
 static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
 static void RogueHub_UpdateFarmingAreaMetatiles();
@@ -52,8 +53,7 @@ void RogueHub_ClearProgress()
     memset(&gRogueGlobalData.hubMap, 0, sizeof(gRogueGlobalData.hubMap));
 
     // Build default area at 0,0
-    // TODO - change default area
-    RogueHub_BuildArea(HUB_AREA_HOME, 0, 0);
+    RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -159,8 +159,6 @@ u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
                 return i;
         }
     }
-
-    DIR_SOUTH;
 
     return HUB_AREA_NONE;
 }
@@ -276,17 +274,27 @@ void RogueHub_GetAvaliableAreasToBuild(u8* outAreas, u8* outCount)
     *outCount = count;
 }
 
-void RogueHub_GetAvaliableDirectionsToBuild(u8* outDirs, u8* outCount)
+void RogueHub_GetAvaliableDirectionsToBuild(u8 fromArea, u8 toArea, u8* outDirs, u8* outCount)
 {
-    u8 dir;
+    u8 i;
+    u8 dir, invDir;
     u8 count = 0;
-    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
-
-    if(currentArea != HUB_AREA_NONE)
+    u8 orderedDirs[] = 
     {
-        for(dir = HUB_AREA_CONN_SOUTH; dir <= HUB_AREA_CONN_EAST; ++dir)
+        HUB_AREA_CONN_NORTH,
+        HUB_AREA_CONN_EAST,
+        HUB_AREA_CONN_SOUTH,
+        HUB_AREA_CONN_WEST,
+    };
+
+    if(fromArea != HUB_AREA_NONE && toArea != HUB_AREA_NONE && fromArea != toArea)
+    {
+        for(i = 0; i < ARRAY_COUNT(orderedDirs); ++i)
         {
-            if(RogueHub_AreaHasFreeConnection(currentArea, dir))
+            dir = orderedDirs[i];
+            invDir = InvertConnDirection(dir);
+
+            if(RogueHub_AreaHasFreeConnection(fromArea, dir) && CanAreaConnect(toArea, invDir))
             {
                 outDirs[count++] = dir;
             }
@@ -372,6 +380,10 @@ void RogueHub_ApplyMapMetatiles()
 {
     switch (gMapHeader.mapLayoutId)
     {
+    case LAYOUT_ROGUE_AREA_TOWN_SQUARE:
+        RogueHub_UpdateTownSquareAreaMetatiles();
+        break;
+
     case LAYOUT_ROGUE_AREA_HOME:
         RogueHub_UpdateHomeAreaMetatiles();
         break;
@@ -387,6 +399,32 @@ void RogueHub_ApplyMapMetatiles()
         break;
     }
 
+}
+
+static void RogueHub_UpdateTownSquareAreaMetatiles()
+{
+    // Remove connectionss
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(28, 11);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitVertical(18, 22);
+        MetatileFill_TreeCaps(18, 23, 21);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 17);
+    }
 }
 
 static void RogueHub_UpdateHomeAreaMetatiles()
@@ -689,8 +727,14 @@ void RogueHub_GetAreaBuildDirectionMultichoice(struct MenuAction* outList, u8* o
     u8 i;
     u8 count;
     u8 directions[4];
+    u16 hubAreaToBuild = VarGet(VAR_0x8004);
 
-    RogueHub_GetAvaliableDirectionsToBuild(&directions[0], &count);
+    if(hubAreaToBuild >= HUB_AREA_COUNT)
+    {
+        hubAreaToBuild = HUB_AREA_NONE;
+    }
+
+    RogueHub_GetAvaliableDirectionsToBuild(RogueHub_GetAreaFromCurrentMap(), hubAreaToBuild, &directions[0], &count);
 
     for(i = 0; i < count; ++i)
     {
@@ -748,6 +792,12 @@ void RogueHub_GetAreaFromMultichoiceResult()
 void RogueHub_GetAreaDirectionFromMultichoiceResult()
 {
     u16 result = VarGet(VAR_RESULT);
+    u16 hubAreaToBuild = VarGet(VAR_0x8004);
+
+    if(hubAreaToBuild >= HUB_AREA_COUNT)
+    {
+        hubAreaToBuild = HUB_AREA_NONE;
+    }
 
     if(result == MULTI_B_PRESSED)
     {
@@ -758,7 +808,7 @@ void RogueHub_GetAreaDirectionFromMultichoiceResult()
         u8 count;
         u8 directions[4];
 
-        RogueHub_GetAvaliableDirectionsToBuild(&directions[0], &count);
+        RogueHub_GetAvaliableDirectionsToBuild(RogueHub_GetAreaFromCurrentMap(), hubAreaToBuild, &directions[0], &count);
 
         if(result < count)
         {

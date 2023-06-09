@@ -11,6 +11,19 @@
 
 const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] = 
 {
+    [HUB_AREA_TOWN_SQUARE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
+        .areaName = _("Town Square"),
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        }
+    },
     [HUB_AREA_HOME] = 
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
@@ -41,6 +54,15 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
+    // HUB_AREA_TOWN_SQUARE Upgrades
+    //
+    [HUB_UPGRADE_TOWN_SQUARE_POKE_CONNECT] = 
+    {
+        .upgradeName = _("Poké Connect"),
+        .targetArea = HUB_AREA_TOWN_SQUARE,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+
     // HUB_AREA_HOME Upgrades
     //
     [HUB_UPGRADE_HOME_LOWER_FLOOR] = 

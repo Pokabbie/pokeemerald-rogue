@@ -32,6 +32,16 @@
       "direction": "up",
       "offset": -6,
       "map": "MAP_ROGUE_AREA_HOME"
+    },
+    {
+      "direction": "up",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
+    },
+    {
+      "direction": "down",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
     }
   ],
   "object_events": [

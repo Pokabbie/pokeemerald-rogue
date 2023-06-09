@@ -739,7 +739,7 @@
       "x": 4,
       "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {
