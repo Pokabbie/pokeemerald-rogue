@@ -2907,6 +2907,42 @@ static const struct SpriteFrameImage sPicTable_Glitch_Erma[] = {
     overworld_frame(gObjectEventPic_Glitch_Erma, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_BackpackerF[] = {
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BackpackerF, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_BackpackerM[] = {
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BackpackerM, 2, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Builder[] = {
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Builder, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_PC[] = {
     obj_frame_tiles(gObjectEventPic_PC),
 };

@@ -527,6 +527,10 @@ const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_kate.gbapal");
 const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_erma.gbapal");
 
+const u32 gObjectEventPic_BackpackerF[] = INCBIN_U32("graphics/object_events/pics/people/backpacker_f.4bpp");
+const u32 gObjectEventPic_BackpackerM[] = INCBIN_U32("graphics/object_events/pics/people/backpacker_m.4bpp");
+const u32 gObjectEventPic_Builder[] = INCBIN_U32("graphics/object_events/pics/people/builder.4bpp");
+
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
 const u32 gObjectEventPic_WorkTable[] = INCBIN_U32("graphics/object_events/pics/rogue/work_table.4bpp");
