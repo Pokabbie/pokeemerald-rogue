@@ -74,18 +74,7 @@ script Rogue_MiniBoss_CheckPartySize
 
 script Rogue_BattleDefeated_GiveMon
 {
-    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
-    {
-        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
-        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
-            message(format("Will you take one of these POKéMON with you?"))
-
-        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
-            message(format("... ... ...!"))
-
-        default:
-            message(format("Would you like to take one of these POKéMON with you?"))
-    }
+    message(format("Which of these POKéMON would you like to take with you?"))
     waitmessage
 
     bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
@@ -139,19 +128,6 @@ script Rogue_BattleDefeated_MiniBoss
 {
     call(Rogue_ClearWeather)
 
-    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
-    {
-        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
-        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
-            msgbox(format("I suppose I should give you some rewards for your lucky performance..."), MSGBOX_DEFAULT)
-
-        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
-            msgbox(format("... ... ...?"), MSGBOX_DEFAULT)
-
-        default:
-            msgbox(format("I've got a few rewards for you."), MSGBOX_DEFAULT)
-    }
-
     copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
     call(Rogue_GiveItem_Internal)
 
@@ -196,27 +172,6 @@ script Rogue_MiniBoss_KickOffBattle
 {
     buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
 
-    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA))
-    {
-        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
-        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
-            msgbox(format("{STR_VAR_1}: Don't think I'll let you through lightly!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well that was unexpected..."))
-
-        case TRAINER_ROGUE_MINI_BOSS_WALLY:
-            msgbox(format("{STR_VAR_1}: Oh hey!\nWill you battle with me!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("What a fun battle!"))
-
-        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
-            msgbox(format("{PLAYER}: ... ... ..."))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("...!"))
-
-        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
-            msgbox(format("{STR_VAR_1}: I've think I've crafted the best team! Let me show you!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Wow! I didn't expect that!"))
-        
-        default:
-            msgbox(format("{STR_VAR_1}: Show me everything you got!"))
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well colour me impressed!"))
-    }
+    msgbox(format("{STR_VAR_1}: Show me everything you got!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well colour me impressed!"))
 }

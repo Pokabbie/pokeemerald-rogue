@@ -40,53 +40,12 @@ const u8 gText_MoveNotVeryEffective[] = _("{COLOR GREEN}Not Effective");
 
 // Trainers
 //
-const u8 gText_TrainerNameChallenger[] = _("CHALLENGER");
-const u8 gText_TrainerNameGrunt[] = _("GRUNT");
-
-const u8 gText_TrainerName_TateLiza[] = _("LIZA");
-const u8 gText_TrainerName_Anabel[] = _("ANABEL");
-
-const u8 gText_TrainerName_Brock[] = _("BROCK");
-const u8 gText_TrainerName_Misty[] = _("MISTY");
-const u8 gText_TrainerName_LtSurge[] = _("LT. SURGE");
-const u8 gText_TrainerName_Erika[] = _("ERIKA");
-const u8 gText_TrainerName_Koga[] = _("KOGA");
-const u8 gText_TrainerName_Sabrina[] = _("SABRINA");
-const u8 gText_TrainerName_Blaine[] = _("BLAINE");
-const u8 gText_TrainerName_Giovanni[] = _("GIOVANNI");
-
-const u8 gText_TrainerName_Lorelei[] = _("LORELEI");
-const u8 gText_TrainerName_Bruno[] = _("BRUNO");
-const u8 gText_TrainerName_Agatha[] = _("AGATHA");
-const u8 gText_TrainerName_Lance[] = _("LANCE");
-
-const u8 gText_TrainerName_Blue[] = _("BLUE");
-const u8 gText_TrainerName_ProfOak[] = _("PROF. OAK");
-
 const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
 const u8 gText_TrainerName_Red[] = _("RED");
 const u8 gText_TrainerName_Leaf[] = _("LEAF");
 const u8 gText_TrainerName_Ethan[] = _("ETHAN");
 const u8 gText_TrainerName_Lyra[] = _("LYRA");
-
-const u8 gText_TrainerName_Falkner[] = _("FALKNER");
-const u8 gText_TrainerName_Bugsy[] = _("BUGSY");
-const u8 gText_TrainerName_Whitney[] = _("WHITNEY");
-const u8 gText_TrainerName_Morty[] = _("MORTY");
-const u8 gText_TrainerName_Chuck[] = _("CHUCK");
-const u8 gText_TrainerName_Jasmine[] = _("JASMINE");
-const u8 gText_TrainerName_Pryce[] = _("PRYCE");
-const u8 gText_TrainerName_Clair[] = _("CLAIR");
-
-const u8 gText_TrainerName_Will[] = _("WILL");
-const u8 gText_TrainerName_Karen[] = _("KAREN");
-
-const u8 gText_TrainerName_Kate[] = _("KATE");
-const u8 gText_TrainerName_Raven[] = _("RAVEN");
-const u8 gText_TrainerName_Erma[] = _("ERMA");
-const u8 gText_TrainerName_Tails[] = _("TMK4");
-const u8 gText_TrainerName_Pokabbie[] = _("POKABBIE'S DITTO");
 
 // Items
 //

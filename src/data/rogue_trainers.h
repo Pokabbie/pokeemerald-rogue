@@ -60,6 +60,8 @@ const struct RogueEncounterMap gRogueTypeToEliteRoom[] =
 #endif
 };
 
+#undef ENCOUNTER_MAP
+
 // Kinda a gross way of doing it, but was the simplest without hacking it in elsewhere
 static const u16 sQuerySpecies_Kanto[] =
 {
@@ -635,118 +637,6 @@ static const u16 sQuerySpecies_Raven[] =
     SPECIES_ALCREMIE
 #endif
 };
-
-#define TRAINER_FLAG_MINI_BOSS (TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO | TRAINER_FLAG_JOHTO)
-
-static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] = 
-{
-    {
-        .gfxId = OBJ_EVENT_GFX_MAXIE,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
-        .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
-        .excTypes = { TYPE_WATER, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_ARCHIE,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
-        .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
-        .excTypes = { TYPE_FIRE, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WALLY,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_WALLY,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NORMAL, TYPE_NONE },
-        .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRENDAN_ALT,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
-        .incTypes = { TYPE_MYSTERY, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-        .partyFlags = PARTY_FLAG_MIRROR_EXACT,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_MAY_ALT,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_RIVAL,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-        .partyFlags = PARTY_FLAG_COUNTER_TYPINGS,
-    },
-
-    {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_LUCY,
-        .incTypes = { TYPE_POISON, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRANDON,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_BRANDON,
-        .incTypes = { TYPE_GROUND, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_TUCKER,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_TUCKER,
-        .incTypes = { TYPE_BUG, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_SPENSER,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_SPENSER,
-        .incTypes = { TYPE_GRASS, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_GRETA,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_GRETA,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_NOLAND,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_NOLAND,
-        .incTypes = { TYPE_ICE, TYPE_DRAGON, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-#ifdef ROGUE_EXPANSION
-    {
-        .gfxId = OBJ_EVENT_GFX_ANABEL,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_ANABEL,
-        .incTypes = { TYPE_FAIRY, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-#endif
-};
-
-const struct RogueTrainerData gRogueMiniBossEncounters = 
-{
-    .count = ARRAY_COUNT(sRouteMiniBossEncounters),
-    .trainers = sRouteMiniBossEncounters,
-};
-
-#undef ENCOUNTER_MAP
-
-
-
-
-
-
-//
-// NEW TRAINER DATA
-//
 
 static const struct RogueTrainer sRouteTrainers_Bosses[] = 
 {
@@ -1896,11 +1786,11 @@ static const struct RogueTrainer sRouteTrainers_MiniBosses[] =
     {
         .trainerName = _("???"),
         .objectEventGfx = OBJ_EVENT_GFX_PLAYER_RIVAL,
-        .trainerPic = TRAINER_PIC_PLAYER_RIVAL,
+        .trainerPic = TRAINER_PIC_PLAYER_OPPOSITE_AVATAR,
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = 0,
         .preferredWeather = WEATHER_DEFAULT,
-        .trainerFlags = TRAINER_FLAG_ANY_REGION | TRAINER_FLAG_NAME_IS_RIVAL,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION | TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR,
         .monGenerators = 
         {
             {

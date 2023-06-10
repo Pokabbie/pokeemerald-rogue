@@ -653,7 +653,8 @@ script Rogue_Battle_PreBoss
 
         if(var(VAR_RESULT) == YES)
         {
-            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, format("Good luck with the big battle!"))
+            msgbox(format("TODO - Fix"), MSGBOX_DEFAULT)
+            //trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, format("Good luck with the big battle!"))
             setflag(FLAG_TEMP_1A)
         }
         else
