@@ -2125,8 +2125,20 @@ void Rogue_MainCB(void)
 #endif
 }
 
-void Rogue_OverworldCB(void)
+void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
 {
+    if(inputActive)
+    {
+        if(!(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_CONTROLLABLE)))
+        {
+            // Update running toggle
+            if(gSaveBlock2Ptr->optionsAutoRunToggle && (newKeys & B_BUTTON) != 0)
+            {
+                gRogueGlobalData.runningToggleActive = !gRogueGlobalData.runningToggleActive;
+            }
+        }
+    }
+    
     Rogue_AssistantOverworldCB();
 }
 

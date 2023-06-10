@@ -1427,6 +1427,7 @@ bool32 IsOverworldLinkActive(void)
 static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
     bool8 allowPopups;
+    bool8 inputActive = FALSE;
     struct FieldInput inputStruct;
 
     UpdatePlayerAvatarTransitionState();
@@ -1446,6 +1447,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
             Rogue_UpdatePopups(TRUE, TRUE);
             FollowMon_OverworldCB();
+            inputActive = TRUE;
             PUSH_ASSISTANT_STATE2(OVERWORLD, MOVEMENT);
         }
     }
@@ -1455,7 +1457,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         Rogue_UpdatePopups(TRUE, FALSE);
     }
 
-    Rogue_OverworldCB();
+    Rogue_OverworldCB(newKeys, heldKeys, inputActive);
 
     // if stop running but keep holding B -> fix follower frame
     if (PlayerHasFollower() && IsPlayerOnFoot() && IsPlayerStandingStill())

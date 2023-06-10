@@ -125,6 +125,7 @@ struct RogueHubMap
 
 struct RogueGlobalData
 {
+    bool8 runningToggleActive : 1;
     u8 safairShinyBufferHead;
     u16 safariShinyBuffer[6];
     u32 safariShinyPersonality;

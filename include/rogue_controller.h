@@ -68,7 +68,7 @@ u16 Rogue_PostRunRewardMoney();
 
 void Rogue_MainInit(void);
 void Rogue_MainCB(void);
-void Rogue_OverworldCB(void);
+void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
 
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
