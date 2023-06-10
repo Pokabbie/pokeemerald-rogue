@@ -1,58 +1,19 @@
 #include "global.h"
-//#include "constants/abilities.h"
-//#include "constants/battle.h"
 #include "constants/event_objects.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
 #include "constants/items.h"
-//#include "constants/layouts.h"
 #include "constants/moves.h"
-//#include "constants/rogue.h"
-//#include "constants/rgb.h"
 #include "constants/weather.h"
-//#include "data.h"
 #include "gba/isagbprint.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
-//#include "berry.h"
+
 #include "event_data.h"
-//#include "graphics.h"
-//#include "item.h"
-//#include "load_save.h"
+#include "event_object_movement.h"
 #include "malloc.h"
-//#include "main.h"
-//#include "money.h"
-//#include "m4a.h"
-//#include "overworld.h"
 #include "party_menu.h"
-//#include "palette.h"
-//#include "play_time.h"
-//#include "player_pc.h"
-//#include "pokemon.h"
-//#include "pokemon_icon.h"
-//#include "pokemon_storage_system.h"
-//#include "random.h"
-//#include "rtc.h"
-//#include "safari_zone.h"
-//#include "script.h"
-//#include "siirtc.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
 
 #include "rogue.h"
-//#include "rogue_assistant.h"
-//#include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
-//#include "rogue_campaign.h"
-//#include "rogue_charms.h"
 #include "rogue_controller.h"
-//#include "rogue_followmon.h"
-//#include "rogue_popup.h"
 #include "rogue_query.h"
-//#include "rogue_quest.h"
-//#include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
 struct TrainerHeldItemScratch
@@ -98,13 +59,17 @@ static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
 static void ReorderPartyMons(struct Pokemon *party, u8 monCount);
 
 // Manual start offsets to make it clearer which trainer nums are which trainer types
-#define TRAINER_NUM_BOSS_START          100
-#define TRAINER_NUM_BOSS_COUNT          (gRogueTrainers.bossCount)
-#define TRAINER_NUM_BOSS_END            (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
+#define TRAINER_NUM_BOSS_START              100
+#define TRAINER_NUM_BOSS_COUNT              (gRogueTrainers.bossCount)
+#define TRAINER_NUM_BOSS_END                (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
 
-#define TRAINER_NUM_MINIBOSS_START      200
-#define TRAINER_NUM_MINIBOSS_COUNT      (gRogueTrainers.minibossCount)
-#define TRAINER_NUM_MINIBOSS_END        (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
+#define TRAINER_NUM_MINIBOSS_START          200
+#define TRAINER_NUM_MINIBOSS_COUNT          (gRogueTrainers.minibossCount)
+#define TRAINER_NUM_MINIBOSS_END            (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
+
+#define TRAINER_NUM_ROUTE_TRAINER_START     300
+#define TRAINER_NUM_ROUTE_TRAINER_COUNT     (gRogueTrainers.routeTrainersCount)
+#define TRAINER_NUM_ROUTE_TRAINER_END       (TRAINER_NUM_ROUTE_TRAINER_START + TRAINER_NUM_ROUTE_TRAINER_COUNT - 1)
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
@@ -114,6 +79,11 @@ bool8 Rogue_IsBossTrainer(u16 trainerNum)
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
 {
     return trainerNum >= TRAINER_NUM_MINIBOSS_START && trainerNum <= TRAINER_NUM_MINIBOSS_END;
+}
+
+bool8 Rogue_IsRouteTrainer(u16 trainerNum)
+{
+    return trainerNum >= TRAINER_NUM_ROUTE_TRAINER_START && trainerNum <= TRAINER_NUM_ROUTE_TRAINER_END;
 }
 
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
@@ -155,7 +125,26 @@ bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr
         return TRUE;
     }
 
+    if(Rogue_IsRouteTrainer(trainerNum))
+    {
+        *trainerPtr = &gRogueTrainers.routeTrainers[trainerNum - TRAINER_NUM_ROUTE_TRAINER_START];
+        return TRUE;
+    }
+
     return FALSE;
+}
+
+bool8 Rogue_GetTrainerFlag(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer;
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+    {
+        return FlagGet(TRAINER_FLAGS_START + trainerNum);
+    }
+
+    // Always return true by default
+    return TRUE;
 }
 
 u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
@@ -167,7 +156,40 @@ u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
     }
 
     // Fallback in event of error
-    return OBJ_EVENT_GFX_ITEM_BALL;
+    return OBJ_EVENT_GFX_AZURILL_DOLL;
+}
+
+extern const u8* Rogue_Battle_Trainer;
+
+u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject)
+{
+    u8 i;
+
+    // TODO - Could check the script?? (Was having issues though)
+
+    // Grab the trainer which matches the gfx
+    for(i = 0; i < gRogueTrainers.routeTrainersCount; ++i)
+    {
+        if(gRogueTrainers.routeTrainers[i].objectEventGfx == curObject->graphicsId)
+        {
+            return TRAINER_NUM_ROUTE_TRAINER_START + i;
+        }
+    }
+
+    return TRAINER_NONE;
+}
+
+u16 Rogue_GetTrainerNumFromLastInteracted()
+{
+    u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
+    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+    if(objEventId < OBJECT_EVENTS_COUNT)
+    {
+        return Rogue_GetTrainerNumFromObjectEvent(&gObjectEvents[objEventId]);
+    }
+
+    return TRAINER_NONE;
 }
 
 u8 Rogue_GetTrainerWeather(u16 trainerNum)
@@ -363,7 +385,6 @@ static u16 NextTrainerNum(u16 startNum, u16 endNum, u16* historyBuffer, u16 hist
 
     enabledTrainerCount = 0;
 
-
     for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
     {
         if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
@@ -411,6 +432,19 @@ u16 Rogue_NextMinibossTrainerId()
     if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
     {
         HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
+    }
+
+    return trainerNum;
+}
+
+u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity)
+{
+    const struct RogueTrainer* trainerPtr;
+    u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    {
+        HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum, trainerPtr));
     }
 
     return trainerNum;

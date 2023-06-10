@@ -6,17 +6,6 @@ const VAR_SHOP_RANDOM_IDX = VAR_TEMP_F
 // Re-used scripts
 //
 
-// Can't break battles out into a single util down to how trainerbattle works :(
-// So use pre-post calls to setup states
-//script Rogue_PreBattle_Internal
-//{
-//}
-
-script Rogue_PostBattle_Internal
-{
-    msgbox(format("Good luck with your next battle!"), MSGBOX_AUTOCLOSE)
-}
-
 script Rogue_GiveItem_Internal
 {
     // Debug
@@ -876,121 +865,12 @@ script Rogue_GymIdentity_PreBoss
     }
 }
 
-script Rogue_Battle_BreederF
+script Rogue_Battle_Trainer
 {
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_BREEDER_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_BreederM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_BREEDER_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_RichF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_RICH_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_RichM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_RICH_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_CooltrainerF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_COOLTRAINER_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_CooltrainerM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_COOLTRAINER_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_PokefanF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_POKEFAN_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_PokefanM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_POKEFAN_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_SchoolkidF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_SCHOOL_KID_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_SchoolkidM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_SCHOOL_KID_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_TuberF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_TUBER_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_TuberM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_TUBER_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_PoshF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_POSH_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_PoshM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_POSH_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_MagmaF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_MAGMA_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_MagmaM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_MAGMA_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-
-script Rogue_Battle_AquaF
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_AQUA_F, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
-}
-script Rogue_Battle_AquaM
-{
-    //call(Rogue_PreBattle_Internal)
-    trainerbattle_single(TRAINER_ROGUE_AQUA_M, format("Let's battle!"), format("Well fought!"))
-    call(Rogue_PostBattle_Internal)
+    // Can't add any scripts before this
+    // the trainer_see/battle_setup code  wants to grab the trainerNum from the very top of the script
+    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, format("Let's battle!"), format("Well fought!"))
+    msgbox(format("Good luck with your next battle!"), MSGBOX_AUTOCLOSE)
 }
 
 

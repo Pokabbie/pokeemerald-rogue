@@ -365,7 +365,16 @@ bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
 
 bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
 {
-    return FALSE;
+    if(Rogue_AreWildMonEnabled())
+    {
+        // Turn of animated grass when wild mons are active because it's pretty laggy and causes palette issues
+        return FALSE;
+    }
+    else
+    {
+        // Follow mons never animate grass
+        return !FollowMon_IsMonObject(objectEvent, FALSE);
+    }
 }
 
 static bool8 AreElevationsCompatible(u8 a, u8 b)
@@ -400,6 +409,14 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
             if(FollowMon_IsMonObject(collider, TRUE))
             {
                 sFollowMonData.pendingInterction = TRUE;
+                return TRUE;
+            }
+        }
+        else if(Rogue_AreWildMonEnabled())
+        {
+            if(!FollowMon_IsMonObject(collider, TRUE) && FollowMon_IsMonObject(obstacle, FALSE))
+            {
+                // Other objects can walk through follow mons, whilst wandering mons is active
                 return TRUE;
             }
         }

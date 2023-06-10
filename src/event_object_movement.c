@@ -7988,7 +7988,7 @@ static bool8 AreElevationsCompatible(u8 a, u8 b)
 void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    if(FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
@@ -8005,7 +8005,7 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
 void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    if(FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
@@ -8023,7 +8023,7 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    if(FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;
@@ -8040,7 +8040,7 @@ void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *
 void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     // RogueNote: Skip to end of anim to stop follower lag
-    if(!FollowMon_IsMonObject(objEvent, FALSE) || FollowMon_ShouldAnimationGrass(objEvent))
+    if(FollowMon_ShouldAnimationGrass(objEvent))
     {
         gFieldEffectArguments[0] = objEvent->currentCoords.x;
         gFieldEffectArguments[1] = objEvent->currentCoords.y;

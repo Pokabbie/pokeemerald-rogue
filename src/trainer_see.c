@@ -19,6 +19,8 @@
 #include "constants/field_effects.h"
 #include "constants/trainer_types.h"
 
+#include "rogue_trainers.h"
+
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
 static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj);
@@ -268,6 +270,9 @@ static u8 CheckTrainer(u8 objectEventId)
     }
     else
     {
+        if(GetTrainerFlagFromObjectEventId(objectEventId))
+            return 0;
+
         if (GetTrainerFlagFromScriptPointer(scriptPtr))
             return 0;
     }

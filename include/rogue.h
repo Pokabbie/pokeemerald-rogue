@@ -295,8 +295,10 @@ struct RogueTrainerCollection
 {
     u16 bossCount;
     u16 minibossCount;
+    u16 routeTrainersCount;
     const struct RogueTrainer* boss;
     const struct RogueTrainer* miniboss;
+    const struct RogueTrainer* routeTrainers;
 };
 
 struct SpeciesTable

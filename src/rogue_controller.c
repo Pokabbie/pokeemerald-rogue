@@ -8,6 +8,7 @@
 #include "constants/layouts.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
+#include "constants/trainer_types.h"
 #include "constants/weather.h"
 #include "data.h"
 #include "gba/isagbprint.h"
@@ -19,6 +20,7 @@
 #include "graphics.h"
 #include "item.h"
 #include "load_save.h"
+#include "malloc.h"
 #include "main.h"
 #include "money.h"
 #include "m4a.h"
@@ -3244,8 +3246,89 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     QuestNotify_OnWarp(warp);
 }
 
+struct DynamicHeader
+{
+    struct MapEvents events;
+    struct ObjectEventTemplate objectEvents[64];
+};
+
+EWRAM_DATA struct DynamicHeader* sDynamicHeader = NULL;
+
+static bool8 IsHubMapGroup()
+{
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_HUB) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_AREA_HOME) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_HOME);
+}
+
+static bool8 RogueRandomChanceTrainer();
+
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
 {
+    // Remove the previous header, if we had one
+    if(sDynamicHeader != NULL)
+    {
+        free(sDynamicHeader);
+        sDynamicHeader = NULL;
+    }
+
+    // Need to check if we're in a map hub in case we just retired from a route
+    if(mapHeader->events != NULL && Rogue_IsRunActive() && !IsHubMapGroup())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        {
+            u8 write, read;
+            u16 trainerHistory[20];
+
+            u16 trainerNum;
+            const struct RogueTrainer* trainer;
+
+            sDynamicHeader = malloc(sizeof(struct DynamicHeader));
+
+            memcpy(&sDynamicHeader->events, mapHeader->events, sizeof(struct MapEvents));
+
+            // Want to setup the trainer sprites here
+            AGB_ASSERT(mapHeader->events->objectEventCount < ARRAY_COUNT(sDynamicHeader->objectEvents));
+
+            write = 0;
+            read = 0;
+
+            for(;read < mapHeader->events->objectEventCount; ++read)
+            {
+                memcpy(&sDynamicHeader->objectEvents[write], &mapHeader->events->objectEvents[read], sizeof(struct ObjectEventTemplate));
+
+                if(sDynamicHeader->objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && sDynamicHeader->objectEvents[write].trainerRange_berryTreeId != 0)
+                {
+                    // Don't increment write, if we're not accepting the trainer
+
+                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
+                    {
+                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+
+                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                        {
+                            sDynamicHeader->objectEvents[write].graphicsId = trainer->objectEventGfx;
+                            sDynamicHeader->objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
+                            write++;
+                        }
+                    }
+                }
+                else
+                {
+                    // Accept all other types of object
+                    write++;
+                }
+
+                // Cannot safely continue (Should've asserted above)
+                if(write >= ARRAY_COUNT(sDynamicHeader->objectEvents))
+                    break;
+            }
+
+            sDynamicHeader->events.objectEvents = &sDynamicHeader->objectEvents[0];
+            sDynamicHeader->events.objectEventCount = write;
+
+            // Override with dynamic event header
+            mapHeader->events = &sDynamicHeader->events;
+        }
+    }
 }
 
 void Rogue_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
@@ -5247,51 +5330,53 @@ static bool8 RogueRandomChanceBerry()
 
 static void RandomiseEnabledTrainers(void)
 {
-    u16 i;
+    // TODO - Just grab the trainer seed, as we need to make sure we get the same trainers on map save/load too
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            // Set flag to hide
-            FlagSet(FLAG_ROGUE_TRAINER_START + i);
-        }
-    }
-    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
-    {
-        u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
-
-        // Only enable 1 trainer for legendary room
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            if(i == randTrainer)
-            {
-                // Clear flag to show
-                FlagClear(FLAG_ROGUE_TRAINER_START + i);
-            }
-            else
-            {
-                // Set flag to hide
-                FlagSet(FLAG_ROGUE_TRAINER_START + i);
-            }
-        }
-    }
-    else
-    {
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            if(RogueRandomChanceTrainer())
-            {
-                // Clear flag to show
-                FlagClear(FLAG_ROGUE_TRAINER_START + i);
-            }
-            else
-            {
-                // Set flag to hide
-                FlagSet(FLAG_ROGUE_TRAINER_START + i);
-            }
-        }
-    }
+    //u16 i;
+//
+    //if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    //{
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        // Set flag to hide
+    //        FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //    }
+    //}
+    //else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    //{
+    //    u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
+//
+    //    // Only enable 1 trainer for legendary room
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        if(i == randTrainer)
+    //        {
+    //            // Clear flag to show
+    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //        else
+    //        {
+    //            // Set flag to hide
+    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //    }
+    //}
+    //else
+    //{
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        if(RogueRandomChanceTrainer())
+    //        {
+    //            // Clear flag to show
+    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //        else
+    //        {
+    //            // Set flag to hide
+    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //    }
+    //}
 }
 
 static void RandomiseItemContent(u8 difficultyLevel)
