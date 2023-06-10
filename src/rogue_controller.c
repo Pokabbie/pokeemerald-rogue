@@ -286,20 +286,28 @@ bool8 Rogue_FastBattleAnims(void)
         return TRUE;
     }
 
+    return !Rogue_UseKeyBattleAnims();
+}
+
+bool8 Rogue_UseKeyBattleAnims(void)
+{
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
-            return FALSE;
+            return TRUE;
 
         // Force slow anims for legendaries
         if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
-            return FALSE;
-
-        return TRUE;
+            return TRUE;
     }
 
     return FALSE;
+}
+
+bool8 Rogue_GetBattleAnimsEnabled(void)
+{
+    return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
@@ -780,6 +788,12 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
         else
             // Go faster, but not quite gym leader slow
             *waitTime = *waitTime / 4;
+    }
+
+    if(!Rogue_GetBattleAnimsEnabled())
+    {
+        // If we don't have anims on wait message for at least a little bit
+        *waitTime = max(4, *waitTime);
     }
 }
 

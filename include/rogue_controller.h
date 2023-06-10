@@ -21,6 +21,8 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
+bool8 Rogue_UseKeyBattleAnims(void);
+bool8 Rogue_GetBattleAnimsEnabled(void);
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage);
 s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money);

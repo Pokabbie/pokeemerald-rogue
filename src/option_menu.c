@@ -33,7 +33,8 @@ enum
     MENUITEM_MENU_UI,
     MENUITEM_MENU_AUDIO,
     MENUITEM_TEXTSPEED,
-    MENUITEM_BATTLESCENE,
+    MENUITEM_BATTLESCENE_DEFAULT,
+    MENUITEM_BATTLESCENE_KEY_BATTLES,
     MENUITEM_BATTLESTYLE,
     MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_NICKNAME_MODE,
@@ -158,9 +159,15 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = TextSpeed_ProcessInput,
         .drawChoices = TextSpeed_DrawChoices
     },
-    [MENUITEM_BATTLESCENE] = 
+    [MENUITEM_BATTLESCENE_DEFAULT] = 
     {
-        .itemName = gText_BattleScene,
+        .itemName = gText_BattleSceneDefault,
+        .processInput = BattleScene_ProcessInput,
+        .drawChoices = BattleScene_DrawChoices
+    },
+    [MENUITEM_BATTLESCENE_KEY_BATTLES] = 
+    {
+        .itemName = gText_BattleSceneBoss,
         .processInput = BattleScene_ProcessInput,
         .drawChoices = BattleScene_DrawChoices
     },
@@ -253,7 +260,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_TIME_OF_DAY,
             MENUITEM_SEASON,
-            MENUITEM_BATTLESCENE,
+            MENUITEM_BATTLESCENE_DEFAULT,
+            MENUITEM_BATTLESCENE_KEY_BATTLES,
             MENUITEM_BATTLESTYLE,
             MENUITEM_CANCEL
         }
@@ -1050,9 +1058,12 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_TEXTSPEED:
         return gSaveBlock2Ptr->optionsTextSpeed;
         
-    case MENUITEM_BATTLESCENE:
-        return gSaveBlock2Ptr->optionsBattleSceneOff;
-        
+    case MENUITEM_BATTLESCENE_DEFAULT:
+        return gSaveBlock2Ptr->optionsDefaultBattleSceneOff;
+
+    case MENUITEM_BATTLESCENE_KEY_BATTLES:
+        return gSaveBlock2Ptr->optionsBossBattleSceneOff;
+
     case MENUITEM_BATTLESTYLE:
         return gSaveBlock2Ptr->optionsBattleStyle;
         
@@ -1094,9 +1105,13 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
     case MENUITEM_TEXTSPEED:
         gSaveBlock2Ptr->optionsTextSpeed = value;
         break;
-        
-    case MENUITEM_BATTLESCENE:
-        gSaveBlock2Ptr->optionsBattleSceneOff = value;
+
+    case MENUITEM_BATTLESCENE_DEFAULT:
+        gSaveBlock2Ptr->optionsDefaultBattleSceneOff = value;
+        break;
+
+    case MENUITEM_BATTLESCENE_KEY_BATTLES:
+        gSaveBlock2Ptr->optionsBossBattleSceneOff = value;
         break;
         
     case MENUITEM_BATTLESTYLE:
