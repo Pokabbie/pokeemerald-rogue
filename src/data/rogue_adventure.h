@@ -1,4 +1,23 @@
 
+
+//struct RogueAdvPathGenerator // Attach to mode Difficult Option???
+//{
+//   u8 minLength;
+//   u8 maxLength;
+//   u16 roomWeights[ADVPATH_ROOM_WEIGHT_COUNT];
+//   u16 maxRoomCount[ADVPATH_ROOM_WEIGHT_COUNT];
+//   u16 subRoomWeights[ADVPATH_SUBROOM_WEIGHT_COUNT];
+//};
+//
+//struct RogueAdventurePhase
+//{
+//    u8 levelCap;
+//    u8 levelStep;
+//    u16 bossTrainerFlagsInclude;
+//    u16 bossTrainerFlagsExclude;
+//    struct RogueAdvPathGenerator pathGenerator;
+//};
+
 static const struct RogueAdventurePhase sAdventure_Standard[] = 
 {
     {

@@ -1364,8 +1364,8 @@
     {
       "id": "LAYOUT_ROGUE_TILE_TEST3",
       "name": "Rogue_Tile_Test3_Layout",
-      "width": 10,
-      "height": 10,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Tile_Test3/border.bin",
