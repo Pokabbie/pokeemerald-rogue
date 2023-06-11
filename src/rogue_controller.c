@@ -3272,89 +3272,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     QuestNotify_OnWarp(warp);
 }
 
-struct DynamicHeader
-{
-    struct MapEvents events;
-    struct ObjectEventTemplate objectEvents[64];
-};
-
-EWRAM_DATA struct DynamicHeader* sDynamicHeader = NULL;
-
-static bool8 IsHubMapGroup()
-{
-    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_HUB) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_AREA_HOME) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_HOME);
-}
-
-static bool8 RogueRandomChanceTrainer();
-
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
 {
-    // Remove the previous header, if we had one
-    if(sDynamicHeader != NULL)
-    {
-        free(sDynamicHeader);
-        sDynamicHeader = NULL;
-    }
-
-    // Need to check if we're in a map hub in case we just retired from a route
-    if(mapHeader->events != NULL && Rogue_IsRunActive() && !IsHubMapGroup())
-    {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
-        {
-            u8 write, read;
-            u16 trainerHistory[20];
-
-            u16 trainerNum;
-            const struct RogueTrainer* trainer;
-
-            sDynamicHeader = malloc(sizeof(struct DynamicHeader));
-
-            memcpy(&sDynamicHeader->events, mapHeader->events, sizeof(struct MapEvents));
-
-            // Want to setup the trainer sprites here
-            AGB_ASSERT(mapHeader->events->objectEventCount < ARRAY_COUNT(sDynamicHeader->objectEvents));
-
-            write = 0;
-            read = 0;
-
-            for(;read < mapHeader->events->objectEventCount; ++read)
-            {
-                memcpy(&sDynamicHeader->objectEvents[write], &mapHeader->events->objectEvents[read], sizeof(struct ObjectEventTemplate));
-
-                if(sDynamicHeader->objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && sDynamicHeader->objectEvents[write].trainerRange_berryTreeId != 0)
-                {
-                    // Don't increment write, if we're not accepting the trainer
-
-                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
-                    {
-                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
-
-                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
-                        {
-                            sDynamicHeader->objectEvents[write].graphicsId = trainer->objectEventGfx;
-                            sDynamicHeader->objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
-                            write++;
-                        }
-                    }
-                }
-                else
-                {
-                    // Accept all other types of object
-                    write++;
-                }
-
-                // Cannot safely continue (Should've asserted above)
-                if(write >= ARRAY_COUNT(sDynamicHeader->objectEvents))
-                    break;
-            }
-
-            sDynamicHeader->events.objectEvents = &sDynamicHeader->objectEvents[0];
-            sDynamicHeader->events.objectEventCount = write;
-
-            // Override with dynamic event header
-            mapHeader->events = &sDynamicHeader->events;
-        }
-    }
+    // NOTE: This method shouldn't be used
+    // For some reason editing the map header and repointing stuff messes with other collections in the header
+    // e.g. repointing object events messes with the warps for some reason
 }
 
 void Rogue_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
@@ -3372,11 +3294,66 @@ bool8 Rogue_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapCon
     return TRUE;
 }
 
-void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+static bool8 IsHubMapGroup()
 {
-    if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_HUB) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_AREA_HOME) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_HOME);
+}
+
+static bool8 RogueRandomChanceTrainer();
+
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+    // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
+    if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
-        RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+        if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+        {
+            RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE && !loadingFromSave)
+        {
+            u8 write, read;
+            u8 originalCount = *objectEventCount;
+            u16 trainerHistory[20];
+
+            u16 trainerNum;
+            const struct RogueTrainer* trainer;
+
+            write = 0;
+            read = 0;
+
+            for(;read < originalCount; ++read)
+            {
+                if(write != read)
+                {
+                    memcpy(&objectEvents[write], &objectEvents[read], sizeof(struct ObjectEventTemplate));
+                }
+
+                if(objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && objectEvents[write].trainerRange_berryTreeId != 0)
+                {
+                    // Don't increment write, if we're not accepting the trainer
+
+                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
+                    {
+                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+
+                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                        {
+                            objectEvents[write].graphicsId = trainer->objectEventGfx;
+                            objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
+                            write++;
+                        }
+                    }
+                }
+                else
+                {
+                    // Accept all other types of object
+                    write++;
+                }
+            }
+
+            *objectEventCount = write;
+        }
     }
 }
 

@@ -8,23 +8,19 @@ static const struct RogueAdventurePhase sAdventure_Standard[] =
         .bossTrainerFlagsExclude = TRAINER_FLAG_NONE,
         .pathGenerator = 
         {
-            //.minLength = 1,
-            //.maxLength = 1,
-            .minLength = 5,
-            .maxLength = 6,
-            //.minLength = 10,
-            //.maxLength = 10,
+            .minLength = 3,
+            .maxLength = 3,
             .roomWeights = 
             {
-                [ADVPATH_ROOM_NONE] = 100,
-                [ADVPATH_ROOM_ROUTE] = 100,
-                [ADVPATH_ROOM_RESTSTOP] = 50,
-                [ADVPATH_ROOM_LEGENDARY] = 10,
-                [ADVPATH_ROOM_MINIBOSS] = 20,
-                [ADVPATH_ROOM_WILD_DEN] = 30,
-                [ADVPATH_ROOM_GAMESHOW] = 30,
-                [ADVPATH_ROOM_DARK_DEAL] = 30,
-                [ADVPATH_ROOM_LAB] = 10
+                [ADVPATH_ROOM_NONE] = 500,
+                [ADVPATH_ROOM_ROUTE] = 500,
+                [ADVPATH_ROOM_RESTSTOP] = 250,
+                [ADVPATH_ROOM_LEGENDARY] = 0,
+                [ADVPATH_ROOM_MINIBOSS] = 0,
+                [ADVPATH_ROOM_WILD_DEN] = 40,
+                [ADVPATH_ROOM_GAMESHOW] = 0,
+                [ADVPATH_ROOM_DARK_DEAL] = 0,
+                [ADVPATH_ROOM_LAB] = 0
             },
             .maxRoomCount = 
             {
@@ -40,12 +36,12 @@ static const struct RogueAdventurePhase sAdventure_Standard[] =
             },
             .subRoomWeights = 
             {
-                [ADVPATH_SUBROOM_ROUTE_CALM] = 100,
-                [ADVPATH_SUBROOM_ROUTE_AVERAGE] = 100,
-                [ADVPATH_SUBROOM_ROUTE_TOUGH] = 100,
+                [ADVPATH_SUBROOM_ROUTE_CALM] = 500,
+                [ADVPATH_SUBROOM_ROUTE_AVERAGE] = 250,
+                [ADVPATH_SUBROOM_ROUTE_TOUGH] = 50,
                 [ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 100,
                 [ADVPATH_SUBROOM_RESTSTOP_SHOP] = 100,
-                [ADVPATH_SUBROOM_RESTSTOP_FULL] = 100,
+                [ADVPATH_SUBROOM_RESTSTOP_FULL] = 20,
             }
         }
     }

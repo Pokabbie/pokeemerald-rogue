@@ -168,7 +168,7 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
             break;
 
         case ADVPATH_ROOM_NONE:
-            *breakChance = 50;
+            *breakChance = 0;
             *extraSplitChance = 0;
             break;
 
@@ -180,7 +180,7 @@ static void GetBranchingChance(u8 columnIdx, u8 columnCount, u8 roomType, u8* br
         case ADVPATH_ROOM_LEGENDARY:
         case ADVPATH_ROOM_DARK_DEAL:
         case ADVPATH_ROOM_LAB:
-            *breakChance = 0;
+            *breakChance = 20;
             *extraSplitChance = 50;
             break;
     }
@@ -396,6 +396,12 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
             weights[i] = 0;
     }
 
+    // We can't have 2 empties in a row
+    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_NONE)
+    {
+        weights[ADVPATH_ROOM_NONE] = 0;
+    }
+
     writeNodeScratch->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights));
     
     if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_MINIBOSS_BATTLER)
@@ -510,7 +516,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     ResetNodeInfo();
 
     // Setup defaults
-    totalDistance = gAdvPathScratch->generator->minLength + RogueRandomRange(gAdvPathScratch->generator->maxLength - gAdvPathScratch->generator->minLength + 1, OVERWORLD_FLAG);
+    totalDistance = 1 + gAdvPathScratch->generator->minLength + RogueRandomRange(gAdvPathScratch->generator->maxLength - gAdvPathScratch->generator->minLength + 1, OVERWORLD_FLAG);
 
     // Exit node
     nodeInfo = GetNodeInfo(totalDistance, CENTRE_ROW_IDX);

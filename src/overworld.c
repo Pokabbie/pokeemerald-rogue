@@ -492,7 +492,7 @@ void LoadObjEventTemplatesFromHeader(void)
               gSaveBlock1Ptr->objectEventTemplates,
               gMapHeader.events->objectEventCount * sizeof(struct ObjectEventTemplate));
     
-    Rogue_ModifyObjectEvents(&gMapHeader, gSaveBlock1Ptr->objectEventTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+    Rogue_ModifyObjectEvents(&gMapHeader, FALSE, gSaveBlock1Ptr->objectEventTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
     gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
@@ -501,12 +501,24 @@ void LoadSaveblockObjEventScripts(void)
     struct ObjectEventTemplate *mapHeaderObjTemplates = gMapHeader.events->objectEvents;
     struct ObjectEventTemplate *savObjTemplates = gSaveBlock1Ptr->objectEventTemplates;
     u8 objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
-    s32 i;
+    s32 i, j, k;
 
     for (i = 0; i < OBJECT_EVENT_TEMPLATES_COUNT; i++)
-        savObjTemplates[i].script = mapHeaderObjTemplates[i].script;
+    {
+        for(j = 0; j < OBJECT_EVENT_TEMPLATES_COUNT; j++)
+        {
+            // Should be faster to just use the same index 95% of the time
+            k = (j + i) % OBJECT_EVENT_TEMPLATES_COUNT;
 
-    Rogue_ModifyObjectEvents(&gMapHeader, savObjTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+            if(savObjTemplates[i].localId == mapHeaderObjTemplates[k].localId)
+            {
+                savObjTemplates[i].script = mapHeaderObjTemplates[k].script;
+                break;
+            }
+        }
+    }
+
+    Rogue_ModifyObjectEvents(&gMapHeader, TRUE, savObjTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
     gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
