@@ -617,7 +617,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = rogueItem->price;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;
-            outItem->importance = rogueItem->importance;
             outItem->registrability = rogueItem->registrability;
             outItem->pocket = rogueItem->pocket;
             outItem->type = rogueItem->type;
@@ -628,7 +627,13 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             if(outItem->pocket == POCKET_CHARMS)
             {
                 // Early out here for charms (We can end up in an infinite loop below)
+                outItem->importance = 1;
                 return;
+            }
+
+            if(outItem->pocket == POCKET_KEY_ITEMS)
+            {
+                outItem->importance = 1;
             }
         }
         else
