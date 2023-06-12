@@ -59,7 +59,7 @@ const struct RogueAdventureSettings* Rogue_GetAdventureSettings()
 const struct RogueAdventurePhase* Rogue_GetAdventurePhase()
 {
     const struct RogueAdventureSettings* settings = Rogue_GetAdventureSettings();
-    u8 phase = min(gRogueRun.currentDifficulty, settings->phaseCount);
+    u8 phase = min(gRogueRun.currentDifficulty, settings->phaseCount - 1);
 
     return &settings->phases[phase];
 }

@@ -91,6 +91,10 @@ static u8 SelectMovementTypeForNode(struct RogueAdvPathNode* nodeInfo, u16 nodeX
 static u16 GetTypeForHint(struct RogueAdvPathNode* node, u16 nodeX, u16 nodeY);
 static void BufferTypeAdjective(u8 type);
 
+static void AssignWeights_Generator(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch);
+static void AssignWeights_Standard(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch);
+static void AssignWeights_Finalize(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch);
+
 
 static void NodeToCoords(u16 nodeX, u16 nodeY, u16* x, u16* y)
 {
@@ -352,7 +356,7 @@ static u16 SelectIndexFromWeights(u16* weights, u16 count)
         totalWeight += weights[i];
     }
 
-    targetWeight = 1 + RogueRandomRange(totalWeight, OVERWORLD_FLAG);
+    targetWeight = RogueRandomRange(totalWeight, OVERWORLD_FLAG);
     totalWeight = 0;
 
     for(i = 0; i < count; ++i)
@@ -368,282 +372,8 @@ static u16 SelectIndexFromWeights(u16* weights, u16 count)
     return 0;
 }
 
-
-static void AssignWeights_Finalize(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch)
-{
-    u16 i;
-    
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
-    {
-        weights[ADVPATH_ROOM_RESTSTOP] /= 2;
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-    else if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_POKEBALL_LIMIT)
-    {
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-
-    // We have limited number of certain encounters
-    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-    {
-        if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 2)
-        {
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-    }
-    else
-    {
-        if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
-        {
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-    }
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
-    {
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-    }
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_MINIBOSS] >= 2)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-    }
-
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
-    {
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-    }
-
-    // Only 1 at once
-    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1 || gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
-    {
-        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
-    {
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        weights[ADVPATH_ROOM_WILD_DEN] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-}
-
-static void AssignWeights_Standard(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch)
-{
-    u16 i;
-
-    // Normal routes
-    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-    {
-        // Very unlikely at end
-        weights[ADVPATH_ROOM_ROUTE] = 100;
-    }
-    else
-    {            
-        // If we've reached elite 4 we want to swap odds of none and routes
-        if(gRogueRun.currentDifficulty >= 8)
-        {
-            // Unlikely but not impossible
-            weights[ADVPATH_ROOM_ROUTE] = 400;
-        }
-        else
-        {
-            // Most common but gets less common over time
-            weights[ADVPATH_ROOM_ROUTE] = 2000 - min(100 * gRogueRun.currentDifficulty, 500);
-        }
-    }
-
-    // NONE / Skip encounters
-    if(nodeX == columnCount - 2) 
-    {
-        // Final encounter cannot be none, to avoid GFX obj running out
-        weights[ADVPATH_ROOM_NONE] = 0;
-    }
-    else
-    {
-        // If we've reached elite 4 we want to swap odds of none and routes
-        if(gRogueRun.currentDifficulty >= 8)
-        {
-            weights[ADVPATH_ROOM_NONE] = 1200;
-        }
-        else
-        {
-            // Unlikely but not impossible
-            weights[ADVPATH_ROOM_NONE] = min(50 * (gRogueRun.currentDifficulty + 1), 200);
-        }
-    }
-
-    // Rest stops
-    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-    {
-        weights[ADVPATH_ROOM_RESTSTOP] = 1500;
-    }
-    else if(gRogueRun.currentDifficulty == 0)
-    {
-        weights[ADVPATH_ROOM_RESTSTOP] = 0;
-    }
-    else
-    {
-        // Unlikely but not impossible
-        weights[ADVPATH_ROOM_RESTSTOP] = 100;
-    }
-
-    // Legendaries/Mini encounters
-    if(gRogueRun.currentDifficulty == 0)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = 0;
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        weights[ADVPATH_ROOM_WILD_DEN] = 40;
-        weights[ADVPATH_ROOM_GAMESHOW] = 0;
-        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-        weights[ADVPATH_ROOM_LAB] = 0;
-    }
-    else
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
-        weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
-
-        if(gRogueRun.currentDifficulty < 3)
-            weights[ADVPATH_ROOM_LAB] = 0;
-        else
-            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
-
-        // These should start trading with each other deeper into the run
-        if(gRogueRun.currentDifficulty < 6)
-        {
-            weights[ADVPATH_ROOM_GAMESHOW] = 320 - 40 * min(8, gRogueRun.currentDifficulty);
-            weights[ADVPATH_ROOM_DARK_DEAL] = 10;
-        }
-        else
-        {
-            weights[ADVPATH_ROOM_GAMESHOW] = 10;
-            weights[ADVPATH_ROOM_DARK_DEAL] = 360 - 30 * min(5, gRogueRun.currentDifficulty - 6);
-        }
-
-        // Every 3rd encounter becomes more common
-        if((gRogueRun.currentDifficulty % 3) != 0)
-        {
-            weights[ADVPATH_ROOM_DARK_DEAL] = 5;
-        }
-
-        if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-        {
-            if((gRogueRun.currentDifficulty % 4) == 0)
-                // Every 4 badges chances get really high
-                weights[ADVPATH_ROOM_LEGENDARY] = 600;
-            else
-                // Otherwise the chances are just quite low
-                weights[ADVPATH_ROOM_LEGENDARY] = 100;
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-        {
-            if((gRogueRun.currentDifficulty % 5) == 0)
-                // Every 5 badges chances get really high
-                weights[ADVPATH_ROOM_LEGENDARY] = 800;
-            else
-                // Otherwise impossible
-                weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-        else 
-        {
-            // Pre E4 settings
-            if(gRogueRun.currentDifficulty < 8)
-            {
-                if((gRogueRun.currentDifficulty % 3) == 0)
-                    // Every 5 badges chances get really high
-                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
-                else
-                    // Otherwise the chances are just quite low
-                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
-            }
-            // E4 settings
-            else 
-            {
-                if((gRogueRun.currentDifficulty % 9) == 0)
-                    // Shortly in we have chance to get an uber legendary
-                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
-                else
-                    // Otherwise the chances are just quite low
-                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
-            }
-        }
-    }
-
-    if(nodeX == 0)
-    {
-        // Impossible in first column
-        weights[ADVPATH_ROOM_LEGENDARY] = 0;
-    }
-
-    // Less likely in first column and/or last
-    if(nodeX == 0)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] /= 2;
-        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
-        weights[ADVPATH_ROOM_WILD_DEN] /= 2;
-    }
-    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
-    {
-        weights[ADVPATH_ROOM_MINIBOSS] /= 3;
-        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
-        weights[ADVPATH_ROOM_WILD_DEN] /= 3;
-        weights[ADVPATH_ROOM_GAMESHOW] /= 4;
-        weights[ADVPATH_ROOM_DARK_DEAL] /= 4;
-        weights[ADVPATH_ROOM_LAB] /= 2;
-    }
-
-    // Now we've applied the default weights for this column, consider what out next encounter is
-    switch(writeNodeScratch->nextRoomType)
-    {
-        case ADVPATH_ROOM_LEGENDARY:
-            weights[ADVPATH_ROOM_RESTSTOP] = 0;
-            weights[ADVPATH_ROOM_NONE] = 0;
-            weights[ADVPATH_ROOM_WILD_DEN] = 0;
-            weights[ADVPATH_ROOM_LEGENDARY] = 0;
-            weights[ADVPATH_ROOM_MINIBOSS] *= 2;
-            break;
-
-        case ADVPATH_ROOM_MINIBOSS:
-            weights[ADVPATH_ROOM_MINIBOSS] = 0;
-            weights[ADVPATH_ROOM_DARK_DEAL] *= 2;
-            weights[ADVPATH_ROOM_LAB] *= 2;
-            break;
-
-        case ADVPATH_ROOM_GAMESHOW:
-            weights[ADVPATH_ROOM_GAMESHOW] = 0;
-            break;
-
-        case ADVPATH_ROOM_DARK_DEAL:
-            weights[ADVPATH_ROOM_DARK_DEAL] = 0;
-            break;
-
-        case ADVPATH_ROOM_LAB:
-            weights[ADVPATH_ROOM_LAB] = 0;
-            break;
-
-        case ADVPATH_ROOM_RESTSTOP:
-            weights[ADVPATH_ROOM_RESTSTOP] = 0;
-            break;
-
-        case ADVPATH_ROOM_ROUTE:
-            weights[ADVPATH_ROOM_NONE] += 300;
-            break;
-
-        case ADVPATH_ROOM_NONE:
-            weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
-            break;
-    }
-}
-
-
 static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
 {
-    u16 i;
     u16 weights[ADVPATH_ROOM_WEIGHT_COUNT];
     struct AdvEventScratch* writeNodeScratch = GetScratchWriteNode(nodeY);
 
@@ -657,27 +387,7 @@ static void ChooseNewEvent(u8 nodeX, u8 nodeY, u8 columnCount)
     // New idea??
     if(FALSE)
     {
-
-        // Copy generators initial weights
-        memcpy(weights, gAdvPathScratch->generator->roomWeights, sizeof(weights));
-
-        // TODO - Adjust weights
-        for(i = 0; i < ADVPATH_ROOM_WEIGHT_COUNT; ++i)
-        {
-            // We can have as many rooms as we want for this type
-            if(gAdvPathScratch->generator->maxRoomCount[i] == 0)
-                continue;
-
-            // We've reached capacity
-            if(gAdvPathScratch->roomCount[i] >= gAdvPathScratch->generator->maxRoomCount[i])
-                weights[i] = 0;
-        }
-
-        // We can't have 2 empties in a row
-        if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_NONE)
-        {
-            weights[ADVPATH_ROOM_NONE] = 0;
-        }
+        AssignWeights_Generator(nodeX, nodeY, columnCount, &weights[0], writeNodeScratch);
     }
     else
     {
@@ -1037,19 +747,24 @@ void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEvent
             if(x >= GetInitialGFXColumn())
             {
                 u16 idx = encounterCount++;
-                AGB_ASSERT(idx < objectEventCapacity);
-
-                objectEvents[idx].localId = idx;
-                objectEvents[idx].graphicsId = SelectGFXForNode(nodeInfo, x, y);
-                objectEvents[idx].x = mapX + 2;//+ MAP_OFFSET;
-                objectEvents[idx].y = mapY + 1;//+ MAP_OFFSET;
-                objectEvents[idx].elevation = 3;
-                objectEvents[idx].trainerType = TRAINER_TYPE_NONE;
-                objectEvents[idx].movementType = SelectMovementTypeForNode(nodeInfo, x, y);
-                // Pack node into movement vars
-                objectEvents[idx].movementRangeX = x;
-                objectEvents[idx].movementRangeY = y;
-                objectEvents[idx].script = Rogue_AdventurePaths_InteractNode;
+                if(idx < objectEventCapacity)
+                {
+                    objectEvents[idx].localId = idx;
+                    objectEvents[idx].graphicsId = SelectGFXForNode(nodeInfo, x, y);
+                    objectEvents[idx].x = mapX + 2;//+ MAP_OFFSET;
+                    objectEvents[idx].y = mapY + 1;//+ MAP_OFFSET;
+                    objectEvents[idx].elevation = 3;
+                    objectEvents[idx].trainerType = TRAINER_TYPE_NONE;
+                    objectEvents[idx].movementType = SelectMovementTypeForNode(nodeInfo, x, y);
+                    // Pack node into movement vars
+                    objectEvents[idx].movementRangeX = x;
+                    objectEvents[idx].movementRangeY = y;
+                    objectEvents[idx].script = Rogue_AdventurePaths_InteractNode;
+                }
+                else
+                {
+                    DebugPrintf("WARNING: Cannot add adventure path object %d (out of range %d)", idx, objectEventCapacity);
+                }
             }
         }
     }
@@ -1445,4 +1160,304 @@ static struct AdvEventScratch* GetScratchWriteNode(u16 i)
         return &gAdvPathScratch->nodesA[i];
     else
         return &gAdvPathScratch->nodesB[i];
+}
+
+static void AssignWeights_Generator(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch)
+{
+    u16 i;
+
+    // Copy generators initial weights
+    memcpy(weights, gAdvPathScratch->generator->roomWeights, sizeof(weights));
+
+    // TODO - Adjust weights
+    for(i = 0; i < ADVPATH_ROOM_WEIGHT_COUNT; ++i)
+    {
+        // We can have as many rooms as we want for this type
+        if(gAdvPathScratch->generator->maxRoomCount[i] == 0)
+            continue;
+
+        // We've reached capacity
+        if(gAdvPathScratch->roomCount[i] >= gAdvPathScratch->generator->maxRoomCount[i])
+            weights[i] = 0;
+    }
+
+    // We can't have 2 empties in a row
+    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_NONE)
+    {
+        weights[ADVPATH_ROOM_NONE] = 0;
+    }
+}
+
+static void AssignWeights_Standard(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch)
+{
+    u16 i;
+
+    // Default weight
+    memset(weights, 500, sizeof(weights));
+
+    // Normal routes
+    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+    {
+        // Very unlikely at end
+        weights[ADVPATH_ROOM_ROUTE] = 100;
+    }
+    else
+    {            
+        // If we've reached elite 4 we want to swap odds of none and routes
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            // Unlikely but not impossible
+            weights[ADVPATH_ROOM_ROUTE] = 400;
+        }
+        else
+        {
+            // Most common but gets less common over time
+            weights[ADVPATH_ROOM_ROUTE] = 2000 - min(100 * gRogueRun.currentDifficulty, 500);
+        }
+    }
+
+    // NONE / Skip encounters
+    if(nodeX == columnCount - 2) 
+    {
+        // Final encounter cannot be none, to avoid GFX obj running out
+        weights[ADVPATH_ROOM_NONE] = 0;
+    }
+    else
+    {
+        // If we've reached elite 4 we want to swap odds of none and routes
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            weights[ADVPATH_ROOM_NONE] = 1200;
+        }
+        else
+        {
+            // Unlikely but not impossible
+            weights[ADVPATH_ROOM_NONE] = min(50 * (gRogueRun.currentDifficulty + 1), 200);
+        }
+    }
+
+    // Rest stops
+    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+    {
+        weights[ADVPATH_ROOM_RESTSTOP] = 1500;
+    }
+    else if(gRogueRun.currentDifficulty == 0)
+    {
+        weights[ADVPATH_ROOM_RESTSTOP] = 0;
+    }
+    else
+    {
+        // Unlikely but not impossible
+        weights[ADVPATH_ROOM_RESTSTOP] = 100;
+    }
+
+    // Legendaries/Mini encounters
+    if(gRogueRun.currentDifficulty == 0)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
+        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        weights[ADVPATH_ROOM_WILD_DEN] = 40;
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+    else
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] = min(30 * gRogueRun.currentDifficulty, 700);
+        weights[ADVPATH_ROOM_WILD_DEN] = min(25 * gRogueRun.currentDifficulty, 400);
+
+        if(gRogueRun.currentDifficulty < 3)
+            weights[ADVPATH_ROOM_LAB] = 0;
+        else
+            weights[ADVPATH_ROOM_LAB] = min(20 * gRogueRun.currentDifficulty, 70);
+
+        // These should start trading with each other deeper into the run
+        if(gRogueRun.currentDifficulty < 6)
+        {
+            weights[ADVPATH_ROOM_GAMESHOW] = 320 - 40 * min(8, gRogueRun.currentDifficulty);
+            weights[ADVPATH_ROOM_DARK_DEAL] = 10;
+        }
+        else
+        {
+            weights[ADVPATH_ROOM_GAMESHOW] = 10;
+            weights[ADVPATH_ROOM_DARK_DEAL] = 360 - 30 * min(5, gRogueRun.currentDifficulty - 6);
+        }
+
+        // Every 3rd encounter becomes more common
+        if((gRogueRun.currentDifficulty % 3) != 0)
+        {
+            weights[ADVPATH_ROOM_DARK_DEAL] = 5;
+        }
+
+        if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+        {
+            if((gRogueRun.currentDifficulty % 4) == 0)
+                // Every 4 badges chances get really high
+                weights[ADVPATH_ROOM_LEGENDARY] = 600;
+            else
+                // Otherwise the chances are just quite low
+                weights[ADVPATH_ROOM_LEGENDARY] = 100;
+        }
+        else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
+        {
+            if((gRogueRun.currentDifficulty % 5) == 0)
+                // Every 5 badges chances get really high
+                weights[ADVPATH_ROOM_LEGENDARY] = 800;
+            else
+                // Otherwise impossible
+                weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+        else 
+        {
+            // Pre E4 settings
+            if(gRogueRun.currentDifficulty < 8)
+            {
+                if((gRogueRun.currentDifficulty % 3) == 0)
+                    // Every 5 badges chances get really high
+                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
+                else
+                    // Otherwise the chances are just quite low
+                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
+            }
+            // E4 settings
+            else 
+            {
+                if((gRogueRun.currentDifficulty % 9) == 0)
+                    // Shortly in we have chance to get an uber legendary
+                    weights[ADVPATH_ROOM_LEGENDARY] = 800;
+                else
+                    // Otherwise the chances are just quite low
+                    weights[ADVPATH_ROOM_LEGENDARY] = 20;
+            }
+        }
+    }
+
+    if(nodeX == 0)
+    {
+        // Impossible in first column
+        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+    }
+
+    // Less likely in first column and/or last
+    if(nodeX == 0)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] /= 2;
+        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] /= 2;
+    }
+    if(writeNodeScratch->nextRoomType == ADVPATH_ROOM_BOSS)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] /= 3;
+        weights[ADVPATH_ROOM_LEGENDARY] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] /= 3;
+        weights[ADVPATH_ROOM_GAMESHOW] /= 4;
+        weights[ADVPATH_ROOM_DARK_DEAL] /= 4;
+        weights[ADVPATH_ROOM_LAB] /= 2;
+    }
+
+    // Now we've applied the default weights for this column, consider what out next encounter is
+    switch(writeNodeScratch->nextRoomType)
+    {
+        case ADVPATH_ROOM_LEGENDARY:
+            weights[ADVPATH_ROOM_RESTSTOP] = 0;
+            weights[ADVPATH_ROOM_NONE] = 0;
+            weights[ADVPATH_ROOM_WILD_DEN] = 0;
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            weights[ADVPATH_ROOM_MINIBOSS] *= 2;
+            break;
+
+        case ADVPATH_ROOM_MINIBOSS:
+            weights[ADVPATH_ROOM_MINIBOSS] = 0;
+            weights[ADVPATH_ROOM_DARK_DEAL] *= 2;
+            weights[ADVPATH_ROOM_LAB] *= 2;
+            break;
+
+        case ADVPATH_ROOM_GAMESHOW:
+            weights[ADVPATH_ROOM_GAMESHOW] = 0;
+            break;
+
+        case ADVPATH_ROOM_DARK_DEAL:
+            weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+            break;
+
+        case ADVPATH_ROOM_LAB:
+            weights[ADVPATH_ROOM_LAB] = 0;
+            break;
+
+        case ADVPATH_ROOM_RESTSTOP:
+            weights[ADVPATH_ROOM_RESTSTOP] = 0;
+            break;
+
+        case ADVPATH_ROOM_ROUTE:
+            weights[ADVPATH_ROOM_NONE] += 300;
+            break;
+
+        case ADVPATH_ROOM_NONE:
+            weights[ADVPATH_ROOM_NONE] /= 2; // Unlikely to get multiple in a row
+            break;
+    }
+}
+
+static void AssignWeights_Finalize(u8 nodeX, u8 nodeY, u8 columnCount, u16* weights, struct AdvEventScratch* writeNodeScratch)
+{
+    u16 i;
+    
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_CLASSIC)
+    {
+        weights[ADVPATH_ROOM_RESTSTOP] /= 2;
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+    else if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_POKEBALL_LIMIT)
+    {
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+
+    // We have limited number of certain encounters
+    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 2)
+        {
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+    }
+    else
+    {
+        if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
+        {
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        }
+    }
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
+    {
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+    }
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_MINIBOSS] >= 2)
+    {
+        weights[ADVPATH_ROOM_MINIBOSS] = 0;
+    }
+
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_GAMESHOW] >= 2)
+    {
+        weights[ADVPATH_ROOM_GAMESHOW] = 0;
+    }
+
+    // Only 1 at once
+    if(gAdvPathScratch->roomCount[ADVPATH_ROOM_DARK_DEAL] >= 1 || gAdvPathScratch->roomCount[ADVPATH_ROOM_LAB] >= 1)
+    {
+        weights[ADVPATH_ROOM_DARK_DEAL] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
+
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
+    {
+        weights[ADVPATH_ROOM_LEGENDARY] = 0;
+        weights[ADVPATH_ROOM_WILD_DEN] = 0;
+        weights[ADVPATH_ROOM_LAB] = 0;
+    }
 }
