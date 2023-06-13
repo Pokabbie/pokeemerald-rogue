@@ -54,6 +54,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_settings.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
@@ -1531,6 +1532,8 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 
 void Rogue_ResetConfigHubSettings(void)
 {
+    // TODO - Replace this??
+
     // Seed settings
     FlagClear(FLAG_SET_SEED_ENABLED);
     FlagSet(FLAG_SET_SEED_ITEMS);
@@ -1593,6 +1596,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
     Rogue_ResetConfigHubSettings();
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -1895,6 +1899,7 @@ void Rogue_OnLoadGame(void)
     u32 encryptionKey = 0;
 
     // Clear progress here so if we don't cover full range in deserialize, it shouldn't matter
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
     RogueHub_ClearProgress();
 
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));

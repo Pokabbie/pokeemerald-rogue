@@ -349,6 +349,8 @@ SECTIONS {
         src/rogue_popup.o(.text);
         src/rogue_adventurepaths.o(.text);
         src/rogue_charms.o(.text);
+        src/rogue_settings.o(.text);
+        src/rogue_settings_ui.o(.text);
     } =0
 
     script_data :
@@ -729,6 +731,8 @@ SECTIONS {
         src/rogue_popup.o(.rodata);
         src/rogue_adventurepaths.o(.rodata);
         src/rogue_charms.o(.rodata);
+        src/rogue_settings.o(.rodata);
+        src/rogue_settings_ui.o(.rodata);
     } =0
 
     song_data :

@@ -50,6 +50,8 @@
 	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"
 	.include "src/rogue_charms.o"
+	.include "src/rogue_settings.o"
+	.include "src/rogue_settings_ui.o"
 	.include "src/field_camera.o"
 	.include "src/field_player_avatar.o"
 	.include "src/event_object_movement.o"

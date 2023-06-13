@@ -253,6 +253,31 @@
 #define MON_FLAGS_GEN31V1                   MON_FLAG_STRONG
 #endif
 
+// Difficulty/Config lab settings
+//
+#define DIFFICULTY_LEVEL_EASY       0
+#define DIFFICULTY_LEVEL_MEDIUM     1
+#define DIFFICULTY_LEVEL_HARD       2
+#define DIFFICULTY_LEVEL_BRUTAL     3
+#define DIFFICULTY_LEVEL_CUSTOM     4
+
+#define DIFFICULTY_PRESET_COUNT     4 // ignore custom
+
+// DIFFICULTY_TOGGLE_
+#define DIFFICULTY_TOGGLE_EXP_ALL           0
+#define DIFFICULTY_TOGGLE_OVER_LVL          1
+#define DIFFICULTY_TOGGLE_EV_GAIN           2
+#define DIFFICULTY_TOGGLE_OVERWORLD_MONS    3
+#define DIFFICULTY_TOGGLE_BAG_WIPE          4
+#define DIFFICULTY_TOGGLE_SWITCH_MODE       5
+#define DIFFICULTY_TOGGLE_COUNT             6
+
+// DIFFICULTY_RANGE_
+#define DIFFICULTY_RANGE_TRAINER    0
+#define DIFFICULTY_RANGE_ITEM       1
+#define DIFFICULTY_RANGE_LEGENDARY  2
+#define DIFFICULTY_RANGE_COUNT      3
+
 // Character customisation
 // This works for everything but the actual input strings, so make sure to increase those to match
 //
