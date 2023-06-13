@@ -277,7 +277,7 @@ bool8 Rogue_IsRunActive(void)
 
 bool8 Rogue_ForceExpAll(void)
 {
-    return FlagGet(FLAG_ROGUE_EXP_ALL);
+    return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
 }
 
 bool8 Rogue_FastBattleAnims(void)
@@ -342,7 +342,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             }
             else
             {
-                if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+                if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL))
                 {
                     desiredExpPerc = 34;
                 }
@@ -1542,16 +1542,9 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
     // Basic settings
-    FlagSet(FLAG_ROGUE_EXP_ALL);
-    FlagSet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
-    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
-    FlagClear(FLAG_ROGUE_CAN_OVERLVL);
-    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
-    FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
-    FlagClear(FLAG_ROGUE_FORCE_BASIC_BAG);
 
     // Expansion Room settings
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
@@ -2339,13 +2332,24 @@ u16 Rogue_PostRunRewardMoney()
     {
         u16 i = gRogueRun.currentRoomIdx - 1;
 
-        amount = i * 250;
+        switch (Rogue_GetDifficultyRewardLevel())
+        {
+        case DIFFICULTY_LEVEL_EASY:
+            amount = i * 200;
+            break;
 
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            amount += i * 100;
+        case DIFFICULTY_LEVEL_MEDIUM:
+            amount = i * 250;
+            break;
 
-        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-            amount += i * 100;
+        case DIFFICULTY_LEVEL_HARD:
+            amount = i * 300;
+            break;
+        
+        case DIFFICULTY_LEVEL_BRUTAL:
+            amount = i * 350;
+            break;
+        }
     }
 
     AddMoney(&gSaveBlock1Ptr->money, amount);
@@ -2416,7 +2420,6 @@ static bool8 PartyContainsStrongLegendaryMon(void)
 static void BeginRogueRun_ModifyParty(void)
 {
     // Always clear out EVs as we shouldn't have them in the HUB anymore
-    //if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         u16 i;
         u16 temp = 0;
@@ -2452,7 +2455,7 @@ static void SetupRogueRunBag()
     ClearBag();
     SetMoney(&gSaveBlock1Ptr->money, 0);
 
-    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
     {
         // Add default items
         AddBagItem(ITEM_POKE_BALL, 5);
@@ -2720,19 +2723,28 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDi
     {
         allowStrongSpecies = TRUE;
     }
-    else if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-    {
-        allowStrongSpecies = TRUE;
-    }
-    else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-    {
-        allowStrongSpecies = FALSE;
-    }
     else
     {
-        allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
-    }
+        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY))
+        {
+        case DIFFICULTY_LEVEL_EASY:
+            allowStrongSpecies = TRUE;
+            break;
 
+        case DIFFICULTY_LEVEL_MEDIUM:
+            allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
+            break;
+
+        case DIFFICULTY_LEVEL_HARD:
+            allowStrongSpecies = FALSE;
+            break;
+
+        case DIFFICULTY_LEVEL_BRUTAL:
+            // Technically this should never happen
+            allowStrongSpecies = FALSE;
+            break;
+        }
+    }
 
     if(!allowStrongSpecies)
     {
@@ -3795,7 +3807,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
-            if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+            if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
             {
                 u16 i;
 
@@ -4423,7 +4435,7 @@ u16 Rogue_SelectRandomWildMon(void)
 
 bool8 Rogue_PreferTraditionalWildMons(void)
 {
-    return !FlagGet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
+    return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
 }
 
 bool8 Rogue_AreWildMonEnabled(void)

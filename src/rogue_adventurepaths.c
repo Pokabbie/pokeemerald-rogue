@@ -20,6 +20,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_adventure.h"
 #include "rogue_campaign.h"
+#include "rogue_settings.h"
 #include "rogue_trainers.h"
 
 // Bridge refers to horizontal paths
@@ -1289,26 +1290,18 @@ static void AssignWeights_Standard(u8 nodeX, u8 nodeY, u8 columnCount, u16* weig
             weights[ADVPATH_ROOM_DARK_DEAL] = 5;
         }
 
-        if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY))
         {
+        case DIFFICULTY_LEVEL_EASY:
             if((gRogueRun.currentDifficulty % 4) == 0)
                 // Every 4 badges chances get really high
                 weights[ADVPATH_ROOM_LEGENDARY] = 600;
             else
                 // Otherwise the chances are just quite low
                 weights[ADVPATH_ROOM_LEGENDARY] = 100;
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-        {
-            if((gRogueRun.currentDifficulty % 5) == 0)
-                // Every 5 badges chances get really high
-                weights[ADVPATH_ROOM_LEGENDARY] = 800;
-            else
-                // Otherwise impossible
-                weights[ADVPATH_ROOM_LEGENDARY] = 0;
-        }
-        else 
-        {
+            break;
+        
+        case DIFFICULTY_LEVEL_MEDIUM:
             // Pre E4 settings
             if(gRogueRun.currentDifficulty < 8)
             {
@@ -1329,6 +1322,21 @@ static void AssignWeights_Standard(u8 nodeX, u8 nodeY, u8 columnCount, u16* weig
                     // Otherwise the chances are just quite low
                     weights[ADVPATH_ROOM_LEGENDARY] = 20;
             }
+            break;
+
+        case DIFFICULTY_LEVEL_HARD:
+            if((gRogueRun.currentDifficulty % 5) == 0)
+                // Every 5 badges chances get really high
+                weights[ADVPATH_ROOM_LEGENDARY] = 800;
+            else
+                // Otherwise impossible
+                weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            break;
+
+        case DIFFICULTY_LEVEL_BRUTAL:
+            // Impossible
+            weights[ADVPATH_ROOM_LEGENDARY] = 0;
+            break;
         }
     }
 
@@ -1417,20 +1425,23 @@ static void AssignWeights_Finalize(u8 nodeX, u8 nodeY, u8 columnCount, u16* weig
     }
 
     // We have limited number of certain encounters
-    if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY))
     {
+    case DIFFICULTY_LEVEL_EASY:
         if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 2)
         {
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
-    }
-    else
-    {
+        break;
+
+    default:
         if(gAdvPathScratch->roomCount[ADVPATH_ROOM_LEGENDARY] >= 1)
         {
             weights[ADVPATH_ROOM_LEGENDARY] = 0;
         }
+        break;
     }
+
 
     if(gAdvPathScratch->roomCount[ADVPATH_ROOM_WILD_DEN] >= 2)
     {

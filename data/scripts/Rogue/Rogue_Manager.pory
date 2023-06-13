@@ -637,10 +637,11 @@ script Rogue_Battle_PreBoss
     lock
     faceplayer
 
-    if(flag(FLAG_ROGUE_CAN_OVERLVL))
-    {
-        clearflag(FLAG_TEMP_1A)
-    }
+    // TODO - Rehook up EXP limiting
+    //if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    //{
+    //    clearflag(FLAG_TEMP_1A)
+    //}
 
     if(flag(FLAG_TEMP_1A))
     {
@@ -788,11 +789,12 @@ script Rogue_GymIdentity_PreBoss
         msgbox(format("The text is scratched up...\pIt reads...\nDMVBF DE LYF POLLU!!!\p(Whatever that means?)"), MSGBOX_DEFAULT)
         setvar(VAR_RESULT, NO)
     }
-    elif(flag(FLAG_ROGUE_EASY_TRAINERS))
-    {
-        msgbox(format("It reads...\p'I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
-        msgbox(format("Do you want to read on?"), MSGBOX_YESNO)
-    }
+    // TODO - Fix up statue hint for free if easy
+    //elif(flag(FLAG_ROGUE_EASY_TRAINERS))
+    //{
+    //    msgbox(format("It reads...\p'I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+    //    msgbox(format("Do you want to read on?"), MSGBOX_YESNO)
+    //}
     else
     {
         msgbox(format("It reads...\p'For a cost, I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
