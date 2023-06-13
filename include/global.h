@@ -515,7 +515,6 @@ struct SaveBlock2
              u16 optionsSoundChannelBGM:4;
              u16 optionsSoundChannelSE:4;
              u16 optionsNicknameMode:2; // //OPTIONS_NICKNAME_MODE_[ASK/ALWAYS/NEVER]
-             u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
              u16 optionsDefaultBattleSceneOff:1; // whether battle animations are disabled
              u16 optionsBossBattleSceneOff:1; // whether battle animations are disabled
              u16 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold

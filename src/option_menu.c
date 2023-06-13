@@ -35,7 +35,6 @@ enum
     MENUITEM_TEXTSPEED,
     MENUITEM_BATTLESCENE_DEFAULT,
     MENUITEM_BATTLESCENE_KEY_BATTLES,
-    MENUITEM_BATTLESTYLE,
     MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_NICKNAME_MODE,
     MENUITEM_TIME_OF_DAY,
@@ -84,8 +83,6 @@ static u8 TextSpeed_ProcessInput(u8 menuOffset, u8 selection);
 static void TextSpeed_DrawChoices(u8 menuOffset, u8 selection);
 static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleScene_DrawChoices(u8 menuOffset, u8 selection);
-static u8 BattleStyle_ProcessInput(u8 menuOffset, u8 selection);
-static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
 static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection);
@@ -170,12 +167,6 @@ static const struct MenuEntry sOptionMenuItems[] =
         .itemName = gText_BattleSceneBoss,
         .processInput = BattleScene_ProcessInput,
         .drawChoices = BattleScene_DrawChoices
-    },
-    [MENUITEM_BATTLESTYLE] = 
-    {
-        .itemName = gText_BattleStyle,
-        .processInput = BattleStyle_ProcessInput,
-        .drawChoices = BattleStyle_DrawChoices
     },
     [MENUITEM_AUTORUN_TOGGLE] = 
     {
@@ -262,7 +253,6 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_SEASON,
             MENUITEM_BATTLESCENE_DEFAULT,
             MENUITEM_BATTLESCENE_KEY_BATTLES,
-            MENUITEM_BATTLESTYLE,
             MENUITEM_CANCEL
         }
     },
@@ -683,29 +673,6 @@ static void BattleScene_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleSceneOff, 198), menuOffset* YPOS_SPACING, styles[1]);
 }
 
-static u8 BattleStyle_ProcessInput(u8 menuOffset, u8 selection)
-{
-    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
-    {
-        selection ^= 1;
-        sArrowPressed = TRUE;
-    }
-
-    return selection;
-}
-
-static void BattleStyle_DrawChoices(u8 menuOffset, u8 selection)
-{
-    u8 styles[2];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_BattleStyleShift, 104, menuOffset* YPOS_SPACING, styles[0]);
-    DrawOptionMenuChoice(gText_BattleStyleSet, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleStyleSet, 198), menuOffset* YPOS_SPACING, styles[1]);
-}
-
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
@@ -1063,9 +1030,6 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
         return gSaveBlock2Ptr->optionsBossBattleSceneOff;
-
-    case MENUITEM_BATTLESTYLE:
-        return gSaveBlock2Ptr->optionsBattleStyle;
         
     case MENUITEM_AUTORUN_TOGGLE:
         return gSaveBlock2Ptr->optionsAutoRunToggle;
@@ -1112,10 +1076,6 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
         gSaveBlock2Ptr->optionsBossBattleSceneOff = value;
-        break;
-        
-    case MENUITEM_BATTLESTYLE:
-        gSaveBlock2Ptr->optionsBattleStyle = value;
         break;
 
     case MENUITEM_AUTORUN_TOGGLE:

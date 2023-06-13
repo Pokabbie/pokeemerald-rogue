@@ -67,6 +67,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
+#include "rogue_settings.h"
 #include "rogue_trainers.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
@@ -3122,7 +3123,7 @@ static void BattleStartClearSetData(void)
     else if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)) && GetBattleSceneInRecordedBattle())
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
 
-    gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+    gBattleScripting.battleStyle = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
 
     gMultiHitCounter = 0;
     gBattleOutcome = 0;

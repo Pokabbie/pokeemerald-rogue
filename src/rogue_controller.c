@@ -1649,9 +1649,7 @@ void Rogue_SetDefaultOptions(void)
 #else
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_SLOW;
 #endif
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
     //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    //gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     //gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
