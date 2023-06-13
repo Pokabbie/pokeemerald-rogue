@@ -722,7 +722,7 @@ static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
     if(selection == 0)
         DrawOptionMenuChoice(gText_DifficultyDisabled, 104, menuOffset * YPOS_SPACING, 0);
     else
-        DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 1);
+        DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
 }
 
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
