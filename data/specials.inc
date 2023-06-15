@@ -342,6 +342,7 @@ gSpecials::
 	def_special ScriptMenu_CreatePCMultichoice
 	def_special AccessHallOfFamePC
 	def_special Special_ShowDiploma
+	def_special Special_ViewDifficultyConfigMenu
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute

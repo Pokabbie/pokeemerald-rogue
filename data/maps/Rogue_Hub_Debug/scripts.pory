@@ -129,3 +129,13 @@ script Rogue_Debug_TrainerBattleDouble
     special(RogueDebug_StartBattle)
     release
 }
+
+script Rogue_Debug_DisplayDifficultyConfigMenu
+{
+    lock
+    msgbox(format("Difficulty menu"))
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+    msgbox(format("closed"))
+    release
+}

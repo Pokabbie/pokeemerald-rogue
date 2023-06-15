@@ -128,6 +128,16 @@ Rogue_Debug_TrainerBattleDouble::
 	return
 
 
+Rogue_Debug_DisplayDifficultyConfigMenu::
+	lock
+	msgbox Rogue_Debug_DisplayDifficultyConfigMenu_Text_0
+	special Special_ViewDifficultyConfigMenu
+	waitstate
+	msgbox Rogue_Debug_DisplayDifficultyConfigMenu_Text_1
+	release
+	return
+
+
 Rogue_Debug_FillPCWithGen_Text_0:
 	.string "Fill PC with GEN?$"
 
@@ -150,3 +160,9 @@ Rogue_Debug_CollectAllQuests_Text_0:
 
 Rogue_Debug_AddMoney_Text_0:
 	.string "Lots of stuff.$"
+
+Rogue_Debug_DisplayDifficultyConfigMenu_Text_0:
+	.string "Difficulty menu$"
+
+Rogue_Debug_DisplayDifficultyConfigMenu_Text_1:
+	.string "closed$"

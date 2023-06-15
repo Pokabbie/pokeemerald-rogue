@@ -67,6 +67,7 @@
 #include "palette.h"
 
 #include "rogue_controller.h"
+#include "rogue_settings.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -140,6 +141,13 @@ void Special_ViewWallClock(void)
 {
     gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_ViewWallClock);
+    ScriptContext2_Enable();
+}
+
+void Special_ViewDifficultyConfigMenu(void)
+{
+    //gMain.savedCallback = CB2_ReturnToField;
+    SetMainCallback2(CB2_InitDifficultyConfigMenu);
     ScriptContext2_Enable();
 }
 
