@@ -1,4 +1,5 @@
 ﻿using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.Pokedex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,8 @@ namespace PokemonDataGenerator
 			Console.WriteLine("2 - Generate OW Sprites");
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
 			Console.WriteLine("4 - OW Sprites Palette Generator");
-			int action = ReadOption(1, 4);
+			Console.WriteLine("5 - Generate Pokedex Lists");
+			int action = ReadOption(1, 5);
 
 			switch(action)
 			{
@@ -74,6 +76,10 @@ namespace PokemonDataGenerator
 					SpritePaletteGenerator.GenerateFromLocalData();
 					break;
 
+				case 5:
+					Console.WriteLine("==Generating Pokedex Lists==");
+					PokedexGenerator.GeneratePokedexEntries(isVanillaVersion);
+					break;
 			}
 
 

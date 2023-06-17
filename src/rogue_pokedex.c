@@ -12,9 +12,12 @@
 #include "text.h"
 #include "overworld.h"
 #include "menu.h"
+#include "sound.h"
 #include "pokedex.h"
 #include "pokemon_icon.h"
+
 #include "constants/rgb.h"
+#include "constants/songs.h"
 
 #include "rogue_pokedex.h"
 
@@ -42,6 +45,7 @@ static void Overview_RecreateSprites();
 static void Overview_SelectSpeciesToDiplay();
 static void Overview_FillEntryBg(u8 entryX, u8 entryY, bool8 includeHeader);
 static void Overview_FillEntryBg_Selected(u8 entryX, u8 entryY, bool8 includeHeader);
+static u8 Overview_GetLastValidActiveIndex();
 static u8 Overview_GetMaxScrollAmount();
 
 struct PokedexMenu
@@ -50,6 +54,7 @@ struct PokedexMenu
     u16 scrollAmount;
     u8 overviewSprites[OVERVIEW_ENTRY_COUNT];
     u16 overviewSpecies[OVERVIEW_ENTRY_COUNT];
+    u16 overviewNumbers[OVERVIEW_ENTRY_COUNT];
 };
 
 EWRAM_DATA static u8 *sTilemapBufferPtr = NULL;
@@ -154,6 +159,7 @@ static void Task_DiplomaFadeIn(u8 taskId)
 
 static void Task_DiplomaWaitForKeyPress(u8 taskId)
 {
+    bool8 justJumpedPage = FALSE;
     u16 prevSelectedIdx = sPokedexMenu->selectedIdx;
     u16 prevScrollAmount = sPokedexMenu->scrollAmount;
 
@@ -200,19 +206,42 @@ static void Task_DiplomaWaitForKeyPress(u8 taskId)
     {
         if(sPokedexMenu->scrollAmount != 0)
             sPokedexMenu->scrollAmount -= min(sPokedexMenu->scrollAmount, ROW_ENTRY_COUNT);
+        else if(sPokedexMenu->selectedIdx != 0)
+            sPokedexMenu->selectedIdx = 0; // Put back to first slot before looping
         else
             sPokedexMenu->scrollAmount = Overview_GetMaxScrollAmount();
+
+        justJumpedPage = TRUE;
     }
     else if(JOY_NEW(R_BUTTON))
     {
+        u8 maxScrollAmount = Overview_GetMaxScrollAmount();
         sPokedexMenu->scrollAmount += ROW_ENTRY_COUNT;
         
-        if(sPokedexMenu->scrollAmount > Overview_GetMaxScrollAmount())
-            sPokedexMenu->scrollAmount = 0;
+        if(sPokedexMenu->scrollAmount > maxScrollAmount)
+        {
+            u8 maxIdx = Overview_GetLastValidActiveIndex();
+            if(sPokedexMenu->selectedIdx != maxIdx)
+            {
+                sPokedexMenu->scrollAmount = maxScrollAmount;
+                sPokedexMenu->selectedIdx = maxIdx;
+            }
+            else
+            {
+                sPokedexMenu->scrollAmount = 0;
+            }
+        }
+
+        justJumpedPage = TRUE;
     }
 
 
     // Clamp scroll amount
+    if(prevSelectedIdx  != sPokedexMenu->selectedIdx)
+    {
+        sPokedexMenu->selectedIdx = min(sPokedexMenu->selectedIdx, Overview_GetLastValidActiveIndex());
+    }
+
     if(prevScrollAmount != sPokedexMenu->scrollAmount)
     {
         sPokedexMenu->scrollAmount = min(sPokedexMenu->scrollAmount, Overview_GetMaxScrollAmount());
@@ -229,8 +258,14 @@ static void Task_DiplomaWaitForKeyPress(u8 taskId)
         {
             // Scroll up/down
             Overview_SelectSpeciesToDiplay();
+            
+            // Clamp it here incase we go out of bounds when jumping from front to back
+            sPokedexMenu->selectedIdx = min(sPokedexMenu->selectedIdx, Overview_GetLastValidActiveIndex());
+
             Overview_RefillBg();
             Overview_RecreateSprites();
+
+            PlaySE(justJumpedPage ? SE_DEX_PAGE : SE_DEX_SCROLL);
         }
         else if(prevSelectedIdx != sPokedexMenu->selectedIdx)
         {
@@ -242,6 +277,8 @@ static void Task_DiplomaWaitForKeyPress(u8 taskId)
 
             Overview_FillEntryBg_Selected(prevEntryX, prevEntryY, FALSE);
             Overview_FillEntryBg_Selected(newEntryX, newEntryY, FALSE);
+
+            PlaySE(SE_DEX_SCROLL);
         }
     }
 }
@@ -745,8 +782,7 @@ static void Overview_FillEntryBgInternal(u8 entryX, u8 entryY, bool8 includeHead
 
     if(includeHeader)
     {
-        u16 species = sPokedexMenu->overviewSpecies[entryX + entryY * COLUMN_ENTRY_COUNT];
-        u16 num = SpeciesToNationalPokedexNum(species);
+        u16 num = sPokedexMenu->overviewNumbers[entryX + entryY * COLUMN_ENTRY_COUNT];
 
         Overview_FillEntryTileBoundary_Header(tileX, tileY, entryType[ENTRY_DIR_LEFT], entryType[ENTRY_DIR_CENTRE], entrySelected[ENTRY_DIR_LEFT], entrySelected[ENTRY_DIR_CENTRE]);
         Overview_FillEntryTileCentre_Header(tileX, tileY, entryType[ENTRY_DIR_CENTRE], num);
@@ -818,6 +854,18 @@ static void Overview_RecreateSprites()
     }
 }
 
+static u8 RoguePokedex_GetDexVariant()
+{
+    // Variant none is basically national dex mode
+    return POKEDEX_VARIANT_NONE;
+    //return POKEDEX_VARIANT_HOENN_RSE;
+}
+
+static bool8 RoguePokdex_IsNationalDexActive()
+{
+    return RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_NONE;
+}
+
 static void Overview_SelectSpeciesToDiplay()
 {
     u8 i;
@@ -826,18 +874,48 @@ static void Overview_SelectSpeciesToDiplay()
 
     for(i = 0; i < OVERVIEW_ENTRY_COUNT; ++i)
     {
-        num = 1 + i + sPokedexMenu->scrollAmount * COLUMN_ENTRY_COUNT;
-        species = NationalPokedexNumToSpecies(num);
+        num = i + sPokedexMenu->scrollAmount * COLUMN_ENTRY_COUNT;
 
-        // TODO - EX support regional forms + viewing alternate forms?
-        if(num < NATIONAL_DEX_COUNT)
-            sPokedexMenu->overviewSpecies[i] = species;
+        species = SPECIES_NONE;
+
+        if(RoguePokdex_IsNationalDexActive())
+        {
+            if(1 + num < NATIONAL_DEX_COUNT)
+                species = NationalPokedexNumToSpecies(1 + num);
+        }
         else
-            sPokedexMenu->overviewSpecies[i] = SPECIES_NONE;
+        {
+            u8 dexVariant = RoguePokedex_GetDexVariant();
+            if(num < gPokedexVariants[dexVariant].speciesCount)
+                species = gPokedexVariants[dexVariant].speciesList[num];
+        }
+
+        sPokedexMenu->overviewSpecies[i] = species;
+        sPokedexMenu->overviewNumbers[i] = num + 1;
     }
+}
+
+static u8 Overview_GetLastValidActiveIndex()
+{
+    u8 i, j;
+
+    for(i = 0; i < OVERVIEW_ENTRY_COUNT; ++i)
+    {
+        j = OVERVIEW_ENTRY_COUNT - i - 1;
+        if(sPokedexMenu->overviewSpecies[j] != SPECIES_NONE)
+            return j;
+    }
+
+    return 0;
 }
 
 static u8 Overview_GetMaxScrollAmount()
 {
-    return (NATIONAL_DEX_COUNT / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT;
+    if(RoguePokdex_IsNationalDexActive())
+        return (NATIONAL_DEX_COUNT / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
+    else
+    {
+        u8 dexVariant = RoguePokedex_GetDexVariant();
+        return (gPokedexVariants[dexVariant].speciesCount / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
+    }
 }

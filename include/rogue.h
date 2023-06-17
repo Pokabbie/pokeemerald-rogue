@@ -359,12 +359,32 @@ struct PokemonObjectEventInfo
     u8 shinyPaletteOffset;
 };
 
+struct RoguePokedexVariant
+{
+    const u8* displayName;
+    const u16* speciesList;
+    u16 speciesCount;
+    u8 genLimit;
+};
+
+struct RoguePokedexRegion
+{
+    const u8* displayName;
+    const u16* variantList;
+    u16 variantCount;
+};
+
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainerCollection gRogueTrainers;
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
+
+
+extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
+extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];
+
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];

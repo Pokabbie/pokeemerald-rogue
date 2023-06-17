@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -27,7 +28,7 @@ namespace PokemonDataGenerator
 			}
 			else
 			{
-				string key = uri.ToLower()
+				string keyName = "F_" + Path.GetFileName(uri).ToLower()
 					.Replace("://", "__")
 					.Replace("?", "Q")
 					.Replace("=", "E")
@@ -35,7 +36,15 @@ namespace PokemonDataGenerator
 					.Replace(":", "S")
 					.Replace(";", "S");
 
-				string path = Path.Combine(c_CacheFolder, key);
+				string basePath = Path.GetDirectoryName(uri).ToLower()
+					.Replace("://", "__")
+					.Replace("?", "Q")
+					.Replace("=", "E")
+					.Replace("c", "c")
+					.Replace(":", "S")
+					.Replace(";", "S");
+
+				string path = Path.Combine(c_CacheFolder, basePath, keyName);
 
 				string baseDir = Path.GetDirectoryName(path);
 				Directory.CreateDirectory(baseDir);
@@ -75,6 +84,12 @@ namespace PokemonDataGenerator
 			Bitmap result = new Bitmap(request.GetResponse().GetResponseStream());
 			result.Save(cachePath);
 			return result;
+		}
+
+		public static JObject GetJsonContent(string uri)
+		{
+			string content = GetHttpContent(uri);
+			return JObject.Parse(content);
 		}
 	}
 }

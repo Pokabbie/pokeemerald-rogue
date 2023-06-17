@@ -343,6 +343,7 @@
 #define SEASON_WINTER   3
 #define SEASON_COUNT    4
 
+#include "rogue_pokedex.h"
 #include "rogue_quests.h"
 #include "rogue_hub.h"
 
