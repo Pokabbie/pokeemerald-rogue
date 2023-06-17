@@ -136,6 +136,15 @@ script Rogue_Debug_DisplayDifficultyConfigMenu
     msgbox(format("Difficulty menu"))
     special(Special_ViewDifficultyConfigMenu)
     waitstate
-    msgbox(format("closed"))
+    //msgbox(format("closed")) <- this gets ignored?
+    release
+}
+
+script Rogue_Debug_DisplayPokedex
+{
+    lock
+    msgbox(format("Rogue Pokedex"))
+    special(Special_ViewRoguePokedex)
+    waitstate
     release
 }

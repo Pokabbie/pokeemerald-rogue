@@ -344,6 +344,7 @@ SECTIONS {
         src/rogue_script.o(.text);
         src/rogue_timeofday.o(.text);
         src/rogue_trainers.o(.text);
+        src/rogue_pokedex.o(.text);
         src/rogue_quest.o(.text);
         src/rogue_questmenu.o(.text);
         src/rogue_popup.o(.text);
@@ -726,6 +727,7 @@ SECTIONS {
         src/rogue_script.o(.rodata);
         src/rogue_timeofday.o(.rodata);
         src/rogue_trainers.o(.rodata);
+        src/rogue_pokedex.o(.rodata);
         src/rogue_quest.o(.rodata);
         src/rogue_questmenu.o(.rodata);
         src/rogue_popup.o(.rodata);

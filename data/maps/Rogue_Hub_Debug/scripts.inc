@@ -133,7 +133,15 @@ Rogue_Debug_DisplayDifficultyConfigMenu::
 	msgbox Rogue_Debug_DisplayDifficultyConfigMenu_Text_0
 	special Special_ViewDifficultyConfigMenu
 	waitstate
-	msgbox Rogue_Debug_DisplayDifficultyConfigMenu_Text_1
+	release
+	return
+
+
+Rogue_Debug_DisplayPokedex::
+	lock
+	msgbox Rogue_Debug_DisplayPokedex_Text_0
+	special Special_ViewRoguePokedex
+	waitstate
 	release
 	return
 
@@ -164,5 +172,5 @@ Rogue_Debug_AddMoney_Text_0:
 Rogue_Debug_DisplayDifficultyConfigMenu_Text_0:
 	.string "Difficulty menu$"
 
-Rogue_Debug_DisplayDifficultyConfigMenu_Text_1:
-	.string "closed$"
+Rogue_Debug_DisplayPokedex_Text_0:
+	.string "Rogue Pokedex$"

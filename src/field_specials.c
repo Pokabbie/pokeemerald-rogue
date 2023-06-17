@@ -67,6 +67,7 @@
 #include "palette.h"
 
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_settings.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
@@ -148,6 +149,13 @@ void Special_ViewDifficultyConfigMenu(void)
 {
     //gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_InitDifficultyConfigMenu);
+    ScriptContext2_Enable();
+}
+
+void Special_ViewRoguePokedex(void)
+{
+    gMain.savedCallback = CB2_ReturnToField;
+    SetMainCallback2(CB2_Rogue_ShowPokedex);
     ScriptContext2_Enable();
 }
 
