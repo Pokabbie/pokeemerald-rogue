@@ -167,7 +167,7 @@ u16 Rogue_PreActivateDesiredCampaign(void)
     case ROGUE_CAMPAIGN_LOW_BST:
         Rogue_ResetConfigHubSettings();
 
-        FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
 
         // Expansion Room settings
 #ifdef ROGUE_EXPANSION
@@ -184,11 +184,11 @@ u16 Rogue_PreActivateDesiredCampaign(void)
 
     case ROGUE_CAMPAIGN_LATERMANNER:
         Rogue_ResetConfigHubSettings();
-        FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
         break;
 
     case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
-        FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
         break;
     }
 }

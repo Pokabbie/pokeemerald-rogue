@@ -24,6 +24,7 @@
 #include "rogue_query.h"
 #include "rogue_baked.h"
 #include "rogue_campaign.h"
+#include "rogue_settings.h"
 #include "rogue_controller.h"
 
 #define QUERY_BUFFER_COUNT 128
@@ -1324,14 +1325,14 @@ void RogueQuery_ItemsExcludeCommon(void)
         RogueQuery_Exclude(ITEM_MAX_MUSHROOMS);
     }
 
-    if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    if(!Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
     {
         RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
         RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
         RogueQuery_ItemsExcludeRange(ITEM_MACHO_BRACE, ITEM_POWER_ANKLET);
     }
 #else
-    if(!FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+    if(!Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
     {
         // These items aren't next to each other in vanilla
         RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CALCIUM);

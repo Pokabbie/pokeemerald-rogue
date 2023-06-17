@@ -1,58 +1,20 @@
 #include "global.h"
-//#include "constants/abilities.h"
-//#include "constants/battle.h"
 #include "constants/event_objects.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
 #include "constants/items.h"
-//#include "constants/layouts.h"
 #include "constants/moves.h"
-//#include "constants/rogue.h"
-//#include "constants/rgb.h"
 #include "constants/weather.h"
-//#include "data.h"
 #include "gba/isagbprint.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
-//#include "berry.h"
+
 #include "event_data.h"
-//#include "graphics.h"
-//#include "item.h"
-//#include "load_save.h"
+#include "event_object_movement.h"
 #include "malloc.h"
-//#include "main.h"
-//#include "money.h"
-//#include "m4a.h"
-//#include "overworld.h"
 #include "party_menu.h"
-//#include "palette.h"
-//#include "play_time.h"
-//#include "player_pc.h"
-//#include "pokemon.h"
-//#include "pokemon_icon.h"
-//#include "pokemon_storage_system.h"
-//#include "random.h"
-//#include "rtc.h"
-//#include "safari_zone.h"
-//#include "script.h"
-//#include "siirtc.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
 
 #include "rogue.h"
-//#include "rogue_assistant.h"
-//#include "rogue_automation.h"
 #include "rogue_adventurepaths.h"
-//#include "rogue_campaign.h"
-//#include "rogue_charms.h"
 #include "rogue_controller.h"
-//#include "rogue_followmon.h"
-//#include "rogue_popup.h"
 #include "rogue_query.h"
-//#include "rogue_quest.h"
-//#include "rogue_timeofday.h"
+#include "rogue_settings.h"
 #include "rogue_trainers.h"
 
 struct TrainerHeldItemScratch
@@ -98,13 +60,17 @@ static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
 static void ReorderPartyMons(struct Pokemon *party, u8 monCount);
 
 // Manual start offsets to make it clearer which trainer nums are which trainer types
-#define TRAINER_NUM_BOSS_START          100
-#define TRAINER_NUM_BOSS_COUNT          (gRogueTrainers.bossCount)
-#define TRAINER_NUM_BOSS_END            (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
+#define TRAINER_NUM_BOSS_START              100
+#define TRAINER_NUM_BOSS_COUNT              (gRogueTrainers.bossCount)
+#define TRAINER_NUM_BOSS_END                (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
 
-#define TRAINER_NUM_MINIBOSS_START      200
-#define TRAINER_NUM_MINIBOSS_COUNT      (gRogueTrainers.minibossCount)
-#define TRAINER_NUM_MINIBOSS_END        (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
+#define TRAINER_NUM_MINIBOSS_START          200
+#define TRAINER_NUM_MINIBOSS_COUNT          (gRogueTrainers.minibossCount)
+#define TRAINER_NUM_MINIBOSS_END            (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
+
+#define TRAINER_NUM_ROUTE_TRAINER_START     300
+#define TRAINER_NUM_ROUTE_TRAINER_COUNT     (gRogueTrainers.routeTrainersCount)
+#define TRAINER_NUM_ROUTE_TRAINER_END       (TRAINER_NUM_ROUTE_TRAINER_START + TRAINER_NUM_ROUTE_TRAINER_COUNT - 1)
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
@@ -114,6 +80,11 @@ bool8 Rogue_IsBossTrainer(u16 trainerNum)
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
 {
     return trainerNum >= TRAINER_NUM_MINIBOSS_START && trainerNum <= TRAINER_NUM_MINIBOSS_END;
+}
+
+bool8 Rogue_IsRouteTrainer(u16 trainerNum)
+{
+    return trainerNum >= TRAINER_NUM_ROUTE_TRAINER_START && trainerNum <= TRAINER_NUM_ROUTE_TRAINER_END;
 }
 
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
@@ -155,7 +126,26 @@ bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr
         return TRUE;
     }
 
+    if(Rogue_IsRouteTrainer(trainerNum))
+    {
+        *trainerPtr = &gRogueTrainers.routeTrainers[trainerNum - TRAINER_NUM_ROUTE_TRAINER_START];
+        return TRUE;
+    }
+
     return FALSE;
+}
+
+bool8 Rogue_GetTrainerFlag(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer;
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+    {
+        return FlagGet(TRAINER_FLAGS_START + trainerNum);
+    }
+
+    // Always return true by default
+    return TRUE;
 }
 
 u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
@@ -167,7 +157,40 @@ u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
     }
 
     // Fallback in event of error
-    return OBJ_EVENT_GFX_ITEM_BALL;
+    return OBJ_EVENT_GFX_AZURILL_DOLL;
+}
+
+extern const u8* Rogue_Battle_Trainer;
+
+u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject)
+{
+    u8 i;
+
+    // TODO - Could check the script?? (Was having issues though)
+
+    // Grab the trainer which matches the gfx
+    for(i = 0; i < gRogueTrainers.routeTrainersCount; ++i)
+    {
+        if(gRogueTrainers.routeTrainers[i].objectEventGfx == curObject->graphicsId)
+        {
+            return TRAINER_NUM_ROUTE_TRAINER_START + i;
+        }
+    }
+
+    return TRAINER_NONE;
+}
+
+u16 Rogue_GetTrainerNumFromLastInteracted()
+{
+    u8 lastTalkedId = VarGet(VAR_LAST_TALKED);
+    u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+    if(objEventId < OBJECT_EVENTS_COUNT)
+    {
+        return Rogue_GetTrainerNumFromObjectEvent(&gObjectEvents[objEventId]);
+    }
+
+    return TRAINER_NONE;
 }
 
 u8 Rogue_GetTrainerWeather(u16 trainerNum)
@@ -177,14 +200,25 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
 
     if(Rogue_IsAnyBossTrainer(trainerNum) && Rogue_TryGetTrainer(trainerNum, &trainer))
     {
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
         {
+        case DIFFICULTY_LEVEL_EASY:
+            weatherType = WEATHER_NONE;
+            break;
+        
+        case DIFFICULTY_LEVEL_MEDIUM:
+            if(gRogueRun.currentDifficulty > 2)
+                weatherType = trainer->preferredWeather;
+            break;
+        
+        case DIFFICULTY_LEVEL_HARD:
             if(gRogueRun.currentDifficulty > 0)
                 weatherType = trainer->preferredWeather;
-        }
-        else if(gRogueRun.currentDifficulty > 2)
-        {
+            break;
+        
+        case DIFFICULTY_LEVEL_BRUTAL:
             weatherType = trainer->preferredWeather;
+            break;
         }
     }
 
@@ -363,7 +397,6 @@ static u16 NextTrainerNum(u16 startNum, u16 endNum, u16* historyBuffer, u16 hist
 
     enabledTrainerCount = 0;
 
-
     for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
     {
         if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
@@ -416,6 +449,19 @@ u16 Rogue_NextMinibossTrainerId()
     return trainerNum;
 }
 
+u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity)
+{
+    const struct RogueTrainer* trainerPtr;
+    u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
+
+    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    {
+        HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum, trainerPtr));
+    }
+
+    return trainerNum;
+}
+
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 {
     const struct RogueTrainer* trainerPtr;
@@ -447,10 +493,33 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
 
     level = GetTrainerLevel(trainerNum);
 
-    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
-        fixedIV = 0;
-    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
+    case DIFFICULTY_LEVEL_EASY:
+        fixedIV = 0;
+        break;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(Rogue_IsBossTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 6)
+                fixedIV = 16;
+            else if(gRogueRun.currentDifficulty >= 5)
+                fixedIV = 10;
+            else if(gRogueRun.currentDifficulty >= 4)
+                fixedIV = 8;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 6;
+            else
+                fixedIV = 0;
+        }
+        else
+        {
+            fixedIV = 0;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
         if(Rogue_IsBossTrainer(trainerNum))
         {
             if(gRogueRun.currentDifficulty >= 12)
@@ -470,26 +539,31 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         {
             fixedIV = (gRogueRun.currentDifficulty > 8) ? 13 : 5;
         }
-    }
-    else
-    {
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
         if(Rogue_IsBossTrainer(trainerNum))
         {
-            if(gRogueRun.currentDifficulty >= 6)
-                fixedIV = 16;
-            else if(gRogueRun.currentDifficulty >= 5)
-                fixedIV = 10;
-            else if(gRogueRun.currentDifficulty >= 4)
-                fixedIV = 8;
-            else if(gRogueRun.currentDifficulty >= 3)
-                fixedIV = 6;
-            else
-                fixedIV = 0;
+            // Bosses are cracked from the get go
+            fixedIV = 31;
         }
         else
         {
-            fixedIV = 0;
+            // Regular trainers scale like hard mode bosses
+            if(gRogueRun.currentDifficulty >= 12)
+                fixedIV = 31;
+            else if(gRogueRun.currentDifficulty >= 8)
+                fixedIV = 21;
+            else if(gRogueRun.currentDifficulty >= 6)
+                fixedIV = 19;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 15;
+            else if(gRogueRun.currentDifficulty >= 1)
+                fixedIV = 11;
+            else
+                fixedIV = 5;
         }
+        break;
     }
 
     // Decide on mon count
@@ -498,25 +572,35 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         {
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
                 monCount = 6;
-            else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS)) // Hard
+            else
             {
-                if(gRogueRun.currentDifficulty == 0)
-                    monCount = 4;
-                else if(gRogueRun.currentDifficulty == 1)
-                    monCount = 5;
-                else
+                switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+                {
+                case DIFFICULTY_LEVEL_EASY:
+                case DIFFICULTY_LEVEL_MEDIUM:
+                    if(gRogueRun.currentDifficulty == 0)
+                        monCount = 3;
+                    else if(gRogueRun.currentDifficulty <= 2)
+                        monCount = 4;
+                    else if(gRogueRun.currentDifficulty <= 5)
+                        monCount = 5;
+                    else
+                        monCount = 6;
+                    break;
+                
+                case DIFFICULTY_LEVEL_HARD:
+                    if(gRogueRun.currentDifficulty == 0)
+                        monCount = 4;
+                    else if(gRogueRun.currentDifficulty == 1)
+                        monCount = 5;
+                    else
+                        monCount = 6;
+                    break;
+                
+                case DIFFICULTY_LEVEL_BRUTAL:
                     monCount = 6;
-            }
-            else // Average & Easy
-            {
-                if(gRogueRun.currentDifficulty == 0)
-                    monCount = 3;
-                else if(gRogueRun.currentDifficulty <= 2)
-                    monCount = 4;
-                else if(gRogueRun.currentDifficulty <= 5)
-                    monCount = 5;
-                else
-                    monCount = 6;
+                    break;
+                }
             }
         }
         else
@@ -880,31 +964,17 @@ static void NextMonGenerator()
             TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
     }
 
-    if(Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum))
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
-        if(FlagGet(FLAG_ROGUE_EASY_TRAINERS)) // Easy
-        {
-            if(gRogueRun.currentDifficulty >= 8)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
+    case DIFFICULTY_LEVEL_EASY:
+        if(gRogueRun.currentDifficulty >= 8)
+            sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
 
-            if(gRogueRun.currentDifficulty >= 8)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS)) // Hard
-        {
-            if(gRogueRun.currentDifficulty >= 5)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
-            else if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
+        if(gRogueRun.currentDifficulty >= 8)
+            sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
+        break;
 
-            if(gRogueRun.currentDifficulty >= 5)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
-
-            if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        }
-        else // Average
-        {
+    case DIFFICULTY_LEVEL_MEDIUM:
             if(gRogueRun.currentDifficulty >= 8)
                 sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
             else if(gRogueRun.currentDifficulty >= 7)
@@ -915,7 +985,33 @@ static void NextMonGenerator()
 
             if(gRogueRun.currentDifficulty >= 4)
                 sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+            if(gRogueRun.currentDifficulty >= 5)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
+            else if(gRogueRun.currentDifficulty >= 2)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
+
+            if(gRogueRun.currentDifficulty >= 5)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
+
+            if(gRogueRun.currentDifficulty >= 2)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+            if(gRogueRun.currentDifficulty >= 2)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
+            else if(gRogueRun.currentDifficulty >= 1)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
+
+            if(gRogueRun.currentDifficulty >= 2)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
+
+            if(gRogueRun.currentDifficulty >= 1)
+                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
+        break;
     }
 
     if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY)
@@ -1176,21 +1272,13 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
     {
         return Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum);
     }
-    if(FlagGet(FLAG_ROGUE_EASY_TRAINERS))
+
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
+    case DIFFICULTY_LEVEL_EASY:
         return FALSE;
-    }
-    else if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-    {
-        if(difficultyLevel == 0) // Last mon has competitive set
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum)) && monIdx == (totalMonCount - 1);
-        else if(difficultyLevel == 1)
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum));
-        else
-            return TRUE;
-    }
-    else
-    {
+
+    case DIFFICULTY_LEVEL_MEDIUM:
         // Start using competitive movesets on 3rd gym
         if(difficultyLevel == 0) // Last mon has competitive set
             return FALSE;
@@ -1198,6 +1286,17 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
             return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum)) && monIdx == (totalMonCount - 1);
         else
             return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum));
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(difficultyLevel == 0) // Last mon has competitive set
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum)) && monIdx == (totalMonCount - 1);
+        else if(difficultyLevel == 1)
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum));
+        else
+            return TRUE;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
     }
 
     return FALSE;
@@ -1546,7 +1645,7 @@ static void ReorderPartyMons(struct Pokemon *party, u8 monCount)
 
     if(Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum))
     {
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && !FlagGet(FLAG_ROGUE_HARD_TRAINERS) && gRogueRun.currentDifficulty < 8)
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && gRogueRun.currentDifficulty < 8)
         {
             // Prior to E4 we don't want to force forward the best lead mon
             // We just want to push final mons to the back

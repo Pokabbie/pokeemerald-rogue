@@ -14,6 +14,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_quest.h"
+#include "rogue_settings.h"
 #include "rogue_popup.h"
 
 extern const u8 gText_QuestRewardGive[];
@@ -793,21 +794,21 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_EliteMaster);
     }
 
-    if(!FlagGet(FLAG_ROGUE_HARD_TRAINERS))
+    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD)
     {
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    if(!Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
     {
         TryDeactivateQuest(QUEST_Nuzlocke);
         TryDeactivateQuest(QUEST_IronMono2);
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!FlagGet(FLAG_ROGUE_HARD_ITEMS) || FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED) || FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+    if(!FlagGet(FLAG_ROGUE_HARD_ITEMS) || Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN) || Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL))
     {
         TryDeactivateQuest(QUEST_Hardcore4);
     }

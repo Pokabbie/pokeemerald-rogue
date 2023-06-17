@@ -21,6 +21,8 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
+bool8 Rogue_UseKeyBattleAnims(void);
+bool8 Rogue_GetBattleAnimsEnabled(void);
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage);
 s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money);
@@ -66,7 +68,7 @@ u16 Rogue_PostRunRewardMoney();
 
 void Rogue_MainInit(void);
 void Rogue_MainCB(void);
-void Rogue_OverworldCB(void);
+void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
 
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
@@ -80,7 +82,7 @@ void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);
 
 void Rogue_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
 bool8 Rogue_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);
-void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_SelectLegendaryEncounterRoom(void);
 u16 Rogue_SelectWildDenEncounterRoom(void);

@@ -60,6 +60,8 @@ const struct RogueEncounterMap gRogueTypeToEliteRoom[] =
 #endif
 };
 
+#undef ENCOUNTER_MAP
+
 // Kinda a gross way of doing it, but was the simplest without hacking it in elsewhere
 static const u16 sQuerySpecies_Kanto[] =
 {
@@ -635,118 +637,6 @@ static const u16 sQuerySpecies_Raven[] =
     SPECIES_ALCREMIE
 #endif
 };
-
-#define TRAINER_FLAG_MINI_BOSS (TRAINER_FLAG_HOENN | TRAINER_FLAG_KANTO | TRAINER_FLAG_JOHTO)
-
-static const struct RogueTrainerEncounter sRouteMiniBossEncounters[] = 
-{
-    {
-        .gfxId = OBJ_EVENT_GFX_MAXIE,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_MAXIE,
-        .incTypes = { TYPE_FIRE, TYPE_DARK, TYPE_NONE },
-        .excTypes = { TYPE_WATER, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_ARCHIE,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_ARCHIE,
-        .incTypes = { TYPE_WATER, TYPE_DARK, TYPE_NONE },
-        .excTypes = { TYPE_FIRE, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_WALLY,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_WALLY,
-        .incTypes = { TYPE_PSYCHIC, TYPE_NORMAL, TYPE_NONE },
-        .excTypes = { TYPE_FLYING, TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRENDAN_ALT,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_MIRROR,
-        .incTypes = { TYPE_MYSTERY, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-        .partyFlags = PARTY_FLAG_MIRROR_EXACT,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_MAY_ALT,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_RIVAL,
-        .incTypes = { TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-        .partyFlags = PARTY_FLAG_COUNTER_TYPINGS,
-    },
-
-    {
-        .gfxId = OBJ_EVENT_GFX_LUCY,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_LUCY,
-        .incTypes = { TYPE_POISON, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_BRANDON,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_BRANDON,
-        .incTypes = { TYPE_GROUND, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_TUCKER,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_TUCKER,
-        .incTypes = { TYPE_BUG, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_SPENSER,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_SPENSER,
-        .incTypes = { TYPE_GRASS, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_GRETA,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_GRETA,
-        .incTypes = { TYPE_FIGHTING, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-    {
-        .gfxId = OBJ_EVENT_GFX_NOLAND,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_NOLAND,
-        .incTypes = { TYPE_ICE, TYPE_DRAGON, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-#ifdef ROGUE_EXPANSION
-    {
-        .gfxId = OBJ_EVENT_GFX_ANABEL,
-        .trainerId = TRAINER_ROGUE_MINI_BOSS_ANABEL,
-        .incTypes = { TYPE_FAIRY, TYPE_NONE },
-        .excTypes = { TYPE_NONE },
-        .trainerFlags = TRAINER_FLAG_MINI_BOSS,
-    },
-#endif
-};
-
-const struct RogueTrainerData gRogueMiniBossEncounters = 
-{
-    .count = ARRAY_COUNT(sRouteMiniBossEncounters),
-    .trainers = sRouteMiniBossEncounters,
-};
-
-#undef ENCOUNTER_MAP
-
-
-
-
-
-
-//
-// NEW TRAINER DATA
-//
 
 static const struct RogueTrainer sRouteTrainers_Bosses[] = 
 {
@@ -1896,11 +1786,11 @@ static const struct RogueTrainer sRouteTrainers_MiniBosses[] =
     {
         .trainerName = _("???"),
         .objectEventGfx = OBJ_EVENT_GFX_PLAYER_RIVAL,
-        .trainerPic = TRAINER_PIC_PLAYER_RIVAL,
+        .trainerPic = TRAINER_PIC_PLAYER_OPPOSITE_AVATAR,
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = 0,
         .preferredWeather = WEATHER_DEFAULT,
-        .trainerFlags = TRAINER_FLAG_ANY_REGION | TRAINER_FLAG_NAME_IS_RIVAL,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION | TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR,
         .monGenerators = 
         {
             {
@@ -2089,10 +1979,482 @@ static const struct RogueTrainer sRouteTrainers_MiniBosses[] =
 #endif
 };
 
+
+static const struct RogueTrainer sRouteTrainers_RouteTrainers[] = 
+{
+    // Aqua grunts
+    {
+        .trainerName = _("GRUNT"),
+        .objectEventGfx = OBJ_EVENT_GFX_AQUA_MEMBER_M,
+        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
+        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_DARK },
+                .excTypes = { TYPE_FIRE, TYPE_NONE },
+            },
+        }
+    },
+    {
+        .trainerName = _("GRUNT"),
+        .objectEventGfx = OBJ_EVENT_GFX_AQUA_MEMBER_F,
+        .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
+        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_DARK },
+                .excTypes = { TYPE_FIRE, TYPE_NONE },
+            },
+        }
+    },
+
+    // Magma grunts
+    {
+        .trainerName = _("GRUNT"),
+        .objectEventGfx = OBJ_EVENT_GFX_MAGMA_MEMBER_M,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_DARK },
+                .excTypes = { TYPE_WATER, TYPE_NONE },
+            },
+        }
+    },
+    {
+        .trainerName = _("GRUNT"),
+        .objectEventGfx = OBJ_EVENT_GFX_MAGMA_MEMBER_F,
+        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_F,
+        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIRE, TYPE_DARK },
+                .excTypes = { TYPE_WATER, TYPE_NONE },
+            },
+        }
+    },
+
+    // Misc trainers
+
+    // Breeders
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_WOMAN_2,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_F,
+        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_MAN_4,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
+        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .encounterMusic_gender =  TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // Cool trainers
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_MAN_3,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender =  TRAINER_ENCOUNTER_MUSIC_COOL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_WOMAN_5,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender =  F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // Psychic
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_PSYCHIC_M,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender =  TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_LASS,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .encounterMusic_gender =  F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_PSYCHIC, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+
+    // Tubers
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_TUBER_M,
+        .trainerPic = TRAINER_PIC_TUBER_M,
+        .trainerClass = TRAINER_CLASS_TUBER_M,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_TUBER_F,
+        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerClass = TRAINER_CLASS_TUBER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // Swimmer
+    //{
+    //    .trainerName = _("???"),
+    //    .objectEventGfx = OBJ_EVENT_GFX_SWIMMER_M,
+    //    .trainerPic = TRAINER_PIC_SWIMMER_M,
+    //    .trainerClass = TRAINER_CLASS_SWIMMER_M,
+    //    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+    //    .preferredWeather = WEATHER_DEFAULT,
+    //    .trainerFlags = TRAINER_FLAG_ANY_REGION,
+    //    .monGenerators = {}
+    //},
+    //{
+    //    .trainerName = _("???"),
+    //    .objectEventGfx = OBJ_EVENT_GFX_SWIMMER_F,
+    //    .trainerPic = TRAINER_PIC_SWIMMER_F,
+    //    .trainerClass = TRAINER_CLASS_SWIMMER_F,
+    //    .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+    //    .preferredWeather = WEATHER_DEFAULT,
+    //    .trainerFlags = TRAINER_FLAG_ANY_REGION,
+    //    .monGenerators = {}
+    //},
+
+    // Expert
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_EXPERT_M,
+        .trainerPic = TRAINER_PIC_EXPERT_M,
+        .trainerClass = TRAINER_CLASS_EXPERT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_EXPERT_F,
+        .trainerPic = TRAINER_PIC_EXPERT_F,
+        .trainerClass = TRAINER_CLASS_EXPERT,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // Triathlete
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M,
+        .trainerPic = TRAINER_PIC_RUNNING_TRIATHLETE_M,
+        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F,
+        .trainerPic = TRAINER_PIC_RUNNING_TRIATHLETE_F,
+        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // School kid
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_SCHOOL_KID_M,
+        .trainerPic = TRAINER_PIC_SCHOOL_KID_M,
+        .trainerClass = TRAINER_CLASS_SCHOOL_KID,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_GIRL_3,
+        .trainerPic = TRAINER_PIC_SCHOOL_KID_F,
+        .trainerClass = TRAINER_CLASS_SCHOOL_KID,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+
+    // One offs
+
+    // Hiker
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GROUND, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Bird Keeper
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_MAN_5,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
+        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
+        .encounterMusic_gender =  TRAINER_ENCOUNTER_MUSIC_COOL,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FLYING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Collector
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_MANIAC,
+        .trainerPic = TRAINER_PIC_COLLECTOR,
+        .trainerClass = TRAINER_CLASS_COLLECTOR,
+        .encounterMusic_gender =  TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    // Black belt
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_BLACK_BELT,
+        .trainerPic = TRAINER_PIC_BLACK_BELT,
+        .trainerClass = TRAINER_CLASS_BLACK_BELT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FIGHTING, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Hex maniac
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_HEX_MANIAC,
+        .trainerPic = TRAINER_PIC_HEX_MANIAC,
+        .trainerClass = TRAINER_CLASS_HEX_MANIAC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_GHOST, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Ruin maniac
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_BACKPACKER_M,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_ROCK, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Beauty
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_BEAUTY,
+        .trainerPic = TRAINER_PIC_BEAUTY,
+        .trainerClass = TRAINER_CLASS_BEAUTY,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+#ifdef ROGUE_EXPANSION
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_FAIRY, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+#else
+        .monGenerators = {}
+#endif
+    },
+    // Rich boy
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_RICH_BOY,
+        .trainerPic = TRAINER_PIC_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_RICH,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    // Bug catcher
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_BUG_CATCHER,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_BUG, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Bug catcher
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_GENTLEMAN,
+        .trainerPic = TRAINER_PIC_GENTLEMAN,
+        .trainerClass = TRAINER_CLASS_GENTLEMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_RICH,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+    // Fisherman
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_FISHERMAN,
+        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_FISHERMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_WATER, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+    // Dragon tamer
+    {
+        .trainerName = _("???"),
+        .objectEventGfx = OBJ_EVENT_GFX_BOY_3,
+        .trainerPic = TRAINER_PIC_DRAGON_TAMER,
+        .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = 
+        {
+            {
+                .monCount = 6,
+                .incTypes = { TYPE_DRAGON, TYPE_NONE },
+                .excTypes = { TYPE_NONE },
+            },
+        }
+    },
+};
+
 const struct RogueTrainerCollection gRogueTrainers = 
 {
     .bossCount = ARRAY_COUNT(sRouteTrainers_Bosses),
     .boss = sRouteTrainers_Bosses,
     .minibossCount = ARRAY_COUNT(sRouteTrainers_MiniBosses),
     .miniboss = sRouteTrainers_MiniBosses,
+    .routeTrainersCount = ARRAY_COUNT(sRouteTrainers_RouteTrainers),
+    .routeTrainers = sRouteTrainers_RouteTrainers,
 };

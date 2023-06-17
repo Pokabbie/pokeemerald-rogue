@@ -211,6 +211,7 @@ gSpecials::
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
 	def_special Rogue_GetFollowMonSpecies
+	def_special Rogue_GetTrainerNum
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost
 	def_special Rogue_HostMultiplayer
@@ -341,6 +342,8 @@ gSpecials::
 	def_special ScriptMenu_CreatePCMultichoice
 	def_special AccessHallOfFamePC
 	def_special Special_ShowDiploma
+	def_special Special_ViewDifficultyConfigMenu
+	def_special Special_ViewRoguePokedex
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute

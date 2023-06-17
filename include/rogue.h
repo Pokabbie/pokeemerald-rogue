@@ -125,6 +125,7 @@ struct RogueHubMap
 
 struct RogueGlobalData
 {
+    bool8 runningToggleActive : 1;
     u8 safairShinyBufferHead;
     u16 safariShinyBuffer[6];
     u32 safariShinyPersonality;
@@ -295,8 +296,10 @@ struct RogueTrainerCollection
 {
     u16 bossCount;
     u16 minibossCount;
+    u16 routeTrainersCount;
     const struct RogueTrainer* boss;
     const struct RogueTrainer* miniboss;
+    const struct RogueTrainer* routeTrainers;
 };
 
 struct SpeciesTable

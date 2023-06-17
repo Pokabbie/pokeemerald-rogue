@@ -97,6 +97,7 @@ const u32 gItemIconPalette_HyperPotion[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_LargePotion[] = INCBIN_U32("graphics/items/icons/large_potion.4bpp.lz");
 const u32 gItemIconPalette_MaxPotion[] = INCBIN_U32("graphics/items/icon_palettes/max_potion.gbapal.lz");
 
+const u32 gItemIconPalette_HealingFlask[] = INCBIN_U32("graphics/items/icon_palettes/healing_flask.gbapal.lz");
 const u32 gItemIconPalette_FullRestore[] = INCBIN_U32("graphics/items/icon_palettes/full_restore.gbapal.lz");
 
 const u32 gItemIcon_Revive[] = INCBIN_U32("graphics/items/icons/revive.4bpp.lz");

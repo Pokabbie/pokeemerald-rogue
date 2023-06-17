@@ -8,6 +8,7 @@
 #include "constants/layouts.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
+#include "constants/trainer_types.h"
 #include "constants/weather.h"
 #include "data.h"
 #include "gba/isagbprint.h"
@@ -19,6 +20,7 @@
 #include "graphics.h"
 #include "item.h"
 #include "load_save.h"
+#include "malloc.h"
 #include "main.h"
 #include "money.h"
 #include "m4a.h"
@@ -52,6 +54,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_settings.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
@@ -274,7 +277,7 @@ bool8 Rogue_IsRunActive(void)
 
 bool8 Rogue_ForceExpAll(void)
 {
-    return FlagGet(FLAG_ROGUE_EXP_ALL);
+    return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
 }
 
 bool8 Rogue_FastBattleAnims(void)
@@ -284,20 +287,28 @@ bool8 Rogue_FastBattleAnims(void)
         return TRUE;
     }
 
+    return !Rogue_UseKeyBattleAnims();
+}
+
+bool8 Rogue_UseKeyBattleAnims(void)
+{
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
-            return FALSE;
+            return TRUE;
 
         // Force slow anims for legendaries
         if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
-            return FALSE;
-
-        return TRUE;
+            return TRUE;
     }
 
     return FALSE;
+}
+
+bool8 Rogue_GetBattleAnimsEnabled(void)
+{
+    return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
@@ -331,7 +342,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             }
             else
             {
-                if(FlagGet(FLAG_ROGUE_CAN_OVERLVL))
+                if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL))
                 {
                     desiredExpPerc = 34;
                 }
@@ -778,6 +789,12 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
         else
             // Go faster, but not quite gym leader slow
             *waitTime = *waitTime / 4;
+    }
+
+    if(!Rogue_GetBattleAnimsEnabled())
+    {
+        // If we don't have anims on wait message for at least a little bit
+        *waitTime = max(4, *waitTime);
     }
 }
 
@@ -1515,6 +1532,8 @@ static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
 
 void Rogue_ResetConfigHubSettings(void)
 {
+    // TODO - Replace this??
+
     // Seed settings
     FlagClear(FLAG_SET_SEED_ENABLED);
     FlagSet(FLAG_SET_SEED_ITEMS);
@@ -1523,16 +1542,9 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
     // Basic settings
-    FlagSet(FLAG_ROGUE_EXP_ALL);
-    FlagSet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
-    FlagSet(FLAG_ROGUE_EV_GAIN_ENABLED);
     FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
-    FlagClear(FLAG_ROGUE_CAN_OVERLVL);
-    FlagClear(FLAG_ROGUE_EASY_TRAINERS);
-    FlagClear(FLAG_ROGUE_HARD_TRAINERS);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
-    FlagClear(FLAG_ROGUE_FORCE_BASIC_BAG);
 
     // Expansion Room settings
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
@@ -1577,6 +1589,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
     Rogue_ResetConfigHubSettings();
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -1629,9 +1642,7 @@ void Rogue_SetDefaultOptions(void)
 #else
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_SLOW;
 #endif
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
     //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    //gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     //gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
@@ -1879,6 +1890,7 @@ void Rogue_OnLoadGame(void)
     u32 encryptionKey = 0;
 
     // Clear progress here so if we don't cover full range in deserialize, it shouldn't matter
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
     RogueHub_ClearProgress();
 
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -2109,8 +2121,20 @@ void Rogue_MainCB(void)
 #endif
 }
 
-void Rogue_OverworldCB(void)
+void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
 {
+    if(inputActive)
+    {
+        if(!(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_CONTROLLABLE)))
+        {
+            // Update running toggle
+            if(gSaveBlock2Ptr->optionsAutoRunToggle && (newKeys & B_BUTTON) != 0)
+            {
+                gRogueGlobalData.runningToggleActive = !gRogueGlobalData.runningToggleActive;
+            }
+        }
+    }
+    
     Rogue_AssistantOverworldCB();
 }
 
@@ -2308,13 +2332,24 @@ u16 Rogue_PostRunRewardMoney()
     {
         u16 i = gRogueRun.currentRoomIdx - 1;
 
-        amount = i * 250;
+        switch (Rogue_GetDifficultyRewardLevel())
+        {
+        case DIFFICULTY_LEVEL_EASY:
+            amount = i * 200;
+            break;
 
-        if(FlagGet(FLAG_ROGUE_HARD_TRAINERS))
-            amount += i * 100;
+        case DIFFICULTY_LEVEL_MEDIUM:
+            amount = i * 250;
+            break;
 
-        if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-            amount += i * 100;
+        case DIFFICULTY_LEVEL_HARD:
+            amount = i * 300;
+            break;
+        
+        case DIFFICULTY_LEVEL_BRUTAL:
+            amount = i * 350;
+            break;
+        }
     }
 
     AddMoney(&gSaveBlock1Ptr->money, amount);
@@ -2385,7 +2420,6 @@ static bool8 PartyContainsStrongLegendaryMon(void)
 static void BeginRogueRun_ModifyParty(void)
 {
     // Always clear out EVs as we shouldn't have them in the HUB anymore
-    //if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
     {
         u16 i;
         u16 temp = 0;
@@ -2421,7 +2455,7 @@ static void SetupRogueRunBag()
     ClearBag();
     SetMoney(&gSaveBlock1Ptr->money, 0);
 
-    if(FlagGet(FLAG_ROGUE_FORCE_BASIC_BAG))
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
     {
         // Add default items
         AddBagItem(ITEM_POKE_BALL, 5);
@@ -2689,19 +2723,28 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDi
     {
         allowStrongSpecies = TRUE;
     }
-    else if(FlagGet(FLAG_ROGUE_EASY_LEGENDARIES))
-    {
-        allowStrongSpecies = TRUE;
-    }
-    else if(FlagGet(FLAG_ROGUE_HARD_LEGENDARIES))
-    {
-        allowStrongSpecies = FALSE;
-    }
     else
     {
-        allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
-    }
+        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY))
+        {
+        case DIFFICULTY_LEVEL_EASY:
+            allowStrongSpecies = TRUE;
+            break;
 
+        case DIFFICULTY_LEVEL_MEDIUM:
+            allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
+            break;
+
+        case DIFFICULTY_LEVEL_HARD:
+            allowStrongSpecies = FALSE;
+            break;
+
+        case DIFFICULTY_LEVEL_BRUTAL:
+            // Technically this should never happen
+            allowStrongSpecies = FALSE;
+            break;
+        }
+    }
 
     if(!allowStrongSpecies)
     {
@@ -3246,6 +3289,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
 {
+    // NOTE: This method shouldn't be used
+    // For some reason editing the map header and repointing stuff messes with other collections in the header
+    // e.g. repointing object events messes with the warps for some reason
 }
 
 void Rogue_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
@@ -3263,11 +3309,66 @@ bool8 Rogue_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapCon
     return TRUE;
 }
 
-void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+static bool8 IsHubMapGroup()
 {
-    if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_HUB) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_AREA_HOME) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_HOME);
+}
+
+static bool8 RogueRandomChanceTrainer();
+
+void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+    // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
+    if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
-        RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+        if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+        {
+            RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE && !loadingFromSave)
+        {
+            u8 write, read;
+            u8 originalCount = *objectEventCount;
+            u16 trainerHistory[20];
+
+            u16 trainerNum;
+            const struct RogueTrainer* trainer;
+
+            write = 0;
+            read = 0;
+
+            for(;read < originalCount; ++read)
+            {
+                if(write != read)
+                {
+                    memcpy(&objectEvents[write], &objectEvents[read], sizeof(struct ObjectEventTemplate));
+                }
+
+                if(objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && objectEvents[write].trainerRange_berryTreeId != 0)
+                {
+                    // Don't increment write, if we're not accepting the trainer
+
+                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
+                    {
+                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+
+                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                        {
+                            objectEvents[write].graphicsId = trainer->objectEventGfx;
+                            objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
+                            write++;
+                        }
+                    }
+                }
+                else
+                {
+                    // Accept all other types of object
+                    write++;
+                }
+            }
+
+            *objectEventCount = write;
+        }
     }
 }
 
@@ -3706,7 +3807,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
-            if(FlagGet(FLAG_ROGUE_EV_GAIN_ENABLED))
+            if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
             {
                 u16 i;
 
@@ -4334,7 +4435,7 @@ u16 Rogue_SelectRandomWildMon(void)
 
 bool8 Rogue_PreferTraditionalWildMons(void)
 {
-    return !FlagGet(FLAG_ROGUE_OVERWORLD_WILD_MONS);
+    return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
 }
 
 bool8 Rogue_AreWildMonEnabled(void)
@@ -5247,51 +5348,53 @@ static bool8 RogueRandomChanceBerry()
 
 static void RandomiseEnabledTrainers(void)
 {
-    u16 i;
+    // TODO - Just grab the trainer seed, as we need to make sure we get the same trainers on map save/load too
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            // Set flag to hide
-            FlagSet(FLAG_ROGUE_TRAINER_START + i);
-        }
-    }
-    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
-    {
-        u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
-
-        // Only enable 1 trainer for legendary room
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            if(i == randTrainer)
-            {
-                // Clear flag to show
-                FlagClear(FLAG_ROGUE_TRAINER_START + i);
-            }
-            else
-            {
-                // Set flag to hide
-                FlagSet(FLAG_ROGUE_TRAINER_START + i);
-            }
-        }
-    }
-    else
-    {
-        for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-        {
-            if(RogueRandomChanceTrainer())
-            {
-                // Clear flag to show
-                FlagClear(FLAG_ROGUE_TRAINER_START + i);
-            }
-            else
-            {
-                // Set flag to hide
-                FlagSet(FLAG_ROGUE_TRAINER_START + i);
-            }
-        }
-    }
+    //u16 i;
+//
+    //if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    //{
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        // Set flag to hide
+    //        FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //    }
+    //}
+    //else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    //{
+    //    u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
+//
+    //    // Only enable 1 trainer for legendary room
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        if(i == randTrainer)
+    //        {
+    //            // Clear flag to show
+    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //        else
+    //        {
+    //            // Set flag to hide
+    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //    }
+    //}
+    //else
+    //{
+    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
+    //    {
+    //        if(RogueRandomChanceTrainer())
+    //        {
+    //            // Clear flag to show
+    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //        else
+    //        {
+    //            // Set flag to hide
+    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
+    //        }
+    //    }
+    //}
 }
 
 static void RandomiseItemContent(u8 difficultyLevel)

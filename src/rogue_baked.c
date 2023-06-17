@@ -37,54 +37,12 @@
 #define ROGUE_BAKE_VALID
 #endif
 
-extern const u8 gText_TrainerNameChallenger[];
-extern const u8 gText_TrainerNameGrunt[];
-
-extern const u8 gText_TrainerName_TateLiza[];
-extern const u8 gText_TrainerName_Anabel[];
-
-extern const u8 gText_TrainerName_Brock[];
-extern const u8 gText_TrainerName_Misty[];
-extern const u8 gText_TrainerName_LtSurge[];
-extern const u8 gText_TrainerName_Erika[];
-extern const u8 gText_TrainerName_Koga[];
-extern const u8 gText_TrainerName_Sabrina[];
-extern const u8 gText_TrainerName_Blaine[];
-extern const u8 gText_TrainerName_Giovanni[];
-
-extern const u8 gText_TrainerName_Lorelei[];
-extern const u8 gText_TrainerName_Bruno[];
-extern const u8 gText_TrainerName_Agatha[];
-extern const u8 gText_TrainerName_Lance[];
-
-extern const u8 gText_TrainerName_Blue[];
-extern const u8 gText_TrainerName_ProfOak[];
-
 extern const u8 gText_TrainerName_Brendan[];
 extern const u8 gText_TrainerName_May[];
 extern const u8 gText_TrainerName_Red[];
 extern const u8 gText_TrainerName_Leaf[];
 extern const u8 gText_TrainerName_Ethan[];
 extern const u8 gText_TrainerName_Lyra[];
-
-extern const u8 gText_TrainerName_Falkner[];
-extern const u8 gText_TrainerName_Bugsy[];
-extern const u8 gText_TrainerName_Whitney[];
-extern const u8 gText_TrainerName_Morty[];
-extern const u8 gText_TrainerName_Chuck[];
-extern const u8 gText_TrainerName_Jasmine[];
-extern const u8 gText_TrainerName_Pryce[];
-extern const u8 gText_TrainerName_Clair[];
-
-extern const u8 gText_TrainerName_Will[];
-extern const u8 gText_TrainerName_Karen[];
-
-extern const u8 gText_TrainerName_Kate[];
-extern const u8 gText_TrainerName_Raven[];
-extern const u8 gText_TrainerName_Erma[];
-extern const u8 gText_TrainerName_Tails[];
-extern const u8 gText_TrainerName_Pokabbie[];
-
 
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct RogueItem gRogueItems[];
@@ -393,7 +351,7 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
             return gSaveBlock2Ptr->playerName;
         }
 
-        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_RIVAL))
+        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR))
         {
             switch(gSaveBlock2Ptr->playerGender)
             {
@@ -417,128 +375,6 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
         return trainer->trainerName;
     }
 
-    // TODO - Replace name with _("CHALLENGER")
-
-    if(trainerNum >= TRAINER_ROGUE_BREEDER_F && trainerNum <= TRAINER_ROGUE_POSH_M)
-    {
-        return gText_TrainerNameChallenger;
-    }
-
-    if(trainerNum >= TRAINER_ROGUE_MAGMA_F && trainerNum <= TRAINER_ROGUE_AQUA_M)
-    {
-        return gText_TrainerNameGrunt;
-    }
-
-    switch(trainerNum)
-    {
-        case TRAINER_ROGUE_BOSS_MIRROR:
-        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
-            return gSaveBlock2Ptr->playerName;
-
-        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
-        {
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    return gText_TrainerName_May;
-                case(STYLE_EMR_MAY):
-                    return gText_TrainerName_Brendan;
-
-                case(STYLE_RED):
-                    return gText_TrainerName_Leaf;
-                case(STYLE_LEAF):
-                    return gText_TrainerName_Red;
-
-                case(STYLE_ETHAN):
-                    return gText_TrainerName_Lyra;
-                case(STYLE_LYRA):
-                    return gText_TrainerName_Ethan;
-            };
-            break;
-        }
-
-        case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
-            return gText_TrainerName_TateLiza;
-
-        case TRAINER_ROGUE_BOSS_ANABEL:
-            return gText_TrainerName_Anabel;
-
-        case TRAINER_ROGUE_BOSS_BROCK:
-            return gText_TrainerName_Brock;
-        case TRAINER_ROGUE_BOSS_MISTY:
-            return gText_TrainerName_Misty;
-        case TRAINER_ROGUE_BOSS_LTSURGE:
-            return gText_TrainerName_LtSurge;
-        case TRAINER_ROGUE_BOSS_ERIKA:
-            return gText_TrainerName_Erika;
-        case TRAINER_ROGUE_BOSS_KOGA:
-        case TRAINER_ROGUE_BOSS_JOHTO_KOGA:
-            return gText_TrainerName_Koga;
-        case TRAINER_ROGUE_BOSS_SABRINA:
-            return gText_TrainerName_Sabrina;
-        case TRAINER_ROGUE_BOSS_BLAINE:
-            return gText_TrainerName_Blaine;
-        case TRAINER_ROGUE_BOSS_GIOVANNI:
-            return gText_TrainerName_Giovanni;
-
-        case TRAINER_ROGUE_BOSS_LORELEI:
-            return gText_TrainerName_Lorelei;
-        case TRAINER_ROGUE_BOSS_BRUNO:
-        case TRAINER_ROGUE_BOSS_JOHTO_BRUNO:
-            return gText_TrainerName_Bruno;
-        case TRAINER_ROGUE_BOSS_AGATHA:
-            return gText_TrainerName_Agatha;
-        case TRAINER_ROGUE_BOSS_LANCE:
-        case TRAINER_ROGUE_BOSS_JOHTO_LANCE:
-            return gText_TrainerName_Lance;
-
-        case TRAINER_ROGUE_BOSS_BLUE:
-            return gText_TrainerName_Blue;
-        case TRAINER_ROGUE_BOSS_PROFOAK:
-            return gText_TrainerName_ProfOak;
-            
-
-        case TRAINER_ROGUE_BOSS_FALKNER:
-            return gText_TrainerName_Falkner;
-        case TRAINER_ROGUE_BOSS_BUGSY:
-            return gText_TrainerName_Bugsy;
-        case TRAINER_ROGUE_BOSS_WHITNEY:
-            return gText_TrainerName_Whitney;
-        case TRAINER_ROGUE_BOSS_MORTY:
-            return gText_TrainerName_Morty;
-        case TRAINER_ROGUE_BOSS_CHUCK:
-            return gText_TrainerName_Chuck;
-        case TRAINER_ROGUE_BOSS_JASMINE:
-            return gText_TrainerName_Jasmine;
-        case TRAINER_ROGUE_BOSS_PRYCE:
-            return gText_TrainerName_Pryce;
-        case TRAINER_ROGUE_BOSS_CLAIR:
-            return gText_TrainerName_Clair;
-
-        case TRAINER_ROGUE_BOSS_WILL:
-            return gText_TrainerName_Will;
-        case TRAINER_ROGUE_BOSS_KAREN:
-            return gText_TrainerName_Karen;
-
-        case TRAINER_ROGUE_BOSS_RED:
-            return gText_TrainerName_Red;
-
-        case TRAINER_ROGUE_BOSS_KATE:
-            return gText_TrainerName_Kate;
-
-        case TRAINER_ROGUE_BOSS_RAVEN:
-            return gText_TrainerName_Raven;
-
-        case TRAINER_ROGUE_BOSS_ERMA:
-            return gText_TrainerName_Erma;
-
-        case TRAINER_ROGUE_BOSS_TAILS:
-            return gText_TrainerName_Tails;
-
-        case TRAINER_ROGUE_BOSS_POKABBIE:
-            return gText_TrainerName_Pokabbie;
-    }
-
     return gTrainers[trainerNum].trainerName;
 #else
     return NULL;
@@ -549,6 +385,10 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 {
 #ifndef ROGUE_BAKING
     const struct RogueTrainer* trainer;
+
+    // Early out for NULL trainer
+    if(trainerNum == 0)
+        return;
 
     if(Rogue_TryGetTrainer(trainerNum, &trainer))
     {
@@ -581,9 +421,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 #endif
         }
 #endif
-    
-#define TRAINER_PIC_PLAYER_AVATAR         254
-#define TRAINER_PIC_PLAYER_RIVAL          255
 
         if(trainer->trainerPic == TRAINER_PIC_PLAYER_AVATAR)
         {
@@ -617,7 +454,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
                     break;
             };
         }
-        else if(trainer->trainerPic == TRAINER_PIC_PLAYER_RIVAL)
+        else if(trainer->trainerPic == TRAINER_PIC_PLAYER_OPPOSITE_AVATAR)
         {
             switch(gSaveBlock2Ptr->playerGender)
             {    
@@ -684,545 +521,11 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         return;
     }
-
-    memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
-
-    // We can do this, but ideally we should fixup to use the method above
-    //StringCopy(outTrainer->trainerName, Rogue_GetTrainerName(trainerNum));
-
-    outTrainer->partyFlags = 0;
-    outTrainer->doubleBattle = FALSE;
-#ifdef ROGUE_EXPANSION
-    outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
-#else
-    outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
-#endif
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    else
     {
-        // AI will be dump for this campaign
-        outTrainer->aiFlags = 0;
-    }
-#ifdef ROGUE_FEATURE_AUTOMATION
-    else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
-    {
-#ifdef ROGUE_EXPANSION
-        // Still want AI to still do weird switching just for completeness?
-        outTrainer->aiFlags = AI_FLAG_SMART_SWITCHING;
-#else
-        outTrainer->aiFlags = 0;
-#endif
-    }
-#endif
-
-    // AI_SCRIPT_DOUBLE_BATTLE ?
-
-    // Setup bosses/Mini bosses
-    switch(trainerNum)
-    {
-        case TRAINER_ROGUE_BOSS_ROXANNE:
-        case TRAINER_ROGUE_BOSS_FLANNERY:
-        case TRAINER_ROGUE_BOSS_WINONA:
-        case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
-        case TRAINER_ROGUE_BOSS_PHOEBE:
-        case TRAINER_ROGUE_BOSS_GLACIA:
-        //case TRAINER_ROGUE_BOSS_LUCY:
-        case TRAINER_ROGUE_BOSS_ANABEL:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            break;
-
-        case TRAINER_ROGUE_BOSS_BRAWLY:
-        case TRAINER_ROGUE_BOSS_WATTSON:
-        case TRAINER_ROGUE_BOSS_NORMAN:
-        case TRAINER_ROGUE_BOSS_JUAN:
-        case TRAINER_ROGUE_BOSS_SIDNEY:
-        case TRAINER_ROGUE_BOSS_DRAKE:
-        case TRAINER_ROGUE_BOSS_WALLACE:
-        case TRAINER_ROGUE_BOSS_STEVEN:
-        //case TRAINER_ROGUE_BOSS_BRANDON:
-        //case TRAINER_ROGUE_BOSS_TUCKER:
-        //case TRAINER_ROGUE_BOSS_SPENSER:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            break;
-
-        // Kanto Ver.
-        case TRAINER_ROGUE_BOSS_MISTY:
-        case TRAINER_ROGUE_BOSS_ERIKA:
-        case TRAINER_ROGUE_BOSS_SABRINA:
-        case TRAINER_ROGUE_BOSS_LORELEI:
-        case TRAINER_ROGUE_BOSS_AGATHA:
-        case TRAINER_ROGUE_BOSS_MIRROR:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_KANTO_MUS;
-            break;
-
-        case TRAINER_ROGUE_BOSS_BROCK:
-        case TRAINER_ROGUE_BOSS_LTSURGE:
-        case TRAINER_ROGUE_BOSS_KOGA:
-        case TRAINER_ROGUE_BOSS_BLAINE:
-        case TRAINER_ROGUE_BOSS_GIOVANNI:
-        case TRAINER_ROGUE_BOSS_BRUNO:
-        case TRAINER_ROGUE_BOSS_LANCE:
-        case TRAINER_ROGUE_BOSS_BLUE:
-        case TRAINER_ROGUE_BOSS_PROFOAK:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_KANTO_MUS;
-            break;
-
-        // Johto Ver.
-        case TRAINER_ROGUE_BOSS_WHITNEY:
-        case TRAINER_ROGUE_BOSS_JASMINE:
-        case TRAINER_ROGUE_BOSS_CLAIR:
-        case TRAINER_ROGUE_BOSS_KAREN:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_JOHTO_MUS;
-            break;
-
-        case TRAINER_ROGUE_BOSS_FALKNER:
-        case TRAINER_ROGUE_BOSS_BUGSY:
-        case TRAINER_ROGUE_BOSS_MORTY:
-        case TRAINER_ROGUE_BOSS_CHUCK:
-        case TRAINER_ROGUE_BOSS_PRYCE:
-        case TRAINER_ROGUE_BOSS_RED:
-        case TRAINER_ROGUE_BOSS_WILL:
-        case TRAINER_ROGUE_BOSS_JOHTO_KOGA:
-        case TRAINER_ROGUE_BOSS_JOHTO_BRUNO:
-        case TRAINER_ROGUE_BOSS_JOHTO_LANCE:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_JOHTO_MUS;
-            break;
-
-        // Kanto Ver.
-        case TRAINER_ROGUE_BOSS_KATE:
-        case TRAINER_ROGUE_BOSS_RAVEN:
-        case TRAINER_ROGUE_BOSS_POKABBIE:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS;
-            break;
-
-        // Glitch Ver.
-        case TRAINER_ROGUE_BOSS_ERMA:
-        case TRAINER_ROGUE_BOSS_TAILS:
-            if(gRogueRun.currentDifficulty >= 12)
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-            else if(gRogueRun.currentDifficulty >= 8)
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            else
-                outTrainer->trainerClass = TRAINER_CLASS_LEADER;
-
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->partyFlags = F_TRAINER_PARTY_SINNOH_MUS;
-            break;
-    }
-
-    switch(trainerNum)
-    {
-        // Bosses
-        //
-        case TRAINER_ROGUE_BOSS_ROXANNE:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_ROXANNE;
-            break;
-        case TRAINER_ROGUE_BOSS_BRAWLY:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_BRAWLY;
-            break;
-        case TRAINER_ROGUE_BOSS_WATTSON:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_WATTSON;
-            break;
-        case TRAINER_ROGUE_BOSS_FLANNERY:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_FLANNERY;
-            break;
-        case TRAINER_ROGUE_BOSS_NORMAN:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_NORMAN;
-            break;
-        case TRAINER_ROGUE_BOSS_WINONA:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_WINONA;
-            break;
-        case TRAINER_ROGUE_BOSS_TATE_AND_LIZA:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_TATE_AND_LIZA;
-            break;
-        case TRAINER_ROGUE_BOSS_JUAN:
-            outTrainer->trainerPic = TRAINER_PIC_LEADER_JUAN;
-            break;
-
-        case TRAINER_ROGUE_BOSS_SIDNEY:
-            outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_SIDNEY;
-            break;
-        case TRAINER_ROGUE_BOSS_PHOEBE:
-            outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_PHOEBE;
-            break;
-        case TRAINER_ROGUE_BOSS_GLACIA:
-            outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_GLACIA;
-            break;
-        case TRAINER_ROGUE_BOSS_DRAKE:
-            outTrainer->trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE;
-            break;
-
-        case TRAINER_ROGUE_BOSS_WALLACE:
-            outTrainer->trainerPic = TRAINER_PIC_CHAMPION_WALLACE;
-            break;
-        case TRAINER_ROGUE_BOSS_STEVEN:
-            outTrainer->trainerPic = TRAINER_PIC_STEVEN;
-            break;
-
-        // Mini Bosses
-        //
-        case TRAINER_ROGUE_MINI_BOSS_MAXIE:
-            outTrainer->trainerClass = TRAINER_CLASS_MAGMA_LEADER;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA;
-            outTrainer->trainerPic = TRAINER_PIC_MAGMA_LEADER_MAXIE;
-            break;
-
-        case TRAINER_ROGUE_MINI_BOSS_ARCHIE:
-            outTrainer->trainerClass = TRAINER_CLASS_AQUA_LEADER;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA;
-            outTrainer->trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE;
-            break;
-
-        case TRAINER_ROGUE_MINI_BOSS_WALLY:
-            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_WALLY;
-            break;
-
-        case TRAINER_ROGUE_MINI_BOSS_MIRROR:
-            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
-        case TRAINER_ROGUE_BOSS_MIRROR:
-
-            switch(gSaveBlock2Ptr->playerGender)
-            {    
-                case(STYLE_EMR_BRENDAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-                    break;
-                case(STYLE_EMR_MAY):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_MAY;
-                    break;
-
-                case(STYLE_RED):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
-                    break;
-                case(STYLE_LEAF):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
-                    break;
-
-                case(STYLE_ETHAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-                    break;
-                case(STYLE_LYRA):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
-                    break;
-            };
-            break;
-            
-        case TRAINER_ROGUE_MINI_BOSS_RIVAL:
-            outTrainer->trainerClass = TRAINER_CLASS_RIVAL;
-
-            switch(gSaveBlock2Ptr->playerGender)
-            {    
-                case(STYLE_EMR_BRENDAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_MAY;
-                    break;
-                case(STYLE_EMR_MAY):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-                    break;
-
-                case(STYLE_RED):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
-                    break;
-                case(STYLE_LEAF):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
-                    break;
-
-                case(STYLE_ETHAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
-                    break;
-                case(STYLE_LYRA):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-                    break;
-            };
-            break;
-
-        // Kanto
-        //
-        case TRAINER_ROGUE_BOSS_BROCK:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BROCK;
-            break;
-        case TRAINER_ROGUE_BOSS_MISTY:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_MISTY;
-            break;
-        case TRAINER_ROGUE_BOSS_LTSURGE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_LTSURGE;
-            break;
-        case TRAINER_ROGUE_BOSS_ERIKA:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_ERIKA;
-            break;
-        case TRAINER_ROGUE_BOSS_KOGA:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_KOGA;
-            break;
-        case TRAINER_ROGUE_BOSS_SABRINA:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_SABRINA;
-            break;
-        case TRAINER_ROGUE_BOSS_BLAINE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BLAINE;
-            break;
-        case TRAINER_ROGUE_BOSS_GIOVANNI:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_GIOVANNI;
-            break;
-
-        case TRAINER_ROGUE_BOSS_LORELEI:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_LORELEI;
-            break;
-        case TRAINER_ROGUE_BOSS_BRUNO:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BRUNO;
-            break;
-        case TRAINER_ROGUE_BOSS_AGATHA:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_AGATHA;
-            break;
-        case TRAINER_ROGUE_BOSS_LANCE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_LANCE;
-            break;
-
-        case TRAINER_ROGUE_BOSS_BLUE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BLUE;
-            break;
-        case TRAINER_ROGUE_BOSS_PROFOAK:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_PROFOAK;
-            break;
-
-        // Johto
-        //
-        case TRAINER_ROGUE_BOSS_FALKNER:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_FALKNER;
-            break;
-        case TRAINER_ROGUE_BOSS_BUGSY:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_BUGSY;
-            break;
-        case TRAINER_ROGUE_BOSS_WHITNEY:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_WHITNEY;
-            break;
-        case TRAINER_ROGUE_BOSS_MORTY:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_MORTY;
-            break;
-        case TRAINER_ROGUE_BOSS_CHUCK:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_CHUCK;
-            break;
-        case TRAINER_ROGUE_BOSS_JASMINE:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_JASMINE;
-            break;
-        case TRAINER_ROGUE_BOSS_PRYCE:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_PRYCE;
-            break;
-        case TRAINER_ROGUE_BOSS_CLAIR:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_CLAIR;
-            break;
-
-        case TRAINER_ROGUE_BOSS_WILL:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_WILL;
-            break;
-        case TRAINER_ROGUE_BOSS_JOHTO_KOGA:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_KOGA;
-            break;
-        case TRAINER_ROGUE_BOSS_JOHTO_BRUNO:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_BRUNO;
-            break;
-        case TRAINER_ROGUE_BOSS_KAREN:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_KAREN;
-            break;
-
-        case TRAINER_ROGUE_BOSS_JOHTO_LANCE:
-            outTrainer->trainerPic = TRAINER_PIC_KANTO_LANCE;
-            break;
-
-        case TRAINER_ROGUE_BOSS_RED:
-            outTrainer->trainerPic = TRAINER_PIC_JOHTO_RED;
-            break;
-
-
-        case TRAINER_ROGUE_BOSS_KATE:
-            outTrainer->trainerPic = TRAINER_PIC_GLITCH_KATE;
-            break;
-
-        case TRAINER_ROGUE_BOSS_RAVEN:
-            outTrainer->trainerPic = FACILITY_CLASS_PKMN_BREEDER_F;
-            break;
-
-        case TRAINER_ROGUE_BOSS_ERMA:
-            outTrainer->trainerPic = TRAINER_PIC_GLITCH_ERMA;
-            break;
-
-        case TRAINER_ROGUE_BOSS_TAILS:
-            outTrainer->trainerPic = TRAINER_PIC_GLITCH_TAILS;
-            break;
-
-        case TRAINER_ROGUE_BOSS_POKABBIE:
-            outTrainer->trainerPic = TRAINER_PIC_POKABBIE;
-            break;
-
-        // Extra trainer
-        case TRAINER_ROGUE_BOSS_ANABEL:
-            outTrainer->trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL;
-            break;
-
-        // Std Trainers
-        //
-        case TRAINER_ROGUE_BREEDER_F:
-            outTrainer->trainerClass = TRAINER_CLASS_PKMN_BREEDER;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_POKEMON_BREEDER_F;
-            break;
-        case TRAINER_ROGUE_BREEDER_M:
-            outTrainer->trainerClass = TRAINER_CLASS_PKMN_BREEDER;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_POKEMON_BREEDER_M;
-            break;
-
-        case TRAINER_ROGUE_RICH_F:
-            outTrainer->trainerClass = TRAINER_CLASS_LADY;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_LADY;
-            break;
-        case TRAINER_ROGUE_RICH_M:
-            outTrainer->trainerClass = TRAINER_CLASS_RICH_BOY;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_RICH_BOY;
-            break;
-
-        case TRAINER_ROGUE_COOLTRAINER_F:
-            outTrainer->trainerClass = TRAINER_CLASS_COOLTRAINER;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_COOLTRAINER_F;
-            break;
-        case TRAINER_ROGUE_COOLTRAINER_M:
-            outTrainer->trainerClass = TRAINER_CLASS_COOLTRAINER;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_COOLTRAINER_M;
-            break;
-
-        case TRAINER_ROGUE_POKEFAN_F:
-            outTrainer->trainerClass = TRAINER_CLASS_POKEFAN;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_F;
-            break;
-        case TRAINER_ROGUE_POKEFAN_M:
-            outTrainer->trainerClass = TRAINER_CLASS_POKEFAN;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_POKEFAN_M;
-            break;
-
-        case TRAINER_ROGUE_SCHOOL_KID_F:
-            outTrainer->trainerClass = TRAINER_CLASS_SCHOOL_KID;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_SCHOOL_KID_F;
-            break;
-        case TRAINER_ROGUE_SCHOOL_KID_M:
-            outTrainer->trainerClass = TRAINER_CLASS_SCHOOL_KID;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_SCHOOL_KID_M;
-            break;
-            
-        case TRAINER_ROGUE_TUBER_F:
-            outTrainer->trainerClass = TRAINER_CLASS_TUBER_F;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_TUBER_F;
-            break;
-        case TRAINER_ROGUE_TUBER_M:
-            outTrainer->trainerClass = TRAINER_CLASS_TUBER_M;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_TUBER_M;
-            break;
-
-        case TRAINER_ROGUE_POSH_F:
-            outTrainer->trainerClass = TRAINER_CLASS_AROMA_LADY;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE;
-            outTrainer->trainerPic = TRAINER_PIC_AROMA_LADY;
-            break;
-        case TRAINER_ROGUE_POSH_M:
-            outTrainer->trainerClass = TRAINER_CLASS_GENTLEMAN;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-            outTrainer->trainerPic = TRAINER_PIC_GENTLEMAN;
-            break;
-            
-        case TRAINER_ROGUE_MAGMA_F:
-            outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA;
-            outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_F;
-            break;
-        case TRAINER_ROGUE_MAGMA_M:
-            outTrainer->trainerClass = TRAINER_CLASS_TEAM_MAGMA;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE | TRAINER_ENCOUNTER_MUSIC_MAGMA;
-            outTrainer->trainerPic = TRAINER_PIC_MAGMA_GRUNT_M;
-            break;
-
-        case TRAINER_ROGUE_AQUA_F:
-            outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
-            outTrainer->encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA;
-            outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_F;
-            break;
-        case TRAINER_ROGUE_AQUA_M:
-            outTrainer->trainerClass = TRAINER_CLASS_TEAM_AQUA;
-            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE | TRAINER_ENCOUNTER_MUSIC_AQUA;
-            outTrainer->trainerPic = TRAINER_PIC_AQUA_GRUNT_M;
-            break;
+        // We shouldn't ever get here
+        AGB_ASSERT(FALSE);
+        memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
     }
 #endif
 }
@@ -1314,7 +617,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = rogueItem->price;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;
-            outItem->importance = rogueItem->importance;
             outItem->registrability = rogueItem->registrability;
             outItem->pocket = rogueItem->pocket;
             outItem->type = rogueItem->type;
@@ -1325,7 +627,13 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             if(outItem->pocket == POCKET_CHARMS)
             {
                 // Early out here for charms (We can end up in an infinite loop below)
+                outItem->importance = 1;
                 return;
+            }
+
+            if(outItem->pocket == POCKET_KEY_ITEMS)
+            {
+                outItem->importance = 1;
             }
         }
         else

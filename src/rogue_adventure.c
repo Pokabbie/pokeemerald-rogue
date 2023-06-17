@@ -43,7 +43,7 @@
 //#include "rogue_adventurepaths.h"
 //#include "rogue_campaign.h"
 //#include "rogue_charms.h"
-//#include "rogue_controller.h"
+#include "rogue_controller.h"
 //#include "rogue_followmon.h"
 //#include "rogue_popup.h"
 //#include "rogue_query.h"
@@ -58,5 +58,8 @@ const struct RogueAdventureSettings* Rogue_GetAdventureSettings()
 
 const struct RogueAdventurePhase* Rogue_GetAdventurePhase()
 {
-    return &Rogue_GetAdventureSettings()->phases[0];
+    const struct RogueAdventureSettings* settings = Rogue_GetAdventureSettings();
+    u8 phase = min(gRogueRun.currentDifficulty, settings->phaseCount - 1);
+
+    return &settings->phases[phase];
 }

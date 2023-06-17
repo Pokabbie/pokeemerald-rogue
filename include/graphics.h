@@ -3474,6 +3474,7 @@ extern const u32 gMonPalette_FurfrouDebutanteTrim[];
 extern const u32 gMonPalette_FurfrouMatronTrim[];
 extern const u32 gMonPalette_FurfrouDandyTrim[];
 extern const u32 gMonPalette_FurfrouLaReineTrim[];
+extern const u32 gItemIconPalette_HealingFlask[];
 extern const u32 gMonPalette_FurfrouKabukiTrim[];
 extern const u32 gMonPalette_FurfrouPharaohTrim[];
 extern const u32 gMonPalette_MeowsticFemale[];

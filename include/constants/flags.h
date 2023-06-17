@@ -43,15 +43,15 @@
 
 // RogueNote: Flag block 1
 #define FLAG_ROGUE_RUN_ACTIVE           0x20
-#define FLAG_ROGUE_EXP_ALL              0x21
+#define FLAG_UNUSED_0x21                0x21
 #define FLAG_SET_SEED_ENABLED           0x22
 #define FLAG_SET_SEED_ITEMS             0x23
 #define FLAG_SET_SEED_TRAINERS          0x24
 #define FLAG_SET_SEED_BOSSES            0x25
 #define FLAG_SET_SEED_WILDMONS          0x26
 #define FLAG_ROGUE_DOUBLE_BATTLES       0x27
-#define FLAG_ROGUE_CAN_OVERLVL          0x28
-#define FLAG_ROGUE_HARD_TRAINERS        0x29
+#define FLAG_UNUSED_0x28                0x28
+#define FLAG_UNUSED_0x29                0x29
 
 #define FLAG_ROGUE_TRAINER0    0x2A // Unused Flag
 #define FLAG_ROGUE_TRAINER1    0x2B // Unused Flag
@@ -105,7 +105,7 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_ROGUE_OVERWORLD_WILD_MONS       0x54
+#define FLAG_UNUSED_0x54                     0x54
 #define FLAG_ROGUE_LVL_TUTORIAL              0x55
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
@@ -663,12 +663,12 @@
 // RogueNote: Flag block 2
 #define FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE  0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
-#define FLAG_ROGUE_EASY_TRAINERS             0x266
+#define FLAG_UNUSED_0x266                    0x266
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_ROGUE_VALID_QUICK_SAVE          0x269
 #define FLAG_ROGUE_PENDING_PATCH_MSG         0x26A
-#define FLAG_ROGUE_EV_GAIN_ENABLED           0x26B
+#define FLAG_UNUSED_0x26B                    0x26B
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
@@ -679,7 +679,7 @@
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274
 #define FLAG_ROGUE_MET_BERRY_MERCHANT        0x275
-#define FLAG_ROGUE_FORCE_BASIC_BAG           0x276
+#define FLAG_UNUSED_0x276                    0x276
 #define FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE     0x277
 #define FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE  0x278
 #define FLAG_ROGUE_HOENN_ROUTES              0x279
@@ -688,8 +688,8 @@
 #define FLAG_ROGUE_KANTO_BOSSES              0x27C
 #define FLAG_ROGUE_JOHTO_ROUTES              0x27D
 #define FLAG_ROGUE_JOHTO_BOSSES              0x27E
-#define FLAG_ROGUE_EASY_LEGENDARIES          0x27F
-#define FLAG_ROGUE_HARD_LEGENDARIES          0x280
+#define FLAG_UNUSED_0x27F                    0x27F
+#define FLAG_UNUSED_0x280                    0x280
 #define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
 #define FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES  0x282
 #define FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING   0x283

@@ -78,3 +78,5 @@
 	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"
 	.include "src/rogue_charms.o"
+	.include "src/rogue_settings.o"
+	.include "src/rogue_settings_ui.o"

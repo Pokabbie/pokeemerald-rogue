@@ -1174,7 +1174,7 @@ static bool8 Blur_Main(struct Task *task)
     }
     else
     {
-        task->tDelay = 4;
+        task->tDelay = 1;
         if (++task->tCounter == 10)
             BeginNormalPaletteFade(PALETTES_ALL, -1, 0, 16, RGB_BLACK);
         SetGpuReg(REG_OFFSET_MOSAIC, (task->tCounter & 15) * 17);
@@ -1816,7 +1816,7 @@ static bool8 PokeballsTrail_Main(struct Task *task)
         gFieldEffectArguments[0] = startX[side];   // x
         gFieldEffectArguments[1] = (i * 32) + 16;  // y
         gFieldEffectArguments[2] = side;
-        gFieldEffectArguments[3] = delays[i];
+        gFieldEffectArguments[3] = 0;//delays[i];
         FieldEffectStart(FLDEFF_POKEBALL_TRAIL);
     }
 

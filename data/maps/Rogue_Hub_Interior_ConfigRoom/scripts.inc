@@ -894,31 +894,31 @@ Rogue_ConfigRoom_RedrawMap_8:
 	goto_if_eq Rogue_ConfigRoom_RedrawMap_13
 	clearflag FLAG_ROGUE_TRAINER0
 Rogue_ConfigRoom_RedrawMap_12:
-	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_RedrawMap_17
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_17
 	setmetatile 1, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_16:
-	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_RedrawMap_21
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_21
 	setmetatile 3, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_20:
-	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_RedrawMap_25
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_25
 	setmetatile 5, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_24:
-	goto_if_set FLAG_ROGUE_OVERWORLD_WILD_MONS, Rogue_ConfigRoom_RedrawMap_29
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_29
 	setmetatile 7, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_28:
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_RedrawMap_33
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_33
 	setmetatile 9, 3, METATILE_BikeShop_Button_Pressed, FALSE
 Rogue_ConfigRoom_RedrawMap_32:
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_RedrawMap_37
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_RedrawMap_38
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_37
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_RedrawMap_38
 	setmetatile 1, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_36:
 	goto_if_set FLAG_ROGUE_HARD_ITEMS, Rogue_ConfigRoom_RedrawMap_43
 	goto_if_set FLAG_ROGUE_EASY_ITEMS, Rogue_ConfigRoom_RedrawMap_44
 	setmetatile 3, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_42:
-	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_49
-	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_RedrawMap_50
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_RedrawMap_49
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_RedrawMap_50
 	setmetatile 5, 5, METATILE_BikeShop_Button_Green, FALSE
 Rogue_ConfigRoom_RedrawMap_48:
 	goto_if_set FLAG_SET_SEED_ITEMS, Rogue_ConfigRoom_RedrawMap_55
@@ -1063,7 +1063,7 @@ Rogue_ConfigRoom_RedrawMap_91:
 
 Rogue_ConfigRoom_Button_ExpAll::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_ExpAll_Text_0
-	goto_if_set FLAG_ROGUE_EXP_ALL, Rogue_ConfigRoom_Button_ExpAll_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_ExpAll_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_ExpAll_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1082,11 +1082,11 @@ Rogue_ConfigRoom_Button_ExpAll_2:
 	goto Rogue_ConfigRoom_Button_ExpAll_1
 
 Rogue_ConfigRoom_Button_ExpAll_7:
-	setflag FLAG_ROGUE_EXP_ALL
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_ExpAll_5
 
 Rogue_ConfigRoom_Button_ExpAll_8:
-	clearflag FLAG_ROGUE_EXP_ALL
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_ExpAll_5
 
 Rogue_ConfigRoom_Button_ExpAll_10:
@@ -1096,7 +1096,7 @@ Rogue_ConfigRoom_Button_ExpAll_10:
 
 Rogue_ConfigRoom_Button_CanOverLvl::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_CanOverLvl_Text_0
-	goto_if_set FLAG_ROGUE_CAN_OVERLVL, Rogue_ConfigRoom_Button_CanOverLvl_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_CanOverLvl_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_CanOverLvl_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1115,11 +1115,11 @@ Rogue_ConfigRoom_Button_CanOverLvl_2:
 	goto Rogue_ConfigRoom_Button_CanOverLvl_1
 
 Rogue_ConfigRoom_Button_CanOverLvl_7:
-	setflag FLAG_ROGUE_CAN_OVERLVL
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_CanOverLvl_5
 
 Rogue_ConfigRoom_Button_CanOverLvl_8:
-	clearflag FLAG_ROGUE_CAN_OVERLVL
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_CanOverLvl_5
 
 Rogue_ConfigRoom_Button_CanOverLvl_10:
@@ -1129,7 +1129,7 @@ Rogue_ConfigRoom_Button_CanOverLvl_10:
 
 Rogue_ConfigRoom_Button_EVGainEnabled::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_EVGainEnabled_Text_0
-	goto_if_set FLAG_ROGUE_EV_GAIN_ENABLED, Rogue_ConfigRoom_Button_EVGainEnabled_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_EVGainEnabled_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_EVGainEnabled_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1148,11 +1148,11 @@ Rogue_ConfigRoom_Button_EVGainEnabled_2:
 	goto Rogue_ConfigRoom_Button_EVGainEnabled_1
 
 Rogue_ConfigRoom_Button_EVGainEnabled_7:
-	setflag FLAG_ROGUE_EV_GAIN_ENABLED
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_EVGainEnabled_5
 
 Rogue_ConfigRoom_Button_EVGainEnabled_8:
-	clearflag FLAG_ROGUE_EV_GAIN_ENABLED
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_EVGainEnabled_5
 
 Rogue_ConfigRoom_Button_EVGainEnabled_10:
@@ -1162,7 +1162,7 @@ Rogue_ConfigRoom_Button_EVGainEnabled_10:
 
 Rogue_ConfigRoom_Button_BasicBag::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_BasicBag_Text_0
-	goto_if_set FLAG_ROGUE_FORCE_BASIC_BAG, Rogue_ConfigRoom_Button_BasicBag_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_BasicBag_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_BasicBag_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1181,11 +1181,11 @@ Rogue_ConfigRoom_Button_BasicBag_2:
 	goto Rogue_ConfigRoom_Button_BasicBag_1
 
 Rogue_ConfigRoom_Button_BasicBag_7:
-	setflag FLAG_ROGUE_FORCE_BASIC_BAG
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_BasicBag_5
 
 Rogue_ConfigRoom_Button_BasicBag_8:
-	clearflag FLAG_ROGUE_FORCE_BASIC_BAG
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_BasicBag_5
 
 Rogue_ConfigRoom_Button_BasicBag_10:
@@ -1195,7 +1195,7 @@ Rogue_ConfigRoom_Button_BasicBag_10:
 
 Rogue_ConfigRoom_Button_WildMons::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_WildMons_Text_0
-	goto_if_set FLAG_ROGUE_OVERWORLD_WILD_MONS, Rogue_ConfigRoom_Button_WildMons_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_WildMons_2
 	setvar VAR_0x8000, NO
 Rogue_ConfigRoom_Button_WildMons_1:
 	call Rogue_ConfigRoom_PreButtonInternal
@@ -1214,11 +1214,11 @@ Rogue_ConfigRoom_Button_WildMons_2:
 	goto Rogue_ConfigRoom_Button_WildMons_1
 
 Rogue_ConfigRoom_Button_WildMons_7:
-	setflag FLAG_ROGUE_OVERWORLD_WILD_MONS
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_WildMons_5
 
 Rogue_ConfigRoom_Button_WildMons_8:
-	clearflag FLAG_ROGUE_OVERWORLD_WILD_MONS
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_WildMons_5
 
 Rogue_ConfigRoom_Button_WildMons_10:
@@ -1228,8 +1228,8 @@ Rogue_ConfigRoom_Button_WildMons_10:
 
 Rogue_ConfigRoom_Button_TrainerDifficulty::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_TrainerDifficulty_Text_0
-	goto_if_set FLAG_ROGUE_EASY_TRAINERS, Rogue_ConfigRoom_Button_TrainerDifficulty_2
-	goto_if_set FLAG_ROGUE_HARD_TRAINERS, Rogue_ConfigRoom_Button_TrainerDifficulty_3
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_Button_TrainerDifficulty_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_TrainerDifficulty_3
 	setvar VAR_0x8000, 1
 Rogue_ConfigRoom_Button_TrainerDifficulty_1:
 	call Rogue_ConfigRoom_PreEAHButtonInternal
@@ -1253,18 +1253,18 @@ Rogue_ConfigRoom_Button_TrainerDifficulty_3:
 	goto Rogue_ConfigRoom_Button_TrainerDifficulty_1
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_9:
-	setflag FLAG_ROGUE_EASY_TRAINERS
-	clearflag FLAG_ROGUE_HARD_TRAINERS
+	setflag FLAG_TEMP_2
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_10:
-	clearflag FLAG_ROGUE_EASY_TRAINERS
-	clearflag FLAG_ROGUE_HARD_TRAINERS
+	clearflag FLAG_TEMP_2
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_11:
-	clearflag FLAG_ROGUE_EASY_TRAINERS
-	setflag FLAG_ROGUE_HARD_TRAINERS
+	clearflag FLAG_TEMP_2
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_TrainerDifficulty_7
 
 Rogue_ConfigRoom_Button_TrainerDifficulty_13:
@@ -1320,8 +1320,8 @@ Rogue_ConfigRoom_Button_ItemDifficulty_13:
 
 Rogue_ConfigRoom_Button_LegendaryDifficulty::
 	bufferstring STR_VAR_1, Rogue_ConfigRoom_Button_LegendaryDifficulty_Text_0
-	goto_if_set FLAG_ROGUE_EASY_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_2
-	goto_if_set FLAG_ROGUE_HARD_LEGENDARIES, Rogue_ConfigRoom_Button_LegendaryDifficulty_3
+	goto_if_set FLAG_TEMP_2, Rogue_ConfigRoom_Button_LegendaryDifficulty_2
+	goto_if_set FLAG_TEMP_1, Rogue_ConfigRoom_Button_LegendaryDifficulty_3
 	setvar VAR_0x8000, 1
 Rogue_ConfigRoom_Button_LegendaryDifficulty_1:
 	call Rogue_ConfigRoom_PreEAHButtonInternal
@@ -1345,18 +1345,18 @@ Rogue_ConfigRoom_Button_LegendaryDifficulty_3:
 	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_1
 
 Rogue_ConfigRoom_Button_LegendaryDifficulty_9:
-	setflag FLAG_ROGUE_EASY_LEGENDARIES
-	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	setflag FLAG_TEMP_2
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
 
 Rogue_ConfigRoom_Button_LegendaryDifficulty_10:
-	clearflag FLAG_ROGUE_EASY_LEGENDARIES
-	clearflag FLAG_ROGUE_HARD_LEGENDARIES
+	clearflag FLAG_TEMP_2
+	clearflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
 
 Rogue_ConfigRoom_Button_LegendaryDifficulty_11:
-	clearflag FLAG_ROGUE_EASY_LEGENDARIES
-	setflag FLAG_ROGUE_HARD_LEGENDARIES
+	clearflag FLAG_TEMP_2
+	setflag FLAG_TEMP_1
 	goto Rogue_ConfigRoom_Button_LegendaryDifficulty_7
 
 Rogue_ConfigRoom_Button_LegendaryDifficulty_13:

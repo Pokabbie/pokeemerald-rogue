@@ -31,6 +31,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 
+#include "rogue_controller.h"
 #include "rogue_followmon.h"
 
 #define NUM_FORCED_MOVEMENTS 18
@@ -616,20 +617,6 @@ static bool8 ForcedMovement_MuddySlope(void)
 
 static void MovePlayerNotOnBike(u8 direction, u16 newKeys, u16 heldKeys)
 {
-    if(gSaveBlock2Ptr->optionsAutoRunToggle)
-    {
-        bool8 prevCheck = gPlayerAvatar.runningCheck;
-
-        // Can't use newKeys as it causes weird issues with it being ignored
-        if(heldKeys & B_BUTTON)
-            gPlayerAvatar.runningCheck = TRUE;
-        else
-            gPlayerAvatar.runningCheck = FALSE;
-
-        if(!prevCheck && gPlayerAvatar.runningCheck)
-            gPlayerAvatar.runningToggle = !gPlayerAvatar.runningToggle;
-    }
-
     sPlayerNotOnBikeFuncs[CheckMovementInputNotOnBike(direction)](direction, heldKeys);
 }
 
@@ -658,7 +645,7 @@ static bool8 GetPlayerSpritingState(u16 heldKeys)
     if(FlagGet(FLAG_SYS_B_DASH))
     {
         if(gSaveBlock2Ptr->optionsAutoRunToggle)
-            return gPlayerAvatar.runningToggle;
+            return gRogueGlobalData.runningToggleActive;
         else
             return (heldKeys & B_BUTTON);
     }

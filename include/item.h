@@ -37,7 +37,6 @@ struct RogueItem
     u16 price;
     u8 holdEffect;
     u8 holdEffectParam;
-    u8 importance;
     bool8 registrability; // unused
     u8 pocket;
     u8 type;

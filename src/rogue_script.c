@@ -15,18 +15,18 @@
 #include "random.h"
 #include "string_util.h"
 
-#include "rogue_adventurepaths.h"
-#include "rogue_baked.h"
-#include "rogue_controller.h"
-#include "rogue_query.h"
-
 #include "rogue.h"
+#include "rogue_adventurepaths.h"
 #include "rogue_assistant.h"
+#include "rogue_baked.h"
 #include "rogue_campaign.h"
+#include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
 #include "rogue_script.h"
+#include "rogue_trainers.h"
 #include "rogue_popup.h"
+#include "rogue_query.h"
 #include "rogue_quest.h"
 
 #ifdef ROGUE_DEBUG
@@ -830,6 +830,20 @@ void Rogue_GetFollowMonSpecies(void)
 
     gSpecialVar_0x800A = species;
     gSpecialVar_0x800B = isShiny;
+}
+
+void Rogue_GetTrainerNum(void)
+{
+    u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+    if(trainerNum != TRAINER_NONE)
+    {
+        gSpecialVar_0x8004 = trainerNum;
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
 }
 
 void Rogue_IsMultiplayerActive(void)

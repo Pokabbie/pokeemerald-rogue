@@ -349,11 +349,14 @@ SECTIONS {
         src/rogue_script.o(.text);
         src/rogue_timeofday.o(.text);
         src/rogue_trainers.o(.text);
+        src/rogue_pokedex.o(.text);
         src/rogue_quest.o(.text);
         src/rogue_questmenu.o(.text);
         src/rogue_popup.o(.text);
         src/rogue_adventurepaths.o(.text);
         src/rogue_charms.o(.text);
+        src/rogue_settings.o(.text);
+        src/rogue_settings_ui.o(.text);
     } =0
 
     script_data :
@@ -733,11 +736,14 @@ SECTIONS {
         src/rogue_script.o(.rodata);
         src/rogue_timeofday.o(.rodata);
         src/rogue_trainers.o(.rodata);
+        src/rogue_pokedex.o(.rodata);
         src/rogue_quest.o(.rodata);
         src/rogue_questmenu.o(.rodata);
         src/rogue_popup.o(.rodata);
         src/rogue_adventurepaths.o(.rodata);
         src/rogue_charms.o(.rodata);
+        src/rogue_settings.o(.rodata);
+        src/rogue_settings_ui.o(.rodata);
     } =0
 
     song_data :

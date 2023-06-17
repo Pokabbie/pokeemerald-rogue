@@ -39,6 +39,7 @@ void BattleSetup_ConfigureAutomationTrainerBattle(void);
 void ConfigureAndSetUpOneTrainerBattle(u8 trainerObjEventId, const u8 *trainerScript);
 void ConfigureTwoTrainersBattle(u8 trainerObjEventId, const u8 *trainerScript);
 void SetUpTwoTrainersBattle(void);
+bool32 GetTrainerFlagFromObjectEventId(u8 trainerObjEventId);
 bool32 GetTrainerFlagFromScriptPointer(const u8 *data);
 void SetTrainerFacingDirection(void);
 u8 GetTrainerBattleMode(void);

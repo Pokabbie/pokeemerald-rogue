@@ -313,6 +313,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BackpackerF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BackpackerM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Builder;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dragon;
@@ -642,6 +646,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_GLITCH_KATE] =              &gObjectEventGraphicsInfo_Glitch_Kate,
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
+
+    [OBJ_EVENT_GFX_BACKPACKER_F] =             &gObjectEventGraphicsInfo_BackpackerF,
+    [OBJ_EVENT_GFX_BACKPACKER_M] =             &gObjectEventGraphicsInfo_BackpackerM,
+    [OBJ_EVENT_GFX_BUILDER] =                  &gObjectEventGraphicsInfo_Builder,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

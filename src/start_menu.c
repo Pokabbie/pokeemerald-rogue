@@ -50,6 +50,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_controller.h"
+#include "rogue_settings.h"
 
 // Menu actions
 enum
@@ -817,6 +818,8 @@ static bool8 StartMenuOptionCallback(void)
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(CB2_InitOptionMenu); // Display option menu
+        // TEMP HACK
+        //SetMainCallback2(CB2_InitDifficultyConfigMenu);
         gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
 
         return TRUE;
