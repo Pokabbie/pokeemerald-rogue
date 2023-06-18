@@ -2,7 +2,8 @@
 #define ROGUE_POKEDEX__H
 
 // New UI/UX for Rogue pokedex
-void CB2_Rogue_ShowPokedex(void);
+void Rogue_ShowPokedexFromMenu(void);
+void Rogue_ShowPokedexFromScript(void);
 
 u8 RoguePokedex_GetDexRegion();
 void RoguePokedex_SetDexRegion(u8 region);

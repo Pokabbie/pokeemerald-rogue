@@ -25,6 +25,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_baked.h"
 #include "rogue_pokedex.h"
 
 #ifdef ROGUE_EXPANSION
@@ -125,6 +126,7 @@ extern const u8 gText_DexNational[];
 extern const u8 gText_DexHoenn[];
 extern const u8 gText_PokedexDiploma[];
 
+static void CB2_Rogue_ShowPokedex(void);
 static void MainCB2(void);
 static void Task_SetupPage(u8);
 static void Task_SwapToPage(u8);
@@ -217,7 +219,21 @@ static const u32 sOverviewTiles[] = INCBIN_U32("graphics/rogue_pokedex/info_scre
 static const u32 sMonStatsTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.bin.lz");
 static const u32 sMonStatsTiles[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.4bpp.lz");
 
-void CB2_Rogue_ShowPokedex(void)
+
+void Rogue_ShowPokedexFromMenu(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
+    SetMainCallback2(CB2_Rogue_ShowPokedex);
+}
+
+void Rogue_ShowPokedexFromScript(void)
+{
+    //gMain.savedCallback CB2_ReturnToFieldContinueScript CB2_ReturnToFieldFadeFromBlack
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_Rogue_ShowPokedex);
+}
+
+static void CB2_Rogue_ShowPokedex(void)
 {
     u8 i;
     sPokedexMenu = AllocZeroed(sizeof(struct PokedexMenu));
@@ -512,7 +528,7 @@ static void Task_PageFadeOutAndExit(u8 taskId)
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        SetMainCallback2(gMain.savedCallback);
     }
 }
 
@@ -2086,14 +2102,23 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
 
     if(!RoguePokedex_IsNationalDexActive())
     {
-        // TODO - Bake down bitset to quick check
+        bool8 result;
         u8 variant = RoguePokedex_GetDexVariant();
-        u8 i;
 
-        for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
+        // Attempt to check the baked flags, as it's faster
+        if(Rogue_CheckPokedexVariantFlag(variant, species, &result))
         {
-            if(gPokedexVariants[variant].speciesList[i] == species)
-                return TRUE;
+            return result;
+        }
+        else
+        {
+            u8 i;
+
+            for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
+            {
+                if(gPokedexVariants[variant].speciesList[i] == species)
+                    return TRUE;
+            }
         }
 
         return FALSE;

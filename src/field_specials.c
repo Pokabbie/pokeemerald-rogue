@@ -154,8 +154,7 @@ void Special_ViewDifficultyConfigMenu(void)
 
 void Special_ViewRoguePokedex(void)
 {
-    gMain.savedCallback = CB2_ReturnToField;
-    SetMainCallback2(CB2_Rogue_ShowPokedex);
+    Rogue_ShowPokedexFromScript();
     ScriptContext2_Enable();
 }
 

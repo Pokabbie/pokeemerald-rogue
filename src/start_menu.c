@@ -50,6 +50,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_settings.h"
 
 // Menu actions
@@ -726,7 +727,9 @@ static bool8 StartMenuPokedexCallback(void)
         PlayRainStoppingSoundEffect();
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_OpenPokedex);
+
+        Rogue_ShowPokedexFromMenu();
+        //SetMainCallback2(CB2_OpenPokedex);
 
         return TRUE;
     }
