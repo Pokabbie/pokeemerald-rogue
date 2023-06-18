@@ -2069,3 +2069,35 @@ bool8 RoguePokedex_IsVariantEditEnabled()
 {
     return RoguePokedex_IsVariantEditUnlocked();
 }
+
+u8 SpeciesToGen(u16 species);
+
+bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
+{
+    u8 genLimit = RoguePokedex_GetDexGenLimit();
+    u8 speciesGen = SpeciesToGen(species);;
+
+    if(speciesGen > genLimit)
+        return FALSE;
+    
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    if(!RoguePokedex_IsNationalDexActive())
+    {
+        // TODO - Bake down bitset to quick check
+        u8 variant = RoguePokedex_GetDexVariant();
+        u8 i;
+
+        for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
+        {
+            if(gPokedexVariants[variant].speciesList[i] == species)
+                return TRUE;
+        }
+
+        return FALSE;
+    }
+
+    return TRUE;
+}

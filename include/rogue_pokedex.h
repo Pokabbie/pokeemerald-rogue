@@ -19,4 +19,6 @@ u16 RoguePokedex_GetNationalDexLimit();
 bool8 RoguePokedex_IsVariantEditUnlocked();
 bool8 RoguePokedex_IsVariantEditEnabled();
 
+bool8 RoguePokedex_IsSpeciesEnabled(u16 species);
+
 #endif

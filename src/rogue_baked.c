@@ -23,6 +23,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_pokedex.h"
 #include "rogue_trainers.h"
 #endif
 
@@ -298,6 +299,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->param = ITEM_THUNDER_STONE;
                 break;
 #endif
+        }
+
+        if(outEvo->targetSpecies != SPECIES_NONE && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies))
+        {
+            outEvo->targetSpecies = 0;
+            outEvo->method = 0;
+            outEvo->param = 0;
         }
     }
 }
