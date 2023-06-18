@@ -2,6 +2,7 @@
 #include "palette.h"
 #include "main.h"
 #include "data.h"
+#include "event_data.h"
 #include "gpu_regs.h"
 #include "scanline_effect.h"
 #include "task.h"
@@ -9,6 +10,7 @@
 #include "decompress.h"
 #include "bg.h"
 #include "window.h"
+#include "strings.h"
 #include "string_util.h"
 #include "text.h"
 #include "overworld.h"
@@ -23,6 +25,15 @@
 #include "constants/songs.h"
 
 #include "rogue_pokedex.h"
+
+#ifdef ROGUE_EXPANSION
+#define DEX_GEN_LIMIT 8
+#else
+#define DEX_GEN_LIMIT 3
+#endif
+
+#define FLIP_VERTICAL (0x08 << 8)
+#define FLIP_HORIZONTAL (0x04 << 8)
 
 // Overview
 #define COLUMN_ENTRY_COUNT 7
@@ -59,6 +70,8 @@ enum
 {
     WIN_MON_SPECIES,
     WIN_MON_LIST,
+    WIN_TITLE_COUNTERS,
+    WIN_TITLE_VARIANT_SELECT,
     WIN_COUNT,
 };
 
@@ -84,6 +97,26 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
         .paletteNum = 15,
         .baseBlock = 29,
     },
+    [WIN_TITLE_COUNTERS] = 
+    {
+        .bg = 0,
+        .tilemapLeft = 3,
+        .tilemapTop = 7,
+        .width = 4,
+        .height = 8,
+        .paletteNum = 15,
+        .baseBlock = 301,
+    },
+    [WIN_TITLE_VARIANT_SELECT] = 
+    {
+        .bg = 0,
+        .tilemapLeft = 8,
+        .tilemapTop = 7,
+        .width = 15,
+        .height = 5,
+        .paletteNum = 15,
+        .baseBlock = 333,
+    },
     [WIN_COUNT] = DUMMY_WIN_TEMPLATE,
 };
 
@@ -97,6 +130,8 @@ static void Task_SwapToPage(u8);
 static void Task_PageFadeIn(u8);
 static void Task_PageWaitForKeyPress(u8);
 static void Task_PageFadeOutAndExit(u8);
+static void DisplayTitleScreenCountersText(void);
+static void DisplayTitleDexVariantText(void);
 static void DisplayMonEntryText(void);
 static void DisplayMonStatsText(void);
 static void InitOverviewBg(void);
@@ -105,6 +140,11 @@ static void DestroyMonEntryWindows(void);
 static void PrintDiplomaText(u8 *, u8, u8);
 static void InitPageResources(u8 page);
 static void DestroyPageResources(u8 page);
+
+// Title screen
+static void TitleScreen_HandleInput(u8);
+static void TitleScreen_RefillBg();
+static void TitleScreen_RefillStarsBg();
 
 // Overview
 static void Overview_HandleInput(u8);
@@ -127,6 +167,10 @@ struct PokedexMenu
     u8 currentPage;
     u8 desiredPage;
     u8 pageSprites[MAX_SPRITE_COUNT];
+
+    // Title screen
+    bool8 titleScreenInEditMode;
+    bool8 titleScreenCursorIdx;
 
     // Overview
     u16 selectedIdx;
@@ -163,6 +207,9 @@ static const u16 sDiplomaPalettes[][16] =
 // MonForms
 //?
 
+static const u32 sTitleScreenTilemap[] = INCBIN_U32("graphics/rogue_pokedex/front_page.bin.lz");
+static const u32 sTitleScreenTiles[] = INCBIN_U32("graphics/rogue_pokedex/front_page.4bpp.lz");
+
 static const u32 sOverviewTilemap[] = INCBIN_U32("graphics/rogue_pokedex/info_screen.bin.lz");
 static const u32 sOverviewTiles[] = INCBIN_U32("graphics/rogue_pokedex/info_screen.4bpp.lz");
 
@@ -174,7 +221,7 @@ void CB2_Rogue_ShowPokedex(void)
     u8 i;
     sPokedexMenu = AllocZeroed(sizeof(struct PokedexMenu));
     sPokedexMenu->currentPage = PAGE_NONE;
-    sPokedexMenu->desiredPage = PAGE_OVERVIEW;
+    sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
 
     sPokedexMenu->lastCrySpecies = SPECIES_NONE;
 
@@ -210,11 +257,11 @@ void CB2_Rogue_ShowPokedex(void)
     InitOverviewBg();
     ResetTempTileDataBuffers();
     
-    DecompressAndCopyTileDataToVram(1, &sOverviewTiles, 0, 0, 0);
-    while (FreeTempTileDataBuffersIfPossible())
-        ;
-    LZDecompressWram(sOverviewTilemap, sTilemapBufferPtr);
-    CopyBgTilemapBufferToVram(1);
+    //DecompressAndCopyTileDataToVram(1, &sOverviewTiles, 0, 0, 0);
+    //while (FreeTempTileDataBuffersIfPossible())
+    //    ;
+    //LZDecompressWram(sOverviewTilemap, sTilemapBufferPtr);
+    //CopyBgTilemapBufferToVram(1);
 
     sPokedexMenu->currentPage = sPokedexMenu->desiredPage;
     InitPageResources(sPokedexMenu->currentPage);
@@ -226,6 +273,8 @@ void CB2_Rogue_ShowPokedex(void)
     SetVBlankCallback(VBlankCB);
     SetMainCallback2(MainCB2);
     CreateTask(Task_PageFadeIn, 0);
+
+    PlaySE(SE_PC_LOGIN);
 }
 
 static void MainCB2(void)
@@ -244,6 +293,21 @@ static void InitPageResources(u8 page)
 
     switch (page)
     {
+    case PAGE_TITLE_SCREEN:
+        {
+            DecompressAndCopyTileDataToVram(1, &sTitleScreenTiles, 0, 0, 0);
+            while (FreeTempTileDataBuffersIfPossible())
+                ;
+            LZDecompressWram(sTitleScreenTilemap, sTilemapBufferPtr);
+            CopyBgTilemapBufferToVram(1);
+
+            InitMonEntryWindows();
+            // Text printed below
+
+            TitleScreen_RefillBg();
+        }
+        break;
+        
     case PAGE_OVERVIEW:
         {
             DecompressAndCopyTileDataToVram(1, &sOverviewTiles, 0, 0, 0);
@@ -289,6 +353,12 @@ static void DestroyPageResources(u8 page)
     
     switch (page)
     {
+    case PAGE_TITLE_SCREEN:
+        {
+            DestroyMonEntryWindows();
+        }
+        break;
+
     case PAGE_OVERVIEW:
         {
             Overview_DestroySprites();
@@ -370,6 +440,11 @@ static void Task_PageFadeIn(u8 taskId)
     // Print text now the fade has started
     switch (sPokedexMenu->currentPage)
     {
+    case PAGE_TITLE_SCREEN:
+        DisplayTitleScreenCountersText();
+        DisplayTitleDexVariantText();
+        break;
+
     case PAGE_MON_STATS:
         DisplayMonEntryText();
         DisplayMonStatsText();
@@ -405,6 +480,10 @@ static void Task_PageWaitForKeyPress(u8 taskId)
 {
     switch (sPokedexMenu->currentPage)
     {
+    case PAGE_TITLE_SCREEN:
+        TitleScreen_HandleInput(taskId);
+        break;
+
     case PAGE_OVERVIEW:
         Overview_HandleInput(taskId);
         break;
@@ -433,6 +512,129 @@ static void Task_PageFadeOutAndExit(u8 taskId)
         FreeAllWindowBuffers();
         DestroyTask(taskId);
         SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+    }
+}
+
+static u16 GetDexCount(u8 caseID)
+{
+    u16 i = 0;
+    u16 count = 0;
+
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
+        {
+            if (GetSetPokedexFlag(i + 1, caseID))
+                count++;
+        }
+    }
+    else
+    {
+        u8 dexVariant = RoguePokedex_GetDexVariant();
+        
+        for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
+        {
+            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gPokedexVariants[dexVariant].speciesList[i]), caseID))
+                count++;
+        }
+    }
+
+    return count;
+}
+
+static bool8 CheckDexCompletion(u8 caseID)
+{
+    u16 i = 0;
+
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
+        {
+            if (!GetSetPokedexFlag(i + 1, caseID))
+                return FALSE;
+        }
+    }
+    else
+    {
+        u8 dexVariant = RoguePokedex_GetDexVariant();
+        
+        for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
+        {
+            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(gPokedexVariants[dexVariant].speciesList[i]), caseID))
+                return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static void DisplayTitleScreenCountersText(void)
+{
+    u8 color[3] = {0, 2, 3};
+
+    FillWindowPixelBuffer(WIN_TITLE_COUNTERS, PIXEL_FILL(0));
+
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_SEEN), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 0, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 24, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, 3); // TODO - shiny catches
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 48, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+
+    PutWindowTilemap(WIN_TITLE_COUNTERS);
+    CopyWindowToVram(WIN_TITLE_COUNTERS, COPYWIN_FULL);
+}
+
+static const u8* GetDexRegionName()
+{
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        return gText_National;
+    }
+    else
+    {
+        u8 region = RoguePokedex_GetDexRegion();
+        return gPokedexRegions[region].displayName;
+    }
+}
+
+static const u8* GetDexVariantName()
+{
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        ConvertUIntToDecimalStringN(gStringVar1, RoguePokedex_GetDexGenLimit(), STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringExpandPlaceholders(gStringVar2, gText_GenStr1);
+        return gStringVar2;
+    }
+    else
+    {
+        u8 variant = RoguePokedex_GetDexVariant();
+        return gPokedexVariants[variant].displayName;
+    }
+}
+
+static void DisplayTitleDexVariantText(void)
+{
+    if(RoguePokedex_IsVariantEditUnlocked())
+    {
+        u8 color[3] = {0, 2, 3};
+        bool8 arrowActive = sPokedexMenu->titleScreenInEditMode;
+
+        FillWindowPixelBuffer(WIN_TITLE_VARIANT_SELECT, PIXEL_FILL(0));
+
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 0, 0, 0, color, TEXT_SKIP_DRAW, GetDexRegionName());
+
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 24, 0, 0, color, TEXT_SKIP_DRAW, GetDexVariantName());
+
+        if(arrowActive)
+        {
+            AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 24 * sPokedexMenu->titleScreenCursorIdx, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
+        }
+
+        PutWindowTilemap(WIN_TITLE_VARIANT_SELECT);
+        CopyWindowToVram(WIN_TITLE_VARIANT_SELECT, COPYWIN_FULL);
     }
 }
 
@@ -586,6 +788,295 @@ static void PrintDiplomaText(u8 *text, u8 var1, u8 var2)
     AddTextPrinterParameterized4(0, FONT_NORMAL, var1, var2, 0, 0, color, TEXT_SKIP_DRAW, text);
 }
 
+// Title screen
+//
+
+static void TitleScreen_HandleInput(u8 taskId)
+{
+    if(sPokedexMenu->titleScreenInEditMode)
+    {
+        if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON))
+        {
+            sPokedexMenu->titleScreenInEditMode = FALSE;
+            PlaySE(SE_PIN);
+
+            //DisplayTitleScreenCountersText();
+            DisplayTitleDexVariantText();
+        }
+        else if(JOY_NEW(DPAD_UP | DPAD_DOWN))
+        {
+            PlaySE(SE_SELECT);
+            sPokedexMenu->titleScreenCursorIdx = (sPokedexMenu->titleScreenCursorIdx + 1) % 2;
+            DisplayTitleDexVariantText();
+        }
+        else if(JOY_NEW(DPAD_LEFT))
+        {
+            // Edit region
+            if(sPokedexMenu->titleScreenCursorIdx == 0)
+            {
+                u8 region = RoguePokedex_GetDexRegion();
+
+                PlaySE(SE_SELECT);
+
+                if(region == POKEDEX_REGION_START)
+                    region = POKEDEX_REGION_NONE;
+                else if(region == POKEDEX_REGION_NONE)
+                    region = POKEDEX_REGION_END;
+                else
+                    --region;
+
+                RoguePokedex_SetDexRegion(region);
+            }
+            // Edit variant
+            else
+            {
+                u8 region = RoguePokedex_GetDexRegion();
+
+                if(region == POKEDEX_REGION_NONE)
+                {
+                    u8 genLimit = RoguePokedex_GetDexGenLimit();
+                    PlaySE(SE_SELECT);
+
+                    if(genLimit == 1)
+                        RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
+                    else
+                        RoguePokedex_SetDexGenLimit(genLimit - 1);
+                }
+                else if(gPokedexRegions->variantCount <= 1)
+                {
+                    // Cannot change variant as we don't have one to swap to
+                    PlaySE(SE_FAILURE);
+                }
+                else
+                {
+                    u8 idx;
+                    u8 variant = RoguePokedex_GetDexVariant();
+
+                    for(idx = 0; idx < gPokedexRegions->variantCount; ++idx)
+                    {
+                        if(gPokedexRegions->variantList[idx] == variant)
+                            break;
+                    }
+
+                    if(idx < gPokedexRegions->variantCount)
+                    {
+                        PlaySE(SE_SELECT);
+
+                        if(idx == 0)
+                            idx = gPokedexRegions->variantCount - 1;
+                        else
+                            --idx;
+
+                        RoguePokedex_SetDexVariant(gPokedexRegions->variantList[idx]);
+                    }
+                    else
+                    {
+                        // ???
+                        PlaySE(SE_FAILURE);
+                    }
+                }
+            }
+
+            DisplayTitleDexVariantText();
+            DisplayTitleScreenCountersText();
+            TitleScreen_RefillStarsBg();
+        }
+        else if(JOY_NEW(DPAD_RIGHT))
+        {
+            // Edit region
+            if(sPokedexMenu->titleScreenCursorIdx == 0)
+            {
+                u8 region = RoguePokedex_GetDexRegion();
+
+                PlaySE(SE_SELECT);
+
+                if(region == POKEDEX_REGION_END)
+                    region = POKEDEX_REGION_NONE;
+                else if(region == POKEDEX_REGION_NONE)
+                    region = POKEDEX_REGION_START;
+                else
+                    ++region;
+
+                RoguePokedex_SetDexRegion(region);
+            }
+            // Edit variant
+            else
+            {
+                u8 region = RoguePokedex_GetDexRegion();
+
+                if(region == POKEDEX_REGION_NONE)
+                {
+                    u8 genLimit = RoguePokedex_GetDexGenLimit();
+                    PlaySE(SE_SELECT);
+
+                    if(genLimit == DEX_GEN_LIMIT)
+                        RoguePokedex_SetDexGenLimit(1);
+                    else
+                        RoguePokedex_SetDexGenLimit(genLimit + 1);
+                }
+                else if(gPokedexRegions->variantCount <= 1)
+                {
+                    // Cannot change variant as we don't have one to swap to
+                    PlaySE(SE_FAILURE);
+                }
+                else
+                {
+                    u8 idx;
+                    u8 variant = RoguePokedex_GetDexVariant();
+
+                    for(idx = 0; idx < gPokedexRegions->variantCount; ++idx)
+                    {
+                        if(gPokedexRegions->variantList[idx] == variant)
+                            break;
+                    }
+
+                    if(idx < gPokedexRegions->variantCount)
+                    {
+                        PlaySE(SE_SELECT);
+                        idx = (idx + 1) % gPokedexRegions->variantCount;
+
+                        RoguePokedex_SetDexVariant(gPokedexRegions->variantList[idx]);
+                    }
+                    else
+                    {
+                        // ???
+                        PlaySE(SE_FAILURE);
+                    }
+                }
+            }
+
+            DisplayTitleDexVariantText();
+            DisplayTitleScreenCountersText();
+            TitleScreen_RefillStarsBg();
+        }
+    }
+    else
+    {
+        if (JOY_NEW(A_BUTTON))
+        {
+            sPokedexMenu->scrollAmount = 0;
+            sPokedexMenu->selectedIdx = 0;
+
+            sPokedexMenu->desiredPage = PAGE_OVERVIEW;
+            gTasks[taskId].func = Task_SwapToPage;
+
+            PlaySE(SE_WIN_OPEN);
+        }
+        else if (JOY_NEW(B_BUTTON))
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_PageFadeOutAndExit;
+
+            PlaySE(SE_PC_OFF);
+        }
+        else if (JOY_NEW(SELECT_BUTTON) && RoguePokedex_IsVariantEditEnabled())
+        {
+            sPokedexMenu->titleScreenInEditMode = TRUE;
+            sPokedexMenu->titleScreenCursorIdx = 0;
+            PlaySE(SE_PIN);
+
+            //DisplayTitleScreenCountersText();
+            DisplayTitleDexVariantText();
+        }
+    }
+}
+
+static void TitleScreen_RefillBg()
+{
+    if(!RoguePokedex_IsVariantEditEnabled())
+    {
+        // Remove prompt hint
+        FillBgTilemapBufferRect_Palette0(1, 0x04, 19, 18, 8, 1);
+    }
+
+    if(!RoguePokedex_IsVariantEditUnlocked())
+    {
+        // Remove text boxes for dex variant select
+        FillBgTilemapBufferRect_Palette0(1, 0x04, 8, 7, 15, 2);
+        FillBgTilemapBufferRect_Palette0(1, 0x04, 8, 10, 15, 2);
+
+    }
+
+    // Add stars for the full completion
+    if(CheckDexCompletion(FLAG_GET_SEEN))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 8, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 8, 1, 1);
+    }
+
+    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 11, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 11, 1, 1);
+    }
+
+    // TODO - shiny
+    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 14, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 14, 1, 1);
+    }
+
+    TitleScreen_RefillStarsBg();
+}
+
+static void TitleScreen_RefillStarsBg()
+{
+    if(CheckDexCompletion(FLAG_GET_SEEN))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 8, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 8, 1, 1);
+    }
+    else
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x48, 5, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49, 6, 7, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x48 | FLIP_VERTICAL, 5, 8, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49 | FLIP_VERTICAL, 6, 8, 1, 1);
+    }
+
+    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 11, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 11, 1, 1);
+    }
+    else
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x48, 5, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49, 6, 10, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x48 | FLIP_VERTICAL, 5, 11, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49 | FLIP_VERTICAL, 6, 11, 1, 1);
+    }
+
+    // TODO - update shiny counter
+    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x66, 5, 14, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 14, 1, 1);
+    }
+    else
+    {
+        FillBgTilemapBufferRect_Palette0(1, 0x48, 5, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49, 6, 13, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x48 | FLIP_VERTICAL, 5, 14, 1, 1);
+        FillBgTilemapBufferRect_Palette0(1, 0x49 | FLIP_VERTICAL, 6, 14, 1, 1);
+    }
+
+    ScheduleBgCopyTilemapToVram(1);
+}
+
 // Overview
 //
 enum
@@ -621,8 +1112,6 @@ enum
 #define HEADER_NUM7  0x0A
 #define HEADER_NUM8  0x0B
 #define HEADER_NUM9  0x0C
-
-#define FLIP_HORIZONTAL (0x04 << 8)
 
 static u8 Overview_SelectDigitTile(u8 digit)
 {
@@ -1045,9 +1534,10 @@ static void Overview_HandleInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON))
     {
-        // TODO - Go back
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        gTasks[taskId].func = Task_PageFadeOutAndExit;
+        sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
+        gTasks[taskId].func = Task_SwapToPage;
+
+        PlaySE(SE_SELECT);
     }
 
 
@@ -1211,9 +1701,9 @@ static void Overview_SelectSpeciesToDiplay()
 
         species = SPECIES_NONE;
 
-        if(RoguePokdex_IsNationalDexActive())
+        if(RoguePokedex_IsNationalDexActive())
         {
-            if(1 + num <= NATIONAL_DEX_COUNT)
+            if(1 + num <= RoguePokedex_GetNationalDexLimit())
                 species = NationalPokedexNumToSpecies(1 + num);
         }
         else
@@ -1244,8 +1734,8 @@ static u8 Overview_GetLastValidActiveIndex()
 
 static u8 Overview_GetMaxScrollAmount()
 {
-    if(RoguePokdex_IsNationalDexActive())
-        return (NATIONAL_DEX_COUNT / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
+    if(RoguePokedex_IsNationalDexActive())
+        return (RoguePokedex_GetNationalDexLimit() / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
     else
     {
         u8 dexVariant = RoguePokedex_GetDexVariant();
@@ -1334,9 +1824,9 @@ static void MonStats_DestroySprites()
 
 static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
 {
-    u8 i;
+    u16 i;
 
-    if(RoguePokdex_IsNationalDexActive())
+    if(RoguePokedex_IsNationalDexActive())
     {
         // GetSetPokedexFlag is slow so call it as little as possible
         u16 checkNum;
@@ -1346,12 +1836,12 @@ static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
         {
             if(offset == 1)
             {
-                checkNum = (baseNum + i - 1) % NATIONAL_DEX_COUNT + 1;
+                checkNum = (baseNum + i - 1) % RoguePokedex_GetNationalDexLimit() + 1;
             }
             else // offset == 1
             {
                 if(i >= baseNum)
-                    checkNum = NATIONAL_DEX_COUNT - (i - baseNum); // loop back round
+                    checkNum = RoguePokedex_GetNationalDexLimit() - (i - baseNum); // loop back round
                 else
                     checkNum = baseNum - i;
             }
@@ -1453,14 +1943,125 @@ static void MonStats_HandleInput(u8 taskId)
     }
 }
 
-u8 RoguePokedex_GetDexVariant()
+u8 RoguePokedex_GetDexRegion()
 {
-    // Variant none is basically national dex mode
-    return POKEDEX_VARIANT_NONE;
-    //return POKEDEX_VARIANT_HOENN_RSE;
+    if(!RoguePokedex_IsNationalDexActive())
+    {
+        u8 i, j;
+        u8 dexVariant = RoguePokedex_GetDexVariant();
+        
+
+        for(i = POKEDEX_REGION_START; i <= POKEDEX_REGION_END; ++i)
+        {
+            for(j = 0; j < gPokedexRegions[i].variantCount; ++j)
+            {
+                if(gPokedexRegions[i].variantList[j] == dexVariant)
+                    return i;
+            }
+        }
+    }
+
+    return POKEDEX_REGION_NONE;
 }
 
-bool8 RoguePokdex_IsNationalDexActive()
+void RoguePokedex_SetDexRegion(u8 region)
 {
+    if(region < POKEDEX_REGION_COUNT)
+        RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[0]);
+    else
+        RoguePokedex_SetDexVariant(POKEDEX_REGION_NONE);
+}
+
+u8 RoguePokedex_GetDexVariant()
+{
+    u8 dexVariant = VarGet(VAR_ROGUE_DEX_VARIANT);
+
+    if(dexVariant < POKEDEX_REGION_COUNT)
+        return dexVariant;
+
+    // Variant none is basically national dex mode
+    return POKEDEX_VARIANT_NONE;
+}
+
+void RoguePokedex_SetDexVariant(u8 variant)
+{
+    if(variant < POKEDEX_VARIANT_COUNT)
+    {
+        VarSet(VAR_ROGUE_DEX_VARIANT, variant);
+        RoguePokedex_SetDexGenLimit(gPokedexVariants[variant].genLimit);
+    }
+    else
+    {
+        // Likely wanting to enter national dex mode
+        VarSet(VAR_ROGUE_DEX_VARIANT, POKEDEX_VARIANT_NONE);
+        RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
+    }
+}
+
+u8 RoguePokedex_GetDexGenLimit()
+{
+    u8 genLimit = VarGet(VAR_ROGUE_DEX_GEN_LIMIT);
+
+    if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
+        return genLimit;
+
+    return DEX_GEN_LIMIT;
+}
+
+void RoguePokedex_SetDexGenLimit(u8 genLimit)
+{
+    if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
+        VarSet(VAR_ROGUE_DEX_GEN_LIMIT, genLimit);
+    else
+        VarSet(VAR_ROGUE_DEX_GEN_LIMIT, DEX_GEN_LIMIT);
+
+}
+
+bool8 RoguePokedex_IsNationalDexActive()
+{
+    // Variant none is treated national dex mode
     return RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_NONE;
+}
+
+u16 RoguePokedex_GetNationalDexLimit()
+{
+    switch (RoguePokedex_GetDexGenLimit())
+    {
+    case 1:
+        return NATIONAL_DEX_MEW;
+
+    case 2:
+        return NATIONAL_DEX_CELEBI;
+
+#ifdef ROGUE_EXPANSION
+    case 3:
+        return NATIONAL_DEX_DEOXYS;
+
+    case 4:
+        return NATIONAL_DEX_ARCEUS;
+
+    case 5:
+        return NATIONAL_DEX_GENESECT;
+
+    case 6:
+        return NATIONAL_DEX_VOLCANION;
+
+    case 7:
+        return NATIONAL_DEX_MELMETAL;
+#endif
+    
+    default:
+        return NATIONAL_DEX_COUNT;
+    }
+}
+
+bool8 RoguePokedex_IsVariantEditUnlocked()
+{
+    // TODO - link to post game unlock?
+    return TRUE;
+}
+
+bool8 RoguePokedex_IsVariantEditEnabled()
+{
+    return RoguePokedex_IsVariantEditUnlocked();
 }
