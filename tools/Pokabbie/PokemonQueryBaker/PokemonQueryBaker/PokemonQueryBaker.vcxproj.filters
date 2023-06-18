@@ -45,5 +45,11 @@
     <ClInclude Include="Inc\BakeHelpers.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\data\pokemon\base_stats.h">
+      <Filter>Decomp\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\data\pokemon\rogue_pokedex.h">
+      <Filter>Decomp\Inc</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

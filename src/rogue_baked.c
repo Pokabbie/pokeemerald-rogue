@@ -23,6 +23,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_pokedex.h"
 #include "rogue_trainers.h"
 #endif
 
@@ -51,6 +52,7 @@ extern const struct RogueItem gRogueItems[];
 extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
 extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
 extern const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES];
+extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
 #endif
 
 void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
@@ -79,6 +81,24 @@ bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
     return FALSE;
 }
 
+bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
+{
+#ifdef ROGUE_BAKE_VALID
+    if(dexVariant < POKEDEX_VARIANT_COUNT)
+    {
+        u16 idx = species / 8;
+        u16 bit = species % 8;
+
+        u8 bitMask = 1 << bit;
+
+        *result = (gRogueBake_PokedexVariantBitFlags[dexVariant][idx] & bitMask) != 0;
+
+        return TRUE;
+    }
+#endif
+    return FALSE;
+}
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
@@ -97,7 +117,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #endif
 
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE && !IsGenEnabled(SpeciesToGen(outEvo->targetSpecies)))
+    if(outEvo->targetSpecies != SPECIES_NONE && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies))
     {
         // Invalid evo
         outEvo->targetSpecies = SPECIES_NONE;

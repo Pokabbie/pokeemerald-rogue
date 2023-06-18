@@ -9,9 +9,13 @@
 #include "constants/region_map_sections.h"
 #include "constants/map_groups.h"
 #include "constants/rogue.h"
+#include "constants/rogue_pokedex.h"
 
 #define min(x, y) (x < y ? x : y)
 #define max(x, y) (x > y ? x : y)
+
+#define _(str) (str)
+#define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
 
 struct Evolution
 {
@@ -82,6 +86,21 @@ struct BaseStats
     u8 noFlip : 1;
     u8 flags;
 #endif
+};
+
+struct RoguePokedexVariant
+{
+    const u8* displayName;
+    const u16* speciesList;
+    u16 speciesCount;
+    u8 genLimit;
+};
+
+struct RoguePokedexRegion
+{
+    const u8* displayName;
+    const u16* variantList;
+    u16 variantCount;
 };
 
 void memcpy(void* dst, void* src, size_t size);

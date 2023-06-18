@@ -114,25 +114,119 @@ namespace PokemonDataGenerator.Pokedex
 
 			foreach (string dexId in dexIds)
 			{
-				AppendDexMons(dexId, data.Mons);
+				AppendDexMons(dexId, data);
 			}
 
 			return data;
 		}
 
-		private static void AppendDexMons(string dexId, List<string> target)
+		private static void AppendDexMons(string dexId, PokedexData target)
 		{
 			string uri = m_DexApiLinks[dexId];
 			JObject dex = ContentCache.GetJsonContent(uri);
 
-			foreach(JObject entry in dex["pokemon_entries"])
+			bool isHGSS = target.InternalName.Equals("johto_HGSS", StringComparison.CurrentCultureIgnoreCase);
+
+			foreach (JObject entry in dex["pokemon_entries"])
 			{
 				string species = entry["pokemon_species"]["name"].ToString();
-				if(!target.Contains(species))
-					target.Add(species);
+				if (!target.Mons.Contains(species))
+				{
+					target.Mons.Add(species);
+
+					// HGSS dex is missing a lot of evos from regional dex, as they weren't techincally obtainable until post game
+					// so forcefully insert them here
+					if (isHGSS)
+						AppendDexMon_ExtraHGSS(species, target);
+				}
 			}
 
 			return;
+		}
+
+		private static void AppendDexMon_ExtraHGSS(string species, PokedexData target)
+		{
+			if (species.Equals("magneton", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("magnezone");
+			}
+			else if (species.Equals("lickitung", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("lickilicky");
+			}
+			else if (species.Equals("rhydon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("rhyperior");
+			}
+			else if (species.Equals("tangela", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("tangrowth");
+			}
+			else if (species.Equals("electabuzz", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("electivire");
+			}
+			else if (species.Equals("magmar", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("magmortar");
+			}
+			else if (species.Equals("umbreon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("leafeon");
+				target.Mons.Add("glaceon");
+			}
+			else if (species.Equals("togetic", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("togekiss");
+			}
+			else if (species.Equals("aipom", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("ambipom");
+			}
+			else if (species.Equals("yanma", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("yanmega");
+			}
+			else if (species.Equals("murkrow", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("honchkrow");
+			}
+			else if (species.Equals("misdreavus", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("mismagius");
+			}
+			else if (species.Equals("gligar", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("gliscor");
+			}
+			else if (species.Equals("sneasel", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("weavile");
+			}
+			else if (species.Equals("piloswine", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("mamoswine");
+			}
+			else if (species.Equals("kirlia", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("gallade");
+			}
+			else if (species.Equals("nosepass", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("probopass");
+			}
+			else if (species.Equals("roselia", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("roserade");
+			}
+			else if (species.Equals("dusclops", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("dusknoir");
+			}
+			else if (species.Equals("snorunt", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("froslass");
+			}
 		}
 
 		private static void ExportConstants(string fileName, List<PokedexData> data, Dictionary<string, List<PokedexData>> regionData)
