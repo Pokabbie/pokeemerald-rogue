@@ -4604,7 +4604,7 @@ static u16 GetNextPosition(u8 direction, u16 position, u16 min, u16 max)
 
 // Unown and Spinda use the personality of the first seen individual of that species
 // All others use personality 0
-static u32 GetPokedexMonPersonality(u16 species)
+u32 GetPokedexMonPersonality(u16 species)
 {
     if (species == SPECIES_UNOWN || species == SPECIES_SPINDA)
     {

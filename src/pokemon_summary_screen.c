@@ -4025,6 +4025,34 @@ static void SetTypeIcons(void)
     }
 }
 
+// Callbacks for rogue_pokedex
+
+void LoadMoveTypesSpritesheetAndPalette()
+{
+    LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
+    LoadCompressedSpriteSheet(&sSpriteSheet_MoveTypes);
+}
+
+u8 CreateMonTypeIcon(u16 typeId, u8 x, u8 y)
+{
+    u8 spriteId = CreateSprite(&sSpriteTemplate_MoveTypes, 0, 0, 2);
+    if(spriteId != SPRITE_NONE)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        StartSpriteAnim(sprite, typeId);
+        sprite->oam.paletteNum = sMoveTypeToOamPaletteNum[typeId];
+        sprite->x = x + 16;
+        sprite->y = y + 8;
+    }
+
+    return spriteId;
+}
+
+void DestroyMonTypIcon(u8 spriteId)
+{
+    DestroySprite(&gSprites[spriteId]);
+}
+
 static void CreateMoveTypeIcons(void)
 {
     u8 i;
