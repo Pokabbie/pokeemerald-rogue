@@ -1,4 +1,5 @@
 #include "global.h"
+#include "battle_main.h"
 #include "palette.h"
 #include "main.h"
 #include "data.h"
@@ -842,7 +843,7 @@ static void TitleScreen_HandleInput(u8 taskId)
                     else
                         RoguePokedex_SetDexGenLimit(genLimit - 1);
                 }
-                else if(gPokedexRegions->variantCount <= 1)
+                else if(gPokedexRegions[region].variantCount <= 1)
                 {
                     // Cannot change variant as we don't have one to swap to
                     PlaySE(SE_FAILURE);
@@ -852,22 +853,22 @@ static void TitleScreen_HandleInput(u8 taskId)
                     u8 idx;
                     u8 variant = RoguePokedex_GetDexVariant();
 
-                    for(idx = 0; idx < gPokedexRegions->variantCount; ++idx)
+                    for(idx = 0; idx < gPokedexRegions[region].variantCount; ++idx)
                     {
-                        if(gPokedexRegions->variantList[idx] == variant)
+                        if(gPokedexRegions[region].variantList[idx] == variant)
                             break;
                     }
 
-                    if(idx < gPokedexRegions->variantCount)
+                    if(idx < gPokedexRegions[region].variantCount)
                     {
                         PlaySE(SE_SELECT);
 
                         if(idx == 0)
-                            idx = gPokedexRegions->variantCount - 1;
+                            idx = gPokedexRegions[region].variantCount - 1;
                         else
                             --idx;
 
-                        RoguePokedex_SetDexVariant(gPokedexRegions->variantList[idx]);
+                        RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[idx]);
                     }
                     else
                     {
@@ -914,7 +915,7 @@ static void TitleScreen_HandleInput(u8 taskId)
                     else
                         RoguePokedex_SetDexGenLimit(genLimit + 1);
                 }
-                else if(gPokedexRegions->variantCount <= 1)
+                else if(gPokedexRegions[region].variantCount <= 1)
                 {
                     // Cannot change variant as we don't have one to swap to
                     PlaySE(SE_FAILURE);
@@ -924,18 +925,18 @@ static void TitleScreen_HandleInput(u8 taskId)
                     u8 idx;
                     u8 variant = RoguePokedex_GetDexVariant();
 
-                    for(idx = 0; idx < gPokedexRegions->variantCount; ++idx)
+                    for(idx = 0; idx < gPokedexRegions[region].variantCount; ++idx)
                     {
-                        if(gPokedexRegions->variantList[idx] == variant)
+                        if(gPokedexRegions[region].variantList[idx] == variant)
                             break;
                     }
 
-                    if(idx < gPokedexRegions->variantCount)
+                    if(idx < gPokedexRegions[region].variantCount)
                     {
                         PlaySE(SE_SELECT);
-                        idx = (idx + 1) % gPokedexRegions->variantCount;
+                        idx = (idx + 1) % gPokedexRegions[region].variantCount;
 
-                        RoguePokedex_SetDexVariant(gPokedexRegions->variantList[idx]);
+                        RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[idx]);
                     }
                     else
                     {
@@ -1759,6 +1760,9 @@ static void MonStats_CreateSprites()
         sPokedexMenu->viewBaseSpecies,
         NON_SHINY_PLACEHOLDER,
         GetPokedexMonPersonality(sPokedexMenu->viewBaseSpecies),
+#ifdef ROGUE_EXPANSION
+        GetGenderForSpecies(sPokedexMenu->viewBaseSpecies, 0),
+#endif
         FALSE, // display as shiny if we have seen it?? 
         MON_PIC_AFFINE_FRONT,
         48, 66, 
@@ -1976,7 +1980,7 @@ u8 RoguePokedex_GetDexVariant()
 {
     u8 dexVariant = VarGet(VAR_ROGUE_DEX_VARIANT);
 
-    if(dexVariant < POKEDEX_REGION_COUNT)
+    if(dexVariant < POKEDEX_VARIANT_COUNT)
         return dexVariant;
 
     // Variant none is basically national dex mode
