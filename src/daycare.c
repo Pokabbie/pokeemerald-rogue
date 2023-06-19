@@ -617,14 +617,17 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
 // the given array.
 u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
 {
+    return GetEggMovesForSpecies(GetMonData(pokemon, MON_DATA_SPECIES), eggMoves);
+}
+
+u8 GetEggMovesForSpecies(u16 species, u16 *eggMoves)
+{
     u16 eggMoveIdx;
     u16 numEggMoves;
-    u16 species;
     u16 i;
 
     numEggMoves = 0;
     eggMoveIdx = 0;
-    species = GetMonData(pokemon, MON_DATA_SPECIES);
 
     species = Rogue_GetEggSpecies(species);
 

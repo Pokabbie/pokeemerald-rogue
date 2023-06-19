@@ -3,6 +3,7 @@
 #include "palette.h"
 #include "main.h"
 #include "data.h"
+#include "daycare.h"
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "scanline_effect.h"
@@ -18,10 +19,12 @@
 #include "menu.h"
 #include "sound.h"
 #include "trainer_pokemon_sprites.h"
+#include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon_icon.h"
 
 #include "constants/abilities.h"
+#include "constants/items.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
@@ -137,6 +140,8 @@ static void DisplayTitleScreenCountersText(void);
 static void DisplayTitleDexVariantText(void);
 static void DisplayMonEntryText(void);
 static void DisplayMonStatsText(void);
+static void DisplayMonMovesText(void);
+static void DisplayMonEvosText(void);
 static void InitOverviewBg(void);
 static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
@@ -160,10 +165,18 @@ static void Overview_FillEntryBg_Selected(u8 entryX, u8 entryY, bool8 includeHea
 static u8 Overview_GetLastValidActiveIndex();
 static u8 Overview_GetMaxScrollAmount();
 
+// MonInfo
+static void MonInfo_CreateSprites(bool8 includeType);
+static void MonInfo_DestroySprites();
+
 // Mon stats
-static void MonStats_CreateSprites();
-static void MonStats_DestroySprites();
 static void MonStats_HandleInput(u8);
+
+// Mon moves
+static void MonMoves_HandleInput(u8);
+
+// Mon evos
+static void MonEvos_HandleInput(u8);
 
 struct PokedexMenu
 {
@@ -184,6 +197,7 @@ struct PokedexMenu
     // Mon screen
     u16 lastCrySpecies;
     u16 viewBaseSpecies;
+    u16 listScrollAmount;
 };
 
 EWRAM_DATA static u8 *sTilemapBufferPtr = NULL;
@@ -217,6 +231,9 @@ static const u32 sOverviewTilemap[] = INCBIN_U32("graphics/rogue_pokedex/info_sc
 static const u32 sOverviewTiles[] = INCBIN_U32("graphics/rogue_pokedex/info_screen.4bpp.lz");
 
 static const u32 sMonStatsTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.bin.lz");
+static const u32 sMonMovesTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_moves.bin.lz");
+static const u32 sMonEvosTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_evos.bin.lz");
+// 3 above share the same tilemap
 static const u32 sMonStatsTiles[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.4bpp.lz");
 
 
@@ -305,6 +322,8 @@ static void MainCB2(void)
 
 static void InitPageResources(u8 page)
 {
+    sPokedexMenu->listScrollAmount = 0;
+
     InitOverviewBg();
     ResetTempTileDataBuffers();
 
@@ -355,10 +374,44 @@ static void InitPageResources(u8 page)
 
             LoadMonIconPalettes();
 
-            MonStats_CreateSprites();
+            MonInfo_CreateSprites(TRUE);
         }
         break;
-    
+
+    case PAGE_MON_MOVES:
+        {
+            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
+            while (FreeTempTileDataBuffersIfPossible())
+                ;
+            LZDecompressWram(sMonMovesTilemap, sTilemapBufferPtr);
+            CopyBgTilemapBufferToVram(1);
+
+            InitMonEntryWindows();
+            // Text printed below
+
+            LoadMonIconPalettes();
+
+            MonInfo_CreateSprites(FALSE);
+        }
+        break;
+
+    case PAGE_MON_EVOS:
+        {
+            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
+            while (FreeTempTileDataBuffersIfPossible())
+                ;
+            LZDecompressWram(sMonEvosTilemap, sTilemapBufferPtr);
+            CopyBgTilemapBufferToVram(1);
+
+            InitMonEntryWindows();
+            // Text printed below
+
+            LoadMonIconPalettes();
+
+            MonInfo_CreateSprites(FALSE);
+        }
+        break;
+
     default:
         break;
     }
@@ -385,7 +438,25 @@ static void DestroyPageResources(u8 page)
 
     case PAGE_MON_STATS:
         {
-            MonStats_DestroySprites();
+            MonInfo_DestroySprites();
+            FreeMonIconPalettes();
+
+            DestroyMonEntryWindows();
+        }
+        break;
+
+    case PAGE_MON_MOVES:
+        {
+            MonInfo_DestroySprites();
+            FreeMonIconPalettes();
+
+            DestroyMonEntryWindows();
+        }
+        break;
+
+    case PAGE_MON_EVOS:
+        {
+            MonInfo_DestroySprites();
             FreeMonIconPalettes();
 
             DestroyMonEntryWindows();
@@ -398,6 +469,7 @@ static void DestroyPageResources(u8 page)
 
     ResetSpriteData();
     FreeAllSpritePalettes();
+    CopyBgTilemapBufferToVram(0);
 }
 
 #define tDoFade data[0]
@@ -466,6 +538,16 @@ static void Task_PageFadeIn(u8 taskId)
         DisplayMonEntryText();
         DisplayMonStatsText();
         break;
+
+    case PAGE_MON_MOVES:
+        DisplayMonEntryText();
+        DisplayMonMovesText();
+        break;
+
+    case PAGE_MON_EVOS:
+        DisplayMonEntryText();
+        DisplayMonEvosText();
+        break;
     
     default:
         break;
@@ -507,6 +589,14 @@ static void Task_PageWaitForKeyPress(u8 taskId)
 
     case PAGE_MON_STATS:
         MonStats_HandleInput(taskId);
+        break;
+
+    case PAGE_MON_MOVES:
+        MonMoves_HandleInput(taskId);
+        break;
+
+    case PAGE_MON_EVOS:
+        MonEvos_HandleInput(taskId);
         break;
     
     default:
@@ -733,6 +823,150 @@ static void DisplayMonStatsText(void)
 
     PutWindowTilemap(WIN_MON_LIST);
     CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
+}
+
+#define MAX_LIST_DISPLAY_COUNT 8
+
+static u16 GetMaxMoveScrollOffset()
+{
+    u8 i;
+    u16 count = 0;
+    u16 moves[max(EGG_MOVES_ARRAY_COUNT, 128)]; // hardcoded max. Should probably change this to a define
+    u16 species = sPokedexMenu->viewBaseSpecies;
+    
+    // Level up
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    {
+        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+            break;
+        ++count;
+    }
+
+    // Egg moves
+    count += GetEggMovesForSpecies(species, &moves[0]);
+
+    // Tutor moves
+    count += GetTutorMovesForSpecies(species, &moves[0]);
+    
+    // TMS
+    for(i = 0; i < ITEM_HM08 - ITEM_TM01; ++i)
+    {
+        if(CanSpeciesLearnTMHM(species, i) != 0)
+            ++count;
+    }
+
+    return count - min(count, MAX_LIST_DISPLAY_COUNT);
+}
+
+static void DisplayMonMovesText()
+{
+    u8 i;
+    u8 listIndex = 0;
+    u8 displayCount = 0;
+    const u8 ySpacing = 16;
+    u8 color[3] = {0, 2, 3};
+    u16 species = sPokedexMenu->viewBaseSpecies;
+
+    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+
+    // Level moves
+    {
+        for (i = 0; i < MAX_LEVEL_UP_MOVES && displayCount < MAX_LIST_DISPLAY_COUNT; i++)
+        {
+            if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+                break;
+
+            if(gLevelUpLearnsets[species][i].level == 0)
+            {
+                // Is evo move
+                StringCopy(gStringVar1, gMoveNames[gLevelUpLearnsets[species][i].move]);
+                StringExpandPlaceholders(gStringVar3, gText_PokedexEvoMove);
+            }
+            else
+            { 
+                ConvertUIntToDecimalStringN(gStringVar1, gLevelUpLearnsets[species][i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
+                StringCopy(gStringVar2, gMoveNames[gLevelUpLearnsets[species][i].move]);
+                StringExpandPlaceholders(gStringVar3, gText_PokedexLevelMove);
+            }
+            
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+
+    // Egg moves
+    if(displayCount < MAX_LIST_DISPLAY_COUNT)
+    {
+        u16 moves[EGG_MOVES_ARRAY_COUNT];
+        u8 moveCount = GetEggMovesForSpecies(species, &moves[0]);
+
+        for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        {
+            StringCopy(gStringVar1, gMoveNames[moves[i]]);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexEggMove);
+            
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+
+    // Tutor moves
+    if(displayCount < MAX_LIST_DISPLAY_COUNT)
+    {
+        u16 moves[128]; // hardcoded max. Should probably change this to a define
+        u8 moveCount = GetTutorMovesForSpecies(species, &moves[0]);
+
+        for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        {
+            StringCopy(gStringVar1, gMoveNames[moves[i]]);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexTutorMove);
+            
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+
+    // TMS
+    if(displayCount < MAX_LIST_DISPLAY_COUNT)
+    {
+        for(i = 0; i < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        {
+            if(CanSpeciesLearnTMHM(species, i) != 0)
+            {
+                u16 move = ItemIdToBattleMoveId(ITEM_TM01 + i);
+                
+                StringCopy(gStringVar1, gMoveNames[move]);
+                StringExpandPlaceholders(gStringVar2, gText_PokedexTMMove);
+                
+                if(listIndex >= sPokedexMenu->listScrollAmount)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                    ++displayCount;
+                }
+                ++listIndex;
+            }
+        }
+    }
+
+    PutWindowTilemap(WIN_MON_LIST);
+    CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
+}
+
+static void DisplayMonEvosText()
+{
+
 }
 
 static const struct BgTemplate sDiplomaBgTemplates[2] =
@@ -1760,7 +1994,7 @@ static u8 Overview_GetMaxScrollAmount()
     }
 }
 
-// Mon Stats
+// Mon info
 //
 u32 GetPokedexMonPersonality(u16 species);
 
@@ -1768,7 +2002,7 @@ void LoadMoveTypesSpritesheetAndPalette();
 u8 CreateMonTypeIcon(u16 typeId, u8 x, u8 y);
 void DestroyMonTypIcon(u8 spriteId);
 
-static void MonStats_CreateSprites()
+static void MonInfo_CreateSprites(bool8 includeType)
 {
     LoadMoveTypesSpritesheetAndPalette(); // TODO - move
 
@@ -1786,26 +2020,18 @@ static void MonStats_CreateSprites()
         gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag // gMonShinyPaletteTable
     );
 
-    //sPokedexMenu->pageSprites[MON_SPRITE_BACK_PIC = CreateMonPicSprite_Affine(
-    //    sPokedexMenu->viewBaseSpecies,
-    //    NON_SHINY_PLACEHOLDER,
-    //    GetPokedexMonPersonality(sPokedexMenu->viewBaseSpecies),
-    //    FALSE, // display as shiny if we have seen it?? 
-    //    MON_PIC_AFFINE_BACK,
-    //    192, 70, 
-    //    0, 
-    //    gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
-    //);
-
     sPokedexMenu->pageSprites[MON_SPRITE_ICON] = CreateMonIcon(sPokedexMenu->viewBaseSpecies, SpriteCallbackDummy, 48, 8, 0, 0, TRUE);
 
-    sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type1, 138, 24);
+    if(includeType)
+    {
+        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type1, 138, 24);
 
-    if(gBaseStats[sPokedexMenu->viewBaseSpecies].type2 != gBaseStats[sPokedexMenu->viewBaseSpecies].type1)
-        sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type2, 138 + 33, 24);
+        if(gBaseStats[sPokedexMenu->viewBaseSpecies].type2 != gBaseStats[sPokedexMenu->viewBaseSpecies].type1)
+            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type2, 138 + 33, 24);
+    }
 }
 
-static void MonStats_DestroySprites()
+static void MonInfo_DestroySprites()
 {
     u8 i;
     u8 spriteId;
@@ -1838,6 +2064,9 @@ static void MonStats_DestroySprites()
         }
     }
 }
+
+// Mon Stats
+//
 
 // Can lag out if too many
 #define MAX_NEIGHBOUR_CHECKS 100
@@ -1928,13 +2157,15 @@ static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
     return fromSpecies;
 }
 
-static void MonStats_HandleInput(u8 taskId)
+static bool8 MonInfo_HandleInput(u8 taskId)
 {
     u16 viewSpecies = sPokedexMenu->viewBaseSpecies;
+    bool8 useInput = FALSE;
 
     // TODO A_BUTTON cycle forms (if any)
     if(JOY_NEW(L_BUTTON))
     {
+        useInput = TRUE;
         viewSpecies = MonStats_GetMonNeighbour(sPokedexMenu->viewBaseSpecies, -1);
 
         if(viewSpecies == sPokedexMenu->viewBaseSpecies)
@@ -1942,6 +2173,7 @@ static void MonStats_HandleInput(u8 taskId)
     }
     else if(JOY_NEW(R_BUTTON))
     {
+        useInput = TRUE;
         viewSpecies = MonStats_GetMonNeighbour(sPokedexMenu->viewBaseSpecies, 1);
 
         if(viewSpecies == sPokedexMenu->viewBaseSpecies)
@@ -1949,8 +2181,54 @@ static void MonStats_HandleInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON))
     {
+        useInput = TRUE;
+
         // Go back up to overview
         sPokedexMenu->desiredPage = PAGE_OVERVIEW;
+        gTasks[taskId].func = Task_SwapToPage;
+        PlaySE(SE_PIN);
+    }
+    else if(JOY_NEW(DPAD_LEFT))
+    {
+        useInput = TRUE;
+
+        switch (sPokedexMenu->currentPage)
+        {
+        case PAGE_MON_STATS:
+            sPokedexMenu->desiredPage = PAGE_MON_EVOS;
+            break;
+
+        case PAGE_MON_MOVES:
+            sPokedexMenu->desiredPage = PAGE_MON_STATS;
+            break;
+
+        case PAGE_MON_EVOS:
+            sPokedexMenu->desiredPage = PAGE_MON_MOVES;
+            break;
+        }
+
+        gTasks[taskId].func = Task_SwapToPage;
+        PlaySE(SE_PIN);
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        useInput = TRUE;
+
+        switch (sPokedexMenu->currentPage)
+        {
+        case PAGE_MON_STATS:
+            sPokedexMenu->desiredPage = PAGE_MON_MOVES;
+            break;
+
+        case PAGE_MON_MOVES:
+            sPokedexMenu->desiredPage = PAGE_MON_EVOS;
+            break;
+
+        case PAGE_MON_EVOS:
+            sPokedexMenu->desiredPage = PAGE_MON_STATS;
+            break;
+        }
+
         gTasks[taskId].func = Task_SwapToPage;
         PlaySE(SE_PIN);
     }
@@ -1961,6 +2239,50 @@ static void MonStats_HandleInput(u8 taskId)
         gTasks[taskId].func = Task_SwapToPage;
         PlaySE(SE_DEX_PAGE);
     }
+
+    return useInput;
+}
+
+static void MonStats_HandleInput(u8 taskId)
+{
+    MonInfo_HandleInput(taskId);
+}
+
+
+static void MonMoves_HandleInput(u8 taskId)
+{
+    if(MonInfo_HandleInput(taskId))
+        return;
+
+    if(JOY_NEW(DPAD_UP))
+    {
+        if(sPokedexMenu->listScrollAmount == 0)
+            sPokedexMenu->listScrollAmount = GetMaxMoveScrollOffset();
+        else if(sPokedexMenu->listScrollAmount <= MAX_LIST_DISPLAY_COUNT)
+            sPokedexMenu->listScrollAmount = 0;
+        else
+            sPokedexMenu->listScrollAmount -= MAX_LIST_DISPLAY_COUNT;
+
+        PlaySE(SE_DEX_SCROLL);
+        DisplayMonMovesText();
+    }
+    else if(JOY_NEW(DPAD_DOWN))
+    {
+        u16 maxScrollOffset = GetMaxMoveScrollOffset();
+
+        if(sPokedexMenu->listScrollAmount == maxScrollOffset)
+            sPokedexMenu->listScrollAmount = 0;
+        else
+            sPokedexMenu->listScrollAmount = min(maxScrollOffset, sPokedexMenu->listScrollAmount + MAX_LIST_DISPLAY_COUNT);
+
+        PlaySE(SE_DEX_SCROLL);
+        DisplayMonMovesText();
+    }
+}
+
+static void MonEvos_HandleInput(u8 taskId)
+{
+    MonInfo_HandleInput(taskId);
 }
 
 u8 RoguePokedex_GetDexRegion()
