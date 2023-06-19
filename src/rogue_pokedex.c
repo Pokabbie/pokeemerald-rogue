@@ -65,6 +65,10 @@ enum
     MON_SPRITE_ICON,
     MON_SPRITE_TYPE1,
     MON_SPRITE_TYPE2,
+    MON_SPRITE_EVO_ICON1,
+    MON_SPRITE_EVO_ICON2,
+    MON_SPRITE_EVO_ICON3,
+    MON_SPRITE_EVO_ICON4,
     MON_SPRITE_COUNT,
 };
 
@@ -177,6 +181,7 @@ static void MonMoves_HandleInput(u8);
 
 // Mon evos
 static void MonEvos_HandleInput(u8);
+static void MonEvos_CreateSprites();
 
 struct PokedexMenu
 {
@@ -409,6 +414,7 @@ static void InitPageResources(u8 page)
             LoadMonIconPalettes();
 
             MonInfo_CreateSprites(FALSE);
+            MonEvos_CreateSprites();
         }
         break;
 
@@ -880,13 +886,13 @@ static void DisplayMonMovesText()
             {
                 // Is evo move
                 StringCopy(gStringVar1, gMoveNames[gLevelUpLearnsets[species][i].move]);
-                StringExpandPlaceholders(gStringVar3, gText_PokedexEvoMove);
+                StringExpandPlaceholders(gStringVar3, gText_PokedexMovesEvo);
             }
             else
             { 
                 ConvertUIntToDecimalStringN(gStringVar1, gLevelUpLearnsets[species][i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
                 StringCopy(gStringVar2, gMoveNames[gLevelUpLearnsets[species][i].move]);
-                StringExpandPlaceholders(gStringVar3, gText_PokedexLevelMove);
+                StringExpandPlaceholders(gStringVar3, gText_PokedexMovesLevel);
             }
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -907,7 +913,7 @@ static void DisplayMonMovesText()
         for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
             StringCopy(gStringVar1, gMoveNames[moves[i]]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexEggMove);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesEgg);
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
@@ -927,7 +933,7 @@ static void DisplayMonMovesText()
         for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
             StringCopy(gStringVar1, gMoveNames[moves[i]]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexTutorMove);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTutor);
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
@@ -948,7 +954,7 @@ static void DisplayMonMovesText()
                 u16 move = ItemIdToBattleMoveId(ITEM_TM01 + i);
                 
                 StringCopy(gStringVar1, gMoveNames[move]);
-                StringExpandPlaceholders(gStringVar2, gText_PokedexTMMove);
+                StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
                 
                 if(listIndex >= sPokedexMenu->listScrollAmount)
                 {
@@ -964,9 +970,215 @@ static void DisplayMonMovesText()
     CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
 }
 
+static u16 GetMaxEvoScrollOffset()
+{
+    u8 i;
+    u8 count = 0;
+    struct Evolution evo;
+
+    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+
+    for(i = 0; i < EVOS_PER_MON; ++i)
+    {
+        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+
+        if(evo.targetSpecies == SPECIES_NONE)
+            continue;
+
+#ifdef ROGUE_EXPANSION
+        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
+            continue;
+#endif
+        
+        ++count;
+    }
+
+    return count != 0 ? count - 1 : 0;
+}
+
+
+static u16 GetActiveEvoSpecies()
+{
+    u8 i;
+    u8 listIndex = 0;
+    struct Evolution evo;
+
+    for(i = 0; i < EVOS_PER_MON; ++i)
+    {
+        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+
+        if(evo.targetSpecies == SPECIES_NONE)
+            continue;
+
+#ifdef ROGUE_EXPANSION
+        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
+            continue;
+#endif
+        
+        if(listIndex >= sPokedexMenu->listScrollAmount)
+            return evo.targetSpecies;
+
+        ++listIndex;
+    }
+
+    return SPECIES_NONE;
+}
+
+extern const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1];
+
 static void DisplayMonEvosText()
 {
+    u8 i;
+    const u8 ySpacing = 16;
+    u8 color[3] = {0, 2, 3};
+    u8 listIndex = 0;
+    u8 displayCount = 0;
+    struct Evolution evo;
 
+    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+
+    for(i = 0; i < EVOS_PER_MON; ++i)
+    {
+        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+
+        if(evo.targetSpecies == SPECIES_NONE)
+            continue;
+        
+#ifdef ROGUE_EXPANSION
+        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
+            continue;
+#endif
+
+        if(listIndex >= sPokedexMenu->listScrollAmount)
+        {
+            switch(evo.method)
+            {
+                case EVO_FRIENDSHIP:
+                    StringCopy(gStringVar4, gText_PokedexEvoFriendship);
+                    break;
+                case EVO_FRIENDSHIP_DAY:
+                    StringCopy(gStringVar4, gText_PokedexEvoFriendshipDay);
+                    break;
+                case EVO_FRIENDSHIP_NIGHT:
+                    StringCopy(gStringVar4, gText_PokedexEvoFriendshipNight);
+                    break;
+
+                case EVO_LEVEL:
+                case EVO_LEVEL_SILCOON:
+                case EVO_LEVEL_CASCOON:
+                case EVO_LEVEL_NINJASK:
+                case EVO_LEVEL_SHEDINJA:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevel);
+                    break;
+                case EVO_TRADE:
+                    StringCopy(gStringVar4, gText_PokedexEvoTrade);
+                    break;
+                case EVO_TRADE_ITEM:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoTradeItem);
+                    break;
+                case EVO_ITEM:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoItem);
+                    break;
+        
+                case EVO_LEVEL_ATK_GT_DEF:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelAtkGtDef);
+                    break;
+                case EVO_LEVEL_ATK_EQ_DEF:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelAtkEqDef);
+                    break;
+                case EVO_LEVEL_ATK_LT_DEF:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelAtkLtDef);
+                    break;
+                
+                case EVO_BEAUTY:
+                    StringCopy(gStringVar4, gText_PokedexEvoBeauty);
+                    break;
+                case EVO_LEVEL_ITEM:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelItem);
+                    break;
+
+                case EVO_LEVEL_DAY:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelDay);
+                    break;
+                case EVO_LEVEL_NIGHT:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelNight);
+                    break;
+
+#ifdef ROGUE_EXPANSION
+                case EVO_LEVEL_DUSK:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelDusk);
+                    break;
+
+                case EVO_ITEM_HOLD_DAY:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelItemDay);
+                    break;
+                case EVO_ITEM_HOLD_NIGHT:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelItemNight);
+                    break;
+
+                case EVO_MOVE:
+                    StringCopy(gStringVar1, gMoveNames[evo.param]);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoMove);
+                    break;
+                case EVO_MOVE_TYPE:
+                    StringCopy(gStringVar1, gTypeNames[evo.param]);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoMoveType);
+                    break;
+
+                case EVO_ITEM_MALE:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoItemMale);
+                    break;
+                case EVO_ITEM_FEMALE:
+                    StringCopy(gStringVar1, Rogue_GetItemName(evo.param));
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoItemFemale);
+                    break;
+
+                case EVO_LEVEL_RAIN:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelRain);
+                    break;
+
+                case EVO_LEVEL_NATURE_AMPED:
+                case EVO_LEVEL_NATURE_LOW_KEY:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevel);
+                    break;
+#endif
+                default:
+                    StringCopy(gStringVar4, gText_PokedexEvoTODO);
+                    break;
+            };
+
+            // Add arrow
+            if(displayCount == 0)
+                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
+
+            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount++, 0, 0, color, TEXT_SKIP_DRAW, gSpeciesNames[evo.targetSpecies]);
+            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount++, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        }
+        ++listIndex;
+    }
+
+    if(displayCount == 0)
+    {
+        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 15, 0, 0, 0, color, TEXT_SKIP_DRAW, gText_PokedexEvoNoData);
+    }
+
+    PutWindowTilemap(WIN_MON_LIST);
+    CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
 }
 
 static const struct BgTemplate sDiplomaBgTemplates[2] =
@@ -2050,6 +2262,10 @@ static void MonInfo_DestroySprites()
                 break;
             
             case MON_SPRITE_ICON:
+            case MON_SPRITE_EVO_ICON1:
+            case MON_SPRITE_EVO_ICON2:
+            case MON_SPRITE_EVO_ICON3:
+            case MON_SPRITE_EVO_ICON4:
                 FreeAndDestroyMonIconSprite(&gSprites[spriteId]);
                 break;
 
@@ -2282,7 +2498,104 @@ static void MonMoves_HandleInput(u8 taskId)
 
 static void MonEvos_HandleInput(u8 taskId)
 {
-    MonInfo_HandleInput(taskId);
+    if(MonInfo_HandleInput(taskId))
+        return;
+
+    if(JOY_NEW(DPAD_UP))
+    {
+        u16 maxScrollOffset = GetMaxEvoScrollOffset();
+
+        if(maxScrollOffset == 0)
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            if(sPokedexMenu->listScrollAmount == 0)
+                sPokedexMenu->listScrollAmount = maxScrollOffset;
+            else
+                --sPokedexMenu->listScrollAmount;
+
+            PlaySE(SE_DEX_SCROLL);
+            DisplayMonEvosText();
+            MonEvos_CreateSprites();
+        }
+    }
+    else if(JOY_NEW(DPAD_DOWN))
+    {
+        u16 maxScrollOffset = GetMaxEvoScrollOffset();
+
+        if(maxScrollOffset == 0)
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            if(sPokedexMenu->listScrollAmount == maxScrollOffset)
+                sPokedexMenu->listScrollAmount = 0;
+            else
+                ++sPokedexMenu->listScrollAmount;
+
+            PlaySE(SE_DEX_SCROLL);
+            DisplayMonEvosText();
+            MonEvos_CreateSprites();
+        }
+    }
+    else if(JOY_NEW(A_BUTTON))
+    {
+        u16 species = GetActiveEvoSpecies();
+
+        if(species == SPECIES_NONE)
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            sPokedexMenu->desiredPage = PAGE_MON_EVOS;
+            sPokedexMenu->viewBaseSpecies = species;
+            gTasks[taskId].func = Task_SwapToPage;
+
+            PlaySE(SE_PIN);
+        }
+    }
+}
+
+static void MonEvos_CreateSprites()
+{
+    u8 i;
+    u8 listIndex = 0;
+    u8 displayCount = 0;
+    struct Evolution evo;
+
+    // Destroy any previous sprites
+    for(i = 0; i < 4; ++i)
+    {
+        if(sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i] != SPRITE_NONE)
+        {
+            FreeAndDestroyMonIconSprite(&gSprites[sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i]]);
+            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i] = SPRITE_NONE;
+        }
+    }
+
+    for(i = 0; i < EVOS_PER_MON && displayCount < 4; ++i)
+    {
+        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+
+        if(evo.targetSpecies == SPECIES_NONE)
+            continue;
+    
+#ifdef ROGUE_EXPANSION
+        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
+            continue;
+#endif
+            
+        if(listIndex >= sPokedexMenu->listScrollAmount)
+        {
+            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, TRUE);
+            ++displayCount;
+        }
+        ++listIndex;
+    }
 }
 
 u8 RoguePokedex_GetDexRegion()
