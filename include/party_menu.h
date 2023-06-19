@@ -93,5 +93,6 @@ void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 
 u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves);
+u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves);
 
 #endif // GUARD_PARTY_MENU_H

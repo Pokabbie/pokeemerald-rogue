@@ -2031,15 +2031,18 @@ static bool8 CanLearnTutorMove(u16 species, u8 tutor)
 
 u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
 {
+    return GetTutorMovesForSpecies(GetMonData(pokemon, MON_DATA_SPECIES), tutorMoves);
+}
+
+u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves)
+{
     u16 tutorMoveIdx;
     u16 numTutorMoves;
     u16 move;
-    u16 species;
     u16 i;
 
     numTutorMoves = 0;
     tutorMoveIdx = 0;
-    species = GetMonData(pokemon, MON_DATA_SPECIES);
 
     // Place out generated moves ahead of the default ones
     for(i = 0; i < gPresetMonTable[species].movesCount; ++i)
