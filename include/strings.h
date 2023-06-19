@@ -1143,11 +1143,39 @@ extern const u8 gText_RegionUnova[];
 extern const u8 gText_RegionKalos[];
 extern const u8 gText_RegionAlola[];
 extern const u8 gText_RegionGalar[];
-extern const u8 gText_PokedexLevelMove[];
+extern const u8 gText_PokedexMovesLevel[];
+extern const u8 gText_PokedexMovesEvo[];
+extern const u8 gText_PokedexMovesTM[];
+extern const u8 gText_PokedexMovesEgg[];
+extern const u8 gText_PokedexMovesTutor[];
+
+extern const u8 gText_PokedexEvoFriendship[];
+extern const u8 gText_PokedexEvoFriendshipDay[];
+extern const u8 gText_PokedexEvoFriendshipNight[];
+extern const u8 gText_PokedexEvoLevel[];
+extern const u8 gText_PokedexEvoTrade[];
+extern const u8 gText_PokedexEvoTradeItem[];
+extern const u8 gText_PokedexEvoItem[];
+extern const u8 gText_PokedexEvoLevelAtkGtDef[];
+extern const u8 gText_PokedexEvoLevelAtkEqDef[];
+extern const u8 gText_PokedexEvoLevelAtkLtDef[];
+extern const u8 gText_PokedexEvoBeauty[];
+extern const u8 gText_PokedexEvoLevelItem[];
+extern const u8 gText_PokedexEvoLevelDay[];
+extern const u8 gText_PokedexEvoLevelNight[];
+
+extern const u8 gText_PokedexEvoLevelDusk[];
+extern const u8 gText_PokedexEvoLevelItemDay[];
+extern const u8 gText_PokedexEvoLevelItemNight[];
 extern const u8 gText_PokedexEvoMove[];
-extern const u8 gText_PokedexTMMove[];
-extern const u8 gText_PokedexEggMove[];
-extern const u8 gText_PokedexTutorMove[];
+extern const u8 gText_PokedexEvoMoveType[];
+extern const u8 gText_PokedexEvoItemMale[];
+extern const u8 gText_PokedexEvoItemFemale[];
+extern const u8 gText_PokedexEvoLevelRain[];
+
+extern const u8 gText_PokedexEvoTODO[];
+extern const u8 gText_PokedexEvoNoData[];
+
 extern const u8 gText_FullRun[];
 extern const u8 gText_SkipAhead[];
 extern const u8 gText_SwapOne[];

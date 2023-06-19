@@ -686,11 +686,39 @@ const u8 gText_RegionUnova[] = _("UNOVA");
 const u8 gText_RegionKalos[] = _("KALOS");
 const u8 gText_RegionAlola[] = _("ALOLA");
 const u8 gText_RegionGalar[] = _("GALAR");
-const u8 gText_PokedexLevelMove[] = _("{COLOR RED}{SHADOW LIGHT_RED}{LV}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_2}");
-const u8 gText_PokedexEvoMove[] = _("{COLOR LIGHT_GRAY}{SHADOW RED}Evo. {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
-const u8 gText_PokedexTMMove[] = _("{COLOR LIGHT_GREEN}{SHADOW LIGHT_GRAY}TM.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
-const u8 gText_PokedexEggMove[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Egg  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
-const u8 gText_PokedexTutorMove[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tutor {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesLevel[] = _("{COLOR RED}{SHADOW LIGHT_RED}{LV}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_2}");
+const u8 gText_PokedexMovesEvo[] = _("{COLOR LIGHT_GRAY}{SHADOW RED}Evo. {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesTM[] = _("{COLOR LIGHT_GREEN}{SHADOW LIGHT_GRAY}TM.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesEgg[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Egg  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesTutor[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tutor {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+
+const u8 gText_PokedexEvoFriendship[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship");
+const u8 gText_PokedexEvoFriendshipDay[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR GREEN}{SHADOW LIGHT_GREEN}day");
+const u8 gText_PokedexEvoFriendshipNight[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR GREEN}{SHADOW LIGHT_GREEN}night");
+const u8 gText_PokedexEvoLevel[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}");
+const u8 gText_PokedexEvoTrade[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Trade");
+const u8 gText_PokedexEvoTradeItem[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Trade{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} hold {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1}");
+const u8 gText_PokedexEvoItem[] = _("Use {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1}");
+const u8 gText_PokedexEvoLevelAtkGtDef[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} with {COLOR GREEN}{SHADOW LIGHT_GREEN}high ATK");
+const u8 gText_PokedexEvoLevelAtkEqDef[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} with {COLOR GREEN}{SHADOW LIGHT_GREEN}equal ATK and DEF");
+const u8 gText_PokedexEvoLevelAtkLtDef[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} with {COLOR GREEN}{SHADOW LIGHT_GREEN}high DEF");
+const u8 gText_PokedexEvoBeauty[] = _("{LV} with {COLOR GREEN}{SHADOW LIGHT_GREEN}high beauty");
+const u8 gText_PokedexEvoLevelItem[] = _("{LV} with {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1}");
+const u8 gText_PokedexEvoLevelDay[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR GREEN}{SHADOW LIGHT_GREEN}day");
+const u8 gText_PokedexEvoLevelNight[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR GREEN}{SHADOW LIGHT_GREEN}night");
+
+const u8 gText_PokedexEvoLevelDusk[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR GREEN}{SHADOW LIGHT_GREEN}dusk");
+const u8 gText_PokedexEvoLevelItemDay[] = _("{LV} with {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} at {COLOR GREEN}{SHADOW LIGHT_GREEN}day");
+const u8 gText_PokedexEvoLevelItemNight[] = _("{LV} with {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} at {COLOR GREEN}{SHADOW LIGHT_GREEN}night");
+const u8 gText_PokedexEvoMove[] = _("{LV} knowing {COLOR GREEN}{SHADOW LIGHT_GREEN}{STR_VAR_1}");
+const u8 gText_PokedexEvoMoveType[] = _("{LV} knowing {COLOR GREEN}{SHADOW LIGHT_GREEN}{STR_VAR_1} type move");
+const u8 gText_PokedexEvoItemMale[] = _("Use {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}on {COLOR GREEN}{SHADOW LIGHT_GREEN}male {PKMN}");
+const u8 gText_PokedexEvoItemFemale[] = _("Use {COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}on {COLOR GREEN}{SHADOW LIGHT_GREEN}female {PKMN}");
+const u8 gText_PokedexEvoLevelRain[] = _("Reach {COLOR GREEN}{SHADOW LIGHT_GREEN}{LV}{STR_VAR_1}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} while {COLOR GREEN}{SHADOW LIGHT_GREEN}raining");
+
+const u8 gText_PokedexEvoTODO[] = _("EVO TEXT TODO");
+const u8 gText_PokedexEvoNoData[] = _("{COLOR RED}{SHADOW LIGHT_RED}No Evolution data found");
+
 const u8 gText_FullRun[] = _("FULL RUN");
 const u8 gText_SkipAhead[] = _("SKIP AHEAD");
 const u8 gText_SwapOne[] = _("TRADE ONE");
