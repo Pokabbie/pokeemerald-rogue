@@ -151,7 +151,7 @@ static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
 static void PrintDiplomaText(u8 *, u8, u8);
 static void InitPageResources(u8 fromPage, u8 toPage);
-static void DestroyPageResources(u8 page);
+static void DestroyPageResources(u8 fromPage, u8 toPage);
 
 // Title screen
 static void TitleScreen_HandleInput(u8);
@@ -195,7 +195,7 @@ struct PokedexMenu
 
     // Overview
     u16 selectedIdx;
-    u16 scrollAmount;
+    u16 pageScrollAmount;
     u16 overviewPageSpecies[OVERVIEW_ENTRY_COUNT];
     u16 overviewPageNumbers[OVERVIEW_ENTRY_COUNT];
 
@@ -366,6 +366,8 @@ static void InitPageResources(u8 fromPage, u8 toPage)
         
     case PAGE_OVERVIEW:
         {
+            u16 desiredIdx = 0;
+
             DecompressAndCopyTileDataToVram(1, &sOverviewTiles, 0, 0, 0);
             while (FreeTempTileDataBuffersIfPossible())
                 ;
@@ -374,6 +376,22 @@ static void InitPageResources(u8 fromPage, u8 toPage)
 
             LoadMonIconPalettes();
             //BlendPalettes(PALETTES_ALL, 16, RGB_BLACK); // Ensure the mon icon palettes are faded
+
+            desiredIdx = RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies);
+
+            // Try and put the location on the mon we were just viewing
+            if(desiredIdx != 0) // invalid num
+            {
+                --desiredIdx;
+                sPokedexMenu->pageScrollAmount = 0;
+
+                if(desiredIdx > OVERVIEW_ENTRY_COUNT)
+                {
+                    sPokedexMenu->pageScrollAmount = min(1 + (desiredIdx - OVERVIEW_ENTRY_COUNT) / COLUMN_ENTRY_COUNT, Overview_GetMaxScrollAmount());
+                }
+
+                sPokedexMenu->selectedIdx = desiredIdx - (sPokedexMenu->pageScrollAmount * COLUMN_ENTRY_COUNT);
+            }
 
             Overview_SelectSpeciesToDiplay();
             Overview_RefillBg();
@@ -429,11 +447,13 @@ static void InitPageResources(u8 fromPage, u8 toPage)
     }
 }
 
-static void DestroyPageResources(u8 page)
+static void DestroyPageResources(u8 fromPage, u8 toPage)
 {
     u8 i;
     
-    switch (page)
+    // TODO - Could stop sprites from flashing if we didn't destroy them here
+
+    switch (fromPage)
     {
     case PAGE_TITLE_SCREEN:
         {
@@ -488,7 +508,7 @@ static void DestroyPageResources(u8 page)
 
 static void Task_SetupPage(u8 taskId)
 {
-    DestroyPageResources(sPokedexMenu->currentPage);
+    DestroyPageResources(sPokedexMenu->currentPage, sPokedexMenu->desiredPage);
     InitPageResources(sPokedexMenu->currentPage, sPokedexMenu->desiredPage);
     
     sPokedexMenu->currentPage = sPokedexMenu->desiredPage;
@@ -511,7 +531,7 @@ static void Task_SwapToPage(u8 taskId)
     if(sPokedexMenu->currentPage >= PAGE_MON_STATS && sPokedexMenu->currentPage <= PAGE_MON_FORMS && 
         sPokedexMenu->desiredPage >= PAGE_MON_STATS && sPokedexMenu->desiredPage <= PAGE_MON_FORMS)
     {
-        gTasks[taskId].tDoFade = (sPokedexMenu->lastCrySpecies != sPokedexMenu->viewBaseSpecies);
+        gTasks[taskId].tDoFade = FALSE;//(sPokedexMenu->lastCrySpecies != sPokedexMenu->viewBaseSpecies);
     }
     else
     {
@@ -622,7 +642,7 @@ static void Task_PageFadeOutAndExit(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        DestroyPageResources(sPokedexMenu->currentPage);
+        DestroyPageResources(sPokedexMenu->currentPage, PAGE_NONE);
 
         Free(sPokedexMenu);
         sPokedexMenu = NULL;
@@ -1429,7 +1449,7 @@ static void TitleScreen_HandleInput(u8 taskId)
     {
         if (JOY_NEW(A_BUTTON))
         {
-            sPokedexMenu->scrollAmount = 0;
+            sPokedexMenu->pageScrollAmount = 0;
             sPokedexMenu->selectedIdx = 0;
 
             sPokedexMenu->desiredPage = PAGE_OVERVIEW;
@@ -1915,7 +1935,7 @@ static void Overview_HandleInput(u8 taskId)
 {
     bool8 justJumpedPage = FALSE;
     u16 prevSelectedIdx = sPokedexMenu->selectedIdx;
-    u16 prevScrollAmount = sPokedexMenu->scrollAmount;
+    u16 prevScrollAmount = sPokedexMenu->pageScrollAmount;
 
     if(JOY_NEW(DPAD_LEFT))
     {
@@ -1945,8 +1965,8 @@ static void Overview_HandleInput(u8 taskId)
             sPokedexMenu->selectedIdx -= COLUMN_ENTRY_COUNT; // jump back a row
         else
         {
-            if(sPokedexMenu->scrollAmount != 0)
-            --sPokedexMenu->scrollAmount;
+            if(sPokedexMenu->pageScrollAmount != 0)
+            --sPokedexMenu->pageScrollAmount;
         }
     }
     else if(JOY_NEW(DPAD_DOWN))
@@ -1954,35 +1974,35 @@ static void Overview_HandleInput(u8 taskId)
         if(sPokedexMenu->selectedIdx < OVERVIEW_ENTRY_COUNT - COLUMN_ENTRY_COUNT)
             sPokedexMenu->selectedIdx += COLUMN_ENTRY_COUNT; // jump down a row
         else
-            ++sPokedexMenu->scrollAmount;
+            ++sPokedexMenu->pageScrollAmount;
     }
     else if(JOY_NEW(L_BUTTON))
     {
-        if(sPokedexMenu->scrollAmount != 0)
-            sPokedexMenu->scrollAmount -= min(sPokedexMenu->scrollAmount, ROW_ENTRY_COUNT);
+        if(sPokedexMenu->pageScrollAmount != 0)
+            sPokedexMenu->pageScrollAmount -= min(sPokedexMenu->pageScrollAmount, ROW_ENTRY_COUNT);
         else if(sPokedexMenu->selectedIdx != 0)
             sPokedexMenu->selectedIdx = 0; // Put back to first slot before looping
         else
-            sPokedexMenu->scrollAmount = Overview_GetMaxScrollAmount();
+            sPokedexMenu->pageScrollAmount = Overview_GetMaxScrollAmount();
 
         justJumpedPage = TRUE;
     }
     else if(JOY_NEW(R_BUTTON))
     {
         u8 maxScrollAmount = Overview_GetMaxScrollAmount();
-        sPokedexMenu->scrollAmount += ROW_ENTRY_COUNT;
+        sPokedexMenu->pageScrollAmount += ROW_ENTRY_COUNT;
         
-        if(sPokedexMenu->scrollAmount > maxScrollAmount)
+        if(sPokedexMenu->pageScrollAmount > maxScrollAmount)
         {
             u8 maxIdx = Overview_GetLastValidActiveIndex();
             if(sPokedexMenu->selectedIdx != maxIdx)
             {
-                sPokedexMenu->scrollAmount = maxScrollAmount;
+                sPokedexMenu->pageScrollAmount = maxScrollAmount;
                 sPokedexMenu->selectedIdx = maxIdx;
             }
             else
             {
-                sPokedexMenu->scrollAmount = 0;
+                sPokedexMenu->pageScrollAmount = 0;
             }
         }
 
@@ -2022,12 +2042,12 @@ static void Overview_HandleInput(u8 taskId)
         sPokedexMenu->selectedIdx = min(sPokedexMenu->selectedIdx, Overview_GetLastValidActiveIndex());
     }
 
-    if(prevScrollAmount != sPokedexMenu->scrollAmount)
+    if(prevScrollAmount != sPokedexMenu->pageScrollAmount)
     {
-        sPokedexMenu->scrollAmount = min(sPokedexMenu->scrollAmount, Overview_GetMaxScrollAmount());
+        sPokedexMenu->pageScrollAmount = min(sPokedexMenu->pageScrollAmount, Overview_GetMaxScrollAmount());
     }
 
-    if(prevScrollAmount != sPokedexMenu->scrollAmount)
+    if(prevScrollAmount != sPokedexMenu->pageScrollAmount)
     {
         // Scroll up/down
         Overview_SelectSpeciesToDiplay();
@@ -2172,7 +2192,7 @@ static void Overview_SelectSpeciesToDiplay()
 
     for(i = 0; i < OVERVIEW_ENTRY_COUNT; ++i)
     {
-        num = i + sPokedexMenu->scrollAmount * COLUMN_ENTRY_COUNT;
+        num = i + sPokedexMenu->pageScrollAmount * COLUMN_ENTRY_COUNT;
 
         species = SPECIES_NONE;
 
@@ -2740,7 +2760,7 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
     u8 genLimit = RoguePokedex_GetDexGenLimit();
     u8 speciesGen = SpeciesToGen(species);;
 
-    if(speciesGen > genLimit)
+    if(species == SPECIES_NONE || speciesGen > genLimit)
         return FALSE;
     
 #ifdef ROGUE_EXPANSION
