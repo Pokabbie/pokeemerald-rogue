@@ -180,6 +180,7 @@ const u8 gText_HOFCorrupted[] = _("The HALL OF FAME data is corrupted.");
 const u8 gText_HOFNumber[] = _("HALL OF FAME No. {STR_VAR_1}");
 const u8 gText_LeagueChamp[] = _("{STR_VAR_3}LEAGUE CHAMPION{STR_VAR_1}\n{STR_VAR_3}CONGRATULATIONS{STR_VAR_2}");
 const u8 gText_Number[] = _("No. ");
+const u8 gText_NumberStr1[] = _("No. {STR_VAR_1}");
 const u8 gText_Level[] = _("Lv. ");
 const u8 gText_IdNumberSlash[] = _("IDNo. /"); // Unused
 const u8 gText_Name[] = _("NAME");

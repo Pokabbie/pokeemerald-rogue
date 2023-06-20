@@ -150,7 +150,7 @@ static void InitOverviewBg(void);
 static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
 static void PrintDiplomaText(u8 *, u8, u8);
-static void InitPageResources(u8 page);
+static void InitPageResources(u8 fromPage, u8 toPage);
 static void DestroyPageResources(u8 page);
 
 // Title screen
@@ -303,7 +303,7 @@ static void CB2_Rogue_ShowPokedex(void)
     //CopyBgTilemapBufferToVram(1);
 
     sPokedexMenu->currentPage = sPokedexMenu->desiredPage;
-    InitPageResources(sPokedexMenu->currentPage);
+    InitPageResources(PAGE_NONE, sPokedexMenu->currentPage);
 
     // Fade into page
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
@@ -325,14 +325,29 @@ static void MainCB2(void)
     UpdatePaletteFade();
 }
 
-static void InitPageResources(u8 page)
+static void InitPageResources(u8 fromPage, u8 toPage)
 {
     sPokedexMenu->listScrollAmount = 0;
 
     InitOverviewBg();
     ResetTempTileDataBuffers();
 
-    switch (page)
+    // If we're swapping onto a mon page for the first tile load tiles
+    if(toPage >= PAGE_MON_STATS && toPage <= PAGE_MON_FORMS)
+    {
+        if(fromPage >= PAGE_MON_STATS && fromPage <= PAGE_MON_FORMS)
+        {
+            // No need + causes VRAM issues
+        }
+        else
+        {
+            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
+            while (FreeTempTileDataBuffersIfPossible())
+                ;
+        }
+    }
+
+    switch (toPage)
     {
     case PAGE_TITLE_SCREEN:
         {
@@ -368,9 +383,6 @@ static void InitPageResources(u8 page)
 
     case PAGE_MON_STATS:
         {
-            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
-            while (FreeTempTileDataBuffersIfPossible())
-                ;
             LZDecompressWram(sMonStatsTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
@@ -385,9 +397,6 @@ static void InitPageResources(u8 page)
 
     case PAGE_MON_MOVES:
         {
-            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
-            while (FreeTempTileDataBuffersIfPossible())
-                ;
             LZDecompressWram(sMonMovesTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
@@ -402,9 +411,6 @@ static void InitPageResources(u8 page)
 
     case PAGE_MON_EVOS:
         {
-            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
-            while (FreeTempTileDataBuffersIfPossible())
-                ;
             LZDecompressWram(sMonEvosTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
@@ -483,10 +489,9 @@ static void DestroyPageResources(u8 page)
 static void Task_SetupPage(u8 taskId)
 {
     DestroyPageResources(sPokedexMenu->currentPage);
-
+    InitPageResources(sPokedexMenu->currentPage, sPokedexMenu->desiredPage);
+    
     sPokedexMenu->currentPage = sPokedexMenu->desiredPage;
-
-    InitPageResources(sPokedexMenu->currentPage);
 
     if(gTasks[taskId].tDoFade)
     {
@@ -512,6 +517,9 @@ static void Task_SwapToPage(u8 taskId)
     {
         gTasks[taskId].tDoFade = TRUE;
     }
+
+    // Force do fade to prevent VRAM bug (TODO - should revisit and see if can actually fix it)
+    //gTasks[taskId].tDoFade = TRUE;
 
     if(gTasks[taskId].tDoFade)
     {
@@ -754,8 +762,12 @@ static void DisplayTitleDexVariantText(void)
 static void DisplayMonEntryText(void)
 {
     u8 color[3] = {0, 2, 3};
+    
+    ConvertUIntToDecimalStringN(gStringVar1, RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies), STR_CONV_MODE_LEADING_ZEROS, 3);
+    StringExpandPlaceholders(gStringVar3, gText_NumberStr1);
 
     AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, gSpeciesNames[sPokedexMenu->viewBaseSpecies]);
+    AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 17, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
 
     PutWindowTilemap(WIN_MON_SPECIES);
     CopyWindowToVram(WIN_MON_SPECIES, COPYWIN_FULL);
@@ -2747,7 +2759,7 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
         }
         else
         {
-            u8 i;
+            u16 i;
 
             for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
             {
@@ -2760,4 +2772,37 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
     }
 
     return TRUE;
+}
+
+u16 RoguePokedex_GetSpeciesCurrentNum(u16 species)
+{
+    if(!RoguePokedex_IsSpeciesEnabled(species))
+        return 0;
+
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        u16 num = SpeciesToNationalPokedexNum(species);
+
+        if(num <= RoguePokedex_GetNationalDexLimit())
+        {
+            return num;
+        }
+    }
+    else
+    {
+        u16 i;
+        u8 variant = RoguePokedex_GetDexVariant();
+
+        for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
+        {
+            if(gPokedexVariants[variant].speciesList[i] == species)
+                return i + 1;
+        }
+    }
+
+    return 0;
 }
