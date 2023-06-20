@@ -36,6 +36,7 @@
 
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 
 static EWRAM_DATA struct EasyChatScreen *sEasyChatScreen = NULL;
 static EWRAM_DATA struct EasyChatScreenControl *sScreenControl = NULL;
@@ -1453,7 +1454,7 @@ static void ExitEasyChatScreen(MainCallback callback)
 
 static bool8 CanPokemonBeShown(u16 species)
 {
-    return IsGenEnabled(SpeciesToGen(species));
+    return RoguePokedex_IsSpeciesEnabled(species);
 }
 
 void ShowEasyChatScreen(void)

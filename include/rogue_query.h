@@ -2,6 +2,13 @@
 #define ROGUE_QUERY_H
 
 typedef bool8 (*QueryCallback)(u16 elem, u16 usrData);
+typedef u8 (*WeightCallback)(u16 index, u16 elem, void* usrData);
+
+enum
+{
+    QUERY_FUNC_INCLUDE,
+    QUERY_FUNC_EXCLUDE,
+};
 
 struct RogueQueryDebug
 {
@@ -11,8 +18,35 @@ struct RogueQueryDebug
     u16* collapseSizePtr;
 };
 
-u16 RogueUtil_GetEggSpecies(u16 species);
+// RogueQuery 2.0 API
+// Misc./Global
+void RogueMiscQuery_EditElement(u8 func, u16 elem);
+void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 
+// Mon Query
+void RogueMonQuery_Begin();
+void RogueMonQuery_End();
+void RogueMonQuery_TransformIntoEggSpecies();
+void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies);
+void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count);
+void RogueMonQuery_EvosContainType(u8 func, const u8* types, u8 count);
+void RogueMonQuery_IsLegendary(u8 func);
+
+// Item Query
+void RogueItemQuery_Begin();
+void RogueItemQuery_End();
+
+// Weight selection
+void RogueWeightQuery_Begin();
+void RogueWeightQuery_End();
+void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
+void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
+u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue);
+u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight);
+//u16 RogueWeightQuery_SelectFromWeights();
+
+
+// RogueQuery old API
 void RogueQuery_Clear(void);
 void RogueQuery_CollapseSpeciesBuffer(void);
 void RogueQuery_CollapseItemBuffer(void);

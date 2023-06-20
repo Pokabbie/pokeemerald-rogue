@@ -130,6 +130,34 @@ int main()
 		file << "\n";
 	}
 
+	// Evo of type
+	//
+	{
+		std::array<u8, SPECIES_FLAGS_BYTE_COUNT> bitFlags;
+
+		file << "const u8 gRogueBake_SpeciesEvoTypeBitFlags[NUMBER_OF_MON_TYPES][SPECIES_FLAGS_BYTE_COUNT] =\n{\n";
+		for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
+		{
+			bitFlags.fill(0);
+
+			for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+			{
+				if (HasEvolutionConnectionOfType(s, t))
+				{
+					SetBitFlag(s, TRUE, &bitFlags[0]);
+				}
+			}
+
+			file << "\t[" << t << "] = \n\t{\n";
+			for (int j = 0; j < SPECIES_FLAGS_BYTE_COUNT; ++j)
+			{
+				file << "\t\t" << (int)bitFlags[j] << ",\n";
+			}
+			file << "\t},\n";
+		}
+		file << "};\n";
+	}
+
 	// Species int type evo chains
 	//
 	{

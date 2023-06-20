@@ -12,6 +12,7 @@
 #include "event_data.h"
 #include "item.h"
 #include "item_use.h"
+#include "malloc.h"
 //#include "money.h"
 //#include "overworld.h"
 #include "pokedex.h"
@@ -24,18 +25,719 @@
 #include "rogue_query.h"
 #include "rogue_baked.h"
 #include "rogue_campaign.h"
-#include "rogue_settings.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
+#include "rogue_settings.h"
 
 #define QUERY_BUFFER_COUNT 128
 #define QUERY_NUM_SPECIES NUM_SPECIES
 
 #define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, QUERY_NUM_SPECIES))
+#define MAX_QUERY_BYTE_COUNT (1 + MAX_QUERY_BIT_COUNT / 8)
 
+// Old API
+//
 EWRAM_DATA u16 gRogueQueryBufferSize = 0;
-EWRAM_DATA u8 gRogueQueryBits[1 + MAX_QUERY_BIT_COUNT / 8];
+EWRAM_DATA u8 gRogueQueryBits[MAX_QUERY_BYTE_COUNT];
 EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
+// 2.0 API
+//
+enum
+{
+    QUERY_TYPE_NONE,
+    QUERY_TYPE_MON,
+    QUERY_TYPE_ITEM,
+};
+
+struct RogueQueryData
+{
+    u8* bitFlags; // TODO - Should hard coded to be [MAX_QUERY_BYTE_COUNT], but for now just using existing memory
+    u8* weightArray;
+    u16 bitCount;
+    u16 totalWeight;
+    u8 queryType;
+};
+
+EWRAM_DATA static struct RogueQueryData* sRogueQueryPtr = 0;
+
+#define ASSERT_NO_QUERY         AGB_ASSERT(sRogueQueryPtr == NULL)
+#define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL)
+#define ASSERT_MON_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_MON)
+#define ASSERT_ITEM_QUERY       AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
+#define ASSERT_WEIGHT_QUERY       ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL)
+
+extern const u8 gRogueBake_SpeciesEvoTypeBitFlags[NUMBER_OF_MON_TYPES][SPECIES_FLAGS_BYTE_COUNT];
+
+static void SetQueryBitFlag(u16 elem, bool8 state);
+static bool8 GetQueryBitFlag(u16 elem);
+
+static u16 Query_GetEggSpecies(u16 species);
+static bool8 Query_IsSpeciesEnabled(u16 species);
+static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo);
+static bool8 Query_SpeciesEvoContainsType(u16 species, u8 type);
+
+static u16 Query_MaxBitCount();
+
+static void AllocQuery(u8 type)
+{
+    sRogueQueryPtr = malloc(sizeof(struct RogueQueryData));
+    sRogueQueryPtr->queryType = type;
+    sRogueQueryPtr->bitCount = 0;
+    sRogueQueryPtr->bitFlags = &gRogueQueryBits[0];
+    sRogueQueryPtr->weightArray = NULL;
+    sRogueQueryPtr->totalWeight = 0;
+
+    memset(&sRogueQueryPtr->bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
+}
+
+static void FreeQuery()
+{
+    AGB_ASSERT(sRogueQueryPtr->weightArray == NULL);
+
+    free(sRogueQueryPtr);
+    sRogueQueryPtr = NULL;
+}
+
+static void SetQueryBitFlag(u16 elem, bool8 state)
+{
+    if(GetQueryBitFlag(elem) != state)
+    {
+        u16 idx = elem / 8;
+        u16 bit = elem % 8;
+        u8 bitMask = 1 << bit;
+
+        ASSERT_ANY_QUERY;
+        AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
+
+        if(state)
+        {
+            sRogueQueryPtr->bitFlags[idx] |= bitMask;
+            
+            ++sRogueQueryPtr->bitCount;
+            AGB_ASSERT(sRogueQueryPtr->bitCount < MAX_QUERY_BIT_COUNT);
+        }
+        else
+        {
+            sRogueQueryPtr->bitFlags[idx] &= ~bitMask;
+
+            AGB_ASSERT(sRogueQueryPtr->bitCount != 0);
+            --sRogueQueryPtr->bitCount;
+        }
+    }
+}
+
+static bool8 GetQueryBitFlag(u16 elem)
+{
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    ASSERT_ANY_QUERY;
+    AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
+
+    return (gRogueQueryBits[idx] & bitMask) != 0;
+}
+
+// MISC QUERY
+//
+void RogueMiscQuery_EditElement(u8 func, u16 elem)
+{
+    ASSERT_ANY_QUERY;
+    SetQueryBitFlag(elem, func == QUERY_FUNC_INCLUDE);
+}
+
+void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId)
+{
+    u16 i;
+    u16 maxBitCount = Query_MaxBitCount();
+
+    ASSERT_ANY_QUERY;
+
+    for(i = fromId; i <= toId && i < maxBitCount; ++i)
+    {
+        SetQueryBitFlag(i, func == QUERY_FUNC_INCLUDE);
+    }
+}
+
+// MON QUERY
+//
+
+void RogueMonQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_MON);
+
+    // Always initialise with the mons from the current pokedex settings
+    {
+        u16 species;
+    
+        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+        {
+            if(Query_IsSpeciesEnabled(species))
+            {
+                SetQueryBitFlag(species, TRUE);
+            }
+        }
+    }
+}
+
+void RogueMonQuery_End()
+{
+    ASSERT_MON_QUERY;
+    FreeQuery();
+}
+
+void RogueMonQuery_TransformIntoEggSpecies()
+{
+    u16 species;
+    u16 eggSpecies;
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            eggSpecies = Query_GetEggSpecies(species);
+            if(eggSpecies != species)
+            {
+                SetQueryBitFlag(eggSpecies, TRUE);
+                SetQueryBitFlag(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies)
+{
+    u16 species;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(Rogue_GetEvolutionCount(species) != 0 && GetQueryBitFlag(species))
+        {
+            Query_ApplyEvolutions(species, levelLimit, includeItemEvos, !keepSourceSpecies);
+        }
+    }
+}
+
+static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo)
+{
+    u8 i;
+    bool8 hasEvolved;
+    struct Evolution evo;
+
+    hasEvolved = FALSE;
+
+    ASSERT_MON_QUERY;
+    
+    for(i = 0; i < EVOS_PER_MON; ++i)
+    {
+        Rogue_ModifyEvolution(species, i, &evo);
+
+        if(evo.method == 0 || evo.targetSpecies == SPECIES_NONE)
+            continue;
+
+        switch(evo.method)
+        {
+            // Leve evos
+            case EVO_LEVEL:
+            case EVO_LEVEL_ATK_GT_DEF:
+            case EVO_LEVEL_ATK_EQ_DEF:
+            case EVO_LEVEL_ATK_LT_DEF:
+            case EVO_LEVEL_SILCOON:
+            case EVO_LEVEL_CASCOON:
+            case EVO_LEVEL_NINJASK:
+            case EVO_LEVEL_SHEDINJA:
+#ifdef ROGUE_EXPANSION
+            case EVO_LEVEL_FEMALE:
+            case EVO_LEVEL_MALE:
+            case EVO_LEVEL_DAY:
+            case EVO_LEVEL_DUSK:
+            case EVO_LEVEL_NATURE_AMPED:
+            case EVO_LEVEL_NATURE_LOW_KEY:
+            case EVO_CRITICAL_HITS:
+#endif
+            if (evo.param > level)
+                continue; // not the correct level to evolve
+            break;
+                
+            // Item evos
+            case EVO_ITEM:
+            case EVO_LEVEL_ITEM:
+#ifdef ROGUE_EXPANSION
+            case EVO_ITEM_HOLD_DAY:
+            case EVO_ITEM_HOLD_NIGHT:
+            case EVO_MOVE:
+            case EVO_MOVE_TYPE:
+            case EVO_MAPSEC:
+            case EVO_ITEM_MALE:
+            case EVO_ITEM_FEMALE:
+            case EVO_LEVEL_RAIN:
+            case EVO_SPECIFIC_MON_IN_PARTY:
+            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+            case EVO_SPECIFIC_MAP:
+            case EVO_SCRIPT_TRIGGER_DMG:
+            case EVO_DARK_SCROLL:
+            case EVO_WATER_SCROLL:
+#endif
+            if (!items)
+                continue; // not accepting item evos
+            break;
+        }
+
+        // If we reach here we're allowed to evolve
+        hasEvolved = TRUE;
+        SetQueryBitFlag(evo.targetSpecies, TRUE);
+
+        if(removeWhenEvo)
+        {
+            SetQueryBitFlag(species, FALSE);
+        }
+
+        if(evo.targetSpecies < species)
+        {
+            // We've already considered this species so we must reconsider it e.g. if a baby mon was introduced in later gen 
+            // (Azuril is a good example as it will miss out on full evo chain)
+            Query_ApplyEvolutions(evo.targetSpecies, level, items, removeWhenEvo);
+        }
+    }
+}
+
+void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count)
+{
+    u8 i;
+    bool8 containsAnyType;
+    u16 species;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            containsAnyType = FALSE;
+
+            for(i = 0; i < count; ++i)
+            {
+                if(types[i] == TYPE_NONE)
+                    break;
+
+                if(gBaseStats[species].type1 == types[i] || gBaseStats[species].type2 == types[i])
+                {
+                    containsAnyType = TRUE;
+                    break;
+                }
+            }
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!containsAnyType)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(containsAnyType)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueMonQuery_EvosContainType(u8 func, const u8* types, u8 count)
+{
+    u8 i;
+    bool8 containsAnyType;
+    u16 species;
+    const u16* typeTable;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            containsAnyType = FALSE;
+
+            for(i = 0; i < count; ++i)
+            {
+                if(types[i] == TYPE_NONE)
+                    break;
+
+                if(Query_SpeciesEvoContainsType(species, types[i]))
+                {
+                    containsAnyType = TRUE;
+                    break;
+                }
+            }
+
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!containsAnyType)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(containsAnyType)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
+static bool8 Query_SpeciesEvoContainsType(u16 species, u8 type)
+{
+    u16 idx = species / 8;
+    u16 bit = species % 8;
+    u8 bitMask = 1 << bit;
+    return (gRogueBake_SpeciesEvoTypeBitFlags[type][idx] & bitMask) != 0;
+}
+
+void RogueMonQuery_IsLegendary(u8 func)
+{
+    u16 species;
+    const bool8 checkState = (func == QUERY_FUNC_INCLUDE);
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species) != checkState)
+        {
+            SetQueryBitFlag(species, FALSE);
+        }
+    }
+}
+
+static u16 Query_GetEggSpecies(u16 inSpecies)
+{
+    // Edge case handling for specific pre evos added in later gens
+    u8 genLimit = RoguePokedex_GetDexGenLimit();
+    u16 species = Rogue_GetEggSpecies(inSpecies);
+
+    if(genLimit == 1)
+    {
+        // Check egg species
+        switch (species)
+        {
+        case SPECIES_PICHU:
+            species = SPECIES_PIKACHU;
+            break;
+        
+        case SPECIES_CLEFFA:
+            species = SPECIES_CLEFAIRY;
+            break;
+        
+        case SPECIES_IGGLYBUFF:
+            species = SPECIES_JIGGLYPUFF;
+            break;
+
+        case SPECIES_TYROGUE:
+            species = inSpecies;
+            break;
+
+        case SPECIES_SMOOCHUM:
+            species = SPECIES_JYNX;
+            break;
+
+        case SPECIES_ELEKID:
+            species = SPECIES_ELECTABUZZ;
+            break;
+
+        case SPECIES_MAGBY:
+            species = SPECIES_MAGMAR;
+            break;
+        }
+    }
+
+    if(genLimit < 3)
+    {
+        // Check egg species
+        switch (species)
+        {
+        case SPECIES_AZURILL:
+            species = SPECIES_MARILL;
+            break;
+
+        case SPECIES_WYNAUT:
+            species = SPECIES_WOBBUFFET;
+            break;
+        }
+    }
+
+#ifdef ROGUE_EXPANSION
+    if(genLimit < 4)
+    {
+        // Check egg species
+        switch (species)
+        {
+        case SPECIES_HAPPINY:
+            species = SPECIES_CHANSEY;
+            break;
+
+        case SPECIES_MIME_JR:
+            species = SPECIES_MR_MIME;
+            break;
+
+        case SPECIES_MUNCHLAX:
+            species = SPECIES_SNORLAX;
+            break;
+
+        case SPECIES_BONSLY:
+            species = SPECIES_SUDOWOODO;
+            break;
+
+        case SPECIES_MANTYKE:
+            species = SPECIES_MANTINE;
+            break;
+
+        case SPECIES_BUDEW:
+            species = SPECIES_ROSELIA;
+            break;
+
+        case SPECIES_CHINGLING:
+            species = SPECIES_CHIMECHO;
+            break;
+        }
+    }
+#endif
+
+    return species;
+}
+
+static bool8 Query_IsSpeciesEnabled(u16 species)
+{
+    // Check if mon has valid data
+    if(gBaseStats[species].abilities[0] != ABILITY_NONE && gBaseStats[species].catchRate != 0)
+    {
+#ifdef ROGUE_EXPANSION
+        // Include specific forms in these queries
+        if(species > FORMS_START)
+        {
+            // Regional forms
+            if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            // Alt forms
+            // Gen4
+            if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            // Gen5
+            if(species == SPECIES_BASCULIN_BLUE_STRIPED)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species >= SPECIES_DEERLING_SUMMER && species <= SPECIES_KYUREM_BLACK)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            // Gen6
+            if(species == SPECIES_MEOWSTIC_FEMALE)
+                return RoguePokedex_IsSpeciesEnabled(species);
+    
+            // Gen7
+            if(species >= SPECIES_ORICORIO_POM_POM && species <= SPECIES_LYCANROC_DUSK)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            // Gen8
+            if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species == SPECIES_INDEEDEE_FEMALE)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species >= SPECIES_ZACIAN_CROWNED_SWORD && species <= SPECIES_ZAMAZENTA_CROWNED_SHIELD)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
+                return RoguePokedex_IsSpeciesEnabled(species);
+
+            // If we've gotten here then we're not interested in this form
+            return FALSE;
+        }
+#endif
+
+        return RoguePokedex_IsSpeciesEnabled(species);
+    }
+
+    return FALSE;
+}
+
+// ITEM QUERY
+//
+
+void RogueItemQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_ITEM);
+}
+
+void RogueItemQuery_End()
+{
+    ASSERT_ITEM_QUERY;
+    FreeQuery();
+}
+
+// WEIGHT QUERY
+//
+static u16 Query_MaxBitCount()
+{
+    ASSERT_ANY_QUERY;
+    if(sRogueQueryPtr->queryType == QUERY_TYPE_MON)
+        return QUERY_NUM_SPECIES;
+    else //if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
+        return ITEMS_COUNT;
+}
+
+void RogueWeightQuery_Begin()
+{
+    ASSERT_ANY_QUERY;
+    sRogueQueryPtr->weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
+}
+
+void RogueWeightQuery_End()
+{
+    ASSERT_WEIGHT_QUERY;
+    sRogueQueryPtr->weightArray = NULL;
+}
+
+void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
+{
+    u8 weight;
+    u16 elem;
+    u16 index;
+    u16 counter = 0;
+    u16 maxBitCount = Query_MaxBitCount();
+
+    ASSERT_WEIGHT_QUERY;
+
+    sRogueQueryPtr->totalWeight = 0;
+
+    for(elem = 0; elem < maxBitCount; ++elem)
+    {
+        if(GetQueryBitFlag(elem))
+        {
+            index = counter++;
+            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
+
+            weight = callback(index, elem, data);
+
+            sRogueQueryPtr->weightArray[index] = weight;
+            sRogueQueryPtr->totalWeight += weight;
+        }
+    }
+}
+
+void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
+{
+    u16 elem;
+    u16 index;
+    u16 counter = 0;
+    u16 maxBitCount = Query_MaxBitCount();
+
+    ASSERT_WEIGHT_QUERY;
+
+    for(elem = 0; elem < maxBitCount; ++elem)
+    {
+        if(GetQueryBitFlag(elem))
+        {
+            index = counter++;
+            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
+
+            if(elem == checkElem)
+            {
+                AGB_ASSERT(sRogueQueryPtr->totalWeight > sRogueQueryPtr->weightArray[index]);
+
+                // Remove old weight and replace with new one
+                sRogueQueryPtr->totalWeight -= sRogueQueryPtr->weightArray[index];
+                sRogueQueryPtr->weightArray[index] = weight;
+                sRogueQueryPtr->totalWeight += weight;
+                return;
+            }
+        }
+    }
+
+    // If we've gotten here we've tried to update the weight for an elem that doesn't exist
+    AGB_ASSERT(FALSE);
+}
+
+static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8 updateWeight, u8 newWeight)
+{
+    u8 weight;
+    u16 elem;
+    u16 index;
+    u16 counter = 0;
+    u16 maxBitCount = Query_MaxBitCount();
+    u16 targetWeight = randValue % sRogueQueryPtr->totalWeight;
+
+    ASSERT_WEIGHT_QUERY;
+    AGB_ASSERT(sRogueQueryPtr->totalWeight != 0);
+
+    for(elem = 0; elem < maxBitCount; ++elem)
+    {
+        if(GetQueryBitFlag(elem))
+        {
+            index = counter++;
+            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
+
+            weight = sRogueQueryPtr->weightArray[index];
+
+            if(weight != 0)
+            {
+                if(targetWeight <= weight)
+                {
+                    // We've found the target!
+                    if(updateWeight)
+                    {
+                        // Remove old weight and replace with new one
+                        sRogueQueryPtr->totalWeight -= weight;
+                        sRogueQueryPtr->weightArray[index] = newWeight;
+                        sRogueQueryPtr->totalWeight += newWeight;
+                    }
+
+                    return elem;
+                }
+                else
+                {
+                    // Still not reached target
+                    targetWeight -= weight;
+                }
+            }
+        }
+    }
+
+    // Shouldn't have gotten here
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue)
+{
+    return RogueWeightQuery_SelectRandomFromWeightsInternal(randValue, FALSE, 0);
+}
+
+u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight)
+{
+    return RogueWeightQuery_SelectRandomFromWeightsInternal(randValue, TRUE, updatedWeight);
+}
+
+// Old API
+//
 extern const u16* const gRegionalDexSpecies[];
 extern u16 gRegionalDexSpeciesCount[];
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
@@ -68,6 +770,7 @@ static bool8 GetQueryState(u16 elem)
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueQueryBits));
     return gRogueQueryBits[idx] & bitMask;
 }
+
 
 void RogueQuery_Clear(void)
 {
@@ -307,137 +1010,8 @@ static bool8 IsFinalEvolution(u16 species)
 
 bool8 IsSpeciesLegendary(u16 species)
 {
-#ifdef ROGUE_EXPANSION
-    species = GET_BASE_SPECIES_ID(species);
-#endif
-
-    switch(species)
-    {
-        case SPECIES_ARTICUNO:
-        case SPECIES_ZAPDOS:
-        case SPECIES_MOLTRES:
-        case SPECIES_MEWTWO:
-        case SPECIES_MEW:
-
-        case SPECIES_RAIKOU:
-        case SPECIES_ENTEI:
-        case SPECIES_SUICUNE:
-        case SPECIES_LUGIA:
-        case SPECIES_HO_OH:
-        case SPECIES_CELEBI:
-
-        case SPECIES_REGIROCK:
-        case SPECIES_REGICE:
-        case SPECIES_REGISTEEL:
-        case SPECIES_KYOGRE:
-        case SPECIES_GROUDON:
-        case SPECIES_RAYQUAZA:
-        case SPECIES_LATIAS:
-        case SPECIES_LATIOS:
-        case SPECIES_JIRACHI:
-        case SPECIES_DEOXYS:
-#ifdef ROGUE_EXPANSION
-
-        case SPECIES_UXIE:
-        case SPECIES_MESPRIT:
-        case SPECIES_AZELF:
-        case SPECIES_DIALGA:
-        case SPECIES_PALKIA:
-        case SPECIES_HEATRAN:
-        case SPECIES_REGIGIGAS:
-        case SPECIES_GIRATINA:
-        case SPECIES_CRESSELIA:
-        case SPECIES_PHIONE:
-        case SPECIES_MANAPHY:
-        case SPECIES_DARKRAI:
-        case SPECIES_SHAYMIN:
-        case SPECIES_ARCEUS:
-
-        case SPECIES_VICTINI:
-        case SPECIES_COBALION:
-        case SPECIES_TERRAKION:
-        case SPECIES_VIRIZION:
-        case SPECIES_TORNADUS:
-        case SPECIES_THUNDURUS:
-        case SPECIES_RESHIRAM:
-        case SPECIES_ZEKROM:
-        case SPECIES_LANDORUS:
-        case SPECIES_KYUREM:
-        case SPECIES_KELDEO:
-        case SPECIES_MELOETTA:
-        case SPECIES_GENESECT:
-
-        case SPECIES_XERNEAS:
-        case SPECIES_YVELTAL:
-        case SPECIES_ZYGARDE:
-        case SPECIES_DIANCIE:
-        case SPECIES_HOOPA:
-        case SPECIES_VOLCANION:
-        
-        case SPECIES_TYPE_NULL:
-        case SPECIES_SILVALLY:
-        case SPECIES_TAPU_KOKO:
-        case SPECIES_TAPU_LELE:
-        case SPECIES_TAPU_BULU:
-        case SPECIES_TAPU_FINI:
-        case SPECIES_COSMOG:
-        case SPECIES_COSMOEM:
-        case SPECIES_SOLGALEO:
-        case SPECIES_LUNALA:
-        case SPECIES_NIHILEGO:
-        case SPECIES_BUZZWOLE:
-        case SPECIES_PHEROMOSA:
-        case SPECIES_XURKITREE:
-        case SPECIES_CELESTEELA:
-        case SPECIES_KARTANA:
-        case SPECIES_GUZZLORD:
-        case SPECIES_NECROZMA:
-        case SPECIES_MAGEARNA:
-        case SPECIES_MARSHADOW:
-        case SPECIES_POIPOLE:
-        case SPECIES_NAGANADEL:
-        case SPECIES_STAKATAKA:
-        case SPECIES_BLACEPHALON:
-        case SPECIES_ZERAORA:
-        case SPECIES_MELTAN:
-        case SPECIES_MELMETAL:
-
-        case SPECIES_ZACIAN:
-        case SPECIES_ZAMAZENTA:
-        case SPECIES_ETERNATUS:
-        case SPECIES_KUBFU:
-        case SPECIES_URSHIFU:
-        case SPECIES_ZARUDE:
-        case SPECIES_REGIELEKI:
-        case SPECIES_REGIDRAGO:
-        case SPECIES_GLASTRIER:
-        case SPECIES_SPECTRIER:
-        case SPECIES_CALYREX:
-
-        // Forms
-        case SPECIES_KYUREM_WHITE:
-        case SPECIES_KYUREM_BLACK:
-        
-        case SPECIES_NECROZMA_DUSK_MANE:
-        case SPECIES_NECROZMA_DAWN_WINGS:
-        case SPECIES_NECROZMA_ULTRA:
-
-        case SPECIES_ZACIAN_CROWNED_SWORD:
-        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
-        case SPECIES_ETERNATUS_ETERNAMAX:
-        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
-        case SPECIES_ZARUDE_DADA:
-        case SPECIES_CALYREX_ICE_RIDER:
-        case SPECIES_CALYREX_SHADOW_RIDER:
-
-        case SPECIES_ARTICUNO_GALARIAN:
-        case SPECIES_ZAPDOS_GALARIAN:
-        case SPECIES_MOLTRES_GALARIAN:
-#endif
-            return TRUE;
-    };
-
-    return FALSE;
+    // TODO - Remove this method
+    return RoguePokedex_IsSpeciesLegendary(species);
 }
 
 bool8 IsLegendaryEnabled(u16 species)

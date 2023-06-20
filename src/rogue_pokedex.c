@@ -2755,10 +2755,32 @@ bool8 RoguePokedex_IsVariantEditEnabled()
 
 u8 SpeciesToGen(u16 species);
 
+static bool8 CheckPokedexVariantContainsSpecies(u8 variant, u16 species)
+{
+    bool8 result;
+
+    if(Rogue_CheckPokedexVariantFlag(variant, species, &result))
+    {
+        return result;
+    }
+    else
+    {
+        u16 i;
+
+        for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
+        {
+            if(gPokedexVariants[variant].speciesList[i] == species)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
 {
     u8 genLimit = RoguePokedex_GetDexGenLimit();
-    u8 speciesGen = SpeciesToGen(species);;
+    u8 speciesGen = SpeciesToGen(species);
 
     if(species == SPECIES_NONE || speciesGen > genLimit)
         return FALSE;
@@ -2772,23 +2794,8 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
         bool8 result;
         u8 variant = RoguePokedex_GetDexVariant();
 
-        // Attempt to check the baked flags, as it's faster
-        if(Rogue_CheckPokedexVariantFlag(variant, species, &result))
-        {
-            return result;
-        }
-        else
-        {
-            u16 i;
-
-            for(i = 0; i < gPokedexVariants[variant].speciesCount; ++i)
-            {
-                if(gPokedexVariants[variant].speciesList[i] == species)
-                    return TRUE;
-            }
-        }
-
-        return FALSE;
+        // The species or the base species is allowed to use this
+        return CheckPokedexVariantContainsSpecies(variant, species) || CheckPokedexVariantContainsSpecies(variant, Rogue_GetEggSpecies(species));
     }
 
     return TRUE;
@@ -2825,4 +2832,139 @@ u16 RoguePokedex_GetSpeciesCurrentNum(u16 species)
     }
 
     return 0;
+}
+
+bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    switch(species)
+    {
+        case SPECIES_ARTICUNO:
+        case SPECIES_ZAPDOS:
+        case SPECIES_MOLTRES:
+        case SPECIES_MEWTWO:
+        case SPECIES_MEW:
+
+        case SPECIES_RAIKOU:
+        case SPECIES_ENTEI:
+        case SPECIES_SUICUNE:
+        case SPECIES_LUGIA:
+        case SPECIES_HO_OH:
+        case SPECIES_CELEBI:
+
+        case SPECIES_REGIROCK:
+        case SPECIES_REGICE:
+        case SPECIES_REGISTEEL:
+        case SPECIES_KYOGRE:
+        case SPECIES_GROUDON:
+        case SPECIES_RAYQUAZA:
+        case SPECIES_LATIAS:
+        case SPECIES_LATIOS:
+        case SPECIES_JIRACHI:
+        case SPECIES_DEOXYS:
+#ifdef ROGUE_EXPANSION
+
+        case SPECIES_UXIE:
+        case SPECIES_MESPRIT:
+        case SPECIES_AZELF:
+        case SPECIES_DIALGA:
+        case SPECIES_PALKIA:
+        case SPECIES_HEATRAN:
+        case SPECIES_REGIGIGAS:
+        case SPECIES_GIRATINA:
+        case SPECIES_CRESSELIA:
+        case SPECIES_PHIONE:
+        case SPECIES_MANAPHY:
+        case SPECIES_DARKRAI:
+        case SPECIES_SHAYMIN:
+        case SPECIES_ARCEUS:
+
+        case SPECIES_VICTINI:
+        case SPECIES_COBALION:
+        case SPECIES_TERRAKION:
+        case SPECIES_VIRIZION:
+        case SPECIES_TORNADUS:
+        case SPECIES_THUNDURUS:
+        case SPECIES_RESHIRAM:
+        case SPECIES_ZEKROM:
+        case SPECIES_LANDORUS:
+        case SPECIES_KYUREM:
+        case SPECIES_KELDEO:
+        case SPECIES_MELOETTA:
+        case SPECIES_GENESECT:
+
+        case SPECIES_XERNEAS:
+        case SPECIES_YVELTAL:
+        case SPECIES_ZYGARDE:
+        case SPECIES_DIANCIE:
+        case SPECIES_HOOPA:
+        case SPECIES_VOLCANION:
+        
+        case SPECIES_TYPE_NULL:
+        case SPECIES_SILVALLY:
+        case SPECIES_TAPU_KOKO:
+        case SPECIES_TAPU_LELE:
+        case SPECIES_TAPU_BULU:
+        case SPECIES_TAPU_FINI:
+        case SPECIES_COSMOG:
+        case SPECIES_COSMOEM:
+        case SPECIES_SOLGALEO:
+        case SPECIES_LUNALA:
+        case SPECIES_NIHILEGO:
+        case SPECIES_BUZZWOLE:
+        case SPECIES_PHEROMOSA:
+        case SPECIES_XURKITREE:
+        case SPECIES_CELESTEELA:
+        case SPECIES_KARTANA:
+        case SPECIES_GUZZLORD:
+        case SPECIES_NECROZMA:
+        case SPECIES_MAGEARNA:
+        case SPECIES_MARSHADOW:
+        case SPECIES_POIPOLE:
+        case SPECIES_NAGANADEL:
+        case SPECIES_STAKATAKA:
+        case SPECIES_BLACEPHALON:
+        case SPECIES_ZERAORA:
+        case SPECIES_MELTAN:
+        case SPECIES_MELMETAL:
+
+        case SPECIES_ZACIAN:
+        case SPECIES_ZAMAZENTA:
+        case SPECIES_ETERNATUS:
+        case SPECIES_KUBFU:
+        case SPECIES_URSHIFU:
+        case SPECIES_ZARUDE:
+        case SPECIES_REGIELEKI:
+        case SPECIES_REGIDRAGO:
+        case SPECIES_GLASTRIER:
+        case SPECIES_SPECTRIER:
+        case SPECIES_CALYREX:
+
+        // Forms
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+        
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_ETERNATUS_ETERNAMAX:
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
+
+        case SPECIES_ARTICUNO_GALARIAN:
+        case SPECIES_ZAPDOS_GALARIAN:
+        case SPECIES_MOLTRES_GALARIAN:
+#endif
+            return TRUE;
+    };
+
+    return FALSE;
 }

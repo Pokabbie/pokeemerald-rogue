@@ -51,6 +51,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
+#include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -143,7 +144,6 @@ EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
 bool8 IsSpeciesType(u16 species, u8 type);
-bool8 IsLegendaryEnabled(u16 species);
 
 
 static void ResetHotTracking();
@@ -2713,8 +2713,7 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDi
     u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
     bool8 allowStrongSpecies = FALSE;
 
-
-    if(!IsLegendaryEnabled(species))
+    if(!RoguePokedex_IsSpeciesEnabled(species))
     {
         return FALSE;
     }
@@ -3928,35 +3927,6 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 extern const u16* const gRegionalDexSpecies[];
 extern u16 gRegionalDexSpeciesCount[];
 
-static bool8 IsSpeciesEnabledForCustomQuery(u16 species)
-{
-    u16 eggSpecies = Rogue_GetEggSpecies(species);
-    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-
-    // Use a specific regional dex
-    if(dexLimit != 0)
-    {
-        u16 i;
-        u16 checkSpecies;
-        const u16 targetDex = dexLimit - 1;
-        
-        for(i = 0; i < gRegionalDexSpeciesCount[targetDex]; ++i)
-        {
-            checkSpecies = Rogue_GetEggSpecies(gRegionalDexSpecies[targetDex][i]);
-
-            if(checkSpecies == eggSpecies)
-                return TRUE;
-        }
-
-        return FALSE;
-    }
-    else
-    {
-        return IsGenEnabled(SpeciesToGen(species));
-    }
-}
-
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
 {
     if(aIdx != bIdx)
@@ -5024,68 +4994,162 @@ static u16 NextWildSpecies(u16 * party, u8 monIdx)
     return species;
 }
 
+
+static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* data)
+{
+#ifdef ROGUE_EXPANSION
+    switch (species)
+    {
+    case SPECIES_DEERLING:
+    case SPECIES_SAWSBUCK:
+        if(RogueToD_GetSeason() != SEASON_SPRING)
+            return 0;
+        break;
+
+    case SPECIES_DEERLING_SUMMER:
+    case SPECIES_SAWSBUCK_SUMMER:
+        if(RogueToD_GetSeason() != SEASON_SUMMER)
+            return 0;
+        break;
+
+    case SPECIES_DEERLING_AUTUMN:
+    case SPECIES_SAWSBUCK_AUTUMN:
+        if(RogueToD_GetSeason() != SEASON_AUTUMN)
+            return 0;
+        break;
+
+    case SPECIES_DEERLING_WINTER:
+    case SPECIES_SAWSBUCK_WINTER:
+        if(RogueToD_GetSeason() != SEASON_WINTER)
+            return 0;
+        break;
+
+    case SPECIES_LYCANROC:
+        if(RogueToD_IsNight() || RogueToD_IsDusk())
+            return 0;
+        break;
+
+    case SPECIES_LYCANROC_MIDNIGHT:
+        if(!RogueToD_IsNight())
+            return 0;
+        break;
+
+    case SPECIES_LYCANROC_DUSK:
+        if(!RogueToD_IsDusk())
+            return 0;
+        break;
+
+    case SPECIES_ROCKRUFF:
+        if(RogueToD_IsDusk())
+            return 0;
+        break;
+
+    case SPECIES_ROCKRUFF_OWN_TEMPO:
+        if(!RogueToD_IsDusk())
+            return 0;
+        break;
+
+    default:
+        break;
+    }
+#endif
+
+
+    return 1;
+}
+
 static void RandomiseWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
 
-    // Query for the current route type
-    RogueQuery_Clear();
+    RogueMonQuery_Begin();
 
-    RogueQuery_SpeciesIsValid(
-        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
-        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[1],
-        gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[2]
-        );
-    RogueQuery_SpeciesExcludeCommon();
-    RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_TransformToEggSpecies();
+    // Prefilter to mons of types we're interested in
+    RogueMonQuery_EvosContainType(
+        QUERY_FUNC_INCLUDE, 
+        &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
+        ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
+    );
+    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
-    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_LOW_BST)
-    {
-        // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpecies(maxlevel - min(6, maxlevel - 1), FALSE);
-    }
+    RogueMonQuery_TransformIntoEggSpecies();
+    RogueMonQuery_TransformIntoEvos(maxlevel - min(6, maxlevel - 1), FALSE, FALSE);
 
-    RogueQuery_SpeciesOfTypes(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable, ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable));
-
-    RogueQuery_CollapseSpeciesBuffer();
+    // Now we've evolved we're only caring about mons of this type
+    RogueMonQuery_IsOfType(
+        QUERY_FUNC_INCLUDE, 
+        &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
+        ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
+    );
 
     {
         u8 i;
+        RogueWeightQuery_Begin();
 
-#ifdef ROGUE_DEBUG
-        gDebug_WildOptionCount = RogueQuery_BufferSize();
-#endif
+        RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
         {
             gRogueLocal.encounterPreview[i].isVisible = FALSE;
-            gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
+            gRogueRun.wildEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
         }
+
+        RogueWeightQuery_End();
     }
+
+    RogueMonQuery_End();
+}
+
+static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, void* data)
+{
+    // We should prefer simpler water mons here
+    return 1;
 }
 
 static void RandomiseFishingEncounters(void)
 {
-    RogueQuery_Clear();
+    const u8 types[1] = { TYPE_WATER };
 
-    RogueQuery_SpeciesIsValid(TYPE_WATER, TYPE_NONE, TYPE_NONE);
-    RogueQuery_SpeciesExcludeCommon();
-    RogueQuery_SpeciesIsNotLegendary();
+    RogueMonQuery_Begin();
 
-    RogueQuery_TransformToEggSpecies();
-    RogueQuery_SpeciesOfType(TYPE_WATER);
+    // Prefilter to mons of types we're interested in
+    RogueMonQuery_EvosContainType(
+        QUERY_FUNC_INCLUDE, 
+        &types[0], 
+        ARRAY_COUNT(types)
+    );
+    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
-    RogueQuery_CollapseSpeciesBuffer();
+    RogueMonQuery_TransformIntoEggSpecies();
+
+    // Now we've evolved we're only caring about mons of this type
+    RogueMonQuery_IsOfType(
+        QUERY_FUNC_INCLUDE, 
+        &types[0], 
+        ARRAY_COUNT(types)
+    );
 
     {
         u8 i;
+        RogueWeightQuery_Begin();
+
+        RogueWeightQuery_CalculateWeights(RandomiseFishingEncounters_CalculateWeight, NULL);
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
         {
-            gRogueRun.fishingEncounters[i] = NextWildSpecies(&gRogueRun.fishingEncounters[0], i);
+            gRogueRun.fishingEncounters[i] = SPECIES_NONE;
         }
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
+        {
+            gRogueLocal.encounterPreview[i].isVisible = FALSE;
+            gRogueRun.fishingEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+        }
+
+        RogueWeightQuery_End();
     }
+
+    RogueMonQuery_End();
 }
 
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize)
