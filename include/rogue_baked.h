@@ -26,6 +26,5 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
 
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetEvolutionCount(u16 species);
-const u16* Rogue_GetSpeciesTypeTables(u16 type);
 
 #endif

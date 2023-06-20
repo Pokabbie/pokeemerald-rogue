@@ -51,7 +51,6 @@ extern const struct RogueItem gRogueItems[];
 #ifdef ROGUE_BAKE_VALID
 extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
 extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
-extern const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES];
 extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
 #endif
 
@@ -1030,15 +1029,5 @@ u8 Rogue_GetEvolutionCount(u16 species)
     }
 
     return 0;
-#endif
-}
-
-
-const u16* Rogue_GetSpeciesTypeTables(u16 type)
-{
-#ifdef ROGUE_BAKE_VALID
-    return gRogueBake_SpeciesTypeTables[type];
-#else
-    return NULL;
 #endif
 }

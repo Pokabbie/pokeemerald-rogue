@@ -158,31 +158,6 @@ int main()
 		file << "};\n";
 	}
 
-	// Species int type evo chains
-	//
-	{
-		for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
-		{
-			file << "const u16 gRogueBake_SpeciesTypeTable_" << t << "[] =\n{\n";
-			for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
-			{
-				if (HasEvolutionConnectionOfType(s, t))
-				{
-					file << "\t" << s << ",\n";
-				}
-			}
-			file << "\tSPECIES_NONE\n";
-			file << "};\n\n";
-		}
-
-		file << "const u16* const gRogueBake_SpeciesTypeTables[NUMBER_OF_MON_TYPES] =\n{\n";
-		for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
-		{
-			file << "\t[" << t << "] = gRogueBake_SpeciesTypeTable_" << t << ",\n";
-		}
-		file << "};\n";
-	}
-
 	// Dex variant lists
 	//
 	{

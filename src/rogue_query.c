@@ -1286,22 +1286,24 @@ void RogueQuery_SpeciesExcludeCommon(void)
 
 static void TryApplyTypeEarlyCull(u8 type)
 {
-    if(type != TYPE_NONE)
-    {
-        u16 i;
-        u16 species;
-        const u16* typeTable = Rogue_GetSpeciesTypeTables(type);
+    // This path is dead and should be removed when replaced with new API as we have faster bitfield
 
-        for(i = 0; ; ++i)
-        {
-            species = typeTable[i];
-
-            if(species == SPECIES_NONE)
-                break;
-
-            RogueQuery_Include(species);
-        }
-    }
+    //if(type != TYPE_NONE)
+    //{
+    //    u16 i;
+    //    u16 species;
+    //    const u16* typeTable = Rogue_GetSpeciesTypeTables(type);
+//
+    //    for(i = 0; ; ++i)
+    //    {
+    //        species = typeTable[i];
+//
+    //        if(species == SPECIES_NONE)
+    //            break;
+//
+    //        RogueQuery_Include(species);
+    //    }
+    //}
 }
 
 void RogueQuery_SpeciesFilterRelevantTypes(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3)
