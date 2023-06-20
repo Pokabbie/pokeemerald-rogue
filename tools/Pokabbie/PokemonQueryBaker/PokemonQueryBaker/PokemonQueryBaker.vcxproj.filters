@@ -48,7 +48,7 @@
     <ClInclude Include="..\..\..\..\src\data\pokemon\base_stats.h">
       <Filter>Decomp\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\data\pokemon\rogue_pokedex.h">
+    <ClInclude Include="..\..\..\..\src\data\rogue_pokedex.h">
       <Filter>Decomp\Inc</Filter>
     </ClInclude>
   </ItemGroup>
