@@ -84,75 +84,65 @@ static u8 Calc_RandomTradeLevel(struct Pokemon* mon)
 
 void Rogue_RandomisePartyMon(void)
 {
+    u16 species;
+    u16 heldItem;
     u8 monIdx = gSpecialVar_0x8004;
+    u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
+
+    RogueMonQuery_Begin();
+
+    if(gRogueRun.currentDifficulty < 2)
+        RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+    RogueMonQuery_TransformIntoEggSpecies();
+    RogueMonQuery_TransformIntoEvos(targetlevel, TRUE, TRUE);
 
     if(monIdx == 255)
     {
         // Entire team
         u8 i;
-        u16 queryCount;
-        u16 species;
-        u16 heldItem;
-        u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
 
-        // Query for the current route type
-        RogueQuery_Clear();
-
-        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
-        RogueQuery_SpeciesExcludeCommon();
-
-        if(gRogueRun.currentDifficulty < 2)
-            RogueQuery_SpeciesIsNotLegendary();
-
-        RogueQuery_TransformToEggSpecies();
-
-        // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
-
-        queryCount = RogueQuery_UncollapsedSpeciesSize();
-
+        RogueWeightQuery_Begin();
+        
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
+            // we can only have dupes if somehow we have used all avaliable mons
+            if(!RogueWeightQuery_HasAnyWeights())
+                RogueWeightQuery_FillWeights(1);
+
             targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
-            species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+            species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 0);
 
             ZeroMonData(&gPlayerParty[i]);
             CreateMon(&gPlayerParty[i], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
 
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
         }
+
+        RogueWeightQuery_End();
     }
     else
     {
-        u16 queryCount;
-        u16 species;
-        u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
-        u16 heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+        // Single mon in team
+        RogueWeightQuery_Begin();
+        RogueWeightQuery_FillWeights(1);
 
-        // Query for the current route type
-        RogueQuery_Clear();
+        targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
+        heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
-        RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
-        RogueQuery_SpeciesExcludeCommon();
-
-        if(gRogueRun.currentDifficulty < 2)
-            RogueQuery_SpeciesIsNotLegendary();
-
-        RogueQuery_TransformToEggSpecies();
-
-        // Evolve the species to just below the wild encounter level
-        RogueQuery_EvolveSpeciesAndKeepPreEvo(targetlevel, TRUE);
-
-        queryCount = RogueQuery_UncollapsedSpeciesSize();
-        species = RogueQuery_AtUncollapsedIndex(Random() % queryCount);
+        species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 0);
 
         ZeroMonData(&gPlayerParty[monIdx]);
         CreateMon(&gPlayerParty[monIdx], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
 
         SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
+
+        RogueWeightQuery_End();
     }
+
+    RogueMonQuery_End();
 }
 
 void Rogue_AlterMonIVs(void)

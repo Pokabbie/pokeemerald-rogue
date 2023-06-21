@@ -31,6 +31,7 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
 void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count);
 void RogueMonQuery_EvosContainType(u8 func, const u8* types, u8 count);
 void RogueMonQuery_IsLegendary(u8 func);
+void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
 
 // Item Query
 void RogueItemQuery_Begin();
@@ -39,7 +40,9 @@ void RogueItemQuery_End();
 // Weight selection
 void RogueWeightQuery_Begin();
 void RogueWeightQuery_End();
+bool8 RogueWeightQuery_HasAnyWeights();
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
+void RogueWeightQuery_FillWeights(u8 weight);
 void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
 u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue);
 u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight);

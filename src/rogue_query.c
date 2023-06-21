@@ -419,6 +419,60 @@ void RogueMonQuery_IsLegendary(u8 func)
     }
 }
 
+void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
+{
+    bool8 hasValidEvo;
+    u16 species, i;
+    struct Evolution evo;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            hasValidEvo = FALSE;
+
+            for (i = 0; i < EVOS_PER_MON; i++)
+            {
+                Rogue_ModifyEvolution(species, i, &evo);
+
+                if (evo.targetSpecies != SPECIES_NONE && evo.method != 0)
+                {
+                    if(!includeMegas)
+                    {
+                        switch (evo.method)
+                        {
+                            case EVO_MEGA_EVOLUTION:
+                            case EVO_MOVE_MEGA_EVOLUTION:
+                            case EVO_PRIMAL_REVERSION:
+                                continue;
+                        }
+                    }
+
+                    hasValidEvo = TRUE;
+                    break;
+                }
+            }
+            
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!hasValidEvo)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else // if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(hasValidEvo)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
 static u16 Query_GetEggSpecies(u16 inSpecies)
 {
     // Edge case handling for specific pre evos added in later gens
@@ -616,6 +670,12 @@ void RogueWeightQuery_End()
     sRogueQueryPtr->weightArray = NULL;
 }
 
+bool8 RogueWeightQuery_HasAnyWeights()
+{
+    ASSERT_WEIGHT_QUERY;
+    return sRogueQueryPtr->bitCount != 0 && sRogueQueryPtr->totalWeight != 0;
+}
+
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
 {
     u8 weight;
@@ -641,6 +701,16 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
             sRogueQueryPtr->totalWeight += weight;
         }
     }
+}
+
+void RogueWeightQuery_FillWeights(u8 weight)
+{
+    u16 i;
+
+    ASSERT_WEIGHT_QUERY;
+
+    memset(sRogueQueryPtr->weightArray, weight, sRogueQueryPtr->bitCount);
+    sRogueQueryPtr->totalWeight = weight * sRogueQueryPtr->bitCount;
 }
 
 void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
