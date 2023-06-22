@@ -311,6 +311,43 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume)
+{
+    // 10 is eqv of 100%
+    u8 audioLevel = 10;
+
+    if(gMain.inBattle)
+    {
+        if(mplayInfo == &gMPlayInfo_BGM)
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
+        }
+        else // Assume sound effect
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
+        }
+    }
+    else
+    {
+        if(mplayInfo == &gMPlayInfo_BGM)
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+        }
+        else // Assume sound effect
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+        }
+    }
+
+    if(audioLevel != 10)
+    {
+        return (volume * audioLevel) / 10;
+    }
+
+    return volume;
+}
+
+
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -695,18 +732,6 @@ void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
 void Rogue_ModifyBattlePalette(u16 offset, u16 count)
 {
     RogueToD_ModifyBattlePalette(offset, count);
-}
-
-u16 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u16 volume)
-{
-    if(mplayInfo == &gMPlayInfo_BGM)
-    {
-        return (volume * gSaveBlock2Ptr->optionsSoundChannelBGM) / 10;
-    }
-    else // gMPlayInfo_SE1 -> gMPlayInfo_SE3
-    {
-        return (volume * gSaveBlock2Ptr->optionsSoundChannelSE) / 10;
-    }
 }
 
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
