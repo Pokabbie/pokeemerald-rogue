@@ -240,6 +240,7 @@ static void SeedRngWithRtc(void)
     u32 seed = RtcGetMinuteCount();
     seed = (seed >> 16) ^ (seed & 0xFFFF);
     SeedRng(seed);
+    SeedRogueRng(Random());
 }
 #endif
 

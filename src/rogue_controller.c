@@ -311,6 +311,43 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume)
+{
+    // 10 is eqv of 100%
+    u8 audioLevel = 10;
+
+    if(gMain.inBattle)
+    {
+        if(mplayInfo == &gMPlayInfo_BGM)
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
+        }
+        else // Assume sound effect
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
+        }
+    }
+    else
+    {
+        if(mplayInfo == &gMPlayInfo_BGM)
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+        }
+        else // Assume sound effect
+        {
+            audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+        }
+    }
+
+    if(audioLevel != 10)
+    {
+        return (volume * audioLevel) / 10;
+    }
+
+    return volume;
+}
+
+
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -695,18 +732,6 @@ void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
 void Rogue_ModifyBattlePalette(u16 offset, u16 count)
 {
     RogueToD_ModifyBattlePalette(offset, count);
-}
-
-u16 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u16 volume)
-{
-    if(mplayInfo == &gMPlayInfo_BGM)
-    {
-        return (volume * gSaveBlock2Ptr->optionsSoundChannelBGM) / 10;
-    }
-    else // gMPlayInfo_SE1 -> gMPlayInfo_SE3
-    {
-        return (volume * gSaveBlock2Ptr->optionsSoundChannelSE) / 10;
-    }
 }
 
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
@@ -1431,58 +1456,81 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
 #endif
 
-
-
-
-static void SelectStartMons(void)
+struct StarterSelectionData
 {
-    u8 i, j;
-    bool8 isValid;
-    u16 randIdx;
-    u16 queryCount;
-    u16 species;
+    u16 species[3];
+    u8 count;
+};
 
-    // Maybe consider compile time caching this query, as it's pretty slow :(
-    RogueQuery_Clear();
-    RogueQuery_Exclude(SPECIES_SUNKERN);
-    RogueQuery_Exclude(SPECIES_SUNFLORA);
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
 
-    RogueQuery_SpeciesIsValid(TYPE_NONE, TYPE_NONE, TYPE_NONE);
-    RogueQuery_SpeciesExcludeCommon();
-    RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_TransformToEggSpecies();
-    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off
+static u8 SelectStartMons_CalculateWeight(u16 index, u16 species, void* data)
+{
+    u8 i;
+    u16 starterSpecies;
+    struct StarterSelectionData* starters = (struct StarterSelectionData*)data;
+    //u8 weight = 1;
 
-    // Have to use uncollapsed queries as this query is too large otherwise
-    queryCount = RogueQuery_UncollapsedSpeciesSize();
-
-    for(i = 0; i < 3;)
+    for(i = 0; i < starters->count; ++i)
     {
-        isValid = TRUE;
-        randIdx = Random() % queryCount;
-        species = RogueQuery_AtUncollapsedIndex(randIdx);
+        // Don't dupe starters
+        if(starters->species[i] == species)
+            return 0;
 
-        // Check other starter is not already this
-        for(j = 0; j < i; ++j)
-        {
-            if(VarGet(VAR_ROGUE_STARTER0 + j) == species)
-            {
-                isValid = FALSE;
-                break;
-            }
-        }
+        starterSpecies = starters->species[i];
 
-        if(isValid)
+        if(gBaseStats[starterSpecies].type1 == gBaseStats[species].type1 || gBaseStats[starterSpecies].type2 == gBaseStats[species].type1)
+            return 0;
+
+        if(gBaseStats[species].type1 != gBaseStats[species].type2)
         {
-            VarSet(VAR_ROGUE_STARTER0 + i, species);
-            ++i;
+            if(gBaseStats[starterSpecies].type1 == gBaseStats[species].type2 || gBaseStats[starterSpecies].type2 == gBaseStats[species].type2)
+                return 0;
         }
     }
 
+    // Only have weight if types don't overlap
+    return 1;
+}
+
+static void SelectStartMons(bool8 isSeeded)
+{
+    RogueMonQuery_Begin();
+
+    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+    RogueMonQuery_TransformIntoEggSpecies();
+    RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
+    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE, FALSE);
+
+    {
+        u8 i;
+        struct StarterSelectionData starters;
+        starters.count = 0;
+
+        RogueWeightQuery_Begin();
+
+        for(i = 0; i < ARRAY_COUNT(starters.species); ++i)
+        {
+            if(i == 0)
+                RogueWeightQuery_FillWeights(1);
+            else
+                RogueWeightQuery_CalculateWeights(SelectStartMons_CalculateWeight, &starters);
+
+            starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
+            starters.count = i + 1;
+        }
+
+        RogueWeightQuery_End();
+        
+        VarSet(VAR_ROGUE_STARTER0, starters.species[0]);
+        VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
+        VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
+
 #ifdef ROGUE_DEBUG
-    VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
-    VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
+        //VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
+        //VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
 #endif
+    }
 }
 
 #define ROGUE_1_X_FINAL_SAVE_VERSION 4 // Final save version shipped with prior to v2.0
@@ -1613,7 +1661,7 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
     ClearBerryTrees();
-    SelectStartMons();
+    SelectStartMons(FALSE);
 
     ResetQuestStateAfter(0);
     Rogue_ResetCampaignAfter(0);
@@ -2883,29 +2931,23 @@ static u8 RandomMonType(u16 seedFlag)
 
 u16 Rogue_SelectWildDenEncounterRoom(void)
 {
-    u16 queryCount;
     u16 species;
+    RogueMonQuery_Begin();
 
-    RogueQuery_Clear();
+    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+    RogueMonQuery_TransformIntoEggSpecies();
+    RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
 
-    RogueQuery_SpeciesIsValid(RandomMonType(FLAG_SET_SEED_WILDMONS), TYPE_NONE, TYPE_NONE);
-    RogueQuery_SpeciesExcludeCommon();
-    RogueQuery_SpeciesIsNotLegendary();
-    RogueQuery_TransformToEggSpecies();
-
-    if(Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_LOW_BST)
     {
-        RogueQuery_EvolveSpecies(Rogue_CalculatePlayerMonLvl(), TRUE);
+        RogueWeightQuery_Begin();
+        RogueWeightQuery_FillWeights(1);
+
+        species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+
+        RogueWeightQuery_End();
     }
 
-    // Have to use uncollapsed queries as this query is too large otherwise
-    queryCount = RogueQuery_UncollapsedSpeciesSize();
-
-    do
-    {
-        species = RogueQuery_AtUncollapsedIndex(RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS));
-    }
-    while(species == SPECIES_NONE);
+    RogueMonQuery_End();
 
     return species;
 }
@@ -4220,7 +4262,7 @@ static u8 GetCurrentWildEncounterCount()
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
         u8 difficultyModifier = GetRoomTypeDifficulty();
-        count = 6;
+        count = 4;
 
         if(difficultyModifier == 2) // Hard route
         {
@@ -4230,7 +4272,7 @@ static u8 GetCurrentWildEncounterCount()
         else if(difficultyModifier == 1) // Avg route
         {
             // Slightly less encounters
-            count = 4;
+            count = 3;
         }
 
         // Apply charms
@@ -4248,6 +4290,12 @@ static u8 GetCurrentWildEncounterCount()
         // Clamp
         count = max(count, 1);
         count = min(count, ARRAY_COUNT(gRogueRun.wildEncounters));
+
+        // Move count down if we have haven't actually managed to spawn in enough unique encounters
+        while(count != 0 && gRogueRun.wildEncounters[count - 1] == SPECIES_NONE)
+        {
+            count--;
+        }
     }
 
     return count;
@@ -5089,9 +5137,11 @@ static void RandomiseWildEncounters(void)
         RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-        {
-            gRogueLocal.encounterPreview[i].isVisible = FALSE;
-            gRogueRun.wildEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+        {            
+            if(RogueWeightQuery_HasAnyWeights())
+                gRogueRun.wildEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+            else
+                gRogueRun.wildEncounters[i] = SPECIES_NONE;
         }
 
         RogueWeightQuery_End();
@@ -5137,13 +5187,10 @@ static void RandomiseFishingEncounters(void)
 
         for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
         {
-            gRogueRun.fishingEncounters[i] = SPECIES_NONE;
-        }
-
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-        {
-            gRogueLocal.encounterPreview[i].isVisible = FALSE;
-            gRogueRun.fishingEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+            if(RogueWeightQuery_HasAnyWeights())
+                gRogueRun.fishingEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+            else
+                gRogueRun.fishingEncounters[i] = SPECIES_NONE;
         }
 
         RogueWeightQuery_End();

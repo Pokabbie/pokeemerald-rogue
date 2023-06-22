@@ -94,6 +94,8 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
     gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
     gSaveBlock2Ptr->optionsSoundChannelSE = 10;
+    gSaveBlock2Ptr->optionsSoundChannelBattleBGM = 10;
+    gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
     gSaveBlock2Ptr->optionsDefaultBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsBossBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;

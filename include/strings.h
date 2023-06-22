@@ -345,6 +345,8 @@ extern const u8 gText_Seasons[];
 extern const u8 gText_Sound[];
 extern const u8 gText_SoundChannelBGM[];
 extern const u8 gText_SoundChannelSE[];
+extern const u8 gText_SoundChannelBattleBGM[];
+extern const u8 gText_SoundChannelBattleSE[];
 extern const u8 gText_Frame[];
 extern const u8 gText_OptionMenuCancel[];
 extern const u8 gText_ButtonMode[];

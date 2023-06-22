@@ -2,6 +2,7 @@
 #include "option_menu.h"
 #include "main.h"
 #include "menu.h"
+#include "m4a.h"
 #include "scanline_effect.h"
 #include "palette.h"
 #include "sprite.h"
@@ -42,6 +43,8 @@ enum
     MENUITEM_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
     MENUITEM_SOUND_CHANNEL_SE,
+    MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
+    MENUITEM_SOUND_CHANNEL_BATTLE_SE,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_CANCEL,
@@ -210,6 +213,18 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = SoundChannelSE_ProcessInput,
         .drawChoices = SoundChannelSE_DrawChoices
     },
+    [MENUITEM_SOUND_CHANNEL_BATTLE_BGM] = 
+    {
+        .itemName = gText_SoundChannelBattleBGM,
+        .processInput = SoundChannelBGM_ProcessInput,
+        .drawChoices = SoundChannelBGM_DrawChoices
+    },
+    [MENUITEM_SOUND_CHANNEL_BATTLE_SE] = 
+    {
+        .itemName = gText_SoundChannelBattleSE,
+        .processInput = SoundChannelSE_ProcessInput,
+        .drawChoices = SoundChannelSE_DrawChoices
+    },
     [MENUITEM_BUTTONMODE] = 
     {
         .itemName = gText_ButtonMode,
@@ -285,6 +300,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_SOUND,
             MENUITEM_SOUND_CHANNEL_BGM,
             MENUITEM_SOUND_CHANNEL_SE,
+            MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
+            MENUITEM_SOUND_CHANNEL_BATTLE_SE,
             MENUITEM_CANCEL
         }
     }
@@ -1051,6 +1068,12 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_SOUND_CHANNEL_SE:
         return gSaveBlock2Ptr->optionsSoundChannelSE;
+
+    case MENUITEM_SOUND_CHANNEL_BATTLE_BGM:
+        return gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
+
+    case MENUITEM_SOUND_CHANNEL_BATTLE_SE:
+        return gSaveBlock2Ptr->optionsSoundChannelBattleSE;
         
     case MENUITEM_BUTTONMODE:
         return gSaveBlock2Ptr->optionsButtonMode;
@@ -1100,10 +1123,26 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         
     case MENUITEM_SOUND_CHANNEL_BGM:
         gSaveBlock2Ptr->optionsSoundChannelBGM = value;
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 256);
         break;
         
     case MENUITEM_SOUND_CHANNEL_SE:
         gSaveBlock2Ptr->optionsSoundChannelSE = value;
+        m4aMPlayVolumeControl(&gMPlayInfo_SE1, TRACKS_ALL, 256);
+        m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, 256);
+        m4aMPlayVolumeControl(&gMPlayInfo_SE3, TRACKS_ALL, 256);
+        break;
+        
+    case MENUITEM_SOUND_CHANNEL_BATTLE_BGM:
+        gSaveBlock2Ptr->optionsSoundChannelBattleBGM = value;
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 256);
+        break;
+        
+    case MENUITEM_SOUND_CHANNEL_BATTLE_SE:
+        gSaveBlock2Ptr->optionsSoundChannelBattleSE = value;
+        m4aMPlayVolumeControl(&gMPlayInfo_SE1, TRACKS_ALL, 256);
+        m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, 256);
+        m4aMPlayVolumeControl(&gMPlayInfo_SE3, TRACKS_ALL, 256);
         break;
         
     case MENUITEM_BUTTONMODE:
