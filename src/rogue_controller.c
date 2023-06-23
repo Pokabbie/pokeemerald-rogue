@@ -1404,7 +1404,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
             u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
             u16 targetSpecies = gRogueRun.wildEncounters[i];
 
-            gRogueLocal.encounterPreview[i].isVisible = GetSetPokedexFlag(SpeciesToNationalPokedexNum(targetSpecies), FLAG_GET_SEEN);
+            gRogueLocal.encounterPreview[i].isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
 
             if(gRogueLocal.encounterPreview[i].isVisible)
             {

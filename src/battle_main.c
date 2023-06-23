@@ -3478,7 +3478,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
                                       | BATTLE_TYPE_RECORDED_LINK
                                       | BATTLE_TYPE_TRAINER_HILL)))
             {
-                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+                HandleSetPokedexFlag(gBattleMons[gActiveBattler].species, FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
             }
         }
         else
@@ -3491,7 +3491,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
                                       | BATTLE_TYPE_RECORDED_LINK
                                       | BATTLE_TYPE_TRAINER_HILL)))
                 {
-                    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+                    HandleSetPokedexFlag(gBattleMons[gActiveBattler].species, FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
                 }
                 BtlController_EmitLoadMonSprite(BUFFER_A);
                 MarkBattlerForControllerExec(gActiveBattler);
@@ -3717,7 +3717,7 @@ static void BattleIntroRecordMonsToDex(void)
                                       | BATTLE_TYPE_RECORDED_LINK
                                       | BATTLE_TYPE_TRAINER_HILL)))
             {
-                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+                HandleSetPokedexFlag(gBattleMons[gActiveBattler].species, FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
             }
         }
         gBattleMainFunc = BattleIntroPrintPlayerSendsOut;

@@ -1936,7 +1936,7 @@ static void CheckBattleTypeFlag(void)
 
 static u8 AppendCaughtBannedMonSpeciesName(u16 species, u8 count, s32 numBannedMonsCaught)
 {
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+    if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
     {
         count++;
         switch (count)
@@ -2074,7 +2074,7 @@ static void CheckPartyIneligibility(void)
         s32 species = gFrontierBannedSpecies[0];
         for (i = 0; species != 0xFFFF; i++, species = gFrontierBannedSpecies[i])
         {
-            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+            if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
                 caughtBannedMons++;
         }
         gStringVar1[0] = EOS;

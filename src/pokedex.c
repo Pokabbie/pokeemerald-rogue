@@ -1514,10 +1514,8 @@ void ResetPokedex(void)
     DisableNationalPokedex();
     for (i = 0; i < NUM_DEX_FLAG_BYTES; i++)
     {
-        gSaveBlock2Ptr->pokedex.owned[i] = 0;
-        gSaveBlock2Ptr->pokedex.seen[i] = 0;
-        gSaveBlock1Ptr->seen1[i] = 0;
-        gSaveBlock1Ptr->seen2[i] = 0;
+        gSaveBlock1Ptr->pokedexBitFlags1[i] = 0;
+        gSaveBlock1Ptr->pokedexBitFlags2[i] = 0;
     }
 }
 
@@ -4251,61 +4249,81 @@ u16 GetPokedexHeightWeight(u16 dexNum, u8 data)
     }
 }
 
+// pokedex bitflags have been reworked to support tracking shinies
+// to do this we don't use the flags as bits, but instead use the full 2 bit range to count up the states
+enum
+{
+    DEX_STATE_NONE              = 0,
+    DEX_STATE_SEEN              = 1,
+    DEX_STATE_CAUGHT            = 2,
+    DEX_STATE_CAUGHT_SHINY      = 3,
+};
+
 s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
 {
-    u8 index;
-    u8 bit;
-    u8 mask;
-    s8 retVal;
+    // Shouldn't use this path
+    AGB_ASSERT(FALSE);
+}
 
-    nationalDexNo--;
-    index = nationalDexNo / 8;
-    bit = nationalDexNo % 8;
+s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
+{
+    u32 index, bit, mask;
+    u8 dexState;
+    s8 retVal = 0;
+
+    index = species / 8;
+    bit = species % 8;
     mask = 1 << bit;
-    retVal = 0;
-    switch (caseID)
+
+    dexState = 0;
+
+    if((gSaveBlock1Ptr->pokedexBitFlags1[index] & mask) != 0)
+        dexState |= 1;
+    if((gSaveBlock1Ptr->pokedexBitFlags2[index] & mask) != 0)
+        dexState |= 2;
+
+    if(caseId <= FLAG_GET_CAUGHT_SHINY) // && caseId >= FLAG_GET_SEEN
     {
-    case FLAG_GET_SEEN:
-        if (gSaveBlock2Ptr->pokedex.seen[index] & mask)
+        switch (caseId)
         {
-            if ((gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
-                retVal = 1;
-            else
-            {
-                gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
-                gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
-            }
+        case FLAG_GET_SEEN:
+            retVal = dexState >= DEX_STATE_SEEN;
+            break;
+        case FLAG_GET_CAUGHT:
+            retVal = dexState >= DEX_STATE_CAUGHT;
+            break;
+        case FLAG_GET_CAUGHT_SHINY:
+            retVal = dexState >= DEX_STATE_CAUGHT_SHINY;
+            break;
         }
-        break;
-    case FLAG_GET_CAUGHT:
-        if (gSaveBlock2Ptr->pokedex.owned[index] & mask)
-        {
-            if ((gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock2Ptr->pokedex.seen[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
-                retVal = 1;
-            else
-            {
-                gSaveBlock2Ptr->pokedex.owned[index] &= ~mask;
-                gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
-                gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
-            }
-        }
-        break;
-    case FLAG_SET_SEEN:
-        gSaveBlock2Ptr->pokedex.seen[index] |= mask;
-        gSaveBlock1Ptr->seen1[index] |= mask;
-        gSaveBlock1Ptr->seen2[index] |= mask;
-        break;
-    case FLAG_SET_CAUGHT:
-        gSaveBlock2Ptr->pokedex.owned[index] |= mask;
-        break;
     }
+    else // if(caseID >= FLAG_SET_SEEN && caseId <= FLAG_SET_CAUGHT_SHINY)
+    {
+        switch (caseId)
+        {
+        case FLAG_SET_SEEN:
+            dexState = max(dexState, DEX_STATE_SEEN);
+            break;
+        case FLAG_SET_CAUGHT:
+            dexState = max(dexState, DEX_STATE_CAUGHT);
+            break;
+        case FLAG_SET_CAUGHT_SHINY:
+            dexState = max(dexState, DEX_STATE_CAUGHT_SHINY);
+            break;
+        }
+
+        // Wipe old state
+        gSaveBlock1Ptr->pokedexBitFlags1[index] &= ~mask;
+        gSaveBlock1Ptr->pokedexBitFlags2[index] &= ~mask;
+
+        // Set new state
+        if((dexState & 1) != 0)
+            gSaveBlock1Ptr->pokedexBitFlags1[index] |= mask;
+
+        if((dexState & 2) != 0)
+            gSaveBlock1Ptr->pokedexBitFlags2[index] |= mask;
+    }
+
     return retVal;
 }
 
@@ -4319,11 +4337,11 @@ u16 GetNationalPokedexCount(u8 caseID)
         switch (caseID)
         {
         case FLAG_GET_SEEN:
-            if (GetSetPokedexFlag(i + 1, FLAG_GET_SEEN))
+            if (GetSetPokedexSpeciesFlag(i, FLAG_GET_SEEN))
                 count++;
             break;
         case FLAG_GET_CAUGHT:
-            if (GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+            if (GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
                 count++;
             break;
         }
@@ -4341,11 +4359,11 @@ u16 GetHoennPokedexCount(u8 caseID)
         switch (caseID)
         {
         case FLAG_GET_SEEN:
-            if (GetSetPokedexFlag(HoennToNationalOrder(i + 1), FLAG_GET_SEEN))
+            if (GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(HoennToNationalOrder(i + 1)), FLAG_GET_SEEN))
                 count++;
             break;
         case FLAG_GET_CAUGHT:
-            if (GetSetPokedexFlag(HoennToNationalOrder(i + 1), FLAG_GET_CAUGHT))
+            if (GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(HoennToNationalOrder(i + 1)), FLAG_GET_CAUGHT))
                 count++;
             break;
         }
@@ -4363,11 +4381,11 @@ u16 GetKantoPokedexCount(u8 caseID)
         switch (caseID)
         {
         case FLAG_GET_SEEN:
-            if (GetSetPokedexFlag(i + 1, FLAG_GET_SEEN))
+            if (GetSetPokedexSpeciesFlag(i, FLAG_GET_SEEN))
                 count++;
             break;
         case FLAG_GET_CAUGHT:
-            if (GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+            if (GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
                 count++;
             break;
         }
@@ -4382,7 +4400,7 @@ bool16 HasAllHoennMons(void)
     // -2 excludes Jirachi and Deoxys
     for (i = 0; i < HOENN_DEX_COUNT - 2; i++)
     {
-        if (!GetSetPokedexFlag(HoennToNationalOrder(i + 1), FLAG_GET_CAUGHT))
+        if (!GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(HoennToNationalOrder(i + 1)), FLAG_GET_CAUGHT))
             return FALSE;
     }
     return TRUE;
@@ -4395,7 +4413,7 @@ bool8 HasAllKantoMons(void)
     // -1 excludes Mew
     for (i = 0; i < KANTO_DEX_COUNT - 1; i++)
     {
-        if (!GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+        if (!GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
             return FALSE;
     }
     return TRUE;
@@ -4408,21 +4426,21 @@ bool16 HasAllMons(void)
     // -1 excludes Mew
     for (i = 0; i < KANTO_DEX_COUNT - 1; i++)
     {
-        if (!GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+        if (!GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
             return FALSE;
     }
 
     // -3 excludes Lugia, Ho-Oh, and Celebi
     for (i = KANTO_DEX_COUNT; i < JOHTO_DEX_COUNT - 3; i++)
     {
-        if (!GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+        if (!GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
             return FALSE;
     }
 
     // -2 excludes Jirachi and Deoxys
     for (i = JOHTO_DEX_COUNT; i < NATIONAL_DEX_COUNT - 2; i++)
     {
-        if (!GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+        if (!GetSetPokedexSpeciesFlag(i, FLAG_GET_CAUGHT))
             return FALSE;
     }
     return TRUE;

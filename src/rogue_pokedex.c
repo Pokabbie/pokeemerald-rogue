@@ -538,9 +538,6 @@ static void Task_SwapToPage(u8 taskId)
         gTasks[taskId].tDoFade = TRUE;
     }
 
-    // Force do fade to prevent VRAM bug (TODO - should revisit and see if can actually fix it)
-    //gTasks[taskId].tDoFade = TRUE;
-
     if(gTasks[taskId].tDoFade)
     {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -665,7 +662,7 @@ static u16 GetDexCount(u8 caseID)
     {
         for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
         {
-            if (GetSetPokedexFlag(i + 1, caseID))
+            if (GetSetPokedexSpeciesFlag(i, caseID))
                 count++;
         }
     }
@@ -675,7 +672,7 @@ static u16 GetDexCount(u8 caseID)
         
         for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
         {
-            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gPokedexVariants[dexVariant].speciesList[i]), caseID))
+            if (GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
                 count++;
         }
     }
@@ -691,7 +688,7 @@ static bool8 CheckDexCompletion(u8 caseID)
     {
         for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
         {
-            if (!GetSetPokedexFlag(i + 1, caseID))
+            if (!GetSetPokedexSpeciesFlag(i, caseID))
                 return FALSE;
         }
     }
@@ -701,7 +698,7 @@ static bool8 CheckDexCompletion(u8 caseID)
         
         for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
         {
-            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(gPokedexVariants[dexVariant].speciesList[i]), caseID))
+            if (!GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
                 return FALSE;
         }
     }
@@ -721,7 +718,7 @@ static void DisplayTitleScreenCountersText(void)
     ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, 3);
     AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 24, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, 3); // TODO - shiny catches
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT_SHINY), STR_CONV_MODE_RIGHT_ALIGN, 3);
     AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 48, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
     PutWindowTilemap(WIN_TITLE_COUNTERS);
@@ -1509,8 +1506,7 @@ static void TitleScreen_RefillBg()
         FillBgTilemapBufferRect_Palette0(1, 0x67, 6, 11, 1, 1);
     }
 
-    // TODO - shiny
-    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    if(CheckDexCompletion(FLAG_GET_CAUGHT_SHINY))
     {
         FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 13, 1, 1);
         FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 13, 1, 1);
@@ -1553,8 +1549,7 @@ static void TitleScreen_RefillStarsBg()
         FillBgTilemapBufferRect_Palette0(1, 0x49 | FLIP_VERTICAL, 6, 11, 1, 1);
     }
 
-    // TODO - update shiny counter
-    if(CheckDexCompletion(FLAG_GET_CAUGHT))
+    if(CheckDexCompletion(FLAG_GET_CAUGHT_SHINY))
     {
         FillBgTilemapBufferRect_Palette0(1, 0x5C, 5, 13, 1, 1);
         FillBgTilemapBufferRect_Palette0(1, 0x5D, 6, 13, 1, 1);
@@ -1657,9 +1652,11 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     if(species == SPECIES_NONE)
         return ENTRY_TYPE_DISABLED;
 
-    if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+    if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+        return ENTRY_TYPE_CAUGHT_SHINY;
+    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
         return ENTRY_TYPE_CAUGHT;
-    else if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
+    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
         return ENTRY_TYPE_SEEN;
 
     return ENTRY_TYPE_QUESTION_MARK;
@@ -2012,7 +2009,7 @@ static void Overview_HandleInput(u8 taskId)
     {
         u16 species = sPokedexMenu->overviewPageSpecies[sPokedexMenu->selectedIdx];
 
-        if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
+        if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
         {
             // Swap to the stats page
             sPokedexMenu->desiredPage = PAGE_MON_STATS;
@@ -2151,12 +2148,12 @@ static void Overview_CreateSprites()
 
             if(species != SPECIES_NONE)
             {
-                if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+                if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
                 {
                     // Animated
                     sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, TRUE);
                 }
-                else if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
+                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
                 {
                     // Non animated
                     sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, TRUE);
@@ -2248,6 +2245,9 @@ void DestroyMonTypIcon(u8 spriteId);
 
 static void MonInfo_CreateSprites(bool8 includeType)
 {
+    // display as shiny if we have seen it
+    bool8 isShiny = GetSetPokedexSpeciesFlag(sPokedexMenu->viewBaseSpecies, FLAG_GET_CAUGHT_SHINY);
+
     LoadMoveTypesSpritesheetAndPalette(); // TODO - move
 
     sPokedexMenu->pageSprites[MON_SPRITE_FRONT_PIC] = CreateMonPicSprite_Affine(
@@ -2257,11 +2257,11 @@ static void MonInfo_CreateSprites(bool8 includeType)
 #ifdef ROGUE_EXPANSION
         GetGenderForSpecies(sPokedexMenu->viewBaseSpecies, 0),
 #endif
-        FALSE, // display as shiny if we have seen it?? 
+        isShiny,
         MON_PIC_AFFINE_FRONT,
         48, 66, 
         0, 
-        gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag // gMonShinyPaletteTable
+        isShiny ? gMonShinyPaletteTable[sPokedexMenu->viewBaseSpecies].tag : gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
     );
 
     sPokedexMenu->pageSprites[MON_SPRITE_ICON] = CreateMonIcon(sPokedexMenu->viewBaseSpecies, SpriteCallbackDummy, 48, 8, 0, 0, TRUE);
@@ -2325,7 +2325,7 @@ static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
 
     if(RoguePokedex_IsNationalDexActive())
     {
-        // GetSetPokedexFlag is slow so call it as little as possible
+        // GetSetPokedexSpeciesFlag is slow so call it as little as possible
         u16 checkNum;
         u16 baseNum = SpeciesToNationalPokedexNum(fromSpecies);
 
@@ -2347,7 +2347,7 @@ static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
                 continue;
 
             // Only allowed to jump to seen mons
-            if(!GetSetPokedexFlag(checkNum, FLAG_GET_SEEN))
+            if(!GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(checkNum), FLAG_GET_SEEN))
                 continue;
 
             return NationalPokedexNumToSpecies(checkNum);
@@ -2392,7 +2392,7 @@ static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
                 checkSpecies = gPokedexVariants[dexVariant].speciesList[checkIdx];
 
                 // Only allowed to jump to seen mons
-                if(!GetSetPokedexFlag(SpeciesToNationalPokedexNum(checkSpecies), FLAG_GET_SEEN))
+                if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
                     continue;
 
                 return checkSpecies;

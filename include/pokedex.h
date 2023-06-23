@@ -14,8 +14,10 @@ enum
 {
     FLAG_GET_SEEN,
     FLAG_GET_CAUGHT,
+    FLAG_GET_CAUGHT_SHINY,
     FLAG_SET_SEEN,
-    FLAG_SET_CAUGHT
+    FLAG_SET_CAUGHT,
+    FLAG_SET_CAUGHT_SHINY,
 };
 
 struct PokedexEntry
@@ -37,6 +39,7 @@ u16 GetNationalPokedexCount(u8);
 u16 GetHoennPokedexCount(u8);
 u8 DisplayCaughtMonDexPage(u16 dexNum, u32 otId, u32 personality);
 s8 GetSetPokedexFlag(u16 nationalNum, u8 caseId);
+s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId);
 u16 CreateMonSpriteFromNationalDexNumber(u16, s16, s16, u16);
 bool16 HasAllHoennMons(void);
 void ResetPokedexScrollPositions(void);
