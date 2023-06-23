@@ -141,6 +141,11 @@ static bool8 GetQueryBitFlag(u16 elem)
 
 // MISC QUERY
 //
+void RogueQuery_Init()
+{
+    sRogueQueryPtr = NULL;
+}
+
 void RogueMiscQuery_EditElement(u8 func, u16 elem)
 {
     ASSERT_ANY_QUERY;
