@@ -2146,6 +2146,8 @@ static void UpdateHotTracking()
 void Rogue_MainInit(void)
 {
     ResetHotTracking();
+
+    RogueQuery_Init();
     Rogue_AssistantInit();
 
 #ifdef ROGUE_FEATURE_AUTOMATION

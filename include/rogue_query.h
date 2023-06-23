@@ -20,6 +20,7 @@ struct RogueQueryDebug
 
 // RogueQuery 2.0 API
 // Misc./Global
+void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 
