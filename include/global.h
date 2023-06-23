@@ -200,7 +200,6 @@ struct Pokedex
     /*0x04*/ u32 unownPersonality; // set when you first see Unown
     /*0x08*/ u32 spindaPersonality; // set when you first see Spinda
     /*0x0C*/ u32 unknown3;
-    /*0x10*/ u8 filler[0x68]; // Previously Dex Flags, feel free to remove.
 };
 
 struct PokemonJumpRecords
@@ -966,7 +965,6 @@ struct SaveBlock1
     /*0x496*/ u16 registeredItem; // registered for use with SELECT button
     /*0x498*/ struct ItemSlot pcItems[PC_ITEMS_COUNT];
     /*0x560*/ struct ItemSlot bagPockets[BAG_ITEM_CAPACITY];
-    /*0x988*/ u8 filler1[0x34]; // Previously Dex Flags, feel free to remove.
     /*0x9BC*/ u16 berryBlenderRecords[3];
               u16 rogueSaveVersion;
               u16 rogueCompatVersion;
@@ -1029,6 +1027,8 @@ struct SaveBlock1
     /*0x3???*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
     /*0x3???*/ struct RamScript ramScript;
     /*0x3???*/ struct RecordMixingGift recordMixingGift;
+    /*0x988*/ u8 pokedexBitFlags1[NUM_DEX_FLAG_BYTES];
+    /*0x3B24*/ u8 pokedexBitFlags2[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ LilycoveLady lilycoveLady;
     /*0x3???*/ struct TrainerNameRecord trainerNameRecords[20];
     /*0x3???*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];

@@ -1407,7 +1407,7 @@ void RogueQuery_SpeciesInPokedex(void)
     {
         if(GetQueryState(species))
         {
-            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+            if (!GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
             {
                 SetQueryState(species, FALSE);
             }

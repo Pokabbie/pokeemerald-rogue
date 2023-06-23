@@ -966,7 +966,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
 
 static void Task_SetSeenWinnerMon(u8 taskId)
 {
-    int i, nationalDexNum;
+    int i;
 
     if (JOY_NEW(A_BUTTON))
     {
@@ -974,8 +974,7 @@ static void Task_SetSeenWinnerMon(u8 taskId)
         {
             for (i = 0; i < CONTESTANT_COUNT; i++)
             {
-                nationalDexNum = SpeciesToNationalPokedexNum(gContestMons[i].species);
-                GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
+                GetSetPokedexSpeciesFlag(gContestMons[i].species, FLAG_SET_SEEN);
             }
         }
 

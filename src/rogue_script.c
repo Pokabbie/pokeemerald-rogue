@@ -373,8 +373,8 @@ void RogueDebug_FillGenPC(void)
             u16 targetBox = currIdx / IN_BOX_COUNT;
             u16 boxIndex = currIdx % IN_BOX_COUNT;
 
-            GetSetPokedexFlag(species, FLAG_SET_SEEN);
-            GetSetPokedexFlag(species, FLAG_SET_CAUGHT);
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
 
             CreateMon(&mon, species, 5, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 

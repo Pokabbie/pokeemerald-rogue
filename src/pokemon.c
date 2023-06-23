@@ -8219,15 +8219,16 @@ u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
     return gFacilityClassToPicIndex[FACILITY_CLASS_WALLY];
 }
 
-void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
+void HandleSetPokedexFlag(u16 species, u8 caseId, u32 personality)
 {
-    u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;
-    if (!GetSetPokedexFlag(nationalNum, getFlagCaseId)) // don't set if it's already set
+    u8 getFlagCaseId = caseId - FLAG_SET_SEEN;
+
+    if (!GetSetPokedexSpeciesFlag(species, getFlagCaseId)) // don't set if it's already set
     {
-        GetSetPokedexFlag(nationalNum, caseId);
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
+        GetSetPokedexSpeciesFlag(species, caseId);
+        if (species == SPECIES_UNOWN)
             gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
+        if (species == SPECIES_SPINDA)
             gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
 }
