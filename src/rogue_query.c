@@ -2080,6 +2080,8 @@ static bool8 IsExtraEvolutionItem(struct Item* item)
         case ITEM_UPGRADE:
         case ITEM_RAZOR_FANG:
         case ITEM_RAZOR_CLAW:
+        case ITEM_BLACK_AUGURITE:
+        case ITEM_PEAT_BLOCK:
 #else
         case ITEM_UP_GRADE:
 #endif

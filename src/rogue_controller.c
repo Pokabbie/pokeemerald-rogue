@@ -1077,6 +1077,8 @@ u8 ItemToGen(u16 item)
             return 8;
         
         // Hisui items gen8
+        case ITEM_BLACK_AUGURITE:
+        case ITEM_PEAT_BLOCK:
         case ITEM_ADAMANT_CRYSTAL:
         case ITEM_LUSTROUS_GLOBE:
             return 8;
