@@ -10787,4 +10787,88 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+    
+    [NATIONAL_DEX_WYRDEER] =
+    {
+        .categoryName = _("Big Horn"),
+        .height = 18,
+        .weight = 951,
+        .description = gWyrdeerPokedexText,
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_KLEAVOR] =
+    {
+        .categoryName = _("Axe"),
+        .height = 18,
+        .weight = 890,
+        .description = gKleavorPokedexText,
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_URSALUNA] =
+    {
+        .categoryName = _("Peat"),
+        .height = 24,
+        .weight = 2900,
+        .description = gUrsalunaPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 369,
+        .trainerOffset = 7,
+    },
+
+    [NATIONAL_DEX_BASCULEGION] =
+    {
+        .categoryName = _("Big Fish"),
+        .height = 30,
+        .weight = 1100,
+        .description = gBasculegionPokedexText,
+        .pokemonScale = 275,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SNEASLER] =
+    {
+        .categoryName = _("Free Climb"),
+        .height = 13,
+        .weight = 430,
+        .description = gSneaslerPokedexText,
+        .pokemonScale = 272,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_OVERQWIL] =
+    {
+        .categoryName = _("Pin Cluster"),
+        .height = 25,
+        .weight = 605,
+        .description = gOverqwilPokedexText,
+        .pokemonScale = 257,
+        .pokemonOffset = 10,
+        .trainerScale = 423,
+        .trainerOffset = 8,
+    },
+
+    [NATIONAL_DEX_ENAMORUS] =
+    {
+        .categoryName = _("Love-Hate"),
+        .height = 16,
+        .weight = 480,
+        .description = gEnamorusPokedexText,
+        .pokemonScale = 259,
+        .pokemonOffset = 1,
+        .trainerScale = 296,
+        .trainerOffset = 1,
+    },
 };

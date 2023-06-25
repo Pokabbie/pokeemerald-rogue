@@ -63,6 +63,18 @@ static const struct FormChange sDeoxysSpeedFormChangeTable[] = {
     {FORM_CHANGE_END},
 };
 
+static const struct FormChange sDialgaFormChangeTable[] = {
+    {FORM_ITEM_HOLD, SPECIES_DIALGA, ITEM_NONE},
+    //{FORM_ITEM_HOLD, SPECIES_DIALGA_ORIGIN, ITEM_ADAMANT_CRYSTAL},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sPalkiaFormChangeTable[] = {
+    {FORM_ITEM_HOLD, SPECIES_PALKIA, ITEM_NONE},
+    //{FORM_ITEM_HOLD, SPECIES_PALKIA_ORIGIN, ITEM_LUSTROUS_GLOBE},
+    {FORM_CHANGE_END},
+};
+
 static const struct FormChange sGiratinaFormChangeTable[] = {
     {FORM_ITEM_HOLD, SPECIES_GIRATINA, ITEM_NONE},
     {FORM_ITEM_HOLD, SPECIES_GIRATINA_ORIGIN, ITEM_GRISEOUS_ORB},
@@ -146,6 +158,16 @@ static const struct FormChange sLandorusFormChangeTable[] = {
 
 static const struct FormChange sLandorusTherianFormChangeTable[] = {
     {FORM_ITEM_USE, SPECIES_LANDORUS, ITEM_REVEAL_GLASS},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sEnamorusFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_ENAMORUS_THERIAN, ITEM_REVEAL_GLASS},
+    {FORM_CHANGE_END},
+};
+
+static const struct FormChange sEnamorusTherianFormChangeTable[] = {
+    {FORM_ITEM_USE, SPECIES_ENAMORUS, ITEM_REVEAL_GLASS},
     {FORM_CHANGE_END},
 };
 

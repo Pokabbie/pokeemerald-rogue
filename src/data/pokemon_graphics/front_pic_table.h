@@ -899,6 +899,13 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(GLASTRIER, gMonFrontPic_Glastrier),
     SPECIES_SPRITE(SPECTRIER, gMonFrontPic_Spectrier),
     SPECIES_SPRITE(CALYREX, gMonFrontPic_Calyrex),
+    SPECIES_SPRITE(WYRDEER, gMonFrontPic_Wyrdeer),
+    SPECIES_SPRITE(KLEAVOR, gMonFrontPic_Kleavor),
+    SPECIES_SPRITE(URSALUNA, gMonFrontPic_Ursaluna),
+    SPECIES_SPRITE(BASCULEGION, gMonFrontPic_Basculegion),
+    SPECIES_SPRITE(SNEASLER, gMonFrontPic_Sneasler),
+    SPECIES_SPRITE(OVERQWIL, gMonFrontPic_Overqwil),
+    SPECIES_SPRITE(ENAMORUS, gMonFrontPic_Enamorus),
 
     SPECIES_SPRITE(VENUSAUR_MEGA, gMonFrontPic_VenusaurMega),
     SPECIES_SPRITE(CHARIZARD_MEGA_X, gMonFrontPic_CharizardMegaX),
@@ -990,6 +997,23 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(DARMANITAN_GALARIAN, gMonFrontPic_DarmanitanGalarian),
     SPECIES_SPRITE(YAMASK_GALARIAN, gMonFrontPic_YamaskGalarian),
     SPECIES_SPRITE(STUNFISK_GALARIAN, gMonFrontPic_StunfiskGalarian),
+    
+    SPECIES_SPRITE(GROWLITHE_HISUIAN, gMonFrontPic_GrowlitheHisuian),
+    SPECIES_SPRITE(ARCANINE_HISUIAN, gMonFrontPic_ArcanineHisuian),
+    SPECIES_SPRITE(VOLTORB_HISUIAN, gMonFrontPic_VoltorbHisuian),
+    SPECIES_SPRITE(ELECTRODE_HISUIAN, gMonFrontPic_ElectrodeHisuian),
+    SPECIES_SPRITE(TYPHLOSION_HISUIAN, gMonFrontPic_TyphlosionHisuian),
+    SPECIES_SPRITE(QWILFISH_HISUIAN, gMonFrontPic_QwilfishHisuian),
+    SPECIES_SPRITE(SNEASEL_HISUIAN, gMonFrontPic_SneaselHisuian),
+    SPECIES_SPRITE(SAMUROTT_HISUIAN, gMonFrontPic_SamurottHisuian),
+    SPECIES_SPRITE(LILLIGANT_HISUIAN, gMonFrontPic_LilligantHisuian),
+    SPECIES_SPRITE(ZORUA_HISUIAN, gMonFrontPic_ZoruaHisuian),
+    SPECIES_SPRITE(ZOROARK_HISUIAN, gMonFrontPic_ZoroarkHisuian),
+    SPECIES_SPRITE(BRAVIARY_HISUIAN, gMonFrontPic_BraviaryHisuian),
+    SPECIES_SPRITE(SLIGGOO_HISUIAN, gMonFrontPic_SliggooHisuian),
+    SPECIES_SPRITE(GOODRA_HISUIAN, gMonFrontPic_GoodraHisuian),
+    SPECIES_SPRITE(AVALUGG_HISUIAN, gMonFrontPic_AvaluggHisuian),
+    SPECIES_SPRITE(DECIDUEYE_HISUIAN, gMonFrontPic_DecidueyeHisuian),
 
     SPECIES_SPRITE(PIKACHU_COSPLAY, gMonFrontPic_PikachuCosplay),
     SPECIES_SPRITE(PIKACHU_ROCK_STAR, gMonFrontPic_PikachuRockStar),
@@ -1063,6 +1087,8 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(ROTOM_FAN, gMonFrontPic_RotomFan),
     SPECIES_SPRITE(ROTOM_MOW, gMonFrontPic_RotomMow),
 
+    SPECIES_SPRITE(DIALGA_ORIGIN, gMonFrontPic_DialgaOrigin),
+    SPECIES_SPRITE(PALKIA_ORIGIN, gMonFrontPic_PalkiaOrigin),
     SPECIES_SPRITE(GIRATINA_ORIGIN, gMonFrontPic_GiratinaOrigin),
 
     SPECIES_SPRITE(SHAYMIN_SKY, gMonFrontPic_ShayminSky),
@@ -1086,6 +1112,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(ARCEUS_FAIRY, gMonFrontPic_Arceus),
 
     SPECIES_SPRITE(BASCULIN_BLUE_STRIPED, gMonFrontPic_BasculinBlueStriped),
+    SPECIES_SPRITE(BASCULIN_WHITE_STRIPED, gMonFrontPic_BasculinWhiteStriped),
 
     SPECIES_SPRITE(DARMANITAN_ZEN_MODE, gMonFrontPic_DarmanitanZenMode),
     SPECIES_SPRITE(DARMANITAN_ZEN_MODE_GALARIAN, gMonFrontPic_DarmanitanZenModeGalarian),
@@ -1271,6 +1298,10 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
 
     SPECIES_SPRITE(CALYREX_ICE_RIDER, gMonFrontPic_CalyrexIceRider),
     SPECIES_SPRITE(CALYREX_SHADOW_RIDER, gMonFrontPic_CalyrexShadowRider),
+
+    SPECIES_SPRITE(ENAMORUS_THERIAN, gMonFrontPic_EnamorusTherian),
+
+    SPECIES_SPRITE(BASCULEGION_FEMALE, gMonFrontPic_BasculegionFemale),
 
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
 };
