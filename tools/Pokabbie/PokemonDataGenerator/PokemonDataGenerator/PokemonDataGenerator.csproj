@@ -61,9 +61,11 @@
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Gen8.cs" />
     <Compile Include="OverworldSprites\SpriteSheetSplitter_Hisui.cs" />
     <Compile Include="Pokedex\PokedexGenerator.cs" />
+    <Compile Include="Pokedex\PokemonProfileGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContentCache.cs" />
+    <Compile Include="Utils\GameDataHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

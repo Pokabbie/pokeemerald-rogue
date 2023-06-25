@@ -23,7 +23,8 @@ namespace PokemonDataGenerator
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
 			Console.WriteLine("4 - OW Sprites Palette Generator");
 			Console.WriteLine("5 - Generate Pokedex Lists");
-			int action = ReadOption(1, 5);
+			Console.WriteLine("6 - Gather Pokemon data profile");
+			int action = ReadOption(1, 6);
 
 			switch(action)
 			{
@@ -80,6 +81,11 @@ namespace PokemonDataGenerator
 				case 5:
 					Console.WriteLine("==Generating Pokedex Lists==");
 					PokedexGenerator.GeneratePokedexEntries(isVanillaVersion);
+					break;
+
+				case 6:
+					Console.WriteLine("==Gathering Pokemon Data Profile==");
+					PokemonProfileGenerator.GenerateProfiles();
 					break;
 			}
 
