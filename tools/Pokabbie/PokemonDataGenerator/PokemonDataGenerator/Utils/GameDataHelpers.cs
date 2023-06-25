@@ -12,10 +12,16 @@ namespace PokemonDataGenerator.Utils
 		private static readonly string c_SpeciesDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\species.h";
 		private static readonly string c_ItemDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\items.h";
 		private static readonly string c_PartyMenuDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\party_menu.h";
+		private static readonly string c_MovesDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\moves.h";
 
 		private static Dictionary<string, string> s_SpeciesDefines = null;
 		private static Dictionary<string, string> s_ItemDefines = null;
 		private static Dictionary<string, string> s_TutorMoveDefines = null;
+		private static Dictionary<string, string> s_MoveDefines = null;
+
+
+		private static Dictionary<string, string> s_MoveToTMHMItem = null;
+		private static Dictionary<string, string> s_MoveToTutorMove = null;
 
 		public static Dictionary<string, string> SpeciesDefines
 		{
@@ -33,7 +39,7 @@ namespace PokemonDataGenerator.Utils
 
 		public static Dictionary<string, string> ItemDefines
 		{
-			get 
+			get
 			{
 				if (s_ItemDefines == null)
 				{
@@ -58,6 +64,79 @@ namespace PokemonDataGenerator.Utils
 				return s_TutorMoveDefines;
 			}
 		}
+
+		public static Dictionary<string, string> MoveDefines
+		{
+			get
+			{
+				if (s_MoveDefines == null)
+				{
+					s_MoveDefines = new Dictionary<string, string>();
+					ParseFileDefines("#define MOVE_", c_MovesDefinesPath, s_MoveDefines);
+				}
+
+				return s_MoveDefines;
+			}
+		}
+
+		public static Dictionary<string, string> MoveToTMHMItem
+		{
+			get
+			{
+				if (s_MoveToTMHMItem == null)
+				{
+					s_MoveToTMHMItem = new Dictionary<string, string>();
+
+					foreach (var kvp in ItemDefines)
+					{
+						if (kvp.Key.StartsWith("ITEM_TM") || kvp.Key.StartsWith("ITEM_HM"))
+						{
+							// These are the "#define ITEM_TM01 123" lines which we want to skip
+							if (kvp.Key.Where(c => c == '_').Count() == 1)
+								continue;
+
+							string itemName = kvp.Key;
+							string moveName = kvp.Key.Substring("ITEM_TM00_".Length);
+
+							if (itemName == "ITEM_TM_CASE")
+								continue;
+
+							s_MoveToTMHMItem.Add(moveName, itemName);
+						}
+					}
+				}
+
+				return s_MoveToTMHMItem;
+			}
+		}
+
+		public static Dictionary<string, string> MoveToTutorMove
+		{
+			get
+			{
+				if (s_MoveToTutorMove == null)
+				{
+					s_MoveToTutorMove = new Dictionary<string, string>();
+
+					foreach (var kvp in TutorMoveDefines)
+					{
+						if (kvp.Key.StartsWith("TUTOR_MOVE_"))
+						{
+							string itemName = kvp.Key;
+							string moveName = kvp.Key.Substring("TUTOR_MOVE_".Length);
+
+							if (itemName == "TUTOR_MOVE_COUNT")
+								continue;
+
+							s_MoveToTutorMove.Add(moveName, itemName);
+						}
+					}
+				}
+
+				return s_MoveToTutorMove;
+			}
+		}
+
 
 		private static void ParseFileDefines(string prefix, string filePath, Dictionary<string, string> dest)
 		{

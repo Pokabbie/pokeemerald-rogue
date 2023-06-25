@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,47 +34,6 @@ namespace PokemonDataGenerator
 					&& Ability == otherPreset.Ability
 					&& Item == otherPreset.Item
 					&& Enumerable.SequenceEqual(Moves, otherPreset.Moves);
-			}
-
-			public static bool IsMoveUnsupported(string moveString)
-			{
-				switch (moveString.ToUpper())
-				{
-					// Currently no Hisui moves support
-					case "DIRE CLAW":
-					case "PSYSHIELD BASH":
-					case "POWER SHIFT":
-					case "STONE AXE":
-					case "SPRINGTIDE STORM":
-					case "MYSTICAL POWER":
-					case "RAGING FURY":
-					case "WAVE CRASH":
-					case "CHLOROBLAST":
-					case "MOUNTAIN GALE":
-					case "VICTORY DANCE":
-					case "HEADLONG RUSH":
-					case "BARB BARRAGE":
-					case "ESPER WING":
-					case "BITTER MALICE":
-					case "SHELTER":
-					case "TRIPLE ARROWS":
-					case "INFERNAL PARADE":
-					case "CEASELESS EDGE":
-					case "BLEAKWIND STORM":
-					case "WILDBOLT STORM":
-					case "SANDSEAR STORM":
-					case "LUNAR BLESSING":
-					case "TAKE HEART":
-						return true;
-
-					// No gen9 support
-					case "TERA BLAST":
-					case "ICE SPINNER":
-					case "AQUA CUTTER":
-						return true;
-				}
-
-				return false;
 			}
 		}
 
@@ -262,7 +222,7 @@ namespace PokemonDataGenerator
 							{
 							}
 
-							if (!PokemonPreset.IsMoveUnsupported(moveString))
+							if (!PokemonMoveHelpers.IsMoveUnsupported(moveString))
 								preset.Moves.Add(moveString);
 						}
 

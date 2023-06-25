@@ -85,7 +85,7 @@ namespace PokemonDataGenerator
 
 				case 6:
 					Console.WriteLine("==Gathering Pokemon Data Profile==");
-					PokemonProfileGenerator.GenerateProfiles();
+					PokemonProfileGenerator.GatherProfiles();
 					break;
 			}
 
