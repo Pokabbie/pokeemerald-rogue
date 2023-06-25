@@ -10365,6 +10365,7 @@ static const u32 sTutorLearnsets[] =
                                             | TUTOR(MOVE_SNORE)
                                             | TUTOR(MOVE_SUBSTITUTE)
                                             | TUTOR(MOVE_THUNDER_WAVE)),
+                                            
 
     [SPECIES_BURMY_SANDY_CLOAK]  = TUTOR_LEARNSET(TUTOR(MOVE_SNORE)),
 

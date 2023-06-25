@@ -4410,5 +4410,50 @@ const u16 gEggMoves[] = {
         MOVE_PSYCHO_SHIFT,
         MOVE_HEAL_PULSE),
 
+    egg_moves(BASCULEGION
+        ,MOVE_ENDEAVOR
+    ),
+    egg_moves(GROWLITHE_HISUIAN
+        ,MOVE_DOUBLE_KICK
+        ,MOVE_THRASH
+        ,MOVE_DOUBLE_EDGE
+        ,MOVE_MORNING_SUN
+        ,MOVE_COVET
+        ,MOVE_HEAD_SMASH
+    ),
+    egg_moves(VOLTORB_HISUIAN
+        ,MOVE_LEECH_SEED
+        ,MOVE_RECYCLE
+        ,MOVE_WORRY_SEED
+    ),
+    egg_moves(QWILFISH_HISUIAN
+        ,MOVE_SUPERSONIC
+        ,MOVE_BUBBLE_BEAM
+        ,MOVE_HAZE
+        ,MOVE_SELF_DESTRUCT
+        ,MOVE_FLAIL
+        ,MOVE_ASTONISH
+        ,MOVE_WATER_PULSE
+        ,MOVE_AQUA_TAIL
+        ,MOVE_AQUA_JET
+        ,MOVE_ACID_SPRAY
+    ),
+    egg_moves(SNEASEL_HISUIAN
+        ,MOVE_COUNTER
+        ,MOVE_FAKE_OUT
+        ,MOVE_FEINT
+        ,MOVE_NIGHT_SLASH
+        ,MOVE_SWITCHEROO
+        ,MOVE_DOUBLE_HIT
+        ,MOVE_QUICK_GUARD
+    ),
+    egg_moves(ZORUA_HISUIAN
+        ,MOVE_DETECT
+        ,MOVE_MEMENTO
+        ,MOVE_EXTRASENSORY
+    ),
+    egg_moves(BASCULEGION_FEMALE
+        ,MOVE_ENDEAVOR
+    ),
     EGG_MOVES_TERMINATOR
 };
