@@ -8761,6 +8761,13 @@ extern const u32 gItemIcon_Gem[];
 extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
 
+extern const u32 gItemIcon_AdamantCrystal[];
+extern const u32 gItemIconPalette_AdamantCrystal[];
+extern const u32 gItemIcon_GriseousCore[];
+extern const u32 gItemIconPalette_GriseousCore[];
+extern const u32 gItemIcon_LustrousGlobe[];
+extern const u32 gItemIconPalette_LustrousGlobe[];
+
 extern const u32 gItemIcon_RogueCharm[];
 extern const u32 gItemIconPalette_RogueCharm[];
 extern const u32 gItemIcon_RogueCurse[];

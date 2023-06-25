@@ -931,7 +931,53 @@
 #define ITEM_RUBY 756
 #define ITEM_SAPPHIRE 757
 
-#define ITEM_ROGUE_ITEM_FIRST   758 // TODO - Leave a big gap for future additions?
+// GEN IX ITEMS 
+#define ITEM_ABILITY_SHIELD 758         // not hooked up
+#define ITEM_CLEAR_AMULET 759           // not hooked up
+#define ITEM_PUNCHING_GLOVE 760         // not hooked up
+#define ITEM_COVERT_CLOAK 761           // not hooked up
+#define ITEM_LOADED_DICE 762            // not hooked up
+#define ITEM_AUSPICIOUS_ARMOR 763       // not hooked up
+#define ITEM_BOOSTER_ENERGY 764         // not hooked up
+#define ITEM_BIG_BAMBOO_SHOOT 765       // not hooked up
+#define ITEM_GIMMIGHOUL_COIN 766        // not hooked up
+#define ITEM_LEADERS_CREST 767          // not hooked up
+#define ITEM_MALICIOUS_ARMOR 768        // not hooked up
+#define ITEM_MIRROR_HERB 769            // not hooked up
+#define ITEM_SCROLL_OF_DARKNESS 770     // not hooked up
+#define ITEM_SCROLL_OF_WATERS 771       // not hooked up
+#define ITEM_TERA_ORB 772               // not hooked up
+#define ITEM_TINY_BAMBOO_SHOOT 773      // not hooked up
+
+#define ITEM_BUG_TERA_SHARD 774         // not hooked up
+#define ITEM_DARK_TERA_SHARD 775        // not hooked up
+#define ITEM_DRAGON_TERA_SHARD 776      // not hooked up
+#define ITEM_ELECTRIC_TERA_SHARD 777    // not hooked up
+#define ITEM_FAIRY_TERA_SHARD 778       // not hooked up
+#define ITEM_FIGHTING_TERA_SHARD 779    // not hooked up
+#define ITEM_FIRE_TERA_SHARD 780        // not hooked up
+#define ITEM_FLYING_TERA_SHARD 781      // not hooked up
+#define ITEM_GHOST_TERA_SHARD 782       // not hooked up
+#define ITEM_GRASS_TERA_SHARD 783       // not hooked up
+#define ITEM_GROUND_TERA_SHARD 784      // not hooked up
+#define ITEM_ICE_TERA_SHARD 785         // not hooked up
+#define ITEM_NORMAL_TERA_SHARD 786      // not hooked up
+#define ITEM_POISON_TERA_SHARD 787      // not hooked up
+#define ITEM_PSYCHIC_TERA_SHARD 788     // not hooked up
+#define ITEM_ROCK_TERA_SHARD 789        // not hooked up
+#define ITEM_STEEL_TERA_SHARD 790       // not hooked up
+#define ITEM_WATER_TERA_SHARD 791       // not hooked up
+
+#define ITEM_ADAMANT_CRYSTAL 792
+#define ITEM_GRISEOUS_CORE 793
+#define ITEM_LUSTROUS_GLOBE 794
+
+#define ITEM_BLACK_AUGURITE 795         // not hooked up
+#define ITEM_LINKING_CORD 796           // not hooked up
+#define ITEM_PEAT_BLOCK 797             // not hooked up
+#define ITEM_BERSERK_GENE 798           // not hooked up
+
+#define ITEM_ROGUE_ITEM_FIRST   799 // TODO - Leave a big gap for future additions?
 #define ITEM_ROGUE_ITEM_LAST    (ITEM_ROGUE_ITEM_FIRST + 100)
 #define ITEM_ROGUE_ITEM_COUNT   (ITEM_ROGUE_ITEM_LAST - ITEM_ROGUE_ITEM_FIRST + 1)
 

@@ -803,6 +803,10 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_TEA] = {gItemIcon_Tea, gItemIconPalette_Tea},
     [ITEM_RUBY] = {gItemIcon_Gem, gItemIconPalette_Ruby},
     [ITEM_SAPPHIRE] = {gItemIcon_Gem, gItemIconPalette_Sapphire},
+    // Gen IX items
+    [ITEM_ADAMANT_CRYSTAL] = {gItemIcon_AdamantCrystal, gItemIconPalette_AdamantCrystal},
+    [ITEM_GRISEOUS_CORE] = {gItemIcon_GriseousCore, gItemIconPalette_GriseousCore},
+    [ITEM_LUSTROUS_GLOBE] = {gItemIcon_LustrousGlobe, gItemIconPalette_LustrousGlobe},
     // Return to field arrow
     [ITEM_FIELD_ARROW] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

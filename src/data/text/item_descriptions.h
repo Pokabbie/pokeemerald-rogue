@@ -3793,3 +3793,19 @@ static const u8 sSapphireDesc[] = _(
     "A brilliant blue gem\n"
     "that symbolizes\n"
     "honesty.");
+
+
+static const u8 sAdamantCrystalDesc[] = _(
+    "A large, glowing gem\n"
+    "that lets Dialga\n"
+    "change form.");
+
+static const u8 sGriseousCoreDesc[] = _(
+    "A large, glowing gem\n"
+    "that lets Giratina\n"
+    "change form.");
+
+static const u8 sLustrousGlobeDesc[] = _(
+    "A large, glowing gem\n"
+    "that lets Palkia\n"
+    "change form.");
