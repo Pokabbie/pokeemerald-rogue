@@ -4,6 +4,7 @@
 
 #define ENTRIES_PER_PAGE 5
 
+// The index doesn't matter too much here, just make sure it's unique and that's fine
 #define FOR_EACH_CREDIT(method) \
     method(0, "", 0) \
     method(1, "POKéMON EMERALD ROGUE", CREDITS_FLAG_TITLE) \
@@ -72,6 +73,11 @@
     method(57, "Zender1752", 0) \
     method(58, "SageDeoxys", 0) \
     method(59, "Lasee0", 0) \
+    method(5900, "Ezerart", 0) \
+    method(5901, "Wolfang62", 0) \
+    method(5902, "DarkusShadow", 0) \
+    method(5903, "Anarlaurendil", 0) \
+    method(5904, "Lasse00", 0) \
     method(60, "", CREDITS_FLAG_BREAK) \
     \
     method(61, "Additional Songs", CREDITS_FLAG_TITLE) \

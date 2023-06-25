@@ -109,6 +109,7 @@ namespace PokemonDataGenerator
 				SpriteSheetSplitter_Gen6.AppendMonSprites();
 				SpriteSheetSplitter_Gen7.AppendMonSprites();
 				SpriteSheetSplitter_Gen8.AppendMonSprites();
+				SpriteSheetSplitter_Hisui.AppendMonSprites();
 			}
 
 			string outDir = Path.GetFullPath("sprite_out");
