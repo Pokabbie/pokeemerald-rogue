@@ -863,10 +863,17 @@ u8 SpeciesToGen(u16 species)
         return 7;
     if(species >= SPECIES_GROOKEY && species <= SPECIES_CALYREX)
         return 8;
+    // Hisui is classes as gen8
+    if(species >= SPECIES_WYRDEER && species <= SPECIES_ENAMORUS)
+        return 8;
 
     if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
         return 7;
     if(species >= SPECIES_MEOWTH_GALARIAN && species <= SPECIES_STUNFISK_GALARIAN)
+        return 8;
+
+    // Hisui is classes as gen8
+    if(species >= SPECIES_GROWLITHE_HISUIAN && species <= SPECIES_DECIDUEYE_HISUIAN)
         return 8;
 
     if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_ARCEUS_FAIRY)
@@ -1047,6 +1054,7 @@ u8 ItemToGen(u16 item)
         case ITEM_ADAMANT_ORB:
         case ITEM_LUSTROUS_ORB:
         case ITEM_GRISEOUS_ORB:
+        case ITEM_GRISEOUS_CORE: // <- Always have griseous core avaliable, so can transform as we did in og game
             return 4;
 
         case ITEM_ROTOM_CATALOG:
@@ -1066,6 +1074,11 @@ u8 ItemToGen(u16 item)
             return 7;
 
         case ITEM_REINS_OF_UNITY:
+            return 8;
+        
+        // Hisui items gen8
+        case ITEM_ADAMANT_CRYSTAL:
+        case ITEM_LUSTROUS_GLOBE:
             return 8;
     };
 

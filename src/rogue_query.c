@@ -593,7 +593,7 @@ static bool8 Query_IsSpeciesEnabled(u16 species)
                 return RoguePokedex_IsSpeciesEnabled(species);
 
             // Gen5
-            if(species == SPECIES_BASCULIN_BLUE_STRIPED)
+            if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)
                 return RoguePokedex_IsSpeciesEnabled(species);
 
             if(species >= SPECIES_DEERLING_SUMMER && species <= SPECIES_KYUREM_BLACK)
@@ -1185,6 +1185,12 @@ void RogueQuery_SpeciesAlternateForms(bool8 includeItemForms)
 
     if(GetQueryState(SPECIES_ROTOM))
         RogueQuery_IncludeRange(SPECIES_ROTOM_HEAT, SPECIES_ROTOM_MOW);
+
+    if(includeItemForms && GetQueryState(SPECIES_DIALGA))
+        RogueQuery_Include(SPECIES_DIALGA_ORIGIN);
+
+    if(includeItemForms && GetQueryState(SPECIES_PALKIA))
+        RogueQuery_Include(SPECIES_PALKIA_ORIGIN);
 
     if(includeItemForms && GetQueryState(SPECIES_GIRATINA))
         RogueQuery_Include(SPECIES_GIRATINA_ORIGIN);
@@ -2133,6 +2139,7 @@ static bool8 IsRareHeldItem(struct Item* item)
         (item->itemId >= ITEM_NORMALIUM_Z && item->itemId <= ITEM_ULTRANECROZIUM_Z) ||
         (item->itemId == ITEM_RUSTED_SWORD || item->itemId == ITEM_RUSTED_SHIELD) ||
         (item->itemId == ITEM_ADAMANT_ORB || item->itemId == ITEM_LUSTROUS_ORB || item->itemId == ITEM_GRISEOUS_ORB) ||
+        (item->itemId == ITEM_ADAMANT_CRYSTAL || item->itemId == ITEM_LUSTROUS_GLOBE || item->itemId == ITEM_GRISEOUS_CORE) ||
         item->itemId == ITEM_SOUL_DEW ||
         item->itemId == ITEM_DYNAMAX_CANDY ||
         item->itemId == ITEM_MAX_MUSHROOMS;
