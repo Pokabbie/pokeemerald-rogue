@@ -34,6 +34,47 @@ namespace PokemonDataGenerator
 					&& Item == otherPreset.Item
 					&& Enumerable.SequenceEqual(Moves, otherPreset.Moves);
 			}
+
+			public static bool IsMoveUnsupported(string moveString)
+			{
+				switch (moveString.ToUpper())
+				{
+					// Currently no Hisui moves support
+					case "DIRE CLAW":
+					case "PSYSHIELD BASH":
+					case "POWER SHIFT":
+					case "STONE AXE":
+					case "SPRINGTIDE STORM":
+					case "MYSTICAL POWER":
+					case "RAGING FURY":
+					case "WAVE CRASH":
+					case "CHLOROBLAST":
+					case "MOUNTAIN GALE":
+					case "VICTORY DANCE":
+					case "HEADLONG RUSH":
+					case "BARB BARRAGE":
+					case "ESPER WING":
+					case "BITTER MALICE":
+					case "SHELTER":
+					case "TRIPLE ARROWS":
+					case "INFERNAL PARADE":
+					case "CEASELESS EDGE":
+					case "BLEAKWIND STORM":
+					case "WILDBOLT STORM":
+					case "SANDSEAR STORM":
+					case "LUNAR BLESSING":
+					case "TAKE HEART":
+						return true;
+
+					// No gen9 support
+					case "TERA BLAST":
+					case "ICE SPINNER":
+					case "AQUA CUTTER":
+						return true;
+				}
+
+				return false;
+			}
 		}
 
 		private class PokemonData
@@ -46,8 +87,8 @@ namespace PokemonDataGenerator
 				UsedCategorySources.Add(category);
 
 				foreach (var otherPreset in Presets)
-				{ 
-					if(otherPreset.IsCompatible(preset))
+				{
+					if (otherPreset.IsCompatible(preset))
 					{
 						otherPreset.CategorySources.Add(category);
 						return;
@@ -117,10 +158,10 @@ namespace PokemonDataGenerator
 				{
 					string pokemonName = pokemonKvp.Key;
 
-					if(categoryName.StartsWith("gen9", StringComparison.CurrentCultureIgnoreCase))
+					if (categoryName.StartsWith("gen9", StringComparison.CurrentCultureIgnoreCase))
 					{
 						// For now, we're only accepting hisui sets
-						switch(pokemonName.ToUpper())
+						switch (pokemonName.ToUpper())
 						{
 							case "WYRDEER":
 							case "KLEAVOR":
@@ -129,11 +170,11 @@ namespace PokemonDataGenerator
 							case "SNEASLER":
 							case "OVERQWIL":
 							case "ENAMORUS":
-							case "DIALGA_ORIGIN":
-							case "PALKIA_ORIGIN":
-							case "BASCULIN_WHITE_STRIPED":
-							case "ENAMORUS_THERIAN":
-							case "BASCULEGION_FEMALE":
+							case "DIALGA-ORIGIN":
+							case "PALKIA-ORIGIN":
+							case "BASCULIN-WHITE-STRIPED":
+							case "ENAMORUS-THERIAN":
+							case "BASCULEGION-F":
 								break; // accept these
 
 							default:
@@ -179,6 +220,9 @@ namespace PokemonDataGenerator
 					if (pokemonName.EndsWith("Wormadam-Trash", StringComparison.CurrentCultureIgnoreCase))
 						pokemonName += "-cloak";
 
+					if (pokemonName.Equals("Basculegion-f", StringComparison.CurrentCultureIgnoreCase))
+						pokemonName = "Basculegion-female";
+
 					if (pokemonName.EndsWith("Alola", StringComparison.CurrentCultureIgnoreCase))
 						pokemonName += "n";
 					if (pokemonName.EndsWith("Galar", StringComparison.CurrentCultureIgnoreCase))
@@ -218,7 +262,8 @@ namespace PokemonDataGenerator
 							{
 							}
 
-							preset.Moves.Add(moveString);
+							if (!PokemonPreset.IsMoveUnsupported(moveString))
+								preset.Moves.Add(moveString);
 						}
 
 						preset.Ability = null;
@@ -298,14 +343,14 @@ namespace PokemonDataGenerator
 					upperBlock.AppendLine("\t{");
 
 					upperBlock.AppendLine($"\t\t.flags = {string.Join(" | ", preset.CategorySources.Select(str => FormatKeyword("MON_FLAGS_" + str)))},");
-					
+
 					upperBlock.AppendLine($"\t\t.hiddenPowerType = TYPE_{FormatKeyword(preset.HiddenPowerType)},");
 
 					if (preset.Ability == null || preset.Ability.Equals("No Ability", StringComparison.CurrentCultureIgnoreCase))
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_NONE,");
 					else
 						upperBlock.AppendLine($"\t\t.abilityNum = ABILITY_{FormatKeyword(preset.Ability)},");
-										if (preset.Item == null)
+					if (preset.Item == null)
 						upperBlock.AppendLine($"\t\t.heldItem = ITEM_NONE,");
 					else
 						upperBlock.AppendLine($"\t\t.heldItem = ITEM_{FormatKeyword(preset.Item)},");
@@ -334,7 +379,7 @@ namespace PokemonDataGenerator
 				// Moveset
 				upperBlock.AppendLine($"static const u16 sRoguePresets_{FormatKeyword(pokemon.PokemonName)}_Moveset[] = ");
 				upperBlock.AppendLine("{");
-				foreach(var move in containedMoves)
+				foreach (var move in containedMoves)
 					upperBlock.AppendLine($"\tMOVE_{FormatKeyword(move)},");
 
 				upperBlock.AppendLine("};");
