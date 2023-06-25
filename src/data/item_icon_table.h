@@ -265,6 +265,8 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_STAR_SWEET] = {gItemIcon_StarSweet, gItemIconPalette_StarSweet},
     [ITEM_RIBBON_SWEET] = {gItemIcon_RibbonSweet, gItemIconPalette_RibbonSweet},
     [ITEM_EVERSTONE] = {gItemIcon_Everstone, gItemIconPalette_Everstone},
+    [ITEM_BLACK_AUGURITE] = {gItemIcon_BlackAugurite, gItemIconPalette_BlackAugurite},
+    [ITEM_PEAT_BLOCK] = {gItemIcon_PeatBlock, gItemIconPalette_PeatBlock},
     // Nectars
     [ITEM_RED_NECTAR] = {gItemIcon_RedNectar, gItemIconPalette_RedNectar},
     [ITEM_YELLOW_NECTAR] = {gItemIcon_YellowNectar, gItemIconPalette_YellowNectar},

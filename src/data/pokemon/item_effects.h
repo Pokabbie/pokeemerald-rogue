@@ -574,6 +574,8 @@ const u8 *const gItemEffectTable[] =
     [ITEM_CHIPPED_POT - ITEM_POTION]      = gItemEffect_EvoItem,
     [ITEM_GALARICA_CUFF - ITEM_POTION]    = gItemEffect_EvoItem,
     [ITEM_GALARICA_WREATH - ITEM_POTION]  = gItemEffect_EvoItem,
+    [ITEM_BLACK_AUGURITE - ITEM_POTION]  = gItemEffect_EvoItem,
+    [ITEM_PEAT_BLOCK - ITEM_POTION]  = gItemEffect_EvoItem,
 
     // Berries
     [ITEM_CHERI_BERRY - ITEM_POTION]      = gItemEffect_CheriBerry,
