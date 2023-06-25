@@ -113,6 +113,103 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     {
         outEvo->targetSpecies = SPECIES_MR_MIME_GALARIAN;
     }
+
+
+    if(species == SPECIES_STANTLER && evoIdx == 0)
+    {
+        // TODO - Make know psyshield bash?
+        outEvo->targetSpecies = SPECIES_WYRDEER;
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 30;
+    }
+
+    if(species == SPECIES_SCYTHER && evoIdx == 1)
+    {
+        outEvo->targetSpecies = SPECIES_KLEAVOR;
+        outEvo->method = EVO_LEVEL_ITEM;
+        outEvo->param = ITEM_BLACK_AUGURITE;
+    }
+
+    if(species == SPECIES_URSARING && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_URSALUNA;
+        outEvo->method = EVO_ITEM_HOLD_NIGHT;
+        outEvo->param = ITEM_PEAT_BLOCK;
+    }
+
+    if(species == SPECIES_BASCULIN_WHITE_STRIPED)
+    {
+        if(evoIdx == 0)
+        {
+            outEvo->targetSpecies = SPECIES_BASCULEGION;
+            outEvo->method = EVO_LEVEL_MALE;
+            outEvo->param = 30;
+        }
+        else if(evoIdx == 1)
+        {
+            outEvo->targetSpecies = SPECIES_BASCULEGION_FEMALE;
+            outEvo->method = EVO_LEVEL_FEMALE;
+            outEvo->param = 30;
+        }
+    }
+    if(species == SPECIES_SNEASEL_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_SNEASLER;
+        outEvo->method = EVO_ITEM_HOLD_DAY;
+        outEvo->param = ITEM_RAZOR_CLAW;
+    }
+
+    if(species == SPECIES_QWILFISH_HISUIAN && evoIdx == 0)
+    {
+        // TODO - Make know barb barrage?
+        outEvo->targetSpecies = SPECIES_OVERQWIL;
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 30;
+    }
+
+    if(species == SPECIES_GROWLITHE_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_ARCANINE_HISUIAN;
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_FIRE_STONE;
+    }
+    
+    if(species == SPECIES_GROWLITHE_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_ARCANINE_HISUIAN;
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_FIRE_STONE;
+    }
+    
+    if(species == SPECIES_VOLTORB_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_ELECTRODE_HISUIAN;
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_LEAF_STONE;
+    }
+
+    if(species == SPECIES_ZORUA_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_ZOROARK_HISUIAN;
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 30;
+    }
+
+    if(species == SPECIES_SLIGGOO_HISUIAN && evoIdx == 0)
+    {
+        outEvo->targetSpecies = SPECIES_GOODRA_HISUIAN;
+        outEvo->method = EVO_LEVEL_RAIN;
+        outEvo->param = 50;
+    }
+
+    // TODO - SPECIES_TYPHLOSION_HISUIAN (lvl 36)
+    // TODO - SPECIES_SAMUROTT_HISUIAN (lvl 36)
+    // TODO - SPECIES_LILLIGANT_HISUIAN (Sun stone)
+    // TODO - SPECIES_BRAVIARY_HISUIAN (lvl 54)
+    // TODO - SPECIES_SLIGGOO_HISUIAN (lvl 40)
+    // TODO - SPECIES_AVALUGG_HISUIAN (lvl 37)
+    // TODO - SPECIES_DECIDUEYE_HISUIAN (lvl 36)
+
 #endif
 
 #ifndef ROGUE_BAKING
@@ -247,7 +344,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_BEAUTY):
             case(EVO_FRIENDSHIP):
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 20;
+                outEvo->param = 30;
                 break;
 
             case(EVO_TRADE):
@@ -260,11 +357,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
             case(EVO_FRIENDSHIP_DAY):
                 outEvo->method = EVO_LEVEL_DAY;
-                outEvo->param = 20;
+                outEvo->param = 30;
                 break;
             case(EVO_FRIENDSHIP_NIGHT):
                 outEvo->method = EVO_LEVEL_NIGHT;
-                outEvo->param = 20;
+                outEvo->param = 30;
                 break;
 
 #ifdef ROGUE_EXPANSION
@@ -272,7 +369,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_CRITICAL_HITS):
             case(EVO_SCRIPT_TRIGGER_DMG):
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 20;
+                outEvo->param = 30;
                 break;
 
             case(EVO_WATER_SCROLL):
