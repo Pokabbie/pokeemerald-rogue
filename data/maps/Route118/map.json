@@ -228,9 +228,9 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 56,
-      "y": 7,
+      "y": 4,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
