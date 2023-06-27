@@ -49,6 +49,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/items.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -1713,9 +1714,55 @@ bool8 ScrCmd_setmonmove(struct ScriptContext *ctx)
 bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
 {
     u8 i;
+    u16 itemToCheck;
     u16 moveId = ScriptReadHalfword(ctx);
 
     gSpecialVar_Result = PARTY_SIZE;
+
+    itemToCheck = ITEM_NONE;
+
+    switch (moveId)
+    {
+    case MOVE_CUT:
+        itemToCheck = ITEM_HM01_CUT;
+        break;
+
+    case MOVE_FLY:
+        itemToCheck = ITEM_HM02_FLY;
+        break;
+
+    case MOVE_SURF:
+        itemToCheck = ITEM_HM03_SURF;
+        break;
+
+    case MOVE_STRENGTH:
+        itemToCheck = ITEM_HM04_STRENGTH;
+        break;
+
+    case MOVE_FLASH:
+        itemToCheck = ITEM_HM05_FLASH;
+        break;
+
+    case MOVE_ROCK_SMASH:
+        itemToCheck = ITEM_HM06_ROCK_SMASH;
+        break;
+
+    case MOVE_WATERFALL:
+        itemToCheck = ITEM_HM07_WATERFALL;
+        break;
+
+    case MOVE_DIVE:
+        itemToCheck = ITEM_HM08_DIVE;
+        break;
+    }
+
+    if(itemToCheck != ITEM_NONE)
+    {
+        // Don't have item so can't use
+        if(!CheckBagHasItem(itemToCheck, 1))
+            return FALSE;
+    }
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
@@ -1725,9 +1772,13 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
         {
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;
-            break;
+            return FALSE;
         }
     }
+
+    // Fallback to always use first mon if don't have it taught
+    gSpecialVar_Result = 0;
+    gSpecialVar_0x8004 = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
     return FALSE;
 }
 
