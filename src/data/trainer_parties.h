@@ -5676,15 +5676,29 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Benny[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Chester[] = {
     {
-    .iv = 0,
-    .lvl = 25,
-    .species = SPECIES_TAILLOW,
+        .iv = 255,
+        .lvl = 40,
+        .species = SPECIES_ZOROARK_HISUIAN,
+        .heldItem = ITEM_FOCUS_SASH,
+        .ability = ABILITY_ILLUSION,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NASTY_PLOT, MOVE_HYPER_VOICE, MOVE_CONFUSE_RAY}
     },
     {
-    .iv = 0,
-    .lvl = 25,
-    .species = SPECIES_SWELLOW,
-    }
+        .iv = 255,
+        .lvl = 40,
+        .species = SPECIES_DITTO,
+        .heldItem = ITEM_CHOICE_SCARF,
+        .ability = ABILITY_IMPOSTER,
+        .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE,}
+    },
+    {
+        .iv = 255,
+        .lvl = 40,
+        .species = SPECIES_SMEARGLE,
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = ABILITY_MOODY,
+        .moves = {MOVE_SPORE, MOVE_BULK_UP, MOVE_SUBSTITUTE, MOVE_POWER_TRIP}
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Robert2[] = {
