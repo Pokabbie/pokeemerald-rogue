@@ -184,6 +184,7 @@ void NewGameInitData(void)
     ClearRoamerLocationData();
     gSaveBlock1Ptr->registeredItem = 0;
     ClearBag();
+    AddBagItem(ITEM_RARE_CANDY, 999);
     NewGameInitPCItems();
     ClearPokeblocks();
     ClearDecorationInventories();
