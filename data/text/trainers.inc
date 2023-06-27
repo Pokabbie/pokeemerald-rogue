@@ -2618,15 +2618,15 @@ Route118_Text_PerryPostBattle:
 	.string "I'll have to train mine better.$"
 
 Route118_Text_ChesterIntro:
-	.string "Take flight!\n"
-	.string "My BIRD POKéMON!$"
+	.string "Fight!\n"
+	.string "My POKéMON!$"
 
 Route118_Text_ChesterDefeat:
-	.string "They did take flight…$"
+	.string "They did fight well…$"
 
 Route118_Text_ChesterPostBattle:
 	.string "If they'd get stronger, they'd be able\n"
-	.string "to fly more freely…$"
+	.string "to battle more freely…$"
 
 Route118_Text_BarnyIntro:
 	.string "I'm a FISHERMAN, but also a TRAINER.\n"
