@@ -30,33 +30,49 @@ namespace PokemonDataGenerator.Pokedex
 
 			List<PokedexData> fullDexes = new List<PokedexData>();
 
-			fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
-			fullDexes.Add(GatherDexData("johto_GSC", "Gold/Silver/Crystal", 2, "original-johto"));
-			fullDexes.Add(GatherDexData("hoenn_RSE", "Ruby/Sapphire/Emerald", 3, "hoenn"));
-
-			if (!isVanillaVersion)
+			if (isVanillaVersion)
 			{
-				fullDexes.Add(GatherDexData("sinnoh_DP", "Diamond/Pearl", 4, "original-sinnoh"));
-				fullDexes.Add(GatherDexData("sinnoh_PL", "Platinum", 4, "extended-sinnoh"));
-				fullDexes.Add(GatherDexData("johto_HGSS", "HeartGold/SoulSilver", 4, "updated-johto"));
-				fullDexes.Add(GatherDexData("unova_BW", "Black/White", 5, "original-unova"));
-				fullDexes.Add(GatherDexData("unova_BW2", "Black2/White2", 5, "updated-unova"));
-				fullDexes.Add(GatherDexData("unova_conquest", "Conquest", 5, "conquest-gallery"));
-				fullDexes.Add(GatherDexData("kalos", "X/Y", 6, "kalos-central", "kalos-coastal", "kalos-mountain"));
-				fullDexes.Add(GatherDexData("hoenn_ORAS", "OmegaRuby/AlphaSapphire", 6, "updated-hoenn"));
-				fullDexes.Add(GatherDexData("alola_SM", "Sun/Moon", 7, "original-alola", "original-melemele", "original-akala", "original-ulaula", "original-poni"));
-				fullDexes.Add(GatherDexData("alola_USUM", "UltraSun/UltraMoon", 7, "updated-alola", "updated-melemele", "updated-akala", "updated-ulaula", "updated-poni"));
-				fullDexes.Add(GatherDexData("kanto_letsgo", "Let'sGo", 7, "letsgo-kanto"));
-				fullDexes.Add(GatherDexData("galar_swsh", "Sword/Shield", 8, "galar"));
-				fullDexes.Add(GatherDexData("galar_isleofarmor", "IsleOfArmor", 8, "isle-of-armor"));
-				fullDexes.Add(GatherDexData("galar_crowntundra", "CrownTundra", 8, "crown-tundra"));
-				fullDexes.Add(GatherDexData("galar_fulldlc", "Sword/Shield + DLC", 8, "galar", "isle-of-armor", "crown-tundra"));
-				//dataToExport.Add(GatherDexData("hisui", 8, "hisui"));
+				fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
+				fullDexes.Add(GatherDexData("johto_GSC", "Gold/Silver/Crystal", 2, "original-johto"));
+				fullDexes.Add(GatherDexData("hoenn_RSE", "Ruby/Sapphire/Emerald", 3, "hoenn"));
 			}
+			else
+			{
+				// Purposely order so the most recent regional dex is first
+				fullDexes.Add(GatherResourceDexData("rogue_main", "Emerald Rogue", 8, "Rogue Dex.csv"));
+
+				fullDexes.Add(GatherDexData("kanto_letsgo", "Let'sGo", 7, "letsgo-kanto"));
+				fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
+
+				fullDexes.Add(GatherDexData("johto_HGSS", "HeartGold/SoulSilver", 4, "updated-johto"));
+				fullDexes.Add(GatherDexData("johto_GSC", "Gold/Silver/Crystal", 2, "original-johto"));
+
+				fullDexes.Add(GatherDexData("hoenn_ORAS", "OmegaRuby/AlphaSapphire", 6, "updated-hoenn"));
+				fullDexes.Add(GatherDexData("hoenn_RSE", "Ruby/Sapphire/Emerald", 3, "hoenn"));
+
+				fullDexes.Add(GatherDexData("sinnoh_PL", "Platinum", 4, "extended-sinnoh"));
+				fullDexes.Add(GatherDexData("sinnoh_DP", "Diamond/Pearl", 4, "original-sinnoh"));
+
+				fullDexes.Add(GatherDexData("unova_BW2", "Black2/White2", 5, "updated-unova"));
+				fullDexes.Add(GatherDexData("unova_BW", "Black/White", 5, "original-unova"));
+				fullDexes.Add(GatherDexData("unova_conquest", "Conquest", 5, "conquest-gallery"));
+
+				fullDexes.Add(GatherDexData("kalos", "X/Y", 6, "kalos-central", "kalos-coastal", "kalos-mountain"));
+
+				fullDexes.Add(GatherDexData("alola_USUM", "UltraSun/UltraMoon", 7, "updated-alola", "updated-melemele", "updated-akala", "updated-ulaula", "updated-poni"));
+				fullDexes.Add(GatherDexData("alola_SM", "Sun/Moon", 7, "original-alola", "original-melemele", "original-akala", "original-ulaula", "original-poni"));
+
+				fullDexes.Add(GatherDexData("galar_fulldlc", "Sword/Shield + DLC", 8, "galar", "isle-of-armor", "crown-tundra"));
+				fullDexes.Add(GatherDexData("galar_crowntundra", "CrownTundra", 8, "crown-tundra"));
+				fullDexes.Add(GatherDexData("galar_isleofarmor", "IsleOfArmor", 8, "isle-of-armor"));
+				fullDexes.Add(GatherDexData("galar_swsh", "Sword/Shield", 8, "galar"));
+
+				fullDexes.Add(GatherDexData("hisui_legendsarceus", "LegendsArceus", 8, "hisui"));
+							}
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
 
-			foreach(var dex in fullDexes)
+			foreach (var dex in fullDexes)
 			{
 				string region = dex.InternalName.Split('_')[0];
 
@@ -138,6 +154,51 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
+				}
+			}
+
+			return;
+		}
+
+		private static PokedexData GatherResourceDexData(string name, string displayName, int genLimit, params string[] dexIds)
+		{
+			Console.WriteLine($"Generating {name} dex data");
+
+			PokedexData data = new PokedexData();
+			data.InternalName = name;
+			data.DisplayName = displayName;
+			data.GenLimit = genLimit;
+			data.Mons = new List<string>();
+
+			foreach (string dexId in dexIds)
+			{
+				AppendResourceDexMons(dexId, data);
+			}
+
+			return data;
+		}
+
+		private static void AppendResourceDexMons(string dexId, PokedexData target)
+		{
+			string csvContent = ContentCache.GetHttpContent("res://Pokedex/" + dexId);
+
+			using(StringReader reader = new StringReader(csvContent))
+			{
+				string line;
+
+				while((line = reader.ReadLine()) != null)
+				{
+					// Skip header
+					if (line.StartsWith("Name,"))
+						continue;
+
+					string[] columns = line.Split(',');
+
+					string species = columns[0].ToLower().Trim();
+					if (!target.Mons.Contains(species))
+					{
+						target.Mons.Add(species);
+					}
 				}
 			}
 
