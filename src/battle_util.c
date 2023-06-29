@@ -9058,7 +9058,7 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_LIGHT_BALL:
-        if (atkBaseSpeciesId == SPECIES_PIKACHU)
+        if (atkBaseSpeciesId == SPECIES_PIKACHU || (atkBaseSpeciesId >= SPECIES_PIKACHU_COSPLAY && atkBaseSpeciesId <= SPECIES_PIKACHU_WORLD_CAP))
             MulModifier(&modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_CHOICE_BAND:
