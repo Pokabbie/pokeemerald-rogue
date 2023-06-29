@@ -55,7 +55,7 @@ Debug_FlagsNotSetMessage_Text:
 	.string "'include/constants/overworld{UNDERSCORE}config.h'!$"
 
 Debug_Script_1::
-	setvar VAR_REPEL_STEP_COUNT, 65535
+	setvar VAR_REPEL_STEP_COUNT, 32767
 	end
 
 Debug_Script_2::
