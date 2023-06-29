@@ -264,18 +264,40 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre2[] = {
     .species = SPECIES_CARVANHA,
     }
 };
-
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre3[] = {
+static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre3[] = {
     {
-    .iv = 0,
-    .lvl = 30,
-    .species = SPECIES_POOCHYENA,
+        .iv = 150,
+        .lvl = 42,
+        .species = SPECIES_SLOWKING_GALARIAN,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = { MOVE_LIGHT_SCREEN, MOVE_TRICK_ROOM, MOVE_TOXIC, MOVE_VENOSHOCK }
     },
+    
     {
-    .iv = 0,
-    .lvl = 30,
-    .species = SPECIES_CARVANHA,
-    }
+        .iv = 150,
+        .lvl = 36,
+        .species = SPECIES_SLAKING,
+        .heldItem = ITEM_ASSAULT_VEST,
+        .moves = { MOVE_DRAIN_PUNCH, MOVE_THUNDER_PUNCH, MOVE_ICE_PUNCH, MOVE_SHADOW_CLAW }
+    },
+};
+
+static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre4[] = {
+    {
+        .iv = 150,
+        .lvl = 36,
+        .species = SPECIES_REGIGIGAS,
+        .heldItem = ITEM_ASSAULT_VEST,
+        .moves = { MOVE_DRAIN_PUNCH, MOVE_FACADE, MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE }
+    },
+
+    {
+        .iv = 150,
+        .lvl = 42,
+        .species = SPECIES_RUNERIGUS,
+        .heldItem = ITEM_ROCKY_HELMET,
+        .moves = { MOVE_SAFEGUARD, MOVE_WILL_O_WISP, MOVE_TRICK_ROOM, MOVE_SHADOW_BALL}
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntWeatherInst4[] = {
@@ -7961,19 +7983,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntUnused[] = {
     {
     .iv = 0,
     .lvl = 31,
-    .species = SPECIES_ZUBAT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre4[] = {
-    {
-    .iv = 0,
-    .lvl = 30,
-    .species = SPECIES_WAILMER,
-    },
-    {
-    .iv = 0,
-    .lvl = 30,
     .species = SPECIES_ZUBAT,
     }
 };

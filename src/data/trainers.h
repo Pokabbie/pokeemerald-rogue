@@ -309,8 +309,8 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_GruntMtPyre3),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HELP_PARTNER,
+        .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_GruntMtPyre3),
     },
 
     [TRAINER_GRUNT_WEATHER_INST_4] =
@@ -6909,8 +6909,8 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("GRUNT"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_GruntMtPyre4),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HELP_PARTNER,
+        .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_GruntMtPyre4),
     },
 
     [TRAINER_GRUNT_JAGGED_PASS] =
