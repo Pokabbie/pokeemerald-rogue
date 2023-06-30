@@ -4615,6 +4615,34 @@ static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 perso
     return substruct;
 }
 
+
+static void ChangePersonality(struct BoxPokemon *boxMon, u32 personality)
+{
+    struct PokemonSubstruct0 srcSubstruct0;
+    struct PokemonSubstruct1 srcSubstruct1;
+    struct PokemonSubstruct2 srcSubstruct2;
+    struct PokemonSubstruct3 srcSubstruct3;
+
+    DecryptBoxMon(boxMon);
+
+    // Need to copy all of the substructs as they will likely move around
+    srcSubstruct0 = GetSubstruct(boxMon, boxMon->personality, 0)->type0;
+    srcSubstruct1 = GetSubstruct(boxMon, boxMon->personality, 1)->type1;
+    srcSubstruct2 = GetSubstruct(boxMon, boxMon->personality, 2)->type2;
+    srcSubstruct3 = GetSubstruct(boxMon, boxMon->personality, 3)->type3;
+
+    boxMon->personality = personality;
+
+    memcpy(&(GetSubstruct(boxMon, boxMon->personality, 0)->type0), &srcSubstruct0, sizeof(struct PokemonSubstruct0));
+    memcpy(&(GetSubstruct(boxMon, boxMon->personality, 1)->type1), &srcSubstruct1, sizeof(struct PokemonSubstruct1));
+    memcpy(&(GetSubstruct(boxMon, boxMon->personality, 2)->type2), &srcSubstruct2, sizeof(struct PokemonSubstruct2));
+    memcpy(&(GetSubstruct(boxMon, boxMon->personality, 3)->type3), &srcSubstruct3, sizeof(struct PokemonSubstruct3));
+
+    boxMon->checksum = CalculateBoxMonChecksum(boxMon);
+
+    EncryptBoxMon(boxMon);
+}
+
 u32 GetMonData(struct Pokemon *mon, s32 field, u8 *data)
 {
     u32 ret;
@@ -6514,6 +6542,31 @@ u8 *UseStatIncreaseItem(u16 itemId)
 u8 GetNature(struct Pokemon *mon)
 {
     return GetMonData(mon, MON_DATA_PERSONALITY, 0) % NUM_NATURES;
+}
+
+void SetNature(struct Pokemon *mon, u8 nature)
+{
+    u16 i;
+    u8 gender = GetMonGender(mon);
+    bool8 isMonShiny = IsMonShiny(mon);
+    u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
+    u8 origNature = GetNatureFromPersonality(personality);
+
+    personality = (personality - origNature) + nature;
+
+    // Try to change personality over and over again whilst retaining shiny state
+    for(i = 0; i < 100000; ++i)
+    {
+        ChangePersonality(&mon->box, personality);
+
+        if(gender == GetMonGender(mon) && isMonShiny == IsMonShiny(mon))
+            break;
+
+        personality += NUM_NATURES;
+    }
+
+    // Recalc mon stats
+    CalculateMonStats(mon);
 }
 
 u8 GetNatureFromPersonality(u32 personality)

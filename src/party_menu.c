@@ -4648,6 +4648,144 @@ void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_AbilityPatch;
 }
 
+
+static u8 MintItemToNature(u16 item)
+{
+    switch (item)
+    {
+    case ITEM_LONELY_MINT:
+        return NATURE_LONELY;
+    case ITEM_ADAMANT_MINT:
+        return NATURE_ADAMANT;
+    case ITEM_NAUGHTY_MINT:
+        return NATURE_NAUGHTY;
+    case ITEM_BRAVE_MINT:
+        return NATURE_BRAVE;
+    case ITEM_BOLD_MINT:
+        return NATURE_BOLD;
+    case ITEM_IMPISH_MINT:
+        return NATURE_IMPISH;
+    case ITEM_LAX_MINT:
+        return NATURE_LAX;
+    case ITEM_RELAXED_MINT:
+        return NATURE_RELAXED;
+    case ITEM_MODEST_MINT:
+        return NATURE_MODEST;
+    case ITEM_MILD_MINT:
+        return NATURE_MILD;
+    case ITEM_RASH_MINT:
+        return NATURE_RASH;
+    case ITEM_QUIET_MINT:
+        return NATURE_QUIET;
+    case ITEM_CALM_MINT:
+        return NATURE_CALM;
+    case ITEM_GENTLE_MINT:
+        return NATURE_GENTLE;
+    case ITEM_CAREFUL_MINT:
+        return NATURE_CAREFUL;
+    case ITEM_SASSY_MINT:
+        return NATURE_SASSY;
+    case ITEM_TIMID_MINT:
+        return NATURE_TIMID;
+    case ITEM_HASTY_MINT:
+        return NATURE_HASTY;
+    case ITEM_JOLLY_MINT:
+        return NATURE_JOLLY;
+    case ITEM_NAIVE_MINT:
+        return NATURE_NAIVE;
+    case ITEM_SERIOUS_MINT:
+        return NATURE_SERIOUS;
+    }
+
+    return NATURE_HARDY;
+}
+
+void Task_NatureMint(u8 taskId)
+{
+    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nnature to to {STR_VAR_2}?");
+    static const u8 doneText[] = _("{STR_VAR_1}'s nature became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
+
+    s16 *data = gTasks[taskId].data;
+    struct Pokemon *mon = &gPlayerParty[tMonId];
+    u16 item = gSpecialVar_ItemId;
+    u8 nature = MintItemToNature(item);
+
+    switch (tState)
+    {
+    case 0:
+        if (GetNature(mon) == nature)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+        gPartyMenuUseExitCallback = TRUE;
+        GetMonNickname(mon, gStringVar1);
+        StringCopy(gStringVar2, gNatureNamePointers[nature]);
+        StringExpandPlaceholders(gStringVar4, askText);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayYesNoMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChoose())
+        {
+        case 0:
+            tState++;
+            break;
+        case 1:
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            // Don't exit party selections screen, return to choosing a mon.
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }
+        break;
+    case 3:
+        PlaySE(SE_USE_ITEM);
+        StringExpandPlaceholders(gStringVar4, doneText);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 4:
+        if (!IsPartyMenuTextPrinterActive())
+            tState++;
+        break;
+    case 5:
+        SetNature(mon, nature);
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        gTasks[taskId].func = Task_ClosePartyMenu;
+        break;
+    }
+}
+
+void ItemUseCB_NatureMint(u8 taskId, TaskFunc task)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tState = 0;
+    tMonId = gPartyMenu.slotId;
+    SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
+    gTasks[taskId].func = Task_NatureMint;
+}
+
 #undef tState
 #undef tSpecies
 #undef tAbilityNum

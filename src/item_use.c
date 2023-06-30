@@ -766,6 +766,12 @@ void ItemUseOutOfBattle_AbilityPatch(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_NatureMint(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_NatureMint;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_ReduceEV(u8 taskId)
 {
     gItemUseCB = ItemUseCB_ReduceEV;
