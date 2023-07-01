@@ -2302,7 +2302,7 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
             }
             else if (JOY_NEW(A_BUTTON))
             {
-                if (CanReplaceMove() == TRUE)
+                //if (CanReplaceMove() == TRUE)
                 {
                     StopPokemonAnimations();
                     PlaySE(SE_SELECT);
@@ -2310,11 +2310,11 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
                     gSpecialVar_0x8005 = sMoveSlotToReplace;
                     BeginCloseSummaryScreen(taskId);
                 }
-                else
-                {
-                    PlaySE(SE_FAILURE);
-                    ShowCantForgetHMsWindow(taskId);
-                }
+                //else
+                //{
+                //    PlaySE(SE_FAILURE);
+                //    ShowCantForgetHMsWindow(taskId);
+                //}
             }
             else if (JOY_NEW(B_BUTTON))
             {
