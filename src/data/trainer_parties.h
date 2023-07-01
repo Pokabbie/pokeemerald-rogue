@@ -267,17 +267,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre2[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre3[] = {
     {
         .iv = 150,
-        .lvl = 42,
+        .lvl = 41,
         .species = SPECIES_SLOWKING_GALARIAN,
-        .heldItem = ITEM_LEFTOVERS,
-        .moves = { MOVE_LIGHT_SCREEN, MOVE_TRICK_ROOM, MOVE_TOXIC, MOVE_VENOSHOCK }
+        .heldItem = ITEM_TOXIC_ORB,
+        .moves = { MOVE_TRICK, MOVE_TRICK_ROOM, MOVE_TOXIC, MOVE_VENOSHOCK }
     },
     
     {
         .iv = 150,
-        .lvl = 36,
+        .lvl = 37,
         .species = SPECIES_SLAKING,
-        .heldItem = ITEM_ASSAULT_VEST,
+        .heldItem = ITEM_LEFTOVERS,
         .moves = { MOVE_DRAIN_PUNCH, MOVE_THUNDER_PUNCH, MOVE_ICE_PUNCH, MOVE_SHADOW_CLAW }
     },
 };
@@ -285,7 +285,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre3[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre4[] = {
     {
         .iv = 150,
-        .lvl = 36,
+        .lvl = 37,
         .species = SPECIES_REGIGIGAS,
         .heldItem = ITEM_ASSAULT_VEST,
         .moves = { MOVE_DRAIN_PUNCH, MOVE_FACADE, MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE }
@@ -293,7 +293,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_GruntMtPyre4[] = {
 
     {
         .iv = 150,
-        .lvl = 42,
+        .lvl = 41,
         .species = SPECIES_RUNERIGUS,
         .heldItem = ITEM_ROCKY_HELMET,
         .moves = { MOVE_SAFEGUARD, MOVE_WILL_O_WISP, MOVE_TRICK_ROOM, MOVE_SHADOW_BALL}
