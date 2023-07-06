@@ -338,6 +338,7 @@ SECTIONS {
         src/rogue_campaign.o(.text);
         src/rogue_controller.o(.text);
         src/rogue_followmon.o(.text);
+        src/rogue_ridemon.o(.text);
         src/rogue_hub.o(.text);
         src/rogue_query.o(.text);
         src/rogue_baked.o(.text);
@@ -721,6 +722,7 @@ SECTIONS {
         src/rogue_campaign.o(.rodata);
         src/rogue_controller.o(.rodata);
         src/rogue_followmon.o(.rodata);
+        src/rogue_ridemon.o(.rodata);
         src/rogue_hub.o(.rodata);
         src/rogue_query.o(.rodata);
         src/rogue_baked.o(.rodata);

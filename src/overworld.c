@@ -2199,6 +2199,8 @@ static void InitObjectEventsLocal(void)
     TrySpawnObjectEvents(0, 0);
     TryRunOnWarpIntoMapScript();
     FollowMe_HandleSprite();
+
+    Rogue_InitObjectEventsLocal();
 }
 
 static void InitObjectEventsReturnToField(void)

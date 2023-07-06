@@ -242,8 +242,8 @@ void SetupFollowParterMonObjectEvent()
     if(FollowMon_GetPartnerFollowSpecies() == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
-    // Don't show if on bike or surfing
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+    // Don't show if on bike, surfing or riding mon
+    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING))
         shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible)

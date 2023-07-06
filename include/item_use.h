@@ -3,6 +3,7 @@
 
 void ItemUseOutOfBattle_Mail(u8);
 void ItemUseOutOfBattle_Bike(u8);
+void ItemUseOutOfBattle_RideMon(u8);
 void ItemUseOutOfBattle_Rod(u8);
 void ItemUseOutOfBattle_HealingFlask(u8);
 void ItemUseOutOfBattle_Itemfinder(u8);

@@ -11,6 +11,7 @@
 #include "constants/songs.h"
 
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 
 // this file's functions
 static void MovePlayerOnMachBike(u8, u16, u16);
@@ -1028,6 +1029,8 @@ s16 GetPlayerSpeed(void)
 
     memcpy(machSpeeds, sMachBikeSpeeds, sizeof(machSpeeds));
 
+    if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+        return RideMonGetPlayerSpeed();
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
         return machSpeeds[gPlayerAvatar.bikeFrameCounter];
     else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)

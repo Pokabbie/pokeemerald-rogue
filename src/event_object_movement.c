@@ -1619,6 +1619,43 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
         SetSubspriteTables(sprite, subspriteTables);
         sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
     }
+}
+
+u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority)
+{
+    struct SpriteTemplate *spriteTemplate;
+    const struct ObjectEventGraphicsInfo *graphicsInfo;
+    const struct SubspriteTable *subspriteTables;
+    struct Sprite *sprite;
+    u8 spriteId;
+
+    spriteTemplate = malloc(sizeof(struct SpriteTemplate));
+
+    graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
+    CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables); // ?
+
+    // We want to use the globally loaded palettes
+    spriteTemplate->paletteTag = TAG_NONE;
+
+    spriteId = CreateSprite(spriteTemplate, x, y, subpriority);
+    free(spriteTemplate);
+
+    if(spriteId != MAX_SPRITES)
+    {
+        s16 cameraX, cameraY;
+        GetObjectEventMovingCameraOffset(&cameraX, &cameraY);
+
+        sprite = &gSprites[spriteId];
+        
+        GetMapCoordsFromSpritePos(x + cameraX, y + cameraY, &sprite->x, &sprite->y);
+        sprite->centerToCornerVecX = -(graphicsInfo->width >> 1);
+        sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
+        sprite->x += 8;
+        sprite->y += 16 + sprite->centerToCornerVecY;
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.paletteNum = graphicsInfo->paletteSlot; // global palette
+    }
+
     return spriteId;
 }
 
@@ -1756,6 +1793,8 @@ void SpawnObjectEventsOnReturnToField(s16 x, s16 y)
             SpawnObjectEventOnReturnToField(i, x, y);
     }
     CreateReflectionEffectSprites();
+
+    Rogue_OnSpawnObjectEventsOnReturnToField(x, y);
 }
 
 static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)

@@ -62,6 +62,48 @@ const struct RogueItem gRogueItems[] =
         .iconPalette = gItemIconPalette_HealingFlask,
     },
 
+    [ITEM_BASIC_RIDING_WHISTLE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Poké Whistle"),
+#else
+        .name = _("POKé WHISTLE"),
+#endif
+        .itemId = ITEM_BASIC_RIDING_WHISTLE, 
+        .price = 0,
+        .description = _(
+            "A whistle used to\n"
+            "ride {PKMN} from the\n"
+            "party."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_RideMon,
+        .secondaryId = 0, // TODO - defines for whistle types
+        .registrability = TRUE,
+        .iconImage = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_GOLD_RIDING_WHISTLE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Gold Whistle"),
+#else
+        .name = _("GOLD WHISTLE"),
+#endif
+        .itemId = ITEM_GOLD_RIDING_WHISTLE,
+        .price = 0,
+        .description = _(
+            "A whistle used to\n"
+            "ride registered {PKMN}."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_RideMon,
+        .secondaryId = 1, // TODO - defines for whistle types
+        .registrability = TRUE,
+        .iconImage = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
 
     [ITEM_SHOP_PRICE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
     {

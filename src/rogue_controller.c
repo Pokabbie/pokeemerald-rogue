@@ -55,6 +55,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_ridemon.h"
 #include "rogue_settings.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
@@ -2163,6 +2164,7 @@ void Rogue_MainInit(void)
     ResetHotTracking();
 
     RogueQuery_Init();
+    Rogue_RideMonInit();
     Rogue_AssistantInit();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
@@ -2217,6 +2219,23 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
     {
         FollowMon_OnObjectEventRemoved(objectEvent);
     }
+}
+
+void Rogue_OnMovementType_Player(struct Sprite *sprite)
+{
+    Rogue_UpdateRideMonSprites();
+}
+
+// Called when object events first loaded for a map
+void Rogue_InitObjectEventsLocal()
+{
+    Rogue_CreateDestroyRideMonSprites();
+}
+
+// Called when an already loaded map is returned to e.g. from a battle
+void Rogue_OnSpawnObjectEventsOnReturnToField(s16 x, s16 y)
+{
+    Rogue_CreateDestroyRideMonSprites();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
