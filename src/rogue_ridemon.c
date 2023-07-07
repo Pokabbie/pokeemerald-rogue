@@ -28,12 +28,6 @@ enum
     RIDER_SHOW_INFRONT,
 };
 
-enum
-{
-    RIDER_SPRITE_SITTING,
-    RIDER_SPRITE_GRABBING,
-};
-
 #define RIDE_MON_FLAG_NONE          (0)
 #define RIDE_MON_FLAG_CAN_RIDE      (1 << 0)
 #define RIDE_MON_FLAG_CAN_SWIM      (1 << 1)
@@ -53,16 +47,66 @@ struct RideMonSpriteInfo
 struct RideMonInfo
 {
     u8 flags;
-    u8 riderSpriteMode : 1; // RIDER_SPRITE_
     struct RideMonSpriteInfo spriteInfo[RIDE_SPRITE_DIR_COUNT];
 };
 
 static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] = 
 {
+    // Gen 1
+    [SPECIES_VENUSAUR] = 
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP]    = { 0, -2, 0, 1, RIDER_SHOW_INFRONT },
+            [RIDE_SPRITE_DIR_DOWN]  = { 0, -10, 0, 1, RIDER_SHOW_BEHIND },
+            [RIDE_SPRITE_DIR_SIDE]  = { -10, -4, 3, 1, RIDER_SHOW_INFRONT },
+        }
+    },
+    [SPECIES_CHARIZARD] = 
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
+            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
+            [RIDE_SPRITE_DIR_SIDE]  = { -7, -10, 3, 1, RIDER_SHOW_BEHIND },
+        }
+    },
+    [SPECIES_BLASTOISE] = 
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
+            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
+            [RIDE_SPRITE_DIR_SIDE]  = { -7, -10, 3, 1, RIDER_SHOW_INFRONT },
+        }
+    },
+    [SPECIES_PIDGEOT] = 
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
+            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
+            [RIDE_SPRITE_DIR_SIDE]  = { -5, -10, 3, 1, RIDER_SHOW_BEHIND },
+        }
+    },
+    [SPECIES_FEAROW] = 
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP]    = { 0, -8, 0, 1, RIDER_SHOW_INFRONT },
+            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
+            [RIDE_SPRITE_DIR_SIDE]  = { -5, -12, 3, 1, RIDER_SHOW_BEHIND },
+        }
+    },
+
     [SPECIES_LAPRAS] = 
     {
         .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
-        .riderSpriteMode = RIDER_SPRITE_SITTING,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -4, 0, 2, RIDER_SHOW_INFRONT },
@@ -145,7 +189,7 @@ void Rogue_UpdateRideMonSprites()
 {
     if(sTestData.spriteId != SPRITE_NONE)
     {
-        const struct RideMonInfo* rideInfo = &sRideMonInfo[SPECIES_LAPRAS];
+        const struct RideMonInfo* rideInfo = &sRideMonInfo[FollowMon_GetPartnerFollowSpecies()];
 
 #ifdef ROGUE_DEBUG
         if(sTestData.useDebugInfo)
