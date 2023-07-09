@@ -213,7 +213,7 @@ void Rogue_AssistantOverworldCB()
             {
                 struct ObjectEvent* follower = &gObjectEvents[gSaveBlock2Ptr->follower.objId];
 
-                gRogueAssistantState.netPlayerState[0].partnerMon = FollowMon_GetPartnerFollowSpecies();
+                gRogueAssistantState.netPlayerState[0].partnerMon = FollowMon_GetPartnerFollowSpecies(TRUE);
                 gRogueAssistantState.netPlayerState[0].partnerPos = follower->currentCoords;
                 gRogueAssistantState.netPlayerState[0].partnerFacingDirection = follower->facingDirection;
             }

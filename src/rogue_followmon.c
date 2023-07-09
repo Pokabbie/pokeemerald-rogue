@@ -215,7 +215,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
-        species = FollowMon_GetPartnerFollowSpecies();
+        species = FollowMon_GetPartnerFollowSpecies(TRUE);
     }
 
     if(species >= FOLLOWMON_SHINY_OFFSET)
@@ -239,7 +239,7 @@ void SetupFollowParterMonObjectEvent()
 {
     bool8 shouldFollowMonBeVisible = TRUE;
 
-    if(FollowMon_GetPartnerFollowSpecies() == SPECIES_NONE)
+    if(FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
     // Don't show if on bike, surfing or riding mon
@@ -319,9 +319,14 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
-u16 FollowMon_GetPartnerFollowSpecies()
+u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
-    return MonToFollowSpecies(&gPlayerParty[0]);
+    u16 species = MonToFollowSpecies(&gPlayerParty[0]);
+
+    if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
+        species -= FOLLOWMON_SHINY_OFFSET;
+
+    return species;
 }
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
@@ -476,7 +481,7 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 
     if(lastTalkedId == OBJ_EVENT_ID_FOLLOWER)
     {
-        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies();
+        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies(TRUE);
 
         if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
         {

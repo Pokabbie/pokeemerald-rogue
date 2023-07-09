@@ -14,108 +14,7 @@
 #include "rogue_followmon.h"
 #include "rogue_ridemon.h"
 
-enum
-{
-    RIDE_SPRITE_DIR_UP,
-    RIDE_SPRITE_DIR_DOWN,
-    RIDE_SPRITE_DIR_SIDE,
-    RIDE_SPRITE_DIR_COUNT
-};
-
-enum
-{
-    RIDER_SHOW_BEHIND,
-    RIDER_SHOW_INFRONT,
-};
-
-#define RIDE_MON_FLAG_NONE          (0)
-#define RIDE_MON_FLAG_CAN_RIDE      (1 << 0)
-#define RIDE_MON_FLAG_CAN_SWIM      (1 << 1)
-#define RIDE_MON_FLAG_CAN_CLIMB     (1 << 2)
-#define RIDE_MON_FLAG_CAN_FLY       (1 << 3)
-
-
-struct RideMonSpriteInfo
-{
-    s8 playerX;
-    s8 playerY;
-    s8 monX;
-    s8 monY;
-    u8 playerRendersInFront : 1;
-};
-
-struct RideMonInfo
-{
-    u8 flags;
-    struct RideMonSpriteInfo spriteInfo[RIDE_SPRITE_DIR_COUNT];
-};
-
-static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] = 
-{
-    // Gen 1
-    [SPECIES_VENUSAUR] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -2, 0, 1, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -10, 0, 1, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -10, -4, 3, 1, RIDER_SHOW_INFRONT },
-        }
-    },
-    [SPECIES_CHARIZARD] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -7, -10, 3, 1, RIDER_SHOW_BEHIND },
-        }
-    },
-    [SPECIES_BLASTOISE] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -7, -10, 3, 1, RIDER_SHOW_INFRONT },
-        }
-    },
-    [SPECIES_PIDGEOT] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -5, -10, 3, 1, RIDER_SHOW_BEHIND },
-        }
-    },
-    [SPECIES_FEAROW] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -8, 0, 1, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -12, 0, 1, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -5, -12, 3, 1, RIDER_SHOW_BEHIND },
-        }
-    },
-
-    [SPECIES_LAPRAS] = 
-    {
-        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
-        .spriteInfo = 
-        {
-            [RIDE_SPRITE_DIR_UP]    = { 0, -4, 0, 2, RIDER_SHOW_INFRONT },
-            [RIDE_SPRITE_DIR_DOWN]  = { 0, -6, 0, 2, RIDER_SHOW_BEHIND },
-            [RIDE_SPRITE_DIR_SIDE]  = { -3, -4, 6, 2, RIDER_SHOW_INFRONT },
-        }
-    }
-};
-
+#include "data/rogue_ridemon_infos.h"
 
 struct TestData
 {
@@ -123,19 +22,30 @@ struct TestData
 #ifdef ROGUE_DEBUG
     bool8 useDebugInfo;
     bool8 debugSetter;
+    u8 debugMoveSpeed;
     struct RideMonInfo debugInfo;
 #endif
 };
 
+struct RideMonData
+{
+    u8 rideFrameCounter;
+};
+
 EWRAM_DATA struct TestData sTestData = {0};
+
+EWRAM_DATA struct RideMonData sRideMonData = {0};
 
 
 void Rogue_RideMonInit()
 {
+    sRideMonData.rideFrameCounter = 0;
+
     sTestData.spriteId = SPRITE_NONE;
 #ifdef ROGUE_DEBUG
     sTestData.useDebugInfo = FALSE;
     sTestData.debugSetter = TRUE;
+    sTestData.debugMoveSpeed = RIDE_MOVEMENT_SLOW;
 #endif
 }
 
@@ -185,27 +95,84 @@ void Rogue_CreateDestroyRideMonSprites()
     }
 }
 
+static u16 Rogue_GetRideMonSpecies()
+{
+    return FollowMon_GetPartnerFollowSpecies(FALSE);
+}
+
+static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
+{
+    const struct RideMonInfo* rideInfo = &sRideMonInfo[species];
+
+#ifdef ROGUE_DEBUG
+    if(sTestData.useDebugInfo)
+    {
+        if(sTestData.debugSetter)
+        {
+            sTestData.debugSetter = FALSE;
+            memcpy(&sTestData.debugInfo, rideInfo, sizeof(struct RideMonInfo));
+        }
+
+        rideInfo = &sTestData.debugInfo;
+    }
+#endif
+
+    return rideInfo;
+}
+
+static u16 CalculateMovementModeFor(u16 species)
+{
+    u8 speed = gBaseStats[species].baseSpeed;
+    
+#ifdef ROGUE_DEBUG
+    if(sTestData.useDebugInfo)
+    {
+        return sTestData.debugMoveSpeed;
+    }
+#endif
+
+    if(speed <= 30)
+        return RIDE_MOVEMENT_SLOW;
+
+    if(speed <= 50)
+        return RIDE_MOVEMENT_ACCELERATE_AVERAGE;
+    
+    if(speed <= 90)
+        return RIDE_MOVEMENT_AVERAGE;
+
+    if(speed <= 110)
+        return RIDE_MOVEMENT_ACCELERATE_FAST;
+
+    return RIDE_MOVEMENT_FAST;
+}
+
+static const struct RideMonInfo* GetCurrentRideMonInfo()
+{
+    return Rogue_GetRideMonInfo(Rogue_GetRideMonSpecies());
+}
+
+
 void Rogue_UpdateRideMonSprites()
 {
     if(sTestData.spriteId != SPRITE_NONE)
     {
-        const struct RideMonInfo* rideInfo = &sRideMonInfo[FollowMon_GetPartnerFollowSpecies()];
+        const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
-#ifdef ROGUE_DEBUG
-        if(sTestData.useDebugInfo)
-        {
-            if(sTestData.debugSetter)
-            {
-                sTestData.debugSetter = FALSE;
-                memcpy(&sTestData.debugInfo, rideInfo, sizeof(struct RideMonInfo));
-            }
-
-            rideInfo = &sTestData.debugInfo;
-        }
-#endif
-
-        UpdateRideSpriteInternal(sTestData.spriteId, gPlayerAvatar.spriteId, rideInfo);
+        if(rideInfo != NULL)
+            UpdateRideSpriteInternal(sTestData.spriteId, gPlayerAvatar.spriteId, rideInfo);
     }
+}
+
+bool8 Rogue_CanRideMonInvJumpLedge()
+{
+    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 static void UpdateRideSpriteInternal(u8 mountSpriteId, u8 riderSpriteId, const struct RideMonInfo* rideInfo)
@@ -316,8 +283,14 @@ void MovePlayerOnRideMon(u8 direction, u16 newKeys, u16 heldKeys)
 
 s16 RideMonGetPlayerSpeed()
 {
-    if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_DASH)
-        return PLAYER_SPEED_FASTER;
+
+    //RIDE_MOVEMENT_SLOW,
+    //RIDE_MOVEMENT_AVERAGE,
+    //RIDE_MOVEMENT_FAST,
+    //RIDE_MOVEMENT_FASTEST,
+
+    //if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_DASH)
+    //    return PLAYER_SPEED_FASTER;
 
     return PLAYER_SPEED_FAST;
 }
@@ -334,6 +307,7 @@ static u8 CheckMovementInputOnRideMon(u8 direction)
 
 static void PlayerOnRideMonNotMoving(u8 direction, u16 heldKeys)
 {
+    sRideMonData.rideFrameCounter = 0;
     PlayerFaceDirection(GetPlayerFacingDirection());
 }
 
@@ -345,43 +319,91 @@ static void PlayerOnRideMonTurningInPlace(u8 direction, u16 heldKeys)
 static void PlayerOnRideMonMoving(u8 direction, u16 heldKeys)
 {
     u8 collision = CheckForPlayerAvatarCollision(direction);
+    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
-    if (collision)
+    if(rideInfo != NULL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        u8 frameIdx;
+
+        if (collision)
         {
-            PlayerJumpLedge(direction);
-            return;
+            if (collision == COLLISION_LEDGE_JUMP)
+            {
+                PlayerJumpLedge(direction);
+                return;
+            }
+            else
+            {
+                u8 adjustedCollision = collision - COLLISION_STOP_SURFING;
+                if (adjustedCollision > 3)
+                    PlayerOnRideMonCollide(direction);
+                return;
+            }
         }
-        else
+
+        switch (CalculateMovementModeFor(Rogue_GetRideMonSpecies()))
         {
-            u8 adjustedCollision = collision - COLLISION_STOP_SURFING;
-            if (adjustedCollision > 3)
-                PlayerOnRideMonCollide(direction);
-            return;
+        case RIDE_MOVEMENT_SLOW:
+            PlayerWalkNormal(direction);
+            break;
+
+        case RIDE_MOVEMENT_AVERAGE:
+            PlayerWalkFast(direction);
+            break;
+
+        case RIDE_MOVEMENT_FAST:
+            PlayerWalkFaster(direction);
+            break;
+
+        case RIDE_MOVEMENT_ACCELERATE_AVERAGE:
+            frameIdx = sRideMonData.rideFrameCounter / 4;
+
+            if(frameIdx == 0)
+                PlayerWalkNormal(direction);
+            else
+                PlayerWalkFast(direction);
+            break;
+
+        case RIDE_MOVEMENT_ACCELERATE_FAST:
+            frameIdx = (sRideMonData.rideFrameCounter - 1) / 3;
+
+            if(sRideMonData.rideFrameCounter == 0)
+                PlayerWalkNormal(direction);
+            else if(frameIdx == 0)
+                PlayerWalkFast(direction);
+            else
+                PlayerWalkFaster(direction);
+            break;
+
+        default:
+            //AGB_ASSERT(false);
+            break;
         }
-    }
 
-    //if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
-    //{
-    //    // same speed as running
-    //    PlayerWalkFast(direction);
-    //    return;
-    //}
+        //if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
+        //{
+        //    // same speed as running
+        //    PlayerWalkFast(direction);
+        //    return;
+        //}
 
-    // The running speed should be kept in sync with above RideMonGetPlayerSpeed
-    if (GetPlayerSpritingState(heldKeys) && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
-    {
-        gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
-        PlayerWalkFaster(direction);
-        return;
-    }
-    else
-    {
-        PlayerWalkFast(direction);
-    }
+        // The running speed should be kept in sync with above RideMonGetPlayerSpeed
+        //if (GetPlayerSpritingState(heldKeys) && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
+        //{
+        //    gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
+        //    PlayerWalkFaster(direction);
+        //    return;
+        //}
+        //else
+        //{
+        //    PlayerWalkFast(direction);
+        //}
 
-    //PlayerWalkNormal(direction);
+        //PlayerWalkNormal(direction);
+
+        if(sRideMonData.rideFrameCounter < 255)
+            ++sRideMonData.rideFrameCounter;
+    }
 }
 
 static u8 CheckForPlayerAvatarCollision(u8 direction)
@@ -397,6 +419,8 @@ static u8 CheckForPlayerAvatarCollision(u8 direction)
 
 static void PlayerOnRideMonCollide(u8 direction)
 {
+    sRideMonData.rideFrameCounter = 0;
+
     PlayCollisionSoundIfNotFacingWarp(direction);
     PlayerSetAnimId(GetWalkInPlaceSlowMovementAction(direction), COPY_MOVE_WALK);
 }

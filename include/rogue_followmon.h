@@ -12,7 +12,7 @@ u8 GetWildChainCount();
 void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny);
 
 bool8 FollowMon_IsPartnerMonActive();
-u16 FollowMon_GetPartnerFollowSpecies();
+u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset);
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon);
 bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent);

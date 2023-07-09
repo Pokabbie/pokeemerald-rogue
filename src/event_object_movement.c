@@ -35,6 +35,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -7895,6 +7896,13 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
         [DIR_EAST - 1]  = MetatileBehavior_IsJumpEast,
     };
 
+    static bool8 (*const invLedgeBehaviorFuncs[])(u8) = {
+        [DIR_SOUTH - 1] = MetatileBehavior_IsJumpNorth,
+        [DIR_NORTH - 1] = MetatileBehavior_IsJumpSouth,
+        [DIR_WEST - 1]  = MetatileBehavior_IsJumpEast,
+        [DIR_EAST - 1]  = MetatileBehavior_IsJumpWest,
+    };
+
     u8 behavior;
     u8 index = direction;
 
@@ -7908,6 +7916,12 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
 
     if (ledgeBehaviorFuncs[index](behavior) == TRUE)
         return index + 1;
+
+    if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING) && Rogue_CanRideMonInvJumpLedge())
+    {
+        if (invLedgeBehaviorFuncs[index](behavior) == TRUE)
+            return index + 1;
+    }
 
     return DIR_NONE;
 }
