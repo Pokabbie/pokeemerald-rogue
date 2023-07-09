@@ -46,6 +46,7 @@
 
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_ridemon.h"
 #include "rogue_questmenu.h"
 
 static void SetUpItemUseCallback(u8);
@@ -61,6 +62,7 @@ static void PlayerFaceHiddenItem(u8);
 static void CheckForHiddenItemsInMapConnection(u8);
 static void Task_OpenRegisteredPokeblockCase(u8);
 static void ItemUseOnFieldCB_Bike(u8);
+static void ItemUseOnFieldCB_RideMon(u8);
 static void ItemUseOnFieldCB_Rod(u8);
 static void ItemUseOnFieldCB_HealingFlask(u8);
 static void ItemUseOnFieldCB_Itemfinder(u8);
@@ -229,6 +231,38 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     else // ACRO_BIKE
         GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
     FollowMe_HandleBike();
+    ScriptUnfreezeObjectEvents();
+    ScriptContext2_Disable();
+    DestroyTask(taskId);
+}
+
+
+void ItemUseOutOfBattle_RideMon(u8 taskId)
+{
+    s16* data = gTasks[taskId].data;
+    s16 coordsY;
+    s16 coordsX;
+    u8 behavior;
+    PlayerGetDestCoords(&coordsX, &coordsY);
+    behavior = MapGridGetMetatileBehaviorAt(coordsX, coordsY);
+    if (FlagGet(FLAG_SYS_CYCLING_ROAD) == TRUE || MetatileBehavior_IsVerticalRail(behavior) == TRUE || MetatileBehavior_IsHorizontalRail(behavior) == TRUE || MetatileBehavior_IsIsolatedVerticalRail(behavior) == TRUE || MetatileBehavior_IsIsolatedHorizontalRail(behavior) == TRUE)
+        DisplayCannotDismountBikeMessage(taskId, tUsingRegisteredKeyItem);
+    else
+    {
+        if (Overworld_IsBikingAllowed() == TRUE && IsBikingDisallowedByPlayer() == 0 && FollowerCanBike())
+        {
+            sItemUseOnFieldCB = ItemUseOnFieldCB_RideMon;
+            SetUpItemUseOnFieldCallback(taskId);
+        }
+        else
+            DisplayDadsAdviceCannotUseItemMessage(taskId, tUsingRegisteredKeyItem);
+    }
+}
+
+static void ItemUseOnFieldCB_RideMon(u8 taskId)
+{
+    Rogue_GetOnOffRideMon(FALSE);
+    FollowMe_HandleBike(); // Do we need this?
     ScriptUnfreezeObjectEvents();
     ScriptContext2_Disable();
     DestroyTask(taskId);

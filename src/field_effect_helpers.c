@@ -14,6 +14,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_ridemon.h"
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 
@@ -40,15 +41,18 @@ static u32 ShowDisguiseFieldEffect(u8, u8, u8);
 #define sReflectionObjEventId       data[0]
 #define sReflectionObjEventLocalId  data[1]
 #define sReflectionVerticalOffset   data[2]
+#define sIsRideMon                  data[3]
 #define sIsStillReflection          data[7]
 
-void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
+static void SetUpReflectionInternal(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection, bool8 isRideMon)
 {
     struct Sprite *reflectionSprite;
 
     reflectionSprite = &gSprites[CreateCopySpriteAt(sprite, sprite->x, sprite->y, 0x98)];
     reflectionSprite->callback = UpdateObjectReflectionSprite;
     reflectionSprite->oam.priority = 3;
+    reflectionSprite->oam.paletteNum = sprite->oam.paletteNum;
+    reflectionSprite->subpriority = sprite->subpriority;
     //reflectionSprite->oam.paletteNum = gReflectionEffectPaletteMap[reflectionSprite->oam.paletteNum];
     reflectionSprite->usingSheet = TRUE;
     reflectionSprite->anims = gDummySpriteAnimTable;
@@ -59,10 +63,26 @@ void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, boo
     reflectionSprite->sReflectionObjEventId = sprite->data[0];
     reflectionSprite->sReflectionObjEventLocalId = objectEvent->localId;
     reflectionSprite->sIsStillReflection = stillReflection;
-    LoadObjectReflectionPalette(objectEvent, reflectionSprite);
+    reflectionSprite->sIsRideMon = isRideMon;
+
+    //if(!isRideMon)
+    //    LoadObjectReflectionPalette(objectEvent, reflectionSprite); // probably don't need to load palette anymore
 
     if (!stillReflection)
         reflectionSprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+}
+
+void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
+{
+    SetUpReflectionInternal(objectEvent, sprite, stillReflection, FALSE);
+
+    if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    {
+        u8 spriteId = Rogue_GetRideMonSprite(objectEvent);
+
+        if(spriteId != SPRITE_NONE)
+            SetUpReflectionInternal(objectEvent, &gSprites[spriteId], stillReflection, TRUE);
+    }
 }
 
 static s16 GetReflectionVerticalOffset(struct ObjectEvent *objectEvent)
@@ -135,7 +155,12 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
     struct Sprite *mainSprite;
 
     objectEvent = &gObjectEvents[reflectionSprite->sReflectionObjEventId];
-    mainSprite = &gSprites[objectEvent->spriteId];
+
+    if(reflectionSprite->sIsRideMon)
+        mainSprite = &gSprites[Rogue_GetRideMonSprite(objectEvent)];
+    else
+        mainSprite = &gSprites[objectEvent->spriteId];
+
     if (!objectEvent->active || !objectEvent->hasReflection || objectEvent->localId != reflectionSprite->sReflectionObjEventLocalId)
     {
         reflectionSprite->inUse = FALSE;
@@ -147,6 +172,7 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
         reflectionSprite->oam.size = mainSprite->oam.size;
         reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum | ST_OAM_VFLIP;
         reflectionSprite->oam.tileNum = mainSprite->oam.tileNum;
+        reflectionSprite->subpriority = mainSprite->subpriority;
         reflectionSprite->subspriteTables = mainSprite->subspriteTables;
         reflectionSprite->subspriteTableNum = mainSprite->subspriteTableNum;
         reflectionSprite->invisible = mainSprite->invisible;
@@ -255,6 +281,26 @@ u32 FldEff_Shadow(void)
     return 0;
 }
 
+void SetShadowFieldEffectVisible(struct ObjectEvent *objectEvent, bool8 state)
+{
+    if(state)
+    {
+        if (!objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = TRUE;
+            StartFieldEffectForObjectEvent(FLDEFF_SHADOW, objectEvent);
+        }
+    }
+    else
+    {
+        if (objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = FALSE;
+            // Should be sorted out by callback below
+        }
+    }
+}
+
 void UpdateShadowFieldEffect(struct Sprite *sprite)
 {
     u8 objectEventId;
@@ -272,6 +318,14 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
         sprite->oam.priority = linkedSprite->oam.priority;
         sprite->x = linkedSprite->x;
         sprite->y = linkedSprite->y + sprite->data[3];
+
+        if(objectEventId == gPlayerAvatar.objectEventId)
+        {
+            // Always keep shadow visible for whilst we're flying
+            if(Rogue_IsRideMonFlying())
+                return;
+        }
+
         if (!objectEvent->active || !objectEvent->hasShadow
          || MetatileBehavior_IsPokeGrass(objectEvent->currentMetatileBehavior)
          || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->currentMetatileBehavior)

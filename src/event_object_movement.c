@@ -35,6 +35,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -1619,6 +1620,43 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
         SetSubspriteTables(sprite, subspriteTables);
         sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
     }
+}
+
+u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority)
+{
+    struct SpriteTemplate *spriteTemplate;
+    const struct ObjectEventGraphicsInfo *graphicsInfo;
+    const struct SubspriteTable *subspriteTables;
+    struct Sprite *sprite;
+    u8 spriteId;
+
+    spriteTemplate = malloc(sizeof(struct SpriteTemplate));
+
+    graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
+    CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables); // ?
+
+    // We want to use the globally loaded palettes
+    spriteTemplate->paletteTag = TAG_NONE;
+
+    spriteId = CreateSprite(spriteTemplate, x, y, subpriority);
+    free(spriteTemplate);
+
+    if(spriteId != MAX_SPRITES)
+    {
+        s16 cameraX, cameraY;
+        GetObjectEventMovingCameraOffset(&cameraX, &cameraY);
+
+        sprite = &gSprites[spriteId];
+        
+        GetMapCoordsFromSpritePos(x + cameraX, y + cameraY, &sprite->x, &sprite->y);
+        sprite->centerToCornerVecX = -(graphicsInfo->width >> 1);
+        sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
+        sprite->x += 8;
+        sprite->y += 16 + sprite->centerToCornerVecY;
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.paletteNum = graphicsInfo->paletteSlot; // global palette
+    }
+
     return spriteId;
 }
 
@@ -1756,6 +1794,8 @@ void SpawnObjectEventsOnReturnToField(s16 x, s16 y)
             SpawnObjectEventOnReturnToField(i, x, y);
     }
     CreateReflectionEffectSprites();
+
+    Rogue_OnSpawnObjectEventsOnReturnToField(x, y);
 }
 
 static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
@@ -7856,6 +7896,13 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
         [DIR_EAST - 1]  = MetatileBehavior_IsJumpEast,
     };
 
+    static bool8 (*const invLedgeBehaviorFuncs[])(u8) = {
+        [DIR_SOUTH - 1] = MetatileBehavior_IsJumpNorth,
+        [DIR_NORTH - 1] = MetatileBehavior_IsJumpSouth,
+        [DIR_WEST - 1]  = MetatileBehavior_IsJumpEast,
+        [DIR_EAST - 1]  = MetatileBehavior_IsJumpWest,
+    };
+
     u8 behavior;
     u8 index = direction;
 
@@ -7869,6 +7916,12 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
 
     if (ledgeBehaviorFuncs[index](behavior) == TRUE)
         return index + 1;
+
+    if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING) && Rogue_CanRideMonInvJumpLedge())
+    {
+        if (invLedgeBehaviorFuncs[index](behavior) == TRUE)
+            return index + 1;
+    }
 
     return DIR_NONE;
 }
@@ -8971,12 +9024,16 @@ static void DoShadowFieldEffect(struct ObjectEvent *objectEvent)
 
 static void DoRippleFieldEffect(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-    gFieldEffectArguments[0] = sprite->x;
-    gFieldEffectArguments[1] = sprite->y + (graphicsInfo->height >> 1) - 2;
-    gFieldEffectArguments[2] = 151;
-    gFieldEffectArguments[3] = 3;
-    FieldEffectStart(FLDEFF_RIPPLE);
+    if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId] && Rogue_IsRideMonFlying())
+        return;
+    else
+    {        const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+        gFieldEffectArguments[0] = sprite->x;
+        gFieldEffectArguments[1] = sprite->y + (graphicsInfo->height >> 1) - 2;
+        gFieldEffectArguments[2] = 151;
+        gFieldEffectArguments[3] = 3;
+        FieldEffectStart(FLDEFF_RIPPLE);
+    }
 }
 
 u8 (*const gMovementActionFuncs_StoreAndLockAnim[])(struct ObjectEvent *, struct Sprite *) = {

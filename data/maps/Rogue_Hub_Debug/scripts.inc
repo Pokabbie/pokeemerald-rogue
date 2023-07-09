@@ -99,6 +99,14 @@ Rogue_Debug_AddMoney::
 	compare VAR_RESULT, NO
 	goto_if_eq Rogue_Debug_AddMoney_2
 Rogue_Debug_AddMoney_1:
+	checkitem ITEM_BASIC_RIDING_WHISTLE
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Debug_AddMoney_5
+Rogue_Debug_AddMoney_4:
+	checkitem ITEM_GOLD_RIDING_WHISTLE
+	compare VAR_RESULT, NO
+	goto_if_eq Rogue_Debug_AddMoney_8
+Rogue_Debug_AddMoney_7:
 	giveitem ITEM_STAR_PIECE, 999
 	giveitem ITEM_RARE_CANDY, 999
 	giveitem ITEM_ESCAPE_ROPE, 999
@@ -108,6 +116,14 @@ Rogue_Debug_AddMoney_1:
 Rogue_Debug_AddMoney_2:
 	giveitem ITEM_HEALING_FLASK, 1
 	goto Rogue_Debug_AddMoney_1
+
+Rogue_Debug_AddMoney_5:
+	giveitem ITEM_BASIC_RIDING_WHISTLE, 1
+	goto Rogue_Debug_AddMoney_4
+
+Rogue_Debug_AddMoney_8:
+	giveitem ITEM_GOLD_RIDING_WHISTLE, 1
+	goto Rogue_Debug_AddMoney_7
 
 
 Rogue_Debug_TrainerBattleSingle::

@@ -72,6 +72,10 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
 
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
+void Rogue_OnMovementType_Player(struct Sprite *sprite);
+void Rogue_OnResumeMap();
+void Rogue_InitObjectEventsLocal();
+void Rogue_OnSpawnObjectEventsOnReturnToField(s16 x, s16 y);
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 

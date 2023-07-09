@@ -20,6 +20,7 @@
 #include "rogue.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 #include "rogue_popup.h"
 
 // Care with increasing slot count as it can cause lag
@@ -215,7 +216,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
     }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
-        species = FollowMon_GetPartnerFollowSpecies();
+        species = FollowMon_GetPartnerFollowSpecies(TRUE);
     }
 
     if(species >= FOLLOWMON_SHINY_OFFSET)
@@ -239,11 +240,11 @@ void SetupFollowParterMonObjectEvent()
 {
     bool8 shouldFollowMonBeVisible = TRUE;
 
-    if(FollowMon_GetPartnerFollowSpecies() == SPECIES_NONE)
+    if(FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
-    // Don't show if on bike or surfing
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+    // Don't show if on bike, surfing or riding mon
+    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING))
         shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible)
@@ -319,9 +320,14 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
-u16 FollowMon_GetPartnerFollowSpecies()
+u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
-    return MonToFollowSpecies(&gPlayerParty[0]);
+    u16 species = MonToFollowSpecies(&gPlayerParty[0]);
+
+    if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
+        species -= FOLLOWMON_SHINY_OFFSET;
+
+    return species;
 }
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
@@ -392,6 +398,10 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
+    // If we're flying nothing can collide with the player
+    if(Rogue_IsRideMonFlying())
+        return obstacle == player || collider == player;
+
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         if (collider == player)
@@ -476,7 +486,7 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 
     if(lastTalkedId == OBJ_EVENT_ID_FOLLOWER)
     {
-        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies();
+        u16 gfxSpecies = FollowMon_GetPartnerFollowSpecies(TRUE);
 
         if(gfxSpecies >= FOLLOWMON_SHINY_OFFSET)
         {
@@ -521,6 +531,11 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 
 static u8 FindObjectEventForGfx(u16 gfxId);
 
+static bool8 IsSpawningWaterMons()
+{
+    return Rogue_IsRideMonSwimming() || (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER));
+}
+
 static u16 NextSpawnMonSlot()
 {
     u16 slot;
@@ -543,7 +558,7 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+    if(IsSpawningWaterMons())
         Rogue_CreateWildMon(1, &species, &level, &isShiny); // WILD_AREA_WATER
     else
         Rogue_CreateWildMon(0, &species, &level, &isShiny);
@@ -579,7 +594,7 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     for(tryCount = 0; tryCount < 3; ++tryCount)
     {
         // Spawn further away when surfing
-        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        if(IsSpawningWaterMons())
             closeDistance = 3;
         else
             closeDistance = 1;
@@ -622,7 +637,7 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
         y += playerY;
         tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        if(IsSpawningWaterMons())
         {
             if(MetatileBehavior_IsWaterWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
             {
@@ -732,7 +747,7 @@ void FollowMon_OverworldCB()
 
                     // Hide reflections for spawns in water
                     // (It just looks weird)
-                    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                    if(IsSpawningWaterMons())
                     {
                         gObjectEvents[objectEventId].hideReflection = TRUE; 
                     }
@@ -787,7 +802,7 @@ void FollowMon_OverworldCB()
                         if(Rogue_AreWildMonEnabled())
                         {
                             // Instantly play a small animation to ground the spawning a bit
-                            if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                            if(IsSpawningWaterMons())
                             {
                                 MovementAction_FollowMonWaterSpawn(&gObjectEvents[objectEventId]);
                             }
