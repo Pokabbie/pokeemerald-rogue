@@ -820,7 +820,7 @@ static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
 
 static bool8 CanStartSwimming(s16 x, s16 y, u8 direction, u8 metatileBehavior)
 {
-    if (Rogue_CanRideMonSwim() 
+    if ((Rogue_CanRideMonSwim() || Rogue_IsRideMonFlying())
         //&& MapGridGetElevationAt(x, y) == 3 
         && MetatileBehavior_IsSurfableAndNotWaterfall(metatileBehavior)
         && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT
@@ -832,7 +832,7 @@ static bool8 CanStartSwimming(s16 x, s16 y, u8 direction, u8 metatileBehavior)
 
 static bool8 CanStopSwimming(s16 x, s16 y, u8 direction)
 {
-    if (Rogue_CanRideMonSwim() 
+    if ((Rogue_CanRideMonSwim() || Rogue_IsRideMonFlying())
         && MapGridGetElevationAt(x, y) == 3 
         && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT
     )

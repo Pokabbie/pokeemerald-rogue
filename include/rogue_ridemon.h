@@ -7,6 +7,8 @@ void Rogue_GetOnOffRideMon();
 void Rogue_CreateDestroyRideMonSprites();
 void Rogue_UpdateRideMonSprites();
 
+u8 Rogue_GetRideMonSprite(struct ObjectEvent* objectEvent);
+
 bool8 Rogue_CanRideMonInvJumpLedge();
 bool8 Rogue_CanRideMonSwim();
 bool8 Rogue_CanRideMonFly();

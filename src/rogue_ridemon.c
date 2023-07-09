@@ -168,10 +168,10 @@ static u8 CalculateMovementModeFor(u16 species)
     //    moveSpeed = min(moveSpeed + 1, RIDE_MOVEMENT_FAST);
     //}
 
-    if(Rogue_IsRideMonFlying() && moveSpeed != RIDE_MOVEMENT_SLOW)
-    {
-        --moveSpeed;
-    }
+    //if(Rogue_IsRideMonFlying() && moveSpeed != RIDE_MOVEMENT_SLOW)
+    //{
+    //    --moveSpeed;
+    //}
 
     return moveSpeed;
 }
@@ -193,6 +193,16 @@ void Rogue_UpdateRideMonSprites()
             UpdateRideSpriteInternal(sTestData.spriteId, gPlayerAvatar.spriteId, rideInfo);
         }
     }
+}
+
+u8 Rogue_GetRideMonSprite(struct ObjectEvent* objectEvent)
+{
+    if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId])
+    {
+        return sTestData.spriteId;
+    }
+
+    return SPRITE_NONE;
 }
 
 bool8 Rogue_CanRideMonInvJumpLedge()
@@ -376,7 +386,10 @@ void MovePlayerOnRideMon(u8 direction, u16 newKeys, u16 heldKeys)
         return;
 
     if(Rogue_IsRideMonFlying())
+    {
         SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], TRUE);
+        gObjectEvents[gPlayerAvatar.objectEventId].hideReflection = TRUE;
+    }
 
     sPlayerOnRideMonFuncs[CheckMovementInputOnRideMon(direction)](direction, newKeys, heldKeys);
 }
@@ -424,8 +437,6 @@ static void PlayerOnRideMonNotMoving(u8 direction, u16 newKeys, u16 heldKeys)
 
         sRideMonData.desiredFlyingState = desiredFlyState;
         PlaySE(sRideMonData.desiredFlyingState ? SE_M_FLY : SE_M_WING_ATTACK);
-
-        SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], sRideMonData.desiredFlyingState);
     }
     else
     {
@@ -452,15 +463,7 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
         {
             if(Rogue_IsRideMonFlying())
             {
-                if(rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM)
-                {
-                    // If we're flying on a mon which can swim we're allowed to go over the water
-                    collision = COLLISION_NONE;
-                }
-                else
-                {
-                    collision = COLLISION_IMPASSABLE;
-                }
+                collision = COLLISION_NONE;
             }
         }
 
@@ -536,6 +539,12 @@ static bool8 PlayerOnRideMonAdjustFlyingState(u8 direction, u16 newKeys, u16 hel
     {
         if(sRideMonData.flyingHeight < 16)
         {
+            if(sRideMonData.flyingHeight == 0)
+            {
+                SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], TRUE);
+                gObjectEvents[gPlayerAvatar.objectEventId].hideReflection = TRUE;
+            }
+
             ++sRideMonData.flyingHeight;
             return TRUE;
         }
@@ -545,6 +554,12 @@ static bool8 PlayerOnRideMonAdjustFlyingState(u8 direction, u16 newKeys, u16 hel
         if(sRideMonData.flyingHeight > 0)
         {
             --sRideMonData.flyingHeight;
+
+            if(sRideMonData.flyingHeight == 0)
+            {
+                SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], FALSE);
+                gObjectEvents[gPlayerAvatar.objectEventId].hideReflection = FALSE;
+            }
             return TRUE;
         }
     }
@@ -600,6 +615,7 @@ static u8 CheckForPlayerLandingCollision()
 {
     s16 x, y;
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
     x = playerObjEvent->currentCoords.x;
     y = playerObjEvent->currentCoords.y;
@@ -607,6 +623,15 @@ static u8 CheckForPlayerLandingCollision()
     if(MapGridIsImpassableAt(x, y))
     {
         return TRUE;
+    }
+    
+    if(!(rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM))
+    {
+        u32 tileBehaviour = MapGridGetMetatileBehaviorAt(x, y);
+
+        // Can't land on water
+        if(MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehaviour))
+            return TRUE;
     }
 
     if(CheckNonPlayerObjectAt(playerObjEvent, x, y))

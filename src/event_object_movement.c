@@ -9024,12 +9024,16 @@ static void DoShadowFieldEffect(struct ObjectEvent *objectEvent)
 
 static void DoRippleFieldEffect(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-    gFieldEffectArguments[0] = sprite->x;
-    gFieldEffectArguments[1] = sprite->y + (graphicsInfo->height >> 1) - 2;
-    gFieldEffectArguments[2] = 151;
-    gFieldEffectArguments[3] = 3;
-    FieldEffectStart(FLDEFF_RIPPLE);
+    if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId] && Rogue_IsRideMonFlying())
+        return;
+    else
+    {        const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+        gFieldEffectArguments[0] = sprite->x;
+        gFieldEffectArguments[1] = sprite->y + (graphicsInfo->height >> 1) - 2;
+        gFieldEffectArguments[2] = 151;
+        gFieldEffectArguments[3] = 3;
+        FieldEffectStart(FLDEFF_RIPPLE);
+    }
 }
 
 u8 (*const gMovementActionFuncs_StoreAndLockAnim[])(struct ObjectEvent *, struct Sprite *) = {
