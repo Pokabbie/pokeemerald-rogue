@@ -67,32 +67,37 @@ void Rogue_GetOnOffRideMon()
         //Overworld_ChangeMusicTo(MUS_CYCLING);
     }
 
+    // Delete existing sprite
+    if(sTestData.spriteId != SPRITE_NONE)
+    {
+        DestroySprite(&gSprites[sTestData.spriteId]);
+        sTestData.spriteId = SPRITE_NONE;
+    }
+
     Rogue_CreateDestroyRideMonSprites();
     SetupFollowParterMonObjectEvent();
 }
 
 void Rogue_CreateDestroyRideMonSprites()
 {
+    // By this point either the sprite is deleted or has been previously reset, so isn't ours
+    sTestData.spriteId = SPRITE_NONE;
+
     if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
     {
-        if(sTestData.spriteId == SPRITE_NONE)
-        {
-            s16 playerX, playerY;
-            PlayerGetDestCoords(&playerX, &playerY);
+        s16 playerX, playerY;
+        PlayerGetDestCoords(&playerX, &playerY);
 
-            sTestData.spriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, playerX, playerY, 0);
-            gSprites[sTestData.spriteId].oam.priority = 2;
-            StartSpriteAnim(&gSprites[sTestData.spriteId], ANIM_STD_GO_SOUTH);
-        }
+        sTestData.spriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, playerX, playerY, 0);
+        gSprites[sTestData.spriteId].oam.priority = 2;
+        StartSpriteAnim(&gSprites[sTestData.spriteId], ANIM_STD_GO_SOUTH);
     }
-    else
-    {
-        if(sTestData.spriteId != SPRITE_NONE)
-        {
-            DestroySprite(&gSprites[sTestData.spriteId]);
-            sTestData.spriteId = SPRITE_NONE;
-        }
-    }
+}
+
+void Rogue_FreeRideMonSprites()
+{
+    // Assuming we're already free from calling code
+    sTestData.spriteId = SPRITE_NONE;
 }
 
 static u16 Rogue_GetRideMonSpecies()
@@ -121,27 +126,6 @@ static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
 #endif
 
     return rideInfo;
-}
-
-static bool8 IsCurrentlySwimming()
-{
-    s16 x, y;
-    u16 tileBehavior;
-
-    PlayerGetDestCoords(&x, &y);
-    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
-
-    if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && !MapGridIsImpassableAt(x, y))
-        return TRUE;
-    if (MetatileBehavior_IsBridgeOverWaterNoEdge(tileBehavior) == TRUE)
-        return TRUE;
-
-    return FALSE;
-}
-
-static bool8 IsCurrentlyFlying()
-{
-    return FALSE;
 }
 
 static u8 CalculateMovementModeForInternal(u16 species)
@@ -174,12 +158,12 @@ static u8 CalculateMovementModeFor(u16 species)
     }
 #endif
 
-    //if(IsCurrentlySwimming())
+    //if(Rogue_IsRideMonSwimming())
     //{
     //    moveSpeed = min(moveSpeed + 1, RIDE_MOVEMENT_FAST);
     //}
 
-    if(IsCurrentlyFlying() && moveSpeed != RIDE_MOVEMENT_SLOW)
+    if(Rogue_IsRideMonFlying() && moveSpeed != RIDE_MOVEMENT_SLOW)
     {
         --moveSpeed;
     }
@@ -223,6 +207,35 @@ bool8 Rogue_CanRideMonSwim()
     if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
     {
         return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsRideMonSwimming()
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    {
+        s16 x, y;
+        u16 tileBehavior;
+
+        PlayerGetDestCoords(&x, &y);
+        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && !MapGridIsImpassableAt(x, y))
+            return TRUE;
+        if (MetatileBehavior_IsBridgeOverWaterNoEdge(tileBehavior) == TRUE)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsRideMonFlying()
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    {
+        return FALSE;
     }
 
     return FALSE;

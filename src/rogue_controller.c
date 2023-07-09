@@ -2226,6 +2226,11 @@ void Rogue_OnMovementType_Player(struct Sprite *sprite)
     Rogue_UpdateRideMonSprites();
 }
 
+void Rogue_OnResumeMap()
+{
+    //Rogue_CreateDestroyRideMonSprites();
+}
+
 // Called when object events first loaded for a map
 void Rogue_InitObjectEventsLocal()
 {

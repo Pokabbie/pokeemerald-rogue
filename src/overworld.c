@@ -2172,6 +2172,8 @@ static void ResumeMap(bool32 a1)
         SetUpFieldTasks();
     RunOnResumeMapScript();
     TryStartMirageTowerPulseBlendEffect();
+
+    Rogue_OnResumeMap();
 }
 
 static void InitObjectEventsLink(void)

@@ -20,6 +20,7 @@
 #include "rogue.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 #include "rogue_popup.h"
 
 // Care with increasing slot count as it can cause lag
@@ -526,6 +527,11 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny)
 
 static u8 FindObjectEventForGfx(u16 gfxId);
 
+static bool8 IsSpawningWaterMons()
+{
+    return Rogue_IsRideMonSwimming() || (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER));
+}
+
 static u16 NextSpawnMonSlot()
 {
     u16 slot;
@@ -548,7 +554,7 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+    if(IsSpawningWaterMons())
         Rogue_CreateWildMon(1, &species, &level, &isShiny); // WILD_AREA_WATER
     else
         Rogue_CreateWildMon(0, &species, &level, &isShiny);
@@ -584,7 +590,7 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
     for(tryCount = 0; tryCount < 3; ++tryCount)
     {
         // Spawn further away when surfing
-        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        if(IsSpawningWaterMons())
             closeDistance = 3;
         else
             closeDistance = 1;
@@ -627,7 +633,7 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
         y += playerY;
         tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-        if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+        if(IsSpawningWaterMons())
         {
             if(MetatileBehavior_IsWaterWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
             {
@@ -737,7 +743,7 @@ void FollowMon_OverworldCB()
 
                     // Hide reflections for spawns in water
                     // (It just looks weird)
-                    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                    if(IsSpawningWaterMons())
                     {
                         gObjectEvents[objectEventId].hideReflection = TRUE; 
                     }
@@ -792,7 +798,7 @@ void FollowMon_OverworldCB()
                         if(Rogue_AreWildMonEnabled())
                         {
                             // Instantly play a small animation to ground the spawning a bit
-                            if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+                            if(IsSpawningWaterMons())
                             {
                                 MovementAction_FollowMonWaterSpawn(&gObjectEvents[objectEventId]);
                             }
