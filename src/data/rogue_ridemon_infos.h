@@ -17,11 +17,10 @@ enum
 enum
 {
     RIDE_MOVEMENT_SLOW,
-    RIDE_MOVEMENT_AVERAGE,
-    RIDE_MOVEMENT_FAST,
-
     RIDE_MOVEMENT_ACCELERATE_AVERAGE,
+    RIDE_MOVEMENT_AVERAGE,
     RIDE_MOVEMENT_ACCELERATE_FAST,
+    RIDE_MOVEMENT_FAST,
 };
 
 #define RIDE_MON_FLAG_NONE          (0)
@@ -71,7 +70,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
     },
     [SPECIES_BLASTOISE] = 
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },

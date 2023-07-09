@@ -8,6 +8,7 @@ void Rogue_CreateDestroyRideMonSprites();
 void Rogue_UpdateRideMonSprites();
 
 bool8 Rogue_CanRideMonInvJumpLedge();
+bool8 Rogue_CanRideMonSwim();
 
 void MovePlayerOnRideMon(u8 direction, u16 newKeys, u16 heldKeys);
 s16 RideMonGetPlayerSpeed();

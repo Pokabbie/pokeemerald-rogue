@@ -100,6 +100,8 @@ static u16 Rogue_GetRideMonSpecies()
     return FollowMon_GetPartnerFollowSpecies(FALSE);
 }
 
+static u8 CalculateMovementModeForInternal(u16 species);
+
 static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
 {
     const struct RideMonInfo* rideInfo = &sRideMonInfo[species];
@@ -110,6 +112,7 @@ static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
         if(sTestData.debugSetter)
         {
             sTestData.debugSetter = FALSE;
+            sTestData.debugMoveSpeed = CalculateMovementModeForInternal(species);
             memcpy(&sTestData.debugInfo, rideInfo, sizeof(struct RideMonInfo));
         }
 
@@ -120,17 +123,31 @@ static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
     return rideInfo;
 }
 
-static u16 CalculateMovementModeFor(u16 species)
+static bool8 IsCurrentlySwimming()
+{
+    s16 x, y;
+    u16 tileBehavior;
+
+    PlayerGetDestCoords(&x, &y);
+    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior) && !MapGridIsImpassableAt(x, y))
+        return TRUE;
+    if (MetatileBehavior_IsBridgeOverWaterNoEdge(tileBehavior) == TRUE)
+        return TRUE;
+
+    return FALSE;
+}
+
+static bool8 IsCurrentlyFlying()
+{
+    return FALSE;
+}
+
+static u8 CalculateMovementModeForInternal(u16 species)
 {
     u8 speed = gBaseStats[species].baseSpeed;
     
-#ifdef ROGUE_DEBUG
-    if(sTestData.useDebugInfo)
-    {
-        return sTestData.debugMoveSpeed;
-    }
-#endif
-
     if(speed <= 30)
         return RIDE_MOVEMENT_SLOW;
 
@@ -144,6 +161,30 @@ static u16 CalculateMovementModeFor(u16 species)
         return RIDE_MOVEMENT_ACCELERATE_FAST;
 
     return RIDE_MOVEMENT_FAST;
+}
+
+static u8 CalculateMovementModeFor(u16 species)
+{
+    u8 moveSpeed = CalculateMovementModeForInternal(species);
+    
+#ifdef ROGUE_DEBUG
+    if(sTestData.useDebugInfo)
+    {
+        return sTestData.debugMoveSpeed;
+    }
+#endif
+
+    //if(IsCurrentlySwimming())
+    //{
+    //    moveSpeed = min(moveSpeed + 1, RIDE_MOVEMENT_FAST);
+    //}
+
+    if(IsCurrentlyFlying() && moveSpeed != RIDE_MOVEMENT_SLOW)
+    {
+        --moveSpeed;
+    }
+
+    return moveSpeed;
 }
 
 static const struct RideMonInfo* GetCurrentRideMonInfo()
@@ -168,6 +209,18 @@ bool8 Rogue_CanRideMonInvJumpLedge()
     const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
     if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_CanRideMonSwim()
+{
+    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
     {
         return TRUE;
     }
@@ -327,18 +380,24 @@ static void PlayerOnRideMonMoving(u8 direction, u16 heldKeys)
 
         if (collision)
         {
-            if (collision == COLLISION_LEDGE_JUMP)
+            sRideMonData.rideFrameCounter = 0;
+
+            if(collision == COLLISION_START_SWIMMING || collision == COLLISION_STOP_SWIMMING)
+            {
+                PlayerJumpLedgeShort(direction);
+            }
+            else if (collision == COLLISION_LEDGE_JUMP)
             {
                 PlayerJumpLedge(direction);
-                return;
             }
             else
             {
                 u8 adjustedCollision = collision - COLLISION_STOP_SURFING;
                 if (adjustedCollision > 3)
                     PlayerOnRideMonCollide(direction);
-                return;
             }
+            
+            return;
         }
 
         switch (CalculateMovementModeFor(Rogue_GetRideMonSpecies()))

@@ -79,6 +79,8 @@ static u8 CheckForPlayerAvatarCollision(u8);
 static u8 CheckForPlayerAvatarStaticCollision(u8);
 static u8 CheckForObjectEventStaticCollision(struct ObjectEvent *, s16, s16, u8, u8);
 static bool8 CanStopSurfing(s16, s16, u8);
+static bool8 CanStartSwimming(s16, s16, u8, u8);
+static bool8 CanStopSwimming(s16, s16, u8);
 static bool8 ShouldJumpLedge(s16, s16, u8);
 static bool8 TryPushBoulder(s16, s16, u8);
 static void CheckAcroBikeCollision(s16, s16, u8, u8 *);
@@ -752,6 +754,12 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
 
+    if (collision == COLLISION_ELEVATION_MISMATCH && CanStartSwimming(x, y, direction, metatileBehavior))
+        return COLLISION_START_SWIMMING;
+
+    if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSwimming(x, y, direction))
+        return COLLISION_STOP_SWIMMING;
+
     if (ShouldJumpLedge(x, y, direction))
     {
         IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
@@ -795,6 +803,29 @@ static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
     {
         return FALSE;
     }
+}
+
+static bool8 CanStartSwimming(s16 x, s16 y, u8 direction, u8 metatileBehavior)
+{
+    if (Rogue_CanRideMonSwim() 
+        //&& MapGridGetElevationAt(x, y) == 3 
+        && MetatileBehavior_IsSurfableAndNotWaterfall(metatileBehavior)
+        && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT
+    )
+        return TRUE;
+
+    return FALSE;
+}
+
+static bool8 CanStopSwimming(s16 x, s16 y, u8 direction)
+{
+    if (Rogue_CanRideMonSwim() 
+        && MapGridGetElevationAt(x, y) == 3 
+        && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT
+    )
+        return TRUE;
+
+    return FALSE;
 }
 
 static bool8 ShouldJumpLedge(s16 x, s16 y, u8 direction)
@@ -1068,6 +1099,12 @@ void PlayerJumpLedge(u8 direction)
 {
     PlaySE(SE_LEDGE);
     PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);
+}
+
+void PlayerJumpLedgeShort(u8 direction)
+{
+    PlaySE(SE_LEDGE);
+    PlayerSetAnimId(GetJumpMovementAction(direction), COPY_MOVE_JUMP);
 }
 
 // Stop player on current facing direction once they're done moving and if they're not currently Acro Biking on bumpy slope
