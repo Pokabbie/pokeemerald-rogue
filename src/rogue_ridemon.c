@@ -6,6 +6,7 @@
 #include "bike.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
+#include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "follow_me.h"
 #include "metatile_behavior.h"
@@ -30,6 +31,8 @@ struct TestData
 struct RideMonData
 {
     u8 rideFrameCounter;
+    u8 flyingHeight;
+    bool8 desiredFlyingState;
 };
 
 EWRAM_DATA struct TestData sTestData = {0};
@@ -40,6 +43,8 @@ EWRAM_DATA struct RideMonData sRideMonData = {0};
 void Rogue_RideMonInit()
 {
     sRideMonData.rideFrameCounter = 0;
+    sRideMonData.desiredFlyingState = 0;
+    sRideMonData.flyingHeight = 0;
 
     sTestData.spriteId = SPRITE_NONE;
 #ifdef ROGUE_DEBUG
@@ -184,7 +189,9 @@ void Rogue_UpdateRideMonSprites()
         const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
         if(rideInfo != NULL)
+        {
             UpdateRideSpriteInternal(sTestData.spriteId, gPlayerAvatar.spriteId, rideInfo);
+        }
     }
 }
 
@@ -205,6 +212,18 @@ bool8 Rogue_CanRideMonSwim()
     const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
 
     if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_CanRideMonFly()
+{
+    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_FLY) != 0)
     {
         return TRUE;
     }
@@ -235,7 +254,7 @@ bool8 Rogue_IsRideMonFlying()
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
     {
-        return FALSE;
+        return sRideMonData.desiredFlyingState || sRideMonData.flyingHeight != 0;
     }
 
     return FALSE;
@@ -312,6 +331,12 @@ static void UpdateRideSpriteInternal(u8 mountSpriteId, u8 riderSpriteId, const s
     // Move player up here?
     riderSprite->x2 += + rideSpriteInfo->playerX * xFlip;
     riderSprite->y2 += + rideSpriteInfo->playerY;
+
+    if(sRideMonData.flyingHeight != 0)
+    {
+        mountSprite->y2 -= sRideMonData.flyingHeight;
+        riderSprite->y2 -= sRideMonData.flyingHeight;
+    }
 }
 
 //
@@ -319,15 +344,18 @@ static void UpdateRideSpriteInternal(u8 mountSpriteId, u8 riderSpriteId, const s
 //
 
 static u8 CheckMovementInputOnRideMon(u8);
-static void PlayerOnRideMonNotMoving(u8, u16);
-static void PlayerOnRideMonTurningInPlace(u8, u16);
-static void PlayerOnRideMonMoving(u8, u16);
+static void PlayerOnRideMonNotMoving(u8, u16, u16);
+static void PlayerOnRideMonTurningInPlace(u8, u16, u16);
+static void PlayerOnRideMonMoving(u8, u16, u16);
+
+static bool8 PlayerOnRideMonAdjustFlyingState(u8, u16, u16);
 
 static u8 CheckForPlayerAvatarCollision(u8 direction);
+static u8 CheckForPlayerLandingCollision();
 static void PlayerOnRideMonCollide(u8);
 static void PlayCollisionSoundIfNotFacingWarp(u8 direction);
 
-static void (*const sPlayerOnRideMonFuncs[])(u8, u16) =
+static void (*const sPlayerOnRideMonFuncs[])(u8, u16, u16) =
 {
     [NOT_MOVING]     = PlayerOnRideMonNotMoving,
     [TURN_DIRECTION] = PlayerOnRideMonTurningInPlace,
@@ -344,7 +372,13 @@ static bool8 (*const sArrowWarpMetatileBehaviorChecks3[])(u8) =  //Duplicate of 
 
 void MovePlayerOnRideMon(u8 direction, u16 newKeys, u16 heldKeys)
 {
-    sPlayerOnRideMonFuncs[CheckMovementInputOnRideMon(direction)](direction, heldKeys);
+    if(PlayerOnRideMonAdjustFlyingState(direction, newKeys, heldKeys))
+        return;
+
+    if(Rogue_IsRideMonFlying())
+        SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], TRUE);
+
+    sPlayerOnRideMonFuncs[CheckMovementInputOnRideMon(direction)](direction, newKeys, heldKeys);
 }
 
 s16 RideMonGetPlayerSpeed()
@@ -371,18 +405,41 @@ static u8 CheckMovementInputOnRideMon(u8 direction)
         return gPlayerAvatar.runningState = MOVING;
 }
 
-static void PlayerOnRideMonNotMoving(u8 direction, u16 heldKeys)
+static void PlayerOnRideMonNotMoving(u8 direction, u16 newKeys, u16 heldKeys)
 {
-    sRideMonData.rideFrameCounter = 0;
-    PlayerFaceDirection(GetPlayerFacingDirection());
+    if(newKeys & B_BUTTON && (Rogue_IsRideMonFlying() || Rogue_CanRideMonFly()))
+    {
+        // Toggle between flying modes
+        bool8 desiredFlyState = !sRideMonData.desiredFlyingState;
+
+        if(!desiredFlyState)
+        {
+            if(CheckForPlayerLandingCollision())
+            {
+                // We're not allowed to land here
+                PlaySE(SE_FAILURE);
+                return;
+            }
+        }
+
+        sRideMonData.desiredFlyingState = desiredFlyState;
+        PlaySE(sRideMonData.desiredFlyingState ? SE_M_FLY : SE_M_WING_ATTACK);
+
+        SetShadowFieldEffectVisible(&gObjectEvents[gPlayerAvatar.objectEventId], sRideMonData.desiredFlyingState);
+    }
+    else
+    {
+        sRideMonData.rideFrameCounter = 0;
+        PlayerFaceDirection(GetPlayerFacingDirection());
+    }
 }
 
-static void PlayerOnRideMonTurningInPlace(u8 direction, u16 heldKeys)
+static void PlayerOnRideMonTurningInPlace(u8 direction, u16 newKeys, u16 heldKeys)
 {
     PlayerTurnInPlace(direction);
 }
 
-static void PlayerOnRideMonMoving(u8 direction, u16 heldKeys)
+static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
 {
     u8 collision = CheckForPlayerAvatarCollision(direction);
     const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
@@ -390,6 +447,22 @@ static void PlayerOnRideMonMoving(u8 direction, u16 heldKeys)
     if(rideInfo != NULL)
     {
         u8 frameIdx;
+
+        if(collision == COLLISION_START_SWIMMING || collision == COLLISION_STOP_SWIMMING)
+        {
+            if(Rogue_IsRideMonFlying())
+            {
+                if(rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM)
+                {
+                    // If we're flying on a mon which can swim we're allowed to go over the water
+                    collision = COLLISION_NONE;
+                }
+                else
+                {
+                    collision = COLLISION_IMPASSABLE;
+                }
+            }
+        }
 
         if (collision)
         {
@@ -452,30 +525,31 @@ static void PlayerOnRideMonMoving(u8 direction, u16 heldKeys)
             break;
         }
 
-        //if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
-        //{
-        //    // same speed as running
-        //    PlayerWalkFast(direction);
-        //    return;
-        //}
-
-        // The running speed should be kept in sync with above RideMonGetPlayerSpeed
-        //if (GetPlayerSpritingState(heldKeys) && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
-        //{
-        //    gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
-        //    PlayerWalkFaster(direction);
-        //    return;
-        //}
-        //else
-        //{
-        //    PlayerWalkFast(direction);
-        //}
-
-        //PlayerWalkNormal(direction);
-
         if(sRideMonData.rideFrameCounter < 255)
             ++sRideMonData.rideFrameCounter;
     }
+}
+
+static bool8 PlayerOnRideMonAdjustFlyingState(u8 direction, u16 newKeys, u16 heldKeys)
+{
+    if(sRideMonData.desiredFlyingState)
+    {
+        if(sRideMonData.flyingHeight < 16)
+        {
+            ++sRideMonData.flyingHeight;
+            return TRUE;
+        }
+    }
+    else
+    {
+        if(sRideMonData.flyingHeight > 0)
+        {
+            --sRideMonData.flyingHeight;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static u8 CheckForPlayerAvatarCollision(u8 direction)
@@ -487,6 +561,60 @@ static u8 CheckForPlayerAvatarCollision(u8 direction)
     y = playerObjEvent->currentCoords.y;
     MoveCoords(direction, &x, &y);
     return CheckForObjectEventCollision(playerObjEvent, x, y, direction, MapGridGetMetatileBehaviorAt(x, y));
+}
+
+
+static bool8 AreElevationsCompatible(u8 a, u8 b)
+{
+    if (a == 0 || b == 0)
+        return TRUE;
+
+    if (a != b)
+        return FALSE;
+
+    return TRUE;
+}
+
+static bool8 CheckNonPlayerObjectAt(struct ObjectEvent *playerObjEvent, s16 x, s16 y)
+{
+    u8 i;
+    struct ObjectEvent *curObject;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        curObject = &gObjectEvents[i];
+        if (curObject->active && curObject != playerObjEvent)
+        {
+            // check for collision if curObject is active, not the object in question, and not exempt from collisions
+            if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
+            {
+                if (AreElevationsCompatible(playerObjEvent->currentElevation, curObject->currentElevation))
+                    return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+
+static u8 CheckForPlayerLandingCollision()
+{
+    s16 x, y;
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    x = playerObjEvent->currentCoords.x;
+    y = playerObjEvent->currentCoords.y;
+
+    if(MapGridIsImpassableAt(x, y))
+    {
+        return TRUE;
+    }
+
+    if(CheckNonPlayerObjectAt(playerObjEvent, x, y))
+    {
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 static void PlayerOnRideMonCollide(u8 direction)

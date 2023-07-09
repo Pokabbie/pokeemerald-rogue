@@ -751,6 +751,8 @@ static u8 CheckForPlayerAvatarStaticCollision(u8 direction)
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior)
 {
     u8 collision = GetCollisionAtCoords(objectEvent, x, y, direction);
+    bool8 isFlying = Rogue_IsRideMonFlying();
+
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
 
@@ -760,20 +762,31 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSwimming(x, y, direction))
         return COLLISION_STOP_SWIMMING;
 
-    if (ShouldJumpLedge(x, y, direction))
+    if(isFlying)
+    {
+        if(MetatileBehavior_IsJumpSouth(metatileBehavior)
+        || MetatileBehavior_IsJumpNorth(metatileBehavior)
+        || MetatileBehavior_IsJumpWest(metatileBehavior)
+        || MetatileBehavior_IsJumpEast(metatileBehavior)
+        )
+            return COLLISION_NONE;
+    }
+    else if (ShouldJumpLedge(x, y, direction))
     {
         IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
         return COLLISION_LEDGE_JUMP;
-    }
-    if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
-        return COLLISION_PUSHED_BOULDER;
 
-    if (collision == COLLISION_NONE)
-    {
-        if (CheckForRotatingGatePuzzleCollision(direction, x, y))
-            return COLLISION_ROTATING_GATE;
-        CheckAcroBikeCollision(x, y, metatileBehavior, &collision);
+        if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
+            return COLLISION_PUSHED_BOULDER;
+
+        if (collision == COLLISION_NONE)
+        {
+            if (CheckForRotatingGatePuzzleCollision(direction, x, y))
+                return COLLISION_ROTATING_GATE;
+            CheckAcroBikeCollision(x, y, metatileBehavior, &collision);
+        }
     }
+
     return collision;
 }
 

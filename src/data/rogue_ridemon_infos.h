@@ -60,7 +60,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
     },
     [SPECIES_CHARIZARD] = 
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
@@ -80,7 +80,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
     },
     [SPECIES_PIDGEOT] = 
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -6, 0, 1, RIDER_SHOW_INFRONT },
@@ -90,7 +90,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
     },
     [SPECIES_FEAROW] = 
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -8, 0, 1, RIDER_SHOW_INFRONT },
@@ -101,7 +101,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
 
     [SPECIES_LAPRAS] = 
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM | RIDE_MON_FLAG_CAN_FLY,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP]    = { 0, -4, 0, 2, RIDER_SHOW_INFRONT },

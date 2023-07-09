@@ -14,6 +14,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_ridemon.h"
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 
@@ -255,6 +256,26 @@ u32 FldEff_Shadow(void)
     return 0;
 }
 
+void SetShadowFieldEffectVisible(struct ObjectEvent *objectEvent, bool8 state)
+{
+    if(state)
+    {
+        if (!objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = TRUE;
+            StartFieldEffectForObjectEvent(FLDEFF_SHADOW, objectEvent);
+        }
+    }
+    else
+    {
+        if (objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = FALSE;
+            // Should be sorted out by callback below
+        }
+    }
+}
+
 void UpdateShadowFieldEffect(struct Sprite *sprite)
 {
     u8 objectEventId;
@@ -272,6 +293,14 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
         sprite->oam.priority = linkedSprite->oam.priority;
         sprite->x = linkedSprite->x;
         sprite->y = linkedSprite->y + sprite->data[3];
+
+        if(objectEventId == gPlayerAvatar.objectEventId)
+        {
+            // Always keep shadow visible for whilst we're flying
+            if(Rogue_IsRideMonFlying())
+                return;
+        }
+
         if (!objectEvent->active || !objectEvent->hasShadow
          || MetatileBehavior_IsPokeGrass(objectEvent->currentMetatileBehavior)
          || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->currentMetatileBehavior)

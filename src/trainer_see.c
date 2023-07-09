@@ -20,6 +20,7 @@
 #include "constants/trainer_types.h"
 
 #include "rogue_trainers.h"
+#include "rogue_ridemon.h"
 
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
@@ -278,6 +279,11 @@ static u8 CheckTrainer(u8 objectEventId)
     }
 
     approachDistance = GetTrainerApproachDistance(&gObjectEvents[objectEventId]);
+
+    if(Rogue_IsRideMonFlying())
+    {
+        approachDistance = 0;
+    }
 
     if (approachDistance != 0)
     {

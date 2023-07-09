@@ -398,6 +398,10 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
+    // If we're flying we won't collide with anything
+    if(Rogue_IsRideMonFlying())
+        return collider == player;
+
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         if (collider == player)

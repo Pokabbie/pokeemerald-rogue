@@ -9,6 +9,7 @@ void Rogue_UpdateRideMonSprites();
 
 bool8 Rogue_CanRideMonInvJumpLedge();
 bool8 Rogue_CanRideMonSwim();
+bool8 Rogue_CanRideMonFly();
 
 bool8 Rogue_IsRideMonSwimming();
 bool8 Rogue_IsRideMonFlying();
