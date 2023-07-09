@@ -260,7 +260,7 @@ void ItemUseOutOfBattle_RideMon(u8 taskId)
 
 static void ItemUseOnFieldCB_RideMon(u8 taskId)
 {
-    Rogue_GetOnOffRideMon();
+    Rogue_GetOnOffRideMon(FALSE);
     FollowMe_HandleBike(); // Do we need this?
     ScriptUnfreezeObjectEvents();
     ScriptContext2_Disable();

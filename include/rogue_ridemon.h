@@ -3,7 +3,7 @@
 
 void Rogue_RideMonInit();
 
-void Rogue_GetOnOffRideMon();
+void Rogue_GetOnOffRideMon(bool8 forWarp);
 void Rogue_CreateDestroyRideMonSprites();
 void Rogue_UpdateRideMonSprites();
 

@@ -171,7 +171,12 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->heldDirection && input->dpadDirection == playerDirection)
     {
         if (TryArrowWarp(&position, metatileBehavior, playerDirection) == TRUE)
+        {
+            if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+                Rogue_GetOnOffRideMon(TRUE);
+
             return TRUE;
+        }
     }
 
     GetInFrontOfPlayerPosition(&position);
@@ -182,7 +187,12 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->heldDirection2 && input->dpadDirection == playerDirection)
     {
         if (TryDoorWarp(&position, metatileBehavior, playerDirection) == TRUE)
+        {
+            if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+                Rogue_GetOnOffRideMon(TRUE);
+
             return TRUE;
+        }
     }
     if (input->pressedAButton && TrySetupDiveDownScript() == TRUE)
         return TRUE;
@@ -642,6 +652,9 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
 
     if (IsArrowWarpMetatileBehavior(metatileBehavior, direction) == TRUE && warpEventId != WARP_ID_NONE)
     {
+        //if(Rogue_IsRideMonFlying())
+        //    return FALSE;
+
         StoreInitialPlayerAvatarState();
         SetupWarp(&gMapHeader, warpEventId, position);
         DoWarp();
@@ -784,6 +797,9 @@ static bool8 TryDoorWarp(struct MapPosition *position, u16 metatileBehavior, u8 
 
     if (direction == DIR_NORTH)
     {
+        //if(Rogue_IsRideMonFlying())
+        //    return FALSE;
+
         if (MetatileBehavior_IsOpenSecretBaseDoor(metatileBehavior) == TRUE)
         {
             StoreInitialPlayerAvatarState();

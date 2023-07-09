@@ -57,19 +57,31 @@ void Rogue_RideMonInit()
 static void UpdateRideSpriteInternal(u8 mountSpriteId, u8 riderSpriteId, const struct RideMonInfo* rideInfo);
 
 // Based on GetOnOffBike
-void Rogue_GetOnOffRideMon()
+void Rogue_GetOnOffRideMon(bool8 forWarp)
 {
+    if(!forWarp)
+    {
+        if(Rogue_IsRideMonFlying() || Rogue_IsRideMonSwimming())
+        {
+            // We're not allowed to dismount here
+            PlaySE(SE_WALL_HIT);
+            return;
+        }
+    }
+
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
         //Overworld_ClearSavedMusic();
         //Overworld_PlaySpecialMapMusic();
+        //PlaySE(SE_MUD_BALL);
     }
     else
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_RIDING);
         //Overworld_SetSavedMusic(MUS_CYCLING);
         //Overworld_ChangeMusicTo(MUS_CYCLING);
+        PlaySE(SE_M_DETECT); // detect
     }
 
     // Delete existing sprite
@@ -80,7 +92,9 @@ void Rogue_GetOnOffRideMon()
     }
 
     Rogue_CreateDestroyRideMonSprites();
-    SetupFollowParterMonObjectEvent();
+
+    if(!forWarp)
+        SetupFollowParterMonObjectEvent();
 }
 
 void Rogue_CreateDestroyRideMonSprites()
