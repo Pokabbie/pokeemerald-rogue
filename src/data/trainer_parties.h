@@ -12878,3 +12878,37 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+// Community members
+//
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
+    {
+    .iv = 150,
+    .lvl = 49,
+    .species = SPECIES_CROBAT,
+    .heldItem = ITEM_FLYING_GEM,
+    .moves = { MOVE_U_TURN, MOVE_ACROBATICS, MOVE_TOXIC, MOVE_ROOST }
+    },
+    {
+    .iv = 150,
+    .lvl = 51,
+    .species = SPECIES_REGICE,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = { MOVE_THUNDER_WAVE, MOVE_ICE_BEAM, MOVE_CHARGE_BEAM, MOVE_THUNDERBOLT }
+    },
+    {
+    .iv = 150,
+    .lvl = 49,
+    .species = SPECIES_GARCHOMP,
+    .heldItem = ITEM_YACHE_BERRY,
+    .moves = { MOVE_EARTHQUAKE, MOVE_STEALTH_ROCK, MOVE_DRAGON_CLAW, MOVE_ROCK_TOMB }
+    },
+    {
+    .iv = 150,
+    .lvl = 49,
+    .species = SPECIES_GRENINJA,
+    .heldItem = ITEM_EXPERT_BELT,
+    .moves = { MOVE_DARK_PULSE, MOVE_HYDRO_PUMP, MOVE_U_TURN, MOVE_WATER_SHURIKEN }
+    },
+};

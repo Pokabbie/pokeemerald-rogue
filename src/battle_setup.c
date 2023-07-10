@@ -862,6 +862,9 @@ u8 GetTrainerBattleTransition(void)
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_KANTO_CHAMPION)
         return B_TRANSITION_KANTO_CHAMPION;
 
+    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_COMMUNITY_CHALLENGER)
+        return B_TRANSITION_COMMUNITY_CHALLENGER;
+
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TEAM_MAGMA
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MAGMA_LEADER
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MAGMA_ADMIN)

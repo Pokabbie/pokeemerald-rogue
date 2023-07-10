@@ -1,8 +1,10 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_transition.h"
 #include "battle_transition_frontier.h"
 #include "bg.h"
+#include "data.h"
 #include "decompress.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
@@ -113,6 +115,7 @@ static void Task_Glacia(u8);
 static void Task_Drake(u8);
 static void Task_Champion(u8);
 static void Task_KantoChampion(u8);
+static void Task_CommunityChallenger(u8);
 static void Task_Aqua(u8);
 static void Task_Magma(u8);
 static void Task_Regice(u8);
@@ -365,6 +368,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_DRAKE] = Task_Drake,
     [B_TRANSITION_CHAMPION] = Task_Champion,
     [B_TRANSITION_KANTO_CHAMPION] = Task_KantoChampion,
+    [B_TRANSITION_COMMUNITY_CHALLENGER] = Task_CommunityChallenger,
     [B_TRANSITION_AQUA] = Task_Aqua,
     [B_TRANSITION_MAGMA] = Task_Magma,
     [B_TRANSITION_REGICE] = Task_Regice,
@@ -551,6 +555,7 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
     [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
     [MUGSHOT_CHAMPION] = TRAINER_PIC_STEVEN,
     [MUGSHOT_KANTO_CHAMPION] = TRAINER_PIC_CHAMPION_BLUE,
+    [MUGSHOT_DYNAMIC] = TRAINER_PIC_BRENDAN,
 };
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
@@ -560,6 +565,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_DRAKE] =    {0x1A0, 0x1A0},
     [MUGSHOT_CHAMPION] = {0x200, 0x200},
     [MUGSHOT_KANTO_CHAMPION] =   {0x200, 0x200},
+    [MUGSHOT_DYNAMIC] =   {0x200, 0x200},
 };
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
 {
@@ -569,6 +575,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_DRAKE] =    { 0,  5},
     [MUGSHOT_CHAMPION] = { 0,  0},
     [MUGSHOT_KANTO_CHAMPION] =   { 0,  0},
+    [MUGSHOT_DYNAMIC] =   { 0,  0},
 };
 
 static const TransitionSpriteCallback sMugshotTrainerPicFuncs[] =
@@ -898,6 +905,7 @@ static const u16 sMugshotPal_Drake[] = INCBIN_U16("graphics/battle_transitions/d
 static const u16 sMugshotPal_Champion[] = INCBIN_U16("graphics/battle_transitions/wallace_bg.gbapal");
 static const u16 sMugshotPal_Brendan[] = INCBIN_U16("graphics/battle_transitions/brendan_bg.gbapal");
 static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
+static const u16 sMugshotPal_CommunityChallenger[] = INCBIN_U16("graphics/battle_transitions/community_challenger_bg.gbapal");
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
@@ -906,7 +914,8 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_GLACIA] = sMugshotPal_Glacia,
     [MUGSHOT_DRAKE] = sMugshotPal_Drake,
     [MUGSHOT_CHAMPION] = sMugshotPal_Champion,
-    [MUGSHOT_KANTO_CHAMPION] = sMugshotPal_Sidney
+    [MUGSHOT_KANTO_CHAMPION] = sMugshotPal_Sidney,
+    [MUGSHOT_DYNAMIC] = sMugshotPal_CommunityChallenger
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -2244,7 +2253,7 @@ static void VBlankCB_Wave(void)
 
 //----------------------------------------------------------------
 // B_TRANSITION_SIDNEY, B_TRANSITION_PHOEBE, B_TRANSITION_GLACIA,
-// B_TRANSITION_DRAKE, B_TRANSITION_CHAMPION and B_TRANSITION_KANTO_CHAMPION
+// B_TRANSITION_DRAKE, B_TRANSITION_CHAMPION, B_TRANSITION_KANTO_CHAMPION and B_TRANSITION_COMMUNITY_CHALLENGER
 //
 // These are all the "mugshot" transitions, where a banner shows
 // the trainer pic of the player and their opponent.
@@ -2299,6 +2308,12 @@ static void Task_Champion(u8 taskId)
 static void Task_KantoChampion(u8 taskId)
 {
     gTasks[taskId].tMugshotId = MUGSHOT_KANTO_CHAMPION;
+    DoMugshotTransition(taskId);
+}
+
+static void Task_CommunityChallenger(u8 taskId)
+{
+    gTasks[taskId].tMugshotId = MUGSHOT_DYNAMIC;
     DoMugshotTransition(taskId);
 }
 
@@ -2592,10 +2607,21 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     struct Sprite *opponentSprite, *playerSprite;
 
     s16 mugshotId = task->tMugshotId;
-    task->tOpponentSpriteId = CreateTrainerSprite(sMugshotsTrainerPicIDsTable[mugshotId],
-                                                  sMugshotsOpponentCoords[mugshotId][0] - 32,
-                                                  sMugshotsOpponentCoords[mugshotId][1] + 42,
-                                                  0, gDecompressionBuffer);
+
+    if(mugshotId == MUGSHOT_DYNAMIC)
+    {
+        task->tOpponentSpriteId = CreateTrainerSprite(gTrainers[gTrainerBattleOpponent_A].trainerPic,
+                                                        sMugshotsOpponentCoords[mugshotId][0] - 32,
+                                                        sMugshotsOpponentCoords[mugshotId][1] + 42,
+                                                        0, gDecompressionBuffer);
+    }
+    else
+    {
+        task->tOpponentSpriteId = CreateTrainerSprite(sMugshotsTrainerPicIDsTable[mugshotId],
+                                                        sMugshotsOpponentCoords[mugshotId][0] - 32,
+                                                        sMugshotsOpponentCoords[mugshotId][1] + 42,
+                                                        0, gDecompressionBuffer);
+    }
     task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
                                                 DISPLAY_WIDTH + 32,
                                                 106,

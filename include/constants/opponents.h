@@ -864,11 +864,20 @@
 #define TRAINER_BLUE_5                      860
 #define TRAINER_BLUE_6                      861
 
+#define TRAINER_VIEWIER_DERP                862
+#define TRAINER_VIEWIER_MAWILE              863
+#define TRAINER_VIEWIER_GREEZ               864
+#define TRAINER_VIEWIER_DOLPHIN             865
+#define TRAINER_VIEWIER_WALL                866
+#define TRAINER_VIEWIER_ALEX                867
+#define TRAINER_VIEWIER_GMAF                868
+#define TRAINER_VIEWIER_POKABBIE            869
+
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      862
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      870
+#define MAX_TRAINERS_COUNT                  896
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
