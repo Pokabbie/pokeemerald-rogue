@@ -10,9 +10,14 @@ Sandbox_Trainer_Mawile::
 	return
 
 
+Sandbox_Trainer_Greez::
+	trainerbattle_single TRAINER_VIEWIER_GREEZ, Sandbox_Trainer_Greez_Text_0, Sandbox_Trainer_Greez_Text_1
+	msgbox Sandbox_Trainer_Greez_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
-	.string "DERPSTER: Fancy seeing you here\n"
-	.string "Conner.\p"
+	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
 	.string "NOT ON MY WATCH!$"
 
@@ -37,3 +42,14 @@ Sandbox_Trainer_Mawile_Text_1:
 Sandbox_Trainer_Mawile_Text_2:
 	.string "MAWEELAY: Why couldn't you do that to\n"
 	.string "Blue?$"
+
+Sandbox_Trainer_Greez_Text_0:
+	.string "YI was about to stal- I mean see the\n"
+	.string "female grunt.\p"
+	.string "Wanna battle?$"
+
+Sandbox_Trainer_Greez_Text_1:
+	.string "But like... The female grunt tho.$"
+
+Sandbox_Trainer_Greez_Text_2:
+	.string "GREEZ: But like... The female grunt tho.$"

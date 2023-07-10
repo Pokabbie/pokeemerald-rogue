@@ -12935,3 +12935,38 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Mawile[] = {
     .moves = { MOVE_BITE, MOVE_ICE_FANG, MOVE_THUNDER_FANG, MOVE_FIRE_FANG }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
+    {
+    .iv = 150,
+    .lvl = 46,
+    .species = SPECIES_OVERQWIL,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = { MOVE_POISON_JAB, MOVE_LIQUIDATION, MOVE_CRUNCH, MOVE_TOXIC_SPIKES }
+    },
+    {
+    .iv = 150,
+    .lvl = 46,
+    .species = SPECIES_DIGGERSBY,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_HUGE_POWER,
+    .moves = { MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE }
+    },
+    {
+    .iv = 150,
+    .lvl = 46,
+    .species = SPECIES_HOUNDOOM,
+    .heldItem = ITEM_HOUNDOOMINITE,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = { MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_FLAMETHROWER, MOVE_DARK_PULSE }
+    },
+    {
+    .iv = 150,
+    .lvl = 48,
+    .species = SPECIES_HAXORUS,
+    .heldItem = ITEM_CHOICE_BAND,
+    .ability = ABILITY_MOLD_BREAKER,
+    .moves = { MOVE_OUTRAGE, MOVE_DRAGON_CLAW, MOVE_CLOSE_COMBAT, MOVE_EARTHQUAKE }
+    },
+};

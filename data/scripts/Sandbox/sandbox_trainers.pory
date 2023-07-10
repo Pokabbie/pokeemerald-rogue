@@ -1,7 +1,7 @@
 
 script Sandbox_Trainer_Derp
 {
-    trainerbattle_single(TRAINER_VIEWIER_DERP, format("DERPSTER: Fancy seeing you here Conner.\pGoing to awaken RAYQUAZA?\pNOT ON MY WATCH!"), format("Seems I’ve been defeated by the Legendary LaterManner.\pNow...\pGo win this.\nYou deserve it, champ"))
+    trainerbattle_single(TRAINER_VIEWIER_DERP, format("Fancy seeing you here Conner.\pGoing to awaken RAYQUAZA?\pNOT ON MY WATCH!"), format("Seems I’ve been defeated by the Legendary LaterManner.\pNow...\pGo win this.\nYou deserve it, champ"))
     msgbox(format("DERPSTER: Go win this.\nYou deserve it, champ"), MSGBOX_AUTOCLOSE)
 }
 
@@ -9,4 +9,10 @@ script Sandbox_Trainer_Mawile
 {
     trainerbattle_single(TRAINER_VIEWIER_MAWILE, format("You thought I was a grunt, but it was I, MAWEELAY!"), format("Why couldn't you do that to Blue?"))
     msgbox(format("MAWEELAY: Why couldn't you do that to Blue?"), MSGBOX_AUTOCLOSE)
+}
+
+script Sandbox_Trainer_Greez
+{
+    trainerbattle_single(TRAINER_VIEWIER_GREEZ, format("I was about to stal- I mean see the female grunt.\pWanna battle?"), format("But like... The female grunt tho."))
+    msgbox(format("GREEZ: But like... The female grunt tho."), MSGBOX_AUTOCLOSE)
 }
