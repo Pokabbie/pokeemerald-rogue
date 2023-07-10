@@ -27,6 +27,15 @@ static bool32 AiExpectsToFaintPlayer(void);
 static bool32 AI_ShouldHeal(u32 healAmount);
 static bool32 AI_OpponentCanFaintAiWithMod(u32 healAmount);
 
+static bool32 IsAceMon(u32 battlerId, u32 monPartyId)
+{
+    if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON
+        //&& !(gBattleStruct->forcedSwitch & gBitTable[battlerId])
+        && monPartyId == CalculateEnemyPartyCount()-1)
+            return TRUE;
+    return FALSE;
+}
+
 void GetAIPartyIndexes(u32 battlerId, s32 *firstId, s32 *lastId)
 {
     if (BATTLE_TWO_VS_ONE_OPPONENT && (battlerId & BIT_SIDE) == B_SIDE_OPPONENT)
@@ -109,8 +118,7 @@ static bool8 ShouldSwitchIfWonderGuard(void)
             continue;
         if (i == gBattlerPartyIndexes[gActiveBattler])
             continue;
-        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON 
-            && i == (CalculateEnemyPartyCount()-1))
+        if (IsAceMon(gActiveBattler, i))
             continue;
 
         for (opposingBattler = GetBattlerAtPosition(opposingPosition), j = 0; j < MAX_MON_MOVES; j++)
@@ -202,8 +210,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
             continue;
         if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             continue;
-        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON 
-            && i == (CalculateEnemyPartyCount()-1))
+        if (IsAceMon(gActiveBattler, i))
             continue;
         
 
@@ -283,9 +290,8 @@ static bool8 ShouldSwitchIfGameStatePrompt(void)
                     
                         for (i = firstId; i < lastId; i++)
                         {
-                            if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON 
-                                && i == (CalculateEnemyPartyCount()-1))
-                                break;
+                            if (IsAceMon(gActiveBattler, i))
+                                continue;
 
                             //Look for mon in party that is able to be switched into and has ability that sets terrain
                             if (GetMonData(&party[i], MON_DATA_HP) != 0
@@ -576,8 +582,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u16 flags, u8 moduloPercent)
             continue;
         if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             continue;
-        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON 
-            && i == (CalculateEnemyPartyCount()-1))
+        if (IsAceMon(gActiveBattler, i))
             continue;
 
 
@@ -619,6 +624,7 @@ bool32 ShouldSwitch(void)
     struct Pokemon *party;
     s32 i;
     s32 availableToSwitch;
+    bool32 hasAceMon = FALSE;
 
     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
         return FALSE;
@@ -668,15 +674,22 @@ bool32 ShouldSwitch(void)
             continue;
         if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             continue;
-        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON
-            && i == (CalculateEnemyPartyCount()-1))
+        if (IsAceMon(gActiveBattler, i))
+        {
+            hasAceMon = TRUE;
             continue;
+        }
 
         availableToSwitch++;
     }
 
     if (availableToSwitch == 0)
-        return FALSE;
+    {
+        if (hasAceMon) // If the ace mon is the only available mon, use it
+            availableToSwitch++;
+        else
+            return FALSE;
+    }
 
     //NOTE: The sequence of the below functions matter! Do not change unless you have carefully considered the outcome.
     //Since the order is sequencial, and some of these functions prompt switch to specific party members.
@@ -758,8 +771,7 @@ void AI_TrySwitchOrUseItem(void)
                             continue;
                         if (monToSwitchId == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
                             continue;
-                        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON 
-                            && monToSwitchId == (CalculateEnemyPartyCount()-1))
+                        if (IsAceMon(gActiveBattler, monToSwitchId))
                             continue;
 
                         break;
@@ -916,7 +928,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     s32 lastId = 0; // + 1
     struct Pokemon *party;
     s32 i, j, aliveCount = 0;
-    u8 invalidMons = 0;
+    u32 invalidMons = 0, aceMonId = PARTY_SIZE;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -952,18 +964,27 @@ u8 GetMostSuitableMonToSwitchInto(void)
     // Get invalid slots ids.
     for (i = firstId; i < lastId; i++)
     {
-        if (GetMonData(&party[i], MON_DATA_SPECIES) == SPECIES_NONE
+        u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
+        if (species == SPECIES_NONE
+            || species == SPECIES_EGG
             || GetMonData(&party[i], MON_DATA_HP) == 0
             || gBattlerPartyIndexes[battlerIn1] == i
             || gBattlerPartyIndexes[battlerIn2] == i
             || i == *(gBattleStruct->monToSwitchIntoId + battlerIn1)
             || i == *(gBattleStruct->monToSwitchIntoId + battlerIn2)
-            || (GetMonAbility(&party[i]) == ABILITY_TRUANT && IsTruantMonVulnerable(gActiveBattler, opposingBattler)) // While not really invalid per say, not really wise to switch into this mon.
-            || ((AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON)
-                && i == (CalculateEnemyPartyCount() - 1))) //Save Ace Pokemon for last
+            || (GetMonAbility(&party[i]) == ABILITY_TRUANT && IsTruantMonVulnerable(gActiveBattler, opposingBattler))) // While not really invalid per say, not really wise to switch into this mon.)
+        {
             invalidMons |= gBitTable[i];
+        }
+        else if (IsAceMon(gActiveBattler, i))// Save Ace Pokemon for last.
+        {
+            aceMonId = i;
+            invalidMons |= gBitTable[i];
+        }
         else
+        {
             aliveCount++;
+        }
     }
 
     bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount);
@@ -977,6 +998,10 @@ u8 GetMostSuitableMonToSwitchInto(void)
     bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler);
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
+
+    // If ace mon is the last available Pokemon and switch move was used - switch to the mon.
+    if (aceMonId != PARTY_SIZE)
+        return aceMonId;
 
     return PARTY_SIZE;
 }
