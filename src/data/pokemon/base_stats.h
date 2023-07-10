@@ -5459,6 +5459,58 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
     },
 
+    [SPECIES_MAREEP_PIKIN] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 75,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 115,
+        .baseSpDefense = 90,
+        #if P_UPDATED_STATS >= GEN_6
+            .baseDefense   = 85,
+        #else
+            .baseDefense   = 75,
+        #endif
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 45,
+        .expYield = 230,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_NONE, ABILITY_STATIC},
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+    },
+    [SPECIES_MAREEP_PIKIN_MEGA] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 95,
+        .baseDefense   = 105,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 165,
+        .baseSpDefense = 110,
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_STEEL,
+        .catchRate = 45,
+        .expYield = 275,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_LEVITATE, ABILITY_LEVITATE},
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .flags = SPECIES_FLAG_MEGA_EVOLUTION,
+    },
+
     [SPECIES_BELLOSSOM] =
     {
         .baseHP        = 75,

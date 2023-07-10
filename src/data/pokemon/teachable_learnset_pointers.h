@@ -182,6 +182,10 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_MAREEP] = sMareepTeachableLearnset,
     [SPECIES_FLAAFFY] = sFlaaffyTeachableLearnset,
     [SPECIES_AMPHAROS] = sAmpharosTeachableLearnset,
+
+    [SPECIES_MAREEP_PIKIN] = sAmpharosTeachableLearnset,
+    [SPECIES_MAREEP_PIKIN_MEGA] = sAmpharosTeachableLearnset,
+
     [SPECIES_BELLOSSOM] = sBellossomTeachableLearnset,
     [SPECIES_MARILL] = sMarillTeachableLearnset,
     [SPECIES_AZUMARILL] = sAzumarillTeachableLearnset,

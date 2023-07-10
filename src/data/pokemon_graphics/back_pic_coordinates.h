@@ -206,6 +206,10 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_FLAAFFY]                      = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  7 },
     [SPECIES_AMPHAROS]                     = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  3 },
     [SPECIES_BELLOSSOM]                    = { .size = MON_COORDS_SIZE(48, 48), .y_offset = 11 },
+
+    [SPECIES_MAREEP_PIKIN]                       = { .size = MON_COORDS_SIZE(56, 40), .y_offset = 15 },
+    [SPECIES_MAREEP_PIKIN_MEGA]                       = { .size = MON_COORDS_SIZE(56, 40), .y_offset = 15 },
+
     [SPECIES_MARILL]                       = { .size = MON_COORDS_SIZE(64, 40), .y_offset = 13 },
     [SPECIES_AZUMARILL]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },
     [SPECIES_SUDOWOODO]                    = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  5 },

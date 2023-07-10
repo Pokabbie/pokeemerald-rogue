@@ -186,6 +186,10 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_MAREEP]                       = { .size = MON_COORDS_SIZE(40, 48), .y_offset = 12 },
     [SPECIES_FLAAFFY]                      = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  9 },
     [SPECIES_AMPHAROS]                     = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  2 },
+
+    [SPECIES_MAREEP_PIKIN]                 = { .size = MON_COORDS_SIZE(40, 48), .y_offset = 12 },
+    [SPECIES_MAREEP_PIKIN_MEGA]            = { .size = MON_COORDS_SIZE(40, 48), .y_offset = 12 },
+
     [SPECIES_BELLOSSOM]                    = { .size = MON_COORDS_SIZE(32, 40), .y_offset = 12 },
     [SPECIES_MARILL]                       = { .size = MON_COORDS_SIZE(56, 40), .y_offset = 14 },
     [SPECIES_AZUMARILL]                    = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  6 },

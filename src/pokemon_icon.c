@@ -208,6 +208,10 @@ const u8 *const gMonIconTable[] =
     [SPECIES_MAREEP] = gMonIcon_Mareep,
     [SPECIES_FLAAFFY] = gMonIcon_Flaaffy,
     [SPECIES_AMPHAROS] = gMonIcon_Ampharos,
+
+    [SPECIES_MAREEP_PIKIN] = gMonIcon_Mareep,
+    [SPECIES_MAREEP_PIKIN_MEGA] = gMonIcon_MareepPikin,
+
     [SPECIES_BELLOSSOM] = gMonIcon_Bellossom,
     [SPECIES_MARILL] = gMonIcon_Marill,
     [SPECIES_AZUMARILL] = gMonIcon_Azumarill,
@@ -1508,6 +1512,10 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_MAREEP] = 0,
     [SPECIES_FLAAFFY] = 0,
     [SPECIES_AMPHAROS] = 0,
+
+    [SPECIES_MAREEP_PIKIN] = 0,
+    [SPECIES_MAREEP_PIKIN_MEGA] = 0,
+
     [SPECIES_BELLOSSOM] = 1,
     [SPECIES_MARILL] = 0,
     [SPECIES_AZUMARILL] = 0,

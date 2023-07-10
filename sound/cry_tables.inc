@@ -1749,6 +1749,7 @@ gCryTable::
 	cry Cry_TornadusTherian
 	cry Cry_ThundurusTherian
 	cry Cry_LandorusTherian
+	cry Cry_Bulbasaur //Cry_EnamorusTherian
 	@ Kyurem
 	cry Cry_KyuremWhite
 	cry Cry_KyuremBlack
@@ -2079,6 +2080,9 @@ gCryTable::
 	@ Calyrex
 	cry Cry_CalyrexIceRider
 	cry Cry_CalyrexShadowRider
+	@ Mareep Pikin
+	cry Cry_Mareep
+	cry Cry_AmpharosMega
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2115,6 +2119,9 @@ gCryTable::
 	@ Zarude
 	cry Cry_Unown
 	@ Calyrex
+	cry Cry_Unown
+	cry Cry_Unown
+	@ Mareep Pikin
 	cry Cry_Unown
 	cry Cry_Unown
 .endif
@@ -4162,6 +4169,9 @@ gCryTable_Reverse::
 	@ Calyrex
 	cry_reverse Cry_CalyrexIceRider
 	cry_reverse Cry_CalyrexShadowRider
+	@ Mareep Pikin
+	cry_reverse Cry_Mareep
+	cry_reverse Cry_AmpharosMega
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4184,6 +4194,9 @@ gCryTable_Reverse::
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	@ Mareep Pikin
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 .endif

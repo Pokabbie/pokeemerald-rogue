@@ -2079,6 +2079,10 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
             gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
             if (gTasks[taskId].data[3] >= NUM_SPECIES)
                 gTasks[taskId].data[3] = NUM_SPECIES - 1;
+
+            // Don't spoil the mega ;)
+            if (gTasks[taskId].data[3] == SPECIES_MAREEP_PIKIN_MEGA)
+                gTasks[taskId].data[3] = SPECIES_MAREEP_PIKIN;
         }
         if (JOY_NEW(DPAD_DOWN))
         {

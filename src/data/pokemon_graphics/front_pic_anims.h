@@ -2135,6 +2135,18 @@ static const union AnimCmd sAnim_AMPHAROS_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_MAREEP_PIKIN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAREEP_PIKIN_MEGA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_BELLOSSOM_1[] =
 {
     ANIMCMD_FRAME(1, 5),
@@ -11617,6 +11629,18 @@ static const union AnimCmd *const sAnims_AMPHAROS[] =
     sAnim_AMPHAROS_1,
 };
 
+static const union AnimCmd *const sAnims_MAREEP_PIKIN[] =
+{
+    sAnim_GeneralFrame0,
+    sAnim_MAREEP_PIKIN_1,
+};
+
+static const union AnimCmd *const sAnims_MAREEP_PIKIN_MEGA[] =
+{
+    sAnim_GeneralFrame0,
+    sAnim_MAREEP_PIKIN_MEGA_1,
+};
+
 static const union AnimCmd *const sAnims_BELLOSSOM[] =
 {
     sAnim_GeneralFrame0,
@@ -17316,6 +17340,10 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(MAREEP),
     ANIM_CMD(FLAAFFY),
     ANIM_CMD(AMPHAROS),
+
+    ANIM_CMD(MAREEP_PIKIN),
+    ANIM_CMD(MAREEP_PIKIN_MEGA),
+
     ANIM_CMD(BELLOSSOM),
     ANIM_CMD(MARILL),
     ANIM_CMD(AZUMARILL),

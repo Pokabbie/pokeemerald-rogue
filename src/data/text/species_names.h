@@ -181,6 +181,10 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_MAREEP] = _("Mareep"),
     [SPECIES_FLAAFFY] = _("Flaaffy"),
     [SPECIES_AMPHAROS] = _("Ampharos"),
+
+    [SPECIES_MAREEP_PIKIN] = _("Pikin"),
+    [SPECIES_MAREEP_PIKIN_MEGA] = _("Pikin"),
+
     [SPECIES_BELLOSSOM] = _("Bellossom"),
     [SPECIES_MARILL] = _("Marill"),
     [SPECIES_AZUMARILL] = _("Azumarill"),

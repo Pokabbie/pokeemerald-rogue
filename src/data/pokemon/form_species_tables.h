@@ -297,6 +297,13 @@ static const u16 sPichuFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sMareepFormSpeciesIdTable[] = {
+    SPECIES_MAREEP,
+    SPECIES_MAREEP_PIKIN,
+    SPECIES_MAREEP_PIKIN_MEGA,
+    FORM_SPECIES_END,
+};
+
 static const u16 sAmpharosFormSpeciesIdTable[] = {
     SPECIES_AMPHAROS,
     SPECIES_AMPHAROS_MEGA,

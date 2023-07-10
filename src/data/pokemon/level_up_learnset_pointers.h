@@ -182,6 +182,10 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_MAREEP] = sMareepLevelUpLearnset,
     [SPECIES_FLAAFFY] = sFlaaffyLevelUpLearnset,
     [SPECIES_AMPHAROS] = sAmpharosLevelUpLearnset,
+    
+    [SPECIES_MAREEP_PIKIN] = sMareepPikinLevelUpLearnset,
+    [SPECIES_MAREEP_PIKIN_MEGA] = sMareepPikinLevelUpLearnset,
+
     [SPECIES_BELLOSSOM] = sBellossomLevelUpLearnset,
     [SPECIES_MARILL] = sMarillLevelUpLearnset,
     [SPECIES_AZUMARILL] = sAzumarillLevelUpLearnset,
