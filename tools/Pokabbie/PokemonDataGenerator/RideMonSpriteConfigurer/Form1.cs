@@ -170,10 +170,6 @@ namespace RideMonSpriteConfigurer
 
 		private void OnRideMonInfoSelected()
 		{
-			downRiderInFrontCheckBox.Checked = false;
-			upRiderInFrontCheckBox.Checked = false;
-			sideRiderInFrontCheckBox.Checked = false;
-
 			if(m_CurrentRideMonInfo != null)
 			{
 				downRiderInFrontCheckBox.Checked = m_CurrentRideMonInfo.DownSprite.RiderRendersInFront;

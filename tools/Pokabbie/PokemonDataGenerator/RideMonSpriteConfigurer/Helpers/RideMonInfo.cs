@@ -154,7 +154,7 @@ namespace RideMonSpriteConfigurer.Helpers
 		{
 			string internalName = GameDataHelpers.FormatKeyword(species);
 
-			if (GameDataHelpers.SpeciesDefines.ContainsKey("SPECIES_" + internalName))
+			if (GameDataHelpers.SpeciesDefines.ContainsKey("SPECIES_" + internalName) && !s_SpeciesToRideInfo.ContainsKey(internalName))
 			{
 				SpeciesRideMonInfo info = new SpeciesRideMonInfo();
 				info.SpeciesName = internalName;
