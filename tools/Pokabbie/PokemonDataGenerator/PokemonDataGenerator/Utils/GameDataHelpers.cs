@@ -9,10 +9,12 @@ namespace PokemonDataGenerator.Utils
 {
 	public class GameDataHelpers
 	{
-		private static readonly string c_SpeciesDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\species.h";
-		private static readonly string c_ItemDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\items.h";
-		private static readonly string c_PartyMenuDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\party_menu.h";
-		private static readonly string c_MovesDefinesPath = "..\\..\\..\\..\\..\\..\\include\\constants\\moves.h";
+		private static readonly string c_RootDirectory = Path.GetFullPath(@"..\\..\\..\\..\\..\\..\\");
+
+		private static readonly string c_SpeciesDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\species.h");
+		private static readonly string c_ItemDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\items.h");
+		private static readonly string c_PartyMenuDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\party_menu.h");
+		private static readonly string c_MovesDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\moves.h");
 
 		private static Dictionary<string, string> s_SpeciesDefines = null;
 		private static Dictionary<string, string> s_ItemDefines = null;
@@ -22,6 +24,11 @@ namespace PokemonDataGenerator.Utils
 
 		private static Dictionary<string, string> s_MoveToTMHMItem = null;
 		private static Dictionary<string, string> s_MoveToTutorMove = null;
+
+		public static string RootDirectory
+		{
+			get => c_RootDirectory;
+		}
 
 		public static Dictionary<string, string> SpeciesDefines
 		{
@@ -170,5 +177,18 @@ namespace PokemonDataGenerator.Utils
 			return new KeyValuePair<string, string>(key, value);
 		}
 
+		public static string FormatKeyword(string keyword)
+		{
+			return keyword.Trim()
+				.Replace(".", "")
+				.Replace("’", "")
+				.Replace("'", "")
+				.Replace("%", "")
+				.Replace(":", "")
+				.Replace(" ", "_")
+				.Replace("-", "_")
+				.Replace("é", "e")
+				.ToUpper();
+		}
 	}
 }
