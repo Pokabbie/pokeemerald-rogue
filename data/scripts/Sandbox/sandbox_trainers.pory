@@ -16,3 +16,9 @@ script Sandbox_Trainer_Greez
     trainerbattle_single(TRAINER_VIEWIER_GREEZ, format("I was about to stal- I mean see the female grunt.\pWanna battle?"), format("But like... The female grunt tho."))
     msgbox(format("GREEZ: But like... The female grunt tho."), MSGBOX_AUTOCLOSE)
 }
+
+script Sandbox_Trainer_Dolphin
+{
+    trainerbattle_single(TRAINER_VIEWIER_DOLPHIN, format("I swear I can solve this puzzle first try!"), format("I failed the puzzle…"))
+    msgbox(format("DOLPHIN: I failed the puzzle…"), MSGBOX_AUTOCLOSE)
+}

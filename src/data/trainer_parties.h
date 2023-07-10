@@ -12970,3 +12970,38 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
     .moves = { MOVE_OUTRAGE, MOVE_DRAGON_CLAW, MOVE_CLOSE_COMBAT, MOVE_EARTHQUAKE }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Dolphin[] = {
+    {
+    .iv = 100,
+    .lvl = 47,
+    .species = SPECIES_TALONFLAME,
+    .heldItem = ITEM_CHARTI_BERRY,
+    .ability = ABILITY_GALE_WINGS,
+    .moves = { MOVE_ROOST, MOVE_BRAVE_BIRD, MOVE_FLAMETHROWER, MOVE_NONE }
+    },
+    {
+    .iv = 100,
+    .lvl = 47,
+    .species = SPECIES_SCEPTILE,
+    .heldItem = ITEM_SCEPTILITE,
+    .ability = ABILITY_OVERGROW,
+    .moves = { MOVE_DRAGON_DANCE, MOVE_LEAF_BLADE, MOVE_DRAGON_CLAW, MOVE_SUBSTITUTE }
+    },
+    {
+    .iv = 100,
+    .lvl = 51,
+    .species = SPECIES_MANAPHY,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_HYDRATION,
+    .moves = { MOVE_TAIL_GLOW, MOVE_SCALD, MOVE_RAIN_DANCE, MOVE_MOONBLAST }
+    },
+    {
+    .iv = 100,
+    .lvl = 1,
+    .species = SPECIES_SPINARAK,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_INSOMNIA,
+    .moves = { MOVE_POISON_STING, MOVE_LEECH_LIFE, MOVE_SHADOW_SNEAK, MOVE_PSYCHIC }
+    },
+};
