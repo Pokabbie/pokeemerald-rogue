@@ -13068,3 +13068,38 @@ static const struct TrainerMonItemCustomMovesAbility sParty_ViewerAlex[] = {
     .moves = { MOVE_EARTHQUAKE, MOVE_PROTECT, MOVE_SKULL_BASH, MOVE_MEGAHORN }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
+    {
+    .iv = 150,
+    .lvl = 26,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_DRIZZLE,
+    .moves = { MOVE_WATER_PULSE, MOVE_U_TURN, MOVE_GUST, MOVE_ROOST }
+    },
+    {
+    .iv = 150,
+    .lvl = 26,
+    .species = SPECIES_TENTACOOL,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .ability = ABILITY_RAIN_DISH,
+    .moves = { MOVE_BIND, MOVE_WRAP, MOVE_WHIRLPOOL, MOVE_CONFUSE_RAY }
+    },
+    {
+    .iv = 150,
+    .lvl = 26,
+    .species = SPECIES_CROAGUNK,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_RAIN_DISH,
+    .moves = { MOVE_FAKE_OUT, MOVE_HEADBUTT, MOVE_ROCK_SMASH, MOVE_POISON_JAB }
+    },
+    {
+    .iv = 150,
+    .lvl = 27,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = { MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_FLASH, MOVE_LEECH_SEED }
+    },
+};

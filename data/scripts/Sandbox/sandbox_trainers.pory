@@ -34,3 +34,9 @@ script Sandbox_Trainer_Alex
     trainerbattle_single(TRAINER_VIEWIER_ALEX, format("One of us is going to Pokemon Center and it is not me!"), format("NOOOO MY LOVELY LOPUNNY!!!!"))
     msgbox(format("ALEX: NOOOO MY LOVELY LOPUNNY!!!!"), MSGBOX_AUTOCLOSE)
 }
+
+script Sandbox_Trainer_Gmaf
+{
+    trainerbattle_single(TRAINER_VIEWIER_GMAF, format("Having fun? Time to crank it up a notch."), format("Damn, i see you big dog!"))
+    msgbox(format("GMAF: Damn, i see you big dog!"), MSGBOX_AUTOCLOSE)
+}

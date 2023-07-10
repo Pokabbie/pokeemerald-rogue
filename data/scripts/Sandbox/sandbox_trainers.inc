@@ -34,6 +34,12 @@ Sandbox_Trainer_Alex::
 	return
 
 
+Sandbox_Trainer_Gmaf::
+	trainerbattle_single TRAINER_VIEWIER_GMAF, Sandbox_Trainer_Gmaf_Text_0, Sandbox_Trainer_Gmaf_Text_1
+	msgbox Sandbox_Trainer_Gmaf_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
@@ -100,3 +106,12 @@ Sandbox_Trainer_Alex_Text_1:
 
 Sandbox_Trainer_Alex_Text_2:
 	.string "ALEX: NOOOO MY LOVELY LOPUNNY!!!!$"
+
+Sandbox_Trainer_Gmaf_Text_0:
+	.string "Having fun? Time to crank it up a notch.$"
+
+Sandbox_Trainer_Gmaf_Text_1:
+	.string "Damn, i see you big dog!$"
+
+Sandbox_Trainer_Gmaf_Text_2:
+	.string "GMAF: Damn, i see you big dog!$"
