@@ -2082,7 +2082,7 @@ gCryTable::
 	cry Cry_CalyrexShadowRider
 	@ Mareep Pikin
 	cry Cry_Mareep
-	cry Cry_AmpharosMega
+	cry Cry_Mareep
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -4171,7 +4171,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_CalyrexShadowRider
 	@ Mareep Pikin
 	cry_reverse Cry_Mareep
-	cry_reverse Cry_AmpharosMega
+	cry_reverse Cry_Mareep
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

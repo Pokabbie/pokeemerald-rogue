@@ -40,6 +40,13 @@ Sandbox_Trainer_Gmaf::
 	return
 
 
+Sandbox_Trainer_Pokabbie::
+	trainerbattle_single TRAINER_VIEWIER_POKABBIE, Sandbox_Trainer_Pokabbie_Text_0, Sandbox_Trainer_Pokabbie_Text_1
+	bufferitemname STR_VAR_1, ITEM_WHIPPED_DREAM
+	msgbox Sandbox_Trainer_Pokabbie_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
@@ -115,3 +122,28 @@ Sandbox_Trainer_Gmaf_Text_1:
 
 Sandbox_Trainer_Gmaf_Text_2:
 	.string "GMAF: Damn, i see you big dog!$"
+
+Sandbox_Trainer_Pokabbie_Text_0:
+	.string "You think I'd pass up the opportunity\n"
+	.string "to add myself? Pfft!$"
+
+Sandbox_Trainer_Pokabbie_Text_1:
+	.string "You have to admit…\n"
+	.string "Mareep is pretty cool!$"
+
+Sandbox_Trainer_Pokabbie_Text_2:
+	.string "POKABBIE: Did you know you can give\n"
+	.string "your Mareep the same capabilities as\l"
+	.string "Pikin by using a {STR_VAR_1} on it.\p"
+	.string "Pikin has the same base stats and\n"
+	.string "Ampharos but it now has to some extra\l"
+	.string "coverage moves along with the\l"
+	.string "Lightning Rod ability.\p"
+	.string "If it knows Meteor Beam, it can also\n"
+	.string "mega evolve into it's ideal floating\l"
+	.string "fluffy from!\p"
+	.string "When mega evolved it has the same base\n"
+	.string "stats as Mega Ampharos, but it has\l"
+	.string "Eletric Steel typing with the ability\l"
+	.string "Levitate.\p"
+	.string "It's pretty cool, no?$"

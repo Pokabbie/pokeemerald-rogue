@@ -40,3 +40,11 @@ script Sandbox_Trainer_Gmaf
     trainerbattle_single(TRAINER_VIEWIER_GMAF, format("Having fun? Time to crank it up a notch."), format("Damn, i see you big dog!"))
     msgbox(format("GMAF: Damn, i see you big dog!"), MSGBOX_AUTOCLOSE)
 }
+
+script Sandbox_Trainer_Pokabbie
+{
+    trainerbattle_single(TRAINER_VIEWIER_POKABBIE, format("You think I'd pass up the opportunity to add myself? Pfft!"), format("You have to admit…\nMareep is pretty cool!"))
+
+    bufferitemname(STR_VAR_1, ITEM_WHIPPED_DREAM)
+    msgbox(format("POKABBIE: Did you know you can give your Mareep the same capabilities as Pikin by using a {STR_VAR_1} on it.\pPikin has the same base stats and Ampharos but it now has to some extra coverage moves along with the Lightning Rod ability.\pIf it knows Meteor Beam, it can also mega evolve into it's ideal floating fluffy from!\pWhen mega evolved it has the same base stats as Mega Ampharos, but it has Eletric Steel typing with the ability Levitate.\pIt's pretty cool, no?"), MSGBOX_AUTOCLOSE)
+}

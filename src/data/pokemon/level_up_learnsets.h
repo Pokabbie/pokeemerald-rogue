@@ -3610,8 +3610,6 @@ static const struct LevelUpMove sAmpharosLevelUpLearnset[] = {
 
 static const struct LevelUpMove sMareepPikinLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_METEOR_BEAM),
-    LEVEL_UP_MOVE( 0, MOVE_FLASH_CANNON),
-    LEVEL_UP_MOVE( 0, MOVE_EARTH_POWER),
 
     LEVEL_UP_MOVE( 0, MOVE_THUNDER_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_THUNDER_PUNCH),
@@ -3635,6 +3633,10 @@ static const struct LevelUpMove sMareepPikinLevelUpLearnset[] = {
     LEVEL_UP_MOVE(40, MOVE_DISCHARGE),
     LEVEL_UP_MOVE(46, MOVE_COTTON_GUARD),
     LEVEL_UP_MOVE(51, MOVE_SIGNAL_BEAM),
+
+    LEVEL_UP_MOVE(55, MOVE_EARTH_POWER),
+    LEVEL_UP_MOVE(55, MOVE_FLASH_CANNON),
+
     LEVEL_UP_MOVE(57, MOVE_LIGHT_SCREEN),
     LEVEL_UP_MOVE(62, MOVE_THUNDER),
     LEVEL_UP_MOVE(65, MOVE_DRAGON_PULSE),

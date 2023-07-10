@@ -10431,4 +10431,16 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_Gmaf),
     },
+
+    [TRAINER_VIEWIER_POKABBIE] =
+    {
+        .trainerClass = TRAINER_CLASS_COMMUNITY_CHALLENGER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_AROMA_LADY,
+        .trainerName = _("POKABBIE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_Pokabbie),
+    },
 };

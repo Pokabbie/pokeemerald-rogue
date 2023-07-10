@@ -147,7 +147,10 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_TOGETIC]               = {{EVO_ITEM, ITEM_SHINY_STONE, SPECIES_TOGEKISS}},
 #endif
     [SPECIES_NATU]                  = {{EVO_LEVEL, 25, SPECIES_XATU}},
-    [SPECIES_MAREEP]                = {{EVO_LEVEL, 15, SPECIES_FLAAFFY}},
+    [SPECIES_MAREEP]                = {
+                                        {EVO_LEVEL, 15, SPECIES_FLAAFFY},
+                                        {EVO_ITEM, ITEM_WHIPPED_DREAM, SPECIES_MAREEP_PIKIN}
+                                        },
     [SPECIES_FLAAFFY]               = {{EVO_LEVEL, 30, SPECIES_AMPHAROS}},
     [SPECIES_AMPHAROS]              = {{EVO_MEGA_EVOLUTION, ITEM_AMPHAROSITE, SPECIES_AMPHAROS_MEGA}},
     

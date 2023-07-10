@@ -13103,3 +13103,14 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
     .moves = { MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_FLASH, MOVE_LEECH_SEED }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Pokabbie[] = {
+    {
+    .iv = 150,
+    .lvl = 41,
+    .species = SPECIES_MAREEP_PIKIN,
+    .heldItem = ITEM_POWER_HERB,
+    .ability = ABILITY_NONE,
+    .moves = { MOVE_METEOR_BEAM, MOVE_FLASH_CANNON, MOVE_EARTH_POWER, MOVE_THUNDER }
+    },
+};
