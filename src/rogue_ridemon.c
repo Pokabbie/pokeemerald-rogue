@@ -171,9 +171,25 @@ static u16 Rogue_GetRideMonSpecies()
 
 static u8 CalculateMovementModeForInternal(u16 species);
 
+static u16 ToRideSpecies(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    // If we don't have valid ride flag then check the base mon ride info
+    // this handles stuff like arceus and other forms which are very similar
+    if(sRideMonInfo[species].flags & RIDE_MON_FLAG_CAN_RIDE)
+    {
+        return species;
+    }
+
+    return GET_BASE_SPECIES_ID(species);
+#else
+    return species;
+#endif
+}
+
 static const struct RideMonInfo* Rogue_GetRideMonInfo(u16 species)
 {
-    const struct RideMonInfo* rideInfo = &sRideMonInfo[species];
+    const struct RideMonInfo* rideInfo = &sRideMonInfo[ToRideSpecies(species)];
 
 #ifdef ROGUE_DEBUG
     if(sTestData.useDebugInfo)
