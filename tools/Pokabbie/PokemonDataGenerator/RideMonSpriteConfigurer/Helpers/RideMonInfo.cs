@@ -167,6 +167,19 @@ namespace RideMonSpriteConfigurer.Helpers
 			return null;
 		}
 
+		public static bool DeleteRideInfo(string species)
+		{
+			string internalName = GameDataHelpers.FormatKeyword(species);
+
+			if (s_SpeciesToRideInfo.ContainsKey(internalName))
+			{
+				s_SpeciesToRideInfo.Remove(internalName);
+				return true;
+			}
+
+			return false;
+		}
+
 		public static string GetRelativeSpeciesName(string fromSpecies, int delta)
 		{
 			string lookupName = "SPECIES_" + GameDataHelpers.FormatKeyword(fromSpecies);
@@ -242,7 +255,8 @@ namespace RideMonSpriteConfigurer.Helpers
 			void RenderRider()
 			{
 				// Place rider
-				int baseOffset = monFrameHeight / 2 - riderFrameWidth / 2;
+				int baseOffsetX = monFrameWidth / 2 - riderFrameWidth / 2;
+				int baseOffsetY = (monFrameHeight - riderFrameHeight) / 2;
 
 				for (int y = 0; y < riderFrameHeight; ++y)
 				{
@@ -250,8 +264,8 @@ namespace RideMonSpriteConfigurer.Helpers
 					{
 						Color col = riderBitmap.GetPixel(x + riderIdx * riderFrameWidth, y);
 
-						int writeX = x + spriteInfo.RiderOffsetX + baseOffset;
-						int writeY = y + spriteInfo.RiderOffsetY;
+						int writeX = x + spriteInfo.RiderOffsetX + baseOffsetX;
+						int writeY = y + spriteInfo.RiderOffsetY + baseOffsetY;
 
 						if (col != riderTransparent && writeX >= 0 && writeX < output.Width && writeY >= 0 && writeY < output.Height)
 							output.SetPixel(writeX, writeY, col);

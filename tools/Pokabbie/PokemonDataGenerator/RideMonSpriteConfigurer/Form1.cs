@@ -244,6 +244,15 @@ namespace RideMonSpriteConfigurer
 			OnRideMonInfoSelected();
 		}
 
+		private void deleteRideMonInfo_Click(object sender, EventArgs e)
+		{
+			string monName = textBox1.Text;
+			RideMonInfoHelper.DeleteRideInfo(monName);
+
+			m_CurrentRideMonInfo = RideMonInfoHelper.FindRideInfo(monName);
+			OnRideMonInfoSelected();
+		}
+
 		private void downRiderInFrontCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
 			if (m_CurrentRideMonInfo != null)
@@ -314,6 +323,5 @@ namespace RideMonSpriteConfigurer
 		{
 			RideMonInfoHelper.ExportGameData();
 		}
-
 	}
 }

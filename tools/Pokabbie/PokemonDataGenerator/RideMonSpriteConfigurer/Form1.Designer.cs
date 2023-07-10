@@ -52,6 +52,7 @@ namespace RideMonSpriteConfigurer
 			this.canClimbCheckBox = new System.Windows.Forms.CheckBox();
 			this.canSwimCheckBox = new System.Windows.Forms.CheckBox();
 			this.canFlyCheckBox = new System.Windows.Forms.CheckBox();
+			this.deleteRideMonInfo = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.downPictureBox0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.downPictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.upPictureBox0)).BeginInit();
@@ -262,11 +263,22 @@ namespace RideMonSpriteConfigurer
 			this.canFlyCheckBox.UseVisualStyleBackColor = true;
 			this.canFlyCheckBox.CheckedChanged += new System.EventHandler(this.canFlyCheckBox_CheckedChanged);
 			// 
+			// deleteRideMonInfo
+			// 
+			this.deleteRideMonInfo.Location = new System.Drawing.Point(440, 51);
+			this.deleteRideMonInfo.Name = "deleteRideMonInfo";
+			this.deleteRideMonInfo.Size = new System.Drawing.Size(36, 30);
+			this.deleteRideMonInfo.TabIndex = 55;
+			this.deleteRideMonInfo.Text = "X";
+			this.deleteRideMonInfo.UseVisualStyleBackColor = true;
+			this.deleteRideMonInfo.Click += new System.EventHandler(this.deleteRideMonInfo_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(936, 620);
+			this.Controls.Add(this.deleteRideMonInfo);
 			this.Controls.Add(this.canFlyCheckBox);
 			this.Controls.Add(this.canSwimCheckBox);
 			this.Controls.Add(this.canClimbCheckBox);
@@ -326,6 +338,7 @@ namespace RideMonSpriteConfigurer
 		private System.Windows.Forms.CheckBox canClimbCheckBox;
 		private System.Windows.Forms.CheckBox canSwimCheckBox;
 		private System.Windows.Forms.CheckBox canFlyCheckBox;
+		private System.Windows.Forms.Button deleteRideMonInfo;
 	}
 }
 
