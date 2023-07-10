@@ -12888,6 +12888,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     .lvl = 49,
     .species = SPECIES_CROBAT,
     .heldItem = ITEM_FLYING_GEM,
+    .ability = ABILITY_INFILTRATOR,
     .moves = { MOVE_U_TURN, MOVE_ACROBATICS, MOVE_TOXIC, MOVE_ROOST }
     },
     {
@@ -12895,6 +12896,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     .lvl = 51,
     .species = SPECIES_REGICE,
     .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_CLEAR_BODY,
     .moves = { MOVE_THUNDER_WAVE, MOVE_ICE_BEAM, MOVE_CHARGE_BEAM, MOVE_THUNDERBOLT }
     },
     {
@@ -12902,6 +12904,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     .lvl = 49,
     .species = SPECIES_GARCHOMP,
     .heldItem = ITEM_YACHE_BERRY,
+    .ability = ABILITY_ROUGH_SKIN,
     .moves = { MOVE_EARTHQUAKE, MOVE_STEALTH_ROCK, MOVE_DRAGON_CLAW, MOVE_ROCK_TOMB }
     },
     {
@@ -12909,6 +12912,26 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     .lvl = 49,
     .species = SPECIES_GRENINJA,
     .heldItem = ITEM_EXPERT_BELT,
+    .ability = ABILITY_PROTEAN,
     .moves = { MOVE_DARK_PULSE, MOVE_HYDRO_PUMP, MOVE_U_TURN, MOVE_WATER_SHURIKEN }
+    },
+};
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Mawile[] = {
+    {
+    .iv = 100,
+    .lvl = 16,
+    .species = SPECIES_MISDREAVUS,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_LEVITATE,
+    .moves = { MOVE_TRICK_ROOM, MOVE_MEMENTO, MOVE_NONE, MOVE_NONE }
+    },
+    {
+    .iv = 100,
+    .lvl = 18,
+    .species = SPECIES_MAWILE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = { MOVE_BITE, MOVE_ICE_FANG, MOVE_THUNDER_FANG, MOVE_FIRE_FANG }
     },
 };

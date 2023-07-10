@@ -2027,6 +2027,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         #endif
         }
 
+        if(trainerNum == TRAINER_VIEWIER_MAWILE)
+        {
+            // Hack to give trick room 1 pp so it will be used only once
+            u32 pp = 1;
+            SetMonData(&party[0], MON_DATA_PP1, &pp);
+        }
+
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
 

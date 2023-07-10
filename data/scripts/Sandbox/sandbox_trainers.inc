@@ -4,6 +4,12 @@ Sandbox_Trainer_Derp::
 	return
 
 
+Sandbox_Trainer_Mawile::
+	trainerbattle_single TRAINER_VIEWIER_MAWILE, Sandbox_Trainer_Mawile_Text_0, Sandbox_Trainer_Mawile_Text_1
+	msgbox Sandbox_Trainer_Mawile_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "DERPSTER: Fancy seeing you here\n"
 	.string "Conner.\p"
@@ -20,3 +26,14 @@ Sandbox_Trainer_Derp_Text_1:
 Sandbox_Trainer_Derp_Text_2:
 	.string "DERPSTER: Go win this.\n"
 	.string "You deserve it, champ$"
+
+Sandbox_Trainer_Mawile_Text_0:
+	.string "You thought I was a grunt, but it was I,\n"
+	.string "MAWEELAY!$"
+
+Sandbox_Trainer_Mawile_Text_1:
+	.string "Why couldn't you do that to Blue?$"
+
+Sandbox_Trainer_Mawile_Text_2:
+	.string "MAWEELAY: Why couldn't you do that to\n"
+	.string "Blue?$"
