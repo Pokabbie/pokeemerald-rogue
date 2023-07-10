@@ -28,6 +28,12 @@ Sandbox_Trainer_Wall::
 	return
 
 
+Sandbox_Trainer_Alex::
+	trainerbattle_single TRAINER_VIEWIER_ALEX, Sandbox_Trainer_Alex_Text_0, Sandbox_Trainer_Alex_Text_1
+	msgbox Sandbox_Trainer_Alex_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
@@ -84,3 +90,13 @@ Sandbox_Trainer_Wall_Text_1:
 
 Sandbox_Trainer_Wall_Text_2:
 	.string "WALL: There goes my catch$"
+
+Sandbox_Trainer_Alex_Text_0:
+	.string "One of us is going to Pokemon Center\n"
+	.string "and it is not me!$"
+
+Sandbox_Trainer_Alex_Text_1:
+	.string "NOOOO MY LOVELY LOPUNNY!!!!$"
+
+Sandbox_Trainer_Alex_Text_2:
+	.string "ALEX: NOOOO MY LOVELY LOPUNNY!!!!$"

@@ -13041,3 +13041,30 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Wall[] = {
     .moves = { MOVE_QUIVER_DANCE, MOVE_FIERY_DANCE, MOVE_GIGA_DRAIN, MOVE_BUG_BUZZ }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_ViewerAlex[] = {
+    {
+    .iv = 100,
+    .lvl = 41,
+    .species = SPECIES_CINCCINO,
+    .heldItem = ITEM_EXPERT_BELT,
+    .ability = ABILITY_SKILL_LINK,
+    .moves = { MOVE_TAIL_SLAP, MOVE_ROCK_BLAST, MOVE_BULLET_SEED, MOVE_U_TURN }
+    },
+    {
+    .iv = 100,
+    .lvl = 41,
+    .species = SPECIES_LOPUNNY,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_LIMBER,
+    .moves = { MOVE_FAKE_OUT, MOVE_TRIPLE_AXEL, MOVE_DRAIN_PUNCH, MOVE_U_TURN }
+    },
+    {
+    .iv = 100,
+    .lvl = 41,
+    .species = SPECIES_BOUFFALANT,
+    .heldItem = ITEM_POWER_HERB,
+    .ability = ABILITY_SAP_SIPPER,
+    .moves = { MOVE_EARTHQUAKE, MOVE_PROTECT, MOVE_SKULL_BASH, MOVE_MEGAHORN }
+    },
+};

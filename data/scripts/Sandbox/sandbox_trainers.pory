@@ -28,3 +28,9 @@ script Sandbox_Trainer_Wall
     trainerbattle_single(TRAINER_VIEWIER_WALL, format("Look what stumbled into my net?"), format("There goes my catch"))
     msgbox(format("WALL: There goes my catch"), MSGBOX_AUTOCLOSE)
 }
+
+script Sandbox_Trainer_Alex
+{
+    trainerbattle_single(TRAINER_VIEWIER_ALEX, format("One of us is going to Pokemon Center and it is not me!"), format("NOOOO MY LOVELY LOPUNNY!!!!"))
+    msgbox(format("ALEX: NOOOO MY LOVELY LOPUNNY!!!!"), MSGBOX_AUTOCLOSE)
+}
