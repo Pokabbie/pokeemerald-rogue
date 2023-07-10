@@ -22,6 +22,12 @@ Sandbox_Trainer_Dolphin::
 	return
 
 
+Sandbox_Trainer_Wall::
+	trainerbattle_single TRAINER_VIEWIER_WALL, Sandbox_Trainer_Wall_Text_0, Sandbox_Trainer_Wall_Text_1
+	msgbox Sandbox_Trainer_Wall_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
@@ -69,3 +75,12 @@ Sandbox_Trainer_Dolphin_Text_1:
 
 Sandbox_Trainer_Dolphin_Text_2:
 	.string "DOLPHIN: I failed the puzzle…$"
+
+Sandbox_Trainer_Wall_Text_0:
+	.string "Look what stumbled into my net?$"
+
+Sandbox_Trainer_Wall_Text_1:
+	.string "There goes my catch$"
+
+Sandbox_Trainer_Wall_Text_2:
+	.string "WALL: There goes my catch$"

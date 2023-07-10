@@ -22,3 +22,9 @@ script Sandbox_Trainer_Dolphin
     trainerbattle_single(TRAINER_VIEWIER_DOLPHIN, format("I swear I can solve this puzzle first try!"), format("I failed the puzzle…"))
     msgbox(format("DOLPHIN: I failed the puzzle…"), MSGBOX_AUTOCLOSE)
 }
+
+script Sandbox_Trainer_Wall
+{
+    trainerbattle_single(TRAINER_VIEWIER_WALL, format("Look what stumbled into my net?"), format("There goes my catch"))
+    msgbox(format("WALL: There goes my catch"), MSGBOX_AUTOCLOSE)
+}

@@ -13005,3 +13005,39 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Dolphin[] = {
     .moves = { MOVE_POISON_STING, MOVE_LEECH_LIFE, MOVE_SHADOW_SNEAK, MOVE_PSYCHIC }
     },
 };
+
+
+static const struct TrainerMonItemCustomMovesAbility sParty_Wall[] = {
+    {
+    .iv = 150,
+    .lvl = 55,
+    .species = SPECIES_GALVANTULA,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_COMPOUND_EYES,
+    .moves = { MOVE_STICKY_WEB, MOVE_THUNDERBOLT, MOVE_BUG_BUZZ, MOVE_THUNDER_WAVE }
+    },
+    {
+    .iv = 150,
+    .lvl = 57,
+    .species = SPECIES_ARAQUANID,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_WATER_BUBBLE,
+    .moves = { MOVE_LIQUIDATION, MOVE_CRUNCH, MOVE_LUNGE, MOVE_LEECH_LIFE }
+    },
+    {
+    .iv = 150,
+    .lvl = 58,
+    .species = SPECIES_DURANT,
+    .heldItem = ITEM_CHOICE_BAND,
+    .ability = ABILITY_HUSTLE,
+    .moves = { MOVE_SUPERPOWER, MOVE_IRON_HEAD, MOVE_X_SCISSOR, MOVE_DIG }
+    },
+    {
+    .iv = 150,
+    .lvl = 59,
+    .species = SPECIES_VOLCARONA,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_FLAME_BODY,
+    .moves = { MOVE_QUIVER_DANCE, MOVE_FIERY_DANCE, MOVE_GIGA_DRAIN, MOVE_BUG_BUZZ }
+    },
+};
