@@ -19,6 +19,22 @@ extern const u16 gTilesetPalettes_General02_Summer[];
 extern const u16 gTilesetPalettes_General02_Autumn[];
 extern const u16 gTilesetPalettes_General02_Winter[];
 
+static const u16 sLevelcapTrainers[] = 
+{
+    TRAINER_ROXANNE_1,
+    TRAINER_BRAWLY_1,
+    TRAINER_WATTSON_1,
+    TRAINER_FLANNERY_1,
+
+    TRAINER_NORMAN_1,
+    TRAINER_WINONA_1,
+    TRAINER_TATE_AND_LIZA_1,
+    TRAINER_JUAN_1,
+
+    TRAINER_DRAKE,
+    TRAINER_BLUE,
+};
+
 static bool8 IsKeyTrainerBattle()
 {
     u8 trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
@@ -166,6 +182,69 @@ u32 Sandbox_GetTrainerAIFlags(u16 trainerNum)
 #endif
 
     return flags;
+}
+
+static u8 CalculateTrainerLevel(u16 trainerId)
+{
+    u8 i;
+    u8 levelCap = 0;
+
+    for(i = 0; i < gTrainers[trainerId].partySize; ++i)
+    {
+        switch (gTrainers[trainerId].partyFlags)
+        {
+        case 0:
+            {
+                const struct TrainerMonNoItemDefaultMoves *party = gTrainers[trainerId].party.NoItemDefaultMoves;
+                levelCap = max(levelCap, party[i].lvl);
+            }
+            break;
+        case F_TRAINER_PARTY_CUSTOM_MOVESET:
+            {
+                const struct TrainerMonNoItemCustomMoves *party = gTrainers[trainerId].party.NoItemCustomMoves;
+                levelCap = max(levelCap, party[i].lvl);
+            }
+            break;
+        case F_TRAINER_PARTY_HELD_ITEM:
+            {
+                const struct TrainerMonItemDefaultMoves *party = gTrainers[trainerId].party.ItemDefaultMoves;
+                levelCap = max(levelCap, party[i].lvl);
+            }
+            break;
+        case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
+            {
+                const struct TrainerMonItemCustomMoves *party = gTrainers[trainerId].party.ItemCustomMoves;
+                levelCap = max(levelCap, party[i].lvl);
+            }
+            break;
+        case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_ABILITY:
+            {
+                const struct TrainerMonItemCustomMovesAbility *party = gTrainers[trainerId].party.ItemCustomMovesAbility;
+                levelCap = max(levelCap, party[i].lvl);
+            }
+            break;
+        }
+    }
+
+    return levelCap;
+}
+
+u8 Sandbox_GetCurrentLevelCap()
+{
+    u8 i;
+    u16 trainerId;
+
+    for(i = 0; i < ARRAY_COUNT(sLevelcapTrainers); ++i)
+    {
+        trainerId = sLevelcapTrainers[i];
+
+        if(!HasTrainerBeenFought(trainerId))
+        {
+            return CalculateTrainerLevel(trainerId);
+        }
+    }
+
+    return 100;
 }
 
 static bool8 ShouldApplySeasonTintForCurrentMap()
