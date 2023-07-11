@@ -48,6 +48,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "sandbox_main.h"
+
 // Menu actions
 enum
 {
@@ -80,6 +82,7 @@ enum
 bool8 (*gMenuCallback)(void);
 
 // EWRAM
+EWRAM_DATA static u8 sLevelcapWindowId = 0;
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;
 EWRAM_DATA static u8 sBattlePyramidFloorWindowId = 0;
 EWRAM_DATA static u8 sStartMenuCursorPos = 0;
@@ -141,6 +144,7 @@ static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
+static const struct WindowTemplate sLevelcapWindowTemplate = {0, 1, 1, 7, 4, 0xF, 8};
 
 static const u8 *const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {
@@ -226,6 +230,7 @@ static void BuildBattlePikeStartMenu(void);
 static void BuildBattlePyramidStartMenu(void);
 static void BuildMultiPartnerRoomStartMenu(void);
 static void ShowSafariBallsWindow(void);
+static void ShowLevelCapWindow(void);
 static void ShowPyramidFloorWindow(void);
 static void RemoveExtraStartMenuWindows(void);
 static bool32 PrintStartMenuActions(s8 *pIndex, u32 count);
@@ -418,6 +423,19 @@ static void ShowSafariBallsWindow(void)
     CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
 }
 
+static void ShowLevelCapWindow(void)
+{
+    sLevelcapWindowId = AddWindow(&sLevelcapWindowTemplate);
+    PutWindowTilemap(sLevelcapWindowId);
+    DrawStdWindowFrame(sLevelcapWindowId, FALSE);
+
+    ConvertIntToDecimalStringN(gStringVar1, Sandbox_GetCurrentLevelCap(), STR_CONV_MODE_RIGHT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar4, gText_Levelcap);
+    AddTextPrinterParameterized(sLevelcapWindowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
+
+    CopyWindowToVram(sLevelcapWindowId, COPYWIN_GFX);
+}
+
 static void ShowPyramidFloorWindow(void)
 {
     if (gSaveBlock2Ptr->frontier.curChallengeBattleNum == FRONTIER_STAGES_PER_CHALLENGE)
@@ -440,6 +458,12 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
         RemoveWindow(sSafariBallsWindowId);
+    }
+    else
+    {
+        ClearStdWindowAndFrameToTransparent(sLevelcapWindowId, FALSE);
+        CopyWindowToVram(sLevelcapWindowId, COPYWIN_GFX);
+        RemoveWindow(sLevelcapWindowId);
     }
     if (InBattlePyramid())
     {
@@ -501,6 +525,9 @@ static bool32 InitStartMenuStep(void)
     case 3:
         if (GetSafariZoneFlag())
             ShowSafariBallsWindow();
+        else
+            ShowLevelCapWindow();
+
         if (InBattlePyramid())
             ShowPyramidFloorWindow();
         sInitStartMenuData[0]++;

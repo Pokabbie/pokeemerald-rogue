@@ -9,6 +9,7 @@ const void* Sandbox_ModifyLoadPalette(const void *src);
 const void* Sandbox_ModifyLoadCompressedPalette(const void *src);
 
 u32 Sandbox_GetTrainerAIFlags(u16 trainerNum);
+u8 Sandbox_GetCurrentLevelCap();
 
 void Sandbox_ModifyOverworldPalette(u16 offset, u16 count);
 
