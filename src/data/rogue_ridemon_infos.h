@@ -3905,4 +3905,1404 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             },
         }
     },
+    [SPECIES_SERPERIOR] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=-3, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=1, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-1, .playerY=-6,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_EMBOAR] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_SAMUROTT] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_STOUTLAND] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_UNFEZANT] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-7,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_ZEBSTRIKA] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_GIGALITH] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-7,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_CONKELDURR] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-6,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_EXCADRILL] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-5,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_SEISMITOAD] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_SCOLIPEDE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-8,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_KROOKODILE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-7,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_DARMANITAN] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-5,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_CRUSTLE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=4,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-8,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_SIGILYPH] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-2, .playerY=-7,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_COFAGRIGUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-5,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_CARRACOSTA] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-8,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ARCHEOPS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-9,
+                .monX=1, .monY=-2,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_GARBODOR] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-4,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-2, .playerY=-4,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ZOROARK] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_GOTHITELLE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-5,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_REUNICLUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=2, .playerY=-7,
+                .monX=0, .monY=-17,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=-18,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-8,
+                .monX=0, .monY=-17,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_VANILLUXE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-5,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_SAWSBUCK] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-7,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ESCAVALIER] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-12,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-7, .playerY=-9,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_AMOONGUSS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-13,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-12,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-1, .playerY=-18,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_JELLICENT] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-12,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-12,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-12,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ALOMOMOLA] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_SWIM,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=-15,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-12,
+                .monX=0, .monY=-16,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-5, .playerY=-9,
+                .monX=1, .monY=-13,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_GALVANTULA] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_FERROTHORN] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-3,
+                .monX=0, .monY=-16,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=-16,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=1, .playerY=-4,
+                .monX=1, .monY=-15,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_KLINKLANG] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=2, .playerY=-1,
+                .monX=0, .monY=-15,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-2,
+                .monX=0, .monY=-16,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-6, .playerY=-7,
+                .monX=5, .monY=-13,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_EELEKTROSS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-10,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_BEHEEYEM] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-10,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_CHANDELURE] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-6,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_HAXORUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-13,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-13,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-13,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_BEARTIC] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-9,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_CRYOGONAL] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-7,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ACCELGOR] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=1, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-8,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_DRUDDIGON] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=-15,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-13,
+                .monX=0, .monY=-16,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-2, .playerY=-7,
+                .monX=2, .monY=-14,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_GOLURK] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-11,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_BOUFFALANT] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-9,
+                .monX=2, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_BRAVIARY] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-7, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_MANDIBUZZ] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-5,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-6, .playerY=-8,
+                .monX=1, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_HYDREIGON] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-2, .playerY=-11,
+                .monX=-1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_VOLCARONA] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-6,
+                .monX=2, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_COBALION] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-9,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_TERRAKION] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-2, .playerY=-9,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_VIRIZION] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-5, .playerY=-9,
+                .monX=1, .monY=-1,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_TORNADUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-8,
+                .monX=4, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_THUNDURUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-8,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_RESHIRAM] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=1, .monY=-7,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=-12,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=0, .playerY=-11,
+                .monX=0, .monY=-10,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_ZEKROM] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=-13,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-10,
+                .monX=0, .monY=-14,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=3, .playerY=-17,
+                .monX=0, .monY=-11,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+        }
+    },
+    [SPECIES_LANDORUS] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-4, .playerY=-7,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_KYUREM] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=1, .playerY=-13,
+                .monX=-1, .monY=-3,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-7,
+                .monX=2, .monY=-10,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=5, .playerY=-12,
+                .monX=0, .monY=-12,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_KELDEO] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-6,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-1, .playerY=-5,
+                .monX=1, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
+    [SPECIES_GENESECT] =
+    {
+        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_FLY,
+        .spriteInfo = 
+        {
+            [RIDE_SPRITE_DIR_UP] =
+            {
+                .playerX=0, .playerY=-8,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+            [RIDE_SPRITE_DIR_DOWN] =
+            {
+                .playerX=0, .playerY=-9,
+                .monX=0, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_BEHIND,
+            },
+            [RIDE_SPRITE_DIR_SIDE] =
+            {
+                .playerX=-3, .playerY=-8,
+                .monX=3, .monY=0,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
+            },
+        }
+    },
 };
