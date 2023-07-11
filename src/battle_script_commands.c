@@ -6818,6 +6818,7 @@ static void Cmd_switchineffects(void)
                 gBattlerFainted++;
             }
         }
+        gBattleStruct->forcedSwitch &= ~(gBitTable[gActiveBattler]);
         gBattlescriptCurrInstr += 2;
     }
 }
@@ -11212,6 +11213,7 @@ static void Cmd_forcerandomswitch(void)
         {
             *(gBattleStruct->battlerPartyIndexes + gBattlerTarget) = gBattlerPartyIndexes[gBattlerTarget];
             gBattlescriptCurrInstr = BattleScript_RoarSuccessSwitch;
+            gBattleStruct->forcedSwitch |= gBitTable[gBattlerTarget];
 
             do
             {

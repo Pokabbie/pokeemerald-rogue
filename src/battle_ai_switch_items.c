@@ -30,7 +30,7 @@ static bool32 AI_OpponentCanFaintAiWithMod(u32 healAmount);
 static bool32 IsAceMon(u32 battlerId, u32 monPartyId)
 {
     if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON
-        //&& !(gBattleStruct->forcedSwitch & gBitTable[battlerId])
+        && !(gBattleStruct->forcedSwitch & gBitTable[battlerId])
         && monPartyId == CalculateEnemyPartyCount()-1)
             return TRUE;
     return FALSE;
@@ -1000,7 +1000,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
         return bestMonId;
 
     // If ace mon is the last available Pokemon and switch move was used - switch to the mon.
-    if (aceMonId != PARTY_SIZE)
+    if (aceMonId != PARTY_SIZE
+        && (gBattleMoves[gLastUsedMove].effect == EFFECT_HIT_ESCAPE || gBattleMoves[gLastUsedMove].effect == EFFECT_PARTING_SHOT || gBattleMoves[gLastUsedMove].effect == EFFECT_BATON_PASS))
         return aceMonId;
 
     return PARTY_SIZE;

@@ -12885,7 +12885,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     {
     .iv = 150,
-    .lvl = 49,
+    .lvl = 50,
     .species = SPECIES_CROBAT,
     .heldItem = ITEM_FLYING_GEM,
     .ability = ABILITY_INFILTRATOR,
@@ -12901,7 +12901,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     },
     {
     .iv = 150,
-    .lvl = 49,
+    .lvl = 51,
     .species = SPECIES_GARCHOMP,
     .heldItem = ITEM_YACHE_BERRY,
     .ability = ABILITY_ROUGH_SKIN,
@@ -12909,7 +12909,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
     },
     {
     .iv = 150,
-    .lvl = 49,
+    .lvl = 52,
     .species = SPECIES_GRENINJA,
     .heldItem = ITEM_EXPERT_BELT,
     .ability = ABILITY_PROTEAN,
@@ -12920,7 +12920,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Derp[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Mawile[] = {
     {
     .iv = 100,
-    .lvl = 16,
+    .lvl = 18,
     .species = SPECIES_MISDREAVUS,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_LEVITATE,
@@ -12928,7 +12928,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Mawile[] = {
     },
     {
     .iv = 100,
-    .lvl = 18,
+    .lvl = 20,
     .species = SPECIES_MAWILE,
     .heldItem = ITEM_ASSAULT_VEST,
     .ability = ABILITY_INTIMIDATE,
@@ -12939,7 +12939,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Mawile[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
     {
     .iv = 150,
-    .lvl = 46,
+    .lvl = 47,
     .species = SPECIES_OVERQWIL,
     .heldItem = ITEM_BLACK_SLUDGE,
     .ability = ABILITY_INTIMIDATE,
@@ -12947,7 +12947,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
     },
     {
     .iv = 150,
-    .lvl = 46,
+    .lvl = 47,
     .species = SPECIES_DIGGERSBY,
     .heldItem = ITEM_FOCUS_SASH,
     .ability = ABILITY_HUGE_POWER,
@@ -12955,7 +12955,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
     },
     {
     .iv = 150,
-    .lvl = 46,
+    .lvl = 47,
     .species = SPECIES_HOUNDOOM,
     .heldItem = ITEM_HOUNDOOMINITE,
     .ability = ABILITY_EARLY_BIRD,
@@ -12963,7 +12963,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
     },
     {
     .iv = 150,
-    .lvl = 48,
+    .lvl = 49,
     .species = SPECIES_HAXORUS,
     .heldItem = ITEM_CHOICE_BAND,
     .ability = ABILITY_MOLD_BREAKER,
@@ -12974,7 +12974,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Greez[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Dolphin[] = {
     {
     .iv = 100,
-    .lvl = 47,
+    .lvl = 49,
     .species = SPECIES_TALONFLAME,
     .heldItem = ITEM_CHARTI_BERRY,
     .ability = ABILITY_GALE_WINGS,
@@ -12982,7 +12982,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Dolphin[] = {
     },
     {
     .iv = 100,
-    .lvl = 47,
+    .lvl = 49,
     .species = SPECIES_SCEPTILE,
     .heldItem = ITEM_SCEPTILITE,
     .ability = ABILITY_OVERGROW,
@@ -13072,7 +13072,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_ViewerAlex[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
     {
     .iv = 150,
-    .lvl = 26,
+    .lvl = 29,
     .species = SPECIES_PELIPPER,
     .heldItem = ITEM_DAMP_ROCK,
     .ability = ABILITY_DRIZZLE,
@@ -13080,15 +13080,15 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
     },
     {
     .iv = 150,
-    .lvl = 26,
-    .species = SPECIES_TENTACOOL,
+    .lvl = 30,
+    .species = SPECIES_TENTACRUEL,
     .heldItem = ITEM_BLACK_SLUDGE,
     .ability = ABILITY_RAIN_DISH,
     .moves = { MOVE_BIND, MOVE_WRAP, MOVE_WHIRLPOOL, MOVE_CONFUSE_RAY }
     },
     {
     .iv = 150,
-    .lvl = 26,
+    .lvl = 29,
     .species = SPECIES_CROAGUNK,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_RAIN_DISH,
@@ -13096,7 +13096,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
     },
     {
     .iv = 150,
-    .lvl = 27,
+    .lvl = 31,
     .species = SPECIES_LUDICOLO,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_SWIFT_SWIM,
@@ -13107,7 +13107,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Gmaf[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Pokabbie[] = {
     {
     .iv = 150,
-    .lvl = 41,
+    .lvl = 46,
     .species = SPECIES_MAREEP_PIKIN,
     .heldItem = ITEM_POWER_HERB,
     .ability = ABILITY_NONE,
