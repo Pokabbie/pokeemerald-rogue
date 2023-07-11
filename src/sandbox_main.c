@@ -32,7 +32,7 @@ static const u16 sLevelcapTrainers[] =
     TRAINER_JUAN_1,
 
     TRAINER_DRAKE,
-    TRAINER_BLUE,
+    TRAINER_STEVEN_CHAMPION,
 };
 
 static bool8 IsKeyTrainerBattle()
