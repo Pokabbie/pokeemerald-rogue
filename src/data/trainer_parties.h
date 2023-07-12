@@ -13114,3 +13114,22 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Pokabbie[] = {
     .moves = { MOVE_METEOR_BEAM, MOVE_FLASH_CANNON, MOVE_EARTH_POWER, MOVE_THUNDER }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_StreamerGhostRoxanne[] = {
+    {
+    .iv = 100,
+    .lvl = 12,
+    .species = SPECIES_DEWPIDER,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_WATER_BUBBLE,
+    .moves = { MOVE_BUBBLE, MOVE_BUG_BITE, MOVE_INFESTATION, MOVE_SPIDER_WEB }
+    },
+    {
+    .iv = 100,
+    .lvl = 13,
+    .species = SPECIES_FLAREON,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_FLASH_FIRE,
+    .moves = { MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP, MOVE_SAND_ATTACK, MOVE_BABY_DOLL_EYES }
+    },
+};

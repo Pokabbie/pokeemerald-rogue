@@ -47,6 +47,50 @@ Sandbox_Trainer_Pokabbie::
 	return
 
 
+Sandbox_Trainer_RoxanneGhost::
+	lock
+	faceplayer
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	msgbox Sandbox_Trainer_RoxanneGhost_Text_0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Sandbox_Trainer_RoxanneGhost_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Sandbox_Trainer_RoxanneGhost_3
+Sandbox_Trainer_RoxanneGhost_1:
+	setflag FLAG_HIDE_ROXANNE_GHOST
+	removeobject 17, MAP_RUSTBORO_CITY
+	msgbox Sandbox_Trainer_RoxanneGhost_Text_2
+	release
+	return
+
+Sandbox_Trainer_RoxanneGhost_2:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_ROXANNE_M, 0, Sandbox_Trainer_RoxanneGhost_Text_1
+	goto Sandbox_Trainer_RoxanneGhost_1
+
+Sandbox_Trainer_RoxanneGhost_3:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_ROXANNE_F, 0, Sandbox_Trainer_RoxanneGhost_Text_1
+	goto Sandbox_Trainer_RoxanneGhost_1
+
+
+Sandbox_EventScript_SetupMirrorGfxId::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Sandbox_EventScript_SetupMirrorGfxId_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Sandbox_EventScript_SetupMirrorGfxId_3
+Sandbox_EventScript_SetupMirrorGfxId_1:
+	return
+
+Sandbox_EventScript_SetupMirrorGfxId_2:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	goto Sandbox_EventScript_SetupMirrorGfxId_1
+
+Sandbox_EventScript_SetupMirrorGfxId_3:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	goto Sandbox_EventScript_SetupMirrorGfxId_1
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
@@ -80,10 +124,10 @@ Sandbox_Trainer_Greez_Text_0:
 	.string "Wanna battle?$"
 
 Sandbox_Trainer_Greez_Text_1:
-	.string "But like... The female grunt tho.$"
+	.string "But like… The female grunt tho.$"
 
 Sandbox_Trainer_Greez_Text_2:
-	.string "GREEZ: But like... The female grunt tho.$"
+	.string "GREEZ: But like… The female grunt tho.$"
 
 Sandbox_Trainer_Dolphin_Text_0:
 	.string "I swear I can solve this puzzle first\n"
@@ -147,3 +191,12 @@ Sandbox_Trainer_Pokabbie_Text_2:
 	.string "Eletric Steel typing with the ability\l"
 	.string "Levitate.\p"
 	.string "It's pretty cool, no?$"
+
+Sandbox_Trainer_RoxanneGhost_Text_0:
+	.string "Let's gooooo!$"
+
+Sandbox_Trainer_RoxanneGhost_Text_1:
+	.string "I MISS CLICKED!$"
+
+Sandbox_Trainer_RoxanneGhost_Text_2:
+	.string "The ghost of past runs faded away…$"

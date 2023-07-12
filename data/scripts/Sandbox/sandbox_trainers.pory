@@ -1,3 +1,4 @@
+const NPC_RUSTBORO_GHOST = 17
 
 script Sandbox_Trainer_Derp
 {
@@ -13,8 +14,8 @@ script Sandbox_Trainer_Mawile
 
 script Sandbox_Trainer_Greez
 {
-    trainerbattle_single(TRAINER_VIEWIER_GREEZ, format("I was about to stal- I mean see the female grunt.\pWanna battle?"), format("But like... The female grunt tho."))
-    msgbox(format("GREEZ: But like... The female grunt tho."), MSGBOX_AUTOCLOSE)
+    trainerbattle_single(TRAINER_VIEWIER_GREEZ, format("I was about to stal- I mean see the female grunt.\pWanna battle?"), format("But like… The female grunt tho."))
+    msgbox(format("GREEZ: But like… The female grunt tho."), MSGBOX_AUTOCLOSE)
 }
 
 script Sandbox_Trainer_Dolphin
@@ -47,4 +48,44 @@ script Sandbox_Trainer_Pokabbie
 
     bufferitemname(STR_VAR_1, ITEM_WHIPPED_DREAM)
     msgbox(format("POKABBIE: Did you know you can give your Mareep the same capabilities as Pikin by using a {STR_VAR_1} on it.\pPikin has the same base stats and Ampharos but it now has to some extra coverage moves along with the Lightning Rod ability.\pIf it knows Meteor Beam, it can also mega evolve into it's ideal floating fluffy from!\pWhen mega evolved it has the same base stats as Mega Ampharos, but it has Eletric Steel typing with the ability Levitate.\pIt's pretty cool, no?"), MSGBOX_AUTOCLOSE)
+}
+
+script Sandbox_Trainer_RoxanneGhost
+{
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+        msgbox(format("Let's gooooo!"))
+
+    checkplayergender
+    if(var(VAR_RESULT) == MALE)
+    {
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_ROXANNE_M, 0, format("I MISS CLICKED!"))
+    }
+    elif(var(VAR_RESULT) == FEMALE)
+    {
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_ROXANNE_F, 0, format("I MISS CLICKED!"))
+    }
+
+    setflag(FLAG_HIDE_ROXANNE_GHOST)
+    removeobject(NPC_RUSTBORO_GHOST, MAP_RUSTBORO_CITY)
+
+    msgbox(format("The ghost of past runs faded away…"))
+
+    release
+}
+
+script Sandbox_EventScript_SetupMirrorGfxId
+{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE)
+    {
+        setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+    }
+    elif(var(VAR_RESULT) == FEMALE)
+    {
+        setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+    }
+
+    return
 }
