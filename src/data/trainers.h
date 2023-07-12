@@ -10466,4 +10466,28 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_StreamerGhostRoxanne),
     },
+
+
+    [TRAINER_STREAMER_GHOST_NORMAN_F] =
+    {
+        .trainerClass = TRAINER_CLASS_PAST_ATTEMPT,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("LATRMANNER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_StreamerGhostNorman),
+    },
+    [TRAINER_STREAMER_GHOST_NORMAN_M] =
+    {
+        .trainerClass = TRAINER_CLASS_PAST_ATTEMPT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("LATRMANNER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = ITEM_CUSTOM_MOVES_ABILITY(sParty_StreamerGhostNorman),
+    },
 };

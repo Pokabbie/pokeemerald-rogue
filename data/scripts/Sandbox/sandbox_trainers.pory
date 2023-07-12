@@ -1,4 +1,5 @@
 const NPC_RUSTBORO_GHOST = 17
+const NPC_NORMAN_GHOST = 12
 
 script Sandbox_Trainer_Derp
 {
@@ -55,7 +56,7 @@ script Sandbox_Trainer_RoxanneGhost
     lock
     faceplayer
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-        msgbox(format("Let's gooooo!"))
+    msgbox(format("Let's gooooo!"))
 
     checkplayergender
     if(var(VAR_RESULT) == MALE)
@@ -75,6 +76,67 @@ script Sandbox_Trainer_RoxanneGhost
     release
 }
 
+script Sandbox_Trainer_NormanGhostInternal
+{
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    msgbox(format("Aaaaahhhh… … …"))
+
+    checkplayergender
+    if(var(VAR_RESULT) == MALE)
+    {
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_M, 0, format("Bro, maybe I did over hype that fight…"))
+    }
+    elif(var(VAR_RESULT) == FEMALE)
+    {
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_F, 0, format("Bro, maybe I did over hype that fight…"))
+    }
+
+    setflag(FLAG_HIDE_NORMAN_GHOST)
+    removeobject(NPC_NORMAN_GHOST, MAP_PETALBURG_CITY_GYM)
+
+    msgbox(format("The ghost of past runs faded away…"))
+}
+
+script Sandbox_Trainer_NormanGhost
+{
+    lock
+    faceplayer
+    call(Sandbox_Trainer_NormanGhostInternal)
+    release
+}
+
+script Sandbox_Trainer_NormanGhost_ScriptLeft
+{
+    lock
+
+    if(flag(FLAG_HIDE_NORMAN_GHOST) == FALSE)
+    {
+        lock
+
+        applymovement(NPC_NORMAN_GHOST, GhostFaceLeft)
+        waitmovement(0)
+
+        call(Sandbox_Trainer_NormanGhostInternal)
+    }
+
+    release
+}
+
+script Sandbox_Trainer_NormanGhost_ScriptRight
+{
+    lock
+
+    if(flag(FLAG_HIDE_NORMAN_GHOST) == FALSE)
+    {
+        applymovement(NPC_NORMAN_GHOST, GhostFaceRight)
+        waitmovement(0)
+
+        call(Sandbox_Trainer_NormanGhostInternal)
+    }
+
+    release
+}
+
 script Sandbox_EventScript_SetupMirrorGfxId
 {
     checkplayergender
@@ -88,4 +150,14 @@ script Sandbox_EventScript_SetupMirrorGfxId
     }
 
     return
+}
+
+movement GhostFaceRight {
+    walk_up
+    face_right
+}
+
+movement GhostFaceLeft {
+    walk_up
+    face_left
 }

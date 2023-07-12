@@ -875,12 +875,14 @@
 
 #define TRAINER_STREAMER_GHOST_ROXANNE_F    870
 #define TRAINER_STREAMER_GHOST_ROXANNE_M    871
+#define TRAINER_STREAMER_GHOST_NORMAN_F     872
+#define TRAINER_STREAMER_GHOST_NORMAN_M     873
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      872
+#define TRAINERS_COUNT                      874
 #define MAX_TRAINERS_COUNT                  896
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

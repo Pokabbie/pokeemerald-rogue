@@ -13133,3 +13133,54 @@ static const struct TrainerMonItemCustomMovesAbility sParty_StreamerGhostRoxanne
     .moves = { MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP, MOVE_SAND_ATTACK, MOVE_BABY_DOLL_EYES }
     },
 };
+
+static const struct TrainerMonItemCustomMovesAbility sParty_StreamerGhostNorman[] = {
+    {
+    .iv = 150,
+    .lvl = 32,
+    .species = SPECIES_SYLVEON,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = { MOVE_MOONBLAST, MOVE_DRAINING_KISS, MOVE_QUICK_ATTACK, MOVE_BABY_DOLL_EYES }
+    },
+    {
+    .iv = 150,
+    .lvl = 34,
+    .species = SPECIES_SCRAGGY,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_MOXIE,
+    .moves = { MOVE_BRICK_BREAK, MOVE_HIGH_JUMP_KICK, MOVE_BULK_UP, MOVE_PAYBACK }
+    },
+    //{
+    //.iv = 150,
+    //.lvl = 34,
+    //.species = SPECIES_ZORUA,
+    //.heldItem = ITEM_QUICK_CLAW,
+    //.ability = ABILITY_ILLUSION,
+    //.moves = { MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK, MOVE_TAUNT, MOVE_FOUL_PLAY }
+    //},
+    {
+    .iv = 150,
+    .lvl = 34,
+    .species = SPECIES_DRAGONAIR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .moves = { MOVE_SLAM, MOVE_DRAGON_RAGE, MOVE_THUNDER_WAVE, MOVE_DRAGON_TAIL }
+    },
+    {
+    .iv = 150,
+    .lvl = 32,
+    .species = SPECIES_DARMANITAN,
+    .heldItem = ITEM_SILK_SCARF,
+    .ability = ABILITY_GORILLA_TACTICS,
+    .moves = { MOVE_HEADBUTT, MOVE_FIRE_PUNCH, MOVE_HAMMER_ARM, MOVE_FLARE_BLITZ }
+    },
+    {
+    .iv = 150,
+    .lvl = 32,
+    .species = SPECIES_URSALUNA,
+    .heldItem = ITEM_SOFT_SAND,
+    .ability = ABILITY_GUTS,
+    .moves = { MOVE_SLASH, MOVE_HIGH_HORSEPOWER, MOVE_FEINT_ATTACK, MOVE_BABY_DOLL_EYES }
+    },
+};

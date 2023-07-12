@@ -73,6 +73,66 @@ Sandbox_Trainer_RoxanneGhost_3:
 	goto Sandbox_Trainer_RoxanneGhost_1
 
 
+Sandbox_Trainer_NormanGhostInternal::
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	msgbox Sandbox_Trainer_NormanGhostInternal_Text_0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Sandbox_Trainer_NormanGhostInternal_2
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Sandbox_Trainer_NormanGhostInternal_3
+Sandbox_Trainer_NormanGhostInternal_1:
+	setflag FLAG_HIDE_NORMAN_GHOST
+	removeobject 12, MAP_PETALBURG_CITY_GYM
+	msgbox Sandbox_Trainer_RoxanneGhost_Text_2
+	return
+
+Sandbox_Trainer_NormanGhostInternal_2:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_M, 0, Sandbox_Trainer_NormanGhostInternal_Text_1
+	goto Sandbox_Trainer_NormanGhostInternal_1
+
+Sandbox_Trainer_NormanGhostInternal_3:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_F, 0, Sandbox_Trainer_NormanGhostInternal_Text_1
+	goto Sandbox_Trainer_NormanGhostInternal_1
+
+
+Sandbox_Trainer_NormanGhost::
+	lock
+	faceplayer
+	call Sandbox_Trainer_NormanGhostInternal
+	release
+	return
+
+
+Sandbox_Trainer_NormanGhost_ScriptLeft::
+	lock
+	goto_if_unset FLAG_HIDE_NORMAN_GHOST, Sandbox_Trainer_NormanGhost_ScriptLeft_2
+Sandbox_Trainer_NormanGhost_ScriptLeft_1:
+	release
+	return
+
+Sandbox_Trainer_NormanGhost_ScriptLeft_2:
+	lock
+	applymovement 12, GhostFaceLeft
+	waitmovement 0
+	call Sandbox_Trainer_NormanGhostInternal
+	goto Sandbox_Trainer_NormanGhost_ScriptLeft_1
+
+
+Sandbox_Trainer_NormanGhost_ScriptRight::
+	lock
+	goto_if_unset FLAG_HIDE_NORMAN_GHOST, Sandbox_Trainer_NormanGhost_ScriptRight_2
+Sandbox_Trainer_NormanGhost_ScriptRight_1:
+	release
+	return
+
+Sandbox_Trainer_NormanGhost_ScriptRight_2:
+	applymovement 12, GhostFaceRight
+	waitmovement 0
+	call Sandbox_Trainer_NormanGhostInternal
+	goto Sandbox_Trainer_NormanGhost_ScriptRight_1
+
+
 Sandbox_EventScript_SetupMirrorGfxId::
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -90,6 +150,16 @@ Sandbox_EventScript_SetupMirrorGfxId_3:
 	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	goto Sandbox_EventScript_SetupMirrorGfxId_1
 
+
+GhostFaceRight:
+	walk_up
+	face_right
+	step_end
+
+GhostFaceLeft:
+	walk_up
+	face_left
+	step_end
 
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
@@ -200,3 +270,9 @@ Sandbox_Trainer_RoxanneGhost_Text_1:
 
 Sandbox_Trainer_RoxanneGhost_Text_2:
 	.string "The ghost of past runs faded away…$"
+
+Sandbox_Trainer_NormanGhostInternal_Text_0:
+	.string "Aaaaahhhh… … …$"
+
+Sandbox_Trainer_NormanGhostInternal_Text_1:
+	.string "Bro, maybe I did over hype that fight…$"
