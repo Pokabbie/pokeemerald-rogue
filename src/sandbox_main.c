@@ -288,7 +288,7 @@ static u8 CalcCurrentSeason()
             badgeCount++;
     }
 
-    return badgeCount % SEASON_COUNT;
+    return (badgeCount + gSaveBlock2Ptr->playerTrainerId[0]) % SEASON_COUNT;
 }
 
 static void TintPalette_Season(u16 *palette, u16 count)

@@ -185,6 +185,8 @@ void NewGameInitData(void)
     gSaveBlock1Ptr->registeredItem = 0;
     ClearBag();
     AddBagItem(ITEM_RARE_CANDY, 999);
+    AddBagItem(ITEM_LUM_BERRY, 999);
+    AddBagItem(ITEM_HEART_SCALE, 999);
     NewGameInitPCItems();
     ClearPokeblocks();
     ClearDecorationInventories();
