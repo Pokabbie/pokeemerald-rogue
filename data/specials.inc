@@ -8,6 +8,7 @@
 .set __special__, 0
 		.align 2
 gSpecials::
+	def_special Sandbox_HasTrainerBeenFought
 	def_special HealPlayerParty
 	def_special HealUnfaintedPlayerParty
 	def_special SetCableClubWarp

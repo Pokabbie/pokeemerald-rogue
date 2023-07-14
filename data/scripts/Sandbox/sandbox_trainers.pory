@@ -79,22 +79,13 @@ script Sandbox_Trainer_RoxanneGhost
 script Sandbox_Trainer_NormanGhostInternal
 {
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    msgbox(format("Aaaaahhhh… … …"))
-
-    checkplayergender
-    if(var(VAR_RESULT) == MALE)
-    {
-        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_M, 0, format("Bro, maybe I did over hype that fight…"))
-    }
-    elif(var(VAR_RESULT) == FEMALE)
-    {
-        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_F, 0, format("Bro, maybe I did over hype that fight…"))
-    }
+    msgbox(format("I'M A SWIMMER!\pWHY THE FRICK AM I AT THE NORMAL GYM???"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_VIEWIER_DOLPHIN, 0, format("Where's the nearest ocean…?"))
 
     setflag(FLAG_HIDE_NORMAN_GHOST)
     removeobject(NPC_NORMAN_GHOST, MAP_PETALBURG_CITY_GYM)
 
-    msgbox(format("The ghost of past runs faded away…"))
+    msgbox(format("Dolphin ran away to fail another puzzle…"))
 }
 
 script Sandbox_Trainer_NormanGhost

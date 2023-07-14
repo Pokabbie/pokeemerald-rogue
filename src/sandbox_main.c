@@ -317,3 +317,9 @@ void Sandbox_ModifyOverworldPalette(u16 offset, u16 count)
         CpuCopy16(&gPlttBufferUnfaded[offset], &gPlttBufferFaded[offset], count * 16);
     }
 }
+
+void Sandbox_HasTrainerBeenFought()
+{
+    u16 trainerId = VarGet(VAR_0x8004);
+    VarSet(VAR_RESULT, HasTrainerBeenFought(trainerId));
+}

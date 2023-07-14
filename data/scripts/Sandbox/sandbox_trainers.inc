@@ -76,24 +76,11 @@ Sandbox_Trainer_RoxanneGhost_3:
 Sandbox_Trainer_NormanGhostInternal::
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
 	msgbox Sandbox_Trainer_NormanGhostInternal_Text_0
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq Sandbox_Trainer_NormanGhostInternal_2
-	compare VAR_RESULT, FEMALE
-	goto_if_eq Sandbox_Trainer_NormanGhostInternal_3
-Sandbox_Trainer_NormanGhostInternal_1:
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_VIEWIER_DOLPHIN, 0, Sandbox_Trainer_NormanGhostInternal_Text_1
 	setflag FLAG_HIDE_NORMAN_GHOST
 	removeobject 12, MAP_PETALBURG_CITY_GYM
-	msgbox Sandbox_Trainer_RoxanneGhost_Text_2
+	msgbox Sandbox_Trainer_NormanGhostInternal_Text_2
 	return
-
-Sandbox_Trainer_NormanGhostInternal_2:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_M, 0, Sandbox_Trainer_NormanGhostInternal_Text_1
-	goto Sandbox_Trainer_NormanGhostInternal_1
-
-Sandbox_Trainer_NormanGhostInternal_3:
-	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_STREAMER_GHOST_NORMAN_F, 0, Sandbox_Trainer_NormanGhostInternal_Text_1
-	goto Sandbox_Trainer_NormanGhostInternal_1
 
 
 Sandbox_Trainer_NormanGhost::
@@ -272,7 +259,13 @@ Sandbox_Trainer_RoxanneGhost_Text_2:
 	.string "The ghost of past runs faded away…$"
 
 Sandbox_Trainer_NormanGhostInternal_Text_0:
-	.string "Aaaaahhhh… … …$"
+	.string "I'M A SWIMMER!\p"
+	.string "WHY THE FRICK AM I AT THE NORMAL\n"
+	.string "GYM???$"
 
 Sandbox_Trainer_NormanGhostInternal_Text_1:
-	.string "Bro, maybe I did over hype that fight…$"
+	.string "Where's the nearest ocean…?$"
+
+Sandbox_Trainer_NormanGhostInternal_Text_2:
+	.string "Dolphin ran away to fail another\n"
+	.string "puzzle…$"
