@@ -47,6 +47,12 @@ Sandbox_Trainer_Pokabbie::
 	return
 
 
+Sandbox_Trainer_Bacon::
+	trainerbattle_single TRAINER_VIEWIER_BACON, Sandbox_Trainer_Bacon_Text_0, Sandbox_Trainer_Bacon_Text_1
+	msgbox Sandbox_Trainer_Bacon_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
 Sandbox_Trainer_RoxanneGhost::
 	lock
 	faceplayer
@@ -59,7 +65,7 @@ Sandbox_Trainer_RoxanneGhost::
 	goto_if_eq Sandbox_Trainer_RoxanneGhost_3
 Sandbox_Trainer_RoxanneGhost_1:
 	setflag FLAG_HIDE_ROXANNE_GHOST
-	removeobject 17, MAP_RUSTBORO_CITY
+	removeobject 29, MAP_ROUTE116
 	msgbox Sandbox_Trainer_RoxanneGhost_Text_2
 	release
 	return
@@ -236,8 +242,8 @@ Sandbox_Trainer_Pokabbie_Text_2:
 	.string "POKABBIE: Did you know you can give\n"
 	.string "your Mareep the same capabilities as\l"
 	.string "Pikin by using a {STR_VAR_1} on it.\p"
-	.string "Pikin has the same base stats and\n"
-	.string "Ampharos but it now has to some extra\l"
+	.string "Pikin has the same base stats as\n"
+	.string "Ampharos but it now has some extra\l"
 	.string "coverage moves along with the\l"
 	.string "Lightning Rod ability.\p"
 	.string "If it knows Meteor Beam, it can also\n"
@@ -249,6 +255,17 @@ Sandbox_Trainer_Pokabbie_Text_2:
 	.string "Levitate.\p"
 	.string "It's pretty cool, no?$"
 
+Sandbox_Trainer_Bacon_Text_0:
+	.string "Prepare yourself for your worst\n"
+	.string "nightmare!$"
+
+Sandbox_Trainer_Bacon_Text_1:
+	.string "NIGHTMARE NIGHTMARE NIGHTMARE!!!$"
+
+Sandbox_Trainer_Bacon_Text_2:
+	.string "BACON: NIGHTMARE NIGHTMARE\n"
+	.string "NIGHTMARE!!!$"
+
 Sandbox_Trainer_RoxanneGhost_Text_0:
 	.string "Let's gooooo!$"
 
@@ -259,9 +276,9 @@ Sandbox_Trainer_RoxanneGhost_Text_2:
 	.string "The ghost of past runs faded away…$"
 
 Sandbox_Trainer_NormanGhostInternal_Text_0:
-	.string "I'M A SWIMMER!\p"
-	.string "WHY THE FRICK AM I AT THE NORMAL\n"
-	.string "GYM???$"
+	.string "I CAN'T STOP FAILING PUZZLES!\p"
+	.string "HOW THE FRICK DID I END UP IN THE\n"
+	.string "NORMAL GYM!?!$"
 
 Sandbox_Trainer_NormanGhostInternal_Text_1:
 	.string "Where's the nearest ocean…?$"

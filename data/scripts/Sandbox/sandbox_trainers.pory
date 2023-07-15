@@ -1,4 +1,4 @@
-const NPC_RUSTBORO_GHOST = 17
+const NPC_RUSTBORO_GHOST = 29
 const NPC_NORMAN_GHOST = 12
 
 script Sandbox_Trainer_Derp
@@ -48,7 +48,13 @@ script Sandbox_Trainer_Pokabbie
     trainerbattle_single(TRAINER_VIEWIER_POKABBIE, format("You think I'd pass up the opportunity to add myself? Pfft!"), format("You have to admit…\nMareep is pretty cool!"))
 
     bufferitemname(STR_VAR_1, ITEM_WHIPPED_DREAM)
-    msgbox(format("POKABBIE: Did you know you can give your Mareep the same capabilities as Pikin by using a {STR_VAR_1} on it.\pPikin has the same base stats and Ampharos but it now has to some extra coverage moves along with the Lightning Rod ability.\pIf it knows Meteor Beam, it can also mega evolve into it's ideal floating fluffy from!\pWhen mega evolved it has the same base stats as Mega Ampharos, but it has Eletric Steel typing with the ability Levitate.\pIt's pretty cool, no?"), MSGBOX_AUTOCLOSE)
+    msgbox(format("POKABBIE: Did you know you can give your Mareep the same capabilities as Pikin by using a {STR_VAR_1} on it.\pPikin has the same base stats as Ampharos but it now has some extra coverage moves along with the Lightning Rod ability.\pIf it knows Meteor Beam, it can also mega evolve into it's ideal floating fluffy from!\pWhen mega evolved it has the same base stats as Mega Ampharos, but it has Eletric Steel typing with the ability Levitate.\pIt's pretty cool, no?"), MSGBOX_AUTOCLOSE)
+}
+
+script Sandbox_Trainer_Bacon
+{
+    trainerbattle_single(TRAINER_VIEWIER_BACON, format("Prepare yourself for your worst nightmare!"), format("NIGHTMARE NIGHTMARE NIGHTMARE!!!"))
+    msgbox(format("BACON: NIGHTMARE NIGHTMARE NIGHTMARE!!!"), MSGBOX_AUTOCLOSE)
 }
 
 script Sandbox_Trainer_RoxanneGhost
@@ -69,7 +75,7 @@ script Sandbox_Trainer_RoxanneGhost
     }
 
     setflag(FLAG_HIDE_ROXANNE_GHOST)
-    removeobject(NPC_RUSTBORO_GHOST, MAP_RUSTBORO_CITY)
+    removeobject(NPC_RUSTBORO_GHOST, MAP_ROUTE116)
 
     msgbox(format("The ghost of past runs faded away…"))
 
@@ -79,7 +85,7 @@ script Sandbox_Trainer_RoxanneGhost
 script Sandbox_Trainer_NormanGhostInternal
 {
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    msgbox(format("I'M A SWIMMER!\pWHY THE FRICK AM I AT THE NORMAL GYM???"))
+    msgbox(format("I CAN'T STOP FAILING PUZZLES!\pHOW THE FRICK DID I END UP IN THE NORMAL GYM!?!"))
     trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_VIEWIER_DOLPHIN, 0, format("Where's the nearest ocean…?"))
 
     setflag(FLAG_HIDE_NORMAN_GHOST)

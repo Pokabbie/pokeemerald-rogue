@@ -13115,18 +13115,45 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Pokabbie[] = {
     },
 };
 
+static const struct TrainerMonItemCustomMovesAbility sParty_Bacon[] = {
+    {
+    .iv = 100,
+    .lvl = 10,
+    .species = SPECIES_FARFETCHD,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_INNER_FOCUS,
+    .moves = { MOVE_GUST, MOVE_COVET, MOVE_SWIFT, MOVE_SUNNY_DAY }
+    },
+    {
+    .iv = 100,
+    .lvl = 10,
+    .species = SPECIES_PYUKUMUKU,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_INNARDS_OUT,
+    .moves = { MOVE_PROTECT, MOVE_ENDURE, MOVE_ATTRACT, MOVE_PAIN_SPLIT }
+    },
+    {
+    .iv = 100,
+    .lvl = 7,
+    .species = SPECIES_DEOXYS_SPEED,
+    .heldItem = ITEM_NORMALIUM_Z,
+    .ability = ABILITY_NONE,
+    .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE }
+    },
+};
+
 static const struct TrainerMonItemCustomMovesAbility sParty_StreamerGhostRoxanne[] = {
     {
     .iv = 100,
-    .lvl = 12,
+    .lvl = 15,
     .species = SPECIES_DEWPIDER,
-    .heldItem = ITEM_NONE,
+    .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_WATER_BUBBLE,
     .moves = { MOVE_BUBBLE, MOVE_BUG_BITE, MOVE_INFESTATION, MOVE_SPIDER_WEB }
     },
     {
     .iv = 100,
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_FLAREON,
     .heldItem = ITEM_NONE,
     .ability = ABILITY_FLASH_FIRE,
