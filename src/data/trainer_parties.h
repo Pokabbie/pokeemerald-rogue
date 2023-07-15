@@ -13010,7 +13010,7 @@ static const struct TrainerMonItemCustomMovesAbility sParty_Dolphin[] = {
 static const struct TrainerMonItemCustomMovesAbility sParty_Wall[] = {
     {
     .iv = 150,
-    .lvl = 55,
+    .lvl = 57,
     .species = SPECIES_GALVANTULA,
     .heldItem = ITEM_FOCUS_SASH,
     .ability = ABILITY_COMPOUND_EYES,
