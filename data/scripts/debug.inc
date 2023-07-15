@@ -63,6 +63,7 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
+	call Sandbox_Script_MoveTutor
 	end
 
 Debug_Script_4::

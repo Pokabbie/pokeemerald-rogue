@@ -158,3 +158,26 @@ movement GhostFaceLeft {
     walk_up
     face_left
 }
+
+
+
+script Sandbox_Script_MoveTutor
+{
+    special(ChooseMonForMoveRelearner)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        return
+    }
+
+    special(IsSelectedMonEgg)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        return
+    }
+    
+    special(TeachMoveRelearnerMove)
+    waitstate
+}

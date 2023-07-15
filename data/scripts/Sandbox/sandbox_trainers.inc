@@ -154,6 +154,25 @@ GhostFaceLeft:
 	face_left
 	step_end
 
+Sandbox_Script_MoveTutor::
+	special ChooseMonForMoveRelearner
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Sandbox_Script_MoveTutor_2
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Sandbox_Script_MoveTutor_5
+	special TeachMoveRelearnerMove
+	waitstate
+	return
+
+Sandbox_Script_MoveTutor_2:
+	return
+
+Sandbox_Script_MoveTutor_5:
+	return
+
+
 Sandbox_Trainer_Derp_Text_0:
 	.string "Fancy seeing you here Conner.\p"
 	.string "Going to awaken RAYQUAZA?\p"
