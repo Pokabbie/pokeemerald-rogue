@@ -82,7 +82,7 @@ namespace RideMonSpriteConfigurer.Helpers
 
 			content.AppendLine("static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] = \n{");
 			
-			foreach(var entry in s_SpeciesToRideInfo)
+			foreach(var entry in s_SpeciesToRideInfo.Where(kvp => GameDataHelpers.SpeciesDefines.ContainsKey("SPECIES_" + kvp.Key)))
 			{
 				string species = entry.Key;
 				var rideInfo = entry.Value;
