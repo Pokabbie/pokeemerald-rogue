@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -192,6 +193,77 @@ namespace SpriteSheetSelector
 				m_CurrentMon = mon;
 				SetupMon(mon);
 			}
+		}
+
+		private void sourcePictureBox_Click(object sender, EventArgs e)
+		{
+
+			foreach (var file in Directory.EnumerateFiles(Path.Combine(c_SpriteDirectory, "raw")))
+			{
+				string monName = Path.GetFileNameWithoutExtension(file);
+
+				if (!m_OutputData.monPaletteAssignment.ContainsKey(monName))// || monName.EndsWith("_shiny"))
+					m_MonsToCheck.Enqueue(monName);
+			}
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			string species = "SPECIES_" + GameDataHelpers.FormatKeyword(textBox2.Text);
+
+			if(GameDataHelpers.SpeciesDefines.ContainsKey(species))
+			{
+				bool enqueue = false;
+
+				foreach(var kvp in GameDataHelpers.SpeciesDefines)
+				{
+					if (!enqueue)
+					{
+						if (kvp.Key == species)
+							enqueue = true;
+						else
+							continue;
+					}
+
+					if(enqueue)
+					{
+						string monName = kvp.Key.Substring("SPECIES_".Length).ToLower();
+						m_MonsToCheck.Enqueue(monName);
+					}
+				}
+			}
+
+			SetupNextMon();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			string species = "SPECIES_" + GameDataHelpers.FormatKeyword(textBox2.Text);
+
+			if (GameDataHelpers.SpeciesDefines.ContainsKey(species))
+			{
+				bool enqueue = false;
+
+				foreach (var kvp in GameDataHelpers.SpeciesDefines)
+				{
+					if (!enqueue)
+					{
+						if (kvp.Key == species)
+							enqueue = true;
+						else
+							continue;
+					}
+
+					if (enqueue)
+					{
+						string monName = kvp.Key.Substring("SPECIES_".Length).ToLower();
+						m_MonsToCheck.Enqueue(monName + "_shiny");
+					}
+				}
+			}
+
+			SetupNextMon();
 		}
 	}
 }
