@@ -152,7 +152,36 @@ namespace PokemonDataGenerator.OverworldSprites
 				"pumpkaboo",
 				"gourgeist",
 				"bergmite",
+			};
+			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
+
+			// These are flipped
+			//
+			settings.FrameNames = new string[]
+			{
+				$"back{groupKey}_1",    $"_",
+				$"back{groupKey}_2",    $"_",
+				$"front{groupKey}_1",   $"side{groupKey}_1",
+				$"front{groupKey}_2",   $"side{groupKey}_2"
+			};
+			monNames = new string[]
+			{
 				"avalugg",
+			};
+			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
+
+
+			// Back to normal
+			//
+			settings.FrameNames = new string[]
+			{
+				$"back{groupKey}_1",    $"side{groupKey}_1",
+				$"back{groupKey}_2",    $"side{groupKey}_2",
+				$"front{groupKey}_1",   $"_",
+				$"front{groupKey}_2",   $"_"
+			};
+			monNames = new string[]
+			{
 				"noibat",
 				"noivern",
 				"_",
