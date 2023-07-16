@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokemonDataGenerator\PokemonDataGenerator.csproj">
+      <Project>{e3c24f87-9d4a-453a-af4a-f2300136e6a9}</Project>
+      <Name>PokemonDataGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
