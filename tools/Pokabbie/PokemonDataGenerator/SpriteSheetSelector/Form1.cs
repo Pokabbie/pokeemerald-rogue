@@ -82,7 +82,7 @@ namespace SpriteSheetSelector
 			{
 				string monName = Path.GetFileNameWithoutExtension(file);
 
-				if(!m_OutputData.monPaletteAssignment.ContainsKey(monName))
+				if(!m_OutputData.monPaletteAssignment.ContainsKey(monName))// || monName.EndsWith("_shiny"))
 					m_MonsToCheck.Enqueue(monName);
 			}
 

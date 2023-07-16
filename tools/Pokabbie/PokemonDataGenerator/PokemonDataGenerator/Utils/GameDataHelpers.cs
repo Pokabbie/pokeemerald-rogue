@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace PokemonDataGenerator.Utils
 {
-	public class GameDataHelpers
+	public static class GameDataHelpers
 	{
-		private static readonly string c_RootDirectory = Path.GetFullPath(@"..\\..\\..\\..\\..\\..\\");
+		private static string s_RootDirectory = Path.GetFullPath(@"..\\..\\..\\..\\..\\..\\");
 
-		private static readonly string c_SpeciesDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\species.h");
-		private static readonly string c_ItemDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\items.h");
-		private static readonly string c_PartyMenuDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\party_menu.h");
-		private static readonly string c_MovesDefinesPath = Path.Combine(c_RootDirectory, "include\\constants\\moves.h");
+		private static readonly string c_SpeciesDefinesPath = Path.Combine(RootDirectory, "include\\constants\\species.h");
+		private static readonly string c_ItemDefinesPath = Path.Combine(RootDirectory, "include\\constants\\items.h");
+		private static readonly string c_PartyMenuDefinesPath = Path.Combine(RootDirectory, "include\\constants\\party_menu.h");
+		private static readonly string c_MovesDefinesPath = Path.Combine(RootDirectory, "include\\constants\\moves.h");
 
 		private static Dictionary<string, string> s_SpeciesDefines = null;
 		private static Dictionary<string, string> s_ItemDefines = null;
@@ -27,7 +27,21 @@ namespace PokemonDataGenerator.Utils
 
 		public static string RootDirectory
 		{
-			get => c_RootDirectory;
+			get => s_RootDirectory;
+		}
+
+		// hacky based on current file names
+		public static bool IsVanillaVersion
+		{
+			get => s_RootDirectory.EndsWith("pokeemerald-rogue\\", StringComparison.CurrentCultureIgnoreCase);
+			set 
+			{
+				bool isVanilla = IsVanillaVersion;
+				if (isVanilla != value)
+				{
+					s_RootDirectory = Path.Combine(s_RootDirectory, "..\\pokeemerald-rogue-ee\\");
+				}
+			}
 		}
 
 		public static Dictionary<string, string> SpeciesDefines
@@ -175,6 +189,33 @@ namespace PokemonDataGenerator.Utils
 			value = line.Substring(key.Length).Trim();
 
 			return new KeyValuePair<string, string>(key, value);
+		}
+
+		private static string GetPokemonPalettePath(string mon, string pal)
+		{
+			string[] parts = mon.Split('_');
+
+			if (parts.Length > 1)
+			{
+				string baseSpecies = parts[0];
+				string form = string.Join("_", parts.Skip(1).ToArray());
+
+				return Path.Combine(RootDirectory, $"graphics\\pokemon\\{baseSpecies}\\{form}\\{pal}.pal");
+			}
+			else
+			{
+				return Path.Combine(RootDirectory, $"graphics\\pokemon\\{mon}\\{pal}.pal");
+			}
+		}
+
+		public static string GetPokemonNormalPalettePath(string mon)
+		{
+			return GetPokemonPalettePath(mon, "normal");
+		}
+
+		public static string GetPokemonShinyPalettePath(string mon)
+		{
+			return GetPokemonPalettePath(mon, "shiny");
 		}
 
 		public static string FormatKeyword(string keyword)

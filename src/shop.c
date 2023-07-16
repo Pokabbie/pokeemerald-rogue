@@ -899,6 +899,8 @@ static void BuyMenuDrawObjectEvents(void)
         {
             StartSpriteAnim(&gSprites[spriteId], sShopData->viewportObjects[i][ANIM_NUM]);
         }
+
+        // TODO - add riding sprite??
     }
 }
 
