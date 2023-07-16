@@ -618,9 +618,9 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {
-                .playerX=0, .playerY=-8,
+                .playerX=0, .playerY=-10,
                 .monX=0, .monY=1,
-                .playerRendersInFront=RIDER_SHOW_BEHIND,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_SIDE] =
             {
@@ -1007,7 +1007,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
     },
     [SPECIES_TYPHLOSION] =
     {
-        .flags = RIDE_MON_FLAG_CAN_RIDE | RIDE_MON_FLAG_CAN_CLIMB,
+        .flags = RIDE_MON_FLAG_CAN_RIDE,
         .spriteInfo = 
         {
             [RIDE_SPRITE_DIR_UP] =
