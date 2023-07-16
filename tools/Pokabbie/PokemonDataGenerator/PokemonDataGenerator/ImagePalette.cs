@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonDataGenerator.Utils;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -12,8 +13,15 @@ namespace PokemonDataGenerator
 {
 	public class ImagePalette
 	{
+		public enum DistanceMethod
+		{
+			RGB,
+			YUV,
+			HSL
+		}
+
 		private Color[] m_Colors = null;
-		private bool m_UseSimpleColorDistance = false;
+		private DistanceMethod m_DistanceMethod = DistanceMethod.RGB;
 
 		private ImagePalette()
 		{
@@ -25,11 +33,21 @@ namespace PokemonDataGenerator
 			m_Colors = colors.ToArray();
 		}
 
+		public Color this[int i]
+		{
+			get => m_Colors[i];
+		}
+
 		public static ImagePalette FromFile(string path, bool useSimpleColorDistance = false)
+		{
+			return FromFile(path, useSimpleColorDistance ? DistanceMethod.RGB : DistanceMethod.YUV);
+		}
+
+		public static ImagePalette FromFile(string path, DistanceMethod distanceMethod)
 		{
 			ImagePalette palette = new ImagePalette();
 			palette.m_Colors = new Color[16];
-			palette.m_UseSimpleColorDistance = useSimpleColorDistance;
+			palette.m_DistanceMethod = distanceMethod;
 
 			using (FileStream stream = new FileStream(path, FileMode.Open))
 			using(StreamReader reader = new StreamReader(stream))
@@ -116,6 +134,15 @@ namespace PokemonDataGenerator
 			return Math.Sqrt(h * h + s * s + v * v);
 		}
 
+		public static double GetColorDistance_HSL(HSLColor e1, HSLColor e2)
+		{
+			float h = 1.0f * (float)(e2.Hue - e1.Hue);
+			float s = 1.0f * (float)(e2.Saturation - e1.Saturation);
+			float v = 1.0f * (float)(e2.Luminosity - e1.Luminosity);
+
+			return Math.Sqrt(h * h + s * s + v * v);
+		}
+
 		public static double GetColorDistance_Scoring(Color e1, Color e2, float hw, float sw, float vw)
 		{
 			float h = hw * (e1.GetHue() / 360.0f - e2.GetHue() / 360.0f);
@@ -127,10 +154,22 @@ namespace PokemonDataGenerator
 
 		public double GetColorDistance(Color e1, Color e2)
 		{
-			return m_UseSimpleColorDistance ? GetColorDistance_YUV(e1, e2) : GetColorDistance_RGB(e1, e2);
+			switch(m_DistanceMethod)
+			{
+				case DistanceMethod.RGB:
+					return GetColorDistance_RGB(e1, e2);
+
+				case DistanceMethod.YUV:
+					return GetColorDistance_YUV(e1, e2);
+
+				case DistanceMethod.HSL:
+					return GetColorDistance_HSL(e1, e2);
+			}
+
+			return 0.0f;
 		}
 
-		private int GetClosestMatchIndex(Color input)
+		public int GetClosestMatchIndex(Color input)
 		{
 			if (input.A == 0)
 				return 0;
@@ -153,6 +192,7 @@ namespace PokemonDataGenerator
 				return currentIndex;
 			}
 		}
+
 		public double GetBitmapMatchScore(Bitmap src)
 		{
 			// Going to use std HSV as the weights for scoring, as this may change from sprite to sprite

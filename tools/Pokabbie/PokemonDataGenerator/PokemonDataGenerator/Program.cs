@@ -1,5 +1,6 @@
 ﻿using PokemonDataGenerator.OverworldSprites;
 using PokemonDataGenerator.Pokedex;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace PokemonDataGenerator
 			Console.WriteLine("1 - Vanilla");
 			Console.WriteLine("2 - EX");
 			bool isVanillaVersion = ReadOption(1, 2) == 1;
+
+			GameDataHelpers.IsVanillaVersion = isVanillaVersion;
 
 			Console.WriteLine("1 - Generate Presets");
 			Console.WriteLine("2 - Generate OW Sprites");

@@ -13,8 +13,8 @@ namespace PokemonDataGenerator.OverworldSprites
 		{
 			AppendMonSpritesInternal("", "res://unova_overworlds_by_hamsterskull_d3cbfbw.png");
 
-			if (OverworldSpriteGenerator.s_GenerateShinies)
-				AppendMonSpritesInternal("_shiny", "res://unova_overworlds__shiny__by_2and2makes5_d51nqik.png");
+			//if (OverworldSpriteGenerator.s_GenerateShinies)
+			//	AppendMonSpritesInternal("_shiny", "res://unova_overworlds__shiny__by_2and2makes5_d51nqik.png");
 		}
 
 		private static void AppendMonSpritesInternal(string groupKey, string sourcePath)

@@ -24,7 +24,7 @@ namespace PokemonDataGenerator
 			public string path;
 		}
 
-		private class MonSpriteData
+		public class MonSpriteData
 		{
 			public Dictionary<string, string> spriteUri = new Dictionary<string, string>();
 			public int pokedexNumber;
@@ -83,6 +83,11 @@ namespace PokemonDataGenerator
 			return c_Subpaths.Where((p) => p.key + "_1" == key || p.key + "_2" == key).Any();
 		}
 
+		public static MonSpriteData GetGatheredSpriteDataFor(string species)
+		{
+			return s_MonToSpriteData[species];
+		}
+
 		public static void GenerateFromURL(bool isCollating)
 		{
 			SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "", "res://none_overworld.png");
@@ -90,26 +95,57 @@ namespace PokemonDataGenerator
 			if(s_GenerateShinies)
 				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://none_overworld_shiny.png");
 
-			//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
-			//{
-			// Gather source paths
-			foreach (var subpath in c_Subpaths)
+			if (s_TargettingDebugSet)
 			{
-				string fullUrl = c_BaseURL + "/" + subpath.path;
-				Console.WriteLine($"Gathering '{fullUrl}'");
-
-				string content = ContentCache.GetHttpContent(fullUrl);
-				AppendSpriteResults(content, subpath.key);
+				if (!s_TargettingVanilla)
+				{
+					SpriteSheetSplitter_Gen5.AppendMonSprites();
+				}
 			}
-			//}
-
-			if (!s_TargettingVanilla)
+			else
 			{
-				SpriteSheetSplitter_Gen5.AppendMonSprites();
-				SpriteSheetSplitter_Gen6.AppendMonSprites();
-				SpriteSheetSplitter_Gen7.AppendMonSprites();
-				SpriteSheetSplitter_Gen8.AppendMonSprites();
-				SpriteSheetSplitter_Hisui.AppendMonSprites();
+
+				//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
+				//{
+				// Gather source paths
+				foreach (var subpath in c_Subpaths)
+				{
+					string fullUrl = c_BaseURL + "/" + subpath.path;
+					Console.WriteLine($"Gathering '{fullUrl}'");
+
+					string content = ContentCache.GetHttpContent(fullUrl);
+					AppendSpriteResults(content, subpath.key);
+				}
+				//}
+
+				if (!s_TargettingVanilla)
+				{
+					SpriteSheetSplitter_Gen5.AppendMonSprites();
+					SpriteSheetSplitter_Gen6.AppendMonSprites();
+					SpriteSheetSplitter_Gen7.AppendMonSprites();
+					SpriteSheetSplitter_Gen8.AppendMonSprites();
+					SpriteSheetSplitter_Hisui.AppendMonSprites();
+				}
+			}
+
+			// Auto generate any missing shinies
+			if (s_GenerateShinies)
+			{
+				Console.WriteLine($"Begining auto shiny pass..");
+
+				foreach(var kvp in s_MonToSpriteData.ToArray())
+				{
+					bool hasShinies = kvp.Value.spriteUri.Keys.Where(k => k.Contains("_shiny")).Any();
+
+					if (!hasShinies)
+					{
+						Console.WriteLine($"\t{kvp.Key}");
+						ShinySpriteGenerator.GenerateMonSprites(kvp.Key);
+					}
+
+				}
+
+				Console.WriteLine($"Finished auto shiny pass.");
 			}
 
 			string outDir = Path.GetFullPath("sprite_out");
