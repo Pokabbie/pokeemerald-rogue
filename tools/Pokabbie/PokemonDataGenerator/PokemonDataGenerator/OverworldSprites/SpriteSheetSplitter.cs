@@ -264,6 +264,11 @@ namespace PokemonDataGenerator.OverworldSprites
 						spacing = 30;
 						break;
 
+					case "reuniclus":
+						initialOffset = 32;
+						spacing = 30;
+						break;
+
 						//case "basculin_blue_striped":
 						//	initialOffset = 16;
 						//	spacing = 26;
