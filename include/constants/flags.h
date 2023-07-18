@@ -663,7 +663,7 @@
 // RogueNote: Flag block 2
 #define FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE  0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
-#define FLAG_UNUSED_0x266                    0x266
+#define FLAG_ROGUE_MET_LANETTE               0x266
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_ROGUE_VALID_QUICK_SAVE          0x269

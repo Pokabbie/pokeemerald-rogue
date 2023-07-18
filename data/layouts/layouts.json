@@ -1580,6 +1580,26 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_TownSquare/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_TownSquare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_PROF_LAB",
+      "name": "Rogue_Interior_ProfLab_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Interior_ProfLab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_ProfLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_CONFIG_LAB",
+      "name": "Rogue_Interior_ConfigLab_Layout",
+      "width": 11,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Interior_ConfigLab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_ConfigLab/map.bin"
     }
   ]
 }
