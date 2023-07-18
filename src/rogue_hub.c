@@ -31,6 +31,7 @@ static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
 
 static void RogueHub_UpdateTownSquareAreaMetatiles();
+static void RogueHub_UpdateAdventureEntranceAreaMetatiles();
 static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
 static void RogueHub_UpdateFarmingAreaMetatiles();
@@ -54,6 +55,9 @@ void RogueHub_ClearProgress()
 
     // Build default area at 0,0
     RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
+
+    // TODO - Select placement based on trainer ID
+    RogueHub_BuildArea(HUB_AREA_ADVENTURE_ENTRANCE, 1, 0);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -383,6 +387,9 @@ void RogueHub_ApplyMapMetatiles()
     case LAYOUT_ROGUE_AREA_TOWN_SQUARE:
         RogueHub_UpdateTownSquareAreaMetatiles();
         break;
+    case LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE:
+        RogueHub_UpdateAdventureEntranceAreaMetatiles();
+        break;
 
     case LAYOUT_ROGUE_AREA_HOME:
         RogueHub_UpdateHomeAreaMetatiles();
@@ -424,6 +431,26 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 17);
+    }
+}
+
+static void RogueHub_UpdateAdventureEntranceAreaMetatiles()
+{
+    // Remove connectionss
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(18, 9);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitVertical(8, 14);
+        MetatileFill_TreeCaps(8, 15, 11);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 9);
     }
 }
 

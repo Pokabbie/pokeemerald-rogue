@@ -38,7 +38,8 @@
     "Rogue_HallwayFacade_Vertical",
     "Rogue_Area_TownSquare",
     "Rogue_Area_Home",
-    "Rogue_Area_FarmingField"
+    "Rogue_Area_FarmingField",
+    "Rogue_Area_AdventureEntrance"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",

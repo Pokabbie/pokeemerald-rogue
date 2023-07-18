@@ -3,10 +3,11 @@
 //
 #define HUB_AREA_FIRST                   0
 
-#define HUB_AREA_TOWN_SQUARE    (HUB_AREA_FIRST + 0)
-#define HUB_AREA_HOME           (HUB_AREA_FIRST + 1)
-#define HUB_AREA_BERRY_FIELD    (HUB_AREA_FIRST + 2)
-#define HUB_AREA_COUNT          (HUB_AREA_BERRY_FIELD + 1)
+#define HUB_AREA_TOWN_SQUARE            (HUB_AREA_FIRST + 0)
+#define HUB_AREA_ADVENTURE_ENTRANCE     (HUB_AREA_FIRST + 1)
+#define HUB_AREA_HOME                   (HUB_AREA_FIRST + 2)
+#define HUB_AREA_BERRY_FIELD            (HUB_AREA_FIRST + 3)
+#define HUB_AREA_COUNT                  (HUB_AREA_BERRY_FIELD + 1)
 
 #define HUB_AREA_NONE 255
 
@@ -18,6 +19,9 @@
 // HUB_AREA_TOWN_SQUARE Upgrades
 //
 #define HUB_UPGRADE_TOWN_SQUARE_POKE_CONNECT    (HUB_UPGRADE_FIRST + 0)
+
+// HUB_AREA_ADVENTURE_ENTRANCE Upgrades
+//
 
 // HUB_AREA_HOME Upgrades
 //

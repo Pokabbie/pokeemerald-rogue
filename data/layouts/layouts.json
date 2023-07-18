@@ -1600,6 +1600,16 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/Rogue_Interior_ConfigLab/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_ConfigLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "name": "Rogue_Area_AdventureEntrance_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Area_AdventureEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_AdventureEntrance/map.bin"
     }
   ]
 }
