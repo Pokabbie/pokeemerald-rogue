@@ -107,6 +107,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color);
 void RemoveMapNamePopUpWindow(void);
 u8 GetMapNamePopUpWindowId(void);
 u8 AddMapNamePopUpWindow(void);
+u16 AddWindowParameterized(u8, u8, u8, u8, u8, u8, u16);
 void RemoveQuestPopUpWindow(void);
 u8 GetQuestPopUpWindowId(void);
 u8 AddQuestPopUpWindow(void);
