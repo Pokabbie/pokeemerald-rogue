@@ -45,6 +45,10 @@
     method(31, "MandL27", 0) \
     method(32, "", CREDITS_FLAG_BREAK) \
     \
+    method(3201, "Key Items Menu", CREDITS_FLAG_TITLE) \
+    method(3202, "Merrp", 0) \
+    method(3203, "", CREDITS_FLAG_BREAK) \
+    \
     method(33, "Additional Sprites", CREDITS_FLAG_TITLE) \
     method(34, "AveonTrainer", 0) \
     method(35, "PurpleZaffre", 0) \
