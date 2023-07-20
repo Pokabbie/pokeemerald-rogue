@@ -2470,7 +2470,7 @@ static void FreeKeyItemWheelGfx(s16 *data) {
         if (tIconWindow[i] == WINDOW_NONE)
             continue;
         FillWindowPixelBuffer(tIconWindow[i], 0);
-        CopyWindowToVram(tIconWindow[i], COPYWIN_GFX);
+        CopyWindowToVram(tIconWindow[i], COPYWIN_FULL);
         RemoveWindow(tIconWindow[i]);
     }
     SetHBlankCallback(NULL);
@@ -2497,7 +2497,7 @@ static void Task_KeyItemWheel(u8 taskId) {
             tIconWindow[i] = WINDOW_NONE;
             if (!gSaveBlock1Ptr->registeredItems[i] || !CheckBagHasItem(gSaveBlock1Ptr->registeredItems[i], 1))
                 continue;
-            tIconWindow[i] = j = AddWindowParameterized(0, sKeyItemBoxXPos[i] / 8 - 2, sKeyItemBoxYPos[i] / 8 - 2, 4, 4, i == 3 ? 13 : 13 + i, 16*(i+9));
+            tIconWindow[i] = j = AddWindowParameterized(0, sKeyItemBoxXPos[i] / 8 - 2, sKeyItemBoxYPos[i] / 8 - 2, 4, 4, i == 3 ? 13 : 13 + i, 16*(i+10));
             if (j == WINDOW_NONE)
                 continue;
             PutWindowTilemap(j);
