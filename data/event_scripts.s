@@ -389,7 +389,7 @@ gText_SandstormIsVicious::
 	.string "It's impossible to keep going.$"
 
 gText_SelectWithoutRegisteredItem::
-	.string "An item in the BAG can be\n"
+	.string "Up to four items in the BAG can be\n"
 	.string "registered to SELECT for easy use.$"
 
 gText_PokemonTrainerSchoolEmail::
@@ -783,3 +783,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Area_FarmingField/scripts.inc"
 
 	.include "data/maps/Rogue_Area_TownSquare/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_ProfLab/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_ConfigLab/scripts.inc"
+
+	.include "data/maps/Rogue_Area_AdventureEntrance/scripts.inc"

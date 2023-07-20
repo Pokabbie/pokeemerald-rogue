@@ -5,6 +5,7 @@
 #include "contest_effect.h"
 #include "data.h"
 #include "event_data.h"
+#include "event_object_lock.h"
 #include "field_screen_effect.h"
 #include "gpu_regs.h"
 #include "move_relearner.h"
@@ -927,6 +928,7 @@ static void DoQuestMenuMain(void)
         {
             FreeQuestMenuResources();
             SetMainCallback2(CB2_ReturnToField);
+            ScriptUnfreezeObjectEvents();
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:

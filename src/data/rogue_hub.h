@@ -24,6 +24,18 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         }
     },
+    [HUB_AREA_ADVENTURE_ENTRANCE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_ADVENTURE_ENTRANCE),
+        .areaName = _("Town Exit"),
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_EAST] = { 4, 5 },
+            [HUB_AREA_CONN_SOUTH] = { 2, 3 },
+            [HUB_AREA_CONN_WEST] = { 0, 1 },
+        }
+    },
     [HUB_AREA_HOME] = 
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),

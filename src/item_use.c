@@ -236,8 +236,19 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     DestroyTask(taskId);
 }
 
+#define tRideMonCounter    data[0]
+
+EWRAM_DATA static u8 sTestDelay = 1;
+
+static void ItemUseOutOfBattle_RideMon2(u8 taskId);
 
 void ItemUseOutOfBattle_RideMon(u8 taskId)
+{
+    gTasks[taskId].tRideMonCounter = gTasks[taskId].tUsingRegisteredKeyItem ? sTestDelay : 0;
+    gTasks[taskId].func = ItemUseOutOfBattle_RideMon2;
+}
+
+static void ItemUseOutOfBattle_RideMon2(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
     s16 coordsY;
@@ -261,12 +272,21 @@ void ItemUseOutOfBattle_RideMon(u8 taskId)
 
 static void ItemUseOnFieldCB_RideMon(u8 taskId)
 {
-    Rogue_GetOnOffRideMon(FALSE);
-    FollowMe_HandleBike(); // Do we need this?
-    ScriptUnfreezeObjectEvents();
-    ScriptContext2_Disable();
-    DestroyTask(taskId);
+    if(gTasks[taskId].tRideMonCounter == 0)
+    {
+        Rogue_GetOnOffRideMon(FALSE);
+        FollowMe_HandleBike(); // Do we need this?
+        ScriptUnfreezeObjectEvents();
+        ScriptContext2_Disable();
+        DestroyTask(taskId);
+    }
+    else
+    {
+        --gTasks[taskId].tRideMonCounter;
+    }
 }
+
+#undef tRideMonCounter
 
 static bool32 CanFish(void)
 {

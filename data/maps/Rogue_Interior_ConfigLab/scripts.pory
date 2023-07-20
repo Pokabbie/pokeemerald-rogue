@@ -1,0 +1,84 @@
+mapscripts Rogue_Interior_ConfigLab_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_ConfigLab_OnLoad
+}
+
+script Rogue_Interior_ConfigLab_OnLoad
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_DITTO)
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        call(Rogue_Interior_ConfigLab_DrawBasementDoor)
+    }
+}
+
+script Rogue_Interior_ConfigLab_DrawBasementDoor
+{
+    setmetatile(2, 13, 0x27C, TRUE)
+    setmetatile(3, 13, 0x27D, TRUE)
+    setmetatile(4, 13, 0x27E, TRUE)
+
+    setmetatile(2, 14, 0x284, TRUE)
+    setmetatile(3, 14, 0x283, FALSE)
+    setmetatile(4, 14, 0x286, TRUE)
+
+    setmetatile(2, 15, 0x28C, TRUE)
+    setmetatile(4, 15, 0x28E, FALSE)
+    special(DrawWholeMapView)
+}
+
+script Rogue_Interior_ConfigLab_TalkHiddenDoor
+{
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE)
+    {
+        lock
+
+        msgbox(format("What's this?\pA hidden switch!\pPress the switch?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("WARNING!\nPressing this switch will skip ahead and activate post-game content.\pYou're recommended to complete a run normally before pressing this switch.\pPress the switch?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+                waitse
+                playse(SE_TRUCK_DOOR)
+                call(Rogue_Interior_ConfigLab_DrawBasementDoor)
+            }
+        }
+
+        release
+    }
+}
+
+script Rogue_Interior_ConfigLab_TalkLanette
+{
+    lock
+    faceplayer
+    msgbox(format("LANETTE: Oh, hi {PLAYER}!"), MSGBOX_DEFAULT)
+    
+    if(flag(FLAG_ROGUE_MET_LANETTE) == FALSE)
+    {
+        msgbox(format("Now everything has settled a bit, I can finally continue my research.\pI've had a bit of a shift in my research.\nI'm now trying to figure what is happening out there whilst people are out on Adventures."))
+        msgbox(format("Speaking of Adventures…\pI did figure out how to adjust the difficulty of the Adventures you go on.\pHere, take a look!"))
+    }
+    else
+    {
+        msgbox(format("Did you want to adjust your Adventure settings?"), MSGBOX_DEFAULT)
+    }
+
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+
+    if(flag(FLAG_ROGUE_MET_LANETTE) == FALSE)
+    {
+        setflag(FLAG_ROGUE_MET_LANETTE)
+        msgbox(format("I don't really understand it all myself yet.\pBut I'm sure, if you keep exploring, I'll eventually gather enough data to be able to unlock the secrets of Adventures and share them with you!"))
+    }
+
+    msgbox(format("If you ever want to adjust your Adventure settings again, please do come talk to me.")) 
+
+    release
+}

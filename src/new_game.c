@@ -1,4 +1,6 @@
 #include "global.h"
+#include "constants/items.h"
+
 #include "new_game.h"
 #include "random.h"
 #include "pokemon.h"
@@ -184,7 +186,8 @@ void NewGameInitData(void)
     ResetPokemonStorageSystem();
     ClearRoamerData();
     ClearRoamerLocationData();
-    gSaveBlock1Ptr->registeredItem = 0;
+    gSaveBlock1Ptr->registeredItemCompat = ITEM_NONE;
+    memset(gSaveBlock1Ptr->registeredItems, 0, sizeof(gSaveBlock1Ptr->registeredItems));
     ClearBag();
     NewGameInitPCItems();
     ClearPokeblocks();

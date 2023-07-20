@@ -147,7 +147,7 @@ void Special_ViewWallClock(void)
 
 void Special_ViewDifficultyConfigMenu(void)
 {
-    //gMain.savedCallback = CB2_ReturnToField;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
     SetMainCallback2(CB2_InitDifficultyConfigMenu);
     ScriptContext2_Enable();
 }

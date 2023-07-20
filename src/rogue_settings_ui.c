@@ -12,6 +12,7 @@
 #include "text.h"
 #include "text_window.h"
 #include "international_string_util.h"
+#include "script.h"
 #include "strings.h"
 #include "string_util.h"
 #include "gba/m4a_internal.h"
@@ -604,6 +605,7 @@ static void Task_OptionMenuFadeOut(u8 taskId)
         DestroyTask(taskId);
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);
+        // EnableBothScriptContexts(); <- handled in savedCallback
     }
 }
 

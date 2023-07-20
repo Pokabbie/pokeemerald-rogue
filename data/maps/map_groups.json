@@ -38,11 +38,14 @@
     "Rogue_HallwayFacade_Vertical",
     "Rogue_Area_TownSquare",
     "Rogue_Area_Home",
-    "Rogue_Area_FarmingField"
+    "Rogue_Area_FarmingField",
+    "Rogue_Area_AdventureEntrance"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",
-    "Rogue_Interior_HomeUpper"
+    "Rogue_Interior_HomeUpper",
+    "Rogue_Interior_ProfLab",
+    "Rogue_Interior_ConfigLab"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
