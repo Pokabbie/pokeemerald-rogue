@@ -1987,6 +1987,14 @@
 	various BS_ATTACKER, VARIOUS_SWAP_SIDE_STATUSES
 	.endm
 
+	.macro canteleport battler:req
+	various \battler, VARIOUS_CAN_TELEPORT
+	.endm
+
+	.macro getbattlerside battler:req
+	various \battler, VARIOUS_GET_BATTLER_SIDE
+	.endm
+
 	.macro checkparentalbondcounter counter:req, ptr:req
 	various BS_ATTACKER, VARIOUS_CHECK_PARENTAL_BOND_COUNTER
 	.byte \counter

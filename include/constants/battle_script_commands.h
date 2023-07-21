@@ -242,7 +242,9 @@
 #define VARIOUS_SET_BEAK_BLAST                      151
 #define VARIOUS_SWAP_SIDE_STATUSES                  152
 #define VARIOUS_SET_Z_EFFECT                        153
-// ...
+//..
+#define VARIOUS_CAN_TELEPORT                        155
+#define VARIOUS_GET_BATTLER_SIDE                    156
 #define VARIOUS_CHECK_PARENTAL_BOND_COUNTER         157
 
 // Cmd_manipulatedamage
