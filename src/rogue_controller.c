@@ -803,6 +803,13 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
 {
     u8 difficulty = Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0;
 
+    // We won't modify absolute wait flags
+    if(*waitTime & B_WAIT_TIME_ABSOLUTE)
+    {
+        *waitTime &= ~B_WAIT_TIME_ABSOLUTE;
+        return;
+    }
+
     if(Rogue_FastBattleAnims())
     {
         *waitTime = awaitingMessage ? 8 : 0;
