@@ -3089,6 +3089,8 @@ static void PlayerHandleChooseMove(void)
         struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
         
         InitMoveSelectionsVarsAndStrings();
+        gBattleStruct->mega.playerSelect = FALSE;
+
         PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_MOVE);
 
         if (!IsMegaTriggerSpriteActive())

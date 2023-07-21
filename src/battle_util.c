@@ -62,6 +62,7 @@ functions instead of at the top of the file with the other declarations.
 
 static bool32 TryRemoveScreens(u8 battler);
 static bool32 IsUnnerveAbilityOnOpposingSide(u8 battlerId);
+static void SetRandomMultiHitCounter();
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
@@ -221,6 +222,23 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_GULP_MISSILE,
 };
 
+static u8 CalcBeatUpPower(void)
+{
+    struct Pokemon *party;
+    u8 basePower;
+    u16 species;
+
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
+    // Party slot is set in the battle script for Beat Up
+    species = GetMonData(&party[gBattleCommunication[0] - 1], MON_DATA_SPECIES);
+    basePower = (gBaseStats[species].baseAttack / 10) + 5;
+
+    return basePower;
+}
+
 bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
 {
     u32 ability = GetBattlerAbility(battlerAtk);
@@ -255,6 +273,7 @@ void HandleAction_UseMove(void)
     gBattleStruct->atkCancellerTracker = 0;
     gMoveResultFlags = 0;
     gMultiHitCounter = 0;
+    gBattleScripting.savedDmg = 0;
     gBattleCommunication[6] = 0;
     gBattleScripting.savedMoveEffect = 0;
     gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerAttacker);
@@ -3412,6 +3431,7 @@ enum
     CANCELLER_POWDER_MOVE,
     CANCELLER_POWDER_STATUS,
     CANCELLER_THROAT_CHOP,
+    CANCELLER_MULTIHIT_MOVES,
     CANCELLER_Z_MOVES,
     CANCELLER_END,
     CANCELLER_PSYCHIC_TERRAIN,
@@ -3429,6 +3449,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_FLAGS: // flags clear
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_DESTINY_BOND;
             gStatuses3[gBattlerAttacker] &= ~STATUS3_GRUDGE;
+            gBattleScripting.tripleKickPower = 0;
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_SKY_DROP:
@@ -3776,6 +3797,67 @@ u8 AtkCanceller_UnableToUseMove(void)
                 }
                 effect = 1;
             }
+            gBattleStruct->atkCancellerTracker++;
+            break;
+        case CANCELLER_MULTIHIT_MOVES:
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT)
+            {
+                u16 ability = gBattleMons[gBattlerAttacker].ability;
+
+                if (ability == ABILITY_SKILL_LINK)
+                {
+                    gMultiHitCounter = 5;
+                }
+                else if (ability == ABILITY_BATTLE_BOND
+                && gCurrentMove == MOVE_WATER_SHURIKEN
+                && gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA_ASH)
+                {
+                    gMultiHitCounter = 3;
+                }
+                else
+                {
+                    SetRandomMultiHitCounter();
+                }
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            }
+            else if (gBattleMoves[gCurrentMove].flags & FLAG_TWO_STRIKES)
+            {
+                gMultiHitCounter = 2;
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+                if (gCurrentMove == MOVE_DRAGON_DARTS)
+                {
+                    // TODO
+                }
+            }
+            else if (gBattleMoves[gCurrentMove].effect == EFFECT_TRIPLE_KICK || gCurrentMove == MOVE_SURGING_STRIKES)
+            {
+                gMultiHitCounter = 3;
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            }
+            #if B_BEAT_UP >= GEN_5
+            else if (gBattleMoves[gCurrentMove].effect == EFFECT_BEAT_UP)
+            {
+                struct Pokemon* party;
+                int i;
+
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    party = gPlayerParty;
+                else
+                    party = gEnemyParty;
+
+                for (i = 0; i < PARTY_SIZE; i++)
+                {
+                    if (GetMonData(&party[i], MON_DATA_HP)
+                    && GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
+                    && !GetMonData(&party[i], MON_DATA_IS_EGG)
+                    && !GetMonData(&party[i], MON_DATA_STATUS))
+                        gMultiHitCounter++;
+                }
+
+                gBattleCommunication[0] = 0; // For later
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            }
+            #endif
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_END:
@@ -8403,6 +8485,11 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         if (IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_ELECTRIC_TERRAIN))
             basePower *= 2;
         break;
+    case EFFECT_BEAT_UP:
+        #if B_BEAT_UP >= GEN_5
+        basePower = CalcBeatUpPower();
+        #endif
+        break;
     }
 
     // Move-specific base power changes
@@ -9166,6 +9253,15 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
             MulModifier(&finalModifier, UQ_4_12(0.66));
         else
             MulModifier(&finalModifier, UQ_4_12(0.5));
+    }
+
+    // Parental Bond Second Strike
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT)
+    {
+        if (B_PARENTAL_BOND_DMG < GEN_7)
+            MulModifier(&finalModifier, UQ_4_12(0.5));
+        else
+            MulModifier(&finalModifier, UQ_4_12(0.25));
     }
 
     // attacker's abilities
@@ -10403,4 +10499,32 @@ bool32 CanTargetBattler(u8 battlerAtk, u8 battlerDef, u16 move)
       && gStatuses3[battlerAtk] & STATUS3_HEAL_BLOCK)
         return FALSE;   // Pokémon affected by Heal Block cannot target allies with Pollen Puff
     return TRUE;
+}
+
+static void SetRandomMultiHitCounter()
+{
+#if (B_MULTI_HIT_CHANCE >= GEN_5)
+    // Based on Gen 5's odds
+    // 35% for 2 hits
+    // 35% for 3 hits
+    // 15% for 4 hits
+    // 15% for 5 hits
+    gMultiHitCounter = Random() % 100;
+    if (gMultiHitCounter < 35)
+        gMultiHitCounter = 2;
+    else if (gMultiHitCounter < 35 + 35)
+        gMultiHitCounter = 3;
+    else if (gMultiHitCounter < 35 + 35 + 15)
+        gMultiHitCounter = 4;
+    else
+        gMultiHitCounter = 5;
+#else
+    // 2 and 3 hits: 37.5%
+    // 4 and 5 hits: 12.5%
+    gMultiHitCounter = Random() % 4;
+    if (gMultiHitCounter > 1)
+        gMultiHitCounter = (Random() % 4) + 2;
+    else
+        gMultiHitCounter += 2;
+#endif
 }
