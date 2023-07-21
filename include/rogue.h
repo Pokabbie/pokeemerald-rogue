@@ -297,9 +297,15 @@ struct RogueTrainerCollection
     u16 bossCount;
     u16 minibossCount;
     u16 routeTrainersCount;
+#ifdef ROGUE_DEBUG
+    u16 debugTrainersCount;
+#endif
     const struct RogueTrainer* boss;
     const struct RogueTrainer* miniboss;
     const struct RogueTrainer* routeTrainers;
+#ifdef ROGUE_DEBUG
+    const struct RogueTrainer* debugTrainers;
+#endif
 };
 
 struct SpeciesTable

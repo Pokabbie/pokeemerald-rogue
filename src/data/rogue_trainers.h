@@ -2449,6 +2449,24 @@ static const struct RogueTrainer sRouteTrainers_RouteTrainers[] =
     },
 };
 
+#ifdef ROGUE_DEBUG
+
+static const struct RogueTrainer sRouteTrainers_DebugTrainers[] = 
+{
+    // Automation/Debug trainer battle
+    {
+        .trainerName = _("DEBUG"),
+        .objectEventGfx = OBJ_EVENT_GFX_NURSE,
+        .trainerPic = TRAINER_PIC_POKABBIE_DITTO,
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .preferredWeather = WEATHER_DEFAULT,
+        .trainerFlags = TRAINER_FLAG_ANY_REGION,
+        .monGenerators = {}
+    },
+};
+#endif
+
 const struct RogueTrainerCollection gRogueTrainers = 
 {
     .bossCount = ARRAY_COUNT(sRouteTrainers_Bosses),
@@ -2457,4 +2475,8 @@ const struct RogueTrainerCollection gRogueTrainers =
     .miniboss = sRouteTrainers_MiniBosses,
     .routeTrainersCount = ARRAY_COUNT(sRouteTrainers_RouteTrainers),
     .routeTrainers = sRouteTrainers_RouteTrainers,
+#ifdef ROGUE_DEBUG
+    .debugTrainersCount = ARRAY_COUNT(sRouteTrainers_DebugTrainers),
+    .debugTrainers = sRouteTrainers_DebugTrainers,
+#endif
 };

@@ -114,6 +114,14 @@ static u8 GetTrainerLevel(u16 trainerNum)
 
 bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr)
 {
+#ifdef ROGUE_DEBUG
+    if(trainerNum == TRAINER_ROGUE_DYNAMIC)
+    {
+        *trainerPtr = &gRogueTrainers.debugTrainers[0];
+        return TRUE;
+    }
+#endif
+
     if(Rogue_IsBossTrainer(trainerNum))
     {
         *trainerPtr = &gRogueTrainers.boss[trainerNum - TRAINER_NUM_BOSS_START];
