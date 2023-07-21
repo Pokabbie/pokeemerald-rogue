@@ -2457,20 +2457,30 @@ static void FreeKeyItemWheelGfx(s16 *data) {
     struct Sprite *sprite;
     FreeSpriteTilesByTag(PAL_TAG_KEY_ITEM_WHEEL);
     FreeSpritePaletteByTag(PAL_TAG_KEY_ITEM_WHEEL);
+
     // free box sprites
-    for (i = 0; i < 2 * MAX_REGISTERED_ITEMS; i++) {
+    for (i = 0; i < MAX_REGISTERED_ITEMS; i++) {
         if (tBoxSprite[i] >= MAX_SPRITES)
             continue;
         sprite = &gSprites[tBoxSprite[i]];
         FreeSpriteOamMatrix(sprite);
         DestroySprite(sprite);
     }
+
+    for (i = 0; i < MAX_REGISTERED_ITEMS; i++) {
+        if (tBoxWinSprite[i] >= MAX_SPRITES)
+            continue;
+        sprite = &gSprites[tBoxWinSprite[i]];
+        FreeSpriteOamMatrix(sprite);
+        DestroySprite(sprite);
+    }
+
     // free item windows
     for (i = 0; i < MAX_REGISTERED_ITEMS; i++) {
         if (tIconWindow[i] == WINDOW_NONE)
             continue;
         FillWindowPixelBuffer(tIconWindow[i], 0);
-        CopyWindowToVram(tIconWindow[i], COPYWIN_FULL);
+        CopyWindowToVram(tIconWindow[i], COPYWIN_GFX);
         RemoveWindow(tIconWindow[i]);
     }
     SetHBlankCallback(NULL);
@@ -2536,12 +2546,14 @@ static void Task_KeyItemWheel(u8 taskId) {
         i = CreateTask(ItemId_GetFieldFunc(gSaveBlock1Ptr->registeredItemCompat), 8);
         gTasks[i].tUsingRegisteredKeyItem = TRUE;
         DestroyTask(taskId);
+        DisableInterrupts(INTR_FLAG_HBLANK);
         break;
     case 3:
         FreeKeyItemWheelGfx(data);
         ScriptUnfreezeObjectEvents();
         ScriptContext2_Disable();
         DestroyTask(taskId);
+        DisableInterrupts(INTR_FLAG_HBLANK);
         break;
     case 4:
         // Enable sprites to be shown inside WINOBJ
