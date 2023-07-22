@@ -31,7 +31,6 @@ build/
 *.ddump
 .idea/
 porymap.*.cfg
-.vscode/
 *.a
 .fuse_hidden*
 *.sna
@@ -39,6 +38,7 @@ porymap.*.cfg
 *.sym
 *.js
 *.ups
+!scripts/*
 data/maps/**/*.inc
 tools/poryscript/*
 tools/ups/*
