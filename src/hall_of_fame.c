@@ -4,7 +4,7 @@
 #include "palette.h"
 #include "sprite.h"
 #include "pokemon.h"
-#include "text.h"
+#include "text.h"g:\SideProjects\Pokemon\Other Sources\pokeemerald\graphics\misc\japanese_hof.png
 #include "text_window.h"
 #include "malloc.h"
 #include "gpu_regs.h"
@@ -41,9 +41,9 @@
 #define HALL_OF_FAME_MAX_TEAMS 50
 #define TAG_CONFETTI 1001
 
-#define RGB_FOCUS_FAINTED RGB(18, 18, 18)
-#define RGB_BACKGROUND RGB(16, 29, 24)
-#define RGB_BACKGROUND_FAINTED RGB(0, 13, 8)
+#define RGB_FOCUS_FAINTED RGB(18, 20, 22)
+#define RGB_BACKGROUND RGB(4, 10, 24) 
+#define RGB_BACKGROUND_FAINTED RGB(3, 0, 15)
 
 struct HallofFameMon
 {
