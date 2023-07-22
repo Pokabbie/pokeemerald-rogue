@@ -99,7 +99,8 @@
         "malloc.h": "c",
         "window.h": "c",
         "event_scripts.h": "c",
-        "event_object_lock.h": "c"
+        "event_object_lock.h": "c",
+        "graphics.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

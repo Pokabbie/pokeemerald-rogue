@@ -1,5 +1,36 @@
 #include "graphics.h"
 
+extern const u8 gItemDesc_LinkCable[];
+extern const u8 gItemDesc_QuestLog[];
+extern const u8 gItemDesc_HealingFlask[];
+extern const u8 gItemDesc_RidingWhistle[];
+extern const u8 gItemDesc_GoldRidingWhistle[];
+extern const u8 gItemDesc_ShopPriceCharm[];
+extern const u8 gItemDesc_ShopPriceCurse[];
+extern const u8 gItemDesc_FlinchCharm[];
+extern const u8 gItemDesc_FlinchCurse[];
+extern const u8 gItemDesc_CritCharm[];
+extern const u8 gItemDesc_CritCurse[];
+extern const u8 gItemDesc_ShedSkinCharm[];
+extern const u8 gItemDesc_ShedSkinCurse[];
+extern const u8 gItemDesc_WildIVCharm[];
+extern const u8 gItemDesc_WildIVCurse[];
+extern const u8 gItemDesc_CatchingCharm[];
+extern const u8 gItemDesc_CatchingCurse[];
+extern const u8 gItemDesc_GraceCharm[];
+extern const u8 gItemDesc_GraceCurse[];
+extern const u8 gItemDesc_WildCharm[];
+extern const u8 gItemDesc_WildCurse[];
+extern const u8 gItemDesc_PriorityCharm[];
+extern const u8 gItemDesc_PriorityCurse[];
+extern const u8 gItemDesc_EndureCharm[];
+extern const u8 gItemDesc_EndureCurse[];
+extern const u8 gItemDesc_PartyCurse[];
+extern const u8 gItemDesc_EverstoneCurse[];
+extern const u8 gItemDesc_BattleItemCurse[];
+extern const u8 gItemDesc_SpeciesClauseCurse[];
+extern const u8 gItemDesc_ItemShuffleCurse[];
+
 const struct RogueItem gRogueItems[] =
 {
     [ITEM_LINK_CABLE - ITEM_ROGUE_ITEM_FIRST] =
@@ -11,10 +42,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_LINK_CABLE,
         .price = 2100,
-        .description = _(
-            "Makes certain\n"
-            "species of POKéMON\n"
-            "evolve when held."),
+        .description = gItemDesc_LinkCable,
         .pocket = POCKET_HELD_ITEMS,
         .iconImage = gItemIcon_ExpShare,
         .iconPalette = gItemIconPalette_ExpShare,
@@ -29,10 +57,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_QUEST_LOG,
         .price = 0,
-        .description = _(
-            "A digital log for\n"
-            "tracking Quests\n"
-            "and their rewards."),
+        .description = gItemDesc_QuestLog,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -50,10 +75,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_HEALING_FLASK,
         .price = 0,
-        .description = _(
-            "Rechargable flask\n"
-            "capable of healing\n"
-            "all {PKMN} in the party."),
+        .description = gItemDesc_HealingFlask,
         .pocket = POCKET_KEY_ITEMS,
         .registrability = TRUE,
         .type = ITEM_USE_FIELD,
@@ -71,10 +93,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_BASIC_RIDING_WHISTLE, 
         .price = 0,
-        .description = _(
-            "A whistle used to\n"
-            "ride {PKMN} from the\n"
-            "party."),
+        .description = gItemDesc_RidingWhistle,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RideMon,
@@ -93,9 +112,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_GOLD_RIDING_WHISTLE,
         .price = 0,
-        .description = _(
-            "A whistle used to\n"
-            "ride registered {PKMN}."),
+        .description = gItemDesc_GoldRidingWhistle,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RideMon,
@@ -114,9 +131,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_SHOP_PRICE_CHARM,
         .price = 0,
-        .description = _(
-            "Shop prices are\n"
-            "reduced by 40%$"),
+        .description = gItemDesc_ShopPriceCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -133,10 +148,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_FLINCH_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly moves\n"
-            "have an extra 10%\n"
-            "chance to flinch."),
+        .description = gItemDesc_FlinchCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -153,10 +165,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_CRIT_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly POKéMON\n"
-            "have an increased\n"
-            "crit rate."),
+        .description = gItemDesc_CritCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -173,10 +182,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_SHED_SKIN_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly POKéMON\n"
-            "have a 20% chance\n"
-            "to cure status."),
+        .description = gItemDesc_ShedSkinCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -193,9 +199,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_WILD_IV_CHARM,
         .price = 0,
-        .description = _(
-            "Caught POKéMON are\n"
-            "slightly stronger."),
+        .description = gItemDesc_WildIVCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -212,10 +216,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_CATCHING_CHARM,
         .price = 0,
-        .description = _(
-            "BALL effectiveness\n"
-            "is increased by\n"
-            "100%."),
+        .description = gItemDesc_CatchingCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -232,10 +233,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_GRACE_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly moves\n"
-            "have an extra 75%\n"
-            "for extra effects."),
+        .description = gItemDesc_GraceCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -252,10 +250,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_WILD_ENCOUNTER_CHARM,
         .price = 0,
-        .description = _(
-            "Routes contain 2\n"
-            "additional wild\n"
-            "POKéMON."),
+        .description = gItemDesc_WildCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -272,10 +267,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_MOVE_PRIORITY_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly moves\n"
-            "have 10% chance to\n"
-            "activate Quick Claw."),
+        .description = gItemDesc_PriorityCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -292,10 +284,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_ENDURE_CHARM,
         .price = 0,
-        .description = _(
-            "Friendly POKéMON\n"
-            "have a 20% chance\n"
-            "to endure OHKOs."),
+        .description = gItemDesc_EndureCharm,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -313,9 +302,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_SHOP_PRICE_CURSE,
         .price = 0,
-        .description = _(
-            "Shop prices are\n"
-            "increased by 40%"),
+        .description = gItemDesc_ShopPriceCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -332,10 +319,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_FLINCH_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent moves\n"
-            "have an extra 10%\n"
-            "chance to flinch."),
+        .description = gItemDesc_FlinchCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -352,10 +336,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_CRIT_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent POKéMON\n"
-            "have an increased\n"
-            "crit rate."),
+        .description = gItemDesc_CritCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -372,10 +353,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_SHED_SKIN_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent POKéMON\n"
-            "have a 15% chance\n"
-            "to cure status."),
+        .description = gItemDesc_ShedSkinCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -392,9 +370,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_WILD_IV_CURSE,
         .price = 0,
-        .description = _(
-            "Caught POKéMON are\n"
-            "slightly weaker."),
+        .description = gItemDesc_WildIVCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -411,10 +387,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_CATCHING_CURSE,
         .price = 0,
-        .description = _(
-            "BALL effectiveness\n"
-            "is decreased by\n"
-            "25%."),
+        .description = gItemDesc_CatchingCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -431,10 +404,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_GRACE_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent moves\n"
-            "have an extra 50%\n"
-            "for extra effects."),
+        .description = gItemDesc_GraceCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -451,9 +421,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_WILD_ENCOUNTER_CURSE,
         .price = 0,
-        .description = _(
-            "Routes contain 1\n"
-            "less wild POKéMON."),
+        .description = gItemDesc_WildCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -470,10 +438,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_PARTY_CURSE,
         .price = 0,
-        .description = _(
-            "The maximum number\n"
-            "of POKéMON in your\n"
-            "party is reduced."),
+        .description = gItemDesc_PartyCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -490,10 +455,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_EVERSTONE_CURSE,
         .price = 0,
-        .description = _(
-            "'LVL UP' Evolutions\n"
-            "turn into 'LVL whilst\n"
-            "holding LINK CABLE'."),
+        .description = gItemDesc_EverstoneCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -510,10 +472,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_BATTLE_ITEM_CURSE,
         .price = 0,
-        .description = _(
-            "Items cannot be\n"
-            "used in battle.\n"
-            "(Except POKéBALLS)"),
+        .description = gItemDesc_BattleItemCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -530,10 +489,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_SPECIES_CLAUSE_CURSE,
         .price = 0,
-        .description = _(
-            "POKéMON can't be\n"
-            "caught if species\n"
-            "already in party."),
+        .description = gItemDesc_SpeciesClauseCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -550,10 +506,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_ITEM_SHUFFLE_CURSE,
         .price = 0,
-        .description = _(
-            "Entering a Battle\n"
-            "will shuffle Held\n"
-            "Items between {PKMN}."),
+        .description = gItemDesc_ItemShuffleCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -570,10 +523,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_MOVE_PRIORITY_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent moves\n"
-            "have 10% chance to\n"
-            "activate Quick Claw."),
+        .description = gItemDesc_PriorityCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
@@ -590,10 +540,7 @@ const struct RogueItem gRogueItems[] =
 #endif
         .itemId = ITEM_ENDURE_CURSE,
         .price = 0,
-        .description = _(
-            "Opponent POKéMON\n"
-            "have a 20% chance\n"
-            "to endure OHKOs."),
+        .description = gItemDesc_EndureCurse,
         .pocket = POCKET_CHARMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,

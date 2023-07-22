@@ -37,14 +37,13 @@ EXE :=
 endif
 
 ifeq ($(OS),Windows_NT)
-SCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
-PORYSCRIPTARGS :=
+PORYSCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
 else
-SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
-PORYSCRIPTARGS :=
+PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
 
-PORYSCRIPTARGS := $(PORYSCRIPTARGS) -fc poryscript_font_config.json -s ROGUE_VERSION=ROGUE_VERSION_VANILLA
+ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
+PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_VANILLA -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
@@ -272,6 +271,7 @@ ifneq ($(MODERN),0)
 $(C_BUILDDIR)/berry_crush.o: override CFLAGS += -Wno-address-of-packed-member
 endif
 
+include $(ROGUEPORYSCRIPTSDIR)/rogue_poryscripts.mk
 include graphics_file_rules.mk
 include map_data_rules.mk
 include spritesheet_rules.mk
@@ -294,7 +294,7 @@ include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 %.rl: % ; $(GFX) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
+data/%.inc: data/%.pory; $(PORYSCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
 
 
 ifeq ($(MODERN),0)

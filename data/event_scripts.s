@@ -590,9 +590,11 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/scripts/Rogue/Rogue_FollowMon.inc"
 	.include "data/scripts/Rogue/Rogue_Hub.inc"
-	.include "data/scripts/Rogue/Rogue_Hub_Strings.inc"
 	.include "data/scripts/Rogue/Rogue_Manager.inc"
 	.include "data/scripts/Rogue/Rogue_Multiplayer.inc"
+
+	.include "data/scripts/Rogue/Strings/Rogue_Strings_Common.inc"
+	.include "data/scripts/Rogue/Strings/Rogue_Strings_Items.inc"
 
 	.include "data/maps/Rogue_Hub/scripts.inc"
 
