@@ -174,14 +174,14 @@ struct RogueRunData
 
 struct RogueHubArea
 {
-    const u8 areaName[16];
     const u8* descText;
     const u8* completeText;
-    u16 primaryMapGroup;
+    const u8 areaName[16];
+    u8 connectionWarps[4][2];
     u16 primaryMapNum;
     u16 primaryMapLayout;
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
-    u8 connectionWarps[4][2];
+    u8 primaryMapGroup;
 };
 
 struct RogueAreaUpgrade
@@ -392,7 +392,7 @@ extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];
 
 extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
-const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
+extern const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];

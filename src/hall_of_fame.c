@@ -4,7 +4,7 @@
 #include "palette.h"
 #include "sprite.h"
 #include "pokemon.h"
-#include "text.h"g:\SideProjects\Pokemon\Other Sources\pokeemerald\graphics\misc\japanese_hof.png
+#include "text.h"
 #include "text_window.h"
 #include "malloc.h"
 #include "gpu_regs.h"

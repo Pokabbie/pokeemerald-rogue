@@ -47,17 +47,18 @@ enum
 
 struct RideMonSpriteInfo
 {
-    s8 playerX;
+    // Y has larger ranges than X
     s8 playerY;
-    s8 monX;
     s8 monY;
+    s8 playerX;
+    s8 monX : 7;
     u8 playerRendersInFront : 1;
 };
 
 struct RideMonInfo
 {
-    u8 flags;
     struct RideMonSpriteInfo spriteInfo[RIDE_SPRITE_DIR_COUNT];
+    u8 flags;
 };
 
 #include "data/rogue_ridemon_infos.h"
