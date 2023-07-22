@@ -5,8 +5,6 @@ ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
 endif
 
-SCRIPT := tools/poryscript/poryscript$(EXE) -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION
-
 # don't use dkP's base_tools anymore
 # because the redefinition of $(CC) conflicts
 # with when we want to use $(CC) to preprocess files
@@ -37,6 +35,16 @@ EXE := .exe
 else
 EXE :=
 endif
+
+ifeq ($(OS),Windows_NT)
+SCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
+PORYSCRIPTARGS := -fc tools/poryscript/poryscript-windows/font_widths.json
+else
+SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
+PORYSCRIPTARGS := -fc tools/poryscript/poryscript-linux/font_widths.json
+endif
+
+PORYSCRIPTARGS := $(PORYSCRIPTARGS) -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
@@ -136,7 +144,9 @@ JSONPROC := tools/jsonproc/jsonproc$(EXE)
 
 PERL := perl
 
-TOOLDIRS := $(filter-out tools/agbcc tools/binutils tools/poryscript,$(wildcard tools/*))
+
+# Inclusive list. If you don't want a tool to be built, don't add it here.
+TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
@@ -286,7 +296,7 @@ include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 $(CRY_SUBDIR)/uncomp_%.bin: $(CRY_SUBDIR)/uncomp_%.aif ; $(AIF) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fw tools/poryscript/font_widths.json
+data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
 
 
 ifeq ($(MODERN),0)
