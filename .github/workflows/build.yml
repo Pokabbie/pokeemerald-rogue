@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - master
-      - battle_engine
-      - pokemon_expansion
-      - item_expansion
+      - vanilla
+      - vanilla-dev
+      - expansion
+      - expansion-dev
   pull_request:
 
 jobs:
@@ -20,19 +20,23 @@ jobs:
       COMPARE: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Checkout agbcc
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: agbcc
           repository: pret/agbcc
 
       - name: Install binutils
-        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi
+        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi libelf-dev
         # build-essential, git, and libpng-dev are already installed
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
+
+      - name: Install Dependencies
+        run: |
+          ./init_deps.sh
 
       - name: Install agbcc
         run: |
@@ -40,11 +44,17 @@ jobs:
           ./install.sh ../
         working-directory: agbcc
 
-      - name: Agbcc
-        run: make -j${nproc} all
 
-      - name: Modern
-        env:
-          MODERN: 1
-          COMPARE: 0
-        run: make -j${nproc} all
+      - name: Agbcc
+        run: make -j${nproc} -O all
+
+      # - name: Modern
+      #   env:
+      #     MODERN: 1
+      #     COMPARE: 0
+      #   run: make -j${nproc} -O all
+
+      # - name: Test
+      #   run: |
+      #     make -j${nproc} -O pokeemerald-test.elf
+      #     make -j${nproc} check
