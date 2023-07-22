@@ -38,5 +38,7 @@ porymap.*.cfg
 *.diff
 *.sym
 *.js
+*.ups
 data/maps/**/*.inc
 tools/poryscript/*
+tools/ups/*
