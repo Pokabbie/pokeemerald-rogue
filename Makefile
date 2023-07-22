@@ -38,9 +38,13 @@ endif
 
 ifeq ($(OS),Windows_NT)
 SCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
+PORYSCRIPTARGS := -fc tools/poryscript/poryscript-windows/font_widths.json
 else
 SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
+PORYSCRIPTARGS := -fc tools/poryscript/poryscript-linux/font_widths.json
 endif
+
+PORYSCRIPTARGS := $(PORYSCRIPTARGS) -s ROGUE_VERSION=ROGUE_VERSION_VANILLA
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
@@ -289,7 +293,7 @@ include songs.mk
 %.rl: % ; $(GFX) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fw tools/poryscript/font_widths.json
+data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
 
 
 ifeq ($(MODERN),0)
