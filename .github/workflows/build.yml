@@ -20,10 +20,10 @@ jobs:
       COMPARE: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Checkout agbcc
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: agbcc
           repository: pret/agbcc
@@ -41,13 +41,13 @@ jobs:
         working-directory: agbcc
 
       - name: Agbcc
-        run: make -j${nproc} -O all
+        run: make -j${nproc} all
 
       - name: Modern
         env:
           MODERN: 1
           COMPARE: 0
-        run: make -j${nproc} -O all
+        run: make -j${nproc} all
 
       # - name: Test
       #   run: |
