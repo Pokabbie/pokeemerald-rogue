@@ -44,7 +44,7 @@ SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 PORYSCRIPTARGS := -fc tools/poryscript/poryscript-linux/font_widths.json
 endif
 
-PORYSCRIPTARGS := $(PORYSCRIPTARGS) -s ROGUE_VERSION=ROGUE_VERSION_VANILLA
+PORYSCRIPTARGS := $(PORYSCRIPTARGS) -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
