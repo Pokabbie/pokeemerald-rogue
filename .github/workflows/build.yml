@@ -42,6 +42,7 @@ jobs:
 
       - name: Install poryscript
         run: |
+          go build
           ./install.sh ../
         working-directory: poryscript
 
