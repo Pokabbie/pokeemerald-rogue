@@ -5,8 +5,6 @@ ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
 endif
 
-SCRIPT := tools/poryscript/poryscript$(EXE)
-
 # don't use dkP's base_tools anymore
 # because the redefinition of $(CC) conflicts
 # with when we want to use $(CC) to preprocess files
@@ -36,6 +34,12 @@ ifeq ($(OS),Windows_NT)
 EXE := .exe
 else
 EXE :=
+endif
+
+ifeq ($(OS),Windows_NT)
+SCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
+else
+SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
 
 TITLE       := POKEMON EMER
