@@ -1,0 +1,70 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Just Build",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build",
+        },
+        {
+            "name": "Just Rebuild",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "rebuild",
+        },
+        {
+            "name": "Just Clean",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "clean",
+        },
+
+        {
+            "name": "Just Launch (attach)",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "gdb-debug",
+            "serverLaunchTimeout": 20000,
+            //"stopOnEntry": true,
+            "program": "${workspaceRoot}/pokeemerald.elf",
+            "args":[
+                "target remote localhost:2345"
+            ],
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}",
+            "targetArchitecture": "arm",
+            "miDebuggerServerAddress": "localhost:2345",
+            "serverStarted": "started-mgba-server",
+            "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
+        },
+
+        {
+            "name": "Build & Launch (attach)",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "build & debug",
+            "serverLaunchTimeout": 20000,
+            //"stopOnEntry": true,
+            "program": "${workspaceRoot}/pokeemerald.elf",
+            "args":[
+                "target remote localhost:2345"
+            ],
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}",
+            "targetArchitecture": "arm",
+            "miDebuggerServerAddress": "localhost:2345",
+            "serverStarted": "started-mgba-server",
+            "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
+        },
+
+        {
+            "name": "Build & Launch",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build & launch"
+        },
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        { 
+            "label": "stop emulation",
+            "type":"shell",
+            "windows": {
+                "command":"taskkill /im mGBA.exe /F"
+            },
+            "osx": {
+                "command": "killall mGBA"
+            }
+        },
+        { 
+            "label": "start emulator",
+            "type": "shell",
+            "isBackground": true,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_emu.bat"
+            },
+        },
+        { 
+            "label": "start emulator (debug)",
+            "type": "shell",
+            "isBackground": true,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_emu_debug.bat"
+            },
+        },
+        {
+            "label": "gdb-debug",
+            "type": "shell",
+            "dependsOn": ["start emulator (debug)"],
+            "isBackground": false,
+            "windows": {
+                "command": "sleep 1; echo debuggerReady"
+            },
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "panel": "new"
+            },
+            "command": "debuggerReady",
+            "problemMatcher": {
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*debuggerReady.*$",
+                    "endsPattern": "^.*debuggerReady.*$"
+                },
+            }
+        },
+
+        { 
+            "label": "build",
+            "type":"shell",
+            "isBackground": false,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_build.bat"
+            },
+        },
+        { 
+            "label": "clean",
+            "type":"shell",
+            "isBackground": false,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_clean.bat"
+            },
+        },
+        { 
+            "label": "rebuild",
+            "type":"shell",
+            "isBackground": false,
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "clean",
+                "build"
+            ]
+        },
+        { 
+            "label": "build & debug",
+            "type":"shell",
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "build",
+                "gdb-debug"
+            ]
+        },
+        { 
+            "label": "build & launch",
+            "type":"shell",
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "build",
+                "start emulator"
+            ]
+        }
+    ]
+}
