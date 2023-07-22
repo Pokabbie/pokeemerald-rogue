@@ -20,7 +20,7 @@ jobs:
       COMPARE: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@vanilla-dev
 
       - name: Checkout agbcc
         uses: actions/checkout@v2
