@@ -42,3 +42,4 @@ porymap.*.cfg
 data/maps/**/*.inc
 tools/poryscript/*
 tools/ups/*
+!tools/Pokabbie/Build
