@@ -41,6 +41,13 @@ static void ProcessMapFile(std::string const& filePath);
 
 int main(int argc, char **argv)
 {
+    const char* automationHost = std::getenv("AUTOMATION_HOST");
+    if (automationHost != nullptr)
+    {
+        std::cout << "Skipping memorystats (AUTOMATION_HOST is defined). ";
+        return 0;
+    }
+
     std::vector<std::string> filesToProcess;
 
     argc--;
