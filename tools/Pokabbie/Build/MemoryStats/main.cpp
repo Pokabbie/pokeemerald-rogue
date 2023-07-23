@@ -14,25 +14,12 @@ static inline void FatalExit()
     exit(1);
 }
 
-#ifdef _MSC_VER
-
-#define FATAL_ERROR(format, ...)           \
+#define FATAL_ERROR(format)                \
 do                                         \
 {                                          \
-	fprintf(stderr, format, __VA_ARGS__);  \
+	std::cout << format << '\n';           \
 	FatalExit();                           \
 } while (0)
-
-#else
-
-#define FATAL_ERROR(format, ...)            \
-do                                          \
-{                                           \
-	fprintf(stderr, format, ##__VA_ARGS__); \
-	FatalExit();                            \
-} while (0)
-
-#endif // _MSC_VER
 
 
 const char *const cUsage = "Usage: memorystats [-F TARGET_PATH] FILE_PATH\n";
