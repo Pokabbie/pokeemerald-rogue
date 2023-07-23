@@ -301,7 +301,6 @@ static void PrintSearchParameterTitle(u32, const u8*);
 static void ClearSearchParameterBoxText(void);
 
 // const rom data
-#include "data/pokemon/pokedex_orders.h"
 
 static const struct OamData sOamData_ScrollBar =
 {
