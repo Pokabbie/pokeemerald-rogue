@@ -491,7 +491,8 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
         return trainer->trainerName;
     }
 
-    return gTrainers[trainerNum].trainerName;
+    AGB_ASSERT(FALSE);
+    return NULL;
 #else
     return NULL;
 #endif
@@ -508,8 +509,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
     if(Rogue_TryGetTrainer(trainerNum, &trainer))
     {
-        memcpy(outTrainer, &gTrainers[TRAINER_NONE], sizeof(struct Trainer));
-
         outTrainer->trainerClass = trainer->trainerClass;
         outTrainer->encounterMusic_gender = trainer->encounterMusic_gender;
         outTrainer->trainerPic = trainer->trainerPic;
@@ -641,7 +640,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
     {
         // We shouldn't ever get here
         AGB_ASSERT(FALSE);
-        memcpy(outTrainer, &gTrainers[trainerNum], sizeof(struct Trainer));
     }
 #endif
 }

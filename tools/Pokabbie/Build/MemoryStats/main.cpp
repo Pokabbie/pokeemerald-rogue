@@ -156,16 +156,19 @@ static void ProcessMapFile(std::string const& filePath)
             if (strutil::starts_with(line, "ewram "))
             {
                 states.currentReadBlock = ReadBlock::EWRam;
+                states.previousItem = nullptr;
                 continue;
             }
             else if (strutil::starts_with(line, "iwram "))
             {
                 states.currentReadBlock = ReadBlock::IWRam;
+                states.previousItem = nullptr;
                 continue;
             }
             else if (strutil::starts_with(line, ".text "))
             {
                 states.currentReadBlock = ReadBlock::Rom;
+                states.previousItem = nullptr;
                 continue;
             }
 
@@ -200,25 +203,55 @@ static void ProcessMapFile(std::string const& filePath)
     DumpStatsFile(outputStats, outputFile);
 }
 
+static void CloseExistingBlock(MemoryStats& outputStats, ParsingStates& states)
+{
+    states.readingStatsBlock = true;
+    states.hasReadBlockHeader = false;
+
+    if (states.targetBlock != nullptr)
+    {
+        if (states.targetBlock->block.size == 0)
+        {
+            // Manually calculate the size
+            for (auto item : states.targetBlock->items)
+            {
+                states.targetBlock->block.size += item.size;
+            }
+        }
+    }
+}
+
+static MemoryStatsBlock* FindOrCreateBlock(MemoryStatsDomain& domain, std::string const& blockName)
+{
+    for (MemoryStatsBlock& block : domain.blocks)
+    {
+        if (block.block.name == blockName)
+        {
+            // Found existing
+            return &block;
+        }
+    }
+
+    // Make new
+    domain.blocks.emplace_back();
+
+    MemoryStatsBlock& statsBlock = domain.blocks.back();
+    statsBlock.block.name = blockName;
+    return &statsBlock;
+}
+
 static bool ReadEWRamData(std::string const& line, MemoryStats& outputStats, ParsingStates& states)
 {
     if (strutil::ends_with(line, "(ewram_data)"))
     {
-
-        states.readingStatsBlock = true;
-        states.hasReadBlockHeader = false;
-        states.previousItem = nullptr;
+        CloseExistingBlock(outputStats, states);
 
         // omit name
         std::string blockName = line.substr(0, line.size() - 12);
         strutil::trim(blockName);
 
         states.targetDomain = &outputStats.ewram;
-        outputStats.ewram.blocks.emplace_back();
-
-        MemoryStatsBlock& statsBlock = outputStats.ewram.blocks.back();
-        statsBlock.block.name = blockName;
-        states.targetBlock = &statsBlock;
+        states.targetBlock = FindOrCreateBlock(outputStats.ewram, blockName);
         return true;
     }
 
@@ -229,20 +262,14 @@ static bool ReadIWRamData(std::string const& line, MemoryStats& outputStats, Par
 {
     if (strutil::ends_with(line, "(.bss)"))
     {
-        states.readingStatsBlock = true;
-        states.hasReadBlockHeader = false;
-        states.previousItem = nullptr;
+        CloseExistingBlock(outputStats, states);
 
         // omit name
         std::string blockName = line.substr(0, line.size() - 6);
         strutil::trim(blockName);
 
         states.targetDomain = &outputStats.iwram;
-        outputStats.iwram.blocks.emplace_back();
-
-        MemoryStatsBlock& statsBlock = outputStats.iwram.blocks.back();
-        statsBlock.block.name = blockName;
-        states.targetBlock = &statsBlock;
+        states.targetBlock = FindOrCreateBlock(outputStats.iwram, blockName);
         return true;
     }
 
@@ -253,12 +280,22 @@ static bool ReadRomData(std::string const& line, MemoryStats& outputStats, Parsi
 {
     if (strutil::ends_with(line, "(.text)"))
     {
-        states.readingStatsBlock = true;
-        states.hasReadBlockHeader = false;
-        states.previousItem = nullptr;
+        CloseExistingBlock(outputStats, states);
 
         // omit name
         std::string blockName = line.substr(0, line.size() - 7);
+        strutil::trim(blockName);
+
+        states.targetDomain = &outputStats.rom;
+        states.targetBlock = FindOrCreateBlock(outputStats.rom, blockName);
+        return true;
+    }
+    else if (strutil::ends_with(line, "(.rodata)"))
+    {
+        CloseExistingBlock(outputStats, states);
+
+        // omit name
+        std::string blockName = line.substr(0, line.size() - 9);
         strutil::trim(blockName);
 
         states.targetDomain = &outputStats.rom;
