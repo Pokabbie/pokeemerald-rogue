@@ -24,7 +24,7 @@
 #define ACTIVITY_CARD               8
 #define ACTIVITY_POKEMON_JUMP       9
 #define ACTIVITY_BERRY_CRUSH        10
-#define ACTIVITY_BERRY_PICK         11
+#define ACTIVITY_BERRY_PICK         11 // unused
 #define ACTIVITY_SEARCH             12
 #define ACTIVITY_SPIN_TRADE         13
 #define ACTIVITY_BATTLE_TOWER_OPEN  14
@@ -57,7 +57,7 @@
 #define LINK_GROUP_TRADE                3
 #define LINK_GROUP_POKEMON_JUMP         4
 #define LINK_GROUP_BERRY_CRUSH          5
-#define LINK_GROUP_BERRY_PICKING        6
+#define LINK_GROUP_BERRY_PICKING        6 // unused
 #define LINK_GROUP_WONDER_CARD          7
 #define LINK_GROUP_WONDER_NEWS          8
 #define LINK_GROUP_UNION_ROOM_RESUME    9

@@ -20,7 +20,6 @@
 	.include "src/union_room_chat.o"
 	.include "src/berry_crush.o"
 	.include "src/berry_powder.o"
-	.include "src/dodrio_berry_picking.o"
 	.include "src/pokemon_jump.o"
 	.include "src/main_menu.o"
 	.include "src/battle_controllers.o"
