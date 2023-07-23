@@ -18,6 +18,7 @@ jobs:
       GAME_LANGUAGE: ENGLISH
       MODERN: 0
       COMPARE: 0
+      AUTOMATION_HOST: GITHUB
     steps:
       - name: Checkout
         uses: actions/checkout@v3

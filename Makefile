@@ -37,14 +37,13 @@ EXE :=
 endif
 
 ifeq ($(OS),Windows_NT)
-SCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
-PORYSCRIPTARGS :=
+PORYSCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
 else
-SCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
-PORYSCRIPTARGS :=
+PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
 
-PORYSCRIPTARGS := $(PORYSCRIPTARGS) -fc poryscript_font_config.json -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION
+ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
+PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
@@ -141,12 +140,13 @@ RAMSCRGEN := tools/ramscrgen/ramscrgen$(EXE)
 FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
+MEMORYSTATS := tools/Pokabbie/Build/Memorystats/memorystats$(EXE)
 
 PERL := perl
 
 
 # Inclusive list. If you don't want a tool to be built, don't add it here.
-TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc
+TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc tools/Pokabbie/Build/Memorystats
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
@@ -272,6 +272,7 @@ ifneq ($(MODERN),0)
 $(C_BUILDDIR)/berry_crush.o: override CFLAGS += -Wno-address-of-packed-member
 endif
 
+include $(ROGUEPORYSCRIPTSDIR)/rogue_poryscripts.mk
 include graphics_file_rules.mk
 include map_data_rules.mk
 include spritesheet_rules.mk
@@ -296,7 +297,7 @@ include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 $(CRY_SUBDIR)/uncomp_%.bin: $(CRY_SUBDIR)/uncomp_%.aif ; $(AIF) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
+data/%.inc: data/%.pory; $(PORYSCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
 
 
 ifeq ($(MODERN),0)
@@ -442,6 +443,7 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 	$(FIX) $@ -p --silent
+	$(MEMORYSTATS) -F $(MAP_NAME)
 
 modern: all
 

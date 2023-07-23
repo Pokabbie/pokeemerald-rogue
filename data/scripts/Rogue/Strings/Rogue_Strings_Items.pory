@@ -1,0 +1,140 @@
+text gItemDesc_LinkCable
+{
+    format("Makes certain species of POKéMON evolve when held.")
+}
+
+text gItemDesc_QuestLog
+{
+    format("A digital log for tracking Quests and their rewards.")
+}
+
+text gItemDesc_HealingFlask
+{
+    format("Rechargable flask capable of healing all {PKMN} in the party.")
+}
+
+text gItemDesc_RidingWhistle
+{
+    format("A whistle used to ride {PKMN} from the party.")
+}
+
+text gItemDesc_GoldRidingWhistle
+{
+    format("A whistle used to ride registered {PKMN}.")
+}
+
+
+text gItemDesc_ShopPriceCharm
+{
+    format("Shop prices are reduced by 40%")
+}
+text gItemDesc_ShopPriceCurse
+{
+    format("Shop prices are increased by 40%")
+}
+
+text gItemDesc_FlinchCharm
+{
+    format("Friendly moves have an extra 10% chance to flinch.")
+}
+text gItemDesc_FlinchCurse
+{
+    format("Opponent moves have an extra 10% chance to flinch.")
+}
+
+text gItemDesc_CritCharm
+{
+    format("Friendly POKéMON have an increased crit rate.")
+}
+text gItemDesc_CritCurse
+{
+    format("Opponent POKéMON have an increased crit rate.")
+}
+
+text gItemDesc_ShedSkinCharm
+{
+    format("Friendly POKéMON have a 20% chance to cure status.")
+}
+text gItemDesc_ShedSkinCurse
+{
+    format("Opponent POKéMON have a 15% chance to cure status.")
+}
+
+text gItemDesc_WildIVCharm
+{
+    format("Caught POKéMON are slightly stronger.")
+}
+text gItemDesc_WildIVCurse
+{
+    format("Caught POKéMON are slightly weaker.")
+}
+
+text gItemDesc_CatchingCharm
+{
+    format("BALL effectiveness is increased by 100%.")
+}
+text gItemDesc_CatchingCurse
+{
+    format("BALL effectiveness is decreased by 25%.")
+}
+
+text gItemDesc_GraceCharm
+{
+    format("Friendly moves have an extra 75% for extra effects.")
+}
+text gItemDesc_GraceCurse
+{
+    format("Opponent moves have an extra 50% for extra effects.")
+}
+
+text gItemDesc_WildCharm
+{
+    format("Routes contain 2 additional wild POKéMON.")
+}
+text gItemDesc_WildCurse
+{
+    format("Routes contain 1 less wild POKéMON.")
+}
+
+text gItemDesc_PriorityCharm
+{
+    format("Friendly moves have 10% chance to apply Quick Claw.")
+}
+text gItemDesc_PriorityCurse
+{
+    format("Opponent moves have 10% chance to apply Quick Claw.")
+}
+
+text gItemDesc_EndureCharm
+{
+    format("Friendly POKéMON have a 20% chance to endure OHKOs.")
+}
+text gItemDesc_EndureCurse
+{
+    format("Opponent POKéMON have a 20% chance to endure OHKOs.")
+}
+
+text gItemDesc_PartyCurse
+{
+    format("The maximum number of POKéMON in your party is reduced.")
+}
+
+text gItemDesc_EverstoneCurse
+{
+    format("'LVL UP' Evolutions turn into 'LVL whilst holding LINK CABLE'.")
+}
+
+text gItemDesc_BattleItemCurse
+{
+    format("Items cannot be used in battle. (Except POKéBALLS)")
+}
+
+text gItemDesc_SpeciesClauseCurse
+{
+    format("POKéMON can't be caught if species already in party.")
+}
+
+text gItemDesc_ItemShuffleCurse
+{
+    format("Entering a Battle will shuffle Held Items between {PKMN}.")
+}
