@@ -356,7 +356,10 @@ gSpecials::
 	def_special MoveElevator
 	def_special ShowGlassWorkshopMenu
 	def_special SpawnCameraObject
+	def_special SpawnCameraObjectAtCoords
 	def_special RemoveCameraObject
+	def_special ShowPlayerObject
+	def_special HidePlayerObject
 	def_special GetPokeblockNameByMonNature
 	def_special GetSecretBaseNearbyMapName
 	def_special CheckRelicanthWailord

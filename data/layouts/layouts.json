@@ -1610,6 +1610,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_AdventureEntrance/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_AdventureEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTRO",
+      "name": "Rogue_Intro_Layout",
+      "width": 16,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Intro/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Intro/map.bin"
     }
   ]
 }

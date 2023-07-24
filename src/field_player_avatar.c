@@ -1497,6 +1497,10 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
     gPlayerAvatar.gender = gender;
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_CONTROLLABLE | PLAYER_AVATAR_FLAG_ON_FOOT);
     CreateFollowerAvatar();
+
+    // When loading into the intro, we're going to hide the player sprite initially
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTRO))
+        SetPlayerInvisibility(TRUE);
 }
 
 void SetPlayerInvisibility(bool8 invisible)
