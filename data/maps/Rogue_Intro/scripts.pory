@@ -99,7 +99,9 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     waitmovement(OBJ_LOCAL_ID_FOLLOWMON_ROAMER)
 
     msgbox(format("Do you remember what you look like?"))
-    msgbox(format("TODO"))
+    fadescreen(FADE_TO_BLACK)
+    special(Special_ViewPlayerCustomisationMenu)
+    waitstate
 
     msgbox(format("And what is your name?"))
     fadescreen(FADE_TO_BLACK)

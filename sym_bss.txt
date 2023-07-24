@@ -80,3 +80,4 @@
 	.include "src/rogue_charms.o"
 	.include "src/rogue_settings.o"
 	.include "src/rogue_settings_ui.o"
+	.include "src/rogue_player_customisation_ui.o"

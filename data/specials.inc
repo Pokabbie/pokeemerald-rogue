@@ -344,6 +344,7 @@ gSpecials::
 	def_special Special_ShowDiploma
 	def_special Special_ViewDifficultyConfigMenu
 	def_special Special_ViewRoguePokedex
+	def_special Special_ViewPlayerCustomisationMenu
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute
