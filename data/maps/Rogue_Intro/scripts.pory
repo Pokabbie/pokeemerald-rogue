@@ -84,12 +84,20 @@ script Rogue_Intro_MapScripts_LoadFrame_0
         "The world has changed quite a lot recently…\p"
         "Routes within the world seem to be connecting up at random. Making exploring even more difficult.\p"
         "Though there is one thing for sure, trainers are still out their and itching for battles!\p"
-        "So, in order to explore the world, you need to be a master at catching and training POKéMON!"
-    ))
-    waitmovement(0)
+        "So, in order to explore the world, you need to be a master at catching and training POKéMON!\p"
 
-    msgbox(format("Now…\nLet me put your memory to the test…"))
-    
+        "Now…\nLet me put your memory to the test…"
+    ))
+
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_PARENT)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_CHILD)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FLYMON0)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FLYMON1)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON1)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0)
+    waitmovement(OBJ_LOCAL_ID_FOLLOWMON_ROAMER)
+
     msgbox(format("Do you remember what you look like?"))
     msgbox(format("TODO"))
 
@@ -174,6 +182,8 @@ script Rogue_Intro_PlayAnim_FlyingMons
 
 movement Rogue_Intro_MonMovement_FlyMon
 {
+    delay_16 * 24
+
     walk_slow_up * 14
 }
 
@@ -188,6 +198,8 @@ script Rogue_Intro_PlayAnim_FightMons
 
 movement Rogue_Intro_MonMovement_FightMon0
 {
+    delay_16 * 8
+
     walk_fast_down * 8
     jump_2_up
     face_down
@@ -217,6 +229,8 @@ movement Rogue_Intro_MonMovement_FightMon0
 
 movement Rogue_Intro_MonMovement_FightMon1
 {
+    delay_16 * 8
+
     walk_fast_up * 8
     jump_2_down
     face_up
@@ -243,13 +257,16 @@ movement Rogue_Intro_MonMovement_FightMon1
 
 script Rogue_Intro_PlayAnim_RoamerMons
 {
-    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_ROAMER, 16, 2)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_ROAMER, 17, 2)
 
     applymovement(OBJ_LOCAL_ID_FOLLOWMON_ROAMER, Rogue_Intro_MonMovement_RoamerMon)
 }
 
 movement Rogue_Intro_MonMovement_RoamerMon
 {
+    delay_16 * 16
+
+    walk_left
     jump_2_left * 5
     jump_2_down * 2
     jump_2_right * 2

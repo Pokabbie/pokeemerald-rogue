@@ -217,8 +217,6 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     Rogue_OnNewGame();
 
-    StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
-
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
 }
 
