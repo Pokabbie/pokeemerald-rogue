@@ -28,6 +28,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 #define PALTAG_UNUSED_MUGSHOT 0x100A
 
@@ -904,7 +905,7 @@ static const u16 sMugshotPal_Drake[] = INCBIN_U16("graphics/battle_transitions/d
 static const u16 sMugshotPal_Champion[] = INCBIN_U16("graphics/battle_transitions/wallace_bg.gbapal");
 static const u16 sMugshotPal_Steven[] = INCBIN_U16("graphics/battle_transitions/steven_bg.gbapal");
 static const u16 sMugshotPal_Brendan[] = INCBIN_U16("graphics/battle_transitions/brendan_bg.gbapal");
-static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
+//static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
@@ -914,16 +915,6 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_DRAKE] = sMugshotPal_Drake,
     [MUGSHOT_CHAMPION] = sMugshotPal_Champion,
     [MUGSHOT_CHAMPION_STEVEN] = sMugshotPal_Steven
-};
-
-static const u16 *const sPlayerMugshotsPals[PLAYER_STYLE_COUNT] =
-{
-    [STYLE_EMR_BRENDAN] = sMugshotPal_Brendan,
-    [STYLE_EMR_MAY] = sMugshotPal_May,
-    [STYLE_RED] = sMugshotPal_Brendan,
-    [STYLE_LEAF] = sMugshotPal_May,
-    [STYLE_ETHAN] = sMugshotPal_Brendan,
-    [STYLE_LYRA] = sMugshotPal_May,
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
@@ -2352,7 +2343,7 @@ static bool8 Mugshot_SetGfx(struct Task *task)
     GetBg0TilesDst(&tilemap, &tileset);
     CpuSet(sEliteFour_Tileset, tileset, 0xF0);
     LoadPalette(sOpponentMugshotsPals[task->tMugshotId], 0xF0, 0x20);
-    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], 0xFA, 0xC);
+    LoadPalette(sMugshotPal_Brendan, 0xFA, 0xC); // RogueNote: always use the same palette for the player
 
     for (i = 0; i < 20; i++)
     {
@@ -2617,7 +2608,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
                                                   sMugshotsOpponentCoords[mugshotId][0] - 32,
                                                   sMugshotsOpponentCoords[mugshotId][1] + 42,
                                                   0, gDecompressionBuffer).spriteId;
-    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
+    task->tPlayerSpriteId = CreateTrainerSprite(RoguePlayer_GetTrainerFrontPic(),
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, gDecompressionBuffer).spriteId;

@@ -50,6 +50,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_settings.h"
 
@@ -1461,7 +1462,6 @@ static void Task_SaveAfterLinkBattle(u8 taskId)
 static void ShowSaveInfoWindow(void)
 {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
-    u8 gender;
     u8 color;
     u32 xOffset;
     u32 yOffset;
@@ -1474,17 +1474,25 @@ static void ShowSaveInfoWindow(void)
     sSaveInfoWindowId = AddWindow(&saveInfoWindow);
     DrawStdWindowFrame(sSaveInfoWindowId, FALSE);
 
-    gender = gSaveBlock2Ptr->playerGender;
-    color = TEXT_COLOR_RED;  // Red when female, blue when male.
-
-    if ((gender % 2) == MALE)
+    // Unique text colour for player?
+    switch (RoguePlayer_GetTextVariantId() % 3)
     {
+    case 0:
+        color = TEXT_COLOR_RED;
+        break;
+
+    case 1:
+        color = TEXT_COLOR_GREEN;
+        break;
+
+    case 2:
         color = TEXT_COLOR_BLUE;
+        break;
     }
 
     // Print region name
     yOffset = 1;
-    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_GREEN);
+    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_BLUE);
     AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, 0, yOffset, TEXT_SKIP_DRAW, NULL);
 
     // Print player name

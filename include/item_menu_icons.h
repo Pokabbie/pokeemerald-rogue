@@ -1,11 +1,21 @@
 #ifndef GUARD_ITEM_MENU_ICONS_H
 #define GUARD_ITEM_MENU_ICONS_H
 
-#define BAG_VARIANT_COUNT 3
+enum
+{
+    BAG_GFX_VARIANT_BRENDAN,
+    BAG_GFX_VARIANT_MAY,
+    BAG_GFX_VARIANT_RED,
+    BAG_GFX_VARIANT_LEAF,
+    BAG_GFX_VARIANT_ETHAN,
+    BAG_GFX_VARIANT_LYRA,
 
-extern const struct CompressedSpriteSheet gBagMaleSpriteSheet[BAG_VARIANT_COUNT];
-extern const struct CompressedSpriteSheet gBagFemaleSpriteSheet[BAG_VARIANT_COUNT];
-extern const struct CompressedSpritePalette gBagPaletteTable[BAG_VARIANT_COUNT];
+    BAG_GFX_VARIANT_COUNT,
+};
+
+extern const struct CompressedSpriteSheet gBagSpriteSheet[BAG_GFX_VARIANT_COUNT];
+extern const struct CompressedSpritePalette gBagPaletteTable[BAG_GFX_VARIANT_COUNT];
+
 extern const struct CompressedSpriteSheet gBerryCheckCircleSpriteSheet;
 extern const struct CompressedSpritePalette gBerryCheckCirclePaletteTable;
 

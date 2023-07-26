@@ -2039,65 +2039,16 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     // Handle mirror??? (todo - rework this???)
     else if (graphicsId >= NUM_OBJ_EVENT_GFX)
     {
+        return GetObjectEventGraphicsInfo(OBJ_EVENT_GFX_PLAYER_NORMAL);
+
         switch (graphicsId)
         {
         case OBJ_EVENT_GFX_PLAYER_AVATAR:
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
-                    break;
-                case(STYLE_EMR_MAY):
-                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
-                    break;
-
-                case(STYLE_RED):
-                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
-                    break;
-                case(STYLE_LEAF):
-                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
-                    break;
-
-                case(STYLE_ETHAN):
-                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
-                    break;
-                case(STYLE_LYRA):
-                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
-                    break;
-                default:
-                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
-                    break;
-            };
-            break;
+            return GetObjectEventGraphicsInfo(OBJ_EVENT_GFX_PLAYER_NORMAL);
 
         case OBJ_EVENT_GFX_PLAYER_RIVAL:
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
-                    break;
-                case(STYLE_EMR_MAY):
-                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
-                    break;
-
-                case(STYLE_RED):
-                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
-                    break;
-                case(STYLE_LEAF):
-                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
-                    break;
-
-                case(STYLE_ETHAN):
-                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
-                    break;
-                case(STYLE_LYRA):
-                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
-                    break;
-                default:
-                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
-                    break;
-            };
-            break;
+            // TODO - Fix this up?
+            graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
         
         default:
             graphicsId = OBJ_EVENT_GFX_NINJA_BOY;

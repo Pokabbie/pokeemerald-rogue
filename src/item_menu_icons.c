@@ -137,25 +137,24 @@ static const union AffineAnimCmd *const sBagAffineAnimCmds[] =
     sSpriteAffineAnim_BagShake
 };
 
-const struct CompressedSpriteSheet gBagMaleSpriteSheet[BAG_VARIANT_COUNT] =
+const struct CompressedSpriteSheet gBagSpriteSheet[BAG_GFX_VARIANT_COUNT] =
 {
-    { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
-    { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
-    { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_ETHAN] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LYRA] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
 };
 
-const struct CompressedSpriteSheet gBagFemaleSpriteSheet[BAG_VARIANT_COUNT] =
+const struct CompressedSpritePalette gBagPaletteTable[BAG_GFX_VARIANT_COUNT] =
 {
-    { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
-    { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
-    { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
-};
-
-const struct CompressedSpritePalette gBagPaletteTable[BAG_VARIANT_COUNT] =
-{
-    { gBagPalette, TAG_BAG_GFX },
-    { gBagKantoPalette, TAG_BAG_GFX },
-    { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN] = { gBagPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY] = { gBagPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED] = { gBagKantoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF] = { gBagKantoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_ETHAN] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LYRA] = { gBagJohtoPalette, TAG_BAG_GFX },
 };
 
 static const struct SpriteTemplate sBagSpriteTemplate =

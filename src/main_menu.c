@@ -41,6 +41,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 #include "rogue_quest.h"
 
 /*
@@ -822,17 +823,26 @@ static void Task_DisplayMainMenu(u8 taskId)
 
         // Note: If there is no save file, the save block is zeroed out,
         // so the default gender is MALE.
-        if ((gSaveBlock2Ptr->playerGender % 2) == MALE) // TODO - PLAYER_STYLE_COUNT
+        switch (RoguePlayer_GetTextVariantId() % 3)
         {
-            palette = RGB(4, 16, 31);
-            LoadPalette(&palette, 241, 2);
+        case 0:
+            // TEXT_COLOR_RED;
+            palette = RGB(31, 0, 0);
+            break;
+
+        case 1:
+            // TEXT_COLOR_GREEN;
+            palette = RGB(0, 31, 0);
+            break;
+
+        case 2:
+            // TEXT_COLOR_BLUE;
+            palette = RGB(0, 0, 31);
+            break;
         }
-        else
-        {
-            palette = RGB(31, 3, 21);
-            LoadPalette(&palette, 241, 2);
-        }
-        
+
+        LoadPalette(&palette, 241, 2);
+
         // Setup version text
         StringCopy(gStringVar1, gText_RogueVersionPrefix);
         StringAppend(gStringVar1, gText_Space2);

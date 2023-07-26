@@ -384,32 +384,3 @@ u16 CreateTrainerCardTrainerPicSprite(u16 species, bool8 isFrontPic, u16 destX, 
 {
     return CreateTrainerCardSprite(species, 0, 0, isFrontPic, destX, destY, paletteSlot, windowId, TRUE);
 }
-
-u16 PlayerGenderToFrontTrainerPicId_Debug(u8 gender, bool8 getClass)
-{
-    if (getClass == TRUE)
-    {
-        //PLAYER_STYLE_COUNT
-        switch(gender)
-        {
-            case STYLE_EMR_BRENDAN:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
-
-            case STYLE_EMR_MAY:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
-
-            case STYLE_RED:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_RED];
-    
-            case STYLE_LEAF:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_LEAF];
-
-            case STYLE_ETHAN:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_ETHAN];
-
-            case STYLE_LYRA:
-                return gFacilityClassToPicIndex[FACILITY_CLASS_LYRA];
-        };
-    }
-    return gender;
-}

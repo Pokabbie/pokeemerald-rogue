@@ -10,4 +10,7 @@ u16 RoguePlayer_GetTrainerFrontPic();
 u16 RoguePlayer_GetTrainerBackPic();
 u16 RoguePlayer_GetObjectGfx(u8 state);
 
+u8 RoguePlayer_GetTextVariantId();
+u8 RoguePlayer_GetBagGfxVariant();
+
 #endif

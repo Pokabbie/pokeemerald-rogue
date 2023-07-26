@@ -3,6 +3,7 @@
 #include "constants/trainers.h"
 
 #include "global.fieldmap.h"
+#include "item_menu_icons.h"
 
 #include "rogue_player_customisation.h"
 
@@ -12,6 +13,7 @@ struct PlayerOutfit
     u16 trainerFrontPic;
     u16 trainerBackPic;
     u16 objectEventGfx[PLAYER_AVATAR_STATE_COUNT];
+    u8 bagVariant;
 };
 
 enum 
@@ -34,6 +36,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_BRENDAN,
         .trainerBackPic = TRAINER_BACK_PIC_BRENDAN,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_BRENDAN_NORMAL,
@@ -45,6 +48,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_MAY,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
+        .bagVariant = BAG_GFX_VARIANT_MAY,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_MAY_NORMAL,
@@ -57,6 +61,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_RED,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
+        .bagVariant = BAG_GFX_VARIANT_RED,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_RED,
@@ -68,6 +73,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_LEAF,
         .trainerBackPic = TRAINER_BACK_PIC_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_LEAF,
@@ -80,6 +86,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_ETHAN,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_ETHAN,
@@ -91,6 +98,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LYRA,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_LYRA,
@@ -102,6 +110,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
         .trainerBackPic = TRAINER_BACK_PIC_WALLY,
+        .bagVariant = BAG_GFX_VARIANT_LYRA,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_MAGMA_MEMBER_F,
@@ -146,4 +155,14 @@ u16 RoguePlayer_GetObjectGfx(u8 state)
 {
     u16 gfx = GetCurrentOutfit()->objectEventGfx[state];
     return gfx;
+}
+
+u8 RoguePlayer_GetTextVariantId()
+{
+    return gSaveBlock2Ptr->playerTrainerId[0];
+}
+
+u8 RoguePlayer_GetBagGfxVariant()
+{
+    return GetCurrentOutfit()->bagVariant;
 }
