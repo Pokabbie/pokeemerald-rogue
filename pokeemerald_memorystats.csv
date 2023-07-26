@@ -1,7 +1,7 @@
 Memory Stats
 
 Group, Name, MB, KB, Bytes
-, ROM, 17, 18362, 18803027
+, ROM, 17, 18362, 18803029
 , EWRAM, 5, 6112, 6258688
 , IWRAM, 15, 16383, 16777214
 
@@ -9,7 +9,7 @@ Group, Name, MB, KB, Bytes
 ROM GROUPS
 
 Group, Name, MB, KB, Bytes
-ROM, TOTAL, 17, 18362, 18803027
+ROM, TOTAL, 17, 18362, 18803029
 ROM, data/sound_data.o, 0, 472, 483678
 ROM, src/graphics.o, 0, 293, 300558
 ROM, data/tilesets.o, 0, 85, 87317
@@ -77,7 +77,7 @@ ROM, src/field_specials.o, 0, 1, 1765
 ROM, src/battle_controller_link_opponent.o, 0, 1, 1750
 ROM, src/overworld.o, 0, 1, 1747
 ROM, src/battle_controller_recorded_player.o, 0, 1, 1737
-ROM, src/main_menu.o, 0, 1, 1728
+ROM, src/main_menu.o, 0, 1, 1729
 ROM, src/intro.o, 0, 1, 1700
 ROM, sound/songs/midi/mus_hg_vs_ho_oh.o, 0, 1, 1672
 ROM, src/battle_controller_recorded_opponent.o, 0, 1, 1669
@@ -503,7 +503,7 @@ ROM, src/script.o, 0, 0, 199
 ROM, sound/songs/midi/mus_follow_me.o, 0, 0, 198
 ROM, src/fldeff_flash.o, 0, 0, 197
 ROM, sound/songs/midi/mus_roulette.o, 0, 0, 195
-ROM, src/main.o, 0, 0, 194
+ROM, src/main.o, 0, 0, 195
 ROM, src/rogue_timeofday.o, 0, 0, 194
 ROM, sound/songs/midi/mus_contest_winner.o, 0, 0, 193
 ROM, src/mystery_event_menu.o, 0, 0, 192
@@ -1336,10 +1336,10 @@ EWRAM, src/mystery_event_script.o, 0, 0, 14
 EWRAM, src/slot_machine.o, 0, 0, 14
 EWRAM, src/item_menu.o, 0, 0, 10
 EWRAM, src/battle_anim.o, 0, 0, 10
-EWRAM, src/script_movement.o, 0, 0, 8
-EWRAM, src/item.o, 0, 0, 8
 EWRAM, src/overworld.o, 0, 0, 8
+EWRAM, src/script_movement.o, 0, 0, 8
 EWRAM, src/decoration_inventory.o, 0, 0, 8
+EWRAM, src/item.o, 0, 0, 8
 EWRAM, src/party_menu.o, 0, 0, 7
 EWRAM, src/union_room.o, 0, 0, 7
 EWRAM, src/event_data.o, 0, 0, 6
@@ -1348,118 +1348,118 @@ EWRAM, src/shop.o, 0, 0, 6
 EWRAM, src/berry_blender.o, 0, 0, 6
 EWRAM, src/battle_factory_screen.o, 0, 0, 4
 EWRAM, src/field_effect.o, 0, 0, 4
-EWRAM, src/use_pokeblock.o, 0, 0, 4
-EWRAM, src/dynamic_placeholder_text_util.o, 0, 0, 4
 EWRAM, src/field_specials.o, 0, 0, 4
-EWRAM, src/rogue_ridemon.o, 0, 0, 3
+EWRAM, src/dynamic_placeholder_text_util.o, 0, 0, 4
+EWRAM, src/use_pokeblock.o, 0, 0, 4
+EWRAM, src/player_pc.o, 0, 0, 3
 EWRAM, src/save_failed_screen.o, 0, 0, 3
 EWRAM, src/mirage_tower.o, 0, 0, 3
-EWRAM, src/player_pc.o, 0, 0, 3
-EWRAM, src/start_menu.o, 0, 0, 3
+EWRAM, src/rogue_ridemon.o, 0, 0, 3
 EWRAM, src/list_menu.o, 0, 0, 3
+EWRAM, src/start_menu.o, 0, 0, 3
 EWRAM, src/frontier_pass.o, 0, 0, 2
 EWRAM, src/scrcmd.o, 0, 0, 2
 EWRAM, src/rotating_gate.o, 0, 0, 2
-EWRAM, src/battle_dome.o, 0, 0, 2
-EWRAM, src/battle_pyramid_bag.o, 0, 0, 2
-EWRAM, src/hall_of_fame.o, 0, 0, 2
-EWRAM, src/rogue_questmenu.o, 0, 0, 2
 EWRAM, src/tv.o, 0, 0, 2
+EWRAM, src/hall_of_fame.o, 0, 0, 2
+EWRAM, src/battle_pyramid_bag.o, 0, 0, 2
+EWRAM, src/rogue_questmenu.o, 0, 0, 2
+EWRAM, src/battle_dome.o, 0, 0, 2
 EWRAM, src/battle_anim_dragon.o, 0, 0, 1
-EWRAM, src/pokedex_cry_screen.o, 0, 0, 1
-EWRAM, src/pokeblock_feed.o, 0, 0, 1
-EWRAM, src/pokeblock.o, 0, 0, 1
-EWRAM, src/move_relearner.o, 0, 0, 1
+EWRAM, src/trainer_hill.o, 0, 0, 1
 EWRAM, src/lilycove_lady.o, 0, 0, 1
+EWRAM, src/rogue_adventurepaths.o, 0, 0, 1
+EWRAM, src/pokedex_cry_screen.o, 0, 0, 1
 EWRAM, src/easy_chat.o, 0, 0, 1
-EWRAM, src/pokedex.o, 0, 0, 1
 EWRAM, src/credits.o, 0, 0, 1
 EWRAM, src/match_call.o, 0, 0, 1
+EWRAM, src/move_relearner.o, 0, 0, 1
 EWRAM, src/rogue_followmon.o, 0, 0, 1
-EWRAM, src/trainer_hill.o, 0, 0, 1
+EWRAM, src/pokeblock.o, 0, 0, 1
+EWRAM, src/pokeblock_feed.o, 0, 0, 1
 EWRAM, src/union_room_chat.o, 0, 0, 1
-EWRAM, src/rogue_adventurepaths.o, 0, 0, 1
+EWRAM, src/pokedex.o, 0, 0, 1
 EWRAM, src/cable_car.o, 0, 0, 1
-EWRAM, src/pokemon_summary_screen.o, 0, 0, 1
-EWRAM, src/mauville_old_man.o, 0, 0, 1
 EWRAM, src/menu_helpers.o, 0, 0, 1
+EWRAM, src/mauville_old_man.o, 0, 0, 1
 EWRAM, src/mystery_gift_menu.o, 0, 0, 1
-EWRAM, src/random.o, 0, 0, 1
-EWRAM, src/battle_anim_effects_1.o, 0, 0, 1
-EWRAM, src/region_map.o, 0, 0, 1
-EWRAM, src/pokenav.o, 0, 0, 1
-EWRAM, src/fldeff_misc.o, 0, 0, 1
-EWRAM, src/wild_encounter.o, 0, 0, 1
-EWRAM, src/union_room_player_avatar.o, 0, 0, 1
-EWRAM, src/battle_records.o, 0, 0, 1
+EWRAM, src/pokemon_summary_screen.o, 0, 0, 1
 EWRAM, src/evolution_scene.o, 0, 0, 1
-EWRAM, src/battle_message.o, 0, 0, 1
-EWRAM, src/pokemon_jump.o, 0, 0, 1
-EWRAM, src/roamer.o, 0, 0, 1
-EWRAM, src/battle_tower.o, 0, 0, 1
-EWRAM, src/mystery_gift_view.o, 0, 0, 1
-EWRAM, src/rogue_query.o, 0, 0, 1
-EWRAM, src/secret_base.o, 0, 0, 1
+EWRAM, src/union_room_player_avatar.o, 0, 0, 1
+EWRAM, src/region_map.o, 0, 0, 1
 EWRAM, src/menu_specialized.o, 0, 0, 1
-EWRAM, src/event_object_movement.o, 0, 0, 1
-EWRAM, src/rogue_player_customisation_ui.o, 0, 0, 1
+EWRAM, src/mystery_gift_view.o, 0, 0, 1
+EWRAM, src/battle_anim_effects_1.o, 0, 0, 1
+EWRAM, src/pokemon_jump.o, 0, 0, 1
+EWRAM, src/battle_tower.o, 0, 0, 1
+EWRAM, src/fldeff_misc.o, 0, 0, 1
+EWRAM, src/random.o, 0, 0, 1
+EWRAM, src/secret_base.o, 0, 0, 1
+EWRAM, src/roamer.o, 0, 0, 1
+EWRAM, src/pokenav.o, 0, 0, 1
+EWRAM, src/rogue_query.o, 0, 0, 1
 EWRAM, src/rogue_pokedex.o, 0, 0, 1
-EWRAM, src/item_icon.o, 0, 0, 1
 EWRAM, src/rogue_timeofday.o, 0, 0, 1
+EWRAM, src/item_icon.o, 0, 0, 1
+EWRAM, src/rogue_player_customisation_ui.o, 0, 0, 1
+EWRAM, src/event_object_movement.o, 0, 0, 1
+EWRAM, src/battle_records.o, 0, 0, 1
+EWRAM, src/battle_message.o, 0, 0, 1
+EWRAM, src/wild_encounter.o, 0, 0, 1
 EWRAM, src/intro.o, 0, 0, 0
 EWRAM, src/intro_credits_graphics.o, 0, 0, 0
-EWRAM, src/roulette.o, 0, 0, 0
-EWRAM, src/sound.o, 0, 0, 0
-EWRAM, src/battle_ai_script_commands.o, 0, 0, 0
 EWRAM, src/item_use.o, 0, 0, 0
-EWRAM, src/battle_anim_utility_funcs.o, 0, 0, 0
-EWRAM, src/union_room_battle.o, 0, 0, 0
-EWRAM, src/berry_tag_screen.o, 0, 0, 0
-EWRAM, src/diploma.o, 0, 0, 0
-EWRAM, src/lottery_corner.o, 0, 0, 0
-EWRAM, src/mystery_gift.o, 0, 0, 0
-EWRAM, src/field_weather_effect.o, 0, 0, 0
-EWRAM, src/field_region_map.o, 0, 0, 0
-EWRAM, src/mystery_gift_server.o, 0, 0, 0
-EWRAM, src/mystery_gift_client.o, 0, 0, 0
-EWRAM, src/battle_anim_mons.o, 0, 0, 0
-EWRAM, src/berry_crush.o, 0, 0, 0
+EWRAM, src/battle_ai_script_commands.o, 0, 0, 0
+EWRAM, src/sound.o, 0, 0, 0
+EWRAM, src/roulette.o, 0, 0, 0
 EWRAM, src/pokenav_list.o, 0, 0, 0
-EWRAM, src/rogue_trainers.o, 0, 0, 0
-EWRAM, src/rayquaza_scene.o, 0, 0, 0
-EWRAM, src/naming_screen.o, 0, 0, 0
 EWRAM, src/mail.o, 0, 0, 0
-EWRAM, src/mon_markings.o, 0, 0, 0
-EWRAM, src/fldeff_cut.o, 0, 0, 0
-EWRAM, src/rotating_tile_puzzle.o, 0, 0, 0
-EWRAM, src/pokedex_area_screen.o, 0, 0, 0
+EWRAM, src/rogue_trainers.o, 0, 0, 0
+EWRAM, src/mystery_gift.o, 0, 0, 0
 EWRAM, src/pokedex_area_region_map.o, 0, 0, 0
-EWRAM, src/contest_util.o, 0, 0, 0
+EWRAM, src/berry_tag_screen.o, 0, 0, 0
 EWRAM, src/digit_obj_util.o, 0, 0, 0
 EWRAM, src/main_menu.o, 0, 0, 0
-EWRAM, src/battle_transition.o, 0, 0, 0
 EWRAM, src/field_control_avatar.o, 0, 0, 0
+EWRAM, src/berry_crush.o, 0, 0, 0
+EWRAM, src/field_region_map.o, 0, 0, 0
+EWRAM, src/mystery_gift_client.o, 0, 0, 0
+EWRAM, src/mystery_gift_server.o, 0, 0, 0
+EWRAM, src/lottery_corner.o, 0, 0, 0
+EWRAM, src/diploma.o, 0, 0, 0
 EWRAM, src/confetti_util.o, 0, 0, 0
-EWRAM, src/rogue_quest.o, 0, 0, 0
+EWRAM, src/rotating_tile_puzzle.o, 0, 0, 0
+EWRAM, src/battle_transition.o, 0, 0, 0
+EWRAM, src/battle_anim_mons.o, 0, 0, 0
+EWRAM, src/field_weather_effect.o, 0, 0, 0
+EWRAM, src/pokedex_area_screen.o, 0, 0, 0
+EWRAM, src/fldeff_cut.o, 0, 0, 0
+EWRAM, src/naming_screen.o, 0, 0, 0
+EWRAM, src/union_room_battle.o, 0, 0, 0
+EWRAM, src/contest_util.o, 0, 0, 0
+EWRAM, src/battle_anim_utility_funcs.o, 0, 0, 0
+EWRAM, src/rayquaza_scene.o, 0, 0, 0
+EWRAM, src/mon_markings.o, 0, 0, 0
 EWRAM, src/rogue_popup.o, 0, 0, 0
-EWRAM, src/main.o, 0, 0, 0
-EWRAM, src/battle_intro.o, 0, 0, 0
-EWRAM, src/money.o, 0, 0, 0
+EWRAM, src/rogue_quest.o, 0, 0, 0
 EWRAM, src/new_game.o, 0, 0, 0
-EWRAM, src/braille_puzzles.o, 0, 0, 0
-EWRAM, src/link_rfu_3.o, 0, 0, 0
+EWRAM, src/money.o, 0, 0, 0
+EWRAM, src/battle_intro.o, 0, 0, 0
 EWRAM, src/faraway_island.o, 0, 0, 0
-EWRAM, src/berry_powder.o, 0, 0, 0
-EWRAM, src/rogue_settings_ui.o, 0, 0, 0
-EWRAM, src/field_camera.o, 0, 0, 0
-EWRAM, src/field_message_box.o, 0, 0, 0
-EWRAM, src/option_menu.o, 0, 0, 0
-EWRAM, src/trainer_see.o, 0, 0, 0
 EWRAM, src/map_name_popup.o, 0, 0, 0
 EWRAM, src/mystery_event_menu.o, 0, 0, 0
 EWRAM, src/coins.o, 0, 0, 0
 EWRAM, src/script_menu.o, 0, 0, 0
 EWRAM, src/fldeff_escalator.o, 0, 0, 0
+EWRAM, src/option_menu.o, 0, 0, 0
+EWRAM, src/trainer_see.o, 0, 0, 0
+EWRAM, src/field_message_box.o, 0, 0, 0
+EWRAM, src/field_camera.o, 0, 0, 0
+EWRAM, src/braille_puzzles.o, 0, 0, 0
+EWRAM, src/rogue_settings_ui.o, 0, 0, 0
+EWRAM, src/link_rfu_3.o, 0, 0, 0
+EWRAM, src/berry_powder.o, 0, 0, 0
+EWRAM, src/main.o, 0, 0, 0
 EWRAM, src/AgbRfu_LinkManager.o, 0, 0, 0
 EWRAM, src/wireless_communication_status_screen.o, 0, 0, 0
 EWRAM, src/rogue_adventure.o, 0, 0, 0
@@ -2795,7 +2795,7 @@ ROM::src/graphics.o, src/battle_factory_screen.o, 0, 12, 12845
 ROM::src/graphics.o, src/pokenav_match_call_data.o, 0, 12, 12835
 ROM::src/graphics.o, src/battle_controller_recorded_opponent.o, 0, 12, 12830
 ROM::src/graphics.o, src/battle_controller_link_opponent.o, 0, 12, 12796
-ROM::src/graphics.o, src/main.o, 0, 12, 12794
+ROM::src/graphics.o, src/main.o, 0, 12, 12795
 ROM::src/graphics.o, src/secret_base.o, 0, 12, 12771
 ROM::src/graphics.o, src/battle_anim_effects_2.o, 0, 12, 12763
 ROM::src/graphics.o, src/battle_controller_link_partner.o, 0, 12, 12751
@@ -3311,8 +3311,8 @@ ROM::src/graphics.o, gRaySceneDescends_Bg_Gfx, 0, 0, 365
 ROM::src/graphics.o, gBagFemaleTiles, 0, 0, 364
 ROM::src/graphics.o, src/palette_util.o, 0, 0, 357
 ROM::src/graphics.o, gBerryCrush_Crusher_Gfx, 0, 0, 355
+ROM::src/graphics.o, src/main.o, 0, 0, 350
 ROM::src/graphics.o, gIntroManectric_Gfx, 0, 0, 347
-ROM::src/graphics.o, src/main.o, 0, 0, 347
 ROM::src/graphics.o, gBerryBlenderPlayerArrow_Gfx, 0, 0, 344
 ROM::src/graphics.o, src/battle_transition_frontier.o, 0, 0, 337
 ROM::src/graphics.o, gMonStillFrontPic_Castform, 0, 0, 337
@@ -13789,8 +13789,8 @@ ROM::src/overworld.o, UpdateEscapeWarp, 0, 0, 0
 ROM::src/battle_controller_recorded_player.o, TOTAL, 0, 1, 1737
 ROM::src/battle_controller_recorded_player.o, SetControllerToRecordedPlayer, 0, 1, 1737
 
-ROM::src/main_menu.o, TOTAL, 0, 1, 1728
-ROM::src/main_menu.o, CB2_ReinitMainMenu, 0, 1, 1640
+ROM::src/main_menu.o, TOTAL, 0, 1, 1729
+ROM::src/main_menu.o, CB2_ReinitMainMenu, 0, 1, 1641
 ROM::src/main_menu.o, CreateYesNoMenuParameterized, 0, 0, 81
 ROM::src/main_menu.o, CB2_InitMainMenu, 0, 0, 1
 
@@ -24242,16 +24242,16 @@ ROM::src/fldeff_flash.o, GetMapPairFadeToType, 0, 0, 9
 ROM::sound/songs/midi/mus_roulette.o, TOTAL, 0, 0, 195
 ROM::sound/songs/midi/mus_roulette.o, mus_roulette, 0, 0, 273
 
-ROM::src/main.o, TOTAL, 0, 0, 194
+ROM::src/main.o, TOTAL, 0, 0, 195
 ROM::src/main.o, AgbMain, 0, 0, 55
 ROM::src/main.o, SetSerialCallback, 0, 0, 26
 ROM::src/main.o, InitFlashTimer, 0, 0, 25
 ROM::src/main.o, InitKeys, 0, 0, 25
 ROM::src/main.o, DoSoftReset, 0, 0, 14
+ROM::src/main.o, EnableVCountIntrAtLine150, 0, 0, 13
 ROM::src/main.o, InitIntrHandlers, 0, 0, 13
-ROM::src/main.o, EnableVCountIntrAtLine150, 0, 0, 10
-ROM::src/main.o, SeedRngAndSetTrainerId, 0, 0, 5
 ROM::src/main.o, ClearPokemonCrySongs, 0, 0, 4
+ROM::src/main.o, SeedRngAndSetTrainerId, 0, 0, 3
 ROM::src/main.o, RestoreSerialTimer3IntrHandlers, 0, 0, 3
 ROM::src/main.o, SetMainCallback2, 0, 0, 2
 ROM::src/main.o, SetVCountCallback, 0, 0, 1
@@ -24259,8 +24259,8 @@ ROM::src/main.o, SetHBlankCallback, 0, 0, 1
 ROM::src/main.o, SetVBlankCallback, 0, 0, 1
 ROM::src/main.o, SetTrainerHillVBlankCounter, 0, 0, 1
 ROM::src/main.o, ClearTrainerHillVBlankCounter, 0, 0, 1
-ROM::src/main.o, GetGeneratedTrainerIdLower, 0, 0, 1
 ROM::src/main.o, StartTimer1, 0, 0, 1
+ROM::src/main.o, GetGeneratedTrainerIdLower, 0, 0, 0
 
 ROM::src/rogue_timeofday.o, TOTAL, 0, 0, 194
 ROM::src/rogue_timeofday.o, RogueToD_IsNight, 0, 0, 74
@@ -32828,7 +32828,6 @@ EWRAM::src/fieldmap.o, gCamera, 0, 0, 2
 
 EWRAM::src/decompress.o, TOTAL, 0, 2, 2048
 EWRAM::src/decompress.o, gDecompressionBuffer, 0, 2, 2048
-EWRAM::src/decompress.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/link_rfu_2.o, TOTAL, 0, 0, 908
 EWRAM::src/link_rfu_2.o, gRfuAPIBuffer, 0, 0, 460
@@ -33118,20 +33117,20 @@ EWRAM::src/battle_anim.o, gAnimSoundTaskCount, 0, 0, 0
 EWRAM::src/battle_anim.o, gAnimVisualTaskCount, 0, 0, 0
 EWRAM::src/battle_anim.o, gAnimScriptActive, 0, 0, 0
 
-EWRAM::src/script_movement.o, TOTAL, 0, 0, 8
-EWRAM::src/script_movement.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/item.o, TOTAL, 0, 0, 8
-EWRAM::src/item.o, gBagPockets, 0, 0, 8
-
 EWRAM::src/overworld.o, TOTAL, 0, 0, 8
 EWRAM::src/overworld.o, .=ALIGN(0x4), 0, 2, 2560
 EWRAM::src/overworld.o, gLastUsedWarp, 0, 0, 5
 EWRAM::src/overworld.o, gLinkPlayerObjectEvents, 0, 0, 2
 
+EWRAM::src/script_movement.o, TOTAL, 0, 0, 8
+EWRAM::src/script_movement.o, .=ALIGN(0x4), 0, 0, 0
+
 EWRAM::src/decoration_inventory.o, TOTAL, 0, 0, 8
 EWRAM::src/decoration_inventory.o, gDecorationInventories, 0, 0, 8
 EWRAM::src/decoration_inventory.o, .=ALIGN(0x4), 0, 0, 1
+
+EWRAM::src/item.o, TOTAL, 0, 0, 8
+EWRAM::src/item.o, gBagPockets, 0, 0, 8
 
 EWRAM::src/party_menu.o, TOTAL, 0, 0, 7
 EWRAM::src/party_menu.o, gPartyMenu, 0, 0, 4
@@ -33188,20 +33187,20 @@ EWRAM::src/battle_factory_screen.o, .=ALIGN(0x4), 0, 0, 0
 EWRAM::src/field_effect.o, TOTAL, 0, 0, 4
 EWRAM::src/field_effect.o, gFieldEffectArguments, 0, 0, 4
 
+EWRAM::src/field_specials.o, TOTAL, 0, 0, 4
+EWRAM::src/field_specials.o, gBikeCollisions, 0, 0, 3
+EWRAM::src/field_specials.o, gBikeCyclingChallenge, 0, 0, 0
+
+EWRAM::src/dynamic_placeholder_text_util.o, TOTAL, 0, 0, 4
+
 EWRAM::src/use_pokeblock.o, TOTAL, 0, 0, 4
 EWRAM::src/use_pokeblock.o, gPokeblockGain, 0, 0, 2
 EWRAM::src/use_pokeblock.o, .=ALIGN(0x4), 0, 0, 1
 EWRAM::src/use_pokeblock.o, gPokeblockMonId, 0, 0, 0
 
-EWRAM::src/dynamic_placeholder_text_util.o, TOTAL, 0, 0, 4
-
-EWRAM::src/field_specials.o, TOTAL, 0, 0, 4
-EWRAM::src/field_specials.o, gBikeCollisions, 0, 0, 3
-EWRAM::src/field_specials.o, gBikeCyclingChallenge, 0, 0, 0
-
-EWRAM::src/rogue_ridemon.o, TOTAL, 0, 0, 3
-EWRAM::src/rogue_ridemon.o, sTestData, 0, 0, 2
-EWRAM::src/rogue_ridemon.o, sRideMonData, 0, 0, 0
+EWRAM::src/player_pc.o, TOTAL, 0, 0, 3
+EWRAM::src/player_pc.o, gPlayerPCItemPageInfo, 0, 0, 2
+EWRAM::src/player_pc.o, .=ALIGN(0x4), 0, 0, 1
 
 EWRAM::src/save_failed_screen.o, TOTAL, 0, 0, 3
 EWRAM::src/save_failed_screen.o, .=ALIGN(0x4), 0, 0, 0
@@ -33209,16 +33208,16 @@ EWRAM::src/save_failed_screen.o, .=ALIGN(0x4), 0, 0, 0
 EWRAM::src/mirage_tower.o, TOTAL, 0, 0, 3
 EWRAM::src/mirage_tower.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/player_pc.o, TOTAL, 0, 0, 3
-EWRAM::src/player_pc.o, gPlayerPCItemPageInfo, 0, 0, 2
-EWRAM::src/player_pc.o, .=ALIGN(0x4), 0, 0, 1
-
-EWRAM::src/start_menu.o, TOTAL, 0, 0, 3
-EWRAM::src/start_menu.o, .=ALIGN(0x4), 0, 0, 30
+EWRAM::src/rogue_ridemon.o, TOTAL, 0, 0, 3
+EWRAM::src/rogue_ridemon.o, sTestData, 0, 0, 2
+EWRAM::src/rogue_ridemon.o, sRideMonData, 0, 0, 0
 
 EWRAM::src/list_menu.o, TOTAL, 0, 0, 3
 EWRAM::src/list_menu.o, .=ALIGN(0x4), 0, 0, 4
 EWRAM::src/list_menu.o, gTempScrollArrowTemplate, 0, 0, 2
+
+EWRAM::src/start_menu.o, TOTAL, 0, 0, 3
+EWRAM::src/start_menu.o, .=ALIGN(0x4), 0, 0, 30
 
 EWRAM::src/frontier_pass.o, TOTAL, 0, 0, 2
 EWRAM::src/frontier_pass.o, .=ALIGN(0x4), 0, 0, 18
@@ -33230,41 +33229,40 @@ EWRAM::src/scrcmd.o, 0x2, 0, 0, 0
 EWRAM::src/rotating_gate.o, TOTAL, 0, 0, 2
 EWRAM::src/rotating_gate.o, 0x3, 0, 0, 0
 
-EWRAM::src/battle_dome.o, TOTAL, 0, 0, 2
-EWRAM::src/battle_dome.o, gPlayerPartyLostHP, 0, 0, 2
-EWRAM::src/battle_dome.o, .=ALIGN(0x4), 0, 0, 1
+EWRAM::src/tv.o, TOTAL, 0, 0, 2
+EWRAM::src/tv.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/hall_of_fame.o, TOTAL, 0, 0, 2
+EWRAM::src/hall_of_fame.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/battle_pyramid_bag.o, TOTAL, 0, 0, 2
 EWRAM::src/battle_pyramid_bag.o, gPyramidBagMenuState, 0, 0, 1
 EWRAM::src/battle_pyramid_bag.o, gPyramidBagMenu, 0, 0, 0
 
-EWRAM::src/hall_of_fame.o, TOTAL, 0, 0, 2
-EWRAM::src/hall_of_fame.o, .=ALIGN(0x4), 0, 0, 0
-
 EWRAM::src/rogue_questmenu.o, TOTAL, 0, 0, 2
 EWRAM::src/rogue_questmenu.o, .=ALIGN(0x4), 0, 0, 1
 
-EWRAM::src/tv.o, TOTAL, 0, 0, 2
-EWRAM::src/tv.o, .=ALIGN(0x4), 0, 0, 0
+EWRAM::src/battle_dome.o, TOTAL, 0, 0, 2
+EWRAM::src/battle_dome.o, gPlayerPartyLostHP, 0, 0, 2
+EWRAM::src/battle_dome.o, .=ALIGN(0x4), 0, 0, 1
 
 EWRAM::src/battle_anim_dragon.o, TOTAL, 0, 0, 1
 EWRAM::src/battle_anim_dragon.o, 0x2, 0, 0, 0
 
-EWRAM::src/pokedex_cry_screen.o, TOTAL, 0, 0, 1
-EWRAM::src/pokedex_cry_screen.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/pokeblock_feed.o, TOTAL, 0, 0, 1
-
-EWRAM::src/pokeblock.o, TOTAL, 0, 0, 1
-
-EWRAM::src/move_relearner.o, TOTAL, 0, 0, 1
+EWRAM::src/trainer_hill.o, TOTAL, 0, 0, 1
+EWRAM::src/trainer_hill.o, gTrainerHillVBlankCounter, 0, 0, 0
 
 EWRAM::src/lilycove_lady.o, TOTAL, 0, 0, 1
 
+EWRAM::src/rogue_adventurepaths.o, TOTAL, 0, 0, 1
+EWRAM::src/rogue_adventurepaths.o, gAdvPathLayoutData, 0, 0, 1
+EWRAM::src/rogue_adventurepaths.o, gAdvPathScratch, 0, 0, 0
+
+EWRAM::src/pokedex_cry_screen.o, TOTAL, 0, 0, 1
+EWRAM::src/pokedex_cry_screen.o, .=ALIGN(0x4), 0, 0, 0
+
 EWRAM::src/easy_chat.o, TOTAL, 0, 0, 1
 EWRAM::src/easy_chat.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/pokedex.o, TOTAL, 0, 0, 1
 
 EWRAM::src/credits.o, TOTAL, 0, 0, 1
 EWRAM::src/credits.o, gHasHallOfFameRecords, 0, 0, 1
@@ -33273,105 +33271,106 @@ EWRAM::src/credits.o, .=ALIGN(0x4), 0, 0, 0
 EWRAM::src/match_call.o, TOTAL, 0, 0, 1
 EWRAM::src/match_call.o, .=ALIGN(0x4), 0, 0, 20
 
+EWRAM::src/move_relearner.o, TOTAL, 0, 0, 1
+
 EWRAM::src/rogue_followmon.o, TOTAL, 0, 0, 1
 
-EWRAM::src/trainer_hill.o, TOTAL, 0, 0, 1
-EWRAM::src/trainer_hill.o, gTrainerHillVBlankCounter, 0, 0, 0
+EWRAM::src/pokeblock.o, TOTAL, 0, 0, 1
+
+EWRAM::src/pokeblock_feed.o, TOTAL, 0, 0, 1
 
 EWRAM::src/union_room_chat.o, TOTAL, 0, 0, 1
 EWRAM::src/union_room_chat.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/rogue_adventurepaths.o, TOTAL, 0, 0, 1
-EWRAM::src/rogue_adventurepaths.o, gAdvPathLayoutData, 0, 0, 1
-EWRAM::src/rogue_adventurepaths.o, gAdvPathScratch, 0, 0, 0
+EWRAM::src/pokedex.o, TOTAL, 0, 0, 1
 
 EWRAM::src/cable_car.o, TOTAL, 0, 0, 1
 EWRAM::src/cable_car.o, 0x2, 0, 0, 0
 
-EWRAM::src/pokemon_summary_screen.o, TOTAL, 0, 0, 1
-EWRAM::src/pokemon_summary_screen.o, gLastViewedMonIndex, 0, 0, 1
-EWRAM::src/pokemon_summary_screen.o, 0x3, 0, 0, 0
+EWRAM::src/menu_helpers.o, TOTAL, 0, 0, 1
+EWRAM::src/menu_helpers.o, 0x3, 0, 0, 1
 
 EWRAM::src/mauville_old_man.o, TOTAL, 0, 0, 1
 EWRAM::src/mauville_old_man.o, 0x3, 0, 0, 0
-
-EWRAM::src/menu_helpers.o, TOTAL, 0, 0, 1
-EWRAM::src/menu_helpers.o, 0x3, 0, 0, 1
 
 EWRAM::src/mystery_gift_menu.o, TOTAL, 0, 0, 1
 EWRAM::src/mystery_gift_menu.o, 0x3, 0, 0, 1
 EWRAM::src/mystery_gift_menu.o, gGiftIsFromEReader, 0, 0, 0
 
-EWRAM::src/random.o, TOTAL, 0, 0, 1
-EWRAM::src/random.o, .=ALIGN(0x4), 0, 0, 18
-
-EWRAM::src/battle_anim_effects_1.o, TOTAL, 0, 0, 1
-EWRAM::src/battle_anim_effects_1.o, .=ALIGN(0x4), 0, 0, 2
-
-EWRAM::src/region_map.o, TOTAL, 0, 0, 1
-
-EWRAM::src/pokenav.o, TOTAL, 0, 0, 1
-EWRAM::src/pokenav.o, gNextLoopedTaskId, 0, 0, 0
-EWRAM::src/pokenav.o, gPokenavResources, 0, 0, 0
-EWRAM::src/pokenav.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/fldeff_misc.o, TOTAL, 0, 0, 1
-EWRAM::src/fldeff_misc.o, .=ALIGN(0x4), 0, 0, 1
-EWRAM::src/fldeff_misc.o, gPlayerFacingPosition, 0, 0, 1
-
-EWRAM::src/wild_encounter.o, TOTAL, 0, 0, 1
-
-EWRAM::src/union_room_player_avatar.o, TOTAL, 0, 0, 1
-
-EWRAM::src/battle_records.o, TOTAL, 0, 0, 1
-EWRAM::src/battle_records.o, gRecordsWindowId, 0, 0, 1
-EWRAM::src/battle_records.o, .=ALIGN(0x4), 0, 0, 0
+EWRAM::src/pokemon_summary_screen.o, TOTAL, 0, 0, 1
+EWRAM::src/pokemon_summary_screen.o, gLastViewedMonIndex, 0, 0, 1
+EWRAM::src/pokemon_summary_screen.o, 0x3, 0, 0, 0
 
 EWRAM::src/evolution_scene.o, TOTAL, 0, 0, 1
 EWRAM::src/evolution_scene.o, .=ALIGN(0x4), 0, 0, 1
 
-EWRAM::src/battle_message.o, TOTAL, 0, 0, 1
-EWRAM::src/battle_message.o, .=ALIGN(0x4), 0, 0, 1
-EWRAM::src/battle_message.o, gBattleMsgDataPtr, 0, 0, 0
+EWRAM::src/union_room_player_avatar.o, TOTAL, 0, 0, 1
+
+EWRAM::src/region_map.o, TOTAL, 0, 0, 1
+
+EWRAM::src/menu_specialized.o, TOTAL, 0, 0, 1
+EWRAM::src/menu_specialized.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/mystery_gift_view.o, TOTAL, 0, 0, 1
+EWRAM::src/mystery_gift_view.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/battle_anim_effects_1.o, TOTAL, 0, 0, 1
+EWRAM::src/battle_anim_effects_1.o, .=ALIGN(0x4), 0, 0, 2
 
 EWRAM::src/pokemon_jump.o, TOTAL, 0, 0, 1
 EWRAM::src/pokemon_jump.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/roamer.o, TOTAL, 0, 0, 1
 
 EWRAM::src/battle_tower.o, TOTAL, 0, 0, 1
 EWRAM::src/battle_tower.o, .=ALIGN(0x4), 0, 0, 1
 EWRAM::src/battle_tower.o, gFacilityTrainers, 0, 0, 0
 EWRAM::src/battle_tower.o, gFacilityTrainerMons, 0, 0, 0
 
-EWRAM::src/mystery_gift_view.o, TOTAL, 0, 0, 1
-EWRAM::src/mystery_gift_view.o, .=ALIGN(0x4), 0, 0, 0
+EWRAM::src/fldeff_misc.o, TOTAL, 0, 0, 1
+EWRAM::src/fldeff_misc.o, .=ALIGN(0x4), 0, 0, 1
+EWRAM::src/fldeff_misc.o, gPlayerFacingPosition, 0, 0, 1
+
+EWRAM::src/random.o, TOTAL, 0, 0, 1
+EWRAM::src/random.o, .=ALIGN(0x4), 0, 0, 18
+
+EWRAM::src/secret_base.o, TOTAL, 0, 0, 1
+EWRAM::src/secret_base.o, .=ALIGN(0x4), 0, 0, 2
+
+EWRAM::src/roamer.o, TOTAL, 0, 0, 1
+
+EWRAM::src/pokenav.o, TOTAL, 0, 0, 1
+EWRAM::src/pokenav.o, gNextLoopedTaskId, 0, 0, 0
+EWRAM::src/pokenav.o, gPokenavResources, 0, 0, 0
+EWRAM::src/pokenav.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/rogue_query.o, TOTAL, 0, 0, 1
 EWRAM::src/rogue_query.o, gRogueQueryBufferSize, 0, 0, 1
 EWRAM::src/rogue_query.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/secret_base.o, TOTAL, 0, 0, 1
-EWRAM::src/secret_base.o, .=ALIGN(0x4), 0, 0, 2
-
-EWRAM::src/menu_specialized.o, TOTAL, 0, 0, 1
-EWRAM::src/menu_specialized.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/event_object_movement.o, TOTAL, 0, 0, 1
-EWRAM::src/event_object_movement.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 1
-
 EWRAM::src/rogue_pokedex.o, TOTAL, 0, 0, 1
 EWRAM::src/rogue_pokedex.o, .=ALIGN(0x4), 0, 0, 1
+
+EWRAM::src/rogue_timeofday.o, TOTAL, 0, 0, 1
+EWRAM::src/rogue_timeofday.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/item_icon.o, TOTAL, 0, 0, 1
 EWRAM::src/item_icon.o, gItemIconDecompressionBuffer, 0, 0, 0
 EWRAM::src/item_icon.o, gItemIcon4x4Buffer, 0, 0, 0
 EWRAM::src/item_icon.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/rogue_timeofday.o, TOTAL, 0, 0, 1
-EWRAM::src/rogue_timeofday.o, .=ALIGN(0x4), 0, 0, 0
+EWRAM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 1
+
+EWRAM::src/event_object_movement.o, TOTAL, 0, 0, 1
+EWRAM::src/event_object_movement.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/battle_records.o, TOTAL, 0, 0, 1
+EWRAM::src/battle_records.o, gRecordsWindowId, 0, 0, 1
+EWRAM::src/battle_records.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/battle_message.o, TOTAL, 0, 0, 1
+EWRAM::src/battle_message.o, .=ALIGN(0x4), 0, 0, 1
+EWRAM::src/battle_message.o, gBattleMsgDataPtr, 0, 0, 0
+
+EWRAM::src/wild_encounter.o, TOTAL, 0, 0, 1
 
 EWRAM::src/intro.o, TOTAL, 0, 0, 0
 EWRAM::src/intro.o, 0x2, 0, 0, 0
@@ -33382,151 +33381,121 @@ EWRAM::src/intro_credits_graphics.o, gIntroCredits_MovingSceneryVBase, 0, 0, 0
 EWRAM::src/intro_credits_graphics.o, gIntroCredits_MovingSceneryVOffset, 0, 0, 0
 EWRAM::src/intro_credits_graphics.o, 0x2, 0, 0, 0
 
-EWRAM::src/roulette.o, TOTAL, 0, 0, 0
-EWRAM::src/roulette.o, 0x3, 0, 0, 1
+EWRAM::src/item_use.o, TOTAL, 0, 0, 0
+EWRAM::src/item_use.o, 0x3, 0, 0, 1
+
+EWRAM::src/battle_ai_script_commands.o, TOTAL, 0, 0, 0
+EWRAM::src/battle_ai_script_commands.o, gAIScriptPtr, 0, 0, 1
+EWRAM::src/battle_ai_script_commands.o, 0x3, 0, 0, 0
 
 EWRAM::src/sound.o, TOTAL, 0, 0, 0
 EWRAM::src/sound.o, 0x3, 0, 0, 1
 EWRAM::src/sound.o, gMPlay_PokemonCry, 0, 0, 0
 EWRAM::src/sound.o, gPokemonCryBGMDuckingCounter, 0, 0, 0
 
-EWRAM::src/battle_ai_script_commands.o, TOTAL, 0, 0, 0
-EWRAM::src/battle_ai_script_commands.o, gAIScriptPtr, 0, 0, 1
-EWRAM::src/battle_ai_script_commands.o, 0x3, 0, 0, 0
-
-EWRAM::src/item_use.o, TOTAL, 0, 0, 0
-EWRAM::src/item_use.o, 0x3, 0, 0, 1
-
-EWRAM::src/battle_anim_utility_funcs.o, TOTAL, 0, 0, 0
-EWRAM::src/battle_anim_utility_funcs.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/union_room_battle.o, TOTAL, 0, 0, 0
-EWRAM::src/union_room_battle.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/berry_tag_screen.o, TOTAL, 0, 0, 0
-EWRAM::src/berry_tag_screen.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/diploma.o, TOTAL, 0, 0, 0
-EWRAM::src/diploma.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/lottery_corner.o, TOTAL, 0, 0, 0
-EWRAM::src/lottery_corner.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/mystery_gift.o, TOTAL, 0, 0, 0
-EWRAM::src/mystery_gift.o, .=ALIGN(0x4), 0, 0, 1
-
-EWRAM::src/field_weather_effect.o, TOTAL, 0, 0, 0
-EWRAM::src/field_weather_effect.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/field_region_map.o, TOTAL, 0, 0, 0
-EWRAM::src/field_region_map.o, .=ALIGN(0x4), 0, 0, 2
-
-EWRAM::src/mystery_gift_server.o, TOTAL, 0, 0, 0
-EWRAM::src/mystery_gift_server.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/mystery_gift_client.o, TOTAL, 0, 0, 0
-EWRAM::src/mystery_gift_client.o, .=ALIGN(0x4), 0, 0, 1
-
-EWRAM::src/battle_anim_mons.o, TOTAL, 0, 0, 0
-EWRAM::src/battle_anim_mons.o, 0xc, 0, 0, 1
-
-EWRAM::src/berry_crush.o, TOTAL, 0, 0, 0
-EWRAM::src/berry_crush.o, .=ALIGN(0x4), 0, 0, 0
+EWRAM::src/roulette.o, TOTAL, 0, 0, 0
+EWRAM::src/roulette.o, 0x3, 0, 0, 1
 
 EWRAM::src/pokenav_list.o, TOTAL, 0, 0, 0
 EWRAM::src/pokenav_list.o, .=ALIGN(0x4), 0, 0, 1
 
-EWRAM::src/rogue_trainers.o, TOTAL, 0, 0, 0
-EWRAM::src/rogue_trainers.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/rayquaza_scene.o, TOTAL, 0, 0, 0
-EWRAM::src/rayquaza_scene.o, .=0x40000, 3, 4095, 4194254
-EWRAM::src/rayquaza_scene.o, 0x18c, 1, 2016, 2064433
-EWRAM::src/rayquaza_scene.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/naming_screen.o, TOTAL, 0, 0, 0
-EWRAM::src/naming_screen.o, .=ALIGN(0x4), 0, 0, 0
-
 EWRAM::src/mail.o, TOTAL, 0, 0, 0
 EWRAM::src/mail.o, .=ALIGN(0x4), 0, 0, 1
 
-EWRAM::src/mon_markings.o, TOTAL, 0, 0, 0
-EWRAM::src/mon_markings.o, .=ALIGN(0x4), 0, 0, 1
+EWRAM::src/rogue_trainers.o, TOTAL, 0, 0, 0
+EWRAM::src/rogue_trainers.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/fldeff_cut.o, TOTAL, 0, 0, 0
-EWRAM::src/fldeff_cut.o, .=ALIGN(0x4), 0, 0, 0
-
-EWRAM::src/rotating_tile_puzzle.o, TOTAL, 0, 0, 0
-
-EWRAM::src/pokedex_area_screen.o, TOTAL, 0, 0, 0
-EWRAM::src/pokedex_area_screen.o, .=ALIGN(0x4), 0, 0, 1
+EWRAM::src/mystery_gift.o, TOTAL, 0, 0, 0
+EWRAM::src/mystery_gift.o, .=ALIGN(0x4), 0, 0, 1
 
 EWRAM::src/pokedex_area_region_map.o, TOTAL, 0, 0, 0
 
-EWRAM::src/contest_util.o, TOTAL, 0, 0, 0
-EWRAM::src/contest_util.o, .=ALIGN(0x4), 0, 0, 2
+EWRAM::src/berry_tag_screen.o, TOTAL, 0, 0, 0
+EWRAM::src/berry_tag_screen.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/digit_obj_util.o, TOTAL, 0, 0, 0
 
 EWRAM::src/main_menu.o, TOTAL, 0, 0, 0
 EWRAM::src/main_menu.o, .=ALIGN(0x4), 0, 0, 0
 
-EWRAM::src/battle_transition.o, TOTAL, 0, 0, 0
-EWRAM::src/battle_transition.o, .=ALIGN(0x4), 0, 0, 0
-
 EWRAM::src/field_control_avatar.o, TOTAL, 0, 0, 0
+
+EWRAM::src/berry_crush.o, TOTAL, 0, 0, 0
+EWRAM::src/berry_crush.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/field_region_map.o, TOTAL, 0, 0, 0
+EWRAM::src/field_region_map.o, .=ALIGN(0x4), 0, 0, 2
+
+EWRAM::src/mystery_gift_client.o, TOTAL, 0, 0, 0
+EWRAM::src/mystery_gift_client.o, .=ALIGN(0x4), 0, 0, 1
+
+EWRAM::src/mystery_gift_server.o, TOTAL, 0, 0, 0
+EWRAM::src/mystery_gift_server.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/lottery_corner.o, TOTAL, 0, 0, 0
+EWRAM::src/lottery_corner.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/diploma.o, TOTAL, 0, 0, 0
+EWRAM::src/diploma.o, .=ALIGN(0x4), 0, 0, 0
 
 EWRAM::src/confetti_util.o, TOTAL, 0, 0, 0
 
-EWRAM::src/rogue_quest.o, TOTAL, 0, 0, 0
-EWRAM::src/rogue_quest.o, 0x1, 0, 0, 2
+EWRAM::src/rotating_tile_puzzle.o, TOTAL, 0, 0, 0
+
+EWRAM::src/battle_transition.o, TOTAL, 0, 0, 0
+EWRAM::src/battle_transition.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/battle_anim_mons.o, TOTAL, 0, 0, 0
+EWRAM::src/battle_anim_mons.o, 0xc, 0, 0, 1
+
+EWRAM::src/field_weather_effect.o, TOTAL, 0, 0, 0
+EWRAM::src/field_weather_effect.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/pokedex_area_screen.o, TOTAL, 0, 0, 0
+EWRAM::src/pokedex_area_screen.o, .=ALIGN(0x4), 0, 0, 1
+
+EWRAM::src/fldeff_cut.o, TOTAL, 0, 0, 0
+EWRAM::src/fldeff_cut.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/naming_screen.o, TOTAL, 0, 0, 0
+EWRAM::src/naming_screen.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/union_room_battle.o, TOTAL, 0, 0, 0
+EWRAM::src/union_room_battle.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/contest_util.o, TOTAL, 0, 0, 0
+EWRAM::src/contest_util.o, .=ALIGN(0x4), 0, 0, 2
+
+EWRAM::src/battle_anim_utility_funcs.o, TOTAL, 0, 0, 0
+EWRAM::src/battle_anim_utility_funcs.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/rayquaza_scene.o, TOTAL, 0, 0, 0
+EWRAM::src/rayquaza_scene.o, .=0x40000, 3, 4095, 4194254
+EWRAM::src/rayquaza_scene.o, 0x190, 1, 2016, 2064434
+EWRAM::src/rayquaza_scene.o, .=ALIGN(0x4), 0, 0, 0
+
+EWRAM::src/mon_markings.o, TOTAL, 0, 0, 0
+EWRAM::src/mon_markings.o, .=ALIGN(0x4), 0, 0, 1
 
 EWRAM::src/rogue_popup.o, TOTAL, 0, 0, 0
 EWRAM::src/rogue_popup.o, 0x1, 0, 0, 0
 
-EWRAM::src/main.o, TOTAL, 0, 0, 0
-EWRAM::src/main.o, 0x2, 0, 0, 0
-
-EWRAM::src/battle_intro.o, TOTAL, 0, 0, 0
-EWRAM::src/battle_intro.o, 0x2, 0, 0, 1
-
-EWRAM::src/money.o, TOTAL, 0, 0, 0
-EWRAM::src/money.o, 0x2, 0, 0, 16
+EWRAM::src/rogue_quest.o, TOTAL, 0, 0, 0
+EWRAM::src/rogue_quest.o, 0x1, 0, 0, 2
 
 EWRAM::src/new_game.o, TOTAL, 0, 0, 0
 EWRAM::src/new_game.o, 0x2, 0, 0, 0
 EWRAM::src/new_game.o, gEnableContestDebugging, 0, 0, 0
 EWRAM::src/new_game.o, gDifferentSaveFile, 0, 0, 0
 
-EWRAM::src/braille_puzzles.o, TOTAL, 0, 0, 0
-EWRAM::src/braille_puzzles.o, 0x3, 0, 0, 1
+EWRAM::src/money.o, TOTAL, 0, 0, 0
+EWRAM::src/money.o, 0x2, 0, 0, 16
 
-EWRAM::src/link_rfu_3.o, TOTAL, 0, 0, 0
-EWRAM::src/link_rfu_3.o, gWirelessStatusIndicatorSpriteId, 0, 0, 0
-EWRAM::src/link_rfu_3.o, 0x3, 0, 0, 0
+EWRAM::src/battle_intro.o, TOTAL, 0, 0, 0
+EWRAM::src/battle_intro.o, 0x2, 0, 0, 1
 
 EWRAM::src/faraway_island.o, TOTAL, 0, 0, 0
 EWRAM::src/faraway_island.o, 0x3, 0, 0, 1
-
-EWRAM::src/berry_powder.o, TOTAL, 0, 0, 0
-EWRAM::src/berry_powder.o, 0x3, 0, 0, 1
-
-EWRAM::src/rogue_settings_ui.o, TOTAL, 0, 0, 0
-EWRAM::src/rogue_settings_ui.o, 0x3, 0, 0, 0
-
-EWRAM::src/field_camera.o, TOTAL, 0, 0, 0
-EWRAM::src/field_camera.o, 0x3, 0, 0, 0
-EWRAM::src/field_camera.o, gUnusedBikeCameraAheadPanback, 0, 0, 0
-
-EWRAM::src/field_message_box.o, TOTAL, 0, 0, 0
-EWRAM::src/field_message_box.o, 0x3, 0, 0, 0
-
-EWRAM::src/option_menu.o, TOTAL, 0, 0, 0
-EWRAM::src/option_menu.o, 0x3, 0, 0, 1
-
-EWRAM::src/trainer_see.o, TOTAL, 0, 0, 0
-EWRAM::src/trainer_see.o, 0x3, 0, 0, 1
-EWRAM::src/trainer_see.o, gApproachingTrainerId, 0, 0, 0
 
 EWRAM::src/map_name_popup.o, TOTAL, 0, 0, 0
 EWRAM::src/map_name_popup.o, 0x3, 0, 0, 0
@@ -33542,6 +33511,35 @@ EWRAM::src/script_menu.o, 0x3, 0, 0, 0
 
 EWRAM::src/fldeff_escalator.o, TOTAL, 0, 0, 0
 EWRAM::src/fldeff_escalator.o, 0x3, 0, 0, 0
+
+EWRAM::src/option_menu.o, TOTAL, 0, 0, 0
+EWRAM::src/option_menu.o, 0x3, 0, 0, 1
+
+EWRAM::src/trainer_see.o, TOTAL, 0, 0, 0
+EWRAM::src/trainer_see.o, 0x3, 0, 0, 1
+EWRAM::src/trainer_see.o, gApproachingTrainerId, 0, 0, 0
+
+EWRAM::src/field_message_box.o, TOTAL, 0, 0, 0
+EWRAM::src/field_message_box.o, 0x3, 0, 0, 0
+
+EWRAM::src/field_camera.o, TOTAL, 0, 0, 0
+EWRAM::src/field_camera.o, 0x3, 0, 0, 0
+EWRAM::src/field_camera.o, gUnusedBikeCameraAheadPanback, 0, 0, 0
+
+EWRAM::src/braille_puzzles.o, TOTAL, 0, 0, 0
+EWRAM::src/braille_puzzles.o, 0x3, 0, 0, 1
+
+EWRAM::src/rogue_settings_ui.o, TOTAL, 0, 0, 0
+EWRAM::src/rogue_settings_ui.o, 0x3, 0, 0, 0
+
+EWRAM::src/link_rfu_3.o, TOTAL, 0, 0, 0
+EWRAM::src/link_rfu_3.o, gWirelessStatusIndicatorSpriteId, 0, 0, 0
+EWRAM::src/link_rfu_3.o, 0x3, 0, 0, 0
+
+EWRAM::src/berry_powder.o, TOTAL, 0, 0, 0
+EWRAM::src/berry_powder.o, 0x3, 0, 0, 1
+
+EWRAM::src/main.o, TOTAL, 0, 0, 0
 
 EWRAM::src/AgbRfu_LinkManager.o, TOTAL, 0, 0, 0
 

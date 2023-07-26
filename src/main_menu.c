@@ -827,17 +827,17 @@ static void Task_DisplayMainMenu(u8 taskId)
         {
         case 0:
             // TEXT_COLOR_RED;
-            palette = RGB(31, 0, 0);
+            palette = RGB(28, 1, 1);
             break;
 
         case 1:
             // TEXT_COLOR_GREEN;
-            palette = RGB(0, 31, 0);
+            palette = RGB(4, 19, 1);
             break;
 
         case 2:
             // TEXT_COLOR_BLUE;
-            palette = RGB(0, 0, 31);
+            palette = RGB(6, 10, 25);
             break;
         }
 

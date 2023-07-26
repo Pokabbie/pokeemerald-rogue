@@ -72,14 +72,13 @@ u8 gLinkVSyncDisabled;
 u32 IntrMain_Buffer[0x200];
 s8 gPcmDmaCounter;
 
-static EWRAM_DATA u16 sTrainerId = 0;
-
 //EWRAM_DATA void (**gFlashTimerIntrFunc)(void) = NULL;
 
 static void UpdateLinkAndCallCallbacks(void);
 static void InitMainCallbacks(void);
 static void CallCallbacks(void);
 static void SeedRngWithRtc(void);
+static void SeedRngWithVBlanks(void);
 static void ReadKeys(void);
 void InitIntrHandlers(void);
 static void WaitForVBlank(void);
@@ -107,8 +106,9 @@ void AgbMain()
     InitMainCallbacks();
     InitMapMusic();
 #ifdef BUGFIX
-    SeedRngWithRtc(); // see comment at SeedRngWithRtc definition below
+    //SeedRngWithRtc(); // see comment at SeedRngWithRtc definition below
 #endif
+    SeedRngWithVBlanks();
     ClearDma3Requests();
     ResetBgs();
     SetDefaultFontsPointer();
@@ -218,12 +218,13 @@ void SeedRngAndSetTrainerId(void)
     u16 val = REG_TM1CNT_L;
     SeedRng(val);
     REG_TM1CNT_H = 0;
-    sTrainerId = val;
+    //sTrainerId = val;
 }
 
 u16 GetGeneratedTrainerIdLower(void)
 {
-    return sTrainerId;
+    // sTrainerId
+    return 123;//Random();
 }
 
 void EnableVCountIntrAtLine150(void)
@@ -243,6 +244,15 @@ static void SeedRngWithRtc(void)
     SeedRogueRng(Random());
 }
 #endif
+
+static void SeedRngWithVBlanks(void)
+{
+    SeedRng(gMain.vblankCounter1);
+    SeedRng2(gMain.vblankCounter2);
+
+    // Rogue will be seeded completely separately
+    //SeedRogueRng((Random() & 0xF0) | (Random2() & 0x0F)); // combination of both?
+}
 
 void InitKeys(void)
 {
