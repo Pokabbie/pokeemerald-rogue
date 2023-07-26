@@ -901,9 +901,11 @@ bool8 FieldEffectActiveListContains(u8 id)
     return FALSE;
 }
 
-u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+struct TrainerSpriteInfo CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
+    struct TrainerSpriteInfo outInfo;
+
     LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
     LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
     spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
@@ -913,12 +915,17 @@ u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buf
     spriteTemplate.images = NULL;
     spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     spriteTemplate.callback = SpriteCallbackDummy;
-    return CreateSprite(&spriteTemplate, x, y, subpriority);
+
+    outInfo.spriteId = CreateSprite(&spriteTemplate, x, y, subpriority);
+    outInfo.tileTag = spriteTemplate.tileTag;
+    return outInfo;
 }
 
-u8 UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+struct TrainerSpriteInfo UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
+    struct TrainerSpriteInfo outInfo;
+
     LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
     LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
     spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
@@ -928,7 +935,10 @@ u8 UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subprio
     spriteTemplate.images = NULL;
     spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     spriteTemplate.callback = SpriteCallbackDummy;
-    return CreateSpriteAt(spriteID, &spriteTemplate, x, y, subpriority);
+
+    outInfo.spriteId = CreateSpriteAt(spriteID, &spriteTemplate, x, y, subpriority);
+    outInfo.tileTag = spriteTemplate.tileTag;
+    return outInfo;
 }
 
 void LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest)

@@ -1,6 +1,8 @@
 #include "gba/types.h"
 #include "gba/defines.h"
 #include "global.h"
+#include "constants/event_object_movement.h"
+#include "constants/event_objects.h"
 #include "constants/trainers.h"
 
 #include "main.h"
@@ -21,25 +23,44 @@
 #include "decompress.h"
 #include "constants/songs.h"
 #include "field_effect.h"
+#include "event_object_movement.h"
 #include "sound.h"
 #include "string_util.h"
+#include "international_string_util.h"
 #include "trainer_pokemon_sprites.h"
 #include "pokemon_icon.h"
 #include "graphics.h"
 #include "data.h"
 #include "pokedex.h"
 
+#include "rogue_player_customisation.h"
 #include "rogue_player_customisation_ui.h"
+
+typedef bool8 (*MenuItemInputCallback)();
+typedef void (*MenuItemDrawCallback)(u8);
 
 struct RoguePlayerUIState
 {
+    struct TrainerSpriteInfo trainerFrontSprite;
+    u16 trainerObjectEventGfx;
+
+    u8 trainerObjectUpSpriteId;
+    u8 trainerObjectUpAnimIdx;
+    u8 trainerObjectDownSpriteId;
+    u8 trainerObjectDownAnimIdx;
+    u8 trainerObjectSideSpriteId;
+    u8 trainerObjectSideAnimIdx;
+
     u8 loadState;
-    u8 sMode;
-    u8 trainerFrontSpriteId;
 
+    u8 currentOptionIdx;
+};
 
-    u8 sMonIconSpriteId;
-    u16 sMonIconDexNum;
+struct RoguePlayerUIEntry
+{
+    const char text[16];
+    MenuItemInputCallback processInput;
+    MenuItemDrawCallback drawChoices;
 };
 
 enum WindowIds
@@ -54,55 +75,26 @@ enum
     BG_PAL_ID_WINDOW_FRAMES
 };
 
-extern const struct PokedexEntry gPokedexEntries[];
+enum
+{
+    UI_ENTRY_OUTFIT,
+    UI_ENTRY_APPEARANCE,
+    UI_ENTRY_CLOTHES_COLOUR,
+
+    UI_ENTRY_COUNT
+};
 
 static EWRAM_DATA struct RoguePlayerUIState *sRoguePlayerUISavedState = NULL;
 static EWRAM_DATA u8 *sBg1TilemapBuffer = NULL;
 
-#define MON_ICON_X   39
-#define MON_ICON_Y   36
-#define MODE_KANTO   0
-#define MODE_JOHTO   1
-#define MODE_HOENN   2
-#define MODE_SINNOH  3
-#define MODE_UNOVA   4
-#define MODE_KALOS   5
-#define MODE_ALOLA   6
-static const u16 sDexRanges[7][2] = {
-    [MODE_KANTO]   = {1, 151},
-    [MODE_JOHTO]   = {152, 251},
-    [MODE_HOENN]   = {252, 386},
-    [MODE_SINNOH]  = {387, 493},
-    [MODE_UNOVA]   = {494, 649},
-    [MODE_KALOS]   = {650, 721},
-    [MODE_ALOLA]   = {722, 809}
-};
-static const u8 sModeNameKanto[] =  _("Kanto");
-static const u8 sModeNameJohto[] =  _("Johto");
-static const u8 sModeNameHoenn[] =  _("Hoenn");
-static const u8 sModeNameSinnoh[] = _("Sinnoh");
-static const u8 sModeNameUnova[] =  _("Unova");
-static const u8 sModeNameKalos[] =  _("Kalos");
-static const u8 sModeNameAlola[] =  _("Alola");
-static const u8 *const sModeNames[7] = {
-    [MODE_KANTO]   = sModeNameKanto,
-    [MODE_JOHTO]   = sModeNameJohto,
-    [MODE_HOENN]   = sModeNameHoenn,
-    [MODE_SINNOH]  = sModeNameSinnoh,
-    [MODE_UNOVA]   = sModeNameUnova,
-    [MODE_KALOS]   = sModeNameKalos,
-    [MODE_ALOLA]   = sModeNameAlola
-};
+static bool8 RoguePlayerUI_EntryOutfit_ProcessInput();
+static void RoguePlayerUI_EntryOutfit_DrawChoices(u8);
+static bool8 RoguePlayerUI_EntryAppearance_ProcessInput();
+static void RoguePlayerUI_EntryAppearance_DrawChoices(u8);
+static bool8 RoguePlayerUI_EntryClothesColour_ProcessInput();
+static void RoguePlayerUI_EntryClothesColour_DrawChoices(u8);
 
-static const u16 sModeBgColors[] = {
-    [MODE_KANTO]   = 0x6a93,
-    [MODE_JOHTO]   = 0x527a,
-    [MODE_HOENN]   = 0x4f55,
-    [MODE_SINNOH]  = 0x4b7c,
-    [MODE_UNOVA]   = 0x5ef7,
-    [MODE_KALOS]   = 0x76fb,
-    [MODE_ALOLA]   = 0x471f,
-};
+#define YPOS_SPACING      16
 
 static const struct BgTemplate sRoguePlayerUIBgTemplates[] =
 {
@@ -144,6 +136,28 @@ static const struct WindowTemplate sRoguePlayerUIWindowTemplates[] =
     }
 };
 
+static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] = 
+{
+    [UI_ENTRY_OUTFIT] = 
+    {
+        .text = _("Outfit"),
+        .processInput = RoguePlayerUI_EntryOutfit_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryOutfit_DrawChoices,
+    },
+    [UI_ENTRY_APPEARANCE] = 
+    {
+        .text = _("Appearance"),
+        .processInput = RoguePlayerUI_EntryAppearance_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryAppearance_DrawChoices,
+    },
+    [UI_ENTRY_CLOTHES_COLOUR] = 
+    {
+        .text = _("Outfix Colour"),
+        .processInput = RoguePlayerUI_EntryClothesColour_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesColour_DrawChoices,
+    }
+};
+
 #define FREE_BLOCK_START (1 + (13 * 2) + (13 * 18))
 
 static const u32 sRoguePlayerUITiles[] = INCBIN_U32("graphics/rogue_players/customise_view.4bpp.lz");
@@ -156,13 +170,17 @@ enum FontColor
     FONT_WHITE,
     FONT_RED,
     FONT_BLUE,
+    FONT_GREEN,
+    FONT_BRIGHT_GREEN,
 };
 static const u8 sRoguePlayerUIWindowFontColors[][3] = 
 {
-    [FONT_BLACK]  = {TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY,  TEXT_COLOR_LIGHT_GRAY},
-    [FONT_WHITE]  = {TEXT_COLOR_WHITE, TEXT_COLOR_WHITE,      TEXT_COLOR_DARK_GRAY},
-    [FONT_RED]    = {TEXT_COLOR_WHITE, TEXT_COLOR_RED,        TEXT_COLOR_LIGHT_GRAY},
-    [FONT_BLUE]   = {TEXT_COLOR_WHITE, TEXT_COLOR_BLUE,       TEXT_COLOR_LIGHT_GRAY},
+    [FONT_BLACK]        = {TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY,  TEXT_COLOR_LIGHT_GRAY},
+    [FONT_WHITE]        = {TEXT_COLOR_WHITE, TEXT_COLOR_WHITE,      TEXT_COLOR_DARK_GRAY},
+    [FONT_RED]          = {TEXT_COLOR_WHITE, TEXT_COLOR_RED,        TEXT_COLOR_LIGHT_GRAY},
+    [FONT_BLUE]         = {TEXT_COLOR_WHITE, TEXT_COLOR_BLUE,       TEXT_COLOR_LIGHT_GRAY},
+    [FONT_GREEN]        = {TEXT_COLOR_WHITE, TEXT_COLOR_GREEN,      TEXT_COLOR_LIGHT_GRAY},
+    [FONT_BRIGHT_GREEN] = {TEXT_COLOR_WHITE, TEXT_COLOR_GREEN,      TEXT_COLOR_LIGHT_GREEN},
 };
 
 static void RoguePlayerUI_PreSetupCB(void);
@@ -180,9 +198,10 @@ static bool8 RoguePlayerUI_InitBgs(void);
 static void RoguePlayerUI_FadeAndBail(void);
 static bool8 RoguePlayerUI_LoadGraphics(void);
 static void RoguePlayerUI_InitWindows(void);
-static void RoguePlayerUI_PrintUiButtonHints(u8 windowId, u8 colorIdx);
-static void RoguePlayerUI_PrintUiMonInfo(u8 windowId, u8 colorIdx);
-static void RoguePlayerUI_DrawTrainerSprites(u16 dexNum);
+static void RoguePlayerUI_PrintTitleText();
+static void RoguePlayerUI_PrintMenuText();
+static void RoguePlayerUI_DrawTrainerSprites();
+static void RoguePlayerUI_FreeTrainerSprites();
 static void RoguePlayerUI_FreeResources(void);
 static void DrawBgWindowFrames(void);
 
@@ -197,6 +216,13 @@ void CB2_InitPlayerCustomisationMenu()
 
     sRoguePlayerUISavedState = AllocZeroed(sizeof(struct RoguePlayerUIState));
     sRoguePlayerUISavedState->loadState = 0;
+
+    sRoguePlayerUISavedState->trainerFrontSprite.spriteId = SPRITE_NONE;
+    sRoguePlayerUISavedState->trainerFrontSprite.tileTag = TAG_NONE;
+
+    sRoguePlayerUISavedState->trainerObjectUpSpriteId = SPRITE_NONE;
+    sRoguePlayerUISavedState->trainerObjectDownSpriteId = SPRITE_NONE;
+    sRoguePlayerUISavedState->trainerObjectSideSpriteId = SPRITE_NONE;
     
     SetMainCallback2(RoguePlayerUI_PreSetupCB);
 }
@@ -252,11 +278,8 @@ static void RoguePlayerUI_SetupCB(void)
         gMain.state++;
         break;
     case 5:
-        sRoguePlayerUISavedState->sMode = MODE_KANTO;
-        sRoguePlayerUISavedState->sMonIconDexNum = sDexRanges[sRoguePlayerUISavedState->sMode][0];
-
-        RoguePlayerUI_PrintUiButtonHints(WIN_TITLE, FONT_WHITE);
-        RoguePlayerUI_PrintUiMonInfo(WIN_INFO_PANEL, FONT_BLACK);
+        RoguePlayerUI_PrintTitleText();
+        RoguePlayerUI_PrintMenuText();
 
         taskId = CreateTask(Task_RoguePlayerUIWaitFadeIn, 0);
         gMain.state++;
@@ -293,7 +316,7 @@ static void Task_RoguePlayerUIWaitFadeIn(u8 taskId)
     if (!gPaletteFade.active)
     {
         // Wait for fade to spawn in sprite, as we had some corruption doing it before fade
-        RoguePlayerUI_DrawTrainerSprites(sRoguePlayerUISavedState->sMonIconDexNum);
+        RoguePlayerUI_DrawTrainerSprites();
 
         gTasks[taskId].func = Task_RoguePlayerUIMain;
     }
@@ -307,55 +330,58 @@ static void Task_RoguePlayerUIMain(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_RoguePlayerUIWaitFadeAndExitGracefully;
     }
-    if (JOY_REPEAT(DPAD_DOWN))
-    {
-        PlaySE(SE_SELECT);
-        FreeAndDestroyTrainerPicSprite(sRoguePlayerUISavedState->trainerFrontSpriteId);
-        if (sRoguePlayerUISavedState->sMonIconDexNum < sDexRanges[sRoguePlayerUISavedState->sMode][1])
-        {
-            sRoguePlayerUISavedState->sMonIconDexNum++;
-        }
-        else
-        {
-            sRoguePlayerUISavedState->sMonIconDexNum = sDexRanges[sRoguePlayerUISavedState->sMode][0];
-        }
-        RoguePlayerUI_DrawTrainerSprites(sRoguePlayerUISavedState->sMonIconDexNum);
-        RoguePlayerUI_PrintUiMonInfo(WIN_INFO_PANEL, FONT_BLACK);
-    }
-    if (JOY_REPEAT(DPAD_UP))
-    {
-        PlaySE(SE_SELECT);
-        FreeAndDestroyTrainerPicSprite(sRoguePlayerUISavedState->trainerFrontSpriteId);
-        if (sRoguePlayerUISavedState->sMonIconDexNum > sDexRanges[sRoguePlayerUISavedState->sMode][0])
-        {
-            sRoguePlayerUISavedState->sMonIconDexNum--;
-        }
-        else
-        {
-            sRoguePlayerUISavedState->sMonIconDexNum = sDexRanges[sRoguePlayerUISavedState->sMode][1];
-        }
-        RoguePlayerUI_DrawTrainerSprites(sRoguePlayerUISavedState->sMonIconDexNum);
-        RoguePlayerUI_PrintUiMonInfo(WIN_INFO_PANEL, FONT_BLACK);
-    }
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        if (sRoguePlayerUISavedState->sMode == MODE_ALOLA)
-        {
-            sRoguePlayerUISavedState->sMode = MODE_KANTO;
-        }
-        else
-        {
-            sRoguePlayerUISavedState->sMode++;
-        }
-        sRoguePlayerUISavedState->sMonIconDexNum = sDexRanges[sRoguePlayerUISavedState->sMode][0];
-        FreeAndDestroyTrainerPicSprite(sRoguePlayerUISavedState->trainerFrontSpriteId);
 
-        RoguePlayerUI_DrawTrainerSprites(sRoguePlayerUISavedState->sMonIconDexNum);
-        RoguePlayerUI_PrintUiButtonHints(WIN_TITLE, FONT_WHITE);
-        RoguePlayerUI_PrintUiMonInfo(WIN_INFO_PANEL, FONT_BLACK);
+    else if (JOY_NEW(DPAD_UP))
+    {
+        PlaySE(SE_SELECT);
 
-        //LoadPalette(&sModeBgColors[sRoguePlayerUISavedState->sMode], BG_PLTT_ID(0) + 2, 2);
+        if(sRoguePlayerUISavedState->currentOptionIdx == 0)
+            sRoguePlayerUISavedState->currentOptionIdx = 0; // todo - loop
+        else
+            --sRoguePlayerUISavedState->currentOptionIdx;
+        
+        RoguePlayerUI_PrintMenuText();
+    }
+    else if (JOY_NEW(DPAD_DOWN))
+    {
+        PlaySE(SE_SELECT);
+
+        ++sRoguePlayerUISavedState->currentOptionIdx; // todo - clamp
+
+        RoguePlayerUI_PrintMenuText();
+    }
+
+    //else if (JOY_NEW(DPAD_LEFT))
+    //{
+    //    PlaySE(SE_SELECT);
+    //    RoguePlayerUI_FreeTrainerSprites();
+//
+    //    // TODO - Move
+    //    gSaveBlock2Ptr->playerStyle0 = (gSaveBlock2Ptr->playerStyle0 + 1) % 4;
+//
+    //    RoguePlayerUI_DrawTrainerSprites(0);
+    //    RoguePlayerUI_PrintMenuText();
+    //}
+    //else if (JOY_NEW(DPAD_RIGHT))
+    //{
+    //    PlaySE(SE_SELECT);
+    //    RoguePlayerUI_FreeTrainerSprites();
+//
+    //    // TODO - Move
+    //    gSaveBlock2Ptr->playerStyle1 = (gSaveBlock2Ptr->playerStyle1 + 1) % 6;
+//
+    //    RoguePlayerUI_DrawTrainerSprites();
+    //    RoguePlayerUI_PrintMenuText();
+    //}
+
+    if(sRoguePlayerUISavedState->currentOptionIdx < UI_ENTRY_COUNT)
+    {
+        if(sRoguePlayerUIEntries[sRoguePlayerUISavedState->currentOptionIdx].processInput())
+        {
+            PlaySE(SE_SELECT);
+            RoguePlayerUI_DrawTrainerSprites();
+            RoguePlayerUI_PrintMenuText();
+        }
     }
 }
 
@@ -434,7 +460,6 @@ static bool8 RoguePlayerUI_LoadGraphics(void)
         LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, BG_PLTT_ID(BG_PAL_ID_WINDOW_FRAMES), PLTT_SIZE_4BPP);
 
         LoadPalette(sRoguePlayerUIPalette, BG_PLTT_ID(BG_PAL_ID_BACKGROUND), PLTT_SIZE_4BPP);
-        //LoadPalette(&sModeBgColors[MODE_KANTO], BG_PLTT_ID(0) + 2, 2);
         LoadPalette(gMessageBox_Pal, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
         sRoguePlayerUISavedState->loadState++;
     default:
@@ -458,49 +483,139 @@ static void RoguePlayerUI_InitWindows(void)
     CopyWindowToVram(WIN_INFO_PANEL, 3);
 }
 
-static const u8 sText_RoguePlayerUIDex[] = _("DEX");
-static const u8 sText_RoguePlayerUIButtonHint1[] = _("{DPAD_UPDOWN}Change POKéMON");
-static const u8 sText_RoguePlayerUIButtonHint2[] = _("{A_BUTTON}Mode: {STR_VAR_1}");
-static const u8 sText_RoguePlayerUIButtonHint3[] = _("{B_BUTTON}Exit");
+static const u8 sText_RoguePlayerUITitle[] = _("TITLE HERE");
 
-static void RoguePlayerUI_PrintUiButtonHints(u8 windowId, u8 colorIdx)
+static void RoguePlayerUI_PrintTitleText()
 {
-    StringCopy(gStringVar1, sModeNames[sRoguePlayerUISavedState->sMode]);
-    StringExpandPlaceholders(gStringVar2, sText_RoguePlayerUIButtonHint2);
-
-    FillWindowPixelBuffer(windowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    //AddTextPrinterParameterized4(windowId, FONT_NORMAL, 0, 3, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, sText_RoguePlayerUIDex);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 0, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, sText_RoguePlayerUIButtonHint1);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 10, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, gStringVar2);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 20, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, sText_RoguePlayerUIButtonHint3);
-    CopyWindowToVram(windowId, COPYWIN_GFX);
+    FillWindowPixelBuffer(WIN_TITLE, PIXEL_FILL(TEXT_COLOR_WHITE));
+    AddTextPrinterParameterized4(WIN_TITLE, FONT_NORMAL, 0, 0, 0, 0, sRoguePlayerUIWindowFontColors[FONT_BLUE], TEXT_SKIP_DRAW, sText_RoguePlayerUITitle);
+    CopyWindowToVram(WIN_TITLE, COPYWIN_GFX);
 }
 
-static const u8 sText_RoguePlayerUIMonInfoSpecies[] = _("{NO}{STR_VAR_1} {STR_VAR_2}");
-static void RoguePlayerUI_PrintUiMonInfo(u8 windowId, u8 colorIdx)
+
+static void AddMenuNameText(u8 menuOffset, const char* text)
 {
-    u16 speciesId = NationalPokedexNumToSpecies(sRoguePlayerUISavedState->sMonIconDexNum);
+    u8 font = FONT_BLUE;
 
-    ConvertIntToDecimalStringN(gStringVar1, sRoguePlayerUISavedState->sMonIconDexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
-    StringCopy(gStringVar2, gSpeciesNames[speciesId]);
-    StringExpandPlaceholders(gStringVar3, sText_RoguePlayerUIMonInfoSpecies);
-    StringCopy(gStringVar4, gPokedexEntries[sRoguePlayerUISavedState->sMonIconDexNum].description);
+    if(menuOffset == sRoguePlayerUISavedState->currentOptionIdx)
+    {
+        font = FONT_GREEN;
+    }
 
-    FillWindowPixelBuffer(windowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    AddTextPrinterParameterized4(windowId, FONT_SHORT, 0, 0, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, gStringVar3);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 5, 0, 0, sRoguePlayerUIWindowFontColors[colorIdx], TEXT_SKIP_DRAW, gStringVar4);
-    CopyWindowToVram(windowId, COPYWIN_GFX);
+    AddTextPrinterParameterized4(WIN_INFO_PANEL, FONT_NARROW, 0, YPOS_SPACING * menuOffset, 0, 0, sRoguePlayerUIWindowFontColors[font], TEXT_SKIP_DRAW, text);
 }
 
-static void RoguePlayerUI_DrawTrainerSprites(u16 dexNum)
-{ 
-    sRoguePlayerUISavedState->trainerFrontSpriteId = CreateTrainerSprite(
-        TRAINER_PIC_MAY,
+static void AddMenuValueText(u8 menuOffset, const char* text)
+{
+    u8 font = FONT_BLACK;
+
+    if(menuOffset == sRoguePlayerUISavedState->currentOptionIdx)
+    {
+        font = FONT_BRIGHT_GREEN;
+    }
+
+    AddTextPrinterParameterized4(WIN_INFO_PANEL, 
+        FONT_SHORT, 
+        50 + GetStringCenterAlignXOffset(FONT_SHORT, text, 56), 
+        YPOS_SPACING * menuOffset, 
+        0, 0, 
+        sRoguePlayerUIWindowFontColors[font], 
+        TEXT_SKIP_DRAW, 
+        text
+    );
+}
+
+static void RoguePlayerUI_PrintMenuText()
+{
+    u8 i, y;
+
+    FillWindowPixelBuffer(WIN_INFO_PANEL, PIXEL_FILL(TEXT_COLOR_WHITE));
+
+    for(i = 0; i < UI_ENTRY_COUNT; ++i)
+    {
+        y = i;
+        AddMenuNameText(y, sRoguePlayerUIEntries[i].text);
+        sRoguePlayerUIEntries[i].drawChoices(y);
+    }
+
+    CopyWindowToVram(WIN_INFO_PANEL, COPYWIN_GFX);
+}
+
+static void RoguePlayerUI_DrawTrainerSprites()
+{
+    const u8 xObjectSpacing = 32;
+
+    // Free any sprites we previously had open
+    RoguePlayerUI_FreeTrainerSprites();
+
+    //sRoguePlayerUISavedState->trainerFrontSpriteId = CreateTrainerPicSprite(
+    //    TRAINER_PIC_MAY,
+    //    TRUE,
+    //    64, 92,
+    //    0,
+    //    TAG_NONE
+    //);
+
+    sRoguePlayerUISavedState->trainerFrontSprite = CreateTrainerSprite(
+        RoguePlayer_GetTrainerFrontSprite(),
         64, 92,
         0, 
         gDecompressionBuffer
     );
+
+    sRoguePlayerUISavedState->trainerObjectEventGfx = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
+
+    if(sRoguePlayerUISavedState->trainerObjectDownSpriteId == SPRITE_NONE)
+    {
+        sRoguePlayerUISavedState->trainerObjectDownSpriteId = CreateObjectGraphicsSprite(sRoguePlayerUISavedState->trainerObjectEventGfx, SpriteCallbackDummy, 64, 38, 0);
+
+        StartSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectDownSpriteId], ANIM_STD_GO_SOUTH);
+        SeekSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectDownSpriteId], sRoguePlayerUISavedState->trainerObjectDownAnimIdx);
+    }
+
+    if(sRoguePlayerUISavedState->trainerObjectUpSpriteId == SPRITE_NONE)
+    {
+        sRoguePlayerUISavedState->trainerObjectUpSpriteId = CreateObjectGraphicsSprite(sRoguePlayerUISavedState->trainerObjectEventGfx, SpriteCallbackDummy, 64 - xObjectSpacing, 38, 0);
+
+        StartSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectUpSpriteId], ANIM_STD_GO_NORTH);
+        SeekSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectUpSpriteId], sRoguePlayerUISavedState->trainerObjectUpAnimIdx);
+    }
+
+    if(sRoguePlayerUISavedState->trainerObjectSideSpriteId == SPRITE_NONE)
+    {
+        sRoguePlayerUISavedState->trainerObjectSideSpriteId = CreateObjectGraphicsSprite(sRoguePlayerUISavedState->trainerObjectEventGfx, SpriteCallbackDummy, 64 + xObjectSpacing, 38, 0);
+    
+        StartSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectSideSpriteId], ANIM_STD_GO_EAST);
+        SeekSpriteAnim(&gSprites[sRoguePlayerUISavedState->trainerObjectSideSpriteId], sRoguePlayerUISavedState->trainerObjectSideAnimIdx);
+    }
 }
+
+// As we load above directly into gDecompressionBuffer, we don't actually store the active tiles within the sprite
+// so they won't get unloaded unless we manually do it here
+#define SAFE_TRAINER_SPRITE_DELETE(trainerInfo) if(trainerInfo.spriteId != SPRITE_NONE) { FreeSpriteTilesByTag(trainerInfo.tileTag); FreeAndDestroyTrainerPicSprite(trainerInfo.spriteId); trainerInfo.spriteId = SPRITE_NONE; }
+#define SAFE_OBJECT_SPRITE_DELETE(sprite, animIdx) if(sprite != SPRITE_NONE) { animIdx = gSprites[sprite].animCmdIndex; DestroySprite(&gSprites[sprite]); sprite = SPRITE_NONE; }
+
+static void RoguePlayerUI_FreeTrainerSprites()
+{
+    SAFE_TRAINER_SPRITE_DELETE(sRoguePlayerUISavedState->trainerFrontSprite);
+
+    // Free the object palette here ourself
+    if(sRoguePlayerUISavedState->trainerObjectDownSpriteId != SPRITE_NONE)
+    {
+        const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(sRoguePlayerUISavedState->trainerObjectEventGfx);
+        if(graphicsInfo->paletteTag != TAG_NONE)
+        {
+            FreeSpritePaletteByTag(graphicsInfo->paletteTag);
+        }
+    }
+
+    SAFE_OBJECT_SPRITE_DELETE(sRoguePlayerUISavedState->trainerObjectDownSpriteId, sRoguePlayerUISavedState->trainerObjectDownAnimIdx);
+    SAFE_OBJECT_SPRITE_DELETE(sRoguePlayerUISavedState->trainerObjectUpSpriteId, sRoguePlayerUISavedState->trainerObjectUpAnimIdx);
+    SAFE_OBJECT_SPRITE_DELETE(sRoguePlayerUISavedState->trainerObjectSideSpriteId, sRoguePlayerUISavedState->trainerObjectSideAnimIdx);
+}
+
+#undef SAFE_TRAINER_SPRITE_DELETE
+#undef SAFE_OBJECT_SPRITE_DELETE
 
 static void RoguePlayerUI_FreeResources(void)
 {
@@ -573,4 +688,87 @@ static void DrawBgWindowFrames(void)
 
         //CopyBgTilemapBufferToVram(bg);
     }
+}
+
+static bool8 RoguePlayerUI_EntryOutfit_ProcessInput()
+{
+    const u16 outfitCount = RoguePlayer_GetOutfitCount();
+    u16 outfitId = RoguePlayer_GetOutfitId();
+
+    if(JOY_NEW(DPAD_LEFT))
+    {
+        if(outfitId == 0)
+            outfitId = outfitCount - 1;
+        else
+            --outfitId;
+
+        RoguePlayer_SetOutfitId(outfitId);
+        return TRUE;
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        outfitId = (outfitId + 1) % outfitCount;
+        RoguePlayer_SetOutfitId(outfitId);
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void RoguePlayerUI_EntryOutfit_DrawChoices(u8 menuOffset)
+{
+    ConvertUIntToDecimalStringN(gStringVar1, RoguePlayer_GetOutfitId(), STR_CONV_MODE_LEFT_ALIGN, 2);
+    AddMenuValueText(menuOffset, gStringVar1);
+}
+
+static bool8 RoguePlayerUI_EntryAppearance_ProcessInput()
+{
+    if(JOY_NEW(DPAD_LEFT))
+    {
+        if(gSaveBlock2Ptr->playerStyle0 == 0)
+            gSaveBlock2Ptr->playerStyle0 = 3;
+        else
+            --gSaveBlock2Ptr->playerStyle0;
+        return TRUE;
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        gSaveBlock2Ptr->playerStyle0 = (gSaveBlock2Ptr->playerStyle0 + 1) % 4;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void RoguePlayerUI_EntryAppearance_DrawChoices(u8 menuOffset)
+{
+    ConvertUIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playerStyle0, STR_CONV_MODE_LEFT_ALIGN, 2);
+    AddMenuValueText(menuOffset, gStringVar1);
+}
+
+
+static bool8 RoguePlayerUI_EntryClothesColour_ProcessInput()
+{
+    if(JOY_NEW(DPAD_LEFT))
+    {
+        if(gSaveBlock2Ptr->playerStyle1 == 0)
+            gSaveBlock2Ptr->playerStyle1 = 5;
+        else
+            --gSaveBlock2Ptr->playerStyle1;
+        return TRUE;
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        gSaveBlock2Ptr->playerStyle1 = (gSaveBlock2Ptr->playerStyle1 + 1) % 6;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void RoguePlayerUI_EntryClothesColour_DrawChoices(u8 menuOffset)
+{
+    ConvertUIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playerStyle1, STR_CONV_MODE_LEFT_ALIGN, 2);
+    AddMenuValueText(menuOffset, gStringVar1);
 }

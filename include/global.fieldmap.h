@@ -252,6 +252,8 @@ enum {
 
     // This has to be unused (The flags below have to align)
     PLAYER_AVATAR_STATE_UNDERWATER,
+
+    PLAYER_AVATAR_STATE_COUNT
 };
 
 #define PLAYER_AVATAR_FLAG_ON_FOOT      (1 << 0)

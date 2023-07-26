@@ -348,6 +348,7 @@ SECTIONS {
         src/rogue_quest.o(.text);
         src/rogue_questmenu.o(.text);
         src/rogue_popup.o(.text);
+        src/rogue_player_customisation.o(.text);
         src/rogue_player_customisation_ui.o(.text);
         src/rogue_adventurepaths.o(.text);
         src/rogue_charms.o(.text);
@@ -732,6 +733,7 @@ SECTIONS {
         src/rogue_quest.o(.rodata);
         src/rogue_questmenu.o(.rodata);
         src/rogue_popup.o(.rodata);
+        src/rogue_player_customisation.o(.rodata);
         src/rogue_player_customisation_ui.o(.rodata);
         src/rogue_adventurepaths.o(.rodata);
         src/rogue_charms.o(.rodata);
