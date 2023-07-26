@@ -6,9 +6,8 @@ u16 RoguePlayer_GetOutfitId();
 
 u16 RoguePlayer_GetOutfitCount();
 
-u16 RoguePlayer_GetTrainerFrontSprite();
-u16 RoguePlayer_GetTrainerBackSprite();
-
+u16 RoguePlayer_GetTrainerFrontPic();
+u16 RoguePlayer_GetTrainerBackPic();
 u16 RoguePlayer_GetObjectGfx(u8 state);
 
 #endif

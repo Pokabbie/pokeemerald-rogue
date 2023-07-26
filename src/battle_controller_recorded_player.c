@@ -26,6 +26,7 @@
 #include "constants/songs.h" 
 
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 static void RecordedPlayerHandleGetMonData(void);
 static void RecordedPlayerHandleGetRawMonData(void);
@@ -1678,7 +1679,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(void)
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(gActiveBattler)].gender;
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
 
     LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[trainerPicId].data), 0x100 + paletteNum * 16, 32);
 

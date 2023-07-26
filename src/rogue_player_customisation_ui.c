@@ -557,7 +557,7 @@ static void RoguePlayerUI_DrawTrainerSprites()
     //);
 
     sRoguePlayerUISavedState->trainerFrontSprite = CreateTrainerSprite(
-        RoguePlayer_GetTrainerFrontSprite(),
+        RoguePlayer_GetTrainerFrontPic(),
         64, 92,
         0, 
         gDecompressionBuffer

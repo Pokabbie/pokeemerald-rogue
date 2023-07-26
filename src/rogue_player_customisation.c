@@ -22,6 +22,8 @@ enum
     PLAYER_OUTFIT_LEAF,
     PLAYER_OUTFIT_ETHAN,
     PLAYER_OUTFIT_LYRA,
+    
+    PLAYER_OUTFIT_TEST,
 
     PLAYER_OUTFIT_COUNT,
 };
@@ -95,6 +97,17 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING] = OBJ_EVENT_GFX_LYRA_RIDING,
             [PLAYER_AVATAR_STATE_FIELD_MOVE] = OBJ_EVENT_GFX_LYRA_FIELD_MOVE, // <- todo remove this
         }
+    },
+    [PLAYER_OUTFIT_TEST] =
+    {
+        .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_WALLY,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_MAGMA_MEMBER_F,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING] = OBJ_EVENT_GFX_MAGMA_MEMBER_F,
+            [PLAYER_AVATAR_STATE_FIELD_MOVE] = OBJ_EVENT_GFX_LYRA_FIELD_MOVE, // <- todo remove this
+        }
     }
 };
 
@@ -119,12 +132,12 @@ u16 RoguePlayer_GetOutfitCount()
     return PLAYER_OUTFIT_COUNT;
 }
 
-u16 RoguePlayer_GetTrainerFrontSprite()
+u16 RoguePlayer_GetTrainerFrontPic()
 {
     return GetCurrentOutfit()->trainerFrontPic;
 }
 
-u16 RoguePlayer_GetTrainerBackSprite()
+u16 RoguePlayer_GetTrainerBackPic()
 {
     return GetCurrentOutfit()->trainerBackPic;
 }

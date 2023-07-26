@@ -35,6 +35,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
@@ -2000,6 +2001,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     if (graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
 
+    // Handle mon gfx
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
     {
         const struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
@@ -2010,13 +2012,32 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
             return gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_BOY_1];
     }
 
-    if (graphicsId == OBJ_EVENT_GFX_BARD)
+    // Handle bard
+    else if (graphicsId == OBJ_EVENT_GFX_BARD)
     {
         bard = GetCurrentMauvilleOldMan();
         return gMauvilleOldManGraphicsInfoPointers[bard];
     }
 
-    if (graphicsId >= NUM_OBJ_EVENT_GFX)
+    // Handle player avatar
+    else if (graphicsId >= OBJ_EVENT_GFX_PLAYER_FIRST && graphicsId <= OBJ_EVENT_GFX_PLAYER_LAST)
+    {
+        switch(graphicsId)
+        {
+            case OBJ_EVENT_GFX_PLAYER_NORMAL:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
+                break;
+            case OBJ_EVENT_GFX_PLAYER_RIDING:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_RIDE_GRABBING);
+                break;
+            case OBJ_EVENT_GFX_PLAYER_FIELD_MOVE:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_FIELD_MOVE);
+                break;
+        }
+    }
+
+    // Handle mirror??? (todo - rework this???)
+    else if (graphicsId >= NUM_OBJ_EVENT_GFX)
     {
         switch (graphicsId)
         {
