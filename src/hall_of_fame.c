@@ -37,6 +37,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_campaign.h"
+#include "rogue_player_customisation.h"
 
 #define HALL_OF_FAME_MAX_TEAMS 30
 #define TAG_CONFETTI 1001
@@ -760,9 +761,8 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
     ShowBg(1);
     ShowBg(3);
 
-    gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 1, 120, 72, 6, TAG_NONE);
-    //gTasks[taskId].tPlayerSpriteID = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 120, 60, 0, &gDecompressionBuffer[0x0]);
-    
+    gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(RoguePlayer_GetTrainerFrontPic(), 1, 120, 72, 6, TAG_NONE);
+
     if(Rogue_IsActiveCampaignScored())
         AddWindow(&sHof_WindowTemplate_CampaignRun);
     else

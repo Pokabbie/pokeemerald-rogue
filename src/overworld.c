@@ -1174,6 +1174,13 @@ void Overworld_PlaySpecialMapMusic(void)
             music = MUS_SURF;
     }
 
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTRO))
+    {
+        // Use whatever the music we previously had on is
+        // (We call a bunch of special screens and want the same music throughout)
+        music = GetCurrentMapMusic();
+    }
+
     if (music != GetCurrentMapMusic())
         PlayNewMapMusic(music);
 }
@@ -1568,7 +1575,7 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext1_Init();
     ScriptContext2_Disable();
-    gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback = NULL;//ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();

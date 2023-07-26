@@ -54,6 +54,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_player_customisation.h"
 #include "rogue_quest.h"
 
 #define TAG_POCKET_SCROLL_ARROW 110
@@ -998,21 +999,18 @@ static bool8 LoadBagMenu_Graphics(void)
         }
         break;
     case 2:
-        if (!IsWallysBag() && (gSaveBlock2Ptr->playerGender % 2) != MALE)
-            LoadCompressedPalette(gBagScreenFemale_Pal, 0, 0x40);
-        else
+        if((RoguePlayer_GetTextVariantId() % 2) == 0)
             LoadCompressedPalette(gBagScreenMale_Pal, 0, 0x40);
+        else
+            LoadCompressedPalette(gBagScreenFemale_Pal, 0, 0x40);
         gBagMenu->graphicsLoadState++;
         break;
     case 3:
-        if (IsWallysBag() == TRUE || (gSaveBlock2Ptr->playerGender % 2) == MALE)
-            LoadCompressedSpriteSheet(&gBagMaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
-        else
-            LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
+        LoadCompressedSpriteSheet(&gBagSpriteSheet[RoguePlayer_GetBagGfxVariant()]);
         gBagMenu->graphicsLoadState++;
         break;
     case 4:
-        LoadCompressedSpritePalette(&gBagPaletteTable[min(gSaveBlock2Ptr->playerGender / 2, BAG_VARIANT_COUNT - 1)]);
+        LoadCompressedSpritePalette(&gBagPaletteTable[RoguePlayer_GetBagGfxVariant()]);
         gBagMenu->graphicsLoadState++;
         break;
     default:

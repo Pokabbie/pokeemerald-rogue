@@ -88,6 +88,8 @@ extern const u8 gText_RogueDebug_X[];
 extern const u8 gText_RogueDebug_Y[];
 #endif
 
+extern const u8 gText_TrainerName_Default[];
+
 #define LAB_MON_COUNT 3
 
 // RogueNote: TODO - Modify pocket structure
@@ -1633,6 +1635,12 @@ void Rogue_ResetConfigHubSettings(void)
 
 void Rogue_OnNewGame(void)
 {
+    gSaveBlock2Ptr->playerStyle0 = 0;
+    gSaveBlock2Ptr->playerStyle1 = 1;
+    StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
+
+    StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
+    
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 

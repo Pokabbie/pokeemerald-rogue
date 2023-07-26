@@ -585,6 +585,11 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
 
+    // Placeholder GFX (Will be expanded later)
+    [OBJ_EVENT_GFX_PLAYER_NORMAL] =            &gObjectEventGraphicsInfo_BrendanNormal,
+    [OBJ_EVENT_GFX_PLAYER_RIDING] =            &gObjectEventGraphicsInfo_BrendanRiding,
+    [OBJ_EVENT_GFX_PLAYER_FIELD_MOVE] =        &gObjectEventGraphicsInfo_BrendanFieldMove,
+
     [OBJ_EVENT_GFX_LEAF] =                     &gObjectEventGraphicsInfo_Leaf,
     [OBJ_EVENT_GFX_LEAF_MACH_BIKE] =           &gObjectEventGraphicsInfo_LeafMachBike,
     [OBJ_EVENT_GFX_LEAF_ACRO_BIKE] =           &gObjectEventGraphicsInfo_LeafAcroBike,

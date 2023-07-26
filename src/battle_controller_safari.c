@@ -25,6 +25,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 static void SafariHandleGetMonData(void);
 static void SafariHandleGetRawMonData(void);
@@ -376,12 +377,14 @@ static void SafariHandleReturnMonToBall(void)
 
 static void SafariHandleDrawTrainerPic(void)
 {
-    DecompressTrainerBackPic(gSaveBlock2Ptr->playerGender, gActiveBattler);
-    SetMultiuseSpriteTemplateToTrainerBack(gSaveBlock2Ptr->playerGender, GetBattlerPosition(gActiveBattler));
+    u16 playerPicId = RoguePlayer_GetTrainerBackPic();
+
+    DecompressTrainerBackPic(playerPicId, gActiveBattler);
+    SetMultiuseSpriteTemplateToTrainerBack(playerPicId, GetBattlerPosition(gActiveBattler));
     gBattlerSpriteIds[gActiveBattler] = CreateSprite(
       &gMultiuseSpriteTemplate,
       80,
-      (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80,
+      (8 - gTrainerBackPicCoords[playerPicId].size) * 4 + 80,
       30);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = DISPLAY_WIDTH;

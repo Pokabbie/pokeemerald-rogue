@@ -169,6 +169,8 @@
 #define TRAINER_BACK_PIC_WALLY                  8
 #define TRAINER_BACK_PIC_STEVEN                 9
 
+#define TRAINER_BACK_PIC_PLAYER                 0xFF
+
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
 #define FACILITY_CLASS_PKMN_BREEDER_F        0x2

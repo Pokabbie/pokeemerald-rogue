@@ -27,6 +27,7 @@
 #define MAP_ROGUE_HUB_ADVENTURE_ENTERANCE   (7 | (1 << 8))
 #define MAP_ROGUE_HUB_BAKERY                (8 | (1 << 8))
 #define MAP_ROGUE_HUB_DEBUG                 (9 | (1 << 8))
+#define MAP_ROGUE_INTRO                     (10 | (1 << 8))
 
 // gMapGroup_RogueHubAreas
 #define MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL (0 | (2 << 8))

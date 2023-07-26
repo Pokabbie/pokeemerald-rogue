@@ -40,6 +40,12 @@ const u8 gText_MoveNotVeryEffective[] = _("{COLOR GREEN}Not Effective");
 
 // Trainers
 //
+#ifdef ROGUE_EXPANSION
+const u8 gText_TrainerName_Default[] = _("Rouge");
+#else
+const u8 gText_TrainerName_Default[] = _("ROUGE");
+#endif
+
 const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
 const u8 gText_TrainerName_Red[] = _("RED");

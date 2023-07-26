@@ -55,6 +55,7 @@
 #include "constants/battle_config.h"
 
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
 
 struct SpeciesItem
@@ -3332,7 +3333,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_GENDER_FLAG, &value);
 
     {
-        u16 gender = gSaveBlock2Ptr->playerGender % 2;
+        // Just affects colour of name on trainer screen I think? Maybe this could be a cooler player ID associated colour for all menus?
+        u16 gender = RoguePlayer_GetTextVariantId(); //gSaveBlock2Ptr->playerGender % 2;
         SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gender);
     }
 
@@ -8240,28 +8242,7 @@ u16 FacilityClassToPicIndex(u16 facilityClass)
 
 u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
 {
-    switch(playerGender)
-    {
-        case STYLE_EMR_BRENDAN:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
-
-        case STYLE_EMR_MAY:
-            return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
-
-        case STYLE_RED:
-            return TRAINER_PIC_RED;
-
-        case STYLE_LEAF:
-            return TRAINER_PIC_LEAF;
-
-        case STYLE_ETHAN:
-            return TRAINER_PIC_ETHAN;
-
-        case STYLE_LYRA:
-            return TRAINER_PIC_LYRA;
-    };
-
-    return gFacilityClassToPicIndex[FACILITY_CLASS_WALLY];
+    return RoguePlayer_GetTrainerFrontPic();
 }
 
 void HandleSetPokedexFlag(u16 species, u8 caseId, u32 personality)

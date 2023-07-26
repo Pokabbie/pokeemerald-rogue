@@ -35,6 +35,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
@@ -1620,6 +1621,8 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
         SetSubspriteTables(sprite, subspriteTables);
         sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
     }
+
+    return spriteId;
 }
 
 u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority)
@@ -1998,6 +2001,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     if (graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
 
+    // Handle mon gfx
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
     {
         const struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
@@ -2008,73 +2012,43 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
             return gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_BOY_1];
     }
 
-    if (graphicsId == OBJ_EVENT_GFX_BARD)
+    // Handle bard
+    else if (graphicsId == OBJ_EVENT_GFX_BARD)
     {
         bard = GetCurrentMauvilleOldMan();
         return gMauvilleOldManGraphicsInfoPointers[bard];
     }
 
-    if (graphicsId >= NUM_OBJ_EVENT_GFX)
+    // Handle player avatar
+    else if (graphicsId >= OBJ_EVENT_GFX_PLAYER_FIRST && graphicsId <= OBJ_EVENT_GFX_PLAYER_LAST)
     {
+        switch(graphicsId)
+        {
+            case OBJ_EVENT_GFX_PLAYER_NORMAL:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
+                break;
+            case OBJ_EVENT_GFX_PLAYER_RIDING:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_RIDE_GRABBING);
+                break;
+            case OBJ_EVENT_GFX_PLAYER_FIELD_MOVE:
+                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_FIELD_MOVE);
+                break;
+        }
+    }
+
+    // Handle mirror??? (todo - rework this???)
+    else if (graphicsId >= NUM_OBJ_EVENT_GFX)
+    {
+        return GetObjectEventGraphicsInfo(OBJ_EVENT_GFX_PLAYER_NORMAL);
+
         switch (graphicsId)
         {
         case OBJ_EVENT_GFX_PLAYER_AVATAR:
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
-                    break;
-                case(STYLE_EMR_MAY):
-                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
-                    break;
-
-                case(STYLE_RED):
-                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
-                    break;
-                case(STYLE_LEAF):
-                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
-                    break;
-
-                case(STYLE_ETHAN):
-                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
-                    break;
-                case(STYLE_LYRA):
-                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
-                    break;
-                default:
-                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
-                    break;
-            };
-            break;
+            return GetObjectEventGraphicsInfo(OBJ_EVENT_GFX_PLAYER_NORMAL);
 
         case OBJ_EVENT_GFX_PLAYER_RIVAL:
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    graphicsId = OBJ_EVENT_GFX_MAY_ALT;
-                    break;
-                case(STYLE_EMR_MAY):
-                    graphicsId = OBJ_EVENT_GFX_BRENDAN_ALT;
-                    break;
-
-                case(STYLE_RED):
-                    graphicsId = OBJ_EVENT_GFX_LEAF_ALT;
-                    break;
-                case(STYLE_LEAF):
-                    graphicsId = OBJ_EVENT_GFX_RED_ALT;
-                    break;
-
-                case(STYLE_ETHAN):
-                    graphicsId = OBJ_EVENT_GFX_LYRA_ALT;
-                    break;
-                case(STYLE_LYRA):
-                    graphicsId = OBJ_EVENT_GFX_ETHAN_ALT;
-                    break;
-                default:
-                    graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
-                    break;
-            };
-            break;
+            // TODO - Fix this up?
+            graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
         
         default:
             graphicsId = OBJ_EVENT_GFX_NINJA_BOY;

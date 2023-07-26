@@ -31,7 +31,8 @@
     "Rogue_Hub_PokemonCentre",
     "Rogue_Hub_AdventureEnterance",
     "Rogue_Hub_Bakery",
-    "Rogue_Hub_Debug"
+    "Rogue_Hub_Debug",
+    "Rogue_Intro"
   ],
   "gMapGroup_RogueHubAreas": [
     "Rogue_HallwayFacade_Horizontal",

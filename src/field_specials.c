@@ -68,6 +68,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_pokedex.h"
+#include "rogue_player_customisation_ui.h"
 #include "rogue_settings.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
@@ -149,6 +150,13 @@ void Special_ViewDifficultyConfigMenu(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
     SetMainCallback2(CB2_InitDifficultyConfigMenu);
+    ScriptContext2_Enable();
+}
+
+void Special_ViewPlayerCustomisationMenu(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_InitPlayerCustomisationMenu);
     ScriptContext2_Enable();
 }
 
@@ -1163,7 +1171,7 @@ void IsGrassTypeInParty(void)
     gSpecialVar_Result = FALSE;
 }
 
-void SpawnCameraObject(void)
+u8 SpawnCameraObjectInternal(void)
 {
     u8 obj = SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_BOY_1,
                                                   MOVEMENT_TYPE_FACE_DOWN,
@@ -1173,12 +1181,37 @@ void SpawnCameraObject(void)
                                                   3);
     gObjectEvents[obj].invisible = TRUE;
     CameraObjectSetFollowedSpriteId(gObjectEvents[obj].spriteId);
+    return obj;
+}
+
+void SpawnCameraObject(void)
+{
+    SpawnCameraObjectInternal();
+}
+
+void SpawnCameraObjectAtCoords(void)
+{
+    s16 x = gSpecialVar_0x8004 + MAP_OFFSET;
+    s16 y = gSpecialVar_0x8005 + MAP_OFFSET;
+    u8 obj = SpawnCameraObjectInternal(); // spawn in normally and THEN move
+    
+    MoveObjectEventToMapCoords(&gObjectEvents[obj], x, y);
 }
 
 void RemoveCameraObject(void)
 {
     CameraObjectSetFollowedSpriteId(GetPlayerAvatarSpriteId());
     RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_CAMERA, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+}
+
+void ShowPlayerObject(void)
+{
+    SetPlayerInvisibility(FALSE);
+}
+
+void HidePlayerObject(void)
+{
+    SetPlayerInvisibility(TRUE);
 }
 
 u8 GetPokeblockNameByMonNature(void)

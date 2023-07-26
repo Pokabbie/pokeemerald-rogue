@@ -57,6 +57,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
+static void WarpToIntro(void);
 static void ResetMiniGamesRecords(void);
 
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
@@ -84,7 +85,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 16) | GetGeneratedTrainerIdLower();
+    u32 trainerId = (u32)(Random() << 16) | (u32)Random();
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -131,6 +132,12 @@ static void WarpToTruck(void)
 {
     // HMM
     SetWarpDestination(MAP_GROUP(INSIDE_OF_TRUCK), MAP_NUM(INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+    WarpIntoMap();
+}
+
+static void WarpToIntro(void)
+{
+    SetWarpDestination(MAP_GROUP(ROGUE_INTRO), MAP_NUM(ROGUE_INTRO), WARP_ID_NONE, 8, 5);
     WarpIntoMap();
 }
 
@@ -197,7 +204,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
-    WarpToTruck();
+    WarpToIntro();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
@@ -210,8 +217,6 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     Rogue_OnNewGame();
-
-    StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
 }

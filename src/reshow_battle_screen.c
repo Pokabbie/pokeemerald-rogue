@@ -16,6 +16,8 @@
 #include "battle_anim.h"
 #include "data.h"
 
+#include "rogue_player_customisation.h"
+
 // this file's functions
 static void CB2_ReshowBattleScreenAfterMenu(void);
 static bool8 LoadBattlerSpriteGfx(u8 battlerId);
@@ -192,7 +194,7 @@ static bool8 LoadBattlerSpriteGfx(u8 battler)
                 BattleLoadSubstituteOrMonSpriteGfx(battler, FALSE);
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && battler == B_POSITION_PLAYER_LEFT) // Should be checking position, not battler.
-            DecompressTrainerBackPic(gSaveBlock2Ptr->playerGender, battler);
+            DecompressTrainerBackPic(RoguePlayer_GetTrainerBackPic(), battler);
         else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL && battler == B_POSITION_PLAYER_LEFT) // Should be checking position, not battler.
             DecompressTrainerBackPic(TRAINER_BACK_PIC_WALLY, battler);
         else if (!gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
@@ -236,9 +238,11 @@ static void CreateBattlerSprite(u8 battler)
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && battler == B_POSITION_PLAYER_LEFT)
         {
-            SetMultiuseSpriteTemplateToTrainerBack(gSaveBlock2Ptr->playerGender, GetBattlerPosition(B_POSITION_PLAYER_LEFT));
+            u16 playerPicId = RoguePlayer_GetTrainerBackPic();
+
+            SetMultiuseSpriteTemplateToTrainerBack(playerPicId, GetBattlerPosition(B_POSITION_PLAYER_LEFT));
             gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 0x50,
-                                                (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80,
+                                                (8 - gTrainerBackPicCoords[playerPicId].size) * 4 + 80,
                                                  GetBattlerSpriteSubpriority(0));
             gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
             gSprites[gBattlerSpriteIds[battler]].callback = SpriteCallbackDummy;

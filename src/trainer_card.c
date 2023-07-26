@@ -34,6 +34,7 @@
 
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 #include "rogue_quest.h"
 
 #define NUM_DISPLAY_BADGES NUM_BADGES
@@ -1920,6 +1921,7 @@ static void CreateTrainerCardTrainerPic(void)
 {
     if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers == 1)
     {
+        // todo - support this, if we want to inspect others trainer cards?
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.facilityClass),
                     TRUE,
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
@@ -1929,7 +1931,7 @@ static void CreateTrainerCardTrainerPic(void)
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->trainerCard.gender]),
+        CreateTrainerCardTrainerPicSprite(RoguePlayer_GetTrainerFrontPic(),
                     TRUE,
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][1],

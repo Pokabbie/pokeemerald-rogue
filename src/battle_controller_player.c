@@ -43,6 +43,7 @@
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
@@ -2652,7 +2653,7 @@ static void PlayerHandleDrawTrainerPic(void)
     }
     else
     {
-        trainerPicId = gSaveBlock2Ptr->playerGender;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
@@ -2734,7 +2735,7 @@ static void PlayerHandleTrainerSlide(void)
     }
     else
     {
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
     }
 
     DecompressTrainerBackPic(trainerPicId, gActiveBattler);
@@ -3436,7 +3437,7 @@ static void PlayerHandleIntroTrainerBallThrow(void)
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], 1);
 
     paletteNum = AllocSpritePalette(0xD6F8);
-    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data), 0x100 + paletteNum * 16, 32);
+    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[RoguePlayer_GetTrainerBackPic()].data), 0x100 + paletteNum * 16, 32);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = paletteNum;
 
     taskId = CreateTask(Task_StartSendOutAnim, 5);

@@ -791,3 +791,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Interior_ConfigLab/scripts.inc"
 
 	.include "data/maps/Rogue_Area_AdventureEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Intro/scripts.inc"

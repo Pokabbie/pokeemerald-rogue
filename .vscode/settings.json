@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "*.h": "c"
+        "*.h": "c",
+        "iosfwd": "c",
+        "xlocbuf": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

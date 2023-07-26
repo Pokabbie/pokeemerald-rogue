@@ -41,6 +41,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 #include "rogue_quest.h"
 
 /*
@@ -822,17 +823,26 @@ static void Task_DisplayMainMenu(u8 taskId)
 
         // Note: If there is no save file, the save block is zeroed out,
         // so the default gender is MALE.
-        if ((gSaveBlock2Ptr->playerGender % 2) == MALE) // TODO - PLAYER_STYLE_COUNT
+        switch (RoguePlayer_GetTextVariantId() % 3)
         {
-            palette = RGB(4, 16, 31);
-            LoadPalette(&palette, 241, 2);
+        case 0:
+            // TEXT_COLOR_RED;
+            palette = RGB(28, 1, 1);
+            break;
+
+        case 1:
+            // TEXT_COLOR_GREEN;
+            palette = RGB(4, 19, 1);
+            break;
+
+        case 2:
+            // TEXT_COLOR_BLUE;
+            palette = RGB(6, 10, 25);
+            break;
         }
-        else
-        {
-            palette = RGB(31, 3, 21);
-            LoadPalette(&palette, 241, 2);
-        }
-        
+
+        LoadPalette(&palette, 241, 2);
+
         // Setup version text
         StringCopy(gStringVar1, gText_RogueVersionPrefix);
         StringAppend(gStringVar1, gText_Space2);
@@ -1135,7 +1145,9 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                //gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                SetMainCallback2(CB2_NewGame);
+                DestroyTask(taskId);
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -2137,36 +2149,36 @@ static void CreateTrainerSprites(u8 taskId, bool8 alreadyExist)
     u8 leafSpriteId = gTasks[taskId].tLeafSpriteId;
 
     if(alreadyExist)
-        emrBrendanSpriteId = UpdateTrainerSprite(emrBrendanSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), 120, 60, 0, &gDecompressionBuffer[0]);
+        emrBrendanSpriteId = UpdateTrainerSprite(emrBrendanSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), 120, 60, 0, &gDecompressionBuffer[0]).spriteId;
     else
-        emrBrendanSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), 120, 60, 0, &gDecompressionBuffer[0]);
+        emrBrendanSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), 120, 60, 0, &gDecompressionBuffer[0]).spriteId;
     gSprites[emrBrendanSpriteId].callback = SpriteCB_Null;
     gSprites[emrBrendanSpriteId].invisible = TRUE;
     gSprites[emrBrendanSpriteId].oam.priority = 0;
     gTasks[taskId].tEmrBrendanSpriteId = emrBrendanSpriteId;
 
     if(alreadyExist)
-        emrMaySpriteId = UpdateTrainerSprite(emrMaySpriteId, FacilityClassToPicIndex(FACILITY_CLASS_MAY), 120, 60, 0, &gDecompressionBuffer[0x800]);
+        emrMaySpriteId = UpdateTrainerSprite(emrMaySpriteId, FacilityClassToPicIndex(FACILITY_CLASS_MAY), 120, 60, 0, &gDecompressionBuffer[0x800]).spriteId;
     else
-        emrMaySpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_MAY), 120, 60, 0, &gDecompressionBuffer[0x800]);
+        emrMaySpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_MAY), 120, 60, 0, &gDecompressionBuffer[0x800]).spriteId;
     gSprites[emrMaySpriteId].callback = SpriteCB_Null;
     gSprites[emrMaySpriteId].invisible = TRUE;
     gSprites[emrMaySpriteId].oam.priority = 0;
     gTasks[taskId].tEmrMaySpriteId = emrMaySpriteId;
     
     if(alreadyExist)
-        redSpriteId = UpdateTrainerSprite(redSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_RED), 120, 60, 0, &gDecompressionBuffer[0x1000]);
+        redSpriteId = UpdateTrainerSprite(redSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_RED), 120, 60, 0, &gDecompressionBuffer[0x1000]).spriteId;
     else
-        redSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_RED), 120, 60, 0, &gDecompressionBuffer[0x1000]);
+        redSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_RED), 120, 60, 0, &gDecompressionBuffer[0x1000]).spriteId;
     gSprites[redSpriteId].callback = SpriteCB_Null;
     gSprites[redSpriteId].invisible = TRUE;
     gSprites[redSpriteId].oam.priority = 0;
     gTasks[taskId].tRedSpriteId = redSpriteId;
 
     if(alreadyExist)
-        leafSpriteId = UpdateTrainerSprite(leafSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_LEAF), 120, 60, 0, &gDecompressionBuffer[0x1800]);
+        leafSpriteId = UpdateTrainerSprite(leafSpriteId, FacilityClassToPicIndex(FACILITY_CLASS_LEAF), 120, 60, 0, &gDecompressionBuffer[0x1800]).spriteId;
     else
-        leafSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_LEAF), 120, 60, 0, &gDecompressionBuffer[0x1800]);
+        leafSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_LEAF), 120, 60, 0, &gDecompressionBuffer[0x1800]).spriteId;
     gSprites[leafSpriteId].callback = SpriteCB_Null;
     gSprites[leafSpriteId].invisible = TRUE;
     gSprites[leafSpriteId].oam.priority = 0;
