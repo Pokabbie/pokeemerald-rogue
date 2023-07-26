@@ -3,8 +3,9 @@
 
 void RoguePlayer_SetOutfitId(u16 outfit);
 u16 RoguePlayer_GetOutfitId();
-
 u16 RoguePlayer_GetOutfitCount();
+
+bool8 RoguePlayer_HasSpritingAnim();
 
 u16 RoguePlayer_GetTrainerFrontPic();
 u16 RoguePlayer_GetTrainerBackPic();

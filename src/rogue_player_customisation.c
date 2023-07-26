@@ -14,6 +14,7 @@ struct PlayerOutfit
     u16 trainerBackPic;
     u16 objectEventGfx[PLAYER_AVATAR_STATE_COUNT];
     u8 bagVariant;
+    u8 hasSpritingAnims : 1;
 };
 
 enum 
@@ -37,6 +38,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_BRENDAN,
         .trainerBackPic = TRAINER_BACK_PIC_BRENDAN,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_BRENDAN_NORMAL,
@@ -49,6 +51,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_MAY,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
         .bagVariant = BAG_GFX_VARIANT_MAY,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_MAY_NORMAL,
@@ -62,6 +65,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_RED,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
         .bagVariant = BAG_GFX_VARIANT_RED,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_RED,
@@ -74,6 +78,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_LEAF,
         .trainerBackPic = TRAINER_BACK_PIC_LEAF,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_LEAF,
@@ -87,6 +92,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
         .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_ETHAN,
@@ -99,6 +105,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_LYRA,
@@ -111,6 +118,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
         .trainerBackPic = TRAINER_BACK_PIC_WALLY,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL] = OBJ_EVENT_GFX_MAGMA_MEMBER_F,
@@ -139,6 +147,11 @@ u16 RoguePlayer_GetOutfitId()
 u16 RoguePlayer_GetOutfitCount()
 {
     return PLAYER_OUTFIT_COUNT;
+}
+
+bool8 RoguePlayer_HasSpritingAnim()
+{
+    return GetCurrentOutfit()->hasSpritingAnims != 0;
 }
 
 u16 RoguePlayer_GetTrainerFrontPic()

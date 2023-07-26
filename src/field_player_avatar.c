@@ -969,7 +969,10 @@ void PlayerWalkFaster(u8 direction)
 
 void PlayerRun(u8 direction)
 {
-    PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
+    if(RoguePlayer_HasSpritingAnim())
+        PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
+    else
+        PlayerSetAnimId(GetWalkFastMovementAction(direction), COPY_MOVE_WALK);
 }
 
 void PlayerOnBikeCollide(u8 direction)
