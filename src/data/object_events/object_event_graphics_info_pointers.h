@@ -345,7 +345,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Rock;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Steel;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Water;
 
-
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,

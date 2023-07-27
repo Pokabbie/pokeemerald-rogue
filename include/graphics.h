@@ -7167,6 +7167,12 @@ extern const u32 gTrainerPalette_PyramidKingBrandon[];
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
+extern const u32 gTrainerPalette_PlayerFrontPlaceholder[];
+extern const u32 gTrainerPalette_PlayerBackPlaceholder[];
+
+extern const u32 gTrainerPalette_PlayerBrendanBase[];
+extern const u32 gTrainerPalette_PlayerBrendanLayers[];
+
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
@@ -10334,6 +10340,12 @@ extern const u8 gFrontierFactorySelectMenu_Gfx[];
 extern const u8 gFrontierFactorySelectMenu_Tilemap[];
 extern const u16 gFrontierFactorySelectMenu_Pal[];
 
+// Player
+extern const u16 gObjectEventPal_PlayerPlaceholder[];
+
+extern const u16 gObjectEventPal_PlayerBrendanBase[];
+extern const u16 gObjectEventPal_PlayerBrendanLayers[];
+
 // Object event pals
 #define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];
 FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
@@ -10346,6 +10358,9 @@ FOREACH_VISUAL_PRESETS(MAY_PALETTE)
 #define RED_PALETTE(x, y) extern const u16 gObjectEventPal_Red_ ## x ## _ ## y [];
 FOREACH_VISUAL_PRESETS(RED_PALETTE)
 #undef RED_PALETTE
+
+extern const u16 gObjectEventPal_Ethan_0_0[];
+extern const u16 gObjectEventPal_Lyra_0_0[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

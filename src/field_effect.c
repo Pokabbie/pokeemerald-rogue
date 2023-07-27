@@ -943,8 +943,8 @@ struct TrainerSpriteInfo UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s1
 
 void LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest)
 {
-    LZDecompressVram(Rogue_ModifyPallete32(gTrainerFrontPicTable[gender].data), dest);
-    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[gender].data), palOffset, 0x20);
+    LZDecompressVram(gTrainerFrontPicTable[gender].data, dest);
+    LoadCompressedPalette(gTrainerFrontPicPaletteTable[gender].data, palOffset, 0x20);
 }
 
 u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)

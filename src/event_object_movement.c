@@ -451,6 +451,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_KANTO_NPC_PINK          0x1126
 #define OBJ_EVENT_PAL_TAG_KANTO_NPC_WHITE         0x1127
 
+
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_BUGSY         0x1128
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_CHUCK         0x1129
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_CLAIR         0x112A
@@ -468,6 +469,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 
 #define OBJ_EVENT_PAL_TAG_ETHAN                   0x1135
 #define OBJ_EVENT_PAL_TAG_LYRA                    0x1136
+
+#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1137
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
@@ -538,6 +541,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
     {gObjectEventPal_Ethan_0_0,             OBJ_EVENT_PAL_TAG_ETHAN},
     {gObjectEventPal_Lyra_0_0,              OBJ_EVENT_PAL_TAG_LYRA},
+    {gObjectEventPal_PlayerPlaceholder,  OBJ_EVENT_PAL_TAG_PLAYER},
     {},
 };
 
@@ -2025,13 +2029,16 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         switch(graphicsId)
         {
             case OBJ_EVENT_GFX_PLAYER_NORMAL:
-                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
-                break;
+                return RoguePlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_NORMAL);
+
             case OBJ_EVENT_GFX_PLAYER_RIDING:
-                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_RIDE_GRABBING);
-                break;
+                return RoguePlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_RIDE_GRABBING);
+
             case OBJ_EVENT_GFX_PLAYER_FIELD_MOVE:
-                graphicsId = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_FIELD_MOVE);
+                return RoguePlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_FIELD_MOVE);
+
+            default:
+                graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
                 break;
         }
     }
@@ -2176,7 +2183,7 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
-    LoadPalette(Rogue_ModifyPallete16(sObjectEventSpritePalettes[paletteIndex].data), 16 * paletteSlot + 0x100, 0x20);
+    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
 
     Rogue_ModifyOverworldPalette(paletteSlot * 16 + 0x100, 2);
 }

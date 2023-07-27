@@ -460,6 +460,13 @@ const u32 gObjectEventPic_LeafFieldMove[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_LeafFishing[] = INCBIN_U32("graphics/object_events/pics/people/leaf/fishing.4bpp");
 const u32 gObjectEventPic_LeafRiding[] = INCBIN_U32("graphics/object_events/pics/people/leaf/riding.4bpp");
 
+// Player customisation
+//
+const u16 gObjectEventPal_PlayerPlaceholder[] = INCBIN_U16("graphics/rogue_palettes/placeholder_object_event.gbapal");
+
+const u16 gObjectEventPal_PlayerBrendanBase[] = INCBIN_U16("graphics/rogue_palettes/brendan/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerBrendanLayers[] = INCBIN_U16("graphics/rogue_palettes/brendan/object_event_layers.gbapal");
+
 // Manual FOREACH_VISUAL_PRESETS
 const u16 gObjectEventPal_Ethan_0_0[] = INCBIN_U16("graphics/rogue_palettes/ethan/overworld/0_0.gbapal");
 const u16 gObjectEventPal_Lyra_0_0[] = INCBIN_U16("graphics/rogue_palettes/lyra/overworld/0_0.gbapal");

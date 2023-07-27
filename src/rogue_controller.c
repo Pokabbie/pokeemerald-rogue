@@ -51,6 +51,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
+#include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
@@ -605,127 +606,47 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
-#define PLAYER_STYLE(prefix, x, y) if(gSaveBlock2Ptr->playerStyle0 == x && gSaveBlock2Ptr->playerStyle1 == y) return prefix ## _ ## x ## _ ## y
-
-const u8* Rogue_ModifyPallete8(const u8* input)
+const void* Rogue_ModifyPaletteLoad(const void* input)
 {
-    // Unused?
-
-    //if(input == &gTrainerBackPic_Brendan[0])
-    //{
-    //    return gTrainerBackPic_RubySapphireBrendan;
-    //}
-
-    return input;
-}
-
-const u16* Rogue_ModifyPallete16(const u16* input)
-{
-    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
-
-    if(input == &gObjectEventPal_Brendan_0_0[0])
+    if(input == &gObjectEventPal_PlayerPlaceholder[0])
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Brendan, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
-    }
-
-    if(input == &gObjectEventPal_May_0_0[0])
-    {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_May, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
-    }
-
-    // Shared palettes between red and leaf
-    if(input == &gObjectEventPal_Red_0_0[0])
-    {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
-    }
-
-    // Custom palette for Champion Red (Always have default clothes but matching apperance)
-    if(input == &gObjectEventPal_Johto_NPC_Red[0])
-    {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gObjectEventPal_Red_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gObjectEventPal_Red_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gObjectEventPal_Red_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gObjectEventPal_Red_3_0;
-        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gObjectEventPal_Red, x, 0);
-        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        //#undef PALETTE_FUNC
+        return RoguePlayer_GetOverworldPalette();
     }
 
     return input;
 }
 
-const u32* Rogue_ModifyPallete32(const u32* input)
+bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* buffer)
 {
-    u8 skinStyle = gSaveBlock2Ptr->playerStyle0;
+    const u16* overrideBuffer = NULL;
 
-    if(input == &gTrainerPalette_Brendan_0_0[0])
+    if(input == gTrainerPalette_PlayerFrontPlaceholder)
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Brendan, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        overrideBuffer = RoguePlayer_GetTrainerFrontPalette();
     }
 
-    // Must swap for compressed version
-    //if(input == &gTrainerFrontPic_Brendan[0])
-    //{
-    //    return gTrainerFrontPic_RubySapphireBrendan;
-    //}
-
-
-    if(input == &gTrainerPalette_May_0_0[0])
+    if(input == gTrainerPalette_PlayerBackPlaceholder)
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_May, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
+        overrideBuffer = RoguePlayer_GetTrainerBackPalette();
     }
 
-    if(input == &gTrainerPalette_Red_Front_0_0[0])
+    if(overrideBuffer != NULL)
     {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
-    }
-    
-    // Custom palette for Champion Red (Always have default clothes but matching apperance)
-    if(input == &gTrainerPalette_ChampionRed[0])
-    {
-        if(gSaveBlock2Ptr->playerStyle0 == 0) return gTrainerPalette_Red_Front_0_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 1) return gTrainerPalette_Red_Front_1_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 2) return gTrainerPalette_Red_Front_2_0;
-        if(gSaveBlock2Ptr->playerStyle0 == 3) return gTrainerPalette_Red_Front_3_0;
-        //#define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Front, x, 0);
-        //FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        //#undef PALETTE_FUNC
+        // Copy over from override buffer into actual output (only really needed if buffer isn't gDecompressBuffer)
+        if(overrideBuffer != buffer)
+        {
+            u8 i;
+            u16* writeBuffer = (u16*)buffer;
+
+            for(i = 0; i < 16; ++i) // assume 16 palette slots (We currently don't have any use cases outside of this anyway)
+                writeBuffer[i] = overrideBuffer[i];
+        }
+
+        return TRUE;
     }
 
-    // Palette is shared with red
-    //if(input == &gTrainerPalette_Leaf[0])
-    //{
-    //}
-
-    if(input == &gTrainerPalette_Red_Back_0_0[0])
-    {
-        #define PALETTE_FUNC(x, y) PLAYER_STYLE(gTrainerPalette_Red_Back, x, y);
-        FOREACH_VISUAL_PRESETS(PALETTE_FUNC)
-        #undef PALETTE_FUNC
-    }
-
-    // Must swap for compressed version
-    //if(input == &gTrainerFrontPic_May[0])
-    //{
-    //    return gTrainerFrontPic_RubySapphireMay;
-    //}
-
-    return input;
+    return FALSE;
 }
-
-#undef PLAYER_STYLE
 
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count)
 {

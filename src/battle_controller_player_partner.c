@@ -1807,7 +1807,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
         u8 spriteId = TRAINER_BACK_PIC_STEVEN;
-        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[spriteId].data), 0x100 + paletteNum * 16, 32);
+        LoadCompressedPalette(gTrainerBackPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
     }
     else if (gPartnerTrainerId >= TRAINER_CUSTOM_PARTNER)
     {
@@ -1817,7 +1817,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     else
     {
         u8 spriteId = GetFrontierTrainerFrontSpriteId(gPartnerTrainerId);
-        LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerFrontPicPaletteTable[spriteId].data), 0x100 + paletteNum * 16, 32);
+        LoadCompressedPalette(gTrainerFrontPicPaletteTable[spriteId].data, 0x100 + paletteNum * 16, 32);
     }
 
 

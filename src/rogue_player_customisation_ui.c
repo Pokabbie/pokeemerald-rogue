@@ -563,7 +563,7 @@ static void RoguePlayerUI_DrawTrainerSprites()
         gDecompressionBuffer
     );
 
-    sRoguePlayerUISavedState->trainerObjectEventGfx = RoguePlayer_GetObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
+    sRoguePlayerUISavedState->trainerObjectEventGfx = OBJ_EVENT_GFX_PLAYER_NORMAL;// RoguePlayer_GetPlayerObjectGfx(PLAYER_AVATAR_STATE_NORMAL);
 
     if(sRoguePlayerUISavedState->trainerObjectDownSpriteId == SPRITE_NONE)
     {
