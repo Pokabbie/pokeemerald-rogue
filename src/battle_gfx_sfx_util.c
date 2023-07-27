@@ -705,7 +705,7 @@ void DecompressTrainerBackPic(u16 backPicId, u8 battlerId)
     DecompressPicFromTable_2(&gTrainerBackPicTable[backPicId],
                              gMonSpritesGfxPtr->sprites.ptr[position],
                              SPECIES_NONE);
-    LoadCompressedPalette(Rogue_ModifyPallete32(gTrainerBackPicPaletteTable[backPicId].data),
+    LoadCompressedPalette(gTrainerBackPicPaletteTable[backPicId].data,
                           0x100 + 16 * battlerId, 0x20);
 }
 

@@ -1616,7 +1616,7 @@ u8 LoadSpritePalette(const struct SpritePalette *palette)
     else
     {
         sSpritePaletteTags[index] = palette->tag;
-        DoLoadSpritePalette(Rogue_ModifyPallete16(palette->data), index * 16);
+        DoLoadSpritePalette(palette->data, index * 16);
         return index;
     }
 }

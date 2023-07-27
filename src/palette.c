@@ -6,6 +6,8 @@
 #include "task.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 enum
 {
     NORMAL_FADE,
@@ -90,6 +92,8 @@ void LoadCompressedPalette(const u32 *src, u16 offset, u16 size)
 
 void LoadPalette(const void *src, u16 offset, u16 size)
 {
+    src = Rogue_ModifyPaletteLoad(src);
+
     CpuCopy16(src, &gPlttBufferUnfaded[offset], size);
     CpuCopy16(src, &gPlttBufferFaded[offset], size);
 }
