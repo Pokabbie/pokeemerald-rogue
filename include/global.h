@@ -522,9 +522,7 @@ struct SaveBlock2
              u16 seasonVisuals:1;
              u16 regionMapZoom:1; // whether the map is zoomed in
     /*0x18*/ struct Pokedex pokedex;
-             u8 playerStyle0;
-             u8 playerStyle1;
-    /*0x90*/ u8 filler_90[0x6];
+             s8 playerStyles[8];
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;
     /*0xA8*/ u32 gcnLinkFlags; // Read by Pokemon Colosseum/XD

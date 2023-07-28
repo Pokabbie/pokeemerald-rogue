@@ -5,7 +5,17 @@
         "xlocbuf": "c",
         "chrono": "c",
         "system_error": "c",
-        "xlocale": "c"
+        "xlocale": "c",
+        "algorithm": "c",
+        "functional": "c",
+        "optional": "c",
+        "regex": "c",
+        "type_traits": "c",
+        "xlocmon": "c",
+        "xtr1common": "c",
+        "xutility": "c",
+        "ranges": "c",
+        "valarray": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

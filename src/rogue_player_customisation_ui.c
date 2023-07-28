@@ -36,8 +36,8 @@
 #include "rogue_player_customisation.h"
 #include "rogue_player_customisation_ui.h"
 
-typedef bool8 (*MenuItemInputCallback)();
-typedef void (*MenuItemDrawCallback)(u8);
+typedef bool8 (*MenuItemInputCallback)(u8);
+typedef void (*MenuItemDrawCallback)(u8, u8);
 
 struct RoguePlayerUIState
 {
@@ -56,11 +56,18 @@ struct RoguePlayerUIState
     u8 currentOptionIdx;
 };
 
+
 struct RoguePlayerUIEntry
 {
     const char text[16];
     MenuItemInputCallback processInput;
     MenuItemDrawCallback drawChoices;
+    union
+    {
+        u8 val8[4];
+        u16 val16[2];
+        u32 val32;
+    } userData;
 };
 
 enum WindowIds
@@ -79,7 +86,12 @@ enum
 {
     UI_ENTRY_OUTFIT,
     UI_ENTRY_APPEARANCE,
-    UI_ENTRY_CLOTHES_COLOUR,
+    UI_ENTRY_PRIMARY_HUE,
+    UI_ENTRY_PRIMARY_SAT,
+    UI_ENTRY_PRIMARY_LUM,
+    UI_ENTRY_SECONDARY_HUE,
+    UI_ENTRY_SECONDARY_SAT,
+    UI_ENTRY_SECONDARY_LUM,
 
     UI_ENTRY_COUNT
 };
@@ -87,12 +99,11 @@ enum
 static EWRAM_DATA struct RoguePlayerUIState *sRoguePlayerUISavedState = NULL;
 static EWRAM_DATA u8 *sBg1TilemapBuffer = NULL;
 
-static bool8 RoguePlayerUI_EntryOutfit_ProcessInput();
-static void RoguePlayerUI_EntryOutfit_DrawChoices(u8);
-static bool8 RoguePlayerUI_EntryAppearance_ProcessInput();
-static void RoguePlayerUI_EntryAppearance_DrawChoices(u8);
-static bool8 RoguePlayerUI_EntryClothesColour_ProcessInput();
-static void RoguePlayerUI_EntryClothesColour_DrawChoices(u8);
+static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8);
+static void RoguePlayerUI_EntryOutfit_DrawChoices(u8, u8);
+static bool8 RoguePlayerUI_EntryClothesStyle_ProcessInput(u8);
+static void RoguePlayerUI_EntryClothesStyle_DrawChoices(u8, u8);
+static void RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc(u8, u8);
 
 #define YPOS_SPACING      16
 
@@ -147,14 +158,74 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     [UI_ENTRY_APPEARANCE] = 
     {
         .text = _("Appearance"),
-        .processInput = RoguePlayerUI_EntryAppearance_ProcessInput,
-        .drawChoices = RoguePlayerUI_EntryAppearance_DrawChoices,
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoices,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_APPEARANCE,
+        }
     },
-    [UI_ENTRY_CLOTHES_COLOUR] = 
+
+    [UI_ENTRY_PRIMARY_HUE] = 
     {
-        .text = _("Outfix Colour"),
-        .processInput = RoguePlayerUI_EntryClothesColour_ProcessInput,
-        .drawChoices = RoguePlayerUI_EntryClothesColour_DrawChoices,
+        .text = _("Hue"),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_PRIMARY_HUE,
+        }
+    },
+    [UI_ENTRY_PRIMARY_SAT] = 
+    {
+        .text = _("Sat."),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_PRIMARY_SAT,
+        }
+    },
+    [UI_ENTRY_PRIMARY_LUM] = 
+    {
+        .text = _("Lum."),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_PRIMARY_LUM,
+        }
+    },
+    
+    [UI_ENTRY_SECONDARY_HUE] = 
+    {
+        .text = _("Hue"),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_SECONDARY_HUE,
+        }
+    },
+    [UI_ENTRY_SECONDARY_SAT] = 
+    {
+        .text = _("Sat."),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_SECONDARY_SAT,
+        }
+    },
+    [UI_ENTRY_SECONDARY_LUM] = 
+    {
+        .text = _("Lum."),
+        .processInput = RoguePlayerUI_EntryClothesStyle_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc,
+        .userData = 
+        {
+            .val32 = PLAYER_OUTFIT_STYLE_SECONDARY_LUM,
+        }
     }
 };
 
@@ -351,32 +422,9 @@ static void Task_RoguePlayerUIMain(u8 taskId)
         RoguePlayerUI_PrintMenuText();
     }
 
-    //else if (JOY_NEW(DPAD_LEFT))
-    //{
-    //    PlaySE(SE_SELECT);
-    //    RoguePlayerUI_FreeTrainerSprites();
-//
-    //    // TODO - Move
-    //    gSaveBlock2Ptr->playerStyle0 = (gSaveBlock2Ptr->playerStyle0 + 1) % 4;
-//
-    //    RoguePlayerUI_DrawTrainerSprites(0);
-    //    RoguePlayerUI_PrintMenuText();
-    //}
-    //else if (JOY_NEW(DPAD_RIGHT))
-    //{
-    //    PlaySE(SE_SELECT);
-    //    RoguePlayerUI_FreeTrainerSprites();
-//
-    //    // TODO - Move
-    //    gSaveBlock2Ptr->playerStyle1 = (gSaveBlock2Ptr->playerStyle1 + 1) % 6;
-//
-    //    RoguePlayerUI_DrawTrainerSprites();
-    //    RoguePlayerUI_PrintMenuText();
-    //}
-
     if(sRoguePlayerUISavedState->currentOptionIdx < UI_ENTRY_COUNT)
     {
-        if(sRoguePlayerUIEntries[sRoguePlayerUISavedState->currentOptionIdx].processInput())
+        if(sRoguePlayerUIEntries[sRoguePlayerUISavedState->currentOptionIdx].processInput(sRoguePlayerUISavedState->currentOptionIdx))
         {
             PlaySE(SE_SELECT);
             RoguePlayerUI_DrawTrainerSprites();
@@ -535,7 +583,7 @@ static void RoguePlayerUI_PrintMenuText()
     {
         y = i;
         AddMenuNameText(y, sRoguePlayerUIEntries[i].text);
-        sRoguePlayerUIEntries[i].drawChoices(y);
+        sRoguePlayerUIEntries[i].drawChoices(i, y);
     }
 
     CopyWindowToVram(WIN_INFO_PANEL, COPYWIN_GFX);
@@ -690,7 +738,7 @@ static void DrawBgWindowFrames(void)
     }
 }
 
-static bool8 RoguePlayerUI_EntryOutfit_ProcessInput()
+static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx)
 {
     const u16 outfitCount = RoguePlayer_GetOutfitCount();
     u16 outfitId = RoguePlayer_GetOutfitId();
@@ -716,59 +764,70 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput()
     return FALSE;
 }
 
-static void RoguePlayerUI_EntryOutfit_DrawChoices(u8 menuOffset)
+static void RoguePlayerUI_EntryOutfit_DrawChoices(u8 entryIdx, u8 menuOffset)
 {
     ConvertUIntToDecimalStringN(gStringVar1, RoguePlayer_GetOutfitId(), STR_CONV_MODE_LEFT_ALIGN, 2);
     AddMenuValueText(menuOffset, gStringVar1);
 }
 
-static bool8 RoguePlayerUI_EntryAppearance_ProcessInput()
+static u8 GetCurrentPlayerStyle(u8 entryIdx)
 {
+    return sRoguePlayerUIEntries[entryIdx].userData.val8[0];
+}
+
+
+static bool8 RoguePlayerUI_EntryClothesStyle_ProcessInput(u8 entryIdx)
+{
+    u8 playerStyleId = GetCurrentPlayerStyle(entryIdx);
+
     if(JOY_NEW(DPAD_LEFT))
     {
-        if(gSaveBlock2Ptr->playerStyle0 == 0)
-            gSaveBlock2Ptr->playerStyle0 = 3;
-        else
-            --gSaveBlock2Ptr->playerStyle0;
+        s8 value = RoguePlayer_GetOutfitStyle(playerStyleId);
+        RoguePlayer_SetOutfitStyle(playerStyleId, value - 1);
         return TRUE;
     }
     else if(JOY_NEW(DPAD_RIGHT))
     {
-        gSaveBlock2Ptr->playerStyle0 = (gSaveBlock2Ptr->playerStyle0 + 1) % 4;
+        s8 value = RoguePlayer_GetOutfitStyle(playerStyleId);
+        RoguePlayer_SetOutfitStyle(playerStyleId, value + 1);
         return TRUE;
     }
 
     return FALSE;
 }
 
-static void RoguePlayerUI_EntryAppearance_DrawChoices(u8 menuOffset)
+static const u8 sText_RoguePlayerZero[] = _(" 0%");
+static const u8 sText_RoguePlayerPlusValue[] = _("+{STR_VAR_1}%");
+static const u8 sText_RoguePlayerMinusValue[] = _("-{STR_VAR_1}%");
+
+static void RoguePlayerUI_EntryClothesStyle_DrawChoices(u8 entryIdx, u8 menuOffset)
 {
-    ConvertUIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playerStyle0, STR_CONV_MODE_LEFT_ALIGN, 2);
+    u8 playerStyleId = GetCurrentPlayerStyle(entryIdx);
+    s8 value = RoguePlayer_GetOutfitStyle(playerStyleId);
+    
+    ConvertIntToDecimalStringN(gStringVar1, value, STR_CONV_MODE_LEFT_ALIGN, 3);
     AddMenuValueText(menuOffset, gStringVar1);
 }
 
-
-static bool8 RoguePlayerUI_EntryClothesColour_ProcessInput()
+static void RoguePlayerUI_EntryClothesStyle_DrawChoicesPerc(u8 entryIdx, u8 menuOffset)
 {
-    if(JOY_NEW(DPAD_LEFT))
-    {
-        if(gSaveBlock2Ptr->playerStyle1 == 0)
-            gSaveBlock2Ptr->playerStyle1 = 5;
-        else
-            --gSaveBlock2Ptr->playerStyle1;
-        return TRUE;
-    }
-    else if(JOY_NEW(DPAD_RIGHT))
-    {
-        gSaveBlock2Ptr->playerStyle1 = (gSaveBlock2Ptr->playerStyle1 + 1) % 6;
-        return TRUE;
-    }
+    u8 playerStyleId = GetCurrentPlayerStyle(entryIdx);
+    s8 value = RoguePlayer_GetOutfitStylePerc(playerStyleId);
 
-    return FALSE;
-}
-
-static void RoguePlayerUI_EntryClothesColour_DrawChoices(u8 menuOffset)
-{
-    ConvertUIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->playerStyle1, STR_CONV_MODE_LEFT_ALIGN, 2);
-    AddMenuValueText(menuOffset, gStringVar1);
+    if(value == 0)
+    {
+        AddMenuValueText(menuOffset, sText_RoguePlayerZero);
+    }
+    else if(value < 0)
+    {
+        ConvertIntToDecimalStringN(gStringVar1, -value, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar2, sText_RoguePlayerMinusValue);
+        AddMenuValueText(menuOffset, gStringVar2);
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(gStringVar1, value, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar2, sText_RoguePlayerPlusValue);
+        AddMenuValueText(menuOffset, gStringVar2);
+    }
 }

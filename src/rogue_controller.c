@@ -1556,8 +1556,7 @@ void Rogue_ResetConfigHubSettings(void)
 
 void Rogue_OnNewGame(void)
 {
-    gSaveBlock2Ptr->playerStyle0 = 0;
-    gSaveBlock2Ptr->playerStyle1 = 1;
+    RoguePlayer_SetNewGameOutfit();
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
 
     StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
