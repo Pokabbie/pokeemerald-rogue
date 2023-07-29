@@ -39,12 +39,14 @@
 #define TOTAL_UI_PAGE_ENTRIES 9
 #define MAX_UI_PAGE_DEPTH 4
 
-#define RGB_MAX_UI_VALUE 10
-#define RGB_CONVERT_TO_UI_RANGE(value) (((u16)value * RGB_MAX_UI_VALUE) / 31)
-#define RGB_CONVERT_FROM_UI_RANGE(value) (((u16)value * 31) / RGB_MAX_UI_VALUE)
-
 typedef bool8 (*MenuItemInputCallback)(u8, u8);
 typedef void (*MenuItemDrawCallback)(u8, u8);
+
+enum
+{
+    COLOUR_EDIT_FAST,
+    COLOUR_EDIT_ACCURATE,
+};
 
 struct RoguePlayerUIState
 {
@@ -69,6 +71,8 @@ struct RoguePlayerUIState
 
     u8 currentPageIdx;
     u8 currentOptionIdx;
+
+    u8 colourEditMode;
 };
 
 
@@ -99,20 +103,24 @@ enum
 
 enum
 {
+    UI_ENTRY_BACK,
     UI_ENTRY_OUTFIT,
 
     UI_ENTRY_EDIT_APPEARANCE,
     UI_ENTRY_EDIT_PRIMARY,
     UI_ENTRY_EDIT_SECONDARY,
 
+    UI_ENTRY_APPEARANCE_COLOUR,
     UI_ENTRY_APPEARANCE_R,
     UI_ENTRY_APPEARANCE_G,
     UI_ENTRY_APPEARANCE_B,
 
+    UI_ENTRY_PRIMARY_COLOUR,
     UI_ENTRY_PRIMARY_R,
     UI_ENTRY_PRIMARY_G,
     UI_ENTRY_PRIMARY_B,
 
+    UI_ENTRY_SECONDARY_COLOUR,
     UI_ENTRY_SECONDARY_R,
     UI_ENTRY_SECONDARY_G,
     UI_ENTRY_SECONDARY_B,
@@ -140,11 +148,12 @@ static EWRAM_DATA struct RoguePlayerUIState *sPlayerOutfitUIState = NULL;
 static EWRAM_DATA u8 *sBg1TilemapBuffer = NULL;
 
 static bool8 RoguePlayerUI_EntryOpenPage_ProcessInput(u8, u8);
-static bool8 RoguePlayerUI_EntryClosePage_ProcessInput(u8, u8);
 static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8, u8);
 static void RoguePlayerUI_EntryOutfit_DrawChoices(u8, u8);
 static bool8 RoguePlayerUI_EntryClothesStyleRGB_ProcessInput(u8, u8);
 static void RoguePlayerUI_EntryClothesStyleRGB_DrawChoices(u8, u8);
+static bool8 RoguePlayerUI_EntryClothesStylePreset_ProcessInput(u8, u8);
+static void RoguePlayerUI_EntryClothesStylePreset_DrawChoices(u8, u8);
 
 #define YPOS_SPACING      16
 
@@ -190,13 +199,19 @@ static const struct WindowTemplate sRoguePlayerUIWindowTemplates[] =
 
 static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] = 
 {
+    [UI_ENTRY_BACK] = 
+    {
+        .text = _("Back"),
+        .processInput = NULL,
+        .drawChoices = NULL,
+    },
+
     [UI_ENTRY_OUTFIT] = 
     {
         .text = _("Outfit"),
         .processInput = RoguePlayerUI_EntryOutfit_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryOutfit_DrawChoices,
     },
-
 
     [UI_ENTRY_EDIT_APPEARANCE] = 
     {
@@ -229,6 +244,19 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
         }
     },
 
+    [UI_ENTRY_APPEARANCE_COLOUR] = 
+    {
+        .text = _("Colour"),
+        .processInput = RoguePlayerUI_EntryClothesStylePreset_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStylePreset_DrawChoices,
+        .userData = 
+        {
+            .val8 = 
+            {
+                PLAYER_OUTFIT_STYLE_APPEARANCE
+            }
+        }
+    },
     [UI_ENTRY_APPEARANCE_R] = 
     {
         .text = _("Red"),
@@ -272,6 +300,19 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
         }
     },
 
+    [UI_ENTRY_PRIMARY_COLOUR] = 
+    {
+        .text = _("Colour"),
+        .processInput = RoguePlayerUI_EntryClothesStylePreset_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStylePreset_DrawChoices,
+        .userData = 
+        {
+            .val8 = 
+            {
+                PLAYER_OUTFIT_STYLE_PRIMARY
+            }
+        }
+    },
     [UI_ENTRY_PRIMARY_R] = 
     {
         .text = _("Red"),
@@ -315,6 +356,19 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
         }
     },
     
+    [UI_ENTRY_SECONDARY_COLOUR] = 
+    {
+        .text = _("Colour"),
+        .processInput = RoguePlayerUI_EntryClothesStylePreset_ProcessInput,
+        .drawChoices = RoguePlayerUI_EntryClothesStylePreset_DrawChoices,
+        .userData = 
+        {
+            .val8 = 
+            {
+                PLAYER_OUTFIT_STYLE_SECONDARY
+            }
+        }
+    },
     [UI_ENTRY_SECONDARY_R] = 
     {
         .text = _("Red"),
@@ -409,10 +463,20 @@ static void RoguePlayerUI_FreeTrainerSprites();
 static void RoguePlayerUI_FreeResources(void);
 static void DrawBgWindowFrames(void);
 
-void CB2_InitPlayerCustomisationMenu()
+static void RefreshUIOutfitStylesFromSource()
 {
     u8 i;
+    for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
+    {
+        u16 colour = RoguePlayer_GetOutfitStyle(i);
+        sPlayerOutfitUIState->outfitStyleR[i] = RGB_CONVERT_TO_UI_RANGE(GET_R(colour));
+        sPlayerOutfitUIState->outfitStyleG[i] = RGB_CONVERT_TO_UI_RANGE(GET_G(colour));
+        sPlayerOutfitUIState->outfitStyleB[i] = RGB_CONVERT_TO_UI_RANGE(GET_B(colour));
+    }
+}
 
+void CB2_InitPlayerCustomisationMenu()
+{
     sPlayerOutfitUIState = AllocZeroed(sizeof(struct RoguePlayerUIState));
     if (sPlayerOutfitUIState == NULL)
     {
@@ -431,14 +495,8 @@ void CB2_InitPlayerCustomisationMenu()
     sPlayerOutfitUIState->trainerObjectUpSpriteId = SPRITE_NONE;
     sPlayerOutfitUIState->trainerObjectDownSpriteId = SPRITE_NONE;
     sPlayerOutfitUIState->trainerObjectSideSpriteId = SPRITE_NONE;
-    
-    for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
-    {
-        u16 colour = RoguePlayer_GetOutfitStyle(i);
-        sPlayerOutfitUIState->outfitStyleR[i] = RGB_CONVERT_TO_UI_RANGE(GET_R(colour));
-        sPlayerOutfitUIState->outfitStyleG[i] = RGB_CONVERT_TO_UI_RANGE(GET_G(colour));
-        sPlayerOutfitUIState->outfitStyleB[i] = RGB_CONVERT_TO_UI_RANGE(GET_B(colour));
-    }
+
+    RefreshUIOutfitStylesFromSource();
 
     RoguePlayerUI_OpenPage(UI_PAGE_MAIN);
 
@@ -545,24 +603,31 @@ static void RoguePlayerUI_RefreshPageEntries()
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_APPEARANCE;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_PRIMARY;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_SECONDARY;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
         break;
 
     case UI_PAGE_EDIT_APPEARANCE:
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_APPEARANCE_COLOUR;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_APPEARANCE_R;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_APPEARANCE_G;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_APPEARANCE_B;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
         break;
 
     case UI_PAGE_EDIT_PRIMARY:
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_PRIMARY_COLOUR;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_PRIMARY_R;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_PRIMARY_G;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_PRIMARY_B;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
         break;
 
     case UI_PAGE_EDIT_SECONDARY:
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_SECONDARY_COLOUR;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_SECONDARY_R;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_SECONDARY_G;
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_SECONDARY_B;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
         break;
     }
 }
@@ -609,7 +674,7 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     u8 startPageIdx = sPlayerOutfitUIState->currentPageIdx;
     u8 startOptionIdx = sPlayerOutfitUIState->currentOptionIdx;
 
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_BACK))
     {
         if(!RoguePlayerUI_ClosePage())
         {
@@ -632,7 +697,7 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     }
 
     // Clamp
-    if(sPlayerOutfitUIState->currentOptionIdx >= MAX_UI_PAGE_DEPTH || sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_COUNT)
+    if(sPlayerOutfitUIState->currentOptionIdx >= TOTAL_UI_PAGE_ENTRIES || sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_COUNT)
     {
         sPlayerOutfitUIState->currentOptionIdx = startOptionIdx;
     }
@@ -653,13 +718,37 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     {
         u8 currentEntryIdx = sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx];
 
-        if(sRoguePlayerUIEntries[currentEntryIdx].processInput(currentEntryIdx, sPlayerOutfitUIState->currentOptionIdx))
+        if(sRoguePlayerUIEntries[currentEntryIdx].processInput != NULL && sRoguePlayerUIEntries[currentEntryIdx].processInput(currentEntryIdx, sPlayerOutfitUIState->currentOptionIdx))
         {
-            PlaySE(SE_SELECT);
+            // Special sound effect here to not break ears
+            if(sRoguePlayerUIEntries[currentEntryIdx].processInput == RoguePlayerUI_EntryClothesStyleRGB_ProcessInput)
+                PlaySE(SE_BALL);
+            else
+                PlaySE(SE_SELECT);
+
             RoguePlayerUI_DrawTrainerSprites();
             RoguePlayerUI_PrintTitleText();
             RoguePlayerUI_PrintMenuText();
         }
+        else
+        {
+            // Draw UI hint only for colour editing pages :S
+            switch (sPlayerOutfitUIState->currentPageIdx)
+            {
+                case UI_PAGE_EDIT_APPEARANCE:
+                case UI_PAGE_EDIT_PRIMARY:
+                case UI_PAGE_EDIT_SECONDARY:
+                
+                if(JOY_NEW(R_BUTTON))
+                {
+                    if(sPlayerOutfitUIState->colourEditMode == COLOUR_EDIT_FAST)
+                        sPlayerOutfitUIState->colourEditMode = COLOUR_EDIT_ACCURATE;
+                    else
+                        sPlayerOutfitUIState->colourEditMode = COLOUR_EDIT_FAST;
+                }
+            }
+        }
+        
     }
 }
 
@@ -825,6 +914,10 @@ static void AddMenuValueText(u8 menuOffset, s8 offset, const char* text)
     );
 }
 
+static const u8 sText_RoguePlayerUIEditFast[] = _("Fast");
+static const u8 sText_RoguePlayerUIEditAccurate[] = _("Accurate");
+static const u8 sText_RoguePlayerUIEditPrompt[] = _("{R_BUTTON}: {STR_VAR_1}");
+
 static void RoguePlayerUI_PrintMenuText()
 {
     u8 i, currentEntryIdx;
@@ -841,6 +934,31 @@ static void RoguePlayerUI_PrintMenuText()
         AddMenuNameText(i, sRoguePlayerUIEntries[currentEntryIdx].text);
         if(sRoguePlayerUIEntries[currentEntryIdx].drawChoices != NULL)
             sRoguePlayerUIEntries[currentEntryIdx].drawChoices(currentEntryIdx, i);
+    }
+
+    // Draw UI hint
+    switch (sPlayerOutfitUIState->currentPageIdx)
+    {
+    case UI_PAGE_EDIT_APPEARANCE:
+    case UI_PAGE_EDIT_PRIMARY:
+    case UI_PAGE_EDIT_SECONDARY:
+        if(sPlayerOutfitUIState->colourEditMode == COLOUR_EDIT_FAST)
+            StringCopy(gStringVar1, sText_RoguePlayerUIEditFast);
+        else
+            StringCopy(gStringVar1, sText_RoguePlayerUIEditAccurate);
+
+        StringExpandPlaceholders(gStringVar2, sText_RoguePlayerUIEditPrompt);
+
+        AddTextPrinterParameterized4(
+            WIN_INFO_PANEL, 
+            FONT_NARROW, 
+            0, YPOS_SPACING * (TOTAL_UI_PAGE_ENTRIES - 1), 
+            0, 0, 
+            sRoguePlayerUIWindowFontColors[FONT_BLACK], 
+            TEXT_SKIP_DRAW, 
+            gStringVar2
+        );
+        break;
     }
 
     CopyWindowToVram(WIN_INFO_PANEL, COPYWIN_GFX);
@@ -1006,11 +1124,6 @@ static bool8 RoguePlayerUI_EntryOpenPage_ProcessInput(u8 entryIdx, u8 menuOffset
     return FALSE;
 }
 
-static bool8 RoguePlayerUI_EntryClosePage_ProcessInput(u8 entryIdx, u8 menuOffset)
-{
-    return FALSE;
-}
-
 static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
 {
     const u16 outfitCount = RoguePlayer_GetOutfitCount();
@@ -1039,8 +1152,8 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
 
 static void RoguePlayerUI_EntryOutfit_DrawChoices(u8 entryIdx, u8 menuOffset)
 {
-    ConvertUIntToDecimalStringN(gStringVar1, RoguePlayer_GetOutfitId(), STR_CONV_MODE_LEFT_ALIGN, 2);
-    AddMenuValueText(menuOffset, 0, gStringVar1);
+    const u8* name = RoguePlayer_GetOutfitName();
+    AddMenuValueText(menuOffset, 0, name);
 }
 
 static u8 GetCurrentOutfitStyle(u8 entryIdx)
@@ -1103,7 +1216,7 @@ static bool8 RoguePlayerUI_EntryClothesStyleRGB_ProcessInput(u8 entryIdx, u8 men
     u8 currValue, prevValue;
     currValue = prevValue = GetCurrentOutfitStyleRGBChannel(entryIdx);
 
-    if(JOY_HELD(R_BUTTON | L_BUTTON))
+    if(sPlayerOutfitUIState->colourEditMode == COLOUR_EDIT_ACCURATE)
     {
         // Accurate mode: Only increment on press
         if(JOY_NEW(DPAD_LEFT))
@@ -1224,4 +1337,33 @@ static void RoguePlayerUI_EntryClothesStyleRGB_DrawChoices(u8 entryIdx, u8 menuO
         //StringExpandPlaceholders(gStringVar2, sText_RoguePlayerValuePercentage);
         AddMenuValueText(menuOffset, 0, gStringVar1);
     }
+}
+
+static bool8 RoguePlayerUI_EntryClothesStylePreset_ProcessInput(u8 entryIdx, u8 menuOffset)
+{
+    u8 outfitStyle = sRoguePlayerUIEntries[entryIdx].userData.val8[0];
+
+    // Accurate mode: Only increment on press
+    if(JOY_NEW(DPAD_LEFT))
+    {
+        RoguePlayer_IncrementOutfitStyleByName(outfitStyle, -1);
+        RefreshUIOutfitStylesFromSource();
+        return TRUE;
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        RoguePlayer_IncrementOutfitStyleByName(outfitStyle, 1);
+        RefreshUIOutfitStylesFromSource();
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void RoguePlayerUI_EntryClothesStylePreset_DrawChoices(u8 entryIdx, u8 menuOffset)
+{
+    u8 outfitStyle = sRoguePlayerUIEntries[entryIdx].userData.val8[0];
+    const u8* name = RoguePlayer_GetOutfitStyleName(outfitStyle);
+
+    AddMenuValueText(menuOffset, 0, name);
 }

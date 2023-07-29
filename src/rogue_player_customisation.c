@@ -11,12 +11,11 @@
 
 #include "rogue_player_customisation.h"
 
-#define RGB_255_CHANNEL(v) (u8)(((u32)v * (u32)31) / (u32)255)
+#define RGB_255_CHANNEL(v) min(31, (u8)(((u32)v * (u32)31) / (u32)255))
 #define RGB_255(r, g, b) RGB(RGB_255_CHANNEL(r), RGB_255_CHANNEL(g), RGB_255_CHANNEL(b))
 
 // This is just helpful as can input the UI accurate colours
-#define RGB_10_CHANNEL(v) (u8)(((u32)v * (u32)31) / (u32)10)
-#define RGB_10(r, g, b) RGB(RGB_10_CHANNEL(r), RGB_10_CHANNEL(g), RGB_10_CHANNEL(b))
+#define RGB_UI(r, g, b) RGB(RGB_CONVERT_FROM_UI_RANGE(r), RGB_CONVERT_FROM_UI_RANGE(g), RGB_CONVERT_FROM_UI_RANGE(b))
 
 struct PlayerOutfit
 {
@@ -27,6 +26,7 @@ struct PlayerOutfit
     const u32* trainerFrontLayerPal;
     const u32* trainerBackBasePal;
     const u32* trainerBackLayerPal;
+    const u8 name[8];
     u16 layerMaskColours[PLAYER_OUTFIT_STYLE_COUNT];
     u16 trainerFrontPic;
     u16 trainerBackPic;
@@ -38,6 +38,7 @@ struct KnownColour
 {
     u16 colour;
     const u8 name[8];
+    bool8 isCustomColour : 1;
 };
 
 enum 
@@ -54,6 +55,7 @@ enum
     PLAYER_OUTFIT_COUNT,
 };
 
+static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfit, const u32* basePalSrc, const u32* layerPalSrc);
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerColour, u16 inputColour);
@@ -83,6 +85,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 {
     [PLAYER_OUTFIT_BRENDAN] =
     {
+        .name = _("Brendan"),
         .trainerFrontPic = TRAINER_PIC_BRENDAN,
         .trainerBackPic = TRAINER_BACK_PIC_BRENDAN,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN,
@@ -108,6 +111,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     },
     [PLAYER_OUTFIT_MAY] =
     {
+        .name = _("May"),
         .trainerFrontPic = TRAINER_PIC_MAY,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
         .bagVariant = BAG_GFX_VARIANT_MAY,
@@ -128,6 +132,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 
     [PLAYER_OUTFIT_RED] =
     {
+        .name = _("Red"),
         .trainerFrontPic = TRAINER_PIC_RED,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
         .bagVariant = BAG_GFX_VARIANT_RED,
@@ -147,6 +152,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     },
     [PLAYER_OUTFIT_LEAF] =
     {
+        .name = _("Leaf"),
         .trainerFrontPic = TRAINER_PIC_LEAF,
         .trainerBackPic = TRAINER_BACK_PIC_LEAF,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
@@ -167,6 +173,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     
     [PLAYER_OUTFIT_ETHAN] =
     {
+        .name = _("Ethan"),
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
         .bagVariant = BAG_GFX_VARIANT_ETHAN,
@@ -186,6 +193,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     },
     [PLAYER_OUTFIT_LYRA] =
     {
+        .name = _("Lyra"),
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
@@ -205,6 +213,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     },
     [PLAYER_OUTFIT_TEST] =
     {
+        .name = _("Test"),
         .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
         .trainerBackPic = TRAINER_BACK_PIC_WALLY,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
@@ -229,84 +238,84 @@ static const struct KnownColour sKnownColours_Appearance[] =
     {
         .name = _("Custom"),
         .colour = RGB_255(0, 0, 0),
+        .isCustomColour = TRUE,
     },
     {
         .name = _("A"),
-        .colour = RGB_255(255, 222, 205),
+        .colour = RGB_UI(10, 8, 7),
     },
     {
         .name = _("B"),
-        .colour = RGB_255(212, 170, 120),
+        .colour = RGB_UI(8, 6, 4),
     },
     {
         .name = _("C"),
-        .colour = RGB_255(190, 146, 116),
+        .colour = RGB_UI(7, 5, 4),
     },
     {
         .name = _("D"),
-        .colour = RGB_255(111, 59, 47),
+        .colour = RGB_UI(4, 2, 1),
     }
 };
 
 static const struct KnownColour sKnownColours_Clothes[] = 
 {
     {
-        .name = _("Default"),
-        .colour = RGB_255(0, 0, 0),
-    },
-    {
         .name = _("Custom"),
         .colour = RGB_255(0, 0, 0),
+        .isCustomColour = TRUE,
     },
 
     {
         .name = _("Black"),
-        .colour = RGB_10(2, 2, 2),
+        .colour = RGB_UI(3, 3, 4),
     },
     {
         .name = _("White"),
-        .colour = RGB_10(10, 10, 10),
+        .colour = RGB_UI(10, 10, 10),
     },
     {
         .name = _("Grey"),
-        .colour = RGB_10(6, 6, 6),
+        .colour = RGB_UI(6, 6, 6),
     },
 
     {
         .name = _("Red"),
-        .colour = RGB_10(10, 4, 4),
+        .colour = RGB_UI(10, 4, 4),
     },
     {
         .name = _("Green"),
-        .colour = RGB_10(3, 10, 3),
+        .colour = RGB_UI(3, 10, 3),
     },
     {
         .name = _("Blue"),
-        .colour = RGB_10(4, 5, 10),
+        .colour = RGB_UI(4, 5, 10),
     },
 
     
     {
         .name = _("Pink"),
-        .colour = RGB_10(10, 8, 8),
+        .colour = RGB_UI(10, 6, 8),
     },
     {
         .name = _("Brown"),
-        .colour = RGB_10(6, 4, 2),
+        .colour = RGB_UI(5, 3, 2),
     },
     {
         .name = _("Purple"),
-        .colour = RGB_10(8, 0, 7),
+        .colour = RGB_UI(8, 0, 8),
     },
     {
         .name = _("Yellow"),
-        .colour = RGB_10(10, 9, 0),
+        .colour = RGB_UI(10, 9, 0),
     },
     {
         .name = _("Orange"),
-        .colour = RGB_10(10, 6, 0),
+        .colour = RGB_UI(10, 6, 0),
     },
 };
+
+STATIC_ASSERT(PLAYER_OUTFIT_STYLE_COUNT < ARRAY_COUNT(gSaveBlock2Ptr->playerStyles), playerStyleCount);
 
 static const struct PlayerOutfit* GetCurrentOutfit()
 {
@@ -330,7 +339,31 @@ static u16 GetKnownColourArrayCount(u8 layer)
         return ARRAY_COUNT(sKnownColours_Clothes);
 }
 
-STATIC_ASSERT(PLAYER_OUTFIT_STYLE_COUNT < ARRAY_COUNT(gSaveBlock2Ptr->playerStyles), playerStyleCount);
+static u8 GetKnownColourIndex(const struct PlayerOutfit* outfit, u8 layer, u16 colour)
+{
+    u8 i, customColourIdx;
+    const struct KnownColour* knownColours = GetKnownColourArray(layer);
+    u16 knownColoursCount = GetKnownColourArrayCount(layer);
+
+    customColourIdx = 0;
+
+    // Try to find the index before falling back to custom
+    for(i = 0; i < knownColoursCount; ++i)
+    {
+        if(knownColours[i].isCustomColour)
+        {
+            // Track this, but ignore it (It will be the fallback)
+            customColourIdx = i;
+        }
+        else if(knownColours[i].colour == colour)
+        {
+            return i;
+        }
+    }
+
+    return customColourIdx;
+}
+
 
 void RoguePlayer_SetNewGameOutfit()
 {
@@ -339,8 +372,8 @@ void RoguePlayer_SetNewGameOutfit()
 
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE, sKnownColours_Appearance[1].colour); // TODO - Randomise this
 
-    RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY, RGB_10(4, 5, 10));
-    RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY, RGB_10(10, 10, 10));
+    RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY, RGB_UI(4, 5, 10));
+    RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY, RGB_UI(10, 10, 10));
 }
 
 void RoguePlayer_SetOutfitId(u16 outfit)
@@ -356,6 +389,11 @@ u16 RoguePlayer_GetOutfitId()
 u16 RoguePlayer_GetOutfitCount()
 {
     return PLAYER_OUTFIT_COUNT;
+}
+
+const u8* RoguePlayer_GetOutfitName()
+{
+    return GetCurrentOutfit()->name;
 }
 
 static s8 WrapRange(s8 value, s8 minVal, s8 maxVal)
@@ -401,6 +439,36 @@ void RoguePlayer_SetOutfitStyle(u8 styleId, u16 value)
 u16 RoguePlayer_GetOutfitStyle(u8 styleId)
 {
     return *GetOutfitStylePtr(styleId);
+}
+
+const u8* RoguePlayer_GetOutfitStyleName(u8 styleId)
+{
+    const struct KnownColour* knownColours = GetKnownColourArray(styleId);
+    u8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
+    return knownColours[idx].name;
+}
+
+void RoguePlayer_IncrementOutfitStyleByName(u8 styleId, s8 delta)
+{
+    const struct KnownColour* knownColours = GetKnownColourArray(styleId);
+    u16 knownColourCount = GetKnownColourArrayCount(styleId);
+    s8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
+
+    while(TRUE)
+    {
+        idx = WrapRange(idx + delta, 0, knownColourCount - 1);
+
+        // Update the style colour
+        if(knownColours[idx].isCustomColour)
+        {
+            // ignore this
+        }
+        else
+        {
+            RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
+            break;
+        }
+    }
 }
 
 bool8 RoguePlayer_HasSpritingAnim()
@@ -460,6 +528,44 @@ u8 RoguePlayer_GetBagGfxVariant()
     return GetCurrentOutfit()->bagVariant;
 }
 
+static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal)
+{
+    u16 layerMask = outfit->layerMaskColours[layer];
+    u16 layerWhitePoint = RGB(0, 0, 0);
+
+    // Check if this layer is supported for this outfit
+    if(layerMask != RGB(0, 0, 0))
+    {
+        u8 i;
+        u16 baseCol;
+        u16 layerCol;
+        u16 currBrightness;
+        u16 maxBrightness;
+
+        // Calculate the average base colour in this layer
+        maxBrightness = 0;
+
+        for(i = 0; i < 16; ++i)
+        {
+            baseCol = basePal[i];
+            layerCol = layerPal[i];
+
+            if(layerCol == layerMask)
+            {
+                currBrightness = max(GET_R(baseCol), max(GET_G(baseCol), GET_B(baseCol)));
+
+                if(maxBrightness == 0 || currBrightness > maxBrightness)
+                {
+                    maxBrightness = currBrightness;
+                    layerWhitePoint = baseCol;
+                }
+            }
+        }
+    }
+
+    return layerWhitePoint;
+}
+
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal)
 {
     if(layerPal != NULL)
@@ -472,39 +578,9 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
 
         // Calculate the brightest colour for each layer to act as the white point
         {
-            for(l = 0; l < PLAYER_OUTFIT_STYLE_COUNT; ++l)
+            for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
             {
-                layerMask = outfit->layerMaskColours[l];
-                layerWhitePoint[l] = RGB(0, 0, 0);
-
-                // Check if this layer is supported for this outfit
-                if(layerMask != RGB(0, 0, 0))
-                {
-                    u16 currBrightness;
-                    u16 maxBrightness;
-
-                    // Calculate the average base colour in this layer
-                    maxBrightness = 0;
-
-                    for(i = 0; i < 16; ++i)
-                    {
-                        baseCol = basePal[i];
-                        layerCol = layerPal[i];
-
-                        if(layerCol == layerMask)
-                        {
-                            currBrightness = max(GET_R(baseCol), max(GET_G(baseCol), GET_B(baseCol)));
-
-                            if(maxBrightness == 0 || currBrightness > maxBrightness)
-                            {
-                                maxBrightness = currBrightness;
-                                layerWhitePoint[l] = baseCol;
-                            }
-                        }
-                    }
-                }
-
-                DebugPrintf("[ModifyOutfitPalette] layer whitepoint %d: RGB(%d, %d, %d)", l, GET_R(layerWhitePoint[l]), GET_G(layerWhitePoint[l]), GET_B(layerWhitePoint[l]));
+                layerWhitePoint[i] = CalculateWhitePointFor(outfit, i, basePal, layerPal);
             }
         }
 

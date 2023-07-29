@@ -1,6 +1,12 @@
 #ifndef ROGUE_PLAYER_CUSTOMISATION__H
 #define ROGUE_PLAYER_CUSTOMISATION__H
 
+#define RGB_MAX_UI_VALUE 10
+#define MULTI_DIVIDE_ROUND(value, multiply, divide) (((value * multiply) / divide) + ((value * multiply) % divide >= divide/ 2 ? 1 : 0))
+
+#define RGB_CONVERT_TO_UI_RANGE(value) min(31, MULTI_DIVIDE_ROUND((u16)value, (u16)RGB_MAX_UI_VALUE, (u16)31))
+#define RGB_CONVERT_FROM_UI_RANGE(value) min(31, MULTI_DIVIDE_ROUND((u16)value, (u16)31, (u16)RGB_MAX_UI_VALUE))
+
 enum 
 {
     PLAYER_OUTFIT_STYLE_APPEARANCE,
@@ -21,9 +27,13 @@ void RoguePlayer_SetNewGameOutfit();
 void RoguePlayer_SetOutfitId(u16 outfit);
 u16 RoguePlayer_GetOutfitId();
 u16 RoguePlayer_GetOutfitCount();
+const u8* RoguePlayer_GetOutfitName();
 
 void RoguePlayer_SetOutfitStyle(u8 styleId, u16 value);
 u16 RoguePlayer_GetOutfitStyle(u8 styleId);
+
+const u8* RoguePlayer_GetOutfitStyleName(u8 styleId);
+void RoguePlayer_IncrementOutfitStyleByName(u8 styleId, s8 delta);
 
 bool8 RoguePlayer_HasSpritingAnim();
 
