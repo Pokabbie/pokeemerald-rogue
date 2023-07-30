@@ -1477,6 +1477,8 @@ static void SelectStartMons(bool8 isSeeded)
         //VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
 #endif
     }
+
+    RogueMonQuery_End();
 }
 
 #define ROGUE_1_X_FINAL_SAVE_VERSION 4 // Final save version shipped with prior to v2.0

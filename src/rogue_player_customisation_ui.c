@@ -1435,7 +1435,7 @@ static bool8 RoguePlayerUI_EntryClothesStylePreset_ProcessInput(u8 entryIdx, u8 
         RefreshUIOutfitStylesFromSource();
         return TRUE;
     }
-    else if(JOY_NEW(DPAD_RIGHT))
+    else if(JOY_NEW(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
     {
         RoguePlayer_IncrementOutfitStyleByName(outfitStyle, 1);
         RefreshUIOutfitStylesFromSource();

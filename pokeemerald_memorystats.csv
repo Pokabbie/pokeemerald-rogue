@@ -1,7 +1,7 @@
 Memory Stats
 
 Group, Name, MB, KB, Bytes
-, ROM, 17, 18361, 18802664
+, ROM, 17, 18361, 18802669
 , EWRAM, 5, 6112, 6258688
 , IWRAM, 15, 16383, 16777214
 
@@ -9,7 +9,7 @@ Group, Name, MB, KB, Bytes
 ROM GROUPS
 
 Group, Name, MB, KB, Bytes
-ROM, TOTAL, 17, 18361, 18802664
+ROM, TOTAL, 17, 18361, 18802669
 ROM, data/sound_data.o, 0, 472, 483678
 ROM, src/graphics.o, 0, 293, 300129
 ROM, data/tilesets.o, 0, 85, 87317
@@ -43,7 +43,7 @@ ROM, src/battle_anim_effects_3.o, 0, 3, 3242
 ROM, src/battle_controller_player.o, 0, 2, 3057
 ROM, src/union_room.o, 0, 2, 3030
 ROM, src/pokemon_animation.o, 0, 2, 2872
-ROM, src/pokemon_summary_screen.o, 0, 2, 2854
+ROM, src/pokemon_summary_screen.o, 0, 2, 2857
 ROM, src/slot_machine.o, 0, 2, 2843
 ROM, src/easy_chat.o, 0, 2, 2765
 ROM, src/battle_factory_screen.o, 0, 2, 2732
@@ -205,7 +205,7 @@ ROM, sound/songs/midi/mus_b_palace.o, 0, 0, 690
 ROM, src/starter_choose.o, 0, 0, 683
 ROM, src/mystery_gift_menu.o, 0, 0, 678
 ROM, src/battle_anim_electric.o, 0, 0, 675
-ROM, src/rogue_player_customisation_ui.o, 0, 0, 672
+ROM, src/rogue_player_customisation_ui.o, 0, 0, 673
 ROM, sound/songs/midi/mus_b_dome.o, 0, 0, 671
 ROM, src/field_weather.o, 0, 0, 671
 ROM, src/palette.o, 0, 0, 670
@@ -3078,13 +3078,13 @@ ROM::src/graphics.o, src/easy_chat.o, 0, 2, 2903
 ROM::src/graphics.o, src/pokedex.o, 0, 2, 2699
 ROM::src/graphics.o, src/union_room.o, 0, 2, 2648
 ROM::src/graphics.o, src/battle_anim_effects_3.o, 0, 2, 2630
-ROM::src/graphics.o, src/rogue_controller.o, 0, 2, 2628
+ROM::src/graphics.o, src/rogue_controller.o, 0, 2, 2629
 ROM::src/graphics.o, src/slot_machine.o, 0, 2, 2575
 ROM::src/graphics.o, src/battle_dome.o, 0, 2, 2532
 ROM::src/graphics.o, src/battle_transition.o, 0, 2, 2345
 ROM::src/graphics.o, src/battle_anim_effects_1.o, 0, 2, 2306
 ROM::src/graphics.o, src/battle_util.o, 0, 2, 2304
-ROM::src/graphics.o, src/pokemon_summary_screen.o, 0, 2, 2284
+ROM::src/graphics.o, src/pokemon_summary_screen.o, 0, 2, 2287
 ROM::src/graphics.o, src/battle_factory_screen.o, 0, 2, 2152
 ROM::src/graphics.o, src/field_effect.o, 0, 2, 2096
 ROM::src/graphics.o, src/roamer.o, 0, 2, 2048
@@ -10373,7 +10373,7 @@ ROM::src/pokemon_storage_system.o, GetWaldaPhrasePtr, 0, 0, 2
 
 ROM::src/event_object_movement.o, TOTAL, 0, 5, 5685
 ROM::src/event_object_movement.o, MovementAction_PauseSpriteAnim, 0, 0, 234
-ROM::src/event_object_movement.o, SpawnObjectEventsOnReturnToField, 0, 0, 86
+ROM::src/event_object_movement.o, SpawnObjectEventsOnReturnToField, 0, 0, 87
 ROM::src/event_object_movement.o, MovementAction_WalkNormalRight_Step1, 0, 0, 81
 ROM::src/event_object_movement.o, GetFigure8XOffset, 0, 0, 75
 ROM::src/event_object_movement.o, GetCollisionFlagsAtCoords, 0, 0, 71
@@ -12771,13 +12771,13 @@ ROM::src/pokemon_animation.o, LaunchAnimationTaskForBackSprite, 0, 0, 15
 ROM::src/pokemon_animation.o, LaunchAnimationTaskForFrontSprite, 0, 0, 6
 ROM::src/pokemon_animation.o, StartMonSummaryAnimation, 0, 0, 3
 
-ROM::src/pokemon_summary_screen.o, TOTAL, 0, 2, 2854
+ROM::src/pokemon_summary_screen.o, TOTAL, 0, 2, 2857
 ROM::src/pokemon_summary_screen.o, ShowPokemonSummaryScreenSet40EF, 0, 1, 1116
 ROM::src/pokemon_summary_screen.o, GetMoveSlotToReplace, 0, 0, 765
 ROM::src/pokemon_summary_screen.o, DidMonComeFromRSE, 0, 0, 549
 ROM::src/pokemon_summary_screen.o, DestroyMonTypIcon, 0, 0, 193
 ROM::src/pokemon_summary_screen.o, SummaryScreen_SetAnimDelayTaskId, 0, 0, 156
-ROM::src/pokemon_summary_screen.o, ShowPokemonSummaryScreen, 0, 0, 47
+ROM::src/pokemon_summary_screen.o, ShowPokemonSummaryScreen, 0, 0, 49
 ROM::src/pokemon_summary_screen.o, CreateMonTypeIcon, 0, 0, 14
 ROM::src/pokemon_summary_screen.o, ShowSelectMovePokemonSummaryScreen, 0, 0, 9
 ROM::src/pokemon_summary_screen.o, LoadMoveTypesSpritesheetAndPalette, 0, 0, 4
@@ -12823,7 +12823,7 @@ ROM::src/rogue_controller.o, Rogue_SetDefaultOptions, 0, 0, 103
 ROM::src/rogue_controller.o, Rogue_OnSetWarpData, 0, 0, 101
 ROM::src/rogue_controller.o, Rogue_ModifyTutorMoves, 0, 0, 88
 ROM::src/rogue_controller.o, Rogue_OnSaveGame, 0, 0, 81
-ROM::src/rogue_controller.o, Rogue_RemoveMiniMenuExtraGFX, 0, 0, 69
+ROM::src/rogue_controller.o, Rogue_RemoveMiniMenuExtraGFX, 0, 0, 70
 ROM::src/rogue_controller.o, Rogue_ModifyScriptMon, 0, 0, 67
 ROM::src/rogue_controller.o, Rogue_Battle_StartTrainerBattle, 0, 0, 67
 ROM::src/rogue_controller.o, Rogue_Battle_EndTrainerBattle, 0, 0, 52
@@ -16442,8 +16442,8 @@ ROM::src/battle_anim_electric.o, AnimTask_VoltTackleBolt, 0, 0, 90
 ROM::src/battle_anim_electric.o, AnimTask_ShockWaveProgressingBolt, 0, 0, 88
 ROM::src/battle_anim_electric.o, AnimTask_VoltTackleAttackerReappear, 0, 0, 46
 
-ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 672
-ROM::src/rogue_player_customisation_ui.o, CB2_InitPlayerCustomisationMenu, 0, 0, 845
+ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 673
+ROM::src/rogue_player_customisation_ui.o, CB2_InitPlayerCustomisationMenu, 0, 0, 846
 
 ROM::sound/songs/midi/mus_b_dome.o, TOTAL, 0, 0, 671
 ROM::sound/songs/midi/mus_b_dome.o, mus_b_dome, 0, 0, 655
