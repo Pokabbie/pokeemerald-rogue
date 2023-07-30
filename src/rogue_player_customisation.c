@@ -38,7 +38,7 @@ struct PlayerOutfit
 struct KnownColour
 {
     u16 colour;
-    const u8 name[8];
+    const u8 name[12];
     bool8 isCustomColour : 1;
 };
 
@@ -196,7 +196,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
         .bagVariant = BAG_GFX_VARIANT_ETHAN,
-        .hasSpritingAnims = TRUE,
+        .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerEthanNormal,
@@ -222,19 +222,25 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
-        .hasSpritingAnims = TRUE,
+        .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerLyraNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLyraRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLyraFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_Lyra_0_0,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_Lyra_Front_0_0,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_Lyra_Back_0_0,
-        .trainerBackLayerPal = NULL,
+        .objectEventBasePal = gObjectEventPal_PlayerLyraBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerLyraLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerLyraFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerLyraFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerLyraBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerLyraBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
     },
     [PLAYER_OUTFIT_TEST] =
     {
@@ -272,6 +278,7 @@ static const struct KnownColour sKnownColours_Appearance[] =
         .colour = RGB_255(0, 0, 0),
         .isCustomColour = TRUE,
     },
+
     {
         .name = _("A"),
         .colour = RGB_UI(10, 8, 7),
@@ -300,7 +307,7 @@ static const struct KnownColour sKnownColours_Clothes[] =
 
     {
         .name = _("Black"),
-        .colour = RGB_UI(3, 3, 4),
+        .colour = RGB_UI(3, 3, 3),
     },
     {
         .name = _("White"),
@@ -345,6 +352,10 @@ static const struct KnownColour sKnownColours_Clothes[] =
         .name = _("Orange"),
         .colour = RGB_UI(10, 6, 0),
     },
+    {
+        .name = _("Gold"),
+        .colour = RGB_UI(9, 7, 0),
+    },
 };
 
 STATIC_ASSERT(PLAYER_OUTFIT_STYLE_COUNT < ARRAY_COUNT(gSaveBlock2Ptr->playerStyles), playerStyleCount);
@@ -382,7 +393,7 @@ static u8 GetKnownColourIndex(const struct PlayerOutfit* outfit, u8 layer, u16 c
     // Try to find the index before falling back to custom
     for(i = 0; i < knownColoursCount; ++i)
     {
-        if(knownColours[i].isCustomColour)
+        if(knownColours[i].isCustomColour != 0)
         {
             // Track this, but ignore it (It will be the fallback)
             customColourIdx = i;
@@ -407,7 +418,7 @@ static void RandomiseOutfitStyle(u8 styleId)
         idx = Random() % knownColourCount;
     } 
     while (knownColours[idx].isCustomColour);
-    
+
     RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
 }
 
