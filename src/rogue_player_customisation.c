@@ -8,6 +8,7 @@
 #include "global.fieldmap.h"
 #include "graphics.h"
 #include "item_menu_icons.h"
+#include "random.h"
 
 #include "rogue_player_customisation.h"
 
@@ -27,7 +28,7 @@ struct PlayerOutfit
     const u32* trainerBackBasePal;
     const u32* trainerBackLayerPal;
     const u8 name[8];
-    u16 layerMaskColours[PLAYER_OUTFIT_STYLE_COUNT];
+    bool8 supportedLayers[PLAYER_OUTFIT_STYLE_COUNT];
     u16 trainerFrontPic;
     u16 trainerBackPic;
     u8 bagVariant;
@@ -102,11 +103,11 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontLayerPal = gTrainerPalette_PlayerBrendanLayers,
         .trainerBackBasePal = gTrainerPalette_PlayerBrendanBase,
         .trainerBackLayerPal= gTrainerPalette_PlayerBrendanLayers,
-        .layerMaskColours = 
+        .supportedLayers = 
         {
-            [PLAYER_OUTFIT_STYLE_APPEARANCE]       = RGB_255(255, 0, 0),
-            [PLAYER_OUTFIT_STYLE_PRIMARY]   = RGB_255(0, 255, 0),
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = RGB_255(0, 0, 255),
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
     [PLAYER_OUTFIT_MAY] =
@@ -122,12 +123,18 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerMayRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerMayFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_May_0_0,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_May_0_0,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_May_0_0,
-        .trainerBackLayerPal = NULL,
+        .objectEventBasePal = gObjectEventPal_PlayerMayBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerMayLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerMayBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerMayLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerMayBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerMayLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
     },
 
     [PLAYER_OUTFIT_RED] =
@@ -231,6 +238,13 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerBackBasePal = gTrainerPalette_Red_Back_0_0,
         .trainerBackLayerPal = NULL,
     }
+};
+
+static const u16 sLayerMaskColours[PLAYER_OUTFIT_STYLE_COUNT] =
+{
+    [PLAYER_OUTFIT_STYLE_APPEARANCE]    = RGB_255(255, 0, 0),
+    [PLAYER_OUTFIT_STYLE_PRIMARY]       = RGB_255(0, 255, 0),
+    [PLAYER_OUTFIT_STYLE_SECONDARY]     = RGB_255(0, 0, 255),
 };
 
 static const struct KnownColour sKnownColours_Appearance[] = 
@@ -364,16 +378,38 @@ static u8 GetKnownColourIndex(const struct PlayerOutfit* outfit, u8 layer, u16 c
     return customColourIdx;
 }
 
+static void RandomiseOutfitStyle(u8 styleId)
+{
+    u8 idx;
+    const struct KnownColour* knownColours = GetKnownColourArray(styleId);
+    u16 knownColourCount = GetKnownColourArrayCount(styleId);
+
+    do
+    {
+        idx = Random() % knownColourCount;
+    } 
+    while (knownColours[idx].isCustomColour);
+    
+    RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
+}
 
 void RoguePlayer_SetNewGameOutfit()
 {
     RoguePlayer_SetOutfitId(0);
     memset(gSaveBlock2Ptr->playerStyles, 0, sizeof(gSaveBlock2Ptr->playerStyles));
 
-    RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE, sKnownColours_Appearance[1].colour); // TODO - Randomise this
+    // Default to blue and white with random appearance
+    RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE);
 
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY, RGB_UI(4, 5, 10));
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY, RGB_UI(10, 10, 10));
+}
+
+void RoguePlayer_RandomiseOutfit()
+{
+    RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE);
+    RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY);
+    RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY);
 }
 
 void RoguePlayer_SetOutfitId(u16 outfit)
@@ -439,6 +475,11 @@ void RoguePlayer_SetOutfitStyle(u8 styleId, u16 value)
 u16 RoguePlayer_GetOutfitStyle(u8 styleId)
 {
     return *GetOutfitStylePtr(styleId);
+}
+
+bool8 RoguePlayer_SupportsOutfitStyle(u8 styleId)
+{
+    return GetCurrentOutfit()->supportedLayers[styleId] != FALSE;
 }
 
 const u8* RoguePlayer_GetOutfitStyleName(u8 styleId)
@@ -528,9 +569,15 @@ u8 RoguePlayer_GetBagGfxVariant()
     return GetCurrentOutfit()->bagVariant;
 }
 
+static u16 GreyScaleColour(u16 colour)
+{
+    u8 brightness = max(GET_R(colour), max(GET_G(colour), GET_B(colour)));
+    return RGB(brightness, brightness, brightness);
+}
+
 static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal)
 {
-    u16 layerMask = outfit->layerMaskColours[layer];
+    u16 layerMask = sLayerMaskColours[layer];
     u16 layerWhitePoint = RGB(0, 0, 0);
 
     // Check if this layer is supported for this outfit
@@ -577,10 +624,11 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
         u16* writeBuffer = (u16*)&gDecompressionBuffer[0];
 
         // Calculate the brightest colour for each layer to act as the white point
+        // Do this in greyscale
         {
             for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
             {
-                layerWhitePoint[i] = CalculateWhitePointFor(outfit, i, basePal, layerPal);
+                layerWhitePoint[i] = GreyScaleColour(CalculateWhitePointFor(outfit, i, basePal, layerPal));
             }
         }
 
@@ -592,11 +640,12 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
 
             for(l = 0; l < PLAYER_OUTFIT_STYLE_COUNT; ++l)
             {
-                layerMask = outfit->layerMaskColours[l];
+                layerMask = sLayerMaskColours[l];
 
                 if(layerCol == layerMask)
                 {
-                    baseCol = ModifyColourLayer(outfit, l, layerWhitePoint[l], baseCol);
+                    // Expect the whitepoint to already be in greyscale
+                    baseCol = ModifyColourLayer(outfit, l, layerWhitePoint[l], GreyScaleColour(baseCol));
                     break;
                 }
             }

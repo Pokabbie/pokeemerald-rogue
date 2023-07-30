@@ -23,6 +23,7 @@ enum
 };
 
 void RoguePlayer_SetNewGameOutfit();
+void RoguePlayer_RandomiseOutfit();
 
 void RoguePlayer_SetOutfitId(u16 outfit);
 u16 RoguePlayer_GetOutfitId();
@@ -31,6 +32,7 @@ const u8* RoguePlayer_GetOutfitName();
 
 void RoguePlayer_SetOutfitStyle(u8 styleId, u16 value);
 u16 RoguePlayer_GetOutfitStyle(u8 styleId);
+bool8 RoguePlayer_SupportsOutfitStyle(u8 styleId);
 
 const u8* RoguePlayer_GetOutfitStyleName(u8 styleId);
 void RoguePlayer_IncrementOutfitStyleByName(u8 styleId, s8 delta);
