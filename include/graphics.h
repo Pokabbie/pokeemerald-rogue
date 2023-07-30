@@ -3130,6 +3130,11 @@ extern const u32 gTrainerPalette_PlayerRedLeafFrontLayers[];
 extern const u32 gTrainerPalette_PlayerRedLeafBackBase[];
 extern const u32 gTrainerPalette_PlayerRedLeafBackLayers[];
 
+extern const u32 gTrainerPalette_PlayerEthanFrontBase[];
+extern const u32 gTrainerPalette_PlayerEthanFrontLayers[];
+extern const u32 gTrainerPalette_PlayerEthanBackBase[];
+extern const u32 gTrainerPalette_PlayerEthanBackLayers[];
+
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
 extern const u32 gTrainerPalette_LeaderLtSurge[];
@@ -5145,6 +5150,9 @@ extern const u16 gObjectEventPal_PlayerMayLayers[];
 
 extern const u16 gObjectEventPal_PlayerRedLeafBase[];
 extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
+
+extern const u16 gObjectEventPal_PlayerEthanBase[];
+extern const u16 gObjectEventPal_PlayerEthanLayers[];
 
 // Object event pals
 #define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];

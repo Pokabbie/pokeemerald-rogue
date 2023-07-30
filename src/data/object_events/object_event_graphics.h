@@ -457,6 +457,9 @@ const u16 gObjectEventPal_PlayerMayLayers[] = INCBIN_U16("graphics/rogue_palette
 const u16 gObjectEventPal_PlayerRedLeafBase[] = INCBIN_U16("graphics/rogue_palettes/red_leaf/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerRedLeafLayers[] = INCBIN_U16("graphics/rogue_palettes/red_leaf/object_event_layers.gbapal");
 
+const u16 gObjectEventPal_PlayerEthanBase[] = INCBIN_U16("graphics/rogue_palettes/ethan/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerEthanLayers[] = INCBIN_U16("graphics/rogue_palettes/ethan/object_event_layers.gbapal");
+
 // Manual FOREACH_VISUAL_PRESETS
 const u16 gObjectEventPal_Ethan_0_0[] = INCBIN_U16("graphics/rogue_palettes/ethan/overworld/0_0.gbapal");
 const u16 gObjectEventPal_Lyra_0_0[] = INCBIN_U16("graphics/rogue_palettes/lyra/overworld/0_0.gbapal");

@@ -203,12 +203,18 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerEthanRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerEthanFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_Ethan_0_0,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_Ethan_Front_0_0,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_Ethan_Back_0_0,
-        .trainerBackLayerPal = NULL,
+        .objectEventBasePal = gObjectEventPal_PlayerEthanBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerEthanLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerEthanFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerEthanFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerEthanBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerEthanBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
     },
     [PLAYER_OUTFIT_LYRA] =
     {
