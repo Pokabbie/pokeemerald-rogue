@@ -150,12 +150,12 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerRedRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerRedFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_PlayerRedBase,
-        .objectEventLayerPal = gObjectEventPal_PlayerRedLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerRedFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerRedFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerRedBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerRedBackLayers,
+        .objectEventBasePal = gObjectEventPal_PlayerRedLeafBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerRedLeafLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerRedLeafFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerRedLeafFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerRedLeafBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerRedLeafBackLayers,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -176,12 +176,18 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLeafRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLeafFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_Red_0_0,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_Red_Front_0_0,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_Red_Back_0_0,
-        .trainerBackLayerPal = NULL,
+        .objectEventBasePal = gObjectEventPal_PlayerRedLeafBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerRedLeafLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerRedLeafFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerRedLeafFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerRedLeafBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerRedLeafBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
     },
     
     [PLAYER_OUTFIT_ETHAN] =
