@@ -397,6 +397,11 @@ const u32 gTrainerPalette_PlayerBrendanLayers[] = INCBIN_U32("graphics/rogue_pal
 const u32 gTrainerPalette_PlayerMayBase[] = INCBIN_U32("graphics/rogue_palettes/may/trainer_frontback_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerMayLayers[] = INCBIN_U32("graphics/rogue_palettes/may/trainer_frontback_layers.gbapal.lz");
 
+const u32 gTrainerPalette_PlayerRedFrontBase[] = INCBIN_U32("graphics/rogue_palettes/red/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/red/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedBackBase[] = INCBIN_U32("graphics/rogue_palettes/red/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedBackLayers[] = INCBIN_U32("graphics/rogue_palettes/red/trainer_back_layers.gbapal.lz");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red_back_pic.4bpp");
