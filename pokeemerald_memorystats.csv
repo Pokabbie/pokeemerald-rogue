@@ -1,7 +1,7 @@
 Memory Stats
 
 Group, Name, MB, KB, Bytes
-, ROM, 17, 18362, 18803445
+, ROM, 17, 18362, 18803459
 , EWRAM, 5, 6112, 6258688
 , IWRAM, 15, 16383, 16777214
 
@@ -9,7 +9,7 @@ Group, Name, MB, KB, Bytes
 ROM GROUPS
 
 Group, Name, MB, KB, Bytes
-ROM, TOTAL, 17, 18362, 18803445
+ROM, TOTAL, 17, 18362, 18803459
 ROM, data/sound_data.o, 0, 472, 483678
 ROM, src/graphics.o, 0, 293, 300629
 ROM, data/tilesets.o, 0, 85, 87317
@@ -205,13 +205,13 @@ ROM, sound/songs/midi/mus_b_palace.o, 0, 0, 690
 ROM, src/starter_choose.o, 0, 0, 683
 ROM, src/mystery_gift_menu.o, 0, 0, 678
 ROM, src/battle_anim_electric.o, 0, 0, 675
+ROM, src/rogue_player_customisation_ui.o, 0, 0, 673
 ROM, sound/songs/midi/mus_b_dome.o, 0, 0, 671
 ROM, src/field_weather.o, 0, 0, 671
 ROM, src/palette.o, 0, 0, 670
 ROM, sound/songs/midi/mus_dp_vs_galactic_commander.o, 0, 0, 669
-ROM, src/rogue_player_customisation_ui.o, 0, 0, 669
-ROM, sound/songs/midi/mus_vs_mew.o, 0, 0, 662
 ROM, src/field_screen_effect.o, 0, 0, 662
+ROM, sound/songs/midi/mus_vs_mew.o, 0, 0, 662
 ROM, sound/songs/midi/mus_b_pike.o, 0, 0, 655
 ROM, src/option_menu.o, 0, 0, 654
 ROM, sound/songs/midi/mus_rg_mt_moon.o, 0, 0, 648
@@ -226,8 +226,8 @@ ROM, sound/songs/midi/mus_route104.o, 0, 0, 633
 ROM, sound/songs/midi/mus_b_frontier.o, 0, 0, 632
 ROM, src/battle_anim_mon_movement.o, 0, 0, 629
 ROM, sound/songs/midi/mus_victory_road.o, 0, 0, 628
-ROM, src/item.o, 0, 0, 623
 ROM, src/battle_anim_flying.o, 0, 0, 623
+ROM, src/item.o, 0, 0, 623
 ROM, src/script_menu.o, 0, 0, 617
 ROM, sound/songs/midi/mus_dp_vs_rival.o, 0, 0, 615
 ROM, sound/songs/midi/mus_b_tower.o, 0, 0, 614
@@ -246,8 +246,8 @@ ROM, src/pokenav_match_call_gfx.o, 0, 0, 590
 ROM, sound/songs/midi/mus_vs_aqua_magma.o, 0, 0, 589
 ROM, sound/songs/midi/mus_littleroot.o, 0, 0, 587
 ROM, sound/songs/midi/mus_rg_poke_mansion.o, 0, 0, 585
-ROM, sound/songs/midi/mus_rg_viridian_forest.o, 0, 0, 579
 ROM, sound/songs/midi/mus_rg_sevii_dungeon.o, 0, 0, 579
+ROM, sound/songs/midi/mus_rg_viridian_forest.o, 0, 0, 579
 ROM, src/pokenav_menu_handler_gfx.o, 0, 0, 578
 ROM, src/battle_bg.o, 0, 0, 578
 ROM, src/match_call.o, 0, 0, 577
@@ -475,9 +475,9 @@ ROM, src/mystery_event_script.o, 0, 0, 226
 ROM, src/menu_helpers.o, 0, 0, 224
 ROM, sound/songs/midi/mus_vs_rayquaza.o, 0, 0, 221
 ROM, sound/songs/midi/mus_vs_kyogre_groudon.o, 0, 0, 221
+ROM, src/rogue_player_customisation_ui.o, 0, 0, 220
 ROM, src/wireless_communication_status_screen.o, 0, 0, 220
 ROM, src/pokenav_match_call_data.o, 0, 0, 217
-ROM, src/rogue_player_customisation_ui.o, 0, 0, 216
 ROM, src/pokenav_match_call_list.o, 0, 0, 215
 ROM, src/multiboot.o, 0, 0, 214
 ROM, sound/songs/midi/mus_birch_lab.o, 0, 0, 213
@@ -494,9 +494,9 @@ ROM, src/pokenav_match_call_data.o, 0, 0, 206
 ROM, sound/songs/midi/mus_cable_car.o, 0, 0, 206
 ROM, sound/songs/midi/mus_encounter_female.o, 0, 0, 206
 ROM, src/pokenav_menu_handler.o, 0, 0, 205
+ROM, src/rogue_player_customisation.o, 0, 0, 205
 ROM, sound/songs/midi/mus_encounter_male.o, 0, 0, 203
 ROM, sound/songs/midi/mus_abnormal_weather.o, 0, 0, 202
-ROM, src/rogue_player_customisation.o, 0, 0, 202
 ROM, src/pokenav.o, 0, 0, 201
 ROM, src/wallclock.o, 0, 0, 201
 ROM, sound/songs/midi/mus_encounter_rich.o, 0, 0, 200
@@ -2904,11 +2904,11 @@ ROM::src/graphics.o, src/union_room_player_avatar.o, 0, 9, 10202
 ROM::src/graphics.o, src/field_control_avatar.o, 0, 9, 10189
 ROM::src/graphics.o, src/battle_anim_mon_movement.o, 0, 9, 10181
 ROM::src/graphics.o, src/battle_anim_dragon.o, 0, 9, 10113
+ROM::src/graphics.o, src/rogue_player_customisation_ui.o, 0, 9, 10060
 ROM::src/graphics.o, src/battle_anim_bug.o, 0, 9, 10059
 ROM::src/graphics.o, src/safari_zone.o, 0, 9, 10058
 ROM::src/graphics.o, src/ereader_helpers.o, 0, 9, 10056
 ROM::src/graphics.o, src/link_rfu_3.o, 0, 9, 10055
-ROM::src/graphics.o, src/rogue_player_customisation_ui.o, 0, 9, 10050
 ROM::src/graphics.o, src/pokenav_conditions_search_results.o, 0, 9, 10016
 ROM::src/graphics.o, src/battle_anim_poison.o, 0, 9, 10014
 ROM::src/graphics.o, src/pokenav_ribbons_list.o, 0, 9, 10011
@@ -2961,7 +2961,7 @@ ROM::src/graphics.o, src/save_failed_screen.o, 0, 8, 9079
 ROM::src/graphics.o, src/mystery_event_menu.o, 0, 8, 9074
 ROM::src/graphics.o, src/field_region_map.o, 0, 8, 9071
 ROM::src/graphics.o, src/intro_credits_graphics.o, 0, 8, 9044
-ROM::src/graphics.o, src/rogue_player_customisation.o, 0, 8, 9030
+ROM::src/graphics.o, src/rogue_player_customisation.o, 0, 8, 9034
 ROM::src/graphics.o, src/rogue_trainers.o, 0, 8, 9023
 ROM::src/graphics.o, gflib/string_util.o, 0, 8, 8966
 ROM::src/graphics.o, src/diploma.o, 0, 8, 8947
@@ -3221,10 +3221,10 @@ ROM::src/graphics.o, src/battle_anim_electric.o, 0, 0, 612
 ROM::src/graphics.o, gBattleAnimBgImage_Surf, 0, 0, 612
 ROM::src/graphics.o, src/recorded_battle.o, 0, 0, 602
 ROM::src/graphics.o, src/fldeff_sweetscent.o, 0, 0, 600
+ROM::src/graphics.o, src/rogue_player_customisation_ui.o, 0, 0, 600
 ROM::src/graphics.o, src/fieldmap.o, 0, 0, 598
 ROM::src/graphics.o, src/pokenav_list.o, 0, 0, 597
 ROM::src/graphics.o, src/rogue_questmenu.o, 0, 0, 596
-ROM::src/graphics.o, src/rogue_player_customisation_ui.o, 0, 0, 594
 ROM::src/graphics.o, src/battle_anim_dark.o, 0, 0, 592
 ROM::src/graphics.o, gTradeMenu_Gfx, 0, 0, 592
 ROM::src/graphics.o, src/battle_anim_flying.o, 0, 0, 591
@@ -3366,8 +3366,8 @@ ROM::src/graphics.o, gIntroKyogre_Gfx, 0, 0, 275
 ROM::src/graphics.o, src/pokedex_cry_screen.o, 0, 0, 273
 ROM::src/graphics.o, src/new_game.o, 0, 0, 269
 ROM::src/graphics.o, src/faraway_island.o, 0, 0, 268
+ROM::src/graphics.o, src/rogue_player_customisation.o, 0, 0, 267
 ROM::src/graphics.o, src/mon_markings.o, 0, 0, 267
-ROM::src/graphics.o, src/rogue_player_customisation.o, 0, 0, 266
 ROM::src/graphics.o, src/main_menu.o, 0, 0, 266
 ROM::src/graphics.o, src/rogue_popup.o, 0, 0, 265
 ROM::src/graphics.o, src/trainer_pokemon_sprites.o, 0, 0, 262
@@ -16542,6 +16542,9 @@ ROM::src/battle_anim_electric.o, AnimTask_VoltTackleBolt, 0, 0, 90
 ROM::src/battle_anim_electric.o, AnimTask_ShockWaveProgressingBolt, 0, 0, 88
 ROM::src/battle_anim_electric.o, AnimTask_VoltTackleAttackerReappear, 0, 0, 46
 
+ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 673
+ROM::src/rogue_player_customisation_ui.o, CB2_InitPlayerCustomisationMenu, 0, 0, 846
+
 ROM::sound/songs/midi/mus_b_dome.o, TOTAL, 0, 0, 671
 ROM::sound/songs/midi/mus_b_dome.o, mus_b_dome, 0, 0, 655
 
@@ -16600,12 +16603,6 @@ ROM::src/palette.o, LoadPalette, 0, 0, 7
 ROM::sound/songs/midi/mus_dp_vs_galactic_commander.o, TOTAL, 0, 0, 669
 ROM::sound/songs/midi/mus_dp_vs_galactic_commander.o, mus_dp_vs_galactic_commander, 0, 1, 1049
 
-ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 669
-ROM::src/rogue_player_customisation_ui.o, CB2_InitPlayerCustomisationMenu, 0, 0, 842
-
-ROM::sound/songs/midi/mus_vs_mew.o, TOTAL, 0, 0, 662
-ROM::sound/songs/midi/mus_vs_mew.o, mus_vs_mew, 0, 0, 76
-
 ROM::src/field_screen_effect.o, TOTAL, 0, 0, 662
 ROM::src/field_screen_effect.o, DoContestHallWarp, 0, 0, 135
 ROM::src/field_screen_effect.o, FieldCB_WarpExitFadeFromBlack, 0, 0, 91
@@ -16648,6 +16645,9 @@ ROM::src/field_screen_effect.o, FadeInFromBlack, 0, 0, 2
 ROM::src/field_screen_effect.o, ReturnFromLinkRoom, 0, 0, 2
 ROM::src/field_screen_effect.o, DoLavaridgeGym1FWarp, 0, 0, 2
 ROM::src/field_screen_effect.o, DoLavaridgeGymB1FWarp, 0, 0, 2
+
+ROM::sound/songs/midi/mus_vs_mew.o, TOTAL, 0, 0, 662
+ROM::sound/songs/midi/mus_vs_mew.o, mus_vs_mew, 0, 0, 76
 
 ROM::sound/songs/midi/mus_b_pike.o, TOTAL, 0, 0, 655
 ROM::sound/songs/midi/mus_b_pike.o, mus_b_pike, 0, 0, 982
@@ -16839,6 +16839,11 @@ ROM::src/battle_anim_mon_movement.o, AnimTask_ScaleMonAndRestore, 0, 0, 26
 ROM::sound/songs/midi/mus_victory_road.o, TOTAL, 0, 0, 628
 ROM::sound/songs/midi/mus_victory_road.o, mus_victory_road, 0, 0, 290
 
+ROM::src/battle_anim_flying.o, TOTAL, 0, 0, 623
+ROM::src/battle_anim_flying.o, AnimTask_DrillPeckHitSplats, 0, 0, 393
+ROM::src/battle_anim_flying.o, DestroyAnimSpriteAfterTimer, 0, 0, 280
+ROM::src/battle_anim_flying.o, AnimTask_AnimateGustTornadoPalette, 0, 0, 126
+
 ROM::src/item.o, TOTAL, 0, 0, 623
 ROM::src/item.o, RemoveBagItem, 0, 0, 57
 ROM::src/item.o, CheckBagHasSpace, 0, 0, 53
@@ -16893,11 +16898,6 @@ ROM::src/item.o, GetPCItemQuantity, 0, 0, 0
 ROM::src/item.o, SetPCItemQuantity, 0, 0, 0
 ROM::src/item.o, GetBagUnreservedTotalSlots, 0, 0, 0
 ROM::src/item.o, GetBagReservedTotalSlots, 0, 0, 0
-
-ROM::src/battle_anim_flying.o, TOTAL, 0, 0, 623
-ROM::src/battle_anim_flying.o, AnimTask_DrillPeckHitSplats, 0, 0, 393
-ROM::src/battle_anim_flying.o, DestroyAnimSpriteAfterTimer, 0, 0, 280
-ROM::src/battle_anim_flying.o, AnimTask_AnimateGustTornadoPalette, 0, 0, 126
 
 ROM::src/script_menu.o, TOTAL, 0, 0, 617
 ROM::src/script_menu.o, gStdStrings, 0, 0, 253
@@ -16995,11 +16995,11 @@ ROM::sound/songs/midi/mus_littleroot.o, mus_littleroot, 0, 1, 1176
 ROM::sound/songs/midi/mus_rg_poke_mansion.o, TOTAL, 0, 0, 585
 ROM::sound/songs/midi/mus_rg_poke_mansion.o, mus_rg_poke_mansion, 0, 2, 2050
 
-ROM::sound/songs/midi/mus_rg_viridian_forest.o, TOTAL, 0, 0, 579
-ROM::sound/songs/midi/mus_rg_viridian_forest.o, mus_rg_viridian_forest, 0, 0, 650
-
 ROM::sound/songs/midi/mus_rg_sevii_dungeon.o, TOTAL, 0, 0, 579
 ROM::sound/songs/midi/mus_rg_sevii_dungeon.o, mus_rg_sevii_dungeon, 0, 0, 478
+
+ROM::sound/songs/midi/mus_rg_viridian_forest.o, TOTAL, 0, 0, 579
+ROM::sound/songs/midi/mus_rg_viridian_forest.o, mus_rg_viridian_forest, 0, 0, 650
 
 ROM::src/pokenav_menu_handler_gfx.o, TOTAL, 0, 0, 578
 ROM::src/pokenav_menu_handler_gfx.o, FreeMenuHandlerSubstruct2, 0, 0, 545
@@ -24060,12 +24060,12 @@ ROM::sound/songs/midi/mus_vs_rayquaza.o, mus_vs_rayquaza, 0, 1, 1257
 ROM::sound/songs/midi/mus_vs_kyogre_groudon.o, TOTAL, 0, 0, 221
 ROM::sound/songs/midi/mus_vs_kyogre_groudon.o, mus_vs_kyogre_groudon, 0, 0, 405
 
+ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 220
+
 ROM::src/wireless_communication_status_screen.o, TOTAL, 0, 0, 220
 ROM::src/wireless_communication_status_screen.o, ShowWirelessCommunicationScreen, 0, 0, 261
 
 ROM::src/pokenav_match_call_data.o, TOTAL, 0, 0, 217
-
-ROM::src/rogue_player_customisation_ui.o, TOTAL, 0, 0, 216
 
 ROM::src/pokenav_match_call_list.o, TOTAL, 0, 0, 215
 ROM::src/pokenav_match_call_list.o, FreeMatchCallSubstruct1, 0, 0, 90
@@ -24179,20 +24179,14 @@ ROM::src/pokenav_menu_handler.o, GetPokenavMenuType, 0, 0, 2
 ROM::src/pokenav_menu_handler.o, GetPokenavCursorPos, 0, 0, 2
 ROM::src/pokenav_menu_handler.o, GetCurrentMenuItemId, 0, 0, 2
 
-ROM::sound/songs/midi/mus_encounter_male.o, TOTAL, 0, 0, 203
-ROM::sound/songs/midi/mus_encounter_male.o, mus_encounter_male, 0, 0, 295
-
-ROM::sound/songs/midi/mus_abnormal_weather.o, TOTAL, 0, 0, 202
-ROM::sound/songs/midi/mus_abnormal_weather.o, mus_abnormal_weather, 0, 0, 91
-
-ROM::src/rogue_player_customisation.o, TOTAL, 0, 0, 202
+ROM::src/rogue_player_customisation.o, TOTAL, 0, 0, 205
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetBagGfxVariant, 0, 0, 128
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetOutfitName, 0, 0, 21
 ROM::src/rogue_player_customisation.o, RoguePlayer_IncrementOutfitStyleByName, 0, 0, 16
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetOutfitStyleName, 0, 0, 7
 ROM::src/rogue_player_customisation.o, RoguePlayer_SetNewGameOutfit, 0, 0, 7
+ROM::src/rogue_player_customisation.o, RoguePlayer_RandomiseOutfit, 0, 0, 6
 ROM::src/rogue_player_customisation.o, RoguePlayer_SupportsOutfitStyle, 0, 0, 4
-ROM::src/rogue_player_customisation.o, RoguePlayer_RandomiseOutfit, 0, 0, 3
 ROM::src/rogue_player_customisation.o, RoguePlayer_SetOutfitStyle, 0, 0, 3
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetObjectEventGraphicsInfo, 0, 0, 3
 ROM::src/rogue_player_customisation.o, RoguePlayer_HasSpritingAnim, 0, 0, 2
@@ -24206,6 +24200,12 @@ ROM::src/rogue_player_customisation.o, RoguePlayer_GetOutfitId, 0, 0, 1
 ROM::src/rogue_player_customisation.o, RoguePlayer_SetOutfitId, 0, 0, 1
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetTextVariantId, 0, 0, 1
 ROM::src/rogue_player_customisation.o, RoguePlayer_GetOutfitCount, 0, 0, 0
+
+ROM::sound/songs/midi/mus_encounter_male.o, TOTAL, 0, 0, 203
+ROM::sound/songs/midi/mus_encounter_male.o, mus_encounter_male, 0, 0, 295
+
+ROM::sound/songs/midi/mus_abnormal_weather.o, TOTAL, 0, 0, 202
+ROM::sound/songs/midi/mus_abnormal_weather.o, mus_abnormal_weather, 0, 0, 91
 
 ROM::src/pokenav.o, TOTAL, 0, 0, 201
 ROM::src/pokenav.o, OpenPokenavForTutorial, 0, 0, 107
@@ -29695,7 +29695,7 @@ ROM::src/event_object_movement.o, gDownUpRightLeftDirections, 0, 0, 0
 ROM::src/event_object_movement.o, gRightLeftDownUpDirections, 0, 0, 0
 
 ROM::src/rogue_player_customisation.o, TOTAL, 0, 0, 0
-ROM::src/rogue_player_customisation.o, src/rogue_player_customisation.o, 0, 0, 321
+ROM::src/rogue_player_customisation.o, src/rogue_player_customisation.o, 0, 0, 328
 
 ROM::src/rogue_charms.o, TOTAL, 0, 0, 0
 ROM::src/rogue_charms.o, src/rogue_charms.o, 0, 0, 7

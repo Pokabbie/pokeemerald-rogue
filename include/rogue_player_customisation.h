@@ -23,7 +23,7 @@ enum
 };
 
 void RoguePlayer_SetNewGameOutfit();
-void RoguePlayer_RandomiseOutfit();
+void RoguePlayer_RandomiseOutfit(bool8 includeOutfitId);
 
 void RoguePlayer_SetOutfitId(u16 outfit);
 u16 RoguePlayer_GetOutfitId();

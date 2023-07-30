@@ -105,7 +105,8 @@ enum
 {
     UI_ENTRY_BACK,
     UI_ENTRY_OUTFIT,
-    UI_ENTRY_RANDOMISE,
+    UI_ENTRY_RANDOMISE_EVERYTHING,
+    UI_ENTRY_RANDOMISE_COLOURS,
 
     UI_ENTRY_EDIT_APPEARANCE,
     UI_ENTRY_EDIT_PRIMARY,
@@ -215,11 +216,25 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
         .drawChoices = RoguePlayerUI_EntryOutfit_DrawChoices,
     },
 
-    [UI_ENTRY_RANDOMISE] = 
+    [UI_ENTRY_RANDOMISE_EVERYTHING] = 
     {
-        .text = _("Randomise"),
+        .text = _("Randomise Everything"),
         .processInput = RoguePlayerUI_EntryRandomise_ProcessInput,
         .drawChoices = NULL,
+        .userData = 
+        {
+            .val32 = TRUE
+        }
+    },
+    [UI_ENTRY_RANDOMISE_COLOURS] = 
+    {
+        .text = _("Randomise Colours"),
+        .processInput = RoguePlayerUI_EntryRandomise_ProcessInput,
+        .drawChoices = NULL,
+        .userData = 
+        {
+            .val32 = FALSE
+        }
     },
 
     [UI_ENTRY_EDIT_APPEARANCE] = 
@@ -610,6 +625,8 @@ static void RoguePlayerUI_RefreshPageEntries()
     {
     case UI_PAGE_MAIN:
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_OUTFIT;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_EVERYTHING;
+
         anySupported = FALSE;
 
         if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE))
@@ -631,7 +648,9 @@ static void RoguePlayerUI_RefreshPageEntries()
         }
 
         if(anySupported)
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE;
+        {
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
+        }
 
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
         break;
@@ -675,7 +694,7 @@ static void RoguePlayerUI_OpenPage(u8 pageId)
 
 static bool8 RoguePlayerUI_ClosePage()
 {
-    if(sPlayerOutfitUIState->pageStackDepth != 0)
+    if(sPlayerOutfitUIState->pageStackDepth > 1)
     {
         --sPlayerOutfitUIState->pageStackDepth;
         sPlayerOutfitUIState->currentPageIdx = sPlayerOutfitUIState->stackCurrentPageIdx[sPlayerOutfitUIState->pageStackDepth];
@@ -711,6 +730,15 @@ static void Task_RoguePlayerUIMain(u8 taskId)
             PlaySE(SE_PC_OFF);
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
             gTasks[taskId].func = Task_RoguePlayerUIWaitFadeAndExitGracefully;
+            return;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            RoguePlayerUI_DrawTrainerSprites();
+            RoguePlayerUI_PrintTitleText();
+            RoguePlayerUI_PrintMenuText();
+            return;
         }
     }
 
@@ -1197,7 +1225,9 @@ static bool8 RoguePlayerUI_EntryRandomise_ProcessInput(u8 entryIdx, u8 menuOffse
 {
     if(JOY_NEW(A_BUTTON))
     {
-        RoguePlayer_RandomiseOutfit();
+        bool8 randomiseOutfitId = sRoguePlayerUIEntries[entryIdx].userData.val8[0];
+        RoguePlayer_RandomiseOutfit(randomiseOutfitId != 0);
+        RoguePlayerUI_RefreshPageEntries();
         return TRUE;
     }
 

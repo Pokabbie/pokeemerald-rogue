@@ -44,12 +44,12 @@ struct KnownColour
 
 enum 
 {
-    PLAYER_OUTFIT_BRENDAN,
-    PLAYER_OUTFIT_MAY,
     PLAYER_OUTFIT_RED,
     PLAYER_OUTFIT_LEAF,
     PLAYER_OUTFIT_ETHAN,
     PLAYER_OUTFIT_LYRA,
+    PLAYER_OUTFIT_BRENDAN,
+    PLAYER_OUTFIT_MAY,
     
     PLAYER_OUTFIT_TEST,
 
@@ -424,18 +424,22 @@ static void RandomiseOutfitStyle(u8 styleId)
 
 void RoguePlayer_SetNewGameOutfit()
 {
-    RoguePlayer_SetOutfitId(0);
     memset(gSaveBlock2Ptr->playerStyles, 0, sizeof(gSaveBlock2Ptr->playerStyles));
 
     // Default to blue and white with random appearance
-    RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE);
-
+    RoguePlayer_RandomiseOutfit(TRUE);
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY, RGB_UI(4, 5, 10));
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY, RGB_UI(10, 10, 10));
 }
 
-void RoguePlayer_RandomiseOutfit()
+void RoguePlayer_RandomiseOutfit(bool8 includeOutfitId)
 {
+    if(includeOutfitId)
+    {
+        // TODO - Limit this, if we have outfit unlocks
+        RoguePlayer_SetOutfitId(Random() % PLAYER_OUTFIT_COUNT);
+    }
+
     RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE);
     RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY);
     RandomiseOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY);
