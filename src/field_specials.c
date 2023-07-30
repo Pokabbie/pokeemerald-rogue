@@ -552,12 +552,12 @@ static void LoadLinkPartnerObjectEventSpritePalette(u16 graphicsId, u8 localEven
             case OBJ_EVENT_GFX_LINK_RS_MAY:
                 LoadPalette(gObjectEventPal_RubySapphireMay, 0x100 + (adjustedPaletteNum << 4), 0x20);
                 break;
-            case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
-                LoadPalette(gObjectEventPal_Brendan_0_0, 0x100 + (adjustedPaletteNum << 4), 0x20);
-                break;
-            case OBJ_EVENT_GFX_RIVAL_MAY_NORMAL:
-                LoadPalette(gObjectEventPal_May_0_0, 0x100 + (adjustedPaletteNum << 4), 0x20);
-                break;
+            //case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
+            //    LoadPalette(gObjectEventPal_Brendan_0_0, 0x100 + (adjustedPaletteNum << 4), 0x20);
+            //    break;
+            //case OBJ_EVENT_GFX_RIVAL_MAY_NORMAL:
+            //    LoadPalette(gObjectEventPal_May_0_0, 0x100 + (adjustedPaletteNum << 4), 0x20);
+            //    break;
             }
         }
     }

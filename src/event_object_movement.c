@@ -467,10 +467,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE         0x1133
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA         0x1134
 
-#define OBJ_EVENT_PAL_TAG_ETHAN                   0x1135
-#define OBJ_EVENT_PAL_TAG_LYRA                    0x1136
-
-#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1137
+#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1135
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
@@ -495,8 +492,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     //{gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
     //{gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
     //{gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
-    {gObjectEventPal_Brendan_0_0,           OBJ_EVENT_PAL_TAG_BRENDAN},
-    {gObjectEventPal_Brendan_0_0,           OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN},
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
     {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
     {gObjectEventPal_PlayerUnderwater,      OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
     {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
@@ -504,8 +501,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
     {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
     {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},
-    {gObjectEventPal_May_0_0,               OBJ_EVENT_PAL_TAG_MAY},
-    {gObjectEventPal_May_0_0,               OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY},
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
     {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
     {gObjectEventPal_CableCar,              OBJ_EVENT_PAL_TAG_CABLE_CAR},
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
@@ -515,7 +512,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GroudonReflection,     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
     {gObjectEventPal_SubmarineShadow,       OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
     {gObjectEventPal_Poochyena,             OBJ_EVENT_PAL_TAG_POOCHYENA},
-    {gObjectEventPal_Red_0_0,               OBJ_EVENT_PAL_TAG_RED_LEAF},
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_RED_LEAF},
     {gObjectEventPal_Deoxys,                OBJ_EVENT_PAL_TAG_DEOXYS},
     {gObjectEventPal_BirthIslandStone,      OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE},
     {gObjectEventPal_HoOh,                  OBJ_EVENT_PAL_TAG_HO_OH},
@@ -539,9 +536,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Johto_NPC_Red,         OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED},
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
-    {gObjectEventPal_Ethan_0_0,             OBJ_EVENT_PAL_TAG_ETHAN},
-    {gObjectEventPal_Lyra_0_0,              OBJ_EVENT_PAL_TAG_LYRA},
-    {gObjectEventPal_PlayerPlaceholder,  OBJ_EVENT_PAL_TAG_PLAYER},
+    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
     {},
 };
 

@@ -1,32 +1,6 @@
 const u32 gObjectEventPic_BrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/brendan/walking.4bpp");
 const u32 gObjectEventPic_BrendanRunning[] = INCBIN_U32("graphics/object_events/pics/people/brendan/running.4bpp");
 
-// Manual FOREACH_VISUAL_PRESETS
-const u16 gObjectEventPal_Brendan_0_0[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_0.gbapal");
-const u16 gObjectEventPal_Brendan_0_1[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_1.gbapal");
-const u16 gObjectEventPal_Brendan_0_2[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_2.gbapal");
-const u16 gObjectEventPal_Brendan_0_3[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_3.gbapal");
-const u16 gObjectEventPal_Brendan_0_4[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_4.gbapal");
-const u16 gObjectEventPal_Brendan_0_5[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/0_5.gbapal");
-const u16 gObjectEventPal_Brendan_1_0[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_0.gbapal");
-const u16 gObjectEventPal_Brendan_1_1[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_1.gbapal");
-const u16 gObjectEventPal_Brendan_1_2[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_2.gbapal");
-const u16 gObjectEventPal_Brendan_1_3[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_3.gbapal");
-const u16 gObjectEventPal_Brendan_1_4[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_4.gbapal");
-const u16 gObjectEventPal_Brendan_1_5[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/1_5.gbapal");
-const u16 gObjectEventPal_Brendan_2_0[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_0.gbapal");
-const u16 gObjectEventPal_Brendan_2_1[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_1.gbapal");
-const u16 gObjectEventPal_Brendan_2_2[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_2.gbapal");
-const u16 gObjectEventPal_Brendan_2_3[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_3.gbapal");
-const u16 gObjectEventPal_Brendan_2_4[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_4.gbapal");
-const u16 gObjectEventPal_Brendan_2_5[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/2_5.gbapal");
-const u16 gObjectEventPal_Brendan_3_0[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_0.gbapal");
-const u16 gObjectEventPal_Brendan_3_1[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_1.gbapal");
-const u16 gObjectEventPal_Brendan_3_2[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_2.gbapal");
-const u16 gObjectEventPal_Brendan_3_3[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_3.gbapal");
-const u16 gObjectEventPal_Brendan_3_4[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_4.gbapal");
-const u16 gObjectEventPal_Brendan_3_5[] = INCBIN_U16("graphics/rogue_palettes/brendan/overworld/3_5.gbapal");
-
 const u32 gObjectEventPic_RubySapphireBrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/walking.4bpp");
 const u32 gObjectEventPic_RubySapphireBrendanRunning[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/running.4bpp");
 const u16 gObjectEventPal_RubySapphireBrendan[] = INCBIN_U16("graphics/object_events/palettes/ruby_sapphire_brendan.gbapal");
@@ -62,33 +36,6 @@ const u16 gObjectEventPal_PlayerUnderwater[] = INCBIN_U16("graphics/object_event
 const u32 gObjectEventPic_MayNormal[] = INCBIN_U32("graphics/object_events/pics/people/may/walking.4bpp");
 const u32 gObjectEventPic_MayRunning[] = INCBIN_U32("graphics/object_events/pics/people/may/running.4bpp");
 const u32 gObjectEventPic_MayRiding[] = INCBIN_U32("graphics/object_events/pics/people/may/riding.4bpp");
-
-// Manual FOREACH_VISUAL_PRESETS
-const u16 gObjectEventPal_May_0_0[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_0.gbapal");
-const u16 gObjectEventPal_May_0_1[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_1.gbapal");
-const u16 gObjectEventPal_May_0_2[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_2.gbapal");
-const u16 gObjectEventPal_May_0_3[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_3.gbapal");
-const u16 gObjectEventPal_May_0_4[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_4.gbapal");
-const u16 gObjectEventPal_May_0_5[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/0_5.gbapal");
-const u16 gObjectEventPal_May_1_0[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_0.gbapal");
-const u16 gObjectEventPal_May_1_1[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_1.gbapal");
-const u16 gObjectEventPal_May_1_2[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_2.gbapal");
-const u16 gObjectEventPal_May_1_3[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_3.gbapal");
-const u16 gObjectEventPal_May_1_4[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_4.gbapal");
-const u16 gObjectEventPal_May_1_5[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/1_5.gbapal");
-const u16 gObjectEventPal_May_2_0[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_0.gbapal");
-const u16 gObjectEventPal_May_2_1[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_1.gbapal");
-const u16 gObjectEventPal_May_2_2[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_2.gbapal");
-const u16 gObjectEventPal_May_2_3[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_3.gbapal");
-const u16 gObjectEventPal_May_2_4[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_4.gbapal");
-const u16 gObjectEventPal_May_2_5[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/2_5.gbapal");
-const u16 gObjectEventPal_May_3_0[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_0.gbapal");
-const u16 gObjectEventPal_May_3_1[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_1.gbapal");
-const u16 gObjectEventPal_May_3_2[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_2.gbapal");
-const u16 gObjectEventPal_May_3_3[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_3.gbapal");
-const u16 gObjectEventPal_May_3_4[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_4.gbapal");
-const u16 gObjectEventPal_May_3_5[] = INCBIN_U16("graphics/rogue_palettes/may/overworld/3_5.gbapal");
-
 const u16 gObjectEventPal_MayReflection[] = INCBIN_U16("graphics/object_events/palettes/may_reflection.gbapal");
 const u32 gObjectEventPic_RubySapphireMayNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_may/walking.4bpp");
 const u32 gObjectEventPic_RubySapphireMayRunning[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_may/running.4bpp");
@@ -401,32 +348,6 @@ const u16 gObjectEventPal_MovingBox[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_Sudowoodo[] = INCBIN_U32("graphics/object_events/pics/pokemon/sudowoodo.4bpp");
 const u32 gObjectEventPic_Mew[] = INCBIN_U32("graphics/object_events/pics/pokemon/mew.4bpp");
 
-// Manual FOREACH_VISUAL_PRESETS
-const u16 gObjectEventPal_Red_0_0[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_0.gbapal");
-const u16 gObjectEventPal_Red_0_1[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_1.gbapal");
-const u16 gObjectEventPal_Red_0_2[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_2.gbapal");
-const u16 gObjectEventPal_Red_0_3[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_3.gbapal");
-const u16 gObjectEventPal_Red_0_4[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_4.gbapal");
-const u16 gObjectEventPal_Red_0_5[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_5.gbapal");
-const u16 gObjectEventPal_Red_1_0[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_0.gbapal");
-const u16 gObjectEventPal_Red_1_1[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_1.gbapal");
-const u16 gObjectEventPal_Red_1_2[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_2.gbapal");
-const u16 gObjectEventPal_Red_1_3[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_3.gbapal");
-const u16 gObjectEventPal_Red_1_4[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_4.gbapal");
-const u16 gObjectEventPal_Red_1_5[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/1_5.gbapal");
-const u16 gObjectEventPal_Red_2_0[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_0.gbapal");
-const u16 gObjectEventPal_Red_2_1[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_1.gbapal");
-const u16 gObjectEventPal_Red_2_2[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_2.gbapal");
-const u16 gObjectEventPal_Red_2_3[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_3.gbapal");
-const u16 gObjectEventPal_Red_2_4[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_4.gbapal");
-const u16 gObjectEventPal_Red_2_5[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/2_5.gbapal");
-const u16 gObjectEventPal_Red_3_0[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_0.gbapal");
-const u16 gObjectEventPal_Red_3_1[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_1.gbapal");
-const u16 gObjectEventPal_Red_3_2[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_2.gbapal");
-const u16 gObjectEventPal_Red_3_3[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_3.gbapal");
-const u16 gObjectEventPal_Red_3_4[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_4.gbapal");
-const u16 gObjectEventPal_Red_3_5[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/3_5.gbapal");
-
 const u32 gObjectEventPic_RedNormal[] = INCBIN_U32("graphics/object_events/pics/people/red/walking.4bpp");
 const u32 gObjectEventPic_RedRunning[] = INCBIN_U32("graphics/object_events/pics/people/red/running.4bpp");
 const u32 gObjectEventPic_RedMachBike[] = INCBIN_U32("graphics/object_events/pics/people/red/mach_bike.4bpp");
@@ -462,10 +383,6 @@ const u16 gObjectEventPal_PlayerEthanLayers[] = INCBIN_U16("graphics/rogue_palet
 
 const u16 gObjectEventPal_PlayerLyraBase[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerLyraLayers[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_layers.gbapal");
-
-// Manual FOREACH_VISUAL_PRESETS
-const u16 gObjectEventPal_Ethan_0_0[] = INCBIN_U16("graphics/rogue_palettes/ethan/overworld/0_0.gbapal");
-const u16 gObjectEventPal_Lyra_0_0[] = INCBIN_U16("graphics/rogue_palettes/lyra/overworld/0_0.gbapal");
 
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
@@ -515,7 +432,7 @@ const u16 gObjectEventPal_Johto_NPC_Morty[] = INCBIN_U16("graphics/object_events
 const u16 gObjectEventPal_Johto_NPC_Pryce[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_pryce.gbapal");
 const u16 gObjectEventPal_Johto_NPC_Whitney[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_whitney.gbapal");
 const u16 gObjectEventPal_Johto_NPC_Will[] = INCBIN_U16("graphics/object_events/palettes/johto/npc_will.gbapal");
-const u16 gObjectEventPal_Johto_NPC_Red[] = INCBIN_U16("graphics/rogue_palettes/red/overworld/0_0.gbapal");
+const u16 gObjectEventPal_Johto_NPC_Red[] = INCBIN_U16("graphics/rogue_palettes/red_leaf/object_event_base.gbapal");
 
 const u32 gObjectEventPic_Kanto_Agatha[] = INCBIN_U32("graphics/object_events/pics/people/kanto/agatha.4bpp");
 const u32 gObjectEventPic_Kanto_Blaine[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blaine.4bpp");

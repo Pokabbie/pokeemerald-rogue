@@ -104,6 +104,7 @@ enum
 enum
 {
     UI_ENTRY_BACK,
+    UI_ENTRY_EXIT,
     UI_ENTRY_OUTFIT,
     UI_ENTRY_RANDOMISE_EVERYTHING,
     UI_ENTRY_RANDOMISE_COLOURS,
@@ -205,6 +206,12 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     [UI_ENTRY_BACK] = 
     {
         .text = _("Back"),
+        .processInput = NULL,
+        .drawChoices = NULL,
+    },
+    [UI_ENTRY_EXIT] = 
+    {
+        .text = _("Save & Exit"),
         .processInput = NULL,
         .drawChoices = NULL,
     },
@@ -652,7 +659,7 @@ static void RoguePlayerUI_RefreshPageEntries()
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
         }
 
-        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_BACK;
+        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EXIT;
         break;
 
     case UI_PAGE_EDIT_APPEARANCE:
@@ -723,7 +730,7 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     u8 startPageIdx = sPlayerOutfitUIState->currentPageIdx;
     u8 startOptionIdx = sPlayerOutfitUIState->currentOptionIdx;
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_BACK))
+    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_BACK || sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_EXIT)))
     {
         if(!RoguePlayerUI_ClosePage())
         {

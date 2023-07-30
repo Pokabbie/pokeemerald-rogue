@@ -12,7 +12,8 @@
 
 #include "rogue_player_customisation.h"
 
-#define RGB_255_CHANNEL(v) min(31, (u8)(((u32)v * (u32)31) / (u32)255))
+// Make sure we round to UI range here
+#define RGB_255_CHANNEL(v) RGB_CONVERT_FROM_UI_RANGE(RGB_CONVERT_TO_UI_RANGE(min(31, (u8)(((u32)v * (u32)31) / (u32)255))))
 #define RGB_255(r, g, b) RGB(RGB_255_CHANNEL(r), RGB_255_CHANNEL(g), RGB_255_CHANNEL(b))
 
 // This is just helpful as can input the UI accurate colours
@@ -255,11 +256,11 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLyraRiding,
             [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLyraFieldMove, // <- todo remove this
         },
-        .objectEventBasePal = gObjectEventPal_Red_0_0,
+        .objectEventBasePal = gObjectEventPal_PlayerLyraBase,
         .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_Red_Front_0_0,
+        .trainerFrontBasePal = gTrainerPalette_PlayerLyraFrontBase,
         .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_Red_Back_0_0,
+        .trainerBackBasePal = gTrainerPalette_PlayerLyraFrontBase,
         .trainerBackLayerPal = NULL,
     }
 };
@@ -281,20 +282,32 @@ static const struct KnownColour sKnownColours_Appearance[] =
 
     {
         .name = _("A"),
-        .colour = RGB_UI(10, 8, 7),
+        .colour = RGB_255(254, 227, 212),
     },
     {
         .name = _("B"),
-        .colour = RGB_UI(8, 6, 4),
+        .colour = RGB_255(255, 219, 172),
     },
     {
         .name = _("C"),
-        .colour = RGB_UI(7, 5, 4),
+        .colour = RGB_255(241, 194, 125),
     },
     {
         .name = _("D"),
-        .colour = RGB_UI(4, 2, 1),
-    }
+        .colour = RGB_255(224, 172, 105),
+    },
+    {
+        .name = _("E"),
+        .colour = RGB_255(198, 134, 66),
+    },
+    {
+        .name = _("F"),
+        .colour = RGB_255(141, 85, 36),
+    },
+    {
+        .name = _("G"),
+        .colour = RGB_255(94, 55, 46),
+    },
 };
 
 static const struct KnownColour sKnownColours_Clothes[] = 

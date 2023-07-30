@@ -3074,26 +3074,6 @@ extern const u32 gTrainerPalette_Sailor[];
 extern const u32 gTrainerPalette_MagmaAdmin[];
 extern const u32 gTrainerPalette_Wally[];
 
-#define BRENDAN_PALETTE(x, y) extern const u32 gTrainerPalette_Brendan_ ## x ## _ ## y[];
-FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
-#undef BRENDAN_PALETTE
-
-#define MAY_PALETTE(x, y) extern const u32 gTrainerPalette_May_ ## x ## _ ## y[];
-FOREACH_VISUAL_PRESETS(MAY_PALETTE)
-#undef MAY_PALETTE
-
-#define RED_PALETTE(x, y) \
-extern const u32 gTrainerPalette_Red_Front_ ## x ## _ ## y[]; \
-extern const u32 gTrainerPalette_Red_Back_ ## x ## _ ## y[]; 
-FOREACH_VISUAL_PRESETS(RED_PALETTE)
-#undef RED_PALETTE
-
-extern const u32 gTrainerPalette_Ethan_Front_0_0[];  // Temp until colour variations are hooked up
-extern const u32 gTrainerPalette_Ethan_Back_0_0[];  // Temp until colour variations are hooked up
-
-extern const u32 gTrainerPalette_Lyra_Front_0_0[];   // Temp until colour variations are hooked up
-extern const u32 gTrainerPalette_Lyra_Back_0_0[];   // Temp until colour variations are hooked up
-
 // Share palette for now
 #define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
 #define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
@@ -5161,22 +5141,6 @@ extern const u16 gObjectEventPal_PlayerEthanLayers[];
 
 extern const u16 gObjectEventPal_PlayerLyraBase[];
 extern const u16 gObjectEventPal_PlayerLyraLayers[];
-
-// Object event pals
-#define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
-#undef BRENDAN_PALETTE
-
-#define MAY_PALETTE(x, y) extern const u16 gObjectEventPal_May_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(MAY_PALETTE)
-#undef MAY_PALETTE
-
-#define RED_PALETTE(x, y) extern const u16 gObjectEventPal_Red_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(RED_PALETTE)
-#undef RED_PALETTE
-
-extern const u16 gObjectEventPal_Ethan_0_0[];
-extern const u16 gObjectEventPal_Lyra_0_0[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
