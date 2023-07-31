@@ -166,7 +166,6 @@ static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
-static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 
@@ -3201,7 +3200,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     RandomiseWildEncounters();
                     ResetTrainerBattles();
-                    RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
                     RandomiseBerryTrees();
 
@@ -3256,7 +3254,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     u16 species = gRogueLegendaryEncounterInfo.mapTable[gRogueAdvPath.currentRoomParams.roomIdx].encounterId;
                     ResetSpecialEncounterStates();
                     ResetTrainerBattles();
-                    RandomiseEnabledTrainers();
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, species);
                     FollowMon_SetGraphics(
                         0, 
@@ -3363,10 +3360,11 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     memcpy(&objectEvents[write], &objectEvents[read], sizeof(struct ObjectEventTemplate));
                 }
 
+                // Adjust trainers
+                //
                 if(objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && objectEvents[write].trainerRange_berryTreeId != 0)
                 {
                     // Don't increment write, if we're not accepting the trainer
-
                     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
                     {
                         trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
@@ -3375,8 +3373,64 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         {
                             objectEvents[write].graphicsId = trainer->objectEventGfx;
                             objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
+
+                            // Accept this trainer
                             write++;
                         }
+                    }
+                }
+                // Adjust items
+                //
+                else if(objectEvents[write].flagId >= FLAG_ROGUE_ITEM_START && objectEvents[write].flagId <= FLAG_ROGUE_ITEM_END)
+                {
+                    // Already decided this earlier
+                    if(!FlagGet(objectEvents[write].flagId))
+                    {
+                        u16 idx = objectEvents[write].flagId - FLAG_ROGUE_ITEM_START;
+                        u16 itemId = VarGet(VAR_ROGUE_ITEM_START + idx);
+
+                        // Default to a greyed out pokeball
+                        objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_POKE_BALL;
+
+                        if(Rogue_IsEvolutionItem(itemId))
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_EVO_STONE;
+                        }
+                        else
+                        {
+                            switch (ItemId_GetPocket(itemId))
+                            {
+                            case POCKET_HELD_ITEMS:
+                                objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_HOLD_ITEM;
+                                break;
+
+                            case POCKET_MEDICINE:
+                                objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_MEDICINE;
+                                break;
+
+                            case POCKET_POKE_BALLS:
+                                objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_BALL;
+                                break;
+
+                            case POCKET_TM_HM:
+                                objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_SILVER_TM;
+                                // todo - hookup OBJ_EVENT_GFX_ITEM_GOLD_TM
+                                break;
+#ifdef ROGUE_EXPANSION
+                            case POCKET_STONES:
+                                if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_MEGA_STONE;
+                                else if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_Z_CRYSTAL;
+                                else
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_POKE_BALL;
+                                break;
+#endif
+                            }
+                        }
+
+                        // Accept this item
+                        write++;
                     }
                 }
                 else
@@ -5411,7 +5465,7 @@ static bool8 RogueRandomChanceItem()
             chance = min(100, chance + 25);
     }
 
-    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static bool8 RogueRandomChanceBerry()
@@ -5433,57 +5487,6 @@ static bool8 RogueRandomChanceBerry()
     }
 
     return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
-}
-
-static void RandomiseEnabledTrainers(void)
-{
-    // TODO - Just grab the trainer seed, as we need to make sure we get the same trainers on map save/load too
-
-    //u16 i;
-//
-    //if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    //{
-    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-    //    {
-    //        // Set flag to hide
-    //        FlagSet(FLAG_ROGUE_TRAINER_START + i);
-    //    }
-    //}
-    //else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
-    //{
-    //    u16 randTrainer = RogueRandomRange(6, FLAG_SET_SEED_TRAINERS);
-//
-    //    // Only enable 1 trainer for legendary room
-    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-    //    {
-    //        if(i == randTrainer)
-    //        {
-    //            // Clear flag to show
-    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
-    //        }
-    //        else
-    //        {
-    //            // Set flag to hide
-    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
-    //        }
-    //    }
-    //}
-    //else
-    //{
-    //    for(i = 0; i < ROGUE_TRAINER_COUNT; ++i)
-    //    {
-    //        if(RogueRandomChanceTrainer())
-    //        {
-    //            // Clear flag to show
-    //            FlagClear(FLAG_ROGUE_TRAINER_START + i);
-    //        }
-    //        else
-    //        {
-    //            // Set flag to hide
-    //            FlagSet(FLAG_ROGUE_TRAINER_START + i);
-    //        }
-    //    }
-    //}
 }
 
 static void RandomiseItemContent(u8 difficultyLevel)
@@ -5580,26 +5583,11 @@ static void RandomiseItemContent(u8 difficultyLevel)
     }
     else
     {
-        // These VARs aren't sequential
-        VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM2, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM3, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM4, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM5, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM6, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM7, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM8, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM9, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM10, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM11, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM12, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM13, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM14, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM15, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM16, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM17, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        VarSet(VAR_ROGUE_ITEM18, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        u8 i;
+        for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
+        {
+            VarSet(VAR_ROGUE_ITEM_START + i, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+        }
     }
 }
 

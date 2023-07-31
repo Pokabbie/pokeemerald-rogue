@@ -475,6 +475,14 @@ const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/p
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
 const u32 gObjectEventPic_WorkTable[] = INCBIN_U32("graphics/object_events/pics/rogue/work_table.4bpp");
 const u32 gObjectEventPic_QuestBoard[] = INCBIN_U32("graphics/object_events/pics/rogue/quest_board.4bpp");
+const u32 gObjectEventPic_ItemSilverTM[] = INCBIN_U32("graphics/object_events/pics/rogue/item_silver_tm.4bpp");
+const u32 gObjectEventPic_ItemGoldTM[] = INCBIN_U32("graphics/object_events/pics/rogue/item_gold_tm.4bpp");
+const u32 gObjectEventPic_ItemPokeBall[] = INCBIN_U32("graphics/object_events/pics/rogue/item_poke_ball.4bpp");
+const u32 gObjectEventPic_ItemMedicine[] = INCBIN_U32("graphics/object_events/pics/rogue/item_medicine.4bpp");
+const u32 gObjectEventPic_ItemHeldItem[] = INCBIN_U32("graphics/object_events/pics/rogue/item_held_item.4bpp");
+const u32 gObjectEventPic_ItemEvoStone[] = INCBIN_U32("graphics/object_events/pics/rogue/item_evo_stone.4bpp");
+const u32 gObjectEventPic_ItemMegaStone[] = INCBIN_U32("graphics/object_events/pics/rogue/item_mega_stone.4bpp");
+const u32 gObjectEventPic_ItemZCrystal[] = INCBIN_U32("graphics/object_events/pics/rogue/item_z_crystal.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");

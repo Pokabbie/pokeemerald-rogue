@@ -15,7 +15,12 @@
         "xtr1common": "c",
         "xutility": "c",
         "ranges": "c",
-        "valarray": "c"
+        "valarray": "c",
+        "locale": "c",
+        "thread": "c",
+        "xlocmes": "c",
+        "xlocnum": "c",
+        "xloctime": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

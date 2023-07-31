@@ -3039,6 +3039,39 @@ static const struct SpriteFrameImage sPicTable_QuestBoard[] = {
     obj_frame_tiles(gObjectEventPic_QuestBoard),
 };
 
+static const struct SpriteFrameImage sPicTable_ItemSilverTM[] = {
+    obj_frame_tiles(gObjectEventPic_ItemSilverTM),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemGoldTM[] = {
+    obj_frame_tiles(gObjectEventPic_ItemGoldTM),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemPokeBall[] = {
+    obj_frame_tiles(gObjectEventPic_ItemPokeBall),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemMedicine[] = {
+    obj_frame_tiles(gObjectEventPic_ItemMedicine),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemHeldItem[] = {
+    obj_frame_tiles(gObjectEventPic_ItemHeldItem),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemEvoStone[] = {
+    obj_frame_tiles(gObjectEventPic_ItemEvoStone),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemMegaStone[] = {
+    obj_frame_tiles(gObjectEventPic_ItemMegaStone),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemZCrystal[] = {
+    obj_frame_tiles(gObjectEventPic_ItemZCrystal),
+};
+
+
 static const struct SpriteFrameImage sPicTable_Route_Bug[] = {
     overworld_frame(gObjectEventPic_Route_Bug, 2, 2, 0),
     overworld_frame(gObjectEventPic_Route_Bug, 2, 2, 1),
