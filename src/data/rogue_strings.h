@@ -32,10 +32,10 @@ const u8 gText_StatusSeasonAutumn[] = _("·Autumn·");
 const u8 gText_StatusSeasonWinter[] = _("·Winter·");
 
 // Colours aren't exact as they'll be used in battle UI
-const u8 gText_MoveEffective[] = _("{COLOR RED}Neutral");
-const u8 gText_MoveNoEffect[] = _("{COLOR TRANSPARENT}No Effect...");
-const u8 gText_MoveSuperEffective[] = _("{COLOR LIGHT_GRAY}Effective!");
-const u8 gText_MoveNotVeryEffective[] = _("{COLOR GREEN}Not Effective");
+const u8 gText_MoveEffective[] = _("{COLOR BLUE}{SHADOW DYNAMIC_COLOR6}Neutral");
+const u8 gText_MoveNoEffect[] = _("{COLOR TRANSPARENT}{SHADOW BLUE}No Effect…");
+const u8 gText_MoveSuperEffective[] = _("{COLOR GREEN}{SHADOW DYNAMIC_COLOR6}Effective!");
+const u8 gText_MoveNotVeryEffective[] = _("{COLOR WHITE}{SHADOW DYNAMIC_COLOR6}Not Effective");
 
 
 // Trainers

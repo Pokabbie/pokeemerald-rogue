@@ -10314,11 +10314,14 @@ void HandleBattleWindow(u8 xStart, u8 yStart, u8 xEnd, u8 yEnd, u8 flags)
     }
 }
 
+#define FLIP_VERTICAL (0x08 << 8)
+#define FLIP_HORIZONTAL (0x04 << 8)
+
 void BattleCreateYesNoCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 1;
-    src[1] = 2;
+    src[0] = (0x3);
+    src[1] = (0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 0x19, 9 + (2 * cursorPosition), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -10327,12 +10330,15 @@ void BattleCreateYesNoCursorAt(u8 cursorPosition)
 void BattleDestroyYesNoCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 0x1016;
-    src[1] = 0x1016;
+    src[0] = 0xA;
+    src[1] = 0xA;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 0x19, 9 + (2 * cursorPosition), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
+
+#undef FLIP_VERTICAL
+#undef FLIP_HORIZONTAL
 
 static void Cmd_trygivecaughtmonnick(void)
 {
