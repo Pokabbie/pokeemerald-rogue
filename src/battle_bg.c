@@ -613,11 +613,11 @@ static const struct BattleBackground sBattleTerrainTable[] =
 
     [BATTLE_TERRAIN_LONG_GRASS] =
     {
-        .tileset = gBattleTerrainTiles_LongGrass,
-        .tilemap = gBattleTerrainTilemap_LongGrass,
+        .tileset = gBattleTerrainTiles_TallGrass,
+        .tilemap = gBattleTerrainTilemap_TallGrass,
         .entryTileset = gBattleTerrainAnimTiles_LongGrass,
         .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
-        .palette = gBattleTerrainPalette_LongGrass,
+        .palette = gBattleTerrainPalette_TallGrass,
     },
 
     [BATTLE_TERRAIN_SAND] =
@@ -631,11 +631,11 @@ static const struct BattleBackground sBattleTerrainTable[] =
 
     [BATTLE_TERRAIN_UNDERWATER] =
     {
-        .tileset = gBattleTerrainTiles_Underwater,
-        .tilemap = gBattleTerrainTilemap_Underwater,
-        .entryTileset = gBattleTerrainAnimTiles_Underwater,
-        .entryTilemap = gBattleTerrainAnimTilemap_Underwater,
-        .palette = gBattleTerrainPalette_Underwater,
+        .tileset = gBattleTerrainTiles_Water,
+        .tilemap = gBattleTerrainTilemap_Water,
+        .entryTileset = gBattleTerrainAnimTiles_Water,
+        .entryTilemap = gBattleTerrainAnimTilemap_Water,
+        .palette = gBattleTerrainPalette_Water,
     },
 
     [BATTLE_TERRAIN_WATER] =
@@ -685,10 +685,10 @@ static const struct BattleBackground sBattleTerrainTable[] =
 
     [BATTLE_TERRAIN_PLAIN] =
     {
-        .tileset = gBattleTerrainTiles_Building,
-        .tilemap = gBattleTerrainTilemap_Building,
-        .entryTileset = gBattleTerrainAnimTiles_Building,
-        .entryTilemap = gBattleTerrainAnimTilemap_Building,
+        .tileset = gBattleTerrainTiles_Plain,
+        .tilemap = gBattleTerrainTilemap_Plain,
+        .entryTileset = gBattleTerrainAnimTiles_Plain,
+        .entryTilemap = gBattleTerrainAnimTilemap_Plain,
         .palette = gBattleTerrainPalette_Plain,
     },
 };
@@ -780,9 +780,9 @@ void DrawMainBattleBackground(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_RAYQUAZA)
     {
-        LZDecompressVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_Rayquaza, 0x20, 0x60);
+        LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+        LoadCompressedPalette(gBattleTerrainPalette_Frontier, 0x20, 0x60);
     }
     else
     {
@@ -802,9 +802,9 @@ void DrawMainBattleBackground(void)
             {
                 if(gRogueRun.currentDifficulty >= 13)
                 {
-                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
-                    LoadCompressedPalette(gBattleTerrainPalette_StadiumSteven, 0x20, 0x60);
+                    LZDecompressVram(gBattleTerrainTiles_StadiumInverted, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_StadiumInverted, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_StadiumInverted, 0x20, 0x60);
                 }
                 else
                 {
@@ -1185,13 +1185,13 @@ void DrawBattleEntryBackground(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE)
     {
-        LZDecompressVram(gBattleTerrainAnimTiles_Underwater, (void*)(BG_CHAR_ADDR(1)));
-        LZDecompressVram(gBattleTerrainAnimTilemap_Underwater, (void*)(BG_SCREEN_ADDR(28)));
+        LZDecompressVram(gBattleTerrainAnimTiles_Water, (void*)(BG_CHAR_ADDR(1)));
+        LZDecompressVram(gBattleTerrainAnimTilemap_Water, (void*)(BG_SCREEN_ADDR(28)));
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_RAYQUAZA)
     {
-        LZDecompressVram(gBattleTerrainAnimTiles_Rayquaza, (void*)(BG_CHAR_ADDR(1)));
-        LZDecompressVram(gBattleTerrainAnimTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(28)));
+            LZDecompressVram(gBattleTerrainAnimTiles_Building, (void*)(BG_CHAR_ADDR(1)));
+            LZDecompressVram(gBattleTerrainAnimTilemap_Building, (void*)(BG_SCREEN_ADDR(28)));
     }
     else
     {
@@ -1402,7 +1402,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 {
                     if(gRogueRun.currentDifficulty >= 13)
                     {
-                        LoadCompressedPalette(gBattleTerrainPalette_StadiumSteven, 0x20, 0x60);
+                        LoadCompressedPalette(gBattleTerrainPalette_StadiumInverted, 0x20, 0x60);
                     }
                     else
                     {
