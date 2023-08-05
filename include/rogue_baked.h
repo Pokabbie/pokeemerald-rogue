@@ -20,6 +20,8 @@ const u8* Rogue_GetItemName(u16 itemIdx);
 const u8* Rogue_GetItemDesc(u16 itemIdx);
 const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which);
 void Rogue_ModifyItem(u16 itemIdx, struct Item* outItem);
+bool8 Rogue_IsEvolutionItem(u16 itemIdx);
+
 const u8* Rogue_GetTrainerName(u16 trainerNum);
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer);
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);

@@ -1867,11 +1867,14 @@ static void MoveSelectionDisplayMoveType(void)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 }
 
+#define FLIP_VERTICAL (0x08 << 8)
+#define FLIP_HORIZONTAL (0x04 << 8)
+
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
-    src[0] = baseTileNum + 1;
-    src[1] = baseTileNum + 2;
+    src[0] = (baseTileNum + 0x3);
+    src[1] = (baseTileNum + 0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1880,8 +1883,8 @@ void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 void MoveSelectionDestroyCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 0x1016;
-    src[1] = 0x1016;
+    src[0] = 0xA;
+    src[1] = 0xA;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1890,8 +1893,8 @@ void MoveSelectionDestroyCursorAt(u8 cursorPosition)
 void ActionSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
-    src[0] = 1;
-    src[1] = 2;
+    src[0] = (0x3);
+    src[1] = (0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 7 * (cursorPosition & 1) + 16, 35 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1900,12 +1903,15 @@ void ActionSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 void ActionSelectionDestroyCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 0x1016;
-    src[1] = 0x1016;
+    src[0] = 0xA;
+    src[1] = 0xA;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 7 * (cursorPosition & 1) + 16, 35 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
+
+#undef FLIP_VERTICAL
+#undef FLIP_HORIZONTAL
 
 void CB2_SetUpReshowBattleScreenAfterMenu(void)
 {

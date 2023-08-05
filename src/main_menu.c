@@ -1356,9 +1356,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 
 static void Task_NewGameBirchSpeech_Init(u8 taskId)
 {
-    gSaveBlock2Ptr->playerGender = STYLE_EMR_BRENDAN;
-    gSaveBlock2Ptr->playerStyle0 = 0;
-    gSaveBlock2Ptr->playerStyle1 = 0;
+    RoguePlayer_SetNewGameOutfit();
 
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
@@ -1655,9 +1653,9 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
     else if(gTasks[taskId].tStyleSelectId == 1)
     {
         cursor2 = Menu_GetCursorPos();
-        if (cursor2 != gSaveBlock2Ptr->playerStyle0)
+        if (cursor2 != gSaveBlock2Ptr->playerStyles[0])
         {
-            gSaveBlock2Ptr->playerStyle0 = cursor2;
+            gSaveBlock2Ptr->playerStyles[0] = cursor2;
             gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
             NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 0);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlideOutOldGenderSprite;
@@ -1667,9 +1665,9 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
     else if(gTasks[taskId].tStyleSelectId == 2)
     {
         cursor2 = Menu_GetCursorPos();
-        if (cursor2 != gSaveBlock2Ptr->playerStyle1)
+        if (cursor2 != gSaveBlock2Ptr->playerStyles[1])
         {
-            gSaveBlock2Ptr->playerStyle1 = cursor2;
+            gSaveBlock2Ptr->playerStyles[1] = cursor2;
             gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
             NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 0);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlideOutOldGenderSprite;

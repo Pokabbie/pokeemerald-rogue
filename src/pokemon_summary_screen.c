@@ -1202,6 +1202,8 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     else
         sMonSummaryScreen->isBoxMon = FALSE;
 
+    sMonSummaryScreen->currPageIndex  = PSS_PAGE_COUNT;
+
     switch (mode)
     {
     case SUMMARY_MODE_NORMAL:
@@ -1215,8 +1217,9 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
         sMonSummaryScreen->lockMovesFlag = TRUE;
         break;
     case SUMMARY_MODE_SELECT_MOVE:
-        sMonSummaryScreen->minPageIndex = PSS_PAGE_BATTLE_MOVES;
+        sMonSummaryScreen->minPageIndex = PSS_PAGE_BATTLE_MOVES; // PSS_PAGE_SKILLS (This bugs it out, so need to fix the input and drawing)
         sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;//PSS_PAGE_COUNT - 1;
+        sMonSummaryScreen->currPageIndex = PSS_PAGE_BATTLE_MOVES;
         sMonSummaryScreen->lockMonFlag = TRUE;
         break;
     }
@@ -1224,7 +1227,9 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     sMonSummaryScreen->minTabIndex = 0;
     sMonSummaryScreen->maxTabIndex = 2;
 
-    sMonSummaryScreen->currPageIndex = sMonSummaryScreen->minPageIndex;
+    if(sMonSummaryScreen->currPageIndex == PSS_PAGE_COUNT)
+        sMonSummaryScreen->currPageIndex = sMonSummaryScreen->minPageIndex;
+
     sMonSummaryScreen->currTabIndex = sMonSummaryScreen->minTabIndex;
     sMonSummaryScreen->splitIconSpriteId = 0xFF;
     SummaryScreen_SetAnimDelayTaskId(TASK_NONE);

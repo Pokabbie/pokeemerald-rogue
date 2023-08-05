@@ -667,6 +667,12 @@ const u8* Rogue_GetItemDesc(u16 itemIdx)
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
+
+bool8 Rogue_IsEvolutionItem(u16 itemIdx)
+{
+    return FALSE;
+}
+
 #else
 
 extern const u8 gText_EscapeRopeDesc[];
@@ -1025,6 +1031,69 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->battleUseFunc = 0;
         }
     }
+}
+
+
+bool8 Rogue_IsEvolutionItem(u16 itemIdx)
+{
+    switch (itemIdx)
+    {
+    case ITEM_LINK_CABLE:
+    case ITEM_FIRE_STONE:
+    case ITEM_WATER_STONE:
+    case ITEM_THUNDER_STONE:
+    case ITEM_LEAF_STONE:
+    case ITEM_SUN_STONE:
+    case ITEM_MOON_STONE:
+    case ITEM_DEEP_SEA_TOOTH:
+    case ITEM_DEEP_SEA_SCALE:
+    case ITEM_DRAGON_SCALE:
+    case ITEM_KINGS_ROCK:
+    case ITEM_METAL_COAT:
+    
+#ifdef ROGUE_EXPANSION
+    case ITEM_UPGRADE:
+#else
+    case ITEM_UP_GRADE:
+#endif
+
+#ifdef ROGUE_EXPANSION
+    case ITEM_RAZOR_FANG:
+    case ITEM_RAZOR_CLAW:
+    case ITEM_ICE_STONE:
+    case ITEM_SHINY_STONE:
+    case ITEM_DUSK_STONE:
+    case ITEM_DAWN_STONE:
+    case ITEM_SWEET_APPLE:
+    case ITEM_TART_APPLE:
+    case ITEM_CRACKED_POT:
+    case ITEM_CHIPPED_POT:
+    case ITEM_GALARICA_CUFF:
+    case ITEM_GALARICA_WREATH:
+    case ITEM_PROTECTOR:
+    case ITEM_ELECTIRIZER:
+    case ITEM_MAGMARIZER:
+    case ITEM_DUBIOUS_DISC:
+    case ITEM_REAPER_CLOTH:
+    case ITEM_PRISM_SCALE:
+    case ITEM_WHIPPED_DREAM:
+    case ITEM_SACHET:
+    case ITEM_OVAL_STONE:
+    case ITEM_STRAWBERRY_SWEET:
+    case ITEM_LOVE_SWEET:
+    case ITEM_BERRY_SWEET:
+    case ITEM_CLOVER_SWEET:
+    case ITEM_FLOWER_SWEET:
+    case ITEM_STAR_SWEET:
+    case ITEM_RIBBON_SWEET:
+    case ITEM_BLACK_AUGURITE:
+    case ITEM_LINKING_CORD:
+    case ITEM_PEAT_BLOCK:
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
 }
 #endif
 

@@ -1478,6 +1478,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
     else
     {
         PUSH_ASSISTANT_STATE2(OVERWORLD, LOCKED);
+        //PlayerStep(0, 0, 0); // since dynamic player model, it forgets direction when reloading (Force update here for that reason)
         Rogue_UpdatePopups(TRUE, FALSE);
     }
 

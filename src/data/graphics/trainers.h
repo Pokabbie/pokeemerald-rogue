@@ -211,59 +211,8 @@ const u32 gTrainerPalette_MagmaAdmin[] = INCBIN_U32("graphics/trainers/palettes/
 const u32 gTrainerFrontPic_Wally[] = INCBIN_U32("graphics/trainers/front_pics/wally_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Wally[] = INCBIN_U32("graphics/trainers/palettes/wally.gbapal.lz");
 
-// Manual FOREACH_VISUAL_PRESETS
 const u32 gTrainerFrontPic_Brendan[] = INCBIN_U32("graphics/trainers/front_pics/brendan_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Brendan_0_0[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_0.gbapal.lz");
-const u32 gTrainerPalette_Brendan_0_1[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_1.gbapal.lz");
-const u32 gTrainerPalette_Brendan_0_2[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_2.gbapal.lz");
-const u32 gTrainerPalette_Brendan_0_3[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_3.gbapal.lz");
-const u32 gTrainerPalette_Brendan_0_4[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_4.gbapal.lz");
-const u32 gTrainerPalette_Brendan_0_5[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/0_5.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_0[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_0.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_1[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_1.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_2[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_2.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_3[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_3.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_4[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_4.gbapal.lz");
-const u32 gTrainerPalette_Brendan_1_5[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/1_5.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_0[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_0.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_1[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_1.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_2[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_2.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_3[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_3.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_4[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_4.gbapal.lz");
-const u32 gTrainerPalette_Brendan_2_5[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/2_5.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_0[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_0.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_1[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_1.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_2[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_2.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_3[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_3.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_4[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_4.gbapal.lz");
-const u32 gTrainerPalette_Brendan_3_5[] = INCBIN_U32("graphics/rogue_palettes/brendan/front_back/3_5.gbapal.lz");
-
-// Manual FOREACH_VISUAL_PRESETS
 const u32 gTrainerFrontPic_May[] = INCBIN_U32("graphics/trainers/front_pics/may_front_pic.4bpp.lz");
-const u32 gTrainerPalette_May_0_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_0.gbapal.lz");
-const u32 gTrainerPalette_May_0_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_1.gbapal.lz");
-const u32 gTrainerPalette_May_0_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_2.gbapal.lz");
-const u32 gTrainerPalette_May_0_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_3.gbapal.lz");
-const u32 gTrainerPalette_May_0_4[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_4.gbapal.lz");
-const u32 gTrainerPalette_May_0_5[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/0_5.gbapal.lz");
-const u32 gTrainerPalette_May_1_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_0.gbapal.lz");
-const u32 gTrainerPalette_May_1_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_1.gbapal.lz");
-const u32 gTrainerPalette_May_1_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_2.gbapal.lz");
-const u32 gTrainerPalette_May_1_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_3.gbapal.lz");
-const u32 gTrainerPalette_May_1_4[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_4.gbapal.lz");
-const u32 gTrainerPalette_May_1_5[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/1_5.gbapal.lz");
-const u32 gTrainerPalette_May_2_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_0.gbapal.lz");
-const u32 gTrainerPalette_May_2_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_1.gbapal.lz");
-const u32 gTrainerPalette_May_2_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_2.gbapal.lz");
-const u32 gTrainerPalette_May_2_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_3.gbapal.lz");
-const u32 gTrainerPalette_May_2_4[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_4.gbapal.lz");
-const u32 gTrainerPalette_May_2_5[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/2_5.gbapal.lz");
-const u32 gTrainerPalette_May_3_0[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_0.gbapal.lz");
-const u32 gTrainerPalette_May_3_1[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_1.gbapal.lz");
-const u32 gTrainerPalette_May_3_2[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_2.gbapal.lz");
-const u32 gTrainerPalette_May_3_3[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_3.gbapal.lz");
-const u32 gTrainerPalette_May_3_4[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_4.gbapal.lz");
-const u32 gTrainerPalette_May_3_5[] = INCBIN_U32("graphics/rogue_palettes/may/front_back/3_5.gbapal.lz");
 
 const u32 gTrainerFrontPic_BugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/bug_catcher_front_pic.4bpp.lz");
 const u32 gTrainerPalette_BugCatcher[] = INCBIN_U32("graphics/trainers/palettes/bug_catcher.gbapal.lz");
@@ -313,73 +262,11 @@ const u32 gTrainerPalette_PikeQueenLucy[] = INCBIN_U32("graphics/trainers/palett
 const u32 gTrainerFrontPic_PyramidKingBrandon[] = INCBIN_U32("graphics/trainers/front_pics/pyramid_king_brandon_front_pic.4bpp.lz");
 const u32 gTrainerPalette_PyramidKingBrandon[] = INCBIN_U32("graphics/trainers/palettes/pyramid_king_brandon.gbapal.lz");
 
-
-// Manual FOREACH_VISUAL_PRESETS
 const u32 gTrainerFrontPic_Red[] = INCBIN_U32("graphics/trainers/front_pics/red_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Red_Front_0_0[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_0_1[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_0_2[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_0_3[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_0_4[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_0_5[] = INCBIN_U32("graphics/rogue_palettes/red/front/0_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_0[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_1[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_2[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_3[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_4[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_1_5[] = INCBIN_U32("graphics/rogue_palettes/red/front/1_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_0[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_1[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_2[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_3[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_4[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_2_5[] = INCBIN_U32("graphics/rogue_palettes/red/front/2_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_0[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_1[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_2[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_3[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_4[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Front_3_5[] = INCBIN_U32("graphics/rogue_palettes/red/front/3_5.gbapal.lz");
-
-const u32 gTrainerPalette_Red_Back_0_0[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_0_1[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_0_2[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_0_3[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_0_4[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_0_5[] = INCBIN_U32("graphics/rogue_palettes/red/back/0_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_0[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_1[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_2[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_3[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_4[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_1_5[] = INCBIN_U32("graphics/rogue_palettes/red/back/1_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_0[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_1[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_2[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_3[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_4[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_2_5[] = INCBIN_U32("graphics/rogue_palettes/red/back/2_5.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_0[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_0.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_1[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_1.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_2[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_2.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_3[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_3.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_4[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_4.gbapal.lz");
-const u32 gTrainerPalette_Red_Back_3_5[] = INCBIN_U32("graphics/rogue_palettes/red/back/3_5.gbapal.lz");
-
 const u32 gTrainerFrontPic_Leaf[] = INCBIN_U32("graphics/trainers/front_pics/leaf_front_pic.4bpp.lz");
-//const u32 gTrainerPalette_Leaf_Front_0_0[] = INCBIN_U32("graphics/trainers/palettes/leaf/0_red.gbapal.lz");
 
-// Manual FOREACH_VISUAL_PRESETS
 const u32 gTrainerFrontPic_Ethan[] = INCBIN_U32("graphics/trainers/front_pics/ethan_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Ethan_Front_0_0[] = INCBIN_U32("graphics/rogue_palettes/ethan/front/0_0.gbapal.lz");
-
-const u32 gTrainerPalette_Ethan_Back_0_0[] = INCBIN_U32("graphics/rogue_palettes/ethan/back/0_0.gbapal.lz");
-
-// Manual FOREACH_VISUAL_PRESETS
 const u32 gTrainerFrontPic_Lyra[] = INCBIN_U32("graphics/trainers/front_pics/lyra_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Lyra_Front_0_0[] = INCBIN_U32("graphics/rogue_palettes/lyra/front/0_0.gbapal.lz");
-
-const u32 gTrainerPalette_Lyra_Back_0_0[] = INCBIN_U32("graphics/rogue_palettes/lyra/back/0_0.gbapal.lz");
 
 const u32 gTrainerFrontPic_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/front_pics/ruby_sapphire_brendan_front_pic.4bpp.lz");
 const u32 gTrainerPalette_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/palettes/ruby_sapphire_brendan.gbapal.lz");
@@ -394,6 +281,23 @@ const u32 gTrainerPalette_PlayerBackPlaceholder[] = INCBIN_U32("graphics/rogue_p
 
 const u32 gTrainerPalette_PlayerBrendanBase[] = INCBIN_U32("graphics/rogue_palettes/brendan/trainer_frontback_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerBrendanLayers[] = INCBIN_U32("graphics/rogue_palettes/brendan/trainer_frontback_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerMayBase[] = INCBIN_U32("graphics/rogue_palettes/may/trainer_frontback_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerMayLayers[] = INCBIN_U32("graphics/rogue_palettes/may/trainer_frontback_layers.gbapal.lz");
+
+const u32 gTrainerPalette_PlayerRedLeafFrontBase[] = INCBIN_U32("graphics/rogue_palettes/red_leaf/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedLeafFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/red_leaf/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedLeafBackBase[] = INCBIN_U32("graphics/rogue_palettes/red_leaf/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerRedLeafBackLayers[] = INCBIN_U32("graphics/rogue_palettes/red_leaf/trainer_back_layers.gbapal.lz");
+
+const u32 gTrainerPalette_PlayerEthanFrontBase[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerEthanFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerEthanBackBase[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerEthanBackLayers[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_layers.gbapal.lz");
+
+const u32 gTrainerPalette_PlayerLyraFrontBase[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerLyraFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_front_layers.gbapal.lz");
+const u32 gTrainerPalette_PlayerLyraBackBase[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_back_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerLyraBackLayers[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_back_layers.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");

@@ -2507,11 +2507,11 @@ void LoadLinkContestPlayerPalettes(void)
             }
             else
             {
-                if (gLinkPlayers[i].gender == MALE)
-                    LoadPalette(gObjectEventPal_Brendan_0_0, 0x160 + i * 0x10, 0x20);
-                else
-                    LoadPalette(gObjectEventPal_May_0_0, 0x160 + i * 0x10, 0x20);
-            }
+                //if (gLinkPlayers[i].gender == MALE)
+                //    LoadPalette(gObjectEventPal_Brendan_0_0, 0x160 + i * 0x10, 0x20);
+                //else
+                //    LoadPalette(gObjectEventPal_May_0_0, 0x160 + i * 0x10, 0x20);
+            }//
         }
     }
 }

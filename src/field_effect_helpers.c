@@ -1321,6 +1321,16 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
     }
 }
 
+// This is hacky :3
+#define OBJ_EVENT_PAL_TAG_NPC_1                   0x1103
+#define OBJ_EVENT_PAL_TAG_NPC_2                   0x1104
+#define OBJ_EVENT_PAL_TAG_NPC_3                   0x1105
+#define OBJ_EVENT_PAL_TAG_NPC_4                   0x1106
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_1            0x1107 // OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_2            0x1108 // OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_3            0x1109 // OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_4            0x110A // OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION
+
 // RogueNote: Called from MovementAction_EmoteFollowMonSpawn
 u32 FldEff_Bubbles(void)
 {
@@ -1330,6 +1340,7 @@ u32 FldEff_Bubbles(void)
     struct SpriteTemplate template;
     s16 xOffset, yOffset;
     u8 spriteData;
+    u16 paletteNum = 255;
 
     switch (gFieldEffectArguments[3])
     {
@@ -1363,6 +1374,13 @@ u32 FldEff_Bubbles(void)
     memcpy(&template, gFieldEffectObjectTemplatePointers[visual], sizeof(template));
     //template.paletteTag = FLDEFF_PAL_TAG_GENERAL_0; // <- enable this to free up the palette slots
 
+    // Share overworld sprites
+    if(template.paletteTag >= OBJ_EVENT_PAL_TAG_NPC_1 && template.paletteTag <= OBJ_EVENT_PAL_TAG_FOLLOW_MON_4)
+    {
+        paletteNum = 2 + template.paletteTag - OBJ_EVENT_PAL_TAG_NPC_1; 
+        template.paletteTag = TAG_NONE;
+    }
+
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 0);
     spriteId = CreateSpriteAtEnd(&template, gFieldEffectArguments[0] + xOffset, gFieldEffectArguments[1] + yOffset, 0x52);
     if (spriteId != MAX_SPRITES)
@@ -1371,6 +1389,9 @@ u32 FldEff_Bubbles(void)
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = 1;//gFieldEffectArguments[2];
         //sprite->data[0] = spriteData;
+
+        if(paletteNum != 255)
+            sprite->oam.paletteNum = paletteNum;
     }
     return 0;
 }

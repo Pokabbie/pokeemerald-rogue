@@ -7124,26 +7124,6 @@ extern const u32 gTrainerPalette_Sailor[];
 extern const u32 gTrainerPalette_MagmaAdmin[];
 extern const u32 gTrainerPalette_Wally[];
 
-#define BRENDAN_PALETTE(x, y) extern const u32 gTrainerPalette_Brendan_ ## x ## _ ## y[];
-FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
-#undef BRENDAN_PALETTE
-
-#define MAY_PALETTE(x, y) extern const u32 gTrainerPalette_May_ ## x ## _ ## y[];
-FOREACH_VISUAL_PRESETS(MAY_PALETTE)
-#undef MAY_PALETTE
-
-#define RED_PALETTE(x, y) \
-extern const u32 gTrainerPalette_Red_Front_ ## x ## _ ## y[]; \
-extern const u32 gTrainerPalette_Red_Back_ ## x ## _ ## y[]; 
-FOREACH_VISUAL_PRESETS(RED_PALETTE)
-#undef RED_PALETTE
-
-extern const u32 gTrainerPalette_Ethan_Front_0_0[];  // Temp until colour variations are hooked up
-extern const u32 gTrainerPalette_Ethan_Back_0_0[];  // Temp until colour variations are hooked up
-
-extern const u32 gTrainerPalette_Lyra_Front_0_0[];   // Temp until colour variations are hooked up
-extern const u32 gTrainerPalette_Lyra_Back_0_0[];   // Temp until colour variations are hooked up
-
 // Share palette for now
 #define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
 #define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
@@ -7172,7 +7152,23 @@ extern const u32 gTrainerPalette_PlayerBackPlaceholder[];
 
 extern const u32 gTrainerPalette_PlayerBrendanBase[];
 extern const u32 gTrainerPalette_PlayerBrendanLayers[];
+extern const u32 gTrainerPalette_PlayerMayBase[];
+extern const u32 gTrainerPalette_PlayerMayLayers[];
 
+extern const u32 gTrainerPalette_PlayerRedLeafFrontBase[];
+extern const u32 gTrainerPalette_PlayerRedLeafFrontLayers[];
+extern const u32 gTrainerPalette_PlayerRedLeafBackBase[];
+extern const u32 gTrainerPalette_PlayerRedLeafBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerEthanFrontBase[];
+extern const u32 gTrainerPalette_PlayerEthanFrontLayers[];
+extern const u32 gTrainerPalette_PlayerEthanBackBase[];
+extern const u32 gTrainerPalette_PlayerEthanBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerLyraFrontBase[];
+extern const u32 gTrainerPalette_PlayerLyraFrontLayers[];
+extern const u32 gTrainerPalette_PlayerLyraBackBase[];
+extern const u32 gTrainerPalette_PlayerLyraBackLayers[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
@@ -7373,21 +7369,18 @@ extern const u32 gBattleTerrainTilemap_TallGrass[];
 extern const u32 gBattleTerrainAnimTiles_TallGrass[];
 extern const u32 gBattleTerrainAnimTilemap_TallGrass[];
 extern const u32 gBattleTerrainPalette_TallGrass[];
-extern const u32 gBattleTerrainTiles_LongGrass[];
-extern const u32 gBattleTerrainTilemap_LongGrass[];
 extern const u32 gBattleTerrainAnimTiles_LongGrass[];
 extern const u32 gBattleTerrainAnimTilemap_LongGrass[];
-extern const u32 gBattleTerrainPalette_LongGrass[];
+extern const u32 gBattleTerrainTiles_Plain[];
+extern const u32 gBattleTerrainTilemap_Plain[];
+extern const u32 gBattleTerrainAnimTiles_Plain[];
+extern const u32 gBattleTerrainAnimTilemap_Plain[];
+extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainTiles_Sand[];
 extern const u32 gBattleTerrainTilemap_Sand[];
 extern const u32 gBattleTerrainAnimTiles_Sand[];
 extern const u32 gBattleTerrainAnimTilemap_Sand[];
 extern const u32 gBattleTerrainPalette_Sand[];
-extern const u32 gBattleTerrainTiles_Underwater[];
-extern const u32 gBattleTerrainTilemap_Underwater[];
-extern const u32 gBattleTerrainAnimTiles_Underwater[];
-extern const u32 gBattleTerrainAnimTilemap_Underwater[];
-extern const u32 gBattleTerrainPalette_Underwater[];
 extern const u32 gBattleTerrainTiles_Water[];
 extern const u32 gBattleTerrainTilemap_Water[];
 extern const u32 gBattleTerrainAnimTiles_Water[];
@@ -7413,15 +7406,12 @@ extern const u32 gBattleTerrainTilemap_Building[];
 extern const u32 gBattleTerrainAnimTiles_Building[];
 extern const u32 gBattleTerrainAnimTilemap_Building[];
 extern const u32 gBattleTerrainPalette_Building[];
-extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainPalette_Frontier[];
 extern const u32 gBattleTerrainTiles_Stadium[];
 extern const u32 gBattleTerrainTilemap_Stadium[];
-extern const u32 gBattleTerrainTiles_Rayquaza[];
-extern const u32 gBattleTerrainTilemap_Rayquaza[];
-extern const u32 gBattleTerrainAnimTiles_Rayquaza[];
-extern const u32 gBattleTerrainAnimTilemap_Rayquaza[];
-extern const u32 gBattleTerrainPalette_Rayquaza[];
+extern const u32 gBattleTerrainTiles_StadiumInverted[];
+extern const u32 gBattleTerrainPalette_StadiumInverted[];
+extern const u32 gBattleTerrainTilemap_StadiumInverted[];
 extern const u32 gBattleTerrainPalette_Kyogre[];
 extern const u32 gBattleTerrainPalette_Groudon[];
 extern const u32 gBattleTerrainPalette_BuildingGym[];
@@ -7433,7 +7423,6 @@ extern const u32 gBattleTerrainPalette_StadiumPhoebe[];
 extern const u32 gBattleTerrainPalette_StadiumGlacia[];
 extern const u32 gBattleTerrainPalette_StadiumDrake[];
 extern const u32 gBattleTerrainPalette_StadiumWallace[];
-extern const u32 gBattleTerrainPalette_StadiumSteven[];
 
 // pokedex
 extern const u32 gPokedexInterface_Gfx[];
@@ -10345,22 +10334,17 @@ extern const u16 gObjectEventPal_PlayerPlaceholder[];
 
 extern const u16 gObjectEventPal_PlayerBrendanBase[];
 extern const u16 gObjectEventPal_PlayerBrendanLayers[];
+extern const u16 gObjectEventPal_PlayerMayBase[];
+extern const u16 gObjectEventPal_PlayerMayLayers[];
 
-// Object event pals
-#define BRENDAN_PALETTE(x, y) extern const u16 gObjectEventPal_Brendan_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(BRENDAN_PALETTE)
-#undef BRENDAN_PALETTE
+extern const u16 gObjectEventPal_PlayerRedLeafBase[];
+extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
 
-#define MAY_PALETTE(x, y) extern const u16 gObjectEventPal_May_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(MAY_PALETTE)
-#undef MAY_PALETTE
+extern const u16 gObjectEventPal_PlayerEthanBase[];
+extern const u16 gObjectEventPal_PlayerEthanLayers[];
 
-#define RED_PALETTE(x, y) extern const u16 gObjectEventPal_Red_ ## x ## _ ## y [];
-FOREACH_VISUAL_PRESETS(RED_PALETTE)
-#undef RED_PALETTE
-
-extern const u16 gObjectEventPal_Ethan_0_0[];
-extern const u16 gObjectEventPal_Lyra_0_0[];
+extern const u16 gObjectEventPal_PlayerLyraBase[];
+extern const u16 gObjectEventPal_PlayerLyraLayers[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

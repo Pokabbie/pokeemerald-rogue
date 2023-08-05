@@ -339,7 +339,7 @@ void RogueToD_ModifyBattlePalette(u16 offset, u16 count)
 
     if(ShouldApplyTodTintForCurrentMap())
     {
-        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayBattleColour, TRUE));
+        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayBattleColour, FALSE));
         isDirty = TRUE;
     }
 

@@ -310,6 +310,14 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuestBoard;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSilverTM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemGoldTM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemPokeBall;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMedicine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHoldItem;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemEvoStone;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMegaStone;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemZCrystal;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
@@ -655,6 +663,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
     [OBJ_EVENT_GFX_WORK_TABLE] =               &gObjectEventGraphicsInfo_WorkTable,
     [OBJ_EVENT_GFX_QUEST_BOARD] =              &gObjectEventGraphicsInfo_QuestBoard,
+    [OBJ_EVENT_GFX_ITEM_SILVER_TM] =           &gObjectEventGraphicsInfo_ItemSilverTM,
+    [OBJ_EVENT_GFX_ITEM_GOLD_TM] =             &gObjectEventGraphicsInfo_ItemGoldTM,
+    [OBJ_EVENT_GFX_ITEM_POKE_BALL] =           &gObjectEventGraphicsInfo_ItemPokeBall,
+    [OBJ_EVENT_GFX_ITEM_MEDICINE] =            &gObjectEventGraphicsInfo_ItemMedicine,
+    [OBJ_EVENT_GFX_ITEM_HOLD_ITEM] =           &gObjectEventGraphicsInfo_ItemHoldItem,
+    [OBJ_EVENT_GFX_ITEM_EVO_STONE] =           &gObjectEventGraphicsInfo_ItemEvoStone,
+    [OBJ_EVENT_GFX_ITEM_MEGA_STONE] =          &gObjectEventGraphicsInfo_ItemMegaStone,
+    [OBJ_EVENT_GFX_ITEM_Z_CRYSTAL] =           &gObjectEventGraphicsInfo_ItemZCrystal,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,

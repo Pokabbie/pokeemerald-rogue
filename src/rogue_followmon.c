@@ -374,7 +374,7 @@ bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
     if(Rogue_AreWildMonEnabled())
     {
         // Turn of animated grass when wild mons are active because it's pretty laggy and causes palette issues
-        return FALSE;
+        return !FollowMon_IsMonObject(objectEvent, TRUE);
     }
     else
     {
