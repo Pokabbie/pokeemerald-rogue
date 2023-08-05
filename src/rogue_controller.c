@@ -219,10 +219,12 @@ u16 RogueRandomRange(u16 range, u8 flag)
     if(range <= 1)
         return 0;
 
-    if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
-        return res % range;
-    else
-        return Random() % range;
+    return res % range;
+
+    //if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
+    //    return res % range;
+    //else
+    //    return Random() % range;
 }
 
 bool8 RogueRandomChance(u8 chance, u16 seedFlag)
@@ -243,7 +245,7 @@ u16 Rogue_GetStartSeed(void)
 
     //if(Rogue_IsRunActive())
     //{
-    //    offset = gRogueRun.currentRoomIdx * 3;
+    //    offset = gRogueRun.enteredRoomCounter * 3;
     //}
 
     return (u16)(word0 + word1 * offset);
@@ -1180,7 +1182,7 @@ u8* Rogue_GetMiniMenuContent(void)
         }
 
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, gSaveBlock1Ptr->rogueSaveVersion);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.currentRoomIdx);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.enteredRoomCounter);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_WildLvl, wildLevel);
@@ -1193,9 +1195,9 @@ u8* Rogue_GetMiniMenuContent(void)
     else if(gDebug_CurrentTab == 1)
     {
         strPointer = StringAppend(strPointer, gText_RogueDebug_AdvHeader);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueAdvPath.currentColumnCount);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_AdvCount, gRogueAdvPath.roomCount);
+        //strPointer = AppendNumberField(strPointer, gText_RogueDebug_X, gRogueAdvPath.currentNodeX);
+        //strPointer = AppendNumberField(strPointer, gText_RogueDebug_Y, gRogueAdvPath.currentNodeY);
     }
 #ifdef ROGUE_FEATURE_AUTOMATION
     // Automation tab
@@ -2353,9 +2355,9 @@ u16 Rogue_PostRunRewardMoney()
 {
     u16 amount = 0;
 
-    if(gRogueRun.currentRoomIdx > 1)
+    if(gRogueRun.enteredRoomCounter > 1)
     {
-        u16 i = gRogueRun.currentRoomIdx - 1;
+        u16 i = gRogueRun.enteredRoomCounter - 1;
 
         switch (Rogue_GetDifficultyRewardLevel())
         {
@@ -2546,12 +2548,15 @@ static void BeginRogueRun(void)
 
     Rogue_PreActivateDesiredCampaign();
 
-    if(FlagGet(FLAG_SET_SEED_ENABLED))
-    {
-        gRngRogueValue = Rogue_GetStartSeed();
-    }
+    // TODO - Initial seed differently?
+    gRogueAdvPath.nextRngSeed = Random();
 
-    gRogueRun.currentRoomIdx = 0;
+    //if(FlagGet(FLAG_SET_SEED_ENABLED))
+    //{
+    //    gRngRogueValue = Rogue_GetStartSeed();
+    //}
+
+    gRogueRun.enteredRoomCounter = 0;
     gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.currentLevelOffset = 5;
     gRogueRun.currentRouteIndex = 0;
@@ -2561,9 +2566,8 @@ static void BeginRogueRun(void)
         gRogueRun.currentLevelOffset = 80;
     }
     // Will get generated later
-    gRogueAdvPath.currentColumnCount = 0;
-    gRogueAdvPath.currentNodeX = 0;
-    gRogueAdvPath.currentNodeY = 0;
+    gRogueAdvPath.currentRoomId = 0;
+    gRogueAdvPath.roomCount = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
 
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
@@ -2639,7 +2643,7 @@ static void EndRogueRun(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
-    //gRogueRun.currentRoomIdx = 0;
+    //gRogueRun.enteredRoomCounter = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
     SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
 
@@ -2677,7 +2681,7 @@ static void EndRogueRun(void)
     LoadHubStates();
 
     // Grow berries based on progress in runs
-    BerryTreeTimeUpdate(90 * gRogueRun.currentRoomIdx);
+    BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
 
     // Bug Fix
     // In past version the bag could glitch out and people could lose access to HMs, so we're going to forcefully give them back here
@@ -3158,12 +3162,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
         if(warpType == ROGUE_WARP_TO_ADVPATH)
         {
-            if(gRogueRun.currentRoomIdx == 0)
+            if(gRogueRun.enteredRoomCounter == 0)
                 QuestNotify_OnExitHubTransition();
         }
         else if(warpType == ROGUE_WARP_TO_ROOM)
         {
-            ++gRogueRun.currentRoomIdx;
+            ++gRogueRun.enteredRoomCounter;
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -3294,7 +3298,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             };
 
             // Update VARs
-            VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.currentRoomIdx);
+            VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.enteredRoomCounter);
             VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, Rogue_CalculateBossMonLvl());
         }
     }
@@ -5498,7 +5502,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
         // Give us 1 room of basic items
-        if(gRogueRun.currentRoomIdx > 1)
+        if(gRogueRun.enteredRoomCounter > 1)
         {
             dropRarity += 10;
         }

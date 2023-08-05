@@ -14,9 +14,7 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp);
 void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 bool8 RogueAdv_CanUseEscapeRope(void);
 
-void RogueAdv_GetNodeParams();
-void RogueAdv_ExecuteNodeAction();
-
-void RogueAdv_DebugExecuteRandomNextNode();
+void RogueAdv_GetLastInteractedRoomParams();
+void RogueAdv_WarpLastInteractedRoom();
 
 #endif

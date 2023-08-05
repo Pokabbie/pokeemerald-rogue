@@ -31,10 +31,10 @@ movement AdventurePaths_OffsetCamera {
     walk_right * 4
 }
 
-script Rogue_AdventurePaths_InteractNode
+script Rogue_AdventurePaths_InteractRoom
 {
     lock
-    special(RogueAdv_GetNodeParams)
+    special(RogueAdv_GetLastInteractedRoomParams)
 
     switch(var(VAR_NODE_PARAM0))
     {
@@ -98,7 +98,7 @@ script Rogue_AdventurePaths_InteractNode
 
     if(var(VAR_RESULT) == YES)
     {
-        special(RogueAdv_ExecuteNodeAction)
+        special(RogueAdv_WarpLastInteractedRoom)
     }
 
     release

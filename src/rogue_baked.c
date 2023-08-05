@@ -80,6 +80,34 @@ bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value)
     return FALSE;
 }
 
+u16 SelectIndexFromWeights(u16* weights, u16 count, u16 rngValue)
+{
+    u16 totalWeight;
+    u16 targetWeight;
+    u8 i;
+
+    totalWeight = 0;
+    for(i = 0; i < count; ++i)
+    {
+        totalWeight += weights[i];
+    }
+
+    targetWeight = rngValue % totalWeight;
+    totalWeight = 0;
+
+    for(i = 0; i < count; ++i)
+    {
+        totalWeight += weights[i];
+
+        if(targetWeight <= totalWeight)
+        {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
 bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 {
 #ifdef ROGUE_BAKE_VALID

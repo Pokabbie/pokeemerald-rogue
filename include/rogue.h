@@ -1,6 +1,8 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
+// Adventure Path settings
+//
 struct RogueAdvPathRoomParams
 {
     u8 roomIdx;
@@ -38,18 +40,33 @@ struct RogueAdvPathNode
     struct RogueAdvPathRoomParams roomParams;
 };
 
-struct RogueAdvPath
+struct RogueAdvPathRoom
 {
-    u8 currentNodeX;
-    u8 currentNodeY;
-    u8 currentColumnCount;
-    u8 currentRoomType;
-    u8 isOverviewActive : 1;
-    u8 justGenerated : 1;
-    struct RogueAdvPathRoomParams currentRoomParams;
-    struct RogueAdvPathNode nodes[ROGUE_MAX_ADVPATH_ROWS * ROGUE_MAX_ADVPATH_COLUMNS];
+    struct Coords8 coords;
+    struct RogueAdvPathRoomParams roomParams;
+    u16 rngSeed;
+    u8 roomType;
+    u8 connectionMask;
 };
 
+struct RogueAdvPath
+{
+    struct RogueAdvPathRoomParams currentRoomParams;
+    struct RogueAdvPathRoom rooms[ROGUE_ADVPATH_ROOM_CAPACITY];
+    u16 nextRngSeed;
+    u8 currentRoomId;
+    u8 currentRoomType;
+    u8 roomCount;
+    u8 pathLength;
+    s8 pathMinY;
+    s8 pathMaxY;
+    u8 isOverviewActive : 1;
+    u8 justGenerated : 1;
+};
+
+
+// Adventure Path generation
+//
 struct RogueAdvPathGenerator // Attach to mode Difficult Option???
 {
    u8 minLength;
@@ -58,6 +75,7 @@ struct RogueAdvPathGenerator // Attach to mode Difficult Option???
    u16 maxRoomCount[ADVPATH_ROOM_WEIGHT_COUNT];
    u16 subRoomWeights[ADVPATH_SUBROOM_WEIGHT_COUNT];
 };
+
 
 
 struct RogueAdventurePhase
@@ -149,7 +167,7 @@ struct RogueCampaignData_Generic
 
 struct RogueRunData
 {
-    u16 currentRoomIdx;
+    u16 enteredRoomCounter;
     u16 currentDifficulty;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
