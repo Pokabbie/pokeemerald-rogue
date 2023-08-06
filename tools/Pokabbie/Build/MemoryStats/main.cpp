@@ -202,7 +202,6 @@ static void ProcessMapFile(std::string const& filePath)
     std::string outputFile = filePath;
     strutil::replace_all(outputFile, ".map", "_memorystats.csv");
 
-    outputStats.rom.endAddress - outputStats.rom.startAddress
     std::cout << "Sizes:\n";
     std::cout << "\t-ROM: " << (outputStats.rom.endAddress - outputStats.rom.startAddress) << " bytes.\n";
     std::cout << "\t-EWRAM: " << (outputStats.ewram.endAddress - outputStats.ewram.startAddress) << " bytes.\n";
