@@ -56,6 +56,7 @@ struct RogueQueryData
     u8* weightArray;
     u16 bitCount;
     u16 totalWeight;
+    u16 weightArrayCapacity;
     u8 queryType;
 };
 
@@ -78,6 +79,7 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 static bool8 Query_SpeciesEvoContainsType(u16 species, u8 type);
 
 static u16 Query_MaxBitCount();
+static u16 Query_GetWeightArrayCount();
 
 static void AllocQuery(u8 type)
 {
@@ -86,6 +88,7 @@ static void AllocQuery(u8 type)
     sRogueQueryPtr->bitCount = 0;
     sRogueQueryPtr->bitFlags = &gRogueQueryBits[0];
     sRogueQueryPtr->weightArray = NULL;
+    sRogueQueryPtr->weightArrayCapacity = 0;
     sRogueQueryPtr->totalWeight = 0;
 
     memset(&sRogueQueryPtr->bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
@@ -663,16 +666,33 @@ static u16 Query_MaxBitCount()
         return ITEMS_COUNT;
 }
 
+static u16 Query_GetWeightArrayCount()
+{
+    ASSERT_WEIGHT_QUERY;
+
+    if(sRogueQueryPtr->bitCount <= sRogueQueryPtr->weightArrayCapacity)
+    {
+        return sRogueQueryPtr->bitCount;
+    }
+    else
+    {
+        DebugPrintf("QueryWeight: Clamping as active bits too large (active_bits:%d capacity:%d)", sRogueQueryPtr->bitCount, sRogueQueryPtr->weightArrayCapacity);
+        return sRogueQueryPtr->weightArrayCapacity;
+    }
+}
+
 void RogueWeightQuery_Begin()
 {
     ASSERT_ANY_QUERY;
     sRogueQueryPtr->weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
+    sRogueQueryPtr->weightArrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
 }
 
 void RogueWeightQuery_End()
 {
     ASSERT_WEIGHT_QUERY;
     sRogueQueryPtr->weightArray = NULL;
+    sRogueQueryPtr->weightArrayCapacity = 0;
 }
 
 bool8 RogueWeightQuery_HasAnyWeights()
@@ -688,6 +708,7 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
     u16 index;
     u16 counter = 0;
     u16 maxBitCount = Query_MaxBitCount();
+    u16 weightCount = Query_GetWeightArrayCount();
 
     ASSERT_WEIGHT_QUERY;
 
@@ -698,12 +719,14 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
         if(GetQueryBitFlag(elem))
         {
             index = counter++;
-            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
 
-            weight = callback(index, elem, data);
+            if(index < weightCount)
+            {
+                weight = callback(index, elem, data);
 
-            sRogueQueryPtr->weightArray[index] = weight;
-            sRogueQueryPtr->totalWeight += weight;
+                sRogueQueryPtr->weightArray[index] = weight;
+                sRogueQueryPtr->totalWeight += weight;
+            }
         }
     }
 }
@@ -711,11 +734,17 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
 void RogueWeightQuery_FillWeights(u8 weight)
 {
     u16 i;
+    u16 weightCount = Query_GetWeightArrayCount();
 
     ASSERT_WEIGHT_QUERY;
 
-    memset(sRogueQueryPtr->weightArray, weight, sRogueQueryPtr->bitCount);
-    sRogueQueryPtr->totalWeight = weight * sRogueQueryPtr->bitCount;
+    sRogueQueryPtr->totalWeight = 0;
+
+    for(i = 0; i < weightCount; ++i)
+    {
+        sRogueQueryPtr->weightArray[i] = weight;
+        sRogueQueryPtr->totalWeight += weight;
+    }
 }
 
 void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
@@ -724,6 +753,7 @@ void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
     u16 index;
     u16 counter = 0;
     u16 maxBitCount = Query_MaxBitCount();
+    u16 weightCount = Query_GetWeightArrayCount();
 
     ASSERT_WEIGHT_QUERY;
 
@@ -732,17 +762,19 @@ void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
         if(GetQueryBitFlag(elem))
         {
             index = counter++;
-            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
 
-            if(elem == checkElem)
+            if(index < weightCount)
             {
-                AGB_ASSERT(sRogueQueryPtr->totalWeight > sRogueQueryPtr->weightArray[index]);
+                if(elem == checkElem)
+                {
+                    AGB_ASSERT(sRogueQueryPtr->totalWeight > sRogueQueryPtr->weightArray[index]);
 
-                // Remove old weight and replace with new one
-                sRogueQueryPtr->totalWeight -= sRogueQueryPtr->weightArray[index];
-                sRogueQueryPtr->weightArray[index] = weight;
-                sRogueQueryPtr->totalWeight += weight;
-                return;
+                    // Remove old weight and replace with new one
+                    sRogueQueryPtr->totalWeight -= sRogueQueryPtr->weightArray[index];
+                    sRogueQueryPtr->weightArray[index] = weight;
+                    sRogueQueryPtr->totalWeight += weight;
+                    return;
+                }
             }
         }
     }
@@ -758,6 +790,7 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
     u16 index;
     u16 counter = 0;
     u16 maxBitCount = Query_MaxBitCount();
+    u16 weightCount = Query_GetWeightArrayCount();
     u16 targetWeight = randValue % sRogueQueryPtr->totalWeight;
 
     ASSERT_WEIGHT_QUERY;
@@ -768,29 +801,31 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
         if(GetQueryBitFlag(elem))
         {
             index = counter++;
-            AGB_ASSERT(index < sRogueQueryPtr->bitCount);
 
-            weight = sRogueQueryPtr->weightArray[index];
-
-            if(weight != 0)
+            if(index < weightCount)
             {
-                if(targetWeight <= weight)
-                {
-                    // We've found the target!
-                    if(updateWeight)
-                    {
-                        // Remove old weight and replace with new one
-                        sRogueQueryPtr->totalWeight -= weight;
-                        sRogueQueryPtr->weightArray[index] = newWeight;
-                        sRogueQueryPtr->totalWeight += newWeight;
-                    }
+                weight = sRogueQueryPtr->weightArray[index];
 
-                    return elem;
-                }
-                else
+                if(weight != 0)
                 {
-                    // Still not reached target
-                    targetWeight -= weight;
+                    if(targetWeight <= weight)
+                    {
+                        // We've found the target!
+                        if(updateWeight)
+                        {
+                            // Remove old weight and replace with new one
+                            sRogueQueryPtr->totalWeight -= weight;
+                            sRogueQueryPtr->weightArray[index] = newWeight;
+                            sRogueQueryPtr->totalWeight += newWeight;
+                        }
+
+                        return elem;
+                    }
+                    else
+                    {
+                        // Still not reached target
+                        targetWeight -= weight;
+                    }
                 }
             }
         }

@@ -70,20 +70,21 @@ struct AdvPathGenerator
     struct AdvPathConnectionSettings connectionsPerRoom[ADVPATH_ROOM_COUNT];
 };
 
-struct AdvPathSettings
-{
-    struct Coords8 currentCoords;
-    u8 totalLength;
-    u8 nodeCount;
-    u8 numOfRooms[ADVPATH_ROOM_COUNT];
-    const struct AdvPathGenerator* generator;
-};
-
 struct AdvPathRoomSettings
 {
     struct Coords8 currentCoords;
     struct RogueAdvPathRoomParams roomParams;
     u8 roomType;
+};
+
+struct AdvPathSettings
+{
+    const struct AdvPathGenerator* generator;
+    struct AdvPathRoomSettings roomScratch[ROGUE_ADVPATH_ROOM_CAPACITY];
+    u8 numOfRooms[ADVPATH_ROOM_COUNT];
+    struct Coords8 currentCoords;
+    u8 totalLength;
+    u8 nodeCount;
 };
 
 static bool8 IsObjectEventVisible(struct RogueAdvPathRoom* room);
@@ -93,7 +94,7 @@ static void BufferTypeAdjective(u8 type);
 
 static void GeneratePath(struct AdvPathSettings* pathSettings);
 static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings);
-static struct AdvPathRoomSettings GenerateChildRoom(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings);
+static struct AdvPathRoomSettings* GenerateChildRoom(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings);
 
 static void AssignWeights_Standard(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings, u16* weights);
 static void AssignWeights_Finalize(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings, u16* weights);
@@ -107,13 +108,13 @@ static u8 SelectObjectMovementTypeForRoom(struct RogueAdvPathRoom* room);
 
 static void GeneratePath(struct AdvPathSettings* pathSettings)
 {
-    struct AdvPathRoomSettings bossRoom;
-    memset(&bossRoom, 0, sizeof(bossRoom));
+    struct AdvPathRoomSettings* bossRoom = &pathSettings->roomScratch[0];
+    memset(bossRoom, 0, sizeof(bossRoom));
 
     AGB_ASSERT(pathSettings->generator != NULL);
 
-    bossRoom.roomType = ADVPATH_ROOM_BOSS;
-    GenerateRoom(&bossRoom, pathSettings);
+    bossRoom->roomType = ADVPATH_ROOM_BOSS;
+    GenerateRoom(bossRoom, pathSettings);
 
     gRogueAdvPath.roomCount = pathSettings->nodeCount;
     gRogueAdvPath.currentRoomId = gRogueAdvPath.roomCount - 1; // give a valid idx
@@ -144,11 +145,15 @@ static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPat
     if(pathSettings->nodeCount >= ROGUE_ADVPATH_ROOM_CAPACITY)
     {
         // Cannot generate any more
+        DebugPrint("ADVPATH: \tReached room/node capacity.");
         return;
     }
     else
     {
         u8 nodeId = pathSettings->nodeCount++;
+
+        ++pathSettings->numOfRooms[roomSettings->roomType];
+        DebugPrintf("ADVPATH: \tAdded room type %d (Total: %d)", roomSettings->roomType, pathSettings->numOfRooms[roomSettings->roomType]);
 
         // Populate the room params
         //
@@ -208,14 +213,13 @@ static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPat
         gRogueAdvPath.rooms[nodeId].connectionMask = 0;
         gRogueAdvPath.rooms[nodeId].rngSeed = RogueRandom();
 
-        ++pathSettings->numOfRooms[roomSettings->roomType];
 
         // Generate children
         //
         if(roomSettings->currentCoords.x + 1 < pathSettings->totalLength)
         {
-            struct AdvPathRoomSettings childRoom;
             struct Coords8 coords;
+            struct AdvPathRoomSettings* childRoom;
             u8 connectionMask = GenerateRoomConnectionMask(roomSettings, pathSettings);
 
             gRogueAdvPath.rooms[nodeId].connectionMask = connectionMask;
@@ -223,28 +227,28 @@ static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPat
             if((connectionMask & ROOM_CONNECTION_MASK_TOP) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y + 1, pathSettings))
             {
                 childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom.currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom.currentCoords.y = roomSettings->currentCoords.y + 1;
+                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
+                childRoom->currentCoords.y = roomSettings->currentCoords.y + 1;
 
-                GenerateRoom(&childRoom, pathSettings);
+                GenerateRoom(childRoom, pathSettings);
             }
 
             if((connectionMask & ROOM_CONNECTION_MASK_MID) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y + 0, pathSettings))
             {
                 childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom.currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom.currentCoords.y = roomSettings->currentCoords.y + 0;
+                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
+                childRoom->currentCoords.y = roomSettings->currentCoords.y + 0;
 
-                GenerateRoom(&childRoom, pathSettings);
+                GenerateRoom(childRoom, pathSettings);
             }
 
             if((connectionMask & ROOM_CONNECTION_MASK_BOT) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y - 1, pathSettings))
             {
                 childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom.currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom.currentCoords.y = roomSettings->currentCoords.y - 1;
+                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
+                childRoom->currentCoords.y = roomSettings->currentCoords.y - 1;
 
-                GenerateRoom(&childRoom, pathSettings);
+                GenerateRoom(childRoom, pathSettings);
             }
         }
     }
@@ -313,15 +317,16 @@ static u8 GenerateRoomConnectionMask(struct AdvPathRoomSettings* roomSettings, s
     return mask;
 }
 
-static struct AdvPathRoomSettings GenerateChildRoom(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings)
+static struct AdvPathRoomSettings* GenerateChildRoom(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings)
 {
-    struct AdvPathRoomSettings newRoom;
-    memset(&newRoom, 0, sizeof(newRoom));
+    // Take from preallocated array
+    struct AdvPathRoomSettings* newRoom = &pathSettings->roomScratch[pathSettings->nodeCount];
+    memset(newRoom, 0, sizeof(newRoom));
 
     if(parentRoom->roomType == ADVPATH_ROOM_BOSS)
     {
         // These are intentionally empty "branching" nodes
-        newRoom.roomType = ADVPATH_ROOM_NONE;
+        newRoom->roomType = ADVPATH_ROOM_NONE;
     }
     else
     {
@@ -335,7 +340,7 @@ static struct AdvPathRoomSettings GenerateChildRoom(struct AdvPathRoomSettings* 
         AssignWeights_Standard(parentRoom, pathSettings, weights);
         AssignWeights_Finalize(parentRoom, pathSettings, weights);
 
-        newRoom.roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+        newRoom->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
     }
 
     return newRoom;
@@ -363,31 +368,39 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
     else
     {
-        struct AdvPathSettings pathSettings;
-        struct AdvPathGenerator generator;
+        struct AdvPathSettings* pathSettings;
+        struct AdvPathGenerator* generator;
 
-        memset(&pathSettings, 0, sizeof(pathSettings));
-        memset(&generator, 0, sizeof(generator));
+        pathSettings = AllocZeroed(sizeof(struct AdvPathSettings));
+        generator = AllocZeroed(sizeof(struct AdvPathGenerator));
 
-        pathSettings.generator = &generator;
-        pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
+        AGB_ASSERT(pathSettings != NULL);
+        AGB_ASSERT(generator != NULL);
 
-        generator.connectionsPerRoom[ADVPATH_ROOM_NONE].minCount = 1;
-        generator.connectionsPerRoom[ADVPATH_ROOM_NONE].maxCount = 1;
-        generator.connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_TOP] = 50;
-        generator.connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_MID] = 20;
-        generator.connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_BOT] = 50;
+        pathSettings->generator = generator;
+        pathSettings->totalLength = 3 + 2; // +2 to account for final encounter and initial split
 
-        generator.connectionsPerRoom[ADVPATH_ROOM_BOSS].minCount = 2;
-        generator.connectionsPerRoom[ADVPATH_ROOM_BOSS].maxCount = 3;
-        generator.connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_TOP] = 33;
-        generator.connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_MID] = 33;
-        generator.connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_BOT] = 33;
+        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].minCount = 1;
+        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].maxCount = 1;
+        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_TOP] = 50;
+        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_MID] = 20;
+        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_BOT] = 50;
+
+        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].minCount = 2;
+        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].maxCount = 3;
+        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_TOP] = 33;
+        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_MID] = 33;
+        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_BOT] = 33;
 
         //SeedRogueRng(gRogueAdvPath.nextRngSeed);
         SeedRogueRng(Random()); // TEMP - Just used to make debugging a bit easier than constantly reloading in and out
-        GeneratePath(&pathSettings);
+        DebugPrintf("ADVPATH: Generating path for seed %d.", gRngRogueValue);
+        GeneratePath(pathSettings);
+        DebugPrint("ADVPATH: Finished generating path.");
         gRogueAdvPath.nextRngSeed = RogueRandom();
+
+        Free(pathSettings);
+        Free(generator);
         return TRUE;
     }
 }
@@ -625,21 +638,24 @@ void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEvent
         x = ROOM_TO_OBJECT_EVENT_X(gRogueAdvPath.rooms[i].coords.x);
         y = ROOM_TO_OBJECT_EVENT_Y(gRogueAdvPath.rooms[i].coords.y);
 
-        if(writeIdx < objectEventCapacity && IsObjectEventVisible(&gRogueAdvPath.rooms[i]))
+        if(writeIdx < objectEventCapacity)
         {
-            objectEvents[writeIdx].localId = writeIdx;
-            objectEvents[writeIdx].graphicsId = SelectObjectGfxForRoom(&gRogueAdvPath.rooms[i]);
-            objectEvents[writeIdx].x = x;
-            objectEvents[writeIdx].y = y;
-            objectEvents[writeIdx].elevation = 3;
-            objectEvents[writeIdx].trainerType = TRAINER_TYPE_NONE;
-            objectEvents[writeIdx].movementType = SelectObjectMovementTypeForRoom(&gRogueAdvPath.rooms[i]);
-            // Pack node into movement vars
-            objectEvents[writeIdx].movementRangeX = i;//x;
-            objectEvents[writeIdx].movementRangeY = 0;//y;
-            objectEvents[writeIdx].script = Rogue_AdventurePaths_InteractRoom;
+            if(IsObjectEventVisible(&gRogueAdvPath.rooms[i]))
+            {
+                objectEvents[writeIdx].localId = writeIdx;
+                objectEvents[writeIdx].graphicsId = SelectObjectGfxForRoom(&gRogueAdvPath.rooms[i]);
+                objectEvents[writeIdx].x = x;
+                objectEvents[writeIdx].y = y;
+                objectEvents[writeIdx].elevation = 3;
+                objectEvents[writeIdx].trainerType = TRAINER_TYPE_NONE;
+                objectEvents[writeIdx].movementType = SelectObjectMovementTypeForRoom(&gRogueAdvPath.rooms[i]);
+                // Pack node into movement vars
+                objectEvents[writeIdx].movementRangeX = i;//x;
+                objectEvents[writeIdx].movementRangeY = 0;//y;
+                objectEvents[writeIdx].script = Rogue_AdventurePaths_InteractRoom;
 
-            ++writeIdx;
+                ++writeIdx;
+            }
         }
         else
         {
