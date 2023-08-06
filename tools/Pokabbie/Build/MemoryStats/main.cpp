@@ -28,12 +28,14 @@ static void ProcessMapFile(std::string const& filePath);
 
 int main(int argc, char **argv)
 {
-    const char* automationHost = std::getenv("AUTOMATION_HOST");
-    if (automationHost != nullptr)
-    {
-        std::cout << "Skipping memorystats (AUTOMATION_HOST is defined). ";
-        return 0;
-    }
+    // Comment this back in, if we want to skip this on Github
+    //
+    //const char* automationHost = std::getenv("AUTOMATION_HOST");
+    //if (automationHost != nullptr)
+    //{
+    //    std::cout << "Skipping memorystats (AUTOMATION_HOST is defined). ";
+    //    return 0;
+    //}
 
     std::vector<std::string> filesToProcess;
 
@@ -199,6 +201,12 @@ static void ProcessMapFile(std::string const& filePath)
     
     std::string outputFile = filePath;
     strutil::replace_all(outputFile, ".map", "_memorystats.csv");
+
+    outputStats.rom.endAddress - outputStats.rom.startAddress
+    std::cout << "Sizes:\n";
+    std::cout << "\t-ROM: " << (outputStats.rom.endAddress - outputStats.rom.startAddress) << " bytes.\n";
+    std::cout << "\t-EWRAM: " << (outputStats.ewram.endAddress - outputStats.ewram.startAddress) << " bytes.\n";
+    std::cout << "\t-IWRAM: " << (outputStats.iwram.endAddress - outputStats.iwram.startAddress) << " bytes.\n";
 
     DumpStatsFile(outputStats, outputFile);
 }
