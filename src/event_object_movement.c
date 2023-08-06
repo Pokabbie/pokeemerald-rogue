@@ -28,6 +28,7 @@
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
 #include "constants/items.h"
+#include "constants/layouts.h"
 #include "constants/mauville_old_man.h"
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
@@ -7554,9 +7555,17 @@ static void UpdateObjectEventOffscreen(struct ObjectEvent *objectEvent, struct S
 {
     u16 x, y;
     u16 x2, y2;
+    s16 padding = 16;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
 
+    padding = 16;
     objectEvent->offScreen = FALSE;
+
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    {
+        // Disable padding on this map, as we know everything will be still and we want to avoid popping at all cost
+        padding = 0;
+    }
 
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     if (sprite->coordOffsetEnabled)
@@ -7574,10 +7583,10 @@ static void UpdateObjectEventOffscreen(struct ObjectEvent *objectEvent, struct S
     y2 = y;
     y2 += graphicsInfo->height;
 
-    if ((s16)x >= DISPLAY_WIDTH + 16 || (s16)x2 < -16)
+    if ((s16)x >= DISPLAY_WIDTH + padding || (s16)x2 < -padding)
         objectEvent->offScreen = TRUE;
 
-    if ((s16)y >= DISPLAY_HEIGHT + 16 || (s16)y2 < -16)
+    if ((s16)y >= DISPLAY_HEIGHT + padding || (s16)y2 < -padding)
         objectEvent->offScreen = TRUE;
 }
 

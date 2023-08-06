@@ -230,8 +230,8 @@ gSpecials::
 	def_special RogueHub_BufferAreaCompleteText
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
-	def_special RogueAdv_GetNodeParams
-	def_special RogueAdv_ExecuteNodeAction
+	def_special RogueAdv_GetLastInteractedRoomParams
+	def_special RogueAdv_WarpLastInteractedRoom
 	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending

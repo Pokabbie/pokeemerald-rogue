@@ -411,7 +411,7 @@ static void AutoCmd_Warp(u16* args)
 
 static void AutoCmd_WarpNextAdventureEncounter(u16* args)
 {
-    RogueAdv_DebugExecuteRandomNextNode();
+    //RogueAdv_DebugExecuteRandomNextNode();
 }
 
 static void AutoCmd_SetAutomationFlag(u16* args)

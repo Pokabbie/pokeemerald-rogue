@@ -69,7 +69,7 @@ u16 GetStartDifficulty(void);
 
 static u8 Calc_RandomTradeLevel(struct Pokemon* mon)
 {
-    if(gRogueRun.currentRoomIdx == 0)
+    if(gRogueRun.enteredRoomCounter == 0)
     {
         u16 startDifficulty = GetStartDifficulty();
 

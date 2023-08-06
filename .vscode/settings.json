@@ -20,7 +20,8 @@
         "thread": "c",
         "xlocmes": "c",
         "xlocnum": "c",
-        "xloctime": "c"
+        "xloctime": "c",
+        "sstream": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
