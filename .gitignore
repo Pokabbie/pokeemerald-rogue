@@ -39,6 +39,7 @@ porymap.*.cfg
 *.js
 *.ups
 !scripts/*
+pokeemerald_memorystats.csv
 data/maps/**/*.inc
 tools/poryscript/*
 tools/ups/*

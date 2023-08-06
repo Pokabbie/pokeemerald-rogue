@@ -45,9 +45,14 @@ jobs:
           ./install.sh ../
         working-directory: agbcc
 
-
       - name: Agbcc
         run: make -j${nproc} -O all
+
+      - name: Update Memory Stats
+        uses: actions/upload-artifact@v3
+        with:
+          name: Memory Stats
+          path: pokeemerald_memorystats.csv
 
       # - name: Modern
       #   env:

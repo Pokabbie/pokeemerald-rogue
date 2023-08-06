@@ -28,12 +28,14 @@ static void ProcessMapFile(std::string const& filePath);
 
 int main(int argc, char **argv)
 {
-    const char* automationHost = std::getenv("AUTOMATION_HOST");
-    if (automationHost != nullptr)
-    {
-        std::cout << "Skipping memorystats (AUTOMATION_HOST is defined). ";
-        return 0;
-    }
+    // Comment this back in, if we want to skip this on Github
+    //
+    //const char* automationHost = std::getenv("AUTOMATION_HOST");
+    //if (automationHost != nullptr)
+    //{
+    //    std::cout << "Skipping memorystats (AUTOMATION_HOST is defined). ";
+    //    return 0;
+    //}
 
     std::vector<std::string> filesToProcess;
 
@@ -199,6 +201,17 @@ static void ProcessMapFile(std::string const& filePath)
     
     std::string outputFile = filePath;
     strutil::replace_all(outputFile, ".map", "_memorystats.csv");
+
+    std::cout << "Sizes:\n";
+    std::cout << "\t-ROM: " << (outputStats.rom.endAddress - outputStats.rom.startAddress) / 8 << " bytes.\n";
+    std::cout << "\t-EWRAM: " << (outputStats.ewram.endAddress - outputStats.ewram.startAddress) / 8 << " bytes.\n";
+    std::cout << "\t-IWRAM: " << (outputStats.iwram.endAddress - outputStats.iwram.startAddress) / 8 << " bytes.\n";
+
+    std::cout << "Conversion Reference:\n";
+    std::cout << "\t- 8MB: " << (8 * 1024 * 1024) << " bytes.\n";
+    std::cout << "\t-16MB: " << (16 * 1024 * 1024) << " bytes.\n";
+    std::cout << "\t-32MB: " << (32 * 1024 * 1024) << " bytes.\n";
+    std::cout << "\t-64MB: " << (64 * 1024 * 1024) << " bytes.\n";
 
     DumpStatsFile(outputStats, outputFile);
 }
