@@ -57,6 +57,12 @@
     <ClInclude Include="External\imgui\imstb_textedit.h">
       <Filter>External</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\Log.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Defines.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
