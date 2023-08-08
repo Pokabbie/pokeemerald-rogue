@@ -10,6 +10,9 @@ typedef std::function<bool(Window*, void*)> WindowCallback;
 struct WindowConfig
 {
 	std::string title;
+	int width = 640;
+	int height = 480;
+	bool resizable = false;
 	bool imGuiEnabled = false;
 };
 

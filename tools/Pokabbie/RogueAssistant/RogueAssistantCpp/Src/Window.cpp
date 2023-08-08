@@ -36,7 +36,9 @@ bool Window::Create()
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    m_GlfwWindow = glfwCreateWindow(640, 480, m_Config.title.c_str(), NULL, NULL);
+    glfwWindowHint(GLFW_RESIZABLE, m_Config.resizable ? GLFW_TRUE : GLFW_FALSE);
+
+    m_GlfwWindow = glfwCreateWindow(m_Config.width, m_Config.height, m_Config.title.c_str(), NULL, NULL);
     if (!m_GlfwWindow)
     {
         glfwTerminate();
