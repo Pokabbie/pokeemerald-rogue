@@ -1026,7 +1026,7 @@
       "name": "Rogue_AdventurePaths_Layout",
       "width": 44,
       "height": 30,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_AdventurePaths/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_AdventurePaths/map.bin"
