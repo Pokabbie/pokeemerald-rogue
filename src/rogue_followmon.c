@@ -374,7 +374,10 @@ bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
     if(Rogue_AreWildMonEnabled())
     {
         // Turn of animated grass when wild mons are active because it's pretty laggy and causes palette issues
-        return !FollowMon_IsMonObject(objectEvent, TRUE);
+        if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId])
+            return TRUE; // We will only keep on grass animation for the player
+
+        return FALSE;
     }
     else
     {

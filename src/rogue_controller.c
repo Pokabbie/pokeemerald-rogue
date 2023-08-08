@@ -3116,7 +3116,7 @@ void Rogue_OnWarpIntoMap(void)
     {
         gRogueAdvPath.isOverviewActive = TRUE;
     }
-    else if((gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB || gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_ADVENTURE_ENTERANCE) && Rogue_IsRunActive())
+    else if((gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_ADVENTURE_ENTERANCE) && Rogue_IsRunActive())
     {
         EndRogueRun();
     }
@@ -3147,10 +3147,23 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Warping back to hub must be intentional
         return;
     }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_AREA_ADVENTURE_ENTRANCE) && warp->mapNum == MAP_NUM(ROGUE_AREA_ADVENTURE_ENTRANCE))
+    {
+        // Warping back to hub must be intentional
+        return;
+    }
     else if(warp->mapGroup == MAP_GROUP(ROGUE_HUB_ADVENTURE_ENTERANCE) && warp->mapNum == MAP_NUM(ROGUE_HUB_ADVENTURE_ENTERANCE))
     {
         // Warping back to hub must be intentional
         return;
+    }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_ADVENTURE_PATHS) && warp->mapNum == MAP_NUM(ROGUE_ADVENTURE_PATHS))
+    {
+        // Ensure the run has started if we're trying to directly warp into the paths screen
+        if(!Rogue_IsRunActive())
+        {
+            BeginRogueRun();
+        }
     }
 
     // Reset preview data
