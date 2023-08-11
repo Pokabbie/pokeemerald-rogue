@@ -806,11 +806,27 @@ static void DoMoveRelearnerMain(void)
             }
             else
             {
+                u32 startPpPerc;
                 u16 moveId = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
+
+                // Log PP
+                if(sMoveRelearnerMenuSate.inPartyMenu)
+                {
+                    startPpPerc = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + sMoveRelearnerStruct->moveSlot);
+                    startPpPerc = (startPpPerc * 100) / (u32)gBattleMoves[moveId].pp;
+                }
 
                 StringCopy(gStringVar3, gMoveNames[moveId]);
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
                 SetMonMoveSlot(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove(), sMoveRelearnerStruct->moveSlot);
+
+                // Maintain PP %
+                if(sMoveRelearnerMenuSate.inPartyMenu)
+                {
+                    startPpPerc = (startPpPerc * (u32)gBattleMoves[GetCurrentSelectedMove()].pp) / 100;
+                    SetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + sMoveRelearnerStruct->moveSlot, &startPpPerc);
+                }
+
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
                 FormatAndPrintText(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
