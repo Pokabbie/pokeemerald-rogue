@@ -390,6 +390,7 @@ const u8 gText_SendOut[] = _("SEND OUT");
 const u8 gText_Switch2[] = _("SWITCH");
 const u8 gText_Release[] = _("RELEASE");
 const u8 gText_Rename[] = _("NICKNAME");
+const u8 gText_RelearnMove[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}LEARN MOVES");
 const u8 gText_Summary5[] = _("SUMMARY");
 const u8 gText_Moves[] = _("MOVES"); // Unused
 const u8 gText_Enter[] = _("ENTER");

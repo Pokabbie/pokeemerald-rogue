@@ -39,6 +39,7 @@
 #include "menu_helpers.h"
 #include "menu_specialized.h"
 #include "metatile_behavior.h"
+#include "move_relearner.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -408,6 +409,7 @@ static void CursorCb_Toss(u8);
 static void CursorCb_Release(u8);
 static void CursorCb_ReleaseField(u8);
 static void CursorCb_RenameField(u8);
+static void CursorCb_RelearnMoves(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
@@ -2648,6 +2650,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
 
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEARN_MOVE);
 
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
@@ -2661,6 +2664,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
 
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
+
+    AGB_ASSERT(sPartyMenuInternal->numActions < ARRAY_COUNT(sPartyMenuInternal->actions));
 }
 
 static u8 GetPartyMenuActionsType(struct Pokemon *mon)
@@ -3402,14 +3407,55 @@ static void Task_ReleaseSelectedMonYesNoInput(u8 taskId)
     }
 }
 
-void ChangePokemonNickname(void);
+void ChangePokemonNicknameFromPartyMenu(void);
+
+static void Task_ExitPartyMenuToRename(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        ResetSpriteData();
+        FreePartyPointers();
+
+        ChangePokemonNicknameFromPartyMenu();
+        //DestroyTask(taskId);
+    }
+}
 
 static void CursorCb_RenameField(u8 taskId)
 {
     PlaySE(SE_SELECT);
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
-    ChangePokemonNickname();
-    //gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+    
+    // Variant of ExitPartyMenu
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    CreateTask(Task_ExitPartyMenuToRename, 0);
+    SetVBlankCallback(VBlankCB_PartyMenu);
+    SetMainCallback2(CB2_UpdatePartyMenu);
+}
+
+static void Task_ExitPartyMenuToRelearnMoves(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        ResetSpriteData();
+        FreePartyPointers();
+
+        TeachMoveSetContextRelearnMove();
+        TeachMoveFromContextFromTask(taskId);
+        //DestroyTask(taskId);
+    }
+}
+
+static void CursorCb_RelearnMoves(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gSpecialVar_0x8004 = GetCursorSelectionMonId();
+
+    // Variant of ExitPartyMenu
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    CreateTask(Task_ExitPartyMenuToRelearnMoves, 0);
+    SetVBlankCallback(VBlankCB_PartyMenu);
+    SetMainCallback2(CB2_UpdatePartyMenu);
 }
 
 static void Task_TossHeldItemYesNo(u8 taskId)
@@ -6473,6 +6519,13 @@ void ChooseMonForMoveRelearner(void)
     ScriptContext2_Enable();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChooseMonForMoveRelearner, 10);
+}
+
+void ReturnToPartyMenuSubMenu(void)
+{
+    // From CB2_PartyMenuFromStartMenu
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldWithOpenMenu);
+    //CreateTask(Task_ChooseMonForMoveRelearner, 10);
 }
 
 static void Task_ChooseMonForMoveRelearner(u8 taskId)
