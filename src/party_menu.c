@@ -122,7 +122,7 @@ struct PartyMenuInternal
     u32 spriteIdCancelPokeball:7;
     u32 messageId:14;
     u8 windowId[3];
-    u8 actions[8];
+    u8 actions[10];
     u8 numActions;
     // In vanilla Emerald, only the first 0xB0 hwords (0x160 bytes) are actually used.
     // However, a full 0x100 hwords (0x200 bytes) are allocated.
@@ -410,6 +410,7 @@ static void CursorCb_Release(u8);
 static void CursorCb_ReleaseField(u8);
 static void CursorCb_RenameField(u8);
 static void CursorCb_RelearnMoves(u8);
+static void CursorCb_Evolve(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
@@ -2649,12 +2650,21 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
-
         if (GetNumberOfRelearnableMoves(&mons[slotId]) != 0)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEARN_MOVE);
         }
+
+        {
+            u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE);
+
+            if(targetSpecies != SPECIES_NONE)
+            {
+                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_EVOLVE);
+            }
+        }
+
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
 
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
@@ -3461,6 +3471,32 @@ static void CursorCb_RelearnMoves(u8 taskId)
     SetVBlankCallback(VBlankCB_PartyMenu);
     SetMainCallback2(CB2_UpdatePartyMenu);
 }
+
+
+static void CursorCb_Evolve(u8 taskId)
+{
+    // Based on PartyMenuTryEvolution(taskId);
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+
+    PlaySE(SE_SELECT);
+
+    if (targetSpecies != SPECIES_NONE)
+    {
+        FreePartyPointers();
+        gCB2_AfterEvolution = gPartyMenu.exitCallback;
+        BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
+        DestroyTask(taskId);
+    }
+    else
+    {
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        else
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+    }
+}
+
 
 static void Task_TossHeldItemYesNo(u8 taskId)
 {
@@ -5272,9 +5308,15 @@ static void DisplayLevelUpStatsPg2(u8 taskId)
     ScheduleBgCopyTilemapToVram(2);
 }
 
+u16 PartyMenuMonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+{
+    // RogueNote: Never try to learn replace moves from inside the summary screen
+    return 0;// MonTryLearningNewMove(mon, firstMove);
+}
+
 static void Task_TryLearnNewMoves1(u8 taskId)
 {
-    u16 learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
+    u16 learnMove = PartyMenuMonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
 
     if(learnMove != 0)
         PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
@@ -5312,7 +5354,7 @@ static void Task_TryLearnNewMoves2(u8 taskId)
 
 static void Task_TryLearningNextMove(u8 taskId)
 {
-    u16 result = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], FALSE);
+    u16 result = PartyMenuMonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], FALSE);
 
     switch (result)
     {
@@ -5332,8 +5374,9 @@ static void Task_TryLearningNextMove(u8 taskId)
 
 static void PartyMenuTryEvolution(u8 taskId)
 {
+    // RogueNote: Never evolve through party menu levelup
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+    u16 targetSpecies = SPECIES_NONE; // GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
 
     if (targetSpecies != SPECIES_NONE)
     {
