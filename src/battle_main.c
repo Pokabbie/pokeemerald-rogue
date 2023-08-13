@@ -5301,7 +5301,7 @@ static void TryEvolvePokemon(void)
                 if (species != SPECIES_NONE)
                 {
                     // RogueNote: Don't auto-evolve pokemon from battle
-                    Rogue_PushPartyEvoPopup(i);
+                    //Rogue_PushPopup_NewEvos(i);
 
                     //FreeAllWindowBuffers();
                     //gBattleMainFunc = WaitForEvoSceneToFinish;

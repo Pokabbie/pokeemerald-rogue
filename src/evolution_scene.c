@@ -569,6 +569,8 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon* mon)
 
         CopyMon(&gPlayerParty[gPlayerPartyCount], mon, sizeof(struct Pokemon));
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_SPECIES, &evo.targetSpecies);
+        gPlayerParty[gPlayerPartyCount].rogueExtraData.hasPendingEvo = FALSE;
+
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_NICKNAME, gSpeciesNames[evo.targetSpecies]);
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_HELD_ITEM, &data);
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_MARKINGS, &data);
@@ -779,6 +781,8 @@ static void Task_EvolutionScene(u8 taskId)
             PlayBGM(MUS_EVOLVED);
             gTasks[taskId].tState++;
             SetMonData(mon, MON_DATA_SPECIES, (void*)(&gTasks[taskId].tPostEvoSpecies));
+            mon->rogueExtraData.hasPendingEvo = FALSE;
+
             CalculateMonStats(mon);
             EvolutionRenameMon(mon, gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies);
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);
@@ -1205,6 +1209,8 @@ static void Task_TradeEvolutionScene(u8 taskId)
             PlayFanfare(MUS_EVOLVED);
             gTasks[taskId].tState++;
             SetMonData(mon, MON_DATA_SPECIES, (&gTasks[taskId].tPostEvoSpecies));
+            mon->rogueExtraData.hasPendingEvo = FALSE;
+
             CalculateMonStats(mon);
             EvolutionRenameMon(mon, gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies);
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);

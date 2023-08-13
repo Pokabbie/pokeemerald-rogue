@@ -4,6 +4,7 @@
 #include "item_icon.h"
 #include "malloc.h"
 #include "palette.h"
+#include "pokemon_icon.h"
 #include "sprite.h"
 #include "window.h"
 #include "constants/items.h"
@@ -124,7 +125,8 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
     }
 }
 
-u8 BlitItemIconToWindow(u16 itemId, u8 windowId, u16 x, u16 y, void * paletteDest) {
+u8 BlitItemIconToWindow(u16 itemId, u8 windowId, u16 x, u16 y, void * paletteDest) 
+{
     if (!AllocItemIconTemporaryBuffers())
         return 16;
 
@@ -134,11 +136,44 @@ u8 BlitItemIconToWindow(u16 itemId, u8 windowId, u16 x, u16 y, void * paletteDes
 
     // if paletteDest is nonzero, copies the decompressed palette directly into it
     // otherwise, loads the compressed palette into the windowId's BG palette ID
-    if (paletteDest) {
+    if (paletteDest) 
+    {
         LZDecompressWram(GetItemIconPicOrPalette(itemId, 1), gPaletteDecompressionBuffer);
         CpuFastCopy(gPaletteDecompressionBuffer, paletteDest, PLTT_SIZE_4BPP);
-    } else {
+    } 
+    else 
+    {
         LoadCompressedPalette(GetItemIconPicOrPalette(itemId, 1), BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+    }
+    FreeItemIconTemporaryBuffers();
+    return 0;
+}
+
+u8 BlitPokemonIconToWindow(u16 species, u8 windowId, u16 x, u16 y, void * paletteDest)
+{
+    u8 palId;
+
+    if (!AllocItemIconTemporaryBuffers())
+        return 16;
+
+    palId = GetMonIconPaletteIndexFromSpecies(species);
+
+    //LZDecompressWram(GetMonIconTiles(species, FALSE), gItemIconDecompressionBuffer);
+    //CopyItemIconPicTo4x4Buffer(GetMonIconTiles(species, FALSE), gItemIcon4x4Buffer);
+    
+    BlitBitmapToWindow(windowId, GetMonIconTiles(species, FALSE), x, y, 32, 32);
+
+    //gMonIconPaletteTable
+
+    // if paletteDest is nonzero, copies the decompressed palette directly into it
+    // otherwise, loads the compressed palette into the windowId's BG palette ID
+    if (paletteDest) 
+    {
+        CpuFastCopy(gMonIconPaletteTable[palId].data, paletteDest, PLTT_SIZE_4BPP);
+    } 
+    else 
+    {
+        LoadPalette(gMonIconPaletteTable[palId].data, BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
     }
     FreeItemIconTemporaryBuffers();
     return 0;

@@ -501,7 +501,7 @@ bool8 TryMarkQuestAsComplete(u16 questId)
             state->hasPendingRewards = TRUE;
         }
 
-        Rogue_PushPopup(POPUP_MSG_QUEST_COMPLETE, questId);
+        Rogue_PushPopup_QuestComplete(questId);
         return TRUE;
     }
 
@@ -517,7 +517,7 @@ bool8 TryDeactivateQuest(u16 questId)
         state->isValid = FALSE;
 
         if(state->isPinned)
-            Rogue_PushPopup(POPUP_MSG_QUEST_FAIL, questId);
+            Rogue_PushPopup_QuestFail(questId);
 
         return TRUE;
     }

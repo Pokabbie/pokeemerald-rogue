@@ -5,7 +5,7 @@
 struct RoguePartyMon
 {
     bool8 hasPendingEvo : 1;
-    u8 pad0 : 7;
+    u8 lastPopupLevel : 7;
 };
 
 // Adventure Path settings

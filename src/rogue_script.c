@@ -673,13 +673,6 @@ void Rogue_ClearCharmsAndCurses(void)
     Rogue_RemoveCursesFromBag();
 }
 
-void Rogue_Popup(void)
-{
-    u8 msgType = gSpecialVar_0x8004;
-    u16 param = gSpecialVar_0x8005;
-    Rogue_PushPopup(msgType, param);
-}
-
 void Rogue_GetUnlockedCampaignCount(void)
 {
     u16 i;

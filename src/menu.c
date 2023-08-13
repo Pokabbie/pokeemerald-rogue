@@ -21,6 +21,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_popup.h"
 #include "rogue_quest.h"
 
 #define DLG_WINDOW_PALETTE_NUM 15
@@ -63,7 +64,6 @@ static void task_free_buf_after_copying_tile_data_to_vram(u8 taskId);
 
 static EWRAM_DATA u8 sStartMenuWindowId = 0;
 static EWRAM_DATA u8 sMapNamePopupWindowId = 0;
-static EWRAM_DATA u8 sQuestPopupWindowId = 0;
 static EWRAM_DATA struct Menu sMenu = {0};
 static EWRAM_DATA u16 sTileNum = 0;
 static EWRAM_DATA u8 sPaletteNum = 0;
@@ -142,12 +142,14 @@ static const struct MenuInfoIcon sMenuInfoIcons[] =
     [MENU_INFO_ICON_BALL_BLUE] = {  8,  8, 0xAF }, // For placed decorations in player's room
 };
 
+void InitQuestWindow();
+
 void InitStandardTextBoxWindows(void)
 {
     InitWindows(sStandardTextBox_WindowTemplates);
     sStartMenuWindowId = WINDOW_NONE;
     sMapNamePopupWindowId = WINDOW_NONE;
-    sQuestPopupWindowId = WINDOW_NONE;
+    InitQuestWindow();
 }
 
 void FreeAllOverworldWindowBuffers(void)
@@ -543,27 +545,6 @@ void RemoveMapNamePopUpWindow(void)
     {
         RemoveWindow(sMapNamePopupWindowId);
         sMapNamePopupWindowId = WINDOW_NONE;
-    }
-}
-
-u8 AddQuestPopUpWindow(void)
-{
-    if (sQuestPopupWindowId == WINDOW_NONE)
-        sQuestPopupWindowId = AddWindowParameterized(0, 1, 1, 10, 4, 0xF, 0x107); // Old Palette num 14
-    return sQuestPopupWindowId;
-}
-
-u8 GetQuestPopUpWindowId(void)
-{
-    return sQuestPopupWindowId;
-}
-
-void RemoveQuestPopUpWindow(void)
-{
-    if (sQuestPopupWindowId != WINDOW_NONE)
-    {
-        RemoveWindow(sQuestPopupWindowId);
-        sQuestPopupWindowId = WINDOW_NONE;
     }
 }
 

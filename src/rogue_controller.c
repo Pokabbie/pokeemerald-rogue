@@ -2199,7 +2199,7 @@ void Rogue_OnLoadMap(void)
         Rogue_ClearPopupQueue();
 
         RandomiseSafariWildEncounters();
-        Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
+        //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
     }
     else if(!Rogue_IsRunActive())
     {
@@ -2258,7 +2258,6 @@ static void GiveMonPartnerRibbon(void)
     u8 i;
     u16 species;
     bool8 ribbonSet = TRUE;
-    bool8 hasDisabledEvo = FALSE;
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
@@ -2267,17 +2266,10 @@ static void GiveMonPartnerRibbon(void)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
 
-            if(!hasDisabledEvo && Rogue_GetEvolutionCount(species) != 0)
-            {
-                if(!HasAnyActiveEvos(species))
-                    hasDisabledEvo = TRUE;
-            }
+            if(Rogue_GetEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
+                Rogue_PushPopup_UnableToEvolve(i);
         }
     }
-
-    // No need to display popup if haven't unlocked gen settings
-    if(FlagGet(FLAG_ROGUE_MET_POKABBIE) && hasDisabledEvo)
-        Rogue_PushPopup(POPUP_MSG_PARTNER_EVO_WARNING, 0);
 }
 
 bool8 Rogue_IsPartnerMonInTeam(void)
@@ -2410,7 +2402,7 @@ static void InitialiseFaintedLabMons(void)
     }
 }
 
-static bool8 PartyContainsWeakLegendaryMon(void)
+static u16 GetPartyWeakLegendary(void)
 {
     u16 i;
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -2418,14 +2410,14 @@ static bool8 PartyContainsWeakLegendaryMon(void)
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
         if(species != SPECIES_NONE && IsSpeciesLegendary(species))
         {
-            return TRUE;
+            return species;
         }
     }
 
-    return FALSE;
+    return SPECIES_NONE;
 }
 
-static bool8 PartyContainsStrongLegendaryMon(void)
+static u16 GetPartyStrongLegendary(void)
 {
     u16 i;
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -2436,12 +2428,12 @@ static bool8 PartyContainsStrongLegendaryMon(void)
         {
             if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
             {
-                return TRUE;
+                return species;
             }
         }
     }
 
-    return FALSE;
+    return SPECIES_NONE;
 }
 
 static void BeginRogueRun_ModifyParty(void)
@@ -2623,11 +2615,22 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
     FlagClear(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
 
-    if(PartyContainsWeakLegendaryMon())
-        FlagSet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
+    {
+        u16 weakSpecies = GetPartyWeakLegendary();
+        u16 strongSpecies = GetPartyStrongLegendary();
 
-    if(PartyContainsStrongLegendaryMon())
-        FlagSet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
+        if(weakSpecies != SPECIES_NONE)
+            FlagSet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
+
+        if(strongSpecies != SPECIES_NONE)
+            FlagSet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
+
+        if(strongSpecies != SPECIES_NONE)
+            Rogue_PushPopup_StrongPokemonClause(strongSpecies);
+        else if(weakSpecies != SPECIES_NONE)
+            Rogue_PushPopup_WeakPokemonClause(weakSpecies);
+
+    }
 
     GiveMonPartnerRibbon();
 

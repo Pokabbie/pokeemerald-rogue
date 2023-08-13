@@ -16,30 +16,6 @@ mapscripts Rogue_HubTransition_MapScripts
 
 script Rogue_HubTransition_OnEnter
 {
-    lock
-
-    specialvar(VAR_RESULT, Rogue_GetActiveCampaign)
-    if(var(VAR_RESULT) != ROGUE_CAMPAIGN_NONE)
-    {
-        setvar(VAR_0x8004, POPUP_MSG_CAMPAIGN_ANNOUNCE)
-        copyvar(VAR_0x8005, VAR_RESULT)
-        special(Rogue_Popup)
-    }
-
-    if(flag(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
-    {
-        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
-        setvar(VAR_0x8005, 1)
-        special(Rogue_Popup)
-    }
-    elif(flag(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
-    {        
-        setvar(VAR_0x8004, POPUP_MSG_LEGENDARY_CLAUSE)
-        setvar(VAR_0x8005, 0)
-        special(Rogue_Popup)
-    }
-
-    release
     setvar(VAR_TEMP_1, 1)
     end
 }

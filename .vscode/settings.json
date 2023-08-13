@@ -22,7 +22,11 @@
         "xlocnum": "c",
         "xloctime": "c",
         "sstream": "c",
-        "xiosbase": "c"
+        "xiosbase": "c",
+        "array": "c",
+        "span": "c",
+        "vector": "c",
+        "xstring": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

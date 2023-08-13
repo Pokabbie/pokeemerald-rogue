@@ -5468,7 +5468,7 @@ static void Cmd_handlelearnnewmove(void)
         // RogueNote: Don't ask to teach moves in battle
         gMoveToLearn = MOVE_NONE;
         gBattlescriptCurrInstr = nothingToLearnPtr;
-        Rogue_PushPartyMoveLearnPopup(gBattleStruct->expGetterMonId);
+        //Rogue_PushPopup_NewMoves(gBattleStruct->expGetterMonId);
         //gBattlescriptCurrInstr += 10;
     }
     else
