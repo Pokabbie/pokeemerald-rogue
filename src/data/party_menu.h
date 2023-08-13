@@ -689,6 +689,8 @@ enum
     MENU_RENAME,
     MENU_RELEARN_MOVE,
     MENU_EVOLVE,
+    MENU_CYCLE_SUBMENU,
+    MENU_POKEDEX,
     MENU_FIELD_MOVES,
 };
 
@@ -743,6 +745,8 @@ struct
     [MENU_RENAME] = {gText_Rename, CursorCb_RenameField},
     [MENU_RELEARN_MOVE] = {gText_RelearnMove, CursorCb_RelearnMoves},
     [MENU_EVOLVE] = {gText_Evolve, CursorCb_Evolve},
+    [MENU_CYCLE_SUBMENU] = {gText_CycleSubMenu, CursorCb_CycleSubMenu},
+    [MENU_POKEDEX] = {gText_PokedexEntry, CursorCb_Pokedex},
     [MENU_FIELD_MOVES + FIELD_MOVE_CUT] = {gMoveNames[MOVE_CUT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_FLASH] = {gMoveNames[MOVE_FLASH], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH] = {gMoveNames[MOVE_ROCK_SMASH], CursorCb_FieldMove},

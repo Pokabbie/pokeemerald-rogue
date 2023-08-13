@@ -14,6 +14,7 @@ struct PartyMenu
     u8 layout:2;
     s8 slotId;
     s8 slotId2;
+    u8 subMenuId;
     u8 action;
     u16 bagItem;
     s16 data1;           // used variously as a moveId, counter, moveSlotId, or cursorPos
