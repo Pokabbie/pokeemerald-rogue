@@ -128,6 +128,7 @@ struct Pokemon
     u16 speed;
     u16 spAttack;
     u16 spDefense;
+    struct RoguePartyMon rogueExtraData;
 };
 
 struct MonSpritesGfxManager
