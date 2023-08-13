@@ -207,6 +207,7 @@ struct PokedexMenu
 
 EWRAM_DATA static u8 *sTilemapBufferPtr = NULL;
 EWRAM_DATA static struct PokedexMenu* sPokedexMenu = NULL;
+EWRAM_DATA static u16 sRequestedSpecies = 0;
 
 static void VBlankCB(void)
 {
@@ -245,6 +246,7 @@ static const u32 sMonStatsTiles[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats
 void Rogue_ShowPokedexFromMenu(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
+    sRequestedSpecies = SPECIES_NONE;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -252,6 +254,16 @@ void Rogue_ShowPokedexFromScript(void)
 {
     //gMain.savedCallback CB2_ReturnToFieldContinueScript CB2_ReturnToFieldFadeFromBlack
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    sRequestedSpecies = SPECIES_NONE;
+    SetMainCallback2(CB2_Rogue_ShowPokedex);
+}
+
+void Rogue_ShowPokedexForSpecies(u16 species)
+{
+    //gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+
+    // ReturnToPartyMenuSubMenu called below
+    sRequestedSpecies = species;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -263,6 +275,12 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
 
     sPokedexMenu->lastCrySpecies = SPECIES_NONE;
+
+    if(sRequestedSpecies != SPECIES_NONE)
+    {
+        sPokedexMenu->desiredPage = PAGE_MON_STATS;
+        sPokedexMenu->viewBaseSpecies = sRequestedSpecies;
+    }
 
     for(i = 0; i < ARRAY_COUNT(sPokedexMenu->pageSprites); ++i)
         sPokedexMenu->pageSprites[i] = SPRITE_NONE;
@@ -649,7 +667,15 @@ static void Task_PageFadeOutAndExit(u8 taskId)
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(gMain.savedCallback);
+
+        if(sRequestedSpecies != SPECIES_NONE)
+        {
+            ReturnToPartyMenuSubMenu();
+        }
+        else
+        {
+            SetMainCallback2(gMain.savedCallback);
+        }
     }
 }
 
@@ -2431,10 +2457,21 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     {
         useInput = TRUE;
 
-        // Go back up to overview
-        sPokedexMenu->desiredPage = PAGE_OVERVIEW;
-        gTasks[taskId].func = Task_SwapToPage;
-        PlaySE(SE_PIN);
+        if(sRequestedSpecies != SPECIES_NONE)
+        {
+            // Immediately exit if viewing view party summary
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_PageFadeOutAndExit;
+
+            PlaySE(SE_PC_OFF);
+        }
+        else
+        {
+            // Go back up to overview
+            sPokedexMenu->desiredPage = PAGE_OVERVIEW;
+            gTasks[taskId].func = Task_SwapToPage;
+            PlaySE(SE_PIN);
+        }
     }
     else if(JOY_NEW(DPAD_LEFT))
     {
