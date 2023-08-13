@@ -87,10 +87,36 @@ struct AdvPathSettings
     u8 nodeCount;
 };
 
+
+struct MetatileOffset
+{
+    s16 x;
+    s16 y;
+    u32 metatile;
+};
+
+struct MetatileConnection
+{
+    u16 centre;
+    u16 left;
+    u16 right;
+    u16 up;
+    u16 down;
+};
+
+static const struct MetatileOffset sTreeDecorationMetatiles[] = 
+{
+    { 0, 0, METATILE_GeneralHub_Tree_BottomLeft_Sparse },
+    { 1, 0, METATILE_GeneralHub_Tree_BottomRight_Sparse },
+    { 0, -1, METATILE_GeneralHub_Tree_TopLeft_Sparse },
+    { 1, -1, METATILE_GeneralHub_Tree_TopRight_Sparse },
+    { 0, -2, METATILE_GeneralHub_Tree_TopLeft_CapGrass },
+    { 1, -2, METATILE_GeneralHub_Tree_TopRight_CapGrass },
+};
+
 static bool8 IsObjectEventVisible(struct RogueAdvPathRoom* room);
 static bool8 ShouldBlockObjectEvent(struct RogueAdvPathRoom* room);
 static void BufferTypeAdjective(u8 type);
-
 
 static void GeneratePath(struct AdvPathSettings* pathSettings);
 static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings);
@@ -407,9 +433,32 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
 void RogueAdv_ApplyAdventureMetatiles()
 {
+    struct Coords16 treesCoords[24];
+    u32 metatile;
+    u16 x, y;
+    u16 treeCount;
     u8 i, j;
-    u8 x, y;
+    bool8 isValid;
     u8 totalHeight;
+
+    // Detect trees, as we will likely need to remove them later
+    treeCount = 0;
+
+    for(y = 0; y < gMapHeader.mapLayout->height; ++y)
+    for(x = 0; x < gMapHeader.mapLayout->width; ++x)
+    {
+        metatile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+        if(metatile == sTreeDecorationMetatiles[0].metatile)
+        {
+            treesCoords[treeCount].x = x;
+            treesCoords[treeCount].y = y;
+            ++treeCount;
+
+            AGB_ASSERT(treeCount < ARRAY_COUNT(treesCoords));
+        }
+    }
+
 
     totalHeight = gRogueAdvPath.pathMaxY - gRogueAdvPath.pathMinY + 1;
 
@@ -482,6 +531,37 @@ void RogueAdv_ApplyAdventureMetatiles()
         for(i = minY; i <= maxY; ++i)
         {
             MapGridSetMetatileIdAt(x + 1, i, METATILE_General_SandPit_Center);
+        }
+    }
+
+    // Remove any decorations that may have been split in parts by the path placement
+    for(j = 0; j < treeCount; ++j)
+    {
+        x = treesCoords[j].x + MAP_OFFSET;
+        y = treesCoords[j].y + MAP_OFFSET;
+
+        // Check for any missing tiles
+        isValid = TRUE;
+
+        for(i = 0; i < ARRAY_COUNT(sTreeDecorationMetatiles); ++i)
+        {
+            if(MapGridGetMetatileIdAt(x + sTreeDecorationMetatiles[i].x, y + sTreeDecorationMetatiles[i].y) != sTreeDecorationMetatiles[i].metatile)
+            {
+                isValid = FALSE;
+                break;
+            }
+        }
+
+        // If we're missing a tile remove rest of the tree
+        if(!isValid)
+        {
+            for(i = 0; i < ARRAY_COUNT(sTreeDecorationMetatiles); ++i)
+            {
+                if(MapGridGetMetatileIdAt(x + sTreeDecorationMetatiles[i].x, y + sTreeDecorationMetatiles[i].y) == sTreeDecorationMetatiles[i].metatile)
+                {
+                    MapGridSetMetatileIdAt(x + sTreeDecorationMetatiles[i].x, y + sTreeDecorationMetatiles[i].y, METATILE_General_Grass | MAPGRID_COLLISION_MASK);
+                }
+            }
         }
     }
 }

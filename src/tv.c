@@ -22,6 +22,7 @@
 #include "event_scripts.h"
 #include "shop.h"
 #include "lilycove_lady.h"
+#include "party_menu.h"
 #include "pokedex.h"
 #include "event_object_movement.h"
 #include "text.h"
@@ -2965,10 +2966,27 @@ void ChangePokemonNickname(void)
     DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL), GetMonGender(&gPlayerParty[gSpecialVar_0x8004]), GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, NULL), ChangePokemonNickname_CB);
 }
 
+void ChangePokemonNicknameFromPartyMenu(void)
+{
+    void ChangePokemonNicknameFromPartyMenu_CB(void);
+
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
+    DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL), GetMonGender(&gPlayerParty[gSpecialVar_0x8004]), GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, NULL), ChangePokemonNicknameFromPartyMenu_CB);
+}
+
 void ChangePokemonNickname_CB(void)
 {
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+void ChangePokemonNicknameFromPartyMenu_CB(void)
+{
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
+    ReturnToPartyMenuSubMenu();
+
+    //CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
 void ChangeBoxPokemonNickname(void)

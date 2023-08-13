@@ -15,6 +15,7 @@
 #include "menu_specialized.h"
 #include "overworld.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "pokemon_summary_screen.h"
 #include "script.h"
 #include "sound.h"
@@ -183,6 +184,7 @@ static EWRAM_DATA struct {
     u16 listRow;
     bool8 showContestInfo;
     u8 teachMoveState;
+    bool8 inPartyMenu : 1;
 } sMoveRelearnerMenuSate = {0};
 
 static const u16 sMoveRelearnerPaletteData[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
@@ -355,6 +357,7 @@ static void CreateLearnableMovesList(void);
 static void CreateUISprites(void);
 static void CB2_MoveRelearnerMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
+static void Task_WaitForFadeOutFromPartyMenu(u8 taskId);
 static void CB2_InitLearnMove(void);
 static void CB2_InitLearnMoveReturnFromSelectMove(void);
 static void InitMoveRelearnerBackgroundLayers(void);
@@ -390,10 +393,20 @@ void TeachMoveSetContextTutorMove(void)
 
 void TeachMoveFromContext(void)
 {
+    sMoveRelearnerMenuSate.inPartyMenu = FALSE;
+
     ScriptContext2_Enable();
     CreateTask(Task_WaitForFadeOut, 10);
     // Fade to black
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
+void TeachMoveFromContextFromTask(u8 taskId)
+{
+    sMoveRelearnerMenuSate.inPartyMenu = TRUE;
+
+    // no fade needed (expected to already be ready when this is called)
+    gTasks[taskId].func = Task_WaitForFadeOutFromPartyMenu;
 }
 
 // Script arguments: The pokemon to teach is in VAR_0x8004
@@ -448,6 +461,15 @@ static void Task_WaitForFadeOut(u8 taskId)
     {
         SetMainCallback2(CB2_InitLearnMove);
         gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+        DestroyTask(taskId);
+    }
+}
+
+static void Task_WaitForFadeOutFromPartyMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetMainCallback2(CB2_InitLearnMove);
         DestroyTask(taskId);
     }
 }
@@ -750,7 +772,15 @@ static void DoMoveRelearnerMain(void)
         if (!gPaletteFade.active)
         {
             FreeMoveRelearnerResources();
-            SetMainCallback2(CB2_ReturnToField);
+
+            if(sMoveRelearnerMenuSate.inPartyMenu)
+            {
+                ReturnToPartyMenuSubMenu();
+            }
+            else
+            {
+                SetMainCallback2(CB2_ReturnToField);
+            }
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
@@ -776,11 +806,27 @@ static void DoMoveRelearnerMain(void)
             }
             else
             {
+                u32 startPpPerc;
                 u16 moveId = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
+
+                // Log PP
+                if(sMoveRelearnerMenuSate.inPartyMenu)
+                {
+                    startPpPerc = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + sMoveRelearnerStruct->moveSlot);
+                    startPpPerc = (startPpPerc * 100) / (u32)gBattleMoves[moveId].pp;
+                }
 
                 StringCopy(gStringVar3, gMoveNames[moveId]);
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
                 SetMonMoveSlot(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove(), sMoveRelearnerStruct->moveSlot);
+
+                // Maintain PP %
+                if(sMoveRelearnerMenuSate.inPartyMenu)
+                {
+                    startPpPerc = (startPpPerc * (u32)gBattleMoves[GetCurrentSelectedMove()].pp) / 100;
+                    SetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + sMoveRelearnerStruct->moveSlot, &startPpPerc);
+                }
+
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
                 FormatAndPrintText(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;

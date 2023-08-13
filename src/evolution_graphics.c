@@ -410,28 +410,29 @@ static void Task_Sparkles_SprayAndFlash_Init(u8 taskId)
     SetEvoSparklesMatrices();
     gTasks[taskId].tTimer = 0;
     CpuSet(&gPlttBufferFaded[0x20], &gPlttBufferUnfaded[0x20], 0x30);
-    BeginNormalPaletteFade(0xFFF9041C, 0, 0, 0x10, RGB_WHITE); // was 0xFFF9001C in R/S
+    //BeginNormalPaletteFade(0xFFF9041C, 0, 0, 0x10, RGB_WHITE); // was 0xFFF9001C in R/S
     gTasks[taskId].func = Task_Sparkles_SprayAndFlash;
     PlaySE(SE_M_PETAL_DANCE);
 }
 
 static void Task_Sparkles_SprayAndFlash(u8 taskId)
 {
-    if (gTasks[taskId].tTimer < 128)
+    if (gTasks[taskId].tTimer < 16)
     {
         u8 i;
         switch (gTasks[taskId].tTimer)
         {
-        default:
-            if (gTasks[taskId].tTimer < 50)
-                CreateSparkle_Spray(Random() & 7);
-            break;
-        case 0:
-            for (i = 0; i < 8; i++)
-                CreateSparkle_Spray(i);
-            break;
-        case 32:
-            BeginNormalPaletteFade(0xFFFF041C, 0x10, 0x10, 0, RGB_WHITE); // was 0xFFF9001C in R/S
+        //default:
+        //    if (gTasks[taskId].tTimer < 50)
+        //        CreateSparkle_Spray(Random() & 7);
+        //    break;
+        //case 0:
+        //    for (i = 0; i < 8; i++)
+        //        CreateSparkle_Spray(i);
+        //    break;
+        case 0://32:
+            //BeginNormalPaletteFade(0xFFFF041C, 0x10, 0x10, 0, RGB_WHITE); // was 0xFFF9001C in R/S
+            BeginNormalPaletteFade(0xFFFF041C, 0, 0x10, 0, RGB_WHITE); // was 0xFFF9001C in R/S
             break;
         }
         gTasks[taskId].tTimer++;// += 4;

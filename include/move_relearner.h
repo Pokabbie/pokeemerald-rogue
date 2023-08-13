@@ -6,6 +6,9 @@ void TeachMoveSetContextEggMove(void);
 void TeachMoveSetContextTutorMove(void);
 void TeachMoveFromContext(void);
 void TeachMoveRelearnerMove(void);
+
+void TeachMoveFromContextFromTask(u8 taskId);
+
 u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon);
 void MoveRelearnerShowHideHearts(s32);
 

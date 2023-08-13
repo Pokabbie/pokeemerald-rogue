@@ -21,7 +21,8 @@
         "xlocmes": "c",
         "xlocnum": "c",
         "xloctime": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "xiosbase": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

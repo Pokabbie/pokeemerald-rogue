@@ -719,16 +719,16 @@ void SetWarpDestinationToLastHealLocation(void)
 void SetLastHealLocationWarp(u8 healLocationId)
 {
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
-    {
-        s16 playerX, playerY;
-        PlayerGetDestCoords(&playerX, &playerY);
-
-        // RogueNote: We want to apply an additional offset based on the player start location
-        if (healLocation)
-            SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, playerX - MAP_OFFSET, playerY - MAP_OFFSET);
-    }
-    else
+    //if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
+    //{
+    //    s16 playerX, playerY;
+    //    PlayerGetDestCoords(&playerX, &playerY);
+    //
+    //    // RogueNote: We want to apply an additional offset based on the player start location
+    //    if (healLocation)
+    //        SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, playerX - MAP_OFFSET, playerY - MAP_OFFSET);
+    //}
+    //else
     {
         if (healLocation)
             SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, healLocation->x, healLocation->y);
@@ -791,12 +791,12 @@ void SetContinueGameWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 
 void SetContinueGameWarpToHealLocation(u8 healLocationId)
 {
-    if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
-    {
-        // RogueNote: Just copy the heal location
-        SetWarpData(&gSaveBlock1Ptr->continueGameWarp, gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum, gSaveBlock1Ptr->lastHealLocation.warpId, gSaveBlock1Ptr->lastHealLocation.x, gSaveBlock1Ptr->lastHealLocation.y);
-    }
-    else
+    //if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
+    //{
+    //    // RogueNote: Just copy the heal location
+    //    SetWarpData(&gSaveBlock1Ptr->continueGameWarp, gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum, gSaveBlock1Ptr->lastHealLocation.warpId, gSaveBlock1Ptr->lastHealLocation.x, gSaveBlock1Ptr->lastHealLocation.y);
+    //}
+    //else
     {
         const struct HealLocation *warp = GetHealLocation(healLocationId);
         if (warp)
