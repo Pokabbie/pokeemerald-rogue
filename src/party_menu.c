@@ -2659,7 +2659,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         }
 
         {
-            u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE);
+            u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
             if(targetSpecies != SPECIES_NONE)
             {
@@ -3480,7 +3480,7 @@ static void CursorCb_Evolve(u8 taskId)
 {
     // Based on PartyMenuTryEvolution(taskId);
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
     PlaySE(SE_SELECT);
 
