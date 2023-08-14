@@ -5,14 +5,19 @@
 #include "data.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
+#include "item.h"
+#include "item_icon.h"
+#include "main.h" // temp
 #include "menu.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "start_menu.h"
 #include "string_util.h"
 #include "sound.h"
 #include "task.h"
 #include "text.h"
 #include "constants/battle_frontier.h"
+#include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/region_map_sections.h"
 #include "constants/weather.h"
@@ -26,23 +31,70 @@
 
 #define POPUP_QUEUE_CAPACITY 8
 
-struct PopupRequest
+enum
 {
-    u16 param;
-    u8 msgType;
+    POPUP_ANIM_NONE,
+    POPUP_ANIM_SLIDE_VERTICAL,
+    POPUP_ANIM_SLIDE_HORIZONTAL,
 };
 
-static void ShowQuestPopup(void);
-static void HideQuestPopUpWindow(void);
+enum
+{
+    POPUP_ICON_MODE_NONE,
+    POPUP_ICON_MODE_ITEM,
+    POPUP_ICON_MODE_POKEMON,
+};
 
-static void Task_QuestPopUpWindow(u8 taskId);
-static void ShowQuestPopUpWindow(void);
-static void LoadQuestPopUpWindowBg(void);
+enum
+{
+    TEXT_EXPAND_NONE,
+    TEXT_EXPAND_SPECIES_NAME,
+    TEXT_EXPAND_PARTY_NICKNAME,
+    TEXT_EXPAND_ITEM_NAME,
+    TEXT_EXPAND_UNSIGNED_NUMBER,
+};
 
-static EWRAM_DATA u8 sPopupTaskId = 0;
-static EWRAM_DATA u8 sPopupShownId = 0;
-static EWRAM_DATA u8 sPopupQueuedId = 0;
-static EWRAM_DATA struct PopupRequest sPopupQueue[POPUP_QUEUE_CAPACITY];
+struct PopupRequestTemplate
+{
+    u8 enterAnim;
+    u8 exitAnim;
+    u8 iconMode;
+    u8 left;
+    u8 down;
+    u8 width;
+    u8 height;
+    u8 iconLeft;
+    u8 iconDown;
+    u8 iconWidth;
+    u8 iconHeight;
+    bool8 generateBorder;
+    bool8 transparentText;
+};
+
+struct PopupRequest
+{
+    const u8* titleText;
+    const u8* subtitleText;
+    u8 templateId;
+    u16 iconId;
+    u16 soundEffect;
+    u16 fanfare;
+    u16 expandTextData[3];
+    u16 expandTextType[3];
+};
+
+struct PopupManager
+{
+    struct PopupRequest requestQueue[POPUP_QUEUE_CAPACITY];
+    u8 windowId;
+    u8 iconWindowId;
+    u8 taskId;
+    u8 lastShownId;
+    u8 queuedId;
+    bool8 wasEnabled;
+};
+
+static EWRAM_DATA struct PopupManager sRoguePopups = { 0 };
 
 extern const u8 gText_Space[];
 
@@ -51,8 +103,17 @@ extern const u8 gText_Popup_QuestFail[];
 extern const u8 gText_Popup_LegendaryClause[];
 extern const u8 gText_Popup_None[];
 
+extern const u8 gText_Popup_NewMoves[];
+extern const u8 gText_Popup_NewEvolution[];
+
+extern const u8 gText_Popup_PokemonChain[];
+extern const u8 gText_Popup_PokemonChainBroke[];
+
 extern const u8 gPopupText_WeakLegendaryClause[];
 extern const u8 gPopupText_StrongLegendaryClause[];
+
+extern const u8 gText_Popup_SingleItem[];
+extern const u8 gText_Popup_MultipleItem[];
 
 extern const u8 gPopupText_CampaignNoneScore[];
 extern const u8 gPopupText_CampaignHighScore[];
@@ -64,46 +125,179 @@ extern const u8 gPopupText_StarterWarning[];
 extern const u8 gPopupText_EncounterChain[];
 extern const u8 gPopupText_EncounterChainEnd[];
 
+enum
+{
+    POPUP_COMMON_CLASSIC,
+    POPUP_COMMON_ITEM_TEXT,
+    POPUP_COMMON_FIND_ITEM,
+    POPUP_COMMON_POKEMON_TEXT,
+};
+
+static const struct PopupRequestTemplate sPopupRequestTemplates[] =
+{
+    [POPUP_COMMON_CLASSIC] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .left = 1,
+        .down = 1,
+        .width = 10,
+        .height = 4,
+        .generateBorder = TRUE,
+        .transparentText = FALSE,
+    },
+    [POPUP_COMMON_ITEM_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+        
+        .iconMode = POPUP_ICON_MODE_ITEM,
+        .iconLeft = 7,
+        .iconDown = 0,
+        .iconWidth = 3,
+        .iconHeight = 3,
+    },
+    [POPUP_COMMON_FIND_ITEM] = 
+    {
+        .enterAnim = POPUP_ANIM_NONE,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+        
+        .iconMode = POPUP_ICON_MODE_ITEM,
+        .iconLeft = 7,
+        .iconDown = 0,
+        .iconWidth = 3,
+        .iconHeight = 3,
+    },
+    [POPUP_COMMON_POKEMON_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+
+        .iconMode = POPUP_ICON_MODE_POKEMON,
+        .iconLeft = 6,
+        .iconDown = 0,
+        .iconWidth = 4,
+        .iconHeight = 4,
+    },
+};
+
+#define SLIDE_ANIM_DURATION 20
 #define sStateNum data[0]
 #define sDisplayTimer data[2]
 
+static void ShowQuestPopup(void);
+static void HideQuestPopUpWindow(void);
 
-static const u16 sQuestPopupMessageSoundEffect[] =
+static void Task_QuestPopUpWindow(u8 taskId);
+static void ShowQuestPopUpWindow(void);
+static void LoadQuestPopUpWindowBg(void);
+
+static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8);
+
+void InitQuestWindow()
 {
-    [POPUP_MSG_QUEST_COMPLETE] = SE_EXP_MAX,
-    [POPUP_MSG_QUEST_FAIL] = SE_NOT_EFFECTIVE,
-    [POPUP_MSG_LEGENDARY_CLAUSE] = SE_BALL_OPEN,
-    [POPUP_MSG_CAMPAIGN_ANNOUNCE] = SE_EXP_MAX,
-    [POPUP_MSG_SAFARI_ENCOUNTERS] = 0,
-    [POPUP_MSG_PARTNER_EVO_WARNING] = SE_NOT_EFFECTIVE,
-    [POPUP_MSG_ENCOUNTER_CHAIN] = 0,
-    [POPUP_MSG_ENCOUNTER_CHAIN_END] = SE_NOT_EFFECTIVE,
-    //SE_SUCCESS, SE_FAILURE
-};
+    sRoguePopups.windowId = WINDOW_NONE;
+    sRoguePopups.iconWindowId = WINDOW_NONE;
+}
+
+static struct PopupRequest* GetCurrentPopup()
+{
+    return &sRoguePopups.requestQueue[sRoguePopups.lastShownId];
+}
+
+static u8 GetQuestPopUpWindowId(void)
+{
+    return sRoguePopups.windowId;
+}
+
+static u8 GetIconWindowId(void)
+{
+    return sRoguePopups.iconWindowId;
+}
+
+static void RemoveQuestPopUpWindow(void)
+{
+    if (sRoguePopups.windowId != WINDOW_NONE)
+    {
+        RemoveWindow(sRoguePopups.windowId);
+        sRoguePopups.windowId = WINDOW_NONE;
+    }
+
+    if (sRoguePopups.iconWindowId != WINDOW_NONE)
+    {
+        RemoveWindow(sRoguePopups.iconWindowId);
+        sRoguePopups.iconWindowId = WINDOW_NONE;
+    }
+}
+
+static u8 AddQuestPopUpWindow(struct PopupRequest* request)
+{
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
+
+    RemoveQuestPopUpWindow();
+
+    sRoguePopups.windowId = AddWindowParameterized(
+        0, 
+        template->left,
+        template->down,
+        template->width,
+        template->height, 
+        15,
+        0x107
+    );
+
+    // pal 14 is used the the borders
+
+    if(template->iconMode != POPUP_ICON_MODE_NONE)
+    {
+        sRoguePopups.iconWindowId = AddWindowParameterized(
+            0, 
+            template->iconLeft,
+            template->iconDown,
+            template->iconWidth,
+            template->iconHeight, 
+            13,
+            0x107 + (template->width * template->height)
+        );
+    }
+
+    return sRoguePopups.windowId;
+}
 
 static void ShowQuestPopup(void)
 {
     if (!FuncIsActiveTask(Task_QuestPopUpWindow))
     {
-        sPopupTaskId = CreateTask(Task_QuestPopUpWindow, 90);
-        SetGpuReg(REG_OFFSET_BG0VOFS, 40);
-        gTasks[sPopupTaskId].sStateNum = 6;
-        gTasks[sPopupTaskId].sDisplayTimer = 40;
+        sRoguePopups.taskId = CreateTask(Task_QuestPopUpWindow, 90);
+        ApplyPopupAnimation(GetCurrentPopup(), 0, FALSE);
+
+        gTasks[sRoguePopups.taskId].sStateNum = 6;
+        gTasks[sRoguePopups.taskId].sDisplayTimer = SLIDE_ANIM_DURATION;
     }
     else
     {
-        if (gTasks[sPopupTaskId].sStateNum != 2)
-            gTasks[sPopupTaskId].sStateNum = 2;
-        gTasks[sPopupTaskId].data[3] = 1;
+        if (gTasks[sRoguePopups.taskId].sStateNum != 2)
+            gTasks[sRoguePopups.taskId].sStateNum = 2;
+        gTasks[sRoguePopups.taskId].data[3] = 1;
     }
-}
-
-void Rogue_PushPopup(u8 msgType, u16 param)
-{
-    // Write to the current ID and then push
-    sPopupQueue[sPopupQueuedId].msgType = msgType;
-    sPopupQueue[sPopupQueuedId].param = param;
-    sPopupQueuedId = (sPopupQueuedId + 1) % POPUP_QUEUE_CAPACITY;
 }
 
 void Rogue_ClearPopupQueue(void)
@@ -111,17 +305,28 @@ void Rogue_ClearPopupQueue(void)
     if (FuncIsActiveTask(Task_QuestPopUpWindow))
         HideQuestPopUpWindow();
 
-    sPopupQueuedId = 0;
-    sPopupShownId = 0;
+    sRoguePopups.queuedId = 0;
+    sRoguePopups.lastShownId = 0;
 }
 
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
+    if(JOY_REPEAT(L_BUTTON) && JOY_REPEAT(R_BUTTON))
+    {
+        // TESTING - DO NOT CHECK IN
+        Rogue_PushPopup_QuestComplete(QUEST_BigSaver);
+        Rogue_PushPopup_QuestFail(QUEST_BigSaver);
+    }
+
     if(enabled)
     {
-        if(sPopupQueuedId != sPopupShownId)
+        // Just re-enabled so push party notifications
+        if(!sRoguePopups.wasEnabled)
+            Rogue_PushPopup_PartyNotifications();
+
+        if(sRoguePopups.queuedId != sRoguePopups.lastShownId)
         {
             if (!FuncIsActiveTask(Task_QuestPopUpWindow))
                 ShowQuestPopup();
@@ -132,11 +337,59 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         if (FuncIsActiveTask(Task_QuestPopUpWindow))
             HideQuestPopUpWindow();
     }
+
+    sRoguePopups.wasEnabled = enabled;
+}
+
+static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
+{
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
+
+    u16 value;
+    u16 xStart, xEnd, yStart, yEnd;
+    u16 invTimer;
+
+    invTimer = SLIDE_ANIM_DURATION - timer;
+    xStart = 0;
+    xEnd = 0;
+    yStart = 0;
+    yEnd = 0;
+
+    switch (useEnterAnim ? template->enterAnim : template->exitAnim)
+    {
+    case POPUP_ANIM_SLIDE_VERTICAL:
+        yStart = (template->height + 2) * 8;
+        yEnd = 0;
+        break;
+
+    case POPUP_ANIM_SLIDE_HORIZONTAL:
+        xStart = (template->width + 2) * 8;
+        xEnd = 0;
+        break;
+    }
+
+    if(xStart == xEnd)
+        SetGpuReg(REG_OFFSET_BG0HOFS, xStart);
+    else
+    {
+        value = (invTimer * xEnd) / SLIDE_ANIM_DURATION + (timer * xStart) / SLIDE_ANIM_DURATION;
+        SetGpuReg(REG_OFFSET_BG0HOFS, value);
+    }
+
+    if(yStart == yEnd)
+        SetGpuReg(REG_OFFSET_BG0VOFS, yStart);
+    else
+    {
+        value = (invTimer * yEnd) / SLIDE_ANIM_DURATION + (timer * yStart) / SLIDE_ANIM_DURATION;
+        SetGpuReg(REG_OFFSET_BG0VOFS, value);
+    }
 }
 
 static void Task_QuestPopUpWindow(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
+    struct PopupRequest* popupRequest = GetCurrentPopup();
+    bool8 useEnterAnim = FALSE;
 
     switch (task->sStateNum)
     {
@@ -150,12 +403,13 @@ static void Task_QuestPopUpWindow(u8 taskId)
         }
         break;
     case 0:
-        task->sDisplayTimer -= 2;
+        task->sDisplayTimer--;
+        useEnterAnim = TRUE;
         if (task->sDisplayTimer <= 0 )
         {
             task->sDisplayTimer = 0;
             task->sStateNum = 1;
-            gTasks[sPopupTaskId].data[1] = 0;
+            gTasks[sRoguePopups.taskId].data[1] = 0;
         }
         break;
     case 1:
@@ -167,10 +421,10 @@ static void Task_QuestPopUpWindow(u8 taskId)
         }
         break;
     case 2:
-        task->sDisplayTimer += 2;
-        if (task->sDisplayTimer > 39)
+        task->sDisplayTimer++;
+        if (task->sDisplayTimer >= SLIDE_ANIM_DURATION)
         {
-            task->sDisplayTimer = 40;
+            task->sDisplayTimer = SLIDE_ANIM_DURATION;
             if (task->data[3])
             {
                 task->sStateNum = 6;
@@ -186,13 +440,22 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 4:
         ClearStdWindowAndFrame(GetQuestPopUpWindowId(), TRUE);
+
+        if(GetIconWindowId() != WINDOW_NONE)
+        {
+            FillWindowPixelBuffer(GetIconWindowId(), PIXEL_FILL(1));
+            ClearWindowTilemap(GetIconWindowId());
+            CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
+        }
+
         task->sStateNum = 5;
         break;
     case 5:
         HideQuestPopUpWindow();
         return;
     }
-    SetGpuReg(REG_OFFSET_BG0VOFS, task->sDisplayTimer);
+
+    ApplyPopupAnimation(popupRequest, task->sDisplayTimer, useEnterAnim);
 }
 
 #undef sStateNum
@@ -202,29 +465,20 @@ static void HideQuestPopUpWindow(void)
     if (FuncIsActiveTask(Task_QuestPopUpWindow))
     {
         ClearStdWindowAndFrame(GetQuestPopUpWindowId(), TRUE);
+
+        if(GetIconWindowId() != WINDOW_NONE)
+        {
+            FillWindowPixelBuffer(GetIconWindowId(), PIXEL_FILL(1));
+            ClearWindowTilemap(GetIconWindowId());
+            CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
+        }
+
         RemoveQuestPopUpWindow();
         SetGpuReg_ForcedBlank(REG_OFFSET_BG0VOFS, 0);
-        DestroyTask(sPopupTaskId);
+        SetGpuReg_ForcedBlank(REG_OFFSET_BG0HOFS, 0);
+        DestroyTask(sRoguePopups.taskId);
         
-        sPopupShownId = (sPopupShownId + 1) % POPUP_QUEUE_CAPACITY;
-    }
-}
-
-const u8* GetMsgText(u8 msgType)
-{
-    switch (msgType)
-    {
-    case POPUP_MSG_QUEST_COMPLETE:
-        return &gText_Popup_QuestComplete[0];
-
-    case POPUP_MSG_QUEST_FAIL:
-        return &gText_Popup_QuestFail[0];
-
-    case POPUP_MSG_LEGENDARY_CLAUSE:
-        return &gText_Popup_LegendaryClause[0];
-    
-    default:
-        return &gText_Popup_None[0];
+        sRoguePopups.lastShownId = (sRoguePopups.lastShownId + 1) % POPUP_QUEUE_CAPACITY;
     }
 }
 
@@ -315,147 +569,349 @@ static u8* AppendTypeName(u8* strPointer, u8 type)
     }
 }
 
+static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const* text, u8 x, u8 y)
+{
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
+
+    u8 colours[] = 
+    {
+        gFonts[font].bgColor, 
+        gFonts[font].fgColor, 
+        gFonts[font].shadowColor, 
+    };
+
+    if(template->transparentText)
+    {
+        colours[0] = TEXT_COLOR_TRANSPARENT;
+        colours[1] = TEXT_COLOR_WHITE;
+        colours[2] = TEXT_COLOR_DARK_GRAY;
+    }
+
+    StringExpandPlaceholders(gStringVar4, text);
+
+    x += GetStringCenterAlignXOffset(FONT_NARROW, gStringVar4, template->width * 8);
+    AddTextPrinterParameterized3(GetQuestPopUpWindowId(), font, x, y, colours, TEXT_SKIP_DRAW, gStringVar4);
+}
+
+static void ExpandPopupText(struct PopupRequest* popup)
+{
+    u8* const textDest[] =
+    {
+        gStringVar1,
+        gStringVar2,
+        gStringVar3,
+    };
+
+    u8 i;
+    u16 data;
+
+    for(i = 0; i < ARRAY_COUNT(popup->expandTextType); ++i)
+    {
+        data = popup->expandTextData[i];
+
+        if(popup->expandTextType[i] != TEXT_EXPAND_NONE)
+        {
+            switch(popup->expandTextType[i])
+            {
+                case TEXT_EXPAND_SPECIES_NAME:
+                    StringCopy(textDest[i], gSpeciesNames[data]);
+                    break;
+
+                case TEXT_EXPAND_PARTY_NICKNAME:
+                    StringCopy_Nickname(textDest[i], gPlayerParty[data].box.nickname);
+                    break;
+
+                case TEXT_EXPAND_UNSIGNED_NUMBER:
+                    ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, 3);
+                    break;
+
+                case TEXT_EXPAND_ITEM_NAME:
+                    CopyItemName(data, textDest[i]);
+                    break;
+            }
+        }
+    }
+}
+
 static void ShowQuestPopUpWindow(void)
 {
-    u8 x;
-    u16 param = sPopupQueue[sPopupShownId].param;
-    u8 msgType = sPopupQueue[sPopupShownId].msgType;
+    struct PopupRequest* popupRequest = GetCurrentPopup();
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
 
-    AddQuestPopUpWindow();
+    AddQuestPopUpWindow(popupRequest);
 
     PutWindowTilemap(GetQuestPopUpWindowId());
-    DrawStdWindowFrame(GetQuestPopUpWindowId(), FALSE);
 
-    switch (msgType)
-    {
-    case POPUP_MSG_QUEST_COMPLETE:
-    case POPUP_MSG_QUEST_FAIL:
-        // Quest Title
-        x = GetStringCenterAlignXOffset(FONT_NARROW, gRogueQuests[param].title, 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gRogueQuests[param].title, x, 2, TEXT_SKIP_DRAW, NULL);
+    if(GetIconWindowId() != WINDOW_NONE)
+        PutWindowTilemap(GetIconWindowId());
 
-        // Msg Subtext
-        x = GetStringCenterAlignXOffset(FONT_SMALL, GetMsgText(msgType), 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, GetMsgText(msgType), x, 16, TEXT_SKIP_DRAW, NULL);
-        break;
+    if(template->generateBorder != FALSE)
+        DrawStdWindowFrame(GetQuestPopUpWindowId(), FALSE);
 
-    case POPUP_MSG_LEGENDARY_CLAUSE:
-        // Legendary Clause Title
-        if(param == 0)
-        {
-            x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_WeakLegendaryClause, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_WeakLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
-        }
-        else
-        {
-            x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StrongLegendaryClause, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StrongLegendaryClause, x, 2, TEXT_SKIP_DRAW, NULL);
-        }
+    ExpandPopupText(popupRequest);
 
-        // Msg Subtext
-        x = GetStringCenterAlignXOffset(FONT_SMALL, GetMsgText(msgType), 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, GetMsgText(msgType), x, 16, TEXT_SKIP_DRAW, NULL);
-        break;
+    if(popupRequest->titleText != NULL)
+        PrintPopupText(popupRequest, FONT_NARROW, popupRequest->titleText, 0, 1);
 
-    case POPUP_MSG_CAMPAIGN_ANNOUNCE:
-        // Campaign Title
-        x = GetStringCenterAlignXOffset(FONT_NARROW, GetCampaignTitle(Rogue_GetActiveCampaign()), 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, GetCampaignTitle(Rogue_GetActiveCampaign()), x, 2, TEXT_SKIP_DRAW, NULL);
+    if(popupRequest->subtitleText != NULL)
+        PrintPopupText(popupRequest, FONT_SMALL, popupRequest->subtitleText, 0, 14);
 
-        if(Rogue_IsActiveCampaignScored())
-        {
-            if(Rogue_IsActiveCampaignLowScoreGood())
-            {
-                x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignLowScore, 80);
-                AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignLowScore, x, 16, TEXT_SKIP_DRAW, NULL);
-            }
-            else
-            {
-                x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignHighScore, 80);
-                AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignHighScore, x, 16, TEXT_SKIP_DRAW, NULL);
-            }
-        }
-        else
-        {
-            x = GetStringCenterAlignXOffset(FONT_SMALL, gPopupText_CampaignNoneScore, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gPopupText_CampaignNoneScore, x, 16, TEXT_SKIP_DRAW, NULL);
-        }
-        break;
-
-    case POPUP_MSG_SAFARI_ENCOUNTERS:
-        {
-            u8 i;
-            u8* strPointer = &gStringVar4[0];
-            u8 types[3];
-
-            Rogue_SafariTypeForMap(&types[0], ARRAY_COUNT(types));
-
-            *strPointer = EOS;
-
-            for(i = 0; i < ARRAY_COUNT(types); ++i)
-            {
-                if(types[i] != TYPE_NONE)
-                {
-                    if(i != 0)
-                        strPointer = StringAppend(strPointer, gText_Space);
-
-                    strPointer = AppendTypeName(strPointer, types[i]);
-                }
-            }
-
-            // Title contains types
-            x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_SafariArea, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_SafariArea, x, 2, TEXT_SKIP_DRAW, NULL);
-
-            // Subheader
-            x = GetStringCenterAlignXOffset(FONT_SMALL, gStringVar4, 80);
-            AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gStringVar4, x, 16, TEXT_SKIP_DRAW, NULL);
-        }
-        break;
-
-    case POPUP_MSG_PARTNER_EVO_WARNING:
-        // Title contains entire warning
-        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_StarterWarning, 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_StarterWarning, x, 0, TEXT_SKIP_DRAW, NULL);
-        break;
-
-    case POPUP_MSG_ENCOUNTER_CHAIN:
-    {
-        u8* strPtr;
-
-        // Title contains types
-        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_EncounterChain, 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_EncounterChain, x, 2, TEXT_SKIP_DRAW, NULL);
-
-        // Subheader
-        strPtr = ConvertUIntToDecimalStringN(gStringVar4, GetWildChainCount(), STR_CONV_MODE_RIGHT_ALIGN, 3);
-        strPtr = StringAppend(strPtr, gText_Space);
-        strPtr = StringAppend(strPtr, gSpeciesNames[GetWildChainSpecies()]);
-        x = GetStringCenterAlignXOffset(FONT_SMALL, gStringVar4, 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gStringVar4, x, 16, TEXT_SKIP_DRAW, NULL);
-        break;
-    }
-
-    case POPUP_MSG_ENCOUNTER_CHAIN_END:
-    {
-        u8* strPtr;
-
-        // Title contains types
-        x = GetStringCenterAlignXOffset(FONT_NARROW, gPopupText_EncounterChainEnd, 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_NARROW, gPopupText_EncounterChainEnd, x, 2, TEXT_SKIP_DRAW, NULL);
-
-        // Subheader
-        x = GetStringCenterAlignXOffset(FONT_SMALL, gSpeciesNames[param], 80);
-        AddTextPrinterParameterized(GetQuestPopUpWindowId(), FONT_SMALL, gSpeciesNames[param], x, 16, TEXT_SKIP_DRAW, NULL);
-        break;
-    }
-
-    default:
-        break;
-    }
 
     CopyWindowToVram(GetQuestPopUpWindowId(), COPYWIN_FULL);
 
-    if(sQuestPopupMessageSoundEffect[msgType])
-        PlaySE(sQuestPopupMessageSoundEffect[msgType]);
+    if(GetIconWindowId() != WINDOW_NONE)
+    {
+        switch (template->iconMode)
+        {
+        case POPUP_ICON_MODE_ITEM:
+            BlitItemIconToWindow(popupRequest->iconId, GetIconWindowId(), 0, 0, NULL);
+            CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
+            break;
+
+        case POPUP_ICON_MODE_POKEMON:
+            BlitPokemonIconToWindow(popupRequest->iconId, GetIconWindowId(), 0, 0, NULL);
+            CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+    }
+
+    if(!gSaveBlock2Ptr->optionsPopupSoundOff)
+    {
+        if(popupRequest->soundEffect)
+            PlaySE(popupRequest->soundEffect);
+        else if(popupRequest->fanfare)
+            PlayFanfare(popupRequest->fanfare);
+    }
+}
+
+static struct PopupRequest* CreateNewPopup()
+{
+    u8 popupId = sRoguePopups.queuedId;
+    sRoguePopups.queuedId = (sRoguePopups.queuedId + 1) % POPUP_QUEUE_CAPACITY;
+
+    memset(&sRoguePopups.requestQueue[popupId], 0, sizeof(sRoguePopups.requestQueue[popupId]));
+    return &sRoguePopups.requestQueue[popupId];
+}
+
+static bool8 HasTeachableMoves(struct Pokemon* mon, u8 fromLevel, u8 toLevel)
+{
+    u8 i;
+    u16 species;
+
+    if(fromLevel == toLevel)
+        return FALSE;
+
+    species = GetMonData(mon, MON_DATA_SPECIES);
+
+    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+    {
+        if(gLevelUpLearnsets[species][i].level > fromLevel && gLevelUpLearnsets[species][i].level <= toLevel)
+        {
+            if(!MonKnowsMove(mon, gLevelUpLearnsets[species][i].move))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+void Rogue_PushPopup_PartyNotifications()
+{
+    u8 i;
+    u8 fromLvl, toLvl;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        // Check for new moves to learn
+        fromLvl = gPlayerParty[i].rogueExtraData.lastPopupLevel;
+        toLvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+
+        if(HasTeachableMoves(&gPlayerParty[i], fromLvl, toLvl))
+            Rogue_PushPopup_NewMoves(i);
+
+        gPlayerParty[i].rogueExtraData.lastPopupLevel = toLvl;
+
+        // Check for evolutions
+        if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
+        {
+            u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE);
+            if(targetSpecies != SPECIES_NONE)
+            {
+                Rogue_PushPopup_NewEvos(i);
+                gPlayerParty[i].rogueExtraData.hasPendingEvo = TRUE;
+            }
+        }
+    }
+}
+
+void Rogue_PushPopup_NewMoves(u8 slotId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = 0;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = gText_Popup_NewMoves;
+}
+
+void Rogue_PushPopup_NewEvos(u8 slotId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = 0;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = gText_Popup_NewEvolution;
+}
+
+void Rogue_PushPopup_UnableToEvolve(u8 slotId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = gPopupText_StarterWarning;
+}
+
+
+void Rogue_PushPopup_QuestComplete(u16 questId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_QUEST_LOG;
+    popup->soundEffect = SE_EXP_MAX;
+    
+    popup->titleText = gRogueQuests[questId].title;
+    popup->subtitleText = gText_Popup_QuestComplete;
+}
+
+void Rogue_PushPopup_QuestFail(u16 questId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_QUEST_LOG;
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+    
+    popup->titleText = gRogueQuests[questId].title;
+    popup->subtitleText = gText_Popup_QuestFail;
+}
+
+void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = 0;
+    
+    popup->titleText = gSpeciesNames[species];
+    popup->subtitleText = gText_Popup_PokemonChain;
+
+    popup->expandTextData[0] = chainSize;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_PokemonChainBroke(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+    
+    popup->titleText = gSpeciesNames[species];
+    popup->subtitleText = gText_Popup_PokemonChainBroke;
+}
+
+
+void Rogue_PushPopup_WeakPokemonClause(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = SE_BALL_OPEN;
+    
+    popup->titleText = gPopupText_WeakLegendaryClause;
+    popup->subtitleText = gText_Popup_LegendaryClause;
+}
+
+void Rogue_PushPopup_StrongPokemonClause(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = SE_BALL_OPEN;
+    
+    popup->titleText = gPopupText_StrongLegendaryClause;
+    popup->subtitleText = gText_Popup_LegendaryClause;
+}
+
+void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    if(amount == 1)
+    {
+        popup->titleText = gText_Popup_SingleItem;
+        popup->subtitleText = NULL;
+    }
+    else
+    {
+        popup->titleText = gText_Popup_MultipleItem;
+        popup->subtitleText = NULL;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = MUS_OBTAIN_BERRY;
+
+    if(amount == 1)
+    {
+        popup->titleText = gText_Popup_SingleItem;
+        popup->subtitleText = NULL;
+    }
+    else
+    {
+        popup->titleText = gText_Popup_MultipleItem;
+        popup->subtitleText = NULL;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }

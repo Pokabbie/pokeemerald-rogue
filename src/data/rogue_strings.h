@@ -217,13 +217,22 @@ const u8 gText_Campaign_OneHp[] = _("One Hit Mode");
 
 // Popups
 //
-const u8 gText_Popup_QuestComplete[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Quest Completed!");
-const u8 gText_Popup_QuestFail[] = _("{COLOR RED}{SHADOW LIGHT_RED}Quest Failed");
-const u8 gText_Popup_LegendaryClause[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Clause Activated!");
+const u8 gText_Popup_QuestComplete[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Completed!");
+const u8 gText_Popup_QuestFail[] = _("{COLOR LIGHT_RED}{SHADOW RED}Quest Failed");
+const u8 gText_Popup_LegendaryClause[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Clause Activated!");
 const u8 gText_Popup_None[] = _("");
 
-const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Basic Legendary");
-const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR RED}{SHADOW LIGHT_RED}Strong Legendary");
+const u8 gText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
+const u8 gText_Popup_NewEvolution[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}New Evolution!");
+
+const u8 gText_Popup_PokemonChain[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}{STR_VAR_1} Chain");
+const u8 gText_Popup_PokemonChainBroke[] = _("{COLOR LIGHT_RED}{SHADOW RED}Broken Chain");
+
+const u8 gText_Popup_SingleItem[] = _("{STR_VAR_1}");
+const u8 gText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
+
+const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
+const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
 
 const u8 gPopupText_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
 const u8 gPopupText_CampaignHighScore[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Aim for High Score!");
@@ -231,7 +240,7 @@ const u8 gPopupText_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED}Aim for
 
 const u8 gPopupText_SafariArea[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Safari Area");
 
-const u8 gPopupText_StarterWarning[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Unable to evolve\npartner in gen");
+const u8 gPopupText_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Disabled");
 
 const u8 gPopupText_EncounterChain[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Encounter Chain");
 const u8 gPopupText_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");

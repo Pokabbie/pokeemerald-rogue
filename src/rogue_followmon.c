@@ -282,7 +282,7 @@ void UpdateWildEncounterChain(u16 species)
     if(sFollowMonData.encounterChainSpecies != species)
     {
         if(sFollowMonData.encounterChainCount > 3)
-            Rogue_PushPopup(POPUP_MSG_ENCOUNTER_CHAIN_END, sFollowMonData.encounterChainSpecies);
+            Rogue_PushPopup_PokemonChainBroke(sFollowMonData.encounterChainSpecies);
 
         sFollowMonData.encounterChainSpecies = species;
         sFollowMonData.encounterChainCount = 0;
@@ -294,7 +294,7 @@ void UpdateWildEncounterChain(u16 species)
             ++sFollowMonData.encounterChainCount;
 
         if(sFollowMonData.encounterChainCount >= 3)
-            Rogue_PushPopup(POPUP_MSG_ENCOUNTER_CHAIN, 0);
+            Rogue_PushPopup_PokemonChain(species, sFollowMonData.encounterChainCount);
     }
 }
 

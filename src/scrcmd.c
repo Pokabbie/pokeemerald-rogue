@@ -54,6 +54,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_hub.h"
+#include "rogue_popup.h"
 #include "rogue_quest.h"
 
 typedef u16 (*SpecialFunc)(void);
@@ -497,6 +498,10 @@ bool8 ScrCmd_additem(struct ScriptContext *ctx)
     u32 quantity = VarGet(ScriptReadHalfword(ctx));
 
     gSpecialVar_Result = AddBagItem(itemId, (u8)quantity);
+
+    if(gSpecialVar_Result == TRUE)
+        Rogue_PushPopup_AddItem(itemId, quantity);
+
     return FALSE;
 }
 

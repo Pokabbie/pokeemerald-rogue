@@ -63,6 +63,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_popup.h"
 #include "rogue_script.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
@@ -6851,6 +6852,7 @@ static void Cmd_handlelearnnewmove(void)
     const u8 *nothingToLearnPtr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
 
     u16 learnMove = MonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], gBattlescriptCurrInstr[9]);
+    
     while (learnMove == MON_ALREADY_KNOWS_MOVE)
         learnMove = MonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], FALSE);
 
@@ -6860,7 +6862,11 @@ static void Cmd_handlelearnnewmove(void)
     }
     else if (learnMove == MON_HAS_MAX_MOVES)
     {
-        gBattlescriptCurrInstr += 10;
+        // RogueNote: Don't ask to teach moves in battle
+        gMoveToLearn = MOVE_NONE;
+        gBattlescriptCurrInstr = nothingToLearnPtr;
+        //Rogue_PushPopup_NewMoves(gBattleStruct->expGetterMonId);
+        //gBattlescriptCurrInstr += 10;
     }
     else
     {

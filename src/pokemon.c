@@ -3223,6 +3223,8 @@ void ZeroMonData(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_SPDEF, &arg);
     arg = MAIL_NONE;
     SetMonData(mon, MON_DATA_MAIL, &arg);
+
+    memset(&mon->rogueExtraData, 0, sizeof(mon->rogueExtraData));
 }
 
 void ZeroPlayerPartyMons(void)

@@ -1602,6 +1602,7 @@ const u8 gText_NicknameMode[] = _("NICKNAME MODE");
 const u8 gText_TimeOfDay[] = _("DAY/NIGHT");
 const u8 gText_Seasons[] = _("SEASONS");
 const u8 gText_Sound[] = _("SOUND");
+const u8 gText_PopupSound[] = _("POPUP SOUND");
 const u8 gText_SoundChannelBGM[] = _("WORLD MUSIC VOL.");
 const u8 gText_SoundChannelSE[] = _("WORLD SFX VOL.");
 const u8 gText_SoundChannelBattleBGM[] = _("BATTLE MUSIC VOL.");

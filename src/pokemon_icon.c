@@ -2835,7 +2835,7 @@ void LoadMonIconPaletteCustomOffset(u16 species, u16 paletteOffset)
     u8 palIndex = gMonIconPaletteIndices[species];
     struct SpritePalette customIconPalette = { gMonIconPaletteTable[palIndex].data, PAL_TAG_CUSTOM + paletteOffset };
 
-    //if (IndexOfSpritePaletteTag(customIconPalette.tag) == 0xFF)
+    if (IndexOfSpritePaletteTag(customIconPalette.tag) == 0xFF)
         LoadSpritePalette(&customIconPalette);
 }
 

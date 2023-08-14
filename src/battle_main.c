@@ -5398,10 +5398,13 @@ static void TryEvolvePokemon(void)
                 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
                 if (species != SPECIES_NONE)
                 {
-                    FreeAllWindowBuffers();
-                    gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
-                    return;
+                    // RogueNote: Don't auto-evolve pokemon from battle
+                    //Rogue_PushPopup_NewEvos(i);
+
+                    //FreeAllWindowBuffers();
+                    //gBattleMainFunc = WaitForEvoSceneToFinish;
+                    //EvolutionScene(&gPlayerParty[i], species, TRUE, i);
+                    //return;
                 }
             }
         }

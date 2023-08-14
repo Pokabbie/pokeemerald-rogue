@@ -1,6 +1,13 @@
 #ifndef GUARD_ROGUE_H
 #define GUARD_ROGUE_H
 
+// Extra data for pokemon in party
+struct RoguePartyMon
+{
+    bool8 hasPendingEvo : 1;
+    u8 lastPopupLevel : 7;
+};
+
 // Adventure Path settings
 //
 struct RogueAdvPathRoomParams

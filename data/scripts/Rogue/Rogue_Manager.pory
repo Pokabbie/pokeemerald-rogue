@@ -623,10 +623,10 @@ script Rogue_BerryTree_CheckBerry
 
 script Rogue_BerryTree_PickedUpBerry
 {
-    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
-    {
-        waitfanfare
-    }
+    //if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    //{
+    //    waitfanfare
+    //}
     return
 }
 

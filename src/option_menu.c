@@ -41,6 +41,7 @@ enum
     MENUITEM_TIME_OF_DAY,
     MENUITEM_SEASON,
     MENUITEM_SOUND,
+    MENUITEM_POPUP_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
     MENUITEM_SOUND_CHANNEL_SE,
     MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
@@ -201,6 +202,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Sound_ProcessInput,
         .drawChoices = Sound_DrawChoices
     },
+    [MENUITEM_POPUP_SOUND] = 
+    {
+        .itemName = gText_PopupSound,
+        .processInput = BattleScene_ProcessInput,
+        .drawChoices = BattleScene_DrawChoices
+    },
     [MENUITEM_SOUND_CHANNEL_BGM] = 
     {
         .itemName = gText_SoundChannelBGM,
@@ -298,6 +305,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_SOUND,
+            MENUITEM_POPUP_SOUND,
             MENUITEM_SOUND_CHANNEL_BGM,
             MENUITEM_SOUND_CHANNEL_SE,
             MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
@@ -1063,6 +1071,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
 
+    case MENUITEM_POPUP_SOUND:
+        return gSaveBlock2Ptr->optionsPopupSoundOff;
+
     case MENUITEM_SOUND_CHANNEL_BGM:
         return gSaveBlock2Ptr->optionsSoundChannelBGM;
 
@@ -1119,6 +1130,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         
     case MENUITEM_SOUND:
         gSaveBlock2Ptr->optionsSound = value;
+        break;
+
+    case MENUITEM_POPUP_SOUND:
+        gSaveBlock2Ptr->optionsPopupSoundOff = value;
         break;
         
     case MENUITEM_SOUND_CHANNEL_BGM:

@@ -4906,7 +4906,15 @@ void SetBerryTreeJustPicked(u8 localId, u8 mapNum, u8 mapGroup)
     u8 objectEventId;
 
     if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+    {
         gSprites[gObjectEvents[objectEventId].spriteId].sBerryTreeFlags |= BERRY_FLAG_JUST_PICKED;
+
+        gObjectEvents[objectEventId].invisible = TRUE;
+        UpdateObjectEventVisibility(&gObjectEvents[objectEventId], &gSprites[gObjectEvents[objectEventId].spriteId]);
+
+        // ?
+        //RemoveObjectEventByLocalIdAndMap(localId, mapNum, mapGroup);
+    }
 }
 
 #undef sTimer
