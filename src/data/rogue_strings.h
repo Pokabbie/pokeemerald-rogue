@@ -228,6 +228,9 @@ const u8 gText_Popup_NewEvolution[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}New Ev
 const u8 gText_Popup_PokemonChain[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}{STR_VAR_1} Chain");
 const u8 gText_Popup_PokemonChainBroke[] = _("{COLOR LIGHT_RED}{SHADOW RED}Broken Chain");
 
+const u8 gText_Popup_SingleItem[] = _("{STR_VAR_1}");
+const u8 gText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
+
 const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
 const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
 

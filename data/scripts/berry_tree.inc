@@ -110,14 +110,14 @@ BerryTree_EventScript_PickBerry::
 	goto_if_eq VAR_0x8004, 0, BerryTree_EventScript_BerryPocketFull
 	special IncrementDailyPickedBerries
 	special ObjectEventInteractionRemoveBerryTree
-	msgbox BerryTree_Text_PickedTheBerry, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_BERRY
-	waitmessage
-	call Rogue_BerryTree_PickedUpBerry
-	waitbuttonpress
-	message BerryTree_Text_PutAwayBerry
-	waitmessage
-	waitbuttonpress
+	@ msgbox BerryTree_Text_PickedTheBerry, MSGBOX_DEFAULT
+	@ playfanfare MUS_OBTAIN_BERRY
+	@ waitmessage
+	@ call Rogue_BerryTree_PickedUpBerry
+	@ waitbuttonpress
+	@ message BerryTree_Text_PutAwayBerry
+	@ waitmessage
+	@ waitbuttonpress
 	release
 	end
 

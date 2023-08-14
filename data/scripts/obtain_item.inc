@@ -126,7 +126,7 @@ Std_FindItem::
 	copyvar VAR_0x8007, VAR_RESULT
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
 	checkitemtype ITEMID
-	call EventScript_BufferPocketNameAndTryFanfare
+	@ call EventScript_BufferPocketNameAndTryFanfare
 	call_if_eq VAR_0x8007, TRUE, EventScript_PickUpItem
 	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomToPickUpItem
 	release
@@ -135,14 +135,14 @@ Std_FindItem::
 EventScript_PickUpItem::
 	removeobject VAR_LAST_TALKED
 	additem VAR_0x8004, VAR_0x8005
-	specialvar VAR_RESULT, BufferTMHMMoveName
-	copyvar VAR_0x8008, VAR_RESULT
-	call_if_eq VAR_0x8008, TRUE, EventScript_FoundTMHM
-	call_if_eq VAR_0x8008, FALSE, EventScript_FoundItem
-	bufferitemnameplural STR_VAR_2, VAR_0x8004, VAR_0x8005
-	pyramid_inchallenge
-	goto_if_eq VAR_RESULT, TRUE, EventScript_PutBattlePyramidItemInBag
-	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	@ specialvar VAR_RESULT, BufferTMHMMoveName
+	@ copyvar VAR_0x8008, VAR_RESULT
+	@ call_if_eq VAR_0x8008, TRUE, EventScript_FoundTMHM
+	@ call_if_eq VAR_0x8008, FALSE, EventScript_FoundItem
+	@ bufferitemnameplural STR_VAR_2, VAR_0x8004, VAR_0x8005
+	@ pyramid_inchallenge
+	@ goto_if_eq VAR_RESULT, TRUE, EventScript_PutBattlePyramidItemInBag
+	@ msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	return
 
 EventScript_PutBattlePyramidItemInBag::

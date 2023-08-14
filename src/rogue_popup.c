@@ -5,6 +5,7 @@
 #include "data.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
+#include "item.h"
 #include "item_icon.h"
 #include "main.h" // temp
 #include "menu.h"
@@ -49,6 +50,7 @@ enum
     TEXT_EXPAND_NONE,
     TEXT_EXPAND_SPECIES_NAME,
     TEXT_EXPAND_PARTY_NICKNAME,
+    TEXT_EXPAND_ITEM_NAME,
     TEXT_EXPAND_UNSIGNED_NUMBER,
 };
 
@@ -76,6 +78,7 @@ struct PopupRequest
     u8 templateId;
     u16 iconId;
     u16 soundEffect;
+    u16 fanfare;
     u16 expandTextData[3];
     u16 expandTextType[3];
 };
@@ -109,6 +112,9 @@ extern const u8 gText_Popup_PokemonChainBroke[];
 extern const u8 gPopupText_WeakLegendaryClause[];
 extern const u8 gPopupText_StrongLegendaryClause[];
 
+extern const u8 gText_Popup_SingleItem[];
+extern const u8 gText_Popup_MultipleItem[];
+
 extern const u8 gPopupText_CampaignNoneScore[];
 extern const u8 gPopupText_CampaignHighScore[];
 extern const u8 gPopupText_CampaignLowScore[];
@@ -123,6 +129,7 @@ enum
 {
     POPUP_COMMON_CLASSIC,
     POPUP_COMMON_ITEM_TEXT,
+    POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
 };
 
@@ -142,6 +149,23 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     [POPUP_COMMON_ITEM_TEXT] = 
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+        
+        .iconMode = POPUP_ICON_MODE_ITEM,
+        .iconLeft = 7,
+        .iconDown = 0,
+        .iconWidth = 3,
+        .iconHeight = 3,
+    },
+    [POPUP_COMMON_FIND_ITEM] = 
+    {
+        .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .generateBorder = FALSE,
         .transparentText = TRUE,
@@ -600,6 +624,10 @@ static void ExpandPopupText(struct PopupRequest* popup)
                 case TEXT_EXPAND_UNSIGNED_NUMBER:
                     ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, 3);
                     break;
+
+                case TEXT_EXPAND_ITEM_NAME:
+                    CopyItemName(data, textDest[i]);
+                    break;
             }
         }
     }
@@ -640,7 +668,7 @@ static void ShowQuestPopUpWindow(void)
             CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
             break;
 
-        case POPUP_COMMON_POKEMON_TEXT:
+        case POPUP_ICON_MODE_POKEMON:
             BlitPokemonIconToWindow(popupRequest->iconId, GetIconWindowId(), 0, 0, NULL);
             CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
             break;
@@ -653,6 +681,8 @@ static void ShowQuestPopUpWindow(void)
 
     if(popupRequest->soundEffect)
         PlaySE(popupRequest->soundEffect);
+    else if(popupRequest->fanfare)
+        PlayFanfare(popupRequest->fanfare);
 }
 
 static struct PopupRequest* CreateNewPopup()
@@ -829,4 +859,56 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species)
     
     popup->titleText = gPopupText_StrongLegendaryClause;
     popup->subtitleText = gText_Popup_LegendaryClause;
+}
+
+void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    if(amount == 1)
+    {
+        popup->titleText = gText_Popup_SingleItem;
+        popup->subtitleText = NULL;
+    }
+    else
+    {
+        popup->titleText = gText_Popup_MultipleItem;
+        popup->subtitleText = NULL;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = MUS_OBTAIN_BERRY;
+
+    if(amount == 1)
+    {
+        popup->titleText = gText_Popup_SingleItem;
+        popup->subtitleText = NULL;
+    }
+    else
+    {
+        popup->titleText = gText_Popup_MultipleItem;
+        popup->subtitleText = NULL;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }

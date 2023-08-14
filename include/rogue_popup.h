@@ -18,4 +18,7 @@ void Rogue_PushPopup_PokemonChainBroke(u16 species);
 void Rogue_PushPopup_WeakPokemonClause(u16 species);
 void Rogue_PushPopup_StrongPokemonClause(u16 species);
 
+void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);
+void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount);
+
 #endif //QUEST_POPUP_H

@@ -14,6 +14,8 @@
 #include "constants/event_object_movement.h"
 #include "constants/items.h"
 
+#include "rogue_popup.h"
+
 static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
 static u16 BerryTypeToItemId(u16 berry);
@@ -1322,6 +1324,9 @@ void ObjectEventInteractionPickBerryTree(void)
     u8 berry = GetBerryTypeByBerryTreeId(id);
 
     gSpecialVar_0x8004 = AddBagItem(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+
+    if(gSpecialVar_0x8004 == TRUE)
+        Rogue_PushPopup_AddBerry(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
 }
 
 void ObjectEventInteractionRemoveBerryTree(void)
