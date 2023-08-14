@@ -679,10 +679,13 @@ static void ShowQuestPopUpWindow(void)
         }
     }
 
-    if(popupRequest->soundEffect)
-        PlaySE(popupRequest->soundEffect);
-    else if(popupRequest->fanfare)
-        PlayFanfare(popupRequest->fanfare);
+    if(!gSaveBlock2Ptr->optionsPopupSoundOff)
+    {
+        if(popupRequest->soundEffect)
+            PlaySE(popupRequest->soundEffect);
+        else if(popupRequest->fanfare)
+            PlayFanfare(popupRequest->fanfare);
+    }
 }
 
 static struct PopupRequest* CreateNewPopup()
