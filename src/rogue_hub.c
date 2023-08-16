@@ -36,6 +36,8 @@ static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
 static void RogueHub_UpdateFarmingAreaMetatiles();
 
+static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
+
 void RogueHub_Enter()
 {
     //AGB_ASSERT(gRogueGlobalData.hubMap == NULL);
@@ -56,8 +58,9 @@ void RogueHub_ClearProgress()
     // Build default area at 0,0
     RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
 
-    // TODO - Select placement based on trainer ID
-    RogueHub_BuildArea(HUB_AREA_ADVENTURE_ENTRANCE, 1, 0);
+    // Place adventure entrance & safari randomly
+    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_ADVENTURE_ENTRANCE);
+    BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -1026,4 +1029,24 @@ void RogueHub_SetRandomFollowMonsFromPC()
     {
         FollowMon_SetGraphics(foundCount, SPECIES_NONE, FALSE);
     }
+}
+
+static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
+{
+    do
+    {
+        u8 dir = Random() % HUB_AREA_CONN_COUNT;
+        u8 invDir = InvertConnDirection(dir);
+
+        if(RogueHub_AreaHasFreeConnection(fromArea, dir) && CanAreaConnect(buildArea, invDir))
+        {
+            struct Coords8 pos;
+            pos.x = gRogueGlobalData.hubMap.areaCoords[fromArea].x;
+            pos.y = gRogueGlobalData.hubMap.areaCoords[fromArea].y;
+            IncrementCoordsByDirection(&pos, dir);
+
+            RogueHub_BuildArea(buildArea, pos.x, pos.y);
+            break;
+        }
+    } while (TRUE);
 }

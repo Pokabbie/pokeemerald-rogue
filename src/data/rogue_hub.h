@@ -61,12 +61,24 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         }
     },
+    [HUB_AREA_SAFARI_ZONE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_SAFARI_ZONE),
+        .areaName = _("Safari Area"),
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_EAST] = { 4, 5 },
+            [HUB_AREA_CONN_SOUTH] = { 2, 3 },
+            [HUB_AREA_CONN_WEST] = { 0, 1 },
+        }
+    },
 };
 
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
-    // HUB_AREA_TOWN_SQUARE Upgrades
+    // HUB_AREA_TOWN_SQUARE
     //
     [HUB_UPGRADE_TOWN_SQUARE_POKE_CONNECT] = 
     {
@@ -75,7 +87,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
 
-    // HUB_AREA_HOME Upgrades
+    // HUB_AREA_HOME
     //
     [HUB_UPGRADE_HOME_LOWER_FLOOR] = 
     {
@@ -125,7 +137,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     },
 
 
-    // HUB_AREA_BERRY_FIELD Upgrades
+    // HUB_AREA_BERRY_FIELD
     //
     [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD] = 
     {
@@ -144,5 +156,15 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("Increased yield (2)"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1, HUB_UPGRADE_NONE }
+    },
+
+
+    // HUB_AREA_SAFARI_ZONE
+    //
+    [HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE] = 
+    {
+        .upgradeName = _("Cave of Legends"),
+        .targetArea = HUB_AREA_SAFARI_ZONE,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
 };

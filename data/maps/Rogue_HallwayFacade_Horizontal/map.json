@@ -52,6 +52,11 @@
       "direction": "left",
       "offset": -10,
       "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
+    },
+    {
+      "direction": "up",
+      "offset": 0,
+      "map": "MAP_ROGUE_AREA_SAFARI_ZONE"
     }
   ],
   "object_events": [
