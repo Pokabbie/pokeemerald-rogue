@@ -1189,6 +1189,8 @@ extern const u8 gText_ExpandSouth[];
 extern const u8 gText_ExpandNorth[];
 extern const u8 gText_ExpandEast[];
 extern const u8 gText_ExpandWest[];
+extern const u8 gText_ChangeName[];
+extern const u8 gText_ChangeOutfit[];
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];

@@ -54,3 +54,30 @@ script Rogue_Interior_Home_NoteBook
 
     releaseall
 }
+
+script Rogue_Interior_Home_ChangeClothes
+{
+    lockall
+
+    message(format("What would you like to do?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_CHANGE_CLOTHES, NO)
+    
+    switch(var(VAR_RESULT))
+    {
+        case 0: // change outfit
+            fadescreen(FADE_TO_BLACK)
+            special(Special_ViewPlayerCustomisationMenu)
+            waitstate
+
+        case 1: // change name
+            fadescreen(FADE_TO_BLACK)
+            special(ChangePlayerNickname)
+            waitstate
+
+        // Fallthrough and exit
+    }
+
+    releaseall
+}

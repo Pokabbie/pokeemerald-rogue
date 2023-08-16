@@ -862,6 +862,12 @@ static const struct MenuAction MultichoiceList_WorkbenchOptions[] =
     {gText_ExpandArea},
     {gText_Exit},
 };
+static const struct MenuAction MultichoiceList_ChangeClothes[] =
+{
+    {gText_ChangeOutfit},
+    {gText_ChangeName},
+    {gText_Exit},
+};
 
 struct MultichoiceListStruct
 {
@@ -989,6 +995,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGION_UPTO_HOENN]          = MULTICHOICE(MultichoiceList_RegionUpToHoenn),
     [MULTI_REGION_FULL]                = MULTICHOICE(MultichoiceList_RegionFull),
     [MULTI_WORKBENCH_OPTIONS]          = MULTICHOICE(MultichoiceList_WorkbenchOptions),
+    [MULTI_CHANGE_CLOTHES]             = MULTICHOICE(MultichoiceList_ChangeClothes),
 };
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =
