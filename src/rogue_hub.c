@@ -35,6 +35,7 @@ static void RogueHub_UpdateAdventureEntranceAreaMetatiles();
 static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
 static void RogueHub_UpdateFarmingAreaMetatiles();
+static void RogueHub_UpdateSafariAreaMetatiles();
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
 
@@ -404,6 +405,10 @@ void RogueHub_ApplyMapMetatiles()
     case LAYOUT_ROGUE_AREA_FARMING_FIELD:
         RogueHub_UpdateFarmingAreaMetatiles();
         break;
+
+    case LAYOUT_ROGUE_AREA_SAFARI_ZONE:
+        RogueHub_UpdateSafariAreaMetatiles();
+        break;
     
     default:
         break;
@@ -582,6 +587,26 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
         MetatileFill_TreeStumps(12, 7, 12, TREE_TYPE_SPARSE);
         
         MetatileFill_Tile(12, 8, 19, 8, METATILE_GeneralHub_Grass);
+    }
+}
+
+static void RogueHub_UpdateSafariAreaMetatiles()
+{
+    // Remove connectionss
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_SAFARI_ZONE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(36, 13);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_SAFARI_ZONE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitVertical(16, 31);
+        MetatileFill_TreeCaps(16, 31, 19);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_SAFARI_ZONE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 13);
     }
 }
 
