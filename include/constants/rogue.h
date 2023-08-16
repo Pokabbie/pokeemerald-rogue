@@ -327,6 +327,12 @@
 #define SEASON_WINTER   3
 #define SEASON_COUNT    4
 
+#define TIME_PRESET_DAWN        0
+#define TIME_PRESET_MIDDAY      1
+#define TIME_PRESET_DUSK        2
+#define TIME_PRESET_MIDNIGHT    3
+#define TIME_PRESET_COUNT       4
+
 #include "rogue_pokedex.h"
 #include "rogue_quests.h"
 #include "rogue_hub.h"

@@ -3138,7 +3138,7 @@ void Rogue_OnWarpIntoMap(void)
     }
     else
     {
-        RogueToD_AddMinutes(30);
+        RogueToD_AddMinutes(15);
     }
 }
 

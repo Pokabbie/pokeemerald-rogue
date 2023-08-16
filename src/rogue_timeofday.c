@@ -75,6 +75,7 @@ enum
     TIME_CODE_DAY,
     TIME_CODE_DUSK,
     TIME_CODE_NIGHT,
+    TIME_CODE_COUNT,
 };
 
 
@@ -83,13 +84,13 @@ static void RecalculateToDData(u16 time);
 static const struct ToDPalette sToDPaletteLookup[] =
 {
     {
-        .time = CALC_TIME(3, 0),
+        .time = CALC_TIME(5, 0),
         .overworldColour = RGB_NIGHT,
         .battleColour = RGB_NIGHT_BATTLE,
         .timeCode = TIME_CODE_NIGHT,
     },
     {
-        .time = CALC_TIME(5, 0),
+        .time = CALC_TIME(6, 0),
         .overworldColour = RGB_SUNRISE,
         .battleColour = RGB_SUNRISE,
         .timeCode = TIME_CODE_DAWN,
@@ -174,6 +175,29 @@ u8 RogueToD_GetSeasonCounter()
 void RogueToD_SetSeasonCounter(u8 value)
 {
     sSeasonCounter = (value) % (DAYS_PER_SEASON * SEASON_COUNT);
+}
+
+void RogueToD_SetTimePreset(u8 time, u8 season)
+{
+    u8 i;
+
+    if(time < TIME_CODE_COUNT)
+    {
+        // Skip first as it's the end of night not the start
+        for(i = 1; i < ARRAY_COUNT(sToDPaletteLookup); ++i)
+        {
+            if(sToDPaletteLookup[i].timeCode == time)
+            {
+                RogueToD_SetTime(sToDPaletteLookup[i].time);
+                break;
+            }
+        }
+    }
+
+    if(season < SEASON_COUNT)
+    {
+        RogueToD_SetSeason(season);
+    }
 }
 
 u16 RogueToD_GetHours()

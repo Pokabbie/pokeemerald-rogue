@@ -110,8 +110,8 @@ script Rogue_StartAdventureInternal
     call(Common_EventScript_SaveGame)
     if(var(VAR_RESULT) == YES)
     {
-        message(format("Good luck {PLAYER}!"))
-        waitmessage
+        msgbox(format("Good luck {PLAYER}!"))
+        closemessage
 
         applymovement(NPC_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
         applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayer)

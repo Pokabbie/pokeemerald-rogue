@@ -24,6 +24,7 @@
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
 #include "rogue_script.h"
+#include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
@@ -875,4 +876,20 @@ void ReloadWarpSilent()
     StoreInitialPlayerAvatarStateForReloadWarp();
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoDiveWarp();
+}
+
+void Rogue_SetTimeAndSeason()
+{
+    u8 tod = min(gSpecialVar_0x8004, TIME_PRESET_COUNT);
+    u8 season = min(gSpecialVar_0x8005, SEASON_COUNT);
+
+    if(tod != TIME_PRESET_COUNT || season != SEASON_COUNT)
+    {
+        RogueToD_SetTimePreset(tod, season);
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
 }

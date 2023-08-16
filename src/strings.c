@@ -736,6 +736,17 @@ const u8 gText_ExpandEast[] = _("{RIGHT_ARROW} EAST");
 const u8 gText_ExpandWest[] = _("{LEFT_ARROW} WEST");
 const u8 gText_ChangeName[] = _("CHANGE NAME");
 const u8 gText_ChangeOutfit[] = _("CHANGE OUTFIT");
+
+const u8 gText_SeasonSpring[] = _("SPRING");
+const u8 gText_SeasonSummer[] = _("SUMMER");
+const u8 gText_SeasonAutumn[] = _("AUTUMN");
+const u8 gText_SeasonWinter[] = _("WINTER");
+
+const u8 gText_TimeDawn[] = _("DAWN");
+const u8 gText_TimeMidday[] = _("DAY");
+const u8 gText_TimeDusk[] = _("DUSK");
+const u8 gText_TimeMidnight[] = _("NIGHT");
+
 const u8 gText_Info4[] = _("INFO"); // Unused
 const u8 gText_SingleBattle[] = _("SINGLES");
 const u8 gText_DoubleBattle[] = _("DOUBLES");

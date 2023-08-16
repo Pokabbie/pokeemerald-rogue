@@ -189,9 +189,6 @@ script Rogue_Area_ApplyHubUpgrade
         
         call(Rogue_Area_PlayBuildSound)
 
-        message("") // Need this otherwise for some reason previous text will breifly pop up on the screen
-        waitmessage
-
         msgbox(format("Upgrade built!"), MSGBOX_DEFAULT)
 
         special(RogueHub_BufferUpgradeCompleteText)
@@ -212,6 +209,7 @@ script Rogue_Area_ApplyHubUpgrade
 
 script Rogue_Area_PlayBuildSound
 {
+    closemessage
     playbgm(MUS_NONE, FALSE)
     delay(15)
 
