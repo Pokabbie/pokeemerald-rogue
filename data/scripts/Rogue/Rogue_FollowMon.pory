@@ -38,7 +38,7 @@ script Rogue_InteractWithDynamicWildFollowMon
 {
     lockall
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE) || flag(FLAG_SYS_SAFARI_MODE))
+    if(flag(FLAG_ROGUE_RUN_ACTIVE) || flag(FLAG_ROGUE_WILD_SAFARI) || flag(FLAG_SYS_SAFARI_MODE))
     {
         special(Rogue_GetFollowMonSpecies)
 

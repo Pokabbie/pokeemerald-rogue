@@ -319,6 +319,8 @@
 // Number of bytes needed to cover all species
 #define SPECIES_FLAGS_BYTE_COUNT (1 + NUM_SPECIES / 8)
 
+#define STARTER_MON_LEVEL 10
+
 #define FOLLOWMON_SHINY_OFFSET 10000
 
 #define SEASON_SPRING   0

@@ -280,6 +280,11 @@ bool8 Rogue_IsRunActive(void)
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
 }
 
+bool8 Rogue_InWildSafari(void)
+{
+    return FlagGet(FLAG_ROGUE_WILD_SAFARI);
+}
+
 bool8 Rogue_ForceExpAll(void)
 {
     return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
@@ -1568,6 +1573,7 @@ void Rogue_OnNewGame(void)
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_WILD_SAFARI);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
@@ -2456,7 +2462,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
 
                 // Force to starter lvl
-                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 7);
+                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
                 CalculateMonStats(&gPlayerParty[i]);
@@ -3107,6 +3113,14 @@ void Rogue_OnWarpIntoMap(void)
 
     if(IsQuestRewardShopActive())
         FlagClear(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
+
+
+    // Set new safari flag on entering area
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE)
+        FlagSet(FLAG_ROGUE_WILD_SAFARI);
+    else
+        FlagClear(FLAG_ROGUE_WILD_SAFARI);
+
 
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
@@ -4439,8 +4453,16 @@ static bool8 ForceChainSpeciesSpawn(u8 area)
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 {
+    if(Rogue_InWildSafari())
+    {
+        *species = SPECIES_ABRA;
+        *level = STARTER_MON_LEVEL;
+        *forceShiny = FALSE;
+        return;
+    }
+
     // Note: Don't seed individual encounters
-    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    else if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u16 shinyOdds = Rogue_GetShinyOdds();
 
@@ -4505,7 +4527,12 @@ u16 Rogue_SelectRandomWildMon(void)
 
 bool8 Rogue_PreferTraditionalWildMons(void)
 {
-    return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+    if(Rogue_IsRunActive())
+    {
+        return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+    }
+
+    return FALSE;
 }
 
 bool8 Rogue_AreWildMonEnabled(void)
@@ -4520,57 +4547,75 @@ bool8 Rogue_AreWildMonEnabled(void)
         return GetCurrentWildEncounterCount() > 0;
     }
 
+    if(Rogue_InWildSafari())
+    {
+        return TRUE;
+    }
+
     return FALSE;
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
-    *level = CalculateWildLevel(3);
+    if(Rogue_InWildSafari())
+    {
+        *level = STARTER_MON_LEVEL;
+    }
+    else
+    {
+        *level = CalculateWildLevel(3);
+    }
 }
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+    if(Rogue_InWildSafari())
     {
-        u16 presetIndex;
-        u16 species = GetMonData(mon, MON_DATA_SPECIES);
-        u8 presetCount = gPresetMonTable[species].presetCount;
-        u16 statA = (Random() % 6);
-        u16 statB = (statA + 1 + (Random() % 5)) % 6;
-        u16 temp = 31;
-
-        if(presetCount != 0)
-        {
-            presetIndex = Random() % presetCount;
-            Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
-        }
-
-        // Bump 2 of the IVs to max
-        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-        // Clear held item
-        temp = 0;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
     }
-    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    else
     {
-        u8 i;
-        u16 moveId;
-
-        // Replace roar with hidden power to avoid pokemon roaring itself out of battle
-        for (i = 0; i < MAX_MON_MOVES; i++)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
-            moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
-            if( moveId == MOVE_ROAR || 
-                moveId == MOVE_WHIRLWIND || 
-                moveId == MOVE_EXPLOSION ||
-                moveId == MOVE_SELF_DESTRUCT || 
-                moveId == MOVE_TELEPORT)
+            u16 presetIndex;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u8 presetCount = gPresetMonTable[species].presetCount;
+            u16 statA = (Random() % 6);
+            u16 statB = (statA + 1 + (Random() % 5)) % 6;
+            u16 temp = 31;
+
+            if(presetCount != 0)
             {
-                moveId = MOVE_HIDDEN_POWER;
-                SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
-                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+                presetIndex = Random() % presetCount;
+                Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+            }
+
+            // Bump 2 of the IVs to max
+            SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+            SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+            // Clear held item
+            temp = 0;
+            SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+        {
+            u8 i;
+            u16 moveId;
+
+            // Replace roar with hidden power to avoid pokemon roaring itself out of battle
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
+                if( moveId == MOVE_ROAR || 
+                    moveId == MOVE_WHIRLWIND || 
+                    moveId == MOVE_EXPLOSION ||
+                    moveId == MOVE_SELF_DESTRUCT || 
+                    moveId == MOVE_TELEPORT)
+                {
+                    moveId = MOVE_HIDDEN_POWER;
+                    SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
+                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+                }
             }
         }
     }

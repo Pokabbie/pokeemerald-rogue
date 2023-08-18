@@ -19,6 +19,8 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 ca
 void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 
 bool8 Rogue_IsRunActive(void);
+bool8 Rogue_InWildSafari(void);
+
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
 bool8 Rogue_UseKeyBattleAnims(void);

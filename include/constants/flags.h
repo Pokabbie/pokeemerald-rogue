@@ -43,7 +43,7 @@
 
 // RogueNote: Flag block 1
 #define FLAG_ROGUE_RUN_ACTIVE           0x20
-#define FLAG_UNUSED_0x21                0x21
+#define FLAG_ROGUE_WILD_SAFARI          0x21
 #define FLAG_SET_SEED_ENABLED           0x22
 #define FLAG_SET_SEED_ITEMS             0x23
 #define FLAG_SET_SEED_TRAINERS          0x24

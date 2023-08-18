@@ -360,7 +360,7 @@ bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
 {
     // TODO - Should animate in legendary rooms???
 
-    if(!Rogue_IsRunActive() || objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
+    if((!Rogue_IsRunActive() && !Rogue_InWildSafari()) || objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
     {
         // Only fully animate partner mons
         return TRUE;
@@ -405,7 +405,7 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
     if(Rogue_IsRideMonFlying())
         return obstacle == player || collider == player;
 
-    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    if(Rogue_IsRunActive() || Rogue_InWildSafari() || GetSafariZoneFlag())
     {
         if (collider == player)
         {
