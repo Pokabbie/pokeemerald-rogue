@@ -26,6 +26,7 @@
 #include "constants/battle_anim.h"
 
 #include "rogue_assistant.h"
+#include "rogue_save.h"
 
 /*
     The intro is grouped into the following scenes
@@ -1132,6 +1133,7 @@ void CB2_InitCopyrightScreenAfterBootup(void)
     if (!SetUpCopyrightScreen())
     {
         SetSaveBlocksPointers(GetSaveBlocksPointersBaseOffset());
+        RogueSave_UpdatePointers();
         ResetMenuAndMonGlobals();
         Save_ResetSaveCounters();
         LoadGameSave(SAVE_NORMAL);

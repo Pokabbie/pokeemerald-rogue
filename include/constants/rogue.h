@@ -25,6 +25,7 @@
 #define ROGUE_DEBUG_STEAL_TEAM
 #define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
+//#define ROGUE_DEBUG_ALLOW_SAVE_SCUMMING
 #else
 
 // Automation defines
@@ -40,9 +41,6 @@
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
-
-
-#define ROGUE_COMPAT_VERSION 6  // The version to bump every time there is a patch so players cannot patch incorrectly
 
 #define ROGUE_HUB_BERRY_TREE_COUNT 20
 
@@ -149,6 +147,8 @@
 
 #define ADVPATH_ROOM_WEIGHT_COUNT       (ADVPATH_ROOM_LAB + 1) // Ignore boss room
 #define ADVPATH_SUBROOM_WEIGHT_COUNT    (max(ADVPATH_SUBROOM_ROUTE_TOUGH, ADVPATH_SUBROOM_RESTSTOP_FULL) + 1)
+
+#define ADVPATH_INVALID_ROOM_ID (0)
 
 // Trainers
 //

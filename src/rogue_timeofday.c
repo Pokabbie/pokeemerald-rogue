@@ -40,6 +40,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_save.h"
 #include "rogue_timeofday.h"
 
 // Time is measured in minutes
@@ -69,6 +70,13 @@ struct ToDPalette
     u8 timeCode;
 };
 
+struct TODData
+{
+    bool8 areCalcsValid;
+    u8 timeCode;
+    u16 overworldColour;
+    u16 battleColour;
+};
 enum
 {
     TIME_CODE_DAWN,
@@ -79,7 +87,7 @@ enum
 };
 
 
-static void RecalculateToDData(u16 time);
+static void RecalculateToDDataIfRequired();
 
 static const struct ToDPalette sToDPaletteLookup[] =
 {
@@ -124,11 +132,11 @@ static const struct ToDPalette sToDPaletteLookup[] =
     },
 };
 
-EWRAM_DATA static u16 sTimeOfDayMinutes = 0; // Maybe should have this in IWRAM?
 EWRAM_DATA static u8 sTimeOfDayTimeCode = TIME_CODE_NIGHT;
-EWRAM_DATA static u8 sSeasonCounter = 0;
 EWRAM_DATA static u16 sTimeOfDayOverworldColour = 0;
 EWRAM_DATA static u16 sTimeOfDayBattleColour = 0;
+
+EWRAM_DATA static struct TODData sTimeOfDay = {0};
 
 //extern const u16 gTilesetPalettes_General[][16];
 extern const u16 gTilesetPalettes_General02_Spring[];
@@ -138,26 +146,26 @@ extern const u16 gTilesetPalettes_General02_Winter[];
 
 u16 RogueToD_GetTime()
 {
-    return sTimeOfDayMinutes;
+    return gRogueSaveBlock->timeOfDayMinutes;
 }
 
 void RogueToD_SetTime(u16 time)
 {
-    u16 prevMins = sTimeOfDayMinutes;
-    sTimeOfDayMinutes = time % CALC_TIME(24, 00);
+    u16 prevMins = gRogueSaveBlock->timeOfDayMinutes;
+    gRogueSaveBlock->timeOfDayMinutes = time % CALC_TIME(24, 00);
 
     // Just changed day
-    if(prevMins > sTimeOfDayMinutes)
+    if(prevMins > gRogueSaveBlock->timeOfDayMinutes)
     {
-        RogueToD_SetSeasonCounter(sSeasonCounter + 1);
+        RogueToD_SetSeasonCounter(gRogueSaveBlock->seasonCounter + 1);
     }
 
-    RecalculateToDData(sTimeOfDayMinutes);
+    sTimeOfDay.areCalcsValid = FALSE;
 }
 
 u8 RogueToD_GetSeason()
 {
-    u8 season = sSeasonCounter / DAYS_PER_SEASON;
+    u8 season = gRogueSaveBlock->seasonCounter / DAYS_PER_SEASON;
     return min(season, SEASON_COUNT - 1);
 }
 
@@ -169,12 +177,12 @@ void RogueToD_SetSeason(u8 season)
 
 u8 RogueToD_GetSeasonCounter()
 {
-    return sSeasonCounter;
+    return gRogueSaveBlock->seasonCounter;
 }
 
 void RogueToD_SetSeasonCounter(u8 value)
 {
-    sSeasonCounter = (value) % (DAYS_PER_SEASON * SEASON_COUNT);
+    gRogueSaveBlock->seasonCounter = (value) % (DAYS_PER_SEASON * SEASON_COUNT);
 }
 
 void RogueToD_SetTimePreset(u8 time, u8 season)
@@ -202,37 +210,37 @@ void RogueToD_SetTimePreset(u8 time, u8 season)
 
 u16 RogueToD_GetHours()
 {
-    return CALC_HOUR_FROM_TIME(sTimeOfDayMinutes);
+    return CALC_HOUR_FROM_TIME(gRogueSaveBlock->timeOfDayMinutes);
 }
 
 u16 RogueToD_GetMinutes()
 {
-    return CALC_MINS_FROM_TIME(sTimeOfDayMinutes);
+    return CALC_MINS_FROM_TIME(gRogueSaveBlock->timeOfDayMinutes);
 }
 
 u16 RogueToD_AddMinutes(u16 minutes)
 {
-    RogueToD_SetTime(sTimeOfDayMinutes + minutes);
+    RogueToD_SetTime(gRogueSaveBlock->timeOfDayMinutes + minutes);
 }
 
 bool8 RogueToD_IsDawn()
 {
-    return sTimeOfDayTimeCode == TIME_CODE_DAWN;
+    return sTimeOfDay.timeCode == TIME_CODE_DAWN;
 }
 
 bool8 RogueToD_IsDay()
 {
-    return sTimeOfDayTimeCode == TIME_CODE_DAY;
+    return sTimeOfDay.timeCode == TIME_CODE_DAY;
 }
 
 bool8 RogueToD_IsDusk()
 {
-    return sTimeOfDayTimeCode == TIME_CODE_DUSK;
+    return sTimeOfDay.timeCode == TIME_CODE_DUSK;
 }
 
 bool8 RogueToD_IsNight()
 {
-    return sTimeOfDayTimeCode == TIME_CODE_NIGHT;
+    return sTimeOfDay.timeCode == TIME_CODE_NIGHT;
 }
 
 // Will only apply override palette if the input matches
@@ -347,7 +355,8 @@ void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
 
     if(ShouldApplyTodTintForCurrentMap())
     {
-        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayOverworldColour, TRUE));
+        RecalculateToDDataIfRequired();
+        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDay.overworldColour, TRUE));
         isDirty = TRUE;
     }
 
@@ -363,7 +372,8 @@ void RogueToD_ModifyBattlePalette(u16 offset, u16 count)
 
     if(ShouldApplyTodTintForCurrentMap())
     {
-        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDayBattleColour, FALSE));
+        RecalculateToDDataIfRequired();
+        TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDay.battleColour, FALSE));
         isDirty = TRUE;
     }
 
@@ -392,40 +402,45 @@ static u16 RGB_Lerp(u16 colA, u16 colB, u16 perc)
     return RGB(rA, gA, bA);
 }
 
-static void RecalculateToDData(u16 time)
+static void RecalculateToDDataIfRequired()
 {
-    // Check the bounds
-    if(time < sToDPaletteLookup[0].time)
+    if(sTimeOfDay.areCalcsValid != TRUE)
     {
-        sTimeOfDayOverworldColour = sToDPaletteLookup[0].overworldColour;
-        sTimeOfDayBattleColour = sToDPaletteLookup[0].battleColour;
+        sTimeOfDay.areCalcsValid = TRUE;
 
-        sTimeOfDayTimeCode = sToDPaletteLookup[0].timeCode;
-    }
-    else if(time >= sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].time)
-    {
-        sTimeOfDayOverworldColour = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].overworldColour;
-        sTimeOfDayBattleColour = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].battleColour;
-
-        sTimeOfDayTimeCode = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].timeCode;
-    }
-    // Blend other ranges
-    else
-    {
-        u16 i;
-        for(i = 0; i < ARRAY_COUNT(sToDPaletteLookup) - 1; ++i)
+        // Check the bounds
+        if(gRogueSaveBlock->timeOfDayMinutes < sToDPaletteLookup[0].time)
         {
-            const struct ToDPalette* palA = &sToDPaletteLookup[i];
-            const struct ToDPalette* palB = &sToDPaletteLookup[i + 1];
+            sTimeOfDay.overworldColour = sToDPaletteLookup[0].overworldColour;
+            sTimeOfDay.battleColour = sToDPaletteLookup[0].battleColour;
 
-            if(time >= palA->time && time < palB->time)
+            sTimeOfDay.timeCode = sToDPaletteLookup[0].timeCode;
+        }
+        else if(gRogueSaveBlock->timeOfDayMinutes >= sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].time)
+        {
+            sTimeOfDay.overworldColour = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].overworldColour;
+            sTimeOfDay.battleColour = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].battleColour;
+
+            sTimeOfDay.timeCode = sToDPaletteLookup[ARRAY_COUNT(sToDPaletteLookup) - 1].timeCode;
+        }
+        // Blend other ranges
+        else
+        {
+            u16 i;
+            for(i = 0; i < ARRAY_COUNT(sToDPaletteLookup) - 1; ++i)
             {
-                u16 t = ((time - palA->time) * 100) / (palB->time - palA->time);
-                sTimeOfDayOverworldColour = RGB_Lerp(palA->overworldColour, palB->overworldColour, t);
-                sTimeOfDayBattleColour = RGB_Lerp(palA->battleColour, palB->battleColour, t);
+                const struct ToDPalette* palA = &sToDPaletteLookup[i];
+                const struct ToDPalette* palB = &sToDPaletteLookup[i + 1];
 
-                sTimeOfDayTimeCode = palA->timeCode;
-                break;
+                if(gRogueSaveBlock->timeOfDayMinutes >= palA->time && gRogueSaveBlock->timeOfDayMinutes < palB->time)
+                {
+                    u16 t = ((gRogueSaveBlock->timeOfDayMinutes - palA->time) * 100) / (palB->time - palA->time);
+                    sTimeOfDay.overworldColour = RGB_Lerp(palA->overworldColour, palB->overworldColour, t);
+                    sTimeOfDay.battleColour = RGB_Lerp(palA->battleColour, palB->battleColour, t);
+
+                    sTimeOfDay.timeCode = palA->timeCode;
+                    break;
+                }
             }
         }
     }

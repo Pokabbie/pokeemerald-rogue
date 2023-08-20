@@ -1,6 +1,9 @@
 
 
-// Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
+// When changing this, make sure to:
+// -bump ROGUE_SAVE_VERSION in rogue_save.c
+// -update SAVE_VER_ID_X_Y_Z enum in rogue_save.h
+// -update RogueSave_GetVersionIdFor()
 const u8 gText_RogueVersion[] = _("v1.3.2a");
 
 #ifdef ROGUE_EXPANSION

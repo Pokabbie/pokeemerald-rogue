@@ -27,6 +27,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
+#include "rogue_save.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -189,6 +190,7 @@ static void InitMainCallbacks(void)
     SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);
     gSaveBlock2Ptr = &gSaveblock2.block;
     gPokemonStoragePtr = &gPokemonStorage.block;
+    RogueSave_UpdatePointers();
 }
 
 static void CallCallbacks(void)

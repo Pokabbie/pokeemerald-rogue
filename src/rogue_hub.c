@@ -41,20 +41,20 @@ static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
 
 void RogueHub_Enter()
 {
-    //AGB_ASSERT(gRogueGlobalData.hubMap == NULL);
-    //gRogueGlobalData.hubMap = AllocZeroed(sizeof(struct RogueHubMap));
+    //AGB_ASSERT(gRogueSaveBlock->hubMap == NULL);
+    //gRogueSaveBlock->hubMap = AllocZeroed(sizeof(struct RogueHubMap));
 }
 
 void RogueHub_Exit()
 {
-    //AGB_ASSERT(gRogueGlobalData.hubMap != NULL);
-    //free(gRogueGlobalData.hubMap);
-    //gRogueGlobalData.hubMap = NULL;
+    //AGB_ASSERT(gRogueSaveBlock->hubMap != NULL);
+    //free(gRogueSaveBlock->hubMap);
+    //gRogueSaveBlock->hubMap = NULL;
 }
 
 void RogueHub_ClearProgress()
 {
-    memset(&gRogueGlobalData.hubMap, 0, sizeof(gRogueGlobalData.hubMap));
+    memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
     // Build default area at 0,0
     RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
@@ -71,8 +71,8 @@ bool8 RogueHub_HasUpgrade(u16 upgradeId)
 
     u8 bitMask = 1 << bit;
 
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueGlobalData.hubMap.upgradeFlags));
-    return (gRogueGlobalData.hubMap.upgradeFlags[idx] & bitMask) != 0;
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->hubMap.upgradeFlags));
+    return (gRogueSaveBlock->hubMap.upgradeFlags[idx] & bitMask) != 0;
 }
 
 void RogueHub_SetUpgrade(u16 upgradeId, bool8 state)
@@ -82,14 +82,14 @@ void RogueHub_SetUpgrade(u16 upgradeId, bool8 state)
 
     u8 bitMask = 1 << bit;
     
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueGlobalData.hubMap.upgradeFlags));
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->hubMap.upgradeFlags));
     if(state)
     {
-        gRogueGlobalData.hubMap.upgradeFlags[idx] |= bitMask;
+        gRogueSaveBlock->hubMap.upgradeFlags[idx] |= bitMask;
     }
     else
     {
-        gRogueGlobalData.hubMap.upgradeFlags[idx] &= ~bitMask;
+        gRogueSaveBlock->hubMap.upgradeFlags[idx] &= ~bitMask;
     }
 }
 
@@ -118,8 +118,8 @@ bool8 RogueHub_HasAreaBuilt(u8 area)
 
     u8 bitMask = 1 << bit;
 
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueGlobalData.hubMap.areaBuiltFlags));
-    return (gRogueGlobalData.hubMap.areaBuiltFlags[idx] & bitMask) != 0;
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->hubMap.areaBuiltFlags));
+    return (gRogueSaveBlock->hubMap.areaBuiltFlags[idx] & bitMask) != 0;
 }
 
 void RogueHub_BuildArea(u8 area, s8 x, s8 y)
@@ -129,11 +129,11 @@ void RogueHub_BuildArea(u8 area, s8 x, s8 y)
 
     u8 bitMask = 1 << bit;
     
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueGlobalData.hubMap.areaBuiltFlags));
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->hubMap.areaBuiltFlags));
     
-    gRogueGlobalData.hubMap.areaBuiltFlags[idx] |= bitMask;
-    gRogueGlobalData.hubMap.areaCoords[area].x = x;
-    gRogueGlobalData.hubMap.areaCoords[area].y = y;
+    gRogueSaveBlock->hubMap.areaBuiltFlags[idx] |= bitMask;
+    gRogueSaveBlock->hubMap.areaCoords[area].x = x;
+    gRogueSaveBlock->hubMap.areaCoords[area].y = y;
 }
 
 bool8 RogueHub_HasAreaBuildRequirements(u8 area)
@@ -163,7 +163,7 @@ u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
     {
         if(RogueHub_HasAreaBuilt(i))
         {
-            if(gRogueGlobalData.hubMap.areaCoords[i].x == x && gRogueGlobalData.hubMap.areaCoords[i].y == y)
+            if(gRogueSaveBlock->hubMap.areaCoords[i].x == x && gRogueSaveBlock->hubMap.areaCoords[i].y == y)
                 return i;
         }
     }
@@ -218,8 +218,8 @@ bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
     if(CanAreaConnect(area, dir))
     {
         struct Coords8 pos;
-        pos.x = gRogueGlobalData.hubMap.areaCoords[area].x;
-        pos.y = gRogueGlobalData.hubMap.areaCoords[area].y;
+        pos.x = gRogueSaveBlock->hubMap.areaCoords[area].x;
+        pos.y = gRogueSaveBlock->hubMap.areaCoords[area].y;
         IncrementCoordsByDirection(&pos, dir);
 
         return RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
@@ -233,8 +233,8 @@ u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir)
     if(CanAreaConnect(area, dir))
     {
         struct Coords8 pos;
-        pos.x = gRogueGlobalData.hubMap.areaCoords[area].x;
-        pos.y = gRogueGlobalData.hubMap.areaCoords[area].y;
+        pos.x = gRogueSaveBlock->hubMap.areaCoords[area].x;
+        pos.y = gRogueSaveBlock->hubMap.areaCoords[area].y;
         IncrementCoordsByDirection(&pos, dir);
 
         return RogueHub_FindAreaAtCoord(pos.x, pos.y);
@@ -885,8 +885,8 @@ void RogueHub_BuildHubArea()
     if(currentArea != HUB_AREA_NONE && !RogueHub_HasAreaBuilt(result) && dir <= HUB_AREA_CONN_EAST)
     {
         struct Coords8 pos;
-        pos.x = gRogueGlobalData.hubMap.areaCoords[currentArea].x;
-        pos.y = gRogueGlobalData.hubMap.areaCoords[currentArea].y;
+        pos.x = gRogueSaveBlock->hubMap.areaCoords[currentArea].x;
+        pos.y = gRogueSaveBlock->hubMap.areaCoords[currentArea].y;
         IncrementCoordsByDirection(&pos, dir);
 
         RogueHub_BuildArea(result, pos.x, pos.y);
@@ -1066,8 +1066,8 @@ static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
         if(RogueHub_AreaHasFreeConnection(fromArea, dir) && CanAreaConnect(buildArea, invDir))
         {
             struct Coords8 pos;
-            pos.x = gRogueGlobalData.hubMap.areaCoords[fromArea].x;
-            pos.y = gRogueGlobalData.hubMap.areaCoords[fromArea].y;
+            pos.x = gRogueSaveBlock->hubMap.areaCoords[fromArea].x;
+            pos.y = gRogueSaveBlock->hubMap.areaCoords[fromArea].y;
             IncrementCoordsByDirection(&pos, dir);
 
             RogueHub_BuildArea(buildArea, pos.x, pos.y);

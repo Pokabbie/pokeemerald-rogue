@@ -26,7 +26,15 @@
         "array": "c",
         "span": "c",
         "vector": "c",
-        "xstring": "c"
+        "xstring": "c",
+        "deque": "c",
+        "initializer_list": "c",
+        "list": "c",
+        "queue": "c",
+        "stack": "c",
+        "xhash": "c",
+        "xtree": "c",
+        "ctime": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

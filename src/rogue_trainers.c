@@ -447,11 +447,11 @@ u16 Rogue_NextBossTrainerId()
 u16 Rogue_NextMinibossTrainerId()
 {
     const struct RogueTrainer* trainerPtr;
-    u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
+    u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
 
     if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
     {
-        HistoryBufferPush(&gRogueRun.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
+        HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
     }
 
     return trainerNum;

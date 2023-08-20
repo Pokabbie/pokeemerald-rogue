@@ -9,6 +9,7 @@
 
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_save.h"
 
 extern const u8 gText_Campaign_None[];
 extern const u8 gText_Campaign_LowBST[];
@@ -61,7 +62,7 @@ void Rogue_ResetCampaignAfter(u16 count)
         // Reset the state for any new quests
         for(i = count; i < ROGUE_CAMPAIGN_COUNT; ++i)
         {
-            memset(&gRogueGlobalData.campaignData[i], 0, sizeof(struct RogueCampaignState));
+            memset(&gRogueSaveBlock->campaignData[i], 0, sizeof(struct RogueCampaignState));
         }
     }
 }
@@ -80,7 +81,7 @@ bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
             continue;
         }
 
-        if(!gRogueGlobalData.campaignData[i].isCompleted)
+        if(!gRogueSaveBlock->campaignData[i].isCompleted)
             return FALSE;
     }
 
@@ -130,7 +131,7 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
 
     if(campaignId != ROGUE_CAMPAIGN_NONE)
     {
-        gRogueGlobalData.campaignData[campaignId - ROGUE_CAMPAIGN_FIRST].isUnlocked =  TRUE;
+        gRogueSaveBlock->campaignData[campaignId - ROGUE_CAMPAIGN_FIRST].isUnlocked =  TRUE;
         return TRUE;
     }
 
@@ -253,8 +254,8 @@ u16 Rogue_DeactivateActiveCampaign(void)
             if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
                 IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
 
-            gRogueGlobalData.campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
-            gRogueGlobalData.campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();
+            gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
+            gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();
         }
     }
 
@@ -307,7 +308,7 @@ u16 Rogue_GetCampaignRunId(void)
     // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
     u16 scoreEncode;
     u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
-    u16 compatOffset = ROGUE_COMPAT_VERSION - 4; // 4 was the first version this was present
+    u16 compatOffset = RogueSave_GetVersionId();
 
     switch (Rogue_GetActiveCampaign())
     {

@@ -1015,8 +1015,8 @@ struct SaveBlock1
     union
     {
         u8 unused_3598[0x180];
-        struct RogueSaveData saveData;
-    } rogueBlock;
+        //struct RogueSaveData saveData;
+    } rogueBlockOLD;
     /*0x3718*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
     /*0x3728*/ struct RamScript ramScript;
     /*0x3B14*/ struct RecordMixingGift recordMixingGift;

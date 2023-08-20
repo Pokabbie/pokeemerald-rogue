@@ -196,7 +196,6 @@ gSpecials::
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_ChangeMonBall
-	def_special Rogue_GetBufferedShinySpecies
 	def_special Rogue_AnyNewQuestsPending
 	def_special Rogue_BufferLabMonName
 	def_special Rogue_GiveLabMon

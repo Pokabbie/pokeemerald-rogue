@@ -30,10 +30,6 @@
 #include "rogue_query.h"
 #include "rogue_quest.h"
 
-#ifdef ROGUE_DEBUG
-extern EWRAM_DATA struct RogueGlobalData gRogueGlobalData;
-#endif
-
 void DoSpecialTrainerBattle(void);
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
@@ -414,7 +410,7 @@ void RogueDebug_CompleteAvaliableQuests(void)
         // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
         questId = QUEST_CAPACITY - i - 1;
 
-        state = &gRogueGlobalData.questStates[questId];
+        state = &gRogueSaveBlock->questStates[questId];
 
         if(state->isUnlocked && !state->isCompleted)
         {
@@ -445,7 +441,7 @@ void RogueDebug_CollectAllQuests(void)
             // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
             questId = QUEST_CAPACITY - i - 1;
 
-            state = &gRogueGlobalData.questStates[questId];
+            state = &gRogueSaveBlock->questStates[questId];
 
             if(state->isUnlocked && (!state->isCompleted || state->hasPendingRewards))
             {
@@ -624,28 +620,6 @@ void Rogue_ChangeMonBall(void)
     SetMonData(&gPlayerParty[monIdx], MON_DATA_POKEBALL, &itemId);
 }
 
-void Rogue_GetBufferedShinySpecies(void)
-{
-    u16 i;
-    u16 offset = gSpecialVar_0x8004;
-
-    for(i = 0; i < ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer); ++i)
-    {
-        if(gRogueGlobalData.safariShinyBuffer[i] != (u16)-1)
-        {
-            if(offset == 0)
-            {
-                gSpecialVar_Result = gRogueGlobalData.safariShinyBuffer[i];
-                return;
-            }
-            else
-                --offset;
-        }
-    }
-
-    gSpecialVar_Result = SPECIES_NONE;
-}
-
 void Rogue_AnyNewQuestsPending(void)
 {
     gSpecialVar_Result = AnyNewQuestsPending();
@@ -681,7 +655,7 @@ void Rogue_GetUnlockedCampaignCount(void)
 
     for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
     {
-        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
+        if(gRogueSaveBlock->campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
             ++count;
     }
 
@@ -699,7 +673,7 @@ void Rogue_GetNextUnlockedCampaign(void)
 
     for(; i <= ROGUE_CAMPAIGN_LAST; ++i)
     {
-        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
+        if(gRogueSaveBlock->campaignData[i - ROGUE_CAMPAIGN_FIRST].isUnlocked)
         {
             gSpecialVar_0x8004 = i;
             return;
@@ -715,9 +689,9 @@ void Rogue_GetCampaignHighScore(void)
 
     if(i != ROGUE_CAMPAIGN_NONE)
     {
-        if(gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].isCompleted)
+        if(gRogueSaveBlock->campaignData[i - ROGUE_CAMPAIGN_FIRST].isCompleted)
         {
-            gSpecialVar_Result = gRogueGlobalData.campaignData[i - ROGUE_CAMPAIGN_FIRST].bestScore;
+            gSpecialVar_Result = gRogueSaveBlock->campaignData[i - ROGUE_CAMPAIGN_FIRST].bestScore;
             return;
         }
     }
