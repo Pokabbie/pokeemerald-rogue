@@ -569,7 +569,7 @@ bool8 GetPlayerSpritingState(u16 heldKeys)
     if(FlagGet(FLAG_SYS_B_DASH))
     {
         if(gSaveBlock2Ptr->optionsAutoRunToggle)
-            return gRogueGlobalData.runningToggleActive;
+            return Rogue_IsRunningToggledOn();
         else
             return (heldKeys & B_BUTTON);
     }

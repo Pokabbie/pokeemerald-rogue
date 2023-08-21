@@ -782,24 +782,7 @@ script RogueHub_ListSafariShinies
     setvar(VAR_0x8004, 0)
     msgbox(format("It reads...\pShiny Breeding Programme:"), MSGBOX_DEFAULT)
 
-    special(Rogue_GetBufferedShinySpecies)
-    if(var(VAR_RESULT) == SPECIES_NONE)
-    {
-        msgbox(format("No programs currently active."), MSGBOX_DEFAULT)
-    }
-    else
-    {
-        while(var(VAR_RESULT) != SPECIES_NONE)
-        {
-            bufferspeciesname(STR_VAR_1, VAR_RESULT)
-            msgbox(format("-{STR_VAR_1}"), MSGBOX_DEFAULT)
-
-            addvar(VAR_0x8004, 1)
-            special(Rogue_GetBufferedShinySpecies)
-        }
-
-        msgbox(format("That's the end of the list."), MSGBOX_DEFAULT)
-    }
+    msgbox(format("THIS FEATURE IS CURRENTLY BEING REWORKED\pIf you see this text, Abbie has been a dumb dumb and forgotten to fully rework it (doh!)"), MSGBOX_DEFAULT)
 
     release
 }

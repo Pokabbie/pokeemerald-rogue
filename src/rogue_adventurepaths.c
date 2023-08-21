@@ -143,8 +143,13 @@ static void GeneratePath(struct AdvPathSettings* pathSettings)
     GenerateRoom(bossRoom, pathSettings);
 
     gRogueAdvPath.roomCount = pathSettings->nodeCount;
-    gRogueAdvPath.currentRoomId = gRogueAdvPath.roomCount - 1; // give a valid idx
     gRogueAdvPath.pathLength = pathSettings->totalLength;
+
+    //if(gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID)
+    //{
+    //    // Just entered this segment, so respawn at the start (Otherwise we're probably reloading from a rest save)
+    //    gRogueRun.adventureRoomId = gRogueAdvPath.roomCount - 1;
+    //}
 
     // Store min/max Y coords
     {
@@ -387,15 +392,19 @@ static bool8 DoesRoomExists(s8 x, s8 y, struct AdvPathSettings* pathSettings)
 
 bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 {
-    if(gRogueAdvPath.roomCount != 0 && gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId].roomType != ADVPATH_ROOM_BOSS)
+    if(gRogueRun.adventureRoomId != ADVPATH_INVALID_ROOM_ID && (gRogueAdvPath.roomCount != 0 && gRogueAdvPath.rooms[gRogueRun.adventureRoomId].roomType != ADVPATH_ROOM_BOSS))
     {
         // Path is still valid
+        gRogueAdvPath.justGenerated = FALSE;
         return FALSE;
     }
     else
     {
         struct AdvPathSettings* pathSettings;
         struct AdvPathGenerator* generator;
+
+        // If we have a valid room ID, then we're reloading a previous save
+        bool8 isNewGeneration = gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID;
 
         pathSettings = AllocZeroed(sizeof(struct AdvPathSettings));
         generator = AllocZeroed(sizeof(struct AdvPathGenerator));
@@ -418,16 +427,40 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_MID] = 33;
         generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_BOT] = 33;
 
-        //SeedRogueRng(gRogueAdvPath.nextRngSeed);
-        SeedRogueRng(Random()); // TEMP - Just used to make debugging a bit easier than constantly reloading in and out
+        // Select the correct seed
+        {
+            u8 i;
+            u16 seed;
+            SeedRogueRng(gRogueRun.baseSeed);
+
+            seed = RogueRandom();
+            for(i = 0; i < gRogueRun.currentDifficulty; ++i)
+            {
+                seed = RogueRandom();
+            }
+
+            // This is the seed for this path
+            SeedRogueRng(seed);
+        }
+
         DebugPrintf("ADVPATH: Generating path for seed %d.", gRngRogueValue);
+        Rogue_ResetAdventurePathBuffers();
         GeneratePath(pathSettings);
         DebugPrint("ADVPATH: Finished generating path.");
-        gRogueAdvPath.nextRngSeed = RogueRandom();
 
         Free(pathSettings);
         Free(generator);
-        return TRUE;
+
+        gRogueAdvPath.justGenerated = isNewGeneration;
+
+        if(!isNewGeneration)
+        {
+            // Remember the room type/params
+            gRogueAdvPath.currentRoomType = gRogueAdvPath.rooms[gRogueRun.adventureRoomId].roomType;
+            memcpy(&gRogueAdvPath.currentRoomParams, &gRogueAdvPath.rooms[gRogueRun.adventureRoomId].roomParams, sizeof(gRogueAdvPath.currentRoomParams));
+        }
+
+        return isNewGeneration;
     }
 }
 
@@ -592,7 +625,7 @@ static void SetBossRoomWarp(u16 trainerNum, struct WarpData* warp)
 
 static void ApplyCurrentNodeWarp(struct WarpData *warp)
 {
-    struct RogueAdvPathRoom* room = &gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId];
+    struct RogueAdvPathRoom* room = &gRogueAdvPath.rooms[gRogueRun.adventureRoomId];
 
     SeedRogueRng(room->rngSeed);
 
@@ -650,7 +683,6 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
     if(!gRogueAdvPath.isOverviewActive)
     {
         bool8 freshPath = RogueAdv_GenerateAdventurePathsIfRequired();
-        gRogueAdvPath.justGenerated = freshPath;
 
         // Always jump back to overview screen, after a different route
         warp->mapGroup = MAP_GROUP(ROGUE_ADVENTURE_PATHS);
@@ -684,8 +716,8 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         }
         else
         {
-            warp->x = ROOM_TO_WARP_X(gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId].coords.x);
-            warp->y = ROOM_TO_WARP_Y(gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId].coords.y);
+            warp->x = ROOM_TO_WARP_X(gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x);
+            warp->y = ROOM_TO_WARP_Y(gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.y);
         }
 
 
@@ -889,7 +921,7 @@ static bool8 IsObjectEventVisible(struct RogueAdvPathRoom* room)
     }
     else
     {
-        u8 focusX = gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId].coords.x;
+        u8 focusX = gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x;
         return room->coords.x < focusX;
     }
 }
@@ -902,7 +934,7 @@ static bool8 ShouldBlockObjectEvent(struct RogueAdvPathRoom* room)
     }
     else
     {
-        u8 focusX = gRogueAdvPath.rooms[gRogueAdvPath.currentRoomId].coords.x;
+        u8 focusX = gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x;
         return room->coords.x == focusX;
     }
 }
@@ -1037,7 +1069,7 @@ void RogueAdv_WarpLastInteractedRoom()
     u8 roomIdx = gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].movementRangeX;
 
     // Move to the selected node
-    gRogueAdvPath.currentRoomId = roomIdx;
+    gRogueRun.adventureRoomId = roomIdx;
     gRogueAdvPath.currentRoomType = gRogueAdvPath.rooms[roomIdx].roomType;
     memcpy(&gRogueAdvPath.currentRoomParams, &gRogueAdvPath.rooms[roomIdx].roomParams, sizeof(gRogueAdvPath.currentRoomParams));
 

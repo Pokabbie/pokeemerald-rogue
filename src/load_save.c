@@ -15,6 +15,7 @@
 #include "agb_flash.h"
 
 #include "rogue_controller.h"
+#include "rogue_save.h"
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 
@@ -39,6 +40,7 @@ bool32 gFlashMemoryPresent;
 struct SaveBlock1 *gSaveBlock1Ptr;
 struct SaveBlock2 *gSaveBlock2Ptr;
 struct PokemonStorage *gPokemonStoragePtr;
+struct RogueSaveBlock *gRogueSaveBlock;
 
 // code
 void CheckForFlashMemory(void)
@@ -117,6 +119,7 @@ void MoveSaveBlocks_ResetHeap(void)
 
     // Must be done after copy back, as the ptrs can dynamically change
     UpdateBagItemsPointers();
+    RogueSave_UpdatePointers();
 
     // heap was destroyed in the copying process, so reset it
     InitHeap(gHeap, HEAP_SIZE);
@@ -183,8 +186,6 @@ void SaveObjectEvents(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
-
-    Rogue_OnSaveGame();
 }
 
 void LoadObjectEvents(void)
@@ -193,8 +194,6 @@ void LoadObjectEvents(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
-
-    Rogue_OnLoadGame();
 }
 
 void CopyPartyAndObjectsToSave(void)

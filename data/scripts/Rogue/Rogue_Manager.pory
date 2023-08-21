@@ -57,7 +57,6 @@ script Rogue_QuickSaveRun
 {
     lockall
 
-    setflag(FLAG_ROGUE_VALID_QUICK_SAVE)
     call(Common_EventScript_SaveGame)
 
     if(var(VAR_RESULT) == YES)
@@ -65,10 +64,6 @@ script Rogue_QuickSaveRun
         fadescreen(FADE_TO_BLACK)
         delay(60)
         special(DoSoftReset)
-    }
-    else
-    {
-        clearflag(FLAG_ROGUE_VALID_QUICK_SAVE)
     }
 
     releaseall
@@ -79,16 +74,15 @@ script Rogue_QuickSaveLoad
     // We can accidentally call this on successful run return
     lockall
 
-    if(flag(FLAG_ROGUE_VALID_QUICK_SAVE))
+    if(var(VAR_0x8004) == TRUE)
     {
-        clearflag(FLAG_ROGUE_VALID_QUICK_SAVE)
-        msgbox(format("Adventure has been reloaded."))
-        waitmessage()
+        msgbox(format("Adventure has been reloaded.\pClearing temporary save entry…"))
+
         call(Common_EventScript_ForceSaveGame)
     }
     else
     {
-        msgbox(format("This save has already been reloaded.\pRetiring from Adventure..."))
+        msgbox(format("This save has already been reloaded.\pRetiring from Adventure…"))
         call(Rogue_ReturnToHub)
     }
 

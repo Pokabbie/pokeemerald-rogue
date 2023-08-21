@@ -1,6 +1,9 @@
 
 
-// Make sure to bump ROGUE_COMPAT_VERSION in rogue_controller.c when changing this
+// When changing this, make sure to:
+// -bump ROGUE_SAVE_VERSION in rogue_save.c
+// -update SAVE_VER_ID_X_Y_Z enum in rogue_save.h
+// -update RogueSave_GetVersionIdFor()
 const u8 gText_RogueVersion[] = _("v1.3.2a");
 
 #ifdef ROGUE_EXPANSION
@@ -41,9 +44,9 @@ const u8 gText_MoveNotVeryEffective[] = _("{COLOR WHITE}{SHADOW DYNAMIC_COLOR6}N
 // Trainers
 //
 #ifdef ROGUE_EXPANSION
-const u8 gText_TrainerName_Default[] = _("Rouge");
+const u8 gText_TrainerName_Default[] = _("Rogue");
 #else
-const u8 gText_TrainerName_Default[] = _("ROUGE");
+const u8 gText_TrainerName_Default[] = _("ROGUE");
 #endif
 
 const u8 gText_TrainerName_Brendan[] = _("BRENDAN");

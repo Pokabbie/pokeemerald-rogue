@@ -98,6 +98,8 @@ struct RogueAssistantState
     struct NetPlayerState netPlayerState[NET_PLAYER_CAPACITY];
 };
 
+// TODO - Should really just use gBlockRecvBuffer and other similar vars for communication
+
 EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
 
 const struct RogueAssistantHeader gRogueAssistantHeader =

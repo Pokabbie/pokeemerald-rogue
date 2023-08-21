@@ -313,13 +313,6 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
-    if(JOY_REPEAT(L_BUTTON) && JOY_REPEAT(R_BUTTON))
-    {
-        // TESTING - DO NOT CHECK IN
-        Rogue_PushPopup_QuestComplete(QUEST_BigSaver);
-        Rogue_PushPopup_QuestFail(QUEST_BigSaver);
-    }
-
     if(enabled)
     {
         // Just re-enabled so push party notifications

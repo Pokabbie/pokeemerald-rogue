@@ -863,6 +863,29 @@ static const struct MenuAction MultichoiceList_WorkbenchOptions[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_ChangeClothes[] =
+{
+    {gText_ChangeOutfit},
+    {gText_ChangeName},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_SelectSeason[] =
+{
+    {gText_SeasonSpring},
+    {gText_SeasonSummer},
+    {gText_SeasonAutumn},
+    {gText_SeasonWinter},
+};
+
+static const struct MenuAction MultichoiceList_SelectTime[] =
+{
+    {gText_TimeDawn},
+    {gText_TimeMidday},
+    {gText_TimeDusk},
+    {gText_TimeMidnight},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -989,6 +1012,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGION_UPTO_HOENN]          = MULTICHOICE(MultichoiceList_RegionUpToHoenn),
     [MULTI_REGION_FULL]                = MULTICHOICE(MultichoiceList_RegionFull),
     [MULTI_WORKBENCH_OPTIONS]          = MULTICHOICE(MultichoiceList_WorkbenchOptions),
+    [MULTI_CHANGE_CLOTHES]             = MULTICHOICE(MultichoiceList_ChangeClothes),
+    [MULTI_SELECT_SEASON]              = MULTICHOICE(MultichoiceList_SelectSeason),
+    [MULTI_SELECT_TIME]                = MULTICHOICE(MultichoiceList_SelectTime),
 };
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =

@@ -8,6 +8,29 @@ struct RoguePartyMon
     u8 lastPopupLevel : 7;
 };
 
+// Minimal version of mon info to allow easy tracking for safari area
+struct RogueSafariMon
+{
+    u32 species : 16;
+    
+    u32 hpIV:5;
+    u32 attackIV:5;
+    u32 defenseIV:5;
+    u32 speedIV:5;
+    u32 spAttackIV:5;
+    u32 spDefenseIV:5;
+    
+    u32 pokeball:5; //31 balls for EX
+    u32 abilityNum:2; // technically only needs to be 1 for Vanilla
+    u32 genderFlag:1;
+    u32 shinyFlag:1;
+    
+    // Adding this makes it jump from 8 bytes per mon to 20
+    //u8 nickname[POKEMON_NAME_LENGTH];
+};
+
+STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
+
 // Adventure Path settings
 //
 struct RogueAdvPathRoomParams
@@ -60,7 +83,9 @@ struct RogueAdvPath
 {
     struct RogueAdvPathRoomParams currentRoomParams;
     struct RogueAdvPathRoom rooms[ROGUE_ADVPATH_ROOM_CAPACITY];
-    u16 nextRngSeed;
+    u16 routeHistoryBuffer[12];
+    u16 legendaryHistoryBuffer[6];
+    u16 miniBossHistoryBuffer[6];
     u8 currentRoomId;
     u8 currentRoomType;
     u8 roomCount;
@@ -148,20 +173,6 @@ struct RogueHubMap
     u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
 };
 
-struct RogueGlobalData
-{
-    bool8 runningToggleActive : 1;
-    u8 safairShinyBufferHead;
-    u16 safariShinyBuffer[6];
-    u32 safariShinyPersonality;
-    struct RogueQuestState questStates[QUEST_CAPACITY];
-    struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
-    struct RogueHubMap hubMap;
-};
-
-//ROGUE_STATIC_ASSERT(sizeof(struct RogueQuestState) <= sizeof(u8), RogueQuestState);
-
-
 struct RogueCampaignData_LowBst
 {
     u16 scoreSpecies;
@@ -174,6 +185,17 @@ struct RogueCampaignData_Generic
 
 struct RogueRunData
 {
+    u16 wildEncounters[9];
+    u16 fishingEncounters[2];
+    u16 bossHistoryBuffer[ROGUE_MAX_BOSS_COUNT];
+    u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
+    union
+    {
+        struct RogueCampaignData_Generic generic;
+        struct RogueCampaignData_LowBst lowBst;
+    } campaignData;
+    u16 baseSeed;
+    u8 adventureRoomId;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
     u8 currentRouteIndex;
@@ -182,19 +204,7 @@ struct RogueRunData
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
 #endif
-    u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
-    u16 wildEncounters[9];
-    u16 fishingEncounters[2];
-    u16 routeHistoryBuffer[12];
-    u16 legendaryHistoryBuffer[6];
-    u16 miniBossHistoryBuffer[6];
-    u16 bossHistoryBuffer[15];
-    u16 wildEncounterHistoryBuffer[3];
-    union
-    {
-        struct RogueCampaignData_Generic generic;
-        struct RogueCampaignData_LowBst lowBst;
-    } campaignData;
+    bool8 isQuickSaveValid : 1;
 };
 
 struct RogueHubArea
@@ -217,26 +227,6 @@ struct RogueAreaUpgrade
     u8 targetArea;
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
 };
-
-struct RogueHubData
-{
-    u32 money;
-    u16 registeredItem;
-    u16 playTimeHours;
-    u8 playTimeMinutes;
-    u8 playTimeSeconds;
-    u8 playTimeVBlanks;
-};
-
-// Can at most be 384 bytes
-struct RogueSaveData // 27 Bytes
-{
-    u32 rngSeed;
-    struct RogueRunData runData;
-    struct RogueHubData hubData;
-};
-
-ROGUE_STATIC_ASSERT(sizeof(struct RogueSaveData) <= 384, RogueSaveDataSize);
 
 struct RogueRouteMap
 {
@@ -403,6 +393,27 @@ struct RoguePokedexRegion
     const u8* displayName;
     const u16* variantList;
     u16 variantCount;
+};
+
+struct RogueDifficultyConfig
+{
+    u8 toggleBits[1 + (DIFFICULTY_TOGGLE_COUNT) / 8];
+    u8 rangeValues[DIFFICULTY_RANGE_COUNT];
+};
+
+struct RogueSaveBlock
+{
+    u16 saveVersion;
+    u8 currentBlockFormat;
+
+    // Everything past this point is not safe to read until the block format
+    // has been adjusted
+    struct RogueQuestState questStates[QUEST_CAPACITY];
+    struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
+    struct RogueHubMap hubMap;
+    struct RogueDifficultyConfig difficultyConfig;
+    u16 timeOfDayMinutes;
+    u8 seasonCounter;
 };
 
 extern const struct RogueRouteData gRogueRouteTable;

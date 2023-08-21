@@ -196,7 +196,6 @@ gSpecials::
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_ChangeMonBall
-	def_special Rogue_GetBufferedShinySpecies
 	def_special Rogue_AnyNewQuestsPending
 	def_special Rogue_BufferLabMonName
 	def_special Rogue_GiveLabMon
@@ -218,6 +217,7 @@ gSpecials::
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RunRewardLvls
 	def_special Rogue_RunRewardMoney
+	def_special Rogue_SetTimeAndSeason
 	def_special RogueHub_GetUpgradeFromMultichoiceResult
 	def_special RogueHub_GetAreaFromMultichoiceResult
 	def_special RogueHub_GetAreaDirectionFromMultichoiceResult

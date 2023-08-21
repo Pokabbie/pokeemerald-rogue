@@ -865,6 +865,7 @@ static bool8 StartMenuQuickSaveCallback(void)
     RemoveExtraStartMenuWindows();
     HideStartMenu();
 
+    gRogueRun.isQuickSaveValid = TRUE;
     ScriptContext1_SetupScript(Rogue_QuickSaveRun);
 
     return TRUE;

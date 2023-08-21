@@ -1190,6 +1190,19 @@ extern const u8 gText_ExpandSouth[];
 extern const u8 gText_ExpandNorth[];
 extern const u8 gText_ExpandEast[];
 extern const u8 gText_ExpandWest[];
+extern const u8 gText_ChangeName[];
+extern const u8 gText_ChangeOutfit[];
+
+extern const u8 gText_SeasonSpring[];
+extern const u8 gText_SeasonSummer[];
+extern const u8 gText_SeasonAutumn[];
+extern const u8 gText_SeasonWinter[];
+
+extern const u8 gText_TimeDawn[];
+extern const u8 gText_TimeMidday[];
+extern const u8 gText_TimeDusk[];
+extern const u8 gText_TimeMidnight[];
+
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];

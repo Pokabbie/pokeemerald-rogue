@@ -57,6 +57,7 @@
 #include "rogue_query.h"
 #include "rogue_quest.h"
 #include "rogue_ridemon.h"
+#include "rogue_save.h"
 #include "rogue_settings.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
@@ -93,15 +94,6 @@ extern const u8 gText_TrainerName_Default[];
 
 #define LAB_MON_COUNT 3
 
-// RogueNote: TODO - Modify pocket structure
-
-struct RogueBoxHubData
-{
-    struct Pokemon playerParty[PARTY_SIZE];
-    struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
-    struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
-};
-
 struct RouteMonPreview
 {
     u16 species;
@@ -112,11 +104,13 @@ struct RouteMonPreview
 // Temp data only ever stored in RAM
 struct RogueLocalData
 {
-    bool8 hasQuickLoadPending;
-    bool8 hasValidQuickSave;
-    bool8 hasSaveWarningPending;
-    bool8 hasVersionUpdateMsgPending;
     struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
+    u16 wildEncounterHistoryBuffer[3];
+    bool8 runningToggleActive : 1;
+    bool8 hasQuickLoadPending : 1;
+    bool8 hasValidQuickSave : 1;
+    bool8 hasSaveWarningPending : 1;
+    bool8 hasVersionUpdateMsgPending : 1;
 };
 
 struct RogueLabEncounterData
@@ -138,12 +132,13 @@ struct RogueHotTracking
 
 static struct RogueHotTracking gRogueHotTracking;
 
-EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueRunData gRogueRun = {};
-EWRAM_DATA struct RogueHubData gRogueHubData = {};
-EWRAM_DATA struct RogueBoxHubData gRogueBoxHubData = {}; // Anything that's too large to fit in the above struct
+
+// Temporary data, that isn't remembered
+EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
-EWRAM_DATA struct RogueGlobalData gRogueGlobalData = {};
+
+// TODO - Fix this and make sure it is tracked in gRogueRun and saved correctly!!! 
 EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
 bool8 IsSpeciesLegendary(u16 species);
@@ -170,46 +165,6 @@ static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 
 static void RandomiseCharmItems(void);
-
-static void EnsureSafariShinyBufferIsValid()
-{
-    if(gRogueGlobalData.safairShinyBufferHead > ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer))
-    {
-        gRogueGlobalData.safairShinyBufferHead = 0;
-        memset(&gRogueGlobalData.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
-
-#ifdef ROGUE_DEBUG
-        gRogueGlobalData.safariShinyBuffer[0] = SPECIES_FLAREON;
-        gRogueGlobalData.safariShinyBuffer[1] = SPECIES_WEEDLE;
-#endif
-    }
-}
-
-static bool8 ConsumeSafariShinyBufferIfPresent(u16 species)
-{
-    u8 i;
-
-    EnsureSafariShinyBufferIsValid();
-
-    for(i = 0; i < ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer); ++i)
-    {
-        if(Rogue_GetEggSpecies(gRogueGlobalData.safariShinyBuffer[i]) == Rogue_GetEggSpecies(species))
-        {
-            gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
-            return TRUE;//gRogueGlobalData.safariShinyPersonality;
-        }
-#ifdef ROGUE_EXPANSION
-        // Support shiny buffering for alternate forms
-        else if(GET_BASE_SPECIES_ID(gRogueGlobalData.safariShinyBuffer[i]) == GET_BASE_SPECIES_ID(species))
-        {
-            gRogueGlobalData.safariShinyBuffer[i] = (u16)-1;
-            return TRUE;//gRogueGlobalData.safariShinyPersonality;
-        }
-#endif
-    }
-
-    return FALSE;
-}
 
 u16 RogueRandomRange(u16 range, u8 flag)
 {
@@ -278,6 +233,11 @@ static u16 GetEncounterChainShinyOdds(u8 count)
 bool8 Rogue_IsRunActive(void)
 {
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
+}
+
+bool8 Rogue_InWildSafari(void)
+{
+    return FlagGet(FLAG_ROGUE_WILD_SAFARI);
 }
 
 bool8 Rogue_ForceExpAll(void)
@@ -554,16 +514,6 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         // Heal up to 1/2 health and remove status effect
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_STATUS, &statusAilment);
-
-        if(IsMonShiny(mon))
-        {
-            EnsureSafariShinyBufferIsValid();
-            gRogueGlobalData.safariShinyBuffer[gRogueGlobalData.safairShinyBufferHead] = GetMonData(mon, MON_DATA_SPECIES);
-            gRogueGlobalData.safairShinyBufferHead = (gRogueGlobalData.safairShinyBufferHead + 1) % ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer);
-
-            // Only store most recent personality, as u32s are costly and this is the easiest way to ensure shinies
-            gRogueGlobalData.safariShinyPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
-        }
 
         // Apply charms to IVs
         {
@@ -1482,22 +1432,6 @@ static void SelectStartMons(bool8 isSeeded)
     RogueMonQuery_End();
 }
 
-#define ROGUE_1_X_FINAL_SAVE_VERSION 4 // Final save version shipped with prior to v2.0
-
-#define ROGUE_SAVE_VERSION 5    // The version to use for tracking/updating internal save game data
-// ROGUE_COMPAT_VERSION moved to constants/rogue.h
-
-static bool8 IsPreReleaseCompatVersion(u16 version)
-{
-    switch (version)
-    {
-    case 3:
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
 static void ClearPokemonHeldItems(void)
 {
     struct BoxPokemon* boxMon;
@@ -1520,11 +1454,6 @@ static void ClearPokemonHeldItems(void)
         if(GetMonData(&gPlayerParty[boxId], MON_DATA_SPECIES) != SPECIES_NONE)
                 SetMonData(&gPlayerParty[boxId], MON_DATA_HELD_ITEM, &itemId);
     }
-}
-
-// Called on NewGame and LoadGame, if new values are added in new releases, put them here
-static void EnsureLoadValuesAreValid(bool8 newGame, u16 saveVersion)
-{
 }
 
 void Rogue_ResetConfigHubSettings(void)
@@ -1559,6 +1488,8 @@ void Rogue_ResetConfigHubSettings(void)
 
 void Rogue_OnNewGame(void)
 {
+    RogueSave_ClearData();
+
     RoguePlayer_SetNewGameOutfit();
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
 
@@ -1568,6 +1499,7 @@ void Rogue_OnNewGame(void)
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_WILD_SAFARI);
     FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
@@ -1608,10 +1540,6 @@ void Rogue_OnNewGame(void)
 
     RogueToD_SetTime(60 * 10);
 
-    // Reset shiny safari
-    gRogueGlobalData.safairShinyBufferHead = 0;
-    memset(&gRogueGlobalData.safariShinyBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer));
-
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
     ClearBerryTrees();
@@ -1626,8 +1554,6 @@ void Rogue_OnNewGame(void)
 #else
     FlagSet(FLAG_ROGUE_DEBUG_DISABLED);
 #endif
-
-    EnsureLoadValuesAreValid(TRUE, ROGUE_SAVE_VERSION);
 
     Rogue_ClearPopupQueue();
 }
@@ -1649,363 +1575,30 @@ void Rogue_SetDefaultOptions(void)
     //gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
 
-static void AppendItemsFromPocket(u8 pocket, struct ItemSlot* dst, u16* index)
-{
-    u16 i;
-    u16 writeIdx;
-    u16 itemId;
-    u16 count = gBagPockets[pocket].capacity;
-
-    // Use getters to avoid encryption
-    for (i = 0; i < count; i++)
-    {
-        writeIdx = *index;
-        itemId = gBagPockets[pocket].itemSlots[i].itemId;
-
-        if(itemId != ITEM_NONE)
-        {
-            dst[writeIdx].itemId = itemId;
-            dst[writeIdx].quantity = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
-
-            *index = writeIdx + 1;
-        }
-    }
-}
-
-static void* GetBoxDataPtr(size_t offset)
-{
-    void* baseAddr = &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT][0];
-    return baseAddr + offset;
-}
-
-static void* GetBoxDataEndPtr()
-{
-    void* baseAddr = &gPokemonStoragePtr->boxes[ACTUAL_TOTAL_BOXES_COUNT - 1][IN_BOX_COUNT - 1];
-    return baseAddr;
-}
-
-static void FlipEncryptMemory(void* ptr, size_t size, u32 encryptionKey)
-{
-    if(encryptionKey)
-    {
-        size_t i;
-        u8* write;
-        u8* encryptionBytes = (u8*)&encryptionKey;
-
-        for(i = 0; i < size; ++i)
-        {
-            write = (u8*)(ptr) + i;
-            *write = *write ^ encryptionBytes[i % 4];
-        }
-    }
-}
-
-static void SerializeBoxData(size_t* offset, void* src, size_t size, u32 encryptionKey)
-{
-    void* addr = GetBoxDataPtr(*offset);
-    AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
-    memcpy(addr, src, size);
-
-    FlipEncryptMemory(addr, size, encryptionKey);
-
-    *offset += size;
-}
-
-static void DeserializeBoxData(size_t* offset, void* dst, size_t size, u32 encryptionKey)
-{
-    void* addr = GetBoxDataPtr(*offset);
-    AGB_ASSERT((size_t)addr + size < (size_t)GetBoxDataEndPtr());
-    memcpy(dst, addr, size);
-
-    FlipEncryptMemory(dst, size, encryptionKey);
-
-    *offset += size;
-}
-
-static void SaveHubStates(void)
-{
-    u8 i;
-    u16 bagItemIdx;
-    u16 pocketId;
-
-    for(i = 0; i < gPlayerPartyCount; ++i)
-    {
-        CopyMon(&gRogueBoxHubData.playerParty[i], &gPlayerParty[i], sizeof(gPlayerParty[i]));
-    }
-    for(; i < PARTY_SIZE; ++i)
-    {
-        ZeroMonData(&gRogueBoxHubData.playerParty[i]);
-    }
-
-    memcpy(&gRogueBoxHubData.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
-    
-    // Put all items into a single big list
-    bagItemIdx = 0;
-
-    for(pocketId = 0; pocketId < POCKETS_COUNT; ++pocketId)
-        AppendItemsFromPocket(pocketId, &gRogueBoxHubData.bagItems[0], &bagItemIdx);
-
-    for(; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
-    {
-        gRogueBoxHubData.bagItems[bagItemIdx].itemId = ITEM_NONE;
-        gRogueBoxHubData.bagItems[bagItemIdx].quantity = 0;
-    }
-}
-
-static void LoadHubStates(void)
-{
-    u8 i;
-    u16 bagItemIdx;
-
-    for(i = 0; i < PARTY_SIZE; ++i)
-    {
-        CopyMon(&gPlayerParty[i], &gRogueBoxHubData.playerParty[i], sizeof(gPlayerParty[i]));
-    }
-
-    for(i = 0; i < PARTY_SIZE; ++i)
-    {
-        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
-            break;
-    }
-    gPlayerPartyCount = i;
-
-    memcpy(GetBerryTreeInfo(1), &gRogueBoxHubData.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
-
-    // Restore the bag by just clearing and adding everything back to it
-    ClearBag();
-
-    for(bagItemIdx = 0; bagItemIdx < BAG_ITEM_CAPACITY; ++bagItemIdx)
-    {
-        const u16 itemId = gRogueBoxHubData.bagItems[bagItemIdx].itemId;
-        const u16 quantity = gRogueBoxHubData.bagItems[bagItemIdx].quantity;
-
-        if(itemId != ITEM_NONE && quantity != 0)
-        {
-            // Fix for multiple HMs bug
-            if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-                AddBagItem(itemId, 1);
-            else
-                AddBagItem(itemId, quantity);
-        }
-    }
-}
-
 extern const u8 Rogue_QuickSaveLoad[];
 extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
 
-void Rogue_OnSaveGame(void)
+void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
-    u8 i;
-    u32 encryptionKey = Random32();
+    if(Rogue_IsRunActive())
+        gRogueLocal.hasSaveWarningPending = TRUE;
+    else
+        gRogueLocal.hasVersionUpdateMsgPending = TRUE;
 
-    gSaveBlock1Ptr->rogueSaveVersion = ROGUE_SAVE_VERSION;
-    gSaveBlock1Ptr->rogueCompatVersion = ROGUE_COMPAT_VERSION;
-
-    gSaveBlock1Ptr->rogueBlock.saveData.rngSeed = gRngRogueValue;
-
-    {
-        u16 count;
-        size_t offset = 0;
-
-        SerializeBoxData(&offset, &encryptionKey, sizeof(encryptionKey), 0);
-
-        // Serialize more global data
-
-        // Quests
-        count = QUEST_CAPACITY;
-        SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * count, encryptionKey);
-
-        // Campaigns
-        count = ROGUE_CAMPAIGN_COUNT;
-        SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * count, encryptionKey);
-
-        // Shiny buffer
-        SerializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
-
-        // Time of day
-        {
-            u16 tod = RogueToD_GetTime();
-            u8 seasonCounter = RogueToD_GetSeasonCounter();
-            SerializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
-            SerializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
-        }
-
-        // Hub progression
-        count = ARRAY_COUNT(gRogueGlobalData.hubMap.areaBuiltFlags);
-        SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.hubMap.areaBuiltFlags[0], count, encryptionKey);
-
-        count = ARRAY_COUNT(gRogueGlobalData.hubMap.upgradeFlags);
-        SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.hubMap.upgradeFlags[0], count, encryptionKey);
-
-        count = ARRAY_COUNT(gRogueGlobalData.hubMap.areaCoords);
-        SerializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        SerializeBoxData(&offset, &gRogueGlobalData.hubMap.areaCoords[0], sizeof(struct Coords8) * count, encryptionKey);
-
-
-        // Serialize temporary per-run data
-        SerializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData), encryptionKey);
-        SerializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath), encryptionKey);
-        SerializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData), encryptionKey);
-
-        // Encounter preview
-        {
-            u16 i;
-
-            for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
-                SerializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible), encryptionKey);
-        }
-
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount), encryptionKey);
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin), encryptionKey);
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax), encryptionKey);
-        SerializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation), encryptionKey);
-
-        // Encode save reload state here
-        gRogueLocal.hasQuickLoadPending = (Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED));
-        gRogueLocal.hasValidQuickSave = FlagGet(FLAG_ROGUE_VALID_QUICK_SAVE);
-
-        SerializeBoxData(&offset, &gRogueLocal.hasQuickLoadPending, sizeof(gRogueLocal.hasQuickLoadPending), encryptionKey);
-        SerializeBoxData(&offset, &gRogueLocal.hasValidQuickSave, sizeof(gRogueLocal.hasValidQuickSave), encryptionKey);
-
-        // Clear out otherwise, they'll immediately retrigger
-        gRogueLocal.hasQuickLoadPending = FALSE;
-        gRogueLocal.hasValidQuickSave = FALSE;
-    }
-    
-    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.runData, &gRogueRun, sizeof(gRogueRun));
-    memcpy(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, &gRogueHubData, sizeof(gRogueHubData));
-
-    FlipEncryptMemory(&gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun), encryptionKey);
-    FlipEncryptMemory(&gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData), encryptionKey);
+    // TODO - Hook up warnings here??
+    //if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
+    //    FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 }
 
-void Rogue_OnLoadGame(void)
+void Rogue_NotifySaveLoaded(void)
 {
-    u8 i;
-    u32 encryptionKey = 0;
+    gRogueLocal.hasQuickLoadPending = FALSE;
 
-    // Clear progress here so if we don't cover full range in deserialize, it shouldn't matter
-    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
-    RogueHub_ClearProgress();
-
-    memset(&gRogueLocal, 0, sizeof(gRogueLocal));
-
-    DebugPrintf("Save Version: %d", gSaveBlock1Ptr->rogueSaveVersion);
-    DebugPrintf("Compat Version: %d", gSaveBlock1Ptr->rogueCompatVersion);
-    DebugPrintf("Debug Save: %s", FlagGet(FLAG_ROGUE_DEBUG_DISABLED) ? "-" : "DEBUG PREVIOUSLY ACTIVE");
-
-    gRngRogueValue = gSaveBlock1Ptr->rogueBlock.saveData.rngSeed;
-
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
     {
-        u16 count;
-        size_t offset = 0;
-
-        DeserializeBoxData(&offset, &encryptionKey, sizeof(encryptionKey), 0);
-
-        // Serialize more global data
-
-        // Quests
-        DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.questStates[0], sizeof(struct RogueQuestState) * min(count, QUEST_CAPACITY), encryptionKey);
-        ResetQuestStateAfter(count);
-
-        // Campaigns
-        DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.campaignData[0], sizeof(struct RogueCampaignState) * min(count, ROGUE_CAMPAIGN_COUNT), encryptionKey);
-        Rogue_ResetCampaignAfter(count);
-
-        // Shiny buffer
-        DeserializeBoxData(&offset, &gRogueGlobalData.safairShinyBufferHead, sizeof(gRogueGlobalData.safairShinyBufferHead), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyBuffer[0], sizeof(gRogueGlobalData.safariShinyBuffer[0]) * ARRAY_COUNT(gRogueGlobalData.safariShinyBuffer), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.safariShinyPersonality, sizeof(gRogueGlobalData.safariShinyPersonality), encryptionKey);
-        EnsureSafariShinyBufferIsValid();
-
-        // Time of day
-        {
-            u16 tod = 0;
-            u8 seasonCounter = RogueToD_GetSeasonCounter();
-            DeserializeBoxData(&offset, &tod, sizeof(tod), encryptionKey);
-            DeserializeBoxData(&offset, &seasonCounter, sizeof(seasonCounter), encryptionKey);
-            RogueToD_SetTime(tod);
-            RogueToD_SetSeasonCounter(seasonCounter);
-        }
-
-        // Hub progression
-        DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.hubMap.areaBuiltFlags[0], count, encryptionKey);
-
-        DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.hubMap.upgradeFlags[0], count, encryptionKey);
-
-        DeserializeBoxData(&offset, &count, sizeof(count), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueGlobalData.hubMap.areaCoords[0], sizeof(struct Coords8) * count, encryptionKey);
-
-
-        // Serialize temporary per-run data
-        DeserializeBoxData(&offset, &gRogueBoxHubData, sizeof(gRogueBoxHubData), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueAdvPath, sizeof(gRogueAdvPath), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueLabEncounterData, sizeof(gRogueLabEncounterData), encryptionKey);
-        
-        // Encounter preview
-        {
-            u16 i;
-
-            for(i = 0; i < ARRAY_COUNT(gRogueLocal.encounterPreview); ++i)
-                DeserializeBoxData(&offset, &gRogueLocal.encounterPreview[i].isVisible, sizeof(gRogueLocal.encounterPreview[i].isVisible), encryptionKey);
-        }
-
-        DeserializeBoxData(&offset, &gRogueHotTracking.triggerCount, sizeof(gRogueHotTracking.triggerCount), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueHotTracking.triggerMin, sizeof(gRogueHotTracking.triggerMin), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueHotTracking.triggerMax, sizeof(gRogueHotTracking.triggerMax), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueHotTracking.triggerAccumulation, sizeof(gRogueHotTracking.triggerAccumulation), encryptionKey);
-
-        DeserializeBoxData(&offset, &gRogueLocal.hasQuickLoadPending, sizeof(gRogueLocal.hasQuickLoadPending), encryptionKey);
-        DeserializeBoxData(&offset, &gRogueLocal.hasValidQuickSave, sizeof(gRogueLocal.hasValidQuickSave), encryptionKey);
+        gRogueLocal.hasQuickLoadPending = TRUE;
     }
-
-    memcpy(&gRogueRun, &gSaveBlock1Ptr->rogueBlock.saveData.runData, sizeof(gRogueRun));
-    memcpy(&gRogueHubData, &gSaveBlock1Ptr->rogueBlock.saveData.hubData, sizeof(gRogueHubData));
-
-    FlipEncryptMemory(&gRogueRun, sizeof(gRogueRun), encryptionKey);
-    FlipEncryptMemory(&gRogueHubData, sizeof(gRogueHubData), encryptionKey);
-
-#ifndef ROGUE_DEBUG
-    if(!FlagGet(FLAG_ROGUE_DEBUG_DISABLED))
-    {
-        // Invalidate quicksave if we've just jumped from a DEBUG build
-        gRogueLocal.hasValidQuickSave = FALSE;
-    }
-#endif
-
-    FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
-
-    if(gSaveBlock1Ptr->rogueCompatVersion != ROGUE_COMPAT_VERSION)
-    {
-        if(Rogue_IsRunActive())
-            gRogueLocal.hasSaveWarningPending = TRUE;
-        else
-            gRogueLocal.hasVersionUpdateMsgPending = TRUE;
-
-        if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
-            FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
-
-        if(gSaveBlock1Ptr->rogueCompatVersion == 4)
-            ResetQuestsFor_1_3_1();
-    }
-
-    EnsureLoadValuesAreValid(FALSE, gSaveBlock1Ptr->rogueSaveVersion);
-    RecalcCharmCurseValues();
-    
-    ResetFollowParterMonObjectEvent();
-
-    Rogue_RemoveNetObjectEvents();
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
@@ -2022,15 +1615,13 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
-#ifndef ROGUE_DEBUG
+#if !(defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_ALLOW_SAVE_SCUMMING))
     else if(gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
 
-        if(gRogueLocal.hasValidQuickSave)
-            FlagSet(FLAG_ROGUE_VALID_QUICK_SAVE);
-        else
-            FlagClear(FLAG_ROGUE_VALID_QUICK_SAVE);
+        VarSet(VAR_0x8004, gRogueRun.isQuickSaveValid);
+        gRogueRun.isQuickSaveValid = FALSE;
 
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
@@ -2135,12 +1726,17 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
             // Update running toggle
             if(gSaveBlock2Ptr->optionsAutoRunToggle && (newKeys & B_BUTTON) != 0)
             {
-                gRogueGlobalData.runningToggleActive = !gRogueGlobalData.runningToggleActive;
+                gRogueLocal.runningToggleActive = !gRogueLocal.runningToggleActive;
             }
         }
     }
     
     Rogue_AssistantOverworldCB();
+}
+
+bool8 Rogue_IsRunningToggledOn()
+{
+    return gRogueLocal.runningToggleActive;
 }
 
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent)
@@ -2456,7 +2052,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
 
                 // Force to starter lvl
-                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 7);
+                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
                 CalculateMonStats(&gPlayerParty[i]);
@@ -2474,43 +2070,45 @@ static void SetupRogueRunBag()
     ClearBag();
     SetMoney(&gSaveBlock1Ptr->money, 0);
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
-    {
-        // Add default items
-        AddBagItem(ITEM_POKE_BALL, 5);
-        AddBagItem(ITEM_POTION, 1);
+    // TODO - Fix
 
-        // Add back some of the items we want to keep
-        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-        {
-            itemId = gRogueBoxHubData.bagItems[i].itemId;
-            quantity = gRogueBoxHubData.bagItems[i].quantity;
-
-            if(itemId != ITEM_NONE && quantity != 0)
-            {
-                u8 pocket = GetPocketByItemId(itemId);
-                if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
-                    AddBagItem(itemId, quantity);
-                else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-                    AddBagItem(itemId, quantity);
-            }
-        }
-    }
-    else
-    {
-        // Re-add all the items
-        for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-        {
-            // TODO - Convert here for special case like money bags
-            itemId = gRogueBoxHubData.bagItems[i].itemId;
-            quantity = gRogueBoxHubData.bagItems[i].quantity;
-
-            if(itemId != ITEM_NONE && quantity != 0)
-            {
-                AddBagItem(itemId, quantity);
-            }
-        }
-    }
+    //if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
+    //{
+    //    // Add default items
+    //    AddBagItem(ITEM_POKE_BALL, 5);
+    //    AddBagItem(ITEM_POTION, 1);
+//
+    //    // Add back some of the items we want to keep
+    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+    //    {
+    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
+    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
+//
+    //        if(itemId != ITEM_NONE && quantity != 0)
+    //        {
+    //            u8 pocket = GetPocketByItemId(itemId);
+    //            if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+    //                AddBagItem(itemId, quantity);
+    //            else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+    //                AddBagItem(itemId, quantity);
+    //        }
+    //    }
+    //}
+    //else
+    //{
+    //    // Re-add all the items
+    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+    //    {
+    //        // TODO - Convert here for special case like money bags
+    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
+    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
+//
+    //        if(itemId != ITEM_NONE && quantity != 0)
+    //        {
+    //            AddBagItem(itemId, quantity);
+    //        }
+    //    }
+    //}
 
 #ifdef ROGUE_DEBUG
     AddBagItem(ITEM_ESCAPE_ROPE, 101);
@@ -2527,6 +2125,8 @@ static void BeginRogueRun(void)
     DebugPrint("BeginRogueRun");
     
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
+    memset(&gRogueRun, 0, sizeof(gRogueRun));
+    memset(&gRogueAdvPath, 0, sizeof(gRogueAdvPath));
     ResetHotTracking();
 
 #ifdef ROGUE_EXPANSION
@@ -2540,34 +2140,22 @@ static void BeginRogueRun(void)
 
     Rogue_PreActivateDesiredCampaign();
 
-    // TODO - Initial seed differently?
-    gRogueAdvPath.nextRngSeed = Random();
-
     //if(FlagGet(FLAG_SET_SEED_ENABLED))
     //{
     //    gRngRogueValue = Rogue_GetStartSeed();
     //}
 
-    gRogueRun.enteredRoomCounter = 0;
+    gRogueRun.baseSeed = Random();
     gRogueRun.currentDifficulty = GetStartDifficulty();
     gRogueRun.currentLevelOffset = 5;
-    gRogueRun.currentRouteIndex = 0;
+    gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
         gRogueRun.currentLevelOffset = 80;
     }
-    // Will get generated later
-    gRogueAdvPath.currentRoomId = 0;
-    gRogueAdvPath.roomCount = 0;
-    gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
-
+    
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-
-    memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
-    memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
-    memset(&gRogueRun.wildEncounterHistoryBuffer[0], 0, sizeof(u16) * ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer));
-    memset(&gRogueRun.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.miniBossHistoryBuffer));
     memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
@@ -2577,20 +2165,11 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
     VarSet(VAR_ROGUE_FLASK_HEALS_MAX, 4);
 
-    SaveHubStates();
+    RogueSave_SaveHubStates();
 
     ClearBerryTrees();
     RandomiseFishingEncounters();
     InitialiseFaintedLabMons();
-
-    gRogueHubData.money = GetMoney(&gSaveBlock1Ptr->money);
-    //gRogueHubData.registeredItem = gSaveBlock1Ptr->registeredItem;
-
-    gRogueHubData.playTimeHours = gSaveBlock2Ptr->playTimeHours;
-    gRogueHubData.playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
-    gRogueHubData.playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds;
-    gRogueHubData.playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks;
-
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
 
@@ -2646,42 +2225,9 @@ static void EndRogueRun(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
-    //gRogueRun.enteredRoomCounter = 0;
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
-    SetMoney(&gSaveBlock1Ptr->money, gRogueHubData.money);
 
-    //gSaveBlock1Ptr->registeredItem = gRogueHubData.registeredItem;
-
-    
-    //gRogueHubData.playTimeHours += gSaveBlock2Ptr->playTimeHours;
-    //gRogueHubData.playTimeMinutes += gSaveBlock2Ptr->playTimeMinutes;
-    //gRogueHubData.playTimeSeconds += gSaveBlock2Ptr->playTimeSeconds;
-    //gRogueHubData.playTimeVBlanks += gSaveBlock2Ptr->playTimeVBlanks;
-
-    gSaveBlock2Ptr->playTimeHours += gRogueHubData.playTimeHours;
-    gSaveBlock2Ptr->playTimeMinutes += gRogueHubData.playTimeMinutes;
-    gSaveBlock2Ptr->playTimeSeconds += gRogueHubData.playTimeSeconds + (gRogueHubData.playTimeVBlanks / 60);
-    gSaveBlock2Ptr->playTimeVBlanks += gRogueHubData.playTimeVBlanks;
-
-    if(gSaveBlock2Ptr->playTimeVBlanks > 60)
-    {
-        gSaveBlock2Ptr->playTimeSeconds += gSaveBlock2Ptr->playTimeVBlanks / 60;
-        gSaveBlock2Ptr->playTimeVBlanks = gSaveBlock2Ptr->playTimeVBlanks % 60;
-    }
-
-    if(gSaveBlock2Ptr->playTimeSeconds > 60)
-    {
-        gSaveBlock2Ptr->playTimeMinutes += gSaveBlock2Ptr->playTimeSeconds / 60;
-        gSaveBlock2Ptr->playTimeSeconds = gSaveBlock2Ptr->playTimeSeconds % 60;
-    }
-
-    if(gSaveBlock2Ptr->playTimeMinutes > 60)
-    {
-        gSaveBlock2Ptr->playTimeHours += gSaveBlock2Ptr->playTimeMinutes / 60;
-        gSaveBlock2Ptr->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes % 60;
-    }
-
-    LoadHubStates();
+    RogueSave_LoadHubStates();
 
     // Grow berries based on progress in runs
     BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
@@ -2786,7 +2332,7 @@ static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDi
         }
     }
 
-    if(HistoryBufferContains(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId))
+    if(HistoryBufferContains(&gRogueAdvPath.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer), legendaryId))
     {
         return FALSE;
     }
@@ -2809,7 +2355,7 @@ static u16 NextLegendaryId(bool8 applyLegendaryDifficulty)
     if(enabledLegendariesCount == 0)
     {
         // We've exhausted all enabled legendary options, so we're going to wipe the buffer and try again
-        memset(&gRogueRun.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer));
+        memset(&gRogueAdvPath.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer));
         return NextLegendaryId(FALSE);
     }
 
@@ -2834,7 +2380,7 @@ u8 Rogue_SelectLegendaryEncounterRoom(void)
 {    
     u16 legendaryId = NextLegendaryId(TRUE);
 
-    HistoryBufferPush(&gRogueRun.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueRun.legendaryHistoryBuffer), legendaryId);
+    HistoryBufferPush(&gRogueAdvPath.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer), legendaryId);
 
     return legendaryId;
 }
@@ -2964,7 +2510,7 @@ static bool8 IsRouteEnabled(u16 routeId)
 
     if(includeFlags == ROUTE_FLAG_NONE || (route->mapFlags & includeFlags) != 0)
     {
-        if(!HistoryBufferContains(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), routeId))
+        if(!HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId))
         {
             return TRUE;
         }
@@ -2988,7 +2534,7 @@ static u16 NextRouteId()
     if(enabledRoutesCount == 0)
     {
         // We've exhausted all enabled route options, so we're going to wipe the buffer and try again
-        memset(&gRogueRun.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.routeHistoryBuffer));
+        memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
         return NextRouteId();
     }
 
@@ -3009,11 +2555,18 @@ static u16 NextRouteId()
     return gRogueRouteTable.routeCount - 1;
 }
 
+void Rogue_ResetAdventurePathBuffers()
+{
+    memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
+    memset(&gRogueAdvPath.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer));
+    memset(&gRogueAdvPath.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
+}
+
 u8 Rogue_SelectRouteRoom(void)
 {
     u16 routeId = NextRouteId();
 
-    HistoryBufferPush(&gRogueRun.routeHistoryBuffer[0], ARRAY_COUNT(gRogueRun.routeHistoryBuffer), routeId);
+    HistoryBufferPush(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId);
 
     return routeId;
 }
@@ -3108,6 +2661,14 @@ void Rogue_OnWarpIntoMap(void)
     if(IsQuestRewardShopActive())
         FlagClear(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
 
+
+    // Set new safari flag on entering area
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE)
+        FlagSet(FLAG_ROGUE_WILD_SAFARI);
+    else
+        FlagClear(FLAG_ROGUE_WILD_SAFARI);
+
+
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_TRANSITION)
     {
         if(!Rogue_IsRunActive())
@@ -3138,7 +2699,7 @@ void Rogue_OnWarpIntoMap(void)
     }
     else
     {
-        RogueToD_AddMinutes(30);
+        RogueToD_AddMinutes(15);
     }
 }
 
@@ -4439,8 +4000,16 @@ static bool8 ForceChainSpeciesSpawn(u8 area)
 
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 {
+    if(Rogue_InWildSafari())
+    {
+        *species = SPECIES_ABRA;
+        *level = STARTER_MON_LEVEL;
+        *forceShiny = FALSE;
+        return;
+    }
+
     // Note: Don't seed individual encounters
-    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    else if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u16 shinyOdds = Rogue_GetShinyOdds();
 
@@ -4465,7 +4034,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         {
             u8 difficultyModifier = GetRoomTypeDifficulty();
             u16 count = GetCurrentWildEncounterCount();
-            u16 historyBufferCount = ARRAY_COUNT(gRogueRun.wildEncounterHistoryBuffer);
+            u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
             
             do
@@ -4477,18 +4046,12 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
                 if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
                     break;
             }
-            while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
+            while(!GetSafariZoneFlag() && (count > historyBufferCount) && HistoryBufferContains(&gRogueLocal.wildEncounterHistoryBuffer[0], historyBufferCount, *species));
 
-            HistoryBufferPush(&gRogueRun.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
+            HistoryBufferPush(&gRogueLocal.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
         *forceShiny = (Random() % shinyOdds) == 0;
-
-        if(GetSafariZoneFlag())
-        {
-            if(ConsumeSafariShinyBufferIfPresent(*species))
-                *forceShiny = TRUE;
-        }
     }
 }
 
@@ -4505,7 +4068,12 @@ u16 Rogue_SelectRandomWildMon(void)
 
 bool8 Rogue_PreferTraditionalWildMons(void)
 {
-    return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+    if(Rogue_IsRunActive())
+    {
+        return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+    }
+
+    return FALSE;
 }
 
 bool8 Rogue_AreWildMonEnabled(void)
@@ -4520,57 +4088,75 @@ bool8 Rogue_AreWildMonEnabled(void)
         return GetCurrentWildEncounterCount() > 0;
     }
 
+    if(Rogue_InWildSafari())
+    {
+        return TRUE;
+    }
+
     return FALSE;
 }
 
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
-    *level = CalculateWildLevel(3);
+    if(Rogue_InWildSafari())
+    {
+        *level = STARTER_MON_LEVEL;
+    }
+    else
+    {
+        *level = CalculateWildLevel(3);
+    }
 }
 
 void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+    if(Rogue_InWildSafari())
     {
-        u16 presetIndex;
-        u16 species = GetMonData(mon, MON_DATA_SPECIES);
-        u8 presetCount = gPresetMonTable[species].presetCount;
-        u16 statA = (Random() % 6);
-        u16 statB = (statA + 1 + (Random() % 5)) % 6;
-        u16 temp = 31;
-
-        if(presetCount != 0)
-        {
-            presetIndex = Random() % presetCount;
-            Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
-        }
-
-        // Bump 2 of the IVs to max
-        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-        // Clear held item
-        temp = 0;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
     }
-    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+    else
     {
-        u8 i;
-        u16 moveId;
-
-        // Replace roar with hidden power to avoid pokemon roaring itself out of battle
-        for (i = 0; i < MAX_MON_MOVES; i++)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
-            moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
-            if( moveId == MOVE_ROAR || 
-                moveId == MOVE_WHIRLWIND || 
-                moveId == MOVE_EXPLOSION ||
-                moveId == MOVE_SELF_DESTRUCT || 
-                moveId == MOVE_TELEPORT)
+            u16 presetIndex;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u8 presetCount = gPresetMonTable[species].presetCount;
+            u16 statA = (Random() % 6);
+            u16 statB = (statA + 1 + (Random() % 5)) % 6;
+            u16 temp = 31;
+
+            if(presetCount != 0)
             {
-                moveId = MOVE_HIDDEN_POWER;
-                SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
-                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+                presetIndex = Random() % presetCount;
+                Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+            }
+
+            // Bump 2 of the IVs to max
+            SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+            SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+
+            // Clear held item
+            temp = 0;
+            SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+        {
+            u8 i;
+            u16 moveId;
+
+            // Replace roar with hidden power to avoid pokemon roaring itself out of battle
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                moveId = GetMonData(mon, MON_DATA_MOVE1 + i);
+                if( moveId == MOVE_ROAR || 
+                    moveId == MOVE_WHIRLWIND || 
+                    moveId == MOVE_EXPLOSION ||
+                    moveId == MOVE_SELF_DESTRUCT || 
+                    moveId == MOVE_TELEPORT)
+                {
+                    moveId = MOVE_HIDDEN_POWER;
+                    SetMonData(mon, MON_DATA_MOVE1 + i, &moveId);
+                    SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
+                }
             }
         }
     }
