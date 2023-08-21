@@ -835,14 +835,12 @@ static bool32 MatchCall_IsRematchable_NPC(match_call_t matchCall)
 
 static bool32 MatchCall_IsRematchable_Trainer(match_call_t matchCall)
 {
-    if (matchCall.trainer->rematchTableIdx >= REMATCH_ELITE_FOUR_ENTRIES)
-        return FALSE;
-    return gSaveBlock1Ptr->trainerRematches[matchCall.trainer->rematchTableIdx] ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 MatchCall_IsRematchable_Wally(match_call_t matchCall)
 {
-    return gSaveBlock1Ptr->trainerRematches[matchCall.wally->rematchTableIdx] ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 MatchCall_IsRematchable_Rival(match_call_t matchCall)
@@ -1015,19 +1013,6 @@ static void MatchCall_BufferCallMessageTextByRematchTeam(const match_call_text_d
     }
     else
     {
-        if (FlagGet(FLAG_SYS_GAME_CLEAR))
-        {
-            do
-            {
-                if (gSaveBlock1Ptr->trainerRematches[idx])
-                    i += 2;
-                else if (CountBattledRematchTeams(idx) >= 2)
-                    i += 3;
-                else
-                    i++;
-            } while (0);
-        }
-
         StringExpandPlaceholders(dest, textData[i].text);
     }
 }
