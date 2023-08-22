@@ -34,6 +34,7 @@
 #include "constants/songs.h"
 #include "constants/battle_config.h"
 #include "rogue_baked.h"
+#include "rogue_controller.h"
 
 #define BATTLE_INTERFACE_TRANSPARENT_BG 0
 #define BATTLE_INTERFACE_FILLED_BG 5
@@ -2217,7 +2218,7 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
     if (!GetSetPokedexSpeciesFlag(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES), FLAG_GET_CAUGHT))
         return;
 
-    if(GetSafariZoneFlag())
+    if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
         if(!AnyPlayerPartyMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES))
             && !AnyStorageMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)))
