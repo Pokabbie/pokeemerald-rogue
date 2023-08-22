@@ -26,10 +26,11 @@ struct RogueSafariMon
     u32 shinyFlag:1;
     
     // Adding this makes it jump from 8 bytes per mon to 20
-    //u8 nickname[POKEMON_NAME_LENGTH];
+    u8 nickname[POKEMON_NAME_LENGTH];
 };
 
-STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
+//STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
+STATIC_ASSERT(sizeof(struct RogueSafariMon) == 20, SizeOfRogueSafariMon);
 
 // Adventure Path settings
 //
@@ -410,6 +411,8 @@ struct RogueSaveBlock
     // has been adjusted
     struct RogueQuestState questStates[QUEST_CAPACITY];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
+    struct RogueSafariMon safariMons[45];
+    struct RogueSafariMon safariLegends[15];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

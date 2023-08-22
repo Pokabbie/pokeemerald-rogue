@@ -23,6 +23,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
+#include "rogue_safari.h"
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
@@ -784,10 +785,18 @@ void Rogue_GetFollowMonSpecies(void)
 {
     u16 species;
     bool8 isShiny;
-    FollowMon_GetSpeciesFromLastInteracted(&species, &isShiny);
+    u8 spawnSlot;
+    FollowMon_GetSpeciesFromLastInteracted(&species, &isShiny, &spawnSlot);
 
     gSpecialVar_0x800A = species;
     gSpecialVar_0x800B = isShiny;
+    gSpecialVar_0x8009 = spawnSlot;
+}
+
+void Rogue_TryEnqueueWildBattleMon(void)
+{
+    u8 spawnSlot = gSpecialVar_0x8009;
+    RogueSafari_EnqueueBattleMon(spawnSlot);
 }
 
 void Rogue_GetTrainerNum(void)

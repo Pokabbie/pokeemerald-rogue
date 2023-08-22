@@ -57,6 +57,7 @@
 #include "rogue_query.h"
 #include "rogue_quest.h"
 #include "rogue_ridemon.h"
+#include "rogue_safari.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
 #include "rogue_timeofday.h"
@@ -2664,7 +2665,10 @@ void Rogue_OnWarpIntoMap(void)
 
     // Set new safari flag on entering area
     if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE)
+    {
         FlagSet(FLAG_ROGUE_WILD_SAFARI);
+        RogueSafari_ResetSpawns();
+    }
     else
         FlagClear(FLAG_ROGUE_WILD_SAFARI);
 
@@ -3165,6 +3169,8 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                 }
                 else
                     hasMonFainted = TRUE;
+
+                RogueSafari_PushMon(&gPlayerParty[read]);
 
                 if(canSendToLab)
                     PushFaintedMonToLab(&gPlayerParty[read]);
@@ -4100,6 +4106,7 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
 {
     if(Rogue_InWildSafari())
     {
+        // Thrown away later, so doesn't matter too much
         *level = STARTER_MON_LEVEL;
     }
     else
@@ -4112,6 +4119,14 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
     if(Rogue_InWildSafari())
     {
+        u32 value;
+        struct RogueSafariMon* safariMon = RogueSafari_ConsumePendingBattleMon();
+
+        AGB_ASSERT(safariMon != NULL);
+        if(safariMon != NULL)
+        {
+            RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+        }
     }
     else
     {
