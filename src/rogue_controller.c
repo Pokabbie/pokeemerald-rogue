@@ -496,7 +496,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         if(*catchRate < 25)
             *catchRate = 25;
     }
-    else if(GetSafariZoneFlag())
+    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
         *ballMultiplier = 12345; // Masterball equiv
     }
@@ -3533,6 +3533,11 @@ void Rogue_Battle_EndWildBattle(void)
 
 void Rogue_Safari_EndWildBattle(void)
 {
+    if (gBattleOutcome == B_OUTCOME_CAUGHT)
+    {
+        u8 safariIndex = RogueSafari_GetPendingBattleMonIdx();
+        RogueSafari_ClearSafariMonAtIdx(safariIndex);
+    }
 }
 
 bool8 Rogue_AllowItemUse(u16 itemId)
@@ -3952,7 +3957,7 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
         }
 
     }
-    else if(GetSafariZoneFlag())
+    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
         *itemId = 0;
     }
@@ -4120,12 +4125,13 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
     if(Rogue_InWildSafari())
     {
         u32 value;
-        struct RogueSafariMon* safariMon = RogueSafari_ConsumePendingBattleMon();
+        struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
 
         AGB_ASSERT(safariMon != NULL);
         if(safariMon != NULL)
         {
             RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+            CalculateMonStats(mon);
         }
     }
     else

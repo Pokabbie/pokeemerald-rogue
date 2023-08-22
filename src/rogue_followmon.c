@@ -574,7 +574,7 @@ static u16 NextSpawnMonSlot()
 
     if(Rogue_InWildSafari())
     {
-        struct RogueSafariMon* mon = RogueSafari_ChooseNewSafariMon(slot);
+        struct RogueSafariMon* mon = RogueSafari_ChooseSafariMonForSlot(slot);
 
         if(mon != NULL)
         {
@@ -883,7 +883,7 @@ void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
     u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
 
     if(Rogue_InWildSafari())
-        RogueSafari_ClearSafariMonAt(spawnSlot);
+        RogueSafari_RemoveMonFromSlot(spawnSlot);
 
     if(sFollowMonData.activeCount != 0)
         --sFollowMonData.activeCount;

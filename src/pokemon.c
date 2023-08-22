@@ -5580,7 +5580,23 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
 u8 GetNature(struct Pokemon *mon)
 {
-    return GetMonData(mon, MON_DATA_PERSONALITY, 0) % NUM_NATURES;
+    return GetNatureFromPersonality(GetMonData(mon, MON_DATA_PERSONALITY, 0));
+}
+
+void SetNature(struct Pokemon *mon, u8 nature)
+{
+    SetNatureBoxMon(&mon->box, nature);
+    CalculateMonStats(mon);
+}
+
+void SetNatureBoxMon(struct BoxPokemon *mon, u8 nature)
+{
+    u16 i;
+    u32 personality = GetBoxMonData(mon, MON_DATA_PERSONALITY, 0);
+    u8 origNature = GetNatureFromPersonality(personality);
+
+    personality = (personality - origNature) + nature;
+    ChangePersonality(mon, personality);
 }
 
 u8 GetNatureFromPersonality(u32 personality)
