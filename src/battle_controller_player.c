@@ -1652,8 +1652,8 @@ static void MoveSelectionDisplayMoveType(void)
 static void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
-    src[0] = (baseTileNum + 0x3);
-    src[1] = (baseTileNum + 0x3) | FLIP_VERTICAL;
+    src[0] = (0x3);
+    src[1] = (0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
