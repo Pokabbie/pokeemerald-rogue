@@ -1,4 +1,7 @@
 #include "global.h"
+#include "constants/items.h"
+
+#include "event_data.h"
 #include "random.h"
 #include "string_util.h"
 
@@ -11,26 +14,44 @@ struct SafariData
 {
     u8 spawnIndex;
     u8 pendingBattleIdx;
-    u8 monIndexMap[FOLLOWMON_MAX_SPAWN_SLOTS];
+    u8 slotToIndexMap[FOLLOWMON_MAX_SPAWN_SLOTS];
 };
 
 static EWRAM_DATA struct SafariData sSafariData = {0};
 
 static void ZeroSafariMon(struct RogueSafariMon* mon);
-static void MonToSafariMon(struct BoxPokemon* inMon, struct RogueSafariMon* outMon);
+static u8 AllocSafariMonSlot();
+static u8 FreeSafariMonSlotCount();
 
 void RogueSafari_PushMon(struct Pokemon* mon)
 {
-    RogueSafari_PushBoxMon(&mon->box);
+    if(!mon->rogueExtraData.isSafariIllegal)
+    {
+        RogueSafari_PushBoxMon(&mon->box);
+
+        // Just in case we somehow try to add this mon twice, don't
+        mon->rogueExtraData.isSafariIllegal = TRUE;
+    }
 }
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    u8 index = Random() % ARRAY_COUNT(gRogueSaveBlock->safariMons); // temp
+    u8 index = AllocSafariMonSlot();
     struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
 
     ZeroSafariMon(writeMon);
     RogueSafari_CopyToSafariMon(monToCopy, writeMon);
+
+    writeMon->priorityCounter = 1;
+
+    if(writeMon->shinyFlag)
+    {
+        // Shinies will last much longer than regular mons
+        writeMon->priorityCounter += 10;
+    }
+
+    // TODO - Handle legends?
+    // TODO - Track if mon used in major fights (or lots of fights)
 }
 
 static void ZeroSafariMon(struct RogueSafariMon* mon)
@@ -43,11 +64,12 @@ void RogueSafari_ResetSpawns()
 {
     u8 i;
 
+    sSafariData.spawnIndex = Random() % ARRAY_COUNT(gRogueSaveBlock->safariMons);
     sSafariData.pendingBattleIdx = INVALID_SAFARI_MON_IDX;
 
-    for(i = 0; i < ARRAY_COUNT(sSafariData.monIndexMap); ++i)
+    for(i = 0; i < ARRAY_COUNT(sSafariData.slotToIndexMap); ++i)
     {
-        sSafariData.monIndexMap[i] = INVALID_SAFARI_MON_IDX;
+        sSafariData.slotToIndexMap[i] = INVALID_SAFARI_MON_IDX;
     }
 }
 
@@ -74,6 +96,7 @@ void RogueSafari_CopyFromSafariMon(struct RogueSafariMon* fromMon, struct BoxPok
     COPY_MON_DATA(shinyFlag, MON_DATA_IS_SHINY);
 
     SetBoxMonData(toMon, MON_DATA_NICKNAME, fromMon->nickname);
+    SetNatureBoxMon(toMon, fromMon->nature);
 }
 
 #undef COPY_MON_DATA
@@ -101,6 +124,10 @@ void RogueSafari_CopyToSafariMon(struct BoxPokemon* fromMon, struct RogueSafariM
     COPY_MON_DATA(shinyFlag, MON_DATA_IS_SHINY);
 
     GetBoxMonData(fromMon, MON_DATA_NICKNAME, toMon->nickname);
+
+    // Use original nature
+    temp = GetBoxMonData(fromMon, MON_DATA_PERSONALITY);
+    toMon->nature = GetNatureFromPersonality(temp);
 }
 
 #undef COPY_MON_DATA
@@ -109,16 +136,16 @@ static bool8 IsMonAlreadySpawned(u8 safariIndex)
 {
     u8 i;
 
-    for(i = 0; i < ARRAY_COUNT(sSafariData.monIndexMap); ++i)
+    for(i = 0; i < ARRAY_COUNT(sSafariData.slotToIndexMap); ++i)
     {
-        if(sSafariData.monIndexMap[i] == safariIndex)
+        if(sSafariData.slotToIndexMap[i] == safariIndex)
             return TRUE;
     }
 
     return FALSE;
 }
 
-struct RogueSafariMon* RogueSafari_ChooseNewSafariMon(u8 index)
+struct RogueSafariMon* RogueSafari_ChooseSafariMonForSlot(u8 slot)
 {
     u8 i;
 
@@ -128,7 +155,7 @@ struct RogueSafariMon* RogueSafari_ChooseNewSafariMon(u8 index)
 
         if(gRogueSaveBlock->safariMons[sSafariData.spawnIndex].species != SPECIES_NONE && !IsMonAlreadySpawned(sSafariData.spawnIndex))
         {
-            sSafariData.monIndexMap[index] = sSafariData.spawnIndex;
+            sSafariData.slotToIndexMap[slot] = sSafariData.spawnIndex;
             return &gRogueSaveBlock->safariMons[sSafariData.spawnIndex];
         }
     }
@@ -137,11 +164,19 @@ struct RogueSafariMon* RogueSafari_ChooseNewSafariMon(u8 index)
     return NULL;
 }
 
+void RogueSafari_RemoveMonFromSlot(u8 slot)
+{
+    if(slot < ARRAY_COUNT(sSafariData.slotToIndexMap))
+    {
+        sSafariData.slotToIndexMap[slot] = INVALID_SAFARI_MON_IDX;
+    }
+}
+
 struct RogueSafariMon* RogueSafari_GetSafariMonAt(u8 index)
 {
-    if(index < ARRAY_COUNT(sSafariData.monIndexMap))
+    if(index < ARRAY_COUNT(sSafariData.slotToIndexMap))
     {
-        u8 safariIndex = sSafariData.monIndexMap[index];
+        u8 safariIndex = sSafariData.slotToIndexMap[index];
 
         if(safariIndex < ARRAY_COUNT(gRogueSaveBlock->safariMons))
             return &gRogueSaveBlock->safariMons[safariIndex];
@@ -150,33 +185,122 @@ struct RogueSafariMon* RogueSafari_GetSafariMonAt(u8 index)
     return NULL;
 }
 
-void RogueSafari_ClearSafariMonAt(u8 index)
+void RogueSafari_ClearSafariMonAtIdx(u8 index)
 {
-    if(index < ARRAY_COUNT(sSafariData.monIndexMap))
+    if(index < ARRAY_COUNT(gRogueSaveBlock->safariMons))
     {
-        sSafariData.monIndexMap[index] = INVALID_SAFARI_MON_IDX;
+        u8 i;
+
+        for(i = 0; i < ARRAY_COUNT(sSafariData.slotToIndexMap); ++i)
+        {
+            if(sSafariData.slotToIndexMap[i] == index)
+                sSafariData.slotToIndexMap[i] = INVALID_SAFARI_MON_IDX;
+        }
+
+        ZeroSafariMon(&gRogueSaveBlock->safariMons[index]);
+        
+        if(sSafariData.pendingBattleIdx == index)
+            sSafariData.pendingBattleIdx = INVALID_SAFARI_MON_IDX;
     }
 }
 
-void RogueSafari_EnqueueBattleMon(u8 index)
+void RogueSafari_EnqueueBattleMon(u8 slot)
 {
-    AGB_ASSERT(index < ARRAY_COUNT(sSafariData.monIndexMap));
+    AGB_ASSERT(slot < ARRAY_COUNT(sSafariData.slotToIndexMap));
 
-    if(index < ARRAY_COUNT(sSafariData.monIndexMap))
+    if(slot < ARRAY_COUNT(sSafariData.slotToIndexMap))
     {
-        sSafariData.pendingBattleIdx = sSafariData.monIndexMap[index];
+        sSafariData.pendingBattleIdx = sSafariData.slotToIndexMap[slot];
     }
 }
 
-struct RogueSafariMon* RogueSafari_ConsumePendingBattleMon()
+u8 RogueSafari_GetPendingBattleMonIdx()
+{
+    return sSafariData.pendingBattleIdx;
+}
+
+struct RogueSafariMon* RogueSafari_GetPendingBattleMon()
 {
     u8 safariIndex = sSafariData.pendingBattleIdx;
-    sSafariData.pendingBattleIdx = INVALID_SAFARI_MON_IDX;
 
     if(safariIndex < ARRAY_COUNT(gRogueSaveBlock->safariMons))
-    {
         return &gRogueSaveBlock->safariMons[safariIndex];
-    }
 
     return NULL;
+}
+
+static u8 AllocSafariMonSlot()
+{
+    u8 i;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+    {
+        if(gRogueSaveBlock->safariMons[i].species == SPECIES_NONE)
+        {
+            // There is a free slot here
+            return i;
+        }
+    }
+
+    // If we got here, that means we need to get rid of a mon and take it's slot
+    {
+        u8 lowestPriority = 255;
+        u16 idx, offset;
+
+        // Count down priorities
+        for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+        {
+            if(gRogueSaveBlock->safariMons[i].priorityCounter != 0)
+                --gRogueSaveBlock->safariMons[i].priorityCounter;
+
+            // Keep track of lowest priority in case there isn't a free slot
+            lowestPriority = min(lowestPriority, gRogueSaveBlock->safariMons[i].priorityCounter); 
+        }
+
+        offset = Random();
+
+        // Find first mon of priority and give back it's slot
+        for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+        {
+            idx = (offset + i) % ARRAY_COUNT(gRogueSaveBlock->safariMons);
+
+            if(gRogueSaveBlock->safariMons[idx].priorityCounter == lowestPriority)
+            {
+                return idx;
+            }
+        }
+    }
+
+    // Should never reach here
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+static u8 FreeSafariMonSlotCount()
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+    {
+        if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
+            ++count;
+    }
+
+    return count;
+}
+
+u16 RogueSafari_GetActivePokeballType()
+{
+    u16 itemId = VarGet(VAR_ROGUE_SAFARI_BALL_TYPE);
+
+    if(itemId >= FIRST_BALL && itemId <= LAST_BALL)
+        return itemId;
+
+    return ITEM_POKE_BALL;
+}
+
+void RogueSafari_SetActivePokeballType(u16 itemId)
+{
+    VarSet(VAR_ROGUE_SAFARI_BALL_TYPE, itemId);
 }

@@ -50,6 +50,7 @@
 #include "rogue_baked.h"
 #include "rogue_quest.h"
 #include "rogue_charms.h"
+#include "rogue_safari.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
@@ -794,7 +795,8 @@ void HandleAction_SafariZoneBallThrow(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     gNumSafariBalls--;
-    gLastUsedItem = ITEM_SAFARI_BALL;
+    gLastUsedItem = RogueSafari_GetActivePokeballType();
+    RemoveBagItem(gLastUsedItem, 1);
     gBattlescriptCurrInstr = BattleScript_SafariBallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }

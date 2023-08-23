@@ -22,6 +22,9 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+#include "rogue_safari.h"
+
 // iwram
 u32 gMonShrinkDuration;
 u16 gMonShrinkDelta;
@@ -1481,7 +1484,13 @@ static void SpriteCB_Ball_Wobble_Step(struct Sprite *sprite)
     case BALL_NEXT_MOVE:
         SHAKE_INC(sprite->sState);
         shakes = SHAKES(sprite->sState);
-        if (IsCriticalCapture())
+
+        if(Rogue_InWildSafari())
+        {
+            sprite->affineAnimPaused = TRUE;
+            sprite->callback = SpriteCB_Ball_Capture;
+        }
+        else if (IsCriticalCapture())
         {
             if (gBattleSpritesDataPtr->animationData->criticalCaptureSuccess)
             {

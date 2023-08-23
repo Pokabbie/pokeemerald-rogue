@@ -496,7 +496,7 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
         if(*catchRate < 25)
             *catchRate = 25;
     }
-    else if(GetSafariZoneFlag())
+    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
         *ballMultiplier = 12345; // Masterball equiv
     }
@@ -2056,6 +2056,9 @@ static void BeginRogueRun_ModifyParty(void)
                 exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
+                // Partner's can't reappear in safari
+                gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+
                 CalculateMonStats(&gPlayerParty[i]);
             }
         }
@@ -2227,6 +2230,21 @@ static void EndRogueRun(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
+
+
+    // We're back from adventure, so any mon we finished or retired with add to the safari
+    {
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                RogueSafari_PushMon(&gPlayerParty[i]);
+            }
+        }
+    }
 
     RogueSave_LoadHubStates();
 
@@ -3074,6 +3092,9 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
     {
         CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLabEncounterData.party[index], sizeof(gPlayerParty[gPlayerPartyCount]));
 
+        // Already in safari from? (Maybe should track index and then wipe here, as we could have higher priority)
+        gPlayerParty[gPlayerPartyCount].rogueExtraData.isSafariIllegal = TRUE;
+
         gPlayerPartyCount = CalculatePlayerPartyCount();
         ResetFaintedLabMonAtSlot(index);
         return TRUE;
@@ -3533,6 +3554,11 @@ void Rogue_Battle_EndWildBattle(void)
 
 void Rogue_Safari_EndWildBattle(void)
 {
+    if (gBattleOutcome == B_OUTCOME_CAUGHT)
+    {
+        u8 safariIndex = RogueSafari_GetPendingBattleMonIdx();
+        RogueSafari_ClearSafariMonAtIdx(safariIndex);
+    }
 }
 
 bool8 Rogue_AllowItemUse(u16 itemId)
@@ -3952,7 +3978,7 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
         }
 
     }
-    else if(GetSafariZoneFlag())
+    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
         *itemId = 0;
     }
@@ -4120,12 +4146,31 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
     if(Rogue_InWildSafari())
     {
         u32 value;
-        struct RogueSafariMon* safariMon = RogueSafari_ConsumePendingBattleMon();
+        struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
 
         AGB_ASSERT(safariMon != NULL);
         if(safariMon != NULL)
         {
+            u8 text[POKEMON_NAME_LENGTH + 1];
+            u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+
             RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+
+            // Make baby form
+            if(eggSpecies != safariMon->species)
+            {
+                SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
+                GetMonData(mon, MON_DATA_NICKNAME, text);
+
+                if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
+                {
+                    // Doesn't have a nickname so update to match species name
+                    StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
+                    SetMonData(mon, MON_DATA_NICKNAME, text);
+                }
+            }
+
+            CalculateMonStats(mon);
         }
     }
     else

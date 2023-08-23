@@ -64,7 +64,7 @@
 
 #define VAR_ROGUE_DEX_VARIANT                0x402F
 #define VAR_ROGUE_DEX_GEN_LIMIT              0x4030
-#define VAR_UNUSED_0x4031                    0x4031
+#define VAR_ROGUE_SAFARI_BALL_TYPE           0x4031
 #define VAR_UNUSED_0x4032                    0x4032
 #define VAR_UNUSED_0x4033                    0x4033
 

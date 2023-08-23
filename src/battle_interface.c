@@ -18,6 +18,7 @@
 #include "battle_message.h"
 #include "pokedex.h"
 #include "palette.h"
+#include "item.h"
 #include "international_string_util.h"
 #include "safari_zone.h"
 #include "battle_anim.h"
@@ -32,9 +33,11 @@
 #include "constants/battle_anim.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/items.h"
 #include "constants/battle_config.h"
 #include "rogue_baked.h"
 #include "rogue_controller.h"
+#include "rogue_safari.h"
 
 #define BATTLE_INTERFACE_TRANSPARENT_BG 0
 #define BATTLE_INTERFACE_FILLED_BG 5
@@ -2391,6 +2394,7 @@ static void UpdateSafariBallsTextOnHealthbox(u8 healthboxSpriteId)
 
     txtPtr = StringCopy(text, gText_HealthboxNickname);
     StringAppend(txtPtr, gText_SafariBalls);
+    StringAppend(txtPtr, Rogue_GetItemName(RogueSafari_GetActivePokeballType()));
 
     windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
@@ -2408,7 +2412,7 @@ static void UpdateLeftNoOfBallsTextOnHealthbox(u8 healthboxSpriteId)
 
     txtPtr = StringCopy(text, gText_HealthboxNickname);
     txtPtr = StringAppend(txtPtr, gText_SafariBallLeft);
-    ConvertIntToDecimalStringN(txtPtr, gNumSafariBalls, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(txtPtr, GetItemCountInBag(RogueSafari_GetActivePokeballType()), STR_CONV_MODE_LEFT_ALIGN, 2);
 
     windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, GetStringRightAlignXOffset(FONT_SMALL, text, 0x2F), 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
