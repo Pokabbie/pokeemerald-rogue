@@ -214,7 +214,11 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_LEFT))
     {
-        if (gActionSelectionCursor[gActiveBattler] & 1)
+        if(gActionSelectionCursor[gActiveBattler] == 3)
+        {
+            // Can't move left/right when on bottom row
+        }
+        else if (gActionSelectionCursor[gActiveBattler] & 1)
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
@@ -224,7 +228,11 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_RIGHT))
     {
-        if (!(gActionSelectionCursor[gActiveBattler] & 1))
+        if(gActionSelectionCursor[gActiveBattler] == 3)
+        {
+            // Can't move left/right when on bottom row
+        }
+        else if (!(gActionSelectionCursor[gActiveBattler] & 1))
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
@@ -234,7 +242,11 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_UP))
     {
-        if (gActionSelectionCursor[gActiveBattler] & 2)
+        if(gActionSelectionCursor[gActiveBattler] == 0)
+        {
+            // Can't move up/down in first column
+        }
+        else if (gActionSelectionCursor[gActiveBattler] & 2)
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
@@ -244,7 +256,11 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
-        if (!(gActionSelectionCursor[gActiveBattler] & 2))
+        if(gActionSelectionCursor[gActiveBattler] == 0)
+        {
+            // Can't move up/down in first column
+        }
+        else if (!(gActionSelectionCursor[gActiveBattler] & 2))
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
@@ -259,38 +275,18 @@ static void HandleInputChooseAction(void)
         // Auto jump to run option
         switch (gActionSelectionCursor[gActiveBattler])
         {
-        case 1: // Top right
+        case 3: // Bottom right
             BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
             SafariBufferExecCompleted();
             break;
 
-        default: // Top left
+        default: // Bottom left
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] = 1;
+            gActionSelectionCursor[gActiveBattler] = 3;
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
             break;
         }
     }
-    //else if (JOY_NEW(DPAD_UP))
-    //{
-    //    if (gActionSelectionCursor[gActiveBattler] & 2)
-    //    {
-    //        PlaySE(SE_SELECT);
-    //        ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-    //        gActionSelectionCursor[gActiveBattler] ^= 2;
-    //        ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-    //    }
-    //}
-    //else if (JOY_NEW(DPAD_DOWN))
-    //{
-    //    if (!(gActionSelectionCursor[gActiveBattler] & 2))
-    //    {
-    //        PlaySE(SE_SELECT);
-    //        ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-    //        gActionSelectionCursor[gActiveBattler] ^= 2;
-    //        ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-    //    }
-    //}
 }
 
 static void CompleteOnBattlerSpriteCallbackDummy(void)

@@ -18,6 +18,7 @@
 #include "script.h"
 
 #include "rogue.h"
+#include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_ridemon.h"
@@ -578,7 +579,7 @@ static u16 NextSpawnMonSlot()
 
         if(mon != NULL)
         {
-            species = mon->species;
+            species = Rogue_GetEggSpecies(mon->species);
             isShiny = mon->shinyFlag != 0;
         }
     }

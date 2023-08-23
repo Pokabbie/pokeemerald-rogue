@@ -4130,7 +4130,25 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         AGB_ASSERT(safariMon != NULL);
         if(safariMon != NULL)
         {
+            u8 text[POKEMON_NAME_LENGTH + 1];
+            u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+
             RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+
+            // Make baby form
+            if(eggSpecies != safariMon->species)
+            {
+                SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
+                GetMonData(mon, MON_DATA_NICKNAME, text);
+
+                if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
+                {
+                    // Doesn't have a nickname so update to match species name
+                    StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
+                    SetMonData(mon, MON_DATA_NICKNAME, text);
+                }
+            }
+
             CalculateMonStats(mon);
         }
     }
