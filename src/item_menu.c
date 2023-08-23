@@ -54,8 +54,10 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
 #include "rogue_player_customisation.h"
 #include "rogue_quest.h"
+#include "rogue_safari.h"
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
@@ -735,7 +737,10 @@ void CB2_BagMenuFromStartMenu(void)
 
 void CB2_BagMenuFromBattle(void)
 {
-    if (!InBattlePyramid())
+    if(Rogue_InWildSafari())
+        // Just want to select pokeball type in safair
+        GoToBagMenu(ITEMMENULOCATION_BERRY_TREE, BALLS_POCKET, CB2_SetUpReshowBattleScreenAfterMenu2);
+    else if (!InBattlePyramid())
         GoToBagMenu(ITEMMENULOCATION_BATTLE, POCKETS_COUNT, CB2_SetUpReshowBattleScreenAfterMenu2);
     else
         GoToBattlePyramidBagMenu(PYRAMIDBAG_LOC_BATTLE, CB2_SetUpReshowBattleScreenAfterMenu2);
@@ -1490,6 +1495,14 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             tListPosition = listPosition;
             tQuantity = BagGetQuantityByPocketPosition(gBagPosition.pocket + 1, listPosition);
             gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
+
+            // Just update the active safari ball and act as if we didn't click anything
+            if(Rogue_InWildSafari())
+            {
+                RogueSafari_SetActivePokeballType(gSpecialVar_ItemId);
+                gSpecialVar_ItemId = ITEM_NONE;
+            }
+
             sContextMenuFuncs[gBagPosition.location](taskId);
             break;
         }

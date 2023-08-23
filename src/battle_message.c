@@ -1286,7 +1286,8 @@ const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillWallyDo[] = _("What will\nWALLY do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
 const u8 gText_BattleMenu[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}RUN");
-const u8 gText_SafariZoneMenu[] = _("BALL{CLEAR_TO 56}RUN");
+//const u8 gText_SafariZoneMenu[] = _("BALL{CLEAR_TO 56}RUN");
+const u8 gText_SafariZoneMenu[] = _("THROW{CLEAR_TO 56}BAG\n-{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
 const u8 gText_MoveInterfacePpType[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}PP\nTYPE/");
@@ -1312,7 +1313,7 @@ static const u8 * const sStatNamesTable2[] =
     sText_SpDef, sText_Defense, sText_Speed
 };
 
-const u8 gText_SafariBalls[] = _("{HIGHLIGHT LIGHT_RED}SAFARI BALLS");
+const u8 gText_SafariBalls[] = _("{HIGHLIGHT LIGHT_RED}");
 const u8 gText_SafariBallLeft[] = _("{HIGHLIGHT LIGHT_RED}Left: $" "{HIGHLIGHT LIGHT_RED}");
 const u8 gText_Sleep[] = _("sleep");
 const u8 gText_Poison[] = _("poison");

@@ -6,6 +6,7 @@
 #include "battle_message.h"
 #include "bg.h"
 #include "data.h"
+#include "item.h"
 #include "item_menu.h"
 #include "link.h"
 #include "main.h"
@@ -23,9 +24,11 @@
 #include "constants/battle_anim.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/items.h"
 
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
+#include "rogue_safari.h"
 
 static void SafariHandleGetMonData(void);
 static void SafariHandleGetRawMonData(void);
@@ -175,24 +178,39 @@ static void HandleInputChooseAction(void)
     // RogueNote: Scuff the options
     if (JOY_NEW(A_BUTTON))
     {
-        PlaySE(SE_SELECT);
+        u16 itemId;
 
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_BALL, 0);
+            itemId = RogueSafari_GetActivePokeballType();
+
+            if(GetItemCountInBag(itemId) > 0)
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_BALL, 0);
+                SafariBufferExecCompleted();
+            }
+            else
+            {
+                PlaySE(SE_FAILURE);
+            }
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+            PlaySE(SE_SELECT);
+            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+            SafariBufferExecCompleted();
+
             break;
         //case 2:
         //    //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
         //    break;
-        //case 3:
-        //    BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
-        //    break;
+        case 3:
+            PlaySE(SE_SELECT);
+            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+            SafariBufferExecCompleted();
+            break;
         }
-        SafariBufferExecCompleted();
     }
     else if (JOY_NEW(DPAD_LEFT))
     {
@@ -211,6 +229,26 @@ static void HandleInputChooseAction(void)
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
             gActionSelectionCursor[gActiveBattler] ^= 1;
+            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+        }
+    }
+    else if (JOY_NEW(DPAD_UP))
+    {
+        if (gActionSelectionCursor[gActiveBattler] & 2)
+        {
+            PlaySE(SE_SELECT);
+            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+            gActionSelectionCursor[gActiveBattler] ^= 2;
+            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+        }
+    }
+    else if (JOY_NEW(DPAD_DOWN))
+    {
+        if (!(gActionSelectionCursor[gActiveBattler] & 2))
+        {
+            PlaySE(SE_SELECT);
+            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+            gActionSelectionCursor[gActiveBattler] ^= 2;
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
@@ -496,10 +534,33 @@ static void SafariHandleChooseMove(void)
     SafariBufferExecCompleted();
 }
 
+static void CompleteWhenChoseItem(void)
+{
+    if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
+    {
+        BtlController_EmitOneReturnValue(BUFFER_B, gSpecialVar_ItemId);
+        SafariBufferExecCompleted();
+    }
+}
+
+static void OpenBagAndChooseItem(void)
+{
+    if (!gPaletteFade.active)
+    {
+        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
+        ReshowBattleScreenDummy();
+        FreeAllWindowBuffers();
+        CB2_BagMenuFromBattle();
+    }
+}
+
 static void SafariHandleChooseItem(void)
 {
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = SafariOpenPokeblockCase;
+    //gBattlerControllerFuncs[gActiveBattler] = SafariOpenPokeblockCase;
+    gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+
+
     gBattlerInMenuId = gActiveBattler;
 }
 

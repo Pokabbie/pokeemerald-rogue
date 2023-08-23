@@ -1,4 +1,7 @@
 #include "global.h"
+#include "constants/items.h"
+
+#include "event_data.h"
 #include "random.h"
 #include "string_util.h"
 
@@ -279,4 +282,19 @@ static u8 FreeSafariMonSlotCount()
     }
 
     return count;
+}
+
+u16 RogueSafari_GetActivePokeballType()
+{
+    u16 itemId = VarGet(VAR_ROGUE_SAFARI_BALL_TYPE);
+
+    if(itemId >= FIRST_BALL && itemId <= LAST_BALL)
+        return itemId;
+
+    return ITEM_POKE_BALL;
+}
+
+void RogueSafari_SetActivePokeballType(u16 itemId)
+{
+    VarSet(VAR_ROGUE_SAFARI_BALL_TYPE, itemId);
 }

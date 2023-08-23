@@ -37,6 +37,7 @@
 #include "constants/weather.h"
 
 #include "rogue_charms.h"
+#include "rogue_safari.h"
 
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
@@ -551,7 +552,8 @@ void HandleAction_SafariZoneBallThrow(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     gNumSafariBalls--;
-    gLastUsedItem = ITEM_SAFARI_BALL;
+    gLastUsedItem = RogueSafari_GetActivePokeballType();
+    RemoveBagItem(gLastUsedItem, 1);
     gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_SAFARI_BALL];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
