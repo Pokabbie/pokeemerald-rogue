@@ -6,7 +6,14 @@ struct RoguePartyMon
 {
     bool8 hasPendingEvo : 1;
     u8 lastPopupLevel : 7;
+
+    bool8 isSafariIllegal : 1;
+    u8 pad0 : 7;
+
+    u8 pad1[2];
 };
+
+STATIC_ASSERT(sizeof(struct RoguePartyMon) == 4, SizeOfRoguePartyMon);
 
 // Minimal version of mon info to allow easy tracking for safari area
 // Split into 32bit blocks

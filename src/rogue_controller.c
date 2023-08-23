@@ -2056,6 +2056,9 @@ static void BeginRogueRun_ModifyParty(void)
                 exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
+                // Partner's can't reappear in safari
+                gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+
                 CalculateMonStats(&gPlayerParty[i]);
             }
         }
@@ -2227,6 +2230,21 @@ static void EndRogueRun(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
+
+
+    // We're back from adventure, so any mon we finished or retired with add to the safari
+    {
+        u8 i;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+            if(species != SPECIES_NONE)
+            {
+                RogueSafari_PushMon(&gPlayerParty[i]);
+            }
+        }
+    }
 
     RogueSave_LoadHubStates();
 
@@ -3073,6 +3091,9 @@ bool8 Rogue_GiveLabEncounterMon(u16 index)
     if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
     {
         CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLabEncounterData.party[index], sizeof(gPlayerParty[gPlayerPartyCount]));
+
+        // Already in safari from? (Maybe should track index and then wipe here, as we could have higher priority)
+        gPlayerParty[gPlayerPartyCount].rogueExtraData.isSafariIllegal = TRUE;
 
         gPlayerPartyCount = CalculatePlayerPartyCount();
         ResetFaintedLabMonAtSlot(index);

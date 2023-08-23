@@ -25,7 +25,13 @@ static u8 FreeSafariMonSlotCount();
 
 void RogueSafari_PushMon(struct Pokemon* mon)
 {
-    RogueSafari_PushBoxMon(&mon->box);
+    if(!mon->rogueExtraData.isSafariIllegal)
+    {
+        RogueSafari_PushBoxMon(&mon->box);
+
+        // Just in case we somehow try to add this mon twice, don't
+        mon->rogueExtraData.isSafariIllegal = TRUE;
+    }
 }
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
