@@ -221,6 +221,8 @@ struct RogueRunData
 
 struct RogueHubArea
 {
+    const u32* iconImage;
+    const u32* iconPalette;
     const u8* descText;
     const u8* completeText;
     const u8 areaName[16];
@@ -234,12 +236,14 @@ struct RogueHubArea
 
 struct RogueAreaUpgrade
 {
-    const u8 upgradeName[24];
+    const u32* iconImage;
+    const u32* iconPalette;
     const u8* descText;
     const u8* completeText;
+    const u8 upgradeName[24];
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u8 targetArea;
     u8 buildCost;
-    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
 };
 
 struct RogueRouteMap

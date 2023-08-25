@@ -12,6 +12,12 @@ extern const u8 gHubUpgradeDesc_Home_FieldShed[];
 extern const u8 gHubUpgradeDesc_BerryField_ExtraField[];
 extern const u8 gHubUpgradeDesc_BerryField_HigherYeild[];
 
+
+#define SET_UPDATE_AREA(area) \
+    .primaryMapGroup = MAP_GROUP(map), \
+    .primaryMapNum = MAP_NUM(map), \
+    .primaryMapLayout = LAYOUT_ ## map
+
 #define SET_AREA_PRIMARY_MAP(map) \
     .primaryMapGroup = MAP_GROUP(map), \
     .primaryMapNum = MAP_NUM(map), \
@@ -31,7 +37,9 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
-        }
+        },
+        .iconImage = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
     },
     [HUB_AREA_ADVENTURE_ENTRANCE] = 
     {
@@ -43,7 +51,9 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 4, 5 },
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
-        }
+        },
+        .iconImage = gItemIcon_BasementKey,
+        .iconPalette = gItemIconPalette_OldKey,
     },
     [HUB_AREA_HOME] = 
     {
@@ -56,7 +66,9 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 1, 2 },
             [HUB_AREA_CONN_SOUTH] = { 3, 4 },
             [HUB_AREA_CONN_WEST] = { 5, 6 },
-        }
+        },
+        .iconImage = gItemIcon_BasementKey,
+        .iconPalette = gItemIconPalette_OldKey,
     },
     [HUB_AREA_BERRY_FIELD] = 
     {
@@ -70,7 +82,9 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
-        }
+        },
+        .iconImage = gBerryPic_Cheri,
+        .iconPalette = gBerryPalette_Cheri,
     },
     [HUB_AREA_SAFARI_ZONE] = 
     {
@@ -82,10 +96,14 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 4, 5 },
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
-        }
+        },
+        .iconImage = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
     },
 };
 
+#undef SET_UPDATE_AREA
+#undef SET_AREA_PRIMARY_MAP
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {

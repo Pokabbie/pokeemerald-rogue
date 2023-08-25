@@ -724,8 +724,17 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        // TODO - Item icon
-        spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, ITEM_RARE_CANDY);
+        const u32* image = gRogueHubUpgrades[item].iconImage;
+        const u32* palette = gRogueHubUpgrades[item].iconPalette;
+
+        if(image == NULL || palette == NULL)
+        {
+            // Use area palette as no specific icon provided
+            image = gRogueHubAreas[gRogueHubUpgrades[item].targetArea].iconImage;
+            palette = gRogueHubAreas[gRogueHubUpgrades[item].targetArea].iconPalette;
+        }
+
+        spriteId = AddIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, image, palette);
         if (spriteId != MAX_SPRITES)
         {
             *spriteIdPtr = spriteId;
