@@ -15,23 +15,53 @@ script Rogue_Area_InteractWithWorkbench
 
 script Rogue_Area_WorkbenchOptions
 {
-    message(format("What would you like to do?"))
+    lock
+    message("Which upgrades would you like to build?")
     waitmessage
 
-    multichoice(20, 6, MULTI_WORKBENCH_OPTIONS, NO)
+    rogue_dynamicpokemart(ROGUE_SHOP_HUB_UPGRADES)
 
-    switch(var(VAR_RESULT))
+    // Play build animation
+    if(var(VAR_RESULT) == TRUE)
     {
-        case 0: // upgrade
-            call(Rogue_Area_DisplayAvaliableUpgrades)
-            //goto(Rogue_Area_WorkbenchOptions)
+        fadescreen(FADE_TO_BLACK)
+        
+        call(Rogue_Area_PlayBuildSound)
 
-        case 1: // build
-            call(Rogue_Area_DisplayAvaliableAreasToBuild)
-            //goto(Rogue_Area_WorkbenchOptions)
+        msgbox(format("{POKEMON_HUB} has been upgraded!"), MSGBOX_DEFAULT)
 
-        // Fallthrough and exit
+        //special(RogueHub_BufferUpgradeCompleteText)
+        //if(var(VAR_RESULT) == TRUE)
+        //{
+        //    special(ShowFieldMessageStringVar4)
+        //    waitmessage
+        //    waitbuttonpress
+        //}
+
+        waitfanfare
+        special(ReloadWarpSilent)
     }
+
+    release
+
+
+    //message(format("What would you like to do?"))
+    //waitmessage
+//
+    //multichoice(20, 6, MULTI_WORKBENCH_OPTIONS, NO)
+//
+    //switch(var(VAR_RESULT))
+    //{
+    //    case 0: // upgrade
+    //        call(Rogue_Area_DisplayAvaliableUpgrades)
+    //        //goto(Rogue_Area_WorkbenchOptions)
+//
+    //    case 1: // build
+    //        call(Rogue_Area_DisplayAvaliableAreasToBuild)
+    //        //goto(Rogue_Area_WorkbenchOptions)
+//
+    //    // Fallthrough and exit
+    //}
 }
 
 

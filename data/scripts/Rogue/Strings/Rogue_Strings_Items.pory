@@ -138,3 +138,48 @@ text gItemDesc_ItemShuffleCurse
 {
     format("Entering a Battle will shuffle Held Items between {PKMN}.")
 }
+
+// Hub upgrades
+// (Appear in item shop layout)
+//
+
+text gHubUpgradeDesc_Home_LowerFloor
+{
+    format("A cozy home used to store items and change outfits.")
+}
+
+text gHubUpgradeDesc_Home_UpperFloor
+{
+    format("A 2nd floor allowing you to sleep until a specific time ors season.")
+}
+
+text gHubUpgradeDesc_Home_BerryField1
+{
+    format("A small plot to plant berries.")
+}
+
+text gHubUpgradeDesc_Home_BerryField2
+{
+    format("A 2nd small plot to plant berries. (Unlocks Berry Fields area)")
+}
+
+text gHubUpgradeDesc_Home_GrassField
+{
+    format("A small cosmetic garden your caught {PKMN} can roam in.")
+}
+
+text gHubUpgradeDesc_Home_FieldShed
+{
+    format("TODO - Desc")
+}
+
+
+text gHubUpgradeDesc_BerryField_ExtraField
+{
+    format("An additional plot to grown berries in.")
+}
+
+text gHubUpgradeDesc_BerryField_HigherYeild
+{
+    format("Increased yield when picking berries.")
+}

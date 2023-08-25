@@ -13,6 +13,8 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "script.h"
+#include "shop.h"
 #include "string_util.h"
 
 #include "rogue.h"

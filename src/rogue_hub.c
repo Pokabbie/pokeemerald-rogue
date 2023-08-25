@@ -98,6 +98,9 @@ bool8 RogueHub_HasUpgradeRequirements(u16 upgradeId)
     u8 i;
     u8 check;
 
+    if(!RogueHub_HasAreaBuilt(gRogueHubUpgrades[upgradeId].targetArea))
+        return FALSE;
+
     for(i = 0; i < HUB_UPGRADE_MAX_REQUIREMENTS; ++i)
     {
         check = gRogueHubUpgrades[upgradeId].requiredUpgrades[i];
@@ -312,10 +315,10 @@ void RogueHub_GetAvaliableDirectionsToBuild(u8 fromArea, u8 toArea, u8* outDirs,
     *outCount = count;
 }
 
-void RogueHub_GetAvaliableUpgrades(u8 area, u8* outUpgrades, u8* outUpgradeCount)
+void RogueHub_GetAvaliableUpgrades(u8 area, u16* outUpgrades, u16* outUpgradeCount)
 {
-    u8 i;
-    u8 count = 0;
+    u16 i;
+    u16 count = 0;
 
     for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
     {
@@ -927,8 +930,8 @@ void RogueHub_BufferAreaCompleteText()
 void RogueHub_GetAreaUpgradesMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
 {
     u8 i;
-    u8 count;
-    u8 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
+    u16 count;
+    u16 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
     u8 area = RogueHub_GetAreaFromCurrentMap();
 
     RogueHub_GetAvaliableUpgrades(area, &upgrades[0], &count);
@@ -952,8 +955,8 @@ void RogueHub_GetUpgradeFromMultichoiceResult()
     }
     else
     {
-        u8 count;
-        u8 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
+        u16 count;
+        u16 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
         u8 area = RogueHub_GetAreaFromCurrentMap();
 
         RogueHub_GetAvaliableUpgrades(area, &upgrades[0], &count);

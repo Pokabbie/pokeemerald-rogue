@@ -35,7 +35,8 @@
         "xhash": "c",
         "xtree": "c",
         "ctime": "c",
-        "random": "c"
+        "random": "c",
+        "map": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

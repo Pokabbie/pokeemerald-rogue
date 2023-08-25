@@ -330,7 +330,7 @@ static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 {
     if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
     {
-        return isOverworld ? RGB(21, 21, 21) : RGB_WHITE;
+        return isOverworld ? RGB(18, 16, 22) : RGB_WHITE;
     }
 
     return inTint;

@@ -9,6 +9,7 @@ extern u32 gRngRogueValue;
 u16 Random(void);
 u16 Random2(void);
 u16 RogueRandom(void);
+u16 RandomCustom(u32* seed);
 
 //Returns a 32-bit pseudorandom number
 #define Random32() (Random() | (Random() << 16))

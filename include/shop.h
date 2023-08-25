@@ -9,6 +9,7 @@ enum
     MART_TYPE_PURCHASE_ONLY, // normal mart, but can only buy
     MART_TYPE_DECOR,
     MART_TYPE_DECOR2,
+    MART_TYPE_HUB_UPGRADES,
 };
 
 // shop view window NPC info enum
@@ -23,13 +24,16 @@ enum
 
 struct MartInfo
 {
-    /*0x0*/ void (*callback)(void);
-    /*0x4*/ const struct MenuAction *menuActions;
-    /*0x8*/ const u16 *itemList;
-    /*0xC*/ u16 itemCount;
-    /*0xE*/ u8 windowId;
-    /*0xF*/ u8 martType;
+    void (*callback)(void);
+    const struct MenuAction *menuActions;
+    u16 (*listItemCallback)(u16);
+    void* listItemData;
+    u16 listItemTerminator;
+    u16 itemCount;
     u16 minPrice;
+    u8 windowId;
+    u8 martType;
+    bool8 anythingBought;
 };
 
 struct ShopData

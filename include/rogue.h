@@ -225,10 +225,11 @@ struct RogueHubArea
     const u8* completeText;
     const u8 areaName[16];
     u8 connectionWarps[4][2];
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u16 primaryMapNum;
     u16 primaryMapLayout;
-    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u8 primaryMapGroup;
+    u8 buildCost;
 };
 
 struct RogueAreaUpgrade
@@ -237,6 +238,7 @@ struct RogueAreaUpgrade
     const u8* descText;
     const u8* completeText;
     u8 targetArea;
+    u8 buildCost;
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
 };
 
