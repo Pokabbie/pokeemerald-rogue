@@ -11,11 +11,13 @@ bool8 RogueHub_HasUpgradeRequirements(u16 upgradeId);
 
 bool8 RogueHub_HasAreaBuilt(u8 area);
 void RogueHub_BuildArea(u8 area, s8 x, s8 y);
+void RogueHub_BuildAreaInConnDir(u8 area, u8 connDir);
 bool8 RogueHub_HasAreaBuildRequirements(u8 area);
 
 u8 RogueHub_FindAreaAtCoord(s8 x, s8 y);
 bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir);
 u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir);
+bool8 RogueHub_CanBuildConnectionBetween(u8 fromArea, u8 toArea, u8 dir);
 
 u8 RogueHub_GetAreaFromCurrentMap();
 void RogueHub_GetAvaliableAreasToBuild(u8* outAreas, u8* outCount);
@@ -25,11 +27,5 @@ void RogueHub_GetAvaliableUpgrades(u8 area, u16* outUpgrades, u16* outUpgradeCou
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
 bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);
 void RogueHub_ApplyMapMetatiles();
-
-void RogueHub_GetAreaBuildsMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity);
-void RogueHub_GetAreaBuildDirectionMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity);
-void RogueHub_GetAreaUpgradesMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity);
-void RogueHub_GetUpgradeFromMultichoiceResult();
-void RogueHub_ApplyHubUpgrade();
 
 #endif

@@ -58,7 +58,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     [HUB_AREA_HOME] = 
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
-        .areaName = _("{PLAYER}'s House"),
+        .areaName = _("Player Home"),
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .buildCost = 1,
         .connectionWarps = 

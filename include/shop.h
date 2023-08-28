@@ -9,6 +9,7 @@ enum
     MART_TYPE_PURCHASE_ONLY, // normal mart, but can only buy
     MART_TYPE_DECOR,
     MART_TYPE_DECOR2,
+    MART_TYPE_HUB_AREAS,
     MART_TYPE_HUB_UPGRADES,
 };
 

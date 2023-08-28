@@ -139,6 +139,40 @@ void RogueHub_BuildArea(u8 area, s8 x, s8 y)
     gRogueSaveBlock->hubMap.areaCoords[area].y = y;
 }
 
+static void IncrementCoordsByDirection(struct Coords8* coords, u8 dir)
+{
+    switch (dir)
+    {
+    case HUB_AREA_CONN_SOUTH:
+        --coords->y;
+        break;
+    case HUB_AREA_CONN_NORTH:
+        ++coords->y;
+        break;
+    case HUB_AREA_CONN_WEST:
+        --coords->x;
+        break;
+    case HUB_AREA_CONN_EAST:
+        ++coords->x;
+        break;
+    }
+}
+
+void RogueHub_BuildAreaInConnDir(u8 area, u8 connDir)
+{
+    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
+
+    if(currentArea != HUB_AREA_NONE && !RogueHub_HasAreaBuilt(area) && connDir < HUB_AREA_CONN_COUNT)
+    {
+        struct Coords8 pos;
+        pos.x = gRogueSaveBlock->hubMap.areaCoords[currentArea].x;
+        pos.y = gRogueSaveBlock->hubMap.areaCoords[currentArea].y;
+        IncrementCoordsByDirection(&pos, connDir);
+
+        RogueHub_BuildArea(area, pos.x, pos.y);
+    }
+}
+
 bool8 RogueHub_HasAreaBuildRequirements(u8 area)
 {
     u8 i;
@@ -197,25 +231,6 @@ static u8 InvertConnDirection(u8 dir)
     return dir;
 }
 
-static void IncrementCoordsByDirection(struct Coords8* coords, u8 dir)
-{
-    switch (dir)
-    {
-    case HUB_AREA_CONN_SOUTH:
-        --coords->y;
-        break;
-    case HUB_AREA_CONN_NORTH:
-        ++coords->y;
-        break;
-    case HUB_AREA_CONN_WEST:
-        --coords->x;
-        break;
-    case HUB_AREA_CONN_EAST:
-        ++coords->x;
-        break;
-    }
-}
-
 bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
 {
     if(CanAreaConnect(area, dir))
@@ -229,6 +244,12 @@ bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
     }
 
     return FALSE;
+}
+
+bool8 RogueHub_CanBuildConnectionBetween(u8 fromArea, u8 toArea, u8 dir)
+{
+    u8 invDir = InvertConnDirection(dir);
+    return RogueHub_AreaHasFreeConnection(fromArea, dir) && CanAreaConnect(toArea, invDir);
 }
 
 u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir)
@@ -761,256 +782,6 @@ static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart)
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart)
 {
     MetatileFill_CommonWarpExit(xStart, yStart, xStart + 1, yStart + 4);
-}
-
-void RogueHub_GetAreaBuildsMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
-{
-    u8 i;
-    u8 count;
-    u8 areas[HUB_AREA_COUNT];
-
-    RogueHub_GetAvaliableAreasToBuild(&areas[0], &count);
-
-    for(i = 0; i < count; ++i)
-    {
-        outList[i].text = &gRogueHubAreas[areas[i]].areaName[0];
-    }
-
-    outList[count].text = gText_MenuExit;
-    *outCount = count + 1;
-}
-
-void RogueHub_GetAreaBuildDirectionMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
-{
-    u8 i;
-    u8 count;
-    u8 directions[4];
-    u16 hubAreaToBuild = VarGet(VAR_0x8004);
-
-    if(hubAreaToBuild >= HUB_AREA_COUNT)
-    {
-        hubAreaToBuild = HUB_AREA_NONE;
-    }
-
-    RogueHub_GetAvaliableDirectionsToBuild(RogueHub_GetAreaFromCurrentMap(), hubAreaToBuild, &directions[0], &count);
-
-    for(i = 0; i < count; ++i)
-    {
-        switch (directions[i])
-        {
-            case HUB_AREA_CONN_SOUTH:
-                outList[i].text = &gText_ExpandSouth[0];
-                break;
-            case HUB_AREA_CONN_NORTH:
-                outList[i].text = &gText_ExpandNorth[0];
-                break;
-            case HUB_AREA_CONN_EAST:
-                outList[i].text = &gText_ExpandEast[0];
-                break;
-            case HUB_AREA_CONN_WEST:
-                outList[i].text = &gText_ExpandWest[0];
-                break;
-            default:
-                // Should never reach here
-                outList[i].text = &gText_Toss2[0];
-                break;
-        }
-    }
-
-    outList[count].text = gText_MenuExit;
-    *outCount = count + 1;
-}
-
-void RogueHub_GetAreaFromMultichoiceResult()
-{
-    u16 result = VarGet(VAR_RESULT);
-
-    if(result == MULTI_B_PRESSED)
-    {
-        VarSet(VAR_RESULT, HUB_AREA_NONE);
-    }
-    else
-    {
-        u8 count;
-        u8 areas[HUB_AREA_COUNT];
-
-        RogueHub_GetAvaliableAreasToBuild(&areas[0], &count);
-
-        if(result < count)
-        {
-            VarSet(VAR_RESULT, areas[result]);
-        }
-        else
-        {
-            VarSet(VAR_RESULT, HUB_AREA_NONE);
-        }
-    }
-}
-
-void RogueHub_GetAreaDirectionFromMultichoiceResult()
-{
-    u16 result = VarGet(VAR_RESULT);
-    u16 hubAreaToBuild = VarGet(VAR_0x8004);
-
-    if(hubAreaToBuild >= HUB_AREA_COUNT)
-    {
-        hubAreaToBuild = HUB_AREA_NONE;
-    }
-
-    if(result == MULTI_B_PRESSED)
-    {
-        VarSet(VAR_RESULT, HUB_AREA_CONN_NONE);
-    }
-    else
-    {
-        u8 count;
-        u8 directions[4];
-
-        RogueHub_GetAvaliableDirectionsToBuild(RogueHub_GetAreaFromCurrentMap(), hubAreaToBuild, &directions[0], &count);
-
-        if(result < count)
-        {
-            VarSet(VAR_RESULT, directions[result]);
-        }
-        else
-        {
-            VarSet(VAR_RESULT, HUB_AREA_CONN_NONE);
-        }
-    }
-}
-
-void RogueHub_BuildHubArea()
-{
-    u16 result = VarGet(VAR_0x8004);
-    u8 dir = VarGet(VAR_0x8005);
-    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
-
-    if(currentArea != HUB_AREA_NONE && !RogueHub_HasAreaBuilt(result) && dir <= HUB_AREA_CONN_EAST)
-    {
-        struct Coords8 pos;
-        pos.x = gRogueSaveBlock->hubMap.areaCoords[currentArea].x;
-        pos.y = gRogueSaveBlock->hubMap.areaCoords[currentArea].y;
-        IncrementCoordsByDirection(&pos, dir);
-
-        RogueHub_BuildArea(result, pos.x, pos.y);
-        VarSet(VAR_RESULT, TRUE);
-    }
-    else
-    {
-        VarSet(VAR_RESULT, FALSE);
-    }
-}
-
-void RogueHub_BufferAreaDescriptionText()
-{
-    u16 upgrade = VarGet(VAR_0x8004);
-
-    VarSet(VAR_RESULT, FALSE);
-
-    if(upgrade < HUB_AREA_COUNT && gRogueHubAreas[upgrade].descText)
-    {
-        StringCopy(gStringVar4, gRogueHubAreas[upgrade].descText);
-        VarSet(VAR_RESULT, TRUE);
-    }
-}
-
-void RogueHub_BufferAreaCompleteText()
-{
-    u16 upgrade = VarGet(VAR_0x8004);
-
-    VarSet(VAR_RESULT, FALSE);
-
-    if(upgrade < HUB_AREA_COUNT && gRogueHubAreas[upgrade].completeText)
-    {
-        StringCopy(gStringVar4, gRogueHubAreas[upgrade].completeText);
-        VarSet(VAR_RESULT, TRUE);
-    }
-}
-
-void RogueHub_GetAreaUpgradesMultichoice(struct MenuAction* outList, u8* outCount, u8 listCapcity)
-{
-    u8 i;
-    u16 count;
-    u16 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
-    u8 area = RogueHub_GetAreaFromCurrentMap();
-
-    RogueHub_GetAvaliableUpgrades(area, &upgrades[0], &count);
-
-    for(i = 0; i < count; ++i)
-    {
-        outList[i].text = &gRogueHubUpgrades[upgrades[i]].upgradeName[0];
-    }
-
-    outList[count].text = gText_MenuExit;
-    *outCount = count + 1;
-}
-
-void RogueHub_GetUpgradeFromMultichoiceResult()
-{
-    u16 result = VarGet(VAR_RESULT);
-
-    if(result == MULTI_B_PRESSED)
-    {
-        VarSet(VAR_RESULT, HUB_UPGRADE_NONE);
-    }
-    else
-    {
-        u16 count;
-        u16 upgrades[MAX_HUB_UPGRADE_TREES_PER_AREA];
-        u8 area = RogueHub_GetAreaFromCurrentMap();
-
-        RogueHub_GetAvaliableUpgrades(area, &upgrades[0], &count);
-
-        if(result < count)
-        {
-            VarSet(VAR_RESULT, upgrades[result]);
-        }
-        else
-        {
-            VarSet(VAR_RESULT, HUB_UPGRADE_NONE);
-        }
-    }
-}
-
-void RogueHub_ApplyHubUpgrade()
-{
-    u16 result = VarGet(VAR_0x8004);
-
-    if(!RogueHub_HasUpgrade(result))
-    {
-        RogueHub_SetUpgrade(result, TRUE);
-        VarSet(VAR_RESULT, TRUE);
-    }
-    else
-    {
-        VarSet(VAR_RESULT, FALSE);
-    }
-}
-
-void RogueHub_BufferUpgradeDescriptionText()
-{
-    u16 upgrade = VarGet(VAR_0x8004);
-
-    VarSet(VAR_RESULT, FALSE);
-
-    if(upgrade < HUB_UPGRADE_COUNT && gRogueHubUpgrades[upgrade].descText)
-    {
-        StringCopy(gStringVar4, gRogueHubUpgrades[upgrade].descText);
-        VarSet(VAR_RESULT, TRUE);
-    }
-}
-
-void RogueHub_BufferUpgradeCompleteText()
-{
-    u16 upgrade = VarGet(VAR_0x8004);
-
-    VarSet(VAR_RESULT, FALSE);
-
-    if(upgrade < HUB_UPGRADE_COUNT && gRogueHubUpgrades[upgrade].completeText)
-    {
-        StringCopy(gStringVar4, gRogueHubUpgrades[upgrade].completeText);
-        VarSet(VAR_RESULT, TRUE);
-    }
 }
 
 void RogueHub_SetRandomFollowMonsFromPC()
