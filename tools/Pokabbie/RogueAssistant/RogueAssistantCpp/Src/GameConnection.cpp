@@ -9,10 +9,12 @@ std::string const GameConnection::c_SecondHandshake = "Em68TrzBAFlyhBCOm4XQIjGWb
 
 GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
+	, m_GameRPCs(*this)
+	, m_SendSize(0)
 	, m_GameHeadersValid(false)
 {
 	m_Socket.setBlocking(false);
-	m_RecvCallbacks.resize(16); // Reserve callback size
+	m_RecvTasks.resize(16); // Reserve callback size
 }
 
 GameConnection::~GameConnection()
@@ -27,6 +29,20 @@ void GameConnection::Update()
 	{
 		OnRecieveData(m_RecieveBuffer, recvSize);
 	}
+
+	if (m_GameHeadersValid)
+	{
+		if (m_ObservedGameMemory == nullptr)
+			m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
+
+		m_ObservedGameMemory->Update();
+		m_GameRPCs.Update();
+	}
+
+	FlushCommands();
+
+	// Update tasks
+	// TODO 
 }
 
 void GameConnection::Disconnect()
@@ -47,6 +63,23 @@ GameStructures::RogueAssistantHeader const& GameConnection::GetGameRogueHeader()
 	return m_RogueHeader;
 }
 
+ObservedGameMemory const& GameConnection::GetObservedGameMemory() const
+{
+	ASSERT_MSG(m_ObservedGameMemory != nullptr, "Attempt to use observed game memory before initialise");
+	return *m_ObservedGameMemory.get();
+}
+
+bool GameConnection::IsRogueAssistantStateValid() const
+{
+	return !GetObservedGameMemory().GetAssistantState().IsNull();
+}
+
+GameStructures::RogueAssistantState const& GameConnection::GetRogueAssistantState() const
+{
+	ASSERT_MSG(IsRogueAssistantStateValid(), "Attempt to use observed game memory before initialise");
+	return GetObservedGameMemory().GetAssistantState().Get<GameStructures::RogueAssistantState>();
+}
+
 // helper todo - should move
 template<typename T>
 bool str2num(T& i, char const* s, int base = 0)
@@ -55,10 +88,12 @@ bool str2num(T& i, char const* s, int base = 0)
 	long  l;
 	errno = 0;
 	l = strtol(s, &end, base);
-	if ((errno == ERANGE && l == LONG_MAX) || l > std::numeric_limits<T>::max()) {
+	if ((errno == ERANGE && l == LONG_MAX))// || l > (long)std::numeric_limits<T>::max()) 
+	{
 		return false;
 	}
-	if ((errno == ERANGE && l == LONG_MIN) || l < std::numeric_limits<T>::min()) {
+	if ((errno == ERANGE && l == LONG_MIN))// || l < (long)std::numeric_limits<T>::min()) 
+	{
 		return false;
 	}
 	if (*s == '\0' || *end != '\0') {
@@ -103,32 +138,49 @@ void GameConnection::OnRecieveData(u8* data, size_t size)
 	case GameConnectionState::Connected:
 
 		// Attempt to read and call registered callbacks
-		std::string temp;
-		size_t offset;
+		std::string readId;
+		std::string readSize;
 
-		for (offset = 0; offset < size; ++offset)
+		size_t offset = 0;
+		u8 readMode = 0;
+
+		for (; offset < size; ++offset)
 		{
 			if (data[offset] == ';')
 			{
-				++offset;
-				break;
-			}
-			else
-				temp += data[offset];
-		}
-
-		if (offset < size)
-		{
-			u8 id;
-			if (str2num(id, temp.c_str()))
-			{
-				if (id < m_RecvCallbacks.size() && m_RecvCallbacks[id] != nullptr)
+				if (readMode == 1)
 				{
-					// Call data recv callback and then clear the slot
-					m_RecvCallbacks[id](&data[offset], size - offset);
-					m_RecvCallbacks[id] = nullptr;
+					// Read both readId and readSize
+					u16 blockId = 0;
+					u32 blockSize = 0;
+					if (str2num(blockId, readId.c_str()) && str2num(blockSize, readSize.c_str()))
+					{
+						if (blockId < m_RecvTasks.size() && m_RecvTasks[blockId] != nullptr)
+						{
+							// Call data recv callback and then clear the slot
+							m_RecvTasks[blockId]->OnTaskCompleted(&data[offset + 1], blockSize);
+							m_RecvTasks[blockId] = nullptr;
+						}
+					}
+					else
+					{
+						ASSERT_FAIL("Failed to parse incoming recv");
+					}
+
+					offset += blockSize;
+
+					// Clear for next 
+					readId.clear();
+					readSize.clear();
+					readMode = 0;
 				}
+				else
+					++readMode;
 			}
+			else if(readMode == 0)
+				readId += data[offset];
+			else
+				readSize += data[offset];
 		}
 
 		break;
@@ -161,7 +213,8 @@ bool GameConnection::HandleExpectedHandshake(std::string const& expectedHandshak
 void GameConnection::ParseGameHeaders()
 {
 	// Read the GF header first
-	ReadData(GameAddresses::c_GFHeaderAddress, sizeof(m_GFRomHeader), [&](u8 const* data, size_t size)
+	ReadData(GameAddresses::c_GFHeaderAddress, sizeof(m_GFRomHeader))
+		->Then([&](u8 const* data, size_t size)
 		{
 			if (size == sizeof(m_GFRomHeader))
 			{
@@ -176,16 +229,13 @@ void GameConnection::ParseGameHeaders()
 				}
 
 				// Now read Rogue Header
-				ReadData(m_GFRomHeader.rogueAssistantHeader, sizeof(m_RogueHeader), [&](u8 const* data, size_t size)
+				ReadData(m_GFRomHeader.rogueAssistantHeader, sizeof(m_RogueHeader))
+					->Then([&](u8 const* data, size_t size)
 					{
 						if (size == sizeof(m_RogueHeader))
 						{
 							memcpy(&m_RogueHeader, data, sizeof(m_RogueHeader));
 							m_GameHeadersValid = true;
-
-							// TEST
-							//u16 token = 124;
-							//WriteValue(m_RogueHeader.inCommBuffer, token);
 						}
 						else
 						{
@@ -205,13 +255,15 @@ void GameConnection::ParseGameHeaders()
 }
 
 
-void GameConnection::WriteData(size_t addr, void const* data, size_t size, DataCallback callback)
+GameConnectionTaskRef GameConnection::WriteData(size_t addr, void const* data, size_t size)
 {
 	ASSERT_MSG(IsReady(), "Attempting to write data, but not ready");
 
+	GameConnectionTaskRef task = AllocConnectionTask();
+
 	// Really inefficient, but works...
 	// Write name then numbers in ascii split by ;
-	std::string command = "writeBytes;" + std::to_string(RegisterRecieveCallback(callback)) + ";" + std::to_string(addr);
+	std::string command = "writeBytes;" + std::to_string(task->GetInternalId()) + ";" + std::to_string(addr);
 	u8 const* read = reinterpret_cast<u8 const*>(data);
 
 	for (size_t i = 0; i < size; ++i)
@@ -219,41 +271,80 @@ void GameConnection::WriteData(size_t addr, void const* data, size_t size, DataC
 		command += ";" + std::to_string(read[i]);
 	}
 
-	m_Socket.send(command.c_str(), command.length());
+
+	SendCommand(command);
+	return task;
 }
 
-void GameConnection::ReadData(size_t addr, size_t size, DataCallback callback)
+GameConnectionTaskRef GameConnection::ReadData(size_t addr, size_t size)
 {
 	ASSERT_MSG(IsReady(), "Attempting to read data, but not ready");
 
+	GameConnectionTaskRef task = AllocConnectionTask();
+
 	// Really inefficient, but works...
 	// Write name then numbers in ascii split by ;
-	std::string command = "readBytes;" + std::to_string(RegisterRecieveCallback(callback)) + ";" + std::to_string(addr) + ";" + std::to_string(size);
-	m_Socket.send(command.c_str(), command.length());
+	std::string command = "readBytes;" + std::to_string(task->GetInternalId()) + ";" + std::to_string(addr) + ";" + std::to_string(size);
+
+	SendCommand(command);
+	return task;
 }
 
-u8 GameConnection::RegisterRecieveCallback(DataCallback callback)
+void GameConnection::SendCommand(std::string const& command)
 {
-	if (callback == nullptr)
+	size_t size = command.length();
+
+	if (m_SendSize != 0)
 	{
-		// null callback
-		return 0;
+		// Append : between multiple commands
+		if (m_SendSize + size + 1 >= sizeof(m_SendBuffer))
+		{
+			// Reached capacity, so have to send what we have buffered now
+			FlushCommands();
+		}
+		else
+		{
+			m_SendBuffer[m_SendSize++] = ':';
+		}
 	}
 
-	// Skip slot 0, as that's reserved for null i.e. no callback
-	for (u8 i = 1; i < (u8)m_RecvCallbacks.size(); ++i)
+	memcpy(m_SendBuffer + m_SendSize, command.c_str(), size);
+	m_SendSize += size;
+}
+
+void GameConnection::FlushCommands()
+{
+	if (m_SendSize != 0)
 	{
-		if (m_RecvCallbacks[i] == nullptr)
+		// Send data in a big batch
+		size_t sentAmount;
+		size_t offset = 0;
+		m_Socket.send(m_SendBuffer, m_SendSize, sentAmount);
+
+		if (m_SendSize != sentAmount)
 		{
-			m_RecvCallbacks[i] = callback;
-			return i;
+			ASSERT_FAIL("Couldn't set every things! (Need to see when this happens to decide how to handle it)");
+		}
+
+		m_SendSize = 0;
+	}
+}
+
+GameConnectionTaskRef GameConnection::AllocConnectionTask()
+{
+	// Skip slot 0, as that's reserved for null i.e. no callback
+	for (u8 i = 1; i < (u8)m_RecvTasks.size(); ++i)
+	{
+		if (m_RecvTasks[i] == nullptr)
+		{
+			m_RecvTasks[i] = std::make_shared<GameConnectionTask>();
+			m_RecvTasks[i]->m_InternalId = i;
+			return m_RecvTasks[i];
 		}
 	}
 
 	// All slots are filled, so need to expand
-	u8 slot = (u8)m_RecvCallbacks.size();
-	m_RecvCallbacks.push_back(callback);
-
-	ASSERT_MSG(slot != 0, "Recieved data callback overflow");
-	return slot;
+	m_RecvTasks.push_back(std::make_shared<GameConnectionTask>());
+	m_RecvTasks.back()->m_InternalId = m_RecvTasks.size() - 1;
+	return m_RecvTasks.back();
 }

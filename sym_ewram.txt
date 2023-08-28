@@ -48,6 +48,7 @@
 	.include "src/rogue_pokedex.o"
 	.include "src/rogue_timeofday.o"
 	.include "src/rogue_trainers.o"
+	.include "src/rogue_multiplayer.o"
 	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"
 	.include "src/rogue_charms.o"

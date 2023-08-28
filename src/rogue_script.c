@@ -29,6 +29,7 @@
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
+#include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -817,12 +818,12 @@ void Rogue_GetTrainerNum(void)
 
 void Rogue_IsMultiplayerActive(void)
 {
-    gSpecialVar_Result = Rogue_IsNetMultiplayerActive();
+    gSpecialVar_Result = RogueMP_IsActive();
 }
 
 void Rogue_IsMultiplayerHost(void)
 {
-    gSpecialVar_Result = Rogue_IsNetMultiplayerHost();
+    gSpecialVar_Result = RogueMP_IsHost();
 }
 
 void Rogue_HostMultiplayer()

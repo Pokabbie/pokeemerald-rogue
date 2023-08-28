@@ -366,14 +366,61 @@ struct RogueMonPresetCollection
     const u16* moves;
 };
 
+// Rogue Multiplayer
+//
+struct RogueNetHandshake
+{
+    u32 token;
+    u8 request;
+};
+
+struct RogueNetGameState
+{
+    u8 temp1;
+    u8 temp2;
+};
+
+struct RogueNetPlayer
+{
+    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    struct Coords16 playerPos;
+    struct Coords8 partnerPos;
+    u16 networkId;
+    u16 partnerMon;
+    u8 facingDirection;
+    u8 partnerFacingDirection;
+    u8 playerFlags;
+    s8 mapGroup;
+    s8 mapNum;
+};
+
+struct RogueNetMultiplayer
+{
+    struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
+    struct RogueNetGameState gameState;
+    struct RogueNetHandshake pendingHandshake;
+};
+
+// Rogue Assistant
+//
+
 struct RogueAssistantHeader
 {
     u8 rogueVersion;
     u8 rogueDebug;
-    u32 inCommCapacity;
-    u32 outCommCapacity;
-    u8* inCommBuffer;
-    u8* outCommBuffer;
+    u32 netMultiplayerSize;
+    u32 netHandshakeOffset;
+    u32 netHandshakeSize;
+    u32 netGameStateOffset;
+    u32 netGameStateSize;
+    u32 netPlayerOffset;
+    u32 netPlayerSize;
+    u32 netPlayerCount;
+    void const* saveBlock1Ptr;
+    void const* saveBlock2Ptr;
+    void const* rogueBlockPtr;
+    void const* assistantState;
+    void const* multiplayerPtr;
 };
 
 extern const struct RogueAssistantHeader gRogueAssistantHeader;

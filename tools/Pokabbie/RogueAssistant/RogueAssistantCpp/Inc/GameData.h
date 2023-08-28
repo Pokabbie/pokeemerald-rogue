@@ -1,6 +1,8 @@
 #pragma once
 #include "Defines.h"
 
+#include <string>
+
 typedef u32 GameAddress;
 
 class GameAddresses
@@ -12,6 +14,11 @@ public:
 	static const GameAddress c_RomAddress = 0x08000000;
 	static const GameAddress c_GFHeaderAddress = c_RomAddress + 0x100;
 };
+
+namespace GameHelpers
+{
+	std::string ParseGameString(u8 const* str, size_t length);
+}
 
 namespace GameStructures
 {
@@ -88,9 +95,27 @@ namespace GameStructures
 	{
 		u8 rogueVersion;
 		u8 rogueDebug;
-		u32 inCommCapacity;
-		u32 outCommCapacity;
-		GameAddress inCommBuffer;
-		GameAddress outCommBuffer;
+		u32 netMultiplayerSize;
+		u32 netHandshakeOffset;
+		u32 netHandshakeSize;
+		u32 netGameStateOffset;
+		u32 netGameStateSize;
+		u32 netPlayerOffset;
+		u32 netPlayerSize;
+		u32 netPlayerCount;
+		GameAddress saveBlock1Ptr;
+		GameAddress saveBlock2Ptr;
+		GameAddress rogueBlockPtr;
+		GameAddress assistantState;
+		GameAddress multiplayerPtr;
+	};
+
+	struct RogueAssistantState
+	{
+		u8 inCommBuffer[16];
+		u8 outCommBuffer[32];
+		u16 assistantState;
+		u16 assistantSubstate;
+		u16 requestState;
 	};
 };

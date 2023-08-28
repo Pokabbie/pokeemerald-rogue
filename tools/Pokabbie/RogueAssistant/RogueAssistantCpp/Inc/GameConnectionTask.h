@@ -1,25 +1,46 @@
 #pragma once
+#include "Defines.h"
+
 #include <functional>
+#include <memory>
+#include <vector>
 
 class GameConnection;
+class GameConnectionTask;
+class ObservedGameMemoryEntry;
 
-class IGameConnectionTask
+typedef std::function<void(u8 const* data, size_t size)> DataCallback;
+typedef std::shared_ptr<GameConnectionTask> GameConnectionTaskRef;
+typedef std::shared_ptr<ObservedGameMemoryEntry> ObservedGameMemoryRef;
+
+enum class GameConnectionTaskState
 {
-public:
-	virtual void Run(GameConnection& run) = 0;
-
-	//virtual bool IsReadyToRun(GameConnection& run) = 0;
-	//
-	//virtual bool IsError(GameConnection& run) = 0;
+	Initialising,
+	Processing,
+	Succeeded,
+	Failed
 };
 
-class GameConnectionTask
+class GameConnectionTask : public std::enable_shared_from_this<GameConnectionTask>
 {
+	friend GameConnection;
 public:
-	typedef std::function<void(GameConnection&)> GameConnectionMethod;
+	static const u32 c_InvalidId = std::numeric_limits<u32>::max();
 
-	GameConnectionTask(GameConnectionMethod method);
+	GameConnectionTask();
+
+	inline u32 GetInternalId() const { return m_InternalId; }
+	inline bool HasCompleted() const { return m_State == GameConnectionTaskState::Succeeded || m_State == GameConnectionTaskState::Failed; }
+
+	void Then(DataCallback callback);
+	GameConnectionTaskRef Then(GameConnectionTaskRef other);
 
 private:
-	GameConnectionMethod m_Method;
+	void OnTaskUpdate();
+	void OnTaskCompleted(u8 const* data, size_t size);
+
+	u32 m_InternalId;
+	GameConnectionTaskState m_State;
+	std::vector<DataCallback> m_Listeners;
 };
+

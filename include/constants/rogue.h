@@ -315,6 +315,10 @@
 #define POPUP_MSG_ENCOUNTER_CHAIN               6
 #define POPUP_MSG_ENCOUNTER_CHAIN_END           7
 
+// Rogue Assistant
+//
+#define NET_PLAYER_CAPACITY 4
+
 // Misc.
 //
 // Number of bytes needed to cover all species

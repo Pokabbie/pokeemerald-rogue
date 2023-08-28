@@ -10,4 +10,6 @@ typedef __int16 s16;
 typedef __int32 s32;
 typedef __int64 s64;
 
+#define ARRAY_COUNT(arr) (size_t)(sizeof(arr) / sizeof((arr)[0]))
+
 #define IMGUI_SUPPORT 1
