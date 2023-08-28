@@ -368,6 +368,8 @@ struct RogueMonPresetCollection
 
 struct RogueAssistantHeader
 {
+    u8 rogueVersion;
+    u8 rogueDebug;
     u32 inCommCapacity;
     u32 outCommCapacity;
     u8* inCommBuffer;

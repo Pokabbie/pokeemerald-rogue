@@ -104,6 +104,16 @@ EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
 
 const struct RogueAssistantHeader gRogueAssistantHeader =
 {
+#ifdef ROGUE_EXPANSION
+    .rogueVersion = 1,
+#else
+    .rogueVersion = 0,
+#endif
+#ifdef ROGUE_DEBUG
+    .rogueDebug = 1,
+#else
+    .rogueDebug = 0,
+#endif
     .inCommCapacity = sizeof(gRogueAssistantState.inCommBuffer),
     .outCommCapacity = sizeof(gRogueAssistantState.outCommBuffer),
     .inCommBuffer = gRogueAssistantState.inCommBuffer,

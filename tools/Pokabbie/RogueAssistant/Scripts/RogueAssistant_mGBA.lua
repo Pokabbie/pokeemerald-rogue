@@ -1,12 +1,12 @@
 constants = 
 {
     targetHost = "127.0.0.1",
-    targetPort = 30150,
+    targetPort = 30125,
     
     rogueHandshake1 = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g",
     rogueHandshake2 = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY",
 
-    debugLog = false,
+    debugLog = true,
 }
 
 globals = 

@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "GameConnectionManager.h"
 
 #include <stdlib.h>
 #include <string>
@@ -58,9 +59,14 @@ int RogueAssistant_Main(std::vector<std::string> const& args)
 
     if (window.Create())
     {
+        GameConnectionManager::Instance().OpenListener();
+
         window.EnterMainLoop(RogueAssistant_MainLoop);
         if (window.Destroy())
+        {
+            GameConnectionManager::Instance().CloseListener();
             return 0;
+        }
     }
 
     return 1;
@@ -68,5 +74,6 @@ int RogueAssistant_Main(std::vector<std::string> const& args)
 
 bool RogueAssistant_MainLoop(Window* window, void* userData)
 {
+    GameConnectionManager::Instance().UpdateConnections();
     return true;
 }

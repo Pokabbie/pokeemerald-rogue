@@ -4,6 +4,8 @@
 #include "Log.h"
 #include <WinSock2.h>
 
+void GameTest();
+
 void TestEntry()
 {
 	if (enet_initialize() != 0)
