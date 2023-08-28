@@ -40,8 +40,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 
 #endif
 
+#if defined(_DEBUG)
+void TestEntry();
+#endif
+
 int RogueAssistant_Main(std::vector<std::string> const& args)
 {
+#if defined(_DEBUG)
+    TestEntry();
+#endif
+
     WindowConfig config;
     config.title = "Rogue Assistant";
     config.imGuiEnabled = false;
