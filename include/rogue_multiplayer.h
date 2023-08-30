@@ -15,6 +15,6 @@ void RogueMP_Close();
 
 void RogueMP_Update();
 
-void RogueMP_WaitForConnection();
+u8 RogueMP_WaitForConnection();
 
 #endif

@@ -1,43 +1,65 @@
 #pragma once
 #include "Defines.h"
-#include "GameConnectionTask.h"
+#include "GameConnectionMessage.h"
 #include "GameData.h"
+#include "Log.h"
+
+#include <vector>
 
 class GameConnection;
 
-enum class ObservedGameMemoryType
-{
-	Immediate,
-	Virtual // 1 indirect lookup first
-};
+// Observed game binary blob
+//
 
-
-class ObservedGameMemoryEntry
+class ObservedBlob
 {
 public:
-	ObservedGameMemoryEntry(ObservedGameMemoryType type, GameAddress address, size_t size);
+	ObservedBlob(size_t size = 0);
 
-	void Update(GameConnection& game);
+	inline bool IsValid() const { return m_IsValid; }
 
-	inline u8 const* GetData() const { return m_Data.data(); }
+	inline void* GetData() { return m_Data.data(); }
+	inline void const* GetData() const { return m_Data.data(); }
 	inline size_t GetSize() const { return m_Data.size(); }
 
-	inline bool IsNull() const { return m_IsNull; }
+	void Resize(size_t size);
 
-	template<typename T>
-	inline T const& Get() const { return reinterpret_cast<T const&>(*GetData()); }
+	bool SetData(u8 const* data, size_t size);
+	void Clear();
 
-private:
-	void OnRecvData(u8 const* data, size_t size);
-
-	ObservedGameMemoryType m_MemoryType;
-	GameAddress m_Address;
-	bool m_IsNull;
-
-	GameConnectionTaskRef m_ActiveTask;
+protected:
+	bool m_IsValid;
 	std::vector<u8> m_Data;
 };
 
+// Observed game structure
+//
+
+template<typename T>
+class ObservedStruct : public ObservedBlob
+{
+public:
+	ObservedStruct()
+		: ObservedBlob(sizeof(T))
+	{
+#if _DEBUG
+		m_DebugPtr = static_cast<T*>(GetData());
+#endif
+	}
+
+	inline T& Get() { return *static_cast<T*>(GetData()); }
+	inline T const& Get() const { return *static_cast<T const*>(GetData()); }
+
+	inline T* operator->() { return &Get(); }
+	inline T const* operator->() const { return &Get(); }
+private:
+#if _DEBUG
+	T* m_DebugPtr;
+#endif
+};
+
+// Collection of common observed memory
+//
 
 class ObservedGameMemory
 {
@@ -45,12 +67,16 @@ public:
 	ObservedGameMemory(GameConnection& game);
 
 	void Update();
+	void OnRecieveMessage(GameMessageID messageId, u8 const* data, size_t size);
 
-	inline ObservedGameMemoryEntry const& GetAssistantState() const { return m_AssistantState; }
-	inline ObservedGameMemoryEntry const& GetRogueNetMultiplayer() const { return m_RogueNetMultiplayer; }
+	bool IsMuliplayerStateValid() const;
 
 private:
 	GameConnection& m_Game;
-	ObservedGameMemoryEntry m_AssistantState;
-	ObservedGameMemoryEntry m_RogueNetMultiplayer;
+
+	ObservedStruct<GameStructures::GFRomHeader> m_GFRomHeader;
+	ObservedStruct<GameStructures::RogueAssistantHeader> m_RogueHeader;
+	ObservedStruct<GameStructures::RogueAssistantState> m_AssistantState;
+	ObservedStruct<GameAddress> m_MultiplayerStatePtr;
+	ObservedBlob m_MultiplayerState;
 };

@@ -2,70 +2,159 @@
 #include "GameConnection.h"
 #include "Log.h"
 
-ObservedGameMemoryEntry::ObservedGameMemoryEntry(ObservedGameMemoryType type, GameAddress address, size_t size)
-	: m_MemoryType(type)
-	, m_Address(address)
-	, m_IsNull(true)
+
+// Helpers
+//
+
+enum class ObservedMemoryID : u16
+{
+	GFHeader,
+	RogueHeader,
+	AssitantState,
+	MultiplayerStatePtr,
+	MultiplayerState,
+};
+
+inline static GameMessageID CreateMessageId(GameMessageChannel channel, ObservedMemoryID param)
+{
+	GameMessageID id;
+	id.Channel = channel;
+	id.Param16 = (u16)param;
+	return id;
+}
+
+// ObservedBlob
+//
+
+ObservedBlob::ObservedBlob(size_t size)
+	: m_IsValid(false)
+{
+	Resize(size);
+}
+
+void ObservedBlob::Resize(size_t size)
 {
 	m_Data.resize(size);
 }
 
-void ObservedGameMemoryEntry::Update(GameConnection& game)
+bool ObservedBlob::SetData(u8 const* data, size_t size)
 {
-	if (m_ActiveTask == nullptr || m_ActiveTask->HasCompleted())
+	ASSERT_MSG(size == GetSize(), "Unexpected size");
+	if (size == GetSize())
 	{
-		if (m_MemoryType == ObservedGameMemoryType::Virtual)
-		{
-			m_ActiveTask = game.ReadData(m_Address, sizeof(GameAddress));
-			m_ActiveTask->Then([&](u8 const* data, size_t size)
-				{
-					GameAddress const* address = (GameAddress const*)data;
-
-					if (*address == 0)
-					{
-						m_IsNull = true;
-					}
-					else
-					{
-						// Now to the actual lookup with the known address
-						m_ActiveTask = game.ReadData(*address, GetSize());
-						m_ActiveTask->Then([&](u8 const* data, size_t size)
-							{
-								OnRecvData(data, size);
-							}
-						);
-					}
-				}
-			);
-		}
-		else
-		{
-			m_ActiveTask = game.ReadData(m_Address, GetSize());
-			m_ActiveTask->Then([&](u8 const* data, size_t size)
-				{
-					OnRecvData(data, size);
-				}
-			);
-		}
+		memcpy(m_Data.data(), data, GetSize());
+		m_IsValid = true;
+		return true;
 	}
+
+	return false;
 }
 
-void ObservedGameMemoryEntry::OnRecvData(u8 const* data, size_t size)
+void ObservedBlob::Clear()
 {
-	ASSERT_MSG(size == GetSize(), "Size invalid");
-	memcpy(m_Data.data(), data, GetSize());
-	m_IsNull = false;
+	m_IsValid = false;
 }
+
+// ObservedGameMemory
+//
 
 ObservedGameMemory::ObservedGameMemory(GameConnection& game)
 	: m_Game(game)
-	, m_AssistantState(ObservedGameMemoryType::Immediate, game.GetGameRogueHeader().assistantState, sizeof(GameStructures::RogueAssistantState))
-	, m_RogueNetMultiplayer(ObservedGameMemoryType::Virtual, game.GetGameRogueHeader().multiplayerPtr, game.GetGameRogueHeader().netMultiplayerSize)
+	//, m_AssistantState(ObservedGameMemoryType::Immediate, game.GetGameRogueHeader().assistantState, sizeof(GameStructures::RogueAssistantState))
+	//, m_RogueNetMultiplayer(ObservedGameMemoryType::Virtual, game.GetGameRogueHeader().multiplayerPtr, game.GetGameRogueHeader().netMultiplayerSize)
 {
 }
 
 void ObservedGameMemory::Update()
 {
-	m_AssistantState.Update(m_Game);
-	m_RogueNetMultiplayer.Update(m_Game);
+	if (!m_GFRomHeader.IsValid())
+	{
+		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::GFHeader);
+		m_Game.ReadRequest(messageId, GameAddresses::c_GFHeaderAddress, m_GFRomHeader.GetSize());
+	}
+	else if(!m_RogueHeader.IsValid())
+	{
+		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::RogueHeader);
+		m_Game.ReadRequest(messageId, m_GFRomHeader->rogueAssistantHeader, m_RogueHeader.GetSize());
+	}
+	else
+	{
+		// Both headers are valid, so can update other memory now
+		GameMessageID messageId;
+
+		// Grab assistant state
+		//
+		messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::AssitantState);
+		m_Game.ReadRequest(messageId, m_RogueHeader->assistantState, m_AssistantState.GetSize());
+
+		// Grab multiplayer state, if we have one
+		//
+		messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::MultiplayerStatePtr);
+		m_Game.ReadRequest(messageId, m_RogueHeader->multiplayerPtr, m_MultiplayerStatePtr.GetSize());
+
+		if (m_MultiplayerStatePtr.Get() != 0)
+		{
+			if (m_MultiplayerState.GetSize() != m_RogueHeader->netMultiplayerSize)
+				m_MultiplayerState.Resize(m_RogueHeader->netMultiplayerSize);
+
+			messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::MultiplayerState);
+			m_Game.ReadRequest(messageId, m_MultiplayerStatePtr.Get(), m_MultiplayerState.GetSize());
+		}
+		else
+		{
+			// Pointing to null
+			m_MultiplayerState.Clear();
+		}
+	}
+}
+
+void ObservedGameMemory::OnRecieveMessage(GameMessageID messageId, u8 const* data, size_t size)
+{
+	ObservedMemoryID memoryId = (ObservedMemoryID)messageId.Param16;
+
+	switch (memoryId)
+	{
+	case ObservedMemoryID::GFHeader:
+		if (m_GFRomHeader.SetData(data, size))
+		{
+			// A couple of verification handshakes are placed in the handshake, so check those before continuing
+			if (m_GFRomHeader->rogueAssistantHandshake1 != 20012 || m_GFRomHeader->rogueAssistantHandshake2 != 30035)
+			{
+				LOG_WARN("Invalid GF Header handshakes");
+				m_Game.Disconnect();
+				return;
+			}
+		}
+		else
+		{
+			LOG_WARN("Invalid GF Header size");
+			m_Game.Disconnect();
+		}
+		break;
+
+	case ObservedMemoryID::RogueHeader:
+		if (!m_RogueHeader.SetData(data, size))
+		{
+			LOG_WARN("Invalid GF Header size");
+			m_Game.Disconnect();
+		}
+		break;
+
+	case ObservedMemoryID::AssitantState:
+		m_AssistantState.SetData(data, size);
+		break;
+
+	case ObservedMemoryID::MultiplayerStatePtr:
+		m_MultiplayerStatePtr.SetData(data, size);
+		break;
+
+	case ObservedMemoryID::MultiplayerState:
+		m_MultiplayerState.SetData(data, size);
+		break;
+	}
+}
+
+bool ObservedGameMemory::IsMuliplayerStateValid() const
+{
+	return m_MultiplayerStatePtr.IsValid() && m_MultiplayerStatePtr.Get() != 0 && m_MultiplayerState.IsValid();
 }

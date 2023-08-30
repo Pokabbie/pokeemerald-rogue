@@ -169,7 +169,6 @@
     <ClCompile Include="Src\GameConnection.cpp" />
     <ClCompile Include="Src\GameConnectionManager.cpp" />
     <ClCompile Include="Src\GameConnectionRPCs.cpp" />
-    <ClCompile Include="Src\GameConnectionTask.cpp" />
     <ClCompile Include="Src\GameData.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\ObservedGameMemory.cpp" />
@@ -188,8 +187,8 @@
     <ClInclude Include="Inc\Defines.h" />
     <ClInclude Include="Inc\GameConnection.h" />
     <ClInclude Include="Inc\GameConnectionManager.h" />
+    <ClInclude Include="Inc\GameConnectionMessage.h" />
     <ClInclude Include="Inc\GameConnectionRPCs.h" />
-    <ClInclude Include="Inc\GameConnectionTask.h" />
     <ClInclude Include="Inc\GameData.h" />
     <ClInclude Include="Inc\Log.h" />
     <ClInclude Include="Inc\ObservedGameMemory.h" />

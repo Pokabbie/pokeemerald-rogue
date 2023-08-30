@@ -37,9 +37,6 @@
     <ClCompile Include="Src\GameConnectionManager.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GameConnectionTask.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
     <ClCompile Include="Src\GameConnectionRPCs.cpp">
       <Filter>Src</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
     <ClInclude Include="Inc\GameConnectionManager.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\GameConnectionTask.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\GameData.h">
       <Filter>Inc</Filter>
     </ClInclude>
@@ -100,6 +94,9 @@
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ObservedGameMemory.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameConnectionMessage.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>

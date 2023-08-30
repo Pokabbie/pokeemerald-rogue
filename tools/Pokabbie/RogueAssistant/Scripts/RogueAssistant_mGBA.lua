@@ -42,7 +42,7 @@ end
 function Cmd_Send(reqId, data)
     local dataSize = string.len(data)
     if constants.debugLog then
-        console:log("Send (" .. reqId .."): " .. dataSize .. ":'" .. data .. "'")
+        console:log("\tSend (" .. reqId .."): " .. dataSize .. ":'" .. data .. "'")
     end
     globals.conn:send(reqId .. ";" .. dataSize .. ";" .. data)
 end
@@ -89,10 +89,6 @@ function Cmd_readBytes(params)
     local addr = tonumber(params[3])
     local range = tonumber(params[4])
     local result = emu:readRange(addr, range)
-    if constants.debugLog then
-        console:log("Range: '" .. addr .. " : " .. range .. "'")
-        console:log("Range: '" .. result .. "'")
-    end
     Cmd_Send(reqId, result)
 end
 
@@ -112,23 +108,30 @@ function Conn_ProcessCmd(msg)
     end
     
     local requests = splitRequestStr(msg)
+    local allSuccess = true
 
     for i, req in ipairs(requests) do
         if constants.debugLog then
             console:log("\tRequest: '" .. req .. "'")
         end
         local params = splitParamStr(req)
+        local success = false
 
         for k, v in pairs(commCmds) do
             if k == params[1] then
                 v(params)
-                return true
+                success = true
+                break
             end
+        end
+
+        if not success then
+            console:error("Unknown Cmd: " .. req)
+            allSuccess = false
         end
     end
 
-    console:error("Unknown Cmd: " .. msg)
-    return false
+    return allSuccess
 end
 
 

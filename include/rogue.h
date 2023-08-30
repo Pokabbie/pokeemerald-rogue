@@ -399,6 +399,8 @@ struct RogueNetMultiplayer
     struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
     struct RogueNetGameState gameState;
     struct RogueNetHandshake pendingHandshake;
+    u8 netRequestState;
+    u8 netCurrentState;
 };
 
 // Rogue Assistant
@@ -416,6 +418,8 @@ struct RogueAssistantHeader
     u32 netPlayerOffset;
     u32 netPlayerSize;
     u32 netPlayerCount;
+    u32 netRequestStateOffset;
+    u32 netCurrentStateOffset;
     void const* saveBlock1Ptr;
     void const* saveBlock2Ptr;
     void const* rogueBlockPtr;

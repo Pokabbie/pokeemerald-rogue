@@ -22,23 +22,20 @@ RPCQueue::RPCQueue(GameConnection& game)
 
 void RPCQueue::Update()
 {
-    if (!m_Game.IsRogueAssistantStateValid())
-        return;
-
-    GameStructures::RogueAssistantState const& assistantState = m_Game.GetRogueAssistantState();
-
-    static bool s_RunTest = false;
-    if (!s_RunTest)
-    {
-        u8 nameSize = m_Game.GetGameGFHeader().pokemonNameLength1 + 1;
-        m_Game.ReadData(m_Game.GetGameGFHeader().monSpeciesNames + nameSize * 3, nameSize)
-            ->Then([&](u8 const* data, size_t size)
-                {
-                    std::string name = GameHelpers::ParseGameString(data, size);
-                    return;
-                }
-        );
-    }
+    //GameStructures::RogueAssistantState const& assistantState = m_Game.GetRogueAssistantState();
+    //
+    //static bool s_RunTest = false;
+    //if (!s_RunTest)
+    //{
+    //    u8 nameSize = m_Game.GetGameGFHeader().pokemonNameLength1 + 1;
+    //    m_Game.ReadData(m_Game.GetGameGFHeader().monSpeciesNames + nameSize * 3, nameSize)
+    //        ->Then([&](u8 const* data, size_t size)
+    //            {
+    //                std::string name = GameHelpers::ParseGameString(data, size);
+    //                return;
+    //            }
+    //    );
+    //}
 
 }
 
@@ -56,13 +53,13 @@ void RPCQueue::ClearSendBuffer()
 
 void RPCQueue::RPC_GetSpeciesName(u16 species)
 {
-    ClearSendBuffer();
-    PushSendData<u16>(m_Counter++);
-    PushSendData<u16>((u16)MethodId::GetSpeciesName);
-    PushSendData<u16>(species);
-
-    GameStructures::RogueAssistantState const& assistantState = m_Game.GetRogueAssistantState();
-    m_Game.WriteData(assistantState.assistantState + offsetof(GameStructures::RogueAssistantState, inCommBuffer), m_SendBuffer, m_SendBufferSize);
+    //ClearSendBuffer();
+    //PushSendData<u16>(m_Counter++);
+    //PushSendData<u16>((u16)MethodId::GetSpeciesName);
+    //PushSendData<u16>(species);
+    //
+    //GameStructures::RogueAssistantState const& assistantState = m_Game.GetRogueAssistantState();
+    //m_Game.WriteData(assistantState.assistantState + offsetof(GameStructures::RogueAssistantState, inCommBuffer), m_SendBuffer, m_SendBufferSize);
 }
 
 //void RPCQueue::GetSpeciesName(u16 species)
@@ -91,5 +88,3 @@ void RPCQueue::RPC_GetSpeciesName(u16 species)
 //    GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_BUFFER_PTR,
 //    GAME_CONSTANT_DEBUG_QUERY_COLLAPSED_SIZE_PTR,
 //};
-
-void GetSpeciesName(GameConnection& game, u16 species);

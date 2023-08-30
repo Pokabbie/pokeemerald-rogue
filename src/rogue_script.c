@@ -828,12 +828,14 @@ void Rogue_IsMultiplayerHost(void)
 
 void Rogue_HostMultiplayer()
 {
-    Rogue_CreateMultiplayerConnectTask(TRUE);
+    RogueMP_OpenHost();
+    RogueMP_WaitForConnection();
 }
 
 void Rogue_JoinMultiplayer()
 {
-    Rogue_CreateMultiplayerConnectTask(FALSE);
+    RogueMP_OpenClient();
+    RogueMP_WaitForConnection();
 }
 
 void Rogue_SetupFollowParterMonObjectEvent()

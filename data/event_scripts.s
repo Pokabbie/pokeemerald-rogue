@@ -794,3 +794,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Intro/scripts.inc"
 
 	.include "data/maps/Rogue_Area_SafariZone/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_PokeConnect/scripts.inc"

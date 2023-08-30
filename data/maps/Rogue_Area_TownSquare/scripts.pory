@@ -1,4 +1,15 @@
-mapscripts Rogue_Area_TownSquare_MapScripts {}
+mapscripts Rogue_Area_TownSquare_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_TownSquare_OnMapLoad
+}
+
+script Rogue_Area_TownSquare_OnMapLoad
+{
+    if(flag(FLAG_ROGUE_DEBUG_DISABLED))
+    {
+        fillmetatile(10, 17, 11, 17, METATILE_GeneralHub_Grass, FALSE)
+    }
+}
 
 script Rogue_Area_TownSquare_LabSign
 {

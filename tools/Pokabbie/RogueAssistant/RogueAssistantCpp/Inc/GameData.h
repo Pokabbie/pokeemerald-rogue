@@ -103,6 +103,8 @@ namespace GameStructures
 		u32 netPlayerOffset;
 		u32 netPlayerSize;
 		u32 netPlayerCount;
+		u32 netRequestStateOffset;
+		u32 netCurrentStateOffset;
 		GameAddress saveBlock1Ptr;
 		GameAddress saveBlock2Ptr;
 		GameAddress rogueBlockPtr;
