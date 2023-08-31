@@ -46,6 +46,12 @@
     <ClCompile Include="Src\GameData.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp">
+      <Filter>Src\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Timer.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\Window.h">
@@ -99,6 +105,15 @@
     <ClInclude Include="Inc\GameConnectionMessage.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\GameConnectionBehaviour.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h">
+      <Filter>Inc\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Timer.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -112,6 +127,12 @@
     </Filter>
     <Filter Include="Scripts">
       <UniqueIdentifier>{3cb8b07b-52f2-4427-b7aa-1695e2e60419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Behaviours">
+      <UniqueIdentifier>{84f54e61-f7c0-4476-a8db-46a0edde9dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Behaviours">
+      <UniqueIdentifier>{b1977417-dc41-456e-9ceb-c30e9975a76b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

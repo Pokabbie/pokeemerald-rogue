@@ -166,6 +166,7 @@
     <ClCompile Include="External\imgui\imgui_impl_opengl2.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp" />
     <ClCompile Include="Src\GameConnection.cpp" />
     <ClCompile Include="Src\GameConnectionManager.cpp" />
     <ClCompile Include="Src\GameConnectionRPCs.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\ObservedGameMemory.cpp" />
     <ClCompile Include="Src\Testing.cpp" />
+    <ClCompile Include="Src\Timer.cpp" />
     <ClCompile Include="Src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,14 +186,17 @@
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h" />
     <ClInclude Include="Inc\Defines.h" />
     <ClInclude Include="Inc\GameConnection.h" />
+    <ClInclude Include="Inc\GameConnectionBehaviour.h" />
     <ClInclude Include="Inc\GameConnectionManager.h" />
     <ClInclude Include="Inc\GameConnectionMessage.h" />
     <ClInclude Include="Inc\GameConnectionRPCs.h" />
     <ClInclude Include="Inc\GameData.h" />
     <ClInclude Include="Inc\Log.h" />
     <ClInclude Include="Inc\ObservedGameMemory.h" />
+    <ClInclude Include="Inc\Timer.h" />
     <ClInclude Include="Inc\Window.h" />
   </ItemGroup>
   <ItemGroup>

@@ -95,11 +95,11 @@ end
 commCmds = 
 {
     con = Cmd_EstablishConnection,
-    hello = Cmd_HelloWorld,
-    writeByte = Cmd_writeByte,
-    readByte = Cmd_readByte,
-    writeBytes = Cmd_writeBytes,
-    readBytes = Cmd_readBytes,
+    -- hello = Cmd_HelloWorld,
+    ws = Cmd_writeByte,
+    rs = Cmd_readByte,
+    w = Cmd_writeBytes,
+    r = Cmd_readBytes,
 }
 
 function Conn_ProcessCmd(msg)

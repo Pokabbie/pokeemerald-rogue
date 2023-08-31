@@ -60,8 +60,7 @@ void ObservedBlob::Clear()
 
 ObservedGameMemory::ObservedGameMemory(GameConnection& game)
 	: m_Game(game)
-	//, m_AssistantState(ObservedGameMemoryType::Immediate, game.GetGameRogueHeader().assistantState, sizeof(GameStructures::RogueAssistantState))
-	//, m_RogueNetMultiplayer(ObservedGameMemoryType::Virtual, game.GetGameRogueHeader().multiplayerPtr, game.GetGameRogueHeader().netMultiplayerSize)
+	, m_UpdateTimer(UpdateTimer::c_10UPS)
 {
 }
 
@@ -72,27 +71,30 @@ void ObservedGameMemory::Update()
 		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::GFHeader);
 		m_Game.ReadRequest(messageId, GameAddresses::c_GFHeaderAddress, m_GFRomHeader.GetSize());
 	}
-	else if(!m_RogueHeader.IsValid())
+	else if (!m_RogueHeader.IsValid())
 	{
 		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::RogueHeader);
 		m_Game.ReadRequest(messageId, m_GFRomHeader->rogueAssistantHeader, m_RogueHeader.GetSize());
 	}
-	else
+	else if (m_UpdateTimer.Update())
 	{
 		// Both headers are valid, so can update other memory now
 		GameMessageID messageId;
 
+
 		// Grab assistant state
 		//
-		messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::AssitantState);
-		m_Game.ReadRequest(messageId, m_RogueHeader->assistantState, m_AssistantState.GetSize());
+		// NOTE: This is laggy to get, as it's so large
+		// Should consider setting up a system which will grab in smaller sizes over multiple frames
+		//messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::AssitantState);
+		//m_Game.ReadRequest(messageId, m_RogueHeader->assistantState, m_AssistantState.GetSize());
 
 		// Grab multiplayer state, if we have one
 		//
 		messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::MultiplayerStatePtr);
 		m_Game.ReadRequest(messageId, m_RogueHeader->multiplayerPtr, m_MultiplayerStatePtr.GetSize());
 
-		if (m_MultiplayerStatePtr.Get() != 0)
+		if (m_MultiplayerStatePtr.IsValid() && m_MultiplayerStatePtr.Get() != 0)
 		{
 			if (m_MultiplayerState.GetSize() != m_RogueHeader->netMultiplayerSize)
 				m_MultiplayerState.Resize(m_RogueHeader->netMultiplayerSize);
@@ -152,6 +154,11 @@ void ObservedGameMemory::OnRecieveMessage(GameMessageID messageId, u8 const* dat
 		m_MultiplayerState.SetData(data, size);
 		break;
 	}
+}
+
+bool ObservedGameMemory::AreHeadersValid() const
+{
+	return m_GFRomHeader.IsValid() && m_RogueHeader.IsValid();
 }
 
 bool ObservedGameMemory::IsMuliplayerStateValid() const

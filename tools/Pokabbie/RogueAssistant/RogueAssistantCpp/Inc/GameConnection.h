@@ -1,10 +1,12 @@
 #pragma once
 #include "Defines.h"
 #include "GameData.h"
+#include "GameConnectionBehaviour.h"
 #include "GameConnectionMessage.h"
 #include "GameConnectionRPCs.h"
 #include "ObservedGameMemory.h"
 #include "SFML/Network.hpp"
+#include "Timer.h"
 
 #include <functional>
 #include <memory>
@@ -12,7 +14,7 @@
 class GameConnectionManager;
 class IGameConnectionTask;
 
-typedef std::function<void(u8 const* data, size_t size)> DataCallback;
+
 
 enum class GameConnectionState
 {
@@ -32,11 +34,14 @@ public:
 	void Update();
 	void Disconnect();
 
+	void AddBehaviour(IGameConnectionBehaviour* behaviour);
+	bool RemoveBehaviour(IGameConnectionBehaviour* behaviour);
+
+	template<typename T>
+	void AddBehaviour();
+
 	inline bool IsReady() const { return m_State == GameConnectionState::Connected; }
 	inline bool HasDisconnected() const { return m_State == GameConnectionState::Disconnected; }
-
-	GameStructures::GFRomHeader const& GetGameGFHeader() const;
-	GameStructures::RogueAssistantHeader const& GetGameRogueHeader() const;
 
 	void WriteRequest(GameMessageID messageId, size_t addr, void const* data, size_t size);
 	void ReadRequest(GameMessageID messageId, size_t addr, size_t size);
@@ -50,6 +55,8 @@ public:
 	//inline void ReadValue(size_t addr);
 
 private:
+	void AddDefaultBehaviours();
+
 	void SendCommand(std::string const& command);
 	void FlushCommands();
 
@@ -63,10 +70,7 @@ private:
 
 	sf::TcpSocket m_Socket;
 	GameConnectionState m_State;
-
-	bool m_GameHeadersValid;
-	GameStructures::GFRomHeader m_GFRomHeader;
-	GameStructures::RogueAssistantHeader m_RogueHeader;
+	UpdateTimer m_UpdateTimer;
 
 	u8 m_RecieveBuffer[2048];
 	u8 m_SendBuffer[2048];
@@ -74,34 +78,15 @@ private:
 
 	RPCQueue m_GameRPCs;
 	std::unique_ptr<ObservedGameMemory> m_ObservedGameMemory;
+
+	std::vector<GameConnectionBehaviourRef> m_Behaviours;
 };
 
 // Templates
 //
-//template<typename T>
-//void GameConnection::WriteValue(size_t addr, T& value, std::function<void(T const&)> callback)
-//{ 
-//	if (callback != nullptr)
-//		WriteData(addr, &value, sizeof(T), [callback](u8 const* data, size_t size) 
-//			{
-//				T const* value = (T const*)data;
-//				callback(*value);
-//			}
-//		);
-//	else
-//		WriteData(addr, &value, sizeof(T));
-//}
-//
-//template<typename T>
-//void GameConnection::ReadValue(size_t addr, std::function<void(T const&)> callback) 
-//{
-//	if (callback != nullptr)
-//		ReadData(addr, sizeof(T), [callback](u8 const* data, size_t size)
-//			{
-//				T const* value = (T const*)data;
-//				callback(*value);
-//			}
-//		);
-//	else
-//		ReadData(addr, sizeof(T));
-//}
+template<typename T>
+void GameConnection::AddBehaviour()
+{
+	std::shared_ptr<T> ptr = std::make_shared<T>();
+	AddBehaviour(ptr.get());
+}

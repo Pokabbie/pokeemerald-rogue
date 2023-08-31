@@ -3,6 +3,7 @@
 #include "GameConnectionMessage.h"
 #include "GameData.h"
 #include "Log.h"
+#include "Timer.h"
 
 #include <vector>
 
@@ -18,8 +19,8 @@ public:
 
 	inline bool IsValid() const { return m_IsValid; }
 
-	inline void* GetData() { return m_Data.data(); }
-	inline void const* GetData() const { return m_Data.data(); }
+	inline u8* GetData() { ASSERT_MSG(m_IsValid, "Observed memory is invalid"); return m_Data.data(); }
+	inline u8 const* GetData() const { ASSERT_MSG(m_IsValid, "Observed memory is invalid"); return m_Data.data(); }
 	inline size_t GetSize() const { return m_Data.size(); }
 
 	void Resize(size_t size);
@@ -43,12 +44,12 @@ public:
 		: ObservedBlob(sizeof(T))
 	{
 #if _DEBUG
-		m_DebugPtr = static_cast<T*>(GetData());
+		m_DebugPtr = static_cast<T*>(static_cast<void*>(m_Data.data()));
 #endif
 	}
 
-	inline T& Get() { return *static_cast<T*>(GetData()); }
-	inline T const& Get() const { return *static_cast<T const*>(GetData()); }
+	inline T& Get() { return *static_cast<T*>(static_cast<void*>(GetData())); }
+	inline T const& Get() const { return *static_cast<T const*>(static_cast<void const*>(GetData())); }
 
 	inline T* operator->() { return &Get(); }
 	inline T const* operator->() const { return &Get(); }
@@ -69,10 +70,18 @@ public:
 	void Update();
 	void OnRecieveMessage(GameMessageID messageId, u8 const* data, size_t size);
 
+	bool AreHeadersValid() const;
 	bool IsMuliplayerStateValid() const;
+
+	GameStructures::GFRomHeader const& GetGFRomHeader() const { return m_GFRomHeader.Get(); }
+	GameStructures::RogueAssistantHeader const& GetRogueHeader() const { return m_RogueHeader.Get(); }
+	GameStructures::RogueAssistantState const& GetAssistantState() const { return m_AssistantState.Get(); }
+	GameAddress GetMultiplayerStatePtr() const { return m_MultiplayerStatePtr.Get(); }
+	u8 const* GetMultiplayerStateBlob() const { return m_MultiplayerState.GetData(); }
 
 private:
 	GameConnection& m_Game;
+	UpdateTimer m_UpdateTimer;
 
 	ObservedStruct<GameStructures::GFRomHeader> m_GFRomHeader;
 	ObservedStruct<GameStructures::RogueAssistantHeader> m_RogueHeader;

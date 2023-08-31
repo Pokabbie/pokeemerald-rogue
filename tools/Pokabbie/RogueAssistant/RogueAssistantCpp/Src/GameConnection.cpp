@@ -1,8 +1,7 @@
 #include "GameConnection.h"
 #include "GameData.h"
 #include "Log.h"
-
-#include <SFML/Network.hpp>
+#include "Behaviours/MultiplayerBehaviour.h"
 
 std::string const GameConnection::c_FirstHandshake = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g";
 std::string const GameConnection::c_SecondHandshake = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY";
@@ -11,7 +10,7 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_GameHeadersValid(false)
+	, m_UpdateTimer(UpdateTimer::c_60UPS)
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
@@ -29,21 +28,23 @@ void GameConnection::Update()
 	{
 		OnRecieveData(m_RecieveBuffer, recvSize);
 	}
-	
-	if (IsReady())
-	{
-		m_ObservedGameMemory->Update();
 
-		if (m_GameHeadersValid)
+	if (m_UpdateTimer.Update())
+	{
+		if (IsReady())
 		{
-			m_GameRPCs.Update();
+			m_ObservedGameMemory->Update();
+			//m_GameRPCs.Update();
 		}
+
+		// Make a copy, so behaviours can remove themselves?
+		std::vector<GameConnectionBehaviourRef> behavioursToUpdate = m_Behaviours;
+
+		for (auto behaviour : behavioursToUpdate)
+			behaviour->OnUpdate(*this);
 	}
 
 	FlushCommands();
-
-	// Update tasks
-	// TODO 
 }
 
 void GameConnection::Disconnect()
@@ -52,16 +53,33 @@ void GameConnection::Disconnect()
 	m_State = GameConnectionState::Disconnected;
 }
 
-GameStructures::GFRomHeader const& GameConnection::GetGameGFHeader() const
+void GameConnection::AddDefaultBehaviours()
 {
-	ASSERT_MSG(m_GameHeadersValid, "Attempt to use invalid header");
-	return m_GFRomHeader;
+	AddBehaviour<MultiplayerBehaviour>();
 }
 
-GameStructures::RogueAssistantHeader const& GameConnection::GetGameRogueHeader() const
+void GameConnection::AddBehaviour(IGameConnectionBehaviour* behaviour)
 {
-	ASSERT_MSG(m_GameHeadersValid, "Attempt to use invalid header");
-	return m_RogueHeader;
+#ifdef _ASSERTS
+	auto findIt = std::find(m_Behaviours.begin(), m_Behaviours.end(), behaviour->shared_from_this());
+	ASSERT_MSG(findIt == m_Behaviours.end(), "Behaviour already added");
+#endif
+	m_Behaviours.push_back(behaviour->shared_from_this());
+	behaviour->OnAttach(*this);
+}
+
+bool GameConnection::RemoveBehaviour(IGameConnectionBehaviour* behaviour)
+{
+	auto findIt = std::find(m_Behaviours.begin(), m_Behaviours.end(), behaviour->shared_from_this());
+
+	if (findIt != m_Behaviours.end())
+	{
+		m_Behaviours.erase(findIt);
+		behaviour->OnDetach(*this);
+		return true;
+	}
+
+	return false;
 }
 
 ObservedGameMemory const& GameConnection::GetObservedGameMemory() const
@@ -115,6 +133,7 @@ void GameConnection::OnRecieveData(u8* data, size_t size)
 		{
 			m_State = GameConnectionState::Connected;
 			LOG_INFO("Game: Connection accepted");
+			AddDefaultBehaviours();
 		}
 		else
 		{
@@ -212,7 +231,7 @@ void GameConnection::WriteRequest(GameMessageID messageId, size_t addr, void con
 
 	// Really inefficient, but works...
 	// Write name then numbers in ascii split by ;
-	std::string command = "writeBytes;" + std::to_string(messageId.CompactedID) + ";" + std::to_string(addr);
+	std::string command = "w;" + std::to_string(messageId.CompactedID) + ";" + std::to_string(addr);
 	u8 const* read = reinterpret_cast<u8 const*>(data);
 
 	for (size_t i = 0; i < size; ++i)
@@ -229,7 +248,7 @@ void GameConnection::ReadRequest(GameMessageID messageId, size_t addr, size_t si
 
 	// Really inefficient, but works...
 	// Write name then numbers in ascii split by ;
-	std::string command = "readBytes;" + std::to_string(messageId.CompactedID) + ";" + std::to_string(addr) + ";" + std::to_string(size);
+	std::string command = "r;" + std::to_string(messageId.CompactedID) + ";" + std::to_string(addr) + ";" + std::to_string(size);
 
 	SendCommand(command);
 }
@@ -264,7 +283,15 @@ void GameConnection::FlushCommands()
 
 		if (m_SendSize != sentAmount)
 		{
-			ASSERT_FAIL("Couldn't set every things! (Need to see when this happens to decide how to handle it)");
+			if (sentAmount == 0)
+			{
+				LOG_WARN("Cannot send data (Assuming disconnect)");
+				Disconnect();
+			}
+			else
+			{
+				ASSERT_FAIL("Couldn't set every things! (Need to see when this happens to decide how to handle it)");
+			}
 		}
 
 		m_SendSize = 0;

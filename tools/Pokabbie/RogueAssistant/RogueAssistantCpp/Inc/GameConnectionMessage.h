@@ -3,7 +3,7 @@
 
 enum class GameMessageChannel : u16
 {
-	Undefined,
+	Anonymous,
 	CommonRead,
 };
 
@@ -20,6 +20,14 @@ union GameMessageID
 		};
 	};
 };
+
+inline GameMessageID CreateAnonymousMessageId()
+{
+	GameMessageID id;
+	id.Channel = GameMessageChannel::Anonymous;
+	id.Param16 = 0;
+	return id;
+}
 
 inline GameMessageID CreateMessageId(GameMessageChannel channel, u16 param = 0)
 {
