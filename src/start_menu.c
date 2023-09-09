@@ -52,6 +52,7 @@
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
+#include "rogue_questmenu.h"
 #include "rogue_settings.h"
 
 // Menu actions
@@ -72,6 +73,7 @@ enum
     MENU_ACTION_RETIRE_FRONTIER,
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_QUICK_SAVE,
+    MENU_ACTION_QUESTS,
 };
 
 // Save status
@@ -104,6 +106,7 @@ EWRAM_DATA static bool8 sBufferedAButton = FALSE;
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
+static bool8 StartMenuQuestsCallback(void);
 static bool8 StartMenuBagCallback(void);
 static bool8 StartMenuPokeNavCallback(void);
 static bool8 StartMenuPlayerNameCallback(void);
@@ -193,6 +196,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,      {.u8_void = StartMenuBattlePyramidRetireCallback}},
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,         {.u8_void = StartMenuBattlePyramidBagCallback}},
     [MENU_ACTION_QUICK_SAVE]      = {gText_MenuQuickSave,   {.u8_void = StartMenuQuickSaveCallback}},
+    [MENU_ACTION_QUESTS]          = {gText_MenuQuests,      {.u8_void = StartMenuQuestsCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -271,7 +275,7 @@ void SetDexPokemonPokenavFlags(void) // unused
 {
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
-    FlagSet(FLAG_SYS_POKENAV_GET);
+    FlagSet(FLAG_SYS_QUEST_LOG_GET);
 }
 
 static void BuildStartMenuActions(void)
@@ -330,9 +334,9 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
     {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
+        AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
@@ -354,10 +358,10 @@ static void BuildRogueRunStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    //{
-    //    AddStartMenuAction(MENU_ACTION_POKENAV);
-    //}
+    if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
+    {
+        AddStartMenuAction(MENU_ACTION_QUESTS);
+    }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
@@ -382,10 +386,10 @@ static void BuildLinkModeStartMenu(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-    }
+    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //{
+    //    AddStartMenuAction(MENU_ACTION_POKENAV);
+    //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER_LINK);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -397,10 +401,10 @@ static void BuildUnionRoomStartMenu(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-    }
+    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //{
+    //    AddStartMenuAction(MENU_ACTION_POKENAV);
+    //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -746,7 +750,22 @@ static bool8 StartMenuPokemonCallback(void)
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
+        return TRUE;
+    }
 
+    return FALSE;
+}
+
+static bool8 StartMenuQuestsCallback(void)
+{
+    if (!gPaletteFade.active)
+    {
+        PlayRainStoppingSoundEffect();
+        RemoveExtraStartMenuWindows();
+        CleanupOverworldWindowsAndTilemaps();
+        //SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
+
+        Rogue_OpenQuestMenu(CB2_ReturnToFieldWithOpenMenu);
         return TRUE;
     }
 

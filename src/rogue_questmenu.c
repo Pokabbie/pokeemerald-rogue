@@ -34,92 +34,6 @@
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
-/*
- * Move relearner state machine
- * ------------------------
- *
- * Entry point: TeachQuestMenuMove
- *
- * TeachQuestMenuMove
- * Task_WaitForFadeOut
- * CB2_InitQuestMenu
- *   - Creates moveDisplayArrowTask to listen to right/left buttons.
- *   - Creates moveListScrollArrowTask to listen to up/down buttons.
- *   - Whenever the selected move changes (and once on init), the QuestMenuCursorCallback
- *     is called (see sQuestMenuMovesListTemplate). That callback will reload the contest
- *     display and battle display windows for the new move. Both are always loaded in
- *     memory, but only the currently active one is copied to VRAM. The exception to this
- *     is the appeal and jam hearts, which are sprites. QuestMenuShowPinSprites is called
- *     while reloading the contest display to control them.
- * DoQuestMenuMain: MENU_STATE_FADE_TO_BLACK
- * DoQuestMenuMain: MENU_STATE_WAIT_FOR_FADE
- *   - Go to MENU_STATE_IDLE_BATTLE_MODE
- *
- * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_DESC
- * DoQuestMenuMain: MENU_STATE_IDLE_BATTLE_MODE
- *   - If the player selected a move (pressed A), go to MENU_STATE_PRINT_PIN_QUEST_PROMPT.
- *   - If the player cancelled (pressed B), go to MENU_STATE_PRINT_GIVE_UP_PROMPT.
- *   - If the player pressed left or right, swap the move display window to contest mode,
- *     and go to MENU_STATE_SETUP_QUEST_REWARD.
- *
- * DoQuestMenuMain: MENU_STATE_SETUP_QUEST_REWARD
- * DoQuestMenuMain: MENU_STATE_IDLE_CONTEST_MODE
- *   - If the player selected a move, go to MENU_STATE_PRINT_PIN_QUEST_PROMPT.
- *   - If the player cancelled, go to MENU_STATE_PRINT_GIVE_UP_PROMPT
- *   - If the player pressed left or right, swap the move display window to battle mode,
- *     and go to MENU_STATE_SETUP_QUEST_DESC.
- *
- * DoQuestMenuMain: MENU_STATE_PRINT_PIN_QUEST_PROMPT
- * DoQuestMenuMain: MENU_STATE_PIN_QUEST_CONFIRM
- *   - Wait for the player to confirm.
- *   - If cancelled, go to either MENU_STATE_SETUP_QUEST_DESC or MENU_STATE_SETUP_QUEST_REWARD.
- *   - If confirmed and the pokemon had an empty move slot, set VAR_0x8004 to TRUE and go to
- *     MENU_STATE_PRINT_TEXT_THEN_FANFARE.
- *   - If confirmed and the pokemon doesn't have an empty move slot, go to
- *     MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT.
- *
- * DoQuestMenuMain: MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT
- * DoQuestMenuMain: MENU_STATE_WAIT_FOR_TRYING_TO_LEARN
- * DoQuestMenuMain: MENU_STATE_CONFIRM_DELETE_OLD_MOVE
- *   - If the player confirms, go to MENU_STATE_PRINT_WHICH_MOVE_PROMPT.
- *   - If the player cancels, go to MENU_STATE_PRINT_STOP_TEACHING
- *
- * DoQuestMenuMain: MENU_STATE_PRINT_STOP_TEACHING
- * DoQuestMenuMain: MENU_STATE_WAIT_FOR_STOP_TEACHING
- * DoQuestMenuMain: MENU_STATE_CONFIRM_STOP_TEACHING
- *   - If the player confirms, go to MENU_STATE_CHOOSE_SETUP_STATE.
- *   - If the player cancels, go back to MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT.
- *
- * DoQuestMenuMain: MENU_STATE_PRINT_WHICH_MOVE_PROMPT
- * DoQuestMenuMain: MENU_STATE_SHOW_MOVE_SUMMARY_SCREEN
- *   - Go to ShowSelectMovePokemonSummaryScreen. When done, control returns to
- *     CB2_InitQuestMenuReturnFromSelectMove.
- *
- * DoQuestMenuMain: MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE
- * DoQuestMenuMain: MENU_STATE_PRINT_TEXT_THEN_FANFARE
- * DoQuestMenuMain: MENU_STATE_WAIT_FOR_FANFARE
- * DoQuestMenuMain: MENU_STATE_WAIT_FOR_A_BUTTON
- * DoQuestMenuMain: MENU_STATE_FADE_AND_RETURN
- * DoQuestMenuMain: MENU_STATE_RETURN_TO_FIELD
- *   - Clean up and go to CB2_ReturnToField.
- *
- * DoQuestMenuMain: MENU_STATE_PRINT_GIVE_UP_PROMPT
- * DoQuestMenuMain: MENU_STATE_GIVE_UP_CONFIRM
- *   - If the player confirms, go to MENU_STATE_FADE_AND_RETURN, and set VAR_0x8004 to FALSE.
- *   - If the player cancels, go to either MENU_STATE_SETUP_QUEST_DESC or
- *     MENU_STATE_SETUP_QUEST_REWARD.
- *
- * CB2_InitQuestMenuReturnFromSelectMove:
- *   - Do most of the same stuff as CB2_InitQuestMenu.
- * DoQuestMenuMain: MENU_STATE_FADE_FROM_SUMMARY_SCREEN
- * DoQuestMenuMain: MENU_STATE_TRY_OVERWRITE_MOVE
- *   - If any of the pokemon's existing moves were chosen, overwrite the move and
- *     go to MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE and set VAR_0x8004 to TRUE.
- *   - If the chosen move is the one the player selected before the summary screen,
- *     go to MENU_STATE_PRINT_STOP_TEACHING.
- *
- */
-
 #define MENU_STATE_FADE_TO_BLACK 0
 #define MENU_STATE_WAIT_FOR_FADE 1
 #define MENU_STATE_UNREACHABLE 2
@@ -422,6 +336,7 @@ bool8 Rogue_IsQuestMenuOverviewActive(void)
 
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 {
+    gMain.savedCallback = callback;
     ScriptContext2_Enable();
     SetMainCallback2(CB2_InitQuestMenu);
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
@@ -927,7 +842,7 @@ static void DoQuestMenuMain(void)
         if (!gPaletteFade.active)
         {
             FreeQuestMenuResources();
-            SetMainCallback2(CB2_ReturnToField);
+            SetMainCallback2(gMain.savedCallback);
             ScriptUnfreezeObjectEvents();
         }
         break;
