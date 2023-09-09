@@ -72,6 +72,7 @@ BattleScript_PrintCaughtMonInfo::
 	setbyte gBattleCommunication, 0
 	displaydexinfo
 BattleScript_TryAddCaughtMon::
+	rogue_caughtmon
 	rogue_partyhasroom BattleScript_TryNicknameCaughtMon
 	openpartyscreen BS_PLAYER1 | PARTY_SCREEN_OPTIONAL, BattleScript_GiveMonPartySizeContinue
 BattleScript_GiveMonPartySizeContinue::

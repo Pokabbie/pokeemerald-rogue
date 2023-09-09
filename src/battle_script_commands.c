@@ -332,6 +332,7 @@ static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
 static void Cmd_rogue_partyhasroom(void);
+static void Cmd_rogue_caughtmon(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -584,7 +585,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_trainerslideout,                         //0xF8
-    Cmd_rogue_partyhasroom                       //0xF9
+    Cmd_rogue_partyhasroom,                      //0xF9
+    Cmd_rogue_caughtmon,                         //0xFA
+    //Cmd_rogue_releasecaughtmon,                  //0xFB
 };
 
 struct StatFractions
@@ -10081,7 +10084,7 @@ static void Cmd_handleballthrow(void)
         else
             ballMultiplier = sBallCatchBonuses[gLastUsedItem - ITEM_ULTRA_BALL];
 
-        Rogue_ModifyCatchRate(&catchRate, &ballMultiplier);
+        Rogue_ModifyCatchRate(gBattleMons[gBattlerTarget].species, &catchRate, &ballMultiplier);
 
         odds = (catchRate * ballMultiplier / 10)
             * (gBattleMons[gBattlerTarget].maxHP * 3 - gBattleMons[gBattlerTarget].hp * 2)
@@ -10179,11 +10182,16 @@ static void Cmd_rogue_partyhasroom(void)
     return;
 }
 
-static void Cmd_givecaughtmon(void)
+static void Cmd_rogue_caughtmon(void)
 {
-    // RogueNote: Whether we're allow to capture this is handled further up
+    // Modify before we've decided if we're going to release this or not
     Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
 
+    gBattlescriptCurrInstr++;
+}
+
+static void Cmd_givecaughtmon(void)
+{
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())

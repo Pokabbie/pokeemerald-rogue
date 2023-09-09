@@ -1257,6 +1257,10 @@
 	.byte 0xf9
 	.4byte \ptr
 	.endm
+
+	.macro rogue_caughtmon
+	.byte 0xfa
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

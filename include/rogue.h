@@ -195,10 +195,15 @@ struct RogueCampaignData_Generic
     u16 score;
 };
 
+struct RogueWildEncounters
+{
+    u16 species[WILD_ENCOUNTER_TOTAL_CAPACITY];
+    u8 catchCounts[WILD_ENCOUNTER_TOTAL_CAPACITY];
+};
+
 struct RogueRunData
 {
-    u16 wildEncounters[9];
-    u16 fishingEncounters[2];
+    struct RogueWildEncounters wildEncounters;
     u16 bossHistoryBuffer[ROGUE_MAX_BOSS_COUNT];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
