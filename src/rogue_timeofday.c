@@ -312,12 +312,12 @@ static void TintPalette_ToD(u16 *palette, u16 count, u16 colour)
     TintPalette_CustomMultiply(palette, count, GET_R(colour), GET_G(colour), GET_B(colour));
 }
 
-static bool8 ShouldApplySeasonTintForCurrentMap()
+bool8 RogueToD_ApplySeasonVisuals()
 {
     return gSaveBlock2Ptr->seasonVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
 
-static bool8 ShouldApplyTodTintForCurrentMap()
+bool8 RogueToD_ApplyTimeVisuals()
 {
     return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
@@ -347,13 +347,13 @@ void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
         return;
     }
 
-    if(ShouldApplySeasonTintForCurrentMap())
+    if(RogueToD_ApplySeasonVisuals())
     {
         TintPalette_Season(&gPlttBufferUnfaded[offset], count * 16);
         isDirty = TRUE;
     }
 
-    if(ShouldApplyTodTintForCurrentMap())
+    if(RogueToD_ApplyTimeVisuals())
     {
         RecalculateToDDataIfRequired();
         TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDay.overworldColour, TRUE));
@@ -370,7 +370,7 @@ void RogueToD_ModifyBattlePalette(u16 offset, u16 count)
 {
     bool8 isDirty = FALSE;
 
-    if(ShouldApplyTodTintForCurrentMap())
+    if(RogueToD_ApplyTimeVisuals())
     {
         RecalculateToDDataIfRequired();
         TintPalette_ToD(&gPlttBufferUnfaded[offset], count * 16, GetDesiredTintForCurrentMap(sTimeOfDay.battleColour, FALSE));

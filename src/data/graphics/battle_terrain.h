@@ -1,9 +1,15 @@
 const u32 gBattleTerrainTiles_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/tiles.4bpp.lz");
 const u32 gBattleTerrainPalette_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrass_Summer[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_summer.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrass_Autumn[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_autumn.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrass_Winter[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_winter.gbapal.lz");
 const u32 gBattleTerrainTilemap_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/map.bin.lz");
 
 const u32 gBattleTerrainTiles_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/tiles.4bpp.lz");
 const u32 gBattleTerrainPalette_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/palette.gbapal.lz");
+const u32 gBattleTerrainPalette_Plain_Summer[] = INCBIN_U32("graphics/battle_terrain/plain/palette_summer.gbapal.lz");
+const u32 gBattleTerrainPalette_Plain_Autumn[] = INCBIN_U32("graphics/battle_terrain/plain/palette_autumn.gbapal.lz");
+const u32 gBattleTerrainPalette_Plain_Winter[] = INCBIN_U32("graphics/battle_terrain/plain/palette_winter.gbapal.lz");
 const u32 gBattleTerrainTilemap_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/map.bin.lz");
 
 const u32 gBattleTerrainTiles_Sand[] = INCBIN_U32("graphics/battle_terrain/sand/tiles.4bpp.lz");
