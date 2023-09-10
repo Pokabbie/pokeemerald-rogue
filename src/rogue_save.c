@@ -401,3 +401,23 @@ void RogueSave_LoadHubStates()
         }
     }
 }
+
+u16 RogueSave_GetHubBagItemIdAt(u16 index)
+{
+    if(index < ARRAY_COUNT(sRunRestoreBlock.bagItems))
+    {
+        return sRunRestoreBlock.bagItems[index].itemId;
+    }
+
+    return ITEM_NONE;
+}
+
+u16 RogueSave_GetHubBagItemQuantityAt(u16 index)
+{
+    if(index < ARRAY_COUNT(sRunRestoreBlock.bagItems))
+    {
+        return sRunRestoreBlock.bagItems[index].quantity;
+    }
+
+    return 0;
+}

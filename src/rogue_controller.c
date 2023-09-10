@@ -2116,57 +2116,51 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
+static bool8 CanEnterWithItem(u16 itemId, bool8 isBasicBagEnabled)
+{
+    u8 pocket;
+    if(!isBasicBagEnabled)
+        return TRUE;
+
+    pocket = GetPocketByItemId(itemId);
+    if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+        return TRUE;
+
+    return FALSE;
+}
+
 static void SetupRogueRunBag()
 {
     u16 i;
     u16 itemId;
     u16 quantity;
+    bool8 isBasicBagEnabled = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE);
 
-    ClearBag();
     SetMoney(&gSaveBlock1Ptr->money, 0);
+    ClearBag();
 
-    // TODO - Fix
+    // Re-add items
+    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+    {
+        itemId = RogueSave_GetHubBagItemIdAt(i);
+        quantity = RogueSave_GetHubBagItemQuantityAt(i);
+        
+        if(itemId != ITEM_NONE && CanEnterWithItem(itemId, isBasicBagEnabled))
+        {
+            AddBagItem(itemId, quantity);
+        }
+    }
 
-    //if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
-    //{
-    //    // Add default items
-    //    AddBagItem(ITEM_POKE_BALL, 5);
-    //    AddBagItem(ITEM_POTION, 1);
-//
-    //    // Add back some of the items we want to keep
-    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-    //    {
-    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
-    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
-//
-    //        if(itemId != ITEM_NONE && quantity != 0)
-    //        {
-    //            u8 pocket = GetPocketByItemId(itemId);
-    //            if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
-    //                AddBagItem(itemId, quantity);
-    //            else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-    //                AddBagItem(itemId, quantity);
-    //        }
-    //    }
-    //}
-    //else
-    //{
-    //    // Re-add all the items
-    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-    //    {
-    //        // TODO - Convert here for special case like money bags
-    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
-    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
-//
-    //        if(itemId != ITEM_NONE && quantity != 0)
-    //        {
-    //            AddBagItem(itemId, quantity);
-    //        }
-    //    }
-    //}
+    // Give basic inventory
+    if(isBasicBagEnabled)
+    {
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+    }
 
 #ifdef ROGUE_DEBUG
-    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+    AddBagItem(ITEM_ESCAPE_ROPE, 255);
+    AddBagItem(ITEM_RARE_CANDY, 255);
 #endif
 
     RecalcCharmCurseValues();
