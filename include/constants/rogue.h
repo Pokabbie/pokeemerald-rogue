@@ -321,6 +321,12 @@
 //
 #define NET_PLAYER_CAPACITY 4
 
+// Sound
+//
+#define ROGUE_SOUND_TYPE_UNKNOWN    0
+#define ROGUE_SOUND_TYPE_CRY        1
+#define ROGUE_SOUND_TYPE_MUSIC      2
+
 // Misc.
 //
 // Number of bytes needed to cover all species

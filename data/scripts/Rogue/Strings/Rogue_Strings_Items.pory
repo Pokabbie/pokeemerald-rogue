@@ -150,7 +150,7 @@ text gHubUpgradeDesc_Home_LowerFloor
 
 text gHubUpgradeDesc_Home_UpperFloor
 {
-    format("A 2nd floor allowing you to sleep until a specific time ors season.")
+    format("A 2nd floor with a bed allowing you to rest until a specific time.")
 }
 
 text gHubUpgradeDesc_Home_BerryField1

@@ -44,7 +44,6 @@ enum
     MENUITEM_POPUP_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
     MENUITEM_SOUND_CHANNEL_SE,
-    MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
     MENUITEM_SOUND_CHANNEL_BATTLE_SE,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
@@ -220,12 +219,6 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = SoundChannelSE_ProcessInput,
         .drawChoices = SoundChannelSE_DrawChoices
     },
-    [MENUITEM_SOUND_CHANNEL_BATTLE_BGM] = 
-    {
-        .itemName = gText_SoundChannelBattleBGM,
-        .processInput = SoundChannelBGM_ProcessInput,
-        .drawChoices = SoundChannelBGM_DrawChoices
-    },
     [MENUITEM_SOUND_CHANNEL_BATTLE_SE] = 
     {
         .itemName = gText_SoundChannelBattleSE,
@@ -308,7 +301,6 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_POPUP_SOUND,
             MENUITEM_SOUND_CHANNEL_BGM,
             MENUITEM_SOUND_CHANNEL_SE,
-            MENUITEM_SOUND_CHANNEL_BATTLE_BGM,
             MENUITEM_SOUND_CHANNEL_BATTLE_SE,
             MENUITEM_CANCEL
         }
@@ -817,14 +809,14 @@ static void Sound_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_NEW(DPAD_RIGHT))
+    if (JOY_REPEAT(DPAD_RIGHT))
     {
         if (selection < 10)
             selection++;
 
         sArrowPressed = TRUE;
     }
-    if (JOY_NEW(DPAD_LEFT))
+    if (JOY_REPEAT(DPAD_LEFT))
     {
         if (selection != 0)
             selection--;
@@ -855,14 +847,14 @@ static void SoundChannelBGM_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 SoundChannelSE_ProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_NEW(DPAD_RIGHT))
+    if (JOY_REPEAT(DPAD_RIGHT))
     {
         if (selection < 10)
             selection++;
 
         sArrowPressed = TRUE;
     }
-    if (JOY_NEW(DPAD_LEFT))
+    if (JOY_REPEAT(DPAD_LEFT))
     {
         if (selection != 0)
             selection--;
@@ -1080,9 +1072,6 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_SOUND_CHANNEL_SE:
         return gSaveBlock2Ptr->optionsSoundChannelSE;
 
-    case MENUITEM_SOUND_CHANNEL_BATTLE_BGM:
-        return gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
-
     case MENUITEM_SOUND_CHANNEL_BATTLE_SE:
         return gSaveBlock2Ptr->optionsSoundChannelBattleSE;
         
@@ -1147,12 +1136,7 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, 256);
         m4aMPlayVolumeControl(&gMPlayInfo_SE3, TRACKS_ALL, 256);
         break;
-        
-    case MENUITEM_SOUND_CHANNEL_BATTLE_BGM:
-        gSaveBlock2Ptr->optionsSoundChannelBattleBGM = value;
-        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 256);
-        break;
-        
+
     case MENUITEM_SOUND_CHANNEL_BATTLE_SE:
         gSaveBlock2Ptr->optionsSoundChannelBattleSE = value;
         m4aMPlayVolumeControl(&gMPlayInfo_SE1, TRACKS_ALL, 256);

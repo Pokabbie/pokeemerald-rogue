@@ -513,7 +513,7 @@ struct SaveBlock2
              u16 optionsPopupSoundOff:1;
              u16 optionsSoundChannelBGM:4;
              u16 optionsSoundChannelSE:4;
-             u16 optionsSoundChannelBattleBGM:4;
+             u16 options_Unused0:4;
              u16 optionsSoundChannelBattleSE:4;
              u16 optionsNicknameMode:2; // //OPTIONS_NICKNAME_MODE_[ASK/ALWAYS/NEVER]
              u16 optionsDefaultBattleSceneOff:1; // whether battle animations are disabled

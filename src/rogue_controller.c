@@ -8,6 +8,7 @@
 #include "constants/layouts.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
+#include "constants/songs.h"
 #include "constants/trainer_types.h"
 #include "constants/weather.h"
 #include "data.h"
@@ -278,32 +279,42 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
-u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume)
+extern const struct Song gSongTable[];
+
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType)
 {
     // 10 is eqv of 100%
     u8 audioLevel = 10;
 
-    if(gMain.inBattle)
+    switch (soundType)
     {
-        if(mplayInfo == &gMPlayInfo_BGM)
-        {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
-        }
-        else // Assume sound effect
-        {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
-        }
-    }
-    else
-    {
+    case ROGUE_SOUND_TYPE_CRY:
+        // Don't modify this?
+        break;
+    
+    default:
         if(mplayInfo == &gMPlayInfo_BGM)
         {
             audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
         }
-        else // Assume sound effect
+        else 
         {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+            if(
+                mplayInfo->songHeader == gSongTable[SE_SELECT].header ||
+                mplayInfo->songHeader == gSongTable[SE_DEX_SCROLL].header ||
+                mplayInfo->songHeader == gSongTable[SE_PIN].header
+            )
+            {
+                // Just UI sound effects
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+            }
+            else if(gMain.inBattle)
+            {
+                // Assume all sounds are battle effects
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
+            }
         }
+        break;
     }
 
     if(audioLevel != 10)
