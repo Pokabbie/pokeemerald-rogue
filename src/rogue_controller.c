@@ -155,7 +155,7 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 static u8 GetCurrentWildEncounterCount(void);
 static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
-static u16 GetWildEncounterIndexFor(u16 species, bool8 assertIfMissing);
+static u16 GetWildEncounterIndexFor(u16 species);
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
@@ -439,8 +439,11 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 #else
         u16 startMultiplier = *ballMultiplier;
         u8 difficulty = gRogueRun.currentDifficulty;
-        u8 wildEncounterIndex = GetWildEncounterIndexFor(species, TRUE);
-        u8 speciesCatchCount = gRogueRun.wildEncounters.catchCounts[wildEncounterIndex];
+        u8 wildEncounterIndex = GetWildEncounterIndexFor(species);
+        u8 speciesCatchCount = 0;
+
+        if(wildEncounterIndex != WILD_ENCOUNTER_TOTAL_CAPACITY)
+            speciesCatchCount = gRogueRun.wildEncounters.catchCounts[wildEncounterIndex];
         
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
@@ -590,7 +593,7 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         // Increment catch counter for in route mons
         {
             u16 species = GetMonData(mon, MON_DATA_SPECIES);
-            u8 index = GetWildEncounterIndexFor(species, FALSE);
+            u8 index = GetWildEncounterIndexFor(species);
 
             if(index != WILD_ENCOUNTER_TOTAL_CAPACITY && gRogueRun.wildEncounters.catchCounts[index] != 255)
             {
@@ -4010,7 +4013,7 @@ static u16 GetWildWaterEncounter(u8 index)
     return SPECIES_NONE;
 }
 
-static u16 GetWildEncounterIndexFor(u16 species, bool8 assertIfMissing)
+static u16 GetWildEncounterIndexFor(u16 species)
 {
     u8 i;
     u16 checkSpecies;
@@ -4031,13 +4034,6 @@ static u16 GetWildEncounterIndexFor(u16 species, bool8 assertIfMissing)
         {
             return i;
         }
-    }
-
-    if(assertIfMissing)
-    {
-        // Failed to find species
-        AGB_ASSERT(FALSE);
-        return 0;
     }
 
     return WILD_ENCOUNTER_TOTAL_CAPACITY;
