@@ -881,8 +881,10 @@ void LoadBattleTextboxAndBackground(void)
     CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
     CopyBgTilemapBufferToVram(0);
     LoadCompressedPalette(gBattleTextboxPalette, 0, 0x40);
-    LoadBattleMenuWindowGfx();
     DrawMainBattleBackground();
+
+    // RogueNote: Load battle window after to ignore TOD tinting
+    LoadBattleMenuWindowGfx();
 }
 
 static void DrawLinkBattleParticipantPokeballs(u8 taskId, u8 multiplayerId, u8 bgId, u8 destX, u8 destY)

@@ -10227,13 +10227,16 @@ static void Cmd_trysetcaughtmondexflags(void)
 
     if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
     {
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        //gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
     else
     {
         HandleSetPokedexFlag(species, FLAG_SET_CAUGHT, personality);
-        gBattlescriptCurrInstr += 5;
+        //gBattlescriptCurrInstr += 5;
     }
+    
+    // RogueNote: Never display caught mon dex info
+    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 
     if(IsMonShiny(&gEnemyParty[0]))
     {

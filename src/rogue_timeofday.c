@@ -40,6 +40,7 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_player_customisation.h"
 #include "rogue_save.h"
 #include "rogue_timeofday.h"
 
@@ -48,17 +49,12 @@
 
 #define CALC_TIME(hour, minute) (hour * 60 + minute)
 #define CALC_HOUR_FROM_TIME(time) (time / 60)
-#define CALC_MINS_FROM_TIME(time) (time % 60 )
+#define CALC_MINS_FROM_TIME(time) (time % 60)
 
-#define RGB_NIGHT           RGB(13, 11, 17)
-#define RGB_NIGHT_BATTLE    RGB(14, 12, 18)
-#define RGB_SUNRISE         RGB(31, 20, 10)
+#define RGB_NIGHT           RGB(9, 12, 19)
+#define RGB_SUNRISE         RGB(31, 16, 6)
 #define RGB_DAYTIME         RGB_WHITE
-#define RGB_SUNSET          RGB(31, 18, 7)
-
-
-#define RGB_255_CHANNEL(v) (u8)(((u32)v * (u32)31) / (u32)255)
-#define RGB_255(r, g, b) RGB(RGB_255_CHANNEL(r), RGB_255_CHANNEL(g), RGB_255_CHANNEL(b))
+#define RGB_SUNSET          RGB(31, 12, 9)
 
 #define DAYS_PER_SEASON     2 
 
@@ -94,7 +90,7 @@ static const struct ToDPalette sToDPaletteLookup[] =
     {
         .time = CALC_TIME(5, 0),
         .overworldColour = RGB_NIGHT,
-        .battleColour = RGB_NIGHT_BATTLE,
+        .battleColour = RGB_NIGHT,
         .timeCode = TIME_CODE_NIGHT,
     },
     {
@@ -127,7 +123,7 @@ static const struct ToDPalette sToDPaletteLookup[] =
     {
         .time = CALC_TIME(23, 0),
         .overworldColour = RGB_NIGHT,
-        .battleColour = RGB_NIGHT_BATTLE,
+        .battleColour = RGB_NIGHT,
         .timeCode = TIME_CODE_NIGHT,
     },
 };
@@ -328,12 +324,16 @@ static bool8 ShouldApplyTodTintForCurrentMap()
 
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 {
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_TOD_TINT_USES_PLAYER_COLOUR)
+    return RoguePlayer_GetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY);
+#else
     if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
     {
         return isOverworld ? RGB(18, 16, 22) : RGB_WHITE;
     }
 
     return inTint;
+#endif
 }
 
 void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)
