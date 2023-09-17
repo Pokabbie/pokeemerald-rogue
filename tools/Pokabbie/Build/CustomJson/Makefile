@@ -2,9 +2,11 @@ CXX ?= g++
 
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -Werror
 
+INCLUDES := -I .
+
 SRCS := main.cpp TrainerExporter.cpp BattleMusicExporter.cpp
 
-HEADERS := main.h StringUtils.h nlohmann\json.hpp
+HEADERS := main.h StringUtils.h nlohmann/json.hpp
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
