@@ -204,7 +204,7 @@ struct RogueWildEncounters
 struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
-    u16 bossHistoryBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
     {

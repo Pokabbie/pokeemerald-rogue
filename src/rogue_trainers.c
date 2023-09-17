@@ -320,7 +320,7 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     }
 }
 
-u16 Rogue_NextBossTrainerId()
+static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
 {
     u8 i;
     u32 includeFlags;
@@ -337,9 +337,9 @@ u16 Rogue_NextBossTrainerId()
 
         // Only include trainers we want
         includeFlags = TRAINER_FLAG_NONE;
-        if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
             includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
-        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
             includeFlags |= TRAINER_FLAG_CLASS_ELITE;
         else
             includeFlags |= TRAINER_FLAG_CLASS_GYM;
@@ -351,10 +351,10 @@ u16 Rogue_NextBossTrainerId()
         RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, excludeFlags);
 
         // Exclude any types we've already encountered
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.bossHistoryBuffer); ++i)
+        for(i = 0; i < historyBufferCapacity; ++i)
         {
-            if(gRogueRun.bossHistoryBuffer[i] != INVALID_HISTORY_ENTRY)
-                RogueTrainerQuery_IsOfTypeGroup(QUERY_FUNC_EXCLUDE, gRogueRun.bossHistoryBuffer[i]);
+            if(historyBuffer[i] != INVALID_HISTORY_ENTRY)
+                RogueTrainerQuery_IsOfTypeGroup(QUERY_FUNC_EXCLUDE, historyBuffer[i]);
         }
 
         // Select random
@@ -370,7 +370,7 @@ u16 Rogue_NextBossTrainerId()
             else
             {
                 // We've exhausted the options, so wipe and try again
-                memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+                memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * historyBufferCapacity);
             }
         }
         RogueWeightQuery_End();
@@ -378,8 +378,36 @@ u16 Rogue_NextBossTrainerId()
 
     RogueTrainerQuery_End();
 
-    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), Rogue_GetTrainerTypeGroupId(trainerNum));
+    HistoryBufferPush(&historyBuffer[0], historyBufferCapacity, Rogue_GetTrainerTypeGroupId(trainerNum));
     return trainerNum;
+}
+
+void Rogue_ChooseBossTrainersForNewAdventure()
+{
+    u8 difficulty;
+    u16 trainerNum;
+    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+
+    memset(&gRogueRun.bossTrainerNums[0], TRAINER_NONE, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossTrainerNums));
+    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    for(difficulty = 0; difficulty < ROGUE_MAX_BOSS_COUNT; ++difficulty)
+    {
+        // Clear the history buffer, as we track based on types
+        // In rainbow mode, the type can only appear once though
+        if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+        {
+            switch(gRogueRun.currentDifficulty)
+            {
+                case ROGUE_ELITE_START_DIFFICULTY:
+                case ROGUE_CHAMP_START_DIFFICULTY:
+                    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+                    break;
+            }
+        }
+
+        gRogueRun.bossTrainerNums[difficulty] = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
+    }
 }
 
 u16 Rogue_NextMinibossTrainerId()

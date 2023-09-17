@@ -195,7 +195,8 @@ static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPat
             switch(roomSettings->roomType)
             {
                 case ADVPATH_ROOM_BOSS:
-                    roomSettings->roomParams.perType.boss.trainerNum = Rogue_NextBossTrainerId();
+                    AGB_ASSERT(gRogueRun.currentDifficulty < ARRAY_COUNT(gRogueRun.bossTrainerNums));
+                    roomSettings->roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[gRogueRun.currentDifficulty];
                     break;
 
                 case ADVPATH_ROOM_RESTSTOP:

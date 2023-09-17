@@ -2204,10 +2204,13 @@ static void BeginRogueRun(void)
     {
         gRogueRun.currentLevelOffset = 80;
     }
+
+    // Apply some base seed for anything which needs to be randomly setup
+    SeedRogueRng(gRogueRun.baseSeed * 23151 + 29867);
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
-    
+    Rogue_ChooseBossTrainersForNewAdventure();
+
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
@@ -2260,6 +2263,7 @@ static void BeginRogueRun(void)
             Rogue_PushPopup_WeakPokemonClause(weakSpecies);
 
     }
+
 
     GiveMonPartnerRibbon();
 
@@ -3472,20 +3476,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             nextLevel = Rogue_CalculateBossMonLvl();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
-
-            // Clear the history buffer, as we track based on types
-            // In rainbow mode, the type can only appear once though
-            if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
-            {
-                    switch(gRogueRun.currentDifficulty)
-                    {
-                        case 8:
-                        case 12:
-                        case 13:
-                            memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
-                            break;
-                    }
-            }
 
             if(gRogueRun.currentDifficulty >= ROGUE_MAX_BOSS_COUNT)
             {

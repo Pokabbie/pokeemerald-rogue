@@ -26,7 +26,8 @@ u8 Rogue_CalculateBossMonLvl();
 
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 
-u16 Rogue_NextBossTrainerId();
+void Rogue_ChooseBossTrainersForNewAdventure();
+
 u16 Rogue_NextMinibossTrainerId();
 u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity);
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum);
