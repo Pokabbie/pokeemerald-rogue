@@ -363,7 +363,7 @@
                         {
                             "max_samples": 1,
                             "include_types": [ "FLYING" ],
-                            "exclude_types": [ "BUG", "NORMAL" ]
+                            "exclude_types": [ "BUG", "NORMAL", "DRAGON" ]
                         },
                         {
                             "max_samples": 5,

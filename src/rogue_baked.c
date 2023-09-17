@@ -1290,12 +1290,10 @@ u8 Rogue_GetEvolutionCount(u16 species)
 #endif
 }
 
-u32 Rogue_GetSpeciesTypeFlags(u16 species)
+void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
-    u32 flags = 0;
-    flags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type1);
-    flags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type2);
-    return flags;
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type1);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type2);
 }
 
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)

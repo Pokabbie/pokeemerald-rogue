@@ -105,7 +105,7 @@ void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, stru
         species = GetMonData(&party[i], MON_DATA_SPECIES);
         if(species != SPECIES_NONE)
         {
-            context->partyTypeFlags |= Rogue_GetSpeciesTypeFlags(species);
+            Rogue_AppendSpeciesTypeFlags(species, &context->partyTypeFlags);
         }
     }
 }

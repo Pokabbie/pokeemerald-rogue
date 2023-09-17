@@ -804,7 +804,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     {
         struct QueryScriptContext context;
         RogueQueryScript_SetupScript(&context, trainer->teamGenerator.weightScript);
-        //RogueQueryScript_SetupVarsForParty(&context) // TODO -
+        RogueQueryScript_SetupVarsForParty(&context, scratch->party, scratch->partyCount);
         RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &context);
     }
     else

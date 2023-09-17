@@ -331,8 +331,8 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 {
     u8 i;
-    bool8 containsAnyType;
     u16 species;
+    u32 speciesFlags;
 
     ASSERT_MON_QUERY;
 
@@ -344,18 +344,19 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
     {
         if(GetQueryBitFlag(species))
         {
-            containsAnyType = (typeFlags & Rogue_GetSpeciesTypeFlags(species)) != 0;
+            speciesFlags = 0;
+            Rogue_AppendSpeciesTypeFlags(species, &speciesFlags);
 
             if(func == QUERY_FUNC_INCLUDE)
             {
-                if(!containsAnyType)
+                if((typeFlags & speciesFlags) == 0)
                 {
                     SetQueryBitFlag(species, FALSE);
                 }
             }
             else if(func == QUERY_FUNC_EXCLUDE)
             {
-                if(containsAnyType)
+                if((typeFlags & speciesFlags) != 0)
                 {
                     SetQueryBitFlag(species, FALSE);
                 }
