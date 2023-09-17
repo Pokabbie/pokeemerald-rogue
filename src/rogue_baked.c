@@ -526,6 +526,7 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 
 static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
 {
+#ifndef ROGUE_BAKING
     if(trainerClass == TRAINER_CLASS_LEADER)
     {
         if(gRogueRun.currentDifficulty >= 12)
@@ -537,7 +538,7 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
             trainerClass = TRAINER_CLASS_ELITE_FOUR;
         }
     }
-
+#endif
     return trainerClass;
 }
 
