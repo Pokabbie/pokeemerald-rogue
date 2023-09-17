@@ -95,7 +95,7 @@ struct RogueAdvPath
 {
     struct RogueAdvPathRoomParams currentRoomParams;
     struct RogueAdvPathRoom rooms[ROGUE_ADVPATH_ROOM_CAPACITY];
-    u16 routeHistoryBuffer[12];
+    u16 routeHistoryBuffer[12]; // TODO - Remove these
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[6];
     u8 currentRoomId;
@@ -204,7 +204,7 @@ struct RogueWildEncounters
 struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
-    u16 bossHistoryBuffer[ROGUE_MAX_BOSS_COUNT];
+    u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
     {

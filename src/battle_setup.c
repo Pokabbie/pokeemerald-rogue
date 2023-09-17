@@ -49,6 +49,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_trainers.h"
+#include "rogue_pokedex.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -443,8 +444,6 @@ void BattleSetup_StartLatiBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
-bool8 IsSpeciesLegendary(u16 species);
-
 void BattleSetup_StartLegendaryBattle(void)
 {
     u16 species;
@@ -553,7 +552,7 @@ void BattleSetup_StartLegendaryBattle(void)
 #endif
 
     default:
-        if(IsSpeciesLegendary(species))
+        if(RoguePokedex_IsSpeciesLegendary(species))
             CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         else
         {

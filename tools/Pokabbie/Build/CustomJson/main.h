@@ -23,6 +23,12 @@ do                                        \
     FatalExit();                          \
 } while (0)
 
+#define LOG_MSG(format, ...)              \
+do                                        \
+{                                         \
+    fprintf(stderr, format "\n", __VA_ARGS__); \
+} while (0)
+
 #else
 
 #define FATAL_ERROR(format, ...)            \
@@ -30,6 +36,12 @@ do                                          \
 {                                           \
     fprintf(stderr, format, ##__VA_ARGS__); \
     FatalExit();                           \
+} while (0)
+
+#define LOG_MSG(format, ...)                \
+do                                          \
+{                                           \
+    fprintf(stderr, format "\n", ##__VA_ARGS__); \
 } while (0)
 
 #endif // _MSC_VER

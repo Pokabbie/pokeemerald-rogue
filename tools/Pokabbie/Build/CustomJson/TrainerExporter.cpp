@@ -136,6 +136,7 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 
 	// Trainer data
 	i = 0;
+	exporter.trainerStructsBlock << c_TabSpacing << "{}, // TRAINER_NONE\n";
 	for (auto trainer : trainers)
 	{
 		int trainerIdx = i++;

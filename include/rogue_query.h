@@ -36,6 +36,7 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags);
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags);
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsLegendary(u8 func);
+void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
@@ -86,30 +87,6 @@ void RogueQuery_Exclude(u16 idx);
 void RogueQuery_ExcludeAll(void);
 void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData);
 void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
-
-// Species
-void RogueQuery_SpeciesIsValid(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3);
-void RogueQuery_SpeciesAlternateForms(bool8 includeItemForms);
-void RogueQuery_SpeciesExcludeCommon(void);
-void RogueQuery_SpeciesFilterRelevantTypes(u8 earlyCullType1, u8 earlyCullType2, u8 earlyCullType3);
-void RogueQuery_SpeciesExcludeRange(u16 fromId, u16 toId);
-void RogueQuery_SpeciesInPokedex(void);
-void RogueQuery_SpeciesInGeneration(u8 gen);
-void RogueQuery_SpeciesOfType(u8 type);
-void RogueQuery_SpeciesNotOfType(u8 type);
-void RogueQuery_SpeciesOfTypes(const u8* types, u8 count);
-void RogueQuery_SpeciesNotOfTypes(const u8* types, u8 count);
-void RogueQuery_SpeciesIsFinalEvolution(void);
-void RogueQuery_TransformToEggSpecies(void);
-void RogueQuery_SpeciesWithAtLeastEvolutionStages(u8 count);
-void RogueQuery_EvolveSpecies(u8 level, bool8 itemEvos);
-void RogueQuery_EvolveSpeciesAndKeepPreEvo(u8 level, bool8 itemEvos);
-void RogueQuery_SpeciesIsLegendary(void);
-void RogueQuery_SpeciesIsNotLegendary(void);
-void RogueQuery_SpeciesIsNotWeakLegendary(void);
-void RogueQuery_SpeciesIsNotStrongLegendary(void);
-void RogueQuery_SpeciesIncludeMonFlags(u16 flags);
-void RogueQuery_SpeciesExcludeMonFlags(u16 flags);
 
 // Items
 void RogueQuery_ItemsIsValid(void);

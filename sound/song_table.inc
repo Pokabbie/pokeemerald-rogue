@@ -631,6 +631,16 @@ gSongTable::
 	song mus_hg_route42, 0, 0
 	song mus_hg_route47, 0, 0
 	song mus_hg_ice_path, 0, 0
+	song mus_hg_encounter_rival, 0, 0
+	song mus_hg_encounter_girl_1, 0, 0
+	song mus_hg_encounter_boy_1, 0, 0
+	song mus_hg_encounter_suspicious_1, 0, 0
+	song mus_hg_encounter_sage, 0, 0
+	song mus_hg_encounter_kimono_girl, 0, 0
+	song mus_hg_encounter_rocket, 0, 0
+	song mus_hg_encounter_girl_2, 0, 0
+	song mus_hg_encounter_boy_2, 0, 0
+	song mus_hg_encounter_suspicious_2, 0, 0
 	song mus_dp_vs_wild, 0, 0
 	song mus_dp_vs_gym_leader, 0, 0
 	song mus_dp_vs_uxie_mesprit_azelf, 0, 0

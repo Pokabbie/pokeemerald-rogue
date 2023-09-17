@@ -13,6 +13,7 @@
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_settings.h"
 #include "rogue_popup.h"
@@ -54,10 +55,7 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 #endif
 };
 
-bool8 IsSpeciesType(u16 species, u8 type);
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
-bool8 IsSpeciesLegendary(u16 species);
-
 
 static void UpdateMonoQuests(void);
 static void ForEachUnlockedQuest(QuestCallback callback);
@@ -874,7 +872,7 @@ static void OnStartBattle(void)
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
             if(species != SPECIES_NONE)
             {
-                if(IsSpeciesLegendary(species))
+                if(RoguePokedex_IsSpeciesLegendary(species))
                 {
                     TryDeactivateQuest(QUEST_Hardcore3);
                     TryDeactivateQuest(QUEST_Hardcore4);
@@ -957,6 +955,7 @@ static void UpdateMonoQuests(void)
     u16 type;
     u16 questId;
     u8 i;
+    bool8 hasType;
 
     for(type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; ++type)
     {
@@ -967,7 +966,9 @@ static void UpdateMonoQuests(void)
             for(i = 0; i < gPlayerPartyCount; ++i)
             {
                 u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-                if(species != SPECIES_NONE && !IsSpeciesType(species, type))
+                hasType = gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
+
+                if(species != SPECIES_NONE && !hasType)
                 {
                     TryDeactivateQuest(questId);
                     break;
@@ -1034,7 +1035,7 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                     for(i = 0; i < PARTY_SIZE; ++i)
                     {
                         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-                        if(IsSpeciesLegendary(species))
+                        if(RoguePokedex_IsSpeciesLegendary(species))
                         {
                             TryMarkQuestAsComplete(QUEST_CollectorLegend);
                             break;

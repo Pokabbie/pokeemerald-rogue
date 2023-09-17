@@ -736,6 +736,10 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     {
         outMusic->encounterMusic = MUS_ENCOUNTER_FEMALE;
     }
+    else if(outMusic->encounterMusic == MUS_HG_ENCOUNTER_BOY_1 && trainer->teamGenerator.preferredGender != MALE)
+    {
+        outMusic->encounterMusic = MUS_HG_ENCOUNTER_BOY_2; // ?
+    }
 #endif
 }
 

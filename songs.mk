@@ -846,6 +846,36 @@ $(MID_SUBDIR)/mus_hg_route47.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_ice_path.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V072
 
+$(MID_SUBDIR)/mus_hg_encounter_rival.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V089
+	
+$(MID_SUBDIR)/mus_hg_encounter_girl_1.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V084
+
+$(MID_SUBDIR)/mus_hg_encounter_boy_1.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V102
+
+$(MID_SUBDIR)/mus_hg_encounter_suspicious_1.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V073
+
+$(MID_SUBDIR)/mus_hg_encounter_sage.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V084
+
+$(MID_SUBDIR)/mus_hg_encounter_kimono_girl.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V084
+
+$(MID_SUBDIR)/mus_hg_encounter_rocket.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V071
+
+$(MID_SUBDIR)/mus_hg_encounter_girl_2.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V097
+
+$(MID_SUBDIR)/mus_hg_encounter_boy_2.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V089
+
+$(MID_SUBDIR)/mus_hg_encounter_suspicious_2.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V086
+
 $(MID_SUBDIR)/mus_dp_vs_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V088
 

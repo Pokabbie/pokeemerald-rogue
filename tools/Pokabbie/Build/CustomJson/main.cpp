@@ -40,6 +40,14 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
 
 int main(int argc, char* argv[]) 
 {
+    std::string inputArgs = "customjson ";
+    for (int i = 1; i < argc; ++i)
+    {
+        inputArgs += " ";
+        inputArgs += argv[i];
+    }
+    LOG_MSG("%s", inputArgs.c_str());
+
     if (argc != 4)
         FATAL_ERROR("USAGE: mapjson <exporter> <input path> <output path>\n");
 
