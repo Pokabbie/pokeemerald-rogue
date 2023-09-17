@@ -61,6 +61,35 @@
             "victory": "MUS_HG_VICTORY_GYM_LEADER"
         },
 
+        "hoenn_boss":
+        {
+            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "battle": "MUS_VS_GYM_LEADER",
+            "victory": "MUS_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "hoenn_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "hoenn_champion"
+                }
+            ]
+        },
+        "hoenn_elite":
+        {
+            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "battle": "MUS_VS_ELITE_FOUR",
+            "victory": "MUS_VICTORY_LEAGUE"
+        },
+        "hoenn_champion":
+        {
+            "encounter": "MUS_ENCOUNTER_CHAMPION",
+            "battle": "MUS_VS_CHAMPION",
+            "victory": "MUS_VICTORY_LEAGUE"
+        },
 
         "wild_battle":
         {

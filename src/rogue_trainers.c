@@ -14,6 +14,7 @@
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_query.h"
 #include "rogue_query_script.h"
 #include "rogue_settings.h"
@@ -315,7 +316,7 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     if(*includeFlags == TRAINER_FLAG_NONE || TRUE)
     {
         // Safe fallback
-        *includeFlags = TRAINER_FLAG_REGION_JOHTO;
+        *includeFlags = TRAINER_FLAG_REGION_HOENN;
     }
 }
 
@@ -883,11 +884,22 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             RogueMonQuery_IsLegendary(QUERY_FUNC_INCLUDE);
         }
-        else if(!scratch->allowWeakLegends && !scratch->allowWeakLegends)
+
+        // Specific legendary filter
         {
-            RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+            // Not allowed any legendary
+            if(!scratch->forceLegends && !scratch->allowWeakLegends && !scratch->allowStrongLegends)
+                RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+            // Only allowed strong legends
+            else if(!scratch->allowWeakLegends && scratch->allowStrongLegends)
+                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
+
+            // Only allowed weak legends
+            else if(scratch->allowWeakLegends && !scratch->allowStrongLegends)
+                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_EXCLUDE, MON_FLAG_STRONG);
         }
-        // TODO - Filter specifically strong or weak legends
+
 
         if(currentSubset != NULL)
         {
@@ -1288,6 +1300,12 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     if(IsSpeciesLegendary(species))
     {
         score -= 20;
+    }
+
+    if(RoguePokedex_GetSpeciesBST(species) >= 540)
+    {
+        // Put high BST mons in the back of the party
+        score -= 10;
     }
 
     // Early pri moves

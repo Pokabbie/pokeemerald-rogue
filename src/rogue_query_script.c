@@ -3,6 +3,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_query.h"
 #include "rogue_query_script.h"
 
@@ -55,43 +56,6 @@ void RogueQueryScript_SetupScript(struct QueryScriptContext* context, u16 const*
 void RogueQueryScript_SetupVarsForSpecies(struct QueryScriptContext* context, u16 species)
 {
     context->currentSpecies = species;
-}
-
-static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)
-{
-    u8 i;
-    u8 stats[NUM_STATS];
-    u8 statId = 0;
-    u8 statScore = 0;
-
-    stats[STAT_HP] = gBaseStats[species].baseHP;
-    stats[STAT_ATK] = gBaseStats[species].baseAttack;
-    stats[STAT_DEF] = gBaseStats[species].baseDefense;
-    stats[STAT_SPATK] = gBaseStats[species].baseSpAttack;
-    stats[STAT_SPDEF] = gBaseStats[species].baseSpDefense;
-    stats[STAT_SPEED] = gBaseStats[species].baseSpeed;
-
-    for(i = 0; i < NUM_STATS; ++i)
-    {
-        if(selectLargest)
-        {
-            if(i == 0 || stats[i] > statScore)
-            {
-                statId = i;
-                statScore = stats[i];
-            }
-        }
-        else
-        {
-            if(i == 0 || stats[i] < statScore)
-            {
-                statId = i;
-                statScore = stats[i];
-            }
-        }
-    }
-
-    return statId;
 }
 
 void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, struct Pokemon* party, u8 count)
@@ -191,12 +155,7 @@ static u16 ParseScriptValue(struct QueryScriptContext* context)
             return gBaseStats[context->currentSpecies].type1;
 
         case QUERY_VAR_MON_BST:
-            return gBaseStats[context->currentSpecies].baseHP +
-                gBaseStats[context->currentSpecies].baseAttack +
-                gBaseStats[context->currentSpecies].baseDefense +
-                gBaseStats[context->currentSpecies].baseSpAttack +
-                gBaseStats[context->currentSpecies].baseSpDefense +
-                gBaseStats[context->currentSpecies].baseSpeed;
+            return RoguePokedex_GetSpeciesBST(context->currentSpecies);
 
         case QUERY_VAR_MON_HP:
             return gBaseStats[context->currentSpecies].baseHP;
@@ -215,9 +174,9 @@ static u16 ParseScriptValue(struct QueryScriptContext* context)
             return gBaseStats[context->currentSpecies].baseSpeed;
 
         case QUERY_VAR_MON_BEST_STAT:
-            return SelectBestWorstStat(context->currentSpecies, TRUE);
+            return RoguePokedex_GetSpeciesBestStat(context->currentSpecies);
         case QUERY_VAR_MON_WORST_STAT:
-            return SelectBestWorstStat(context->currentSpecies, FALSE);
+            return RoguePokedex_GetSpeciesWorstStat(context->currentSpecies);
         
         default:
             // Invalid variable

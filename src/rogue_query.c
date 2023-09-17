@@ -452,6 +452,42 @@ void RogueMonQuery_IsLegendary(u8 func)
     }
 }
 
+void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
+{
+    u8 i;
+    u16 species;
+    u32 speciesFlags;
+
+    ASSERT_MON_QUERY;
+
+    // Skip and accept all if empty
+    if(presetflags == 0)
+        return;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        {
+            speciesFlags = gPresetMonTable[species].flags;
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if((presetflags & speciesFlags) == 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if((presetflags & speciesFlags) != 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
 {
     bool8 hasValidEvo;

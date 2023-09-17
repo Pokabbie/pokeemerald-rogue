@@ -3005,3 +3005,62 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
 
     return FALSE;
 }
+
+u16 RoguePokedex_GetSpeciesBST(u16 species)
+{
+    u16 statTotal =
+        gBaseStats[species].baseHP +
+        gBaseStats[species].baseAttack +
+        gBaseStats[species].baseDefense +
+        gBaseStats[species].baseSpAttack +
+        gBaseStats[species].baseSpDefense +
+        gBaseStats[species].baseSpeed;
+    return statTotal;
+}
+
+static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)
+{
+    u8 i;
+    u8 stats[NUM_STATS];
+    u8 statId = 0;
+    u8 statScore = 0;
+
+    stats[STAT_HP] = gBaseStats[species].baseHP;
+    stats[STAT_ATK] = gBaseStats[species].baseAttack;
+    stats[STAT_DEF] = gBaseStats[species].baseDefense;
+    stats[STAT_SPATK] = gBaseStats[species].baseSpAttack;
+    stats[STAT_SPDEF] = gBaseStats[species].baseSpDefense;
+    stats[STAT_SPEED] = gBaseStats[species].baseSpeed;
+
+    for(i = 0; i < NUM_STATS; ++i)
+    {
+        if(selectLargest)
+        {
+            if(i == 0 || stats[i] > statScore)
+            {
+                statId = i;
+                statScore = stats[i];
+            }
+        }
+        else
+        {
+            if(i == 0 || stats[i] < statScore)
+            {
+                statId = i;
+                statScore = stats[i];
+            }
+        }
+    }
+
+    return statId;
+}
+
+u8 RoguePokedex_GetSpeciesBestStat(u16 species)
+{
+    return SelectBestWorstStat(species, TRUE);
+}
+
+u8 RoguePokedex_GetSpeciesWorstStat(u16 species)
+{
+    return SelectBestWorstStat(species, FALSE);
+}
