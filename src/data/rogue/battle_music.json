@@ -31,6 +31,36 @@
             "victory": "MUS_VICTORY_LEAGUE"
         },
 
+        "johto_boss":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_GYM_LEADER",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "johto_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "johto_champion"
+                }
+            ]
+        },
+        "johto_elite":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_GYM_LEADER",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+        "johto_champion":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_CHAMPION",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+
 
         "wild_battle":
         {

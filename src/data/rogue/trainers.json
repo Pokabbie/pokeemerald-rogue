@@ -414,6 +414,432 @@
                     ]
                 }
             }
+        ],
+
+        "johto_gyms":
+        [
+            {
+                "name": "FALKNER",
+                "type_assignment": "FLYING",
+                "gfx_suffix": "JOHTO_FALKNER",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_TYPE", "TYPE_NORMAL", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PIDGEY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BUGSY",
+                "type_assignment": "BUG",
+                "gfx_suffix": "JOHTO_BUGSY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SCYTHER", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "WHITNEY",
+                "type_assignment": "NORMAL",
+                "gfx_suffix": "JOHTO_WHITNEY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MILTANK", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MORTY",
+                "type_assignment": "GHOST",
+                "gfx_suffix": "JOHTO_MORTY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 2,
+                            "include_types": [ "GHOST" ],
+                            "exclude_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MISDREAVUS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CHUCK",
+                "type_assignment": "FIGHTING",
+                "gfx_suffix": "JOHTO_CHUCK",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_POLIWAG", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "JASMINE",
+                "type_assignment": "STEEL",
+                "gfx_suffix": "JOHTO_JASMINE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ONIX", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "PRYCE",
+                "type_assignment": "ICE",
+                "gfx_suffix": "JOHTO_PRYCE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SWINUB", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CLAIR",
+                "type_assignment": "ICE",
+                "gfx_suffix": "JOHTO_CLAIR",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "weather": "RAIN",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 5,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_TYPE", "TYPE_WATER", "INC_FAVOUR",
+                        "HAS_TYPE", "TYPE_FIRE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HORSEA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        "johto_elite":
+        [
+            {
+                "name": "WILL",
+                "type_assignment": "PSYCHIC",
+                "gfx_suffix": "JOHTO_WILL",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 5,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 7,
+                            "include_types": [ "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NATU", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KOGA",
+                "type_assignment": "POISON",
+                "gfx_suffix": "KANTO_KOGA",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZUBAT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRUNO",
+                "type_assignment": "FIGHTING",
+                "gfx_suffix": "KANTO_BRUNO",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "FIGHTING" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "GROUND" ]
+                        },
+                        {
+                            "max_samples": 3,
+                            "include_types": [ "FIGHTING" ]
+                        },
+                        {
+                            "max_samples": 7,
+                            "include_types": [ "FIGHTING", "GROUND" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_TYPE", "TYPE_FIGHTING", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ONIX", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KAREN",
+                "type_assignment": "DARK",
+                "gfx_suffix": "JOHTO_KAREN",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        "johto_champ":
+        [
+            {
+                "name": "LANCE",
+                "type_assignment": "PSYCHIC",
+                "gfx_suffix": "JOHTO_WILL",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_CHAMP" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 5,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 7,
+                            "include_types": [ "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NATU", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "LANCE",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "KANTO_LANCE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "johto_boss",
+                "weather": "NONE",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DRAGON" ],
+                            "exclude_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "FLYING" ],
+                            "exclude_types": [ "BUG", "NORMAL", "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 4,
+                            "include_types": [ "DRAGON" ],
+                            "exclude_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ],
+                            "exclude_types": [ "BUG", "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRATINI", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
         ]
     }
 }
