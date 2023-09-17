@@ -68,9 +68,20 @@ bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
     return (trainer->trainerFlags & TRAINER_FLAG_CLASS_MINI_BOSS) != 0;
 }
 
+bool8 Rogue_IsRivalTrainer(u16 trainerNum)
+{
+    // TODO
+    return FALSE;
+}
+
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
 {
     return Rogue_IsBossTrainer(trainerNum) || Rogue_IsMiniBossTrainer(trainerNum);
+}
+
+bool8 Rogue_IsKeyTrainer(u16 trainerNum)
+{
+    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum);
 }
 
 static u8 GetTrainerLevel(u16 trainerNum)
@@ -407,6 +418,228 @@ void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
     *mapNum = gRogueTypeToEliteRoom[type].num;
 }
 
+static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScratch* scratch)
+{
+    // Configure evos, strong presets and legend settings
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            scratch->allowItemEvos = TRUE;
+            scratch->allowWeakLegends = TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 7)
+        {
+            scratch->allowWeakLegends = TRUE;
+        }
+        if(gRogueRun.currentDifficulty >= 4)
+        {
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(gRogueRun.currentDifficulty >= 5)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 2)
+        {
+            scratch->allowWeakLegends = TRUE;
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        if(gRogueRun.currentDifficulty >= 2)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 1)
+        {
+            scratch->allowWeakLegends = TRUE;
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+    }
+}
+
+static u8 CalculateMonFixedIV(u16 trainerNum)
+{
+    u8 fixedIV;
+
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        fixedIV = 0;
+        break;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 6)
+                fixedIV = 16;
+            else if(gRogueRun.currentDifficulty >= 5)
+                fixedIV = 10;
+            else if(gRogueRun.currentDifficulty >= 4)
+                fixedIV = 8;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 6;
+            else
+                fixedIV = 0;
+        }
+        else
+        {
+            fixedIV = 0;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 12)
+                fixedIV = 31;
+            else if(gRogueRun.currentDifficulty >= 8)
+                fixedIV = 21;
+            else if(gRogueRun.currentDifficulty >= 6)
+                fixedIV = 19;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 15;
+            else if(gRogueRun.currentDifficulty >= 1)
+                fixedIV = 11;
+            else
+                fixedIV = 5;
+        }
+        else
+        {
+            fixedIV = (gRogueRun.currentDifficulty > 8) ? 13 : 5;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            // Bosses are cracked a LOT sooner
+            if(gRogueRun.currentDifficulty >= 5)
+                fixedIV = 31;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 21;
+            else if(gRogueRun.currentDifficulty >= 1)
+                fixedIV = 19;
+            else
+                fixedIV = 15;
+        }
+        else
+        {
+            // Regular trainers scale like hard mode bosses
+            if(gRogueRun.currentDifficulty >= 12)
+                fixedIV = 31;
+            else if(gRogueRun.currentDifficulty >= 8)
+                fixedIV = 21;
+            else if(gRogueRun.currentDifficulty >= 6)
+                fixedIV = 19;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 15;
+            else if(gRogueRun.currentDifficulty >= 1)
+                fixedIV = 11;
+            else
+                fixedIV = 5;
+        }
+        break;
+    }
+
+    return fixedIV;
+}
+
+static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
+{
+    u8 monCount;
+
+    if(Rogue_IsAnyBossTrainer(trainerNum))
+    {
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            monCount = 6;
+        else
+        {
+            switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+            {
+            case DIFFICULTY_LEVEL_EASY:
+            case DIFFICULTY_LEVEL_MEDIUM:
+                if(gRogueRun.currentDifficulty == 0)
+                    monCount = 3;
+                else if(gRogueRun.currentDifficulty <= 2)
+                    monCount = 4;
+                else if(gRogueRun.currentDifficulty <= 5)
+                    monCount = 5;
+                else
+                    monCount = 6;
+                break;
+            
+            case DIFFICULTY_LEVEL_HARD:
+                if(gRogueRun.currentDifficulty == 0)
+                    monCount = 4;
+                else if(gRogueRun.currentDifficulty == 1)
+                    monCount = 5;
+                else
+                    monCount = 6;
+                break;
+            
+            case DIFFICULTY_LEVEL_BRUTAL:
+                monCount = 6;
+                break;
+            }
+        }
+    }
+    else
+    {
+        u8 minMonCount;
+        u8 maxMonCount;
+        // TODO - Exp trainer support
+
+        if(gRogueRun.currentDifficulty <= 1)
+        {
+            minMonCount = 1;
+            maxMonCount = 2;
+        }
+        else if(gRogueRun.currentDifficulty <= 2)
+        {
+            minMonCount = 1;
+            maxMonCount = 3;
+        }
+        else if(gRogueRun.currentDifficulty <= 11)
+        {
+            minMonCount = 2;
+            maxMonCount = 4;
+        }
+        else
+        {
+            minMonCount = 3;
+            maxMonCount = 4;
+        }
+
+        monCount = minMonCount + RogueRandomRange(maxMonCount - minMonCount, FLAG_SET_SEED_TRAINERS);
+    }
+
+    //if(trainerPtr->monGenerators->generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
+    //{
+    //    monCount = gPlayerPartyCount;
+    //}
+
+    monCount = min(monCount, monCapacity);
+    return monCount;
+}
+
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
 {
     u8 i;
@@ -416,6 +649,11 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     u16 species;
     struct TrainerPartyScratch scratch;
 
+    level = GetTrainerLevel(trainerNum);
+    fixedIV = CalculateMonFixedIV(trainerNum);
+    monCount = CalculatePartyMonCount(trainerNum, monCapacity);
+
+    // Fill defaults before we configure the scratch
     scratch.trainerNum = trainerNum;
     scratch.party = party;
     scratch.partyCapacity = monCapacity;
@@ -424,142 +662,13 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     scratch.subsetIndex = 0;
     scratch.subsetSampleCount = 0;
     scratch.forceLegends = FALSE;
-
-    level = GetTrainerLevel(trainerNum);
-
     scratch.evoLevel = level;
     scratch.allowItemEvos = FALSE;
     scratch.allowStrongLegends = FALSE;
     scratch.allowWeakLegends = FALSE;
     scratch.preferStrongSpecies = FALSE;
 
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
-    {
-    case DIFFICULTY_LEVEL_EASY:
-        if(gRogueRun.currentDifficulty >= 8)
-        {
-            scratch.allowItemEvos = TRUE;
-            scratch.allowWeakLegends = TRUE;
-        }
-        break;
-
-    case DIFFICULTY_LEVEL_MEDIUM:
-        if(gRogueRun.currentDifficulty >= 4)
-        {
-            scratch.allowItemEvos = TRUE;
-        }
-        else if(gRogueRun.currentDifficulty >= 7)
-        {
-            scratch.allowWeakLegends = TRUE;
-        }
-        else if(gRogueRun.currentDifficulty >= 8)
-        {
-            scratch.allowStrongLegends = TRUE;
-            scratch.preferStrongSpecies = TRUE;
-        }
-        break;
-
-    case DIFFICULTY_LEVEL_HARD:
-        if(gRogueRun.currentDifficulty >= 2)
-        {
-            scratch.allowWeakLegends = TRUE;
-            scratch.allowItemEvos = TRUE;
-        }
-        else if(gRogueRun.currentDifficulty >= 5)
-        {
-            scratch.allowStrongLegends = TRUE;
-            scratch.preferStrongSpecies = TRUE;
-        }
-        break;
-
-    case DIFFICULTY_LEVEL_BRUTAL:
-        if(gRogueRun.currentDifficulty >= 1)
-        {
-            scratch.allowWeakLegends = TRUE;
-            scratch.allowItemEvos = TRUE;
-        }
-        else if(gRogueRun.currentDifficulty >= 2)
-        {
-            scratch.allowStrongLegends = TRUE;
-            scratch.preferStrongSpecies = TRUE;
-        }
-        break;
-    }
-
-    // Decide on mon count
-    {
-        if(Rogue_IsAnyBossTrainer(trainerNum))
-        {
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                monCount = 6;
-            else
-            {
-                switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
-                {
-                case DIFFICULTY_LEVEL_EASY:
-                case DIFFICULTY_LEVEL_MEDIUM:
-                    if(gRogueRun.currentDifficulty == 0)
-                        monCount = 3;
-                    else if(gRogueRun.currentDifficulty <= 2)
-                        monCount = 4;
-                    else if(gRogueRun.currentDifficulty <= 5)
-                        monCount = 5;
-                    else
-                        monCount = 6;
-                    break;
-                
-                case DIFFICULTY_LEVEL_HARD:
-                    if(gRogueRun.currentDifficulty == 0)
-                        monCount = 4;
-                    else if(gRogueRun.currentDifficulty == 1)
-                        monCount = 5;
-                    else
-                        monCount = 6;
-                    break;
-                
-                case DIFFICULTY_LEVEL_BRUTAL:
-                    monCount = 6;
-                    break;
-                }
-            }
-        }
-        else
-        {
-            u8 minMonCount;
-            u8 maxMonCount;
-            // TODO - Exp trainer support
-
-            if(gRogueRun.currentDifficulty <= 1)
-            {
-                minMonCount = 1;
-                maxMonCount = 2;
-            }
-            else if(gRogueRun.currentDifficulty <= 2)
-            {
-                minMonCount = 1;
-                maxMonCount = 3;
-            }
-            else if(gRogueRun.currentDifficulty <= 11)
-            {
-                minMonCount = 2;
-                maxMonCount = 4;
-            }
-            else
-            {
-                minMonCount = 3;
-                maxMonCount = 4;
-            }
-
-            monCount = minMonCount + RogueRandomRange(maxMonCount - minMonCount, FLAG_SET_SEED_TRAINERS);
-        }
-
-        //if(trainerPtr->monGenerators->generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
-        //{
-        //    monCount = gPlayerPartyCount;
-        //}
-
-        monCount = min(monCount, monCapacity);
-    }
+    ConfigurePartyScratchSettings(trainerNum, &scratch);
 
     // Generate team
     {
@@ -765,6 +874,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_TransformIntoEvos(scratch->evoLevel, scratch->allowItemEvos, FALSE);
         }
 
+        if(scratch->preferStrongSpecies)
+        {
+            RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
+        }
+
         if(scratch->forceLegends)
         {
             RogueMonQuery_IsLegendary(QUERY_FUNC_INCLUDE);
@@ -774,7 +888,6 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
         }
         // TODO - Filter specifically strong or weak legends
-        // TODO - Filter strong/weak preset
 
         if(currentSubset != NULL)
         {
@@ -789,8 +902,6 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptPost);
             RogueQueryScript_Execute(&scriptContext);
         }
-
-        // TODO - Calc weights
     }
 
     // Remove any mons already in the party
@@ -832,12 +943,12 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
         // If we have valid subsets remaining and we're a boss, force the final mons to be legends
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount && Rogue_IsBossTrainer(scratch->trainerNum))
         {
-            if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 5)
+            if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 4)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;
             }
-            else if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 4)
+            else if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 5)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;
@@ -879,7 +990,7 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 }
 
 static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount)
-{    
+{
     bool8 preferCompetitive = FALSE;
     bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;

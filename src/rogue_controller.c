@@ -263,7 +263,7 @@ bool8 Rogue_UseKeyBattleAnims(void)
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
             return TRUE;
 
         // Force slow anims for legendaries
@@ -665,7 +665,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
-            if(Rogue_IsBossTrainer(trainerNum))
+            if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = gRogueRun.currentDifficulty;
                 *money = (difficulty + 1) * 500;

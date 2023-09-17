@@ -3,7 +3,9 @@
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum);
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum);
+bool8 Rogue_IsRivalTrainer(u16 trainerNum);
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum);
+bool8 Rogue_IsKeyTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum);
