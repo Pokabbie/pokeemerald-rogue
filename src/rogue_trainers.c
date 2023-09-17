@@ -95,7 +95,7 @@ const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
     return &gRogueTrainers[trainerNum];
 }
 
-struct RogueTrainerMusic const* Rogue_GetTrainerMusic(u16 trainerNum)
+struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
     return &gRogueTrainerMusic[trainer->musicPlayer];

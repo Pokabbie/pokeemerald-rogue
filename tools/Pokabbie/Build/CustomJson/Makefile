@@ -2,7 +2,7 @@ CXX ?= g++
 
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -Werror
 
-SRCS := main.cpp TrainerExporter.cpp
+SRCS := main.cpp TrainerExporter.cpp BattleMusicExporter.cpp
 
 HEADERS := main.h StringUtils.h nlohmann\json.hpp
 

@@ -1,37 +1,4 @@
 {
-    "music_players":
-    {
-        "kanto_boss":
-        {
-            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
-            "battle": "MUS_RG_VS_GYM_LEADER",
-            "victory": "MUS_RG_VICTORY_GYM_LEADER",
-            "conditional_redirects":
-            [
-                {
-                    "trainer_class": "TRAINER_CLASS_ELITE_FOUR",
-                    "music_player": "kanto_elite"
-                },
-                {
-                    "trainer_class": "TRAINER_CLASS_CHAMPION",
-                    "music_player": "kanto_champion"
-                }
-            ]
-        },
-        "kanto_elite":
-        {
-            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
-            "battle": "MUS_RG_VS_GYM_LEADER",
-            "victory": "MUS_RG_VICTORY_GYM_LEADER"
-        },
-        "kanto_champion":
-        {
-            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
-            "battle": "MUS_RG_VS_CHAMPION",
-            "victory": "MUS_VICTORY_LEAGUE"
-        }
-    },
-
     "trainers":
     {
         "kanto_gyms":
@@ -255,10 +222,14 @@
                     [
                         {
                             "max_samples": 1,
+                            "include_types": [ "GROUND" ]
+                        },
+                        {
+                            "max_samples": 1,
                             "include_types": [ "NORMAL" ]
                         },
                         {
-                            "max_samples": 5,
+                            "max_samples": 4,
                             "include_types": [ "GROUND" ]
                         },
                         {

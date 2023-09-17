@@ -8,14 +8,11 @@ struct TrainerDataExport_C
 	std::stringstream trainerStructsBlock;
 };
 
-static void ExportTrainerMusicData_C(std::ofstream& fileStream, json const& jsonData);
 static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& jsonData, std::string trainerGroup);
 static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string const& exportName, json const& jsonData);
 
 void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
 {
-	ExportTrainerMusicData_C(fileStream, jsonData);
-
 	TrainerDataExport_C exporter;
 
 	json trainers = jsonData["trainers"];
@@ -31,68 +28,6 @@ void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
 	fileStream << "};\n\n";
 	fileStream << "const u16 gRogueTrainerCount = ARRAY_COUNT(gRogueTrainers);\n";
 }
-
-static void ExportTrainerMusicData_C(std::ofstream& fileStream, json const& jsonData)
-{
-	json musicPlayers = jsonData["music_players"];
-
-	// Enum define
-	fileStream << "enum\n{\n";
-	fileStream << c_TabSpacing << "TRAINER_MUSIC_NONE,\n";
-	for (auto it = musicPlayers.begin(); it != musicPlayers.end(); ++it)
-	{
-		fileStream << c_TabSpacing << "TRAINER_MUSIC_" << strutil::to_upper(it.key()) << ",\n";
-	}
-	fileStream << "};\n\n";
-
-	// Redirects
-	int redirectCounter = 0;
-	for (auto it = musicPlayers.begin(); it != musicPlayers.end(); ++it)
-	{
-		auto value = it.value();
-
-		if (value.contains("conditional_redirects"))
-		{
-			int redirectIndex = redirectCounter++;
-			fileStream << "static const struct RogueTrainerMusicRedirect gRogueTrainerMusicRedirect_" << redirectIndex  << "[] =\n{\n";
-
-			for (auto redirect : value["conditional_redirects"])
-			{
-				fileStream << c_TabSpacing << "{\n";
-				fileStream << c_TabSpacing << ".trainerClass = " << redirect["trainer_class"].get<std::string>() << ",\n";
-				fileStream << c_TabSpacing << ".musicPlayer = TRAINER_MUSIC_" << strutil::to_upper(redirect["music_player"].get<std::string>()) << ",\n";
-				fileStream << c_TabSpacing << "},\n";
-			}
-			fileStream << "};\n\n";
-		}
-	}
-	fileStream << "\n";
-
-	// Music table
-	redirectCounter = 0;
-	fileStream << "const struct RogueTrainerMusic gRogueTrainerMusic[] =\n{\n";
-	for (auto it = musicPlayers.begin(); it != musicPlayers.end(); ++it)
-	{
-		auto value = it.value();
-
-		fileStream << c_TabSpacing << "[TRAINER_MUSIC_" << strutil::to_upper(it.key()) << "]\n{\n";
-		fileStream << c_TabSpacing << ".encounterMusic = " << value["encounter"].get<std::string>() << ",\n";
-		fileStream << c_TabSpacing << ".battleMusic = " << value["battle"].get<std::string>() << ",\n";
-		fileStream << c_TabSpacing << ".victoryMusic = " << value["victory"].get<std::string>() << ",\n";
-
-		if (value.contains("conditional_redirects"))
-		{
-			int redirectIndex = redirectCounter++;
-
-			fileStream << c_TabSpacing << ".redirects = gRogueTrainerMusicRedirect_" << redirectIndex << ",\n";
-			fileStream << c_TabSpacing << ".redirectCount = ARRAY_COUNT(gRogueTrainerMusicRedirect_" << redirectIndex << "),\n";
-		}
-
-		fileStream << c_TabSpacing << "},\n";
-	}
-	fileStream << "};\n\n";
-}
-
 
 static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& jsonData, std::string trainerGroup)
 {
@@ -210,7 +145,7 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerName = sTrainerName_" << trainerSuffix << ",\n";
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerClass = " << trainer["trainer_class"].get<std::string>() << ",\n";
-		exporter.trainerStructsBlock << c_TabSpacing << ".musicPlayer = TRAINER_MUSIC_" << strutil::to_upper(trainer["music_player"].get<std::string>()) << ",\n";
+		exporter.trainerStructsBlock << c_TabSpacing << ".musicPlayer = BATTLE_MUSIC_" << strutil::to_upper(trainer["music_player"].get<std::string>()) << ",\n";
 		exporter.trainerStructsBlock << c_TabSpacing << ".typeAssignment = TYPE_" << strutil::to_upper(trainer["type_assignment"].get<std::string>()) << ",\n";
 
 		if (trainer.contains("gfx_suffix"))

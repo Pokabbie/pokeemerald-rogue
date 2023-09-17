@@ -284,15 +284,15 @@ struct RogueEncounterData
     const struct RogueEncounterMap* mapTable;
 };
 
-struct RogueTrainerMusicRedirect
+struct RogueBattleMusicRedirect
 {
-    u16 trainerClass;
+    u16 trainerClassSpecies;
     u8 musicPlayer;
 };
 
-struct RogueTrainerMusic
+struct RogueBattleMusic
 {
-    struct RogueTrainerMusicRedirect const* redirects;
+    struct RogueBattleMusicRedirect const* redirects;
     u16 redirectCount;
     u16 encounterMusic;
     u16 battleMusic;
@@ -483,7 +483,7 @@ extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 
 extern const struct RogueTrainer gRogueTrainers[];
 extern const u16 gRogueTrainerCount;
-extern const struct RogueTrainerMusic gRogueTrainerMusic[];
+extern const struct RogueBattleMusic gRogueTrainerMusic[];
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 

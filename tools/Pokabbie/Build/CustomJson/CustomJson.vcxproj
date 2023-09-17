@@ -103,6 +103,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BattleMusicExporter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TrainerExporter.cpp" />
   </ItemGroup>

@@ -552,7 +552,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
     if(TRUE)
     {
-        //struct RogueTrainerMusic const* musicPlayer = Rogue_GetTrainerMusic(trainerNum);
+        //struct RogueBattleMusic const* musicPlayer = Rogue_GetTrainerMusic(trainerNum);
 
         outTrainer->trainerClass = ModifyTrainerClass(trainerNum, trainer->trainerClass);
         outTrainer->encounterMusic_gender = trainer->teamGenerator.preferredGender == MALE ? 0 : F_TRAINER_FEMALE; // not actually used for encounter music anymore
@@ -675,26 +675,60 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 #endif
 }
 
-void Rogue_ModifyTrainerMusic(u16 trainerNum, struct RogueTrainerMusic* outMusic)
+void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBattleMusic* outMusic)
 {
 #ifndef ROGUE_BAKING
     u8 i;
-    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-    u16 trainerClass = ModifyTrainerClass(trainerNum, trainer->trainerClass);
-    struct RogueTrainerMusic const* currMusic = &gRogueTrainerMusic[trainer->musicPlayer];
+    u16 trainerClass = 0;
+    struct RogueBattleMusic const* currMusic = NULL;
+    const struct RogueTrainer* trainer = NULL;
+
+#ifdef ROGUE_EXPANSION
+    trainerSpecies = GET_BASE_SPECIES_ID(trainerSpecies);
+#endif
+
+    switch (musicType)
+    {
+    case BATTLE_MUSIC_TYPE_TRAINER:
+        trainer = Rogue_GetTrainer(trainerSpecies);
+        trainerClass = ModifyTrainerClass(trainerSpecies, trainer->trainerClass);
+        currMusic = &gRogueTrainerMusic[trainer->musicPlayer];
+        break;
+    
+    case BATTLE_MUSIC_TYPE_WILD:
+        if(RoguePokedex_IsSpeciesLegendary(trainerSpecies))
+            currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_LEGENDARY_BATTLE];
+        else
+            currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_WILD_BATTLE];
+        break;
+    }
+
 
     // Execute through redirection chain
     for(i = 0; i < currMusic->redirectCount; ++i)
     {
-        if(currMusic->redirects[i].trainerClass == trainerClass)
+        switch (musicType)
         {
-            currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
-            i = 0;
+        case BATTLE_MUSIC_TYPE_TRAINER:
+            if(currMusic->redirects[i].trainerClassSpecies == trainerClass)
+            {
+                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
+                i = 0;
+            }
+            break;
+        
+        case BATTLE_MUSIC_TYPE_WILD:
+            if(currMusic->redirects[i].trainerClassSpecies == trainerSpecies)
+            {
+                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
+                i = 0;
+            }
+            break;
         }
     }
 
     // Copy to output so we can modify it
-    memcpy(outMusic, currMusic, sizeof(struct RogueTrainerMusic));
+    memcpy(outMusic, currMusic, sizeof(struct RogueBattleMusic));
 
     // Check the preferred team gender and then swap out to female (It's just a lazy/easy mechanism that prevents a lot of duplicated data)
     if(outMusic->encounterMusic == MUS_ENCOUNTER_MALE && trainer->teamGenerator.preferredGender != MALE)

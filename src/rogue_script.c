@@ -821,8 +821,8 @@ void Rogue_PlayStaticTrainerEncounterBGM(void)
 {
     u16 trainerNum = VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA);
 
-    struct RogueTrainerMusic music;
-    Rogue_ModifyTrainerMusic(trainerNum, &music);
+    struct RogueBattleMusic music;
+    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);
 
     //PlayBGM();
     PlayNewMapMusic(music.encounterMusic);

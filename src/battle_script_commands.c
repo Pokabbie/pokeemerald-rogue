@@ -3419,8 +3419,11 @@ static void Cmd_getexp(void)
                 // music change in wild battle after fainting a poke
                 if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gBattleMons[0].hp && !gBattleStruct->wildVictorySong)
                 {
+                    struct RogueBattleMusic music;
+                    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_WILD, gBattleMons[0].species, &music);
+
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    PlayBGM(music.victoryMusic);
                     gBattleStruct->wildVictorySong++;
                 }
 

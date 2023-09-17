@@ -5022,96 +5022,18 @@ static void HandleEndTurn_BattleWon(void)
 {
     gCurrentActionFuncId = 0;
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-    {
-        gSpecialVar_Result = gBattleOutcome;
-        gBattleTextBuff1[0] = gBattleOutcome;
-        gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-        gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~B_OUTCOME_LINK_BATTLE_RAN;
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
-            && gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_EREADER_TRAINER))
-    {
-        BattleStopLowHpSound();
-        gBattlescriptCurrInstr = BattleScript_FrontierTrainerBattleWon;
-
-        if (gTrainerBattleOpponent_A == TRAINER_FRONTIER_BRAIN)
-            PlayBGM(MUS_VICTORY_GYM_LEADER);
-        else
-            PlayBGM(MUS_VICTORY_TRAINER);
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         struct Trainer trainer;
-        struct RogueTrainerMusic music;
+        struct RogueBattleMusic music;
 
         Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
-        Rogue_ModifyTrainerMusic(gTrainerBattleOpponent_A, &music);
+        Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
 
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
         PlayBGM(music.victoryMusic);
-
-        //if((trainer.partyFlags & F_TRAINER_PARTY_KANTO_MUS) != 0)
-        //{
-        //    switch (trainer.trainerClass)
-        //    {
-        //        case TRAINER_CLASS_LEADER:
-        //        case TRAINER_CLASS_ELITE_FOUR:
-        //            PlayBGM(MUS_RG_VICTORY_GYM_LEADER);
-        //            break;
-        //        case TRAINER_CLASS_CHAMPION:
-        //            PlayBGM(MUS_VICTORY_LEAGUE);
-        //            break;
-        //        default:
-        //            PlayBGM(MUS_RG_VICTORY_TRAINER);
-        //            break;
-        //    }
-        //}
-        //else if((trainer.partyFlags & F_TRAINER_PARTY_JOHTO_MUS) != 0)
-        //{
-        //    switch (trainer.trainerClass)
-        //    {
-        //        case TRAINER_CLASS_LEADER:
-        //        case TRAINER_CLASS_ELITE_FOUR:
-        //            PlayBGM(MUS_HG_VICTORY_GYM_LEADER);
-        //            break;
-        //        case TRAINER_CLASS_CHAMPION:
-        //            PlayBGM(MUS_VICTORY_LEAGUE);
-        //            break;
-        //        default:
-        //            PlayBGM(MUS_HG_VICTORY_TRAINER);
-        //            break;
-        //    }
-        //}
-        //else
-        //{
-        //    switch (trainer.trainerClass)
-        //    {
-        //    case TRAINER_CLASS_ELITE_FOUR:
-        //        PlayBGM(MUS_VICTORY_GYM_LEADER);
-        //        break;
-        //    case TRAINER_CLASS_CHAMPION:
-        //        PlayBGM(MUS_VICTORY_LEAGUE);
-        //        break;
-        //    case TRAINER_CLASS_TEAM_AQUA:
-        //    case TRAINER_CLASS_TEAM_MAGMA:
-        //    case TRAINER_CLASS_AQUA_ADMIN:
-        //    case TRAINER_CLASS_AQUA_LEADER:
-        //    case TRAINER_CLASS_MAGMA_ADMIN:
-        //    case TRAINER_CLASS_MAGMA_LEADER:
-        //        PlayBGM(MUS_VICTORY_AQUA_MAGMA);
-        //        break;
-        //    case TRAINER_CLASS_LEADER:
-        //        PlayBGM(MUS_VICTORY_GYM_LEADER);
-        //        break;
-        //    default:
-        //        PlayBGM(MUS_VICTORY_TRAINER);
-        //        break;
-        //    }
-        //}
     }
     else
     {

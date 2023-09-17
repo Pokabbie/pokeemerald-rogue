@@ -7,7 +7,7 @@ bool8 Rogue_IsAnyBossTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum);
-struct RogueTrainerMusic const* Rogue_GetTrainerMusic(u16 trainerNum);
+struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum);
 
 u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum);
 u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject);

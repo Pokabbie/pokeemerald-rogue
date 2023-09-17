@@ -309,9 +309,19 @@
 
 // Sound
 //
-#define ROGUE_SOUND_TYPE_UNKNOWN    0
-#define ROGUE_SOUND_TYPE_CRY        1
-#define ROGUE_SOUND_TYPE_MUSIC      2
+#define ROGUE_SOUND_TYPE_UNKNOWN            0
+#define ROGUE_SOUND_TYPE_CRY                1
+#define ROGUE_SOUND_TYPE_MUSIC              2
+
+#define BATTLE_MUSIC_TYPE_TRAINER           0
+#define BATTLE_MUSIC_TYPE_WILD              1
+
+// Known battle music that we can dyanmically lookup in code
+// other music players will be added on from BATTLE_MUSIC_UNKNOWN_START
+#define BATTLE_MUSIC_NONE                   0
+#define BATTLE_MUSIC_WILD_BATTLE            1
+#define BATTLE_MUSIC_LEGENDARY_BATTLE       2
+#define BATTLE_MUSIC_UNKNOWN_START          3
 
 // Misc.
 //
