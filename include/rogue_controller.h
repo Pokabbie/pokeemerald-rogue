@@ -3,8 +3,9 @@
 
 #include "rogue_baked.h"
 
-extern struct RogueSaveBlock* gRogueSaveBlock;
+struct MusicPlayerInfo;
 
+extern struct RogueSaveBlock* gRogueSaveBlock;
 extern EWRAM_DATA struct RogueRunData gRogueRun;
 
 #define OVERWORLD_FLAG 0
@@ -25,12 +26,14 @@ bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
+
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType);
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage);
 s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);
-void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier);
+void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);

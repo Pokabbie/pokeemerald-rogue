@@ -458,88 +458,88 @@ void BattleSetup_StartLegendaryBattle(void)
     {
     case SPECIES_GROUDON:
         gBattleTypeFlags |= BATTLE_TYPE_GROUDON;
-        CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_GROUDON, GetBattleBGM());
         break;
     case SPECIES_KYOGRE:
         gBattleTypeFlags |= BATTLE_TYPE_KYOGRE;
-        CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_KYOGRE, GetBattleBGM());
         break;
     case SPECIES_RAYQUAZA:
         gBattleTypeFlags |= BATTLE_TYPE_RAYQUAZA;
-        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
+        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, GetBattleBGM());
         break;
 
     case SPECIES_JIRACHI:
     case SPECIES_DEOXYS:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_REGIROCK:
-        CreateBattleStartTask(B_TRANSITION_REGIROCK, MUS_VS_REGI);
+        CreateBattleStartTask(B_TRANSITION_REGIROCK, GetBattleBGM());
         break;
     case SPECIES_REGICE:
-        CreateBattleStartTask(B_TRANSITION_REGICE, MUS_VS_REGI);
+        CreateBattleStartTask(B_TRANSITION_REGICE, GetBattleBGM());
         break;
     case SPECIES_REGISTEEL:
-        CreateBattleStartTask(B_TRANSITION_REGISTEEL, MUS_VS_REGI);
+        CreateBattleStartTask(B_TRANSITION_REGISTEEL, GetBattleBGM());
         break;
 
     case SPECIES_ARTICUNO:
     case SPECIES_ZAPDOS:
     case SPECIES_MOLTRES:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_RAIKOU:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_RAIKOU);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
     case SPECIES_ENTEI:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_ENTEI);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
     case SPECIES_SUICUNE:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_SUICUNE);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_CELEBI:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_HO_OH:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_HO_OH);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
     case SPECIES_LUGIA:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_HG_VS_LUGIA);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_MEW:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, GetBattleBGM());
         break;
     case SPECIES_MEWTWO:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_MEWTWO);
+        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, GetBattleBGM());
         break;
 
 #ifdef ROGUE_EXPANSION
     case SPECIES_UXIE:
     case SPECIES_MESPRIT:
     case SPECIES_AZELF:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_UXIE_MESPRIT_AZELF);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_DIALGA:
     case SPECIES_PALKIA:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_DIALGA_PALKIA);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_GIRATINA:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_PL_VS_GIRATINA);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_ARCEUS:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 
     case SPECIES_REGIGIGAS:
-        CreateBattleStartTask(B_TRANSITION_REGISTEEL, MUS_VS_REGI); // RogueNote: TODO - Custom transition??
+        CreateBattleStartTask(B_TRANSITION_REGISTEEL, GetBattleBGM()); // RogueNote: TODO - Custom transition??
         break;
 
     case SPECIES_HEATRAN:
@@ -548,17 +548,17 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_MANAPHY:
     case SPECIES_DARKRAI:
     case SPECIES_SHAYMIN:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_DP_VS_LEGEND);
+        CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         break;
 #endif
 
     default:
         if(IsSpeciesLegendary(species))
-            CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+            CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         else
         {
             gBattleTypeFlags &= ~BATTLE_TYPE_LEGENDARY;
-            CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_WILD); // RogueNote: todo - change music dynamically
+            CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, GetBattleBGM()); // RogueNote: todo - change music dynamically
         }
         break;
     }
@@ -576,9 +576,9 @@ void StartGroudonKyogreBattle(void)
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_KYOGRE_GROUDON;
 
     if (gGameVersion == VERSION_RUBY)
-        CreateBattleStartTask(B_TRANSITION_ANGLED_WIPES, MUS_VS_KYOGRE_GROUDON); // GROUDON
+        CreateBattleStartTask(B_TRANSITION_ANGLED_WIPES, GetBattleBGM()); // GROUDON
     else
-        CreateBattleStartTask(B_TRANSITION_RIPPLE, MUS_VS_KYOGRE_GROUDON); // KYOGRE
+        CreateBattleStartTask(B_TRANSITION_RIPPLE, GetBattleBGM()); // KYOGRE
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -1556,7 +1556,7 @@ void ShowTrainerCantBattleSpeech(void)
 void PlayTrainerEncounterMusic(void)
 {
     u16 trainerId;
-    u16 music;
+    //u16 music;
 
     if (gApproachingTrainerId == 0)
         trainerId = gTrainerBattleOpponent_A;
@@ -1566,51 +1566,54 @@ void PlayTrainerEncounterMusic(void)
     if (sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
         && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
-        switch (GetTrainerEncounterMusicId(trainerId))
-        {
-        case TRAINER_ENCOUNTER_MUSIC_MALE:
-            music = MUS_ENCOUNTER_MALE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_FEMALE:
-            music = MUS_ENCOUNTER_FEMALE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_GIRL:
-            music = MUS_ENCOUNTER_GIRL;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_INTENSE:
-            music = MUS_ENCOUNTER_INTENSE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_COOL:
-            music = MUS_ENCOUNTER_COOL;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_AQUA:
-            music = MUS_ENCOUNTER_AQUA;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_MAGMA:
-            music = MUS_ENCOUNTER_MAGMA;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
-            music = MUS_ENCOUNTER_SWIMMER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_TWINS:
-            music = MUS_ENCOUNTER_TWINS;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
-            music = MUS_ENCOUNTER_ELITE_FOUR;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_HIKER:
-            music = MUS_ENCOUNTER_HIKER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
-            music = MUS_ENCOUNTER_INTERVIEWER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_RICH:
-            music = MUS_ENCOUNTER_RICH;
-            break;
-        default:
-            music = MUS_ENCOUNTER_SUSPICIOUS;
-        }
-        PlayNewMapMusic(music);
+        struct RogueBattleMusic music;
+        Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerId, &music);
+
+        //switch (GetTrainerEncounterMusicId(trainerId))
+        //{
+        //case TRAINER_ENCOUNTER_MUSIC_MALE:
+        //    music = MUS_ENCOUNTER_MALE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_FEMALE:
+        //    music = MUS_ENCOUNTER_FEMALE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_GIRL:
+        //    music = MUS_ENCOUNTER_GIRL;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_INTENSE:
+        //    music = MUS_ENCOUNTER_INTENSE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_COOL:
+        //    music = MUS_ENCOUNTER_COOL;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_AQUA:
+        //    music = MUS_ENCOUNTER_AQUA;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_MAGMA:
+        //    music = MUS_ENCOUNTER_MAGMA;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
+        //    music = MUS_ENCOUNTER_SWIMMER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_TWINS:
+        //    music = MUS_ENCOUNTER_TWINS;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
+        //    music = MUS_ENCOUNTER_ELITE_FOUR;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_HIKER:
+        //    music = MUS_ENCOUNTER_HIKER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
+        //    music = MUS_ENCOUNTER_INTERVIEWER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_RICH:
+        //    music = MUS_ENCOUNTER_RICH;
+        //    break;
+        //default:
+        //    music = MUS_ENCOUNTER_SUSPICIOUS;
+        //}
+        PlayNewMapMusic(music.encounterMusic);
     }
 }
 

@@ -1,7 +1,8 @@
 #include <string.h>
 #include "gba/m4a_internal.h"
+#include "constants/rogue.h"
 
-u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume);
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType);
 
 extern const u8 gCgb3Vol[];
 
@@ -246,7 +247,7 @@ void m4aMPlayImmInit(struct MusicPlayerInfo *mplayInfo)
                 Clear64byte(track);
                 track->flags = MPT_FLG_EXIST;
                 track->bendRange = 2;
-                track->volX = Rogue_ModifySoundVolume(mplayInfo, 64);
+                track->volX = Rogue_ModifySoundVolume(mplayInfo, 64, ROGUE_SOUND_TYPE_UNKNOWN);
                 track->lfoSpeed = 22;
                 track->tone.type = 1;
             }
@@ -736,7 +737,7 @@ void FadeOutBody(struct MusicPlayerInfo *mplayInfo)
         {
             fadeOV = mplayInfo->fadeOV;
 
-            track->volX = Rogue_ModifySoundVolume(mplayInfo, (fadeOV >> FADE_VOL_SHIFT));
+            track->volX = Rogue_ModifySoundVolume(mplayInfo, (fadeOV >> FADE_VOL_SHIFT), ROGUE_SOUND_TYPE_UNKNOWN);
             track->flags |= MPT_FLG_VOLCHG;
         }
 
@@ -752,7 +753,7 @@ void TrkVolPitSet(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *tr
         s32 x;
         s32 y;
         
-        x = (u32)(track->vol * Rogue_ModifySoundVolume(mplayInfo, track->volX)) >> 5;
+        x = (u32)(track->vol * Rogue_ModifySoundVolume(mplayInfo, track->volX, ROGUE_SOUND_TYPE_UNKNOWN)) >> 5;
 
         if (track->modT == 1)
             x = (u32)(x * (track->modM + 128)) >> 7;
@@ -1227,14 +1228,18 @@ void m4aMPlayTempoControl(struct MusicPlayerInfo *mplayInfo, u16 tempo)
 
 void m4aMPlayVolumeControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u16 volume)
 {
+    //volume = Rogue_ModifySoundVolume(mplayInfo, volume, ROGUE_SOUND_TYPE_UNKNOWN);
+    m4aMPlayRawVolumeControl(mplayInfo, trackBits, volume);
+}
+
+void m4aMPlayRawVolumeControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u16 volume)
+{
     s32 i;
     u32 bit;
     struct MusicPlayerTrack *track;
 
     if (mplayInfo->ident != ID_NUMBER)
         return;
-
-    Rogue_ModifySoundVolume(mplayInfo, volume);
 
     mplayInfo->ident++;
 
@@ -1686,6 +1691,7 @@ start_song:
 void SetPokemonCryVolume(u8 val)
 {
     gPokemonCrySong.volumeValue = val & 0x7F;
+    gPokemonCrySong.volumeValue = Rogue_ModifySoundVolume(&gMPlayInfo_BGM, gPokemonCrySong.volumeValue, ROGUE_SOUND_TYPE_CRY);
 }
 
 void SetPokemonCryPanpot(s8 val)

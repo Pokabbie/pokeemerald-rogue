@@ -8,6 +8,7 @@
 #include "constants/layouts.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
+#include "constants/songs.h"
 #include "constants/trainer_types.h"
 #include "constants/weather.h"
 #include "data.h"
@@ -97,15 +98,13 @@ extern const u8 gText_TrainerName_Default[];
 
 struct RouteMonPreview
 {
-    u16 species;
     u8 monSpriteId;
-    bool8 isVisible;
 };
 
 // Temp data only ever stored in RAM
 struct RogueLocalData
 {
-    struct RouteMonPreview encounterPreview[ARRAY_COUNT(gRogueRun.wildEncounters)];
+    struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -154,6 +153,9 @@ static u8 GetRoomTypeDifficulty(void);
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 
 static u8 GetCurrentWildEncounterCount(void);
+static u16 GetWildGrassEncounter(u8 index);
+static u16 GetWildWaterEncounter(u8 index);
+static u16 GetWildEncounterIndexFor(u16 species);
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
@@ -261,7 +263,7 @@ bool8 Rogue_UseKeyBattleAnims(void)
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
             return TRUE;
 
         // Force slow anims for legendaries
@@ -277,32 +279,42 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
-u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume)
+extern const struct Song gSongTable[];
+
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType)
 {
     // 10 is eqv of 100%
     u8 audioLevel = 10;
 
-    if(gMain.inBattle)
+    switch (soundType)
     {
-        if(mplayInfo == &gMPlayInfo_BGM)
-        {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleBGM;
-        }
-        else // Assume sound effect
-        {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
-        }
-    }
-    else
-    {
+    case ROGUE_SOUND_TYPE_CRY:
+        // Don't modify this?
+        break;
+    
+    default:
         if(mplayInfo == &gMPlayInfo_BGM)
         {
             audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
         }
-        else // Assume sound effect
+        else 
         {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+            if(
+                mplayInfo->songHeader == gSongTable[SE_SELECT].header ||
+                mplayInfo->songHeader == gSongTable[SE_DEX_SCROLL].header ||
+                mplayInfo->songHeader == gSongTable[SE_PIN].header
+            )
+            {
+                // Just UI sound effects
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
+            }
+            else if(gMain.inBattle)
+            {
+                // Assume all sounds are battle effects
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelBattleSE;
+            }
         }
+        break;
     }
 
     if(audioLevel != 10)
@@ -418,14 +430,20 @@ void Rogue_ModifyEVGain(int* multiplier)
     *multiplier = 0;
 }
 
-void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
+void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 { 
     if(Rogue_IsRunActive())
     {
-#ifdef ROGUE_DEBUG
+#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_INSTANT_CATCH)
         *ballMultiplier = 12345; // Masterball equiv
 #else
+        u16 startMultiplier = *ballMultiplier;
         u8 difficulty = gRogueRun.currentDifficulty;
+        u8 wildEncounterIndex = GetWildEncounterIndexFor(species);
+        u8 speciesCatchCount = 0;
+
+        if(wildEncounterIndex != WILD_ENCOUNTER_TOTAL_CAPACITY)
+            speciesCatchCount = gRogueRun.wildEncounters.catchCounts[wildEncounterIndex];
         
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
@@ -459,6 +477,18 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
             // Elite 4 back to normal catch rates
         }
 
+        // Modify the catch rate based on how many times we've caught this mon
+        if(speciesCatchCount > 2)
+        {
+            // Already caught a few, so use the base multiplier
+            *ballMultiplier = startMultiplier;
+        }
+        else if(speciesCatchCount > 4)
+        {
+            // Now we want to discourage catching more mons
+            *ballMultiplier = max(1, startMultiplier / 2);
+        }
+
         // Apply charms
         {
             u32 perc;
@@ -490,11 +520,15 @@ void Rogue_ModifyCatchRate(u16* catchRate, u16* ballMultiplier)
             if(perc != 100)
                 *ballMultiplier = ((u32)*ballMultiplier * perc) / 100;
         }
-#endif
 
-        // Equiv to Snorlax
-        if(*catchRate < 25)
-            *catchRate = 25;
+        // After we've caught a few remove the catch rate buff
+        if(speciesCatchCount <= 3)
+        {
+            // Equiv to Snorlax
+            if(*catchRate < 25)
+                *catchRate = 25;
+        }
+#endif
     }
     else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
@@ -553,6 +587,17 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
                 }
 
                 SetMonData(mon, MON_DATA_HP_IV + i, &value);
+            }
+        }
+    
+        // Increment catch counter for in route mons
+        {
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u8 index = GetWildEncounterIndexFor(species);
+
+            if(index != WILD_ENCOUNTER_TOTAL_CAPACITY && gRogueRun.wildEncounters.catchCounts[index] != 255)
+            {
+                ++gRogueRun.wildEncounters.catchCounts[index];
             }
         }
     }
@@ -620,7 +665,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
-            if(Rogue_IsBossTrainer(trainerNum))
+            if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = gRogueRun.currentDifficulty;
                 *money = (difficulty + 1) * 500;
@@ -1292,6 +1337,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
+        bool8 isVisible;
         u16 yOffset = 24 + Rogue_MiniMenuHeight() * 8;
 
         //LoadMonIconPalettes();
@@ -1300,22 +1346,19 @@ void Rogue_CreateMiniMenuExtraGFX(void)
         {
             //u8 paletteOffset = i;
             u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
-            u16 targetSpecies = gRogueRun.wildEncounters[i];
+            u16 targetSpecies = GetWildGrassEncounter(i);
 
-            gRogueLocal.encounterPreview[i].isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
+            isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
 
-            if(gRogueLocal.encounterPreview[i].isVisible)
+            if(isVisible)
             {
-                gRogueLocal.encounterPreview[i].species = targetSpecies;
-                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
+                LoadMonIconPaletteCustomOffset(targetSpecies, paletteOffset);
 
-                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(gRogueLocal.encounterPreview[i].species, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(targetSpecies, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, paletteOffset);
             }
             else
             {
-                gRogueLocal.encounterPreview[i].species = SPECIES_NONE;
-                LoadMonIconPaletteCustomOffset(gRogueLocal.encounterPreview[i].species, paletteOffset);
-
+                LoadMonIconPaletteCustomOffset(SPECIES_NONE, paletteOffset);
                 gRogueLocal.encounterPreview[i].monSpriteId = CreateMissingMonIcon(SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, 0, paletteOffset);
             }
 
@@ -1336,11 +1379,19 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
+        bool8 isVisible;
+
         for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
         {
             u8 paletteOffset = i;
+            u16 targetSpecies = GetWildGrassEncounter(i);
 
-            FreeMonIconPaletteCustomOffset(GetIconSpeciesNoPersonality(gRogueLocal.encounterPreview[i].species), paletteOffset);
+            isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
+
+            if(isVisible)
+                FreeMonIconPaletteCustomOffset(GetIconSpeciesNoPersonality(targetSpecies), paletteOffset);
+            else
+                FreeMonIconPaletteCustomOffset(GetIconSpeciesNoPersonality(SPECIES_NONE), paletteOffset);
 
             if(gRogueLocal.encounterPreview[i].monSpriteId != SPRITE_NONE)
                 FreeAndDestroyMonIconSprite(&gSprites[gRogueLocal.encounterPreview[i].monSpriteId]);
@@ -1395,6 +1446,7 @@ static void SelectStartMons(bool8 isSeeded)
 {
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
@@ -2065,57 +2117,51 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
+static bool8 CanEnterWithItem(u16 itemId, bool8 isBasicBagEnabled)
+{
+    u8 pocket;
+    if(!isBasicBagEnabled)
+        return TRUE;
+
+    pocket = GetPocketByItemId(itemId);
+    if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+        return TRUE;
+
+    return FALSE;
+}
+
 static void SetupRogueRunBag()
 {
     u16 i;
     u16 itemId;
     u16 quantity;
+    bool8 isBasicBagEnabled = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE);
 
-    ClearBag();
     SetMoney(&gSaveBlock1Ptr->money, 0);
+    ClearBag();
 
-    // TODO - Fix
+    // Re-add items
+    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
+    {
+        itemId = RogueSave_GetHubBagItemIdAt(i);
+        quantity = RogueSave_GetHubBagItemQuantityAt(i);
+        
+        if(itemId != ITEM_NONE && CanEnterWithItem(itemId, isBasicBagEnabled))
+        {
+            AddBagItem(itemId, quantity);
+        }
+    }
 
-    //if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
-    //{
-    //    // Add default items
-    //    AddBagItem(ITEM_POKE_BALL, 5);
-    //    AddBagItem(ITEM_POTION, 1);
-//
-    //    // Add back some of the items we want to keep
-    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-    //    {
-    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
-    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
-//
-    //        if(itemId != ITEM_NONE && quantity != 0)
-    //        {
-    //            u8 pocket = GetPocketByItemId(itemId);
-    //            if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
-    //                AddBagItem(itemId, quantity);
-    //            else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-    //                AddBagItem(itemId, quantity);
-    //        }
-    //    }
-    //}
-    //else
-    //{
-    //    // Re-add all the items
-    //    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
-    //    {
-    //        // TODO - Convert here for special case like money bags
-    //        itemId = gRogueSaveBlock->runRestore.bagItems[i].itemId;
-    //        quantity = gRogueSaveBlock->runRestore.bagItems[i].quantity;
-//
-    //        if(itemId != ITEM_NONE && quantity != 0)
-    //        {
-    //            AddBagItem(itemId, quantity);
-    //        }
-    //    }
-    //}
+    // Give basic inventory
+    if(isBasicBagEnabled)
+    {
+        AddBagItem(ITEM_POKE_BALL, 5);
+        AddBagItem(ITEM_POTION, 1);
+    }
 
 #ifdef ROGUE_DEBUG
-    AddBagItem(ITEM_ESCAPE_ROPE, 101);
+    AddBagItem(ITEM_ESCAPE_ROPE, 255);
+    AddBagItem(ITEM_RARE_CANDY, 255);
 #endif
 
     RecalcCharmCurseValues();
@@ -2160,7 +2206,7 @@ static void BeginRogueRun(void)
     }
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+    memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -2483,6 +2529,7 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     u16 species;
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
@@ -2706,14 +2753,6 @@ void Rogue_OnWarpIntoMap(void)
     {
         EndRogueRun();
     }
-    else if(GetSafariZoneFlag())
-    {
-        // Reset preview data
-        //memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
-//
-        //RandomiseSafariWildEncounters();
-        //Rogue_PushPopup(POPUP_MSG_SAFARI_ENCOUNTERS, 0);
-    }
 
     if(Rogue_IsRunActive())
     {
@@ -2820,8 +2859,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_BOSS:
                 {
                     u16 trainerNum;
-                    const struct RogueTrainer* trainer;
-
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
 
                     gRogueRun.currentLevelOffset = 0;
@@ -2838,8 +2875,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_MINIBOSS:
                 {
                     u16 trainerNum;
-                    const struct RogueTrainer* trainer;
-
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.miniboss.trainerNum;
 
                     RandomiseEnabledItems();
@@ -2971,8 +3006,9 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
                     {
                         trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+                        trainer = Rogue_GetTrainer(trainerNum);
 
-                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                        if(trainer != NULL)
                         {
                             objectEvents[write].graphicsId = trainer->objectEventGfx;
                             objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
@@ -3422,15 +3458,11 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if(isBossTrainer)
         {
-            const struct RogueTrainer* trainer;
             u8 nextLevel;
             u8 prevLevel = Rogue_CalculateBossMonLvl();
 
             // Update badge for trainer card
-            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_NONE;
-
-            if(Rogue_TryGetTrainer(trainerNum, &trainer))
-                gRogueRun.completedBadges[gRogueRun.currentDifficulty] = trainer->monGenerators[0].incTypes[0];
+            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = Rogue_GetTrainerTypeAssignment(trainerNum);
 
             if(gRogueRun.completedBadges[gRogueRun.currentDifficulty] == TYPE_NONE)
                 gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_MYSTERY;
@@ -3450,7 +3482,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                         case 8:
                         case 12:
                         case 13:
-                            memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+                            memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
                             break;
                     }
             }
@@ -3934,16 +3966,66 @@ static u8 GetCurrentWildEncounterCount()
 
         // Clamp
         count = max(count, 1);
-        count = min(count, ARRAY_COUNT(gRogueRun.wildEncounters));
+        count = min(count, WILD_ENCOUNTER_GRASS_CAPACITY);
 
         // Move count down if we have haven't actually managed to spawn in enough unique encounters
-        while(count != 0 && gRogueRun.wildEncounters[count - 1] == SPECIES_NONE)
+        while(count != 0 && GetWildGrassEncounter(count - 1) == SPECIES_NONE)
         {
             count--;
         }
     }
 
     return count;
+}
+
+static u16 GetWildGrassEncounter(u8 index)
+{
+    AGB_ASSERT(index < WILD_ENCOUNTER_GRASS_CAPACITY);
+
+    if(index < WILD_ENCOUNTER_GRASS_CAPACITY)
+    {
+        return gRogueRun.wildEncounters.species[index];
+    }
+
+    return SPECIES_NONE;
+}
+
+static u16 GetWildWaterEncounter(u8 index)
+{
+    AGB_ASSERT(index < WILD_ENCOUNTER_WATER_CAPACITY);
+
+    if(index < WILD_ENCOUNTER_WATER_CAPACITY)
+    {
+        return gRogueRun.wildEncounters.species[WILD_ENCOUNTER_GRASS_CAPACITY + index];
+    }
+
+    return SPECIES_NONE;
+}
+
+static u16 GetWildEncounterIndexFor(u16 species)
+{
+    u8 i;
+    u16 checkSpecies;
+
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    for(i = 0; i < WILD_ENCOUNTER_TOTAL_CAPACITY; ++i)
+    {
+        checkSpecies = gRogueRun.wildEncounters.species[i];
+
+#ifdef ROGUE_EXPANSION
+        checkSpecies = GET_BASE_SPECIES_ID(checkSpecies);
+#endif
+
+        if(species == checkSpecies)
+        {
+            return i;
+        }
+    }
+
+    return WILD_ENCOUNTER_TOTAL_CAPACITY;
 }
 
 void Rogue_ModifyWildMonHeldItem(u16* itemId)
@@ -3994,9 +4076,9 @@ static bool8 IsChainSpeciesValidForSpawning(u8 area, u16 species)
 
     if(area == 1) //WILD_AREA_WATER)
     {
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
+        for(i = 0; i < WILD_ENCOUNTER_WATER_CAPACITY; ++i)
         {
-            if(gRogueRun.fishingEncounters[i] == species)
+            if(GetWildWaterEncounter(i) == species)
                 return TRUE;
         }
     }
@@ -4006,7 +4088,7 @@ static bool8 IsChainSpeciesValidForSpawning(u8 area, u16 species)
 
         for(i = 0; i < count; ++i)
         {
-            if(gRogueRun.wildEncounters[i] == species)
+            if(GetWildGrassEncounter(i) == species)
                 return TRUE;
         }
     }
@@ -4057,10 +4139,9 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else if(area == 1) //WILD_AREA_WATER)
         {
-            const u16 count = ARRAY_COUNT(gRogueRun.fishingEncounters);
-            u16 randIdx = Random() % count; 
+            u16 randIdx = Random() % WILD_ENCOUNTER_WATER_CAPACITY; 
 
-            *species = gRogueRun.fishingEncounters[randIdx];
+            *species = GetWildWaterEncounter(randIdx);
         }
         else
         {
@@ -4073,7 +4154,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
             {
                 // Prevent recent duplicates when on a run (Don't use this in safari mode though)
                 randIdx = Random() % count; 
-                *species = gRogueRun.wildEncounters[randIdx];
+                *species = GetWildGrassEncounter(randIdx);
 
                 if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
                     break;
@@ -4092,7 +4173,7 @@ u16 Rogue_SelectRandomWildMon(void)
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u16 count = GetCurrentWildEncounterCount();
-        return gRogueRun.wildEncounters[Random() % count];
+        return GetWildGrassEncounter(Random() % count);
     }
 
     return SPECIES_NONE;
@@ -4807,26 +4888,26 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
 static void RandomiseWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
+    u32 typeFlags;
 
-    RogueMonQuery_Begin();
-
-    // Prefilter to mons of types we're interested in
-    RogueMonQuery_EvosContainType(
-        QUERY_FUNC_INCLUDE, 
+    typeFlags = Rogue_GetTypeFlagsFromArray(
         &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
         ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
     );
+
+    RogueMonQuery_Begin();
+
+    RogueMonQuery_IsSpeciesActive();
+
+    // Prefilter to mons of types we're interested in
+    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(maxlevel - min(6, maxlevel - 1), FALSE, FALSE);
 
     // Now we've evolved we're only caring about mons of this type
-    RogueMonQuery_IsOfType(
-        QUERY_FUNC_INCLUDE, 
-        &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
-        ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
-    );
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
     {
         u8 i;
@@ -4834,12 +4915,14 @@ static void RandomiseWildEncounters(void)
 
         RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
 
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-        {            
+        for(i = 0; i < WILD_ENCOUNTER_GRASS_CAPACITY; ++i)
+        {
             if(RogueWeightQuery_HasAnyWeights())
-                gRogueRun.wildEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+                gRogueRun.wildEncounters.species[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
             else
-                gRogueRun.wildEncounters[i] = SPECIES_NONE;
+                gRogueRun.wildEncounters.species[i] = SPECIES_NONE;
+
+            gRogueRun.wildEncounters.catchCounts[i] = 0;
         }
 
         RogueWeightQuery_End();
@@ -4856,26 +4939,18 @@ static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, voi
 
 static void RandomiseFishingEncounters(void)
 {
-    const u8 types[1] = { TYPE_WATER };
-
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
+
     // Prefilter to mons of types we're interested in
-    RogueMonQuery_EvosContainType(
-        QUERY_FUNC_INCLUDE, 
-        &types[0], 
-        ARRAY_COUNT(types)
-    );
+    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(TYPE_WATER));
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
 
     // Now we've evolved we're only caring about mons of this type
-    RogueMonQuery_IsOfType(
-        QUERY_FUNC_INCLUDE, 
-        &types[0], 
-        ARRAY_COUNT(types)
-    );
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(TYPE_WATER));
 
     {
         u8 i;
@@ -4883,12 +4958,14 @@ static void RandomiseFishingEncounters(void)
 
         RogueWeightQuery_CalculateWeights(RandomiseFishingEncounters_CalculateWeight, NULL);
 
-        for(i = 0; i < ARRAY_COUNT(gRogueRun.fishingEncounters); ++i)
+        for(i = 0; i < WILD_ENCOUNTER_WATER_CAPACITY; ++i)
         {
             if(RogueWeightQuery_HasAnyWeights())
-                gRogueRun.fishingEncounters[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+                gRogueRun.wildEncounters.species[WILD_ENCOUNTER_GRASS_CAPACITY + i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
             else
-                gRogueRun.fishingEncounters[i] = SPECIES_NONE;
+                gRogueRun.wildEncounters.species[WILD_ENCOUNTER_GRASS_CAPACITY + i] = SPECIES_NONE;
+
+            gRogueRun.wildEncounters.catchCounts[WILD_ENCOUNTER_GRASS_CAPACITY + i] = 0;
         }
 
         RogueWeightQuery_End();
@@ -4947,81 +5024,8 @@ void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize)
 
 static void RandomiseSafariWildEncounters(void)
 {
-    u8 types[3];
-    u8 maxlevel = CalculateWildLevel(0);
-    u16 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
-    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-
-    Rogue_SafariTypeForMap(&types[0], ARRAY_COUNT(types));
-
-    // Temporarily remove the gen limit for the safari encounters
-    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
-    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
-
-    // Query for the current zone
-    RogueQuery_Clear();
-    RogueQuery_SpeciesIsValid(types[0], types[1], types[2]);
-
-    if(targetGen == 0)
-    {
-        RogueQuery_SpeciesExcludeCommon();
-    }
-
-    if(!IsQuestCollected(QUEST_CollectorLegend))
-    {
-        RogueQuery_SpeciesIsNotLegendary();
-    }
-
-    RogueQuery_SpeciesInPokedex();
-
-    RogueQuery_TransformToEggSpecies();
-    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off if needed
-
-    if(targetGen != 0)
-    {
-        RogueQuery_SpeciesInGeneration(targetGen);
-    }
-
-    if(types[2] == TYPE_NONE)
-        RogueQuery_SpeciesOfTypes(&types[0], 2);
-    else
-        RogueQuery_SpeciesOfTypes(&types[0], 3);
-
-    RogueQuery_CollapseSpeciesBuffer();
-
-    // Restore the gen limit
-    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, dexLimit);
-    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
-
-    {
-        u8 i;
-        u16 randIdx;
-        u16 queryCount = RogueQuery_BufferSize();
-
-#ifdef ROGUE_DEBUG
-        gDebug_WildOptionCount = queryCount;
-#endif
-
-        if(queryCount == 0)
-        {
-            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-            {
-                // Just encounter self, as we don't have a great fallback?
-                gRogueRun.wildEncounters[i] = Rogue_GetEggSpecies(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES));
-            }
-        }
-        else
-        {
-            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-            {
-                gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
-            }
-        }
-    }
-
-    gRogueRun.fishingEncounters[0] = SPECIES_MAGIKARP;
-    gRogueRun.fishingEncounters[1] = SPECIES_FEEBAS;
+    // No longer supported code path
+    AGB_ASSERT(FALSE);
 }
 
 static void ResetTrainerBattles(void)

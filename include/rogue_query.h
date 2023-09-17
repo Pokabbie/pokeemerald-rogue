@@ -2,6 +2,7 @@
 #define ROGUE_QUERY_H
 
 typedef bool8 (*QueryCallback)(u16 elem, u16 usrData);
+typedef bool8 (*QueryFilterCallback)(u16 elem, void* usrData);
 typedef u8 (*WeightCallback)(u16 index, u16 elem, void* usrData);
 
 enum
@@ -27,16 +28,27 @@ void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 // Mon Query
 void RogueMonQuery_Begin();
 void RogueMonQuery_End();
+void RogueMonQuery_Reset(u8 func);
+void RogueMonQuery_IsSpeciesActive();
 void RogueMonQuery_TransformIntoEggSpecies();
 void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies);
-void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count);
-void RogueMonQuery_EvosContainType(u8 func, const u8* types, u8 count);
+void RogueMonQuery_IsOfType(u8 func, u32 typeFlags);
+void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags);
+void RogueMonQuery_ContainsPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsLegendary(u8 func);
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
+void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
 // Item Query
 void RogueItemQuery_Begin();
 void RogueItemQuery_End();
+
+// Traine Query
+void RogueTrainerQuery_Begin();
+void RogueTrainerQuery_End();
+void RogueTrainerQuery_Reset(u8 func);
+void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags);
+void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup);
 
 // Weight selection
 void RogueWeightQuery_Begin();

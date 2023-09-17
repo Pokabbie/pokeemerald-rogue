@@ -7,7 +7,9 @@ script Rogue_Debug_FillPCWithGen
     
     message(format("Fill PC with GEN?"))
     waitmessage
-    
+
+    setflag(FLAG_SYS_QUEST_LOG_GET)
+
     checkitem(ITEM_QUEST_LOG)
     if(var(VAR_RESULT) == NO)
     {

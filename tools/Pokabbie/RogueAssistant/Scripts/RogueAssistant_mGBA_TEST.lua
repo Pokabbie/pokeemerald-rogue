@@ -1,23 +1,33 @@
 constants = 
 {
-    listenPort = 30150,
+    targetHost = "127.0.0.1",
+    targetPort = 30125,
+    
+    rogueHandshake1 = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g",
+    rogueHandshake2 = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY",
 
-    -- Only use for debugging
-    -- (This can cause memory leaks due to the shear amount of messages)
-    logCommands = false,
+    debugLog = true,
 }
 
-activeServer = 
+globals = 
 {
-    listenServer = nil,
-    sockets = {},
-    idCounter = 1,
+    conn = nil,
+    state = nil
 }
 
 -- Utils
 --
 
-function splitStr(inputstr)
+function splitRequestStr(inputstr)
+    words = {}
+    for word in string.gmatch(inputstr, '([^:]+)') do
+        table.insert(words, word) 
+    end
+
+    return words
+end
+
+function splitParamStr(inputstr)
     words = {}
     for word in string.gmatch(inputstr, '([^;]+)') do
         table.insert(words, word) 
@@ -26,93 +36,93 @@ function splitStr(inputstr)
     return words
 end
 
-function msgFormat(id, msg, isError)
-    local prefix = "Socket " .. id
-    if isError then
-        prefix = prefix .. " Error: "
-    else
-        prefix = prefix .. " : "
-    end
-        return prefix .. msg
-end
-
--- Cmds
+-- Commands
 --
 
-function Cmd_HelloWorld(sock, params)
-    sock:send("Hello to you too!")
+function Cmd_Send(reqId, data)
+    if constants.debugLog then
+        console:log("Send (" .. reqId .."): '" .. data .. "'")
+    end
+    globals.conn:send(reqId .. ";" .. data)
 end
 
-function Cmd_emu_read8(sock, params)
-    local addr = tonumber(params[2])
+
+function Cmd_EstablishConnection(params)
+    globals.conn:send(constants.rogueHandshake2)
+end
+
+function Cmd_HelloWorld(params)
+    Cmd_Send(0, "Hello to you too!")
+end
+
+-- Write memory a byte a time (This is to avoid alignment issues for larger writes e.g. u32 has to be on the 4 byte boundary otherwise, it causes awkward to notice bugs)
+
+function Cmd_writeByte(params)
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
+    emu:write8(addr, tonumber(params[4]))
+    Cmd_Send(reqId, 1)
+end
+
+function Cmd_readByte(params)
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
     local result = emu:read8(addr)
-    sock:send(tostring(result))
+    Cmd_Send(reqId, result)
 end
 
-function Cmd_emu_read16(sock, params)
-    local addr = tonumber(params[2])
-    local result = emu:read16(addr)
-    sock:send(tostring(result))
+function Cmd_writeBytes(params)
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
+    for i, value in ipairs(params) do
+        if i >= 4 then
+            emu:write8(addr + tonumber(i) - 4, tonumber(value))
+        end
+    end
+
+    Cmd_Send(reqId, 1)
 end
 
-function Cmd_emu_read32(sock, params)
-    local addr = tonumber(params[2])
-    local result = emu:read32(addr)
-    sock:send(tostring(result))
-end
-
-function Cmd_emu_readRange(sock, params)
-    local addr = tonumber(params[2])
-    local range = tonumber(params[3])
+function Cmd_readBytes(params)
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
+    local range = tonumber(params[4])
     local result = emu:readRange(addr, range)
-    sock:send(tostring(result))
+    if constants.debugLog then
+        console:log("Range: '" .. addr .. " : " .. range .. "'")
+        console:log("Range: '" .. result .. "'")
+    end
+    Cmd_Send(reqId, result)
 end
 
-function Cmd_emu_write8(sock, params)
-    local addr = tonumber(params[2])
-    local value = tonumber(params[32])
-    emu:write8(addr, value)
-    sock:send(tostring(value))
-end
-
-function Cmd_emu_write16(sock, params)
-    local addr = tonumber(params[2])
-    local value = tonumber(params[3])
-    emu:write16(addr, value)
-    sock:send(tostring(value))
-end
-
-function Cmd_emu_write32(sock, params)
-    local addr = tonumber(params[2])
-    local value = tonumber(params[3])
-    emu:write32(addr, value)
-    sock:send(tostring(value))
-end
-
-autoCmds = 
+commCmds = 
 {
+    con = Cmd_EstablishConnection,
     hello = Cmd_HelloWorld,
-    emu_read8 = Cmd_emu_read8,
-    emu_read16 = Cmd_emu_read16,
-    emu_read32 = Cmd_emu_read32,
-    emu_write8 = Cmd_emu_write8,
-    emu_write16 = Cmd_emu_write16,
-    emu_write32 = Cmd_emu_write32,
-    emu_readRange = Cmd_emu_readRange,
+    writeByte = Cmd_writeByte,
+    readByte = Cmd_readByte,
+    writeBytes = Cmd_writeBytes,
+    readBytes = Cmd_readBytes,
 }
 
-function Conn_ProcessCmd(sock, msg)
-    local params = splitStr(msg)
+function Conn_ProcessCmd(msg)
+    if constants.debugLog then
+        console:log("Incoming: '" .. msg .. "'")
+    end
+    
+    local requests = splitRequestStr(msg)
 
-    for k, v in pairs(autoCmds) do
-        if k == params[1] then
+    for i, req in ipairs(requests) do
+        if constants.debugLog then
+            console:log("\tRequest: '" .. req .. "'")
+        end
+        local params = splitParamStr(req)
 
-            if constants.logCommands then
-                console:log("Executing Cmd: " .. msg)
+        for k, v in pairs(commCmds) do
+            if k == params[1] then
+                v(params)
+                return true
             end
-
-            v(sock, params)
-            return true
         end
     end
 
@@ -120,80 +130,66 @@ function Conn_ProcessCmd(sock, msg)
     return false
 end
 
--- Server
+
+-- Socket callbacks
 --
-function Socket_Stop(id)
-    console:log(msgFormat(id .. ":stop", "Closing connection"))
-    local sock = activeServer.sockets[id]
-    activeServer.sockets[id] = nil
-    sock:close()
-end
-
-
-function Socket_Error(id)
-    console:error(msgFormat(id .. ":error", err, true))
-    Socket_Stop(id)
-end
-
-
-function Socket_Received(id)
-    local sock = activeServer.sockets[id]
-    if not sock then
+function Conn_Stop()
+    if not globals.conn then
         return
     end
 
-    local p, err = sock:receive(4096)
+    console:log("Connection closed.")
+    globals.conn:close()
+    globals.conn = nil
+end
+
+
+function Conn_Error(err)
+	console:error("Connection Error: " .. err)
+    Conn_Stop()
+end
+
+
+function Conn_Received()
+    local p, err = globals.conn:receive(4096)
     if p then
-        if Conn_ProcessCmd(sock, p) == false then
-            Socket_Stop(id)
+        if Conn_ProcessCmd(p) == false then
+            Conn_Stop()
             return
         end
     else
         if err ~= socket.ERRORS.AGAIN then
-            console:error(msgFormat(id .. ":receive", err, true))
-            Socket_Stop(id)
+            Conn_Error(err)
         end
         return
     end
 end
 
 
-function Server_Accept()
-    local sock, err = activeServer.listenServer:accept()
-    if err then
-        console:error(msgFormat("Accept", err, true))
-        return
-    end
+-- Launch connection to Assistant
+--
+function LaunchAssistant()
+    console:log("== Openning connection to RogueAssistant ==")
 
-    local id = activeServer.idCounter
-    activeServer.idCounter = id + 1
+    globals.conn = socket.tcp()
+    globals.conn:add("received", Conn_Received)
+    globals.conn:add("error", Conn_Error)
 
-    activeServer.sockets[id] = sock
+    if globals.conn:connect(constants.targetHost, constants.targetPort) then
+        console:log("Connected to Assistant.")
 
-    sock:add("received", function() Socket_Received(id) end)
-    sock:add("error", function() Socket_Error(id) end)
-    console:log(msgFormat(id .. ":connect", "Connected"))
-end
-
--- Run Server
-if emu then
-    console:log("== Openning connection for RogueAssistant ==")
-
-    while not activeServer.listenServer do
-        activeServer.listenServer, err = socket.bind(nil, constants.listenPort)
-        if err then
-            console:error(msgFormat("Bind", err, true))
-            break
-        else
-            local ok
-            ok, err = activeServer.listenServer:listen()
-            if err then
-                activeServer.listenServer:close()
-                console:error(msgFormat("Listen", err, true))
-            else
-                console:log("Listening on port: " .. constants.listenPort)
-                activeServer.listenServer:add("received", Server_Accept)
-            end
-        end
+        globals.conn:send(constants.rogueHandshake1)
+    else
+        console:error("Unable to connect")
     end
 end
+
+function AssistantFrame()
+    if globals.state == nil then
+        globals.state = {}
+        LaunchAssistant()
+    end
+	    globals.conn:poll()
+end
+
+callbacks:add("frame", AssistantFrame)

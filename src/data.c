@@ -6,11 +6,13 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/battle_ai.h"
 
 #include "constants/rogue.h"
 #include "rogue.h"
+#include "rogue_query_script.h"
 
 const u16 gMinigameDigits_Pal[] = INCBIN_U16("graphics/link/minigame_digits.gbapal");
 const u32 gMinigameDigits_Gfx[] = INCBIN_U32("graphics/link/minigame_digits.4bpp.lz");
@@ -354,3 +356,6 @@ const union AnimCmd *const gAnims_MonPic[] =
 #include "data/rogue_pokedex.h"
 #include "data/rogue_quests.h"
 #include "data/rogue_bake_data.h"
+
+#include "data/rogue/battle_music.h"
+#include "data/rogue/trainers.h"

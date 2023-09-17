@@ -5,6 +5,7 @@
 #include "random.h"
 #include "string_util.h"
 
+#include "rogue_controller.h"
 #include "rogue_save.h"
 #include "rogue_safari.h"
 
@@ -36,22 +37,26 @@ void RogueSafari_PushMon(struct Pokemon* mon)
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    u8 index = AllocSafariMonSlot();
-    struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
-
-    ZeroSafariMon(writeMon);
-    RogueSafari_CopyToSafariMon(monToCopy, writeMon);
-
-    writeMon->priorityCounter = 1;
-
-    if(writeMon->shinyFlag)
+    // Only push mons if run is active
+    if(Rogue_IsRunActive())
     {
-        // Shinies will last much longer than regular mons
-        writeMon->priorityCounter += 10;
-    }
+        u8 index = AllocSafariMonSlot();
+        struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
 
-    // TODO - Handle legends?
-    // TODO - Track if mon used in major fights (or lots of fights)
+        ZeroSafariMon(writeMon);
+        RogueSafari_CopyToSafariMon(monToCopy, writeMon);
+
+        writeMon->priorityCounter = 1;
+
+        if(writeMon->shinyFlag)
+        {
+            // Shinies will last much longer than regular mons
+            writeMon->priorityCounter += 10;
+        }
+
+        // TODO - Handle legends?
+        // TODO - Track if mon used in major fights (or lots of fights)
+    }
 }
 
 static void ZeroSafariMon(struct RogueSafariMon* mon)

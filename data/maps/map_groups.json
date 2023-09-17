@@ -47,7 +47,8 @@
     "Rogue_Interior_Home",
     "Rogue_Interior_HomeUpper",
     "Rogue_Interior_ProfLab",
-    "Rogue_Interior_ConfigLab"
+    "Rogue_Interior_ConfigLab",
+    "Rogue_Interior_PokeConnect"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",

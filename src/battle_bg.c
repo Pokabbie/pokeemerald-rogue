@@ -27,6 +27,7 @@
 #include "constants/battle_anim.h"
 
 #include "rogue_controller.h"
+#include "rogue_timeofday.h"
 
 #if !P_ENABLE_DEBUG
 struct BattleBackground
@@ -36,6 +37,7 @@ struct BattleBackground
     const void *entryTileset;
     const void *entryTilemap;
     const void *palette;
+    const void *perSeasonPalette[SEASON_COUNT];
 };
 #endif
 
@@ -617,6 +619,12 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_TallGrass,
         .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
         .palette = gBattleTerrainPalette_TallGrass,
+        .perSeasonPalette = 
+        {
+            [SEASON_SUMMER] = gBattleTerrainPalette_TallGrass_Summer,
+            [SEASON_AUTUMN] = gBattleTerrainPalette_TallGrass_Autumn,
+            [SEASON_WINTER] = gBattleTerrainPalette_TallGrass_Winter,
+        }
     },
 
     [BATTLE_TERRAIN_LONG_GRASS] =
@@ -626,6 +634,12 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_LongGrass,
         .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
         .palette = gBattleTerrainPalette_TallGrass,
+        .perSeasonPalette = 
+        {
+            [SEASON_SUMMER] = gBattleTerrainPalette_TallGrass_Summer,
+            [SEASON_AUTUMN] = gBattleTerrainPalette_TallGrass_Autumn,
+            [SEASON_WINTER] = gBattleTerrainPalette_TallGrass_Winter,
+        }
     },
 
     [BATTLE_TERRAIN_SAND] =
@@ -698,6 +712,12 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_Plain,
         .entryTilemap = gBattleTerrainAnimTilemap_Plain,
         .palette = gBattleTerrainPalette_Plain,
+        .perSeasonPalette = 
+        {
+            [SEASON_SUMMER] = gBattleTerrainPalette_Plain_Summer,
+            [SEASON_AUTUMN] = gBattleTerrainPalette_Plain_Autumn,
+            [SEASON_WINTER] = gBattleTerrainPalette_Plain_Winter,
+        }
     },
 };
 
@@ -766,6 +786,19 @@ void LoadBattleMenuWindowGfx(void)
     }
 }
 
+static const void* SelectPaletteFor(u8 terrainId)
+{
+    if(RogueToD_ApplySeasonVisuals())
+    {
+        u8 season = RogueToD_GetSeason();
+
+        if(sBattleTerrainTable[terrainId].perSeasonPalette[season] != NULL)
+            return sBattleTerrainTable[terrainId].perSeasonPalette[season];
+    }
+
+    return sBattleTerrainTable[terrainId].palette;
+}
+
 void DrawMainBattleBackground(void)
 {
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_RECORDED_LINK))
@@ -830,12 +863,13 @@ void DrawMainBattleBackground(void)
         case MAP_BATTLE_SCENE_NORMAL:
             LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tileset, (void*)(BG_CHAR_ADDR(2)));
             LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(sBattleTerrainTable[gBattleTerrain].palette, 0x20, 0x60);
+
+            LoadCompressedPalette(SelectPaletteFor(gBattleTerrain), 0x20, 0x60);
             break;
         case MAP_BATTLE_SCENE_UNDERGROUND:
             LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tileset, (void*)(BG_CHAR_ADDR(2)));
             LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].palette, 0x20, 0x60);
+            LoadCompressedPalette(SelectPaletteFor(BATTLE_TERRAIN_CAVE), 0x20, 0x60);
             break;
         case MAP_BATTLE_SCENE_GYM:
             LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
@@ -889,12 +923,13 @@ void LoadBattleTextboxAndBackground(void)
     CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
     CopyBgTilemapBufferToVram(0);
     LoadCompressedPalette(gBattleTextboxPalette, 0, 0x40);
-    LoadBattleMenuWindowGfx();
     #if B_TERRAIN_BG_CHANGE == TRUE
         DrawTerrainTypeBattleBackground();
     #else
         DrawMainBattleBackground();
     #endif
+    // RogueNote: Load battle window after to ignore TOD tinting
+    LoadBattleMenuWindowGfx();
 }
 
 static void DrawLinkBattleParticipantPokeballs(u8 taskId, u8 multiplayerId, u8 bgId, u8 destX, u8 destY)
@@ -1428,10 +1463,10 @@ bool8 LoadChosenBattleElement(u8 caseId)
             {
             default:
             case MAP_BATTLE_SCENE_NORMAL:
-                LoadCompressedPalette(sBattleTerrainTable[gBattleTerrain].palette, 0x20, 0x60);
+                LoadCompressedPalette(SelectPaletteFor(gBattleTerrain), 0x20, 0x60);
                 break;
             case MAP_BATTLE_SCENE_UNDERGROUND:
-                LoadCompressedPalette(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].palette, 0x20, 0x60);
+                LoadCompressedPalette(SelectPaletteFor(BATTLE_TERRAIN_CAVE), 0x20, 0x60);
                 break;
             case MAP_BATTLE_SCENE_GYM:
                 LoadCompressedPalette(gBattleTerrainPalette_BuildingGym, 0x20, 0x60);

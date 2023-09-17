@@ -1630,6 +1630,16 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Rogue_Area_SafariZone/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_SafariZone/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_POKE_CONNECT",
+      "name": "Rogue_Interior_PokeConnect_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Rogue_Interior_PokeConnect/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_PokeConnect/map.bin"
     }
   ]
 }

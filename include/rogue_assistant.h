@@ -44,7 +44,6 @@ void Rogue_UpdateAssistantRequestState(u16 state);
 void Rogue_AssistantMainCB();
 void Rogue_AssistantOverworldCB();
 
-bool8 Rogue_IsNetMultiplayerActive();
 bool8 Rogue_IsNetMultiplayerHost();
 bool8 Rogue_IsNetMultiplayerClient();
 void Rogue_RemoveNetObjectEvents();

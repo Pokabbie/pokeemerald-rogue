@@ -9,11 +9,13 @@
 #include "event_object_movement.h"
 #include "malloc.h"
 #include "party_menu.h"
+#include "random.h"
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_query.h"
+#include "rogue_query_script.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
@@ -27,64 +29,49 @@ struct TrainerHeldItemScratch
 #endif
 };
 
-struct TrainerGeneratorScratch
+struct TrainerPartyScratch
 {
-    u16 trainerNum;
-    u8 generatorCounter;
-    u8 generatorUseCount;
-    u8 totalMonCount;
-    bool8 useFinalChampionGen : 1;
-    bool8 isSelectingAceMon : 1;
-    bool8 useAceGenerator : 1;
-    bool8 isGeneratorQueryValid : 1;
     struct TrainerHeldItemScratch heldItems;
-    struct Pokemon* partyPtr;
-    const struct RogueTrainer* trainerPtr;
-    struct RogueTrainerMonGenerator monGenerator;
+    struct Pokemon* party;
+    u16 trainerNum;
+    bool8 shouldRegenerateQuery;
+    bool8 allowItemEvos;
+    bool8 allowWeakLegends;
+    bool8 allowStrongLegends;
+    bool8 forceLegends;
+    bool8 preferStrongSpecies;
+    u8 evoLevel;
+    u8 partyCapacity;
+    u8 partyCount;
+    u8 subsetIndex;
+    u8 subsetSampleCount;
 };
-
-static EWRAM_DATA struct TrainerGeneratorScratch* sTrainerScratch = NULL;
 
 bool8 IsSpeciesLegendary(u16 species);
 
-static void BeginTrainerSpeciesQuery(u16 trainerNum, struct Pokemon* party);
-static void EndTrainerSpeciesQuery();
-static u16 NextTrainerSpecies(struct Pokemon* party);
-static void NextMonGenerator();
-static void ApplyMonGeneratorQuery(struct RogueTrainerMonGenerator* generator);
+static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 
-static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount);
-static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* outPreset);
+static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount);
+static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RogueMonPreset* outPreset);
 static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
-
-static void ReorderPartyMons(struct Pokemon *party, u8 monCount);
-
-// Manual start offsets to make it clearer which trainer nums are which trainer types
-#define TRAINER_NUM_BOSS_START              100
-#define TRAINER_NUM_BOSS_COUNT              (gRogueTrainers.bossCount)
-#define TRAINER_NUM_BOSS_END                (TRAINER_NUM_BOSS_START + TRAINER_NUM_BOSS_COUNT - 1)
-
-#define TRAINER_NUM_MINIBOSS_START          200
-#define TRAINER_NUM_MINIBOSS_COUNT          (gRogueTrainers.minibossCount)
-#define TRAINER_NUM_MINIBOSS_END            (TRAINER_NUM_MINIBOSS_START + TRAINER_NUM_MINIBOSS_COUNT - 1)
-
-#define TRAINER_NUM_ROUTE_TRAINER_START     300
-#define TRAINER_NUM_ROUTE_TRAINER_COUNT     (gRogueTrainers.routeTrainersCount)
-#define TRAINER_NUM_ROUTE_TRAINER_END       (TRAINER_NUM_ROUTE_TRAINER_START + TRAINER_NUM_ROUTE_TRAINER_COUNT - 1)
+static void ReorderPartyMons(struct TrainerPartyScratch* scratch, struct Pokemon *party, u8 monCount);
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
-    return trainerNum >= TRAINER_NUM_BOSS_START && trainerNum <= TRAINER_NUM_BOSS_END;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_ANY_MAIN_BOSS) != 0;
 }
 
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
 {
-    return trainerNum >= TRAINER_NUM_MINIBOSS_START && trainerNum <= TRAINER_NUM_MINIBOSS_END;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_MINI_BOSS) != 0;
 }
 
-bool8 Rogue_IsRouteTrainer(u16 trainerNum)
+bool8 Rogue_IsRivalTrainer(u16 trainerNum)
 {
-    return trainerNum >= TRAINER_NUM_ROUTE_TRAINER_START && trainerNum <= TRAINER_NUM_ROUTE_TRAINER_END;
+    // TODO
+    return FALSE;
 }
 
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
@@ -92,9 +79,9 @@ bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
     return Rogue_IsBossTrainer(trainerNum) || Rogue_IsMiniBossTrainer(trainerNum);
 }
 
-static bool8 HasValidAceGenerator(const struct RogueTrainer* trainer)
+bool8 Rogue_IsKeyTrainer(u16 trainerNum)
 {
-    return trainer->aceMonGenerators[0].monCount != 0;
+    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum);
 }
 
 static u8 GetTrainerLevel(u16 trainerNum)
@@ -112,63 +99,29 @@ static u8 GetTrainerLevel(u16 trainerNum)
     return Rogue_CalculateTrainerMonLvl();
 }
 
-bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr)
+const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
 {
-#ifdef ROGUE_DEBUG
-    if(trainerNum == TRAINER_ROGUE_DYNAMIC)
-    {
-        *trainerPtr = &gRogueTrainers.debugTrainers[0];
-        return TRUE;
-    }
-#endif
+    // TODO - TRAINER_ROGUE_DYNAMIC
+    AGB_ASSERT(trainerNum < gRogueTrainerCount);
+    return &gRogueTrainers[trainerNum];
+}
 
-    if(Rogue_IsBossTrainer(trainerNum))
-    {
-        *trainerPtr = &gRogueTrainers.boss[trainerNum - TRAINER_NUM_BOSS_START];
-        return TRUE;
-    }
-
-    if(Rogue_IsMiniBossTrainer(trainerNum))
-    {
-        *trainerPtr = &gRogueTrainers.miniboss[trainerNum - TRAINER_NUM_MINIBOSS_START];
-        return TRUE;
-    }
-
-    if(Rogue_IsRouteTrainer(trainerNum))
-    {
-        *trainerPtr = &gRogueTrainers.routeTrainers[trainerNum - TRAINER_NUM_ROUTE_TRAINER_START];
-        return TRUE;
-    }
-
-    return FALSE;
+struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return &gRogueTrainerMusic[trainer->musicPlayer];
 }
 
 bool8 Rogue_GetTrainerFlag(u16 trainerNum)
 {
-    const struct RogueTrainer* trainer;
-
-    if(Rogue_TryGetTrainer(trainerNum, &trainer))
-    {
-        return FlagGet(TRAINER_FLAGS_START + trainerNum);
-    }
-
-    // Always return true by default
-    return TRUE;
+    return FlagGet(TRAINER_FLAGS_START + trainerNum);
 }
 
 u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
 {
-    const struct RogueTrainer* trainer;
-    if(Rogue_TryGetTrainer(trainerNum, &trainer))
-    {
-        return trainer->objectEventGfx;
-    }
-
-    // Fallback in event of error
-    return OBJ_EVENT_GFX_AZURILL_DOLL;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return trainer->objectEventGfx;
 }
-
-extern const u8* Rogue_Battle_Trainer;
 
 u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject)
 {
@@ -177,15 +130,15 @@ u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject)
     // TODO - Could check the script?? (Was having issues though)
 
     // Grab the trainer which matches the gfx
-    for(i = 0; i < gRogueTrainers.routeTrainersCount; ++i)
+    for(i = 0; i < gRogueTrainerCount; ++i)
     {
-        if(gRogueTrainers.routeTrainers[i].objectEventGfx == curObject->graphicsId)
+        if(curObject->graphicsId == Rogue_GetTrainerObjectEventGfx(i))
         {
-            return TRAINER_NUM_ROUTE_TRAINER_START + i;
+            return i;
         }
     }
 
-    return TRAINER_NONE;
+    return gRogueTrainerCount;
 }
 
 u16 Rogue_GetTrainerNumFromLastInteracted()
@@ -203,10 +156,10 @@ u16 Rogue_GetTrainerNumFromLastInteracted()
 
 u8 Rogue_GetTrainerWeather(u16 trainerNum)
 {
-    const struct RogueTrainer* trainer;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
     u8 weatherType = WEATHER_NONE;
 
-    if(Rogue_IsAnyBossTrainer(trainerNum) && Rogue_TryGetTrainer(trainerNum, &trainer))
+    if(Rogue_IsAnyBossTrainer(trainerNum) && trainer != NULL)
     {
         switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
         {
@@ -232,7 +185,7 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
 
     if(weatherType == WEATHER_DEFAULT)
     {
-        weatherType = gRogueTypeWeatherTable[trainer->monGenerators[0].incTypes[0]];
+        weatherType = gRogueTypeWeatherTable[trainer->typeAssignment];
     }
 
     return weatherType;
@@ -294,14 +247,25 @@ u8 Rogue_CalculateBossMonLvl()
 
 u8 Rogue_GetTrainerTypeAssignment(u16 trainerNum)
 {
-    const struct RogueTrainer* trainer;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return trainer->typeAssignment;
+}
 
-    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum)
+{
+    if(Rogue_IsBossTrainer(trainerNum))
     {
-        return trainer->monGenerators[0].incTypes[0];
+        // We're gonna always use the trainer's assigned type to prevent dupes
+        // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
+        u8 type = Rogue_GetTrainerTypeAssignment(trainerNum);
+
+        // None type trainers are unqiue, so we don't care about the type repeat
+        if(type != TYPE_NONE)
+            return type;
     }
 
-    return TYPE_NONE;
+    // Just avoid repeating this trainer
+    return NUMBER_OF_MON_TYPES + trainerNum;
 }
 
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
@@ -310,13 +274,13 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 }
 
 
-static u16 GetTrainerHistoryKey(u16 trainerNum, const struct RogueTrainer* trainerPtr)
+static u16 GetTrainerHistoryKey(u16 trainerNum)
 {
     if(Rogue_IsBossTrainer(trainerNum))
     {
         // We're gonna always use the trainer's assigned type to prevent dupes
         // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-        u16 type = trainerPtr->monGenerators[0].incTypes[0];
+        u16 type = Rogue_GetTrainerTypeAssignment(trainerNum);
 
         // None type trainers are unqiue, so we don't care about the type repeat
         if(type == TYPE_NONE)
@@ -329,177 +293,191 @@ static u16 GetTrainerHistoryKey(u16 trainerNum, const struct RogueTrainer* train
     return trainerNum;
 }
 
-static bool8 IsTrainerEnabled(u16 trainerNum, const struct RogueTrainer* trainer, u16* historyBuffer, u16 historyBufferCount)
+static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
 {
-    u16 includeFlags = TRAINER_FLAG_NONE;
-    u16 excludeFlags = TRAINER_FLAG_NONE;
-    
+    *includeFlags = TRAINER_FLAG_NONE;
+    *excludeFlags = TRAINER_FLAG_NONE;
+
+    // TODO - Rework region flags
+    if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
+        *includeFlags |= TRAINER_FLAG_REGION_KANTO;
+
+    if(FlagGet(FLAG_ROGUE_JOHTO_BOSSES))
+        *includeFlags |= TRAINER_FLAG_REGION_JOHTO;
+
+    if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
+        *includeFlags |= TRAINER_FLAG_REGION_HOENN;
+
     if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+        *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
+
+    // TODO - Remove this temp force behaviour
+    if(*includeFlags == TRAINER_FLAG_NONE || TRUE)
     {
-        if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
-            includeFlags |= TRAINER_FLAG_HOENN;
-
-        if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
-            includeFlags |= TRAINER_FLAG_KANTO;
-
-        if(FlagGet(FLAG_ROGUE_JOHTO_BOSSES))
-            includeFlags |= TRAINER_FLAG_JOHTO;
-
-        // Use the custom fallback set >:3
-        if(includeFlags == TRAINER_FLAG_NONE)
-        {
-            includeFlags |= TRAINER_FLAG_FALLBACK_REGION;
-        }
-
-        if(Rogue_IsBossTrainer(trainerNum))
-        {
-            if(gRogueRun.currentDifficulty < 8)
-                excludeFlags |= TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-            else if(gRogueRun.currentDifficulty < 12)
-                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_PRE_CHAMP | TRAINER_FLAG_FINAL_CHAMP;
-            else if(gRogueRun.currentDifficulty < 13)
-                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_FINAL_CHAMP;
-            else if(gRogueRun.currentDifficulty < 14)
-                excludeFlags |= TRAINER_FLAG_GYM | TRAINER_FLAG_ELITE | TRAINER_FLAG_PRE_CHAMP;
-        }
+        // Safe fallback
+        *includeFlags = TRAINER_FLAG_REGION_ANY;
     }
-    else
-    {
-        excludeFlags |= TRAINER_FLAG_RAINBOW_EXCLUDE;
-
-        if(Rogue_IsBossTrainer(trainerNum))
-        {
-            if(gRogueRun.currentDifficulty >= 13)
-                includeFlags |= TRAINER_FLAG_RAINBOW_CHAMP;
-            else
-            {
-                // Don't use special trainers for rainbow mode
-                if(trainer->monGenerators[0].incTypes[0] == TYPE_NONE)
-                    return FALSE;
-            }
-        }
-    }
-
-    if(excludeFlags != TRAINER_FLAG_NONE && (trainer->trainerFlags & excludeFlags) != 0)
-    {
-        return FALSE;
-    }
-
-    if(includeFlags == TRAINER_FLAG_NONE || (trainer->trainerFlags & includeFlags) != 0)
-    {
-        if(!HistoryBufferContains(historyBuffer, historyBufferCount, GetTrainerHistoryKey(trainerNum, trainer)))
-        {
-            return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
-static u16 NextTrainerNum(u16 startNum, u16 endNum, u16* historyBuffer, u16 historyBufferCount)
-{
-    u16 trainerNum;
-    u16 randIdx;
-    u16 enabledTrainerCount;
-    const struct RogueTrainer* trainerPtr;
-
-    enabledTrainerCount = 0;
-
-    for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
-    {
-        if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
-        {
-            ++enabledTrainerCount;
-        }
-    }
-
-    randIdx = RogueRandomRange(enabledTrainerCount, OVERWORLD_FLAG);
-    enabledTrainerCount = 0;
-
-    for(trainerNum = startNum; trainerNum <= endNum; ++trainerNum)
-    {
-        if(Rogue_TryGetTrainer(trainerNum, &trainerPtr) && IsTrainerEnabled(trainerNum, trainerPtr, historyBuffer, historyBufferCount))
-        {
-            if(enabledTrainerCount == randIdx)
-                return trainerNum;
-            else
-                ++enabledTrainerCount;
-        }
-    }
-
-    AGB_ASSERT(trainerNum >= endNum);
-    return endNum;
 }
 
 u16 Rogue_NextBossTrainerId()
 {
-    const struct RogueTrainer* trainerPtr;
-    u16 trainerNum = NextTrainerNum(TRAINER_NUM_BOSS_START, TRAINER_NUM_BOSS_END, &gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+    u8 i;
+    u32 includeFlags;
+    u32 excludeFlags;
+    u16 trainerNum = gRogueTrainerCount;
 
-    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    RogueTrainerQuery_Begin();
+
+    while(trainerNum == gRogueTrainerCount)
     {
-        HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
+        // Populate query
+        //
+        RogueTrainerQuery_Reset(QUERY_FUNC_INCLUDE);
+
+        // Only include trainers we want
+        includeFlags = TRAINER_FLAG_NONE;
+        if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+            includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            includeFlags |= TRAINER_FLAG_CLASS_ELITE;
+        else
+            includeFlags |= TRAINER_FLAG_CLASS_GYM;
+
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
+
+        GetGlobalFilterFlags(&includeFlags, &excludeFlags);
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, excludeFlags);
+
+        // Exclude any types we've already encountered
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.bossHistoryBuffer); ++i)
+        {
+            if(gRogueRun.bossHistoryBuffer[i] != INVALID_HISTORY_ENTRY)
+                RogueTrainerQuery_IsOfTypeGroup(QUERY_FUNC_EXCLUDE, gRogueRun.bossHistoryBuffer[i]);
+        }
+
+        // Select random
+        //
+        RogueWeightQuery_Begin();
+        {
+            RogueWeightQuery_FillWeights(1);
+
+            if(RogueWeightQuery_HasAnyWeights())
+            {
+                trainerNum = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+            }
+            else
+            {
+                // We've exhausted the options, so wipe and try again
+                memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+            }
+        }
+        RogueWeightQuery_End();
     }
 
+    RogueTrainerQuery_End();
+
+    HistoryBufferPush(&gRogueRun.bossHistoryBuffer[0], ARRAY_COUNT(gRogueRun.bossHistoryBuffer), Rogue_GetTrainerTypeGroupId(trainerNum));
     return trainerNum;
 }
 
 u16 Rogue_NextMinibossTrainerId()
 {
-    const struct RogueTrainer* trainerPtr;
-    u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
-
-    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
-    {
-        HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum, trainerPtr));
-    }
-
-    return trainerNum;
+    // TODO
+    return 0;
+    //u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
+    //const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+//
+    //if(trainer != NULL)
+    //{
+    //    HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum));
+    //}
+//
+    //return trainerNum;
 }
 
 u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity)
 {
-    const struct RogueTrainer* trainerPtr;
-    u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
-
-    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
-    {
-        HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum, trainerPtr));
-    }
-
-    return trainerNum;
+    // TODO
+    return 0;
+    //u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
+    //const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+//
+    //if(trainer != NULL)
+    //{
+    //    HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum));
+    //}
+//
+    //return trainerNum;
 }
 
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 {
-    const struct RogueTrainer* trainerPtr;
-    u8 type = TYPE_NORMAL;
-
-    if(Rogue_TryGetTrainer(trainerNum, &trainerPtr))
-    {
-        type = trainerPtr->monGenerators[0].incTypes[0];
-    }
-
+    u8 type = Rogue_GetTrainerTypeAssignment(trainerNum);
     *mapGroup = gRogueTypeToEliteRoom[type].group;
     *mapNum = gRogueTypeToEliteRoom[type].num;
 }
 
-u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
+static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScratch* scratch)
 {
-    u8 i;
-    u8 monCount;
-    u8 level;
-    u8 fixedIV;
-    u16 species;
-    const struct RogueTrainer* trainerPtr;
-
-    if(!Rogue_TryGetTrainer(trainerNum, &trainerPtr))
+    // Configure evos, strong presets and legend settings
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
-        // No mons??? D:
-        return 0;
-    }
+    case DIFFICULTY_LEVEL_EASY:
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            scratch->allowItemEvos = TRUE;
+            scratch->allowWeakLegends = TRUE;
+        }
+        break;
 
-    level = GetTrainerLevel(trainerNum);
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(gRogueRun.currentDifficulty >= 8)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 7)
+        {
+            scratch->allowWeakLegends = TRUE;
+        }
+        if(gRogueRun.currentDifficulty >= 4)
+        {
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(gRogueRun.currentDifficulty >= 5)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 2)
+        {
+            scratch->allowWeakLegends = TRUE;
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        if(gRogueRun.currentDifficulty >= 2)
+        {
+            scratch->allowStrongLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= 1)
+        {
+            scratch->allowWeakLegends = TRUE;
+            scratch->allowItemEvos = TRUE;
+        }
+        break;
+    }
+}
+
+static u8 CalculateMonFixedIV(u16 trainerNum)
+{
+    u8 fixedIV;
 
     switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
@@ -508,7 +486,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         break;
 
     case DIFFICULTY_LEVEL_MEDIUM:
-        if(Rogue_IsBossTrainer(trainerNum))
+        if(Rogue_IsKeyTrainer(trainerNum))
         {
             if(gRogueRun.currentDifficulty >= 6)
                 fixedIV = 16;
@@ -528,7 +506,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         break;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(Rogue_IsBossTrainer(trainerNum))
+        if(Rogue_IsKeyTrainer(trainerNum))
         {
             if(gRogueRun.currentDifficulty >= 12)
                 fixedIV = 31;
@@ -550,10 +528,17 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
-        if(Rogue_IsBossTrainer(trainerNum))
+        if(Rogue_IsKeyTrainer(trainerNum))
         {
-            // Bosses are cracked from the get go
-            fixedIV = 31;
+            // Bosses are cracked a LOT sooner
+            if(gRogueRun.currentDifficulty >= 5)
+                fixedIV = 31;
+            else if(gRogueRun.currentDifficulty >= 3)
+                fixedIV = 21;
+            else if(gRogueRun.currentDifficulty >= 1)
+                fixedIV = 19;
+            else
+                fixedIV = 15;
         }
         else
         {
@@ -574,108 +559,146 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         break;
     }
 
-    // Decide on mon count
+    return fixedIV;
+}
+
+static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
+{
+    u8 monCount;
+
+    if(Rogue_IsAnyBossTrainer(trainerNum))
     {
-        if(Rogue_IsAnyBossTrainer(trainerNum))
+        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            monCount = 6;
+        else
         {
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                monCount = 6;
-            else
+            switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
             {
-                switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
-                {
-                case DIFFICULTY_LEVEL_EASY:
-                case DIFFICULTY_LEVEL_MEDIUM:
-                    if(gRogueRun.currentDifficulty == 0)
-                        monCount = 3;
-                    else if(gRogueRun.currentDifficulty <= 2)
-                        monCount = 4;
-                    else if(gRogueRun.currentDifficulty <= 5)
-                        monCount = 5;
-                    else
-                        monCount = 6;
-                    break;
-                
-                case DIFFICULTY_LEVEL_HARD:
-                    if(gRogueRun.currentDifficulty == 0)
-                        monCount = 4;
-                    else if(gRogueRun.currentDifficulty == 1)
-                        monCount = 5;
-                    else
-                        monCount = 6;
-                    break;
-                
-                case DIFFICULTY_LEVEL_BRUTAL:
+            case DIFFICULTY_LEVEL_EASY:
+            case DIFFICULTY_LEVEL_MEDIUM:
+                if(gRogueRun.currentDifficulty == 0)
+                    monCount = 3;
+                else if(gRogueRun.currentDifficulty <= 2)
+                    monCount = 4;
+                else if(gRogueRun.currentDifficulty <= 5)
+                    monCount = 5;
+                else
                     monCount = 6;
-                    break;
-                }
+                break;
+            
+            case DIFFICULTY_LEVEL_HARD:
+                if(gRogueRun.currentDifficulty == 0)
+                    monCount = 4;
+                else if(gRogueRun.currentDifficulty == 1)
+                    monCount = 5;
+                else
+                    monCount = 6;
+                break;
+            
+            case DIFFICULTY_LEVEL_BRUTAL:
+                monCount = 6;
+                break;
             }
+        }
+    }
+    else
+    {
+        u8 minMonCount;
+        u8 maxMonCount;
+        // TODO - Exp trainer support
+
+        if(gRogueRun.currentDifficulty <= 1)
+        {
+            minMonCount = 1;
+            maxMonCount = 2;
+        }
+        else if(gRogueRun.currentDifficulty <= 2)
+        {
+            minMonCount = 1;
+            maxMonCount = 3;
+        }
+        else if(gRogueRun.currentDifficulty <= 11)
+        {
+            minMonCount = 2;
+            maxMonCount = 4;
         }
         else
         {
-            u8 minMonCount;
-            u8 maxMonCount;
-            // TODO - Exp trainer support
-
-            if(gRogueRun.currentDifficulty <= 1)
-            {
-                minMonCount = 1;
-                maxMonCount = 2;
-            }
-            else if(gRogueRun.currentDifficulty <= 2)
-            {
-                minMonCount = 1;
-                maxMonCount = 3;
-            }
-            else if(gRogueRun.currentDifficulty <= 11)
-            {
-                minMonCount = 2;
-                maxMonCount = 4;
-            }
-            else
-            {
-                minMonCount = 3;
-                maxMonCount = 4;
-            }
-
-            monCount = minMonCount + RogueRandomRange(maxMonCount - minMonCount, FLAG_SET_SEED_TRAINERS);
+            minMonCount = 3;
+            maxMonCount = 4;
         }
 
-        if(trainerPtr->monGenerators->generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
-        {
-            monCount = gPlayerPartyCount;
-        }
-
-        monCount = min(monCount, monCapacity);
+        monCount = minMonCount + RogueRandomRange(maxMonCount - minMonCount, FLAG_SET_SEED_TRAINERS);
     }
 
+    //if(trainerPtr->monGenerators->generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
+    //{
+    //    monCount = gPlayerPartyCount;
+    //}
+
+    monCount = min(monCount, monCapacity);
+    return monCount;
+}
+
+u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
+{
+    u8 i;
+    u8 monCount;
+    u8 level;
+    u8 fixedIV;
+    u16 species;
+    struct TrainerPartyScratch scratch;
+
+    level = GetTrainerLevel(trainerNum);
+    fixedIV = CalculateMonFixedIV(trainerNum);
+    monCount = CalculatePartyMonCount(trainerNum, monCapacity);
+
+    // Fill defaults before we configure the scratch
+    scratch.trainerNum = trainerNum;
+    scratch.party = party;
+    scratch.partyCapacity = monCapacity;
+    scratch.partyCount = 0;
+    scratch.shouldRegenerateQuery = TRUE;
+    scratch.subsetIndex = 0;
+    scratch.subsetSampleCount = 0;
+    scratch.forceLegends = FALSE;
+    scratch.evoLevel = level;
+    scratch.allowItemEvos = FALSE;
+    scratch.allowStrongLegends = FALSE;
+    scratch.allowWeakLegends = FALSE;
+    scratch.preferStrongSpecies = FALSE;
+
+    ConfigurePartyScratchSettings(trainerNum, &scratch);
+
     // Generate team
-    BeginTrainerSpeciesQuery(trainerNum, party);
     {
-        u8 monIdx;
         struct RogueMonPreset preset;
+
+        RogueMonQuery_Begin();
 
         for(i = 0; i < monCount; ++i)
         {
-            monIdx = sTrainerScratch->totalMonCount;
-            species = NextTrainerSpecies(party);
+            species = SampleNextSpecies(&scratch);
 
 #if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-            CreateMon(&party[monIdx], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #else
-            CreateMon(&party[monIdx], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 #endif
 
-            if(UseCompetitiveMoveset(monIdx, monCount) && SelectNextPreset(species, monIdx, &preset))
+            if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
                 ModifyTrainerMonPreset(&preset);
-                Rogue_ApplyMonPreset(&party[monIdx], level, &preset);
+                Rogue_ApplyMonPreset(&party[i], level, &preset);
             }
+
+            ++scratch.partyCount;
         }
 
-        ReorderPartyMons(party, monCount);
+        RogueMonQuery_End();
+
+        ReorderPartyMons(&scratch, party, monCount);
     }
-    EndTrainerSpeciesQuery();
 
     // Debug steal team
 #if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
@@ -703,28 +726,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     return monCount;
 }
 
-static void BeginTrainerSpeciesQuery(u16 trainerNum, struct Pokemon* party)
-{
-    AGB_ASSERT(sTrainerScratch == NULL);
-    sTrainerScratch = AllocZeroed(sizeof(struct TrainerGeneratorScratch));
-
-    sTrainerScratch->trainerNum = trainerNum;
-    sTrainerScratch->partyPtr = party;
-    sTrainerScratch->useFinalChampionGen = Rogue_IsBossTrainer(trainerNum) && gRogueRun.currentDifficulty >= 13;
-    Rogue_TryGetTrainer(trainerNum, &sTrainerScratch->trainerPtr);
-
-    NextMonGenerator();
-}
-
-static void EndTrainerSpeciesQuery()
-{
-    AGB_ASSERT(sTrainerScratch != NULL);
-    free(sTrainerScratch);
-    sTrainerScratch = NULL;
-}
-
-
-static u16 GetDuplicateCheckSpecies(u16 species)
+static u16 GetSimilarCheckSpecies(u16 species)
 {
 #ifdef ROGUE_EXPANSION
     u16 baseSpecies = GET_BASE_SPECIES_ID(species);
@@ -779,16 +781,21 @@ static u16 GetDuplicateCheckSpecies(u16 species)
     return species;
 }
 
-bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
+bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species)
 {
     u8 i;
     u16 s;
 
-    species = GetDuplicateCheckSpecies(species);
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
 
     for(i = 0; i < partyCount; ++i)
     {
-        s = GetDuplicateCheckSpecies(GetMonData(&party[i], MON_DATA_SPECIES));
+        s = GetMonData(&party[i], MON_DATA_SPECIES);
+#ifdef ROGUE_EXPANSION
+        s = GET_BASE_SPECIES_ID(s);
+#endif
 
         if(s == species)
             return TRUE;
@@ -797,471 +804,203 @@ bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species)
     return FALSE;
 }
 
-static u16 NextTrainerSpecies(struct Pokemon* party)
+bool8 PartyContainsSimilarSpecies(struct Pokemon *party, u8 partyCount, u16 species)
 {
-    u16 species = SPECIES_NONE;
+    u8 i;
+    u16 s;
 
-    AGB_ASSERT(sTrainerScratch != NULL);
+    species = GetSimilarCheckSpecies(species);
 
-    while(species == SPECIES_NONE)
+    for(i = 0; i < partyCount; ++i)
     {
-        ++sTrainerScratch->generatorUseCount;
+        s = GetSimilarCheckSpecies(GetMonData(&party[i], MON_DATA_SPECIES));
 
-        // Ensure we have a valid generator
-        if(sTrainerScratch->generatorUseCount >= sTrainerScratch->monGenerator.monCount)
-            NextMonGenerator();
+        if(s == species)
+            return TRUE;
+    }
 
-        if(Rogue_IsBossTrainer(sTrainerScratch->trainerNum))
+    return FALSE;
+}
+
+static bool8 FilterOutDuplicateMons(u16 elem, void* usrData)
+{
+    struct TrainerPartyScratch* scratch = (struct TrainerPartyScratch*)usrData;
+    return !PartyContainsSimilarSpecies(scratch->party, scratch->partyCount, elem);
+}
+
+static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
+{
+    u16 species;
+    struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+
+    if(scratch->shouldRegenerateQuery)
+    {
+        bool8 customScript = FALSE;
+        struct RogueTeamGeneratorSubset const* currentSubset = NULL;
+
+        scratch->shouldRegenerateQuery = FALSE;
+
+        if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
         {
-            // Enter Ace mon selection mode for last prechamp mon and last 2 final champ mons
-            if((gRogueRun.currentDifficulty == 12 && sTrainerScratch->totalMonCount == 5) || (gRogueRun.currentDifficulty >= 13 && sTrainerScratch->totalMonCount == 4))
-            {
-                sTrainerScratch->isSelectingAceMon = TRUE;
-
-                // Reset, so we will use the starting ace generator
-                if(HasValidAceGenerator(sTrainerScratch->trainerPtr))
-                {
-                    sTrainerScratch->useAceGenerator = TRUE;
-                    sTrainerScratch->generatorCounter = 0;
-                }
-
-                NextMonGenerator();
-            }
+            currentSubset = &trainer->teamGenerator.subsets[scratch->subsetIndex];
         }
 
-        // Recreate query from current generator
-        if(!sTrainerScratch->isGeneratorQueryValid)
+        // Execute initialisation
+        if(trainer->teamGenerator.queryScriptOverride != NULL)
         {
-            sTrainerScratch->isGeneratorQueryValid = TRUE;
-            ApplyMonGeneratorQuery(&sTrainerScratch->monGenerator);
+            struct QueryScriptContext scriptContext;
+
+            // Start with empty, expect override script to set valid species
+            RogueMonQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+            RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptOverride);
+            RogueQueryScript_Execute(&scriptContext);
+            customScript = TRUE;
+        }
+        else
+        {
+            RogueMonQuery_IsSpeciesActive();
         }
 
-    
-        // Apply mirrorred mon
-        if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_ANY)
+        if(currentSubset != NULL)
         {
-            species = GetMonData(&gPlayerParty[sTrainerScratch->totalMonCount], MON_DATA_SPECIES);
-            break;
+            RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
         }
-        // Attempt to select a random mon from query
-        else 
+
+        // Transform and evolve mons to valid evos (Don't do this for custom scripts for now, as our only use case is glitch mode)
+        if(!customScript)
         {
-            u8 tryCount;
-            u16 randIdx;
-            u16 queryCount = RogueQuery_BufferSize();
+            RogueMonQuery_TransformIntoEggSpecies();
+            RogueMonQuery_TransformIntoEvos(scratch->evoLevel, scratch->allowItemEvos, FALSE);
+        }
 
-            if(queryCount == 0)
-            {
-                // Force us to move to next generator
-                sTrainerScratch->generatorUseCount = 100;
-                continue;
-            }
+        if(scratch->preferStrongSpecies)
+        {
+            RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
+        }
 
-            for(tryCount = 0; tryCount < 10; ++tryCount)
-            {
-                randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_TRAINERS);
-                species = RogueQuery_BufferPtr()[randIdx];
+        if(scratch->forceLegends)
+        {
+            RogueMonQuery_IsLegendary(QUERY_FUNC_INCLUDE);
+        }
+        else if(!scratch->allowWeakLegends && !scratch->allowWeakLegends)
+        {
+            RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+        }
+        // TODO - Filter specifically strong or weak legends
 
-                // Keep retrying if we are getting duplicates
-                if(!PartyContainsSpecies(party, sTrainerScratch->totalMonCount, species))
-                {
-                    // Probably don't need this?
-                    RogueQuery_PopCollapsedIndex(randIdx);
-                    break;
-                }
-            }
+        if(currentSubset != NULL)
+        {
+            RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
+            RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, currentSubset->excludedTypeMask);
+        }
 
-            if(tryCount == 10)
-            {
-                // Force us to move to next generator
-                species = SPECIES_NONE;
-                sTrainerScratch->generatorUseCount = 100;
-            }
+        // Execute post process script
+        if(trainer->teamGenerator.queryScriptPost != NULL)
+        {
+            struct QueryScriptContext scriptContext;
+            RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptPost);
+            RogueQueryScript_Execute(&scriptContext);
         }
     }
 
-    if(species != SPECIES_NONE)
+    // Remove any mons already in the party
+    RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+
+    species = SPECIES_NONE;
+
+    RogueWeightQuery_Begin();
+
+    if(trainer->teamGenerator.weightScript != NULL)
     {
-        // Increment generation stats
-        ++sTrainerScratch->totalMonCount;
+        struct QueryScriptContext context;
+        RogueQueryScript_SetupScript(&context, trainer->teamGenerator.weightScript);
+        RogueQueryScript_SetupVarsForParty(&context, scratch->party, scratch->partyCount);
+        RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &context);
     }
+    else
+    {
+        RogueWeightQuery_FillWeights(1);
+    }
+
+    if(RogueWeightQuery_HasAnyWeights())
+    {
+        species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+    }
+
+    RogueWeightQuery_End();
 
     return species;
 }
 
-static u8 SelectRandomType()
+static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 {
-    u8 type;
+    u16 species;
+    struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
 
     do
     {
-        type = RogueRandomRange(NUMBER_OF_MON_TYPES, FLAG_SET_SEED_TRAINERS);
-    }
-    while(type == TYPE_MYSTERY);
-
-    return type;
-}
-
-static void NextMonGenerator()
-{
-    bool8 useFallbackGen;
-    u16 genIdx;
-
-    AGB_ASSERT(sTrainerScratch != NULL);
-
-    useFallbackGen = FALSE;
-    genIdx = sTrainerScratch->generatorCounter++;
-
-    if(sTrainerScratch->trainerPtr)
-    {
-        if(genIdx < ARRAY_COUNT(sTrainerScratch->trainerPtr->monGenerators) && !sTrainerScratch->useAceGenerator)
+        // If we have valid subsets remaining and we're a boss, force the final mons to be legends
+        if(scratch->subsetIndex < trainer->teamGenerator.subsetCount && Rogue_IsBossTrainer(scratch->trainerNum))
         {
-            memcpy(&sTrainerScratch->monGenerator, &sTrainerScratch->trainerPtr->monGenerators[genIdx], sizeof(sTrainerScratch->monGenerator));
-
-            // Modify generator
-            if(sTrainerScratch->isSelectingAceMon)
+            if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 4)
             {
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY;
+                scratch->forceLegends = TRUE;
+                scratch->shouldRegenerateQuery = TRUE;
             }
-        }
-        else if(genIdx < ARRAY_COUNT(sTrainerScratch->trainerPtr->aceMonGenerators))
-        {
-            memcpy(&sTrainerScratch->monGenerator, &sTrainerScratch->trainerPtr->aceMonGenerators[genIdx], sizeof(sTrainerScratch->monGenerator));
+            else if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 5)
+            {
+                scratch->forceLegends = TRUE;
+                scratch->shouldRegenerateQuery = TRUE;
+            }
         }
         else
         {
-            useFallbackGen = TRUE;
-        }
-    }
-    else
-    {
-        useFallbackGen = TRUE;
-    }
-
-    //TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE
-
-    // Fallback generator is simple, just select random type
-    if(useFallbackGen)
-    {
-        memset(&sTrainerScratch->monGenerator, 0, sizeof(&sTrainerScratch->monGenerator));
-
-        sTrainerScratch->monGenerator.monCount = 6;
-        sTrainerScratch->monGenerator.incTypes[0] = SelectRandomType();
-        sTrainerScratch->monGenerator.incTypes[1] = TYPE_NONE;
-
-        sTrainerScratch->monGenerator.excTypes[0] = TYPE_NONE;
-    }
-
-    // Modify generator
-    sTrainerScratch->monGenerator.targetLevel = GetTrainerLevel(sTrainerScratch->trainerNum);
-
-    if(sTrainerScratch->useFinalChampionGen)
-    {
-        sTrainerScratch->useFinalChampionGen = FALSE;
-        sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE;
-
-        // reset generator count so we will use this generator again once we've reached the limit for this generator
-        sTrainerScratch->generatorCounter--;
-    }
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        sTrainerScratch->monGenerator.generatorFlags |= 
-            TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY | 
-            TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY |
-            TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
-    }
-
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
-    {
-    case DIFFICULTY_LEVEL_EASY:
-        if(gRogueRun.currentDifficulty >= 8)
-            sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
-
-        if(gRogueRun.currentDifficulty >= 8)
-            sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        break;
-
-    case DIFFICULTY_LEVEL_MEDIUM:
-            if(gRogueRun.currentDifficulty >= 8)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
-            else if(gRogueRun.currentDifficulty >= 7)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
-
-            if(gRogueRun.currentDifficulty >= 8)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
-
-            if(gRogueRun.currentDifficulty >= 4)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        break;
-
-    case DIFFICULTY_LEVEL_HARD:
-            if(gRogueRun.currentDifficulty >= 5)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
-            else if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
-
-            if(gRogueRun.currentDifficulty >= 5)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
-
-            if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        break;
-
-    case DIFFICULTY_LEVEL_BRUTAL:
-            if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY;
-            else if(gRogueRun.currentDifficulty >= 1)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
-
-            if(gRogueRun.currentDifficulty >= 2)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS;
-
-            if(gRogueRun.currentDifficulty >= 1)
-                sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS;
-        break;
-    }
-
-    if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY)
-    {
-        // Make sure we at least allow weak legendaries if we're legendary only
-        if(!(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY) && !(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY))
-            sTrainerScratch->monGenerator.generatorFlags |= TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY;
-    }
-
-    // Reset generator stats
-    sTrainerScratch->generatorUseCount = 0;
-    sTrainerScratch->isGeneratorQueryValid = FALSE;
-}
-
-static void AppendWeakTypes(u8 baseType, u8* typesBuffer, u8* typeCount)
-{
-    switch(baseType)
-    {
-        case TYPE_NORMAL:
-            typesBuffer[(*typeCount)++] = TYPE_FIGHTING;
-            break;
-        case TYPE_FIGHTING:
-            typesBuffer[(*typeCount)++] = TYPE_FLYING;
-            typesBuffer[(*typeCount)++] = TYPE_PSYCHIC;
-            break;
-        case TYPE_FLYING:
-            typesBuffer[(*typeCount)++] = TYPE_ELECTRIC;
-            typesBuffer[(*typeCount)++] = TYPE_ROCK;
-            typesBuffer[(*typeCount)++] = TYPE_ICE;
-            break;
-        case TYPE_POISON:
-            typesBuffer[(*typeCount)++] = TYPE_GROUND;
-            typesBuffer[(*typeCount)++] = TYPE_PSYCHIC;
-            break;
-        case TYPE_GROUND:
-            typesBuffer[(*typeCount)++] = TYPE_WATER;
-            typesBuffer[(*typeCount)++] = TYPE_GRASS;
-            break;
-        case TYPE_ROCK:
-            typesBuffer[(*typeCount)++] = TYPE_FIGHTING;
-            typesBuffer[(*typeCount)++] = TYPE_GRASS;
-            typesBuffer[(*typeCount)++] = TYPE_WATER;
-            break;
-        case TYPE_BUG:
-            typesBuffer[(*typeCount)++] = TYPE_FIRE;
-            typesBuffer[(*typeCount)++] = TYPE_FLYING;
-            typesBuffer[(*typeCount)++] = TYPE_ROCK;
-            break;
-        case TYPE_GHOST:
-            typesBuffer[(*typeCount)++] = TYPE_DARK;
-            break;
-        case TYPE_STEEL:
-            typesBuffer[(*typeCount)++] = TYPE_GROUND;
-            typesBuffer[(*typeCount)++] = TYPE_FIRE;
-            typesBuffer[(*typeCount)++] = TYPE_FIGHTING;
-            break;
-        case TYPE_FIRE:
-            typesBuffer[(*typeCount)++] = TYPE_WATER;
-            typesBuffer[(*typeCount)++] = TYPE_GROUND;
-            typesBuffer[(*typeCount)++] = TYPE_ROCK;
-            break;
-        case TYPE_WATER:
-            typesBuffer[(*typeCount)++] = TYPE_ELECTRIC;
-            typesBuffer[(*typeCount)++] = TYPE_GRASS;
-            break;
-        case TYPE_GRASS:
-            typesBuffer[(*typeCount)++] = TYPE_FIRE;
-            typesBuffer[(*typeCount)++] = TYPE_FLYING;
-            typesBuffer[(*typeCount)++] = TYPE_POISON;
-            break;
-        case TYPE_ELECTRIC:
-            typesBuffer[(*typeCount)++] = TYPE_GROUND;
-            break;
-        case TYPE_PSYCHIC:
-            typesBuffer[(*typeCount)++] = TYPE_GHOST;
-            typesBuffer[(*typeCount)++] = TYPE_BUG;
-            typesBuffer[(*typeCount)++] = TYPE_DARK;
-            break;
-        case TYPE_ICE:
-            typesBuffer[(*typeCount)++] = TYPE_ROCK;
-            typesBuffer[(*typeCount)++] = TYPE_STEEL;
-            typesBuffer[(*typeCount)++] = TYPE_FIGHTING;
-            break;
-        case TYPE_DRAGON:
-            typesBuffer[(*typeCount)++] = TYPE_DRAGON;
-            typesBuffer[(*typeCount)++] = TYPE_ICE;
-#ifdef ROGUE_EXPANSION
-            typesBuffer[(*typeCount)++] = TYPE_FAIRY;
-#endif
-            break;
-        case TYPE_DARK:
-            typesBuffer[(*typeCount)++] = TYPE_FIGHTING;
-            typesBuffer[(*typeCount)++] = TYPE_BUG;
-            break;
-#ifdef ROGUE_EXPANSION
-        case TYPE_FAIRY:
-            typesBuffer[(*typeCount)++] = TYPE_POISON;
-            typesBuffer[(*typeCount)++] = TYPE_STEEL;
-            break;
-#endif
-    };
-}
-
-static void ApplyMonGeneratorQuery(struct RogueTrainerMonGenerator* generator)
-{
-    // TODO - Support custom queries
-
-    // Early out if we are mirroring
-    if(generator->generatorFlags & (TRAINER_GENERATOR_FLAG_MIRROR_ANY))
-    {
-        sTrainerScratch->isGeneratorQueryValid = FALSE;
-        return;
-    }
-
-    // Only valid for this run
-    if(generator->generatorFlags & (TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE | TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE))
-        sTrainerScratch->isGeneratorQueryValid = FALSE;
-
-    RogueQuery_Clear();
-    RogueQuery_SpeciesExcludeCommon();
-
-    RogueQuery_SpeciesAlternateForms(TRUE);
-    RogueQuery_Exclude(SPECIES_UNOWN);
-    
-
-    if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY)
-        RogueQuery_SpeciesIsLegendary();
-    
-    if(!(generator->generatorFlags & TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY))
-        RogueQuery_SpeciesIsNotStrongLegendary();
-
-    if(!(generator->generatorFlags & TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY))
-        RogueQuery_SpeciesIsNotWeakLegendary();
-
-
-    RogueQuery_TransformToEggSpecies();
-    RogueQuery_EvolveSpecies(generator->targetLevel, (generator->generatorFlags & TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS));
-    
-    // Apply alternate forms a 2nd time before we start filting by type
-    RogueQuery_SpeciesAlternateForms(TRUE);
-
-    if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE)
-    {
-        // COVERAGE
-        RogueQuery_SpeciesNotOfTypes(&generator->excTypes[0], 2);
-    }
-
-    // Type query
-    {
-        if(generator->incTypes[0] != TYPE_NONE)
-        {
-            if(generator->incTypes[1] != TYPE_NONE)
-                RogueQuery_SpeciesOfTypes(&generator->incTypes[0], 2);
-            else
-                RogueQuery_SpeciesOfType(generator->incTypes[0]);
+            scratch->forceLegends = FALSE;
         }
 
-        if(generator->excTypes[0] != TYPE_NONE)
-        {
-            if(generator->excTypes[1] != TYPE_NONE)
-                RogueQuery_SpeciesNotOfTypes(&generator->excTypes[0], 2);
-            else
-                RogueQuery_SpeciesNotOfType(generator->excTypes[0]);
-        }
-        
-        if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE)
-        {
-            u16 s;
-            u8 incTypes[6];
-            u8 incTypeCount = 0;
-            u8 type1, type2;
+        species = SampleNextSpeciesInternal(scratch);
 
-            if(sTrainerScratch->totalMonCount < CalculatePlayerPartyCount())
+        if(species == SPECIES_NONE)
+        {
+            // Just put it to some really high number if we failed, as we need to move to the next subset
+            scratch->subsetSampleCount = 128;
+        }
+
+        if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
+        {
+            ++scratch->subsetSampleCount;
+            if(scratch->subsetSampleCount >= trainer->teamGenerator.subsets[scratch->subsetIndex].maxSamples)
             {
-                s = GetMonData(&gPlayerParty[sTrainerScratch->totalMonCount], MON_DATA_SPECIES);
-                type1 = gBaseStats[s].type1;
-                type2 = gBaseStats[s].type2;
-
-                AppendWeakTypes(type1, &incTypes[0], &incTypeCount);
-
-                if(incTypeCount != 0)
-                {
-                    if(incTypeCount != 1)
-                        RogueQuery_SpeciesOfTypes(&incTypes[0], min(4, incTypeCount));
-                    else
-                        RogueQuery_SpeciesOfType(incTypes[0]);
-                }
+                ++scratch->subsetIndex;
+                scratch->subsetSampleCount = 0;
+                scratch->shouldRegenerateQuery = TRUE;
             }
         }
-
-        // Unique coverage exclude party species we already have
-        if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE)
+        else
         {
-            u8 i;
-            u16 s;
-            u8 type1, type2;
-            for(i = 0; i < sTrainerScratch->totalMonCount; ++i)
-            {
-                s = GetMonData(&sTrainerScratch->partyPtr[i], MON_DATA_SPECIES);
-                type1 = gBaseStats[s].type1;
-                type2 = gBaseStats[s].type2;
-
-                if(type1 != TYPE_NONE && type1 != generator->incTypes[0] && type1 != generator->incTypes[1])
-                    RogueQuery_SpeciesNotOfType(type1);
-
-                if(type2 != TYPE_NONE && type1 != type2 && type2 != generator->incTypes[0] && type2 != generator->incTypes[1])
-                    RogueQuery_SpeciesNotOfType(type2);
-            }
+            // If we've got here, we must've ran out in options in the fallback/all type subset
+            AGB_ASSERT(FALSE);
+            return SPECIES_MAGIKARP;
         }
     }
+    while(species == SPECIES_NONE);
 
-    if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_FORCE_STRONG_PRESETS)
-    {
-        RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
-    }
-    else if(generator->generatorFlags & TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS)
-    {
-        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-        u16 targetDex = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-
-        // Regional dex and national mode gen prior to gen 2 has strong mons disabled
-        if(targetDex == 0 && maxGen >= 3)
-            RogueQuery_SpeciesIncludeMonFlags(MON_FLAG_STRONG);
-    }
-
-    RogueQuery_CollapseSpeciesBuffer();
+    return species;
 }
 
-static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
-{    
+static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount)
+{
     bool8 preferCompetitive = FALSE;
     bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
     u8 difficultyModifier = 1; // TODO - GetRoomTypeDifficulty();
 
-    AGB_ASSERT(sTrainerScratch != NULL);
-
-    if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
-    {
-        // Exact mirror force competitive set and we'll override it later
-        return TRUE;
-    }
+    //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
+    //{
+    //    // Exact mirror force competitive set and we'll override it later
+    //    return TRUE;
+    //}
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
     {
@@ -1278,7 +1017,7 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        return Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum);
+        return Rogue_IsAnyBossTrainer(scratch->trainerNum);
     }
 
     switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
@@ -1291,15 +1030,15 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
         if(difficultyLevel == 0) // Last mon has competitive set
             return FALSE;
         else if(difficultyLevel == 1)
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(scratch->trainerNum)) && monIdx == (totalMonCount - 1);
         else
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum));
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(scratch->trainerNum));
 
     case DIFFICULTY_LEVEL_HARD:
         if(difficultyLevel == 0) // Last mon has competitive set
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum)) && monIdx == (totalMonCount - 1);
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(scratch->trainerNum)) && monIdx == (totalMonCount - 1);
         else if(difficultyLevel == 1)
-            return (preferCompetitive || Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum));
+            return (preferCompetitive || Rogue_IsAnyBossTrainer(scratch->trainerNum));
         else
             return TRUE;
 
@@ -1310,27 +1049,25 @@ static bool8 UseCompetitiveMoveset(u8 monIdx, u8 totalMonCount)
     return FALSE;
 }
 
-static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* outPreset)
+static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RogueMonPreset* outPreset)
 {
     u8 i;
     u8 presetCount = gPresetMonTable[species].presetCount;
 
-    AGB_ASSERT(sTrainerScratch != NULL);
-
     // Exact mirror copy trainer party
-    if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
-    {
-        outPreset->allowMissingMoves = TRUE;
-        outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
-        outPreset->abilityNum = GetMonAbility(&gPlayerParty[monIdx]);
-        outPreset->hiddenPowerType = CalcMonHiddenPowerType(&gPlayerParty[monIdx]);
-        outPreset->flags = 0;
-
-        for(i = 0; i < MAX_MON_MOVES; ++i)
-            outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
-
-        return TRUE;
-    }
+    //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
+    //{
+    //    outPreset->allowMissingMoves = TRUE;
+    //    outPreset->heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
+    //    outPreset->abilityNum = GetMonAbility(&gPlayerParty[monIdx]);
+    //    outPreset->hiddenPowerType = CalcMonHiddenPowerType(&gPlayerParty[monIdx]);
+    //    outPreset->flags = 0;
+//
+    //    for(i = 0; i < MAX_MON_MOVES; ++i)
+    //        outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
+//
+    //    return TRUE;
+    //}
 
     if(presetCount != 0)
     {
@@ -1345,12 +1082,12 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
             currPreset = &gPresetMonTable[species].presets[((randOffset + i) % presetCount)];
             isPresetValid = TRUE;
 
-            if(currPreset->heldItem == ITEM_LEFTOVERS && sTrainerScratch->heldItems.hasLeftovers)
+            if(currPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
             {
                 isPresetValid = FALSE;
             }
 
-            if(currPreset->heldItem == ITEM_SHELL_BELL && sTrainerScratch->heldItems.hasShellbell)
+            if(currPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
             {
                 isPresetValid = FALSE;
             }
@@ -1365,7 +1102,7 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
                 }
             }
 
-            if(sTrainerScratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+            if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
             {
                 if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
                 {
@@ -1373,7 +1110,7 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
                 }
             }
 
-            if(sTrainerScratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+            if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
             {
                 if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
                 {
@@ -1393,13 +1130,13 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
         // Swap out limited count items, if they already exist
         if(!isPresetValid)
         {
-            if(outPreset->heldItem == ITEM_LEFTOVERS && sTrainerScratch->heldItems.hasLeftovers)
+            if(outPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
             {
                 // Swap left overs to shell bell
                 outPreset->heldItem = ITEM_SHELL_BELL;
             }
 
-            if(outPreset->heldItem == ITEM_SHELL_BELL && sTrainerScratch->heldItems.hasShellbell)
+            if(outPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
             {
                 // Swap shell bell to NONE (i.e. berry)
                 outPreset->heldItem = ITEM_NONE;
@@ -1415,7 +1152,7 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
                 }
             }
 
-            if(sTrainerScratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+            if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
             {
                 if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
                 {
@@ -1423,7 +1160,7 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
                 }
             }
 
-            if(sTrainerScratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+            if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
             {
                 if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
                 {
@@ -1440,20 +1177,20 @@ static bool8 SelectNextPreset(u16 species, u8 monIdx, struct RogueMonPreset* out
         }
         else if(outPreset->heldItem == ITEM_LEFTOVERS)
         {
-            sTrainerScratch->heldItems.hasLeftovers = TRUE;
+            scratch->heldItems.hasLeftovers = TRUE;
         }
         else if(outPreset->heldItem == ITEM_SHELL_BELL)
         {
-            sTrainerScratch->heldItems.hasShellbell = TRUE;
+            scratch->heldItems.hasShellbell = TRUE;
         }
 #ifdef ROGUE_EXPANSION
         else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
         {
-            sTrainerScratch->heldItems.hasMegaStone = TRUE;
+            scratch->heldItems.hasMegaStone = TRUE;
         }
         else if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
         {
-            sTrainerScratch->heldItems.hasZCrystal = TRUE;
+            scratch->heldItems.hasZCrystal = TRUE;
         }
 #endif
 
@@ -1643,15 +1380,13 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     return score;
 }
 
-static void ReorderPartyMons(struct Pokemon *party, u8 monCount)
+static void ReorderPartyMons(struct TrainerPartyScratch* scratch, struct Pokemon *party, u8 monCount)
 {
     bool8 keepExistingLead = FALSE;
     bool8 reorganiseParty = FALSE;
     bool8 clampLeadScore = FALSE;
 
-    AGB_ASSERT(sTrainerScratch != NULL);
-
-    if(Rogue_IsAnyBossTrainer(sTrainerScratch->trainerNum))
+    if(Rogue_IsAnyBossTrainer(scratch->trainerNum))
     {
         if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && gRogueRun.currentDifficulty < 8)
         {

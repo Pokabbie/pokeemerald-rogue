@@ -13,6 +13,9 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "script.h"
+#include "shop.h"
+#include "sound.h"
 #include "string_util.h"
 
 #include "rogue.h"
@@ -27,6 +30,7 @@
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
+#include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -813,24 +817,38 @@ void Rogue_GetTrainerNum(void)
     }
 }
 
+void Rogue_PlayStaticTrainerEncounterBGM(void)
+{
+    u16 trainerNum = VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA);
+
+    struct RogueBattleMusic music;
+    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);
+
+    //PlayBGM();
+    PlayNewMapMusic(music.encounterMusic);
+    //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+}
+
 void Rogue_IsMultiplayerActive(void)
 {
-    gSpecialVar_Result = Rogue_IsNetMultiplayerActive();
+    gSpecialVar_Result = RogueMP_IsActive();
 }
 
 void Rogue_IsMultiplayerHost(void)
 {
-    gSpecialVar_Result = Rogue_IsNetMultiplayerHost();
+    gSpecialVar_Result = RogueMP_IsHost();
 }
 
 void Rogue_HostMultiplayer()
 {
-    Rogue_CreateMultiplayerConnectTask(TRUE);
+    RogueMP_OpenHost();
+    RogueMP_WaitForConnection();
 }
 
 void Rogue_JoinMultiplayer()
 {
-    Rogue_CreateMultiplayerConnectTask(FALSE);
+    RogueMP_OpenClient();
+    RogueMP_WaitForConnection();
 }
 
 void Rogue_SetupFollowParterMonObjectEvent()

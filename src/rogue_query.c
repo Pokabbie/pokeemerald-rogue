@@ -28,6 +28,7 @@
 #include "rogue_controller.h"
 #include "rogue_pokedex.h"
 #include "rogue_settings.h"
+#include "rogue_trainers.h"
 
 #define QUERY_BUFFER_COUNT 128
 #define QUERY_NUM_SPECIES NUM_SPECIES
@@ -48,6 +49,7 @@ enum
     QUERY_TYPE_NONE,
     QUERY_TYPE_MON,
     QUERY_TYPE_ITEM,
+    QUERY_TYPE_TRAINER,
 };
 
 struct RogueQueryData
@@ -66,9 +68,8 @@ EWRAM_DATA static struct RogueQueryData* sRogueQueryPtr = 0;
 #define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL)
 #define ASSERT_MON_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_MON)
 #define ASSERT_ITEM_QUERY       AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
-#define ASSERT_WEIGHT_QUERY       ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL)
-
-extern const u8 gRogueBake_SpeciesEvoTypeBitFlags[NUMBER_OF_MON_TYPES][SPECIES_FLAGS_BYTE_COUNT];
+#define ASSERT_TRAINER_QUERY    AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
+#define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL)
 
 static void SetQueryBitFlag(u16 elem, bool8 state);
 static bool8 GetQueryBitFlag(u16 elem);
@@ -76,7 +77,6 @@ static bool8 GetQueryBitFlag(u16 elem);
 static u16 Query_GetEggSpecies(u16 species);
 static bool8 Query_IsSpeciesEnabled(u16 species);
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo);
-static bool8 Query_SpeciesEvoContainsType(u16 species, u8 type);
 
 static u16 Query_MaxBitCount();
 static u16 Query_GetWeightArrayCount();
@@ -175,25 +175,39 @@ void RogueMonQuery_Begin()
 {
     ASSERT_NO_QUERY;
     AllocQuery(QUERY_TYPE_MON);
-
-    // Always initialise with the mons from the current pokedex settings
-    {
-        u16 species;
-    
-        for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
-        {
-            if(Query_IsSpeciesEnabled(species))
-            {
-                SetQueryBitFlag(species, TRUE);
-            }
-        }
-    }
 }
 
 void RogueMonQuery_End()
 {
     ASSERT_MON_QUERY;
     FreeQuery();
+}
+
+void RogueMonQuery_Reset(u8 func)
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(func == QUERY_FUNC_INCLUDE)
+        {
+            SetQueryBitFlag(species, TRUE);
+        }
+        else if(func == QUERY_FUNC_EXCLUDE)
+        {
+            SetQueryBitFlag(species, FALSE);
+        }
+    }
+}
+
+void RogueMonQuery_IsSpeciesActive()
+{
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        SetQueryBitFlag(species, Query_IsSpeciesEnabled(species));
+    }
 }
 
 void RogueMonQuery_TransformIntoEggSpecies()
@@ -314,31 +328,60 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
     }
 }
 
-void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count)
+void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
+{
+    u8 i;
+    u16 species;
+    u32 speciesFlags;
+
+    ASSERT_MON_QUERY;
+
+    // Skip and accept all if empty
+    if(typeFlags == 0)
+        return;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            speciesFlags = 0;
+            Rogue_AppendSpeciesTypeFlags(species, &speciesFlags);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if((typeFlags & speciesFlags) == 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if((typeFlags & speciesFlags) != 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 {
     u8 i;
     bool8 containsAnyType;
     u16 species;
 
     ASSERT_MON_QUERY;
+
+    // Skip and accept all if empty
+    if(typeFlags == 0)
+        return;
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryBitFlag(species))
         {
-            containsAnyType = FALSE;
-
-            for(i = 0; i < count; ++i)
-            {
-                if(types[i] == TYPE_NONE)
-                    break;
-
-                if(gBaseStats[species].type1 == types[i] || gBaseStats[species].type2 == types[i])
-                {
-                    containsAnyType = TRUE;
-                    break;
-                }
-            }
+            containsAnyType = (typeFlags & Rogue_GetSpeciesEvolutionChainTypeFlags(species)) != 0;
 
             if(func == QUERY_FUNC_INCLUDE)
             {
@@ -358,58 +401,40 @@ void RogueMonQuery_IsOfType(u8 func, const u8* types, u8 count)
     }
 }
 
-void RogueMonQuery_EvosContainType(u8 func, const u8* types, u8 count)
+void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
 {
     u8 i;
-    bool8 containsAnyType;
     u16 species;
-    const u16* typeTable;
+    u32 speciesFlags;
 
     ASSERT_MON_QUERY;
+
+    // Skip and accept all if empty
+    if(presetflags == 0)
+        return;
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
         if(GetQueryBitFlag(species))
         {
-            containsAnyType = FALSE;
-
-            for(i = 0; i < count; ++i)
-            {
-                if(types[i] == TYPE_NONE)
-                    break;
-
-                if(Query_SpeciesEvoContainsType(species, types[i]))
-                {
-                    containsAnyType = TRUE;
-                    break;
-                }
-            }
-
+            speciesFlags = gPresetMonTable[species].flags;
 
             if(func == QUERY_FUNC_INCLUDE)
             {
-                if(!containsAnyType)
+                if((presetflags & speciesFlags) == 0)
                 {
                     SetQueryBitFlag(species, FALSE);
                 }
             }
             else if(func == QUERY_FUNC_EXCLUDE)
             {
-                if(containsAnyType)
+                if((presetflags & speciesFlags) != 0)
                 {
                     SetQueryBitFlag(species, FALSE);
                 }
             }
         }
     }
-}
-
-static bool8 Query_SpeciesEvoContainsType(u16 species, u8 type)
-{
-    u16 idx = species / 8;
-    u16 bit = species % 8;
-    u8 bitMask = 1 << bit;
-    return (gRogueBake_SpeciesEvoTypeBitFlags[type][idx] & bitMask) != 0;
 }
 
 void RogueMonQuery_IsLegendary(u8 func)
@@ -477,6 +502,20 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
                     SetQueryBitFlag(species, FALSE);
                 }
             }
+        }
+    }
+}
+
+void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData)
+{
+    u16 species;
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species) && !filterFunc(species, usrData))
+        {
+            SetQueryBitFlag(species, FALSE);
         }
     }
 }
@@ -655,6 +694,102 @@ void RogueItemQuery_End()
     FreeQuery();
 }
 
+// TRAINER QUERY
+//
+
+void RogueTrainerQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_TRAINER);
+}
+
+void RogueTrainerQuery_End()
+{
+    ASSERT_TRAINER_QUERY;
+    FreeQuery();
+}
+
+void RogueTrainerQuery_Reset(u8 func)
+{
+    u16 trainerNum;
+
+    ASSERT_TRAINER_QUERY;
+
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    {
+        if(func == QUERY_FUNC_INCLUDE)
+        {
+            SetQueryBitFlag(trainerNum, TRUE);
+        }
+        else if(func == QUERY_FUNC_EXCLUDE)
+        {
+            SetQueryBitFlag(trainerNum, FALSE);
+        }
+    }
+}
+
+void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
+{
+    u16 trainerNum;
+    bool8 containsAnyFlags;
+
+    ASSERT_TRAINER_QUERY;
+
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    {
+        if(GetQueryBitFlag(trainerNum))
+        {
+            containsAnyFlags = (Rogue_GetTrainer(trainerNum)->trainerFlags & trainerFlags) != 0;
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup)
+{
+    u16 trainerNum;
+    bool8 containsAnyFlags;
+
+    ASSERT_TRAINER_QUERY;
+
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    {
+        if(GetQueryBitFlag(trainerNum))
+        {
+            containsAnyFlags = Rogue_GetTrainerTypeGroupId(trainerNum) == typeGroup;
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+        }
+    }
+}
+
 // WEIGHT QUERY
 //
 static u16 Query_MaxBitCount()
@@ -662,8 +797,10 @@ static u16 Query_MaxBitCount()
     ASSERT_ANY_QUERY;
     if(sRogueQueryPtr->queryType == QUERY_TYPE_MON)
         return QUERY_NUM_SPECIES;
-    else //if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
+    else if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
         return ITEMS_COUNT;
+    else // QUERY_TYPE_TRAINER
+        return gRogueTrainerCount;
 }
 
 static u16 Query_GetWeightArrayCount()

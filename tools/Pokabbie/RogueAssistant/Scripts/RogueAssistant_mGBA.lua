@@ -1,7 +1,7 @@
 constants = 
 {
     targetHost = "127.0.0.1",
-    targetPort = 30150,
+    targetPort = 30125,
     
     rogueHandshake1 = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g",
     rogueHandshake2 = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY",
@@ -39,79 +39,99 @@ end
 -- Commands
 --
 
+function Cmd_Send(reqId, data)
+    local dataSize = string.len(data)
+    if constants.debugLog then
+        console:log("\tSend (" .. reqId .."): " .. dataSize .. ":'" .. data .. "'")
+    end
+    globals.conn:send(reqId .. ";" .. dataSize .. ";" .. data)
+end
+
+
 function Cmd_EstablishConnection(params)
     globals.conn:send(constants.rogueHandshake2)
 end
 
 function Cmd_HelloWorld(params)
-    globals.conn:send("Hello to you too!")
+    Cmd_Send(0, "Hello to you too!")
 end
 
 -- Write memory a byte a time (This is to avoid alignment issues for larger writes e.g. u32 has to be on the 4 byte boundary otherwise, it causes awkward to notice bugs)
 
 function Cmd_writeByte(params)
-    local addr = tonumber(params[2])
-    emu:write8(addr, tonumber(params[3]))
-    globals.conn:send(1)
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
+    emu:write8(addr, tonumber(params[4]))
+    Cmd_Send(reqId, 1)
 end
 
 function Cmd_readByte(params)
-    local addr = tonumber(params[2])
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
     local result = emu:read8(addr)
-    globals.conn:send(result)
+    Cmd_Send(reqId, result)
 end
 
 function Cmd_writeBytes(params)
-    local addr = tonumber(params[2])
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
     for i, value in ipairs(params) do
-        if i >= 3 then
-            emu:write8(addr + tonumber(i) - 3, tonumber(value))
+        if i >= 4 then
+            emu:write8(addr + tonumber(i) - 4, tonumber(value))
         end
     end
 
-    globals.conn:send(1)
+    Cmd_Send(reqId, 1)
 end
 
 function Cmd_readBytes(params)
-    local addr = tonumber(params[2])
-    local range = tonumber(params[3])
+    local reqId = tonumber(params[2])
+    local addr = tonumber(params[3])
+    local range = tonumber(params[4])
     local result = emu:readRange(addr, range)
-    globals.conn:send(result)
+    Cmd_Send(reqId, result)
 end
 
 commCmds = 
 {
     con = Cmd_EstablishConnection,
-    hello = Cmd_HelloWorld,
-    writeByte = Cmd_writeByte,
-    readByte = Cmd_readByte,
-    writeBytes = Cmd_writeBytes,
-    readBytes = Cmd_readBytes,
+    -- hello = Cmd_HelloWorld,
+    ws = Cmd_writeByte,
+    rs = Cmd_readByte,
+    w = Cmd_writeBytes,
+    r = Cmd_readBytes,
 }
 
 function Conn_ProcessCmd(msg)
     if constants.debugLog then
-        console:log("In: " .. msg)
+        console:log("Incoming: '" .. msg .. "'")
     end
     
     local requests = splitRequestStr(msg)
+    local allSuccess = true
 
     for i, req in ipairs(requests) do
         if constants.debugLog then
-            console:log("\tReq: " .. req)
+            console:log("\tRequest: '" .. req .. "'")
         end
         local params = splitParamStr(req)
+        local success = false
 
         for k, v in pairs(commCmds) do
             if k == params[1] then
                 v(params)
-                return true
+                success = true
+                break
             end
+        end
+
+        if not success then
+            console:error("Unknown Cmd: " .. req)
+            allSuccess = false
         end
     end
 
-    console:error("Unknown Cmd: " .. msg)
-    return false
+    return allSuccess
 end
 
 

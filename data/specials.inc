@@ -211,6 +211,7 @@ gSpecials::
 	def_special Rogue_GetFollowMonSpecies
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
+	def_special Rogue_PlayStaticTrainerEncounterBGM
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost
 	def_special Rogue_HostMultiplayer
@@ -219,15 +220,6 @@ gSpecials::
 	def_special Rogue_RunRewardLvls
 	def_special Rogue_RunRewardMoney
 	def_special Rogue_SetTimeAndSeason
-	def_special RogueHub_GetUpgradeFromMultichoiceResult
-	def_special RogueHub_GetAreaFromMultichoiceResult
-	def_special RogueHub_GetAreaDirectionFromMultichoiceResult
-	def_special RogueHub_ApplyHubUpgrade
-	def_special RogueHub_BuildHubArea
-	def_special RogueHub_BufferUpgradeDescriptionText
-	def_special RogueHub_BufferUpgradeCompleteText
-	def_special RogueHub_BufferAreaDescriptionText
-	def_special RogueHub_BufferAreaCompleteText
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams

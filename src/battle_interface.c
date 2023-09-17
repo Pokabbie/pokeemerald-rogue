@@ -1162,7 +1162,7 @@ void UpdateHpTextInHealthbox(u8 healthboxSpriteId, s16 value, u8 maxOrCurrent)
         if (maxOrCurrent != HP_CURRENT) // singles, max
         {
             ConvertIntToDecimalStringN(textPtr, value, STR_CONV_MODE_RIGHT_ALIGN, 3);
-            windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 5, BATTLE_INTERFACE_FILLED_BG, &windowId);
+            windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 4, BATTLE_INTERFACE_FILLED_BG, &windowId);
             objVram = (void*)(OBJ_VRAM0);
             objVram += spriteTileNum + 0xB40;
             HpTextIntoHealthboxObject(objVram, windowTileData, 2);
@@ -1173,7 +1173,7 @@ void UpdateHpTextInHealthbox(u8 healthboxSpriteId, s16 value, u8 maxOrCurrent)
             ConvertIntToDecimalStringN(textPtr, value, STR_CONV_MODE_RIGHT_ALIGN, 3);
             textPtr[3] = CHAR_SLASH;
             textPtr[4] = EOS;
-            windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 4, 5, BATTLE_INTERFACE_FILLED_BG, &windowId);
+            windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 4, 4, BATTLE_INTERFACE_FILLED_BG, &windowId);
             objVram = (void*)(OBJ_VRAM0);
             objVram += spriteTileNum + 0x3E0;
             HpTextIntoHealthboxObject(objVram, windowTileData, 1);

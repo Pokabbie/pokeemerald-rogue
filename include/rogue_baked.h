@@ -30,7 +30,13 @@ const u8* Rogue_GetTrainerName(u16 trainerNum);
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer);
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
 
+void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBattleMusic* outMusic);
+
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetEvolutionCount(u16 species);
+
+void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags);
+u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species);
+u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count);
 
 #endif

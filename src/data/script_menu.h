@@ -1019,9 +1019,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =
 {
-    [MULTI_HUB_AREA_BUILDS] = RogueHub_GetAreaBuildsMultichoice,
-    [MULTI_HUB_AREA_BUILD_DIRECTION] = RogueHub_GetAreaBuildDirectionMultichoice, 
-    [MULTI_HUB_AREA_UPGRADES] = RogueHub_GetAreaUpgradesMultichoice,
+    // TODO - Remove these
+    [MULTI_HUB_AREA_BUILDS] = NULL,
+    [MULTI_HUB_AREA_BUILD_DIRECTION] = NULL, 
+    [MULTI_HUB_AREA_UPGRADES] = NULL,
 };
 
 const u8 *const gStdStrings[] =

@@ -21,4 +21,4 @@ memorystats$(EXE): $(SRCS) $(HEADERS)
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ $(LDFLAGS)
 
 clean:
-	$(RM) memorystats memorystats.exe
+	$(RM) memorystats memorystats$(EXE)

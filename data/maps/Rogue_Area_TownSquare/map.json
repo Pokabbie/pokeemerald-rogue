@@ -146,8 +146,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 14,
-      "y": 16,
+      "x": 10,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
       "dest_warp_id": 0
@@ -171,6 +171,20 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 11,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_DEBUG",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
       "dest_warp_id": 0
     }
   ],

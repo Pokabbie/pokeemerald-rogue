@@ -25,7 +25,9 @@
 #define ROGUE_DEBUG_STEAL_TEAM
 #define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
-//#define ROGUE_DEBUG_ALLOW_SAVE_SCUMMING
+#define ROGUE_DEBUG_ALLOW_SAVE_SCUMMING
+#define ROGUE_DEBUG_INSTANT_CATCH
+//define ROGUE_DEBUG_TOD_TINT_USES_PLAYER_COLOUR
 #else
 
 // Automation defines
@@ -36,6 +38,7 @@
 //#define ROGUE_DEBUG_STEAL_TEAM
 //#define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
+#define ROGUE_DEBUG_INSTANT_CATCH
 
 #endif
 
@@ -57,6 +60,7 @@
 #define ROGUE_SHOP_QUEST_REWARDS        8
 #define ROGUE_SHOP_BERRIES              9
 #define ROGUE_SHOP_CHARMS               10
+#define ROGUE_SHOP_HUB_UPGRADES         11
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
@@ -153,51 +157,36 @@
 // Trainers
 //
 #define TRAINER_FLAG_NONE                       0
-#define TRAINER_FLAG_GYM                        (1 << 0)
-#define TRAINER_FLAG_ELITE                      (1 << 1)
-#define TRAINER_FLAG_PRE_CHAMP                  (1 << 2)
-#define TRAINER_FLAG_FINAL_CHAMP                (1 << 3)
-#define TRAINER_FLAG_HOENN                      (1 << 4)
-#define TRAINER_FLAG_KANTO                      (1 << 5)
-#define TRAINER_FLAG_JOHTO                      (1 << 6)
-#define TRAINER_FLAG_FALLBACK_REGION            (1 << 7) // If the player unselects all boss expansions, use this custom fallback set
-#define TRAINER_FLAG_RAINBOW_EXCLUDE            (1 << 8)
-#define TRAINER_FLAG_DISABLE_WEATHER            (1 << 9)
-#define TRAINER_FLAG_THIRDSLOT_WEATHER          (1 << 10)
-#define TRAINER_FLAG_RAINBOW_CHAMP              (1 << 11)
-#define TRAINER_FLAG_NAME_IS_PLAYER             (1 << 12)
-#define TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR    (1 << 13)
-#define TRAINER_FLAG_ANY_REGION                 (TRAINER_FLAG_KANTO | TRAINER_FLAG_JOHTO | TRAINER_FLAG_HOENN | TRAINER_FLAG_FALLBACK_REGION)
 
-#define PARTY_FLAG_NONE                     0
-#define PARTY_FLAG_THIRDSLOT_ACE_TYPE       (1 << 1)
-#define PARTY_FLAG_THIRDSLOT_FALLBACK_TYPE  (1 << 2)
-#define PARTY_FLAG_CUSTOM_INPUT_QUERY       (1 << 3) // Provides list of baby mons to feed into the generator
-#define PARTY_FLAG_CUSTOM_FINAL_QUERY       (1 << 4) // Provideds the final list of mons to pick from
-#define PARTY_FLAG_REGION_DEX_DISABLE_QUERY (1 << 5) // Custom query will be ignored when a regional dex is active
-#define PARTY_FLAG_STRONG_PRESETS_IGNORE    (1 << 6)
-#define PARTY_FLAG_MIRROR_EXACT             (1 << 7)
-#define PARTY_FLAG_MIRROR_SPECIES           (1 << 8)
-#define PARTY_FLAG_COUNTER_TYPINGS          (1 << 9)
-#define PARTY_FLAG_UNIQUE_COVERAGE          (1 << 10)
-#define PARTY_FLAG_MIRROR_ANY               (PARTY_FLAG_MIRROR_EXACT | PARTY_FLAG_MIRROR_SPECIES)
-#define PARTY_FLAG_CUSTOM_QUERY_ANY         (PARTY_FLAG_CUSTOM_INPUT_QUERY | PARTY_FLAG_CUSTOM_FINAL_QUERY)
+// Classes
+#define TRAINER_FLAG_CLASS_GYM                  (1 << 0)
+#define TRAINER_FLAG_CLASS_ELITE                (1 << 1)
+#define TRAINER_FLAG_CLASS_CHAMP                (1 << 2)
+#define TRAINER_FLAG_CLASS_MINI_BOSS            (1 << 3)
+#define TRAINER_FLAG_CLASS_RIVAL                (1 << 4)
 
-#define TRAINER_GENERATOR_FLAG_NONE                     0
-#define TRAINER_GENERATOR_FLAG_PREFER_STRONG_PRESETS    (1 << 0)
-#define TRAINER_GENERATOR_FLAG_FORCE_STRONG_PRESETS     (1 << 1)
-#define TRAINER_GENERATOR_FLAG_ALLOW_STRONG_LEGENDARY   (1 << 2)
-#define TRAINER_GENERATOR_FLAG_ALLOW_WEAK_LEGENDARY     (1 << 3)
-#define TRAINER_GENERATOR_FLAG_LEGENDARY_ONLY           (1 << 4)
-#define TRAINER_GENERATOR_FLAG_ALLOW_ITEM_EVOS          (1 << 5)
-#define TRAINER_GENERATOR_FLAG_UNIQUE_COVERAGE          (1 << 6)
-#define TRAINER_GENERATOR_FLAG_COUNTER_COVERAGE         (1 << 7)
-#define TRAINER_GENERATOR_FLAG_MIRROR_EXACT             (1 << 8)
-#define TRAINER_GENERATOR_FLAG_MIRROR_SPECIES           (1 << 9)
-#define TRAINER_GENERATOR_FLAG_MIRROR_ANY               (TRAINER_GENERATOR_FLAG_MIRROR_EXACT | TRAINER_GENERATOR_FLAG_MIRROR_SPECIES)
+#define TRAINER_FLAG_REGION_KANTO               (1 << 5)
+#define TRAINER_FLAG_REGION_JOHTO               (1 << 6)
+#define TRAINER_FLAG_REGION_HOENN               (1 << 7)
+#define TRAINER_FLAG_REGION_SINNOH              (1 << 8)
+#define TRAINER_FLAG_REGION_UNOVA               (1 << 9)
+#define TRAINER_FLAG_REGION_KALOS               (1 << 10)
+#define TRAINER_FLAG_REGION_ALOLA               (1 << 11)
+#define TRAINER_FLAG_REGION_GALAR               (1 << 12)
+#define TRAINER_FLAG_REGION_ROGUE               (1 << 13)
+
+#define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 15)
+
+#define TRAINER_FLAG_CLASS_ANY_MAIN_BOSS        (TRAINER_FLAG_CLASS_GYM | TRAINER_FLAG_CLASS_ELITE | TRAINER_FLAG_CLASS_CHAMP)
+#define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_ANY_MAIN_BOSS | TRAINER_FLAG_CLASS_MINI_BOSS | TRAINER_FLAG_CLASS_RIVAL)
+
+#define TRAINER_FLAG_REGION_ANY                 (TRAINER_FLAG_REGION_KANTO | TRAINER_FLAG_REGION_JOHTO | TRAINER_FLAG_REGION_HOENN | TRAINER_FLAG_REGION_SINNOH | TRAINER_FLAG_REGION_UNOVA | TRAINER_FLAG_REGION_KALOS | TRAINER_FLAG_REGION_ALOLA | TRAINER_FLAG_REGION_GALAR | TRAINER_FLAG_REGION_ROGUE)
+
 
 // 8 badges, 4 elite, 2 champion
 #define ROGUE_MAX_BOSS_COUNT 14
+#define ROGUE_CHAMP_START_DIFFICULTY 12
+#define ROGUE_ELITE_START_DIFFICULTY 8
 
 // Mon Preset flags
 //
@@ -314,15 +303,43 @@
 #define POPUP_MSG_ENCOUNTER_CHAIN               6
 #define POPUP_MSG_ENCOUNTER_CHAIN_END           7
 
+// Rogue Assistant
+//
+#define NET_PLAYER_CAPACITY 4
+
+// Sound
+//
+#define ROGUE_SOUND_TYPE_UNKNOWN            0
+#define ROGUE_SOUND_TYPE_CRY                1
+#define ROGUE_SOUND_TYPE_MUSIC              2
+
+#define BATTLE_MUSIC_TYPE_TRAINER           0
+#define BATTLE_MUSIC_TYPE_WILD              1
+
+// Known battle music that we can dyanmically lookup in code
+// other music players will be added on from BATTLE_MUSIC_UNKNOWN_START
+#define BATTLE_MUSIC_NONE                   0
+#define BATTLE_MUSIC_WILD_BATTLE            1
+#define BATTLE_MUSIC_LEGENDARY_BATTLE       2
+#define BATTLE_MUSIC_UNKNOWN_START          3
+
 // Misc.
 //
 // Number of bytes needed to cover all species
 #define SPECIES_FLAGS_BYTE_COUNT (1 + NUM_SPECIES / 8)
 
+#define INVALID_HISTORY_ENTRY ((u16)-1)
+
 #define STARTER_MON_LEVEL 10
 
 #define FOLLOWMON_SHINY_OFFSET 10000
 #define FOLLOWMON_MAX_SPAWN_SLOTS 6
+
+#define WILD_ENCOUNTER_GRASS_CAPACITY 9
+#define WILD_ENCOUNTER_WATER_CAPACITY 2
+#define WILD_ENCOUNTER_TOTAL_CAPACITY (WILD_ENCOUNTER_GRASS_CAPACITY + WILD_ENCOUNTER_WATER_CAPACITY)
+
+#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE ? 0U : ((u32)1 << (u32)type)))
 
 #define SEASON_SPRING   0
 #define SEASON_SUMMER   1

@@ -585,6 +585,8 @@ static void Cmd_tryworryseed(void);
 static void Cmd_extMethods(void);
 static void Cmd_metalburstdamagecalculator(void);
 static void Cmd_rogue_partyhasroom(void);
+static void Cmd_rogue_caughtmon(void);
+
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
     Cmd_attackcanceler,                          //0x0
@@ -844,7 +846,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryworryseed,                            //0xFE
     Cmd_extMethods,                              //0xFF
     //Cmd_metalburstdamagecalculator,              //0xFF
-    //Cmd_rogue_partyhasroom                       //0xFF
+    Cmd_rogue_partyhasroom                       //0xF9
+    Cmd_rogue_caughtmon,                         //0xFA
+    //Cmd_rogue_releasecaughtmon,                  //0xFB
 };
 
 const struct StatFractions gAccuracyStageRatios[] =
@@ -4116,8 +4120,11 @@ static void Cmd_getexp(void)
                     && !IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))
                     && !gBattleStruct->wildVictorySong)
                 {
+                    struct RogueBattleMusic music;
+                    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_WILD, gBattleMons[0].species, &music);
+
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    PlayBGM(music.victoryMusic);
                     gBattleStruct->wildVictorySong++;
                 }
 
@@ -14267,7 +14274,7 @@ static void Cmd_handleballthrow(void)
         else
             catchRate = catchRate + ballAddition;
 
-        Rogue_ModifyCatchRate(&catchRate, &ballMultiplier);
+        Rogue_ModifyCatchRate(gBattleMons[gBattlerTarget].species, &catchRate, &ballMultiplier);
 
         odds = (catchRate * ballMultiplier / 10)
             * (gBattleMons[gBattlerTarget].maxHP * 3 - gBattleMons[gBattlerTarget].hp * 2)
@@ -14388,11 +14395,30 @@ static void Cmd_handleballthrow(void)
     }
 }
 
-static void Cmd_givecaughtmon(void)
+static void Cmd_rogue_partyhasroom(void)
 {
-    // RogueNote: Whether we're allow to capture this is handled further up
+    if(!Rogue_CheckPartyHasRoomForMon())
+    {
+        // Continue
+        gBattlescriptCurrInstr += 5;
+        return;
+    }
+
+    // Jump to location
+    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    return;
+}
+
+static void Cmd_rogue_caughtmon(void)
+{
+    // Modify before we've decided if we're going to release this or not
     Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
 
+    gBattlescriptCurrInstr++;
+}
+
+static void Cmd_givecaughtmon(void)
+{
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
@@ -14428,13 +14454,16 @@ static void Cmd_trysetcaughtmondexflags(void)
 
     if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
     {
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        //gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
     else
     {
         HandleSetPokedexFlag(species, FLAG_SET_CAUGHT, personality);
-        gBattlescriptCurrInstr += 5;
+        //gBattlescriptCurrInstr += 5;
     }
+    
+    // RogueNote: Never display caught mon dex info
+    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 
     if(IsMonShiny(&gEnemyParty[0]))
     {

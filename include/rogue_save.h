@@ -24,4 +24,7 @@ void RogueSave_OnSaveLoaded();
 void RogueSave_SaveHubStates();
 void RogueSave_LoadHubStates();
 
+u16 RogueSave_GetHubBagItemIdAt(u16 index);
+u16 RogueSave_GetHubBagItemQuantityAt(u16 index);
+
 #endif //ROGUE_SAVE_H

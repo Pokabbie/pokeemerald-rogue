@@ -86,16 +86,17 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,9 +105,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -115,23 +116,25 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,9 +143,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -151,7 +154,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -162,7 +166,15 @@
     <ClCompile Include="External\imgui\imgui_impl_opengl2.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp" />
+    <ClCompile Include="Src\GameConnection.cpp" />
+    <ClCompile Include="Src\GameConnectionManager.cpp" />
+    <ClCompile Include="Src\GameConnectionRPCs.cpp" />
+    <ClCompile Include="Src\GameData.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\ObservedGameMemory.cpp" />
+    <ClCompile Include="Src\Testing.cpp" />
+    <ClCompile Include="Src\Timer.cpp" />
     <ClCompile Include="Src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,8 +186,17 @@
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h" />
     <ClInclude Include="Inc\Defines.h" />
+    <ClInclude Include="Inc\GameConnection.h" />
+    <ClInclude Include="Inc\GameConnectionBehaviour.h" />
+    <ClInclude Include="Inc\GameConnectionManager.h" />
+    <ClInclude Include="Inc\GameConnectionMessage.h" />
+    <ClInclude Include="Inc\GameConnectionRPCs.h" />
+    <ClInclude Include="Inc\GameData.h" />
     <ClInclude Include="Inc\Log.h" />
+    <ClInclude Include="Inc\ObservedGameMemory.h" />
+    <ClInclude Include="Inc\Timer.h" />
     <ClInclude Include="Inc\Window.h" />
   </ItemGroup>
   <ItemGroup>

@@ -3,10 +3,13 @@
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum);
 bool8 Rogue_IsMiniBossTrainer(u16 trainerNum);
-bool8 Rogue_IsRouteTrainer(u16 trainerNum);
+bool8 Rogue_IsRivalTrainer(u16 trainerNum);
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum);
-bool8 Rogue_TryGetTrainer(u16 trainerNum, const struct RogueTrainer** trainerPtr);
+bool8 Rogue_IsKeyTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
+
+const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum);
+struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum);
 
 u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum);
 u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject);
@@ -14,6 +17,7 @@ u16 Rogue_GetTrainerNumFromLastInteracted();
 
 u8 Rogue_GetTrainerWeather(u16 trainerNum);
 u8 Rogue_GetTrainerTypeAssignment(u16 trainerNum);
+u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum);
 
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();

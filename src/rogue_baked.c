@@ -5,12 +5,15 @@
 #include "constants/battle_ai.h"
 #include "constants/items.h"
 #include "constants/pokemon.h"
+#include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/trainers.h"
 
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
+
+extern const struct BaseStats gBaseStats[];
 #else
 #include "global.h"
 #include "data.h"
@@ -51,6 +54,7 @@ extern const struct RogueItem gRogueItems[];
 #ifdef ROGUE_BAKE_VALID
 extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
 extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
+extern const u32 gRogueBake_EvolutionChainTypeFlags[NUM_SPECIES];
 extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
 #endif
 
@@ -487,58 +491,71 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 const u8* Rogue_GetTrainerName(u16 trainerNum)
 {
 #ifndef ROGUE_BAKING
-    const struct RogueTrainer* trainer;
-    if(Rogue_TryGetTrainer(trainerNum, &trainer))
-    {
-        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_PLAYER))
-        {
-            return gSaveBlock2Ptr->playerName;
-        }
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    //if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_PLAYER))
+    //{
+    //    return gSaveBlock2Ptr->playerName;
+    //}
 
-        if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR))
-        {
-            switch(gSaveBlock2Ptr->playerGender)
-            {
-                case(STYLE_EMR_BRENDAN):
-                    return gText_TrainerName_May;
-                case(STYLE_EMR_MAY):
-                    return gText_TrainerName_Brendan;
+    //if((trainer->trainerFlags & TRAINER_FLAG_NAME_IS_OPPOSITE_AVATAR))
+    //{
+    //    switch(gSaveBlock2Ptr->playerGender)
+    //    {
+    //        case(STYLE_EMR_BRENDAN):
+    //            return gText_TrainerName_May;
+    //        case(STYLE_EMR_MAY):
+    //            return gText_TrainerName_Brendan;
+//
+    //        case(STYLE_RED):
+    //            return gText_TrainerName_Leaf;
+    //        case(STYLE_LEAF):
+    //            return gText_TrainerName_Red;
+//
+    //        case(STYLE_ETHAN):
+    //            return gText_TrainerName_Lyra;
+    //        case(STYLE_LYRA):
+    //            return gText_TrainerName_Ethan;
+    //    };
+    //}
 
-                case(STYLE_RED):
-                    return gText_TrainerName_Leaf;
-                case(STYLE_LEAF):
-                    return gText_TrainerName_Red;
-
-                case(STYLE_ETHAN):
-                    return gText_TrainerName_Lyra;
-                case(STYLE_LYRA):
-                    return gText_TrainerName_Ethan;
-            };
-        }
-
-        return trainer->trainerName;
-    }
-
-    AGB_ASSERT(FALSE);
-    return NULL;
+    return trainer->trainerName;
 #else
     return NULL;
 #endif
 }
 
+static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
+{
+    if(trainerClass == TRAINER_CLASS_LEADER)
+    {
+        if(gRogueRun.currentDifficulty >= 12)
+        {
+            trainerClass = TRAINER_CLASS_CHAMPION;
+        }
+        else if(gRogueRun.currentDifficulty >= 8)
+        {
+            trainerClass = TRAINER_CLASS_ELITE_FOUR;
+        }
+    }
+
+    return trainerClass;
+}
+
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 {
 #ifndef ROGUE_BAKING
-    const struct RogueTrainer* trainer;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
 
     // Early out for NULL trainer
-    if(trainerNum == 0)
-        return;
+    //if(trainerNum == 0)
+    //    return;
 
-    if(Rogue_TryGetTrainer(trainerNum, &trainer))
+    if(TRUE)
     {
-        outTrainer->trainerClass = trainer->trainerClass;
-        outTrainer->encounterMusic_gender = trainer->encounterMusic_gender;
+        //struct RogueBattleMusic const* musicPlayer = Rogue_GetTrainerMusic(trainerNum);
+
+        outTrainer->trainerClass = ModifyTrainerClass(trainerNum, trainer->trainerClass);
+        outTrainer->encounterMusic_gender = trainer->teamGenerator.preferredGender == MALE ? 0 : F_TRAINER_FEMALE; // not actually used for encounter music anymore
         outTrainer->trainerPic = trainer->trainerPic;
 
         outTrainer->partyFlags = 0;
@@ -565,102 +582,88 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         }
 #endif
 
-        if(trainer->trainerPic == TRAINER_PIC_PLAYER_AVATAR)
-        {
-            switch(gSaveBlock2Ptr->playerGender)
-            {    
-                case(STYLE_EMR_BRENDAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-                    break;
-                case(STYLE_EMR_MAY):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_MAY;
-                    break;
+        //if(trainer->trainerPic == TRAINER_PIC_PLAYER_AVATAR)
+        //{
+        //    switch(gSaveBlock2Ptr->playerGender)
+        //    {    
+        //        case(STYLE_EMR_BRENDAN):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
+        //            break;
+        //        case(STYLE_EMR_MAY):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_MAY;
+        //            break;
+//
+        //        case(STYLE_RED):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_RED;
+        //            break;
+        //        case(STYLE_LEAF):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_LEAF;
+        //            break;
+//
+        //        case(STYLE_ETHAN):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_ETHAN;
+        //            break;
+        //        case(STYLE_LYRA):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_LYRA;
+        //            break;
+        //    };
+        //}
+        //else if(trainer->trainerPic == TRAINER_PIC_PLAYER_OPPOSITE_AVATAR)
+        //{
+        //    switch(gSaveBlock2Ptr->playerGender)
+        //    {    
+        //        case(STYLE_EMR_BRENDAN):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_MAY;
+        //            break;
+        //        case(STYLE_EMR_MAY):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
+        //            break;
+//
+        //        case(STYLE_RED):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_LEAF;
+        //            break;
+        //        case(STYLE_LEAF):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_RED;
+        //            break;
+//
+        //        case(STYLE_ETHAN):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_LYRA;
+        //            break;
+        //        case(STYLE_LYRA):
+        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
+        //            outTrainer->trainerPic = TRAINER_PIC_ETHAN;
+        //            break;
+        //    };
+        //}
 
-                case(STYLE_RED):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
-                    break;
-                case(STYLE_LEAF):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
-                    break;
-
-                case(STYLE_ETHAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-                    break;
-                case(STYLE_LYRA):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
-                    break;
-            };
-        }
-        else if(trainer->trainerPic == TRAINER_PIC_PLAYER_OPPOSITE_AVATAR)
-        {
-            switch(gSaveBlock2Ptr->playerGender)
-            {    
-                case(STYLE_EMR_BRENDAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_MAY;
-                    break;
-                case(STYLE_EMR_MAY):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-                    break;
-
-                case(STYLE_RED):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LEAF;
-                    break;
-                case(STYLE_LEAF):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_RED;
-                    break;
-
-                case(STYLE_ETHAN):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-                    outTrainer->trainerPic = TRAINER_PIC_LYRA;
-                    break;
-                case(STYLE_LYRA):
-                    outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-                    outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-                    break;
-            };
-        }
-
-
-        // Upgrade leaders to current boss trainer class
-        if(trainer->trainerClass == TRAINER_CLASS_LEADER)
-        {
-            if(gRogueRun.currentDifficulty >= 12)
-            {
-                outTrainer->trainerClass = TRAINER_CLASS_CHAMPION;
-                outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR | (trainer->encounterMusic_gender & F_TRAINER_FEMALE);
-            }
-            else if(gRogueRun.currentDifficulty >= 8)
-            {
-                outTrainer->trainerClass = TRAINER_CLASS_ELITE_FOUR;
-            }
-        }
 
         // For now only apply auto music to leaders
-        if(trainer->trainerClass == TRAINER_CLASS_LEADER)
-        {
-            if(trainer->trainerFlags & TRAINER_FLAG_KANTO) 
-            {
-                outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
-            }
-            else if(trainer->trainerFlags & TRAINER_FLAG_JOHTO) 
-            {
-                outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
-            }
-            else if(trainer->trainerFlags & TRAINER_FLAG_FALLBACK_REGION) 
-            {
-                outTrainer->partyFlags |= F_TRAINER_PARTY_SINNOH_MUS;
-            }
-        }
+        //if(trainer->trainerClass == TRAINER_CLASS_LEADER)
+        //{
+        //    if(trainer->trainerFlags & TRAINER_FLAG_KANTO) 
+        //    {
+        //        outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
+        //    }
+        //    else if(trainer->trainerFlags & TRAINER_FLAG_JOHTO) 
+        //    {
+        //        outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
+        //    }
+        //    else if(trainer->trainerFlags & TRAINER_FLAG_FALLBACK_REGION) 
+        //    {
+        //        outTrainer->partyFlags |= F_TRAINER_PARTY_SINNOH_MUS;
+        //    }
+        //}
 
         return;
     }
@@ -668,6 +671,69 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
     {
         // We shouldn't ever get here
         AGB_ASSERT(FALSE);
+    }
+#endif
+}
+
+void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBattleMusic* outMusic)
+{
+#ifndef ROGUE_BAKING
+    u8 i;
+    u16 trainerClass = 0;
+    struct RogueBattleMusic const* currMusic = NULL;
+    const struct RogueTrainer* trainer = NULL;
+
+#ifdef ROGUE_EXPANSION
+    trainerSpecies = GET_BASE_SPECIES_ID(trainerSpecies);
+#endif
+
+    switch (musicType)
+    {
+    case BATTLE_MUSIC_TYPE_TRAINER:
+        trainer = Rogue_GetTrainer(trainerSpecies);
+        trainerClass = ModifyTrainerClass(trainerSpecies, trainer->trainerClass);
+        currMusic = &gRogueTrainerMusic[trainer->musicPlayer];
+        break;
+    
+    case BATTLE_MUSIC_TYPE_WILD:
+        if(RoguePokedex_IsSpeciesLegendary(trainerSpecies))
+            currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_LEGENDARY_BATTLE];
+        else
+            currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_WILD_BATTLE];
+        break;
+    }
+
+
+    // Execute through redirection chain
+    for(i = 0; i < currMusic->redirectCount; ++i)
+    {
+        switch (musicType)
+        {
+        case BATTLE_MUSIC_TYPE_TRAINER:
+            if(currMusic->redirects[i].trainerClassSpecies == trainerClass)
+            {
+                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
+                i = 0;
+            }
+            break;
+        
+        case BATTLE_MUSIC_TYPE_WILD:
+            if(currMusic->redirects[i].trainerClassSpecies == trainerSpecies)
+            {
+                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
+                i = 0;
+            }
+            break;
+        }
+    }
+
+    // Copy to output so we can modify it
+    memcpy(outMusic, currMusic, sizeof(struct RogueBattleMusic));
+
+    // Check the preferred team gender and then swap out to female (It's just a lazy/easy mechanism that prevents a lot of duplicated data)
+    if(outMusic->encounterMusic == MUS_ENCOUNTER_MALE && trainer->teamGenerator.preferredGender != MALE)
+    {
+        outMusic->encounterMusic = MUS_ENCOUNTER_FEMALE;
     }
 #endif
 }
@@ -1222,4 +1288,38 @@ u8 Rogue_GetEvolutionCount(u16 species)
 
     return 0;
 #endif
+}
+
+void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
+{
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type1);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type2);
+}
+
+u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)
+{
+#ifdef ROGUE_BAKE_VALID
+    return gRogueBake_EvolutionChainTypeFlags[species];
+#elif defined(ROGUE_BAKING)
+    return 0;
+#else
+    AGB_ASSERT(FALSE);
+    return FALSE;
+#endif
+}
+
+u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count)
+{
+    u8 i;
+    u32 flags = 0;
+
+    for(i = 0; i < count; ++i)
+    {
+        if(types[i] == TYPE_NONE)
+            break;
+
+        flags |= MON_TYPE_VAL_TO_FLAGS(types[i]);
+    }
+
+    return flags;
 }

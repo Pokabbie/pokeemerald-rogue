@@ -43,3 +43,9 @@ u16 RogueRandom(void)
     gRngRogueValue = ISO_RANDOMIZE1(gRngRogueValue);
     return gRngRogueValue >> 16;
 }
+
+u16 RandomCustom(u32* seed)
+{
+    *seed = ISO_RANDOMIZE1(*seed);
+    return *seed >> 16;
+}

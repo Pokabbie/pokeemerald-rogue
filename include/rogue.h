@@ -195,10 +195,15 @@ struct RogueCampaignData_Generic
     u16 score;
 };
 
+struct RogueWildEncounters
+{
+    u16 species[WILD_ENCOUNTER_TOTAL_CAPACITY];
+    u8 catchCounts[WILD_ENCOUNTER_TOTAL_CAPACITY];
+};
+
 struct RogueRunData
 {
-    u16 wildEncounters[9];
-    u16 fishingEncounters[2];
+    struct RogueWildEncounters wildEncounters;
     u16 bossHistoryBuffer[ROGUE_MAX_BOSS_COUNT];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
@@ -221,23 +226,27 @@ struct RogueRunData
 
 struct RogueHubArea
 {
+    const u32* iconImage;
+    const u32* iconPalette;
     const u8* descText;
-    const u8* completeText;
     const u8 areaName[16];
     u8 connectionWarps[4][2];
+    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u16 primaryMapNum;
     u16 primaryMapLayout;
-    u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u8 primaryMapGroup;
+    u8 buildCost;
 };
 
 struct RogueAreaUpgrade
 {
-    const u8 upgradeName[24];
+    const u32* iconImage;
+    const u32* iconPalette;
     const u8* descText;
-    const u8* completeText;
-    u8 targetArea;
+    const u8 upgradeName[24];
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
+    u8 targetArea;
+    u8 buildCost;
 };
 
 struct RogueRouteMap
@@ -275,64 +284,49 @@ struct RogueEncounterData
     const struct RogueEncounterMap* mapTable;
 };
 
-struct RogueTrainerEncounter
+struct RogueBattleMusicRedirect
 {
-    u16 gfxId;
-    u16 trainerId;
-    u16 trainerFlags;
-    u16 partyFlags;
-    u16 querySpeciesCount;
-    const u16* querySpecies;
-    u16 incTypes[3];
-    u16 excTypes[3];
+    u16 trainerClassSpecies;
+    u8 musicPlayer;
 };
 
-struct RogueTrainerData
+struct RogueBattleMusic
 {
-    // old
-    u8 count;
-    const struct RogueTrainerEncounter* trainers;
+    struct RogueBattleMusicRedirect const* redirects;
+    u16 redirectCount;
+    u16 encounterMusic;
+    u16 battleMusic;
+    u16 victoryMusic;
 };
 
-
-struct RogueTrainerMonGenerator
+struct RogueTeamGeneratorSubset
 {
-    u8 monCount;
-    u8 targetLevel;
-    u8 incTypes[2];
-    u8 excTypes[2];
-    u16 generatorFlags;
-    u16 customSpeciesCount;
-    const u16* customSpecies;
+    u32 includedTypeMask;
+    u32 excludedTypeMask;
+    u8 maxSamples;
+};
+
+struct RogueTeamGenerator
+{
+    u16 const* queryScriptOverride;
+    u16 const* queryScriptPost;
+    u16 const* weightScript;
+    struct RogueTeamGeneratorSubset const* subsets;
+    u8 subsetCount;
+    u8 preferredGender;
 };
 
 struct RogueTrainer
 {
+    u8 const* trainerName;
+    u32 trainerFlags;
+    u16 objectEventGfx;
+    u16 typeAssignment;
     u8 trainerClass;
-    u8 encounterMusic_gender; // last bit is gender
     u8 trainerPic;
     u8 preferredWeather;
-    u8 trainerName[12];
-    u16 objectEventGfx;
-    u16 trainerFlags;
-    struct RogueTrainerMonGenerator monGenerators[3];
-    struct RogueTrainerMonGenerator aceMonGenerators[1];
-};
-
-struct RogueTrainerCollection
-{
-    u16 bossCount;
-    u16 minibossCount;
-    u16 routeTrainersCount;
-#ifdef ROGUE_DEBUG
-    u16 debugTrainersCount;
-#endif
-    const struct RogueTrainer* boss;
-    const struct RogueTrainer* miniboss;
-    const struct RogueTrainer* routeTrainers;
-#ifdef ROGUE_DEBUG
-    const struct RogueTrainer* debugTrainers;
-#endif
+    u8 musicPlayer;
+    struct RogueTeamGenerator teamGenerator;
 };
 
 struct SpeciesTable
@@ -362,12 +356,65 @@ struct RogueMonPresetCollection
     const u16* moves;
 };
 
+// Rogue Multiplayer
+//
+struct RogueNetHandshake
+{
+    u32 token;
+    u8 request;
+};
+
+struct RogueNetGameState
+{
+    u8 temp1;
+    u8 temp2;
+};
+
+struct RogueNetPlayer
+{
+    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    struct Coords16 playerPos;
+    struct Coords8 partnerPos;
+    u16 networkId;
+    u16 partnerMon;
+    u8 facingDirection;
+    u8 partnerFacingDirection;
+    u8 playerFlags;
+    s8 mapGroup;
+    s8 mapNum;
+};
+
+struct RogueNetMultiplayer
+{
+    struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
+    struct RogueNetGameState gameState;
+    struct RogueNetHandshake pendingHandshake;
+    u8 netRequestState;
+    u8 netCurrentState;
+};
+
+// Rogue Assistant
+//
+
 struct RogueAssistantHeader
 {
-    u32 inCommCapacity;
-    u32 outCommCapacity;
-    u8* inCommBuffer;
-    u8* outCommBuffer;
+    u8 rogueVersion;
+    u8 rogueDebug;
+    u32 netMultiplayerSize;
+    u32 netHandshakeOffset;
+    u32 netHandshakeSize;
+    u32 netGameStateOffset;
+    u32 netGameStateSize;
+    u32 netPlayerOffset;
+    u32 netPlayerSize;
+    u32 netPlayerCount;
+    u32 netRequestStateOffset;
+    u32 netCurrentStateOffset;
+    void const* saveBlock1Ptr;
+    void const* saveBlock2Ptr;
+    void const* rogueBlockPtr;
+    void const* assistantState;
+    void const* multiplayerPtr;
 };
 
 extern const struct RogueAssistantHeader gRogueAssistantHeader;
@@ -433,7 +480,10 @@ struct RogueSaveBlock
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
-extern const struct RogueTrainerCollection gRogueTrainers;
+
+extern const struct RogueTrainer gRogueTrainers[];
+extern const u16 gRogueTrainerCount;
+extern const struct RogueBattleMusic gRogueTrainerMusic[];
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 
