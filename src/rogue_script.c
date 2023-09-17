@@ -15,6 +15,7 @@
 #include "random.h"
 #include "script.h"
 #include "shop.h"
+#include "sound.h"
 #include "string_util.h"
 
 #include "rogue.h"
@@ -814,6 +815,18 @@ void Rogue_GetTrainerNum(void)
     {
         gSpecialVar_Result = FALSE;
     }
+}
+
+void Rogue_PlayStaticTrainerEncounterBGM(void)
+{
+    u16 trainerNum = VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA);
+
+    struct RogueTrainerMusic music;
+    Rogue_ModifyTrainerMusic(trainerNum, &music);
+
+    //PlayBGM();
+    PlayNewMapMusic(music.encounterMusic);
+    //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
 }
 
 void Rogue_IsMultiplayerActive(void)

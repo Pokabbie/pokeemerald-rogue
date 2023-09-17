@@ -1539,7 +1539,7 @@ void ShowTrainerCantBattleSpeech(void)
 void PlayTrainerEncounterMusic(void)
 {
     u16 trainerId;
-    u16 music;
+    //u16 music;
 
     if (gApproachingTrainerId == 0)
         trainerId = gTrainerBattleOpponent_A;
@@ -1549,51 +1549,54 @@ void PlayTrainerEncounterMusic(void)
     if (sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
         && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
-        switch (GetTrainerEncounterMusicId(trainerId))
-        {
-        case TRAINER_ENCOUNTER_MUSIC_MALE:
-            music = MUS_ENCOUNTER_MALE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_FEMALE:
-            music = MUS_ENCOUNTER_FEMALE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_GIRL:
-            music = MUS_ENCOUNTER_GIRL;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_INTENSE:
-            music = MUS_ENCOUNTER_INTENSE;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_COOL:
-            music = MUS_ENCOUNTER_COOL;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_AQUA:
-            music = MUS_ENCOUNTER_AQUA;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_MAGMA:
-            music = MUS_ENCOUNTER_MAGMA;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
-            music = MUS_ENCOUNTER_SWIMMER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_TWINS:
-            music = MUS_ENCOUNTER_TWINS;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
-            music = MUS_ENCOUNTER_ELITE_FOUR;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_HIKER:
-            music = MUS_ENCOUNTER_HIKER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
-            music = MUS_ENCOUNTER_INTERVIEWER;
-            break;
-        case TRAINER_ENCOUNTER_MUSIC_RICH:
-            music = MUS_ENCOUNTER_RICH;
-            break;
-        default:
-            music = MUS_ENCOUNTER_SUSPICIOUS;
-        }
-        PlayNewMapMusic(music);
+        struct RogueTrainerMusic music;
+        Rogue_ModifyTrainerMusic(trainerId, &music);
+
+        //switch (GetTrainerEncounterMusicId(trainerId))
+        //{
+        //case TRAINER_ENCOUNTER_MUSIC_MALE:
+        //    music = MUS_ENCOUNTER_MALE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_FEMALE:
+        //    music = MUS_ENCOUNTER_FEMALE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_GIRL:
+        //    music = MUS_ENCOUNTER_GIRL;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_INTENSE:
+        //    music = MUS_ENCOUNTER_INTENSE;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_COOL:
+        //    music = MUS_ENCOUNTER_COOL;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_AQUA:
+        //    music = MUS_ENCOUNTER_AQUA;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_MAGMA:
+        //    music = MUS_ENCOUNTER_MAGMA;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
+        //    music = MUS_ENCOUNTER_SWIMMER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_TWINS:
+        //    music = MUS_ENCOUNTER_TWINS;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
+        //    music = MUS_ENCOUNTER_ELITE_FOUR;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_HIKER:
+        //    music = MUS_ENCOUNTER_HIKER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
+        //    music = MUS_ENCOUNTER_INTERVIEWER;
+        //    break;
+        //case TRAINER_ENCOUNTER_MUSIC_RICH:
+        //    music = MUS_ENCOUNTER_RICH;
+        //    break;
+        //default:
+        //    music = MUS_ENCOUNTER_SUSPICIOUS;
+        //}
+        PlayNewMapMusic(music.encounterMusic);
     }
 }
 

@@ -520,7 +520,6 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
             if(perc != 100)
                 *ballMultiplier = ((u32)*ballMultiplier * perc) / 100;
         }
-#endif
 
         // After we've caught a few remove the catch rate buff
         if(speciesCatchCount <= 3)
@@ -529,6 +528,7 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
             if(*catchRate < 25)
                 *catchRate = 25;
         }
+#endif
     }
     else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
@@ -1446,6 +1446,7 @@ static void SelectStartMons(bool8 isSeeded)
 {
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
@@ -2205,7 +2206,7 @@ static void BeginRogueRun(void)
     }
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+    memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
     
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -2528,6 +2529,7 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     u16 species;
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
@@ -2857,8 +2859,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_BOSS:
                 {
                     u16 trainerNum;
-                    const struct RogueTrainer* trainer;
-
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
 
                     gRogueRun.currentLevelOffset = 0;
@@ -2875,8 +2875,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_MINIBOSS:
                 {
                     u16 trainerNum;
-                    const struct RogueTrainer* trainer;
-
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.miniboss.trainerNum;
 
                     RandomiseEnabledItems();
@@ -3008,8 +3006,9 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
                     {
                         trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+                        trainer = Rogue_GetTrainer(trainerNum);
 
-                        if(Rogue_TryGetTrainer(trainerNum, &trainer))
+                        if(trainer != NULL)
                         {
                             objectEvents[write].graphicsId = trainer->objectEventGfx;
                             objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
@@ -3459,15 +3458,11 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if(isBossTrainer)
         {
-            const struct RogueTrainer* trainer;
             u8 nextLevel;
             u8 prevLevel = Rogue_CalculateBossMonLvl();
 
             // Update badge for trainer card
-            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_NONE;
-
-            if(Rogue_TryGetTrainer(trainerNum, &trainer))
-                gRogueRun.completedBadges[gRogueRun.currentDifficulty] = trainer->monGenerators[0].incTypes[0];
+            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = Rogue_GetTrainerTypeAssignment(trainerNum);
 
             if(gRogueRun.completedBadges[gRogueRun.currentDifficulty] == TYPE_NONE)
                 gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_MYSTERY;
@@ -3487,7 +3482,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                         case 8:
                         case 12:
                         case 13:
-                            memset(&gRogueRun.bossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
+                            memset(&gRogueRun.bossHistoryBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossHistoryBuffer));
                             break;
                     }
             }
@@ -4893,26 +4888,26 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
 static void RandomiseWildEncounters(void)
 {
     u8 maxlevel = CalculateWildLevel(0);
+    u32 typeFlags;
 
-    RogueMonQuery_Begin();
-
-    // Prefilter to mons of types we're interested in
-    RogueMonQuery_EvosContainType(
-        QUERY_FUNC_INCLUDE, 
+    typeFlags = Rogue_GetTypeFlagsFromArray(
         &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
         ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
     );
+
+    RogueMonQuery_Begin();
+
+    RogueMonQuery_IsSpeciesActive();
+
+    // Prefilter to mons of types we're interested in
+    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(maxlevel - min(6, maxlevel - 1), FALSE, FALSE);
 
     // Now we've evolved we're only caring about mons of this type
-    RogueMonQuery_IsOfType(
-        QUERY_FUNC_INCLUDE, 
-        &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
-        ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
-    );
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
     {
         u8 i;
@@ -4944,26 +4939,18 @@ static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, voi
 
 static void RandomiseFishingEncounters(void)
 {
-    const u8 types[1] = { TYPE_WATER };
-
     RogueMonQuery_Begin();
 
+    RogueMonQuery_IsSpeciesActive();
+
     // Prefilter to mons of types we're interested in
-    RogueMonQuery_EvosContainType(
-        QUERY_FUNC_INCLUDE, 
-        &types[0], 
-        ARRAY_COUNT(types)
-    );
+    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(TYPE_WATER));
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
 
     // Now we've evolved we're only caring about mons of this type
-    RogueMonQuery_IsOfType(
-        QUERY_FUNC_INCLUDE, 
-        &types[0], 
-        ARRAY_COUNT(types)
-    );
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(TYPE_WATER));
 
     {
         u8 i;
@@ -5039,82 +5026,6 @@ static void RandomiseSafariWildEncounters(void)
 {
     // No longer supported code path
     AGB_ASSERT(FALSE);
-
-//    u8 types[3];
-//    u8 maxlevel = CalculateWildLevel(0);
-//    u16 targetGen = VarGet(VAR_ROGUE_SAFARI_GENERATION);
-//    u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
-//    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-//
-//    Rogue_SafariTypeForMap(&types[0], ARRAY_COUNT(types));
-//
-//    // Temporarily remove the gen limit for the safari encounters
-//    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
-//    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 255);
-//
-//    // Query for the current zone
-//    RogueQuery_Clear();
-//    RogueQuery_SpeciesIsValid(types[0], types[1], types[2]);
-//
-//    if(targetGen == 0)
-//    {
-//        RogueQuery_SpeciesExcludeCommon();
-//    }
-//
-//    if(!IsQuestCollected(QUEST_CollectorLegend))
-//    {
-//        RogueQuery_SpeciesIsNotLegendary();
-//    }
-//
-//    RogueQuery_SpeciesInPokedex();
-//
-//    RogueQuery_TransformToEggSpecies();
-//    RogueQuery_EvolveSpecies(2, FALSE); // To force gen3+ mons off if needed
-//
-//    if(targetGen != 0)
-//    {
-//        RogueQuery_SpeciesInGeneration(targetGen);
-//    }
-//
-//    if(types[2] == TYPE_NONE)
-//        RogueQuery_SpeciesOfTypes(&types[0], 2);
-//    else
-//        RogueQuery_SpeciesOfTypes(&types[0], 3);
-//
-//    RogueQuery_CollapseSpeciesBuffer();
-//
-//    // Restore the gen limit
-//    VarSet(VAR_ROGUE_REGION_DEX_LIMIT, dexLimit);
-//    VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, maxGen);
-//
-//    {
-//        u8 i;
-//        u16 randIdx;
-//        u16 queryCount = RogueQuery_BufferSize();
-//
-//#ifdef ROGUE_DEBUG
-//        gDebug_WildOptionCount = queryCount;
-//#endif
-//
-//        if(queryCount == 0)
-//        {
-//            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-//            {
-//                // Just encounter self, as we don't have a great fallback?
-//                gRogueRun.wildEncounters[i] = Rogue_GetEggSpecies(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES));
-//            }
-//        }
-//        else
-//        {
-//            for(i = 0; i < ARRAY_COUNT(gRogueRun.wildEncounters); ++i)
-//            {
-//                gRogueRun.wildEncounters[i] = NextWildSpecies(&gRogueRun.wildEncounters[0], i);
-//            }
-//        }
-//    }
-//
-//    // Don't technically need to do this anymore
-//    //RandomiseFishingEncounters();
 }
 
 static void ResetTrainerBattles(void)

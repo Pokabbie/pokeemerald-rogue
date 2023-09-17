@@ -141,12 +141,13 @@ FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
 MEMORYSTATS := tools/Pokabbie/Build/MemoryStats/memorystats$(EXE)
+CUSTOMJSON := tools/Pokabbie/Build/CustomJson/customjson$(EXE)
 
 PERL := perl
 
 
 # Inclusive list. If you don't want a tool to be built, don't add it here.
-TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc tools/Pokabbie/Build/MemoryStats
+TOOLDIRS := tools/aif2pcm tools/bin2c tools/gbafix tools/gbagfx tools/jsonproc tools/mapjson tools/mid2agb tools/preproc tools/ramscrgen tools/rsfont tools/scaninc tools/Pokabbie/Build/MemoryStats tools/Pokabbie/Build/CustomJson
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
@@ -278,6 +279,7 @@ include map_data_rules.mk
 include spritesheet_rules.mk
 include json_data_rules.mk
 include songs.mk
+include $(DATA_SRC_SUBDIR)/rogue/custom_json_rules.mk
 include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 
 %.s: ;

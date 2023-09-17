@@ -5999,10 +5999,10 @@ u8 GetTrainerEncounterMusicId(u16 trainerOpponentId)
         return GetTrainerEncounterMusicIdInTrainerHill(trainerOpponentId);
     else
     {
-        struct Trainer trainer;
-        Rogue_ModifyTrainer(trainerOpponentId, &trainer);
+        struct RogueTrainerMusic music;
+        Rogue_ModifyTrainerMusic(trainerOpponentId, &music);
 
-        return TRAINER_ENCOUNTER_MUSIC(trainer.encounterMusic_gender);
+        return music.encounterMusic;
     }
 }
 
@@ -6544,7 +6544,10 @@ u16 GetBattleBGM(void)
     {
         u8 trainerClass;
         struct Trainer trainer;
+        struct RogueTrainerMusic music;
+
         Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+        Rogue_ModifyTrainerMusic(gTrainerBattleOpponent_A, &music);
 
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
             trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
@@ -6553,83 +6556,85 @@ u16 GetBattleBGM(void)
         else
             trainerClass = trainer.trainerClass;
 
-        if((trainer.partyFlags & F_TRAINER_PARTY_KANTO_MUS) != 0)
-        {
-            switch (trainerClass)
-            {
-                case TRAINER_CLASS_LEADER:
-                case TRAINER_CLASS_ELITE_FOUR:
-                    return MUS_RG_VS_GYM_LEADER;
-                case TRAINER_CLASS_CHAMPION:
-                    return MUS_RG_VS_CHAMPION;
-                default:
-                    return MUS_RG_VS_TRAINER;
-            }
-        }
-        else if((trainer.partyFlags & F_TRAINER_PARTY_JOHTO_MUS) != 0)
-        {
-            switch (trainerClass)
-            {
-                case TRAINER_CLASS_LEADER:
-                    return MUS_HG_VS_GYM_LEADER;
-                case TRAINER_CLASS_ELITE_FOUR:
-                    return MUS_HG_VS_GYM_LEADER;
-                case TRAINER_CLASS_CHAMPION:
-                    return MUS_HG_VS_CHAMPION;
-                default:
-                    return MUS_HG_VS_TRAINER;
-            }
-        }
-        else if((trainer.partyFlags & F_TRAINER_PARTY_SINNOH_MUS) != 0)
-        {
-            switch (trainerClass)
-            {
-                case TRAINER_CLASS_LEADER:
-                    return MUS_DP_VS_GYM_LEADER;
-                case TRAINER_CLASS_ELITE_FOUR:
-                    return MUS_DP_VS_ELITE_FOUR;
-                case TRAINER_CLASS_CHAMPION:
-                    return MUS_DP_VS_CHAMPION;
-                default:
-                    return MUS_HG_VS_TRAINER;
-            }
-        }
-        else
-        {
-            switch (trainerClass)
-            {
-            case TRAINER_CLASS_AQUA_LEADER:
-            case TRAINER_CLASS_MAGMA_LEADER:
-                return MUS_VS_AQUA_MAGMA_LEADER;
-            case TRAINER_CLASS_TEAM_AQUA:
-            case TRAINER_CLASS_TEAM_MAGMA:
-            case TRAINER_CLASS_AQUA_ADMIN:
-            case TRAINER_CLASS_MAGMA_ADMIN:
-                return MUS_VS_AQUA_MAGMA;
-            case TRAINER_CLASS_LEADER:
-                return MUS_VS_GYM_LEADER;
-            case TRAINER_CLASS_CHAMPION:
-                return MUS_VS_CHAMPION;
-            case TRAINER_CLASS_RIVAL:
-                if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-                    return MUS_VS_RIVAL;
-                if (!StringCompare(trainer.trainerName, gText_BattleWallyName))
-                    return MUS_VS_TRAINER;
-                return MUS_VS_RIVAL;
-            case TRAINER_CLASS_ELITE_FOUR:
-                return MUS_VS_ELITE_FOUR;
-            case TRAINER_CLASS_SALON_MAIDEN:
-            case TRAINER_CLASS_DOME_ACE:
-            case TRAINER_CLASS_PALACE_MAVEN:
-            case TRAINER_CLASS_ARENA_TYCOON:
-            case TRAINER_CLASS_FACTORY_HEAD:
-            case TRAINER_CLASS_PIKE_QUEEN:
-            case TRAINER_CLASS_PYRAMID_KING:
-                return MUS_VS_FRONTIER_BRAIN;
-            default:
-                return MUS_VS_TRAINER;
-            }
-        }
+        return music.battleMusic;
+
+        //if((trainer.partyFlags & F_TRAINER_PARTY_KANTO_MUS) != 0)
+        //{
+        //    switch (trainerClass)
+        //    {
+        //        case TRAINER_CLASS_LEADER:
+        //        case TRAINER_CLASS_ELITE_FOUR:
+        //            return MUS_RG_VS_GYM_LEADER;
+        //        case TRAINER_CLASS_CHAMPION:
+        //            return MUS_RG_VS_CHAMPION;
+        //        default:
+        //            return MUS_RG_VS_TRAINER;
+        //    }
+        //}
+        //else if((trainer.partyFlags & F_TRAINER_PARTY_JOHTO_MUS) != 0)
+        //{
+        //    switch (trainerClass)
+        //    {
+        //        case TRAINER_CLASS_LEADER:
+        //            return MUS_HG_VS_GYM_LEADER;
+        //        case TRAINER_CLASS_ELITE_FOUR:
+        //            return MUS_HG_VS_GYM_LEADER;
+        //        case TRAINER_CLASS_CHAMPION:
+        //            return MUS_HG_VS_CHAMPION;
+        //        default:
+        //            return MUS_HG_VS_TRAINER;
+        //    }
+        //}
+        //else if((trainer.partyFlags & F_TRAINER_PARTY_SINNOH_MUS) != 0)
+        //{
+        //    switch (trainerClass)
+        //    {
+        //        case TRAINER_CLASS_LEADER:
+        //            return MUS_DP_VS_GYM_LEADER;
+        //        case TRAINER_CLASS_ELITE_FOUR:
+        //            return MUS_DP_VS_ELITE_FOUR;
+        //        case TRAINER_CLASS_CHAMPION:
+        //            return MUS_DP_VS_CHAMPION;
+        //        default:
+        //            return MUS_HG_VS_TRAINER;
+        //    }
+        //}
+        //else
+        //{
+        //    switch (trainerClass)
+        //    {
+        //    case TRAINER_CLASS_AQUA_LEADER:
+        //    case TRAINER_CLASS_MAGMA_LEADER:
+        //        return MUS_VS_AQUA_MAGMA_LEADER;
+        //    case TRAINER_CLASS_TEAM_AQUA:
+        //    case TRAINER_CLASS_TEAM_MAGMA:
+        //    case TRAINER_CLASS_AQUA_ADMIN:
+        //    case TRAINER_CLASS_MAGMA_ADMIN:
+        //        return MUS_VS_AQUA_MAGMA;
+        //    case TRAINER_CLASS_LEADER:
+        //        return MUS_VS_GYM_LEADER;
+        //    case TRAINER_CLASS_CHAMPION:
+        //        return MUS_VS_CHAMPION;
+        //    case TRAINER_CLASS_RIVAL:
+        //        if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
+        //            return MUS_VS_RIVAL;
+        //        if (!StringCompare(trainer.trainerName, gText_BattleWallyName))
+        //            return MUS_VS_TRAINER;
+        //        return MUS_VS_RIVAL;
+        //    case TRAINER_CLASS_ELITE_FOUR:
+        //        return MUS_VS_ELITE_FOUR;
+        //    case TRAINER_CLASS_SALON_MAIDEN:
+        //    case TRAINER_CLASS_DOME_ACE:
+        //    case TRAINER_CLASS_PALACE_MAVEN:
+        //    case TRAINER_CLASS_ARENA_TYCOON:
+        //    case TRAINER_CLASS_FACTORY_HEAD:
+        //    case TRAINER_CLASS_PIKE_QUEEN:
+        //    case TRAINER_CLASS_PYRAMID_KING:
+        //        return MUS_VS_FRONTIER_BRAIN;
+        //    default:
+        //        return MUS_VS_TRAINER;
+        //    }
+        //}
     }
     else
         return MUS_VS_WILD;

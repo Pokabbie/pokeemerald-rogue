@@ -284,64 +284,49 @@ struct RogueEncounterData
     const struct RogueEncounterMap* mapTable;
 };
 
-struct RogueTrainerEncounter
+struct RogueTrainerMusicRedirect
 {
-    u16 gfxId;
-    u16 trainerId;
-    u16 trainerFlags;
-    u16 partyFlags;
-    u16 querySpeciesCount;
-    const u16* querySpecies;
-    u16 incTypes[3];
-    u16 excTypes[3];
+    u16 trainerClass;
+    u8 musicPlayer;
 };
 
-struct RogueTrainerData
+struct RogueTrainerMusic
 {
-    // old
-    u8 count;
-    const struct RogueTrainerEncounter* trainers;
+    struct RogueTrainerMusicRedirect const* redirects;
+    u16 redirectCount;
+    u16 encounterMusic;
+    u16 battleMusic;
+    u16 victoryMusic;
 };
 
-
-struct RogueTrainerMonGenerator
+struct RogueTeamGeneratorSubset
 {
-    u8 monCount;
-    u8 targetLevel;
-    u8 incTypes[2];
-    u8 excTypes[2];
-    u16 generatorFlags;
-    u16 customSpeciesCount;
-    const u16* customSpecies;
+    u32 includedTypeMask;
+    u32 excludedTypeMask;
+    u8 maxSamples;
+};
+
+struct RogueTeamGenerator
+{
+    u16 const* queryScriptOverride;
+    u16 const* queryScriptPost;
+    u16 const* weightScript;
+    struct RogueTeamGeneratorSubset const* subsets;
+    u8 subsetCount;
+    u8 preferredGender;
 };
 
 struct RogueTrainer
 {
+    u8 const* trainerName;
+    u32 trainerFlags;
+    u16 objectEventGfx;
+    u16 typeAssignment;
     u8 trainerClass;
-    u8 encounterMusic_gender; // last bit is gender
     u8 trainerPic;
     u8 preferredWeather;
-    u8 trainerName[12];
-    u16 objectEventGfx;
-    u16 trainerFlags;
-    struct RogueTrainerMonGenerator monGenerators[3];
-    struct RogueTrainerMonGenerator aceMonGenerators[1];
-};
-
-struct RogueTrainerCollection
-{
-    u16 bossCount;
-    u16 minibossCount;
-    u16 routeTrainersCount;
-#ifdef ROGUE_DEBUG
-    u16 debugTrainersCount;
-#endif
-    const struct RogueTrainer* boss;
-    const struct RogueTrainer* miniboss;
-    const struct RogueTrainer* routeTrainers;
-#ifdef ROGUE_DEBUG
-    const struct RogueTrainer* debugTrainers;
-#endif
+    u8 musicPlayer;
+    struct RogueTeamGenerator teamGenerator;
 };
 
 struct SpeciesTable
@@ -495,7 +480,10 @@ struct RogueSaveBlock
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
-extern const struct RogueTrainerCollection gRogueTrainers;
+
+extern const struct RogueTrainer gRogueTrainers[];
+extern const u16 gRogueTrainerCount;
+extern const struct RogueTrainerMusic gRogueTrainerMusic[];
 
 extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
 

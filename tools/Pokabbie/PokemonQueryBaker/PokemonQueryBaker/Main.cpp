@@ -111,51 +111,27 @@ int main()
 		}
 		file << "};\n";
 
-		//file << "const u8 gRogueBake_EvolutionChainTypes[NUM_SPECIES][8] =\n{\n";
-		//for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
-		//{
-		//	u16 eggSpecies = eggLookup[s];
-		//
-		//	file << "\t[" << s << "] = { ";
-		//	
-		//	for (auto type : eggEvolutionTypes[eggSpecies])
-		//	{
-		//		file << type << ", ";
-		//	}
-		//
-		//	file << "},\n";
-		//}
-		//file << "};\n";
-
 		file << "\n";
 	}
 
 	// Evo of type
 	//
 	{
-		std::array<u8, SPECIES_FLAGS_BYTE_COUNT> bitFlags;
-
-		file << "const u8 gRogueBake_SpeciesEvoTypeBitFlags[NUMBER_OF_MON_TYPES][SPECIES_FLAGS_BYTE_COUNT] =\n{\n";
-		for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
+		file << "const u32 gRogueBake_EvolutionChainTypeFlags[NUM_SPECIES] =\n{\n";
+		for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
 		{
-			bitFlags.fill(0);
+			u32 typeFlags = 0;
 
-			for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
+			for (int t = 0; t < NUMBER_OF_MON_TYPES; ++t)
 			{
 				if (HasEvolutionConnectionOfType(s, t))
-				{
-					SetBitFlag(s, TRUE, &bitFlags[0]);
-				}
+					typeFlags |= MON_TYPE_VAL_TO_FLAGS(t);
 			}
 
-			file << "\t[" << t << "] = \n\t{\n";
-			for (int j = 0; j < SPECIES_FLAGS_BYTE_COUNT; ++j)
-			{
-				file << "\t\t" << (int)bitFlags[j] << ",\n";
-			}
-			file << "\t},\n";
+			file << "\t[" << s << "] = " << (int)typeFlags << ",\n";
 		}
 		file << "};\n";
+		file << "\n";
 	}
 
 	// Dex variant lists

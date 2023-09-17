@@ -55,7 +55,7 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 };
 
 bool8 IsSpeciesType(u16 species, u8 type);
-bool8 PartyContainsSpecies(struct Pokemon *party, u8 partyCount, u16 species);
+bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 bool8 IsSpeciesLegendary(u16 species);
 
 
@@ -1158,28 +1158,28 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                 if(gRogueRun.currentDifficulty == 13)
                 {
                     if(IsQuestActive(QUEST_OrreMode) 
-                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_ESPEON)
-                    && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_UMBREON)
+                    && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_ESPEON)
+                    && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_UMBREON)
                     )
                         TryMarkQuestAsComplete(QUEST_OrreMode);
 
 #ifdef ROGUE_EXPANSION
-                    if(IsQuestActive(QUEST_ShayminItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
+                    if(IsQuestActive(QUEST_ShayminItem) && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_SHAYMIN))
                         TryMarkQuestAsComplete(QUEST_ShayminItem);
 
-                    if(IsQuestActive(QUEST_HoopaItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_HOOPA))
+                    if(IsQuestActive(QUEST_HoopaItem) && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_HOOPA))
                         TryMarkQuestAsComplete(QUEST_HoopaItem);
 
                     if(IsQuestActive(QUEST_NatureItem))
                     {
-                        if(PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_TORNADUS)
-                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_THUNDURUS)
-                        || PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_LANDORUS)
+                        if(PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_TORNADUS)
+                        || PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_THUNDURUS)
+                        || PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_LANDORUS)
                         )
                             TryMarkQuestAsComplete(QUEST_NatureItem);
                     }
     
-                    if(IsQuestActive(QUEST_DeoxysItem) && PartyContainsSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_DEOXYS))
+                    if(IsQuestActive(QUEST_DeoxysItem) && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_DEOXYS))
                         TryMarkQuestAsComplete(QUEST_DeoxysItem);
 #endif
                 }

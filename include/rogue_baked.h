@@ -28,9 +28,14 @@ bool8 Rogue_IsEvolutionItem(u16 itemIdx);
 
 const u8* Rogue_GetTrainerName(u16 trainerNum);
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer);
+void Rogue_ModifyTrainerMusic(u16 trainerNum, struct RogueTrainerMusic* outMusic);
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
 
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetEvolutionCount(u16 species);
+
+u32 Rogue_GetSpeciesTypeFlags(u16 species);
+u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species);
+u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count);
 
 #endif

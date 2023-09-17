@@ -2,9 +2,9 @@ CXX ?= g++
 
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -Werror
 
-SRCS := main.cpp
+SRCS := main.cpp TrainerExporter.cpp
 
-HEADERS := StringUtils.h
+HEADERS := main.h StringUtils.h nlohmann\json.hpp
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
@@ -14,11 +14,11 @@ endif
 
 .PHONY: all clean
 
-all: memorystats$(EXE)
+all: customjson$(EXE)
 	@:
 
-memorystats$(EXE): $(SRCS) $(HEADERS)
+customjson$(EXE): $(SRCS) $(HEADERS)
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ $(LDFLAGS)
 
 clean:
-	$(RM) memorystats memorystats$(EXE)
+	$(RM) customjson customjson$(EXE)
