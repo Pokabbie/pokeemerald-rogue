@@ -48,8 +48,6 @@ struct TrainerPartyScratch
     u8 subsetSampleCount;
 };
 
-bool8 IsSpeciesLegendary(u16 species);
-
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 
 static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount);
@@ -1325,7 +1323,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     }
 #endif
 
-    if(IsSpeciesLegendary(species))
+    if(RoguePokedex_IsSpeciesLegendary(species))
     {
         score -= 20;
     }

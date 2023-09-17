@@ -141,9 +141,6 @@ EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
 // TODO - Fix this and make sure it is tracked in gRogueRun and saved correctly!!! 
 EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 
-bool8 IsSpeciesLegendary(u16 species);
-bool8 IsSpeciesType(u16 species, u8 type);
-
 
 static void ResetHotTracking();
 
@@ -2057,7 +2054,7 @@ static u16 GetPartyWeakLegendary(void)
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-        if(species != SPECIES_NONE && IsSpeciesLegendary(species))
+        if(species != SPECIES_NONE && RoguePokedex_IsSpeciesLegendary(species))
         {
             return species;
         }
@@ -2073,7 +2070,7 @@ static u16 GetPartyStrongLegendary(void)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
         
-        if(species != SPECIES_NONE && IsSpeciesLegendary(species))
+        if(species != SPECIES_NONE && RoguePokedex_IsSpeciesLegendary(species))
         {
             if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
             {
@@ -2484,7 +2481,7 @@ void Rogue_SelectMiniBossRewardMons()
             species = GetMonData(&gEnemyParty[indexA], MON_DATA_SPECIES);
 
             // Accept first non legendary
-            if(!IsSpeciesLegendary(species))
+            if(!RoguePokedex_IsSpeciesLegendary(species))
                 break;
             
             indexA = (indexA + 1) % partySize;
@@ -2501,7 +2498,7 @@ void Rogue_SelectMiniBossRewardMons()
             if(indexB != indexA)
             {
                 // Accept first non legendary
-                if(!IsSpeciesLegendary(species))
+                if(!RoguePokedex_IsSpeciesLegendary(species))
                     break;
             }
             
