@@ -845,10 +845,10 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_trygetbaddreamstarget,                   //0xFD
     Cmd_tryworryseed,                            //0xFE
     Cmd_extMethods,                              //0xFF
-    //Cmd_metalburstdamagecalculator,              //0xFF
-    Cmd_rogue_partyhasroom                       //0xF9
-    Cmd_rogue_caughtmon,                         //0xFA
-    //Cmd_rogue_releasecaughtmon,                  //0xFB
+    //Cmd_metalburstdamagecalculator,
+    //Cmd_rogue_partyhasroom,
+    //Cmd_rogue_caughtmon,
+    //Cmd_rogue_releasecaughtmon,
 };
 
 const struct StatFractions gAccuracyStageRatios[] =
@@ -14395,28 +14395,6 @@ static void Cmd_handleballthrow(void)
     }
 }
 
-static void Cmd_rogue_partyhasroom(void)
-{
-    if(!Rogue_CheckPartyHasRoomForMon())
-    {
-        // Continue
-        gBattlescriptCurrInstr += 5;
-        return;
-    }
-
-    // Jump to location
-    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-    return;
-}
-
-static void Cmd_rogue_caughtmon(void)
-{
-    // Modify before we've decided if we're going to release this or not
-    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
-
-    gBattlescriptCurrInstr++;
-}
-
 static void Cmd_givecaughtmon(void)
 {
     if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]) != MON_GIVEN_TO_PARTY)
@@ -14842,6 +14820,10 @@ static void Cmd_extMethods(void)
         case 1:
             Cmd_rogue_partyhasroom();
             break;
+
+        case 2:
+            Cmd_rogue_caughtmon();
+            break;
     }
 }
 
@@ -14895,6 +14877,14 @@ static void Cmd_rogue_partyhasroom(void)
     // Jump to location
     gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     return;
+}
+
+static void Cmd_rogue_caughtmon(void)
+{
+    // Modify before we've decided if we're going to release this or not
+    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+
+    gBattlescriptCurrInstr++;
 }
 
 static bool32 CriticalCapture(u32 odds)

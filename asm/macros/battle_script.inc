@@ -1313,7 +1313,8 @@
 	.endm
 
 	.macro rogue_caughtmon
-	.byte 0xfa
+	.byte 0xff
+	.byte 0x2
 	.endm
 	
 @ various command changed to more readable macros
