@@ -154,7 +154,15 @@ namespace PokemonDataGenerator
 
 		public double GetColorDistance(Color e1, Color e2)
 		{
-			switch(m_DistanceMethod)
+			return GetColorDistance(e1, e2, m_DistanceMethod);
+		}
+
+		public static double GetColorDistance(Color e1, Color e2, DistanceMethod method)
+		{
+			if (e1 == e2)
+				return 0;
+
+			switch (method)
 			{
 				case DistanceMethod.RGB:
 					return GetColorDistance_RGB(e1, e2);
@@ -169,7 +177,7 @@ namespace PokemonDataGenerator
 			return 0.0f;
 		}
 
-		public int GetClosestMatchIndex(Color input)
+		public int GetClosestMatchIndex(Color input, int indexStart = 1)
 		{
 			if (input.A == 0)
 				return 0;
@@ -178,7 +186,7 @@ namespace PokemonDataGenerator
 				int currentIndex = 0;
 				double minDistance = double.MaxValue;
 
-				for(int i = 1; i < 16; ++i)
+				for(int i = indexStart; i < m_Colors.Length; ++i)
 				{
 					double distance = GetColorDistance(input, m_Colors[i]);
 
@@ -193,7 +201,7 @@ namespace PokemonDataGenerator
 			}
 		}
 
-		public double GetBitmapMatchScore(Bitmap src)
+		public double GetBitmapMatchScore(Bitmap src, int indexStart = 1)
 		{
 			// Going to use std HSV as the weights for scoring, as this may change from sprite to sprite
 			//double avgH = 0.0f;
@@ -250,7 +258,7 @@ namespace PokemonDataGenerator
 			//
 			//		if (col.A != 0)
 			//		{
-			//			int index = GetClosestMatchIndex(col);
+			//			int index = GetClosestMatchIndex(col, indexStart);
 			//			totalScore += GetColorDistance_Scoring(col, m_Colors[index], (float)hDev, (float)sDev, (float)vDev);
 			//		}
 			//	}
@@ -268,7 +276,7 @@ namespace PokemonDataGenerator
 					if (col.A != 0)
 					{
 						++totalSamples;
-						int index = GetClosestMatchIndex(col);
+						int index = GetClosestMatchIndex(col, indexStart);
 						coloursUsed.Add(index);
 
 						float hueWeight = 1.0f - (Math.Abs(col.GetBrightness() - 0.5f) * 2.0f);
@@ -287,7 +295,58 @@ namespace PokemonDataGenerator
 			return totalScore;
 		}
 
-		public Bitmap CreateIndexedBitmap(Bitmap src)
+		public static ImagePalette CreateFromContent(Bitmap src, int maxColours, DistanceMethod distanceMethod, Color transparentColour)
+		{
+			HashSet<Color> uniqueColors = new HashSet<Color>();
+
+			for (int x = 0; x < src.Width; ++x)
+				for (int y = 0; y < src.Height; ++y)
+				{
+					uniqueColors.Add(src.GetPixel(x, y));
+				}
+
+			List<Color> remainingColours = new List<Color>(uniqueColors);
+
+			while(remainingColours.Count > maxColours)
+			{
+				int minIndexA = 0;
+				int minIndexB = 0;
+				double minScore = double.MaxValue;
+
+				// Find closest pair
+				for (int i = 0; i < remainingColours.Count; ++i)
+				{
+					for (int j = 0; j < remainingColours.Count; ++j)
+					{
+						if(i != j && remainingColours[i] != transparentColour && remainingColours[j] != transparentColour)
+						{
+							double score = GetColorDistance(remainingColours[i], remainingColours[j], distanceMethod);
+							if(score < minScore)
+							{
+								minScore = score;
+								minIndexA = i;
+								minIndexB = j;
+							}
+						}
+					}
+				}
+
+				// For now just remove the 2nd one
+				remainingColours.RemoveAt(minIndexB);
+			}
+
+			// Make sure transparent colour is at the front always
+			int transparentIndex = remainingColours.IndexOf(transparentColour);
+			if(transparentIndex != 0)
+			{
+				remainingColours[transparentIndex] = remainingColours[0];
+				remainingColours[0] = transparentColour;
+			}
+
+			return new ImagePalette(remainingColours.ToArray());
+		}
+
+		public Bitmap CreateIndexedBitmap(Bitmap src, int indexStart = 1)
 		{
 			//Bitmap dst = src.Clone(new Rectangle(0, 0, src.Width, src.Height), PixelFormat.Format4bppIndexed);
 
@@ -296,7 +355,7 @@ namespace PokemonDataGenerator
 
 			ColorPalette pal = dst.Palette;
 			for (int i = 0; i < 16; ++i)
-				pal.Entries[i] = m_Colors[i];
+				pal.Entries[i] = i < m_Colors.Length ? m_Colors[i] : Color.Black;
 			dst.Palette = pal;
 
 			List<byte> indexedBytes = new List<byte>();
@@ -304,15 +363,15 @@ namespace PokemonDataGenerator
 			for (int y = 0; y < src.Height; y += 1)
 				for (int x = 0; x < src.Width; x += 2)
 				{
-					int hiIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0));
-					int loIndex = GetClosestMatchIndex(src.GetPixel(x + 1, y + 0));
+					int hiIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0), indexStart);
+					int loIndex = GetClosestMatchIndex(src.GetPixel(x + 1, y + 0), indexStart);
 					
 					indexedBytes.Add((byte)(
 						(loIndex & 0xF) +
 						((hiIndex << 4) & 0xF0)
 					));
 
-					//int loIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0));
+					//int loIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0), indexStart);
 					//
 					//indexedBytes.Add((byte)(
 					//	loIndex
