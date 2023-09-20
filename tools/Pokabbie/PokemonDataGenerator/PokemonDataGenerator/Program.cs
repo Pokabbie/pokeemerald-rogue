@@ -1,8 +1,10 @@
 ﻿using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.OverworldSprites.NPC;
 using PokemonDataGenerator.Pokedex;
 using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,8 @@ namespace PokemonDataGenerator
 			Console.WriteLine("4 - OW Sprites Palette Generator");
 			Console.WriteLine("5 - Generate Pokedex Lists");
 			Console.WriteLine("6 - Gather Pokemon data profile");
-			int action = ReadOption(1, 6);
+			Console.WriteLine("7 - Convert NPC sprites");
+			int action = ReadOption(1, 7);
 
 			switch(action)
 			{
@@ -89,6 +92,11 @@ namespace PokemonDataGenerator
 				case 6:
 					Console.WriteLine("==Gathering Pokemon Data Profile==");
 					PokemonProfileGenerator.GatherProfiles();
+					break;
+
+				case 7:
+					Console.WriteLine("==Generating NPC sprites==");
+					NpcSpriteSplitter.ExportDirectory(Path.GetFullPath("npc_in"), Path.GetFullPath("npc_out"));
 					break;
 			}
 

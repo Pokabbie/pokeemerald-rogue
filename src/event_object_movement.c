@@ -465,10 +465,24 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL          0x1131
 #define OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED           0x1132
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE         0x1133
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA         0x1134
+#define OBJ_EVENT_PAL_TAG_SINNOH_AARON           0x1133
+#define OBJ_EVENT_PAL_TAG_SINNOH_BERTHA          0x1134
+#define OBJ_EVENT_PAL_TAG_SINNOH_BYRON           0x1135
+#define OBJ_EVENT_PAL_TAG_SINNOH_CRASHER_WAKE    0x1136
+#define OBJ_EVENT_PAL_TAG_SINNOH_CYNTHIA         0x1137
+#define OBJ_EVENT_PAL_TAG_SINNOH_FANTINA         0x1138
+#define OBJ_EVENT_PAL_TAG_SINNOH_FLINT           0x1139
+#define OBJ_EVENT_PAL_TAG_SINNOH_GARDENIA        0x113A
+#define OBJ_EVENT_PAL_TAG_SINNOH_LUCIAN          0x113B
+#define OBJ_EVENT_PAL_TAG_SINNOH_ROARK           0x113C
+#define OBJ_EVENT_PAL_TAG_SINNOH_VOLKNER         0x113D
+#define OBJ_EVENT_PAL_TAG_SINNOH_CANDICE         0x113E
+#define OBJ_EVENT_PAL_TAG_SINNOH_MAYLENE         0x113F
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1135
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE         0x1140
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA         0x1140
+
+#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1141
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
@@ -535,6 +549,21 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Johto_NPC_Whitney,     OBJ_EVENT_PAL_TAG_JOHTO_NPC_WHITNEY},
     {gObjectEventPal_Johto_NPC_Will,        OBJ_EVENT_PAL_TAG_JOHTO_NPC_WILL},
     {gObjectEventPal_Johto_NPC_Red,         OBJ_EVENT_PAL_TAG_JOHTO_NPC_RED},
+    
+    {gObjectEventPal_Sinnoh_Aaron, OBJ_EVENT_PAL_TAG_SINNOH_AARON},
+    {gObjectEventPal_Sinnoh_Bertha, OBJ_EVENT_PAL_TAG_SINNOH_BERTHA},
+    {gObjectEventPal_Sinnoh_Byron, OBJ_EVENT_PAL_TAG_SINNOH_BYRON},
+    {gObjectEventPal_Sinnoh_Crasher_Wake, OBJ_EVENT_PAL_TAG_SINNOH_CRASHER_WAKE},
+    {gObjectEventPal_Sinnoh_Cynthia, OBJ_EVENT_PAL_TAG_SINNOH_CYNTHIA},
+    {gObjectEventPal_Sinnoh_Fantina, OBJ_EVENT_PAL_TAG_SINNOH_FANTINA},
+    {gObjectEventPal_Sinnoh_Flint, OBJ_EVENT_PAL_TAG_SINNOH_FLINT},
+    {gObjectEventPal_Sinnoh_Gardenia, OBJ_EVENT_PAL_TAG_SINNOH_GARDENIA},
+    {gObjectEventPal_Sinnoh_Lucian, OBJ_EVENT_PAL_TAG_SINNOH_LUCIAN},
+    {gObjectEventPal_Sinnoh_Roark, OBJ_EVENT_PAL_TAG_SINNOH_ROARK},
+    {gObjectEventPal_Sinnoh_Volkner, OBJ_EVENT_PAL_TAG_SINNOH_VOLKNER},
+    {gObjectEventPal_Sinnoh_Candice, OBJ_EVENT_PAL_TAG_SINNOH_CANDICE},
+    {gObjectEventPal_Sinnoh_Maylene, OBJ_EVENT_PAL_TAG_SINNOH_MAYLENE},
+
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},

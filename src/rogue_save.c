@@ -257,7 +257,7 @@ void RogueSave_OnSaveLoaded()
         Rogue_NotifySaveVersionUpdated(gRogueSaveBlock->saveVersion, ROGUE_SAVE_VERSION);
     }
 
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty < ROGUE_MAX_BOSS_COUNT)
     {
         // We need to regenerate here, as we need to know which
         RogueAdv_GenerateAdventurePathsIfRequired();

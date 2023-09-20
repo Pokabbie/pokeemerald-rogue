@@ -128,6 +128,20 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 
     [TRAINER_PIC_JOHTO_RED] = {.size = 8, .y_offset = 1},
 
+    [TRAINER_PIC_SINNOH_AARON] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_BERTHA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_BYRON] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_CRASHER_WAKE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_CYNTHIA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_FANTINA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_FLINT] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_GARDENIA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_LUCIAN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_ROARK] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_VOLKNER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_CANDICE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SINNOH_MAYLENE] = {.size = 8, .y_offset = 1},
+
     [TRAINER_PIC_POKABBIE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_POKABBIE_DITTO] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_KATE] = {.size = 8, .y_offset = 1},
@@ -266,6 +280,20 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
     TRAINER_SPRITE(JOHTO_RED, gTrainerFrontPic_ChampionRed, 0x800),
 
+    TRAINER_SPRITE(SINNOH_AARON, gTrainerFrontPic_Sinnoh_Aaron, 0x800),
+    TRAINER_SPRITE(SINNOH_BERTHA, gTrainerFrontPic_Sinnoh_Bertha, 0x800),
+    TRAINER_SPRITE(SINNOH_BYRON, gTrainerFrontPic_Sinnoh_Byron, 0x800),
+    TRAINER_SPRITE(SINNOH_CANDICE, gTrainerFrontPic_Sinnoh_Candice, 0x800),
+    TRAINER_SPRITE(SINNOH_CRASHER_WAKE, gTrainerFrontPic_Sinnoh_CrasherWake, 0x800),
+    TRAINER_SPRITE(SINNOH_CYNTHIA, gTrainerFrontPic_Sinnoh_Cynthia, 0x800),
+    TRAINER_SPRITE(SINNOH_FANTINA, gTrainerFrontPic_Sinnoh_Fantina, 0x800),
+    TRAINER_SPRITE(SINNOH_FLINT, gTrainerFrontPic_Sinnoh_Flint, 0x800),
+    TRAINER_SPRITE(SINNOH_GARDENIA, gTrainerFrontPic_Sinnoh_Gardenia, 0x800),
+    TRAINER_SPRITE(SINNOH_LUCIAN, gTrainerFrontPic_Sinnoh_Lucian, 0x800),
+    TRAINER_SPRITE(SINNOH_MAYLENE, gTrainerFrontPic_Sinnoh_Maylene, 0x800),
+    TRAINER_SPRITE(SINNOH_ROARK, gTrainerFrontPic_Sinnoh_Roark, 0x800),
+    TRAINER_SPRITE(SINNOH_VOLKNER, gTrainerFrontPic_Sinnoh_Volkner, 0x800),
+
     TRAINER_SPRITE(POKABBIE, gTrainerFrontPic_Pokabbie, 0x800),
     TRAINER_SPRITE(POKABBIE_DITTO, gTrainerFrontPic_PokabbieDitto, 0x800),
     TRAINER_SPRITE(GLITCH_KATE, gTrainerFrontPic_GlitchKate, 0x800),
@@ -403,6 +431,20 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(JOHTO_KAREN, gTrainerPalette_EliteFourKaren),
 
     TRAINER_PAL(JOHTO_RED, gTrainerPalette_ChampionRed),
+
+    TRAINER_PAL(SINNOH_AARON, gTrainerPalette_Sinnoh_Aaron),
+    TRAINER_PAL(SINNOH_BERTHA, gTrainerPalette_Sinnoh_Bertha),
+    TRAINER_PAL(SINNOH_BYRON, gTrainerPalette_Sinnoh_Byron),
+    TRAINER_PAL(SINNOH_CANDICE, gTrainerPalette_Sinnoh_Candice),
+    TRAINER_PAL(SINNOH_CRASHER_WAKE, gTrainerPalette_Sinnoh_CrasherWake),
+    TRAINER_PAL(SINNOH_CYNTHIA, gTrainerPalette_Sinnoh_Cynthia),
+    TRAINER_PAL(SINNOH_FANTINA, gTrainerPalette_Sinnoh_Fantina),
+    TRAINER_PAL(SINNOH_FLINT, gTrainerPalette_Sinnoh_Flint),
+    TRAINER_PAL(SINNOH_GARDENIA, gTrainerPalette_Sinnoh_Gardenia),
+    TRAINER_PAL(SINNOH_LUCIAN, gTrainerPalette_Sinnoh_Lucian),
+    TRAINER_PAL(SINNOH_MAYLENE, gTrainerPalette_Sinnoh_Maylene),
+    TRAINER_PAL(SINNOH_ROARK, gTrainerPalette_Sinnoh_Roark),
+    TRAINER_PAL(SINNOH_VOLKNER, gTrainerPalette_Sinnoh_Volkner),
 
     TRAINER_PAL(POKABBIE, gTrainerPalette_Pokabbie),
     TRAINER_PAL(POKABBIE_DITTO, gTrainerPalette_Pokabbie),

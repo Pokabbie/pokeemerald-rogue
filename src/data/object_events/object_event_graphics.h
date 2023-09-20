@@ -476,6 +476,34 @@ const u32 gObjectEventPic_Johto_Whitney[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_Johto_Will[] = INCBIN_U32("graphics/object_events/pics/people/johto/will.4bpp");
 const u32 gObjectEventPic_Johto_Red[] = INCBIN_U32("graphics/object_events/pics/people/johto/red.4bpp");
 
+const u16 gObjectEventPal_Sinnoh_Aaron[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/aaron.gbapal");
+const u16 gObjectEventPal_Sinnoh_Bertha[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/bertha.gbapal");
+const u16 gObjectEventPal_Sinnoh_Byron[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/byron.gbapal");
+const u16 gObjectEventPal_Sinnoh_Crasher_Wake[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/crasher_wake.gbapal");
+const u16 gObjectEventPal_Sinnoh_Cynthia[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/cynthia.gbapal");
+const u16 gObjectEventPal_Sinnoh_Fantina[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/fantina.gbapal");
+const u16 gObjectEventPal_Sinnoh_Flint[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/flint.gbapal");
+const u16 gObjectEventPal_Sinnoh_Gardenia[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/gardenia.gbapal");
+const u16 gObjectEventPal_Sinnoh_Lucian[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/lucian.gbapal");
+const u16 gObjectEventPal_Sinnoh_Roark[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/roark.gbapal");
+const u16 gObjectEventPal_Sinnoh_Volkner[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/volkner.gbapal");
+const u16 gObjectEventPal_Sinnoh_Candice[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/candice.gbapal");
+const u16 gObjectEventPal_Sinnoh_Maylene[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/sinnoh/maylene.gbapal");
+
+const u32 gObjectEventPic_Sinnoh_Aaron[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/aaron.4bpp");
+const u32 gObjectEventPic_Sinnoh_Bertha[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/bertha.4bpp");
+const u32 gObjectEventPic_Sinnoh_Byron[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/byron.4bpp");
+const u32 gObjectEventPic_Sinnoh_Crasher_Wake[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/crasher_wake.4bpp");
+const u32 gObjectEventPic_Sinnoh_Cynthia[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/cynthia.4bpp");
+const u32 gObjectEventPic_Sinnoh_Fantina[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/fantina.4bpp");
+const u32 gObjectEventPic_Sinnoh_Flint[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/flint.4bpp");
+const u32 gObjectEventPic_Sinnoh_Gardenia[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/gardenia.4bpp");
+const u32 gObjectEventPic_Sinnoh_Lucian[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/lucian.4bpp");
+const u32 gObjectEventPic_Sinnoh_Roark[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/roark.4bpp");
+const u32 gObjectEventPic_Sinnoh_Volkner[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/volkner.4bpp");
+const u32 gObjectEventPic_Sinnoh_Candice[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/candice.4bpp");
+const u32 gObjectEventPic_Sinnoh_Maylene[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/maylene.4bpp");
+
 const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
 const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
 

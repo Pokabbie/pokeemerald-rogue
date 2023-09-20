@@ -654,6 +654,27 @@ gSongTable::
 	song mus_dp_vs_legend, 0, 0
 	song mus_dp_vs_galactic_commander, 0, 0
 	song mus_dp_vs_elite_four, 0, 0
+	song mus_dp_encounter_boy, 0, 0
+	song mus_dp_encounter_twins, 0, 0
+	song mus_dp_encounter_intense, 0, 0
+	song mus_dp_encounter_galactic, 0, 0
+	song mus_dp_encounter_lady, 0, 0
+	song mus_dp_encounter_hiker, 0, 0
+	song mus_dp_encounter_rich, 0, 0
+	song mus_dp_encounter_sailor, 0, 0
+	song mus_dp_encounter_suspicious, 0, 0
+	song mus_dp_encounter_ace_trainer, 0, 0
+	song mus_dp_encounter_girl, 0, 0
+	song mus_dp_encounter_cyclist, 0, 0
+	song mus_dp_encounter_artist, 0, 0
+	song mus_dp_encounter_elite_four, 0, 0
+	song mus_dp_encounter_champion, 0, 0
+	song mus_dp_victory_wild, 0, 0
+	song mus_dp_victory_trainer, 0, 0
+	song mus_dp_victory_gym_leader, 0, 0
+	song mus_dp_victory_champion, 0, 0
+	song mus_dp_victory_galactic, 0, 0
+	song mus_dp_victory_elite_four, 0, 0
 	song mus_pl_vs_giratina, 0, 0
 
 	.align 2

@@ -306,6 +306,20 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Whitney;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Will;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Johto_Red;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Aaron;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Bertha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Byron;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Crasher_Wake;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Cynthia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Fantina;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Flint;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Gardenia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Lucian;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Roark;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Volkner;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Candice;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Maylene;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
@@ -658,6 +672,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JOHTO_WHITNEY] =            &gObjectEventGraphicsInfo_Johto_Whitney,
     [OBJ_EVENT_GFX_JOHTO_WILL] =               &gObjectEventGraphicsInfo_Johto_Will,
     [OBJ_EVENT_GFX_JOHTO_RED] =                &gObjectEventGraphicsInfo_Johto_Red,
+
+    [OBJ_EVENT_GFX_SINNOH_AARON] = &gObjectEventGraphicsInfo_Sinnoh_Aaron,
+    [OBJ_EVENT_GFX_SINNOH_BERTHA] = &gObjectEventGraphicsInfo_Sinnoh_Bertha,
+    [OBJ_EVENT_GFX_SINNOH_BYRON] = &gObjectEventGraphicsInfo_Sinnoh_Byron,
+    [OBJ_EVENT_GFX_SINNOH_CRASHER_WAKE] = &gObjectEventGraphicsInfo_Sinnoh_Crasher_Wake,
+    [OBJ_EVENT_GFX_SINNOH_CYNTHIA] = &gObjectEventGraphicsInfo_Sinnoh_Cynthia,
+    [OBJ_EVENT_GFX_SINNOH_FANTINA] = &gObjectEventGraphicsInfo_Sinnoh_Fantina,
+    [OBJ_EVENT_GFX_SINNOH_FLINT] = &gObjectEventGraphicsInfo_Sinnoh_Flint,
+    [OBJ_EVENT_GFX_SINNOH_GARDENIA] = &gObjectEventGraphicsInfo_Sinnoh_Gardenia,
+    [OBJ_EVENT_GFX_SINNOH_LUCIAN] = &gObjectEventGraphicsInfo_Sinnoh_Lucian,
+    [OBJ_EVENT_GFX_SINNOH_ROARK] = &gObjectEventGraphicsInfo_Sinnoh_Roark,
+    [OBJ_EVENT_GFX_SINNOH_VOLKNER] = &gObjectEventGraphicsInfo_Sinnoh_Volkner,
+    [OBJ_EVENT_GFX_SINNOH_CANDICE] = &gObjectEventGraphicsInfo_Sinnoh_Candice,
+    [OBJ_EVENT_GFX_SINNOH_MAYLENE] = &gObjectEventGraphicsInfo_Sinnoh_Maylene,
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
