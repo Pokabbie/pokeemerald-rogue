@@ -313,8 +313,12 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     // TODO - Remove this temp force behaviour
     if(*includeFlags == TRAINER_FLAG_NONE || TRUE)
     {
+        #ifdef ROGUE_EXPANSION
         // Safe fallback
         *includeFlags = TRAINER_FLAG_REGION_SINNOH;
+        #else
+        *includeFlags = TRAINER_FLAG_REGION_KANTO;
+        #endif
     }
 }
 

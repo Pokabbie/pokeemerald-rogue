@@ -1285,7 +1285,7 @@
             }
         ],
         
-        "#if 1 // sinnoh_gyms":
+        "#ifdef ROGUE_EXPANSION // sinnoh_gyms":
         [
             {
                 "name": "ROARK",
@@ -1315,7 +1315,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CRANIDOS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1345,7 +1345,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BUDEW", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1374,7 +1374,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RIOLU", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
                         "IS_MONO_TYPE", "DEC_FAVOUR"
@@ -1400,7 +1400,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BUIZEL", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
                         "IS_MONO_TYPE", "DEC_FAVOUR"
@@ -1438,7 +1438,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRIFLOON", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1472,7 +1472,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SHIELDON", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1505,7 +1505,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNOVER", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1547,7 +1547,7 @@
                     "weight_script":
                     [
                         "HAS_TYPE", "TYPE_ELECTRIC", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SHINX", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1555,7 +1555,7 @@
             }
         ],
 
-        "#if 1 // sinnoh_elite":
+        "#ifdef ROGUE_EXPANSION // sinnoh_elite":
         [
             {
                 "name": "AARON",
@@ -1581,7 +1581,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SKORUPI", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1610,7 +1610,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HIPPOPOTAS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1647,7 +1647,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHIMCHAR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1680,7 +1680,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BRONZOR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
@@ -1688,7 +1688,7 @@
             }
         ],
         
-        "#if 1 // sinnoh_champ":
+        "#ifdef ROGUE_EXPANSION // sinnoh_champ":
         [
             {
                 "name": "CYNTHIA",
@@ -1712,7 +1712,8 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GIBLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SPIRITOMB", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
