@@ -314,7 +314,7 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     if(*includeFlags == TRAINER_FLAG_NONE || TRUE)
     {
         // Safe fallback
-        *includeFlags = TRAINER_FLAG_REGION_HOENN;
+        *includeFlags = TRAINER_FLAG_REGION_SINNOH;
     }
 }
 

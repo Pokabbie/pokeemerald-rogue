@@ -142,14 +142,29 @@
 
 #define TRAINER_PIC_JOHTO_RED             117
 
-#define TRAINER_PIC_ETHAN                 118
-#define TRAINER_PIC_LYRA                  119
 
-#define TRAINER_PIC_POKABBIE              120
-#define TRAINER_PIC_POKABBIE_DITTO        121 // Just used for battle transition
-#define TRAINER_PIC_GLITCH_KATE           122
-#define TRAINER_PIC_GLITCH_TAILS          123
-#define TRAINER_PIC_GLITCH_ERMA           124
+#define TRAINER_PIC_SINNOH_AARON          118
+#define TRAINER_PIC_SINNOH_BERTHA         119
+#define TRAINER_PIC_SINNOH_BYRON          120
+#define TRAINER_PIC_SINNOH_CANDICE        121
+#define TRAINER_PIC_SINNOH_CRASHER_WAKE   122
+#define TRAINER_PIC_SINNOH_CYNTHIA        123
+#define TRAINER_PIC_SINNOH_FANTINA        124
+#define TRAINER_PIC_SINNOH_FLINT          125
+#define TRAINER_PIC_SINNOH_GARDENIA       126
+#define TRAINER_PIC_SINNOH_LUCIAN         127
+#define TRAINER_PIC_SINNOH_MAYLENE        128
+#define TRAINER_PIC_SINNOH_ROARK          129
+#define TRAINER_PIC_SINNOH_VOLKNER        130
+
+#define TRAINER_PIC_ETHAN                 131
+#define TRAINER_PIC_LYRA                  132
+
+#define TRAINER_PIC_POKABBIE              133
+#define TRAINER_PIC_POKABBIE_DITTO        134 // Just used for battle transition
+#define TRAINER_PIC_GLITCH_KATE           135
+#define TRAINER_PIC_GLITCH_TAILS          136
+#define TRAINER_PIC_GLITCH_ERMA           137
 
 
 // Special cases

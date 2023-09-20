@@ -52,6 +52,7 @@
     method(33, "Additional Sprites", CREDITS_FLAG_TITLE) \
     method(34, "AveonTrainer", 0) \
     method(35, "PurpleZaffre", 0) \
+    method(3501, "UlithiumDragon", 0) \
     method(36, "", CREDITS_FLAG_BREAK) \
     \
     method(37, "Kymotionian", 0) \

@@ -24,6 +24,7 @@ void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
 	fileStream << exporter.earlyBlock.str() << '\n';
 
 	fileStream << "const struct RogueTrainer gRogueTrainers" << "[] = \n{\n";
+	fileStream << c_TabSpacing << "{}, // TRAINER_NONE\n";
 	fileStream << exporter.trainerStructsBlock.str() << '\n';
 	fileStream << "};\n\n";
 	fileStream << "const u16 gRogueTrainerCount = ARRAY_COUNT(gRogueTrainers);\n";
@@ -136,7 +137,6 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 
 	// Trainer data
 	i = 0;
-	exporter.trainerStructsBlock << c_TabSpacing << "{}, // TRAINER_NONE\n";
 	for (auto trainer : trainers)
 	{
 		int trainerIdx = i++;

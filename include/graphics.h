@@ -2996,6 +2996,34 @@ extern const u32 gTrainerFrontPic_EliteFourKaren[];
 
 extern const u32 gTrainerFrontPic_ChampionRed[];
 
+extern const u32 gTrainerFrontPic_Sinnoh_Aaron[];
+extern const u32 gTrainerFrontPic_Sinnoh_Bertha[];
+extern const u32 gTrainerFrontPic_Sinnoh_Byron[];
+extern const u32 gTrainerFrontPic_Sinnoh_Candice[];
+extern const u32 gTrainerFrontPic_Sinnoh_CrasherWake[];
+extern const u32 gTrainerFrontPic_Sinnoh_Cynthia[];
+extern const u32 gTrainerFrontPic_Sinnoh_Fantina[];
+extern const u32 gTrainerFrontPic_Sinnoh_Flint[];
+extern const u32 gTrainerFrontPic_Sinnoh_Gardenia[];
+extern const u32 gTrainerFrontPic_Sinnoh_Lucian[];
+extern const u32 gTrainerFrontPic_Sinnoh_Maylene[];
+extern const u32 gTrainerFrontPic_Sinnoh_Roark[];
+extern const u32 gTrainerFrontPic_Sinnoh_Volkner[];
+
+extern const u32 gTrainerPalette_Sinnoh_Aaron[];
+extern const u32 gTrainerPalette_Sinnoh_Bertha[];
+extern const u32 gTrainerPalette_Sinnoh_Byron[];
+extern const u32 gTrainerPalette_Sinnoh_Candice[];
+extern const u32 gTrainerPalette_Sinnoh_CrasherWake[];
+extern const u32 gTrainerPalette_Sinnoh_Cynthia[];
+extern const u32 gTrainerPalette_Sinnoh_Fantina[];
+extern const u32 gTrainerPalette_Sinnoh_Flint[];
+extern const u32 gTrainerPalette_Sinnoh_Gardenia[];
+extern const u32 gTrainerPalette_Sinnoh_Lucian[];
+extern const u32 gTrainerPalette_Sinnoh_Maylene[];
+extern const u32 gTrainerPalette_Sinnoh_Roark[];
+extern const u32 gTrainerPalette_Sinnoh_Volkner[];
+
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieDitto[];
 extern const u32 gTrainerFrontPic_GlitchKate[];

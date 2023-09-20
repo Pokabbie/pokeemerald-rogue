@@ -91,6 +91,36 @@
             "victory": "MUS_VICTORY_LEAGUE"
         },
 
+        "sinnoh_boss":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GYM_LEADER",
+            "victory": "MUS_DP_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "sinnoh_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "sinnoh_champion"
+                }
+            ]
+        },
+        "sinnoh_elite":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_ELITE_FOUR",
+            "battle": "MUS_DP_VS_ELITE_FOUR",
+            "victory": "MUS_DP_VICTORY_ELITE_FOUR"
+        },
+        "sinnoh_champion":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_CHAMPION",
+            "battle": "MUS_DP_VS_CHAMPION",
+            "victory": "MUS_DP_VICTORY_CHAMPION"
+        },
+
         "wild_battle":
         {
             "battle": "MUS_VS_WILD",

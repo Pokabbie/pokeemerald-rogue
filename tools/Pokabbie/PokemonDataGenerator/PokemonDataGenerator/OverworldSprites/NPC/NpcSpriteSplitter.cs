@@ -163,6 +163,10 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				string instanceName = Path.GetFileNameWithoutExtension(fileName).Replace(" ", "_");
 				string npcName = FormatNpcName(groupName + "_" + instanceName);
 
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"$(OBJEVENTGFXDIR)/rogue/npc/{groupName.ToLower()}/{instanceName}.4bpp: %.4bpp: %.png");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"");
+
 				codeExport.For("event_objects.h").Header.AppendLine($"#defineENT_GFX_{npcName.ToUpper()} __ABCDEF__");
 
 				codeExport.For("object_event_graphics_info_pointers.h").Header.AppendLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{npcName};");
@@ -187,6 +191,10 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				codeExport.For("object_event_pic_tables.h").Body.AppendLine($"    overworld_frame(gObjectEventPic_{npcName}, 2, 4, 7),");
 				codeExport.For("object_event_pic_tables.h").Body.AppendLine($"    overworld_frame(gObjectEventPic_{npcName}, 2, 4, 8),");
 				codeExport.For("object_event_pic_tables.h").Body.AppendLine($"}};");
+
+				codeExport.For("front_pic_anims.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = sAnims_Kanto,");
+
+				codeExport.For("front_pic_tables.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = {{.size = 8, .y_offset = 1}},");
 			}
 		}
 

@@ -503,6 +503,20 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 
     [TRAINER_PIC_JOHTO_RED] = sAnims_Kanto,
 
+    [TRAINER_PIC_SINNOH_AARON] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_BERTHA] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_BYRON] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_CRASHER_WAKE] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_CYNTHIA] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_FANTINA] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_FLINT] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_GARDENIA] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_LUCIAN] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_ROARK] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_VOLKNER] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_CANDICE] = sAnims_Kanto,
+    [TRAINER_PIC_SINNOH_MAYLENE] = sAnims_Kanto,
+
     [TRAINER_PIC_POKABBIE] = sAnims_Kanto,
     [TRAINER_PIC_POKABBIE_DITTO] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_KATE] = sAnims_Kanto,

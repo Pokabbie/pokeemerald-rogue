@@ -915,6 +915,69 @@ $(MID_SUBDIR)/mus_dp_vs_galactic_commander.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_vs_elite_four.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V094
 
+$(MID_SUBDIR)/mus_dp_encounter_boy.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
+$(MID_SUBDIR)/mus_dp_encounter_twins.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V082
+
+$(MID_SUBDIR)/mus_dp_encounter_intense.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V070
+
+$(MID_SUBDIR)/mus_dp_encounter_galactic.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V068
+
+$(MID_SUBDIR)/mus_dp_encounter_lady.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_encounter_hiker.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_encounter_rich.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V080
+
+$(MID_SUBDIR)/mus_dp_encounter_sailor.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V070
+
+$(MID_SUBDIR)/mus_dp_encounter_suspicious.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V080
+
+$(MID_SUBDIR)/mus_dp_encounter_ace_trainer.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V080
+
+$(MID_SUBDIR)/mus_dp_encounter_girl.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V095
+
+$(MID_SUBDIR)/mus_dp_encounter_cyclist.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V095
+
+$(MID_SUBDIR)/mus_dp_encounter_artist.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V115
+
+$(MID_SUBDIR)/mus_dp_encounter_elite_four.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V086
+
+$(MID_SUBDIR)/mus_dp_encounter_champion.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_victory_wild.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V114
+
+$(MID_SUBDIR)/mus_dp_victory_trainer.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V118
+
+$(MID_SUBDIR)/mus_dp_victory_gym_leader.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V120
+
+$(MID_SUBDIR)/mus_dp_victory_champion.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
+$(MID_SUBDIR)/mus_dp_victory_galactic.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_victory_elite_four.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 
