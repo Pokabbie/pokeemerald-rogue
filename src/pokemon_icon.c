@@ -1267,6 +1267,12 @@ const u8 *const gMonIconTable[] =
     [SPECIES_CALYREX_SHADOW_RIDER] = gMonIcon_CalyrexShadowRider,
     [SPECIES_ENAMORUS_THERIAN] = gMonIcon_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = gMonIcon_BasculegionFemale,
+
+    // Rogueian Forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = gMonIcon_WobbuffetRogueian,
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = gMonIcon_WobbuffetRogueianPunching,
+
     [SPECIES_EGG] = gMonIcon_Egg,
 };
 
@@ -2491,6 +2497,12 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_CALYREX_SHADOW_RIDER] = 0,
     [SPECIES_ENAMORUS_THERIAN] = 1,
     [SPECIES_BASCULEGION_FEMALE] = 0,
+
+    // Rogueian Forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = 1,
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = 1,
+
     [SPECIES_EGG] = 1,
 };
 

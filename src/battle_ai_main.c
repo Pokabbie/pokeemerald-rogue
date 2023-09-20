@@ -3761,6 +3761,15 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 break;
             }
             #endif
+            #if (defined SPECIES_WOBBUFFET_ROGUEIAN && defined SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING)
+            if (AI_DATA->abilities[battlerAtk] == ABILITY_STANCE_CHANGE //Special logic for Wobbuffet Rogueian
+              && gBattleMons[battlerAtk].species == SPECIES_WOBBUFFET_ROGUEIAN
+              && !IsBattlerIncapacitated(battlerDef, AI_DATA->abilities[battlerDef]))
+            {
+                score += 3;
+                break;
+            }
+            #endif
             //fallthrough
         default: // protect
             ProtectChecks(battlerAtk, battlerDef, move, predictedMove, &score);

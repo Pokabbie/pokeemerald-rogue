@@ -1304,4 +1304,9 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CALYREX_ICE_RIDER] = _("Calyrex"),
     [SPECIES_CALYREX_SHADOW_RIDER] = _("Calyrex"),
     [SPECIES_BASCULEGION_FEMALE] = _("Bsculegion"),
+
+    // Rogueian forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = _("Wobbuffet"),
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = _("Wobbuffet"),
 };

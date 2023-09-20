@@ -1421,6 +1421,18 @@ static bool32 TryAegiFormChange(void)
             return FALSE;
         gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
         break;
+
+    // Steal for Wobbuffet forms
+    case SPECIES_WOBBUFFET_ROGUEIAN: // Blocking -> Punching
+        if (gBattleMoves[gCurrentMove].power == 0)
+            return FALSE;
+        gBattleMons[gBattlerAttacker].species = SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING;
+        break;
+    case SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING: // Punching -> Blocking
+        if (gCurrentMove != MOVE_KINGS_SHIELD)
+            return FALSE;
+        gBattleMons[gBattlerAttacker].species = SPECIES_WOBBUFFET_ROGUEIAN;
+        break;
     }
 
     BattleScriptPushCursor();

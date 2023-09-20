@@ -10466,6 +10466,28 @@ static const union AnimCmd sAnim_EnamorusTherian_1[] =
     ANIMCMD_END,
 };
 
+// Rogueian forms
+
+static const union AnimCmd sAnim_WobbuffetRogueian_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WobbuffetRogueian_2[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
 #define SINGLE_ANIMATION(name)                      \
 static const union AnimCmd *const sAnims_##name[] = \
 {                                                   \
@@ -11580,6 +11602,9 @@ SINGLE_ANIMATION(MimikyuBusted);
 SINGLE_ANIMATION(LycanrocMidnight);
 SINGLE_ANIMATION(LycanrocDusk);
 SINGLE_ANIMATION(EnamorusTherian);
+
+// Rogueian forms
+DOUBLE_ANIMATION(WobbuffetRogueian);
 
 const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
 {
@@ -12818,5 +12843,11 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     [SPECIES_CALYREX_SHADOW_RIDER] = sAnims_Calyrex,
     [SPECIES_ENAMORUS_THERIAN] = sAnims_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = sAnims_Basculegion,
+
+    // Rogueian forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = sAnims_WobbuffetRogueian,
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = sAnims_WobbuffetRogueian,
+
     [SPECIES_EGG]         = sAnims_Egg,
 };

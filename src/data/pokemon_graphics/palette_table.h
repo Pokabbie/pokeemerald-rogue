@@ -1302,6 +1302,11 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(ENAMORUS_THERIAN, gMonPalette_EnamorusTherian),
     SPECIES_PAL(BASCULEGION_FEMALE, gMonPalette_BasculegionFemale),
 
+    // Rogueian forms
+    SPECIES_PAL(WOBBUFFET_ROGUEIAN, gMonPalette_WobbuffetRogueian),
+
+    SPECIES_PAL(WOBBUFFET_ROGUEIAN_PUNCHING, gMonPalette_WobbuffetRogueian),
+
     SPECIES_PAL(EGG, gMonPalette_Egg),
 };
 

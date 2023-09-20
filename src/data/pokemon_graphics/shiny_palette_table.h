@@ -1302,6 +1302,11 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(BASCULEGION_FEMALE, gMonShinyPalette_BasculegionFemale),
     SPECIES_SHINY_PAL(ENAMORUS_THERIAN, gMonShinyPalette_EnamorusTherian),
 
+    // Rogueian forms
+    SPECIES_SHINY_PAL(WOBBUFFET_ROGUEIAN, gMonShinyPalette_WobbuffetRogueian),
+
+    SPECIES_SHINY_PAL(WOBBUFFET_ROGUEIAN_PUNCHING, gMonShinyPalette_WobbuffetRogueian),
+
     SPECIES_SHINY_PAL(EGG, gMonPalette_Egg),
 };
 

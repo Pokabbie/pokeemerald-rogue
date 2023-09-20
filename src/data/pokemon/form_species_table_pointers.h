@@ -49,6 +49,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_PICHU] = sPichuFormSpeciesIdTable,
     [SPECIES_AMPHAROS] = sAmpharosFormSpeciesIdTable,
     [SPECIES_SLOWKING] = sSlowkingFormSpeciesIdTable,
+    [SPECIES_WOBBUFFET] = sWobbuffetFormSpeciesIdTable,
     [SPECIES_QWILFISH] = sQwilfishFormSpeciesIdTable,
     [SPECIES_SNEASEL] = sSneaselFormSpeciesIdTable,
     [SPECIES_UNOWN] = sUnownFormSpeciesIdTable,
@@ -558,4 +559,9 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusFormSpeciesIdTable,
     // Basculegion
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionFormSpeciesIdTable,
+
+    // Rogueian forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = sWobbuffetFormSpeciesIdTable,
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = sWobbuffetFormSpeciesIdTable,
 };

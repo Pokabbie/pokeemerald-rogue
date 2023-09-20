@@ -309,6 +309,13 @@ static const u16 sSlowkingFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sWobbuffetFormSpeciesIdTable[] = {
+    SPECIES_WOBBUFFET,
+    SPECIES_WOBBUFFET_ROGUEIAN,
+    SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING,
+    FORM_SPECIES_END,
+};
+
 static const u16 sQwilfishFormSpeciesIdTable[] = {
     SPECIES_QWILFISH,
     SPECIES_QWILFISH_HISUIAN,

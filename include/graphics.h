@@ -1246,6 +1246,11 @@ extern const u32 gMonFrontPic_CalyrexIceRider[];
 extern const u32 gMonFrontPic_CalyrexShadowRider[];
 extern const u32 gMonFrontPic_EnamorusTherian[];
 extern const u32 gMonFrontPic_BasculegionFemale[];
+
+// Rogueian Forms
+extern const u32 gMonFrontPic_WobbuffetRogueian[];
+extern const u32 gMonFrontPic_WobbuffetRogueianPunching[];
+
 extern const u32 gMonFrontPic_Egg[];
 
 extern const u32 gMonBackPic_CircledQuestionMark[];
@@ -2428,6 +2433,10 @@ extern const u32 gMonBackPic_CalyrexIceRider[];
 extern const u32 gMonBackPic_CalyrexShadowRider[];
 extern const u32 gMonBackPic_EnamorusTherian[];
 extern const u32 gMonBackPic_BasculegionFemale[];
+
+// Rogueian Forms
+extern const u32 gMonBackPic_WobbuffetRogueian[];
+extern const u32 gMonBackPic_WobbuffetRogueianPunching[];
 
 extern const u32 gMonPalette_CircledQuestionMark[];
 extern const u32 gMonPalette_DoubleQuestionMark[];
@@ -3629,6 +3638,10 @@ extern const u32 gMonPalette_CalyrexIceRider[];
 extern const u32 gMonPalette_CalyrexShadowRider[];
 extern const u32 gMonPalette_EnamorusTherian[];
 extern const u32 gMonPalette_BasculegionFemale[];
+
+// Rogueian Forms
+extern const u32 gMonPalette_WobbuffetRogueian[];
+
 extern const u32 gMonPalette_Egg[];
 
 extern const u32 gMonShinyPalette_CircledQuestionMark[];
@@ -4826,6 +4839,9 @@ extern const u32 gMonShinyPalette_CalyrexShadowRider[];
 extern const u32 gMonShinyPalette_EnamorusTherian[];
 extern const u32 gMonShinyPalette_BasculegionFemale[];
 
+// Rogueian Forms
+extern const u32 gMonShinyPalette_WobbuffetRogueian[];
+
 extern const u8 gMonIcon_QuestionMark[];
 extern const u8 gMonIcon_Bulbasaur[];
 extern const u8 gMonIcon_Ivysaur[];
@@ -6009,6 +6025,11 @@ extern const u8 gMonIcon_CalyrexIceRider[];
 extern const u8 gMonIcon_CalyrexShadowRider[];
 extern const u8 gMonIcon_EnamorusTherian[];
 extern const u8 gMonIcon_BasculegionFemale[];
+
+// Rogueian Forms
+extern const u8 gMonIcon_WobbuffetRogueian[];
+extern const u8 gMonIcon_WobbuffetRogueianPunching[];
+
 extern const u8 gMonIcon_Egg[];
 
 extern const u8 gMonFootprint_QuestionMark[];

@@ -1303,6 +1303,11 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
 
     SPECIES_SPRITE(BASCULEGION_FEMALE, gMonFrontPic_BasculegionFemale),
 
+    // Rogueian forms
+    SPECIES_SPRITE(WOBBUFFET_ROGUEIAN, gMonFrontPic_WobbuffetRogueian),
+
+    SPECIES_SPRITE(WOBBUFFET_ROGUEIAN_PUNCHING, gMonFrontPic_WobbuffetRogueianPunching),
+
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
 };
 

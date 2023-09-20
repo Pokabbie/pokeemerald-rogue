@@ -1298,6 +1298,12 @@ gCryTable::
 	@ Calyrex
 	cry Cry_CalyrexIceRider
 	cry Cry_CalyrexShadowRider
+	@ Calyrex
+	cry Cry_Basculegion
+	@ Rogueian forms
+	cry Cry_Wobbuffet
+	@ Rogueian alternate forms
+	cry Cry_Wobbuffet
 
 	.align 2
 gCryTable_Reverse::
@@ -2600,3 +2606,9 @@ gCryTable_Reverse::
 	@ Calyrex
 	cry_reverse Cry_CalyrexIceRider
 	cry_reverse Cry_CalyrexShadowRider
+	@ Calyrex
+	cry_reverse Cry_Basculegion
+	@ Rogueian forms
+	cry_reverse Cry_Wobbuffet
+	@ Rogueian alternate forms
+	cry_reverse Cry_Wobbuffet

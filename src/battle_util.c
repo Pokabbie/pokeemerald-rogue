@@ -9835,6 +9835,8 @@ void UndoFormChange(u32 monId, u32 side, bool32 isSwitchingOut)
         {SPECIES_CRAMORANT_GULPING,             SPECIES_CRAMORANT,            TRUE},
         {SPECIES_MORPEKO_HANGRY,                SPECIES_MORPEKO,              TRUE},
         {SPECIES_DARMANITAN_ZEN_MODE_GALARIAN,  SPECIES_DARMANITAN_GALARIAN,  TRUE},
+
+        {SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING,   SPECIES_WOBBUFFET_ROGUEIAN,   TRUE},
     };
 
     currSpecies = GetMonData(&party[monId], MON_DATA_SPECIES, NULL);

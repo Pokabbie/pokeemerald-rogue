@@ -1302,4 +1302,9 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     // Enamorus
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusLevelUpLearnset,
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionLevelUpLearnset,
+
+    // Rogueian forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = sWobbuffetRogueianLevelUpLearnset,
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = sWobbuffetRogueianLevelUpLearnset,
 };

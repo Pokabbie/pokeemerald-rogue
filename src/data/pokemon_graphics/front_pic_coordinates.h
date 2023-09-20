@@ -6138,6 +6138,12 @@ const struct MonCoords gMonFrontPicCoords[] =
     // Basculegion
     [SPECIES_BASCULEGION_FEMALE]           = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
 
+
+    // Rogueian forms
+    [SPECIES_WOBBUFFET_ROGUEIAN] = { .size = MON_COORDS_SIZE(64, 56), .y_offset = 5, },
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING] = { .size = MON_COORDS_SIZE(64, 56), .y_offset = 5, },
+
     // Egg
     [SPECIES_EGG] =
     {

@@ -10591,4 +10591,9 @@ static const u32 sTutorLearnsets[] =
                                             | TUTOR(MOVE_SNORE)
                                             | TUTOR(MOVE_SUBSTITUTE)
                                             | TUTOR(MOVE_SWIFT)),
+
+    // Rogueian Forms
+    [SPECIES_WOBBUFFET_ROGUEIAN]     = TUTOR_LEARNSET(TUTOR(MOVE_COUNTER)),
+
+    [SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING]     = TUTOR_LEARNSET(TUTOR(MOVE_COUNTER)),
 };
