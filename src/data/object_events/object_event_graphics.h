@@ -391,6 +391,7 @@ const u32 gObjectEventPic_LyraAcroBike[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_LyraSurfing[] = INCBIN_U32("graphics/object_events/pics/people/lyra/surfing.4bpp");
 const u32 gObjectEventPic_LyraFieldMove[] = INCBIN_U32("graphics/object_events/pics/people/lyra/field_move.4bpp");
 const u32 gObjectEventPic_LyraFishing[] = INCBIN_U32("graphics/object_events/pics/people/lyra/fishing.4bpp");
+const u32 gObjectEventPic_LyraRiding[] = INCBIN_U32("graphics/object_events/pics/people/lyra/riding.4bpp");
 
 const u32 gObjectEventPic_EthanNormal[] = INCBIN_U32("graphics/object_events/pics/people/ethan/walking.4bpp");
 const u32 gObjectEventPic_EthanRunning[] = INCBIN_U32("graphics/object_events/pics/people/ethan/running.4bpp");
@@ -399,6 +400,7 @@ const u32 gObjectEventPic_EthanAcroBike[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_EthanSurfing[] = INCBIN_U32("graphics/object_events/pics/people/ethan/surfing.4bpp");
 const u32 gObjectEventPic_EthanFieldMove[] = INCBIN_U32("graphics/object_events/pics/people/ethan/field_move.4bpp");
 const u32 gObjectEventPic_EthanFishing[] = INCBIN_U32("graphics/object_events/pics/people/ethan/fishing.4bpp");
+const u32 gObjectEventPic_EthanRiding[] = INCBIN_U32("graphics/object_events/pics/people/ethan/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");

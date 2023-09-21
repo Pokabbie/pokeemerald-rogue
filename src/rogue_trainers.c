@@ -217,21 +217,39 @@ u8 Rogue_CalculatePlayerMonLvl()
 
 u8 Rogue_CalculateTrainerMonLvl()
 {
-    // TODO - Route difficulty
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
+    u8 startLvl;
+    u8 playerLvl;
 
     if(gRogueRun.currentDifficulty == 0)
     {
-        return 5;
+        startLvl = 5;
+        playerLvl = max(5, Rogue_CalculatePlayerMonLvl() / 2); // climb slowly for difficulty 1
     }
     else
     {
-        u8 lastLvl = CalculateLvlFor(gRogueRun.currentDifficulty - 1);
-        u8 currLvl = Rogue_CalculatePlayerMonLvl();
-
-        return (lastLvl + currLvl) / 2;
+        startLvl = CalculateLvlFor(gRogueRun.currentDifficulty - 1);
+        playerLvl = Rogue_CalculatePlayerMonLvl();
     }
 
-    return CalculateLvlFor(gRogueRun.currentDifficulty);
+    switch (difficultyModifier)
+    {
+    case ADVPATH_SUBROOM_ROUTE_CALM:
+        // Lag behind
+        return startLvl;
+
+    case ADVPATH_SUBROOM_ROUTE_AVERAGE:
+        // Average of 2 so gap becomes larger as you reach level cap
+        return (startLvl + playerLvl) / 2;
+
+    case ADVPATH_SUBROOM_ROUTE_TOUGH:
+        // Scale with player level
+        return max(startLvl, playerLvl > 5 ? playerLvl - 5 : 5);
+
+    default:
+        AGB_ASSERT(FALSE);
+        return playerLvl;
+    }
 }
 
 u8 Rogue_CalculateMiniBossMonLvl()

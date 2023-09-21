@@ -2240,15 +2240,15 @@ static const struct SpriteFrameImage sPicTable_LyraFishing[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_LyraRiding[] = {
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 2),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 2),
-    overworld_frame(gObjectEventPic_LyraNormal, 2, 4, 2),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_LyraRiding, 2, 4, 2),
 };
 
 static const struct SpriteFrameImage sPicTable_Ethan[] = {
@@ -2353,15 +2353,15 @@ static const struct SpriteFrameImage sPicTable_EthanFishing[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_EthanRiding[] = {
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 2),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 0),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 1),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 2),
-    overworld_frame(gObjectEventPic_EthanNormal, 2, 4, 2),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 2),
 };
 
 static const struct SpriteFrameImage sPicTable_Leaf[] = {

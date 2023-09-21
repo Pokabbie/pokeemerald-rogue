@@ -145,7 +145,6 @@ EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 static void ResetHotTracking();
 
 static u8 CalculateWildLevel(u8 variation);
-static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 
@@ -658,7 +657,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
     {
         // Once we've gotten champion we want to give a bit more money 
         u8 difficulty = gRogueRun.currentDifficulty;
-        u8 difficultyModifier = GetRoomTypeDifficulty();
+        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
@@ -3917,7 +3916,7 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
 static u8 GetCurrentWildEncounterCount()
 {    
     u16 count = 0;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(GetSafariZoneFlag())
     {
@@ -3925,7 +3924,7 @@ static u8 GetCurrentWildEncounterCount()
     }
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
-        u8 difficultyModifier = GetRoomTypeDifficulty();
+        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
         count = 4;
 
         if(difficultyModifier == 2) // Hard route
@@ -4132,7 +4131,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else
         {
-            u8 difficultyModifier = GetRoomTypeDifficulty();
+            u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
             u16 count = GetCurrentWildEncounterCount();
             u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
@@ -5065,7 +5064,7 @@ static u8 CalculateWildLevel(u8 variation)
         return wildLevel;
 }
 
-static u8 GetRoomTypeDifficulty(void)
+u8 Rogue_GetEncounterDifficultyModifier()
 {
     return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : 1);
 }
@@ -5073,7 +5072,7 @@ static u8 GetRoomTypeDifficulty(void)
 static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
     if(difficultyModifier == 0) // Easy
@@ -5089,7 +5088,7 @@ static bool8 RogueRandomChanceTrainer()
 static bool8 RogueRandomChanceItem()
 {
     s32 chance;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
@@ -5149,7 +5148,7 @@ static bool8 RogueRandomChanceBerry()
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     u8 dropRarity = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))

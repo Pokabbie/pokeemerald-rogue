@@ -382,6 +382,9 @@ $(OBJEVENTGFXDIR)/people/lyra/mach_bike.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/lyra/surfing.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/lyra/riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/ethan/walking.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 	
@@ -402,6 +405,9 @@ $(OBJEVENTGFXDIR)/people/ethan/mach_bike.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/people/ethan/surfing.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ethan/riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/reporter_f.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4

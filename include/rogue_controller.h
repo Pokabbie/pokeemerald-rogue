@@ -124,6 +124,8 @@ void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
 
+u8 Rogue_GetEncounterDifficultyModifier();
+
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);
 bool8 Rogue_GiveLabEncounterMon(u16 index);
