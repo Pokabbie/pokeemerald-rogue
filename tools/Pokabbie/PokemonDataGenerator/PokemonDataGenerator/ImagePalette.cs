@@ -179,7 +179,7 @@ namespace PokemonDataGenerator
 
 		public int GetClosestMatchIndex(Color input, int indexStart = 1)
 		{
-			if (input.A == 0)
+			if (input.A != 255)
 				return 0;
 			else
 			{

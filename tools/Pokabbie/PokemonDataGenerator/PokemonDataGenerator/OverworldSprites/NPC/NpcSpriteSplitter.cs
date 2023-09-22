@@ -167,14 +167,14 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
 				codeExport.For("sprite_rules.mk").Body.AppendLine($"");
 
-				codeExport.For("event_objects.h").Header.AppendLine($"#defineENT_GFX_{npcName.ToUpper()} __ABCDEF__");
+				codeExport.For("event_objects.h").Header.AppendLine($"#define OBJ_EVENT_GFX_{npcName.ToUpper()} __ABCDEF__");
 
 				codeExport.For("object_event_graphics_info_pointers.h").Header.AppendLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{npcName};");
 				codeExport.For("object_event_graphics_info_pointers.h").Body.AppendLine($"[OBJ_EVENT_GFX_{npcName.ToUpper()}] = &gObjectEventGraphicsInfo_{npcName},");
 
 				codeExport.For("object_event_graphics_info.h").Body.AppendLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{npcName} = {{TAG_NONE, OBJ_EVENT_PAL_TAG_{npcName.ToUpper()}, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_{npcName}, gDummySpriteAffineAnimTable}};");
 
-				codeExport.For("event_object_movement.c").Header.AppendLine($"#defineENT_PAL_TAG_{npcName.ToUpper()} __ABCDEF__");
+				codeExport.For("event_object_movement.c").Header.AppendLine($"#define PAL_TAG_{npcName.ToUpper()} __ABCDEF__");
 				codeExport.For("event_object_movement.c").Body.AppendLine($"{{gObjectEventPal_{npcName}, OBJ_EVENT_PAL_TAG_{npcName.ToUpper()}}},");
 
 				codeExport.For("object_event_graphics.h").Header.AppendLine($"const u16 gObjectEventPal_{npcName}[] = INCBIN_U16(\"graphics/object_events/pics/rogue/npc/{groupName.ToLower()}/{instanceName}.gbapal\");");
@@ -192,9 +192,9 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				codeExport.For("object_event_pic_tables.h").Body.AppendLine($"    overworld_frame(gObjectEventPic_{npcName}, 2, 4, 8),");
 				codeExport.For("object_event_pic_tables.h").Body.AppendLine($"}};");
 
-				codeExport.For("front_pic_anims.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = sAnims_Kanto,");
-
-				codeExport.For("front_pic_tables.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = {{.size = 8, .y_offset = 1}},");
+				//codeExport.For("front_pic_anims.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = sAnims_Kanto,");
+				//
+				//codeExport.For("front_pic_tables.h").Body.AppendLine($"[TRAINER_PIC_{npcName.ToUpper()}] = {{.size = 8, .y_offset = 1}},");
 			}
 		}
 

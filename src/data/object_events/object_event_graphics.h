@@ -491,15 +491,35 @@ const u32 gObjectEventPic_Sinnoh_Volkner[] = INCBIN_U32("graphics/object_events/
 const u32 gObjectEventPic_Sinnoh_Candice[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/candice.4bpp");
 const u32 gObjectEventPic_Sinnoh_Maylene[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/sinnoh/maylene.4bpp");
 
+const u32 gObjectEventPic_Misc_Aroma_Girl[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/aroma_girl.4bpp");
+const u32 gObjectEventPic_Misc_Backpacker_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_f.4bpp");
+const u32 gObjectEventPic_Misc_Backpacker_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_m.4bpp");
+const u32 gObjectEventPic_Misc_Bug_Catcher[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/bug_catcher.4bpp");
+const u32 gObjectEventPic_Misc_Burglar[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/burglar.4bpp");
+const u32 gObjectEventPic_Misc_Clown[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/clown.4bpp");
+const u32 gObjectEventPic_Misc_Hex_Maniac[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/hex_maniac.4bpp");
+const u32 gObjectEventPic_Misc_Kalos_Engineer[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/kalos_engineer.4bpp");
+const u32 gObjectEventPic_Misc_Kalos_Worker[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/kalos_worker.4bpp");
+const u32 gObjectEventPic_Misc_Looker[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/looker.4bpp");
+const u32 gObjectEventPic_Misc_Npc_Lady[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/npc_lady.4bpp");
+const u32 gObjectEventPic_Misc_Npc_Mystery_Gift[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/npc_mystery_gift.4bpp");
+const u32 gObjectEventPic_Misc_Npc_Tutor[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/npc_tutor.4bpp");
+const u32 gObjectEventPic_Misc_Nurse[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/nurse.4bpp");
+const u32 gObjectEventPic_Misc_Poke_Fan_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/poke_fan_f.4bpp");
+const u32 gObjectEventPic_Misc_Professor_Elm[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/professor_elm.4bpp");
+const u32 gObjectEventPic_Misc_Ruin_Maniac[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/ruin_maniac.4bpp");
+const u32 gObjectEventPic_Misc_Scientist[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/scientist.4bpp");
+const u32 gObjectEventPic_Misc_Super_Nerd[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/super_nerd.4bpp");
+const u32 gObjectEventPic_Misc_Unova_Scientist_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/unova_scientist_f.4bpp");
+const u32 gObjectEventPic_Misc_Veteran[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/veteran.4bpp");
+const u32 gObjectEventPic_Misc_Young_Couple_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_f.4bpp");
+const u32 gObjectEventPic_Misc_Young_Couple_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_m.4bpp");
+
 const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
 const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
 
 const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_kate.gbapal");
 const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_erma.gbapal");
-
-const u32 gObjectEventPic_BackpackerF[] = INCBIN_U32("graphics/object_events/pics/people/backpacker_f.4bpp");
-const u32 gObjectEventPic_BackpackerM[] = INCBIN_U32("graphics/object_events/pics/people/backpacker_m.4bpp");
-const u32 gObjectEventPic_Builder[] = INCBIN_U32("graphics/object_events/pics/people/builder.4bpp");
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
