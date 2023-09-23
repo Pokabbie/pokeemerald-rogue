@@ -3951,6 +3951,8 @@ extern const u32 gItemIcon_VSSeeker[];
 extern const u32 gItemIconPalette_VSSeeker[];
 extern const u32 gItemIcon_FameChecker[];
 extern const u32 gItemIconPalette_FameChecker[];
+extern const u32 gItemIcon_CGear[];
+extern const u32 gItemIconPalette_CGear[];
 extern const u32 gItemIcon_TMCase[];
 extern const u32 gItemIconPalette_TMCase[];
 extern const u32 gItemIcon_BerryPouch[];

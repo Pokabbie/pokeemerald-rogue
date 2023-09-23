@@ -13,12 +13,15 @@
 #include "text_window.h"
 #include "international_string_util.h"
 #include "script.h"
+#include "sound.h"
 #include "strings.h"
 #include "string_util.h"
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
+#include "constants/songs.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
 #include "rogue_settings.h"
 
 extern const u8 gText_16Spaces[];
@@ -500,6 +503,13 @@ static void VBlankCB(void)
     TransferPlttBuffer();
 }
 
+void Rogue_OpenDifficultyConfigMenu(RogueDifficultyMenuCallback callback)
+{
+    gMain.savedCallback = callback;
+    SetMainCallback2(CB2_InitDifficultyConfigMenu);
+    ScriptContext2_Enable();
+}
+
 void CB2_InitDifficultyConfigMenu(void)
 {
     switch (gMain.state)
@@ -786,8 +796,22 @@ static void ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_DifficultyArrowLeft, 104, menuOffset * YPOS_SPACING, 0);
 }
 
+static bool8 ShouldSkipInput()
+{
+    if(JOY_NEW((DPAD_RIGHT | DPAD_LEFT)) && Rogue_IsRunActive())
+    {
+        PlaySE(SE_FAILURE);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static u8 Slider_ProcessInput(u8 menuOffset, u8 selection)
 {
+    if(ShouldSkipInput())
+        return selection;
+
     if (JOY_NEW(DPAD_RIGHT))
     {
         if (selection < DIFFICULTY_LEVEL_BRUTAL)
@@ -845,6 +869,9 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
 {
+    if(ShouldSkipInput())
+        return selection;
+
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
     {
         selection ^= 1;

@@ -57,6 +57,7 @@
 #define ITEM_HEALING_FLASK              (ITEM_ROGUE_ITEM_FIRST + 2)
 #define ITEM_BASIC_RIDING_WHISTLE       (ITEM_ROGUE_ITEM_FIRST + 3)
 #define ITEM_GOLD_RIDING_WHISTLE        (ITEM_ROGUE_ITEM_FIRST + 4)
+#define ITEM_C_GEAR                     (ITEM_ROGUE_ITEM_FIRST + 5)
 
 // TODO - Classify these as dynamic items, to be wiped every patch (Allows easily moving them around)
 // Reserved 30 charms then 30 items

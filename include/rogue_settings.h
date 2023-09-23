@@ -1,6 +1,8 @@
 #ifndef ROGUE_SETTINGS__H
 #define ROGUE_SETTINGS__H
 
+typedef void (*RogueDifficultyMenuCallback)(void);
+
 void Rogue_SetConfigToggle(u16 elem, bool8 state);
 bool8 Rogue_GetConfigToggle(u16 elem);
 
@@ -18,6 +20,7 @@ u8 Rogue_GetDifficultyPreset();
 u8 Rogue_GetDifficultyRewardLevel();
 
 // UI
+void Rogue_OpenDifficultyConfigMenu(RogueDifficultyMenuCallback callback);
 void CB2_InitDifficultyConfigMenu(void);
 
 #endif

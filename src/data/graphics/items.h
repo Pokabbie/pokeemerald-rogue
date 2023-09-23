@@ -743,3 +743,6 @@ const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_RogueCurse[] = INCBIN_U32("graphics/items/icons/rogue_curse.4bpp.lz");
 const u32 gItemIconPalette_RogueCurse[] = INCBIN_U32("graphics/items/icon_palettes/rogue_curse.gbapal.lz");
+
+const u32 gItemIcon_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.4bpp.lz");
+const u32 gItemIconPalette_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.gbapal.lz");
