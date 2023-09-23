@@ -42,9 +42,6 @@ extern const u8 gText_DifficultyPresetCustom[];
 extern const u8 gText_DifficultyEnabled[];
 extern const u8 gText_DifficultyDisabled[];
 
-extern const u8 gText_DifficultyToggles[];
-extern const u8 gText_DifficultySliders[];
-
 extern const u8 gText_DifficultyExpAll[];
 extern const u8 gText_DifficultyOverLvl[];
 extern const u8 gText_DifficultyEVGain[];
@@ -58,6 +55,7 @@ extern const u8 gText_DifficultyLegendaries[];
 
 extern const u8 gText_DifficultyPresetDesc[];
 extern const u8 gText_DifficultyCustomDesc[];
+extern const u8 gText_AdventureCustomDesc[];
 extern const u8 gText_DifficultyExpAllDesc[];
 extern const u8 gText_DifficultyOverLvlDesc[];
 extern const u8 gText_DifficultyEVGainDesc[];
@@ -79,6 +77,9 @@ enum
     TD_PREVIOUS_MENUSELECTION_TOP,
 };
 
+static u8 const sMenuName_DifficultySubmenu[] = _("DIFFICULTY");
+static u8 const sMenuName_AdventureSubmenu[] = _("ADVENTURE");
+
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
 
@@ -98,8 +99,8 @@ enum
 {
     MENUITEM_DIFFICULTY_PRESET,
 
-    MENUITEM_MENU_TOGGLES,
-    MENUITEM_MENU_SLIDERS,
+    MENUITEM_MENU_DIFFICULTY_SUBMENU,
+    MENUITEM_MENU_ADVENTURE_SUBMENU,
 
     MENUITEM_MENU_TOGGLE_EXP_ALL,
     MENUITEM_MENU_TOGGLE_OVER_LVL,
@@ -132,8 +133,8 @@ enum
 enum
 {
     SUBMENUITEM_NONE,
-    SUBMENUITEM_TOGGLES,
-    SUBMENUITEM_SLIDERS,
+    SUBMENUITEM_DIFFICULTY,
+    SUBMENUITEM_ADVENTURE,
 #ifdef ROGUE_DEBUG
     SUBMENUITEM_DEBUG,
 #endif
@@ -212,21 +213,20 @@ static const struct MenuEntry sOptionMenuItems[] =
         .drawChoices = Slider_DrawChoices
     },
 
-    [MENUITEM_MENU_TOGGLES] = 
+    [MENUITEM_MENU_DIFFICULTY_SUBMENU] = 
     {
-        .itemName = gText_DifficultyToggles,
+        .itemName = sMenuName_DifficultySubmenu,
         .itemDesc = gText_DifficultyCustomDesc,
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
-    [MENUITEM_MENU_SLIDERS] = 
+    [MENUITEM_MENU_ADVENTURE_SUBMENU] = 
     {
-        .itemName = gText_DifficultySliders,
-        .itemDesc = gText_DifficultyCustomDesc,
+        .itemName = sMenuName_AdventureSubmenu,
+        .itemDesc = gText_AdventureCustomDesc,
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
-
 
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
@@ -377,34 +377,34 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_DIFFICULTY_PRESET,
-            MENUITEM_MENU_TOGGLES,
-            MENUITEM_MENU_SLIDERS,
+            MENUITEM_MENU_DIFFICULTY_SUBMENU,
+            MENUITEM_MENU_ADVENTURE_SUBMENU,
 #ifdef ROGUE_DEBUG
             MENUITEM_MENU_DEBUG,
 #endif
             MENUITEM_CANCEL
         }
     },
-    [SUBMENUITEM_TOGGLES] = 
-    {
-        .menuOptions = 
-        {
-            MENUITEM_MENU_TOGGLE_EXP_ALL,
-            MENUITEM_MENU_TOGGLE_OVER_LVL,
-            MENUITEM_MENU_TOGGLE_EV_GAIN,
-            MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
-            MENUITEM_MENU_TOGGLE_BAG_WIPE,
-            MENUITEM_MENU_TOGGLE_SWITCH_MODE,
-            MENUITEM_CANCEL
-        }
-    },
-    [SUBMENUITEM_SLIDERS] = 
+    [SUBMENUITEM_DIFFICULTY] = 
     {
         .menuOptions = 
         {
             MENUITEM_MENU_SLIDER_TRAINER,
             MENUITEM_MENU_SLIDER_ITEM,
             MENUITEM_MENU_SLIDER_LEGENDARY,
+            MENUITEM_MENU_TOGGLE_SWITCH_MODE,
+            MENUITEM_MENU_TOGGLE_OVER_LVL,
+            MENUITEM_MENU_TOGGLE_EV_GAIN,
+            MENUITEM_MENU_TOGGLE_BAG_WIPE,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_ADVENTURE] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
+            MENUITEM_MENU_TOGGLE_EXP_ALL,
             MENUITEM_CANCEL
         }
     },
@@ -635,13 +635,13 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     {
         switch (menuItem)
         {
-        case MENUITEM_MENU_TOGGLES:
-            submenuSelection = SUBMENUITEM_TOGGLES;
+        case MENUITEM_MENU_DIFFICULTY_SUBMENU:
+            submenuSelection = SUBMENUITEM_DIFFICULTY;
             submenuChanged = TRUE;
             break;
 
-        case MENUITEM_MENU_SLIDERS:
-            submenuSelection = SUBMENUITEM_SLIDERS;
+        case MENUITEM_MENU_ADVENTURE_SUBMENU:
+            submenuSelection = SUBMENUITEM_ADVENTURE;
             submenuChanged = TRUE;
             break;
 
