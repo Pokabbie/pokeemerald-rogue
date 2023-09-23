@@ -1,9 +1,15 @@
+#include "global.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include "gba/gba.h"
 #include "config.h"
 #include "malloc.h"
 #include "mini_printf.h"
+
+#include "m4a.h"
+#include "main.h"
+#include "sound.h"
+#include "constants/songs.h"
 
 #define AGB_PRINT_FLUSH_ADDR 0x9FE209D
 #define AGB_PRINT_STRUCT_ADDR 0x9FE20F8
@@ -285,17 +291,37 @@ void MgbaPrintf(const char* ptr, ...)
     Free(buffer);
 }
 
+void DebugForceReadKeys();
+
 void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram)
 {
-    if (nStopProgram)
+    //if (nStopProgram)
     {
         MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
-        asm(".hword 0xEFFF");
+        DebugPrint("A - Skip");
+        DebugPrint("B - Break");
+
+        PlaySE(SE_LOW_HEALTH);
+
+        while(TRUE)
+        {
+            if(JOY_NEW(A_BUTTON))
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                break;
+            }
+            else if(JOY_NEW(B_BUTTON))
+            {
+                asm(".hword 0xEFFF");
+            }
+
+            DebugForceReadKeys();
+        }
     }
-    else
-    {
-        MgbaPrintfBounded(MGBA_LOG_WARN, "WARING FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
-    }
+    //else
+    //{
+    //    MgbaPrintfBounded(MGBA_LOG_WARN, "WARING FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
+    //}
 }
 #endif
 #endif
