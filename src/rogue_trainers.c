@@ -611,6 +611,54 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     return fixedIV;
 }
 
+
+static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 5)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            // Misc trainers just have any mons they can
+            return FALSE;
+        }
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 3)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            // Normal trainers start to optimize coverage from E4 onward
+            if(gRogueRun.currentDifficulty >= 8)
+                return TRUE;
+            else
+                return FALSE;
+        }
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    // Should never get here
+    AGB_ASSERT(FALSE);
+    return FALSE;
+}
+
 static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
 {
     u8 monCount;
@@ -877,6 +925,18 @@ static bool8 FilterOutDuplicateMons(u16 elem, void* usrData)
     return !PartyContainsSimilarSpecies(scratch->party, scratch->partyCount, elem);
 }
 
+static void SetupQueryScriptVars(struct QueryScriptContext* context, struct TrainerPartyScratch* scratch)
+{
+    if(ShouldTrainerOptimizeCoverage(scratch->trainerNum))
+    {
+        RogueQueryScript_SetupVarsForParty(context, scratch->party, scratch->partyCount);
+    }
+    else
+    {
+        RogueQueryScript_SetupVarsForParty(context, NULL, 0);
+    }
+}
+
 static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -903,6 +963,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_Reset(QUERY_FUNC_EXCLUDE);
 
             RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptOverride);
+            SetupQueryScriptVars(&scriptContext, scratch);
             RogueQueryScript_Execute(&scriptContext);
             customScript = TRUE;
         }
@@ -960,6 +1021,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             struct QueryScriptContext scriptContext;
             RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptPost);
+            SetupQueryScriptVars(&scriptContext, scratch);
             RogueQueryScript_Execute(&scriptContext);
         }
     }
@@ -973,10 +1035,10 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(trainer->teamGenerator.weightScript != NULL)
     {
-        struct QueryScriptContext context;
-        RogueQueryScript_SetupScript(&context, trainer->teamGenerator.weightScript);
-        RogueQueryScript_SetupVarsForParty(&context, scratch->party, scratch->partyCount);
-        RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &context);
+        struct QueryScriptContext scriptContext;
+        RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.weightScript);
+        SetupQueryScriptVars(&scriptContext, scratch);
+        RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &scriptContext);
     }
     else
     {
