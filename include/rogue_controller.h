@@ -8,6 +8,10 @@ struct MusicPlayerInfo;
 extern struct RogueSaveBlock* gRogueSaveBlock;
 extern EWRAM_DATA struct RogueRunData gRogueRun;
 
+#ifdef ROGUE_DEBUG
+extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
+#endif
+
 #define OVERWORLD_FLAG 0
 
 u16 RogueRandomRange(u16 range, u8 seedFlag);

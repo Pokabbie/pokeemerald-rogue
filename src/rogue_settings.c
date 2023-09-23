@@ -43,6 +43,10 @@ struct RogueDifficultyPreset
 
 EWRAM_DATA struct RogueDifficultyLocal gRogueDifficultyLocal;
 
+#ifdef ROGUE_DEBUG
+EWRAM_DATA struct RogueDebugConfig gRogueDebug = {0};
+#endif
+
 const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COUNT] = 
 {
     // Easy difficulty can actually have ANYTHING set, these values are just the defaults, recommendations
@@ -119,9 +123,9 @@ void Rogue_SetConfigToggle(u16 elem, bool8 state)
 {
     u16 idx = elem / 8;
     u16 bit = elem % 8;
-
     u8 bitMask = 1 << bit;
 
+    AGB_ASSERT(elem < DIFFICULTY_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
     if(state)
     {
@@ -139,23 +143,103 @@ bool8 Rogue_GetConfigToggle(u16 elem)
 {
     u16 idx = elem / 8;
     u16 bit = elem % 8;
-
     u8 bitMask = 1 << bit;
 
+    AGB_ASSERT(elem < DIFFICULTY_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
     return (gRogueSaveBlock->difficultyConfig.toggleBits[idx] & bitMask) != 0;
 }
 
 void Rogue_SetConfigRange(u16 elem, u8 value)
 {
+    AGB_ASSERT(elem < DIFFICULTY_RANGE_COUNT);
     gRogueSaveBlock->difficultyConfig.rangeValues[elem] = value;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 }
 
 u8 Rogue_GetConfigRange(u16 elem)
 {
+    AGB_ASSERT(elem < DIFFICULTY_RANGE_COUNT);
     return gRogueSaveBlock->difficultyConfig.rangeValues[elem];
 }
+
+#ifdef ROGUE_DEBUG
+
+static u16 GetDebugElementOffset(u16 elem)
+{
+    AGB_ASSERT(elem >= DEBUG_START_VALUE);
+    elem -= DEBUG_START_VALUE;
+    return elem;
+}
+
+void RogueDebug_SetConfigToggle(u16 e, bool8 state)
+{
+    u16 elem = GetDebugElementOffset(e);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(elem < DEBUG_TOGGLE_COUNT);
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueDebug.toggleBits));
+    if(state)
+    {
+        gRogueDebug.toggleBits[idx] |= bitMask;
+    }
+    else
+    {
+        gRogueDebug.toggleBits[idx] &= ~bitMask;
+    }
+}
+
+bool8 RogueDebug_GetConfigToggle(u16 e)
+{
+    u16 elem = GetDebugElementOffset(e);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(elem < DEBUG_TOGGLE_COUNT);
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueDebug.toggleBits));
+    return (gRogueDebug.toggleBits[idx] & bitMask) != 0;
+}
+
+void RogueDebug_SetConfigRange(u16 elem, u8 value)
+{
+    elem = GetDebugElementOffset(elem);
+
+    AGB_ASSERT(elem < DEBUG_RANGE_COUNT);
+    gRogueDebug.rangeValues[elem] = value;
+}
+
+u8 RogueDebug_GetConfigRange(u16 elem)
+{
+    elem = GetDebugElementOffset(elem);
+
+    AGB_ASSERT(elem < DEBUG_RANGE_COUNT);
+    return gRogueDebug.rangeValues[elem];
+}
+
+#else
+
+void RogueDebug_SetConfigToggle(u16 elem, bool8 state)
+{
+}
+
+bool8 RogueDebug_GetConfigToggle(u16 elem)
+{
+    return 0;
+}
+
+void RogueDebug_SetConfigRange(u16 elem, u8 value)
+{
+}
+
+u8 RogueDebug_GetConfigRange(u16 elem)
+{
+    return 0;
+}
+
+#endif
 
 static void Rogue_ResetToDefaults()
 {

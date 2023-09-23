@@ -777,11 +777,10 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         {
             species = SampleNextSpecies(&scratch);
 
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-            CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-#else
-            CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-#endif
+            if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5))
+                CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            else
+                CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
@@ -798,7 +797,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     }
 
     // Debug steal team
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM))
     {
         u8 i;
         u16 exp = Rogue_ModifyExperienceTables(1, 100);
@@ -818,7 +817,6 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
             CalculateMonStats(&gPlayerParty[i]);
         }
     }
-#endif
 
     return monCount;
 }

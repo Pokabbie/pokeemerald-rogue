@@ -428,11 +428,12 @@ void Rogue_ModifyEVGain(int* multiplier)
 
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 { 
-    if(Rogue_IsRunActive())
+    if(GetSafariZoneFlag() || Rogue_InWildSafari() || RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE))
     {
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_INSTANT_CATCH)
         *ballMultiplier = 12345; // Masterball equiv
-#else
+    }
+    else if(Rogue_IsRunActive())
+    {
         u16 startMultiplier = *ballMultiplier;
         u8 difficulty = gRogueRun.currentDifficulty;
         u8 wildEncounterIndex = GetWildEncounterIndexFor(species);
@@ -524,11 +525,6 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
             if(*catchRate < 25)
                 *catchRate = 25;
         }
-#endif
-    }
-    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
-    {
-        *ballMultiplier = 12345; // Masterball equiv
     }
 }
 
@@ -1112,14 +1108,9 @@ bool8 CheckPresetMonFlags(u16 species, u32 flag)
     return (GetPresetMonFlags(species) & flag) != 0;
 }
 
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
+#if defined(ROGUE_DEBUG)
 
-bool8 Rogue_ShouldShowMiniMenu(void)
-{
-    return TRUE;
-}
-
-u16 Rogue_MiniMenuHeight(void)
+u16 Debug_MiniMenuHeight(void)
 {
     u16 height = 10;
     return height;
@@ -1144,7 +1135,7 @@ static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
     return StringAppend(strPointer, gStringVar1);
 }
 
-u8* Rogue_GetMiniMenuContent(void)
+u8* Debug_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
@@ -1173,7 +1164,7 @@ u8* Rogue_GetMiniMenuContent(void)
             strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, gSaveBlock1Ptr->rogueSaveVersion);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, RogueSave_GetVersionId());
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.enteredRoomCounter);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
@@ -1220,18 +1211,13 @@ u8* Rogue_GetMiniMenuContent(void)
     return gStringVar4;
 }
 
-void Rogue_CreateMiniMenuExtraGFX(void)
-{
-}
-
-void Rogue_RemoveMiniMenuExtraGFX(void)
-{
-}
-
-#else
+#endif
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return TRUE;
+
     if(GetSafariZoneFlag())
         return FALSE;
 
@@ -1241,6 +1227,11 @@ bool8 Rogue_ShouldShowMiniMenu(void)
 u16 Rogue_MiniMenuHeight(void)
 {
     u16 height = Rogue_IsRunActive() ? 3 : 1;
+
+#if defined(ROGUE_DEBUG)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return Debug_MiniMenuHeight();
+#endif
 
     if(GetSafariZoneFlag())
     {
@@ -1270,6 +1261,11 @@ extern const u8 gText_StatusSeasonWinter[];
 u8* Rogue_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
+
+#if defined(ROGUE_DEBUG)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return Debug_GetMiniMenuContent();
+#endif
 
     *strPointer = EOS;
 
@@ -1331,6 +1327,12 @@ void Rogue_CreateMiniMenuExtraGFX(void)
     u8 oamPriority = 0; // Render infront of background
     u16 palBuffer[16];
 
+#if defined(ROGUE_DEBUG)
+    // Don't show whilst info panel is visible
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return;
+#endif
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         bool8 isVisible;
@@ -1373,6 +1375,12 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 {
     u8 i;
 
+#if defined(ROGUE_DEBUG)
+    // Don't show whilst info panel is visible
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return;
+#endif
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         bool8 isVisible;
@@ -1398,8 +1406,6 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
         //FreeMonIconPalettes();
     }
 }
-
-#endif
 
 struct StarterSelectionData
 {
@@ -1664,8 +1670,7 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
-#if !(defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_ALLOW_SAVE_SCUMMING))
-    else if(gRogueLocal.hasQuickLoadPending)
+    else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
 
@@ -1675,7 +1680,6 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
-#endif
     else if(FollowMon_ProcessMonInteraction() == TRUE)
     {
         return TRUE;
@@ -1857,21 +1861,14 @@ void Rogue_OnLoadMap(void)
 
 u16 GetStartDifficulty(void)
 {
-    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+    u16 skipToDifficulty = 0;
 
-#ifdef ROGUE_DEBUG
-    if(skipToDifficulty == 8)
+    if(RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY) != 0)
     {
-        skipToDifficulty = ROGUE_MAX_BOSS_COUNT - 1;
+        skipToDifficulty = RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
     }
-#endif
 
-    if(skipToDifficulty != 0)
-    {
-        return skipToDifficulty;
-    }
-    
-    return 0;
+    return skipToDifficulty;
 }
 
 static bool8 HasAnyActiveEvos(u16 species)

@@ -17,6 +17,7 @@
 #include "string_util.h"
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
+#include "constants/weather.h"
 
 #include "rogue_settings.h"
 
@@ -75,6 +76,20 @@ enum
     TD_PREVIOUS_MENUSELECTION_TOP,
 };
 
+#ifdef ROGUE_DEBUG
+static u8 const sMenuName_Debug[] = _("DEBUG");
+
+static u8 const sMenuName_DebugToggleInfoPanel[] = _("INFO PANEL");
+static u8 const sMenuName_DebugToggleStealTeam[] = _("STEAL TEAM");
+static u8 const sMenuName_DebugToggleLvl5[] = _("TRAINER LVL5");
+static u8 const sMenuName_DebugToggleAllowSaveScum[] = _("ALLOW SAVE SCUM");
+static u8 const sMenuName_DebugToggleInstantCapture[] = _("INSTANT CATCH");
+static u8 const sMenuName_DebugToggleTodTintUsePlayerColour[] = _("PLAYER TOD TINT");
+
+static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
+static u8 const sMenuName_DebugRangeForcedWeather[] = _("FORCED WEATHER");
+#endif
+
 // Menu items
 enum
 {
@@ -94,6 +109,20 @@ enum
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
 
+#ifdef ROGUE_DEBUG
+    MENUITEM_MENU_DEBUG,
+
+    MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL,
+    MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM,
+    MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5,
+    MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM,
+    MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE,
+    MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
+
+    MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
+    MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+#endif
+
     MENUITEM_CANCEL,
 };
 
@@ -102,6 +131,9 @@ enum
     SUBMENUITEM_NONE,
     SUBMENUITEM_TOGGLES,
     SUBMENUITEM_SLIDERS,
+#ifdef ROGUE_DEBUG
+    SUBMENUITEM_DEBUG,
+#endif
     SUBMENUITEM_COUNT,
 };
 
@@ -136,6 +168,14 @@ static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection);
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
 static void Empty_DrawChoices(u8 menuOffset, u8 selection);
+
+#ifdef ROGUE_DEBUG
+static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
+static void DebugToggle_DrawChoices(u8 menuOffset, u8 selection);
+static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection);
+static void DebugRange_DrawChoices(u8 menuOffset, u8 selection);
+static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection);
+#endif
 
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
 
@@ -250,6 +290,75 @@ static const struct MenuEntry sOptionMenuItems[] =
         .drawChoices = Slider_DrawChoices
     },
 
+#ifdef ROGUE_DEBUG
+    [MENUITEM_MENU_DEBUG] = 
+    {
+        .itemName = sMenuName_Debug,
+        .itemDesc = gText_EmptyString2,
+        .processInput = Empty_ProcessInput,
+        .drawChoices = ArrowRight_DrawChoices
+    },
+
+    [MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL] = 
+    {
+        .itemName = sMenuName_DebugToggleInfoPanel,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM] = 
+    {
+        .itemName = sMenuName_DebugToggleStealTeam,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5] = 
+    {
+        .itemName = sMenuName_DebugToggleLvl5,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM] = 
+    {
+        .itemName = sMenuName_DebugToggleAllowSaveScum,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE] = 
+    {
+        .itemName = sMenuName_DebugToggleInstantCapture,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR] = 
+    {
+        .itemName = sMenuName_DebugToggleTodTintUsePlayerColour,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+
+    [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
+    {
+        .itemName = sMenuName_DebugRangeStartDifficulty,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugRange_DifficultySkipProcessInput,
+        .drawChoices = DebugRange_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER] = 
+    {
+        .itemName = sMenuName_DebugRangeForcedWeather,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugRange_ProcessInput,
+        .drawChoices = DebugRange_DrawChoices
+    },
+
+#endif
+
     [MENUITEM_CANCEL] = 
     {
         .itemName = gText_OptionMenuCancel,
@@ -267,6 +376,9 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_DIFFICULTY_PRESET,
             MENUITEM_MENU_TOGGLES,
             MENUITEM_MENU_SLIDERS,
+#ifdef ROGUE_DEBUG
+            MENUITEM_MENU_DEBUG,
+#endif
             MENUITEM_CANCEL
         }
     },
@@ -293,6 +405,25 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_CANCEL
         }
     },
+#ifdef ROGUE_DEBUG
+    [SUBMENUITEM_DEBUG] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL,
+            MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM,
+            MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5,
+            MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM,
+            MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE,
+            MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
+
+            MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
+            MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+
+            MENUITEM_CANCEL
+        }
+    },
+#endif
 };
 
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
@@ -503,9 +634,16 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             submenuSelection = SUBMENUITEM_SLIDERS;
             submenuChanged = TRUE;
             break;
+
+#ifdef ROGUE_DEBUG
+        case MENUITEM_MENU_DEBUG:
+            submenuSelection = SUBMENUITEM_DEBUG;
+            submenuChanged = TRUE;
+            break;
+#endif
         }
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_REPEAT(DPAD_UP))
     {
         if(menuSelection != 0)
         {
@@ -523,7 +661,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_REPEAT(DPAD_DOWN))
     {
         if(menuItem != MENUITEM_CANCEL)
         {
@@ -727,6 +865,77 @@ static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
         DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
 }
 
+#ifdef ROGUE_DEBUG
+
+static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
+}
+
+static void DebugToggle_DrawChoices(u8 menuOffset, u8 selection)
+{
+    Toggle_DrawChoices(menuOffset, selection);
+}
+
+static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        selection++;
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void DebugRange_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 text[16];
+
+    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+
+    ConvertUIntToDecimalStringN(&text[0], selection, STR_CONV_MODE_LEFT_ALIGN, 3);
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 0);
+}
+
+static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_REPEAT(DPAD_RIGHT))
+    {
+        if(selection == ROGUE_MAX_BOSS_COUNT - 1)
+            selection = 0;
+        else
+            selection++;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_REPEAT(DPAD_LEFT))
+    {
+        if (selection == 0)
+            selection = ROGUE_MAX_BOSS_COUNT - 1;
+        else
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    
+    return selection;
+}
+
+#endif
+
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
 {
 
@@ -850,6 +1059,33 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_SLIDER_LEGENDARY:
         return Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY);
+
+#ifdef ROGUE_DEBUG
+    case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR);
+
+
+    case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
+        return RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
+
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
+        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_WEATHER);
+#endif
     }
 
     return 0;
@@ -899,6 +1135,41 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
     case MENUITEM_MENU_SLIDER_LEGENDARY:
         Rogue_SetConfigRange(DIFFICULTY_RANGE_LEGENDARY, value);
         break;
+
+#ifdef ROGUE_DEBUG
+    case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_INFO_PANEL, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR, value);
+        break;
+
+
+    case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
+        RogueDebug_SetConfigRange(DEBUG_RANGE_START_DIFFICULTY, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
+        RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_WEATHER, value);
+        break;
+#endif
     }
 }
 

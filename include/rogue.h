@@ -460,6 +460,12 @@ struct RogueDifficultyConfig
     u8 rangeValues[DIFFICULTY_RANGE_COUNT];
 };
 
+struct RogueDebugConfig
+{
+    u8 toggleBits[1 + (DEBUG_TOGGLE_COUNT) / 8];
+    u8 rangeValues[DEBUG_RANGE_COUNT];
+};
+
 struct RogueSaveBlock
 {
     u16 saveVersion;
