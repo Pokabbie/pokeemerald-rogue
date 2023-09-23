@@ -49,7 +49,7 @@
 #define FLAG_SET_SEED_TRAINERS          0x24
 #define FLAG_SET_SEED_BOSSES            0x25
 #define FLAG_SET_SEED_WILDMONS          0x26
-#define FLAG_ROGUE_DOUBLE_BATTLES       0x27
+#define FLAG_UNUSED_0x27                0x27
 #define FLAG_UNUSED_0x28                0x28
 #define FLAG_UNUSED_0x29                0x29
 
@@ -663,7 +663,7 @@
 // RogueNote: Flag block 2
 #define FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE  0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
-#define FLAG_ROGUE_MET_LANETTE               0x266
+#define FLAG_ROGUE_MET_FENNEL                0x266
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
 #define FLAG_UNUSED_0x269                    0x269

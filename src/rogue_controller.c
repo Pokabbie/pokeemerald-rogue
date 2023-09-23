@@ -145,7 +145,6 @@ EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
 static void ResetHotTracking();
 
 static u8 CalculateWildLevel(u8 variation);
-static u8 GetRoomTypeDifficulty(void);
 
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 
@@ -429,11 +428,12 @@ void Rogue_ModifyEVGain(int* multiplier)
 
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 { 
-    if(Rogue_IsRunActive())
+    if(GetSafariZoneFlag() || Rogue_InWildSafari() || RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE))
     {
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_INSTANT_CATCH)
         *ballMultiplier = 12345; // Masterball equiv
-#else
+    }
+    else if(Rogue_IsRunActive())
+    {
         u16 startMultiplier = *ballMultiplier;
         u8 difficulty = gRogueRun.currentDifficulty;
         u8 wildEncounterIndex = GetWildEncounterIndexFor(species);
@@ -525,11 +525,6 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
             if(*catchRate < 25)
                 *catchRate = 25;
         }
-#endif
-    }
-    else if(GetSafariZoneFlag() || Rogue_InWildSafari())
-    {
-        *ballMultiplier = 12345; // Masterball equiv
     }
 }
 
@@ -658,7 +653,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
     {
         // Once we've gotten champion we want to give a bit more money 
         u8 difficulty = gRogueRun.currentDifficulty;
-        u8 difficultyModifier = GetRoomTypeDifficulty();
+        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
@@ -1113,14 +1108,9 @@ bool8 CheckPresetMonFlags(u16 species, u32 flag)
     return (GetPresetMonFlags(species) & flag) != 0;
 }
 
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_PAUSE_PANEL)
+#if defined(ROGUE_DEBUG)
 
-bool8 Rogue_ShouldShowMiniMenu(void)
-{
-    return TRUE;
-}
-
-u16 Rogue_MiniMenuHeight(void)
+u16 Debug_MiniMenuHeight(void)
 {
     u16 height = 10;
     return height;
@@ -1145,7 +1135,7 @@ static u8* AppendNumberField(u8* strPointer, const u8* field, u32 num)
     return StringAppend(strPointer, gStringVar1);
 }
 
-u8* Rogue_GetMiniMenuContent(void)
+u8* Debug_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
     *strPointer = EOS;
@@ -1174,7 +1164,7 @@ u8* Rogue_GetMiniMenuContent(void)
             strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
         }
 
-        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, gSaveBlock1Ptr->rogueSaveVersion);
+        strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, RogueSave_GetVersionId());
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.enteredRoomCounter);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_PlayerLvl, playerLevel);
@@ -1221,18 +1211,13 @@ u8* Rogue_GetMiniMenuContent(void)
     return gStringVar4;
 }
 
-void Rogue_CreateMiniMenuExtraGFX(void)
-{
-}
-
-void Rogue_RemoveMiniMenuExtraGFX(void)
-{
-}
-
-#else
+#endif
 
 bool8 Rogue_ShouldShowMiniMenu(void)
 {
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return TRUE;
+
     if(GetSafariZoneFlag())
         return FALSE;
 
@@ -1242,6 +1227,11 @@ bool8 Rogue_ShouldShowMiniMenu(void)
 u16 Rogue_MiniMenuHeight(void)
 {
     u16 height = Rogue_IsRunActive() ? 3 : 1;
+
+#if defined(ROGUE_DEBUG)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return Debug_MiniMenuHeight();
+#endif
 
     if(GetSafariZoneFlag())
     {
@@ -1271,6 +1261,11 @@ extern const u8 gText_StatusSeasonWinter[];
 u8* Rogue_GetMiniMenuContent(void)
 {
     u8* strPointer = &gStringVar4[0];
+
+#if defined(ROGUE_DEBUG)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return Debug_GetMiniMenuContent();
+#endif
 
     *strPointer = EOS;
 
@@ -1332,6 +1327,12 @@ void Rogue_CreateMiniMenuExtraGFX(void)
     u8 oamPriority = 0; // Render infront of background
     u16 palBuffer[16];
 
+#if defined(ROGUE_DEBUG)
+    // Don't show whilst info panel is visible
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return;
+#endif
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         bool8 isVisible;
@@ -1374,6 +1375,12 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 {
     u8 i;
 
+#if defined(ROGUE_DEBUG)
+    // Don't show whilst info panel is visible
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
+        return;
+#endif
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
         bool8 isVisible;
@@ -1399,8 +1406,6 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
         //FreeMonIconPalettes();
     }
 }
-
-#endif
 
 struct StarterSelectionData
 {
@@ -1518,7 +1523,6 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
     // Basic settings
-    FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
 
@@ -1573,7 +1577,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
-    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
+    Rogue_ResetSettingsToDefaults();
     Rogue_ResetConfigHubSettings();
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -1665,8 +1669,7 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
-#if !(defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_ALLOW_SAVE_SCUMMING))
-    else if(gRogueLocal.hasQuickLoadPending)
+    else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
     {
         gRogueLocal.hasQuickLoadPending = FALSE;
 
@@ -1676,7 +1679,6 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
-#endif
     else if(FollowMon_ProcessMonInteraction() == TRUE)
     {
         return TRUE;
@@ -1858,21 +1860,14 @@ void Rogue_OnLoadMap(void)
 
 u16 GetStartDifficulty(void)
 {
-    u16 skipToDifficulty = VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+    u16 skipToDifficulty = 0;
 
-#ifdef ROGUE_DEBUG
-    if(skipToDifficulty == 8)
+    if(RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY) != 0)
     {
-        skipToDifficulty = ROGUE_MAX_BOSS_COUNT - 1;
+        skipToDifficulty = RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
     }
-#endif
 
-    if(skipToDifficulty != 0)
-    {
-        return skipToDifficulty;
-    }
-    
-    return 0;
+    return skipToDifficulty;
 }
 
 static bool8 HasAnyActiveEvos(u16 species)
@@ -3249,7 +3244,28 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
-    if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) //NoOfApproachingTrainers != 2 
+    bool8 shouldDoubleBattle = FALSE;
+
+    switch(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT))
+    {
+        case BATTLE_FORMAT_SINGLES:
+            shouldDoubleBattle = FALSE;
+            break;
+
+        case BATTLE_FORMAT_DOUBLES:
+            shouldDoubleBattle = TRUE;
+            break;
+
+        case BATTLE_FORMAT_MIXED:
+            shouldDoubleBattle = (RogueRandom() % 2);
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+    }
+
+    if(shouldDoubleBattle) //NoOfApproachingTrainers != 2 
     {
         // No need to check opponent party as we force it to 2 below
         if(gPlayerPartyCount >= 2) // gEnemyPartyCount >= 2
@@ -3917,7 +3933,7 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
 static u8 GetCurrentWildEncounterCount()
 {    
     u16 count = 0;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(GetSafariZoneFlag())
     {
@@ -3925,7 +3941,7 @@ static u8 GetCurrentWildEncounterCount()
     }
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
-        u8 difficultyModifier = GetRoomTypeDifficulty();
+        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
         count = 4;
 
         if(difficultyModifier == 2) // Hard route
@@ -4132,7 +4148,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else
         {
-            u8 difficultyModifier = GetRoomTypeDifficulty();
+            u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
             u16 count = GetCurrentWildEncounterCount();
             u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
@@ -5065,7 +5081,7 @@ static u8 CalculateWildLevel(u8 variation)
         return wildLevel;
 }
 
-static u8 GetRoomTypeDifficulty(void)
+u8 Rogue_GetEncounterDifficultyModifier()
 {
     return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : 1);
 }
@@ -5073,7 +5089,7 @@ static u8 GetRoomTypeDifficulty(void)
 static bool8 RogueRandomChanceTrainer()
 {
     u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
     if(difficultyModifier == 0) // Easy
@@ -5089,7 +5105,7 @@ static bool8 RogueRandomChanceTrainer()
 static bool8 RogueRandomChanceItem()
 {
     s32 chance;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
@@ -5149,7 +5165,7 @@ static bool8 RogueRandomChanceBerry()
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
-    u8 difficultyModifier = GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     u8 dropRarity = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))

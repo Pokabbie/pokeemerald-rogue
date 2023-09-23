@@ -794,7 +794,7 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!FlagGet(FLAG_ROGUE_DOUBLE_BATTLES))
+    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT) != BATTLE_FORMAT_DOUBLES)
     {
         TryDeactivateQuest(QUEST_OrreMode);
     }

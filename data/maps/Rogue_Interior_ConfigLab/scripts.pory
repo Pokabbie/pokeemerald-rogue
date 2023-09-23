@@ -53,16 +53,16 @@ script Rogue_Interior_ConfigLab_TalkHiddenDoor
     }
 }
 
-script Rogue_Interior_ConfigLab_TalkLanette
+script Rogue_Interior_ConfigLab_TalkFennel
 {
     lock
     faceplayer
-    msgbox(format("LANETTE: Oh, hi {PLAYER}!"), MSGBOX_DEFAULT)
+    msgbox(format("FENNEL: Oh, hi {PLAYER}!"), MSGBOX_DEFAULT)
     
-    if(flag(FLAG_ROGUE_MET_LANETTE) == FALSE)
+    if(flag(FLAG_ROGUE_MET_FENNEL) == FALSE)
     {
         msgbox(format("Now everything has settled a bit, I can finally continue my research.\pI've had a bit of a shift in my research.\nI'm now trying to figure what is happening out there whilst people are out on Adventures."))
-        msgbox(format("Speaking of Adventures…\pI did figure out how to adjust the difficulty of the Adventures you go on.\pHere, take a look!"))
+        msgbox(format("Speaking of Adventures…\pI did figure out how to adjust the behaviour of the Adventures you go on.\pHere, take a look!"))
     }
     else
     {
@@ -72,9 +72,9 @@ script Rogue_Interior_ConfigLab_TalkLanette
     special(Special_ViewDifficultyConfigMenu)
     waitstate
 
-    if(flag(FLAG_ROGUE_MET_LANETTE) == FALSE)
+    if(flag(FLAG_ROGUE_MET_FENNEL) == FALSE)
     {
-        setflag(FLAG_ROGUE_MET_LANETTE)
+        setflag(FLAG_ROGUE_MET_FENNEL)
         msgbox(format("I don't really understand it all myself yet.\pBut I'm sure, if you keep exploring, I'll eventually gather enough data to be able to unlock the secrets of Adventures and share them with you!"))
     }
 

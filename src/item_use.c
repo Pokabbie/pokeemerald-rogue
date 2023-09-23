@@ -48,6 +48,7 @@
 #include "rogue_controller.h"
 #include "rogue_ridemon.h"
 #include "rogue_questmenu.h"
+#include "rogue_settings.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -752,6 +753,42 @@ void ItemUseOutOfBattle_QuestLog(u8 taskId)
         gFieldCallback = FieldCB_ReturnToFieldNoScript;
         FadeScreen(FADE_TO_BLACK, 0);
         gTasks[taskId].func = Task_OpenRegisteredQuestLog;
+    }
+}
+
+static void CB2_OpenCGearLogFromBag(void)
+{
+    Rogue_OpenDifficultyConfigMenu(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredCGear(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        Rogue_OpenDifficultyConfigMenu(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_CGear(u8 taskId)
+{
+    if(!WaitFanfare(FALSE))
+    {
+        return;
+    }
+
+    PlaySE(SE_SELECT);
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenCGearLogFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredCGear;
     }
 }
 

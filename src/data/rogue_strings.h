@@ -89,9 +89,6 @@ const u8 gText_DifficultyPresetCustom[] = _("{COLOR RED}{SHADOW LIGHT_RED}CUSTOM
 const u8 gText_DifficultyEnabled[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}ENABLED  ");
 const u8 gText_DifficultyDisabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}DISABLED");
 
-const u8 gText_DifficultyToggles[] = _("TOGGLES");
-const u8 gText_DifficultySliders[] = _("SLIDERS");
-
 const u8 gText_DifficultyExpAll[] = _("EXP. ALL");
 const u8 gText_DifficultyOverLvl[] = _("OVER LEVEL");
 const u8 gText_DifficultyEVGain[] = _("EV GAIN");
@@ -105,14 +102,20 @@ const u8 gText_DifficultyLegendaries[] = _("LEGENDARIES");
 
 const u8 gText_DifficultyPresetDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Developer tuned experience for every\n"
-    "skill level."
+    "Developer tuned experience for\n"
+    "different skill levels."
 );
 
 const u8 gText_DifficultyCustomDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Edit individual controls and tune the\n"
     "difficulty to your liking."
+);
+
+const u8 gText_AdventureCustomDesc[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Edit individual controls and tune the\n"
+    "adventure to your liking."
 );
 
 const u8 gText_DifficultyExpAllDesc[] = _(

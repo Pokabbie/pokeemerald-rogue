@@ -23,6 +23,11 @@ text gItemDesc_GoldRidingWhistle
     format("A whistle used to ride registered {PKMN}.")
 }
 
+text gItemDesc_CGear
+{
+    format("A watch which can remotely access the Config Lab.")
+}
+
 
 text gItemDesc_ShopPriceCharm
 {

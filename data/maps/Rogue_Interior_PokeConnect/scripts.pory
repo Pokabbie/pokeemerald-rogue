@@ -62,3 +62,10 @@ script Rogue_Interior_PokeConnect_TalkNurse
 
     release
 }
+
+script Rogue_Interior_PokeConnect_TalkNurse2
+{
+    lock
+    msgbox(format("TODO - Rogue box"))
+    release
+}

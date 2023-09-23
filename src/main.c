@@ -268,6 +268,11 @@ void InitKeys(void)
     gMain.newKeysRaw = 0;
 }
 
+void DebugForceReadKeys()
+{
+    ReadKeys();
+}
+
 static void ReadKeys(void)
 {
     u16 keyInput = REG_KEYINPUT ^ KEYS_MASK;

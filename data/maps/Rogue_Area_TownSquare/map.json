@@ -62,7 +62,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BUILDER",
+      "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
       "x": 6,
       "y": 15,
       "elevation": 3,
@@ -75,7 +75,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BACKPACKER_F",
+      "graphics_id": "OBJ_EVENT_GFX_MISC_BACKPACKER_F",
       "x": 22,
       "y": 6,
       "elevation": 3,

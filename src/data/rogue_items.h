@@ -5,6 +5,8 @@ extern const u8 gItemDesc_QuestLog[];
 extern const u8 gItemDesc_HealingFlask[];
 extern const u8 gItemDesc_RidingWhistle[];
 extern const u8 gItemDesc_GoldRidingWhistle[];
+extern const u8 gItemDesc_CGear[];
+
 extern const u8 gItemDesc_ShopPriceCharm[];
 extern const u8 gItemDesc_ShopPriceCurse[];
 extern const u8 gItemDesc_FlinchCharm[];
@@ -120,6 +122,25 @@ const struct RogueItem gRogueItems[] =
         .registrability = TRUE,
         .iconImage = gItemIcon_FameChecker,
         .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_C_GEAR - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("C-Gear"),
+#else
+        .name = _("C-GEAR"),
+#endif
+        .itemId = ITEM_C_GEAR,
+        .price = 0,
+        .description = gItemDesc_CGear,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_CGear,
+        .secondaryId = 0,
+        .registrability = TRUE,
+        .iconImage = gItemIcon_CGear,
+        .iconPalette = gItemIconPalette_CGear,
     },
 
     [ITEM_SHOP_PRICE_CHARM - ITEM_ROGUE_ITEM_FIRST] =

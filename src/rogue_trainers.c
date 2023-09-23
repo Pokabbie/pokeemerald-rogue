@@ -217,21 +217,39 @@ u8 Rogue_CalculatePlayerMonLvl()
 
 u8 Rogue_CalculateTrainerMonLvl()
 {
-    // TODO - Route difficulty
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
+    u8 startLvl;
+    u8 playerLvl;
 
     if(gRogueRun.currentDifficulty == 0)
     {
-        return 5;
+        startLvl = 5;
+        playerLvl = max(5, Rogue_CalculatePlayerMonLvl() / 2); // climb slowly for difficulty 1
     }
     else
     {
-        u8 lastLvl = CalculateLvlFor(gRogueRun.currentDifficulty - 1);
-        u8 currLvl = Rogue_CalculatePlayerMonLvl();
-
-        return (lastLvl + currLvl) / 2;
+        startLvl = CalculateLvlFor(gRogueRun.currentDifficulty - 1);
+        playerLvl = Rogue_CalculatePlayerMonLvl();
     }
 
-    return CalculateLvlFor(gRogueRun.currentDifficulty);
+    switch (difficultyModifier)
+    {
+    case ADVPATH_SUBROOM_ROUTE_CALM:
+        // Lag behind
+        return startLvl;
+
+    case ADVPATH_SUBROOM_ROUTE_AVERAGE:
+        // Average of 2 so gap becomes larger as you reach level cap
+        return (startLvl + playerLvl) / 2;
+
+    case ADVPATH_SUBROOM_ROUTE_TOUGH:
+        // Scale with player level
+        return max(startLvl, playerLvl > 5 ? playerLvl - 5 : 5);
+
+    default:
+        AGB_ASSERT(FALSE);
+        return playerLvl;
+    }
 }
 
 u8 Rogue_CalculateMiniBossMonLvl()
@@ -593,6 +611,54 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     return fixedIV;
 }
 
+
+static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 5)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            // Misc trainers just have any mons they can
+            return FALSE;
+        }
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(gRogueRun.currentDifficulty >= 3)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            // Normal trainers start to optimize coverage from E4 onward
+            if(gRogueRun.currentDifficulty >= 8)
+                return TRUE;
+            else
+                return FALSE;
+        }
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    // Should never get here
+    AGB_ASSERT(FALSE);
+    return FALSE;
+}
+
 static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
 {
     u8 monCount;
@@ -711,11 +777,10 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         {
             species = SampleNextSpecies(&scratch);
 
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_LVL_5_TRAINERS)
-            CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-#else
-            CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-#endif
+            if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5))
+                CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            else
+                CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
@@ -732,7 +797,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     }
 
     // Debug steal team
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_STEAL_TEAM)
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM))
     {
         u8 i;
         u16 exp = Rogue_ModifyExperienceTables(1, 100);
@@ -752,7 +817,6 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
             CalculateMonStats(&gPlayerParty[i]);
         }
     }
-#endif
 
     return monCount;
 }
@@ -859,6 +923,18 @@ static bool8 FilterOutDuplicateMons(u16 elem, void* usrData)
     return !PartyContainsSimilarSpecies(scratch->party, scratch->partyCount, elem);
 }
 
+static void SetupQueryScriptVars(struct QueryScriptContext* context, struct TrainerPartyScratch* scratch)
+{
+    if(ShouldTrainerOptimizeCoverage(scratch->trainerNum))
+    {
+        RogueQueryScript_SetupVarsForParty(context, scratch->party, scratch->partyCount);
+    }
+    else
+    {
+        RogueQueryScript_SetupVarsForParty(context, NULL, 0);
+    }
+}
+
 static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -885,6 +961,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_Reset(QUERY_FUNC_EXCLUDE);
 
             RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptOverride);
+            SetupQueryScriptVars(&scriptContext, scratch);
             RogueQueryScript_Execute(&scriptContext);
             customScript = TRUE;
         }
@@ -942,6 +1019,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             struct QueryScriptContext scriptContext;
             RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.queryScriptPost);
+            SetupQueryScriptVars(&scriptContext, scratch);
             RogueQueryScript_Execute(&scriptContext);
         }
     }
@@ -955,10 +1033,10 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(trainer->teamGenerator.weightScript != NULL)
     {
-        struct QueryScriptContext context;
-        RogueQueryScript_SetupScript(&context, trainer->teamGenerator.weightScript);
-        RogueQueryScript_SetupVarsForParty(&context, scratch->party, scratch->partyCount);
-        RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &context);
+        struct QueryScriptContext scriptContext;
+        RogueQueryScript_SetupScript(&scriptContext, trainer->teamGenerator.weightScript);
+        SetupQueryScriptVars(&scriptContext, scratch);
+        RogueWeightQuery_CalculateWeights(RogueQueryScript_CalculateWeightsCallback, &scriptContext);
     }
     else
     {

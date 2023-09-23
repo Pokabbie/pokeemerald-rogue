@@ -42,6 +42,7 @@
 #include "rogue.h"
 #include "rogue_player_customisation.h"
 #include "rogue_save.h"
+#include "rogue_settings.h"
 #include "rogue_timeofday.h"
 
 // Time is measured in minutes
@@ -324,16 +325,15 @@ bool8 RogueToD_ApplyTimeVisuals()
 
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 {
-#if defined(ROGUE_DEBUG) && defined(ROGUE_DEBUG_TOD_TINT_USES_PLAYER_COLOUR)
-    return RoguePlayer_GetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY);
-#else
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR))
+        return RoguePlayer_GetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY);
+
     if(gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
     {
         return isOverworld ? RGB(18, 16, 22) : RGB_WHITE;
     }
 
     return inTint;
-#endif
 }
 
 void RogueToD_ModifyOverworldPalette(u16 offset, u16 count)

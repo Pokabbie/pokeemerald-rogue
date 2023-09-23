@@ -320,6 +320,30 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Volkner;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Candice;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Maylene;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Bug_Catcher;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Burglar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Clown;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Hex_Maniac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Kalos_Engineer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Kalos_Worker;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Looker;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Lady;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Mystery_Gift;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Tutor;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Nurse;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Poke_Fan_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Professor_Elm;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Ruin_Maniac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Scientist;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Super_Nerd;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Unova_Scientist_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Veteran;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_M;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
@@ -342,10 +366,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BackpackerF;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BackpackerM;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Builder;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
@@ -687,6 +707,30 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SINNOH_CANDICE] = &gObjectEventGraphicsInfo_Sinnoh_Candice,
     [OBJ_EVENT_GFX_SINNOH_MAYLENE] = &gObjectEventGraphicsInfo_Sinnoh_Maylene,
 
+    [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
+    [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,
+    [OBJ_EVENT_GFX_MISC_BACKPACKER_M] = &gObjectEventGraphicsInfo_Misc_Backpacker_M,
+    [OBJ_EVENT_GFX_MISC_BUG_CATCHER] = &gObjectEventGraphicsInfo_Misc_Bug_Catcher,
+    [OBJ_EVENT_GFX_MISC_BURGLAR] = &gObjectEventGraphicsInfo_Misc_Burglar,
+    [OBJ_EVENT_GFX_MISC_CLOWN] = &gObjectEventGraphicsInfo_Misc_Clown,
+    [OBJ_EVENT_GFX_MISC_HEX_MANIAC] = &gObjectEventGraphicsInfo_Misc_Hex_Maniac,
+    [OBJ_EVENT_GFX_MISC_KALOS_ENGINEER] = &gObjectEventGraphicsInfo_Misc_Kalos_Engineer,
+    [OBJ_EVENT_GFX_MISC_KALOS_WORKER] = &gObjectEventGraphicsInfo_Misc_Kalos_Worker,
+    [OBJ_EVENT_GFX_MISC_LOOKER] = &gObjectEventGraphicsInfo_Misc_Looker,
+    [OBJ_EVENT_GFX_MISC_NPC_LADY] = &gObjectEventGraphicsInfo_Misc_Npc_Lady,
+    [OBJ_EVENT_GFX_MISC_NPC_MYSTERY_GIFT] = &gObjectEventGraphicsInfo_Misc_Npc_Mystery_Gift,
+    [OBJ_EVENT_GFX_MISC_NPC_TUTOR] = &gObjectEventGraphicsInfo_Misc_Npc_Tutor,
+    [OBJ_EVENT_GFX_MISC_NURSE] = &gObjectEventGraphicsInfo_Misc_Nurse,
+    [OBJ_EVENT_GFX_MISC_POKE_FAN_F] = &gObjectEventGraphicsInfo_Misc_Poke_Fan_F,
+    [OBJ_EVENT_GFX_MISC_PROFESSOR_ELM] = &gObjectEventGraphicsInfo_Misc_Professor_Elm,
+    [OBJ_EVENT_GFX_MISC_RUIN_MANIAC] = &gObjectEventGraphicsInfo_Misc_Ruin_Maniac,
+    [OBJ_EVENT_GFX_MISC_SCIENTIST] = &gObjectEventGraphicsInfo_Misc_Scientist,
+    [OBJ_EVENT_GFX_MISC_SUPER_NERD] = &gObjectEventGraphicsInfo_Misc_Super_Nerd,
+    [OBJ_EVENT_GFX_MISC_UNOVA_SCIENTIST_F] = &gObjectEventGraphicsInfo_Misc_Unova_Scientist_F,
+    [OBJ_EVENT_GFX_MISC_VETERAN] = &gObjectEventGraphicsInfo_Misc_Veteran,
+    [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F] = &gObjectEventGraphicsInfo_Misc_Young_Couple_F,
+    [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_Misc_Young_Couple_M,
+
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
     [OBJ_EVENT_GFX_WORK_TABLE] =               &gObjectEventGraphicsInfo_WorkTable,
@@ -709,10 +753,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_GLITCH_KATE] =              &gObjectEventGraphicsInfo_Glitch_Kate,
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
-
-    [OBJ_EVENT_GFX_BACKPACKER_F] =             &gObjectEventGraphicsInfo_BackpackerF,
-    [OBJ_EVENT_GFX_BACKPACKER_M] =             &gObjectEventGraphicsInfo_BackpackerM,
-    [OBJ_EVENT_GFX_BUILDER] =                  &gObjectEventGraphicsInfo_Builder,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

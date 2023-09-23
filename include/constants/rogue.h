@@ -21,24 +21,14 @@
 // Override these when debugging
 //
 #define ROGUE_DEBUG
-//#define ROGUE_DEBUG_PAUSE_PANEL
-#define ROGUE_DEBUG_STEAL_TEAM
-#define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
-#define ROGUE_DEBUG_ALLOW_SAVE_SCUMMING
-#define ROGUE_DEBUG_INSTANT_CATCH
-//define ROGUE_DEBUG_TOD_TINT_USES_PLAYER_COLOUR
 #else
 
 // Automation defines
 // Don't adjust these unless needed
 //
 #define ROGUE_DEBUG
-#define ROGUE_DEBUG_PAUSE_PANEL
-//#define ROGUE_DEBUG_STEAL_TEAM
-//#define ROGUE_DEBUG_LVL_5_TRAINERS
 #define ROGUE_DEBUG_LOGGING
-#define ROGUE_DEBUG_INSTANT_CATCH
 
 #endif
 
@@ -67,6 +57,7 @@
 #define ITEM_HEALING_FLASK              (ITEM_ROGUE_ITEM_FIRST + 2)
 #define ITEM_BASIC_RIDING_WHISTLE       (ITEM_ROGUE_ITEM_FIRST + 3)
 #define ITEM_GOLD_RIDING_WHISTLE        (ITEM_ROGUE_ITEM_FIRST + 4)
+#define ITEM_C_GEAR                     (ITEM_ROGUE_ITEM_FIRST + 5)
 
 // TODO - Classify these as dynamic items, to be wiped every patch (Allows easily moving them around)
 // Reserved 30 charms then 30 items
@@ -272,10 +263,33 @@
 #define DIFFICULTY_TOGGLE_COUNT             6
 
 // DIFFICULTY_RANGE_
-#define DIFFICULTY_RANGE_TRAINER    0
-#define DIFFICULTY_RANGE_ITEM       1
-#define DIFFICULTY_RANGE_LEGENDARY  2
-#define DIFFICULTY_RANGE_COUNT      3
+#define DIFFICULTY_RANGE_TRAINER        0
+#define DIFFICULTY_RANGE_ITEM           1
+#define DIFFICULTY_RANGE_LEGENDARY      2
+#define DIFFICULTY_RANGE_BATTLE_FORMAT  3
+#define DIFFICULTY_RANGE_COUNT          4
+
+#define DEBUG_START_VALUE           0x7FFF
+
+// DEBUG_TOGGLE_
+#define DEBUG_TOGGLE_INFO_PANEL                     (DEBUG_START_VALUE + 0)
+#define DEBUG_TOGGLE_STEAL_TEAM                     (DEBUG_START_VALUE + 1)
+#define DEBUG_TOGGLE_TRAINER_LVL_5                  (DEBUG_START_VALUE + 2)
+#define DEBUG_TOGGLE_ALLOW_SAVE_SCUM                (DEBUG_START_VALUE + 3)
+#define DEBUG_TOGGLE_INSTANT_CAPTURE                (DEBUG_START_VALUE + 4)
+#define DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR     (DEBUG_START_VALUE + 5)
+#define DEBUG_TOGGLE_COUNT                          6
+
+// DEBUG_RANGE_
+#define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
+#define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 1)
+#define DEBUG_RANGE_COUNT                           2
+
+
+#define BATTLE_FORMAT_SINGLES   0
+#define BATTLE_FORMAT_DOUBLES   1
+#define BATTLE_FORMAT_MIXED     2
+#define BATTLE_FORMAT_COUNT     3
 
 // Rogue Campaigns
 //

@@ -101,6 +101,8 @@ static void SerializeArray(struct SaveBlockStream* block, void* ptr, size_t elem
 {
     u16 size = arraySize;
     SerializeData(block, &size, sizeof(size));
+
+    AGB_ASSERT(size <= arraySize);
     SerializeData(block, ptr, elementSize * size);
 }
 
@@ -162,8 +164,30 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     SerializeArray(stream, saveBlock->difficultyConfig.toggleBits, sizeof(saveBlock->difficultyConfig.toggleBits[0]), ARRAY_COUNT(saveBlock->difficultyConfig.toggleBits));
     SerializeArray(stream, saveBlock->difficultyConfig.rangeValues, sizeof(saveBlock->difficultyConfig.rangeValues[0]), ARRAY_COUNT(saveBlock->difficultyConfig.rangeValues));
 
+    // Serialize debug data
+    {
+        bool8 isDebug = FALSE;
+#ifdef ROGUE_DEBUG
+        isDebug = TRUE;
+#endif
+        SerializeData(stream, &isDebug, sizeof(isDebug));
+
+        if(isDebug)
+        {
+#ifdef ROGUE_DEBUG
+            SerializeArray(stream, gRogueDebug.toggleBits, sizeof(gRogueDebug.toggleBits[0]), ARRAY_COUNT(gRogueDebug.toggleBits));
+            SerializeArray(stream, gRogueDebug.rangeValues, sizeof(gRogueDebug.rangeValues[0]), ARRAY_COUNT(gRogueDebug.rangeValues));
+#else
+            struct RogueDebugConfig throwaway;
+
+            SerializeArray(stream, throwaway.toggleBits, sizeof(throwaway.toggleBits[0]), ARRAY_COUNT(throwaway.toggleBits));
+            SerializeArray(stream, throwaway.rangeValues, sizeof(throwaway.rangeValues[0]), ARRAY_COUNT(throwaway.rangeValues));
+#endif
+        }
+    }
+
     // Run Data
-    // Don't need to worry about versioning these, as it's not valid to patch middway through a run
+    // Don't need to worry about versioning these, as it's not valid to patch midway through a run
     SerializeData(stream, &gRngRogueValue, sizeof(gRngRogueValue));
 
     // For development it's easier to keep the restore block first, as it's not as likely to change as the run data

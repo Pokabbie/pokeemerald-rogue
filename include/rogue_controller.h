@@ -8,6 +8,10 @@ struct MusicPlayerInfo;
 extern struct RogueSaveBlock* gRogueSaveBlock;
 extern EWRAM_DATA struct RogueRunData gRogueRun;
 
+#ifdef ROGUE_DEBUG
+extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
+#endif
+
 #define OVERWORLD_FLAG 0
 
 u16 RogueRandomRange(u16 range, u8 seedFlag);
@@ -123,6 +127,8 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
+
+u8 Rogue_GetEncounterDifficultyModifier();
 
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);

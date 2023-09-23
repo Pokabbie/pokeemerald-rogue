@@ -3957,6 +3957,8 @@ extern const u32 gMonShinyPalette_Medicham[];
 extern const u32 gMonShinyPalette_Electrike[];
 extern const u32 gMonShinyPalette_Manectric[];
 extern const u32 gMonShinyPalette_Plusle[];
+extern const u32 gItemIcon_CGear[];
+extern const u32 gItemIconPalette_CGear[];
 extern const u32 gMonShinyPalette_Minun[];
 extern const u32 gMonShinyPalette_Volbeat[];
 extern const u32 gMonShinyPalette_Illumise[];

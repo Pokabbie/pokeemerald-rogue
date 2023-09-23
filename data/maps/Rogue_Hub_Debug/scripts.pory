@@ -119,6 +119,12 @@ script Rogue_Debug_AddMoney
         giveitem(ITEM_GOLD_RIDING_WHISTLE, 1)
     }
 
+    checkitem(ITEM_C_GEAR)
+    if(var(VAR_RESULT) == NO)
+    {
+        giveitem(ITEM_C_GEAR, 1)
+    }
+
     giveitem(ITEM_STAR_PIECE, 999)
     giveitem(ITEM_RARE_CANDY, 999)
     giveitem(ITEM_ESCAPE_ROPE, 999)
@@ -129,7 +135,7 @@ script Rogue_Debug_AddMoney
 script Rogue_Debug_TrainerBattleSingle
 {
     lock
-    clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
+    //clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
     special(HealPlayerParty)
     special(RogueDebug_StartBattle)
     release
@@ -138,7 +144,7 @@ script Rogue_Debug_TrainerBattleSingle
 script Rogue_Debug_TrainerBattleDouble
 {
     lock
-    setflag(FLAG_ROGUE_DOUBLE_BATTLES)
+    //setflag(FLAG_ROGUE_DOUBLE_BATTLES)
     special(HealPlayerParty)
     special(RogueDebug_StartBattle)
     release
