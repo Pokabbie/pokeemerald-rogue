@@ -263,10 +263,11 @@
 #define DIFFICULTY_TOGGLE_COUNT             6
 
 // DIFFICULTY_RANGE_
-#define DIFFICULTY_RANGE_TRAINER    0
-#define DIFFICULTY_RANGE_ITEM       1
-#define DIFFICULTY_RANGE_LEGENDARY  2
-#define DIFFICULTY_RANGE_COUNT      3
+#define DIFFICULTY_RANGE_TRAINER        0
+#define DIFFICULTY_RANGE_ITEM           1
+#define DIFFICULTY_RANGE_LEGENDARY      2
+#define DIFFICULTY_RANGE_BATTLE_FORMAT  3
+#define DIFFICULTY_RANGE_COUNT          4
 
 #define DEBUG_START_VALUE           0x7FFF
 
@@ -283,6 +284,12 @@
 #define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
 #define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 1)
 #define DEBUG_RANGE_COUNT                           2
+
+
+#define BATTLE_FORMAT_SINGLES   0
+#define BATTLE_FORMAT_DOUBLES   1
+#define BATTLE_FORMAT_MIXED     2
+#define BATTLE_FORMAT_COUNT     3
 
 // Rogue Campaigns
 //

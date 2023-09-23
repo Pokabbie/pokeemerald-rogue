@@ -1523,7 +1523,6 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
     // Basic settings
-    FlagClear(FLAG_ROGUE_DOUBLE_BATTLES);
     FlagClear(FLAG_ROGUE_EASY_ITEMS);
     FlagClear(FLAG_ROGUE_HARD_ITEMS);
 
@@ -1578,7 +1577,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
-    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
+    Rogue_ResetSettingsToDefaults();
     Rogue_ResetConfigHubSettings();
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
@@ -3245,7 +3244,28 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
-    if(FlagGet(FLAG_ROGUE_DOUBLE_BATTLES)) //NoOfApproachingTrainers != 2 
+    bool8 shouldDoubleBattle = FALSE;
+
+    switch(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT))
+    {
+        case BATTLE_FORMAT_SINGLES:
+            shouldDoubleBattle = FALSE;
+            break;
+
+        case BATTLE_FORMAT_DOUBLES:
+            shouldDoubleBattle = TRUE;
+            break;
+
+        case BATTLE_FORMAT_MIXED:
+            shouldDoubleBattle = (RogueRandom() % 2);
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+    }
+
+    if(shouldDoubleBattle) //NoOfApproachingTrainers != 2 
     {
         // No need to check opponent party as we force it to 2 below
         if(gPlayerPartyCount >= 2) // gEnemyPartyCount >= 2

@@ -80,6 +80,17 @@ enum
 static u8 const sMenuName_DifficultySubmenu[] = _("DIFFICULTY");
 static u8 const sMenuName_AdventureSubmenu[] = _("ADVENTURE");
 
+static u8 const sMenuName_BattleFormat[] = _("BATTLE FORMAT");
+static u8 const sMenuName_BattleFormatSingles[] = _("SINGLES");
+static u8 const sMenuName_BattleFormatDoubles[] = _("DOUBLES");
+static u8 const sMenuName_BattleFormatMixed[] = _("MIXED");
+
+const u8 sMenuNameDesc_BattleFormat[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Controls if battles are 1v1, 2v2 or\n"
+    "a random mix of both."
+);
+
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
 
@@ -112,6 +123,7 @@ enum
     MENUITEM_MENU_SLIDER_TRAINER,
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
+    MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG,
@@ -172,6 +184,8 @@ static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection);
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
 static void Empty_DrawChoices(u8 menuOffset, u8 selection);
+static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection);
+static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -292,6 +306,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
+    [MENUITEM_MENU_SLIDER_BATTLE_FORMAT] = 
+    {
+        .itemName = sMenuName_BattleFormat,
+        .itemDesc = sMenuNameDesc_BattleFormat,
+        .processInput = BattleFormat_ProcessInput,
+        .drawChoices = BattleFormat_DrawChoices
+    },
 
 #ifdef ROGUE_DEBUG
     [MENUITEM_MENU_DEBUG] = 
@@ -405,6 +426,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
+            MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
             MENUITEM_CANCEL
         }
     },
@@ -892,6 +914,58 @@ static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
         DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
 }
 
+static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if(ShouldSkipInput())
+        return selection;
+
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection == BATTLE_FORMAT_COUNT -1)
+            selection = 0;
+        else
+            ++selection;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection == 0)
+            selection = BATTLE_FORMAT_COUNT -1;
+        else
+            --selection;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+
+    switch (selection)
+    {
+    case BATTLE_FORMAT_SINGLES:
+        text = sMenuName_BattleFormatSingles;
+        break;
+
+    case BATTLE_FORMAT_DOUBLES:
+        text = sMenuName_BattleFormatDoubles;
+        break;
+
+    case BATTLE_FORMAT_MIXED:
+        text = sMenuName_BattleFormatMixed;
+        break;
+    }
+
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+}
+
 #ifdef ROGUE_DEBUG
 
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection)
@@ -1087,6 +1161,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_LEGENDARY:
         return Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY);
 
+    case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
+        return Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT);
+
 #ifdef ROGUE_DEBUG
     case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
         return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL);
@@ -1161,6 +1238,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_SLIDER_LEGENDARY:
         Rogue_SetConfigRange(DIFFICULTY_RANGE_LEGENDARY, value);
+        break;
+
+    case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT, value);
         break;
 
 #ifdef ROGUE_DEBUG

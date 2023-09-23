@@ -49,7 +49,6 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 
 script Rogue_ResetAdventureVars
 {
-    clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
     clearflag(FLAG_ROGUE_GAUNTLET_MODE)
     clearflag(FLAG_ROGUE_RAINBOW_MODE)
     
@@ -69,36 +68,20 @@ script Rogue_StartAdventureInternal
         }
     }
 
+    special(Rogue_EnterPartnerMonCapacity)
+    copyvar(VAR_0x8004, VAR_RESULT)
+
     getpartysize
-    
-    if(flag(FLAG_ROGUE_GAUNTLET_MODE))
+
+    if(var(VAR_RESULT) > VAR_0x8004)
     {
-        // You can carry 6 mons into gauntlet mode
-        setvar(VAR_RESULT, YES)
-    }
-    elif(flag(FLAG_ROGUE_DOUBLE_BATTLES))
-    {
-        if(var(VAR_RESULT) > 2)
-        {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 2 POKéMON into this type of Adventure.\nYou should use the PC to deposit some before I can let you on an Adventure."), MSGBOX_DEFAULT)
-            setvar(VAR_RESULT, NO)
-        }
-        else
-        {
-            setvar(VAR_RESULT, YES)
-        }
+        buffernumberstring(STR_VAR_1, VAR_0x8004)
+        msgbox(format("Looks like you have too many POKéMON.\pYou may only take in {STR_VAR_1} POKéMON into this type of Adventure.\pYou will need to deposit some into a PC, before I can let you on an Adventure."), MSGBOX_DEFAULT)
+        setvar(VAR_RESULT, NO)
     }
     else
     {
-        if(var(VAR_RESULT) > 1)
-        {
-            msgbox(format("Looks like you have too many POKéMON.\pYou can only take in 1 POKéMON into this type of Adventure.\nYou should use the PC to deposit some before I can let you on an Adventure."), MSGBOX_DEFAULT)
-            setvar(VAR_RESULT, NO)
-        }
-        else
-        {
-            setvar(VAR_RESULT, YES)
-        }
+        setvar(VAR_RESULT, YES)
     }
 
     if(var(VAR_RESULT) == NO)

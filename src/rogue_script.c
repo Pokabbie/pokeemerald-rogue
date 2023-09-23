@@ -34,6 +34,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_settings.h"
 
 void DoSpecialTrainerBattle(void);
 
@@ -827,6 +828,11 @@ void Rogue_PlayStaticTrainerEncounterBGM(void)
     //PlayBGM();
     PlayNewMapMusic(music.encounterMusic);
     //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+}
+
+void Rogue_EnterPartnerMonCapacity()
+{
+    gSpecialVar_Result = Rogue_GetStartingMonCapacity();
 }
 
 void Rogue_IsMultiplayerActive(void)

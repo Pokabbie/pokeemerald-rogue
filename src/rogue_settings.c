@@ -118,7 +118,6 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
     }
 };
 
-
 void Rogue_SetConfigToggle(u16 elem, bool8 state)
 {
     u16 idx = elem / 8;
@@ -241,7 +240,7 @@ u8 RogueDebug_GetConfigRange(u16 elem)
 
 #endif
 
-static void Rogue_ResetToDefaults()
+static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
 {
     // Reset all values to the default prior to presets
     // These should be the lowest of the low
@@ -249,10 +248,8 @@ static void Rogue_ResetToDefaults()
     gRogueDifficultyLocal.rewardLevel = DIFFICULTY_LEVEL_EASY;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL, TRUE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL, FALSE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN, TRUE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS, TRUE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE, FALSE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE, TRUE);
 
@@ -260,6 +257,13 @@ static void Rogue_ResetToDefaults()
     Rogue_SetConfigRange(DIFFICULTY_RANGE_TRAINER, DIFFICULTY_LEVEL_EASY);
     Rogue_SetConfigRange(DIFFICULTY_RANGE_ITEM, DIFFICULTY_LEVEL_EASY);
     Rogue_SetConfigRange(DIFFICULTY_RANGE_LEGENDARY, DIFFICULTY_LEVEL_EASY);
+
+    if(!difficultySettingsOnly)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS, TRUE);
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL, TRUE);
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT, BATTLE_FORMAT_SINGLES);
+    }
 }
 
 static void Rogue_SetDifficultyPresetInternal(u8 preset)
@@ -268,7 +272,7 @@ static void Rogue_SetDifficultyPresetInternal(u8 preset)
     const struct RogueDifficultyPresetToggle* toggle;
     const struct RogueDifficultyPresetRange* range;
 
-    Rogue_ResetToDefaults();
+    Rogue_ResetToDefaults(TRUE);
 
     for(i = 0; i < DIFFICULTY_PRESET_COUNT; ++i)
     {
@@ -413,6 +417,13 @@ static u8 Rogue_CalcRewardDifficultyPreset()
     return rewardLevel;
 }
 
+
+void Rogue_ResetSettingsToDefaults()
+{
+    Rogue_ResetToDefaults(FALSE);
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
+}
+
 void Rogue_SetDifficultyPreset(u8 preset)
 {
     Rogue_SetDifficultyPresetInternal(preset);
@@ -445,4 +456,12 @@ u8 Rogue_GetDifficultyRewardLevel()
         return preset;
 
     return gRogueDifficultyLocal.rewardLevel;
+}
+
+u8 Rogue_GetStartingMonCapacity()
+{
+    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
+        return 2;
+    else
+        return 1;
 }
