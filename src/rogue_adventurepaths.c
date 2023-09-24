@@ -762,9 +762,9 @@ void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEvent
                 objectEvents[writeIdx].elevation = 3;
                 objectEvents[writeIdx].trainerType = TRAINER_TYPE_NONE;
                 objectEvents[writeIdx].movementType = SelectObjectMovementTypeForRoom(&gRogueAdvPath.rooms[i]);
-                // Pack node into movement vars
-                objectEvents[writeIdx].movementRangeX = i;//x;
-                objectEvents[writeIdx].movementRangeY = 0;//y;
+
+                // Pack node into this var
+                objectEvents[writeIdx].trainerRange_berryTreeId = i;
                 objectEvents[writeIdx].script = Rogue_AdventurePaths_InteractRoom;
 
                 ++writeIdx;
@@ -1046,10 +1046,21 @@ static void BufferTypeAdjective(u8 type)
     }
 }
 
-void RogueAdv_GetLastInteractedRoomParams()
+static u8 GetRoomIndexFromLastInteracted()
 {
     u16 lastTalkedId = VarGet(VAR_LAST_TALKED);
-    u8 roomIdx = gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].movementRangeX;
+
+    // We have to lookup into the template as this var gets zeroed when it's not being used in a valid way
+    return gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].trainerRange_berryTreeId;
+
+    //u8 objEventId = GetObjectEventIdByLocalIdAndMap(lastTalkedId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    //u8 roomIdx = gObjectEvents[objEventId].trainerRange_berryTreeId;
+    //return roomIdx;
+}
+
+void RogueAdv_GetLastInteractedRoomParams()
+{
+    u8 roomIdx = GetRoomIndexFromLastInteracted();
 
     gSpecialVar_ScriptNodeParam0 = gRogueAdvPath.rooms[roomIdx].roomType;
     gSpecialVar_ScriptNodeParam1 = gRogueAdvPath.rooms[roomIdx].roomParams.roomIdx;
@@ -1066,8 +1077,7 @@ void RogueAdv_GetLastInteractedRoomParams()
 void RogueAdv_WarpLastInteractedRoom()
 {
     struct WarpData warp;
-    u16 lastTalkedId = VarGet(VAR_LAST_TALKED);
-    u8 roomIdx = gSaveBlock1Ptr->objectEventTemplates[lastTalkedId].movementRangeX;
+    u8 roomIdx = GetRoomIndexFromLastInteracted();
 
     // Move to the selected node
     gRogueRun.adventureRoomId = roomIdx;
