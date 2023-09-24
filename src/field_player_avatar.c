@@ -667,10 +667,13 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
         )
             return COLLISION_NONE;
     }
-    else if (ShouldJumpLedge(x, y, direction))
+    else
     {
-        IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
-        return COLLISION_LEDGE_JUMP;
+        if (ShouldJumpLedge(x, y, direction))
+        {
+            IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
+            return COLLISION_LEDGE_JUMP;
+        }
 
         if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
             return COLLISION_PUSHED_BOULDER;
