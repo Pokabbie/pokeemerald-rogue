@@ -42,6 +42,16 @@
       "direction": "down",
       "offset": -16,
       "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
+    },
+    {
+      "direction": "up",
+      "offset": -18,
+      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
+    },
+    {
+      "direction": "down",
+      "offset": -18,
+      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
     }
   ],
   "object_events": [

@@ -1,0 +1,13 @@
+mapscripts Rogue_Area_RideTraining_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_RideTraining_OnTransition
+}
+
+script Rogue_Area_RideTraining_OnTransition
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_STANTLER)
+    addvar(VAR_FOLLOW_MON_0, FOLLOWMON_SHINY_OFFSET)
+
+    setvar(VAR_FOLLOW_MON_1, SPECIES_MR_MIME)
+    setvar(VAR_FOLLOW_MON_2, SPECIES_CHIMECHO)
+}

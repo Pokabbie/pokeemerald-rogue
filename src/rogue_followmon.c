@@ -869,23 +869,34 @@ void FollowMon_OnWarp()
     sFollowMonData.activeCount = 0;
 }
 
+static bool8 PlaySpawnAnims()
+{
+    return Rogue_IsRunActive() || Rogue_InWildSafari();
+}
+
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 {
-    u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+    if(PlaySpawnAnims())
+    {
+        u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
 
-    if(sFollowMonData.activeCount != 255)
-        ++sFollowMonData.activeCount;
+        if(sFollowMonData.activeCount != 255)
+            ++sFollowMonData.activeCount;
 
-    sFollowMonData.pendingSpawnAnim |= (1 << spawnSlot);
+        sFollowMonData.pendingSpawnAnim |= (1 << spawnSlot);
+    }
 }
 
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
 {
-    u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+    if(PlaySpawnAnims())
+    {
+        u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
 
-    if(Rogue_InWildSafari())
-        RogueSafari_RemoveMonFromSlot(spawnSlot);
+        if(Rogue_InWildSafari())
+            RogueSafari_RemoveMonFromSlot(spawnSlot);
 
-    if(sFollowMonData.activeCount != 0)
-        --sFollowMonData.activeCount;
+        if(sFollowMonData.activeCount != 0)
+            --sFollowMonData.activeCount;
+    }
 }

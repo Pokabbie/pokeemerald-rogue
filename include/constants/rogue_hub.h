@@ -8,8 +8,9 @@
 #define HUB_AREA_HOME                   (HUB_AREA_FIRST + 2)
 #define HUB_AREA_BERRY_FIELD            (HUB_AREA_FIRST + 3)
 #define HUB_AREA_SAFARI_ZONE            (HUB_AREA_FIRST + 4)
+#define HUB_AREA_RIDE_TRAINING          (HUB_AREA_FIRST + 5)
 
-#define HUB_AREA_COUNT                  (HUB_AREA_SAFARI_ZONE + 1)
+#define HUB_AREA_COUNT                  (HUB_AREA_RIDE_TRAINING + 1)
 
 #define HUB_AREA_NONE 255
 
@@ -43,6 +44,9 @@
 // HUB_AREA_SAFARI_ZONE 
 //
 #define HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE   (HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2 + 1)
+
+// HUB_AREA_RIDE_TRAINING
+//
 
 #define HUB_UPGRADE_COUNT                   (HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE + 1)
 
