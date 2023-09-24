@@ -879,6 +879,8 @@ static void SetMuddySlopeMetatile(s16 *data, s16 x, s16 y)
     MapGridSetMetatileIdAt(x, y, METATILE_General_MuddySlope_Frame0);
 }
 
+bool8 ForcedMovement_AffectedByMuddySlope(u8);
+
 static void Task_MuddySlope(u8 taskId)
 {
     s16 x, y, cameraOffsetX, cameraOffsetY;
@@ -906,7 +908,7 @@ static void Task_MuddySlope(u8 taskId)
 
         tPrevX = x;
         tPrevY = y;
-        if (MetatileBehavior_IsMuddySlope(MapGridGetMetatileBehaviorAt(x, y)))
+        if (ForcedMovement_AffectedByMuddySlope(MapGridGetMetatileBehaviorAt(x, y)))
         {
             for (i = SLOPE_DATA_START; i <= SLOPE_DATA_END; i += SLOPE_DATA_SIZE)
             {

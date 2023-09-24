@@ -1647,7 +1647,7 @@
       "width": 34,
       "height": 36,
       "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Area_RideTraining/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_RideTraining/map.bin"
     }

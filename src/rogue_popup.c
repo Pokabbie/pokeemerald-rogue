@@ -75,6 +75,7 @@ struct PopupRequest
 {
     const u8* titleText;
     const u8* subtitleText;
+    u8 titleTextCapacity;
     u8 templateId;
     u16 iconId;
     u16 soundEffect;
@@ -562,7 +563,7 @@ static u8* AppendTypeName(u8* strPointer, u8 type)
     }
 }
 
-static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const* text, u8 x, u8 y)
+static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const* text, u8 textCapacity, u8 x, u8 y)
 {
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
 
@@ -580,7 +581,17 @@ static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const
         colours[2] = TEXT_COLOR_DARK_GRAY;
     }
 
-    StringExpandPlaceholders(gStringVar4, text);
+    if(textCapacity == 0)
+    {
+        StringExpandPlaceholders(gStringVar4, text);
+    }
+    else
+    {
+        u8 buffer[32];
+        AGB_ASSERT(textCapacity < 32);
+        StringCopyN(buffer, text, textCapacity);
+        StringExpandPlaceholders(gStringVar4, buffer);
+    }
 
     x += GetStringCenterAlignXOffset(FONT_NARROW, gStringVar4, template->width * 8);
     AddTextPrinterParameterized3(GetQuestPopUpWindowId(), font, x, y, colours, TEXT_SKIP_DRAW, gStringVar4);
@@ -644,10 +655,10 @@ static void ShowQuestPopUpWindow(void)
     ExpandPopupText(popupRequest);
 
     if(popupRequest->titleText != NULL)
-        PrintPopupText(popupRequest, FONT_NARROW, popupRequest->titleText, 0, 1);
+        PrintPopupText(popupRequest, FONT_NARROW, popupRequest->titleText, popupRequest->titleTextCapacity, 0, 1);
 
     if(popupRequest->subtitleText != NULL)
-        PrintPopupText(popupRequest, FONT_SMALL, popupRequest->subtitleText, 0, 14);
+        PrintPopupText(popupRequest, FONT_SMALL, popupRequest->subtitleText, 0, 0, 14);
 
 
     CopyWindowToVram(GetQuestPopUpWindowId(), COPYWIN_FULL);
@@ -752,6 +763,7 @@ void Rogue_PushPopup_NewMoves(u8 slotId)
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = gText_Popup_NewMoves;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
 void Rogue_PushPopup_NewEvos(u8 slotId)
@@ -765,6 +777,7 @@ void Rogue_PushPopup_NewEvos(u8 slotId)
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = gText_Popup_NewEvolution;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
 void Rogue_PushPopup_UnableToEvolve(u8 slotId)
@@ -778,6 +791,7 @@ void Rogue_PushPopup_UnableToEvolve(u8 slotId)
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = gPopupText_StarterWarning;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
 

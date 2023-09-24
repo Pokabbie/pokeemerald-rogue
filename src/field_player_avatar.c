@@ -71,6 +71,8 @@ static bool8 ForcedMovement_MatJump(void);
 static bool8 ForcedMovement_MatSpin(void);
 static bool8 ForcedMovement_MuddySlope(void);
 
+bool8 ForcedMovement_AffectedByMuddySlope(u8);
+
 static void MovePlayerNotOnBike(u8, u16, u16);
 static u8 CheckMovementInputNotOnBike(u8);
 static void PlayerNotOnBikeNotMoving(u8, u16);
@@ -169,7 +171,7 @@ static bool8 (*const sForcedMovementTestFuncs[NUM_FORCED_MOVEMENTS])(u8) =
     MetatileBehavior_IsWaterfall,
     MetatileBehavior_IsSecretBaseJumpMat,
     MetatileBehavior_IsSecretBaseSpinMat,
-    MetatileBehavior_IsMuddySlope,
+    ForcedMovement_AffectedByMuddySlope,
 };
 
 // + 1 for ForcedMovement_None, which is excluded above
@@ -521,6 +523,19 @@ static bool8 ForcedMovement_MatSpin(void)
 {
     DoPlayerMatSpin();
     return TRUE;
+}
+
+bool8 ForcedMovement_AffectedByMuddySlope(u8 metatileBehavior)
+{
+    if(MetatileBehavior_IsMuddySlope(metatileBehavior))
+    {
+        if(Rogue_IsRideMonFlying())
+            return FALSE;
+
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 static bool8 ForcedMovement_MuddySlope(void)

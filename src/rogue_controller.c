@@ -4256,57 +4256,86 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
 
 void Rogue_ModifyScriptMon(struct Pokemon* mon)
 {
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    if(Rogue_IsRunActive())
     {
-        u32 temp;
-        u16 species = GetMonData(mon, MON_DATA_SPECIES);
-        u16 statA = (Random() % 6);
-        u16 statB = (statA + 1 + (Random() % 5)) % 6;
-
-        // Apply the miniboss preset for this mon
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
-            u8 i;
-            u8 target;
-            u8 partySize = CalculateEnemyPartyCount();
+            u32 temp;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u16 statA = (Random() % 6);
+            u16 statB = (statA + 1 + (Random() % 5)) % 6;
 
-            // Find the matching species
-            for(i = 0; i < partySize; ++i)
+            // Apply the miniboss preset for this mon
             {
-                if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
-                    break;
+                u8 i;
+                u8 target;
+                u8 partySize = CalculateEnemyPartyCount();
+
+                // Find the matching species
+                for(i = 0; i < partySize; ++i)
+                {
+                    if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
+                        break;
+                }
+
+                target = i;
+
+                if(target != partySize)
+                {
+                    struct RogueMonPreset customPreset;
+                    customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
+                    customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
+
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                        customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+
+                    Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
+                }
             }
 
-            target = i;
+            // Bump 2 of the IVs to max
+            temp = 31;
+            SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+            SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
 
-            if(target != partySize)
+            // Clear held item
+            temp = 0;
+            SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+
+            // Set to the correct level
+            temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
+            SetMonData(mon, MON_DATA_EXP, &temp);
+            CalculateMonStats(mon);
+
+            temp = GetMonData(mon, MON_DATA_LEVEL);
+            SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
+        }
+    }
+}
+
+#define CLOWN_OTID 33414
+
+void Rogue_ModifyGiveMon(struct Pokemon* mon)
+{
+    if(!Rogue_IsRunActive())
+    {
+        if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_RIDE_TRAINING)
+        {
+            if(GetMonData(mon, MON_DATA_SPECIES) == SPECIES_STANTLER)
             {
-                struct RogueMonPreset customPreset;
-                customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
-                customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
+                // The stantler you are given by the clown
+                u32 temp;
 
-                for(i = 0; i < MAX_MON_MOVES; ++i)
-                    customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+                ZeroMonData(mon);
+                CreateMonForcedShiny(mon, SPECIES_STANTLER, STARTER_MON_LEVEL, USE_RANDOM_IVS, OT_ID_PRESET, CLOWN_OTID);
 
-                Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
+                temp = 0;
+                SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
+
+                SetMonData(mon, MON_DATA_OT_NAME, gText_Clown);
+                SetMonData(mon, MON_DATA_NICKNAME, gText_ClownStantler);
             }
         }
-
-        // Bump 2 of the IVs to max
-        temp = 31;
-        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-        // Clear held item
-        temp = 0;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
-
-        // Set to the correct level
-        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
-        SetMonData(mon, MON_DATA_EXP, &temp);
-        CalculateMonStats(mon);
-
-        temp = GetMonData(mon, MON_DATA_LEVEL);
-        SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
     }
 }
 

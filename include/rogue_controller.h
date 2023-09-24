@@ -127,6 +127,7 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyEventMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
+void Rogue_ModifyGiveMon(struct Pokemon* mon);
 
 u8 Rogue_GetEncounterDifficultyModifier();
 

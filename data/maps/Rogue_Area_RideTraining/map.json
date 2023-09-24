@@ -45,11 +45,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Rogue_Area_RideTraining_SpeakClown",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_HOLD_ITEM",
       "x": 16,
       "y": 10,
       "elevation": 3,
@@ -58,11 +58,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Rogue_Area_RideTraining_FindItemFieldMoves",
+      "flag": "FLAG_ITEM_AREA_RIDE_TRAINING_FIELD_MOVES"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 4,
       "y": 5,
       "elevation": 3,
@@ -71,11 +71,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Rogue_Area_RideTraining_FindItemLedgeJump",
+      "flag": "FLAG_ITEM_AREA_RIDE_TRAINING_LEDGE_JUMPS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POKE_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_HOLD_ITEM",
       "x": 15,
       "y": 26,
       "elevation": 3,
@@ -84,21 +84,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Rogue_Area_RideTraining_FindItemSurf",
+      "flag": "FLAG_ITEM_AREA_RIDE_TRAINING_SURF"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POKE_BALL",
       "x": 7,
-      "y": 29,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Rogue_Area_RideTraining_FindItemFly",
+      "flag": "FLAG_ITEM_AREA_RIDE_TRAINING_FLY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
@@ -241,7 +241,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_InteractWithDynamicWildFollowMon",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_1",

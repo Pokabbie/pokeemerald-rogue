@@ -4,6 +4,7 @@
 #include "constants/songs.h"
 
 #include "bike.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
 #include "field_effect_helpers.h"
@@ -283,11 +284,14 @@ u8 Rogue_GetRideMonSprite(struct ObjectEvent* objectEvent)
 
 bool8 Rogue_CanRideMonInvJumpLedge()
 {
-    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
-
-    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+    if(FlagGet(FLAG_SYS_RIDING_LEDGE_JUMP))
     {
-        return TRUE;
+        const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+        if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+        {
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -295,11 +299,14 @@ bool8 Rogue_CanRideMonInvJumpLedge()
 
 bool8 Rogue_CanRideMonSwim()
 {
-    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
-
-    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
+    if(FlagGet(FLAG_SYS_RIDING_SURF))
     {
-        return TRUE;
+        const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+        if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
+        {
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -307,11 +314,14 @@ bool8 Rogue_CanRideMonSwim()
 
 bool8 Rogue_CanRideMonFly()
 {
-    const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
-
-    if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_FLY) != 0)
+    if(FlagGet(FLAG_SYS_RIDING_FLY))
     {
-        return TRUE;
+        const struct RideMonInfo* rideInfo = GetCurrentRideMonInfo();
+
+        if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_FLY) != 0)
+        {
+            return TRUE;
+        }
     }
 
     return FALSE;
