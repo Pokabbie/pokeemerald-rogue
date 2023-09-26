@@ -355,6 +355,9 @@
 
 #define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE ? 0U : ((u32)1 << (u32)type)))
 
+#define RIDE_WHISTLE_BASIC      0
+#define RIDE_WHISTLE_GOLD       1
+
 #define SEASON_SPRING   0
 #define SEASON_SUMMER   1
 #define SEASON_AUTUMN   2

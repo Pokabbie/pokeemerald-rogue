@@ -15,6 +15,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_ridemon.h"
 #include "rogue_save.h"
 
 // The version to use for tracking/updating internal save game data
@@ -184,6 +185,11 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
             SerializeArray(stream, throwaway.rangeValues, sizeof(throwaway.rangeValues[0]), ARRAY_COUNT(throwaway.rangeValues));
 #endif
         }
+    }
+
+    {
+        struct RogueRideMonState* rideState = Rogue_GetPlayerRideMonStatePtr();
+        SerializeData(stream, rideState, sizeof(struct RogueRideMonState));
     }
 
     // Run Data

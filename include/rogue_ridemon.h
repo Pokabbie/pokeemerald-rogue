@@ -2,12 +2,17 @@
 #define ROGUE_RIDEMON_H
 
 void Rogue_RideMonInit();
+struct RogueRideMonState* Rogue_GetPlayerRideMonStatePtr();
 
-void Rogue_GetOnOffRideMon(bool8 forWarp);
-void Rogue_CreateDestroyRideMonSprites();
-void Rogue_UpdateRideMonSprites();
+void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp);
+bool8 Rogue_HandleRideMonInput();
+void Rogue_UpdateRideMons();
+void Rogue_DestroyRideMonSprites();
+
+void Rogue_OnRideMonWarp();
 
 u8 Rogue_GetRideMonSprite(struct ObjectEvent* objectEvent);
+u16 Rogue_GetRideMonSpeciesGfx();
 
 bool8 Rogue_CanRideMonInvJumpLedge();
 bool8 Rogue_CanRideMonSwim();

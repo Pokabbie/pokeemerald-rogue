@@ -99,10 +99,10 @@ const struct RogueItem gRogueItems[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RideMon,
-        .secondaryId = 0, // TODO - defines for whistle types
+        .secondaryId = RIDE_WHISTLE_BASIC,
         .registrability = TRUE,
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_RogueCharm,
+        .iconImage = gItemIcon_PokeWhistle,
+        .iconPalette = gItemIconPalette_PokeWhistleBasic,
     },
 
     [ITEM_GOLD_RIDING_WHISTLE - ITEM_ROGUE_ITEM_FIRST] =
@@ -118,10 +118,10 @@ const struct RogueItem gRogueItems[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RideMon,
-        .secondaryId = 1, // TODO - defines for whistle types
+        .secondaryId = RIDE_WHISTLE_GOLD,
         .registrability = TRUE,
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_RogueCharm,
+        .iconImage = gItemIcon_PokeWhistle,
+        .iconPalette = gItemIconPalette_PokeWhistleGold,
     },
 
     [ITEM_C_GEAR - ITEM_ROGUE_ITEM_FIRST] =

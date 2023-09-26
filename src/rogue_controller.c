@@ -1683,6 +1683,10 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         return TRUE;
     }
+    else if(Rogue_HandleRideMonInput() == TRUE)
+    {
+        return TRUE;
+    }
 
     return FALSE;
 }
@@ -1809,24 +1813,20 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
 
 void Rogue_OnMovementType_Player(struct Sprite *sprite)
 {
-    Rogue_UpdateRideMonSprites();
+    Rogue_UpdateRideMons();
 }
 
 void Rogue_OnResumeMap()
 {
-    //Rogue_CreateDestroyRideMonSprites();
 }
 
-// Called when object events first loaded for a map
-void Rogue_InitObjectEventsLocal()
+void Rogue_OnObjectEventsInit()
 {
-    Rogue_CreateDestroyRideMonSprites();
 }
 
-// Called when an already loaded map is returned to e.g. from a battle
-void Rogue_OnSpawnObjectEventsOnReturnToField(s16 x, s16 y)
+void Rogue_OnResetAllSprites()
 {
-    Rogue_CreateDestroyRideMonSprites();
+    Rogue_DestroyRideMonSprites();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
@@ -1855,7 +1855,7 @@ void Rogue_OnLoadMap(void)
         RogueHub_ApplyMapMetatiles();
     }
 
-    SetupFollowParterMonObjectEvent();
+   // SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)
@@ -2292,58 +2292,6 @@ static void EndRogueRun(void)
 
     // Grow berries based on progress in runs
     BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
-
-    // Bug Fix
-    // In past version the bag could glitch out and people could lose access to HMs, so we're going to forcefully give them back here
-    {
-        if(IsQuestCollected(QUEST_Gym1))
-        {
-            if(!CheckBagHasItem(ITEM_HM01_CUT, 1))
-                AddBagItem(ITEM_HM01_CUT, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym2))
-        {
-            if(!CheckBagHasItem(ITEM_HM05_FLASH, 1))
-                AddBagItem(ITEM_HM05_FLASH, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym3))
-        {
-            if(!CheckBagHasItem(ITEM_HM06_ROCK_SMASH, 1))
-                AddBagItem(ITEM_HM06_ROCK_SMASH, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym4))
-        {
-            if(!CheckBagHasItem(ITEM_HM04_STRENGTH, 1))
-                AddBagItem(ITEM_HM04_STRENGTH, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym5))
-        {
-            if(!CheckBagHasItem(ITEM_HM08_DIVE, 1))
-                AddBagItem(ITEM_HM08_DIVE, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym6))
-        {
-            if(!CheckBagHasItem(ITEM_HM02_FLY, 1))
-                AddBagItem(ITEM_HM02_FLY, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym7))
-        {
-            if(!CheckBagHasItem(ITEM_HM07_WATERFALL, 1))
-                AddBagItem(ITEM_HM07_WATERFALL, 1);
-        }
-
-        if(IsQuestCollected(QUEST_Gym8))
-        {
-            if(!CheckBagHasItem(ITEM_HM03_SURF, 1))
-                AddBagItem(ITEM_HM03_SURF, 1);
-        }
-    }
 }
 
 static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDifficulty)
@@ -4308,57 +4256,86 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
 
 void Rogue_ModifyScriptMon(struct Pokemon* mon)
 {
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    if(Rogue_IsRunActive())
     {
-        u32 temp;
-        u16 species = GetMonData(mon, MON_DATA_SPECIES);
-        u16 statA = (Random() % 6);
-        u16 statB = (statA + 1 + (Random() % 5)) % 6;
-
-        // Apply the miniboss preset for this mon
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
-            u8 i;
-            u8 target;
-            u8 partySize = CalculateEnemyPartyCount();
+            u32 temp;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            u16 statA = (Random() % 6);
+            u16 statB = (statA + 1 + (Random() % 5)) % 6;
 
-            // Find the matching species
-            for(i = 0; i < partySize; ++i)
+            // Apply the miniboss preset for this mon
             {
-                if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
-                    break;
+                u8 i;
+                u8 target;
+                u8 partySize = CalculateEnemyPartyCount();
+
+                // Find the matching species
+                for(i = 0; i < partySize; ++i)
+                {
+                    if(species == GetMonData(&gEnemyParty[i], MON_DATA_SPECIES))
+                        break;
+                }
+
+                target = i;
+
+                if(target != partySize)
+                {
+                    struct RogueMonPreset customPreset;
+                    customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
+                    customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
+
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                        customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+
+                    Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
+                }
             }
 
-            target = i;
+            // Bump 2 of the IVs to max
+            temp = 31;
+            SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
+            SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
 
-            if(target != partySize)
+            // Clear held item
+            temp = 0;
+            SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+
+            // Set to the correct level
+            temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
+            SetMonData(mon, MON_DATA_EXP, &temp);
+            CalculateMonStats(mon);
+
+            temp = GetMonData(mon, MON_DATA_LEVEL);
+            SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
+        }
+    }
+}
+
+#define CLOWN_OTID 33414
+
+void Rogue_ModifyGiveMon(struct Pokemon* mon)
+{
+    if(!Rogue_IsRunActive())
+    {
+        if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_RIDE_TRAINING)
+        {
+            if(GetMonData(mon, MON_DATA_SPECIES) == SPECIES_STANTLER)
             {
-                struct RogueMonPreset customPreset;
-                customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
-                customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
+                // The stantler you are given by the clown
+                u32 temp;
 
-                for(i = 0; i < MAX_MON_MOVES; ++i)
-                    customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
+                ZeroMonData(mon);
+                CreateMonForcedShiny(mon, SPECIES_STANTLER, STARTER_MON_LEVEL, USE_RANDOM_IVS, OT_ID_PRESET, CLOWN_OTID);
 
-                Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
+                temp = 0;
+                SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
+
+                SetMonData(mon, MON_DATA_OT_NAME, gText_Clown);
+                SetMonData(mon, MON_DATA_NICKNAME, gText_ClownStantler);
             }
         }
-
-        // Bump 2 of the IVs to max
-        temp = 31;
-        SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-        SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
-
-        // Clear held item
-        temp = 0;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
-
-        // Set to the correct level
-        temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
-        SetMonData(mon, MON_DATA_EXP, &temp);
-        CalculateMonStats(mon);
-
-        temp = GetMonData(mon, MON_DATA_LEVEL);
-        SetMonData(mon, MON_DATA_MET_LEVEL, &temp);
     }
 }
 

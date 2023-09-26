@@ -5263,6 +5263,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
 
+    Rogue_ModifyGiveMon(mon);
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
@@ -7803,17 +7805,18 @@ bool32 IsHMMove2_LearnReplaceCheck(u16 move)
 
 bool32 CanUseHMMove2(u16 move)
 {
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i] == move)
-        {
-            return CheckBagHasItem(ITEM_HM01 + i, 1);
-        }
-        ++i;
-    }
+    return FlagGet(FLAG_SYS_FIELD_MOVES_GET) == TRUE;
 
-    return FALSE;
+    //int i = 0;
+    //while (sHMMoves[i] != HM_MOVES_END)
+    //{
+    //    if (sHMMoves[i] == move)
+    //    {
+    //        return CheckBagHasItem(ITEM_HM01 + i, 1);
+    //    }
+    //    ++i;
+    //}
+    //return FALSE;
 }
 
 bool8 IsMonSpriteNotFlipped(u16 species)

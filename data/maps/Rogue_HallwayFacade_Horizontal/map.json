@@ -57,6 +57,16 @@
       "direction": "up",
       "offset": 0,
       "map": "MAP_ROGUE_AREA_SAFARI_ZONE"
+    },
+    {
+      "direction": "right",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
+    },
+    {
+      "direction": "left",
+      "offset": -16,
+      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
     }
   ],
   "object_events": [

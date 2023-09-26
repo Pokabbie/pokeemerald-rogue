@@ -862,6 +862,12 @@ void Rogue_SetupFollowParterMonObjectEvent()
     SetupFollowParterMonObjectEvent();
 }
 
+void Rogue_RegisterRideMon()
+{
+    u16 gfxId = FollowMon_GetMonGraphics(&gPlayerParty[0]);
+    VarSet(VAR_ROGUE_REGISTERED_RIDE_MON, gfxId);
+}
+
 void Rogue_RunRewardLvls()
 {
     gSpecialVar_Result = Rogue_PostRunRewardLvls();

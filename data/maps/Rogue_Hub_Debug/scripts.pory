@@ -9,6 +9,7 @@ script Rogue_Debug_FillPCWithGen
     waitmessage
 
     setflag(FLAG_SYS_QUEST_LOG_GET)
+    setflag(FLAG_SYS_FIELD_MOVES_GET)
 
     checkitem(ITEM_QUEST_LOG)
     if(var(VAR_RESULT) == NO)
@@ -101,23 +102,23 @@ script Rogue_Debug_AddMoney
     addmoney(10000)
     msgbox(format("Lots of stuff."), MSGBOX_DEFAULT)
 
-    checkitem(ITEM_HEALING_FLASK)
-    if(var(VAR_RESULT) == NO)
-    {
-        giveitem(ITEM_HEALING_FLASK, 1)
-    }
+    //checkitem(ITEM_HEALING_FLASK)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_HEALING_FLASK, 1)
+    //}
 
-    checkitem(ITEM_BASIC_RIDING_WHISTLE)
-    if(var(VAR_RESULT) == NO)
-    {
-        giveitem(ITEM_BASIC_RIDING_WHISTLE, 1)
-    }
-
-    checkitem(ITEM_GOLD_RIDING_WHISTLE)
-    if(var(VAR_RESULT) == NO)
-    {
-        giveitem(ITEM_GOLD_RIDING_WHISTLE, 1)
-    }
+    //checkitem(ITEM_BASIC_RIDING_WHISTLE)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_BASIC_RIDING_WHISTLE, 1)
+    //}
+//
+    //checkitem(ITEM_GOLD_RIDING_WHISTLE)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_GOLD_RIDING_WHISTLE, 1)
+    //}
 
     checkitem(ITEM_C_GEAR)
     if(var(VAR_RESULT) == NO)

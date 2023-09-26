@@ -275,7 +275,7 @@ static void ItemUseOnFieldCB_RideMon(u8 taskId)
 {
     if(gTasks[taskId].tRideMonCounter == 0)
     {
-        Rogue_GetOnOffRideMon(FALSE);
+        Rogue_GetOnOffRideMon(ItemId_GetSecondaryId(gSpecialVar_ItemId), FALSE);
         FollowMe_HandleBike(); // Do we need this?
         ScriptUnfreezeObjectEvents();
         ScriptContext2_Disable();

@@ -202,7 +202,7 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
     return species + (isShiny ? FOLLOWMON_SHINY_OFFSET : 0);
 }
 
-static u16 MonToFollowSpecies(struct Pokemon* mon)
+u16 FollowMon_GetMonGraphics(struct Pokemon* mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
@@ -325,7 +325,12 @@ bool8 FollowMon_IsPartnerMonActive()
 
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
-    u16 species = MonToFollowSpecies(&gPlayerParty[0]);
+    u16 species;
+
+    if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
+        species = Rogue_GetRideMonSpeciesGfx();
+    else
+        species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
 
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
@@ -869,23 +874,34 @@ void FollowMon_OnWarp()
     sFollowMonData.activeCount = 0;
 }
 
+static bool8 PlaySpawnAnims()
+{
+    return Rogue_IsRunActive() || Rogue_InWildSafari();
+}
+
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 {
-    u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+    if(PlaySpawnAnims())
+    {
+        u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
 
-    if(sFollowMonData.activeCount != 255)
-        ++sFollowMonData.activeCount;
+        if(sFollowMonData.activeCount != 255)
+            ++sFollowMonData.activeCount;
 
-    sFollowMonData.pendingSpawnAnim |= (1 << spawnSlot);
+        sFollowMonData.pendingSpawnAnim |= (1 << spawnSlot);
+    }
 }
 
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent)
 {
-    u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+    if(PlaySpawnAnims())
+    {
+        u16 spawnSlot = objectEvent->graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
 
-    if(Rogue_InWildSafari())
-        RogueSafari_RemoveMonFromSlot(spawnSlot);
+        if(Rogue_InWildSafari())
+            RogueSafari_RemoveMonFromSlot(spawnSlot);
 
-    if(sFollowMonData.activeCount != 0)
-        --sFollowMonData.activeCount;
+        if(sFollowMonData.activeCount != 0)
+            --sFollowMonData.activeCount;
+    }
 }

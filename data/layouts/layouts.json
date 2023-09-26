@@ -1640,6 +1640,16 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Rogue_Interior_PokeConnect/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_PokeConnect/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_RIDE_TRAINING",
+      "name": "Rogue_Area_RideTraining_Layout",
+      "width": 34,
+      "height": 36,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Area_RideTraining/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_RideTraining/map.bin"
     }
   ]
 }

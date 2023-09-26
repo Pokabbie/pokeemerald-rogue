@@ -22,6 +22,13 @@ const u8 gText_ExpandedPlaceholder_PokemonHub[] = _("POKéMON HUB");
 const u8 gText_EggNickname[] = _("EGG");
 const u8 gText_Pokemon[] = _("POKéMON");
 const u8 gText_ProfBirchMatchCallName[] = _("PROF. BIRCH");
+#ifdef ROGUE_EXPANSION
+const u8 gText_Clown[PLAYER_NAME_LENGTH] = _("Clown");
+const u8 gText_ClownStantler[POKEMON_NAME_LENGTH] = _("Kurt");
+#else
+const u8 gText_Clown[PLAYER_NAME_LENGTH] = _("CLOWN");
+const u8 gText_ClownStantler[POKEMON_NAME_LENGTH] = _("KURT");
+#endif
 const u8 gText_MainMenuNewGame[] = _("NEW GAME");
 const u8 gText_MainMenuContinue[] = _("CONTINUE");
 const u8 gText_MainMenuContinueRun[] = _("RESUME ADVENTURE");

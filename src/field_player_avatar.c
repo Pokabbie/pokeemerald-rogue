@@ -71,6 +71,8 @@ static bool8 ForcedMovement_MatJump(void);
 static bool8 ForcedMovement_MatSpin(void);
 static bool8 ForcedMovement_MuddySlope(void);
 
+bool8 ForcedMovement_AffectedByMuddySlope(u8);
+
 static void MovePlayerNotOnBike(u8, u16, u16);
 static u8 CheckMovementInputNotOnBike(u8);
 static void PlayerNotOnBikeNotMoving(u8, u16);
@@ -169,7 +171,7 @@ static bool8 (*const sForcedMovementTestFuncs[NUM_FORCED_MOVEMENTS])(u8) =
     MetatileBehavior_IsWaterfall,
     MetatileBehavior_IsSecretBaseJumpMat,
     MetatileBehavior_IsSecretBaseSpinMat,
-    MetatileBehavior_IsMuddySlope,
+    ForcedMovement_AffectedByMuddySlope,
 };
 
 // + 1 for ForcedMovement_None, which is excluded above
@@ -523,6 +525,19 @@ static bool8 ForcedMovement_MatSpin(void)
     return TRUE;
 }
 
+bool8 ForcedMovement_AffectedByMuddySlope(u8 metatileBehavior)
+{
+    if(MetatileBehavior_IsMuddySlope(metatileBehavior))
+    {
+        if(Rogue_IsRideMonFlying())
+            return FALSE;
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 ForcedMovement_MuddySlope(void)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
@@ -667,10 +682,13 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
         )
             return COLLISION_NONE;
     }
-    else if (ShouldJumpLedge(x, y, direction))
+    else
     {
-        IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
-        return COLLISION_LEDGE_JUMP;
+        if (ShouldJumpLedge(x, y, direction))
+        {
+            IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
+            return COLLISION_LEDGE_JUMP;
+        }
 
         if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
             return COLLISION_PUSHED_BOULDER;
@@ -796,12 +814,15 @@ static void DoPlayerAvatarTransition(void)
 {
     u8 i;
     u8 flags = gPlayerAvatar.transitionFlags;
+    u8 mask;
 
     if (flags != 0)
     {
-        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++, flags >>= 1)
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++)
         {
-            if (flags & 1)
+            mask = (1 << i);
+
+            if ((flags & mask) != 0)
                 sPlayerAvatarTransitionFuncs[i](&gObjectEvents[gPlayerAvatar.objectEventId]);
         }
         gPlayerAvatar.transitionFlags = 0;
@@ -1305,20 +1326,21 @@ u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 
 bool8 PartyHasMonWithSurf(void)
 {
-    u8 i;
-
-    if(CanUseHMMove2(MOVE_SURF))
-    {
-        if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-        {
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
-                    break;
-                return TRUE;
-            }
-        }
-    }
+    // RogueNote: Don't use Vanilla surfing behaviour
+    //u8 i;
+//
+    //if(CanUseHMMove2(MOVE_SURF))
+    //{
+    //    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    //    {
+    //        for (i = 0; i < PARTY_SIZE; i++)
+    //        {
+    //            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+    //                break;
+    //            return TRUE;
+    //        }
+    //    }
+    //}
     return FALSE;
 }
 
@@ -1382,7 +1404,27 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
 {
-    u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u8 state = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u8 stateFlag = 0;
+
+    switch (state)
+    {
+    case PLAYER_AVATAR_STATE_MACH_BIKE:
+        stateFlag = PLAYER_AVATAR_FLAG_MACH_BIKE;
+        break;
+    
+    case PLAYER_AVATAR_STATE_ACRO_BIKE:
+        stateFlag = PLAYER_AVATAR_FLAG_ACRO_BIKE;
+        break;
+    
+    case PLAYER_AVATAR_STATE_SURFING:
+        stateFlag = PLAYER_AVATAR_FLAG_SURFING;
+        break;
+    
+    case PLAYER_AVATAR_STATE_RIDE_GRABBING:
+        stateFlag = PLAYER_AVATAR_FLAG_RIDING;
+        break;
+    };
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();
