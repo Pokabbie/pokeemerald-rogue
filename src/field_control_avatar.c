@@ -173,7 +173,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         if (TryArrowWarp(&position, metatileBehavior, playerDirection) == TRUE)
         {
             if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
-                Rogue_GetOnOffRideMon(TRUE);
+                Rogue_OnRideMonWarp();
 
             return TRUE;
         }
@@ -189,7 +189,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         if (TryDoorWarp(&position, metatileBehavior, playerDirection) == TRUE)
         {
             if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
-                Rogue_GetOnOffRideMon(TRUE);
+                Rogue_OnRideMonWarp();
 
             return TRUE;
         }

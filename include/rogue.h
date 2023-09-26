@@ -466,6 +466,13 @@ struct RogueDebugConfig
     u8 rangeValues[DEBUG_RANGE_COUNT];
 };
 
+struct RogueRideMonState
+{
+    u16 monGfx;
+    u8 flyingHeight : 7;
+    bool8 flyingState : 1;
+};
+
 struct RogueSaveBlock
 {
     u16 saveVersion;

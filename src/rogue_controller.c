@@ -1683,6 +1683,10 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         return TRUE;
     }
+    else if(Rogue_HandleRideMonInput() == TRUE)
+    {
+        return TRUE;
+    }
 
     return FALSE;
 }
@@ -1809,24 +1813,20 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
 
 void Rogue_OnMovementType_Player(struct Sprite *sprite)
 {
-    Rogue_UpdateRideMonSprites();
+    Rogue_UpdateRideMons();
 }
 
 void Rogue_OnResumeMap()
 {
-    //Rogue_CreateDestroyRideMonSprites();
 }
 
-// Called when object events first loaded for a map
-void Rogue_InitObjectEventsLocal()
+void Rogue_OnObjectEventsInit()
 {
-    Rogue_CreateDestroyRideMonSprites();
 }
 
-// Called when an already loaded map is returned to e.g. from a battle
-void Rogue_OnSpawnObjectEventsOnReturnToField(s16 x, s16 y)
+void Rogue_OnResetAllSprites()
 {
-    Rogue_CreateDestroyRideMonSprites();
+    Rogue_DestroyRideMonSprites();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
@@ -1855,7 +1855,7 @@ void Rogue_OnLoadMap(void)
         RogueHub_ApplyMapMetatiles();
     }
 
-    SetupFollowParterMonObjectEvent();
+   // SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)

@@ -805,6 +805,8 @@ void ResetAllSprites(void)
     }
 
     ResetSprite(&gSprites[i]);
+
+    Rogue_OnResetAllSprites();
 }
 
 void FreeSpriteTiles(struct Sprite *sprite)

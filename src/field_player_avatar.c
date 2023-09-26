@@ -814,12 +814,15 @@ static void DoPlayerAvatarTransition(void)
 {
     u8 i;
     u8 flags = gPlayerAvatar.transitionFlags;
+    u8 mask;
 
     if (flags != 0)
     {
-        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++, flags >>= 1)
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++)
         {
-            if (flags & 1)
+            mask = (1 << i);
+
+            if ((flags & mask) != 0)
                 sPlayerAvatarTransitionFuncs[i](&gObjectEvents[gPlayerAvatar.objectEventId]);
         }
         gPlayerAvatar.transitionFlags = 0;
@@ -1401,7 +1404,27 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
 {
-    u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u8 state = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u8 stateFlag = 0;
+
+    switch (state)
+    {
+    case PLAYER_AVATAR_STATE_MACH_BIKE:
+        stateFlag = PLAYER_AVATAR_FLAG_MACH_BIKE;
+        break;
+    
+    case PLAYER_AVATAR_STATE_ACRO_BIKE:
+        stateFlag = PLAYER_AVATAR_FLAG_ACRO_BIKE;
+        break;
+    
+    case PLAYER_AVATAR_STATE_SURFING:
+        stateFlag = PLAYER_AVATAR_FLAG_SURFING;
+        break;
+    
+    case PLAYER_AVATAR_STATE_RIDE_GRABBING:
+        stateFlag = PLAYER_AVATAR_FLAG_RIDING;
+        break;
+    };
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();
