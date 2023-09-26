@@ -469,7 +469,8 @@ struct RogueDebugConfig
 struct RogueRideMonState
 {
     u16 monGfx;
-    u8 flyingHeight : 7;
+    u8 flyingHeight : 6;
+    u8 whistleType : 1;
     bool8 flyingState : 1;
 };
 

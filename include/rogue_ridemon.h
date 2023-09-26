@@ -4,7 +4,7 @@
 void Rogue_RideMonInit();
 struct RogueRideMonState* Rogue_GetPlayerRideMonStatePtr();
 
-void Rogue_GetOnOffRideMon(bool8 forWarp);
+void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp);
 bool8 Rogue_HandleRideMonInput();
 void Rogue_UpdateRideMons();
 void Rogue_DestroyRideMonSprites();

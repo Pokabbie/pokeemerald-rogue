@@ -1,6 +1,8 @@
 const FLAG_HIDE_STANTLER = FLAG_TEMP_5
+const FLAG_HIDE_DITTO = FLAG_TEMP_6
 
 const NPC_OBJ_STANTLER = 16
+const NPC_OBJ_DITTO = 20
 
 mapscripts Rogue_Area_RideTraining_MapScripts 
 {
@@ -12,14 +14,45 @@ script Rogue_Area_RideTraining_OnTransition
     setvar(VAR_FOLLOW_MON_0, SPECIES_STANTLER)
     addvar(VAR_FOLLOW_MON_0, FOLLOWMON_SHINY_OFFSET)
 
-    setvar(VAR_FOLLOW_MON_1, SPECIES_MR_MIME)
-    setvar(VAR_FOLLOW_MON_2, SPECIES_CHIMECHO)
+    call(Rogue_Area_RideTraining_SetDittoGraphics)
+
+    setvar(VAR_FOLLOW_MON_2, SPECIES_MR_MIME)
+    setvar(VAR_FOLLOW_MON_3, SPECIES_CHIMECHO)
 
     checkitem(ITEM_BASIC_RIDING_WHISTLE)
 
     if(var(VAR_RESULT) == TRUE)
     {
         setflag(FLAG_HIDE_STANTLER)
+    }
+
+    checkitem(ITEM_GOLD_RIDING_WHISTLE)
+
+    if(var(VAR_RESULT) == FALSE)
+    {
+        setflag(FLAG_HIDE_DITTO)
+    }
+}
+
+script Rogue_Area_RideTraining_SetDittoGraphics
+{
+    if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+    {
+        poryswitch(ROGUE_VERSION)
+        {
+            ROGUE_VERSION_VANILLA
+            {
+                setvar(VAR_FOLLOW_MON_1, SPECIES_DITTO)
+            }
+            ROGUE_VERSION_EXPANSION
+            {
+                setvar(VAR_FOLLOW_MON_1, SPECIES_ZORUA_HISUIAN)
+            }
+        }
+    }
+    else
+    {
+        copyvar(VAR_FOLLOW_MON_1, VAR_ROGUE_REGISTERED_RIDE_MON)
     }
 }
 
@@ -32,7 +65,6 @@ script Rogue_Area_RideTraining_FindItemLedgeJump
 {
     finditem(ITEM_ULTRA_BALL, 10)
 
-    
     poryswitch(ROGUE_VERSION)
     {
         ROGUE_VERSION_VANILLA
@@ -54,6 +86,89 @@ script Rogue_Area_RideTraining_FindItemSurf
 script Rogue_Area_RideTraining_FindItemFly
 {
     finditem(ITEM_ESCAPE_ROPE, 1)
+}
+
+script Rogue_Area_RideTraining_SpeakDitto
+{
+    lock
+    faceplayer
+
+    special(Rogue_GetFollowMonSpecies)
+    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+
+    bufferpartymonnick(STR_VAR_1, 0)
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+            {
+                msgbox(format("Would you like DITTO to transform into {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(Rogue_RegisterRideMon)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you clear DITTO's transform?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setvar(VAR_ROGUE_REGISTERED_RIDE_MON, SPECIES_NONE)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+            {
+                msgbox(format("Would you like ZORUA to transform into {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(Rogue_RegisterRideMon)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you clear ZORUA's transform?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setvar(VAR_ROGUE_REGISTERED_RIDE_MON, SPECIES_NONE)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+        }
+    }
+
+    release
 }
 
 script Rogue_Area_RideTraining_SpeakClown
@@ -89,7 +204,15 @@ script Rogue_Area_RideTraining_SpeakClown
         }
         else
         {
-            msgbox(format("I don't have anything more I can teach you at the moment, I'm afraid."))
+            checkitem(ITEM_GOLD_RIDING_WHISTLE)
+            if(var(VAR_RESULT) == FALSE)
+            {
+                call(Rogue_Area_RideTraining_GiveGoldWhistle)
+            }
+            else
+            {
+                msgbox(format("I don't have anything more I can teach you at the moment, I'm afraid."))
+            }
         }
     }
 
@@ -276,6 +399,75 @@ script Rogue_Area_RideTraining_TeachFly
             msgbox(format("When riding your POKéMON, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your POKéMON will only have enough energy to fly once per route, whilst you are out exploring.\pYou should now be able to see which POKéMON are able to use this skill in your POKéDEX."))
 
             setflag(FLAG_SYS_RIDING_FLY)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_GiveGoldWhistle
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could give you a GOLDEN POKéWHISTLE for ¥25000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(25000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(25000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("Here you go!"))
+
+            hidemoneybox
+            giveitem(ITEM_GOLD_RIDING_WHISTLE)
+
+            msgbox(format("Rather than riding on POKéMON in your party, that GOLD WHISTLE is linked my friend.\pCome on out!"))
+
+            poryswitch(ROGUE_VERSION)
+            {
+                ROGUE_VERSION_VANILLA
+                {
+                    clearflag(FLAG_HIDE_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+                    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+                    waitmoncry
+
+                    msgbox(format("You can speak with DITTO whenever you want and get it to transform into one of your POKéMON.\pFrom then on, even if you don't have that POKéMON in your party, you will be able to summon it using the GOLD WHISTLE."))
+
+                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon DITTO!"))
+                    waitmessage
+                    playfanfare(MUS_EVOLVED)
+                    waitfanfare
+                }
+                ROGUE_VERSION_EXPANSION
+                {
+                    clearflag(FLAG_HIDE_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+                    playmoncry(SPECIES_ZORUA_HISUIAN, CRY_MODE_NORMAL)
+                    waitmoncry
+
+                    msgbox(format("You can speak with ZORUA whenever you want and get it to transform into one of your POKéMON.\pFrom then on, even if you don't have that POKéMON in your party, you will be able to summon it using the GOLD WHISTLE."))
+
+                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon ZORUA!"))
+                    waitmessage
+                    playfanfare(MUS_EVOLVED)
+                    waitfanfare
+                }
+            }
         }
         else
         {

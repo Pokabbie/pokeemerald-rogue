@@ -218,6 +218,7 @@ gSpecials::
 	def_special Rogue_HostMultiplayer
 	def_special Rogue_JoinMultiplayer
 	def_special Rogue_SetupFollowParterMonObjectEvent
+	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls
 	def_special Rogue_RunRewardMoney
 	def_special Rogue_SetTimeAndSeason

@@ -93,6 +93,7 @@ void Rogue_RideMonInit()
     sRideMonData.rideFrameCounter = 0;
     sRideMonData.playerRideState.flyingState = 0;
     sRideMonData.playerRideState.flyingHeight = 0;
+    sRideMonData.playerRideState.whistleType = RIDE_WHISTLE_BASIC;
     sRideMonData.playerRideState.monGfx = SPECIES_NONE;
     sRideMonData.recentRideIndex = 0;
     
@@ -111,10 +112,8 @@ static bool8 AdjustFlyingAnimation(u8 objectEventId);
 static u16 GetCurrentRideMonSpecies();
 static const struct RideMonInfo* GetRideMonInfoForSpecies(u16 species);
 
-static bool8 IsValidMonToRideNow(struct Pokemon* mon)
+static bool8 IsValidSpeciesToRideNow(u16 species)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-
     if(species != SPECIES_NONE)
     {
         const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
@@ -124,6 +123,12 @@ static bool8 IsValidMonToRideNow(struct Pokemon* mon)
     }
 
     return FALSE;
+}
+
+static bool8 IsValidMonToRideNow(struct Pokemon* mon)
+{
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    return IsValidSpeciesToRideNow(species);
 }
 
 static bool8 CalculateRideSpecies(s8 dir)
@@ -162,29 +167,51 @@ static bool8 CalculateRideSpecies(s8 dir)
 
 static bool8 CalculateInitialRideSpecies()
 {
-    u8 counter;
-    u8 monIdx;
-
-    sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, gPlayerPartyCount - 1);
-
-    // Try to ride the same species we were previously riding
-    for(counter = 0; counter < gPlayerPartyCount; ++counter)
+    if(sRideMonData.playerRideState.whistleType == RIDE_WHISTLE_GOLD)
     {
-        monIdx = (sRideMonData.recentRideIndex + counter) % gPlayerPartyCount;
+        u16 species;
+        u16 speciesGfx = species= VarGet(VAR_ROGUE_REGISTERED_RIDE_MON);
 
-        if(IsValidMonToRideNow(&gPlayerParty[monIdx]) && FollowMon_GetMonGraphics(&gPlayerParty[monIdx]) == sRideMonData.playerRideState.monGfx)
+        if(species >= FOLLOWMON_SHINY_OFFSET)
+            species -= FOLLOWMON_SHINY_OFFSET;
+
+        if(IsValidSpeciesToRideNow(species))
         {
-            sRideMonData.recentRideIndex = monIdx;
+            sRideMonData.recentRideIndex = 0;
+            sRideMonData.playerRideState.monGfx = speciesGfx;
             return TRUE;
         }
-    }
 
-    // Can't ride the mon we were previously riding, so try to pick next avaliable
-    return CalculateRideSpecies(0);
+        return FALSE;
+    }
+    else
+    {
+        u8 counter;
+        u8 monIdx;
+
+        //VAR_ROGUE_REGISTERED_RIDE_MON
+
+        sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, gPlayerPartyCount - 1);
+
+        // Try to ride the same species we were previously riding
+        for(counter = 0; counter < gPlayerPartyCount; ++counter)
+        {
+            monIdx = (sRideMonData.recentRideIndex + counter) % gPlayerPartyCount;
+
+            if(IsValidMonToRideNow(&gPlayerParty[monIdx]) && FollowMon_GetMonGraphics(&gPlayerParty[monIdx]) == sRideMonData.playerRideState.monGfx)
+            {
+                sRideMonData.recentRideIndex = monIdx;
+                return TRUE;
+            }
+        }
+
+        // Can't ride the mon we were previously riding, so try to pick next avaliable
+        return CalculateRideSpecies(0);
+    }
 }
 
 // Based on GetOnOffBike
-void Rogue_GetOnOffRideMon(bool8 forWarp)
+void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
 {
     if(!forWarp)
     {
@@ -202,6 +229,8 @@ void Rogue_GetOnOffRideMon(bool8 forWarp)
     }
     else
     {
+        sRideMonData.playerRideState.whistleType = whistleType;
+
         if(CalculateInitialRideSpecies())
         {
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_RIDING);
@@ -236,44 +265,48 @@ bool8 Rogue_HandleRideMonInput()
 {
     if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
     {
-        if(JOY_NEW(L_BUTTON))
+        // Cycle through mons, when pressing L or R
+        if(sRideMonData.playerRideState.whistleType == RIDE_WHISTLE_BASIC)
         {
-            if(CanCycleRideMons() && CalculateRideSpecies(-1))
+            if(JOY_NEW(L_BUTTON))
             {
-                if(IsCryPlaying())
-                    StopCry();
-                PlayCry_Normal(GetCurrentRideMonSpecies(), 0);
-
-                // Dealloc sprite, so it can get remade
-                if(sRideMonData.playerObject.monSpriteId != SPRITE_NONE)
+                if(CanCycleRideMons() && CalculateRideSpecies(-1))
                 {
-                    DestroySprite(&gSprites[sRideMonData.playerObject.monSpriteId]);
-                    sRideMonData.playerObject.monSpriteId = SPRITE_NONE;
+                    if(IsCryPlaying())
+                        StopCry();
+                    PlayCry_Normal(GetCurrentRideMonSpecies(), 0);
+
+                    // Dealloc sprite, so it can get remade
+                    if(sRideMonData.playerObject.monSpriteId != SPRITE_NONE)
+                    {
+                        DestroySprite(&gSprites[sRideMonData.playerObject.monSpriteId]);
+                        sRideMonData.playerObject.monSpriteId = SPRITE_NONE;
+                    }
+                }
+                else
+                {
+                    PlaySE(SE_WALL_HIT);
                 }
             }
-            else
+            else if(JOY_NEW(R_BUTTON))
             {
-                PlaySE(SE_WALL_HIT);
-            }
-        }
-        else if(JOY_NEW(R_BUTTON))
-        {
-            if(CanCycleRideMons() && CalculateRideSpecies(1))
-            {
-                if(IsCryPlaying())
-                    StopCry();
-                PlayCry_Normal(GetCurrentRideMonSpecies(), 0);
-
-                // Dealloc sprite, so it can get remade
-                if(sRideMonData.playerObject.monSpriteId != SPRITE_NONE)
+                if(CanCycleRideMons() && CalculateRideSpecies(1))
                 {
-                    DestroySprite(&gSprites[sRideMonData.playerObject.monSpriteId]);
-                    sRideMonData.playerObject.monSpriteId = SPRITE_NONE;
+                    if(IsCryPlaying())
+                        StopCry();
+                    PlayCry_Normal(GetCurrentRideMonSpecies(), 0);
+
+                    // Dealloc sprite, so it can get remade
+                    if(sRideMonData.playerObject.monSpriteId != SPRITE_NONE)
+                    {
+                        DestroySprite(&gSprites[sRideMonData.playerObject.monSpriteId]);
+                        sRideMonData.playerObject.monSpriteId = SPRITE_NONE;
+                    }
                 }
-            }
-            else
-            {
-                PlaySE(SE_WALL_HIT);
+                else
+                {
+                    PlaySE(SE_WALL_HIT);
+                }
             }
         }
     }
@@ -374,7 +407,7 @@ static u8 CalculateMovementModeFor(u16 species)
 static u16 GetCurrentRideMonSpecies()
 {
     if(sRideMonData.playerRideState.monGfx >= FOLLOWMON_SHINY_OFFSET)
-        return sRideMonData.playerRideState.monGfx -FOLLOWMON_SHINY_OFFSET;
+        return sRideMonData.playerRideState.monGfx - FOLLOWMON_SHINY_OFFSET;
 
     return sRideMonData.playerRideState.monGfx;
 }
@@ -416,7 +449,7 @@ static void UpdateRideMonSprites()
             else
             {
                 // Force demount here
-                Rogue_GetOnOffRideMon(FALSE);
+                Rogue_GetOnOffRideMon(sRideMonData.playerRideState.whistleType, FALSE);
             }
         }
     }
