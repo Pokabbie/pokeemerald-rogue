@@ -63,8 +63,6 @@ script Rogue_Area_RideTraining_FindItemFieldMoves
 
 script Rogue_Area_RideTraining_FindItemLedgeJump
 {
-    finditem(ITEM_ULTRA_BALL, 10)
-
     poryswitch(ROGUE_VERSION)
     {
         ROGUE_VERSION_VANILLA
