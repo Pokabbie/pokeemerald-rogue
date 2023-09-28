@@ -215,6 +215,36 @@
                 {
                     "base_species": "REGISTEEL",
                     "music_player": "legendary_regi"
+                },
+
+                {
+                    "base_species": "UXIE",
+                    "music_player": "legendary_lake_guardians"
+                },
+                {
+                    "base_species": "MESPRIT",
+                    "music_player": "legendary_lake_guardians"
+                },
+                {
+                    "base_species": "AZELF",
+                    "music_player": "legendary_lake_guardians"
+                },
+
+                {
+                    "base_species": "DIALGA",
+                    "music_player": "legendary_dialga_palkia"
+                },
+                {
+                    "base_species": "PALKIA",
+                    "music_player": "legendary_dialga_palkia"
+                },
+                {
+                    "base_species": "ARCEUS",
+                    "music_player": "legendary_arceus"
+                },
+                {
+                    "base_species": "GIRATINA",
+                    "music_player": "legendary_giratina"
                 }
             ]
         },
@@ -271,6 +301,27 @@
         {
             "battle": "MUS_VS_REGI",
             "victory": "MUS_VICTORY_WILD"
+        },
+
+        "legendary_lake_guardians":
+        {
+            "battle": "MUS_DP_VS_UXIE_MESPRIT_AZELF",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_dialga_palkia":
+        {
+            "battle": "MUS_DP_VS_DIALGA_PALKIA",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_arceus":
+        {
+            "battle": "MUS_DP_VS_ARCEUS",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_giratina":
+        {
+            "battle": "MUS_PL_VS_GIRATINA",
+            "victory": "MUS_DP_VICTORY_WILD"
         }
     }
 }

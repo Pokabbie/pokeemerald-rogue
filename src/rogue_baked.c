@@ -682,12 +682,9 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     u8 i;
     bool8 shouldRedirect;
     u16 trainerClass = 0;
+    u16 baseSpecies;
     struct RogueBattleMusic const* currMusic = NULL;
     const struct RogueTrainer* trainer = NULL;
-
-#ifdef ROGUE_EXPANSION
-    trainerSpecies = GET_BASE_SPECIES_ID(trainerSpecies);
-#endif
 
     switch (musicType)
     {
@@ -702,6 +699,11 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
             currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_LEGENDARY_BATTLE];
         else
             currMusic = &gRogueTrainerMusic[BATTLE_MUSIC_WILD_BATTLE];
+
+        baseSpecies = trainerSpecies;
+#ifdef ROGUE_EXPANSION
+        baseSpecies = GET_BASE_SPECIES_ID(baseSpecies);
+#endif
         break;
     }
 
@@ -717,7 +719,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
             break;
         
         case REDIRECT_PARAM_SPECIES:
-            if(currMusic->redirects[i].redirectParam == trainerSpecies)
+            if(currMusic->redirects[i].redirectParam == baseSpecies)
                 shouldRedirect = TRUE;
             break;
         
