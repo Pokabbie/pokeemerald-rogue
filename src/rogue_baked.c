@@ -711,11 +711,12 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     // Execute through redirection chain
     for(i = 0; i < currMusic->redirectCount; ++i)
     {
-        shouldRedirect = TRUE;
+        shouldRedirect = FALSE;
 
         switch (currMusic->redirects[i].redirectType)
         {
         case REDIRECT_PARAM_NONE:
+            shouldRedirect = TRUE;
             break;
         
         case REDIRECT_PARAM_SPECIES:
