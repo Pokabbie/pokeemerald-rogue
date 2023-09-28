@@ -346,8 +346,10 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
         *includeFlags |= TRAINER_FLAG_REGION_GALAR;
 #endif
 
-    // TODO - Rework this
-    if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+    // TODO - Rework this flag
+    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+        *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
+    else
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
 
     if(*includeFlags == TRAINER_FLAG_NONE)
