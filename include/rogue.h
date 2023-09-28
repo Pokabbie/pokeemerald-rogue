@@ -286,7 +286,8 @@ struct RogueEncounterData
 
 struct RogueBattleMusicRedirect
 {
-    u16 trainerClassSpecies;
+    u16 redirectParam;
+    u8 redirectType;
     u8 musicPlayer;
 };
 
@@ -322,6 +323,7 @@ struct RogueTrainer
     u32 trainerFlags;
     u16 objectEventGfx;
     u16 typeAssignment;
+    u16 typeAssignmentGroup;
     u8 trainerClass;
     u8 trainerPic;
     u8 preferredWeather;

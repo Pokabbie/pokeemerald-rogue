@@ -121,6 +121,25 @@
             "victory": "MUS_DP_VICTORY_CHAMPION"
         },
 
+        "unova_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "kanto_boss"
+                }
+            ]
+        },
+        "kalos_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "johto_boss"
+                }
+            ]
+        },
+
         "wild_battle":
         {
             "battle": "MUS_VS_WILD",

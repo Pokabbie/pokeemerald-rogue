@@ -299,7 +299,8 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
     {
         MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
         DebugPrint("A - Skip");
-        DebugPrint("B - Break");
+        DebugPrint("B - Exception");
+        DebugPrint("START - Break Message");
 
         PlaySE(SE_LOW_HEALTH);
 
@@ -313,6 +314,10 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
             else if(JOY_NEW(B_BUTTON))
             {
                 asm(".hword 0xEFFF");
+            }
+            else if(JOY_NEW(START_BUTTON))
+            {
+                MgbaPrintfBounded(MGBA_LOG_ERROR, "BREAK PRINT");
             }
 
             DebugForceReadKeys();

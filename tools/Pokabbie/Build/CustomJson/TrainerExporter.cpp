@@ -148,6 +148,15 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerClass = " << trainer["trainer_class"].get<std::string>() << ",\n";
 		exporter.trainerStructsBlock << c_TabSpacing << ".musicPlayer = BATTLE_MUSIC_" << strutil::to_upper(trainer["music_player"].get<std::string>()) << ",\n";
 		exporter.trainerStructsBlock << c_TabSpacing << ".typeAssignment = TYPE_" << strutil::to_upper(trainer["type_assignment"].get<std::string>()) << ",\n";
+		
+		if (trainer.contains("type_group_override"))
+		{
+			exporter.trainerStructsBlock << c_TabSpacing << ".typeAssignmentGroup = TYPE_" << strutil::to_upper(trainer["type_group_override"].get<std::string>()) << ",\n";
+		}
+		else
+		{
+			exporter.trainerStructsBlock << c_TabSpacing << ".typeAssignmentGroup = TYPE_" << strutil::to_upper(trainer["type_assignment"].get<std::string>()) << ",\n";
+		}
 
 		if (trainer.contains("gfx_suffix"))
 		{

@@ -272,9 +272,11 @@ u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum)
 {
     if(Rogue_IsBossTrainer(trainerNum))
     {
+        const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
         // We're gonna always use the trainer's assigned type to prevent dupes
         // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-        u8 type = Rogue_GetTrainerTypeAssignment(trainerNum);
+        u8 type = trainer->typeAssignmentGroup;
 
         // None type trainers are unqiue, so we don't care about the type repeat
         if(type != TYPE_NONE)
@@ -315,28 +317,44 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     *includeFlags = TRAINER_FLAG_NONE;
     *excludeFlags = TRAINER_FLAG_NONE;
 
-    // TODO - Rework region flags
-    if(FlagGet(FLAG_ROGUE_KANTO_BOSSES))
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE))
+        *includeFlags |= TRAINER_FLAG_REGION_ROGUE;
+
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO))
         *includeFlags |= TRAINER_FLAG_REGION_KANTO;
 
-    if(FlagGet(FLAG_ROGUE_JOHTO_BOSSES))
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO))
         *includeFlags |= TRAINER_FLAG_REGION_JOHTO;
 
-    if(FlagGet(FLAG_ROGUE_HOENN_BOSSES))
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN))
         *includeFlags |= TRAINER_FLAG_REGION_HOENN;
 
+#ifdef ROGUE_EXPANSION
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH))
+        *includeFlags |= TRAINER_FLAG_REGION_SINNOH;
+
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA))
+        *includeFlags |= TRAINER_FLAG_REGION_UNOVA;
+
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS))
+        *includeFlags |= TRAINER_FLAG_REGION_KALOS;
+
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA))
+        *includeFlags |= TRAINER_FLAG_REGION_ALOLA;
+
+    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR))
+        *includeFlags |= TRAINER_FLAG_REGION_GALAR;
+#endif
+
+    // TODO - Rework this
     if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
 
-    // TODO - Remove this temp force behaviour
-    if(*includeFlags == TRAINER_FLAG_NONE || TRUE)
+    if(*includeFlags == TRAINER_FLAG_NONE)
     {
-        #ifdef ROGUE_EXPANSION
-        // Safe fallback
-        *includeFlags = TRAINER_FLAG_REGION_SINNOH;
-        #else
-        *includeFlags = TRAINER_FLAG_REGION_KANTO;
-        #endif
+        // Safety fallback (Should never reach here)
+        AGB_ASSERT(FALSE);
+        *includeFlags = TRAINER_FLAG_REGION_DEFAULT;
     }
 }
 
