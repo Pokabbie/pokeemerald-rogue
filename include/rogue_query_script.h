@@ -12,6 +12,8 @@ enum
     // Global
     QUERY_SCRIPT_ALWAYS,
     QUERY_SCRIPT_NEVER,
+    QUERY_SCRIPT_NOT,
+    QUERY_SCRIPT_ELSE = QUERY_SCRIPT_NOT, // functionally identical
     
     // Weight methods
     //

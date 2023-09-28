@@ -527,7 +527,7 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
 {
 #ifndef ROGUE_BAKING
-    if(trainerClass == TRAINER_CLASS_LEADER)
+    if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
         if(gRogueRun.currentDifficulty >= 12)
         {
@@ -582,91 +582,6 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 #endif
         }
 #endif
-
-        //if(trainer->trainerPic == TRAINER_PIC_PLAYER_AVATAR)
-        //{
-        //    switch(gSaveBlock2Ptr->playerGender)
-        //    {    
-        //        case(STYLE_EMR_BRENDAN):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-        //            break;
-        //        case(STYLE_EMR_MAY):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_MAY;
-        //            break;
-//
-        //        case(STYLE_RED):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_RED;
-        //            break;
-        //        case(STYLE_LEAF):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_LEAF;
-        //            break;
-//
-        //        case(STYLE_ETHAN):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-        //            break;
-        //        case(STYLE_LYRA):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_LYRA;
-        //            break;
-        //    };
-        //}
-        //else if(trainer->trainerPic == TRAINER_PIC_PLAYER_OPPOSITE_AVATAR)
-        //{
-        //    switch(gSaveBlock2Ptr->playerGender)
-        //    {    
-        //        case(STYLE_EMR_BRENDAN):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_MAY;
-        //            break;
-        //        case(STYLE_EMR_MAY):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_BRENDAN;
-        //            break;
-//
-        //        case(STYLE_RED):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_LEAF;
-        //            break;
-        //        case(STYLE_LEAF):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_RED;
-        //            break;
-//
-        //        case(STYLE_ETHAN):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_LYRA;
-        //            break;
-        //        case(STYLE_LYRA):
-        //            outTrainer->encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE;
-        //            outTrainer->trainerPic = TRAINER_PIC_ETHAN;
-        //            break;
-        //    };
-        //}
-
-
-        // For now only apply auto music to leaders
-        //if(trainer->trainerClass == TRAINER_CLASS_LEADER)
-        //{
-        //    if(trainer->trainerFlags & TRAINER_FLAG_KANTO) 
-        //    {
-        //        outTrainer->partyFlags |= F_TRAINER_PARTY_KANTO_MUS;
-        //    }
-        //    else if(trainer->trainerFlags & TRAINER_FLAG_JOHTO) 
-        //    {
-        //        outTrainer->partyFlags |= F_TRAINER_PARTY_JOHTO_MUS;
-        //    }
-        //    else if(trainer->trainerFlags & TRAINER_FLAG_FALLBACK_REGION) 
-        //    {
-        //        outTrainer->partyFlags |= F_TRAINER_PARTY_SINNOH_MUS;
-        //    }
-        //}
-
-        return;
     }
     else
     {
