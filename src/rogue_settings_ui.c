@@ -79,17 +79,84 @@ enum
 
 static u8 const sMenuName_DifficultySubmenu[] = _("DIFFICULTY");
 static u8 const sMenuName_AdventureSubmenu[] = _("ADVENTURE");
+static u8 const sMenuName_TrainersSubmenu[] = _("TRAINERS");
 
 static u8 const sMenuName_BattleFormat[] = _("BATTLE FORMAT");
 static u8 const sMenuName_BattleFormatSingles[] = _("SINGLES");
 static u8 const sMenuName_BattleFormatDoubles[] = _("DOUBLES");
 static u8 const sMenuName_BattleFormatMixed[] = _("MIXED");
 
+static u8 const sMenuName_TrainerRogue[] = _("ROGUE");
+static u8 const sMenuName_TrainerKanto[] = _("KANTO");
+static u8 const sMenuName_TrainerJohto[] = _("JOHTO");
+static u8 const sMenuName_TrainerHoenn[] = _("HOENN");
+#ifdef ROGUE_EXPANSION
+static u8 const sMenuName_TrainerSinnoh[] = _("SINNOH");
+static u8 const sMenuName_TrainerUnova[] = _("UNOVA");
+static u8 const sMenuName_TrainerKalos[] = _("KALOS");
+static u8 const sMenuName_TrainerAlola[] = _("ALOLA");
+static u8 const sMenuName_TrainerGalar[] = _("GALAR");
+#endif
+
+const u8 sMenuNameDesc_TrainersSubmenu[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Edit which trainers you will encounter in\n"
+    "adventures to your liking."
+);
+
 const u8 sMenuNameDesc_BattleFormat[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Controls if battles are 1v1, 2v2 or\n"
     "a random mix of both."
 );
+
+const u8 sMenuNameDesc_Rogue[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the…\n"
+    "ROGUE region?\n"
+);
+
+const u8 sMenuNameDesc_Kanto[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the KANTO region.\n"
+);
+
+const u8 sMenuNameDesc_Johto[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the JOHTO region.\n"
+);
+
+const u8 sMenuNameDesc_Hoenn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the HOENN region.\n"
+);
+
+#ifdef ROGUE_EXPANSION
+const u8 sMenuNameDesc_Sinnoh[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the SINNOH region.\n"
+);
+
+const u8 sMenuNameDesc_Unova[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the UNOVA region.\n"
+);
+
+const u8 sMenuNameDesc_Kalos[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the KALOS region.\n"
+);
+
+const u8 sMenuNameDesc_Alola[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the ALOLA region.\n"
+);
+
+const u8 sMenuNameDesc_Galar[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the GALAR region.\n"
+);
+#endif
 
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
@@ -112,6 +179,7 @@ enum
 
     MENUITEM_MENU_DIFFICULTY_SUBMENU,
     MENUITEM_MENU_ADVENTURE_SUBMENU,
+    MENUITEM_MENU_TRAINERS_SUBMENU,
 
     MENUITEM_MENU_TOGGLE_EXP_ALL,
     MENUITEM_MENU_TOGGLE_OVER_LVL,
@@ -119,6 +187,18 @@ enum
     MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
     MENUITEM_MENU_TOGGLE_BAG_WIPE,
     MENUITEM_MENU_TOGGLE_SWITCH_MODE,
+
+    MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
+    MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
+    MENUITEM_MENU_TOGGLE_TRAINER_JOHTO,
+    MENUITEM_MENU_TOGGLE_TRAINER_HOENN,
+#ifdef ROGUE_EXPANSION
+     MENUITEM_MENU_TOGGLE_TRAINER_SINNOH,
+     MENUITEM_MENU_TOGGLE_TRAINER_UNOVA,
+     MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
+     MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
+     MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+#endif
 
     MENUITEM_MENU_SLIDER_TRAINER,
     MENUITEM_MENU_SLIDER_ITEM,
@@ -147,6 +227,7 @@ enum
     SUBMENUITEM_NONE,
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
+    SUBMENUITEM_TRAINERS,
 #ifdef ROGUE_DEBUG
     SUBMENUITEM_DEBUG,
 #endif
@@ -241,6 +322,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
+    [MENUITEM_MENU_TRAINERS_SUBMENU] = 
+    {
+        .itemName = sMenuName_TrainersSubmenu,
+        .itemDesc = sMenuNameDesc_TrainersSubmenu,
+        .processInput = Empty_ProcessInput,
+        .drawChoices = ArrowRight_DrawChoices
+    },
 
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
@@ -284,6 +372,74 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
+
+    // Trainers
+    //
+    [MENUITEM_MENU_TOGGLE_TRAINER_ROGUE] = 
+    {
+        .itemName = sMenuName_TrainerRogue,
+        .itemDesc = sMenuNameDesc_Rogue,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_KANTO] = 
+    {
+        .itemName = sMenuName_TrainerKanto,
+        .itemDesc = sMenuNameDesc_Kanto,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_JOHTO] = 
+    {
+        .itemName = sMenuName_TrainerJohto,
+        .itemDesc = sMenuNameDesc_Johto,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_HOENN] = 
+    {
+        .itemName = sMenuName_TrainerHoenn,
+        .itemDesc = sMenuNameDesc_Hoenn,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+#ifdef ROGUE_EXPANSION
+    [MENUITEM_MENU_TOGGLE_TRAINER_SINNOH] = 
+    {
+        .itemName = sMenuName_TrainerSinnoh,
+        .itemDesc = sMenuNameDesc_Sinnoh,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_UNOVA] = 
+    {
+        .itemName = sMenuName_TrainerUnova,
+        .itemDesc = sMenuNameDesc_Unova,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_KALOS] = 
+    {
+        .itemName = sMenuName_TrainerKalos,
+        .itemDesc = sMenuNameDesc_Kalos,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_ALOLA] = 
+    {
+        .itemName = sMenuName_TrainerAlola,
+        .itemDesc = sMenuNameDesc_Alola,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_TRAINER_GALAR] = 
+    {
+        .itemName = sMenuName_TrainerGalar,
+        .itemDesc = sMenuNameDesc_Galar,
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+#endif
 
     [MENUITEM_MENU_SLIDER_TRAINER] = 
     {
@@ -400,6 +556,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_DIFFICULTY_PRESET,
             MENUITEM_MENU_DIFFICULTY_SUBMENU,
             MENUITEM_MENU_ADVENTURE_SUBMENU,
+            MENUITEM_MENU_TRAINERS_SUBMENU,
 #ifdef ROGUE_DEBUG
             MENUITEM_MENU_DEBUG,
 #endif
@@ -427,6 +584,27 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
             MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
+
+            
+            MENUITEM_CANCEL
+        }
+    },
+    
+    [SUBMENUITEM_TRAINERS] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
+            MENUITEM_MENU_TOGGLE_TRAINER_JOHTO,
+            MENUITEM_MENU_TOGGLE_TRAINER_HOENN,
+#ifdef ROGUE_EXPANSION
+            MENUITEM_MENU_TOGGLE_TRAINER_SINNOH,
+            MENUITEM_MENU_TOGGLE_TRAINER_UNOVA,
+            MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
+            MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
+            MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+#endif
+            MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
             MENUITEM_CANCEL
         }
     },
@@ -664,6 +842,11 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 
         case MENUITEM_MENU_ADVENTURE_SUBMENU:
             submenuSelection = SUBMENUITEM_ADVENTURE;
+            submenuChanged = TRUE;
+            break;
+
+        case MENUITEM_MENU_TRAINERS_SUBMENU:
+            submenuSelection = SUBMENUITEM_TRAINERS;
             submenuChanged = TRUE;
             break;
 
@@ -1151,6 +1334,37 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
         return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE);
 
+    // Trainers
+    //
+    case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN);
+
+#ifdef ROGUE_EXPANSION
+    case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
+        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR);
+#endif
+
 
     case MENUITEM_MENU_SLIDER_TRAINER:
         return Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER);
@@ -1227,6 +1441,45 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE, value);
         break;
 
+    // Trainers
+    //
+    case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN, value);
+        break;
+
+#ifdef ROGUE_EXPANSION
+    case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR, value);
+        break;
+#endif
 
     case MENUITEM_MENU_SLIDER_TRAINER:
         Rogue_SetConfigRange(DIFFICULTY_RANGE_TRAINER, value);

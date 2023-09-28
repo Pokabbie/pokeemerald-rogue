@@ -1529,15 +1529,6 @@ void Rogue_ResetConfigHubSettings(void)
     // Expansion Room settings
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
     VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
-
-    FlagSet(FLAG_ROGUE_HOENN_ROUTES);
-    FlagSet(FLAG_ROGUE_HOENN_BOSSES);
-
-    FlagSet(FLAG_ROGUE_KANTO_ROUTES);
-    FlagSet(FLAG_ROGUE_JOHTO_ROUTES);
-
-    FlagClear(FLAG_ROGUE_KANTO_BOSSES);
-    FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
 }
 
 void Rogue_OnNewGame(void)
@@ -1558,15 +1549,6 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
-
-    FlagSet(FLAG_ROGUE_HOENN_ROUTES);
-    FlagSet(FLAG_ROGUE_HOENN_BOSSES);
-
-    FlagSet(FLAG_ROGUE_KANTO_ROUTES);
-    FlagSet(FLAG_ROGUE_JOHTO_ROUTES);
-
-    FlagClear(FLAG_ROGUE_KANTO_BOSSES);
-    FlagClear(FLAG_ROGUE_JOHTO_BOSSES);
 
 #ifdef ROGUE_EXPANSION
     FlagSet(FLAG_ROGUE_EXPANSION_ACTIVE);
@@ -2498,13 +2480,14 @@ static bool8 IsRouteEnabled(u16 routeId)
     u16 includeFlags = ROUTE_FLAG_NONE;
     u16 excludeFlags = ROUTE_FLAG_NONE;
     
-    if(FlagGet(FLAG_ROGUE_HOENN_ROUTES))
+    // TODO - Rework this
+    if(TRUE)
         includeFlags |= ROUTE_FLAG_HOENN;
 
-    if(FlagGet(FLAG_ROGUE_KANTO_ROUTES))
+    if(TRUE)
         includeFlags |= ROUTE_FLAG_KANTO;
 
-    if(FlagGet(FLAG_ROGUE_JOHTO_ROUTES))
+    if(TRUE)
         includeFlags |= ROUTE_FLAG_JOHTO;
 
     // Use the custom fallback set >:3

@@ -1,4 +1,4 @@
-const BOSS_NPC = 3
+const BOSS_NPC = 1
 
 mapscripts Rogue_Boss_0_MapScripts
 {

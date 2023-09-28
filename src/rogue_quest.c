@@ -809,13 +809,14 @@ void QuestNotify_BeginAdventure(void)
         u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
         u16 genLimit = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        bool8 kantoBosses = FlagGet(FLAG_ROGUE_KANTO_BOSSES);
-        bool8 johtoBosses = FlagGet(FLAG_ROGUE_JOHTO_BOSSES);
-        bool8 hoennBosses = FlagGet(FLAG_ROGUE_HOENN_BOSSES);
+        // TODO FIXUP
+        bool8 kantoBosses = FALSE; //FlagGet(FLAG_ROGUE_KANTO_BOSSES);
+        bool8 johtoBosses = FALSE; //FlagGet(FLAG_ROGUE_JOHTO_BOSSES);
+        bool8 hoennBosses = FALSE; //FlagGet(FLAG_ROGUE_HOENN_BOSSES);
 
-        bool8 justKantoBosses = kantoBosses && !johtoBosses && !hoennBosses;
-        bool8 justJohtoBosses = !kantoBosses && johtoBosses && !hoennBosses;
-        bool8 glitchBosses = !kantoBosses && !johtoBosses && !hoennBosses;
+        bool8 justKantoBosses = FALSE; //;kantoBosses && !johtoBosses && !hoennBosses;
+        bool8 justJohtoBosses = FALSE; //!kantoBosses && johtoBosses && !hoennBosses;
+        bool8 glitchBosses = FALSE; //!kantoBosses && !johtoBosses && !hoennBosses;
 
         // Equiv to dex limit
         if(dexLimit == 0 && genLimit == 1)

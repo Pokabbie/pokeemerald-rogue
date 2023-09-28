@@ -1719,6 +1719,880 @@
                     ]
                 }
             }
+        ],
+
+        "#ifdef ROGUE_EXPANSION // unova_gyms":
+        [
+            {
+                "name": "CILAN",
+                "type_assignment": "WATER",
+                "type_group_override": "WATER",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PANPOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CHILI",
+                "type_assignment": "FIRE",
+                "type_group_override": "WATER",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PANSEAR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CILAN",
+                "type_assignment": "GRASS",
+                "type_group_override": "WATER",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PANSAGE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "LENORA",
+                "type_assignment": "NORMAL",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LILLIPUP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BURGH",
+                "type_assignment": "BUG",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SEWADDLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "ELESA",
+                "type_assignment": "ELECTRIC",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EMOLGA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CLAY",
+                "type_assignment": "GROUND",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRILBUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SKYLA",
+                "type_assignment": "FLYING",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 5,
+                            "include_types": [ "FLYING" ],
+                            "exclude_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 7,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_WOOBAT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRYCEN",
+                "type_assignment": "ICE",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 4,
+                            "include_types": [ "ICE" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 8,
+                            "include_types": [ "ICE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CUBCHOO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "DRAYDEN",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRUDDIGON", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "ROXIE",
+                "type_assignment": "POISON",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_VENIPEDE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MARLON",
+                "type_assignment": "WATER",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FRILLISH", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "#ifdef ROGUE_EXPANSION // unova_elite":
+        [
+            {
+                "name": "SHAUNTAL",
+                "type_assignment": "GHOST",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LITWICK", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MARSHAL",
+                "type_assignment": "FIGHTING",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TIMBURR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRIMSLEY",
+                "type_assignment": "DARK",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PAWNIARD", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CAITLIN",
+                "type_assignment": "PSYCHIC",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUNNA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        
+        "#ifdef ROGUE_EXPANSION // unova_champ":
+        [
+            {
+                "name": "ALDER",
+                "type_assignment": "NONE",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LARVESTA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "IRIS",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
+                "weather": "NONE",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_AXEW", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        
+        "#ifdef ROGUE_EXPANSION // kalos_gyms":
+        [
+            {
+                "name": "VIOLA",
+                "type_assignment": "BUG",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SCATTERBUG", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRANT",
+                "type_assignment": "ROCK",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ROCK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_AMAURA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TYRUNT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KORRINA",
+                "type_assignment": "FIGHTING",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RIOLU", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "RAMOS",
+                "type_assignment": "GRASS",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ],
+                            "exclude_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SKIDDO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "CLEMONT",
+                "type_assignment": "ELECTRIC",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HELIOPTILE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "VALERIE",
+                "type_assignment": "FAIRY",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "OLYMPIA",
+                "type_assignment": "PSYCHIC",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ESPURR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "WULFRIC",
+                "type_assignment": "ICE",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BERGMITE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "#ifdef ROGUE_EXPANSION // kalos_elite":
+        [
+            {
+                "name": "MALVA",
+                "type_assignment": "FIRE",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FLETCHINDER", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SIEBOLD",
+                "type_assignment": "WATER",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CLAUNCHER", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BINACLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "WIKSTROM",
+                "type_assignment": "STEEL",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HONEDGE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "DRASNA",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "weather": "NONE",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NOIBAT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SKRELP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "#ifdef ROGUE_EXPANSION // kalos_champ":
+        [
+            {
+                "name": "DIANTHA",
+                "type_assignment": "NONE",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RALTS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
         ]
     }
 }

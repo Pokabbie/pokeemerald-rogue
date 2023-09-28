@@ -762,14 +762,8 @@ script Rogue_Heal_PreBoss
 
 script Rogue_IsGlitchModeGymLeadersActive
 {
-    if(!flag(FLAG_ROGUE_KANTO_BOSSES) && !flag(FLAG_ROGUE_JOHTO_BOSSES) && !flag(FLAG_ROGUE_HOENN_BOSSES))
-    {
-        setvar(VAR_RESULT, YES)
-    }
-    else
-    {
-        setvar(VAR_RESULT, NO)
-    }
+    // TODO - Remove this
+    setvar(VAR_RESULT, NO)
 }
 
 script Rogue_GymIdentity_PreBoss

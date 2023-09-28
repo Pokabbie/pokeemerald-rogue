@@ -178,9 +178,6 @@ u16 Rogue_PreActivateDesiredCampaign(void)
 #endif
         VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
 
-        FlagSet(FLAG_ROGUE_HOENN_BOSSES);
-        FlagSet(FLAG_ROGUE_KANTO_BOSSES);
-        FlagSet(FLAG_ROGUE_JOHTO_BOSSES);
         break;
 
     case ROGUE_CAMPAIGN_LATERMANNER:

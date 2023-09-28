@@ -422,6 +422,19 @@ void Rogue_ResetSettingsToDefaults()
 {
     Rogue_ResetToDefaults(FALSE);
     Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
+    
+    // TODO - Should decide default trainers based on trainer num
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO,  TRUE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO,  FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN,  FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE,  FALSE);
+#ifdef ROGUE_EXPANSION
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH, FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA,  FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS,  FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA,  FALSE);
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR,  FALSE);
+#endif
 }
 
 void Rogue_SetDifficultyPreset(u8 preset)

@@ -680,6 +680,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 {
 #ifndef ROGUE_BAKING
     u8 i;
+    bool8 shouldRedirect;
     u16 trainerClass = 0;
     struct RogueBattleMusic const* currMusic = NULL;
     const struct RogueTrainer* trainer = NULL;
@@ -708,23 +709,32 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     // Execute through redirection chain
     for(i = 0; i < currMusic->redirectCount; ++i)
     {
-        switch (musicType)
+        shouldRedirect = TRUE;
+
+        switch (currMusic->redirects[i].redirectType)
         {
-        case BATTLE_MUSIC_TYPE_TRAINER:
-            if(currMusic->redirects[i].trainerClassSpecies == trainerClass)
-            {
-                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
-                i = 0;
-            }
+        case REDIRECT_PARAM_NONE:
             break;
         
-        case BATTLE_MUSIC_TYPE_WILD:
-            if(currMusic->redirects[i].trainerClassSpecies == trainerSpecies)
-            {
-                currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
-                i = 0;
-            }
+        case REDIRECT_PARAM_SPECIES:
+            if(currMusic->redirects[i].redirectParam == trainerSpecies)
+                shouldRedirect = TRUE;
             break;
+        
+        case REDIRECT_PARAM_TRAINER_CLASS:
+            if(currMusic->redirects[i].redirectParam == trainerClass)
+                shouldRedirect = TRUE;
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+
+        if(shouldRedirect)
+        {
+            currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
+            i = 0;
         }
     }
 
