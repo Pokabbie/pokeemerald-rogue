@@ -31,6 +31,9 @@ void ExportBattleMusicData_C(std::ofstream& fileStream, json const& jsonData)
 
 			for (auto redirect : value["conditional_redirects"])
 			{
+				if(redirect.contains("base_species"))
+					fileStream << "#ifdef SPECIES_" << redirect["base_species"].get<std::string>() << "\n";
+
 				fileStream << c_TabSpacing << "{\n";
 
 				if (redirect.contains("trainer_class"))
@@ -51,6 +54,9 @@ void ExportBattleMusicData_C(std::ofstream& fileStream, json const& jsonData)
 
 				fileStream << c_TabSpacing << ".musicPlayer = BATTLE_MUSIC_" << strutil::to_upper(redirect["music_player"].get<std::string>()) << ",\n";
 				fileStream << c_TabSpacing << "},\n";
+
+				if(redirect.contains("base_species"))
+					fileStream << "#endif\n";
 			}
 			fileStream << "};\n\n";
 		}
