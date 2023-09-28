@@ -13,6 +13,7 @@ typedef void (*ScriptCallback)(struct QueryScriptContext*);
 
 static void Condition_Always(struct QueryScriptContext* context);
 static void Condition_Never(struct QueryScriptContext* context);
+static void Condition_Not(struct QueryScriptContext* context);
 static void Condition_GreaterThan(struct QueryScriptContext* context);
 static void Condition_LessThan(struct QueryScriptContext* context);
 static void Condition_EqualTo(struct QueryScriptContext* context);
@@ -31,6 +32,7 @@ static ScriptCallback const gScriptTable[] =
 {
     [QUERY_SCRIPT_ALWAYS] = Condition_Always,
     [QUERY_SCRIPT_NEVER] = Condition_Never,
+    [QUERY_SCRIPT_NOT] = Condition_Not,
     [QUERY_SCRIPT_GREATER_THAN] = Condition_GreaterThan,
     [QUERY_SCRIPT_LESS_THAN] = Condition_LessThan,
     [QUERY_SCRIPT_EQUAL_TO] = Condition_EqualTo,
@@ -210,6 +212,11 @@ static void Condition_Always(struct QueryScriptContext* context)
 static void Condition_Never(struct QueryScriptContext* context)
 {
     context->conditionState = FALSE;
+}
+
+static void Condition_Not(struct QueryScriptContext* context)
+{
+    context->conditionState = !context->conditionState;
 }
 
 static void Condition_GreaterThan(struct QueryScriptContext* context)

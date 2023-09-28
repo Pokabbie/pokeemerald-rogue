@@ -139,6 +139,24 @@
                 }
             ]
         },
+        "alola_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "hoenn_boss"
+                }
+            ]
+        },
+        "galar_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "sinnoh_boss"
+                }
+            ]
+        },
 
         "wild_battle":
         {
