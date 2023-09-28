@@ -2707,7 +2707,7 @@
                 "gfx_suffix": "PLACEHOLDER_NPC",
                 "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2732,7 +2732,7 @@
                 "gfx_suffix": "PLACEHOLDER_NPC",
                 "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2757,7 +2757,7 @@
                 "gfx_suffix": "PLACEHOLDER_NPC",
                 "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2782,7 +2782,7 @@
                 "gfx_suffix": "PLACEHOLDER_NPC",
                 "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
