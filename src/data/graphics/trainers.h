@@ -420,6 +420,45 @@ const u32 gTrainerPalette_Sinnoh_Maylene[] = INCBIN_U32("graphics/trainers/front
 const u32 gTrainerPalette_Sinnoh_Roark[] = INCBIN_U32("graphics/trainers/front_pics/sinnoh/roark.gbapal.lz");
 const u32 gTrainerPalette_Sinnoh_Volkner[] = INCBIN_U32("graphics/trainers/front_pics/sinnoh/volkner.gbapal.lz");
 
+const u32 gTrainerFrontPic_Unova_Alder[] = INCBIN_U32("graphics/trainers/front_pics/unova/alder.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Brycen[] = INCBIN_U32("graphics/trainers/front_pics/unova/brycen.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Burgh[] = INCBIN_U32("graphics/trainers/front_pics/unova/burgh.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Caitlin[] = INCBIN_U32("graphics/trainers/front_pics/unova/caitlin.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Chili[] = INCBIN_U32("graphics/trainers/front_pics/unova/chili.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Cilan[] = INCBIN_U32("graphics/trainers/front_pics/unova/cilan.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Clay[] = INCBIN_U32("graphics/trainers/front_pics/unova/clay.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Cress[] = INCBIN_U32("graphics/trainers/front_pics/unova/cress.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Drayden[] = INCBIN_U32("graphics/trainers/front_pics/unova/drayden.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Elesa[] = INCBIN_U32("graphics/trainers/front_pics/unova/elesa.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Grimsley[] = INCBIN_U32("graphics/trainers/front_pics/unova/grimsley.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Iris[] = INCBIN_U32("graphics/trainers/front_pics/unova/iris.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Lenora[] = INCBIN_U32("graphics/trainers/front_pics/unova/lenora.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Marlon[] = INCBIN_U32("graphics/trainers/front_pics/unova/marlon.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Marshal[] = INCBIN_U32("graphics/trainers/front_pics/unova/marshal.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Roxie[] = INCBIN_U32("graphics/trainers/front_pics/unova/roxie.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Shauntal[] = INCBIN_U32("graphics/trainers/front_pics/unova/shauntal.4bpp.lz");
+const u32 gTrainerFrontPic_Unova_Skyla[] = INCBIN_U32("graphics/trainers/front_pics/unova/skyla.4bpp.lz");
+
+const u32 gTrainerPalette_Unova_Alder[] = INCBIN_U32("graphics/trainers/front_pics/unova/alder.gbapal.lz");
+const u32 gTrainerPalette_Unova_Brycen[] = INCBIN_U32("graphics/trainers/front_pics/unova/brycen.gbapal.lz");
+const u32 gTrainerPalette_Unova_Burgh[] = INCBIN_U32("graphics/trainers/front_pics/unova/burgh.gbapal.lz");
+const u32 gTrainerPalette_Unova_Caitlin[] = INCBIN_U32("graphics/trainers/front_pics/unova/caitlin.gbapal.lz");
+const u32 gTrainerPalette_Unova_Chili[] = INCBIN_U32("graphics/trainers/front_pics/unova/chili.gbapal.lz");
+const u32 gTrainerPalette_Unova_Cilan[] = INCBIN_U32("graphics/trainers/front_pics/unova/cilan.gbapal.lz");
+const u32 gTrainerPalette_Unova_Clay[] = INCBIN_U32("graphics/trainers/front_pics/unova/clay.gbapal.lz");
+const u32 gTrainerPalette_Unova_Cress[] = INCBIN_U32("graphics/trainers/front_pics/unova/cress.gbapal.lz");
+const u32 gTrainerPalette_Unova_Drayden[] = INCBIN_U32("graphics/trainers/front_pics/unova/drayden.gbapal.lz");
+const u32 gTrainerPalette_Unova_Elesa[] = INCBIN_U32("graphics/trainers/front_pics/unova/elesa.gbapal.lz");
+const u32 gTrainerPalette_Unova_Grimsley[] = INCBIN_U32("graphics/trainers/front_pics/unova/grimsley.gbapal.lz");
+const u32 gTrainerPalette_Unova_Iris[] = INCBIN_U32("graphics/trainers/front_pics/unova/iris.gbapal.lz");
+const u32 gTrainerPalette_Unova_Lenora[] = INCBIN_U32("graphics/trainers/front_pics/unova/lenora.gbapal.lz");
+const u32 gTrainerPalette_Unova_Marlon[] = INCBIN_U32("graphics/trainers/front_pics/unova/marlon.gbapal.lz");
+const u32 gTrainerPalette_Unova_Marshal[] = INCBIN_U32("graphics/trainers/front_pics/unova/marshal.gbapal.lz");
+const u32 gTrainerPalette_Unova_Roxie[] = INCBIN_U32("graphics/trainers/front_pics/unova/roxie.gbapal.lz");
+const u32 gTrainerPalette_Unova_Shauntal[] = INCBIN_U32("graphics/trainers/front_pics/unova/shauntal.gbapal.lz");
+const u32 gTrainerPalette_Unova_Skyla[] = INCBIN_U32("graphics/trainers/front_pics/unova/skyla.gbapal.lz");
+
+
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
 const u32 gTrainerFrontPic_PokabbieDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_ditto_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Pokabbie[] = INCBIN_U32("graphics/trainers/palettes/pokabbie.gbapal.lz");
