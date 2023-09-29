@@ -99,6 +99,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE",
       "dest_warp_id": 0
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_SAFARI_CAVE",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
