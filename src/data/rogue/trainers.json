@@ -1724,10 +1724,11 @@
         "#ifdef ROGUE_EXPANSION // unova_gyms":
         [
             {
-                "name": "CILAN",
+                "name": "CRESS",
                 "type_assignment": "WATER",
                 "type_group_override": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_CRESS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1757,7 +1758,8 @@
                 "name": "CHILI",
                 "type_assignment": "FIRE",
                 "type_group_override": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_CHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1787,7 +1789,8 @@
                 "name": "CILAN",
                 "type_assignment": "GRASS",
                 "type_group_override": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_CILAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1816,7 +1819,8 @@
             {
                 "name": "LENORA",
                 "type_assignment": "NORMAL",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_LENORA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1845,7 +1849,8 @@
             {
                 "name": "BURGH",
                 "type_assignment": "BUG",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_BURGH",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1874,7 +1879,8 @@
             {
                 "name": "ELESA",
                 "type_assignment": "ELECTRIC",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_ELESA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1903,7 +1909,8 @@
             {
                 "name": "CLAY",
                 "type_assignment": "GROUND",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_CLAY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1932,7 +1939,8 @@
             {
                 "name": "SKYLA",
                 "type_assignment": "FLYING",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_SKYLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1962,7 +1970,8 @@
             {
                 "name": "BRYCEN",
                 "type_assignment": "ICE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_BRYCEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -1992,7 +2001,8 @@
             {
                 "name": "DRAYDEN",
                 "type_assignment": "DRAGON",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_DRAYDEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -2021,7 +2031,8 @@
             {
                 "name": "ROXIE",
                 "type_assignment": "POISON",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_ROXIE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -2050,7 +2061,8 @@
             {
                 "name": "MARLON",
                 "type_assignment": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_MARLON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
@@ -2079,7 +2091,8 @@
             {
                 "name": "SHAUNTAL",
                 "type_assignment": "GHOST",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_SHAUNTAL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
@@ -2105,7 +2118,8 @@
             {
                 "name": "MARSHAL",
                 "type_assignment": "FIGHTING",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_MARSHAL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
@@ -2130,7 +2144,8 @@
             {
                 "name": "GRIMSLEY",
                 "type_assignment": "DARK",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_GRIMSLEY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
@@ -2160,7 +2175,8 @@
             {
                 "name": "CAITLIN",
                 "type_assignment": "PSYCHIC",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_CAITLIN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
@@ -2189,7 +2205,8 @@
             {
                 "name": "ALDER",
                 "type_assignment": "NONE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_ALDER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
@@ -2213,7 +2230,8 @@
             {
                 "name": "IRIS",
                 "type_assignment": "DRAGON",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "object_event": "OBJ_EVENT_GFX_PLACEHOLDER_NPC",
+                "trainer_pic": "TRAINER_PIC_UNOVA_IRIS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],

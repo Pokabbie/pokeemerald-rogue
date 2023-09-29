@@ -923,43 +923,10 @@ $(OBJEVENTGFXDIR)/rogue/route/steel.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/route/water.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/aaron.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/*.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/bertha.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/byron.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/crasher_wake.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/cynthia.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/fantina.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/flint.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/gardenia.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/lucian.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/roark.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/volkner.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/candice.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
-
-$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/maylene.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/unova/*.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/npc/misc/aroma_girl.4bpp: %.4bpp: %.png
