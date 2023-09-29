@@ -437,7 +437,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         // In rainbow mode, the type can only appear once though
         if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
         {
-            switch(gRogueRun.currentDifficulty)
+            switch(difficulty)
             {
                 case ROGUE_ELITE_START_DIFFICULTY:
                 case ROGUE_CHAMP_START_DIFFICULTY:
