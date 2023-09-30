@@ -1535,6 +1535,10 @@ void Rogue_OnNewGame(void)
 {
     RogueSave_ClearData();
 
+    gSaveBlock1Ptr->bagSortMode = ITEM_SORT_MODE_TYPE;
+    gSaveBlock1Ptr->bagCapacityUpgrades = 0;
+    gSaveBlock1Ptr->bagAmountUpgrades = 0;
+
     RoguePlayer_SetNewGameOutfit();
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
 
@@ -3542,6 +3546,42 @@ void Rogue_OnItemUse(u16 itemId)
     //if (gMain.inBattle)
     //{
     //}
+}
+
+u16 Rogue_GetBagCapacity()
+{
+    if(gSaveBlock1Ptr->bagCapacityUpgrades >= ITEM_BAG_MAX_CAPACITY_UPGRADE)
+        return BAG_ITEM_CAPACITY;
+    else
+    {
+        u16 slotCount = BAG_ITEM_RESERVED_SLOTS + 50 + gSaveBlock1Ptr->bagCapacityUpgrades * 15;
+        return min(slotCount, BAG_ITEM_CAPACITY);
+    }
+}
+
+u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
+{
+    if(gSaveBlock1Ptr->bagAmountUpgrades >= ITEM_BAG_MAX_AMOUNT_UPGRADE)
+        return MAX_BAG_ITEM_CAPACITY;
+
+    switch(pocket)
+    {
+        case KEYITEMS_POCKET:
+        case CHARMS_POCKET:
+            return MAX_BAG_ITEM_CAPACITY;
+
+        case TMHM_POCKET:
+        case HELD_ITEMS_POCKET:
+        case STONES_POCKET:
+            return 1 + gSaveBlock1Ptr->bagAmountUpgrades;
+
+        case BERRIES_POCKET:
+        case BALLS_POCKET:
+            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 10;
+
+        default:
+            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 5;
+    }
 }
 
 void Rogue_PreBattleSetup(void)

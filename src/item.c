@@ -19,6 +19,7 @@
 #include "party_menu.h"
 
 #include "rogue.h"
+#include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_baked.h"
 #include "rogue_quest.h"
@@ -149,8 +150,7 @@ u16 GetBagUnreservedFreeSlots()
 
 u16 GetBagUnreservedTotalSlots()
 {
-    // TODO - Adjust bag slots when in adventure
-    return BAG_ITEM_CAPACITY - BAG_ITEM_RESERVED_SLOTS;
+    return Rogue_GetBagCapacity() - BAG_ITEM_RESERVED_SLOTS;
 }
 
 u16 GetBagReservedFreeSlots()
@@ -173,7 +173,7 @@ u16 GetBagReservedTotalSlots()
     return BAG_ITEM_RESERVED_SLOTS;
 }
 
-void CompactBagItems(void)
+void RemoveEmptyBagItems(void)
 {
     u16 i;
     u16 j;
@@ -191,6 +191,57 @@ void CompactBagItems(void)
         }
     }
 
+    UpdateBagItemsPointers();
+}
+
+void ShrinkBagItems(void)
+{
+    bool8 repeat;
+    u16 i;
+    u16 j;
+    u8 pocket;
+    u16 quantityCapacity;
+    u16 quantityA;
+    u16 quantityB;
+
+    // This code is pretty gross, but works so..... *shrug*
+    // It just shrinks everything down into more managable stacks
+    do
+    {
+        repeat = FALSE;
+        RemoveEmptyBagItems();
+
+        for (i = 1; i < BAG_ITEM_CAPACITY; i++)
+        {
+            // If the items are the same, attempt to shrink
+            if(gSaveBlock1Ptr->bagPockets[i].itemId != ITEM_NONE && gSaveBlock1Ptr->bagPockets[i - 1].itemId == gSaveBlock1Ptr->bagPockets[i].itemId)
+            {
+                quantityA = GetBagItemQuantity(&gSaveBlock1Ptr->bagPockets[i - 1].quantity);
+                quantityB = GetBagItemQuantity(&gSaveBlock1Ptr->bagPockets[i].quantity);
+
+                pocket = ItemId_GetPocket(gSaveBlock1Ptr->bagPockets[i].itemId) - 1;
+                quantityCapacity = Rogue_GetBagPocketAmountPerItem(pocket);
+
+                while(quantityA < quantityCapacity && quantityB > 0)
+                {
+                    --quantityB;
+                    ++quantityA;
+                }
+
+                SetBagItemQuantity(&gSaveBlock1Ptr->bagPockets[i - 1].quantity, quantityA);
+                SetBagItemQuantity(&gSaveBlock1Ptr->bagPockets[i].quantity, quantityB);
+
+                if(quantityB == 0)
+                {
+                    gSaveBlock1Ptr->bagPockets[i].itemId = ITEM_NONE;
+                    repeat = TRUE; // Have to repeat to see if can fill this empty space
+                }
+            }
+        }
+    }
+    while(repeat == TRUE);
+
+    RemoveEmptyBagItems();
     UpdateBagItemsPointers();
 }
 
@@ -342,28 +393,25 @@ bool8 HasAtLeastOneBerry(void)
     return FALSE;
 }
 
-static u16 GetBagFreeSlotCount()
-{
-    u8 i;
-    u16 count = 0;
-
-    for(i = 0; i < POCKETS_COUNT; ++i)
-    {
-        count += gBagPockets[i].capacity;
-    }
-
-    return BAG_ITEM_CAPACITY - count;
-}
-
 bool8 CheckBagHasSpace(u16 itemId, u16 count)
 {
     u8 i;
+    u8 itemPocket;
     u16 freeSlots;
 
-    if (ItemId_GetPocket(itemId) == POCKET_NONE)
+    itemPocket = ItemId_GetPocket(itemId);
+
+    if (itemPocket == POCKET_NONE)
         return FALSE;
 
-    freeSlots = GetBagFreeSlotCount();
+    if(ItemPocketUsesReservedSlots(itemPocket))
+    {
+        freeSlots = GetBagReservedFreeSlots();
+    }
+    else
+    {
+        freeSlots = GetBagUnreservedFreeSlots();
+    }
 
     if(freeSlots > 0)
         // If we have free slots, we definately have space
@@ -375,11 +423,8 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
         u16 slotCapacity;
         u16 ownedCount;
 
-        pocket = ItemId_GetPocket(itemId) - 1;
-        if (pocket != BERRIES_POCKET)
-            slotCapacity = MAX_BAG_ITEM_CAPACITY;
-        else
-            slotCapacity = MAX_BERRY_CAPACITY;
+        pocket = itemPocket - 1;
+        slotCapacity = Rogue_GetBagPocketAmountPerItem(pocket);
 
         // Check space in any existing item slots that already contain this item
         for (i = 0; i < gBagPockets[pocket].capacity; ++i)
@@ -572,10 +617,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
         u16 itemCount;
 
         pocket = itemPocket - 1;
-        if (pocket != BERRIES_POCKET)
-            slotCapacity = MAX_BAG_ITEM_CAPACITY;
-        else
-            slotCapacity = MAX_BERRY_CAPACITY;
+        slotCapacity = Rogue_GetBagPocketAmountPerItem(pocket);
 
         for (i = 0; i < gBagPockets[pocket].capacity; ++i)
         {
@@ -586,7 +628,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                 // Slot has free space
                 if(itemCount < slotCapacity)
                 {
-                    if(itemCount + count < slotCapacity)
+                    if(itemCount + count <= slotCapacity)
                     {
                         // Can fit entirely into this slot
                         itemCount += count;
@@ -706,7 +748,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
             if (count == 0)
             {
-                CompactBagItems();
+                RemoveEmptyBagItems();
 
                 QuestNotify_OnRemoveBagItem(itemId, count);
 
@@ -738,7 +780,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
                 if (count == 0)
                 {
-                    CompactBagItems();
+                    RemoveEmptyBagItems();
 
                     QuestNotify_OnRemoveBagItem(itemId, count);
 
@@ -750,7 +792,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
             }
         }
 
-        CompactBagItems();
+        RemoveEmptyBagItems();
 
         QuestNotify_OnRemoveBagItem(itemId, count);
         
@@ -902,17 +944,6 @@ void CompactPCItems(void)
 
 void SwapRegisteredBike(void)
 {
-    s32 index;
-    if ((index = RegisteredItemIndex(ITEM_ACRO_BIKE)) >= 0)
-    {
-        gSaveBlock1Ptr->registeredItems[index] = ITEM_MACH_BIKE;
-        gSaveBlock1Ptr->registeredItemCompat = ITEM_MACH_BIKE;
-    }
-    else if ((index = RegisteredItemIndex(ITEM_MACH_BIKE)) >= 0)
-    {
-        gSaveBlock1Ptr->registeredItems[index] = ITEM_ACRO_BIKE;
-        gSaveBlock1Ptr->registeredItemCompat = ITEM_ACRO_BIKE;
-    }
 }
 
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 pocketPos)
@@ -949,6 +980,8 @@ void SortItemsInBag()
 {
     u16 i, j;
     bool8 anySorts;
+
+    ShrinkBagItems();
 
     for(j = 0; j < BAG_ITEM_CAPACITY; ++j)
     {

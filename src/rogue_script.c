@@ -906,3 +906,50 @@ void Rogue_SetTimeAndSeason()
         gSpecialVar_Result = FALSE;
     }
 }
+
+void Popup_CannotTakeItem()
+{
+    u16 itemId = gSpecialVar_0x8004;
+    u16 quantity = gSpecialVar_0x8005;
+
+    Rogue_PushPopup_CannotTakeItem(itemId, quantity);
+}
+
+u16 Rogue_GetBagCapacityUpgradeLevel()
+{
+    return gSaveBlock1Ptr->bagCapacityUpgrades;
+}
+
+void Rogue_IncreaseBagCapacityUpgradeLevel()
+{
+    gSpecialVar_Result = FALSE;
+
+    if(gSaveBlock1Ptr->bagCapacityUpgrades < ITEM_BAG_MAX_CAPACITY_UPGRADE)
+    {
+        ++gSaveBlock1Ptr->bagCapacityUpgrades;
+        gSpecialVar_Result = TRUE;
+        ShrinkBagItems();
+    }
+}
+
+u16 Rogue_GetBagAmountUpgradeLevel()
+{
+    return gSaveBlock1Ptr->bagAmountUpgrades;
+}
+
+void Rogue_IncreaseBagAmountUpgradeLevel()
+{
+    gSpecialVar_Result = FALSE;
+
+    if(gSaveBlock1Ptr->bagAmountUpgrades < ITEM_BAG_MAX_AMOUNT_UPGRADE)
+    {
+        ++gSaveBlock1Ptr->bagAmountUpgrades;
+        gSpecialVar_Result = TRUE;
+        ShrinkBagItems();
+    }
+}
+
+u16 Rogue_GetBagUpgradeCost()
+{
+    return min(gSaveBlock1Ptr->bagAmountUpgrades, gSaveBlock1Ptr->bagCapacityUpgrades);
+}

@@ -68,7 +68,8 @@ u16 GetBagUnreservedTotalSlots();
 u16 GetBagReservedFreeSlots();
 u16 GetBagReservedTotalSlots();
 
-void CompactBagItems(void);
+void RemoveEmptyBagItems(void);
+void ShrinkBagItems(void);
 void CopyItemName(u16 itemId, u8 *dst);
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity);
 void GetBerryCountString(u8 *dst, const u8 *berryName, u32 quantity);

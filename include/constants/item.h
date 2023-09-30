@@ -43,7 +43,6 @@
 // These pockets aren't actually in used, but need to be defined, to avoid compilation error
 #define POCKET_STONES      24
 
-
 #define ITEMS_POCKET       0
 #define HELD_ITEMS_POCKET  1
 #define MEDICINE_POCKET    2
@@ -54,5 +53,8 @@
 #define KEYITEMS_POCKET    7
 #define POCKETS_COUNT      8
 #endif
+
+// These pockets aren't actually in used, but need to be defined, to avoid compilation error
+#define STONES_POCKET     23
 
 #endif // GUARD_ITEM_CONSTANTS_H

@@ -1327,6 +1327,8 @@ void ObjectEventInteractionPickBerryTree(void)
 
     if(gSpecialVar_0x8004 == TRUE)
         Rogue_PushPopup_AddBerry(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+    else
+        Rogue_PushPopup_CannotTakeItem(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
 }
 
 void ObjectEventInteractionRemoveBerryTree(void)
