@@ -92,6 +92,10 @@ enum {
     ACTION_SHOW,
     ACTION_GIVE_FAVOR_LADY,
     ACTION_CONFIRM_QUIZ_LADY,
+    ACTION_SORT_TYPE,
+    ACTION_SORT_NAME,
+    ACTION_SORT_VALUE,
+    ACTION_SORT_AMOUNT,
     ACTION_DUMMY,
 };
 
@@ -197,11 +201,16 @@ static void ItemMenu_CheckTag(u8);
 static void ItemMenu_Show(u8);
 static void ItemMenu_GiveFavorLady(u8);
 static void ItemMenu_ConfirmQuizLady(u8);
+static void ItemMenu_SortByName(u8);
+static void ItemMenu_SortByType(u8);
+static void ItemMenu_SortByValue(u8);
+static void ItemMenu_SortByAmount(u8);
 static void Task_ItemContext_Normal(u8);
 static void Task_ItemContext_GiveToParty(u8);
 static void Task_ItemContext_Sell(u8);
 static void Task_ItemContext_Deposit(u8);
 static void Task_ItemContext_GiveToPC(u8);
+static void Task_ItemContext_Sort(u8);
 static void ConfirmToss(u8);
 static void CancelToss(u8);
 static void ConfirmSell(u8);
@@ -278,6 +287,10 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_SHOW]              = {gMenuText_Show,     ItemMenu_Show},
     [ACTION_GIVE_FAVOR_LADY]   = {gMenuText_Give2,    ItemMenu_GiveFavorLady},
     [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,  ItemMenu_ConfirmQuizLady},
+    [ACTION_SORT_TYPE]         = {gMenuText_SortType,   ItemMenu_SortByType},
+    [ACTION_SORT_NAME]         = {gMenuText_SortName,   ItemMenu_SortByName},
+    [ACTION_SORT_VALUE]        = {gMenuText_SortValue,  ItemMenu_SortByValue},
+    [ACTION_SORT_AMOUNT]       = {gMenuText_SortAmount, ItemMenu_SortByAmount},
     [ACTION_DUMMY]             = {gText_EmptyString2, NULL}
 };
 
@@ -336,6 +349,12 @@ static const u8 sContextMenuItems_FavorLady[] = {
 
 static const u8 sContextMenuItems_QuizLady[] = {
     ACTION_CONFIRM_QUIZ_LADY, ACTION_CANCEL
+};
+
+static const u8 sContextMenuItems_Sort[] = {
+    ACTION_SORT_TYPE,       ACTION_SORT_NAME,
+    ACTION_SORT_VALUE,      ACTION_SORT_AMOUNT,
+    ACTION_CANCEL,          ACTION_DUMMY
 };
 
 static const TaskFunc sContextMenuFuncs[] = {
@@ -717,6 +736,7 @@ EWRAM_DATA struct BagPosition gBagPosition = {0};
 static EWRAM_DATA struct ListBuffer1 *sListBuffer1 = 0;
 static EWRAM_DATA struct ListBuffer2 *sListBuffer2 = 0;
 EWRAM_DATA u16 gSpecialVar_ItemId = 0;
+static EWRAM_DATA bool8 sTempDisableDescriptionPrint = FALSE; // HACK
 // used to hold the palette for the 4th (clockwise) item in the key item wheel
 // so it can be scanline-copied into place
 // This could be 12 bytes smaller if we used AllocZeroed,
@@ -1197,20 +1217,35 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
 
 static void PrintItemDescription(int itemIndex)
 {
-    const u8 *str;
-    if (itemIndex != LIST_CANCEL)
+    if(sTempDisableDescriptionPrint)
+        return;
+
+    if(gBagPosition.pocket == TMHM_POCKET)
     {
-        str = ItemId_GetDescription(BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, itemIndex));
+        // Print move info by default (Better UX for TRs)
+        ClearWindowTilemap(WIN_DESCRIPTION);
+        PrintTMHMMoveData(BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, itemIndex));
+        PutWindowTilemap(WIN_TMHM_INFO_ICONS);
+        PutWindowTilemap(WIN_TMHM_INFO);
+        ScheduleBgCopyTilemapToVram(0);
     }
     else
     {
-        // Print 'Cancel' description
-        StringCopy(gStringVar1, gBagMenu_ReturnToStrings[gBagPosition.location]);
-        StringExpandPlaceholders(gStringVar4, gText_ReturnToVar1);
-        str = gStringVar4;
+        const u8 *str;
+        if (itemIndex != LIST_CANCEL)
+        {
+            str = ItemId_GetDescription(BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, itemIndex));
+        }
+        else
+        {
+            // Print 'Cancel' description
+            StringCopy(gStringVar1, gBagMenu_ReturnToStrings[gBagPosition.location]);
+            StringExpandPlaceholders(gStringVar4, gText_ReturnToVar1);
+            str = gStringVar4;
+        }
+        FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
     }
-    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
 }
 
 static void PrintBagCapacity()
@@ -1458,15 +1493,9 @@ static void Task_BagMenu_HandleInput(u8 taskId)
         default:
             if (JOY_NEW(SELECT_BUTTON))
             {
-                if (CanSwapItems() == TRUE)
-                {
-                    ListMenuGetScrollAndRow(tListTaskId, scrollPos, cursorPos);
-                    if ((*scrollPos + *cursorPos) != gBagMenu->numItemStacks[gBagPosition.pocket] - 1)
-                    {
-                        PlaySE(SE_SELECT);
-                        StartItemSwap(taskId);
-                    }
-                }
+                PlaySE(SE_SELECT);
+                BagDestroyPocketScrollArrowPair();
+                Task_ItemContext_Sort(taskId);
                 return;
             }
             break;
@@ -1513,9 +1542,20 @@ static void ReturnToItemList(u8 taskId)
 {
     CreatePocketScrollArrowPair();
     CreatePocketSwitchArrowPair();
-    ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
-    ClearWindowTilemap(WIN_TMHM_INFO);
-    PutWindowTilemap(WIN_DESCRIPTION);
+    
+    if(gBagPosition.pocket == TMHM_POCKET)
+    {
+        ClearWindowTilemap(WIN_DESCRIPTION);
+        PutWindowTilemap(WIN_TMHM_INFO_ICONS);
+        PutWindowTilemap(WIN_TMHM_INFO);
+    }
+    else
+    {
+        ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
+        ClearWindowTilemap(WIN_TMHM_INFO);
+        PutWindowTilemap(WIN_DESCRIPTION);
+    }
+
     PutWindowTilemap(WIN_BAG_CAPACITY);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_BagMenu_HandleInput;
@@ -1649,9 +1689,19 @@ static void Task_SwitchBagPocket(u8 taskId)
         ChangeBagPocketId(&gBagPosition.pocket, tPocketSwitchDir);
         LoadBagItemListBuffers(gBagPosition.pocket);
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
-        PutWindowTilemap(WIN_DESCRIPTION);
         PutWindowTilemap(WIN_BAG_CAPACITY);
         PutWindowTilemap(WIN_POCKET_NAME);
+
+        if(gBagPosition.pocket == TMHM_POCKET)
+        {
+            PutWindowTilemap(WIN_TMHM_INFO_ICONS);
+            PutWindowTilemap(WIN_TMHM_INFO);
+        }
+        else
+        {
+            PutWindowTilemap(WIN_DESCRIPTION);
+        }
+
         ScheduleBgCopyTilemapToVram(0);
         CreatePocketScrollArrowPair();
         CreatePocketSwitchArrowPair();
@@ -1802,7 +1852,7 @@ static void CancelItemSwap(u8 taskId)
     gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
 
-static void OpenContextMenu(u8 taskId)
+static void OpenContextMenu(u8 taskId, bool8 forSorting)
 {
     switch (gBagPosition.location)
     {
@@ -1877,8 +1927,14 @@ static void OpenContextMenu(u8 taskId)
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Give);
             }
         }
+        else if(forSorting)
+        {
+            gBagMenu->contextMenuItemsPtr = sContextMenuItems_Sort;
+            gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Sort);
+        }
         else
         {
+            
             switch (gBagPosition.pocket)
             {
             case KEYITEMS_POCKET:
@@ -1920,7 +1976,17 @@ static void OpenContextMenu(u8 taskId)
             }
         }
     }
-    if (gBagPosition.pocket == TMHM_POCKET)
+
+    if(forSorting)
+    {
+        ClearWindowTilemap(WIN_TMHM_INFO_ICONS);
+        ClearWindowTilemap(WIN_TMHM_INFO);
+        FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gText_SortedByWhat, 3, 1, 0, 0, 0, COLORID_NORMAL);
+        PutWindowTilemap(WIN_DESCRIPTION);
+        ScheduleBgCopyTilemapToVram(0);
+    }
+    else if (gBagPosition.pocket == TMHM_POCKET)
     {
         ClearWindowTilemap(WIN_DESCRIPTION);
         PrintTMHMMoveData(gSpecialVar_ItemId);
@@ -1935,6 +2001,7 @@ static void OpenContextMenu(u8 taskId)
         FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
         BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
     }
+
     if (gBagMenu->contextMenuNumItems == 1)
         PrintContextMenuItems(BagMenu_AddWindow(ITEMWIN_1x1));
     else if (gBagMenu->contextMenuNumItems == 2)
@@ -1959,7 +2026,19 @@ static void PrintContextMenuItemGrid(u8 windowId, u8 columns, u8 rows)
 
 static void Task_ItemContext_Normal(u8 taskId)
 {
-    OpenContextMenu(taskId);
+    OpenContextMenu(taskId, FALSE);
+
+    // Context menu width is never greater than 2 columns, so if
+    // there are more than 2 items then there are multiple rows
+    if (gBagMenu->contextMenuNumItems <= 2)
+        gTasks[taskId].func = Task_ItemContext_SingleRow;
+    else
+        gTasks[taskId].func = Task_ItemContext_MultipleRows;
+}
+
+static void Task_ItemContext_Sort(u8 taskId)
+{
+    OpenContextMenu(taskId, TRUE);
 
     // Context menu width is never greater than 2 columns, so if
     // there are more than 2 items then there are multiple rows
@@ -2837,7 +2916,7 @@ static void Task_WallyTutorialBagMenu(u8 taskId)
             PlaySE(SE_SELECT);
             BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
             gSpecialVar_ItemId = ITEM_POKE_BALL;
-            OpenContextMenu(taskId);
+            OpenContextMenu(taskId, FALSE);
             tTimer++;
             break;
         case WALLY_BAG_DELAY * 3:
@@ -2893,6 +2972,89 @@ static void ItemMenu_ConfirmQuizLady(u8 taskId)
     gSpecialVar_Result = TRUE;
     RemoveContextWindow();
     Task_FadeAndCloseBagMenu(taskId);
+}
+
+static void SortBagBy(u8 taskId, u8 sortMode)
+{
+    s16* data = gTasks[taskId].data;
+
+    //PlaySE(SE_SELECT);
+    gSaveBlock1Ptr->bagSortMode = sortMode;
+
+    SortItemsInBag();
+
+    // Hack to stop description box from flashing when sorting
+    sTempDisableDescriptionPrint = TRUE;
+
+    // Redraw list
+    {
+        ClearWindowTilemap(WIN_ITEM_LIST);
+        //ClearWindowTilemap(WIN_DESCRIPTION);
+        DestroyListMenuTask(tListTaskId, &gBagPosition.scrollPosition[gBagPosition.pocket], &gBagPosition.cursorPosition[gBagPosition.pocket]);
+
+        LoadBagItemListBuffers(gBagPosition.pocket);
+        tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
+        //PutWindowTilemap(WIN_DESCRIPTION);
+        //PutWindowTilemap(WIN_BAG_CAPACITY);
+        //PutWindowTilemap(WIN_POCKET_NAME);
+        ScheduleBgCopyTilemapToVram(0);
+    }
+
+    sTempDisableDescriptionPrint = FALSE;
+
+    // Print "sorted by" text
+    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+
+    switch (gSaveBlock1Ptr->bagSortMode)
+    {
+    case ITEM_SORT_MODE_TYPE:
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gText_SortedByType, 3, 1, 0, 0, 0, COLORID_NORMAL);
+        break;
+
+    case ITEM_SORT_MODE_NAME:
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gText_SortedByName, 3, 1, 0, 0, 0, COLORID_NORMAL); 
+        break;
+
+    case ITEM_SORT_MODE_VALUE:
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gText_SortedByValue, 3, 1, 0, 0, 0, COLORID_NORMAL);
+        break;
+
+    case ITEM_SORT_MODE_AMOUNT:
+        BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gText_SortedByAmount, 3, 1, 0, 0, 0, COLORID_NORMAL);
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    // Now cancel out and return
+    RemoveContextWindow();
+    //PrintItemDescription(tListPosition);
+    ScheduleBgCopyTilemapToVram(0);
+    ScheduleBgCopyTilemapToVram(1);
+    BagMenu_PrintCursor(tListTaskId, COLORID_NORMAL);
+    ReturnToItemList(taskId);
+}
+
+static void ItemMenu_SortByName(u8 taskId)
+{
+    SortBagBy(taskId, ITEM_SORT_MODE_NAME);
+}
+
+static void ItemMenu_SortByType(u8 taskId)
+{
+    SortBagBy(taskId, ITEM_SORT_MODE_TYPE);
+}
+
+static void ItemMenu_SortByValue(u8 taskId)
+{
+    SortBagBy(taskId, ITEM_SORT_MODE_VALUE);
+}
+
+static void ItemMenu_SortByAmount(u8 taskId)
+{
+    SortBagBy(taskId, ITEM_SORT_MODE_AMOUNT);
 }
 
 static void CB2_QuizLadyExitBagMenu(void)
@@ -2959,6 +3121,9 @@ static void LoadBagMenuTextWindows(void)
 
 static void BagMenu_Print(u8 windowId, u8 fontId, const u8 *str, u8 left, u8 top, u8 letterSpacing, u8 lineSpacing, u8 speed, u8 colorIndex)
 {
+    //if(windowId == WIN_DESCRIPTION && sTempDisableDescriptionPrint)
+    //    return;
+
     AddTextPrinterParameterized4(windowId, fontId, left, top, letterSpacing, lineSpacing, sFontColorTable[colorIndex], speed, str);
 }
 

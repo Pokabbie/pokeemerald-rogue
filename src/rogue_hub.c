@@ -637,6 +637,13 @@ static void RogueHub_UpdateSafariAreaMetatiles()
     {
         MetatileFill_CommonWarpExitHorizontal(0, 13);
     }
+
+    // Open cave
+    if(RogueHub_HasUpgrade(HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE))
+    {
+        MetatileSet_Tile(18, 4, METATILE_Fallarbor_BrownCaveEntrance_Top);
+        MetatileSet_Tile(18, 5, METATILE_Fallarbor_BrownCaveEntrance_Bottom);
+    }
 }
 
 static void RogueHub_UpdateRideTrainingAreaMetatiles()

@@ -38,6 +38,7 @@
 #define MAP_ROGUE_AREA_ADVENTURE_ENTRANCE   (5 | (2 << 8))
 #define MAP_ROGUE_AREA_SAFARI_ZONE          (6 | (2 << 8))
 #define MAP_ROGUE_AREA_RIDE_TRAINING        (7 | (2 << 8))
+#define MAP_ROGUE_AREA_MARTS                (8 | (2 << 8))
 
 // gMapGroup_RogueHubInteriors
 #define MAP_ROGUE_INTERIOR_HOME         (0 | (3 << 8))
@@ -45,6 +46,7 @@
 #define MAP_ROGUE_INTERIOR_PROF_LAB     (2 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_CONFIG_LAB   (3 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_POKE_CONNECT (4 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_SAFARI_CAVE  (5 | (3 << 8))
 
 // gMapGroup_RogueHubTesting
 #define MAP_ROGUE_TILE_TEST1              (0 | (4 << 8))

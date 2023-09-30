@@ -97,6 +97,12 @@
 
 #define LAST_ITEM_CURSE                 (ITEM_ENDURE_CURSE)
 
+#define ITEM_SORT_MODE_TYPE         0
+#define ITEM_SORT_MODE_NAME         1
+#define ITEM_SORT_MODE_VALUE        2
+#define ITEM_SORT_MODE_AMOUNT       3
+#define ITEM_SORT_MODE_COUNT        4
+
 
 // Routes
 //

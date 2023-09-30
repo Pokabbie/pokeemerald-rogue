@@ -1650,6 +1650,26 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Area_RideTraining/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_RideTraining/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE",
+      "name": "Rogue_Interior_SafariCave_Layout",
+      "width": 22,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Interior_SafariCave/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_SafariCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_MARTS",
+      "name": "Rogue_Area_Marts_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Area_Marts/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_Marts/map.bin"
     }
   ]
 }

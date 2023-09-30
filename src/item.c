@@ -418,15 +418,24 @@ static u16 GetPokeballSortScore(struct Item* item)
     }
 }
 
-static bool8 SortItem(struct ItemSlot slotA, struct ItemSlot slotB)
+static u16 GetBerrySortScore(struct Item* item)
 {
+    return ItemIdToBerryType(item->itemId);
+}
+
+static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
+{
+    u16 quantityA = GetBagItemQuantity(&slotA.quantity);
+    u16 quantityB = GetBagItemQuantity(&slotB.quantity);
+
     if(slotA.itemId == slotB.itemId)
     {
         // Store largest stack first
-        return GetBagItemQuantity(&slotA.quantity) > GetBagItemQuantity(&slotB.quantity);
+        return quantityA > quantityB;
     }
     else
     {
+        s32 sortScore;
         struct Item itemA;
         struct Item itemB;
         Rogue_ModifyItem(slotA.itemId, &itemA);
@@ -438,11 +447,71 @@ static bool8 SortItem(struct ItemSlot slotA, struct ItemSlot slotB)
             return itemA.pocket < itemB.pocket;
         }
 
-        // For poke balls pocket, custom sort
+        // Apply sort mode
+        switch (gSaveBlock1Ptr->bagSortMode)
+        {
+        case ITEM_SORT_MODE_TYPE:
+            // Fallback to subsort below
+            break;
+
+        case ITEM_SORT_MODE_NAME:
+            if(itemA.pocket == POCKET_TM_HM)
+                sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(slotA.itemId)], gMoveNames[ItemIdToBattleMoveId(slotB.itemId)], MOVE_NAME_LENGTH);
+            else
+                sortScore = StringCompareN(ItemId_GetName(slotA.itemId), ItemId_GetName(slotB.itemId), ITEM_NAME_LENGTH);
+
+            if(sortScore != 0)
+                return sortScore < 0;
+            break;
+
+        case ITEM_SORT_MODE_VALUE:
+            if(itemA.price != itemB.price)
+                return itemA.price > itemB.price;
+            break;
+
+        case ITEM_SORT_MODE_AMOUNT:
+            if(quantityA != quantityB)
+                return quantityA > quantityB;
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+
+        // For poke balls & berries pocket, custom sort
         if(itemA.pocket == POCKET_POKE_BALLS)
         {
             return GetPokeballSortScore(&itemA) < GetPokeballSortScore(&itemB);
         }
+        if(itemA.pocket == POCKET_BERRIES)
+        {
+            return GetBerrySortScore(&itemA) < GetBerrySortScore(&itemB);
+        }
+
+        // For TMs sort by move type, power, pp etc.
+        if(itemA.pocket == POCKET_TM_HM)
+        {
+            u16 moveA = ItemIdToBattleMoveId(slotA.itemId);
+            u16 moveB = ItemIdToBattleMoveId(slotB.itemId);
+
+            // Sort by type
+            if(gBattleMoves[moveA].type != gBattleMoves[moveB].type)
+                return gBattleMoves[moveA].type < gBattleMoves[moveB].type;
+
+            // Sort by power
+            if(gBattleMoves[moveA].power != gBattleMoves[moveB].power)
+                return gBattleMoves[moveA].power > gBattleMoves[moveB].power;
+
+            // Now fallback to alphabetical sort
+            sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(slotA.itemId)], gMoveNames[ItemIdToBattleMoveId(slotB.itemId)], MOVE_NAME_LENGTH);
+
+            if(sortScore != 0)
+                return sortScore < 0;
+        }
+
+        // Fallback sub-sort so we have a consistent result
+        //
 
         // Within the pocket attempt to sort items
         {
@@ -569,7 +638,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                 return TRUE;
             }
-            else if(SortItem(currItemSlot, gSaveBlock1Ptr->bagPockets[i]))
+            else if(SortItemPlaceBefore(currItemSlot, gSaveBlock1Ptr->bagPockets[i]))
             {
                 // Swap, as currItemSlot should be infront
                 tempSlot = gSaveBlock1Ptr->bagPockets[i];
@@ -876,24 +945,53 @@ void CompactItemsInBagPocket(struct BagPocket *bagPocket)
     }
 }
 
-void SortBerriesOrTMHMs(struct BagPocket *bagPocket)
+void SortItemsInBag()
 {
     u16 i, j;
+    bool8 anySorts;
 
-    for (i = 0; i < bagPocket->capacity - 1; i++)
+    for(j = 0; j < BAG_ITEM_CAPACITY; ++j)
     {
-        for (j = i + 1; j < bagPocket->capacity; j++)
+        anySorts = FALSE;
+
+        for(i = 1; i < BAG_ITEM_CAPACITY - j; ++i)
         {
-            if (GetBagItemQuantity(&bagPocket->itemSlots[i].quantity) != 0)
+            // Reached the end
+            if(gSaveBlock1Ptr->bagPockets[i].itemId == ITEM_NONE)
+                break;
+
+            if(!SortItemPlaceBefore(gSaveBlock1Ptr->bagPockets[i - 1], gSaveBlock1Ptr->bagPockets[i]))
             {
-                if (GetBagItemQuantity(&bagPocket->itemSlots[j].quantity) == 0)
-                    continue;
-                if (bagPocket->itemSlots[i].itemId <= bagPocket->itemSlots[j].itemId)
-                    continue;
+                SwapItemSlots(&gSaveBlock1Ptr->bagPockets[i - 1], &gSaveBlock1Ptr->bagPockets[i]);
+                anySorts = TRUE;
             }
-            SwapItemSlots(&bagPocket->itemSlots[i], &bagPocket->itemSlots[j]);
         }
+
+        if(!anySorts)
+            break;
     }
+}
+
+void SortBerriesOrTMHMs(struct BagPocket *bagPocket)
+{
+    // We shouldn't do this?
+
+    //u16 i, j;
+//
+    //for (i = 0; i < bagPocket->capacity - 1; i++)
+    //{
+    //    for (j = i + 1; j < bagPocket->capacity; j++)
+    //    {
+    //        if (GetBagItemQuantity(&bagPocket->itemSlots[i].quantity) != 0)
+    //        {
+    //            if (GetBagItemQuantity(&bagPocket->itemSlots[j].quantity) == 0)
+    //                continue;
+    //            if (bagPocket->itemSlots[i].itemId <= bagPocket->itemSlots[j].itemId)
+    //                continue;
+    //        }
+    //        SwapItemSlots(&bagPocket->itemSlots[i], &bagPocket->itemSlots[j]);
+    //    }
+    //}
 }
 
 void MoveItemSlotInList(struct ItemSlot* itemSlots_, u32 from, u32 to_)

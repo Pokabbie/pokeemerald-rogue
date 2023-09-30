@@ -42,14 +42,16 @@
     "Rogue_Area_FarmingField",
     "Rogue_Area_AdventureEntrance",
     "Rogue_Area_SafariZone",
-    "Rogue_Area_RideTraining"
+    "Rogue_Area_RideTraining",
+    "Rogue_Area_Marts"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",
     "Rogue_Interior_HomeUpper",
     "Rogue_Interior_ProfLab",
     "Rogue_Interior_ConfigLab",
-    "Rogue_Interior_PokeConnect"
+    "Rogue_Interior_PokeConnect",
+    "Rogue_Interior_SafariCave"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
