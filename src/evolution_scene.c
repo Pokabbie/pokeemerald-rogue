@@ -788,8 +788,8 @@ static void Task_EvolutionScene(u8 taskId)
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT);
 
-            // TODO - if(IsMonShiny(&gPlayerParty[gPlayerPartyCount])
-            //GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_SET_CAUGHT_SHINY);
+            if(IsMonShiny(mon))
+                GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
@@ -1216,8 +1216,8 @@ static void Task_TradeEvolutionScene(u8 taskId)
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);
             GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT);
             
-            // TODO - if(IsMonShiny(&gPlayerParty[gPlayerPartyCount])
-            //GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_SET_CAUGHT_SHINY);
+            if(IsMonShiny(mon))
+                GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }

@@ -1053,7 +1053,7 @@ static void RoguePlayerUI_DrawTrainerSprites()
 
     sPlayerOutfitUIState->trainerFrontSprite = CreateTrainerSprite(
         RoguePlayer_GetTrainerFrontPic(),
-        64, 92,
+        64, 98,
         0, 
         gDecompressionBuffer
     );
