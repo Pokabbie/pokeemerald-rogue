@@ -16,7 +16,6 @@ extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
 
 u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
-u16 Rogue_GetStartSeed(void);
 
 u16 Rogue_GetShinyOdds(void);
 
@@ -45,6 +44,8 @@ bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
 
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 void Rogue_ModifyBattlePalette(u16 offset, u16 count);
+
+const u8* Rogue_ModifyFieldMessage(const u8* str);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);
@@ -112,6 +113,9 @@ void Rogue_Safari_EndWildBattle(void);
 
 bool8 Rogue_AllowItemUse(u16 itemId);
 void Rogue_OnItemUse(u16 itemId);
+u16 Rogue_GetBagCapacity();
+u16 Rogue_GetBagPocketAmountPerItem(u8 pocket);
+
 
 void Rogue_PreBattleSetup(void);
 bool8 Rogue_OverrideTrainerItems(u16* items);

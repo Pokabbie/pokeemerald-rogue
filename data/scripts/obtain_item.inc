@@ -159,8 +159,7 @@ EventScript_FoundItem::
 	return
 
 EventScript_NoRoomToPickUpItem::
-	msgbox gText_ObtainedTheItem, MSGBOX_DEFAULT
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	special Popup_CannotTakeItem
 	setvar VAR_RESULT, FALSE
 	return
 

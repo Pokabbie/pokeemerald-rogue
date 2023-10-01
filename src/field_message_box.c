@@ -6,6 +6,8 @@
 #include "match_call.h"
 #include "field_message_box.h"
 
+#include "rogue_controller.h"
+
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
 
 static void ExpandStringAndStartDrawFieldMessage(const u8*, bool32);
@@ -63,6 +65,9 @@ bool8 ShowFieldMessage(const u8 *str)
 {
     if (sFieldMessageBoxMode != FIELD_MESSAGE_BOX_HIDDEN)
         return FALSE;
+
+    str = Rogue_ModifyFieldMessage(str);
+
     ExpandStringAndStartDrawFieldMessage(str, TRUE);
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_NORMAL;
     return TRUE;

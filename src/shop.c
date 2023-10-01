@@ -1208,6 +1208,12 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
         else
             maxQuantity = GetShopCurrencyAmount() / sShopData->totalCost;
 
+        // Max quantity is based on item stack size
+        if(sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+        {
+            maxQuantity = min(maxQuantity, Rogue_GetBagPocketAmountPerItem(ItemId_GetPocket(tItemId) - 1));
+        }
+
         if (maxQuantity > MAX_SHOP_ITEM_CAPACITY)
         {
             sShopData->maxQuantity = MAX_SHOP_ITEM_CAPACITY;

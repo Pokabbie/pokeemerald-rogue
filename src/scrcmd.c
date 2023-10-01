@@ -501,6 +501,8 @@ bool8 ScrCmd_additem(struct ScriptContext *ctx)
 
     if(gSpecialVar_Result == TRUE)
         Rogue_PushPopup_AddItem(itemId, quantity);
+    else
+        Rogue_PushPopup_CannotTakeItem(itemId, quantity);
 
     return FALSE;
 }

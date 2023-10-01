@@ -174,11 +174,6 @@ u16 RogueRandomRange(u16 range, u8 flag)
         return 0;
 
     return res % range;
-
-    //if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
-    //    return res % range;
-    //else
-    //    return Random() % range;
 }
 
 bool8 RogueRandomChance(u8 chance, u16 seedFlag)
@@ -189,20 +184,6 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
         return TRUE;
 
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
-}
-
-u16 Rogue_GetStartSeed(void)
-{
-    u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
-    u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
-    u32 offset = 3;
-
-    //if(Rogue_IsRunActive())
-    //{
-    //    offset = gRogueRun.enteredRoomCounter * 3;
-    //}
-
-    return (u16)(word0 + word1 * offset);
 }
 
 u16 Rogue_GetShinyOdds(void)
@@ -647,6 +628,62 @@ void Rogue_ModifyBattlePalette(u16 offset, u16 count)
     RogueToD_ModifyBattlePalette(offset, count);
 }
 
+extern const u8 gPlaceholder_Gym_PreBattleOpenning[];
+extern const u8 gPlaceholder_Gym_PreBattleTaunt[];
+extern const u8 gPlaceholder_Gym_PostBattleTaunt[];
+extern const u8 gPlaceholder_Gym_PostBattleCloser[];
+
+extern const u8 gPlaceholder_Trainer_PreBattleOpenning[];
+extern const u8 gPlaceholder_Trainer_PreBattleTaunt[];
+extern const u8 gPlaceholder_Trainer_PostBattleTaunt[];
+extern const u8 gPlaceholder_Trainer_PostBattleCloser[];
+
+const u8* Rogue_ModifyFieldMessage(const u8* str)
+{
+    const u8* overrideStr = NULL;
+
+    if(Rogue_IsRunActive())
+    {
+        switch(gRogueAdvPath.currentRoomType)
+        {
+            case ADVPATH_ROOM_BOSS:
+                if(str == gPlaceholder_Gym_PreBattleOpenning)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+                else if(str == gPlaceholder_Gym_PreBattleTaunt)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+                else if(str == gPlaceholder_Gym_PostBattleTaunt)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+                else if(str == gPlaceholder_Gym_PostBattleCloser)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
+                break;
+        }
+
+        // Overworld trainer messages
+        if(str == gPlaceholder_Trainer_PreBattleOpenning)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+        }
+        else if(str == gPlaceholder_Trainer_PreBattleTaunt)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+        }
+        else if(str == gPlaceholder_Trainer_PostBattleTaunt)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+        }
+        else if(str == gPlaceholder_Trainer_PostBattleCloser)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
+        }
+    }
+
+    return overrideStr != NULL ? overrideStr : str;
+}
+
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {
     if(Rogue_IsRunActive())
@@ -677,7 +714,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         {
             if(difficulty <= 11)
             {
-                if(difficultyModifier == 2) // Hard
+                if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
                     *money = *money / 2;
                 else
                     *money = *money / 3;
@@ -685,7 +722,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             else
             {
                 // Kinder but not by much ;)
-                if(difficultyModifier != 2) // !Hard
+                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
                     *money = *money / 2;
             }
         }
@@ -693,7 +730,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         {
             if(difficulty <= 11)
             {
-                if(difficultyModifier != 2) // !Hard
+                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
                     *money = *money / 2;
             }
         }
@@ -1158,12 +1195,6 @@ u8* Debug_GetMiniMenuContent(void)
         u8 wildLevel = CalculateWildLevel(0);
 
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-
-        if(FlagGet(FLAG_SET_SEED_ENABLED))
-        {
-            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
-        }
-
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, RogueSave_GetVersionId());
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.enteredRoomCounter);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
@@ -1535,6 +1566,10 @@ void Rogue_OnNewGame(void)
 {
     RogueSave_ClearData();
 
+    gSaveBlock1Ptr->bagSortMode = ITEM_SORT_MODE_TYPE;
+    gSaveBlock1Ptr->bagCapacityUpgrades = 0;
+    gSaveBlock1Ptr->bagAmountUpgrades = 0;
+
     RoguePlayer_SetNewGameOutfit();
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
 
@@ -1804,6 +1839,7 @@ void Rogue_OnResumeMap()
 
 void Rogue_OnObjectEventsInit()
 {
+    SetupFollowParterMonObjectEvent();
 }
 
 void Rogue_OnResetAllSprites()
@@ -1836,8 +1872,6 @@ void Rogue_OnLoadMap(void)
         // Apply metatiles for the map we're in
         RogueHub_ApplyMapMetatiles();
     }
-
-   // SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)
@@ -2163,11 +2197,6 @@ static void BeginRogueRun(void)
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     Rogue_PreActivateDesiredCampaign();
-
-    //if(FlagGet(FLAG_SET_SEED_ENABLED))
-    //{
-    //    gRngRogueValue = Rogue_GetStartSeed();
-    //}
 
     gRogueRun.baseSeed = Random();
     gRogueRun.currentDifficulty = GetStartDifficulty();
@@ -2910,11 +2939,15 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         {
             u8 write, read;
             u8 originalCount = *objectEventCount;
-            u16 trainerHistory[20];
+            u16 trainerBuffer[ROGUE_TRAINER_COUNT];
 
+            u8 trainerIndex;
             u16 trainerNum;
             const struct RogueTrainer* trainer;
 
+            Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+
+            trainerIndex = 0;
             write = 0;
             read = 0;
 
@@ -2932,7 +2965,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     // Don't increment write, if we're not accepting the trainer
                     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
                     {
-                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+                        AGB_ASSERT(trainerIndex < ARRAY_COUNT(trainerBuffer));
+                        trainerNum = trainerBuffer[trainerIndex++];
                         trainer = Rogue_GetTrainer(trainerNum);
 
                         if(trainer != NULL)
@@ -3544,6 +3578,42 @@ void Rogue_OnItemUse(u16 itemId)
     //}
 }
 
+u16 Rogue_GetBagCapacity()
+{
+    if(gSaveBlock1Ptr->bagCapacityUpgrades >= ITEM_BAG_MAX_CAPACITY_UPGRADE)
+        return BAG_ITEM_CAPACITY;
+    else
+    {
+        u16 slotCount = BAG_ITEM_RESERVED_SLOTS + 50 + gSaveBlock1Ptr->bagCapacityUpgrades * 15;
+        return min(slotCount, BAG_ITEM_CAPACITY);
+    }
+}
+
+u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
+{
+    if(gSaveBlock1Ptr->bagAmountUpgrades >= ITEM_BAG_MAX_AMOUNT_UPGRADE)
+        return MAX_BAG_ITEM_CAPACITY;
+
+    switch(pocket)
+    {
+        case KEYITEMS_POCKET:
+        case CHARMS_POCKET:
+            return MAX_BAG_ITEM_CAPACITY;
+
+        case TMHM_POCKET:
+        case HELD_ITEMS_POCKET:
+        case STONES_POCKET:
+            return 1 + gSaveBlock1Ptr->bagAmountUpgrades;
+
+        case BERRIES_POCKET:
+        case BALLS_POCKET:
+            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 10;
+
+        default:
+            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 5;
+    }
+}
+
 void Rogue_PreBattleSetup(void)
 {
     if(IsCurseActive(EFFECT_ITEM_SHUFFLE))
@@ -3864,7 +3934,6 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
 static u8 GetCurrentWildEncounterCount()
 {    
     u16 count = 0;
-    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(GetSafariZoneFlag())
     {
@@ -3875,12 +3944,12 @@ static u8 GetCurrentWildEncounterCount()
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
         count = 4;
 
-        if(difficultyModifier == 2) // Hard route
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
         {
             // Less encounters
             count = 2;
         }
-        else if(difficultyModifier == 1) // Avg route
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_AVERAGE) // Avg route
         {
             // Slightly less encounters
             count = 3;
@@ -4079,7 +4148,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else
         {
-            u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
             u16 count = GetCurrentWildEncounterCount();
             u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
@@ -5043,7 +5111,7 @@ static u8 CalculateWildLevel(u8 variation)
 
 u8 Rogue_GetEncounterDifficultyModifier()
 {
-    return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : 1);
+    return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : ADVPATH_SUBROOM_ROUTE_AVERAGE);
 }
 
 static bool8 RogueRandomChanceTrainer()
@@ -5052,12 +5120,10 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
-    if(difficultyModifier == 0) // Easy
-        chance = max(5, chance - 20);
-    else if(difficultyModifier == 2) // Hard
-        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent, but harder
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
+        chance = max(5, chance - 20); // Trainers are fewer
     else
-        chance = max(10, chance);
+        chance = max(10, chance); // Trainers are harder on tough routes
 
     return RogueRandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
@@ -5092,9 +5158,9 @@ static bool8 RogueRandomChanceItem()
 
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        if(difficultyModifier == 0) // Easy
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
             chance = max(10, chance - 25);
-        else if(difficultyModifier == 2) // Hard
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
             chance = min(100, chance + 25);
     }
 
@@ -5138,12 +5204,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
     }
     else
     {
-        if(difficultyModifier == 0) // Easy
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
         {
             if(dropRarity != 0)
                 --dropRarity;
         }
-        else if(difficultyModifier == 2) // Hard
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
         {
             if(dropRarity != 0)
                 ++dropRarity;

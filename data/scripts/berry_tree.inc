@@ -122,9 +122,6 @@ BerryTree_EventScript_PickBerry::
 	end
 
 BerryTree_EventScript_BerryPocketFull::
-	message BerryTree_Text_BerryPocketFull
-	waitmessage
-	waitbuttonpress
 	release
 	end
 
@@ -226,8 +223,8 @@ BerryTree_Text_PutAwayBerry:
 	.string "in the BAG's BERRIES POCKET.$"
 
 BerryTree_Text_BerryPocketFull:
-	.string "The BAG's BERRIES POCKET is full.\p"
-	.string "The {STR_VAR_1} couldn't be taken.$"
+	.string "The BAG is too full to take the\n"
+	.string "{STR_VAR_1}.$"
 
 BerryTree_Text_BerryLeftUnpicked:
 	.string "{PLAYER} left the {STR_VAR_1}\n"

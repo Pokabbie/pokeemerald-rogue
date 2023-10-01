@@ -222,6 +222,12 @@ gSpecials::
 	def_special Rogue_RunRewardLvls
 	def_special Rogue_RunRewardMoney
 	def_special Rogue_SetTimeAndSeason
+	def_special Popup_CannotTakeItem
+	def_special Rogue_GetBagCapacityUpgradeLevel
+	def_special Rogue_IncreaseBagCapacityUpgradeLevel
+	def_special Rogue_GetBagAmountUpgradeLevel
+	def_special Rogue_IncreaseBagAmountUpgradeLevel
+	def_special Rogue_GetBagUpgradeCost
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams

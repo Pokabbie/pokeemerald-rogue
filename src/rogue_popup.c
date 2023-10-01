@@ -113,6 +113,7 @@ extern const u8 gText_Popup_PokemonChainBroke[];
 extern const u8 gPopupText_WeakLegendaryClause[];
 extern const u8 gPopupText_StrongLegendaryClause[];
 
+extern const u8 gText_Popup_BagFull[];
 extern const u8 gText_Popup_SingleItem[];
 extern const u8 gText_Popup_MultipleItem[];
 
@@ -914,6 +915,32 @@ void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
     {
         popup->titleText = gText_Popup_MultipleItem;
         popup->subtitleText = NULL;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = SE_NOT_EFFECTIVE;
+
+    if(amount == 1)
+    {
+        popup->titleText = gText_Popup_BagFull;
+        popup->subtitleText = gText_Popup_SingleItem;
+    }
+    else
+    {
+        popup->titleText = gText_Popup_BagFull;
+        popup->subtitleText = gText_Popup_MultipleItem;
     }
 
     popup->expandTextData[0] = itemId;

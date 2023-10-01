@@ -2377,6 +2377,10 @@ static void EscapeRopeWarpInEffect_Spin(struct Task *task)
             objectEvent->invisible = FALSE;
             ScriptContext2_Disable();
             UnfreezeObjectEvents();
+
+            // Re-add partner after escape rope
+            ResetFollowParterMonObjectEvent();
+            SetupFollowParterMonObjectEvent();
             DestroyTask(FindTaskIdByFunc(Task_EscapeRopeWarpIn));
             return;
         }

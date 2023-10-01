@@ -632,32 +632,24 @@ static void RoguePlayerUI_RefreshPageEntries()
     {
     case UI_PAGE_MAIN:
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_OUTFIT;
-        sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_EVERYTHING;
+        //sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_EVERYTHING;
 
-        anySupported = FALSE;
-
-        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE))
-        {
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_APPEARANCE;
-            anySupported = TRUE;
-        }
-
-        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY))
-        {
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_PRIMARY;
-            anySupported = TRUE;
-        }
-
-        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY))
-        {
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_SECONDARY;
-            anySupported = TRUE;
-        }
+        anySupported = 
+            RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE) ||
+            RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY) ||
+            RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY);
 
         if(anySupported)
-        {
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
-        }
+
+        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE))
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_APPEARANCE;
+
+        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY))
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_PRIMARY;
+
+        if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY))
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_SECONDARY;
 
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EXIT;
         break;
@@ -759,6 +751,16 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     else if (JOY_NEW(DPAD_DOWN))
     {
         ++sPlayerOutfitUIState->currentOptionIdx;
+    }
+
+    else if (JOY_NEW(START_BUTTON))
+    {
+        // Jump to bottom option
+        while(sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] != UI_ENTRY_COUNT)
+        {
+            ++sPlayerOutfitUIState->currentOptionIdx;
+        }
+        --sPlayerOutfitUIState->currentOptionIdx;
     }
 
     // Clamp
@@ -1051,7 +1053,7 @@ static void RoguePlayerUI_DrawTrainerSprites()
 
     sPlayerOutfitUIState->trainerFrontSprite = CreateTrainerSprite(
         RoguePlayer_GetTrainerFrontPic(),
-        64, 92,
+        64, 98,
         0, 
         gDecompressionBuffer
     );

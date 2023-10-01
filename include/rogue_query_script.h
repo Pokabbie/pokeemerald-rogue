@@ -33,6 +33,7 @@ enum
     //
     QUERY_SCRIPT_INCLUDE_TYPES,
     QUERY_SCRIPT_EXCLUDE_TYPES,
+    QUERY_SCRIPT_INCLUDE_SPECIES,
 
     // Weight methods
     //

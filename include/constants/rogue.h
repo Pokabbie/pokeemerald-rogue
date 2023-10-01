@@ -103,6 +103,9 @@
 #define ITEM_SORT_MODE_AMOUNT       3
 #define ITEM_SORT_MODE_COUNT        4
 
+#define ITEM_BAG_MAX_CAPACITY_UPGRADE   10
+#define ITEM_BAG_MAX_AMOUNT_UPGRADE     10
+
 
 // Routes
 //
@@ -161,29 +164,37 @@
 #define TRAINER_FLAG_CLASS_CHAMP                (1 << 2)
 #define TRAINER_FLAG_CLASS_MINI_BOSS            (1 << 3)
 #define TRAINER_FLAG_CLASS_RIVAL                (1 << 4)
+#define TRAINER_FLAG_CLASS_ROUTE                (1 << 5)
 
-#define TRAINER_FLAG_REGION_KANTO               (1 << 5)
-#define TRAINER_FLAG_REGION_JOHTO               (1 << 6)
-#define TRAINER_FLAG_REGION_HOENN               (1 << 7)
-#define TRAINER_FLAG_REGION_SINNOH              (1 << 8)
-#define TRAINER_FLAG_REGION_UNOVA               (1 << 9)
-#define TRAINER_FLAG_REGION_KALOS               (1 << 10)
-#define TRAINER_FLAG_REGION_ALOLA               (1 << 11)
-#define TRAINER_FLAG_REGION_GALAR               (1 << 12)
-#define TRAINER_FLAG_REGION_ROGUE               (1 << 13)
+#define TRAINER_FLAG_REGION_KANTO               (1 << 6)
+#define TRAINER_FLAG_REGION_JOHTO               (1 << 7)
+#define TRAINER_FLAG_REGION_HOENN               (1 << 8)
+#define TRAINER_FLAG_REGION_SINNOH              (1 << 9)
+#define TRAINER_FLAG_REGION_UNOVA               (1 << 10)
+#define TRAINER_FLAG_REGION_KALOS               (1 << 11)
+#define TRAINER_FLAG_REGION_ALOLA               (1 << 12)
+#define TRAINER_FLAG_REGION_GALAR               (1 << 13)
+#define TRAINER_FLAG_REGION_ROGUE               (1 << 14)
 
 #define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 15)
 #define TRAINER_FLAG_MISC_RAINBOW_EXCLUDE       (1 << 16)
 
 #define TRAINER_FLAG_CLASS_ANY_MAIN_BOSS        (TRAINER_FLAG_CLASS_GYM | TRAINER_FLAG_CLASS_ELITE | TRAINER_FLAG_CLASS_CHAMP)
-#define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_ANY_MAIN_BOSS | TRAINER_FLAG_CLASS_MINI_BOSS | TRAINER_FLAG_CLASS_RIVAL)
+#define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_ANY_MAIN_BOSS | TRAINER_FLAG_CLASS_MINI_BOSS | TRAINER_FLAG_CLASS_RIVAL | TRAINER_FLAG_CLASS_ROUTE)
 
 #define TRAINER_FLAG_REGION_ANY                 (TRAINER_FLAG_REGION_KANTO | TRAINER_FLAG_REGION_JOHTO | TRAINER_FLAG_REGION_HOENN | TRAINER_FLAG_REGION_SINNOH | TRAINER_FLAG_REGION_UNOVA | TRAINER_FLAG_REGION_KALOS | TRAINER_FLAG_REGION_ALOLA | TRAINER_FLAG_REGION_GALAR | TRAINER_FLAG_REGION_ROGUE)
 #define TRAINER_FLAG_REGION_DEFAULT             (TRAINER_FLAG_REGION_ANY & ~TRAINER_FLAG_REGION_ROGUE)
 
 
+#define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
+#define TRAINER_STRING_PRE_BATTLE_TAUNT         1 // after encounter music, before battle
+#define TRAINER_STRING_POST_BATTLE_TAUNT        2 // before leave battle victory message
+#define TRAINER_STRING_POST_BATTLE_CLOSER       3 // after battle (back in overworld; auto speak for gyms)
+#define TRAINER_STRING_COUNT                    4
+
 // 8 badges, 4 elite, 2 champion
 #define ROGUE_MAX_BOSS_COUNT 14
+#define ROGUE_FINAL_CHAMP_DIFFICULTY 13
 #define ROGUE_CHAMP_START_DIFFICULTY 12
 #define ROGUE_ELITE_START_DIFFICULTY 8
 

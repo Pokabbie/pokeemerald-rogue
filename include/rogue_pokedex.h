@@ -17,6 +17,7 @@ void RoguePokedex_SetDexGenLimit(u8 gen);
 
 bool8 RoguePokedex_IsNationalDexActive();
 u16 RoguePokedex_GetNationalDexLimit();
+u16 RoguePokedex_GetCurrentDexLimit();
 
 bool8 RoguePokedex_IsVariantEditUnlocked();
 bool8 RoguePokedex_IsVariantEditEnabled();

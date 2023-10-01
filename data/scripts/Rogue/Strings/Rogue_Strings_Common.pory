@@ -1,4 +1,41 @@
-text gPlaceholderText
+
+text gPlaceholder_Gym_PreBattleOpenning
 {
-    "abc"
+    format("GYM TRAINER-STRING-PRE-BATTLE-OPENNING")
+}
+
+text gPlaceholder_Gym_PreBattleTaunt
+{
+    format("GYM TRAINER-STRING-PRE-BATTLE-TAUNT")
+}
+
+text gPlaceholder_Gym_PostBattleTaunt
+{
+    format("GYM TRAINER-STRING-POST-BATTLE-TAUNT")
+}
+
+text gPlaceholder_Gym_PostBattleCloser
+{
+    format("GYM TRAINER-STRING-POST-BATTLE-CLOSER")
+}
+
+
+text gPlaceholder_Trainer_PreBattleOpenning
+{
+    format("TRAINER-STRING-PRE-BATTLE-OPENNING")
+}
+
+text gPlaceholder_Trainer_PreBattleTaunt
+{
+    format("TRAINER-STRING-PRE-BATTLE-TAUNT")
+}
+
+text gPlaceholder_Trainer_PostBattleTaunt
+{
+    format("TRAINER-STRING-POST-BATTLE-TAUNT")
+}
+
+text gPlaceholder_Trainer_PostBattleCloser
+{
+    format("TRAINER-STRING-POST-BATTLE-CLOSER")
 }

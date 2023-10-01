@@ -103,12 +103,13 @@ u16 SelectIndexFromWeights(u16* weights, u16 count, u16 rngValue)
     {
         totalWeight += weights[i];
 
-        if(targetWeight <= totalWeight)
+        if(targetWeight < totalWeight)
         {
             return i;
         }
     }
 
+    AGB_ASSERT(FALSE);
     return 0;
 }
 

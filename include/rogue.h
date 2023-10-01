@@ -320,14 +320,17 @@ struct RogueTeamGenerator
 struct RogueTrainer
 {
     u8 const* trainerName;
+    u8 const* const* encounterText; // TRAINER_STRING_COUNT * N
     u32 trainerFlags;
     u16 objectEventGfx;
     u16 typeAssignment;
     u16 typeAssignmentGroup;
+    u8 levelOverride;
     u8 trainerClass;
     u8 trainerPic;
     u8 preferredWeather;
     u8 musicPlayer;
+    u8 encounterTextCount;
     struct RogueTeamGenerator teamGenerator;
 };
 

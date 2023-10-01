@@ -80,7 +80,7 @@
         },
         "hoenn_elite":
         {
-            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "encounter": "MUS_ENCOUNTER_ELITE_FOUR",
             "battle": "MUS_VS_ELITE_FOUR",
             "victory": "MUS_VICTORY_LEAGUE"
         },
@@ -156,6 +156,139 @@
                     "music_player": "sinnoh_boss"
                 }
             ]
+        },
+
+        "route_trainer":
+        {
+            "encounter": "MUS_ENCOUNTER_MALE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "PKMN_BREEDER",
+                    "music_player": "route_trainer_female"
+                },
+                {
+                    "trainer_class": "BEAUTY",
+                    "music_player": "route_trainer_female"
+                },
+                {
+                    "trainer_class": "COOLTRAINER",
+                    "music_player": "route_trainer_cool"
+                },
+                {
+                    "trainer_class": "BIRD_KEEPER",
+                    "music_player": "route_trainer_cool"
+                },
+                {
+                    "trainer_class": "PSYCHIC",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "EXPERT",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "BLACK_BELT",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "DRAGON_TAMER",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "TUBER_M",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "TUBER_F",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "SCHOOL_KID",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "HIKER",
+                    "music_player": "route_trainer_hiker"
+                },
+                {
+                    "trainer_class": "RUIN_MANIAC",
+                    "music_player": "route_trainer_hiker"
+                },
+                {
+                    "trainer_class": "COLLECTOR",
+                    "music_player": "route_trainer_suspicious"
+                },
+                {
+                    "trainer_class": "HEX_MANIAC",
+                    "music_player": "route_trainer_suspicious"
+                },
+                {
+                    "trainer_class": "RICH_BOY",
+                    "music_player": "route_trainer_rich"
+                },
+                {
+                    "trainer_class": "GENTLEMAN",
+                    "music_player": "route_trainer_rich"
+                }
+            ]
+        },
+        "route_trainer_girl":
+        {
+            "encounter": "MUS_ENCOUNTER_GIRL",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_female":
+        {
+            "encounter": "MUS_ENCOUNTER_FEMALE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_cool":
+        {
+            "encounter": "MUS_ENCOUNTER_COOL",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_intense":
+        {
+            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_hiker":
+        {
+            "encounter": "MUS_ENCOUNTER_HIKER",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_suspicious":
+        {
+            "encounter": "MUS_ENCOUNTER_SUSPICIOUS",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_rich":
+        {
+            "encounter": "MUS_ENCOUNTER_RICH",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+
+        "team_aqua":
+        {
+            "encounter": "MUS_ENCOUNTER_AQUA",
+            "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
+        },
+        "team_magma":
+        {
+            "encounter": "MUS_ENCOUNTER_MAGMA",
+            "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
         },
 
         "wild_battle":

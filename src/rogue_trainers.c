@@ -46,6 +46,7 @@ struct TrainerPartyScratch
     u8 partyCount;
     u8 subsetIndex;
     u8 subsetSampleCount;
+    u8 fallbackCount;
 };
 
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
@@ -95,6 +96,12 @@ static u8 GetTrainerLevel(u16 trainerNum)
         return Rogue_CalculateMiniBossMonLvl();
     }
 
+    {
+        const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+        if(trainer->levelOverride != 0)
+            return trainer->levelOverride;
+    }
+
     return Rogue_CalculateTrainerMonLvl();
 }
 
@@ -109,6 +116,48 @@ struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
     return &gRogueTrainerMusic[trainer->musicPlayer];
+}
+
+const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    const u8* str = NULL;
+
+    if(trainer->encounterText == NULL || trainer->encounterTextCount == 0)
+        return NULL;
+
+    // For boss trainers we're going to predictably jump up the string tables, so custom text can optionally be added for later states
+    // In order: gyms, e4, champ, final champ
+    if(Rogue_IsAnyBossTrainer(trainerNum))
+    {
+        u8 offset = 0;
+
+        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            offset = 3;
+        else if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+            offset = 2;
+        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            offset = 1;
+
+        offset = min(offset, trainer->encounterTextCount - 1);
+
+        for(; offset > 0; --offset)
+        {
+            str = trainer->encounterText[TRAINER_STRING_COUNT * offset + textId];
+            if(str != NULL)
+                return str;
+        }
+
+        // Fallback to offset 0 (TODO should fallback to a sensible default tbh)
+        return trainer->encounterText[textId];
+    }
+    else
+    {
+        // TODO - Predictably randomise per trainer id instance?
+        return trainer->encounterText[textId];
+    }
+
+    return NULL;
 }
 
 bool8 Rogue_GetTrainerFlag(u16 trainerNum)
@@ -360,11 +409,9 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     }
 }
 
-static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
+static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* historyBuffer, u16 historyBufferCapacity)
 {
     u8 i;
-    u32 includeFlags;
-    u32 excludeFlags;
     u16 trainerNum = gRogueTrainerCount;
 
     RogueTrainerQuery_Begin();
@@ -376,14 +423,6 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
         RogueTrainerQuery_Reset(QUERY_FUNC_INCLUDE);
 
         // Only include trainers we want
-        includeFlags = TRAINER_FLAG_NONE;
-        if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
-            includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
-        else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-            includeFlags |= TRAINER_FLAG_CLASS_ELITE;
-        else
-            includeFlags |= TRAINER_FLAG_CLASS_GYM;
-
         RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
 
         GetGlobalFilterFlags(&includeFlags, &excludeFlags);
@@ -409,6 +448,9 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
             }
             else
             {
+                // Usually, this isn't intentional, so assert here
+                AGB_ASSERT(FALSE);
+
                 // We've exhausted the options, so wipe and try again
                 memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * historyBufferCapacity);
             }
@@ -422,6 +464,25 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
     return trainerNum;
 }
 
+static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
+{
+    u32 includeFlags;
+    u32 excludeFlags;
+
+    // Only include trainers we want
+    includeFlags = TRAINER_FLAG_NONE;
+    if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+    else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        includeFlags |= TRAINER_FLAG_CLASS_ELITE;
+    else
+        includeFlags |= TRAINER_FLAG_CLASS_GYM;
+
+    excludeFlags = 0;
+
+    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+}
+
 void Rogue_ChooseBossTrainersForNewAdventure()
 {
     u8 difficulty;
@@ -430,6 +491,8 @@ void Rogue_ChooseBossTrainersForNewAdventure()
 
     memset(&gRogueRun.bossTrainerNums[0], TRAINER_NONE, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossTrainerNums));
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    DebugPrint("Picking trainers");
 
     for(difficulty = 0; difficulty < ROGUE_MAX_BOSS_COUNT; ++difficulty)
     {
@@ -441,12 +504,44 @@ void Rogue_ChooseBossTrainersForNewAdventure()
             {
                 case ROGUE_ELITE_START_DIFFICULTY:
                 case ROGUE_CHAMP_START_DIFFICULTY:
+                case ROGUE_FINAL_CHAMP_DIFFICULTY: // <- technically isn't needed just for a safety fallback
                     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
                     break;
             }
         }
 
-        gRogueRun.bossTrainerNums[difficulty] = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
+        trainerNum = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
+        gRogueRun.bossTrainerNums[difficulty] = trainerNum;
+
+        DebugPrintf("    [%d] = %d", difficulty, trainerNum);
+    }
+}
+
+static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
+{
+    u32 includeFlags;
+    u32 excludeFlags;
+
+    // Only include trainers we want
+    includeFlags = TRAINER_FLAG_CLASS_ROUTE;
+    excludeFlags = TRAINER_FLAG_CLASS_ROUTE;
+
+    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+}
+
+void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
+{
+    u8 i;
+    u16 trainerNum;
+    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+
+    memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
+    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    for(i = 0; i < bufferCapacity; ++i)
+    {
+        trainerNum = Rogue_RouteTrainerId(historyBuffer, ARRAY_COUNT(historyBuffer));
+        writeBuffer[i] = trainerNum;
     }
 }
 
@@ -460,21 +555,6 @@ u16 Rogue_NextMinibossTrainerId()
     //if(trainer != NULL)
     //{
     //    HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum));
-    //}
-//
-    //return trainerNum;
-}
-
-u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity)
-{
-    // TODO
-    return 0;
-    //u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
-    //const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-//
-    //if(trainer != NULL)
-    //{
-    //    HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum));
     //}
 //
     //return trainerNum;
@@ -679,9 +759,13 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
     return FALSE;
 }
 
-static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
+static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 {
     u8 monCount;
+
+    // Hack for EXP trainer
+    if(monLevel == 1)
+        return 1;
 
     if(Rogue_IsAnyBossTrainer(trainerNum))
     {
@@ -768,7 +852,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
 
     level = GetTrainerLevel(trainerNum);
     fixedIV = CalculateMonFixedIV(trainerNum);
-    monCount = CalculatePartyMonCount(trainerNum, monCapacity);
+    monCount = CalculatePartyMonCount(trainerNum, monCapacity, level);
 
     // Fill defaults before we configure the scratch
     scratch.trainerNum = trainerNum;
@@ -778,6 +862,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     scratch.shouldRegenerateQuery = TRUE;
     scratch.subsetIndex = 0;
     scratch.subsetSampleCount = 0;
+    scratch.fallbackCount = 0;
     scratch.forceLegends = FALSE;
     scratch.evoLevel = level;
     scratch.allowItemEvos = FALSE;
@@ -955,6 +1040,168 @@ static void SetupQueryScriptVars(struct QueryScriptContext* context, struct Trai
     }
 }
 
+static u8 SelectFallbackTypeFor(u8 type, u8 counter)
+{
+    switch(type)
+    {
+        case TYPE_DARK:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIGHTING;
+            
+            case 1:
+                return TYPE_PSYCHIC;
+            }
+            break;
+
+        case TYPE_PSYCHIC:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GHOST;
+            
+            case 1:
+                return TYPE_DARK;
+            }
+            break;
+
+        case TYPE_STEEL:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GROUND;
+            
+            case 1:
+                return TYPE_DRAGON;
+            }
+            break;
+
+        case TYPE_FIGHTING:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_ROCK;
+            
+            case 1:
+                return TYPE_NORMAL;
+            }
+            break;
+
+        case TYPE_GHOST:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_POISON;
+            
+            case 1:
+                return TYPE_BUG;
+            }
+            break;
+
+        case TYPE_DRAGON:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIRE;
+            
+            case 1:
+                return TYPE_WATER;
+            }
+            break;
+
+        case TYPE_FIRE:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GROUND;
+            
+            case 1:
+                return TYPE_ROCK;
+            }
+            break;
+
+        case TYPE_FLYING:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_NORMAL;
+            
+            case 1:
+                return TYPE_ELECTRIC;
+            }
+            break;
+
+        case TYPE_ICE:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_WATER;
+            
+            case 1:
+                return TYPE_PSYCHIC;
+            }
+            break;
+
+        case TYPE_NORMAL:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIGHTING;
+            
+            case 1:
+                return TYPE_GHOST;
+            }
+            break;
+    }
+
+    return TYPE_NONE;
+}
+
+static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
+{
+    struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+    u8 currentType = trainer->typeAssignment;
+
+    // If we have a mystery type we want to just pick 1 type
+    if(currentType == TYPE_MYSTERY)
+    {
+        while(currentType == TYPE_MYSTERY)
+        {
+            currentType = RogueRandom() % NUMBER_OF_MON_TYPES;
+        }
+
+        return MON_TYPE_VAL_TO_FLAGS(currentType);
+    }
+
+    if(scratch->fallbackCount < 20)
+    {
+        u8 i;
+
+        // Predictably fallback to the next nearest type
+        for(i = 0; i < scratch->fallbackCount; ++i)
+            currentType = SelectFallbackTypeFor(currentType, scratch->trainerNum + i);
+    }
+    else
+    {
+        // If we've gotten this far, yikes!
+        AGB_ASSERT(FALSE);
+        currentType = TYPE_NONE;
+    }
+
+    // Allow everything
+    if(currentType == TYPE_NONE)
+        return MON_TYPE_VAL_TO_FLAGS(NUMBER_OF_MON_TYPES) - 1;
+
+    // Only allow current type
+    return MON_TYPE_VAL_TO_FLAGS(currentType);
+}
+
+static bool8 CanEntirelyAvoidWeakSpecies()
+{
+    return RoguePokedex_GetCurrentDexLimit() >= 380;
+}
+
 static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -962,6 +1209,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(scratch->shouldRegenerateQuery)
     {
+        u32 fallbackTypeFlags = 0;
         bool8 customScript = FALSE;
         struct RogueTeamGeneratorSubset const* currentSubset = NULL;
 
@@ -994,6 +1242,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
         }
+        else
+        {
+            fallbackTypeFlags = CalculateFallbackTypeFlags(scratch);
+            RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, fallbackTypeFlags);
+        }
 
         // Transform and evolve mons to valid evos (Don't do this for custom scripts for now, as our only use case is glitch mode)
         if(!customScript)
@@ -1002,7 +1255,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_TransformIntoEvos(scratch->evoLevel, scratch->allowItemEvos, FALSE);
         }
 
-        if(scratch->preferStrongSpecies)
+        if(scratch->preferStrongSpecies && CanEntirelyAvoidWeakSpecies())
         {
             RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
         }
@@ -1033,6 +1286,10 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
             RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, currentSubset->excludedTypeMask);
         }
+        else
+        {
+            RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, fallbackTypeFlags);
+        }
 
         // Execute post process script
         if(trainer->teamGenerator.queryScriptPost != NULL)
@@ -1044,8 +1301,12 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         }
     }
 
-    // Remove any mons already in the party
-    RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+    // Allow duplicates if we've gone far into fallbacks
+    if(scratch->fallbackCount < 10)
+    {
+        // Remove any mons already in the party
+        RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+    }
 
     species = SPECIES_NONE;
 
@@ -1062,6 +1323,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     {
         RogueWeightQuery_FillWeights(1);
     }
+    
+    //if(scratch->preferStrongSpecies && !CanEntirelyAvoidWeakSpecies())
+    //{
+    //    // TODO - Should we prefer strong presets in weight query?
+    //}
 
     if(RogueWeightQuery_HasAnyWeights())
     {
@@ -1077,6 +1343,12 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 {
     u16 species;
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+
+    // We don't have any subsets, so immediately start using fallback behaviour
+    if(trainer->teamGenerator.subsetCount == 0)
+    {
+        ++scratch->fallbackCount;
+    }
 
     do
     {
@@ -1115,13 +1387,26 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
                 ++scratch->subsetIndex;
                 scratch->subsetSampleCount = 0;
                 scratch->shouldRegenerateQuery = TRUE;
+
+                if(scratch->subsetIndex >= trainer->teamGenerator.subsetCount)
+                {
+                    ++scratch->fallbackCount;
+                }
             }
         }
         else
         {
-            // If we've got here, we must've ran out in options in the fallback/all type subset
-            AGB_ASSERT(FALSE);
-            return SPECIES_MAGIKARP;
+            if(scratch->fallbackCount == 255)
+            {
+                // If we've got here, we must've ran out in options in the fallback/all type subset
+                AGB_ASSERT(FALSE);
+                return SPECIES_MAGIKARP;
+            }
+            else if(scratch->fallbackCount != 0)
+            {
+                ++scratch->fallbackCount;
+                scratch->shouldRegenerateQuery = TRUE;
+            }
         }
     }
     while(species == SPECIES_NONE);
@@ -1134,7 +1419,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     bool8 preferCompetitive = FALSE;
     bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8 difficultyModifier = 1; // TODO - GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
     //{
@@ -1142,7 +1427,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     //    return TRUE;
     //}
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH)
     {
         // For regular trainers, Last and first mon can have competitive sets
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));

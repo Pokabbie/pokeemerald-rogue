@@ -648,8 +648,7 @@ script Rogue_Battle_PreBoss
 
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("TODO - Fix"), MSGBOX_DEFAULT)
-            //trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_POKEFAN_F, 0, format("Good luck with the big battle!"))
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
             setflag(FLAG_TEMP_1A)
         }
         else
@@ -860,8 +859,8 @@ script Rogue_Battle_Trainer
 {
     // Can't add any scripts before this
     // the trainer_see/battle_setup code  wants to grab the trainerNum from the very top of the script
-    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, format("Let's battle!"), format("Well fought!"))
-    msgbox(format("Good luck with your next battle!"), MSGBOX_AUTOCLOSE)
+    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, gPlaceholder_Trainer_PreBattleTaunt, gPlaceholder_Trainer_PostBattleTaunt)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser, MSGBOX_AUTOCLOSE)
 }
 
 

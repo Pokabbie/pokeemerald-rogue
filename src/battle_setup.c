@@ -1144,6 +1144,17 @@ void SetMapVarsToTrainer(void)
     }
 }
 
+static void ModifyBattleParams()
+{
+    if(sTrainerADefeatSpeech != NULL)
+    {
+        const u8* str = Rogue_ModifyFieldMessage(sTrainerADefeatSpeech);
+        void* ptr = (void*)((size_t)str);
+
+        sTrainerADefeatSpeech = (u8*)ptr;
+    }
+}
+
 const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
     if (TrainerBattleLoadArg8(data) != TRAINER_BATTLE_SET_TRAINER_B)
@@ -1164,6 +1175,8 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         if(gTrainerBattleOpponent_B == TRAINER_ROGUE_DYNAMIC)
             gTrainerBattleOpponent_B = Rogue_GetTrainerNumFromLastInteracted();
 
+        ModifyBattleParams();
+
         return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);
@@ -1174,6 +1187,8 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 
         if(gTrainerBattleOpponent_B == TRAINER_ROGUE_DYNAMIC)
             gTrainerBattleOpponent_B = Rogue_GetTrainerNumFromLastInteracted();
+
+        ModifyBattleParams();
 
         return EventScript_TryDoDoubleTrainerBattle;
     case TRAINER_BATTLE_CONTINUE_SCRIPT:
@@ -1193,25 +1208,39 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         if(gTrainerBattleOpponent_B == TRAINER_ROGUE_DYNAMIC)
             gTrainerBattleOpponent_B = Rogue_GetTrainerNumFromLastInteracted();
 
+        ModifyBattleParams();
+
         return EventScript_TryDoNormalTrainerBattle;
     case TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC:
         TrainerBattleLoadArgs(sContinueScriptBattleParams, data);
         SetMapVarsToTrainer();
+
+        ModifyBattleParams();
+
         return EventScript_TryDoNormalTrainerBattle;
     case TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE:
     case TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC:
         TrainerBattleLoadArgs(sContinueScriptDoubleBattleParams, data);
         SetMapVarsToTrainer();
+
+        ModifyBattleParams();
+
         return EventScript_TryDoDoubleTrainerBattle;
     case TRAINER_BATTLE_REMATCH_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);
         SetMapVarsToTrainer();
         gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
+
+        ModifyBattleParams();
+
         return EventScript_TryDoDoubleRematchBattle;
     case TRAINER_BATTLE_REMATCH:
         TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
         SetMapVarsToTrainer();
         gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
+
+        ModifyBattleParams();
+
         return EventScript_TryDoRematchBattle;
     case TRAINER_BATTLE_PYRAMID:
         if (gApproachingTrainerId == 0)
@@ -1225,6 +1254,9 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
             TrainerBattleLoadArgs(sTrainerBOrdinaryBattleParams, data);
             gTrainerBattleOpponent_B = LocalIdToPyramidTrainerId(gSpecialVar_LastTalked);
         }
+
+        ModifyBattleParams();
+
         return EventScript_TryDoNormalTrainerBattle;
     case TRAINER_BATTLE_SET_TRAINER_A:
         TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
@@ -1232,12 +1264,16 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         if(gTrainerBattleOpponent_A == TRAINER_ROGUE_DYNAMIC)
             gTrainerBattleOpponent_A = Rogue_GetTrainerNumFromLastInteracted();
 
+        ModifyBattleParams();
+
         return sTrainerBattleEndScript;
     case TRAINER_BATTLE_SET_TRAINER_B:
         TrainerBattleLoadArgs(sTrainerBOrdinaryBattleParams, data);
 
         if(gTrainerBattleOpponent_B == TRAINER_ROGUE_DYNAMIC)
             gTrainerBattleOpponent_B = Rogue_GetTrainerNumFromLastInteracted();
+
+        ModifyBattleParams();
 
         return sTrainerBattleEndScript;
     case TRAINER_BATTLE_HILL:
@@ -1259,6 +1295,9 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
                 gTrainerBattleOpponent_B = Rogue_GetTrainerNumFromLastInteracted();
 
         }
+
+        ModifyBattleParams();
+
         return EventScript_TryDoNormalTrainerBattle;
     default:
         if (gApproachingTrainerId == 0)
@@ -1279,6 +1318,7 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 
         // TODO - When expanding TRAINER_ROGUE_DYANMIC, also expand string pointers e.g. sTrainerAIntroSpeech
 
+        ModifyBattleParams();
 
         return EventScript_TryDoNormalTrainerBattle;
     }

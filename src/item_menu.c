@@ -107,6 +107,7 @@ enum {
     WIN_TMHM_INFO,
     WIN_MESSAGE, // Identical to ITEMWIN_MESSAGE. Unused?
     WIN_BAG_CAPACITY,
+    WIN_BAG_STACK_AMOUNT,
 };
 
 // Item list ID for toSwapPos to indicate an item is not currently being swapped
@@ -633,6 +634,15 @@ static const struct WindowTemplate sDefaultBagWindows[] =
         .height = 2,
         .paletteNum = 1,
         .baseBlock = 541,
+    },
+    [WIN_BAG_STACK_AMOUNT] = {
+        .bg = 0,
+        .tilemapLeft = 26,
+        .tilemapTop = 18,
+        .width = 4,
+        .height = 2,
+        .paletteNum = 1,
+        .baseBlock = 551,
     },
     DUMMY_WIN_TEMPLATE,
 };
@@ -1254,6 +1264,7 @@ static void PrintBagCapacity()
     const u8 *str = gText_Var1SlashVar2;
     u16 freeSlots = GetBagUnreservedFreeSlots();
     u16 totalSlots = GetBagUnreservedTotalSlots();
+    u16 stackSize = Rogue_GetBagPocketAmountPerItem(gBagPosition.pocket);
 
 #ifdef ROGUE_DEBUG
     // If we're in the key items pocket in debug display the reservered slot info
@@ -1266,6 +1277,7 @@ static void PrintBagCapacity()
 
     usedSlots = totalSlots - freeSlots;
 
+    // Pring slot info
     ConvertIntToDecimalStringN(gStringVar1, usedSlots, STR_CONV_MODE_RIGHT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, totalSlots, STR_CONV_MODE_LEFT_ALIGN, 3);
 
@@ -1274,6 +1286,13 @@ static void PrintBagCapacity()
 
     FillWindowPixelBuffer(WIN_BAG_CAPACITY, PIXEL_FILL(0));
     BagMenu_Print(WIN_BAG_CAPACITY, FONT_NARROW, str, 2, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
+
+    // Print slot size
+    ConvertIntToDecimalStringN(gStringVar1, stackSize, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar4, gText_xVar1);
+
+    FillWindowPixelBuffer(WIN_BAG_STACK_AMOUNT, PIXEL_FILL(0));
+    BagMenu_Print(WIN_BAG_STACK_AMOUNT, FONT_NARROW, str, 0, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
 }
 
 static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)
@@ -1557,6 +1576,7 @@ static void ReturnToItemList(u8 taskId)
     }
 
     PutWindowTilemap(WIN_BAG_CAPACITY);
+    PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
@@ -1690,6 +1710,7 @@ static void Task_SwitchBagPocket(u8 taskId)
         LoadBagItemListBuffers(gBagPosition.pocket);
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
         PutWindowTilemap(WIN_BAG_CAPACITY);
+        PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
         PutWindowTilemap(WIN_POCKET_NAME);
 
         if(gBagPosition.pocket == TMHM_POCKET)
@@ -2261,7 +2282,6 @@ static void Task_RegisterUsingDpad(u8 taskId)
     PlaySE(SE_SELECT);
     // register and refresh menu
     gSaveBlock1Ptr->registeredItems[i - 1] = gSpecialVar_ItemId;
-    gSaveBlock1Ptr->registeredItemCompat = gSpecialVar_ItemId;
     DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
     LoadBagItemListBuffers(gBagPosition.pocket);
     tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
@@ -2310,11 +2330,6 @@ static u32 CountRegisteredItems(void) {
     for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
         if (gSaveBlock1Ptr->registeredItems[i] != ITEM_NONE)
             count++;
-    // Fallback to vanilla registeredItem
-    if (count == 0 && gSaveBlock1Ptr->registeredItemCompat) {
-        gSaveBlock1Ptr->registeredItems[0] = gSaveBlock1Ptr->registeredItemCompat;
-        count = 1;
-    }
     return count;
 }
 
@@ -2324,10 +2339,6 @@ s32 RegisteredItemIndex(u16 item) {
     for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
         if (gSaveBlock1Ptr->registeredItems[i] && (!item || gSaveBlock1Ptr->registeredItems[i] == item))
             return i;
-    if (item && item == gSaveBlock1Ptr->registeredItemCompat) {
-        gSaveBlock1Ptr->registeredItems[0] = item;
-        return 0;
-    }
     return -1;
 }
 
@@ -2341,16 +2352,10 @@ static void ItemMenu_Register(u8 taskId)
     // unregister/deselect item
     if (index >= 0) {
         gSaveBlock1Ptr->registeredItems[index] = ITEM_NONE;
-        // unregistering last item, index set to first registered item
-        if (--count == 0 || (index = RegisteredItemIndex(ITEM_NONE)) < 0)
-            gSaveBlock1Ptr->registeredItemCompat = ITEM_NONE;
-        else
-            gSaveBlock1Ptr->registeredItemCompat = gSaveBlock1Ptr->registeredItems[index];
         index = 1; // ensure menu is closed
     // no items registered; register this one in slot 0
     } else if (count == 0) {
         gSaveBlock1Ptr->registeredItems[0] = gSpecialVar_ItemId;
-        gSaveBlock1Ptr->registeredItemCompat = gSpecialVar_ItemId;
     }
 
     // no DPAD required; just close the menu
@@ -2499,13 +2504,6 @@ bool8 UseRegisteredKeyItemOnField(void)
     if (i > 1) {
         func = Task_KeyItemWheel;
     // Use the only registered item
-    } else if (i > 0) {
-        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItemCompat, 1) == TRUE) {
-            gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItemCompat;
-            func = ItemId_GetFieldFunc(gSaveBlock1Ptr->registeredItemCompat);
-        } else {
-            gSaveBlock1Ptr->registeredItemCompat = ITEM_NONE;
-        }
     }
     if (func) 
     {
@@ -2622,7 +2620,7 @@ static void Task_KeyItemWheel(u8 taskId) {
         if (i == 0 || data[i] == MAX_SPRITES)
             break;
         // use item as if it was registered
-        gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItemCompat = gSaveBlock1Ptr->registeredItems[i - 1];
+        gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItems[i - 1];
         PlaySE(SE_SELECT);
         StartSpriteAffineAnim(&gSprites[data[i]], i + 4 - 1);
         data[15] = data[i];
@@ -2633,7 +2631,7 @@ static void Task_KeyItemWheel(u8 taskId) {
         if (!gSprites[data[15]].affineAnimEnded)
             break;
         FreeKeyItemWheelGfx(data);
-        i = CreateTask(ItemId_GetFieldFunc(gSaveBlock1Ptr->registeredItemCompat), 8);
+        i = CreateTask(ItemId_GetFieldFunc(gSpecialVar_ItemId), 8);
         gTasks[i].tUsingRegisteredKeyItem = TRUE;
         DestroyTask(taskId);
         DisableInterrupts(INTR_FLAG_HBLANK);
@@ -2996,6 +2994,7 @@ static void SortBagBy(u8 taskId, u8 sortMode)
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
         //PutWindowTilemap(WIN_DESCRIPTION);
         //PutWindowTilemap(WIN_BAG_CAPACITY);
+        //PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
         //PutWindowTilemap(WIN_POCKET_NAME);
         ScheduleBgCopyTilemapToVram(0);
     }
@@ -3115,6 +3114,7 @@ static void LoadBagMenuTextWindows(void)
         PutWindowTilemap(i);
     }
     PutWindowTilemap(WIN_BAG_CAPACITY);
+    PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
 }

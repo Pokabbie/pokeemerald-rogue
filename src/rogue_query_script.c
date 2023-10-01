@@ -24,6 +24,7 @@ static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context);
 
 static void Action_IncludeTypes(struct QueryScriptContext* context);
 static void Action_ExcludeTypes(struct QueryScriptContext* context);
+static void Action_IncludeSpecies(struct QueryScriptContext* context);
 static void Action_IncFavour(struct QueryScriptContext* context);
 static void Action_DecFavour(struct QueryScriptContext* context);
 static void Action_ImpossibleFavour(struct QueryScriptContext* context);
@@ -43,6 +44,7 @@ static ScriptCallback const gScriptTable[] =
 
     [QUERY_SCRIPT_INCLUDE_TYPES] = Action_IncludeTypes,
     [QUERY_SCRIPT_EXCLUDE_TYPES] = Action_ExcludeTypes,
+    [QUERY_SCRIPT_INCLUDE_SPECIES] = Action_IncludeSpecies,
 
     [QUERY_SCRIPT_INC_FAVOUR] = Action_IncFavour,
     [QUERY_SCRIPT_DEC_FAVOUR] = Action_DecFavour,
@@ -118,7 +120,8 @@ u8 RogueQueryScript_CalculateWeightsCallback(u16 index, u16 species, void* data)
         // Start with neutral weight as 8, so can decrease weight by 3 or increase by 4
         if(signedValue < 0)
         {
-            shift = min(-signedValue, 3);
+            signedValue *= -1;
+            shift = min(signedValue, 3);
             weight = (8 >> signedValue);
         }
         else
@@ -287,6 +290,16 @@ static void Action_ExcludeTypes(struct QueryScriptContext* context)
     if(context->conditionState)
     {
         RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, typeFlags);
+    }
+}
+
+static void Action_IncludeSpecies(struct QueryScriptContext* context)
+{
+    u16 species = ParseScriptValue(context);
+
+    if(context->conditionState)
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
 }
 

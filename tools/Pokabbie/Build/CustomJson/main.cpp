@@ -26,6 +26,7 @@ static std::string readTextFile(std::string const& filepath)
 }
 
 void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData);
+void ExportTrainerData_Pory(std::ofstream& fileStream, json const& jsonData);
 void ExportBattleMusicData_C(std::ofstream& fileStream, json const& jsonData);
 
 static std::map<std::string, ExporterFunc> CreateExportMap()
@@ -33,6 +34,7 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     std::map<std::string, ExporterFunc> mapping;
 
     mapping["trainers_c"] = ExportTrainerData_C;
+    mapping["trainers_pory"] = ExportTrainerData_Pory;
     mapping["battle_music_c"] = ExportBattleMusicData_C;
 
     return mapping;
