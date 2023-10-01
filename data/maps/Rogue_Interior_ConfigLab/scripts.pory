@@ -82,3 +82,13 @@ script Rogue_Interior_ConfigLab_TalkFennel
 
     release
 }
+
+script Rogue_Interior_ConfigLab_TalkPokabbie
+{
+    lock
+    faceplayer
+
+    msgbox(format("DEBUG - MET POKABBIE"))
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+    release
+}
