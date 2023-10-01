@@ -7991,7 +7991,7 @@ BattleScript_AbilityPopUp:
 	.if B_ABILITY_POP_UP == TRUE
 	showabilitypopup BS_ABILITY_BATTLER
 	recordability BS_ABILITY_BATTLER
-	pause B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_SHORT
 	.endif
 	sethword sABILITY_OVERWRITE, 0
 	return
