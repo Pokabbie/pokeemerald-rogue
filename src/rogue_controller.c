@@ -647,6 +647,38 @@ void Rogue_ModifyBattlePalette(u16 offset, u16 count)
     RogueToD_ModifyBattlePalette(offset, count);
 }
 
+extern const u8 gPlaceholder_Gym_PreBattleOpenning[];
+extern const u8 gPlaceholder_Gym_PreBattleTaunt[];
+extern const u8 gPlaceholder_Gym_PostBattleTaunt[];
+extern const u8 gPlaceholder_Gym_PostBattleCloser[];
+extern const u8 gPlaceholder_Gym_PostBattleChat[];
+
+const u8* Rogue_ModifyFieldMessage(const u8* str)
+{
+    const u8* overrideStr = NULL;
+
+    if(Rogue_IsRunActive())
+    {
+        switch(gRogueAdvPath.currentRoomType)
+        {
+            case ADVPATH_ROOM_BOSS:
+                if(str == gPlaceholder_Gym_PreBattleOpenning)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+                else if(str == gPlaceholder_Gym_PreBattleTaunt)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+                else if(str == gPlaceholder_Gym_PostBattleTaunt)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+                else if(str == gPlaceholder_Gym_PostBattleCloser)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
+                else if(str == gPlaceholder_Gym_PostBattleChat)
+                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CHAT);
+                break;
+        }
+    }
+
+    return overrideStr != NULL ? overrideStr : str;
+}
+
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {
     if(Rogue_IsRunActive())

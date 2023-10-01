@@ -111,6 +111,47 @@ struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum)
     return &gRogueTrainerMusic[trainer->musicPlayer];
 }
 
+const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    const u8* str = NULL;
+
+    if(trainer->encounterText == NULL || trainer->encounterTextCount == 0)
+        return NULL;
+
+    // For boss trainers we're going to predictably jump up the string tables, so custom text can optionally be added for later states
+    // In order: gyms, e4, champ, final champ
+    if(Rogue_IsAnyBossTrainer(trainerNum))
+    {
+        u8 offset = 0;
+
+        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            offset = 3;
+        else if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+            offset = 2;
+        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            offset = 1;
+
+        offset = min(offset, trainer->encounterTextCount - 1);
+
+        for(; offset > 0; --offset)
+        {
+            str = trainer->encounterText[TRAINER_STRING_COUNT * offset + textId];
+            if(str != NULL)
+                return str;
+        }
+
+        return trainer->encounterText[TRAINER_STRING_COUNT + textId];
+    }
+    else
+    {
+        // TODO
+        // Predictably randomise per trainer id instance?
+    }
+
+    return NULL;
+}
+
 bool8 Rogue_GetTrainerFlag(u16 trainerNum)
 {
     return FlagGet(TRAINER_FLAGS_START + trainerNum);

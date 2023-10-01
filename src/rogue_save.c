@@ -199,6 +199,10 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     // For development it's easier to keep the restore block first, as it's not as likely to change as the run data
     SerializeData(stream, &sRunRestoreBlock, sizeof(sRunRestoreBlock));
     SerializeData(stream, &gRogueRun, sizeof(gRogueRun));
+
+    SerializeData(stream, &gRogueAdvPath.currentRoomParams, sizeof(gRogueAdvPath.currentRoomParams));
+    SerializeData(stream, &gRogueAdvPath.currentRoomId, sizeof(gRogueAdvPath.currentRoomId));
+    SerializeData(stream, &gRogueAdvPath.currentRoomType, sizeof(gRogueAdvPath.currentRoomType));
 }
 
 static u16 SerializeRogueBlock(bool8 inWriteMode)

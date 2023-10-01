@@ -185,8 +185,16 @@
 #define TRAINER_FLAG_REGION_DEFAULT             (TRAINER_FLAG_REGION_ANY & ~TRAINER_FLAG_REGION_ROGUE)
 
 
+#define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
+#define TRAINER_STRING_PRE_BATTLE_TAUNT         1 // after encounter music, before battle
+#define TRAINER_STRING_POST_BATTLE_TAUNT        2 // before leave battle victory message
+#define TRAINER_STRING_POST_BATTLE_CLOSER       3 // after battle (back in overworld)
+#define TRAINER_STRING_POST_BATTLE_CHAT         4 // after battled if interact with object again (Not supported for gyms)
+#define TRAINER_STRING_COUNT                    5
+
 // 8 badges, 4 elite, 2 champion
 #define ROGUE_MAX_BOSS_COUNT 14
+#define ROGUE_FINAL_CHAMP_DIFFICULTY 13
 #define ROGUE_CHAMP_START_DIFFICULTY 12
 #define ROGUE_ELITE_START_DIFFICULTY 8
 

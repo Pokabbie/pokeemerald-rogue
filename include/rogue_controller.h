@@ -46,6 +46,8 @@ bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 void Rogue_ModifyBattlePalette(u16 offset, u16 count);
 
+const u8* Rogue_ModifyFieldMessage(const u8* str);
+
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);
 u8* Rogue_GetMiniMenuContent(void);

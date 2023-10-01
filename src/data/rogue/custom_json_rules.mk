@@ -5,3 +5,6 @@ $(DATA_SRC_SUBDIR)/rogue/battle_music.h: $(DATA_SRC_SUBDIR)/rogue/battle_music.j
 
 $(DATA_SRC_SUBDIR)/rogue/trainers.h: $(DATA_SRC_SUBDIR)/rogue/trainers.json
 	$(CUSTOMJSON) trainers_c $^ $@
+
+$(ROGUEPORYSCRIPTSDIR)/Generated/trainers.pory: $(DATA_SRC_SUBDIR)/rogue/trainers.json
+	$(CUSTOMJSON) trainers_pory $^ $@

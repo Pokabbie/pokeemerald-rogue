@@ -8,14 +8,25 @@ struct TrainerDataExport_C
 	std::stringstream trainerStructsBlock;
 };
 
+struct TrainerStrings
+{
+	std::vector<std::string> text;
+	std::unordered_map<std::string, int> textToIndex;
+};
+
 static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& jsonData, std::string trainerGroup);
 static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string const& exportName, json const& jsonData);
+
+static TrainerStrings ExtractTrainerStrings(json const& trainers);
+static void ExportTrainerStringsData_C(TrainerDataExport_C& exporter, json const& trainers);
 
 void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
 {
 	TrainerDataExport_C exporter;
 
 	json trainers = jsonData["trainers"];
+	ExportTrainerStringsData_C(exporter, trainers);
+
 	for (auto it = trainers.begin(); it != trainers.end(); ++it)
 	{
 		ExportTrainerGroupData_C(exporter, jsonData, it.key());
@@ -32,6 +43,7 @@ void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
 
 static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& jsonData, std::string trainerGroup)
 {
+	TrainerStrings trainerStrings = ExtractTrainerStrings(jsonData["trainers"]);
 	json trainers = jsonData["trainers"][trainerGroup];
 	int i;
 
@@ -59,6 +71,28 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 	{
 		int trainerIdx = i++;
 		exporter.earlyBlock << "static const u8 sTrainerName_" << trainerGroup << "_" << trainerIdx << "[] = _(\"" << trainer["name"].get<std::string>() << "\");\n";
+
+		if (trainer.contains("encounter_text"))
+		{
+			auto encounterTextArray = trainer["encounter_text"];
+			exporter.earlyBlock << "static const u8* const sTrainerEncounterText_" << trainerGroup << "_" << trainerIdx << "[TRAINER_STRING_COUNT * " << encounterTextArray.size() << "] = \n{\n";
+
+			int entryIdx = 0;
+			for (auto encounterText : encounterTextArray)
+			{
+				for (auto entryIt = encounterText.begin(); entryIt != encounterText.end(); ++entryIt)
+				{
+					std::string key = entryIt.key();
+					std::string text = entryIt.value().get<std::string>();
+					int textIndex = trainerStrings.textToIndex[text];
+
+					exporter.earlyBlock << c_TabSpacing << "[TRAINER_STRING_COUNT * " << entryIdx  << " + TRAINER_STRING_" << key << "] = gTrainerEncounterText_" << textIndex << ",\n";
+				}
+				++entryIdx;
+			}
+
+			exporter.earlyBlock << "};\n";
+		}
 	}
 	exporter.earlyBlock << "\n";
 
@@ -183,6 +217,18 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		}
 		exporter.trainerStructsBlock << ",\n";
 
+		// Strings
+		if (trainer.contains("encounter_text"))
+		{
+			exporter.trainerStructsBlock << c_TabSpacing << ".encounterText = sTrainerEncounterText_" << trainerGroup << "_" << trainerIdx << ",\n";
+			exporter.trainerStructsBlock << c_TabSpacing << ".encounterTextCount = ARRAY_COUNT(sTrainerEncounterText_" << trainerGroup << "_" << trainerIdx << ") / TRAINER_STRING_COUNT,\n";
+		}
+		else
+		{
+			exporter.trainerStructsBlock << c_TabSpacing << ".encounterText = NULL,\n";
+			exporter.trainerStructsBlock << c_TabSpacing << ".encounterTextCount = 0,\n";
+		}
+
 
 		// Team generator
 		exporter.trainerStructsBlock << c_TabSpacing << ".teamGenerator = \n" << c_TabSpacing << "{\n";
@@ -250,4 +296,58 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 	}
 
 	exporter.earlyBlock << c_TabSpacing << "QUERY_SCRIPT_END\n};\n";
+}
+
+void ExportTrainerData_Pory(std::ofstream& fileStream, json const& jsonData)
+{
+	TrainerStrings trainerStrings = ExtractTrainerStrings(jsonData["trainers"]);
+
+	for (size_t i = 0; i < trainerStrings.text.size(); ++i)
+	{
+		fileStream << "text gTrainerEncounterText_" << i << "\n{\n";
+		fileStream << c_TabSpacing << "format(\"" << trainerStrings.text[i] << "\")\n";
+		fileStream << "}\n\n";
+	}
+}
+
+static TrainerStrings ExtractTrainerStrings(json const& trainers)
+{
+	TrainerStrings trainerStrings;
+
+	for (auto groupIt = trainers.begin(); groupIt != trainers.end(); ++groupIt)
+	{
+		for (auto trainer : groupIt.value())
+		{
+			if (trainer.contains("encounter_text"))
+			{
+				for (auto encounterText : trainer["encounter_text"])
+				{
+					for (auto entryIt = encounterText.begin(); entryIt != encounterText.end(); ++entryIt)
+					{
+						std::string text = entryIt.value().get<std::string>();
+						auto findIt = trainerStrings.textToIndex.find(text);
+
+						if (findIt == trainerStrings.textToIndex.end())
+						{
+							trainerStrings.textToIndex[text] = trainerStrings.text.size();
+							trainerStrings.text.push_back(text);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return trainerStrings;
+}
+
+static void ExportTrainerStringsData_C(TrainerDataExport_C& exporter, json const& trainers)
+{
+	TrainerStrings trainerStrings = ExtractTrainerStrings(trainers);
+
+	for (size_t i = 0; i < trainerStrings.text.size(); ++i)
+	{
+		exporter.earlyBlock << "extern const u8 gTrainerEncounterText_" << i << "[];\n";
+	}
+	exporter.earlyBlock << "\n";
 }

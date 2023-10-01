@@ -10,6 +10,27 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -40,6 +61,27 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "hi hi!",
+                        "PRE_BATTLE_TAUNT": "Show me what you got!",
+                        "POST_BATTLE_TAUNT": "Shoot",
+                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
