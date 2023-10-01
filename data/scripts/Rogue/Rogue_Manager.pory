@@ -860,8 +860,8 @@ script Rogue_Battle_Trainer
 {
     // Can't add any scripts before this
     // the trainer_see/battle_setup code  wants to grab the trainerNum from the very top of the script
-    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, format("Let's battle!"), format("Well fought!"))
-    msgbox(format("Good luck with your next battle!"), MSGBOX_AUTOCLOSE)
+    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, gPlaceholder_Trainer_PreBattleTaunt, gPlaceholder_Trainer_PostBattleTaunt)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser, MSGBOX_AUTOCLOSE)
 }
 
 

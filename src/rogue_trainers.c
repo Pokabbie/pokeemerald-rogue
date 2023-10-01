@@ -147,8 +147,8 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
     }
     else
     {
-        // TODO
-        // Predictably randomise per trainer id instance?
+        // TODO - Predictably randomise per trainer id instance?
+        return trainer->encounterText[textId];
     }
 
     return NULL;
@@ -403,11 +403,9 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     }
 }
 
-static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
+static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* historyBuffer, u16 historyBufferCapacity)
 {
     u8 i;
-    u32 includeFlags;
-    u32 excludeFlags;
     u16 trainerNum = gRogueTrainerCount;
 
     RogueTrainerQuery_Begin();
@@ -419,14 +417,6 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
         RogueTrainerQuery_Reset(QUERY_FUNC_INCLUDE);
 
         // Only include trainers we want
-        includeFlags = TRAINER_FLAG_NONE;
-        if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
-            includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
-        else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-            includeFlags |= TRAINER_FLAG_CLASS_ELITE;
-        else
-            includeFlags |= TRAINER_FLAG_CLASS_GYM;
-
         RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
 
         GetGlobalFilterFlags(&includeFlags, &excludeFlags);
@@ -468,6 +458,25 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
     return trainerNum;
 }
 
+static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
+{
+    u32 includeFlags;
+    u32 excludeFlags;
+
+    // Only include trainers we want
+    includeFlags = TRAINER_FLAG_NONE;
+    if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+    else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        includeFlags |= TRAINER_FLAG_CLASS_ELITE;
+    else
+        includeFlags |= TRAINER_FLAG_CLASS_GYM;
+
+    excludeFlags = 0;
+
+    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+}
+
 void Rogue_ChooseBossTrainersForNewAdventure()
 {
     u8 difficulty;
@@ -489,6 +498,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
             {
                 case ROGUE_ELITE_START_DIFFICULTY:
                 case ROGUE_CHAMP_START_DIFFICULTY:
+                case ROGUE_FINAL_CHAMP_DIFFICULTY: // <- technically isn't needed just for a safety fallback
                     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
                     break;
             }
@@ -497,7 +507,35 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         trainerNum = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
         gRogueRun.bossTrainerNums[difficulty] = trainerNum;
 
-        DebugPrintf("    [%d] = %d '%s'", difficulty, trainerNum, gRogueTrainers[trainerNum].trainerName);
+        DebugPrintf("    [%d] = %d", difficulty, trainerNum);
+    }
+}
+
+static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
+{
+    u32 includeFlags;
+    u32 excludeFlags;
+
+    // Only include trainers we want
+    includeFlags = TRAINER_FLAG_CLASS_ROUTE;
+    excludeFlags = TRAINER_FLAG_CLASS_ROUTE;
+
+    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+}
+
+void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
+{
+    u8 i;
+    u16 trainerNum;
+    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+
+    memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
+    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    for(i = 0; i < bufferCapacity; ++i)
+    {
+        trainerNum = Rogue_RouteTrainerId(historyBuffer, ARRAY_COUNT(historyBuffer));
+        writeBuffer[i] = trainerNum;
     }
 }
 
@@ -511,21 +549,6 @@ u16 Rogue_NextMinibossTrainerId()
     //if(trainer != NULL)
     //{
     //    HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum));
-    //}
-//
-    //return trainerNum;
-}
-
-u16 Rogue_NextRouteTrainerId(u16* historyBuffer, u16 bufferCapacity)
-{
-    // TODO
-    return 0;
-    //u16 trainerNum = NextTrainerNum(TRAINER_NUM_ROUTE_TRAINER_START, TRAINER_NUM_ROUTE_TRAINER_END, historyBuffer, bufferCapacity);
-    //const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-//
-    //if(trainer != NULL)
-    //{
-    //    HistoryBufferPush(historyBuffer, bufferCapacity, GetTrainerHistoryKey(trainerNum));
     //}
 //
     //return trainerNum;
@@ -1130,6 +1153,17 @@ static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
     u8 currentType = trainer->typeAssignment;
 
+    // If we have a mystery type we want to just pick 1 type
+    if(currentType == TYPE_MYSTERY)
+    {
+        while(currentType == TYPE_MYSTERY)
+        {
+            currentType = RogueRandom() % NUMBER_OF_MON_TYPES;
+        }
+
+        return MON_TYPE_VAL_TO_FLAGS(currentType);
+    }
+
     if(scratch->fallbackCount < 10)
     {
         u8 i;
@@ -1285,6 +1319,12 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 {
     u16 species;
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+
+    // We don't have any subsets, so immediately start using fallback behaviour
+    if(trainer->teamGenerator.subsetCount == 0)
+    {
+        ++scratch->fallbackCount;
+    }
 
     do
     {

@@ -3424,6 +3424,788 @@
                     ]
                 }
             }
+        ],
+
+        "team_aqua":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
+                "music_player": "team_aqua",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
+                "music_player": "team_aqua",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "WATER" ],
+                            "exclude_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ],
+                            "exclude_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        
+        "team_magma":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "FIRE",
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
+                "music_player": "team_magma",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "FIRE" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "FIRE",
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
+                "music_player": "team_magma",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "FIRE" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "route_general":
+        [
+            {
+                "name": "MALONE",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_GIRL_1",
+                "trainer_pic": "TRAINER_PIC_POKEMON_BREEDER_F",
+                "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I hatched and rasied all of my POKéMON!",
+                        "POST_BATTLE_TAUNT": "I guess I need to work in my breeding technique…",
+                        "POST_BATTLE_CLOSER": "My breeding technique still needs work I guess…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "CAIRO",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_BOY_2",
+                "trainer_pic": "TRAINER_PIC_POKEMON_BREEDER_M",
+                "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Did you really raise all your POKéMON yourself?",
+                        "POST_BATTLE_TAUNT": "I don't believe you…",
+                        "POST_BATTLE_CLOSER": "Someone else must've raised your POKéMON for you."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "JETT",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_MAN_3",
+                "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+                "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Why are you looking at me like that?",
+                        "POST_BATTLE_TAUNT": "It's rude to stare!",
+                        "POST_BATTLE_CLOSER": "It's rude to stare!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "HARTLEY",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_WOMAN_5",
+                "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+                "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Eww… did you just look at me?",
+                        "POST_BATTLE_TAUNT": "Gross…",
+                        "POST_BATTLE_CLOSER": "Can you just not…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "JO",
+                "type_assignment": "PSYCHIC",
+                "object_event": "OBJ_EVENT_GFX_PSYCHIC_M",
+                "trainer_pic": "TRAINER_PIC_PSYCHIC_M",
+                "trainer_class": "TRAINER_CLASS_PSYCHIC",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "My mind and my POKéMON are in sync!",
+                        "POST_BATTLE_TAUNT": "You and your POKéMON were more in sync, it seems.",
+                        "POST_BATTLE_CLOSER": "How did you train your POKéMON I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "KOBIE",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_TUBER_M",
+                "trainer_pic": "TRAINER_PIC_TUBER_M",
+                "trainer_class": "TRAINER_CLASS_TUBER_M",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Look at me go!\\nI can destroy the world!",
+                        "POST_BATTLE_TAUNT": "It's not fun when you pretend too.",
+                        "POST_BATTLE_CLOSER": "You're a party pooper!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "KHARI",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_TUBER_F",
+                "trainer_pic": "TRAINER_PIC_TUBER_F",
+                "trainer_class": "TRAINER_CLASS_TUBER_F",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I want to play a game!",
+                        "POST_BATTLE_TAUNT": "That was fun!",
+                        "POST_BATTLE_CLOSER": "Can we play another game?"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "GIFT",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_EXPERT_F",
+                "trainer_pic": "TRAINER_PIC_EXPERT_F",
+                "trainer_class": "TRAINER_CLASS_EXPERT",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Ah!\\pYou look like a strong trainer!",
+                        "POST_BATTLE_TAUNT": "Honestly…\\nI was expecting more from you…",
+                        "POST_BATTLE_CLOSER": "Yes you are strong.\\pNot at strong as I was in my prime."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "DUSTY",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_EXPERT_M",
+                "trainer_pic": "TRAINER_PIC_EXPERT_M",
+                "trainer_class": "TRAINER_CLASS_EXPERT",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "SLOW DOWN!\\pIT'S RUDE TO RUN!",
+                        "POST_BATTLE_TAUNT": "BE QUIET!\\pIT'S RUDE TO SHOUT!",
+                        "POST_BATTLE_CLOSER": "IT'S RUDE TO STARE!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "ELY",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+                "trainer_pic": "TRAINER_PIC_RUNNING_TRIATHLETE_M",
+                "trainer_class": "TRAINER_CLASS_TRIATHLETE",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "It's all about the quality of your training!",
+                        "POST_BATTLE_TAUNT": "Huh, I guess I need to train some more.",
+                        "POST_BATTLE_CLOSER": "Back to training for me, I guess."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "TEEGAN",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+                "trainer_pic": "TRAINER_PIC_RUNNING_TRIATHLETE_F",
+                "trainer_class": "TRAINER_CLASS_TRIATHLETE",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Move out of the way!\\pWhat are you doing!?",
+                        "POST_BATTLE_TAUNT": "Now that was just plain rude.",
+                        "POST_BATTLE_CLOSER": "Watch where you're going next time."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "ELIYAH",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+                "trainer_pic": "TRAINER_PIC_SCHOOL_KID_M",
+                "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I can't wait to use my technique from school!",
+                        "POST_BATTLE_TAUNT": "What! That technique was much better than mine!",
+                        "POST_BATTLE_CLOSER": "Why don't they teach us useful techniques in school."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "MASON",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_LITTLE_GIRL",
+                "trainer_pic": "TRAINER_PIC_SCHOOL_KID_F",
+                "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I lost my last battle so I'm gonna get payback on you!",
+                        "POST_BATTLE_TAUNT": "Err, you were suppose to lose!",
+                        "POST_BATTLE_CLOSER": "Amature."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "REMY",
+                "type_assignment": "GROUND",
+                "object_event": "OBJ_EVENT_GFX_HIKER",
+                "trainer_pic": "TRAINER_PIC_HIKER",
+                "trainer_class": "TRAINER_CLASS_HIKER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "That's a neat BAG you've got there!",
+                        "POST_BATTLE_TAUNT": "Still not as good as my BAG, though.",
+                        "POST_BATTLE_CLOSER": "You're BAG may be cool, but it's not even close to mine."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "HENLEY",
+                "type_assignment": "FLYING",
+                "object_event": "OBJ_EVENT_GFX_MAN_5",
+                "trainer_pic": "TRAINER_PIC_BIRD_KEEPER",
+                "trainer_class": "TRAINER_CLASS_BIRD_KEEPER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "My bird POKéMON are the strongest in the world!",
+                        "POST_BATTLE_TAUNT": "They're still the strongest in my world.",
+                        "POST_BATTLE_CLOSER": "Bird POKéMON are super cool, don't you think?!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ZELAND",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_MANIAC",
+                "trainer_pic": "TRAINER_PIC_COLLECTOR",
+                "trainer_class": "TRAINER_CLASS_COLLECTOR",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What do my little eyes spy?\\pIs that… a POKéMON battle?!",
+                        "POST_BATTLE_TAUNT": "My little eyes did not spy this.",
+                        "POST_BATTLE_CLOSER": "I'll be honest… I'm not entirely sure how I spy works.\\pDid I do it right?"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "AUDIE",
+                "type_assignment": "FIGHTING",
+                "object_event": "OBJ_EVENT_GFX_BLACK_BELT",
+                "trainer_pic": "TRAINER_PIC_BLACK_BELT",
+                "trainer_class": "TRAINER_CLASS_BLACK_BELT",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I can knock down trees just by punching them!",
+                        "POST_BATTLE_TAUNT": "What? This can't be!?",
+                        "POST_BATTLE_CLOSER": "You made me drop all the logs I picked up."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "AMARI",
+                "type_assignment": "GHOST",
+                "object_event": "OBJ_EVENT_GFX_HEX_MANIAC",
+                "trainer_pic": "TRAINER_PIC_HEX_MANIAC",
+                "trainer_class": "TRAINER_CLASS_HEX_MANIAC",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Fufufu!\\pI always look forward to POKéMON battles.",
+                        "POST_BATTLE_TAUNT": "That was it!",
+                        "POST_BATTLE_CLOSER": "Maybe we can battle again sometime?\\pFufufu."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "REMINGTON",
+                "type_assignment": "ROCK",
+                "object_event": "OBJ_EVENT_GFX_MISC_RUIN_MANIAC",
+                "trainer_pic": "TRAINER_PIC_RUIN_MANIAC",
+                "trainer_class": "TRAINER_CLASS_RUIN_MANIAC",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Stop right there!\\pYou were about to step on a precious sample!",
+                        "POST_BATTLE_TAUNT": "Oh wait…\\nThat's just a rock.",
+                        "POST_BATTLE_CLOSER": "My bad, I thought that was a precious sample."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ROCK", "STEEL" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SHINE",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_BEAUTY",
+                "trainer_pic": "TRAINER_PIC_BEAUTY",
+                "trainer_class": "TRAINER_CLASS_BEAUTY",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Ha!\\pI'm on a streak and I'm not planning on ending it here!",
+                        "POST_BATTLE_TAUNT": "Well, I didn't plan on ending it here…",
+                        "POST_BATTLE_CLOSER": "Time to build it up from scratch again, I guess."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "COPELAND",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_RICH_BOY",
+                "trainer_pic": "TRAINER_PIC_RICH_BOY",
+                "trainer_class": "TRAINER_CLASS_RICH_BOY",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I bought me the most powerful POKéMON imaginable!\\pYou don't stand a chance!",
+                        "POST_BATTLE_TAUNT": "What!?!",
+                        "POST_BATTLE_CLOSER": "I spent so much on these useless POKéMON too."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "ARLIE",
+                "type_assignment": "BUG",
+                "object_event": "OBJ_EVENT_GFX_BUG_CATCHER",
+                "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+                "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Me and my precious Bug POKéMON are on our way to fight a GYM!",
+                        "POST_BATTLE_TAUNT": "I guess we're not quite ready yet.",
+                        "POST_BATTLE_CLOSER": "I love Bug POKéMON with all my heart!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "QUINCY",
+                "type_assignment": "MYSTERY",
+                "object_event": "OBJ_EVENT_GFX_GENTLEMAN",
+                "trainer_pic": "TRAINER_PIC_GENTLEMAN",
+                "trainer_class": "TRAINER_CLASS_GENTLEMAN",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look very capable!\\pWould you mind entertaining my POKéMON in a battle?",
+                        "POST_BATTLE_TAUNT": "Astounding!",
+                        "POST_BATTLE_CLOSER": "You have done a remarkable job raising up your POKéMON!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": []
+                }
+            },
+            {
+                "name": "KAYA",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_FISHERMAN",
+                "trainer_pic": "TRAINER_PIC_FISHERMAN",
+                "trainer_class": "TRAINER_CLASS_FISHERMAN",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I was just on my way home after a great haul!\\pI guess I can battle you too!",
+                        "POST_BATTLE_TAUNT": "Well that was a bit of shame.",
+                        "POST_BATTLE_CLOSER": "I should've just taken my haul and gone home."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "KOBI",
+                "type_assignment": "DRAGON",
+                "object_event": "OBJ_EVENT_GFX_BOY_3",
+                "trainer_pic": "TRAINER_PIC_DRAGON_TAMER",
+                "trainer_class": "TRAINER_CLASS_DRAGON_TAMER",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You better not wipe my run!",
+                        "POST_BATTLE_TAUNT": "NOOOOOOO!",
+                        "POST_BATTLE_CLOSER": "Why?\\pI've been grinding this out for like 6 months…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        }
+                    ]
+                }
+            }
         ]
     }
 }

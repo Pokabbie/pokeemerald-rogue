@@ -651,7 +651,11 @@ extern const u8 gPlaceholder_Gym_PreBattleOpenning[];
 extern const u8 gPlaceholder_Gym_PreBattleTaunt[];
 extern const u8 gPlaceholder_Gym_PostBattleTaunt[];
 extern const u8 gPlaceholder_Gym_PostBattleCloser[];
-extern const u8 gPlaceholder_Gym_PostBattleChat[];
+
+extern const u8 gPlaceholder_Trainer_PreBattleOpenning[];
+extern const u8 gPlaceholder_Trainer_PreBattleTaunt[];
+extern const u8 gPlaceholder_Trainer_PostBattleTaunt[];
+extern const u8 gPlaceholder_Trainer_PostBattleCloser[];
 
 const u8* Rogue_ModifyFieldMessage(const u8* str)
 {
@@ -670,9 +674,29 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
                     overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
                 else if(str == gPlaceholder_Gym_PostBattleCloser)
                     overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
-                else if(str == gPlaceholder_Gym_PostBattleChat)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CHAT);
                 break;
+        }
+
+        // Overworld trainer messages
+        if(str == gPlaceholder_Trainer_PreBattleOpenning)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+        }
+        else if(str == gPlaceholder_Trainer_PreBattleTaunt)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+        }
+        else if(str == gPlaceholder_Trainer_PostBattleTaunt)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+        }
+        else if(str == gPlaceholder_Trainer_PostBattleCloser)
+        {
+            u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+            overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
     }
 
@@ -2946,11 +2970,15 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         {
             u8 write, read;
             u8 originalCount = *objectEventCount;
-            u16 trainerHistory[20];
+            u16 trainerBuffer[ROGUE_TRAINER_COUNT];
 
+            u8 trainerIndex;
             u16 trainerNum;
             const struct RogueTrainer* trainer;
 
+            Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+
+            trainerIndex = 0;
             write = 0;
             read = 0;
 
@@ -2968,7 +2996,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     // Don't increment write, if we're not accepting the trainer
                     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
                     {
-                        trainerNum = Rogue_NextRouteTrainerId(&trainerHistory[0], ARRAY_COUNT(trainerHistory));
+                        AGB_ASSERT(trainerIndex < ARRAY_COUNT(trainerBuffer));
+                        trainerNum = trainerBuffer[trainerIndex++];
                         trainer = Rogue_GetTrainer(trainerNum);
 
                         if(trainer != NULL)
