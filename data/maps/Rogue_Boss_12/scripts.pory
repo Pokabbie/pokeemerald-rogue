@@ -42,7 +42,7 @@ script Rogue_BattleDefeated_Boss12
     
     msgbox(gPlaceholder_Gym_PostBattleCloser)
     playbgm(MUS_NONE, TRUE)
-    msgbox(format("However…\nI'm afraid another battle awaits before you may be given the title of Champion.\pGood luck…"))
+    msgbox(format("Oh yes…\nI'm afraid one final battle awaits you, before you may be given the title of Champion.\pGood luck…"))
 
     waitmessage()
     call(Rogue_EventScript_AttemptPostGymHeal)

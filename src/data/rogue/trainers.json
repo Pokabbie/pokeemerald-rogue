@@ -13,22 +13,10 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
-                    },
-                    {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
-                    },
-                    {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Let's see if you can break past the rock-hard willpower of my POKéMON!",
+                        "PRE_BATTLE_TAUNT": "Show me your best!",
+                        "POST_BATTLE_TAUNT": "I took you for granted, and so I lost.",
+                        "POST_BATTLE_CLOSER": "Let's see how far you can go.\\pGood luck."
                     }
                 ],
                 "team_generator":
@@ -64,22 +52,10 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
-                    },
-                    {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
-                    },
-                    {
-                        "PRE_BATTLE_OPENNING": "hi hi!",
-                        "PRE_BATTLE_TAUNT": "Show me what you got!",
-                        "POST_BATTLE_TAUNT": "Shoot",
-                        "POST_BATTLE_CLOSER": "Well... you got me that's for sure!"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those TRAINERS who have a policy about POKéMON can turn pro.",
+                        "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of WATER-type POKéMON?",
+                        "POST_BATTLE_TAUNT": "Wow!\\nYou're too much!",
+                        "POST_BATTLE_CLOSER": "There's plenty strong of TRAINERS still ahead of you.\\pStay strong!"
                     }
                 ],
                 "team_generator":
@@ -108,6 +84,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You won't live long in combat!",
+                        "PRE_BATTLE_TAUNT": "Not with your puny power!",
+                        "POST_BATTLE_TAUNT": "You're lightning-quick, kid!",
+                        "POST_BATTLE_CLOSER": "I tell you, kid, my electric POKéMON and me trust each other to the end!\\pTrust your POKéMON, and they'll always have your back!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -137,6 +122,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I must have dozed off. Welcome!",
+                        "PRE_BATTLE_TAUNT": "I hope you're prepared.\\nI do not plan on losing!",
+                        "POST_BATTLE_TAUNT": "I concede defeat.\\nYou are remarkably strong.",
+                        "POST_BATTLE_CLOSER": "I must say I'm impressed!\\pBest of luck to you in your future battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -166,6 +160,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type POKéMON!",
+                        "POST_BATTLE_TAUNT": "Humph!",
+                        "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -195,6 +198,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I had a vision of your arrival.\\pI dislike battling, but if you wish…",
+                        "PRE_BATTLE_TAUNT": "I will show you my powers!",
+                        "POST_BATTLE_TAUNT": "This loss shocks me!",
+                        "POST_BATTLE_CLOSER": "A loss is a loss.\\pTread carefully, I see difficult battles in your future."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -228,6 +240,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My fiery POKéMON are all rough and ready with intense heat!",
+                        "PRE_BATTLE_TAUNT": "You better have a BURN HEAL!",
+                        "POST_BATTLE_TAUNT": "I have burned down to nothing!",
+                        "POST_BATTLE_CLOSER": "Not even ashes remain!\\pI like your style, kid!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -257,6 +278,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pI shall bring glory TEAM ROCKET!",
+                        "PRE_BATTLE_TAUNT": "I'm not holding back!",
+                        "POST_BATTLE_TAUNT": "That was a truly intense fight.",
+                        "POST_BATTLE_CLOSER": "You have won."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -298,6 +328,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Your POKéMON will be at my mercy when they are frozen solid.\\pHahaha!",
+                        "PRE_BATTLE_TAUNT": "Are you ready?",
+                        "POST_BATTLE_TAUNT": "…Things shouldn't be this way!",
+                        "POST_BATTLE_CLOSER": "You're better than I though.\\pGo on ahead."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -328,6 +367,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and POKéMON can become stronger without limit.",
+                        "PRE_BATTLE_TAUNT": "My POKéMON will grind you down with our superior power!",
+                        "POST_BATTLE_TAUNT": "How could I lose?",
+                        "POST_BATTLE_CLOSER": "My job is done.\\pGo face your next challenge."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -362,6 +410,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: POKéMON are for battling!",
+                        "PRE_BATTLE_TAUNT": "I'll show you how a real TRAINER battles!",
+                        "POST_BATTLE_TAUNT": "Oh, my!\\nYou're something special, child",
+                        "POST_BATTLE_CLOSER": "I have nothing else to say.\\pRun along now, child!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -397,6 +454,15 @@
                 "music_player": "kanto_boss",
                 "weather": "NONE",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Are you ready to lose?",
+                        "PRE_BATTLE_TAUNT": "Your Adventure ends with me, {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "That's it!",
+                        "POST_BATTLE_CLOSER": "I hate to admit it, but you have bested me.\\pI shall eagerly watch your path forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -437,6 +503,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_CHAMP" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am usually a man of research.\\pBut at this moment in time…",
+                        "PRE_BATTLE_TAUNT": "I shall battle, with no mercy!",
+                        "POST_BATTLE_TAUNT": "That was marvelous, {PLAYER}!",
+                        "POST_BATTLE_CLOSER": "You were truely astounding, battling alongside your POKéMON.\\pI wish you the best of luck moving forward!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",

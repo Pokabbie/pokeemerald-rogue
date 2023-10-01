@@ -141,7 +141,8 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
                 return str;
         }
 
-        return trainer->encounterText[TRAINER_STRING_COUNT + textId];
+        // Fallback to offset 0 (TODO should fallback to a sensible default tbh)
+        return trainer->encounterText[textId];
     }
     else
     {
