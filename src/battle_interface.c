@@ -3268,15 +3268,16 @@ void UpdateAbilityPopup(u8 battlerId)
 }
 
 #define FRAMES_TO_WAIT 48
+#define ABILITY_ANIM_SPEED 6 // default 4
 
 static void SpriteCb_AbilityPopUp(struct Sprite *sprite)
 {
     if (!sprite->tHide) // Show
     {
-        if (sprite->tIsMain && ++sprite->tFrames == 4)
+        if (sprite->tIsMain && ++sprite->tFrames == ABILITY_ANIM_SPEED)
             PlaySE(SE_BALL_TRAY_ENTER);
-        if ((!sprite->tRightToLeft && (sprite->x -= 4) <= sprite->tOriginalX)
-            || (sprite->tRightToLeft && (sprite->x += 4) >= sprite->tOriginalX)
+        if ((!sprite->tRightToLeft && (sprite->x -= ABILITY_ANIM_SPEED) <= sprite->tOriginalX)
+            || (sprite->tRightToLeft && (sprite->x += ABILITY_ANIM_SPEED) >= sprite->tOriginalX)
            )
         {
             sprite->x = sprite->tOriginalX;
@@ -3288,8 +3289,8 @@ static void SpriteCb_AbilityPopUp(struct Sprite *sprite)
     {
         if (sprite->tFrames == 0)
         {
-            if ((!sprite->tRightToLeft && (sprite->x += 4) >= sprite->tOriginalX + ABILITY_POP_UP_POS_X_SLIDE)
-                ||(sprite->tRightToLeft && (sprite->x -= 4) <= sprite->tOriginalX - ABILITY_POP_UP_POS_X_SLIDE)
+            if ((!sprite->tRightToLeft && (sprite->x += ABILITY_ANIM_SPEED) >= sprite->tOriginalX + ABILITY_POP_UP_POS_X_SLIDE)
+                ||(sprite->tRightToLeft && (sprite->x -= ABILITY_ANIM_SPEED) <= sprite->tOriginalX - ABILITY_POP_UP_POS_X_SLIDE)
                )
             {
                 gBattleStruct->activeAbilityPopUps &= ~(gBitTable[sprite->tBattlerId]);
@@ -3322,6 +3323,9 @@ static void Task_FreeAbilityPopUpGfx(u8 taskId)
         DestroyTask(taskId);
     }
 }
+
+#undef FRAMES_TO_WAIT
+#undef ABILITY_ANIM_SPEED
 
 // last used ball
 #define LAST_BALL_WINDOW_TAG 0xD721
