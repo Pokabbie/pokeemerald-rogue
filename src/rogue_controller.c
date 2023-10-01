@@ -763,11 +763,16 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     {
         *waitTime = awaitingMessage ? 8 : 0;
     }
-    else if(difficulty < (ROGUE_MAX_BOSS_COUNT - 1)) // Go at default speed for final fight
+    else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
     {
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        {
             // Still run faster and default game because it's way too slow :(
-            *waitTime = *waitTime / 2;
+            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
+                *waitTime = *waitTime / 3;
+            else
+                *waitTime = *waitTime / 2;
+        }
         else
             // Go faster, but not quite gym leader slow
             *waitTime = *waitTime / 4;
