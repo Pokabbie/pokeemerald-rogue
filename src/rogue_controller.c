@@ -1839,6 +1839,7 @@ void Rogue_OnResumeMap()
 
 void Rogue_OnObjectEventsInit()
 {
+    SetupFollowParterMonObjectEvent();
 }
 
 void Rogue_OnResetAllSprites()
@@ -1871,8 +1872,6 @@ void Rogue_OnLoadMap(void)
         // Apply metatiles for the map we're in
         RogueHub_ApplyMapMetatiles();
     }
-
-   // SetupFollowParterMonObjectEvent();
 }
 
 u16 GetStartDifficulty(void)

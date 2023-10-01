@@ -4,10 +4,12 @@
 #include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/songs.h"
+#include "constants/weather.h"
 
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
+#include "field_weather.h"
 #include "field_player_avatar.h"
 #include "follow_me.h"
 #include "metatile_behavior.h"
@@ -381,7 +383,22 @@ bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
 {
     if(Rogue_AreWildMonEnabled())
     {
-        // Turn of animated grass when wild mons are active because it's pretty laggy and causes palette issues
+        // Weather is laggy, so turn off grass entirely for these
+        switch (GetSavedWeather())
+        {
+        case WEATHER_RAIN:
+        //case WEATHER_SNOW:
+        case WEATHER_RAIN_THUNDERSTORM:
+        case WEATHER_FOG_HORIZONTAL:
+        case WEATHER_VOLCANIC_ASH:
+        case WEATHER_SANDSTORM:
+        case WEATHER_FOG_DIAGONAL:
+        case WEATHER_DOWNPOUR:
+        case WEATHER_LEAVES:
+            return FALSE;
+        }
+
+        // Turn off animated grass when wild mons are active because it's pretty laggy and causes palette issues
         if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId])
             return TRUE; // We will only keep on grass animation for the player
 
