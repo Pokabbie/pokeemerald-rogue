@@ -46,6 +46,7 @@ struct TrainerPartyScratch
     u8 partyCount;
     u8 subsetIndex;
     u8 subsetSampleCount;
+    u8 fallbackCount;
 };
 
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
@@ -451,6 +452,9 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
             }
             else
             {
+                // Usually, this isn't intentional, so assert here
+                AGB_ASSERT(FALSE);
+
                 // We've exhausted the options, so wipe and try again
                 memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * historyBufferCapacity);
             }
@@ -473,6 +477,8 @@ void Rogue_ChooseBossTrainersForNewAdventure()
     memset(&gRogueRun.bossTrainerNums[0], TRAINER_NONE, sizeof(u16) * ARRAY_COUNT(gRogueRun.bossTrainerNums));
     memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
 
+    DebugPrint("Picking trainers");
+
     for(difficulty = 0; difficulty < ROGUE_MAX_BOSS_COUNT; ++difficulty)
     {
         // Clear the history buffer, as we track based on types
@@ -488,7 +494,10 @@ void Rogue_ChooseBossTrainersForNewAdventure()
             }
         }
 
-        gRogueRun.bossTrainerNums[difficulty] = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
+        trainerNum = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
+        gRogueRun.bossTrainerNums[difficulty] = trainerNum;
+
+        DebugPrintf("    [%d] = %d '%s'", difficulty, trainerNum, gRogueTrainers[trainerNum].trainerName);
     }
 }
 
@@ -820,6 +829,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     scratch.shouldRegenerateQuery = TRUE;
     scratch.subsetIndex = 0;
     scratch.subsetSampleCount = 0;
+    scratch.fallbackCount = 0;
     scratch.forceLegends = FALSE;
     scratch.evoLevel = level;
     scratch.allowItemEvos = FALSE;
@@ -997,6 +1007,152 @@ static void SetupQueryScriptVars(struct QueryScriptContext* context, struct Trai
     }
 }
 
+static u8 SelectFallbackTypeFor(u8 type, u8 counter)
+{
+    switch(type)
+    {
+        case TYPE_DARK:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIGHTING;
+            
+            case 1:
+                return TYPE_PSYCHIC;
+            }
+            break;
+
+        case TYPE_PSYCHIC:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GHOST;
+            
+            case 1:
+                return TYPE_DARK;
+            }
+            break;
+
+        case TYPE_STEEL:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GROUND;
+            
+            case 1:
+                return TYPE_DRAGON;
+            }
+            break;
+
+        case TYPE_FIGHTING:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_ROCK;
+            
+            case 1:
+                return TYPE_NORMAL;
+            }
+            break;
+
+        case TYPE_GHOST:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_POISON;
+            
+            case 1:
+                return TYPE_BUG;
+            }
+            break;
+
+        case TYPE_DRAGON:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIRE;
+            
+            case 1:
+                return TYPE_WATER;
+            }
+            break;
+
+        case TYPE_FIRE:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_GROUND;
+            
+            case 1:
+                return TYPE_ROCK;
+            }
+            break;
+
+        case TYPE_FLYING:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_NORMAL;
+            
+            case 1:
+                return TYPE_ELECTRIC;
+            }
+            break;
+
+        case TYPE_ICE:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_WATER;
+            
+            case 1:
+                return TYPE_PSYCHIC;
+            }
+            break;
+
+        case TYPE_NORMAL:
+            switch (counter % 2)
+            {
+            case 0:
+                return TYPE_FIGHTING;
+            
+            case 1:
+                return TYPE_GHOST;
+            }
+            break;
+    }
+
+    return TYPE_NONE;
+}
+
+static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
+{
+    struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+    u8 currentType = trainer->typeAssignment;
+
+    if(scratch->fallbackCount < 10)
+    {
+        u8 i;
+
+        // Predictably fallback to the next nearest type
+        for(i = 0; i < scratch->fallbackCount; ++i)
+            currentType = SelectFallbackTypeFor(currentType, scratch->trainerNum + i);
+    }
+    else
+    {
+        // If we've gotten this far, yikes!
+        AGB_ASSERT(FALSE);
+        currentType = TYPE_NONE;
+    }
+
+    // Allow everything
+    if(currentType == TYPE_NONE)
+        return MON_TYPE_VAL_TO_FLAGS(NUMBER_OF_MON_TYPES) - 1;
+
+    // Only allow current type
+    return MON_TYPE_VAL_TO_FLAGS(currentType);
+}
+
 static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -1004,6 +1160,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(scratch->shouldRegenerateQuery)
     {
+        u32 fallbackTypeFlags = 0;
         bool8 customScript = FALSE;
         struct RogueTeamGeneratorSubset const* currentSubset = NULL;
 
@@ -1035,6 +1192,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         if(currentSubset != NULL)
         {
             RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
+        }
+        else
+        {
+            fallbackTypeFlags = CalculateFallbackTypeFlags(scratch);
+            RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, fallbackTypeFlags);
         }
 
         // Transform and evolve mons to valid evos (Don't do this for custom scripts for now, as our only use case is glitch mode)
@@ -1074,6 +1236,10 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
             RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, currentSubset->excludedTypeMask);
+        }
+        else
+        {
+            RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, fallbackTypeFlags);
         }
 
         // Execute post process script
@@ -1157,13 +1323,26 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
                 ++scratch->subsetIndex;
                 scratch->subsetSampleCount = 0;
                 scratch->shouldRegenerateQuery = TRUE;
+
+                if(scratch->subsetIndex >= trainer->teamGenerator.subsetCount)
+                {
+                    ++scratch->fallbackCount;
+                }
             }
         }
         else
         {
-            // If we've got here, we must've ran out in options in the fallback/all type subset
-            AGB_ASSERT(FALSE);
-            return SPECIES_MAGIKARP;
+            if(scratch->fallbackCount == 255)
+            {
+                // If we've got here, we must've ran out in options in the fallback/all type subset
+                AGB_ASSERT(FALSE);
+                return SPECIES_MAGIKARP;
+            }
+            else if(scratch->fallbackCount != 0)
+            {
+                ++scratch->fallbackCount;
+                scratch->shouldRegenerateQuery = TRUE;
+            }
         }
     }
     while(species == SPECIES_NONE);

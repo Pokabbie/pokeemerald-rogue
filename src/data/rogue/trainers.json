@@ -787,7 +787,7 @@
             },
             {
                 "name": "CLAIR",
-                "type_assignment": "ICE",
+                "type_assignment": "DRAGON",
                 "gfx_suffix": "JOHTO_CLAIR",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
