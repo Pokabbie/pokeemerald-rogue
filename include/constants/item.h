@@ -52,9 +52,10 @@
 #define CHARMS_POCKET      6
 #define KEYITEMS_POCKET    7
 #define POCKETS_COUNT      8
-#endif
 
 // These pockets aren't actually in used, but need to be defined, to avoid compilation error
 #define STONES_POCKET     23
+
+#endif
 
 #endif // GUARD_ITEM_CONSTANTS_H
