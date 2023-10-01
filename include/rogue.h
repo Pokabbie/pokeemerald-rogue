@@ -325,6 +325,7 @@ struct RogueTrainer
     u16 objectEventGfx;
     u16 typeAssignment;
     u16 typeAssignmentGroup;
+    u8 levelOverride;
     u8 trainerClass;
     u8 trainerPic;
     u8 preferredWeather;

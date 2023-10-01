@@ -3426,6 +3426,36 @@
             }
         ],
 
+        "misc_trainers":
+        [
+            {
+                "name": "HELPER",
+                "type_assignment": "MYSTERY",
+                "level_override": 1,
+                "object_event": "OBJ_EVENT_GFX_MISC_POKE_FAN_F",
+                "trainer_pic": "TRAINER_PIC_POKEFAN_F",
+                "trainer_class": "TRAINER_CLASS_POKEFAN",
+                "music_player": "route_trainer",
+                "trainer_flags": [ "REGION_ANY" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'll try to be gentle!",
+                        "POST_BATTLE_TAUNT": "I hope that helped!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": [],
+                    "query_script_override": 
+                    [
+                        "INCLUDE_SPECIES", "SPECIES_CHANSEY"
+                    ]
+                }
+            }
+        ],
+
         "team_aqua":
         [
             {

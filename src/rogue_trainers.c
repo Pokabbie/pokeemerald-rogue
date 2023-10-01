@@ -96,6 +96,12 @@ static u8 GetTrainerLevel(u16 trainerNum)
         return Rogue_CalculateMiniBossMonLvl();
     }
 
+    {
+        const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+        if(trainer->levelOverride != 0)
+            return trainer->levelOverride;
+    }
+
     return Rogue_CalculateTrainerMonLvl();
 }
 
@@ -753,9 +759,13 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
     return FALSE;
 }
 
-static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity)
+static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 {
     u8 monCount;
+
+    // Hack for EXP trainer
+    if(monLevel == 1)
+        return 1;
 
     if(Rogue_IsAnyBossTrainer(trainerNum))
     {
@@ -842,7 +852,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
 
     level = GetTrainerLevel(trainerNum);
     fixedIV = CalculateMonFixedIV(trainerNum);
-    monCount = CalculatePartyMonCount(trainerNum, monCapacity);
+    monCount = CalculatePartyMonCount(trainerNum, monCapacity, level);
 
     // Fill defaults before we configure the scratch
     scratch.trainerNum = trainerNum;
@@ -1164,7 +1174,7 @@ static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
         return MON_TYPE_VAL_TO_FLAGS(currentType);
     }
 
-    if(scratch->fallbackCount < 10)
+    if(scratch->fallbackCount < 20)
     {
         u8 i;
 
@@ -1286,8 +1296,12 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         }
     }
 
-    // Remove any mons already in the party
-    RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+    // Allow duplicates if we've gone far into fallbacks
+    if(scratch->fallbackCount < 10)
+    {
+        // Remove any mons already in the party
+        RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+    }
 
     species = SPECIES_NONE;
 

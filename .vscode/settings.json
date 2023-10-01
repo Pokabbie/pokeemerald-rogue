@@ -81,7 +81,8 @@
         "unordered_map": "cpp",
         "xfacet": "cpp",
         "xlocinfo": "cpp",
-        "xstddef": "cpp"
+        "xstddef": "cpp",
+        "csignal": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
