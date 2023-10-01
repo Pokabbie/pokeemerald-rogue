@@ -542,6 +542,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: People say you can clip Flying-type POKéMON's wings with a jolt of electricity…\\pI won't allow such insults to bird POKéMON!",
+                        "PRE_BATTLE_TAUNT": "I'll show you the real power of the magnificent bird POKéMON!",
+                        "POST_BATTLE_TAUNT": "My dad's cherished bird POKéMON…",
+                        "POST_BATTLE_CLOSER": "A defeat is a defeat.\\pI hope you go far, {PLAYER}."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -567,6 +576,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My research is going to make me the authority on BUG-type POKéMON!",
+                        "PRE_BATTLE_TAUNT": "Let me demonstrate what I've learned!",
+                        "POST_BATTLE_TAUNT": "Whoa, amazing!",
+                        "POST_BATTLE_CLOSER": "You're an expert on POKéMON!\\pI hope you're next battles are just as fun!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -592,6 +610,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: POKéMON are super cute!\\pYou want to battle?",
+                        "PRE_BATTLE_TAUNT": "I'm warning you--I'm good!",
+                        "POST_BATTLE_TAUNT": "…Waaaaaaah",
+                        "POST_BATTLE_CLOSER": "You shouldn't be so serious!\\pYou're mean!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -618,6 +645,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will become a truly powerful TRAINER, in order to make the Rainbow-hued POKéMON appear!",
+                        "PRE_BATTLE_TAUNT": "You're going to help me reach that level!",
+                        "POST_BATTLE_TAUNT": "I didn't think our potentials would be so different.",
+                        "POST_BATTLE_CLOSER": "You seem to have something more than I have…\\pSo be it."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -648,6 +684,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You spoiled my training!\\pCome on.",
+                        "PRE_BATTLE_TAUNT": "We shall do battle!",
+                        "POST_BATTLE_TAUNT": "Hmm… I lost?",
+                        "POST_BATTLE_CLOSER": "All right.\\nYou're worthy!\\pCarry that strength forward!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -674,6 +719,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Do you know about the Steel type?\\pThey are very hard, cold, sharp, and really strong!",
+                        "PRE_BATTLE_TAUNT": "Um… I’m not lying.",
+                        "POST_BATTLE_TAUNT": "You are a better TRAINER than me.",
+                        "POST_BATTLE_CLOSER": "You show both skill and kindness.\\pI wish you the best of luck with your journey."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -699,6 +753,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I, {STR_VAR_1}--the Winter Trainer--",
+                        "PRE_BATTLE_TAUNT": "shall demonstrate my power!",
+                        "POST_BATTLE_TAUNT": "I am impressed by your prowess.",
+                        "POST_BATTLE_CLOSER": "With your strong will, I know you will overcome all life’s obstacles.\\pKeep your head high as you move forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -730,6 +793,15 @@
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
                 "weather": "RAIN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am the world's best Dragon-type master.",
+                        "PRE_BATTLE_TAUNT": "I will use my full power against any opponent!",
+                        "POST_BATTLE_TAUNT": "I won't concede this.",
+                        "POST_BATTLE_CLOSER": "I might have lost, but you're still not as strong as me.\\pYou'd be wise to remember that, going forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -764,6 +836,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have trained all around the world, making my Psychic-type POKéMON powerful.",
+                        "PRE_BATTLE_TAUNT": "Losing is not an option!",
+                        "POST_BATTLE_TAUNT": "I… I… can't believe it.",
+                        "POST_BATTLE_CLOSER": "Even though I was defeated, I won't change my course.\\pI advise you to remain cautious for your upcoming fights."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -793,6 +874,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type POKéMON!",
+                        "POST_BATTLE_TAUNT": "Humph!",
+                        "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -822,6 +912,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and POKéMON can become stronger without limit.",
+                        "PRE_BATTLE_TAUNT": "My POKéMON will grind you down with our superior power!",
+                        "POST_BATTLE_TAUNT": "How could I lose?",
+                        "POST_BATTLE_CLOSER": "My job is done.\\pGo face your next challenge."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -860,6 +959,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You're {PLAYER}? How amusing.\\pI love Dark-type POKéMON.\\pThink you can take them?",
+                        "PRE_BATTLE_TAUNT": "Just try to entertain me.",
+                        "POST_BATTLE_TAUNT": "Well, aren't you good.\\nI like that in a TRAINER.",
+                        "POST_BATTLE_CLOSER": "Strong POKéMON.\\pWeak POKéMON.\\pThat is only the selfish perception of people.\\pYou understand there's more to POKéMON than that.\\pDon't lose your way as you climb to the top."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -887,42 +995,21 @@
         [
             {
                 "name": "LANCE",
-                "type_assignment": "PSYCHIC",
-                "gfx_suffix": "JOHTO_WILL",
-                "trainer_class": "TRAINER_CLASS_LEADER",
-                "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_CHAMP" ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets":
-                    [
-                        {
-                            "max_samples": 5,
-                            "include_types": [ "PSYCHIC" ]
-                        },
-                        {
-                            "max_samples": 7,
-                            "include_types": [ "DARK" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NATU", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
-                    ]
-                }
-            },
-
-            {
-                "name": "LANCE",
                 "type_assignment": "DRAGON",
                 "gfx_suffix": "KANTO_LANCE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "weather": "NONE",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_CHAMP" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Are you ready to lose?",
+                        "PRE_BATTLE_TAUNT": "Your Adventure ends with me, {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "That's it!",
+                        "POST_BATTLE_CLOSER": "I hate to admit it, but you have bested me.\\pI shall eagerly watch your path forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
