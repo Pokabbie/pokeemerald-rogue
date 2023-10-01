@@ -2779,10 +2779,22 @@ u16 RoguePokedex_GetNationalDexLimit()
     }
 }
 
+u16 RoguePokedex_GetCurrentDexLimit()
+{
+    if(RoguePokedex_IsNationalDexActive())
+    {
+        return RoguePokedex_GetNationalDexLimit();
+    }
+    else
+    {
+        u8 dexVariant = RoguePokedex_GetDexVariant();
+        return gPokedexVariants[dexVariant].speciesCount;
+    }
+}
+
 bool8 RoguePokedex_IsVariantEditUnlocked()
 {
-    // TODO - link to post game unlock?
-    return TRUE;
+    return FlagGet(FLAG_ROGUE_MET_POKABBIE);
 }
 
 bool8 RoguePokedex_IsVariantEditEnabled()

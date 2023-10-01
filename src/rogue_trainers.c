@@ -1197,6 +1197,11 @@ static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
     return MON_TYPE_VAL_TO_FLAGS(currentType);
 }
 
+static bool8 CanEntirelyAvoidWeakSpecies()
+{
+    return RoguePokedex_GetCurrentDexLimit() >= 380;
+}
+
 static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -1250,7 +1255,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
             RogueMonQuery_TransformIntoEvos(scratch->evoLevel, scratch->allowItemEvos, FALSE);
         }
 
-        if(scratch->preferStrongSpecies)
+        if(scratch->preferStrongSpecies && CanEntirelyAvoidWeakSpecies())
         {
             RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
         }
@@ -1318,6 +1323,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     {
         RogueWeightQuery_FillWeights(1);
     }
+    
+    //if(scratch->preferStrongSpecies && !CanEntirelyAvoidWeakSpecies())
+    //{
+    //    // TODO - Should we prefer strong presets in weight query?
+    //}
 
     if(RogueWeightQuery_HasAnyWeights())
     {
