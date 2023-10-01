@@ -80,7 +80,7 @@
         },
         "hoenn_elite":
         {
-            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "encounter": "MUS_ENCOUNTER_ELITE_FOUR",
             "battle": "MUS_VS_ELITE_FOUR",
             "victory": "MUS_VICTORY_LEAGUE"
         },

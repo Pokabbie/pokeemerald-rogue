@@ -1056,6 +1056,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I became a GYM LEADER so that I might apply what I learned at the TRAINER SCHOOL.",
+                        "PRE_BATTLE_TAUNT": "Would you kindly demonstrate how you battle?",
+                        "POST_BATTLE_TAUNT": "So… I lost…",
+                        "POST_BATTLE_CLOSER": "It seems that I still have much more to learn…\\pI wish you the best of luck in your Adventure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1083,6 +1092,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: So you wanted to challenge me?",
+                        "PRE_BATTLE_TAUNT": "Let me see what you're made of!",
+                        "POST_BATTLE_TAUNT": "Whoah, wow! You made a much bigger splash than I expected!",
+                        "POST_BATTLE_CLOSER": "You swamped me!\\pI'm certain you're gonna go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1110,6 +1128,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You want to battle?\\pWahahahah!",
+                        "PRE_BATTLE_TAUNT": "I shall electrify you!",
+                        "POST_BATTLE_TAUNT": "Wahahahah!\\nI lost!",
+                        "POST_BATTLE_CLOSER": "You ended up giving me a thrill!\\pI hope your future battles are just as exciting!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1136,6 +1163,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Puny TRAINER, how good to see you've made it here!\\pI shall, uh…",
+                        "PRE_BATTLE_TAUNT": "demonstrate the hot moves we have honed on this land!",
+                        "POST_BATTLE_TAUNT": "I guess I was trying too hard…",
+                        "POST_BATTLE_CLOSER": "I tried too hard to be someone I'm not.\\pI have to do things my natural way.\\pThanks for teaching me that."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1167,6 +1203,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will do everything in my power to win.",
+                        "PRE_BATTLE_TAUNT": "You'd better give it your best shot, too!",
+                        "POST_BATTLE_TAUNT": "I… I can't…\\nI can't believe it.",
+                        "POST_BATTLE_CLOSER": "I'm truely shocked.\\pYou definitely have the strength to go far."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1197,6 +1242,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with BIRD POKéMON and have soared the skies…",
+                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of BIRD POKéMON and I!",
+                        "POST_BATTLE_TAUNT": "Never before have I seen a TRAINER command POKéMON with more grace.",
+                        "POST_BATTLE_CLOSER": "I recognise your prowess.\\pGood luck with your Adventure."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1228,6 +1282,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My mind is in sync with my POKéMON!",
+                        "PRE_BATTLE_TAUNT": "Can you and your POKéMON beat us?",
+                        "POST_BATTLE_TAUNT": "What?!\\nMy POKéMON…",
+                        "POST_BATTLE_CLOSER": "You were more in sync with your POKéMON than I was.\\pKeep that up, as your Adventure will be harder from here on out!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1259,6 +1322,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Please, you shall bear witness to our artistry.",
+                        "PRE_BATTLE_TAUNT": "A grand illusion of water sculpted by POKéMON and myself!",
+                        "POST_BATTLE_TAUNT": "Ahahaha, excellent!",
+                        "POST_BATTLE_CLOSER": "From you, I sense the brilliant shine of skill that will overcome all.\\pGood luck with your journey!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1289,6 +1361,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I like the look you're giving me. I guess you'll give me a good match.",
+                        "PRE_BATTLE_TAUNT": "All right! You and me, let's enjoy a battle for the ages!",
+                        "POST_BATTLE_TAUNT": "Well, how do you like that? I lost!",
+                        "POST_BATTLE_CLOSER": "You've got what it takes to go far.\\pGood luck!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1320,6 +1401,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with GHOST-type POKéMON.",
+                        "PRE_BATTLE_TAUNT": "So, come on, just try and see if you can even inflict damage on my POKéMON!",
+                        "POST_BATTLE_TAUNT": "Oh, darn.\\nI've gone and lost.",
+                        "POST_BATTLE_CLOSER": "There's a definite bond between you and your POKéMON, too.\\pCarry that bond forward, {PLAYER}."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1355,6 +1445,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak TRAINERS and their POKéMON.",
+                        "PRE_BATTLE_TAUNT": "I wonder.\\nHow will you do?",
+                        "POST_BATTLE_TAUNT": "You and your POKéMON…\\nHow hot your spirits burn!",
+                        "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my POKéMON and I.\\pCarry that strength onward!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1387,6 +1486,15 @@
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
                 "weather": "DROUGHT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: For us to battle with POKéMON as partners, do you know what it takes?\\pIf you don't…",
+                        "PRE_BATTLE_TAUNT": "Then you will never prevail over me!",
+                        "POST_BATTLE_TAUNT": "Superb, it should be said.",
+                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of POKéMON.\\pI look forward to seeing how your bond with your POKéMON blossoms, going forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1435,6 +1543,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Who can most elegantly dance with their POKéMON?\\pYou?\\nOr I?",
+                        "PRE_BATTLE_TAUNT": "Show me right here and now!",
+                        "POST_BATTLE_TAUNT": "You were elegant, infuriatingly so.\\nAnd yet it was utterly glorious!",
+                        "POST_BATTLE_CLOSER": "Kudos to you, {PLAYER}!\\pYou share a bond with your POKéMON that will surely only assist you in your future battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1460,6 +1577,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with you POKéMON?",
+                        "PRE_BATTLE_TAUNT": "Come at me with all that you've learned!",
+                        "POST_BATTLE_TAUNT": "So I…\\nFall in defeat.",
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your POKéMON that will surely only assist you in your future battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
