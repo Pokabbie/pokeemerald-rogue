@@ -174,11 +174,6 @@ u16 RogueRandomRange(u16 range, u8 flag)
         return 0;
 
     return res % range;
-
-    //if(FlagGet(FLAG_SET_SEED_ENABLED) && (flag == 0 || FlagGet(flag)))
-    //    return res % range;
-    //else
-    //    return Random() % range;
 }
 
 bool8 RogueRandomChance(u8 chance, u16 seedFlag)
@@ -189,20 +184,6 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
         return TRUE;
 
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
-}
-
-u16 Rogue_GetStartSeed(void)
-{
-    u32 word0 = gSaveBlock1Ptr->dewfordTrends[0].words[0];
-    u32 word1 = gSaveBlock1Ptr->dewfordTrends[0].words[1];
-    u32 offset = 3;
-
-    //if(Rogue_IsRunActive())
-    //{
-    //    offset = gRogueRun.enteredRoomCounter * 3;
-    //}
-
-    return (u16)(word0 + word1 * offset);
 }
 
 u16 Rogue_GetShinyOdds(void)
@@ -733,7 +714,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         {
             if(difficulty <= 11)
             {
-                if(difficultyModifier == 2) // Hard
+                if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
                     *money = *money / 2;
                 else
                     *money = *money / 3;
@@ -741,7 +722,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             else
             {
                 // Kinder but not by much ;)
-                if(difficultyModifier != 2) // !Hard
+                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
                     *money = *money / 2;
             }
         }
@@ -749,7 +730,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         {
             if(difficulty <= 11)
             {
-                if(difficultyModifier != 2) // !Hard
+                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
                     *money = *money / 2;
             }
         }
@@ -1214,12 +1195,6 @@ u8* Debug_GetMiniMenuContent(void)
         u8 wildLevel = CalculateWildLevel(0);
 
         strPointer = StringAppend(strPointer, gText_RogueDebug_Header);
-
-        if(FlagGet(FLAG_SET_SEED_ENABLED))
-        {
-            strPointer = AppendNumberField(strPointer, gText_RogueDebug_Seed, Rogue_GetStartSeed());
-        }
-
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Save, RogueSave_GetVersionId());
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Room, gRogueRun.enteredRoomCounter);
         strPointer = AppendNumberField(strPointer, gText_RogueDebug_Difficulty, difficultyLevel);
@@ -2223,11 +2198,6 @@ static void BeginRogueRun(void)
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
     Rogue_PreActivateDesiredCampaign();
-
-    //if(FlagGet(FLAG_SET_SEED_ENABLED))
-    //{
-    //    gRngRogueValue = Rogue_GetStartSeed();
-    //}
 
     gRogueRun.baseSeed = Random();
     gRogueRun.currentDifficulty = GetStartDifficulty();
@@ -3965,7 +3935,6 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
 static u8 GetCurrentWildEncounterCount()
 {    
     u16 count = 0;
-    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(GetSafariZoneFlag())
     {
@@ -3976,12 +3945,12 @@ static u8 GetCurrentWildEncounterCount()
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
         count = 4;
 
-        if(difficultyModifier == 2) // Hard route
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
         {
             // Less encounters
             count = 2;
         }
-        else if(difficultyModifier == 1) // Avg route
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_AVERAGE) // Avg route
         {
             // Slightly less encounters
             count = 3;
@@ -4180,7 +4149,6 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else
         {
-            u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
             u16 count = GetCurrentWildEncounterCount();
             u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
@@ -5144,7 +5112,7 @@ static u8 CalculateWildLevel(u8 variation)
 
 u8 Rogue_GetEncounterDifficultyModifier()
 {
-    return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : 1);
+    return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : ADVPATH_SUBROOM_ROUTE_AVERAGE);
 }
 
 static bool8 RogueRandomChanceTrainer()
@@ -5153,12 +5121,10 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
-    if(difficultyModifier == 0) // Easy
-        chance = max(5, chance - 20);
-    else if(difficultyModifier == 2) // Hard
-        chance = max(15, chance - 15); // Trainers are hard so slightly less frequent, but harder
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
+        chance = max(5, chance - 20); // Trainers are fewer
     else
-        chance = max(10, chance);
+        chance = max(10, chance); // Trainers are harder on tough routes
 
     return RogueRandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
@@ -5193,9 +5159,9 @@ static bool8 RogueRandomChanceItem()
 
     if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {
-        if(difficultyModifier == 0) // Easy
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
             chance = max(10, chance - 25);
-        else if(difficultyModifier == 2) // Hard
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
             chance = min(100, chance + 25);
     }
 
@@ -5239,12 +5205,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
     }
     else
     {
-        if(difficultyModifier == 0) // Easy
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
         {
             if(dropRarity != 0)
                 --dropRarity;
         }
-        else if(difficultyModifier == 2) // Hard
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
         {
             if(dropRarity != 0)
                 ++dropRarity;

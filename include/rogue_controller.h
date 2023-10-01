@@ -16,7 +16,6 @@ extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
 
 u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
-u16 Rogue_GetStartSeed(void);
 
 u16 Rogue_GetShinyOdds(void);
 

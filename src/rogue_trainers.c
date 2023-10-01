@@ -1409,7 +1409,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     bool8 preferCompetitive = FALSE;
     bool8 result = FALSE;
     u8 difficultyLevel = gRogueRun.currentDifficulty;
-    u8 difficultyModifier = 1; // TODO - GetRoomTypeDifficulty();
+    u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
     //{
@@ -1417,7 +1417,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     //    return TRUE;
     //}
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == 2) // HARD
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH)
     {
         // For regular trainers, Last and first mon can have competitive sets
         preferCompetitive = (monIdx == 0 || monIdx == (totalMonCount - 1));

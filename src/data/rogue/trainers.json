@@ -1144,6 +1144,10 @@
                         {
                             "max_samples": 6,
                             "include_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
                         }
                     ],
                     "weight_script":
