@@ -1917,7 +1917,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SKORUPI", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "HAS_TYPE", "TYPE_FIRE", "DEC_FAVOUR"
                     ]
                 }
             },
