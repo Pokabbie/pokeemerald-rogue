@@ -268,6 +268,9 @@ const u32 gTrainerFrontPic_Leaf[] = INCBIN_U32("graphics/trainers/front_pics/lea
 const u32 gTrainerFrontPic_Ethan[] = INCBIN_U32("graphics/trainers/front_pics/ethan_front_pic.4bpp.lz");
 const u32 gTrainerFrontPic_Lyra[] = INCBIN_U32("graphics/trainers/front_pics/lyra_front_pic.4bpp.lz");
 
+const u32 gTrainerFrontPic_Lucas[] = INCBIN_U32("graphics/trainers/front_pics/lucas_front_pic.4bpp.lz");
+const u32 gTrainerFrontPic_Dawn[] = INCBIN_U32("graphics/trainers/front_pics/dawn_front_pic.4bpp.lz");
+
 const u32 gTrainerFrontPic_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/front_pics/ruby_sapphire_brendan_front_pic.4bpp.lz");
 const u32 gTrainerPalette_RubySapphireBrendan[] = INCBIN_U32("graphics/trainers/palettes/ruby_sapphire_brendan.gbapal.lz");
 
@@ -298,6 +301,16 @@ const u32 gTrainerPalette_PlayerLyraFrontBase[] = INCBIN_U32("graphics/rogue_pal
 const u32 gTrainerPalette_PlayerLyraFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_front_layers.gbapal.lz");
 const u32 gTrainerPalette_PlayerLyraBackBase[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_back_base.gbapal.lz");
 const u32 gTrainerPalette_PlayerLyraBackLayers[] = INCBIN_U32("graphics/rogue_palettes/lyra/trainer_back_layers.gbapal.lz");
+
+const u32 gTrainerPalette_PlayerLucasFrontBase[] = INCBIN_U32("graphics/rogue_palettes/lucas/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerLucasFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/lucas/trainer_front_layers.gbapal.lz");
+//const u32 gTrainerPalette_PlayerLucasBackBase[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_base.gbapal.lz");
+//const u32 gTrainerPalette_PlayerLucasBackLayers[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_layers.gbapal.lz");
+
+const u32 gTrainerPalette_PlayerDawnFrontBase[] = INCBIN_U32("graphics/rogue_palettes/dawn/trainer_front_base.gbapal.lz");
+const u32 gTrainerPalette_PlayerDawnFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/dawn/trainer_front_layers.gbapal.lz");
+//const u32 gTrainerPalette_PlayerDawnBackBase[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_base.gbapal.lz");
+//const u32 gTrainerPalette_PlayerDawnBackLayers[] = INCBIN_U32("graphics/rogue_palettes/ethan/trainer_back_layers.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");

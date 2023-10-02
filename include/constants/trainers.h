@@ -179,11 +179,14 @@
 #define TRAINER_PIC_ETHAN                 149
 #define TRAINER_PIC_LYRA                  150
 
-#define TRAINER_PIC_POKABBIE              151
-#define TRAINER_PIC_POKABBIE_DITTO        152 // Just used for battle transition
-#define TRAINER_PIC_GLITCH_KATE           153
-#define TRAINER_PIC_GLITCH_TAILS          154
-#define TRAINER_PIC_GLITCH_ERMA           155
+#define TRAINER_PIC_LUCAS                 151
+#define TRAINER_PIC_DAWN                  152
+
+#define TRAINER_PIC_POKABBIE              153
+#define TRAINER_PIC_POKABBIE_DITTO        154 // Just used for battle transition
+#define TRAINER_PIC_GLITCH_KATE           155
+#define TRAINER_PIC_GLITCH_TAILS          156
+#define TRAINER_PIC_GLITCH_ERMA           157
 
 
 // Special cases

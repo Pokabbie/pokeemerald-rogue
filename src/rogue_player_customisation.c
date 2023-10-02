@@ -51,6 +51,8 @@ enum
     PLAYER_OUTFIT_LYRA,
     PLAYER_OUTFIT_BRENDAN,
     PLAYER_OUTFIT_MAY,
+    PLAYER_OUTFIT_LUCAS,
+    PLAYER_OUTFIT_DAWN,
     
     PLAYER_OUTFIT_TEST,
 
@@ -63,25 +65,25 @@ static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfi
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerColour, u16 inputColour);
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerMayNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerMayFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerMayRiding;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerRedNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerRedFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerRedRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLeafNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLeafFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLeafRiding;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerEthanNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerEthanFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerEthanRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLyraNormal;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLyraFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerLyraRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnRiding;
+
 
 static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 {
@@ -96,7 +98,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerBrendanNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerBrendanRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerBrendanFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerBrendanBase,
         .objectEventLayerPal = gObjectEventPal_PlayerBrendanLayers,
@@ -122,7 +123,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerMayNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerMayRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerMayFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerMayBase,
         .objectEventLayerPal = gObjectEventPal_PlayerMayLayers,
@@ -149,7 +149,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerRedNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerRedRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerRedFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerRedLeafBase,
         .objectEventLayerPal = gObjectEventPal_PlayerRedLeafLayers,
@@ -175,7 +174,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerLeafNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLeafRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLeafFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerRedLeafBase,
         .objectEventLayerPal = gObjectEventPal_PlayerRedLeafLayers,
@@ -202,7 +200,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerEthanNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerEthanRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerEthanFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerEthanBase,
         .objectEventLayerPal = gObjectEventPal_PlayerEthanLayers,
@@ -228,7 +225,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerLyraNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLyraRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLyraFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerLyraBase,
         .objectEventLayerPal = gObjectEventPal_PlayerLyraLayers,
@@ -243,6 +239,58 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
+
+    [PLAYER_OUTFIT_LUCAS] =
+    {
+        .name = _("Lucas"),
+        .trainerFrontPic = TRAINER_PIC_LUCAS,
+        .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_LucasNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_LucasRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerLucasBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerLucasLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerLucasFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerLucasFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerEthanBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerEthanBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_DAWN] =
+    {
+        .name = _("Dawn"),
+        .trainerFrontPic = TRAINER_PIC_DAWN,
+        .trainerBackPic = TRAINER_BACK_PIC_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_DawnNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_DawnRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerDawnBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerDawnLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerLyraBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerLyraBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+
     [PLAYER_OUTFIT_TEST] =
     {
         .name = _("Test"),
@@ -254,7 +302,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerLyraNormal,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLyraRiding,
-            [PLAYER_AVATAR_STATE_FIELD_MOVE]        = &gObjectEventGraphicsInfo_PlayerLyraFieldMove, // <- todo remove this
         },
         .objectEventBasePal = gObjectEventPal_PlayerLyraBase,
         .objectEventLayerPal = NULL,

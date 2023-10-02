@@ -2964,6 +2964,8 @@ extern const u32 gTrainerFrontPic_Ethan[];
 extern const u32 gTrainerFrontPic_Lyra[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
+extern const u32 gTrainerFrontPic_Lucas[];
+extern const u32 gTrainerFrontPic_Dawn[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -3185,6 +3187,16 @@ extern const u32 gTrainerPalette_PlayerLyraFrontBase[];
 extern const u32 gTrainerPalette_PlayerLyraFrontLayers[];
 extern const u32 gTrainerPalette_PlayerLyraBackBase[];
 extern const u32 gTrainerPalette_PlayerLyraBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerLucasFrontBase[];
+extern const u32 gTrainerPalette_PlayerLucasFrontLayers[];
+//extern const u32 gTrainerPalette_PlayerLucasBackBase[];
+//extern const u32 gTrainerPalette_PlayerLucasBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerDawnFrontBase[];
+extern const u32 gTrainerPalette_PlayerDawnFrontLayers[];
+//extern const u32 gTrainerPalette_PlayerDawnBackBase[];
+//extern const u32 gTrainerPalette_PlayerDawnBackLayers[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
@@ -5211,6 +5223,12 @@ extern const u16 gObjectEventPal_PlayerEthanLayers[];
 
 extern const u16 gObjectEventPal_PlayerLyraBase[];
 extern const u16 gObjectEventPal_PlayerLyraLayers[];
+
+extern const u16 gObjectEventPal_PlayerLucasBase[];
+extern const u16 gObjectEventPal_PlayerLucasLayers[];
+
+extern const u16 gObjectEventPal_PlayerDawnBase[];
+extern const u16 gObjectEventPal_PlayerDawnLayers[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

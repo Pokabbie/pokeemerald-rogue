@@ -95,6 +95,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_LYRA] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LUCAS] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_DAWN] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_KANTO_BROCK] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_KANTO_MISTY] = {.size = 8, .y_offset = 1},
@@ -268,6 +270,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(LYRA, gTrainerFrontPic_Lyra),
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay),
+    TRAINER_SPRITE(LUCAS, gTrainerFrontPic_Lucas),
+    TRAINER_SPRITE(DAWN, gTrainerFrontPic_Dawn),
 
     TRAINER_SPRITE(KANTO_BROCK, gTrainerFrontPic_LeaderBrock),
     TRAINER_SPRITE(KANTO_MISTY, gTrainerFrontPic_LeaderMisty),
@@ -439,6 +443,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(LYRA, gTrainerPalette_PlayerFrontPlaceholder),
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
+    TRAINER_PAL(LUCAS, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(DAWN, gTrainerPalette_PlayerFrontPlaceholder),
     
     TRAINER_PAL(KANTO_BROCK, gTrainerPalette_LeaderBrock),
     TRAINER_PAL(KANTO_MISTY, gTrainerPalette_LeaderMisty),
