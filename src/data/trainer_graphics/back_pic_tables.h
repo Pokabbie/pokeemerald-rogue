@@ -1,5 +1,6 @@
 const struct MonCoords gTrainerBackPicCoords[] =
 {
+    [TRAINER_BACK_PIC_NONE] = {.size = 8, .y_offset = 4},
     [TRAINER_BACK_PIC_BRENDAN] = {.size = 8, .y_offset = 4},
     [TRAINER_BACK_PIC_MAY] = {.size = 8, .y_offset = 4},
     [TRAINER_BACK_PIC_RED] = {.size = 8, .y_offset = 5},
@@ -19,6 +20,7 @@ const struct MonCoords gTrainerBackPicCoords[] =
 
 const struct CompressedSpriteSheet gTrainerBackPicTable[] =
 {
+    TRAINER_BACK_SPRITE(NONE, gTrainerBackPic_None, 0x2000),
     TRAINER_BACK_SPRITE(BRENDAN, gTrainerBackPic_Brendan, 0x2000),
     TRAINER_BACK_SPRITE(MAY, gTrainerBackPic_May, 0x2000),
     TRAINER_BACK_SPRITE(RED, gTrainerBackPic_Red, 0x2800),
@@ -35,6 +37,7 @@ const struct CompressedSpriteSheet gTrainerBackPicTable[] =
 
 const struct CompressedSpritePalette gTrainerBackPicPaletteTable[] =
 {
+    TRAINER_BACK_PAL(NONE, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(BRENDAN, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(MAY, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(RED, gTrainerPalette_PlayerBackPlaceholder),

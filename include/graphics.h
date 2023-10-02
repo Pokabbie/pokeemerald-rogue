@@ -3234,6 +3234,7 @@ extern const u32 gTrainerPalette_GlitchKate[];
 extern const u32 gTrainerPalette_GlitchTails[];
 extern const u32 gTrainerPalette_GlitchErma[];
 
+extern const u8 gTrainerBackPic_None[];
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
 extern const u8 gTrainerBackPic_Red[];

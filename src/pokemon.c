@@ -1976,6 +1976,15 @@ const struct SpriteTemplate gBattlerSpriteTemplates[MAX_BATTLERS_COUNT] =
 
 static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
 {
+    [TRAINER_BACK_PIC_NONE] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_None,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
     [TRAINER_BACK_PIC_BRENDAN] = {
         .tileTag = TAG_NONE,
         .paletteTag = 0,

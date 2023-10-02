@@ -52,6 +52,14 @@ const struct SpriteFrameImage gBattlerPicTable_OpponentRight[] =
     BATTLER_OFFSET(15), MON_PIC_SIZE,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_None[] =
+{
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_Brendan[] =
 {
     gTrainerBackPic_Brendan, 0x0800,

@@ -2433,7 +2433,7 @@ static void PlayerHandleDrawTrainerPic(void)
         }
         else
         {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_BRENDAN;
+            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_NONE;
         }
     }
     else
@@ -2515,7 +2515,7 @@ static void PlayerHandleTrainerSlide(void)
         }
         else
         {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_BRENDAN;
+            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_NONE;
         }
     }
     else
