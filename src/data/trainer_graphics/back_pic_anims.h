@@ -141,4 +141,6 @@ const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
     [TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY] = sBackAnims_RubySapphireMay,
     [TRAINER_BACK_PIC_WALLY] = sBackAnims_Wally,
     [TRAINER_BACK_PIC_STEVEN] = sBackAnims_Steven,
+    [TRAINER_BACK_PIC_LUCAS] = sBackAnims_Ethan,
+    [TRAINER_BACK_PIC_DAWN] = sBackAnims_Lyra,
 };

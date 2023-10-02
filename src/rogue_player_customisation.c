@@ -249,7 +249,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .name = _("Lucas"),
         .trainerFrontPic = TRAINER_PIC_LUCAS,
-        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .trainerBackPic = TRAINER_BACK_PIC_LUCAS,
         .bagVariant = BAG_GFX_VARIANT_ETHAN,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
@@ -261,20 +261,20 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .objectEventLayerPal = gObjectEventPal_PlayerLucasLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerLucasFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerLucasFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerEthanBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerEthanBackLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerLucasBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerLucasBackLayers,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
         }
     },
     [PLAYER_OUTFIT_DAWN] =
     {
         .name = _("Dawn"),
         .trainerFrontPic = TRAINER_PIC_DAWN,
-        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .trainerBackPic = TRAINER_BACK_PIC_DAWN,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
@@ -286,8 +286,8 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .objectEventLayerPal = gObjectEventPal_PlayerDawnLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerLyraBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerLyraBackLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -698,7 +698,7 @@ static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, c
     u16 layerWhitePoint = RGB(0, 0, 0);
 
     // Check if this layer is supported for this outfit
-    if(layerMask != RGB(0, 0, 0))
+    if(layerMask != RGB(0, 0, 0) && outfit->supportedLayers[layer] == TRUE)
     {
         u8 i;
         u16 baseCol;
@@ -759,7 +759,7 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
             {
                 layerMask = sLayerMaskColours[l];
 
-                if(layerCol == layerMask)
+                if(layerCol == layerMask && outfit->supportedLayers[l] == TRUE)
                 {
                     // Expect the whitepoint to already be in greyscale
                     baseCol = ModifyColourLayer(outfit, l, layerWhitePoint[l], GreyScaleColour(baseCol));

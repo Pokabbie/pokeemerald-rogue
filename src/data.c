@@ -144,6 +144,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
     gTrainerBackPic_Steven + 0x1800, 0x0800,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_Lucas[] =
+{
+    gTrainerBackPic_Lucas, 0x0800,
+    gTrainerBackPic_Lucas + 0x0800, 0x0800,
+    gTrainerBackPic_Lucas + 0x1000, 0x0800,
+    gTrainerBackPic_Lucas + 0x1800, 0x0800,
+    gTrainerBackPic_Lucas + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Dawn[] =
+{
+    gTrainerBackPic_Dawn, 0x0800,
+    gTrainerBackPic_Dawn + 0x0800, 0x0800,
+    gTrainerBackPic_Dawn + 0x1000, 0x0800,
+    gTrainerBackPic_Dawn + 0x1800, 0x0800,
+    gTrainerBackPic_Dawn + 0x2000, 0x0800,
+};
+
 static const union AnimCmd sAnim_GeneralFrame0[] =
 {
     ANIMCMD_FRAME(0, 0),

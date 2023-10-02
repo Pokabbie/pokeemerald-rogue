@@ -194,7 +194,7 @@
 #define TRAINER_PIC_PLAYER_OPPOSITE_AVATAR  255
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
-#define TRAINER_BACK_PIC_NONE                0
+#define TRAINER_BACK_PIC_NONE                   0
 #define TRAINER_BACK_PIC_BRENDAN                1
 #define TRAINER_BACK_PIC_MAY                    2
 #define TRAINER_BACK_PIC_RED                    3
@@ -205,6 +205,8 @@
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      8
 #define TRAINER_BACK_PIC_WALLY                  9
 #define TRAINER_BACK_PIC_STEVEN                 10
+#define TRAINER_BACK_PIC_LUCAS                  11
+#define TRAINER_BACK_PIC_DAWN                   12
 
 #define TRAINER_BACK_PIC_PLAYER                 0xFF
 
