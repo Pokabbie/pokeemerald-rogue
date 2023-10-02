@@ -1580,7 +1580,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with you POKéMON?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with your POKéMON?",
                         "PRE_BATTLE_TAUNT": "Come at me with all that you've learned!",
                         "POST_BATTLE_TAUNT": "So I…\\nFall in defeat.",
                         "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your POKéMON that will surely only assist you in your future battles!"

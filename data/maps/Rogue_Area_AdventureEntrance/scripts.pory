@@ -93,6 +93,7 @@ script Rogue_StartAdventureInternal
     call(Common_EventScript_SaveGame)
     if(var(VAR_RESULT) == YES)
     {
+        special(Rogue_SeedRandomGenerators)
         msgbox(format("Good luck {PLAYER}!"))
         closemessage
 
