@@ -89,6 +89,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 
+// We should always load something to as other object animation/effects rely on this palette slot
+#define DEFAULT_PAL_TO_LOAD gObjectEventPal_PlayerBrendanBase
+#define DEFAULT_OVERWORLD_PAL DEFAULT_PAL_TO_LOAD
 
 static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 {
@@ -308,7 +311,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
         },
-        .objectEventBasePal = NULL,
+        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -327,7 +330,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Kate,
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Kate,
         },
-        .objectEventBasePal = NULL,
+        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -670,9 +673,6 @@ const struct ObjectEventGraphicsInfo* RoguePlayer_GetObjectEventGraphicsInfo(u8 
 const u16* RoguePlayer_GetOverworldPalette()
 {
     const struct PlayerOutfit* outfit = GetCurrentOutfit();
-    const u16* basePal = outfit->objectEventBasePal;
-    const u16* layerPal = outfit->objectEventLayerPal;
-
     return ModifyOutfitPalette(outfit, outfit->objectEventBasePal, outfit->objectEventLayerPal);
 }
 
@@ -773,7 +773,8 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
         return writeBuffer;
     }
 
-    return basePal;
+    // Always return a valid palette to avoid reading out of bounds memory
+    return basePal != NULL ? basePal : DEFAULT_PAL_TO_LOAD;
 }
 
 static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfit, const u32* basePalSrc, const u32* layerPalSrc)

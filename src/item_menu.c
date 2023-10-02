@@ -2572,6 +2572,9 @@ static void FreeKeyItemWheelGfx(s16 *data) {
         RemoveWindow(tIconWindow[i]);
     }
     SetHBlankCallback(NULL);
+
+    // Reload window palette otherwise we mess up popups
+    LoadMessageBoxPalette();
 }
 
 static void Task_KeyItemWheel(u8 taskId) {
