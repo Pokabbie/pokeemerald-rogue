@@ -415,7 +415,7 @@ const struct OamData sOam_KeyItemBox = {
     .shape = SPRITE_SHAPE(32x32),
     .size = SPRITE_SIZE(32x32),
     .priority = 1,
-    .objMode = ST_OAM_OBJ_BLEND,
+    .objMode = ST_OAM_OBJ_NORMAL,
     .affineMode = ST_OAM_AFFINE_DOUBLE,
 };
 
