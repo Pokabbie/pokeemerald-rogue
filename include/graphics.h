@@ -3065,7 +3065,8 @@ extern const u32 gTrainerPalette_Unova_Shauntal[];
 extern const u32 gTrainerPalette_Unova_Skyla[];
 
 extern const u32 gTrainerFrontPic_Pokabbie[];
-extern const u32 gTrainerFrontPic_PokabbieDitto[];
+extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
+extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
 extern const u32 gTrainerFrontPic_GlitchKate[];
 extern const u32 gTrainerFrontPic_GlitchTails[];
 extern const u32 gTrainerFrontPic_GlitchErma[];
@@ -3230,6 +3231,8 @@ extern const u32 gTrainerPalette_EliteFourKaren[];
 extern const u32 gTrainerPalette_ChampionRed[];
 
 extern const u32 gTrainerPalette_Pokabbie[];
+extern const u32 gTrainerPalette_PokabbieAndDitto[];
+extern const u32 gTrainerPalette_PokabbieJustDitto[];
 extern const u32 gTrainerPalette_GlitchKate[];
 extern const u32 gTrainerPalette_GlitchTails[];
 extern const u32 gTrainerPalette_GlitchErma[];

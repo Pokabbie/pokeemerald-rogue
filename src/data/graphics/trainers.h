@@ -475,8 +475,11 @@ const u32 gTrainerPalette_Unova_Skyla[] = INCBIN_U32("graphics/trainers/front_pi
 
 
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
-const u32 gTrainerFrontPic_PokabbieDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_ditto_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Pokabbie[] = INCBIN_U32("graphics/trainers/palettes/pokabbie.gbapal.lz");
+const u32 gTrainerFrontPic_PokabbieAndDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_and_ditto_front_pic.4bpp.lz");
+const u32 gTrainerFrontPic_PokabbieJustDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_just_ditto_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.gbapal.lz");
+const u32 gTrainerPalette_PokabbieAndDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_and_ditto_front_pic.gbapal.lz");
+const u32 gTrainerPalette_PokabbieJustDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_just_ditto_front_pic.gbapal.lz");
 
 const u32 gTrainerFrontPic_GlitchKate[] = INCBIN_U32("graphics/trainers/front_pics/glitch/kate_front_pic.4bpp.lz");
 const u32 gTrainerPalette_GlitchKate[] = INCBIN_U32("graphics/trainers/palettes/glitch/elite_kate.gbapal.lz");

@@ -164,7 +164,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_UNOVA_SKYLA] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_POKABBIE] = {.size = 8, .y_offset = 1},
-    [TRAINER_PIC_POKABBIE_DITTO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_POKABBIE_JUST_DITTO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_POKABBIE_AND_DITTO] = {.size = 8, .y_offset = 1},
+
     [TRAINER_PIC_GLITCH_KATE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_TAILS] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_ERMA] = {.size = 8, .y_offset = 1},
@@ -338,7 +340,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(UNOVA_SKYLA, gTrainerFrontPic_Unova_Skyla),
 
     TRAINER_SPRITE(POKABBIE, gTrainerFrontPic_Pokabbie),
-    TRAINER_SPRITE(POKABBIE_DITTO, gTrainerFrontPic_PokabbieDitto),
+    TRAINER_SPRITE(POKABBIE_JUST_DITTO, gTrainerFrontPic_PokabbieJustDitto),
+    TRAINER_SPRITE(POKABBIE_AND_DITTO, gTrainerFrontPic_PokabbieAndDitto),
     TRAINER_SPRITE(GLITCH_KATE, gTrainerFrontPic_GlitchKate),
     TRAINER_SPRITE(GLITCH_TAILS, gTrainerFrontPic_GlitchTails),
     TRAINER_SPRITE(GLITCH_ERMA, gTrainerFrontPic_GlitchErma),
@@ -511,7 +514,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(UNOVA_SKYLA, gTrainerPalette_Unova_Skyla),
 
     TRAINER_PAL(POKABBIE, gTrainerPalette_Pokabbie),
-    TRAINER_PAL(POKABBIE_DITTO, gTrainerPalette_Pokabbie),
+    TRAINER_PAL(POKABBIE_JUST_DITTO, gTrainerPalette_PokabbieJustDitto),
+    TRAINER_PAL(POKABBIE_AND_DITTO, gTrainerPalette_PokabbieAndDitto),
     TRAINER_PAL(GLITCH_KATE, gTrainerPalette_GlitchKate),
     TRAINER_PAL(GLITCH_TAILS, gTrainerPalette_GlitchTails),
     TRAINER_PAL(GLITCH_ERMA, gTrainerPalette_GlitchErma),

@@ -183,10 +183,11 @@
 #define TRAINER_PIC_DAWN                  152
 
 #define TRAINER_PIC_POKABBIE              153
-#define TRAINER_PIC_POKABBIE_DITTO        154 // Just used for battle transition
-#define TRAINER_PIC_GLITCH_KATE           155
-#define TRAINER_PIC_GLITCH_TAILS          156
-#define TRAINER_PIC_GLITCH_ERMA           157
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   154 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    155
+#define TRAINER_PIC_GLITCH_KATE           156
+#define TRAINER_PIC_GLITCH_TAILS          157
+#define TRAINER_PIC_GLITCH_ERMA           158
 
 
 // Special cases
