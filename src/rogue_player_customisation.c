@@ -28,7 +28,7 @@ struct PlayerOutfit
     const u32* trainerFrontLayerPal;
     const u32* trainerBackBasePal;
     const u32* trainerBackLayerPal;
-    const u8 name[8];
+    const u8 name[12];
     bool8 supportedLayers[PLAYER_OUTFIT_STYLE_COUNT];
     u16 trainerFrontPic;
     u16 trainerBackPic;
@@ -54,7 +54,9 @@ enum
     PLAYER_OUTFIT_LUCAS,
     PLAYER_OUTFIT_DAWN,
     
-    PLAYER_OUTFIT_TEST,
+    // Secret unlocks
+    PLAYER_OUTFIT_POKABBIE,
+    PLAYER_OUTFIT_KATE,
 
     PLAYER_OUTFIT_COUNT,
 };
@@ -83,6 +85,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasNormal
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 
 
 static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
@@ -291,23 +296,42 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         }
     },
 
-    [PLAYER_OUTFIT_TEST] =
+    [PLAYER_OUTFIT_POKABBIE] =
     {
-        .name = _("Test"),
-        .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
-        .trainerBackPic = TRAINER_BACK_PIC_WALLY,
+        .name = _("Pokabbie"),
+        .trainerFrontPic = TRAINER_PIC_POKABBIE,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LYRA,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PlayerLyraNormal,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PlayerLyraRiding,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
         },
-        .objectEventBasePal = gObjectEventPal_PlayerLyraBase,
+        .objectEventBasePal = NULL,
         .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = gTrainerPalette_PlayerLyraFrontBase,
+        .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = gTrainerPalette_PlayerLyraFrontBase,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
+    [PLAYER_OUTFIT_KATE] =
+    {
+        .name = _("Kate"),
+        .trainerFrontPic = TRAINER_PIC_GLITCH_KATE,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Kate,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Kate,
+        },
+        .objectEventBasePal = NULL,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
     }
 };
