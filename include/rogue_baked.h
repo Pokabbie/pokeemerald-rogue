@@ -34,6 +34,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetEvolutionCount(u16 species);
+bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies);
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags);
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species);

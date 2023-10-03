@@ -168,6 +168,11 @@ void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId)
     }
 }
 
+bool8 RogueMiscQuery_CheckState(u16 elem)
+{
+    return GetQueryBitFlag(elem);
+}
+
 // MON QUERY
 //
 
@@ -771,6 +776,10 @@ void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
 
     ASSERT_TRAINER_QUERY;
 
+    // Skip and accept all if empty
+    if(trainerFlags == 0)
+        return;
+
     for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
     {
         if(GetQueryBitFlag(trainerNum))
@@ -872,6 +881,12 @@ bool8 RogueWeightQuery_HasAnyWeights()
 {
     ASSERT_WEIGHT_QUERY;
     return sRogueQueryPtr->bitCount != 0 && sRogueQueryPtr->totalWeight != 0;
+}
+
+bool8 RogueWeightQuery_HasMultipleWeights()
+{
+    ASSERT_WEIGHT_QUERY;
+    return RogueWeightQuery_HasAnyWeights() && sRogueQueryPtr->bitCount > 1;
 }
 
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)

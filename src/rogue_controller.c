@@ -2217,7 +2217,6 @@ static void BeginRogueRun(void)
     SeedRogueRng(gRogueRun.baseSeed * 23151 + 29867);
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    Rogue_ChooseBossTrainersForNewAdventure();
 
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -2272,8 +2271,11 @@ static void BeginRogueRun(void)
 
     }
 
-
     GiveMonPartnerRibbon();
+
+    // Chose bosses last
+    Rogue_ChooseRivalTrainerForNewAdventure();
+    Rogue_ChooseBossTrainersForNewAdventure();
 
     QuestNotify_BeginAdventure();
 }

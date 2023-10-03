@@ -530,13 +530,20 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
 #ifndef ROGUE_BAKING
     if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
-        if(gRogueRun.currentDifficulty >= 12)
+        if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }
-        else if(gRogueRun.currentDifficulty >= 8)
+        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_ELITE_FOUR;
+        }
+    }
+    else if(trainerClass == TRAINER_CLASS_RIVAL)
+    {
+        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        {
+            trainerClass = TRAINER_CLASS_CHAMPION;
         }
     }
 #endif
@@ -1222,6 +1229,29 @@ u8 Rogue_GetEvolutionCount(u16 species)
 
     return 0;
 #endif
+}
+
+bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
+{
+    u8 i;
+    struct Evolution currentEvo;
+    for (i = 0; i < EVOS_PER_MON; i++)
+    {
+        Rogue_ModifyEvolution(fromSpecies, i, &currentEvo);
+
+        if(currentEvo.method != 0)
+        {
+            if(currentEvo.targetSpecies == toSpecies)
+                return TRUE;
+            else if(currentEvo.targetSpecies != SPECIES_NONE)
+            {
+                if(Rogue_DoesEvolveInto(currentEvo.targetSpecies, toSpecies))
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
 }
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)

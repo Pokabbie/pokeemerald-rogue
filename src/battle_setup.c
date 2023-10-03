@@ -828,8 +828,11 @@ static u8 GetTrainerBattleTransition(void)
 
     Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
-    if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
+    if (trainer.trainerClass == TRAINER_SECRET_BASE)
         return B_TRANSITION_CHAMPION;
+
+    //if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
+    //    return B_TRANSITION_CHAMPION_STEVEN;
 
     if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
@@ -870,7 +873,7 @@ static u8 GetTrainerBattleTransition(void)
         if(trainer.trainerClass == TRAINER_CLASS_LEADER)
             return B_TRANSITION_BIG_POKEBALL;
         else
-            return B_TRANSITION_POKEBALLS_TRAIL;
+            return B_TRANSITION_SLICE; //B_TRANSITION_POKEBALLS_TRAIL;
     }
 
     if (trainer.doubleBattle == TRUE)

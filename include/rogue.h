@@ -205,6 +205,7 @@ struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
+    u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
     {
@@ -212,6 +213,7 @@ struct RogueRunData
         struct RogueCampaignData_LowBst lowBst;
     } campaignData;
     u16 baseSeed;
+    u16 rivalTrainerNum;
     u8 adventureRoomId;
     u16 enteredRoomCounter;
     u16 currentDifficulty;

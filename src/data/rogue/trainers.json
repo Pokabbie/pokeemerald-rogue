@@ -532,6 +532,43 @@
                 }
             }
         ],
+        
+        "kanto_rival":
+        [
+            {
+                "name": "BLUE",
+                "type_assignment": "NONE",
+                "gfx_suffix": "KANTO_BLUE",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kanto_boss",
+                "trainer_flags": [ "REGION_KANTO", "CLASS_RIVAL" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: you smell!",
+                        "PRE_BATTLE_TAUNT": "Smelly!",
+                        "POST_BATTLE_TAUNT": "Smelly bad.",
+                        "POST_BATTLE_CLOSER": "Smell bye bye."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
 
         "johto_gyms":
         [

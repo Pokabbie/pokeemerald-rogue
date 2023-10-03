@@ -11,6 +11,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired();
 void RogueAdv_ApplyAdventureMetatiles();
 
 u8 RogueAdv_OverrideNextWarp(struct WarpData *warp);
+void RogueAdv_GenerateNextPath();
 void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 bool8 RogueAdv_CanUseEscapeRope(void);
 

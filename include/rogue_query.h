@@ -24,6 +24,7 @@ struct RogueQueryDebug
 void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
+bool8 RogueMiscQuery_CheckState(u16 elem);
 
 // Mon Query
 void RogueMonQuery_Begin();
@@ -55,6 +56,7 @@ void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup);
 void RogueWeightQuery_Begin();
 void RogueWeightQuery_End();
 bool8 RogueWeightQuery_HasAnyWeights();
+bool8 RogueWeightQuery_HasMultipleWeights();
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
 void RogueWeightQuery_FillWeights(u8 weight);
 void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
