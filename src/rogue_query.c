@@ -981,7 +981,7 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
 
                 if(weight != 0)
                 {
-                    if(targetWeight <= weight)
+                    if(targetWeight < weight)
                     {
                         // We've found the target!
                         if(updateWeight)

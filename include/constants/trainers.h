@@ -180,11 +180,15 @@
 #define TRAINER_PIC_ETHAN                 149
 #define TRAINER_PIC_LYRA                  150
 
-#define TRAINER_PIC_POKABBIE              151
-#define TRAINER_PIC_POKABBIE_DITTO        152 // Just used for battle transition
-#define TRAINER_PIC_GLITCH_KATE           153
-#define TRAINER_PIC_GLITCH_TAILS          154
-#define TRAINER_PIC_GLITCH_ERMA           155
+#define TRAINER_PIC_LUCAS                 151
+#define TRAINER_PIC_DAWN                  152
+
+#define TRAINER_PIC_POKABBIE              153
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   154 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    155
+#define TRAINER_PIC_GLITCH_KATE           156
+#define TRAINER_PIC_GLITCH_TAILS          157
+#define TRAINER_PIC_GLITCH_ERMA           158
 
 
 // Special cases
@@ -192,16 +196,19 @@
 #define TRAINER_PIC_PLAYER_OPPOSITE_AVATAR  255
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
-#define TRAINER_BACK_PIC_BRENDAN                0
-#define TRAINER_BACK_PIC_MAY                    1
-#define TRAINER_BACK_PIC_RED                    2
-#define TRAINER_BACK_PIC_LEAF                   3
-#define TRAINER_BACK_PIC_ETHAN                  4
-#define TRAINER_BACK_PIC_LYRA                   5
-#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN  6
-#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      7
-#define TRAINER_BACK_PIC_WALLY                  8
-#define TRAINER_BACK_PIC_STEVEN                 9
+#define TRAINER_BACK_PIC_NONE                   0
+#define TRAINER_BACK_PIC_BRENDAN                1
+#define TRAINER_BACK_PIC_MAY                    2
+#define TRAINER_BACK_PIC_RED                    3
+#define TRAINER_BACK_PIC_LEAF                   4
+#define TRAINER_BACK_PIC_ETHAN                  5
+#define TRAINER_BACK_PIC_LYRA                   6
+#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN  7
+#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      8
+#define TRAINER_BACK_PIC_WALLY                  9
+#define TRAINER_BACK_PIC_STEVEN                 10
+#define TRAINER_BACK_PIC_LUCAS                  11
+#define TRAINER_BACK_PIC_DAWN                   12
 
 #define TRAINER_BACK_PIC_PLAYER                 0xFF
 

@@ -8,6 +8,7 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "item_menu.h"
+#include "main.h"
 #include "overworld.h"
 #include "pokedex.h"
 #include "pokemon.h"
@@ -59,13 +60,8 @@ bool8 Rogue_CheckPartyHasRoomForMon(void)
 
 void Rogue_SeedRandomGenerators(void)
 {
-    u32 startSeed = gRngRogueValue;
-
-    RogueRandom();
-    SeedRng(RogueRandom());
-    SeedRng2(RogueRandom());
-
-    gRngRogueValue = startSeed;
+    SeedRng(gMain.vblankCounter1);
+    SeedRng2(gMain.vblankCounter2);
 }
 
 u16 GetStartDifficulty(void);
@@ -952,4 +948,10 @@ void Rogue_IncreaseBagAmountUpgradeLevel()
 u16 Rogue_GetBagUpgradeCost()
 {
     return min(gSaveBlock1Ptr->bagAmountUpgrades, gSaveBlock1Ptr->bagCapacityUpgrades);
+}
+
+void Rogue_SeedRng()
+{
+    SeedRng(gMain.vblankCounter1);
+    SeedRng2(gMain.vblankCounter2);
 }

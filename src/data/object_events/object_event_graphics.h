@@ -399,6 +399,12 @@ const u16 gObjectEventPal_PlayerEthanLayers[] = INCBIN_U16("graphics/rogue_palet
 const u16 gObjectEventPal_PlayerLyraBase[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerLyraLayers[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_layers.gbapal");
 
+const u16 gObjectEventPal_PlayerLucasBase[] = INCBIN_U16("graphics/rogue_palettes/lucas/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerLucasLayers[] = INCBIN_U16("graphics/rogue_palettes/lucas/object_event_layers.gbapal");
+
+const u16 gObjectEventPal_PlayerDawnBase[] = INCBIN_U16("graphics/rogue_palettes/dawn/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerDawnLayers[] = INCBIN_U16("graphics/rogue_palettes/dawn/object_event_layers.gbapal");
+
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
 const u32 gObjectEventPic_LyraMachBike[] = INCBIN_U32("graphics/object_events/pics/people/lyra/mach_bike.4bpp");
@@ -416,6 +422,12 @@ const u32 gObjectEventPic_EthanSurfing[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_EthanFieldMove[] = INCBIN_U32("graphics/object_events/pics/people/ethan/field_move.4bpp");
 const u32 gObjectEventPic_EthanFishing[] = INCBIN_U32("graphics/object_events/pics/people/ethan/fishing.4bpp");
 const u32 gObjectEventPic_EthanRiding[] = INCBIN_U32("graphics/object_events/pics/people/ethan/riding.4bpp");
+
+const u32 gObjectEventPic_LucasNormal[] = INCBIN_U32("graphics/object_events/pics/people/lucas/walking.4bpp");
+const u32 gObjectEventPic_LucasRiding[] = INCBIN_U32("graphics/object_events/pics/people/lucas/riding.4bpp");
+
+const u32 gObjectEventPic_DawnNormal[] = INCBIN_U32("graphics/object_events/pics/people/dawn/walking.4bpp");
+const u32 gObjectEventPic_DawnRiding[] = INCBIN_U32("graphics/object_events/pics/people/dawn/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");

@@ -7040,6 +7040,8 @@ extern const u32 gTrainerFrontPic_Ethan[];
 extern const u32 gTrainerFrontPic_Lyra[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
+extern const u32 gTrainerFrontPic_Lucas[];
+extern const u32 gTrainerFrontPic_Dawn[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -7139,7 +7141,8 @@ extern const u32 gTrainerPalette_Unova_Shauntal[];
 extern const u32 gTrainerPalette_Unova_Skyla[];
 
 extern const u32 gTrainerFrontPic_Pokabbie[];
-extern const u32 gTrainerFrontPic_PokabbieDitto[];
+extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
+extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
 extern const u32 gTrainerFrontPic_GlitchKate[];
 extern const u32 gTrainerFrontPic_GlitchTails[];
 extern const u32 gTrainerFrontPic_GlitchErma[];
@@ -7262,6 +7265,16 @@ extern const u32 gTrainerPalette_PlayerLyraFrontLayers[];
 extern const u32 gTrainerPalette_PlayerLyraBackBase[];
 extern const u32 gTrainerPalette_PlayerLyraBackLayers[];
 
+extern const u32 gTrainerPalette_PlayerLucasFrontBase[];
+extern const u32 gTrainerPalette_PlayerLucasFrontLayers[];
+extern const u32 gTrainerPalette_PlayerLucasBackBase[];
+extern const u32 gTrainerPalette_PlayerLucasBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerDawnFrontBase[];
+extern const u32 gTrainerPalette_PlayerDawnFrontLayers[];
+extern const u32 gTrainerPalette_PlayerDawnBackBase[];
+extern const u32 gTrainerPalette_PlayerDawnBackLayers[];
+
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
 extern const u32 gTrainerPalette_LeaderLtSurge[];
@@ -7294,10 +7307,13 @@ extern const u32 gTrainerPalette_EliteFourKaren[];
 extern const u32 gTrainerPalette_ChampionRed[];
 
 extern const u32 gTrainerPalette_Pokabbie[];
+extern const u32 gTrainerPalette_PokabbieAndDitto[];
+extern const u32 gTrainerPalette_PokabbieJustDitto[];
 extern const u32 gTrainerPalette_GlitchKate[];
 extern const u32 gTrainerPalette_GlitchTails[];
 extern const u32 gTrainerPalette_GlitchErma[];
 
+extern const u8 gTrainerBackPic_None[];
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
 extern const u8 gTrainerBackPic_Red[];
@@ -7308,6 +7324,8 @@ extern const u8 gTrainerBackPic_RubySapphireBrendan[];
 extern const u8 gTrainerBackPic_RubySapphireMay[];
 extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
+extern const u8 gTrainerBackPic_Lucas[];
+extern const u8 gTrainerBackPic_Dawn[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -10443,6 +10461,12 @@ extern const u16 gObjectEventPal_PlayerEthanLayers[];
 
 extern const u16 gObjectEventPal_PlayerLyraBase[];
 extern const u16 gObjectEventPal_PlayerLyraLayers[];
+
+extern const u16 gObjectEventPal_PlayerLucasBase[];
+extern const u16 gObjectEventPal_PlayerLucasLayers[];
+
+extern const u16 gObjectEventPal_PlayerDawnBase[];
+extern const u16 gObjectEventPal_PlayerDawnLayers[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

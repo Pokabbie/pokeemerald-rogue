@@ -469,6 +469,9 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_LEAF] = sAnims_Leaf,
     [TRAINER_PIC_ETHAN] = sAnims_Kanto,
     [TRAINER_PIC_LYRA] = sAnims_Kanto,
+    [TRAINER_PIC_LUCAS] = sAnims_Kanto,
+    [TRAINER_PIC_DAWN] = sAnims_Kanto,
+
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
 
@@ -537,7 +540,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_UNOVA_SKYLA] = sAnims_Kanto,
 
     [TRAINER_PIC_POKABBIE] = sAnims_Kanto,
-    [TRAINER_PIC_POKABBIE_DITTO] = sAnims_Kanto,
+    [TRAINER_PIC_POKABBIE_JUST_DITTO] = sAnims_Kanto,
+    [TRAINER_PIC_POKABBIE_AND_DITTO] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_KATE] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_TAILS] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_ERMA] = sAnims_Kanto,

@@ -52,6 +52,14 @@ const struct SpriteFrameImage gBattlerPicTable_OpponentRight[] =
     BATTLER_OFFSET(15), MON_PIC_SIZE,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_None[] =
+{
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_Brendan[] =
 {
     gTrainerBackPic_Brendan, 0x0800,
@@ -134,6 +142,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
     gTrainerBackPic_Steven + 0x0800, 0x0800,
     gTrainerBackPic_Steven + 0x1000, 0x0800,
     gTrainerBackPic_Steven + 0x1800, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Lucas[] =
+{
+    gTrainerBackPic_Lucas, 0x0800,
+    gTrainerBackPic_Lucas + 0x0800, 0x0800,
+    gTrainerBackPic_Lucas + 0x1000, 0x0800,
+    gTrainerBackPic_Lucas + 0x1800, 0x0800,
+    gTrainerBackPic_Lucas + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Dawn[] =
+{
+    gTrainerBackPic_Dawn, 0x0800,
+    gTrainerBackPic_Dawn + 0x0800, 0x0800,
+    gTrainerBackPic_Dawn + 0x1000, 0x0800,
+    gTrainerBackPic_Dawn + 0x1800, 0x0800,
+    gTrainerBackPic_Dawn + 0x2000, 0x0800,
 };
 
 static const union AnimCmd sAnim_GeneralFrame0[] =
