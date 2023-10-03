@@ -393,6 +393,9 @@
 #define EFFECT_EXTREME_EVOBOOST             387
 #define EFFECT_DAMAGE_SET_TERRAIN           388 // genesis supernova
 
+// Cherry pick (Careful of order)
+#define EFFECT_CORROSIVE_GAS                389
+
 #define NUM_BATTLE_MOVE_EFFECTS             389
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

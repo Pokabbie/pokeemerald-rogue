@@ -7451,7 +7451,9 @@ static void Cmd_removeitem(void)
     itemId = gBattleMons[gActiveBattler].item;
 
     // Popped Air Balloon cannot be restored by any means.
-    if (GetBattlerHoldEffect(gActiveBattler, TRUE) != HOLD_EFFECT_AIR_BALLOON)
+    // Corroded items cannot be restored either.
+    if (GetBattlerHoldEffect(gActiveBattler, TRUE) != HOLD_EFFECT_AIR_BALLOON
+        && gBattleMoves[gCurrentMove].effect != EFFECT_CORROSIVE_GAS)
         gBattleStruct->usedHeldItems[gBattlerPartyIndexes[gActiveBattler]][GetBattlerSide(gActiveBattler)] = itemId; // Remember if switched out
     
     gBattleMons[gActiveBattler].item = 0;
@@ -10068,6 +10070,18 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 4);
             else
                 gBattlescriptCurrInstr += 8;
+            return;
+        }
+        break;
+    case VARIOUS_JUMP_IF_CANT_LOSE_ITEM:
+        {
+            // Some effects should only happen on the first or second strike of Parental Bond,
+            // so a way to check this in battle scripts is useful
+            u16 item = gBattleMons[gActiveBattler].item;
+            if (item == ITEM_NONE || !CanBattlerGetOrLoseItem(gActiveBattler, item))
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            else
+                gBattlescriptCurrInstr += 7;
             return;
         }
         break;

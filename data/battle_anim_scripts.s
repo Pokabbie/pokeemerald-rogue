@@ -14271,7 +14271,29 @@ Move_POLTERGEIST::
 	end
 
 Move_CORROSIVE_GAS::
-	end @to do:
+	loadspritegfx ANIM_TAG_PINK_CLOUD @Fumes
+	createvisualtask AnimTask_BlendParticle, 0x5, ANIM_TAG_PINK_CLOUD, 0x0, 0xE, 0xE, 0x19EF @;Garbage green
+	monbg ANIM_ATTACKER
+	loopsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER, 0x8, 0x3
+	delay 0x0
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 1, 2, 0, 15, RGB(15, 15, 6) @;Garbage green
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x7a, 0x3, 0xfff2, 0x12, 0x2e
+	delay 0x0
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x79, 0x3, 0xe, 0xfff2, 0x2e
+	delay 0x0
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x78, 0x3, 0xfff4, 0xfff6, 0x2e
+	delay 0x0
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x77, 0x3, 0xe, 0xe, 0x2e
+	delay 0x0
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x76, 0x3, 0x0, 0x0, 0x2e
+	delay 0x0
+	createsprite gSpriteTemplate_CorrosiveGasSmoke, ANIM_ATTACKER, 0x7b, 0x3, 0x4, 0x4, 0x1e
+	waitforvisualfinish
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, (F_PAL_BG | F_PAL_TARGET | F_PAL_ATK_PARTNER | F_PAL_DEF_PARTNER), 1, 2, 0, 14, RGB(15, 15, 6) @;Garbage green
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
 
 Move_COACHING::
 	end @to do:

@@ -306,6 +306,8 @@ void AnimFlatterSpotlight_Step(struct Sprite *sprite);
 extern const union AnimCmd *const gOpeningEyeAnimTable[];
 extern const union AnimCmd *const gEclipsingOrbAnimTable[];
 extern const union AffineAnimCmd *const gSpotlightAffineAnimTable[];
+extern const union AffineAnimCmd *const gSmokeBallEscapeCloudAffineAnimTable[];
+extern void AnimSmokeBallEscapeCloud(struct Sprite *sprite);
 
 // battle_anim_water.c
 void AnimWaterPulseRing(struct Sprite *sprite);

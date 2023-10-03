@@ -2006,6 +2006,11 @@
 	.4byte \ptr
 	.endm
 
+	.macro jumpifcantloseitem battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_CANT_LOSE_ITEM
+	.4byte \ptr
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER, \stat | \stages << 3 | \down << 7
