@@ -411,6 +411,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTerrainHit              @ EFFECT_DAMAGE_SET_TERRAIN
 	@  Cherry pick (Careful of order)
 	.4byte BattleScript_EffectCorrosiveGas            @ EFFECT_CORROSIVE_GAS
+	.4byte BattleScript_EffectShellTrap               @ EFFECT_SHELL_TRAP
 
 BattleScript_EffectSteelBeam::
 	attackcanceler
@@ -9779,5 +9780,22 @@ BattleScript_CorrosiveGasFail:
 	pause B_WAIT_TIME_SHORT
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	printstring STRINGID_NOEFFECTONTARGET
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_ShellTrapSetUp::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	playanimation BS_ATTACKER, B_ANIM_SHELL_TRAP_SETUP, NULL
+	printstring STRINGID_PREPARESHELLTRAP
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_EffectShellTrap::
+	attackcanceler
+	jumpifshelltrap BS_ATTACKER, BattleScript_HitFromAccCheck
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_MoveEnd
+	ppreduce
+	printstring STRINGID_SHELLTRAPDIDNTWORK
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

@@ -147,6 +147,7 @@ struct ProtectStruct
     u16 pranksterElevated:1;
     u16 quickDraw:1;
     u16 beakBlastCharge:1;
+    u16 shellTrap:1;
     u32 physicalDmg;
     u32 specialDmg;
     u8 physicalBattlerId;

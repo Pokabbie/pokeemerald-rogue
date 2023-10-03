@@ -395,7 +395,8 @@
 
 // Cherry pick (Careful of order)
 #define EFFECT_CORROSIVE_GAS                389
+#define EFFECT_SHELL_TRAP                   390
 
-#define NUM_BATTLE_MOVE_EFFECTS             389
+#define NUM_BATTLE_MOVE_EFFECTS             391
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

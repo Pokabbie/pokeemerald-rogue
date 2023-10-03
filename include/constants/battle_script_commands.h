@@ -247,6 +247,7 @@
 #define VARIOUS_GET_BATTLER_SIDE                    156
 #define VARIOUS_CHECK_PARENTAL_BOND_COUNTER         157
 #define VARIOUS_JUMP_IF_CANT_LOSE_ITEM              158
+#define VARIOUS_JUMP_IF_SHELL_TRAP                  159
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

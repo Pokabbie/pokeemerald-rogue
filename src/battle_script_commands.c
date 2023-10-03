@@ -326,6 +326,7 @@ static void DrawLevelUpBannerText(void);
 static void SpriteCB_MonIconOnLvlUpBanner(struct Sprite* sprite);
 static bool32 CriticalCapture(u32 odds);
 static bool8 IsFinalStrikeEffect(u16 move);
+static bool32 ChangeOrderTargetAfterAttacker(void);
 
 static void Cmd_attackcanceler(void);
 static void Cmd_accuracycheck(void);
@@ -5544,6 +5545,22 @@ static void Cmd_moveend(void)
             else
                 gBattleStruct->lastMoveFailed &= ~(gBitTable[gBattlerAttacker]);
 
+            // Set ShellTrap to activate after the attacker's turn if target was hit by a physical move.
+            if (gBattleMoves[gChosenMoveByBattler[gBattlerTarget]].effect == EFFECT_SHELL_TRAP
+                && gBattlerTarget != gBattlerAttacker
+                && GetBattlerSide(gBattlerTarget) != GetBattlerSide(gBattlerAttacker)
+                && gProtectStructs[gBattlerTarget].physicalDmg
+                && gProtectStructs[gBattlerTarget].physicalBattlerId == gBattlerAttacker
+                && !TestSheerForceFlag(gBattlerAttacker, gCurrentMove))
+            {
+                gProtectStructs[gBattlerTarget].shellTrap = TRUE;
+                // Change move order in double battles, so the hit mon with shell trap moves immediately after being hit.
+                if (IsDoubleBattle())
+                {
+                    ChangeOrderTargetAfterAttacker();
+                }
+            }
+
             if (gHitMarker & HITMARKER_SWAP_ATTACKER_TARGET)
             {
                 gActiveBattler = gBattlerAttacker;
@@ -5964,6 +5981,7 @@ static void Cmd_moveend(void)
             gBattleStruct->targetsDone[gBattlerAttacker] = 0;
             gProtectStructs[gBattlerAttacker].usesBouncedMove = FALSE;
             gProtectStructs[gBattlerAttacker].targetAffected = FALSE;
+            gProtectStructs[gBattlerAttacker].shellTrap = FALSE;
             gBattleStruct->ateBoost[gBattlerAttacker] = 0;
             gStatuses3[gBattlerAttacker] &= ~STATUS3_ME_FIRST;
             gSpecialStatuses[gBattlerAttacker].gemBoost = FALSE;
@@ -10079,6 +10097,15 @@ static void Cmd_various(void)
             // so a way to check this in battle scripts is useful
             u16 item = gBattleMons[gActiveBattler].item;
             if (item == ITEM_NONE || !CanBattlerGetOrLoseItem(gActiveBattler, item))
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            else
+                gBattlescriptCurrInstr += 7;
+            return;
+        }
+        break;
+    case VARIOUS_JUMP_IF_SHELL_TRAP:
+        {
+            if (gProtectStructs[gActiveBattler].shellTrap)
                 gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
             else
                 gBattlescriptCurrInstr += 7;
@@ -14985,4 +15012,36 @@ static bool8 IsFinalStrikeEffect(u16 move)
             return TRUE;
     }
     return FALSE;
+}
+
+// Return True if the order was changed, and false if the order was not changed(for example because the target would move after the attacker anyway).
+static bool32 ChangeOrderTargetAfterAttacker(void)
+{
+    u32 i;
+    u8 data[MAX_BATTLERS_COUNT];
+
+    if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget)
+        || GetBattlerTurnOrderNum(gBattlerAttacker) + 1 == GetBattlerTurnOrderNum(gBattlerTarget))
+        return FALSE;
+
+    for (i = 0; i < gBattlersCount; i++)
+        data[i] = gBattlerByTurnOrder[i];
+    if (GetBattlerTurnOrderNum(gBattlerAttacker) == 0 && GetBattlerTurnOrderNum(gBattlerTarget) == 2)
+    {
+        gBattlerByTurnOrder[1] = gBattlerTarget;
+        gBattlerByTurnOrder[2] = data[1];
+        gBattlerByTurnOrder[3] = data[3];
+    }
+    else if (GetBattlerTurnOrderNum(gBattlerAttacker) == 0 && GetBattlerTurnOrderNum(gBattlerTarget) == 3)
+    {
+        gBattlerByTurnOrder[1] = gBattlerTarget;
+        gBattlerByTurnOrder[2] = data[1];
+        gBattlerByTurnOrder[3] = data[2];
+    }
+    else // Attacker == 1, Target == 3
+    {
+        gBattlerByTurnOrder[2] = gBattlerTarget;
+        gBattlerByTurnOrder[3] = data[2];
+    }
+    return TRUE;
 }
