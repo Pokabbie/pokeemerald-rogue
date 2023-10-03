@@ -8117,6 +8117,66 @@ static bool32 IsRototillerAffected(u32 battlerId)
     return TRUE;
 }
 
+static bool32 IsAbilityRodAffected(void)
+{
+    u32 moveType;
+
+    if (gBattleStruct->dynamicMoveType == 0)
+        moveType = gBattleMoves[gCurrentMove].type;
+    else if (!(gBattleStruct->dynamicMoveType & F_DYNAMIC_TYPE_1))
+        moveType = gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK;
+    else
+        moveType = gBattleMoves[gCurrentMove].type;
+
+    if (moveType == TYPE_ELECTRIC && GetBattlerAbility(gBattlerTarget) == ABILITY_LIGHTNING_ROD)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+static bool32 IsAbilityMotorAffected(void)
+{
+    u32 moveType;
+
+    if (gBattleStruct->dynamicMoveType == 0)
+        moveType = gBattleMoves[gCurrentMove].type;
+    else if (!(gBattleStruct->dynamicMoveType & F_DYNAMIC_TYPE_1))
+        moveType = gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK;
+    else
+        moveType = gBattleMoves[gCurrentMove].type;
+
+    if (moveType == TYPE_ELECTRIC && GetBattlerAbility(gBattlerTarget) == ABILITY_MOTOR_DRIVE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+static bool32 IsAbilityAbsorbAffected(void)
+{
+    u32 moveType;
+
+    if (gBattleStruct->dynamicMoveType == 0)
+        moveType = gBattleMoves[gCurrentMove].type;
+    else if (!(gBattleStruct->dynamicMoveType & F_DYNAMIC_TYPE_1))
+        moveType = gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK;
+    else
+        moveType = gBattleMoves[gCurrentMove].type;
+
+    if (moveType == TYPE_ELECTRIC && GetBattlerAbility(gBattlerTarget) == ABILITY_VOLT_ABSORB)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+static bool32 IsTeatimeAffected(u32 battler)
+{
+    if (ItemId_GetPocket(gBattleMons[battler].item) != POCKET_BERRIES)
+        return FALSE;   // Only berries
+    if (gStatuses3[battler] & STATUS3_SEMI_INVULNERABLE)
+        return FALSE;   // Teatime doesn't affected semi-invulnerable battlers
+    return TRUE;
+}
+
 #define COURTCHANGE_SWAP(status, structField, temp)                     \
 {                                                                       \
     temp = gSideStatuses[B_SIDE_PLAYER];                                \
@@ -10106,6 +10166,59 @@ static void Cmd_various(void)
     case VARIOUS_JUMP_IF_SHELL_TRAP:
         {
             if (gProtectStructs[gActiveBattler].shellTrap)
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            else
+                gBattlescriptCurrInstr += 7;
+            return;
+        }
+        break;
+    case VARIOUS_TEATIME_TARGETS:
+        {
+            u32 count = 0;
+
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (IsTeatimeAffected(i))
+                    count++;
+            }
+            if (count == 0)
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);   // Teatime fails
+            else
+                gBattlescriptCurrInstr += 7;
+            return;
+        }
+        break;
+    case VARIOUS_TEATIME_INVUL:
+        {
+            if (IsTeatimeAffected(gActiveBattler))
+                gBattlescriptCurrInstr += 7;
+            else
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            return;
+        }
+        break;
+
+    case VARIOUS_JUMP_IF_ROD_AFFECTED:
+        {
+            if (IsAbilityRodAffected())
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            else
+                gBattlescriptCurrInstr += 7;
+            return;
+        }
+        break;
+    case VARIOUS_JUMP_IF_ABSORB_AFFECTED:
+        {
+            if (IsAbilityAbsorbAffected())
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+            else
+                gBattlescriptCurrInstr += 7;
+            return;
+        }
+        break;
+    case VARIOUS_JUMP_IF_MOTOR_AFFECTED:
+        {
+            if (IsAbilityMotorAffected())
                 gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
             else
                 gBattlescriptCurrInstr += 7;

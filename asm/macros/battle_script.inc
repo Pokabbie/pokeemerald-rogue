@@ -1948,6 +1948,16 @@
 	various BS_ATTACKER, VARIOUS_SHELL_SIDE_ARM_CHECK
 	.endm
 
+	.macro jumpifteanoberry jumpInstr:req
+	various BS_ATTACKER, VARIOUS_TEATIME_TARGETS
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifteainvulnerable battler:req, jumpInstr:req
+	various \battler, VARIOUS_TEATIME_INVUL
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifcantfling battler:req, ptr:req
 	various \battler, VARIOUS_JUMP_IF_CANT_FLING
 	.4byte \ptr
@@ -2013,6 +2023,21 @@
 
 	.macro jumpifshelltrap battler:req, ptr:req
 	various \battler, VARIOUS_JUMP_IF_SHELL_TRAP
+	.4byte \ptr
+	.endm
+
+	.macro jumpifrodaffected battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_ROD_AFFECTED
+	.4byte \ptr
+	.endm
+
+	.macro jumpifabsorbaffected battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_ABSORB_AFFECTED
+	.4byte \ptr
+	.endm
+
+	.macro jumpifmotoraffected battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_MOTOR_AFFECTED
 	.4byte \ptr
 	.endm
 

@@ -396,6 +396,7 @@
 #define ANIM_TAG_PRIMAL_PARTICLES           (ANIM_SPRITES_START + 384)
 #define ANIM_TAG_STEEL_BEAM                 (ANIM_SPRITES_START + 385)
 #define ANIM_TAG_POLTERGEIST                (ANIM_SPRITES_START + 386)
+#define ANIM_TAG_TEAPOT                     (ANIM_SPRITES_START + 387)
 
 // battlers
 #define ANIM_ATTACKER    0

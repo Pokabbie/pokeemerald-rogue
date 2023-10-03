@@ -248,6 +248,12 @@
 #define VARIOUS_CHECK_PARENTAL_BOND_COUNTER         157
 #define VARIOUS_JUMP_IF_CANT_LOSE_ITEM              158
 #define VARIOUS_JUMP_IF_SHELL_TRAP                  159
+#define VARIOUS_TEATIME_TARGETS                     160
+#define VARIOUS_TEATIME_INVUL                       161
+#define VARIOUS_JUMP_IF_ROD_AFFECTED                162
+#define VARIOUS_JUMP_IF_ABSORB_AFFECTED             163
+#define VARIOUS_JUMP_IF_MOTOR_AFFECTED              164
+
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

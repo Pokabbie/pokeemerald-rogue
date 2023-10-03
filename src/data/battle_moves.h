@@ -12325,7 +12325,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_TEATIME] =
     {
-        .effect = EFFECT_PLACEHOLDER,   //TODO
+        .effect = EFFECT_TEATIME,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

@@ -412,6 +412,7 @@ gBattleScriptsForMoveEffects::
 	@  Cherry pick (Careful of order)
 	.4byte BattleScript_EffectCorrosiveGas            @ EFFECT_CORROSIVE_GAS
 	.4byte BattleScript_EffectShellTrap               @ EFFECT_SHELL_TRAP
+	.4byte BattleScript_EffectTeatime                 @ EFFECT_TEATIME
 
 BattleScript_EffectSteelBeam::
 	attackcanceler
@@ -9798,4 +9799,78 @@ BattleScript_EffectShellTrap::
 	ppreduce
 	printstring STRINGID_SHELLTRAPDIDNTWORK
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTeatime::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifteanoberry BattleScript_ButItFailed
+@ at least one battler is affected
+	attackanimation
+	waitanimation
+	setbyte gBattlerTarget, 0
+BattleScript_TeatimeLoop:
+	jumpifrodaffected BS_TARGET, BattleScript_Teatimerod
+	jumpifabsorbaffected BS_TARGET, BattleScript_Teatimesorb
+	jumpifmotoraffected BS_TARGET, BattleScript_Teatimemotor
+	jumpifteainvulnerable BS_TARGET, BattleScript_Teatimevul @ in semi-invulnerable state OR held item is not a Berry
+	orword gHitMarker, HITMARKER_NO_ANIMATIONS | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
+	setbyte sBERRY_OVERRIDE, TRUE   @ override the requirements for eating berries
+	consumeberry BS_TARGET, TRUE  @ consume the berry, then restore the item from changedItems
+	bicword gHitMarker, HITMARKER_NO_ANIMATIONS | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
+	setbyte sBERRY_OVERRIDE, FALSE
+	removeitem BS_TARGET
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
+	goto BattleScript_MoveEnd
+BattleScript_Teatimevul:
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
+	goto BattleScript_MoveEnd
+BattleScript_Teatimesorb:
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	tryhealquarterhealth BS_TARGET BattleScript_Teatimesorb_end
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_Teatimesorb_end:
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
+	goto BattleScript_MoveEnd
+BattleScript_Teatimerod:
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	playstatchangeanimation BS_TARGET, BIT_SPATK, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_TeatimeBuffer
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_TeatimeBuffer
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
+	goto BattleScript_MoveEnd
+BattleScript_Teatimemotor:
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_TeatimeBuffer
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_TeatimeBuffer
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
+	goto BattleScript_MoveEnd
+BattleScript_TeatimeBuffer:
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_TeatimeLoop
+	moveendcase MOVEEND_CLEAR_BITS
 	goto BattleScript_MoveEnd
