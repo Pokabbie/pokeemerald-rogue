@@ -133,9 +133,36 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
     if(trainer->encounterText == NULL || trainer->encounterTextCount == 0)
         return NULL;
 
+    // For rival trainer we have initial battle, middle battles, final pre E4 battle then E4 battle
+    if(Rogue_IsRivalTrainer(trainerNum))
+    {
+        u8 i;
+        u8 offset = 0;
+
+        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            offset = 3;
+        else if(gRogueRun.currentDifficulty <= gRogueRun.rivalEncounterDifficulties[0])
+            offset = 0;
+        else if(gRogueRun.currentDifficulty >= gRogueRun.rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS - 1])
+            offset = 2;
+        else
+            offset = 1; // Assume in middle of run
+
+        offset = min(offset, trainer->encounterTextCount - 1);
+
+        for(; offset > 0; --offset)
+        {
+            str = trainer->encounterText[TRAINER_STRING_COUNT * offset + textId];
+            if(str != NULL)
+                return str;
+        }
+
+        // Fallback to offset 0
+        return trainer->encounterText[textId];
+    }
     // For boss trainers we're going to predictably jump up the string tables, so custom text can optionally be added for later states
     // In order: gyms, e4, champ, final champ
-    if(Rogue_IsAnyBossTrainer(trainerNum))
+    else if(Rogue_IsAnyBossTrainer(trainerNum))
     {
         u8 offset = 0;
 
@@ -584,11 +611,39 @@ static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
 
 void Rogue_ChooseRivalTrainerForNewAdventure()
 {
+    u8 i;
     u16 trainerNum = Rogue_ChooseRivalTrainerId();
     DebugPrintf("Picking rival = %d", trainerNum);
 
     gRogueRun.rivalTrainerNum = trainerNum;
     memset(gRogueRun.rivalSpecies, SPECIES_NONE, sizeof(gRogueRun.rivalSpecies));
+
+    // We can encounter the rival up to the first E4 encounter (Technically not entered the E4 so I'll allow it)
+    // Set this up to assume 4 encounters for now to ensure they are evenly spaced
+    AGB_ASSERT(ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS == 4);
+    
+    // First encounter just before or just after 1st badge
+    gRogueRun.rivalEncounterDifficulties[0] = RogueRandom() % 2;
+
+    // Around middle of run
+    gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
+
+    // Going to have 2 mid run encounters
+    if(RogueRandom() % 2)
+    {
+        gRogueRun.rivalEncounterDifficulties[1] = 3 + (RogueRandom() % 2);
+        gRogueRun.rivalEncounterDifficulties[2] = ROGUE_GYM_MID_DIFFICULTY + 1 + (RogueRandom() % 2);
+    }
+    // Only have 1 mid run encounter
+    else
+    {
+        // Around middle of run
+        gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
+        gRogueRun.rivalEncounterDifficulties[2] = gRogueRun.rivalEncounterDifficulties[1];
+    }
+
+    // Last encounter just before or just after last gym
+    gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
 }
 
 #define RIVAL_BASE_PARTY_SIZE 5

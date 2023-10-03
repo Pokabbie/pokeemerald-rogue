@@ -826,6 +826,18 @@ void Rogue_PlayStaticTrainerEncounterBGM(void)
     //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
 }
 
+void Rogue_PlayRivalTrainerEncounterBGM(void)
+{
+    u16 trainerNum = gRogueRun.rivalTrainerNum;
+
+    struct RogueBattleMusic music;
+    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);
+
+    //PlayBGM();
+    PlayNewMapMusic(music.encounterMusic);
+    //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+}
+
 void Rogue_EnterPartnerMonCapacity()
 {
     gSpecialVar_Result = Rogue_GetStartingMonCapacity();

@@ -56,6 +56,7 @@
 #include "rogue_hub.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
+#include "rogue_trainers.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -2436,18 +2437,24 @@ static void CloseBrailleWindow(void)
 bool8 ScrCmd_buffertrainerclassname(struct ScriptContext *ctx)
 {
     u8 stringVarIndex = ScriptReadByte(ctx);
-    u16 trainerClassId = VarGet(ScriptReadHalfword(ctx));
+    u16 trainerNum = VarGet(ScriptReadHalfword(ctx));
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerClassNameFromId(trainerClassId));
+    if(trainerNum == TRAINER_ROGUE_DYNAMIC)
+        trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+
+    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerClassNameFromId(trainerNum));
     return FALSE;
 }
 
 bool8 ScrCmd_buffertrainername(struct ScriptContext *ctx)
 {
     u8 stringVarIndex = ScriptReadByte(ctx);
-    u16 trainerClassId = VarGet(ScriptReadHalfword(ctx));
+    u16 trainerNum = VarGet(ScriptReadHalfword(ctx));
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerNameFromId(trainerClassId));
+    if(trainerNum == TRAINER_ROGUE_DYNAMIC)
+        trainerNum = Rogue_GetTrainerNumFromLastInteracted();
+
+    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerNameFromId(trainerNum));
     return FALSE;
 }
 

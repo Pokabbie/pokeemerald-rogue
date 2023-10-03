@@ -863,6 +863,30 @@ script Rogue_Battle_Trainer
     msgbox(gPlaceholder_Trainer_PostBattleCloser, MSGBOX_AUTOCLOSE)
 }
 
+script Rogue_Battle_Rival
+{
+    lock
+    faceplayer
+
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+
+    buffertrainername(STR_VAR_1, TRAINER_ROGUE_DYNAMIC)
+    //msgbox(gPlaceholder_Trainer_PreBattleOpenning)
+
+    msgbox(gPlaceholder_Trainer_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
+    
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser)
+
+    playse(SE_EXIT)
+    removeobject(VAR_LAST_TALKED)
+
+    fadedefaultbgm
+
+    release
+}
+
 
 // Item Blocks
 //

@@ -206,6 +206,7 @@ struct RogueRunData
     struct RogueWildEncounters wildEncounters;
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
+    u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union
     {
@@ -224,6 +225,7 @@ struct RogueRunData
     u8 zMovesEnabled : 1;
 #endif
     bool8 isQuickSaveValid : 1;
+    bool8 hasPendingRivalBattle : 1;
 };
 
 struct RogueHubArea

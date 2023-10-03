@@ -212,6 +212,7 @@ gSpecials::
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
 	def_special Rogue_PlayStaticTrainerEncounterBGM
+	def_special Rogue_PlayRivalTrainerEncounterBGM
 	def_special Rogue_EnterPartnerMonCapacity
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost

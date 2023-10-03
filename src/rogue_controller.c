@@ -153,6 +153,8 @@ static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
 
+static void EnableRivalEncounterIfRequired();
+
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
 
@@ -2276,6 +2278,7 @@ static void BeginRogueRun(void)
     // Chose bosses last
     Rogue_ChooseRivalTrainerForNewAdventure();
     Rogue_ChooseBossTrainersForNewAdventure();
+    EnableRivalEncounterIfRequired();
 
     QuestNotify_BeginAdventure();
 }
@@ -2938,6 +2941,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
     // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
     if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
+        u8 originalObjectCount = *objectEventCount;
+
         if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
         {
             RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
@@ -2945,7 +2950,6 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE && !loadingFromSave)
         {
             u8 write, read;
-            u8 originalCount = *objectEventCount;
             u16 trainerBuffer[ROGUE_TRAINER_COUNT];
 
             u8 trainerIndex;
@@ -2958,7 +2962,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
             write = 0;
             read = 0;
 
-            for(;read < originalCount; ++read)
+            for(;read < originalObjectCount; ++read)
             {
                 if(write != read)
                 {
@@ -3048,6 +3052,40 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
             }
 
             *objectEventCount = write;
+        }
+
+        // We need to reapply this as pending when loading from a save, as we would've already consumed it here
+        if(loadingFromSave)
+        {
+            if(!FlagGet(FLAG_ROGUE_RIVAL_DISABLED))
+                gRogueRun.hasPendingRivalBattle = TRUE;
+        }
+
+        // Attempt to find and activate the rival object
+        FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
+
+        // Don't place rival battle on first encounter
+        if(gRogueRun.hasPendingRivalBattle && gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
+        {
+            u8 i;
+
+            for(i = 0; i < originalObjectCount; ++i)
+            {
+                // Found rival, so make visible and clear pending
+                if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                {
+                    const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
+
+                    FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
+                    gRogueRun.hasPendingRivalBattle = FALSE;
+
+                    if(trainer != NULL)
+                    {
+                        objectEvents[i].graphicsId = trainer->objectEventGfx;
+                    }
+                    break;
+                }
+            }
         }
     }
 }
@@ -3438,6 +3476,21 @@ static void MonGainRewardEVs(struct Pokemon *mon)
     }
 }
 
+static void EnableRivalEncounterIfRequired()
+{
+    u8 i;
+
+    gRogueRun.hasPendingRivalBattle = FALSE;
+
+    for(i = 0; i < ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS; ++i)
+    {
+        if(gRogueRun.rivalEncounterDifficulties[i] == gRogueRun.currentDifficulty)
+        {
+            gRogueRun.hasPendingRivalBattle = TRUE;
+            return;
+        }
+    }
+}
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
@@ -3470,6 +3523,8 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
             VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+
+            EnableRivalEncounterIfRequired();
         }
 
         // Adjust this after the boss reset
