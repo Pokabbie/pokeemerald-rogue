@@ -13,6 +13,7 @@
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
+#include "field_effect.h"
 #include "field_player_avatar.h"
 #include "field_specials.h"
 #include "graphics.h"
@@ -2585,6 +2586,9 @@ static void Task_KeyItemWheel(u8 taskId) {
     {
     case 0:
     {
+        // Ensure we have a palette free
+        FieldEffectFreeAllSprites();
+
         LoadSpritePalette(&sSpritePalette_KeyItemBox);
         LoadSpriteSheetByTemplate(&sSpriteTemplate_KeyItemBox, 0);
 

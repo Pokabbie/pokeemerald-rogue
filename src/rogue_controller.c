@@ -18,6 +18,7 @@
 #include "battle_setup.h"
 #include "berry.h"
 #include "event_data.h"
+#include "field_effect.h"
 #include "graphics.h"
 #include "item.h"
 #include "load_save.h"
@@ -1370,6 +1371,9 @@ void Rogue_CreateMiniMenuExtraGFX(void)
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
         return;
 #endif
+
+    // Ensure we have a palette free
+    FieldEffectFreeAllSprites();
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {

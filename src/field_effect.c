@@ -859,6 +859,38 @@ void FieldEffectFreePaletteIfUnused(u8 paletteNum)
     }
 }
 
+static bool8 IsFieldEffectSprite(struct Sprite* sprite)
+{
+    u8 i;
+
+    for(i = 0; i <= FLDEFFOBJ_RAYQUAZA; ++i)
+    {
+        if(gFieldEffectObjectTemplatePointers[i]->paletteTag == TAG_NONE)
+            continue;
+
+        if(sprite->inUse && sprite->template->paletteTag == gFieldEffectObjectTemplatePointers[i]->paletteTag)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+void FieldEffectFreeAllSprites()
+{
+    u8 i;
+    FieldEffectActiveListClear();
+
+    for (i = 0; i < MAX_SPRITES; i++)
+    {
+        if (IsFieldEffectSprite(&gSprites[i]))
+        {
+            FieldEffectFreeGraphicsResources(&gSprites[i]);
+        }
+    }
+}
+
 void FieldEffectActiveListClear(void)
 {
     u8 i;
