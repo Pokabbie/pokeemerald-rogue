@@ -589,8 +589,11 @@ static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const
     else
     {
         u8 buffer[32];
+        u8* ptr;
+
         AGB_ASSERT(textCapacity < 32);
-        StringCopyN(buffer, text, textCapacity);
+        ptr = StringCopyN(buffer, text, textCapacity);
+        *ptr = EOS;
         StringExpandPlaceholders(gStringVar4, buffer);
     }
 
@@ -731,14 +734,8 @@ void Rogue_PushPopup_PartyNotifications()
 
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
-        // Check for new moves to learn
         fromLvl = gPlayerParty[i].rogueExtraData.lastPopupLevel;
         toLvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
-
-        if(HasTeachableMoves(&gPlayerParty[i], fromLvl, toLvl))
-            Rogue_PushPopup_NewMoves(i);
-
-        gPlayerParty[i].rogueExtraData.lastPopupLevel = toLvl;
 
         // Check for evolutions
         if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
@@ -750,6 +747,12 @@ void Rogue_PushPopup_PartyNotifications()
                 gPlayerParty[i].rogueExtraData.hasPendingEvo = TRUE;
             }
         }
+        
+        // Check for new moves to learn
+        if(HasTeachableMoves(&gPlayerParty[i], fromLvl, toLvl))
+            Rogue_PushPopup_NewMoves(i);
+
+        gPlayerParty[i].rogueExtraData.lastPopupLevel = toLvl;
     }
 }
 
