@@ -1,27 +1,17 @@
 #include "global.h"
 #include "constants/abilities.h"
-//#include "constants/heal_locations.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
-//#include "constants/layouts.h"
-//#include "constants/rogue.h"
 #include "data.h"
-//
-//#include "battle.h"
-//#include "battle_setup.h"
+
 #include "event_data.h"
 #include "item.h"
 #include "item_use.h"
 #include "malloc.h"
-//#include "money.h"
-//#include "overworld.h"
 #include "pokedex.h"
 #include "pokemon.h"
-//#include "random.h"
-//#include "strings.h"
-//#include "string_util.h"
-//#include "text.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_query.h"
 #include "rogue_baked.h"
 #include "rogue_campaign.h"
@@ -30,10 +20,12 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
-#define QUERY_BUFFER_COUNT 128
-#define QUERY_NUM_SPECIES NUM_SPECIES
+#define QUERY_BUFFER_COUNT          128
+#define QUERY_NUM_SPECIES           NUM_SPECIES
+#define QUERY_NUM_TRAINERS          128 // just a vague guess that needs to at least match gRogueTrainerCount
+#define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
 
-#define MAX_QUERY_BIT_COUNT (max(ITEMS_COUNT, QUERY_NUM_SPECIES))
+#define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES))))
 #define MAX_QUERY_BYTE_COUNT (1 + MAX_QUERY_BIT_COUNT / 8)
 
 // Old API
@@ -50,6 +42,8 @@ enum
     QUERY_TYPE_MON,
     QUERY_TYPE_ITEM,
     QUERY_TYPE_TRAINER,
+    QUERY_TYPE_ADVENTURE_PATHS,
+    QUERY_TYPE_CUSTOM,
 };
 
 struct RogueQueryData
@@ -69,13 +63,14 @@ EWRAM_DATA static struct RogueQueryData* sRogueQueryPtr = 0;
 #define ASSERT_MON_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_MON)
 #define ASSERT_ITEM_QUERY       AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
 #define ASSERT_TRAINER_QUERY    AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
+#define ASSERT_PATHS_QUERY      AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
+#define ASSERT_CUSTOM_QUERY     AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_CUSTOM)
 #define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL)
 
 static void SetQueryBitFlag(u16 elem, bool8 state);
 static bool8 GetQueryBitFlag(u16 elem);
 
 static u16 Query_GetEggSpecies(u16 species);
-static bool8 Query_IsSpeciesEnabled(u16 species);
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo);
 
 static u16 Query_MaxBitCount();
@@ -147,6 +142,7 @@ static bool8 GetQueryBitFlag(u16 elem)
 void RogueQuery_Init()
 {
     sRogueQueryPtr = NULL;
+    AGB_ASSERT(QUERY_NUM_TRAINERS >= gRogueTrainerCount);
 }
 
 void RogueMiscQuery_EditElement(u8 func, u16 elem)
@@ -171,6 +167,18 @@ void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId)
 bool8 RogueMiscQuery_CheckState(u16 elem)
 {
     return GetQueryBitFlag(elem);
+}
+
+void RogueCustomQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_CUSTOM);
+}
+
+void RogueCustomQuery_End()
+{
+    ASSERT_CUSTOM_QUERY;
+    FreeQuery();
 }
 
 // MON QUERY
@@ -657,7 +665,7 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     return species;
 }
 
-static bool8 Query_IsSpeciesEnabled(u16 species)
+bool8 Query_IsSpeciesEnabled(u16 species)
 {
     // Check if mon has valid data
     if(gBaseStats[species].abilities[0] != ABILITY_NONE && gBaseStats[species].catchRate != 0)
@@ -835,6 +843,72 @@ void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup)
     }
 }
 
+
+// ADVENTURE PATH QUERY
+//
+void RoguePathsQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_ADVENTURE_PATHS);
+}
+
+void RoguePathsQuery_End()
+{
+    ASSERT_PATHS_QUERY;
+    FreeQuery();
+}
+
+void RoguePathsQuery_Reset(u8 func)
+{
+    u8 i;
+
+    ASSERT_PATHS_QUERY;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(func == QUERY_FUNC_INCLUDE)
+        {
+            SetQueryBitFlag(i, TRUE);
+        }
+        else if(func == QUERY_FUNC_EXCLUDE)
+        {
+            SetQueryBitFlag(i, FALSE);
+        }
+    }
+}
+
+void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
+{
+    u8 i;
+
+    ASSERT_PATHS_QUERY;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(GetQueryBitFlag(i))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].roomType != roomType)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+        }
+    }
+}
+
+
+//QUERY_NUM_ADVENTURE_PATH
+
+
 // WEIGHT QUERY
 //
 static u16 Query_MaxBitCount()
@@ -844,8 +918,12 @@ static u16 Query_MaxBitCount()
         return QUERY_NUM_SPECIES;
     else if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
         return ITEMS_COUNT;
-    else // QUERY_TYPE_TRAINER
+    else if(sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
         return gRogueTrainerCount;
+    else if(sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
+        return QUERY_NUM_ADVENTURE_PATH;
+    else // QUERY_TYPE_CUSTOM
+        return MAX_QUERY_BIT_COUNT;
 }
 
 static u16 Query_GetWeightArrayCount()

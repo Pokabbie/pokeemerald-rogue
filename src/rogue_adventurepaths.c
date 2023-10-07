@@ -23,6 +23,7 @@
 #include "rogue_campaign.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
+#include "rogue_query.h"
 
 
 #define ROOM_TO_WORLD_X 3
@@ -53,6 +54,7 @@
 #define ROOM_CONNECTION_MASK_MID     (1 << ROOM_CONNECTION_MID)
 #define ROOM_CONNECTION_MASK_BOT     (1 << ROOM_CONNECTION_BOT)
 
+#define MAX_CONNECTION_GENERATOR_COLUMNS 5
 
 #define gSpecialVar_ScriptNodeID        gSpecialVar_0x8004
 #define gSpecialVar_ScriptNodeParam0    gSpecialVar_0x8005
@@ -67,7 +69,7 @@ struct AdvPathConnectionSettings
 
 struct AdvPathGenerator
 {
-    struct AdvPathConnectionSettings connectionsPerRoom[ADVPATH_ROOM_COUNT];
+    struct AdvPathConnectionSettings connectionsSettingsPerColumn[MAX_CONNECTION_GENERATOR_COLUMNS];
 };
 
 struct AdvPathRoomSettings
@@ -119,14 +121,18 @@ static bool8 ShouldBlockObjectEvent(struct RogueAdvPathRoom* room);
 static void BufferTypeAdjective(u8 type);
 
 static void GeneratePath(struct AdvPathSettings* pathSettings);
-static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings);
+static void GenerateFloorLayout(struct Coords8 currentCoords, struct AdvPathSettings* pathSettings);
+static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings);
+static void GenerateRoomInstance(u8 roomId, u8 roomType);
+static u8 CountRoomConnections(u8 mask);
+
 static struct AdvPathRoomSettings* GenerateChildRoom(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings);
 
 static void AssignWeights_Standard(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings, u16* weights);
 static void AssignWeights_Finalize(struct AdvPathRoomSettings* parentRoom, struct AdvPathSettings* pathSettings, u16* weights);
 
-static u8 GenerateRoomConnectionMask(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings);
-static bool8 DoesRoomExists(s8 x, s8 y, struct AdvPathSettings* pathSettings);
+static u8 GenerateRoomConnectionMask(struct Coords8 coords, struct AdvPathSettings* pathSettings);
+static bool8 DoesRoomExists(s8 x, s8 y);
 
 static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room);
 static u8 SelectObjectMovementTypeForRoom(struct RogueAdvPathRoom* room);
@@ -140,16 +146,19 @@ static void GeneratePath(struct AdvPathSettings* pathSettings)
     AGB_ASSERT(pathSettings->generator != NULL);
 
     bossRoom->roomType = ADVPATH_ROOM_BOSS;
-    GenerateRoom(bossRoom, pathSettings);
 
-    gRogueAdvPath.roomCount = pathSettings->nodeCount;
-    gRogueAdvPath.pathLength = pathSettings->totalLength;
+    // Generate base layout
+    {
+        struct Coords8 coords;
+        coords.x = 0;
+        coords.y = 0;
 
-    //if(gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID)
-    //{
-    //    // Just entered this segment, so respawn at the start (Otherwise we're probably reloading from a rest save)
-    //    gRogueRun.adventureRoomId = gRogueAdvPath.roomCount - 1;
-    //}
+        gRogueAdvPath.roomCount = 0;
+        gRogueAdvPath.pathLength = pathSettings->totalLength;
+
+        GenerateFloorLayout(coords, pathSettings);
+        GenerateRoomPlacements(pathSettings);
+    }
 
     // Store min/max Y coords
     {
@@ -171,7 +180,7 @@ static void GeneratePath(struct AdvPathSettings* pathSettings)
     }
 }
 
-static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings)
+static void GenerateFloorLayout(struct Coords8 currentCoords, struct AdvPathSettings* pathSettings)
 {
     if(pathSettings->nodeCount >= ROGUE_ADVPATH_ROOM_CAPACITY)
     {
@@ -181,107 +190,409 @@ static void GenerateRoom(struct AdvPathRoomSettings* roomSettings, struct AdvPat
     }
     else
     {
-        u8 nodeId = pathSettings->nodeCount++;
+        u8 nodeId = gRogueAdvPath.roomCount++;
 
-        ++pathSettings->numOfRooms[roomSettings->roomType];
-        DebugPrintf("ADVPATH: \tAdded room type %d (Total: %d)", roomSettings->roomType, pathSettings->numOfRooms[roomSettings->roomType]);
-
-        // Populate the room params
-        //
-        {
-            u16 weights[ADVPATH_SUBROOM_WEIGHT_COUNT];
-            memset(weights, 0, sizeof(weights));
-
-            switch(roomSettings->roomType)
-            {
-                case ADVPATH_ROOM_BOSS:
-                    AGB_ASSERT(gRogueRun.currentDifficulty < ARRAY_COUNT(gRogueRun.bossTrainerNums));
-                    roomSettings->roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[gRogueRun.currentDifficulty];
-                    break;
-
-                case ADVPATH_ROOM_RESTSTOP:
-                    weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 3;   //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_BATTLE];
-                    weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 3;     //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_SHOP];
-                    weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;     //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_RESTSTOP_FULL];
-
-                    roomSettings->roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
-                    break;
-
-                case ADVPATH_ROOM_LEGENDARY:
-                    roomSettings->roomParams.roomIdx = Rogue_SelectLegendaryEncounterRoom();
-                    roomSettings->roomParams.perType.legendary.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
-                    break;
-
-                case ADVPATH_ROOM_MINIBOSS:
-                    roomSettings->roomParams.roomIdx = 0;
-                    roomSettings->roomParams.perType.miniboss.trainerNum = Rogue_NextMinibossTrainerId();
-                    break;
-
-                case ADVPATH_ROOM_WILD_DEN:
-                    roomSettings->roomParams.roomIdx = 0;
-                    roomSettings->roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
-                    roomSettings->roomParams.perType.wildDen.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
-                    break;
-
-                case ADVPATH_ROOM_ROUTE:
-                {
-                    roomSettings->roomParams.roomIdx = Rogue_SelectRouteRoom();
-
-                    weights[ADVPATH_SUBROOM_ROUTE_CALM] = 2;    //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_CALM];
-                    weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 2; //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_AVERAGE];
-                    weights[ADVPATH_SUBROOM_ROUTE_TOUGH] = 1;   //gAdvPathScratch->generator->subRoomWeights[ADVPATH_SUBROOM_ROUTE_TOUGH];
-
-                    roomSettings->roomParams.perType.route.difficulty = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
-                    break;
-                }
-            }
-        }
-
-        // Write output for this room
-        //
-        gRogueAdvPath.rooms[nodeId].coords = roomSettings->currentCoords;
-        gRogueAdvPath.rooms[nodeId].roomType = roomSettings->roomType;
-        gRogueAdvPath.rooms[nodeId].roomParams = roomSettings->roomParams;
+        // Write base settings for this room (These will likely be overriden later)
+        gRogueAdvPath.rooms[nodeId].coords = currentCoords;
+        gRogueAdvPath.rooms[nodeId].roomType = ADVPATH_ROOM_NONE;
         gRogueAdvPath.rooms[nodeId].connectionMask = 0;
         gRogueAdvPath.rooms[nodeId].rngSeed = RogueRandom();
 
-
+        
         // Generate children
         //
-        if(roomSettings->currentCoords.x + 1 < pathSettings->totalLength)
+        if(currentCoords.x + 1 < pathSettings->totalLength)
         {
-            struct Coords8 coords;
-            struct AdvPathRoomSettings* childRoom;
-            u8 connectionMask = GenerateRoomConnectionMask(roomSettings, pathSettings);
+            struct Coords8 newCoords;
+            u8 connectionMask;
 
+            newCoords.x = currentCoords.x + 1;
+            newCoords.y = currentCoords.y;
+
+            connectionMask = GenerateRoomConnectionMask(currentCoords, pathSettings);
             gRogueAdvPath.rooms[nodeId].connectionMask = connectionMask;
 
-            if((connectionMask & ROOM_CONNECTION_MASK_TOP) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y + 1, pathSettings))
+            newCoords.y = currentCoords.y + 1;
+            if((connectionMask & ROOM_CONNECTION_MASK_TOP) != 0 && !DoesRoomExists(newCoords.x, newCoords.y))
             {
-                childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom->currentCoords.y = roomSettings->currentCoords.y + 1;
-
-                GenerateRoom(childRoom, pathSettings);
+                GenerateFloorLayout(newCoords, pathSettings);
+            }
+            
+            newCoords.y = currentCoords.y + 0;
+            if((connectionMask & ROOM_CONNECTION_MASK_MID) != 0 && !DoesRoomExists(newCoords.x, newCoords.y))
+            {
+                GenerateFloorLayout(newCoords, pathSettings);
             }
 
-            if((connectionMask & ROOM_CONNECTION_MASK_MID) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y + 0, pathSettings))
+            newCoords.y = currentCoords.y - 1;
+            if((connectionMask & ROOM_CONNECTION_MASK_BOT) != 0 && !DoesRoomExists(newCoords.x, newCoords.y))
             {
-                childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom->currentCoords.y = roomSettings->currentCoords.y + 0;
+                GenerateFloorLayout(newCoords, pathSettings);
+            }
+        }
+    }
+}
 
-                GenerateRoom(childRoom, pathSettings);
+static bool8 IsPrecededByRoomType(struct RogueAdvPathRoom* room, u8 roomType)
+{
+    u8 i;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(gRogueAdvPath.rooms[i].coords.x == room->coords.x + 1)
+        {
+            // ROOM_CONNECTION_MASK_TOP
+            if((room->connectionMask & ROOM_CONNECTION_MASK_TOP) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y + 1)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+            // ROOM_CONNECTION_MASK_MID
+            else if((room->connectionMask & ROOM_CONNECTION_MASK_MID) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y + 0)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+            // ROOM_CONNECTION_MASK_BOT
+            else if((room->connectionMask & ROOM_CONNECTION_MASK_BOT) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y - 1)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+static bool8 IsProceededByRoomType(struct RogueAdvPathRoom* room, u8 roomType)
+{
+    u8 i;
+
+    if(room->coords.x == 0)
+        return FALSE;
+    else if(room->coords.x == 1)
+        return roomType == ADVPATH_ROOM_BOSS;
+
+    // Check the inverse mask to see if we are connected
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(gRogueAdvPath.rooms[i].coords.x == room->coords.x - 1)
+        {
+            // ROOM_CONNECTION_MASK_TOP
+            if((gRogueAdvPath.rooms[i].connectionMask & ROOM_CONNECTION_MASK_BOT) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y + 1)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+            // ROOM_CONNECTION_MASK_MID
+            else if((gRogueAdvPath.rooms[i].connectionMask & ROOM_CONNECTION_MASK_MID) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y + 0)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+            // ROOM_CONNECTION_MASK_BOT
+            else if((gRogueAdvPath.rooms[i].connectionMask & ROOM_CONNECTION_MASK_TOP) != 0 && gRogueAdvPath.rooms[i].coords.y == room->coords.y - 1)
+            {
+                if(gRogueAdvPath.rooms[i].roomType == roomType)
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, void* data)
+{
+    s16 weight = 10;
+    u8 roomType = *((u8*)data);
+    struct RogueAdvPathRoom* existingRoom = &gRogueAdvPath.rooms[roomId];
+
+    switch (roomType)
+    {
+    case ADVPATH_ROOM_RESTSTOP:
+        // Like being placed in the final column but can occasionally end up in other one
+        if(existingRoom->coords.x <= 2)
+            weight += 80;
+
+        // Don't place after or before or other rest stop
+        if(IsPrecededByRoomType(existingRoom, ADVPATH_ROOM_RESTSTOP) || IsProceededByRoomType(existingRoom, ADVPATH_ROOM_RESTSTOP))
+            weight = 0;
+   
+        if(IsPrecededByRoomType(existingRoom, ADVPATH_ROOM_LEGENDARY) || IsProceededByRoomType(existingRoom, ADVPATH_ROOM_LEGENDARY))
+            weight = 0;
+        break;
+
+    case ADVPATH_ROOM_LEGENDARY:
+        // Like being placed in the final column but can occasionally end up in other one
+        if(existingRoom->coords.x <= 2)
+            weight += 80;
+
+        // Don't want to place in first column
+        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+            weight -= 40;
+
+        // Prefer route where we are locked into this path
+        if(CountRoomConnections(existingRoom->connectionMask) == 1)
+            weight += 40;
+        break;
+    }
+
+    // If we've got this encounter immediately before or after prefer not this one
+    if(IsPrecededByRoomType(existingRoom, roomType))
+        weight -= 5;
+    if(IsProceededByRoomType(existingRoom, roomType))
+        weight -= 5;
+
+
+    return (u8)(min(255, max(0, weight)));
+}
+
+static void ReplaceRoomEncounters(u8 fromRoomType, u8 toRoomType, u8 placeCount)
+{
+    if(placeCount == 0)
+        return;
+
+    RoguePathsQuery_Begin();
+    RoguePathsQuery_Reset(QUERY_FUNC_INCLUDE);
+    RoguePathsQuery_IsOfType(QUERY_FUNC_INCLUDE, fromRoomType);
+
+    RogueWeightQuery_Begin();
+    {
+        u8 i;
+        u16 index;
+
+        for(i = 0; i < placeCount; ++i)
+        {
+            RogueWeightQuery_CalculateWeights(ReplaceRoomEncounters_CalculateWeight, &toRoomType);
+
+            if(!RogueWeightQuery_HasAnyWeights())
+                break;
+            
+            index = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, index);
+
+            GenerateRoomInstance(index, toRoomType);
+        }
+    }
+    RogueWeightQuery_End();
+
+    RoguePathsQuery_End();
+}
+
+static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
+{
+    u8 i;
+    u8 amount;
+    bool8 isSmallFloor = gRogueAdvPath.roomCount <= 9;
+
+    // Place gym at very end
+    GenerateRoomInstance(0, ADVPATH_ROOM_BOSS);
+
+    // Place routes on all tiles for now, so other encounters can choose to replace them
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        // Don't place them immediately before the gym
+        if(gRogueAdvPath.rooms[i].coords.x > 1)
+            GenerateRoomInstance(i, ADVPATH_ROOM_ROUTE);
+    }
+
+    // Now we're going to replace the routes based on the ideal placement
+    // The order of these is important to decide the placement
+
+    // Randomly replace a routes with empty tiles
+    {
+        u8 chance = 0;
+
+        if(gRogueRun.currentDifficulty >=  ROGUE_CHAMP_START_DIFFICULTY)
+        {
+            chance = 90;
+        }
+        else if(gRogueRun.currentDifficulty >=  ROGUE_ELITE_START_DIFFICULTY)
+        {
+            chance = 50;
+        }
+        else if(gRogueRun.currentDifficulty >=  1)
+        {
+            chance = 5;
+        }
+
+        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        {
+            if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+                GenerateRoomInstance(i, ADVPATH_ROOM_NONE);
+        }
+    }
+
+    // Legends
+    // TODO - Legendary points
+    {
+        amount = 1;
+
+        for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
+        {
+            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == gRogueRun.currentDifficulty)
+            {
+                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LEGENDARY, amount);
+                break;
+            }
+        }
+    }
+
+    // Rest stops
+    // Place a max of 3 rest stops
+    amount = isSmallFloor ? (0 + RogueRandom() % 2) : (2 + RogueRandom() % 2);
+    ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_RESTSTOP, amount);
+
+    // Lab
+    amount = 0;
+    if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
+        amount = 1;
+    ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LAB, amount);
+
+
+    // Miniboss
+    // REMOVED
+
+    // Dark deal / Game show
+    if(!isSmallFloor)
+    {
+        bool8 allowDarkDeal = FALSE;
+        bool8 allowGameShow = FALSE;
+
+        if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY + 2)
+        {
+            // Only dark deals
+            allowDarkDeal = TRUE;
+        }
+        else if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY - 2)
+        {
+            // Mix of both
+            allowDarkDeal = TRUE;
+            allowGameShow = TRUE;
+        }
+        else
+        {
+            // Only game show
+            allowGameShow = TRUE;
+        }
+
+        if(allowDarkDeal)
+        {
+            u8 chance = 5;
+
+            // Every 3rd difficulty have a chance
+            if((gRogueRun.currentDifficulty % 3) == 0)
+                chance = 50;
+
+            if(RogueRandomChance(chance, 0))
+            {
+                amount = 1;
+                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_DARK_DEAL, amount);
+            }
+        }
+
+        if(allowGameShow)
+        {
+            u8 chance = 50;
+
+            // Inverted chance of dark deal
+            if((gRogueRun.currentDifficulty % 3) == 0)
+                chance = 10;
+
+            if(RogueRandomChance(chance, 0))
+            {
+                amount = 1;
+                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_GAMESHOW, amount);
+            }
+        }
+    }
+
+    // Wild dens
+    {
+        u8 chance = 10;
+
+        if(gRogueRun.currentDifficulty > ROGUE_ELITE_START_DIFFICULTY)
+        {
+            chance = 60;
+        }
+
+        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        {
+            if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+                GenerateRoomInstance(i, ADVPATH_ROOM_WILD_DEN);
+        }
+    }
+}
+
+static void GenerateRoomInstance(u8 roomId, u8 roomType)
+{
+    u16 weights[ADVPATH_SUBROOM_WEIGHT_COUNT];
+    memset(weights, 0, sizeof(weights));
+
+    // Count other
+    //++pathSettings->numOfRooms[roomSettings->roomType];
+    //DebugPrintf("ADVPATH: \tAdded room type %d (Total: %d)", roomType, pathSettings->numOfRooms[roomSettings->roomType]);
+
+    // Erase any previously set params
+    gRogueAdvPath.rooms[roomId].roomType = roomType;
+    memset(&gRogueAdvPath.rooms[roomId].roomParams, 0, sizeof(gRogueAdvPath.rooms[roomId].roomParams));
+
+    switch(roomType)
+    {
+        case ADVPATH_ROOM_BOSS:
+            AGB_ASSERT(gRogueRun.currentDifficulty < ARRAY_COUNT(gRogueRun.bossTrainerNums));
+            gRogueAdvPath.rooms[roomId].roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[gRogueRun.currentDifficulty];
+            break;
+
+        case ADVPATH_ROOM_RESTSTOP:
+            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 4;
+            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 4;
+            weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
+
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+            break;
+
+        case ADVPATH_ROOM_LEGENDARY:
+            {
+                u8 legendId = Rogue_GetCurrentLegendaryEncounterId();
+                u16 species = gRogueRun.legendarySpecies[legendId];
+                gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_GetLegendaryRoomForSpecies(species);
+                gRogueAdvPath.rooms[roomId].roomParams.perType.legendary.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
+            }
+            break;
+
+        case ADVPATH_ROOM_MINIBOSS:
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
+            gRogueAdvPath.rooms[roomId].roomParams.perType.miniboss.trainerNum = Rogue_NextMinibossTrainerId();
+            break;
+
+        case ADVPATH_ROOM_WILD_DEN:
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
+            gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
+            break;
+
+        case ADVPATH_ROOM_ROUTE:
+        {
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom();
+
+            if(gRogueRun.currentDifficulty > ROGUE_ELITE_START_DIFFICULTY)
+            {
+                weights[ADVPATH_SUBROOM_ROUTE_CALM] = 0;
+                weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 1;
+                weights[ADVPATH_SUBROOM_ROUTE_TOUGH] = 8;
+            }
+            else
+            {
+                weights[ADVPATH_SUBROOM_ROUTE_CALM] = 2;
+                weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 2;
+                weights[ADVPATH_SUBROOM_ROUTE_TOUGH] = 1;
             }
 
-            if((connectionMask & ROOM_CONNECTION_MASK_BOT) != 0 && !DoesRoomExists(roomSettings->currentCoords.x + 1, roomSettings->currentCoords.y - 1, pathSettings))
-            {
-                childRoom = GenerateChildRoom(roomSettings, pathSettings);
-                childRoom->currentCoords.x = roomSettings->currentCoords.x + 1;
-                childRoom->currentCoords.y = roomSettings->currentCoords.y - 1;
-
-                GenerateRoom(childRoom, pathSettings);
-            }
+            gRogueAdvPath.rooms[roomId].roomParams.perType.route.difficulty = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+            break;
         }
     }
 }
@@ -305,28 +616,13 @@ static u8 CountRoomConnections(u8 mask)
     return count;
 }
 
-static u8 GenerateRoomConnectionMask(struct AdvPathRoomSettings* roomSettings, struct AdvPathSettings* pathSettings)
+static u8 GenerateRoomConnectionMask(struct Coords8 coords, struct AdvPathSettings* pathSettings)
 {
     u8 mask, i;
     u8 connCount;
-    u8 branchingChances[ROOM_CONNECTION_COUNT];
-    u8 minConnCount = pathSettings->generator->connectionsPerRoom[roomSettings->roomType].minCount;
-    u8 maxConnCount = pathSettings->generator->connectionsPerRoom[roomSettings->roomType].maxCount;
-
-    // Use default settings
-    if(minConnCount == 0 && maxConnCount == 0)
-    {
-        minConnCount = 1;
-        maxConnCount = 3;
-
-        for(i = 0; i < ROOM_CONNECTION_COUNT; ++i)
-            branchingChances[i] = 40;
-    }
-    else
-    {
-        for(i = 0; i < ROOM_CONNECTION_COUNT; ++i)
-            branchingChances[i] = pathSettings->generator->connectionsPerRoom[roomSettings->roomType].branchingChance[i];
-    }
+    u8 minConnCount = pathSettings->generator->connectionsSettingsPerColumn[min(coords.x, MAX_CONNECTION_GENERATOR_COLUMNS - 1)].minCount;
+    u8 maxConnCount = pathSettings->generator->connectionsSettingsPerColumn[min(coords.x, MAX_CONNECTION_GENERATOR_COLUMNS - 1)].maxCount;
+    u8 const* branchingChances = pathSettings->generator->connectionsSettingsPerColumn[min(coords.x, MAX_CONNECTION_GENERATOR_COLUMNS - 1)].branchingChance;
 
     do
     {
@@ -346,6 +642,8 @@ static u8 GenerateRoomConnectionMask(struct AdvPathRoomSettings* roomSettings, s
     // keep going until we have the required number of connections
     while(!(connCount >= minConnCount && connCount <= maxConnCount));
 
+    AGB_ASSERT(mask != 0);
+
     return mask;
 }
 
@@ -362,27 +660,29 @@ static struct AdvPathRoomSettings* GenerateChildRoom(struct AdvPathRoomSettings*
     }
     else
     {
-        u16 weights[ADVPATH_ROOM_WEIGHT_COUNT];
+        newRoom->roomType = ADVPATH_ROOM_ROUTE;
 
-        // Treat the empty spaces before the boss as the actual boss in the generation code
-        // this is as we always have empty tiles right before the boss to created the initial branches
-        if(parentRoom->roomType == ADVPATH_ROOM_NONE && parentRoom->currentCoords.x == 1)
-            parentRoom->roomType = ADVPATH_ROOM_BOSS;
-
-        AssignWeights_Standard(parentRoom, pathSettings, weights);
-        AssignWeights_Finalize(parentRoom, pathSettings, weights);
-
-        newRoom->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+        //u16 weights[ADVPATH_ROOM_WEIGHT_COUNT];
+//
+        //// Treat the empty spaces before the boss as the actual boss in the generation code
+        //// this is as we always have empty tiles right before the boss to created the initial branches
+        //if(parentRoom->roomType == ADVPATH_ROOM_NONE && parentRoom->currentCoords.x == 1)
+        //    parentRoom->roomType = ADVPATH_ROOM_BOSS;
+//
+        //AssignWeights_Standard(parentRoom, pathSettings, weights);
+        //AssignWeights_Finalize(parentRoom, pathSettings, weights);
+//
+        //newRoom->roomType = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
     }
 
     return newRoom;
 }
 
-static bool8 DoesRoomExists(s8 x, s8 y, struct AdvPathSettings* pathSettings)
+static bool8 DoesRoomExists(s8 x, s8 y)
 {
     u8 i;
 
-    for(i = 0; i < pathSettings->nodeCount; ++i)
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
     {
         if(gRogueAdvPath.rooms[i].coords.x == x && gRogueAdvPath.rooms[i].coords.y == y)
             return TRUE;
@@ -416,23 +716,11 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         pathSettings->generator = generator;
         pathSettings->totalLength = 3 + 2; // +2 to account for final encounter and initial split
 
-        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].minCount = 1;
-        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].maxCount = 1;
-        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_TOP] = 50;
-        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_MID] = 20;
-        generator->connectionsPerRoom[ADVPATH_ROOM_NONE].branchingChance[ROOM_CONNECTION_BOT] = 50;
-
-        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].minCount = 2;
-        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].maxCount = 3;
-        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_TOP] = 33;
-        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_MID] = 33;
-        generator->connectionsPerRoom[ADVPATH_ROOM_BOSS].branchingChance[ROOM_CONNECTION_BOT] = 33;
-
         // Select the correct seed
         {
             u8 i;
             u16 seed;
-            SeedRogueRng(gRogueRun.baseSeed);
+            SeedRogueRng(gRogueRun.baseSeed * 235 + 31897);
 
             seed = RogueRandom();
             for(i = 0; i < gRogueRun.currentDifficulty; ++i)
@@ -442,6 +730,65 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
             // This is the seed for this path
             SeedRogueRng(seed);
+        }
+
+        // Select some branching presets for the layout generation
+        {
+            u8 i;
+
+            // Gym split
+            generator->connectionsSettingsPerColumn[0].minCount = 2;
+            generator->connectionsSettingsPerColumn[0].maxCount = 3;
+            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_TOP] = 33;
+            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_MID] = 33;
+            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_BOT] = 33;
+            
+            for(i = 1; i < MAX_CONNECTION_GENERATOR_COLUMNS; ++i)
+            {
+                // Random column variant switches
+                switch (RogueRandom() % 4)
+                {
+                // Mixed/Standard
+                case 0:
+                    generator->connectionsSettingsPerColumn[i].minCount = 1;
+                    generator->connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    break;
+
+                // Branches
+                case 1:
+                    generator->connectionsSettingsPerColumn[i].minCount = 1;
+                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    break;
+
+                // Lines
+                case 2:
+                    generator->connectionsSettingsPerColumn[i].minCount = 2;
+                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
+                    break;
+
+                // Wiggling line
+                case 3:
+                    generator->connectionsSettingsPerColumn[i].minCount = 1;
+                    generator->connectionsSettingsPerColumn[i].maxCount = 1;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    break;
+                
+                default:
+                    AGB_ASSERT(FALSE);
+                    break;
+                }
+            }
         }
 
         DebugPrintf("ADVPATH: Generating path for seed %d.", gRngRogueValue);
@@ -1112,7 +1459,7 @@ static void AssignWeights_Standard(struct AdvPathRoomSettings* parentRoom, struc
     else
     {            
         // If we've reached elite 4 we want to swap odds of none and routes
-        if(gRogueRun.currentDifficulty >= 8)
+        if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
         {
             // Unlikely but not impossible
             weights[ADVPATH_ROOM_ROUTE] = 400;
@@ -1125,7 +1472,7 @@ static void AssignWeights_Standard(struct AdvPathRoomSettings* parentRoom, struc
     }
 
     // If we've reached elite 4 we want to swap odds of none and routes
-    if(gRogueRun.currentDifficulty >= 8)
+    if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
     {
         weights[ADVPATH_ROOM_NONE] = 1200;
     }

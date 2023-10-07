@@ -4302,7 +4302,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I bought me the most powerful POKéMON imaginable!\\pYou don't stand a chance!",
+                        "PRE_BATTLE_TAUNT": "I bought myself the most powerful POKéMON imaginable!\\pYou don't stand a chance!",
                         "POST_BATTLE_TAUNT": "What!?!",
                         "POST_BATTLE_CLOSER": "I spent so much on these useless POKéMON too."
                     }

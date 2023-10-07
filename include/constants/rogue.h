@@ -152,6 +152,11 @@
 #define ADVPATH_ROOM_WEIGHT_COUNT       (ADVPATH_ROOM_LAB + 1) // Ignore boss room
 #define ADVPATH_SUBROOM_WEIGHT_COUNT    (max(ADVPATH_SUBROOM_ROUTE_TOUGH, ADVPATH_SUBROOM_RESTSTOP_FULL) + 1)
 
+#define ADVPATH_LEGEND_ROAMER           0
+#define ADVPATH_LEGEND_MINOR            1
+#define ADVPATH_LEGEND_BOX              2
+#define ADVPATH_LEGEND_COUNT            3
+
 #define ADVPATH_INVALID_ROOM_ID (0)
 
 // Trainers

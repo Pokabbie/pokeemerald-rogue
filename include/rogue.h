@@ -206,6 +206,8 @@ struct RogueRunData
     struct RogueWildEncounters wildEncounters;
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
+    u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
+    u8 legendaryDifficulties[ADVPATH_LEGEND_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     union

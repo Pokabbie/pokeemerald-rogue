@@ -100,7 +100,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
 
 void Rogue_ResetAdventurePathBuffers();
 u8 Rogue_SelectRouteRoom(void);
-u8 Rogue_SelectLegendaryEncounterRoom(void);
+u8 Rogue_GetCurrentLegendaryEncounterId(void);
+u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();
