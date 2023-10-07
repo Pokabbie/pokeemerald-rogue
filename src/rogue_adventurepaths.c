@@ -398,20 +398,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Randomly replace a routes with empty tiles
     {
-        u8 chance = 0;
-
-        if(gRogueRun.currentDifficulty >=  ROGUE_CHAMP_START_DIFFICULTY)
-        {
-            chance = 90;
-        }
-        else if(gRogueRun.currentDifficulty >=  ROGUE_ELITE_START_DIFFICULTY)
-        {
-            chance = 50;
-        }
-        else if(gRogueRun.currentDifficulty >=  1)
-        {
-            chance = 5;
-        }
+        u8 chance = 5;
 
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
         {
@@ -508,9 +495,18 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     {
         u8 chance = 10;
 
-        if(gRogueRun.currentDifficulty > ROGUE_ELITE_START_DIFFICULTY)
+        // If players get encounters they basically have to get lucky with wild den
+        if(gRogueRun.currentDifficulty >=  ROGUE_CHAMP_START_DIFFICULTY)
+        {
+            chance = 90;
+        }
+        else if(gRogueRun.currentDifficulty >=  ROGUE_ELITE_START_DIFFICULTY)
         {
             chance = 60;
+        }
+        else if(gRogueRun.currentDifficulty >=  1)
+        {
+            chance = 5;
         }
 
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)

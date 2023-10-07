@@ -628,8 +628,8 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     // Around middle of run
     gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
 
-    // Going to have 2 mid run encounters
-    if(RogueRandom() % 2)
+    // Going to very occasionally have 2 mid run encounters with rival
+    if((RogueRandom() % 4) == 0)
     {
         gRogueRun.rivalEncounterDifficulties[1] = 3 + (RogueRandom() % 2);
         gRogueRun.rivalEncounterDifficulties[2] = ROGUE_GYM_MID_DIFFICULTY + 1 + (RogueRandom() % 2);
