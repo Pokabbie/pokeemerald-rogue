@@ -301,7 +301,15 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 			cmd = "QUERY_SCRIPT_" + cmd;
 		}
 
-		exporter.earlyBlock << c_TabSpacing << cmd << ",\n";
+		// Support proprecessor directives
+		if (strutil::starts_with(cmd, "#"))
+		{
+			exporter.earlyBlock << cmd << "\n";
+		}
+		else
+		{
+			exporter.earlyBlock << c_TabSpacing << cmd << ",\n";
+		}
 	}
 
 	exporter.earlyBlock << c_TabSpacing << "QUERY_SCRIPT_END\n};\n";

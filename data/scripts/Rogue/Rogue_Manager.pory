@@ -1,5 +1,6 @@
 const VAR_ITEM_INDEX = VAR_0x8000
 const VAR_ITEM_ID_VAL = VAR_0x8001
+const VAR_ITEM_AMOUNT = VAR_0x8002
 const VAR_SHOP_DIFFICULTY = VAR_0x8000
 const VAR_SHOP_RANDOM_IDX = VAR_TEMP_F
 
@@ -8,49 +9,8 @@ const VAR_SHOP_RANDOM_IDX = VAR_TEMP_F
 
 script Rogue_GiveItem_Internal
 {
-    // Debug
-    //buffernumberstring(STR_VAR_1, VAR_ITEM_INDEX)
-    //bufferitemname(STR_VAR_2, VAR_ITEM_ID_VAL)
-    //msgbox(format("idx {STR_VAR_1}\nitem {STR_VAR_2}"), MSGBOX_DEFAULT)
-
-    if(var(VAR_ITEM_ID_VAL) == ITEM_MASTER_BALL)
-    {
-        finditem(VAR_ITEM_ID_VAL, 1)
-        return
-    }
-
-    if(var(VAR_ITEM_ID_VAL) == ITEM_ESCAPE_ROPE)
-    {
-        finditem(VAR_ITEM_ID_VAL, 1)
-        return
-    }
-
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
-    {
-        // ITEM_FIRE_MEMORY -> ITEM_DIANCITE
-        if(var(VAR_ITEM_ID_VAL) >= 250 && var(VAR_ITEM_ID_VAL) <= 338)
-        {
-            finditem(VAR_ITEM_ID_VAL, 1)
-        } 
-        // ITEM_NORMALIUM_Z -> ITEM_ULTRANECROZIUM_Z
-        elif(var(VAR_ITEM_ID_VAL) >= 357 && var(VAR_ITEM_ID_VAL) <= 391)
-        {
-            finditem(VAR_ITEM_ID_VAL, 1)
-        } 
-        // ITEM_ABILITY_CAPSULE, ITEM_ABILITY_PATCH
-        elif(var(VAR_ITEM_ID_VAL) == 79 || var(VAR_ITEM_ID_VAL) == 80)
-        {
-            finditem(VAR_ITEM_ID_VAL, 1)
-        }
-        else
-        {
-            finditem(VAR_ITEM_ID_VAL, 3)
-        }
-    }
-    else
-    {
-        finditem(VAR_ITEM_ID_VAL, 3)
-    }
+    special(Rogue_DetermineItemPickupCount)
+    finditem(VAR_ITEM_ID_VAL, VAR_ITEM_AMOUNT)
 }
 
 script Rogue_QuickSaveRun
@@ -861,6 +821,30 @@ script Rogue_Battle_Trainer
     // the trainer_see/battle_setup code  wants to grab the trainerNum from the very top of the script
     trainerbattle_single(TRAINER_ROGUE_DYNAMIC, gPlaceholder_Trainer_PreBattleTaunt, gPlaceholder_Trainer_PostBattleTaunt)
     msgbox(gPlaceholder_Trainer_PostBattleCloser, MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_Rival
+{
+    lock
+    faceplayer
+
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+
+    buffertrainername(STR_VAR_1, TRAINER_ROGUE_DYNAMIC)
+    //msgbox(gPlaceholder_Trainer_PreBattleOpenning)
+
+    msgbox(gPlaceholder_Trainer_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
+    
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser)
+
+    playse(SE_EXIT)
+    removeobject(VAR_LAST_TALKED)
+
+    fadedefaultbgm
+
+    release
 }
 
 

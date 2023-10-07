@@ -38,6 +38,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
+u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
@@ -100,7 +101,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
 
 void Rogue_ResetAdventurePathBuffers();
 u8 Rogue_SelectRouteRoom(void);
-u8 Rogue_SelectLegendaryEncounterRoom(void);
+u8 Rogue_GetCurrentLegendaryEncounterId(void);
+u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();

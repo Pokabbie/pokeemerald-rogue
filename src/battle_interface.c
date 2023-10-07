@@ -585,6 +585,7 @@ static const struct SpriteTemplate sStatusSummaryBallsSpriteTemplates[2] =
 
 static const u8 sEmptyWhiteText_GrayHighlight[] = __("{COLOR WHITE}{HIGHLIGHT DARK_GRAY}              ");
 static const u8 sEmptyWhiteText_TransparentHighlight[] = __("{COLOR WHITE}{HIGHLIGHT TRANSPARENT}              ");
+static const u8 sEmptyWhiteText_TransparentHighlightMinimal[] = _("{COLOR DARK_GRAY}{SHADOW WHITE}{HIGHLIGHT TRANSPARENT}");
 
 enum
 {
@@ -1234,7 +1235,7 @@ static void UpdateHpTextInHealthboxInDoubles(u8 healthboxSpriteId, s16 value, u8
     u8* textPtr;
     void *objVram;
 
-    textPtr = StringCopy(text, gText_HealthboxNickname);
+    //textPtr = StringCopy(text, gText_HealthboxNickname);
 
     if (GetBattlerSide(gSprites[healthboxSpriteId].hMain_Battler) == B_SIDE_PLAYER)
     {
@@ -1243,10 +1244,12 @@ static void UpdateHpTextInHealthboxInDoubles(u8 healthboxSpriteId, s16 value, u8
             spriteTileNum = gSprites[gSprites[healthboxSpriteId].data[5]].oam.tileNum * TILE_SIZE_4BPP;
             objVram = (void*)(OBJ_VRAM0) + spriteTileNum;
 
+            textPtr = StringCopy(text, sEmptyWhiteText_TransparentHighlightMinimal);
+
             if (maxOrCurrent != HP_CURRENT) // doubles, max hp
             {
                 ConvertIntToDecimalStringN(textPtr, value, STR_CONV_MODE_RIGHT_ALIGN, 3);
-                windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 5, BATTLE_INTERFACE_TRANSPARENT_BG, &windowId);
+                windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 4, BATTLE_INTERFACE_TRANSPARENT_BG, &windowId);
                 HpTextIntoHealthboxObject((void*)(OBJ_VRAM0) + spriteTileNum + 0xC0, windowTileData, 2);
                 RemoveWindowOnHealthbox(windowId);
                 CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_FRAME_END),
@@ -1258,7 +1261,7 @@ static void UpdateHpTextInHealthboxInDoubles(u8 healthboxSpriteId, s16 value, u8
                 ConvertIntToDecimalStringN(textPtr, value, STR_CONV_MODE_RIGHT_ALIGN, 3);
                 textPtr[3] = CHAR_SLASH;
                 textPtr[4] = EOS;
-                windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 4, 5, BATTLE_INTERFACE_TRANSPARENT_BG, &windowId);
+                windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 4, 4, BATTLE_INTERFACE_TRANSPARENT_BG, &windowId);
                 FillHealthboxObject(objVram, 0, 3); // Erases HP bar leftover.
                 HpTextIntoHealthboxObject((void*)(OBJ_VRAM0 + 0x60) + spriteTileNum, windowTileData, 3);
                 RemoveWindowOnHealthbox(windowId);
@@ -1268,7 +1271,7 @@ static void UpdateHpTextInHealthboxInDoubles(u8 healthboxSpriteId, s16 value, u8
     else
     {
         u8 battlerId;
-
+        textPtr = &text[0];
         memcpy(textPtr, sEmptyWhiteText_TransparentHighlight, sizeof(sEmptyWhiteText_TransparentHighlight));
         battlerId = gSprites[healthboxSpriteId].hMain_Battler;
 

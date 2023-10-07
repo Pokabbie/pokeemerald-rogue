@@ -193,6 +193,7 @@ gSpecials::
 	def_special RogueDebug_CompleteAvaliableQuests
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
+	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_ChangeMonBall
@@ -212,6 +213,7 @@ gSpecials::
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
 	def_special Rogue_PlayStaticTrainerEncounterBGM
+	def_special Rogue_PlayRivalTrainerEncounterBGM
 	def_special Rogue_EnterPartnerMonCapacity
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost

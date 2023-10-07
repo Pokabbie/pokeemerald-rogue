@@ -24,6 +24,10 @@ struct RogueQueryDebug
 void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
+bool8 RogueMiscQuery_CheckState(u16 elem);
+
+void RogueCustomQuery_Begin();
+void RogueCustomQuery_End();
 
 // Mon Query
 void RogueMonQuery_Begin();
@@ -40,6 +44,8 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
+bool8 Query_IsSpeciesEnabled(u16 species);
+
 // Item Query
 void RogueItemQuery_Begin();
 void RogueItemQuery_End();
@@ -51,10 +57,17 @@ void RogueTrainerQuery_Reset(u8 func);
 void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags);
 void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup);
 
+// Adventure Path Query
+void RoguePathsQuery_Begin();
+void RoguePathsQuery_Reset(u8 func);
+void RoguePathsQuery_End();
+void RoguePathsQuery_IsOfType(u8 func, u8 roomType);
+
 // Weight selection
 void RogueWeightQuery_Begin();
 void RogueWeightQuery_End();
 bool8 RogueWeightQuery_HasAnyWeights();
+bool8 RogueWeightQuery_HasMultipleWeights();
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
 void RogueWeightQuery_FillWeights(u8 weight);
 void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);

@@ -474,6 +474,12 @@ void RogueDebug_StartBattle(void)
 #endif
 }
 
+void Rogue_DetermineItemPickupCount()
+{
+    u16 itemId = gSpecialVar_0x8001;
+    gSpecialVar_0x8002 = Rogue_ModifyItemPickupAmount(itemId, 1);
+}
+
 enum BerryTreatBuff
 {
     BERRY_BUFF_FRIEND,
@@ -817,6 +823,18 @@ void Rogue_GetTrainerNum(void)
 void Rogue_PlayStaticTrainerEncounterBGM(void)
 {
     u16 trainerNum = VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA);
+
+    struct RogueBattleMusic music;
+    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);
+
+    //PlayBGM();
+    PlayNewMapMusic(music.encounterMusic);
+    //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+}
+
+void Rogue_PlayRivalTrainerEncounterBGM(void)
+{
+    u16 trainerNum = gRogueRun.rivalTrainerNum;
 
     struct RogueBattleMusic music;
     Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);

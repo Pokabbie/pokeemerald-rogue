@@ -18,6 +18,7 @@
 #include "battle_setup.h"
 #include "berry.h"
 #include "event_data.h"
+#include "field_effect.h"
 #include "graphics.h"
 #include "item.h"
 #include "load_save.h"
@@ -152,6 +153,9 @@ static u8 GetCurrentWildEncounterCount(void);
 static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
+
+static void EnableRivalEncounterIfRequired();
+static bool8 ChooseLegendarysForNewAdventure();
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
@@ -574,6 +578,68 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
             }
         }
     }
+}
+
+u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
+{
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        {
+            u8 pocket = ItemId_GetPocket(itemId);
+            amount = 1;
+
+            switch (pocket)
+            {
+            case POCKET_ITEMS:
+            case POCKET_BERRIES:
+            case POCKET_MEDICINE:
+                amount = 3;
+                break;
+
+            case POCKET_POKE_BALLS:
+                amount = 5;
+                break;
+            }
+
+            switch (itemId)
+            {
+            case ITEM_MASTER_BALL:
+            case ITEM_ESCAPE_ROPE:
+                amount = 1;
+                break;
+
+#ifdef ROGUE_EXPANSION
+            case ITEM_ABILITY_CAPSULE:
+            case ITEM_ABILITY_PATCH:
+                amount = 1;
+                break;
+#endif
+            }
+
+            if(Rogue_IsEvolutionItem(itemId))
+                amount = 1;
+
+#ifdef ROGUE_EXPANSION
+            if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+                amount = 1;
+#endif
+        }
+    }
+    else
+    {
+        u8 pocket = ItemId_GetPocket(itemId);
+
+        switch (pocket)
+        {
+        case POCKET_BERRIES:
+            // TODO - Handle hub upgrades
+            amount = 3;
+            break;
+        }
+    }
+
+    return amount;
 }
 
 const void* Rogue_ModifyPaletteLoad(const void* input)
@@ -1368,6 +1434,9 @@ void Rogue_CreateMiniMenuExtraGFX(void)
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INFO_PANEL))
         return;
 #endif
+
+    // Ensure we have a palette free
+    FieldEffectFreeAllSprites();
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || GetSafariZoneFlag())
     {
@@ -2217,7 +2286,6 @@ static void BeginRogueRun(void)
     SeedRogueRng(gRogueRun.baseSeed * 23151 + 29867);
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
-    Rogue_ChooseBossTrainersForNewAdventure();
 
     VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
@@ -2272,8 +2340,14 @@ static void BeginRogueRun(void)
 
     }
 
-
     GiveMonPartnerRibbon();
+
+    // Chose bosses last
+    Rogue_ChooseRivalTrainerForNewAdventure();
+    Rogue_ChooseBossTrainersForNewAdventure();
+    EnableRivalEncounterIfRequired();
+
+    ChooseLegendarysForNewAdventure();
 
     QuestNotify_BeginAdventure();
 }
@@ -2310,106 +2384,131 @@ static void EndRogueRun(void)
     BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
 }
 
-static bool8 IsLegendaryEncounterEnabled(u16 legendaryId, bool8 applyLegendaryDifficulty)
-{
-    u16 species = gRogueLegendaryEncounterInfo.mapTable[legendaryId].encounterId;
-    u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-    bool8 allowStrongSpecies = FALSE;
-
-    if(!RoguePokedex_IsSpeciesEnabled(species))
-    {
-        return FALSE;
-    }
-
-    if(applyLegendaryDifficulty)
-    {
-        allowStrongSpecies = TRUE;
-    }
-    else
-    {
-        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY))
-        {
-        case DIFFICULTY_LEVEL_EASY:
-            allowStrongSpecies = TRUE;
-            break;
-
-        case DIFFICULTY_LEVEL_MEDIUM:
-            allowStrongSpecies = (gRogueRun.currentDifficulty >= 7);
-            break;
-
-        case DIFFICULTY_LEVEL_HARD:
-            allowStrongSpecies = FALSE;
-            break;
-
-        case DIFFICULTY_LEVEL_BRUTAL:
-            // Technically this should never happen
-            allowStrongSpecies = FALSE;
-            break;
-        }
-    }
-
-    if(!allowStrongSpecies)
-    {
-        if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
-        {
-            // We're not allowed this encounter as it's too strong
-            return FALSE;
-        }
-    }
-
-    if(HistoryBufferContains(&gRogueAdvPath.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer), legendaryId))
-    {
-        return FALSE;
-    }
-  
-    return TRUE;
-}
-
-static u16 NextLegendaryId(bool8 applyLegendaryDifficulty)
+static u16 SelectLegendarySpecies(u8 legendId)
 {
     u16 i;
-    u16 randIdx;
-    u16 enabledLegendariesCount = 0;
+    u16 species;
+    RogueMonQuery_Begin();
+    RogueMonQuery_Reset(QUERY_FUNC_EXCLUDE);
 
+    // Only include legends which we have valid encounter maps for
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
-        if(IsLegendaryEncounterEnabled(i, applyLegendaryDifficulty))
-            ++enabledLegendariesCount;
+        species = gRogueLegendaryEncounterInfo.mapTable[i].encounterId;
+
+        if(Query_IsSpeciesEnabled(species))
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
 
-    if(enabledLegendariesCount == 0)
+    for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
     {
-        // We've exhausted all enabled legendary options, so we're going to wipe the buffer and try again
-        memset(&gRogueAdvPath.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer));
-        return NextLegendaryId(FALSE);
+        if(gRogueRun.legendarySpecies[i] != SPECIES_NONE)
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.legendarySpecies[i]);
     }
 
-    randIdx = RogueRandomRange(enabledLegendariesCount, OVERWORLD_FLAG);
-    enabledLegendariesCount = 0;
+    if(legendId == ADVPATH_LEGEND_BOX)
+        RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG_WILD);
+    else
+        RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_EXCLUDE, MON_FLAG_STRONG_WILD);
 
-    for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
+
+    RogueWeightQuery_Begin();
     {
-        if(IsLegendaryEncounterEnabled(i, applyLegendaryDifficulty))
+        RogueWeightQuery_FillWeights(1);
+        if(RogueWeightQuery_HasAnyWeights())
         {
-            if(enabledLegendariesCount == randIdx)
-                return i;
-            else
-                ++enabledLegendariesCount;
+            species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        }
+        else
+        {
+            AGB_ASSERT(FALSE);
+            species = SPECIES_NONE;
         }
     }
+    RogueWeightQuery_End();
 
-    return gRogueLegendaryEncounterInfo.mapCount - 1;
+    RogueMonQuery_End();
+
+#ifdef ROGUE_DEBUG
+    // Call this to throw asserts early
+    Rogue_GetLegendaryRoomForSpecies(species);
+#endif
+
+    return species;
 }
 
-u8 Rogue_SelectLegendaryEncounterRoom(void)
-{    
-    u16 legendaryId = NextLegendaryId(TRUE);
+static bool8 ChooseLegendarysForNewAdventure()
+{
+    u8 i;
+    bool8 spawnRoamer = RogueRandomChance(50, 0);
+    bool8 spawnMinor = RogueRandomChance(75, 0);
 
-    HistoryBufferPush(&gRogueAdvPath.legendaryHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer), legendaryId);
+    // Always have 1
+    if(!spawnRoamer && !spawnMinor)
+    {
+        if(RogueRandom() % 2)
+            spawnRoamer = TRUE;
+        else
+            spawnMinor = TRUE;
+    }
 
-    return legendaryId;
+    // Reset
+    memset(&gRogueRun.legendarySpecies, 0, sizeof(gRogueRun.legendarySpecies));
+    memset(&gRogueRun.legendaryDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.legendaryDifficulties));
+
+
+    gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+    gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
+
+    if(spawnRoamer)
+    {
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = 1 + RogueRandomRange(5, 0);
+        gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
+    }
+
+    if(spawnMinor)
+    {
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
+    }
+
+    if(gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR])
+        ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR];
+
+    if(gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX])
+        ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
+
+    if(gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX])
+        ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
 }
 
+u8 Rogue_GetCurrentLegendaryEncounterId()
+{
+    u8 i;
+
+    for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
+    {
+        if(gRogueRun.legendaryDifficulties[i] == gRogueRun.currentDifficulty)
+            return i;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+u16 Rogue_GetLegendaryRoomForSpecies(u16 species)
+{
+    u16 i;
+
+    for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
+    {
+        if(gRogueLegendaryEncounterInfo.mapTable[i].encounterId == species)
+            return i;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
 
 void Rogue_SelectMiniBossRewardMons()
 {
@@ -2936,6 +3035,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
     // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
     if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
+        u8 originalObjectCount = *objectEventCount;
+
         if(mapHeader->mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
         {
             RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
@@ -2943,7 +3044,6 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE && !loadingFromSave)
         {
             u8 write, read;
-            u8 originalCount = *objectEventCount;
             u16 trainerBuffer[ROGUE_TRAINER_COUNT];
 
             u8 trainerIndex;
@@ -2956,7 +3056,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
             write = 0;
             read = 0;
 
-            for(;read < originalCount; ++read)
+            for(;read < originalObjectCount; ++read)
             {
                 if(write != read)
                 {
@@ -3046,6 +3146,40 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
             }
 
             *objectEventCount = write;
+        }
+
+        // We need to reapply this as pending when loading from a save, as we would've already consumed it here
+        if(loadingFromSave)
+        {
+            if(!FlagGet(FLAG_ROGUE_RIVAL_DISABLED))
+                gRogueRun.hasPendingRivalBattle = TRUE;
+        }
+
+        // Attempt to find and activate the rival object
+        FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
+
+        // Don't place rival battle on first encounter
+        if(gRogueRun.hasPendingRivalBattle && gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
+        {
+            u8 i;
+
+            for(i = 0; i < originalObjectCount; ++i)
+            {
+                // Found rival, so make visible and clear pending
+                if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                {
+                    const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
+
+                    FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
+                    gRogueRun.hasPendingRivalBattle = FALSE;
+
+                    if(trainer != NULL)
+                    {
+                        objectEvents[i].graphicsId = trainer->objectEventGfx;
+                    }
+                    break;
+                }
+            }
         }
     }
 }
@@ -3436,6 +3570,21 @@ static void MonGainRewardEVs(struct Pokemon *mon)
     }
 }
 
+static void EnableRivalEncounterIfRequired()
+{
+    u8 i;
+
+    gRogueRun.hasPendingRivalBattle = FALSE;
+
+    for(i = 0; i < ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS; ++i)
+    {
+        if(gRogueRun.rivalEncounterDifficulties[i] == gRogueRun.currentDifficulty)
+        {
+            gRogueRun.hasPendingRivalBattle = TRUE;
+            return;
+        }
+    }
+}
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
@@ -3468,6 +3617,8 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
             VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+
+            EnableRivalEncounterIfRequired();
         }
 
         // Adjust this after the boss reset

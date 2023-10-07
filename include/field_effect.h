@@ -17,6 +17,7 @@ struct TrainerSpriteInfo
 
 u32 FieldEffectStart(u8);
 bool8 FieldEffectActiveListContains(u8 id);
+void FieldEffectFreeAllSprites(void);
 void FieldEffectActiveListClear(void);
 void ReturnToFieldFromFlyMapSelect(void);
 u8 AddNewGameBirchObject(s16, s16, u8);

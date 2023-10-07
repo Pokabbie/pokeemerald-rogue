@@ -333,9 +333,9 @@ const struct RogueEncounterData gRogueLegendaryEncounterInfo =
 
 static const struct RogueEncounterMap sRouteMapsRestStop[] = 
 {
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_NURSE, ROGUE_ENCOUNTER_REST_STOP),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_MART_EMPLOYEE, ROGUE_ENCOUNTER_SHOPS),
-    ENCOUNTER_MAP(OBJ_EVENT_GFX_MYSTERY_GIFT_MAN, ROGUE_ENCOUNTER_TUTORS),
+    [ADVPATH_SUBROOM_RESTSTOP_FULL] = ENCOUNTER_MAP(OBJ_EVENT_GFX_NURSE, ROGUE_ENCOUNTER_REST_STOP),
+    [ADVPATH_SUBROOM_RESTSTOP_SHOP] = ENCOUNTER_MAP(OBJ_EVENT_GFX_MART_EMPLOYEE, ROGUE_ENCOUNTER_SHOPS),
+    [ADVPATH_SUBROOM_RESTSTOP_BATTLE] = ENCOUNTER_MAP(OBJ_EVENT_GFX_MYSTERY_GIFT_MAN, ROGUE_ENCOUNTER_TUTORS),
 };
 
 const struct RogueEncounterData gRogueRestStopEncounterInfo = 
@@ -343,10 +343,6 @@ const struct RogueEncounterData gRogueRestStopEncounterInfo =
     .mapCount = ARRAY_COUNT(sRouteMapsRestStop),
     .mapTable = sRouteMapsRestStop
 };
-
-
-
-
 
 #undef ROUTE_MAP
 #undef ENCOUNTER_MAP

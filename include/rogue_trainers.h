@@ -23,11 +23,13 @@ u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum);
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();
 u8 Rogue_CalculateMiniBossMonLvl();
+u8 Rogue_CalculateRivalMonLvl();
 u8 Rogue_CalculateBossMonLvl();
 
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 
 void Rogue_ChooseBossTrainersForNewAdventure();
+void Rogue_ChooseRivalTrainerForNewAdventure();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 
 u16 Rogue_NextMinibossTrainerId();
