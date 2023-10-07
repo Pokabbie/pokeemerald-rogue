@@ -474,6 +474,12 @@ void RogueDebug_StartBattle(void)
 #endif
 }
 
+void Rogue_DetermineItemPickupCount()
+{
+    u16 itemId = gSpecialVar_0x8001;
+    gSpecialVar_0x8002 = Rogue_ModifyItemPickupAmount(itemId, 1);
+}
+
 enum BerryTreatBuff
 {
     BERRY_BUFF_FRIEND,

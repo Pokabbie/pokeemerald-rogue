@@ -580,6 +580,68 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
+u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
+{
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        {
+            u8 pocket = ItemId_GetPocket(itemId);
+            amount = 1;
+
+            switch (pocket)
+            {
+            case POCKET_ITEMS:
+            case POCKET_BERRIES:
+            case POCKET_MEDICINE:
+                amount = 3;
+                break;
+
+            case POCKET_POKE_BALLS:
+                amount = 5;
+                break;
+            }
+
+            switch (itemId)
+            {
+            case ITEM_MASTER_BALL:
+            case ITEM_ESCAPE_ROPE:
+                amount = 1;
+                break;
+
+#ifdef ROGUE_EXPANSION
+            case ITEM_ABILITY_CAPSULE:
+            case ITEM_ABILITY_PATCH:
+                amount = 1;
+                break;
+#endif
+            }
+
+            if(Rogue_IsEvolutionItem(itemId))
+                amount = 1;
+
+#ifdef ROGUE_EXPANSION
+            if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+                amount = 1;
+#endif
+        }
+    }
+    else
+    {
+        u8 pocket = ItemId_GetPocket(itemId);
+
+        switch (pocket)
+        {
+        case POCKET_BERRIES:
+            // TODO - Handle hub upgrades
+            amount = 3;
+            break;
+        }
+    }
+
+    return amount;
+}
+
 const void* Rogue_ModifyPaletteLoad(const void* input)
 {
     if(input == &gObjectEventPal_PlayerPlaceholder[0])

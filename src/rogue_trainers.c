@@ -1125,6 +1125,9 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
 {
     u8 monCount;
+    u32 tempSeed = gRngRogueValue;
+
+    SeedRogueRng(RogueRandom() + trainerNum * RogueRandom());
 
     if(Rogue_IsRivalTrainer(trainerNum))
         monCount = CreateRivalPartyInternal(trainerNum, party, monCapacity);
@@ -1155,6 +1158,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         }
     }
 
+    gRngRogueValue = tempSeed;
     return monCount;
 }
 

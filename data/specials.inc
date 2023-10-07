@@ -193,6 +193,7 @@ gSpecials::
 	def_special RogueDebug_CompleteAvaliableQuests
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
+	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
 	def_special Rogue_ChangeMonBall
