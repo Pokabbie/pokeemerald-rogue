@@ -2,6 +2,10 @@
 #define GUARD_ITEM_CONSTANTS_H
 
 #ifdef ROGUE_EXPANSION
+#define ROGUE_EXPANDED_POCKETS
+#endif
+
+#ifdef ROGUE_EXPANDED_POCKETS
 // These constants are used in gItems
 #define POCKET_NONE        0
 #define POCKET_ITEMS       1

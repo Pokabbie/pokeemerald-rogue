@@ -4580,6 +4580,191 @@ static void ApplyMartCapacity(u16 capacity)
     gRngRogueValue = startSeed;
 }
 
+void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
+{
+    bool8 applyRandomChance = FALSE;
+    u16 maxPriceRange = 10000;
+
+    RogueItemQuery_Begin();
+    RogueItemQuery_IsItemActive();
+
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
+
+    switch (itemCategory)
+    {
+    case ROGUE_SHOP_GENERAL:
+        RogueItemQuery_IsGeneralShopItem(QUERY_FUNC_INCLUDE);
+        {
+            u8 pocket;
+            for(pocket = POCKET_NONE + 1; pocket <= POCKET_KEY_ITEMS; ++pocket)
+            {
+                switch (pocket)
+                {
+                // Allow these pockets
+                case POCKET_ITEMS:
+                case POCKET_MEDICINE:
+                    break;
+
+                default:
+                    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, pocket);
+                    break;
+                }
+            }
+        }
+        
+        if(Rogue_IsRunActive())
+        {
+            maxPriceRange =  300 + gRogueRun.currentDifficulty * 400;
+        }
+        break;
+
+    case ROGUE_SHOP_BALLS:
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_POKE_BALLS);
+        *minSalePrice = 100;
+        
+        if(Rogue_IsRunActive())
+        {
+            maxPriceRange =  300 + gRogueRun.currentDifficulty * 400;
+
+            if(gRogueRun.currentDifficulty <= 0)
+                maxPriceRange = 200;
+            else if(gRogueRun.currentDifficulty <= 1)
+                maxPriceRange = 600;
+            else if(gRogueRun.currentDifficulty <= 2)
+                maxPriceRange = 1000;
+            else if(gRogueRun.currentDifficulty < 11)
+                maxPriceRange = 2000;
+        }
+        break;
+
+    case ROGUE_SHOP_TMS:
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_TM_HM);
+        *minSalePrice = 1500;
+        applyRandomChance = TRUE;
+        break;
+
+    case ROGUE_SHOP_BATTLE_ENHANCERS:
+        RogueItemQuery_IsGeneralShopItem(QUERY_FUNC_EXCLUDE);
+        {
+            u8 pocket;
+            for(pocket = POCKET_NONE + 1; pocket <= POCKET_KEY_ITEMS; ++pocket)
+            {
+                switch (pocket)
+                {
+                // Allow these pockets
+                case POCKET_ITEMS:
+                case POCKET_MEDICINE:
+                    break;
+
+                default:
+                    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, pocket);
+                    break;
+                }
+            }
+        }
+        applyRandomChance = TRUE;
+        break;
+
+    case ROGUE_SHOP_HELD_ITEMS:
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_HELD_ITEMS);
+        if(Rogue_IsRunActive())
+            *minSalePrice = 1500;
+        else
+            *minSalePrice = 2000;
+        applyRandomChance = TRUE;
+        break;
+
+    case ROGUE_SHOP_RARE_HELD_ITEMS:
+        AGB_ASSERT(FALSE);
+        break;
+
+    case ROGUE_SHOP_QUEST_REWARDS:
+        AGB_ASSERT(FALSE);
+        break;
+
+    case ROGUE_SHOP_BERRIES:
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_BERRIES);
+        *minSalePrice = 5000;
+        break;
+
+    case ROGUE_SHOP_CHARMS:
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_CHARMS);
+
+        if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
+        {
+            RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
+        }
+        break;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_TINY_MUSHROOM);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MUSHROOM);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PEARL);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_PEARL);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_STARDUST);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_STAR_PIECE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_NUGGET);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ESCAPE_ROPE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ENERGY_POWDER);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ENERGY_ROOT);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_HEAL_POWDER);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BERRY_JUICE);
+
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_MOOMOO_MILK);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_SODA_POP);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_FRESH_WATER);
+
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_LAVA_COOKIE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PREMIER_BALL);
+
+#ifdef ROGUE_EXPANSION
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PEWTER_CRUNCHIES);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_RAGE_CANDY_BAR);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_LAVA_COOKIE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_OLD_GATEAU);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_CASTELIACONE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_LUMIOSE_GALETTE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_SHALOUR_SABLE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MALASADA);
+#endif
+
+    // Only show items with a valid price
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
+    {
+        *minSalePrice = 0;
+    }
+    else
+    {
+        RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, maxPriceRange);
+
+        if(Rogue_IsRunActive() && applyRandomChance)
+        {
+            u8 chance = 100;
+
+            if(gRogueRun.currentDifficulty < ROGUE_ELITE_START_DIFFICULTY)
+            {
+                chance = 10 + 5 * gRogueRun.currentDifficulty;
+            }
+            else if(gRogueRun.currentDifficulty < ROGUE_CHAMP_START_DIFFICULTY)
+            {
+                chance = 60 + 10 * (gRogueRun.currentDifficulty - ROGUE_ELITE_START_DIFFICULTY);
+            }
+
+            if(chance < 100)
+                RogueMiscQuery_FilterByChance(gRngRogueValue, QUERY_FUNC_INCLUDE, chance);
+        }
+    }
+}
+
+void Rogue_CloseMartQuery()
+{
+    RogueItemQuery_End();
+}
+
 const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
 {
     u16 difficulty;

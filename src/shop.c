@@ -45,6 +45,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_hub.h"
+#include "rogue_query.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
@@ -57,6 +58,7 @@ static EWRAM_DATA struct ListMenuItem *sListMenuItems = NULL;
 static EWRAM_DATA u8 (*sItemNames)[16] = {0};
 static EWRAM_DATA u8 sPurchaseHistoryId = 0;
 EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
+static EWRAM_DATA u16* sTempShopBuffer = NULL;
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
@@ -547,6 +549,12 @@ static void CB2_InitBuyMenu(void)
 
 static void BuyMenuFreeMemory(void)
 {
+    if(sTempShopBuffer != NULL)
+    {
+        Free(sTempShopBuffer);
+        sTempShopBuffer = NULL;
+    }
+
     Free(sShopData);
     Free(sListMenuItems);
     Free(sItemNames);
@@ -1703,11 +1711,33 @@ void CreateDynamicPokemartMenu(const u16 category)
     {
         u16 martType = MART_TYPE_NORMAL;
 
+        //AGB_ASSERT(sTempShopBuffer == NULL);
+        //sTempShopBuffer = AllocZeroed(2 * sizeof(u16));
+
         if(category == ROGUE_SHOP_CHARMS)
             martType = MART_TYPE_PURCHASE_ONLY;
 
         CreateShopMenu(martType);
-        SetShopItemsFromStaticList(Rogue_CreateMartContents(category, &sMartInfo.minPrice), ITEM_NONE);
+
+        Rogue_OpenMartQuery(category, &sMartInfo.minPrice);
+        {
+            u8 sortMode = ITEM_SORT_MODE_TYPE;
+
+            switch (category)
+            {
+            case ROGUE_SHOP_BERRIES:
+            case ROGUE_SHOP_HELD_ITEMS:
+            case ROGUE_SHOP_CHARMS:
+            case ROGUE_SHOP_TMS:
+                sortMode = ITEM_SORT_MODE_NAME;
+                break;
+            }
+
+            RogueListQuery_Begin();
+            SetShopItemsFromStaticList(RogueListQuery_CollapseItems(sortMode), ITEM_NONE);
+            RogueListQuery_End();
+        }
+        Rogue_CloseMartQuery();
         ClearItemPurchases();
     }
     SetShopMenuCallback(EnableBothScriptContexts);
