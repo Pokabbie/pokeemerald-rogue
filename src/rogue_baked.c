@@ -834,17 +834,33 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->pocket = POCKET_MEDICINE;
     }
 
+    if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
+    {
+        outItem->price = 50;
+    }
+
     if(outItem->holdEffect != 0)
     {
         // Hold items set price (Ignore berries)
-        if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
-        {
-            outItem->price = 500;
-        }
 
         if(outItem->pocket == POCKET_ITEMS)
         {
-            outItem->pocket = POCKET_HELD_ITEMS;
+            // Exclude some items from moving to held items pocket, as the hold effect is a dud
+            switch (itemId)
+            {
+            case ITEM_DRAGON_SCALE:
+#ifdef ROGUE_EXPANSION
+            case ITEM_UPGRADE:
+#else
+            case ITEM_UP_GRADE:
+#endif
+                // Do nothing
+                break;
+            
+            default:
+                outItem->pocket = POCKET_HELD_ITEMS;
+                break;
+            }
         }
     }
 
@@ -911,6 +927,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Individual items
     switch(itemId)
     {
+        case ITEM_PP_UP:
+            outItem->price = 2000;
+            break;
+
         case ITEM_ESCAPE_ROPE:
             outItem->price = 8000;
             break;
@@ -967,6 +987,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_DEEP_SEA_SCALE:
         case ITEM_METAL_COAT:
         case ITEM_DRAGON_SCALE:
+        case ITEM_MOON_STONE:
 #ifdef ROGUE_EXPANSION
         case ITEM_UPGRADE:
 #else
@@ -984,13 +1005,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_PARK_BALL:
 #endif
         case ITEM_SAFARI_BALL:
+        case ITEM_MASTER_BALL:
             outItem->price = 0;
             break;
-
-        case ITEM_MASTER_BALL:
-            outItem->price = 50000;
-            break;
-
 
         // TM Items
         // 

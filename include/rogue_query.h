@@ -25,6 +25,7 @@ void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 bool8 RogueMiscQuery_CheckState(u16 elem);
+void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance);
 
 void RogueCustomQuery_Begin();
 void RogueCustomQuery_End();
@@ -49,6 +50,13 @@ bool8 Query_IsSpeciesEnabled(u16 species);
 // Item Query
 void RogueItemQuery_Begin();
 void RogueItemQuery_End();
+void RogueItemQuery_Reset(u8 func);
+void RogueItemQuery_IsItemActive();
+void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket);
+void RogueItemQuery_IsMedicine(u8 func);
+void RogueItemQuery_IsEvolutionItem(u8 func);
+void RogueItemQuery_IsGeneralShopItem(u8 func);
+void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice);
 
 // Traine Query
 void RogueTrainerQuery_Begin();
@@ -74,6 +82,11 @@ void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
 u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue);
 u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight);
 //u16 RogueWeightQuery_SelectFromWeights();
+
+// List selection
+void RogueListQuery_Begin();
+void RogueListQuery_End();
+u16 const* RogueListQuery_CollapseItems(u8 sortMode);
 
 
 // RogueQuery old API

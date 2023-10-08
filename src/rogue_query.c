@@ -10,6 +10,7 @@
 #include "malloc.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "random.h"
 
 #include "rogue_adventurepaths.h"
 #include "rogue_query.h"
@@ -22,10 +23,11 @@
 
 #define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_SPECIES           NUM_SPECIES
+#define QUERY_NUM_ITEMS             ITEMS_COUNT
 #define QUERY_NUM_TRAINERS          128 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
 
-#define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES))))
+#define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_ITEMS, max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES)))))
 #define MAX_QUERY_BYTE_COUNT (1 + MAX_QUERY_BIT_COUNT / 8)
 
 // Old API
@@ -50,9 +52,10 @@ struct RogueQueryData
 {
     u8* bitFlags; // TODO - Should hard coded to be [MAX_QUERY_BYTE_COUNT], but for now just using existing memory
     u8* weightArray;
+    u16* listArray;
     u16 bitCount;
     u16 totalWeight;
-    u16 weightArrayCapacity;
+    u16 arrayCapacity;
     u8 queryType;
 };
 
@@ -65,7 +68,8 @@ EWRAM_DATA static struct RogueQueryData* sRogueQueryPtr = 0;
 #define ASSERT_TRAINER_QUERY    AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
 #define ASSERT_PATHS_QUERY      AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
 #define ASSERT_CUSTOM_QUERY     AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_CUSTOM)
-#define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL)
+#define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL); AGB_ASSERT(sRogueQueryPtr->listArray == NULL)
+#define ASSERT_LIST_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray == NULL); AGB_ASSERT(sRogueQueryPtr->listArray != NULL)
 
 static void SetQueryBitFlag(u16 elem, bool8 state);
 static bool8 GetQueryBitFlag(u16 elem);
@@ -83,7 +87,8 @@ static void AllocQuery(u8 type)
     sRogueQueryPtr->bitCount = 0;
     sRogueQueryPtr->bitFlags = &gRogueQueryBits[0];
     sRogueQueryPtr->weightArray = NULL;
-    sRogueQueryPtr->weightArrayCapacity = 0;
+    sRogueQueryPtr->listArray = NULL;
+    sRogueQueryPtr->arrayCapacity = 0;
     sRogueQueryPtr->totalWeight = 0;
 
     memset(&sRogueQueryPtr->bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
@@ -134,7 +139,7 @@ static bool8 GetQueryBitFlag(u16 elem)
     ASSERT_ANY_QUERY;
     AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
 
-    return (gRogueQueryBits[idx] & bitMask) != 0;
+    return (sRogueQueryPtr->bitFlags[idx] & bitMask) != 0;
 }
 
 // MISC QUERY
@@ -169,6 +174,38 @@ bool8 RogueMiscQuery_CheckState(u16 elem)
     return GetQueryBitFlag(elem);
 }
 
+void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance)
+{
+    u16 elem;
+    u16 count = Query_MaxBitCount();
+    u32 startSeed = gRngRogueValue;
+
+    SeedRogueRng(rngSeed);
+
+    for(elem = 1; elem < count; ++elem)
+    {
+        if(GetQueryBitFlag(elem))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!RogueRandomChance(chance, 0))
+                {
+                    SetQueryBitFlag(elem, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(RogueRandomChance(chance, 0))
+                {
+                    SetQueryBitFlag(elem, FALSE);
+                }
+            }
+        }
+    }
+
+    gRngRogueValue = startSeed;
+}
+
 void RogueCustomQuery_Begin()
 {
     ASSERT_NO_QUERY;
@@ -199,6 +236,7 @@ void RogueMonQuery_End()
 void RogueMonQuery_Reset(u8 func)
 {
     u16 species;
+    ASSERT_MON_QUERY;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
@@ -216,6 +254,7 @@ void RogueMonQuery_Reset(u8 func)
 void RogueMonQuery_IsSpeciesActive()
 {
     u16 species;
+    ASSERT_MON_QUERY;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
@@ -743,6 +782,397 @@ void RogueItemQuery_End()
     FreeQuery();
 }
 
+void RogueItemQuery_Reset(u8 func)
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(func == QUERY_FUNC_INCLUDE)
+        {
+            SetQueryBitFlag(itemId, TRUE);
+        }
+        else if(func == QUERY_FUNC_EXCLUDE)
+        {
+            SetQueryBitFlag(itemId, FALSE);
+        }
+    }
+}
+
+bool8 Query_IsItemEnabled(u16 itemId)
+{
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+
+    if(item.itemId == itemId)
+    {
+        u8 gen = ItemToGen(itemId); // TODO - Rework this
+        if(!IsGenEnabled(gen))
+            return FALSE;
+
+        // Query excluded items
+        switch (itemId)
+        {
+        case ITEM_SACRED_ASH:
+        case ITEM_REVIVAL_HERB:
+        case ITEM_REVIVE:
+        case ITEM_MAX_REVIVE:
+        case ITEM_RARE_CANDY:
+        case ITEM_HEART_SCALE:
+        case ITEM_LUCKY_EGG:
+        case ITEM_EXP_SHARE:
+        case ITEM_SHOAL_SALT:
+        case ITEM_SHOAL_SHELL:
+        case ITEM_FLUFFY_TAIL:
+        case ITEM_SOOTHE_BELL:
+
+        case ITEM_DURIN_BERRY:
+        case ITEM_PAMTRE_BERRY:
+        case ITEM_NOMEL_BERRY:
+        case ITEM_PINAP_BERRY:
+        case ITEM_NANAB_BERRY:
+        case ITEM_RAZZ_BERRY:
+        case ITEM_ENIGMA_BERRY:
+        case ITEM_BELUE_BERRY:
+        case ITEM_WATMEL_BERRY:
+        case ITEM_SPELON_BERRY:
+        case ITEM_RABUTA_BERRY:
+        case ITEM_CORNN_BERRY:
+        case ITEM_WEPEAR_BERRY:
+        case ITEM_BLUK_BERRY:
+
+        // Berries that may confuse
+        case ITEM_AGUAV_BERRY:
+        case ITEM_WIKI_BERRY:
+        case ITEM_PERSIM_BERRY:
+        case ITEM_IAPAPA_BERRY:
+        case ITEM_MAGO_BERRY:
+        case ITEM_FIGY_BERRY:
+        case ITEM_MAGOST_BERRY:
+#ifdef ROGUE_EXPANSION
+
+        // Not implemented
+        case ITEM_MAX_HONEY:
+        case ITEM_LURE:
+        case ITEM_SUPER_LURE:
+        case ITEM_MAX_LURE:
+        case ITEM_MAX_MUSHROOMS:
+
+        // Not needed as is not a lvl up evo
+        case ITEM_PRISM_SCALE:
+
+        // Exclude all treasures then turn on the ones we want to use
+        case ITEM_NUGGET:
+        case ITEM_PEARL:
+        case ITEM_BIG_PEARL:
+        case ITEM_STARDUST:
+        case ITEM_STAR_PIECE:
+
+        // Ignore these, as mons/form swaps currently not enabled
+        case ITEM_PIKASHUNIUM_Z:
+        case ITEM_ULTRANECROZIUM_Z:
+#endif
+            return FALSE;
+        }
+
+        if(itemId >= FIRST_MAIL_INDEX && itemId <= LAST_MAIL_INDEX)
+            return FALSE;
+
+        if(itemId >= ITEM_RED_SCARF && itemId <= ITEM_YELLOW_SCARF)
+            return FALSE;
+
+        if(itemId >= ITEM_RED_SHARD && itemId <= ITEM_GREEN_SHARD)
+            return FALSE;
+
+        if(itemId >= ITEM_BLUE_FLUTE && itemId <= ITEM_WHITE_FLUTE)
+            return FALSE;
+
+#if !defined(ROGUE_EXPANSION)
+        if(((itemId >= ITEM_HP_UP && itemId <= ITEM_CALCIUM) || itemId == ITEM_ZINC) && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+            return FALSE;
+#endif
+    
+#ifdef ROGUE_EXPANSION
+        if(itemId >= ITEM_GROWTH_MULCH && itemId <= ITEM_BLACK_APRICORN)
+            return FALSE;
+
+        // Exclude all treasures then turn on the ones we want to use
+        if(itemId >= ITEM_BOTTLE_CAP && itemId <= ITEM_STRANGE_SOUVENIR)
+            return FALSE;
+
+        // These TMs aren't setup
+        if(itemId >= ITEM_TM51 && itemId <= ITEM_TM100)
+            return FALSE;
+
+        // Regional treat (Avoid spawning in multiple)
+        if(itemId >= ITEM_PEWTER_CRUNCHIES && itemId <= ITEM_BIG_MALASADA)
+        {
+            
+        switch(maxGen)
+        {
+            case 1:
+                if(itemId != ITEM_PEWTER_CRUNCHIES)
+                    return FALSE;
+                break;
+            case 2:
+                if(itemId != ITEM_RAGE_CANDY_BAR)
+                    return FALSE;
+                break;
+            case 3:
+                if(itemId != ITEM_LAVA_COOKIE)
+                    return FALSE;
+                break;
+            case 4:
+                if(itemId != ITEM_OLD_GATEAU)
+                    return FALSE;
+                break;
+            case 5:
+                if(itemId != ITEM_CASTELIACONE)
+                    return FALSE;
+                break;
+            case 6:
+                if(itemId != ITEM_LUMIOSE_GALETTE)
+                    return FALSE;
+                break;
+            case 7:
+                if(itemId != ITEM_SHALOUR_SABLE)
+                    return FALSE;
+                break;
+            //case 8:
+            default:
+                if(itemId != ITEM_BIG_MALASADA)
+                    return FALSE;
+                break;
+        }
+
+        // Ignore fossils for now
+        if(itemId >= ITEM_HELIX_FOSSIL && itemId <= ITEM_FOSSILIZED_DINO)
+            return FALSE;
+
+        // Ignore sweets, as they are not used
+        if(itemId >= ITEM_STRAWBERRY_SWEET && itemId <= ITEM_RIBBON_SWEET)
+            return FALSE;
+
+        // Exclude everything but plates
+        if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
+            return FALSE;
+        if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+            return FALSE;
+
+        if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE && !IsMegaEvolutionEnabled())
+            return FALSE;
+
+        if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z && !IsZMovesEnabled())
+            return FALSE;
+    
+        if(itemId >= ITEM_EXP_CANDY_XS && itemId <= ITEM_DYNAMAX_CANDY && !IsDynamaxEnabled())
+            return FALSE;
+
+        // Disable EV items when setting not active
+        if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+            return FALSE;
+    
+        if(itemId >= ITEM_HP_UP && itemId <= ITEM_CARBOS && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+            return FALSE;
+    
+        if(itemId >= ITEM_MACHO_BRACE && itemId <= ITEM_POWER_ANKLET && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+            return FALSE;
+
+#endif
+        // If we managed to get here, we must be valid
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+void RogueItemQuery_IsItemActive()
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        SetQueryBitFlag(itemId, Query_IsItemEnabled(itemId));
+    }
+}
+
+void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket)
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(ItemId_GetPocket(itemId) != pocket)
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(ItemId_GetPocket(itemId) == pocket)
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
+static bool8 IsMedicine(struct Item* item);
+
+void RogueItemQuery_IsMedicine(u8 func)
+{
+    u16 itemId;
+    struct Item item;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!IsMedicine(&item))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(IsMedicine(&item))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueItemQuery_IsEvolutionItem(u8 func)
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!Rogue_IsEvolutionItem(itemId))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(Rogue_IsEvolutionItem(itemId))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice)
+{
+    u16 itemId;
+    struct Item item;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            Rogue_ModifyItem(itemId, &item);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!(item.price >= minPrice && item.price <= maxPrice))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(item.price >= minPrice && item.price <= maxPrice)
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
+static bool8 Query_IsGeneralShopItem(u16 itemId)
+{
+    if(Rogue_IsEvolutionItem(itemId))
+        return FALSE;
+
+    switch (itemId)
+    {
+    case ITEM_GUARD_SPEC:
+    case ITEM_DIRE_HIT:
+    case ITEM_X_ATTACK:
+    case ITEM_X_DEFEND:
+    case ITEM_X_SPECIAL:
+    case ITEM_X_SPEED:
+    case ITEM_X_ACCURACY:
+    case ITEM_PP_UP:
+    case ITEM_MAX_ETHER:
+    case ITEM_MAX_ELIXIR:
+    case ITEM_ETHER:
+    case ITEM_ELIXIR:
+    case ITEM_HP_UP:
+    case ITEM_PP_MAX:
+    case ITEM_PROTEIN:
+    case ITEM_IRON:
+    case ITEM_CARBOS:
+    case ITEM_CALCIUM:
+    case ITEM_ZINC:
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+void RogueItemQuery_IsGeneralShopItem(u8 func)
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!Query_IsGeneralShopItem(itemId))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(Query_IsGeneralShopItem(itemId))
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
 // TRAINER QUERY
 //
 
@@ -917,7 +1347,7 @@ static u16 Query_MaxBitCount()
     if(sRogueQueryPtr->queryType == QUERY_TYPE_MON)
         return QUERY_NUM_SPECIES;
     else if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
-        return ITEMS_COUNT;
+        return QUERY_NUM_ITEMS;
     else if(sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
         return gRogueTrainerCount;
     else if(sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
@@ -930,14 +1360,14 @@ static u16 Query_GetWeightArrayCount()
 {
     ASSERT_WEIGHT_QUERY;
 
-    if(sRogueQueryPtr->bitCount <= sRogueQueryPtr->weightArrayCapacity)
+    if(sRogueQueryPtr->bitCount <= sRogueQueryPtr->arrayCapacity)
     {
         return sRogueQueryPtr->bitCount;
     }
     else
     {
-        DebugPrintf("QueryWeight: Clamping as active bits too large (active_bits:%d capacity:%d)", sRogueQueryPtr->bitCount, sRogueQueryPtr->weightArrayCapacity);
-        return sRogueQueryPtr->weightArrayCapacity;
+        DebugPrintf("QueryWeight: Clamping as active bits too large (active_bits:%d capacity:%d)", sRogueQueryPtr->bitCount, sRogueQueryPtr->arrayCapacity);
+        return sRogueQueryPtr->arrayCapacity;
     }
 }
 
@@ -945,14 +1375,14 @@ void RogueWeightQuery_Begin()
 {
     ASSERT_ANY_QUERY;
     sRogueQueryPtr->weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
-    sRogueQueryPtr->weightArrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
+    sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
 }
 
 void RogueWeightQuery_End()
 {
     ASSERT_WEIGHT_QUERY;
     sRogueQueryPtr->weightArray = NULL;
-    sRogueQueryPtr->weightArrayCapacity = 0;
+    sRogueQueryPtr->arrayCapacity = 0;
 }
 
 bool8 RogueWeightQuery_HasAnyWeights()
@@ -1110,6 +1540,76 @@ u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue)
 u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight)
 {
     return RogueWeightQuery_SelectRandomFromWeightsInternal(randValue, TRUE, updatedWeight);
+}
+
+// LIST QUERY
+//
+void RogueListQuery_Begin()
+{
+    ASSERT_ANY_QUERY;
+    sRogueQueryPtr->listArray = &gRogueQueryBuffer[0];
+    sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
+}
+
+void RogueListQuery_End()
+{
+    ASSERT_LIST_QUERY;
+    sRogueQueryPtr->listArray = NULL;
+    sRogueQueryPtr->arrayCapacity = 0;
+}
+
+bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
+
+u16 const* RogueListQuery_CollapseItems(u8 sortMode)
+{
+    u16 itemId;
+    u16 index;
+    ASSERT_ITEM_QUERY;
+    ASSERT_LIST_QUERY;
+
+    index = 0;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            sRogueQueryPtr->listArray[index++] = itemId;
+    
+            if(index >= sRogueQueryPtr->arrayCapacity - 1)
+                break;
+        }
+    }
+
+    // Terminate
+    sRogueQueryPtr->listArray[index] = ITEM_NONE;
+
+    if(sortMode < ITEM_SORT_MODE_COUNT)
+    {
+        u16 i, j, temp;
+        bool8 anySorts = FALSE;
+
+        for(j = 0; j < index; ++j)
+        {
+            anySorts = FALSE;
+
+            for(i = 1; i < index; ++i)
+            {
+                if(i == j)
+                    continue;
+
+                if(SortItemPlaceBefore(sortMode, sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], 1, 1))
+                {
+                    SWAP(sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], temp);
+                    anySorts = TRUE;
+                }
+            }
+
+            if(!anySorts)
+                break;
+        }
+    }
+
+    return sRogueQueryPtr->listArray;
 }
 
 // Old API

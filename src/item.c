@@ -468,12 +468,9 @@ static u16 GetBerrySortScore(struct Item* item)
     return ItemIdToBerryType(item->itemId);
 }
 
-static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
+bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB)
 {
-    u16 quantityA = GetBagItemQuantity(&slotA.quantity);
-    u16 quantityB = GetBagItemQuantity(&slotB.quantity);
-
-    if(slotA.itemId == slotB.itemId)
+    if(itemIdA == itemIdB)
     {
         // Store largest stack first
         return quantityA > quantityB;
@@ -483,8 +480,8 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
         s32 sortScore;
         struct Item itemA;
         struct Item itemB;
-        Rogue_ModifyItem(slotA.itemId, &itemA);
-        Rogue_ModifyItem(slotB.itemId, &itemB);
+        Rogue_ModifyItem(itemIdA, &itemA);
+        Rogue_ModifyItem(itemIdB, &itemB);
 
         if(itemA.pocket != itemB.pocket)
         {
@@ -493,7 +490,7 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
         }
 
         // Apply sort mode
-        switch (gSaveBlock1Ptr->bagSortMode)
+        switch (sortMode)
         {
         case ITEM_SORT_MODE_TYPE:
             // Fallback to subsort below
@@ -501,9 +498,9 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
 
         case ITEM_SORT_MODE_NAME:
             if(itemA.pocket == POCKET_TM_HM)
-                sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(slotA.itemId)], gMoveNames[ItemIdToBattleMoveId(slotB.itemId)], MOVE_NAME_LENGTH);
+                sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(itemIdA)], gMoveNames[ItemIdToBattleMoveId(itemIdB)], MOVE_NAME_LENGTH);
             else
-                sortScore = StringCompareN(ItemId_GetName(slotA.itemId), ItemId_GetName(slotB.itemId), ITEM_NAME_LENGTH);
+                sortScore = StringCompareN(ItemId_GetName(itemIdA), ItemId_GetName(itemIdB), ITEM_NAME_LENGTH);
 
             if(sortScore != 0)
                 return sortScore < 0;
@@ -537,8 +534,8 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
         // For TMs sort by move type, power, pp etc.
         if(itemA.pocket == POCKET_TM_HM)
         {
-            u16 moveA = ItemIdToBattleMoveId(slotA.itemId);
-            u16 moveB = ItemIdToBattleMoveId(slotB.itemId);
+            u16 moveA = ItemIdToBattleMoveId(itemIdA);
+            u16 moveB = ItemIdToBattleMoveId(itemIdB);
 
             // Sort by type
             if(gBattleMoves[moveA].type != gBattleMoves[moveB].type)
@@ -549,7 +546,7 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
                 return gBattleMoves[moveA].power > gBattleMoves[moveB].power;
 
             // Now fallback to alphabetical sort
-            sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(slotA.itemId)], gMoveNames[ItemIdToBattleMoveId(slotB.itemId)], MOVE_NAME_LENGTH);
+            sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(itemIdA)], gMoveNames[ItemIdToBattleMoveId(itemIdB)], MOVE_NAME_LENGTH);
 
             if(sortScore != 0)
                 return sortScore < 0;
@@ -557,6 +554,18 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
 
         // Fallback sub-sort so we have a consistent result
         //
+
+        // Display evo items first (And ensure they are grouped together)
+        {
+            bool8 isEvoItemA = Rogue_IsEvolutionItem(itemIdA);
+            bool8 isEvoItemB = Rogue_IsEvolutionItem(itemIdB);
+
+            if(isEvoItemA && !isEvoItemB)
+                return TRUE;
+
+            if(!isEvoItemA && isEvoItemB)
+                return FALSE;
+        }
 
         // Within the pocket attempt to sort items
         {
@@ -587,9 +596,16 @@ static bool8 SortItemPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
             }
 
             // Sort by ID if all else has failed
-            return slotA.itemId < slotB.itemId;
+            return itemIdA < itemIdB;
         }
     }
+}
+
+static bool8 SortItemSlotPlaceBefore(struct ItemSlot slotA, struct ItemSlot slotB)
+{
+    u16 quantityA = GetBagItemQuantity(&slotA.quantity);
+    u16 quantityB = GetBagItemQuantity(&slotB.quantity);
+    return SortItemPlaceBefore(gSaveBlock1Ptr->bagSortMode, slotA.itemId, slotB.itemId, quantityA, quantityB);
 }
 
 bool8 AddBagItem(u16 itemId, u16 count)
@@ -680,7 +696,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                 return TRUE;
             }
-            else if(SortItemPlaceBefore(currItemSlot, gSaveBlock1Ptr->bagPockets[i]))
+            else if(SortItemSlotPlaceBefore(currItemSlot, gSaveBlock1Ptr->bagPockets[i]))
             {
                 // Swap, as currItemSlot should be infront
                 tempSlot = gSaveBlock1Ptr->bagPockets[i];
@@ -993,7 +1009,7 @@ void SortItemsInBag()
             if(gSaveBlock1Ptr->bagPockets[i].itemId == ITEM_NONE)
                 break;
 
-            if(!SortItemPlaceBefore(gSaveBlock1Ptr->bagPockets[i - 1], gSaveBlock1Ptr->bagPockets[i]))
+            if(!SortItemSlotPlaceBefore(gSaveBlock1Ptr->bagPockets[i - 1], gSaveBlock1Ptr->bagPockets[i]))
             {
                 SwapItemSlots(&gSaveBlock1Ptr->bagPockets[i - 1], &gSaveBlock1Ptr->bagPockets[i]);
                 anySorts = TRUE;

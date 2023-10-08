@@ -329,7 +329,7 @@ const u8 *const gPocketNamesStringsTable[] =
     [CHARMS_POCKET] = gText_CharmsPocket,
     [KEYITEMS_POCKET] = gText_KeyItemsPocket,
     [HELD_ITEMS_POCKET] = gText_HeldItemsPocket,
-#ifdef ROGUE_EXPANSION
+#ifdef ROGUE_EXPANDED_POCKETS
     [STONES_POCKET] = gText_StonesPocket,
 #endif
 };

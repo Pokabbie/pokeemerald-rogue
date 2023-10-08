@@ -48,7 +48,7 @@ static const u8 sPocketVisualIndex[POCKETS_COUNT] =
     [BERRIES_POCKET] = 3,
     [CHARMS_POCKET] = 1,
     [KEYITEMS_POCKET] = 4,
-#ifdef ROGUE_EXPANSION
+#ifdef ROGUE_EXPANDED_POCKETS
     [STONES_POCKET] = 3,
 #endif
 };

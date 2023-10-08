@@ -318,7 +318,8 @@
 #define DEBUG_TOGGLE_ALLOW_SAVE_SCUM                (DEBUG_START_VALUE + 3)
 #define DEBUG_TOGGLE_INSTANT_CAPTURE                (DEBUG_START_VALUE + 4)
 #define DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR     (DEBUG_START_VALUE + 5)
-#define DEBUG_TOGGLE_COUNT                          6
+#define DEBUG_TOGGLE_DEBUG_SHOPS                    (DEBUG_START_VALUE + 6)
+#define DEBUG_TOGGLE_COUNT                          7
 
 // DEBUG_RANGE_
 #define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
