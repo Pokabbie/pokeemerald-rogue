@@ -1664,8 +1664,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_MARTS",
       "name": "Rogue_Area_Marts_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 24,
+      "height": 22,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Area_Marts/border.bin",
