@@ -837,42 +837,28 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
     {
         outItem->price = 50;
+        outItem->pocket = POCKET_BERRIES;
     }
 
-    if(outItem->holdEffect != 0)
-    {
-        // Hold items set price (Ignore berries)
 
-        if(outItem->pocket == POCKET_ITEMS)
-        {
-            // Exclude some items from moving to held items pocket, as the hold effect is a dud
-            switch (itemId)
-            {
-            case ITEM_DRAGON_SCALE:
-#ifdef ROGUE_EXPANSION
-            case ITEM_UPGRADE:
-#else
-            case ITEM_UP_GRADE:
-#endif
-                // Do nothing
-                break;
-            
-            default:
-                outItem->pocket = POCKET_HELD_ITEMS;
-                break;
-            }
-        }
+    // Don't move evo items into held item pocket
+    if(Rogue_IsEvolutionItem(itemId))
+    {
+        outItem->price = 2100;
+        outItem->pocket = POCKET_ITEMS;
+    }
+    else if(outItem->holdEffect != 0 && outItem->pocket != POCKET_BERRIES)
+    {
+        // Hold items set price based on usage in comp sets?
+
+        // Don't move evo items into held item pocket
+        outItem->pocket = POCKET_HELD_ITEMS;
     }
 
 #ifdef ROGUE_EXPANSION
     if(itemId >= ITEM_LEVEL_BALL && itemId <= ITEM_CHERISH_BALL)
     {
         outItem->price = 2500;
-    }
-
-    if(itemId >= ITEM_FIRE_STONE && itemId <= ITEM_RIBBON_SWEET)
-    {
-        outItem->price = 2100;
     }
 
     if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
@@ -922,6 +908,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->price = 1000;
     }
 
+    if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
+    {
+        outItem->price = 5000;
+        outItem->pocket = POCKET_STONES;
+    }
+
 #endif
 
     // Individual items
@@ -962,39 +954,36 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     
         case ITEM_SOUL_DEW:
             outItem->price = 5000;
+#ifdef ROGUE_EXPANSION
+            outItem->pocket = POCKET_STONES;
+#endif
             break;
 
 #ifdef ROGUE_EXPANSION
         case ITEM_ABILITY_CAPSULE:
             outItem->price = 3000;
+            outItem->pocket = POCKET_MEDICINE;
             break;
 
         case ITEM_ABILITY_PATCH:
             outItem->price = 6000;
+            outItem->pocket = POCKET_MEDICINE;
             break;
 
+        // Weaker versions
         case ITEM_ADAMANT_ORB:
         case ITEM_LUSTROUS_ORB:
         case ITEM_GRISEOUS_ORB:
+            outItem->price = 2000;
+            outItem->pocket = POCKET_STONES;
+            break;
+
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
             outItem->price = 5000;
+            outItem->pocket = POCKET_STONES;
             break;
 #endif
-
-        case ITEM_KINGS_ROCK:
-        case ITEM_DEEP_SEA_TOOTH:
-        case ITEM_DEEP_SEA_SCALE:
-        case ITEM_METAL_COAT:
-        case ITEM_DRAGON_SCALE:
-        case ITEM_MOON_STONE:
-#ifdef ROGUE_EXPANSION
-        case ITEM_UPGRADE:
-#else
-        case ITEM_UP_GRADE:
-#endif
-            outItem->price = 2100;
-            break;
 
         case ITEM_RARE_CANDY:
             outItem->price = 1000;
