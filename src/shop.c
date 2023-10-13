@@ -47,6 +47,8 @@
 #include "rogue_hub.h"
 #include "rogue_query.h"
 
+typedef void (*ShopCallback)();
+
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
 
@@ -58,7 +60,7 @@ static EWRAM_DATA struct ListMenuItem *sListMenuItems = NULL;
 static EWRAM_DATA u8 (*sItemNames)[16] = {0};
 static EWRAM_DATA u8 sPurchaseHistoryId = 0;
 EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
-static EWRAM_DATA u16* sTempShopBuffer = NULL;
+static EWRAM_DATA ShopCallback sFreeCallback = NULL;
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
@@ -549,10 +551,10 @@ static void CB2_InitBuyMenu(void)
 
 static void BuyMenuFreeMemory(void)
 {
-    if(sTempShopBuffer != NULL)
+    if(sFreeCallback != NULL)
     {
-        Free(sTempShopBuffer);
-        sTempShopBuffer = NULL;
+        sFreeCallback();
+        sFreeCallback = NULL;
     }
 
     Free(sShopData);
@@ -1696,6 +1698,12 @@ static u16 HubUpgradeShopItemListCallback(u16 index)
     return HUB_UPGRADE_NONE;
 }
 
+static void FreeShopQuery()
+{
+    RogueListQuery_End();
+    Rogue_CloseMartQuery();
+}
+
 void CreateDynamicPokemartMenu(const u16 category)
 {
     CheckPokemartState();
@@ -1710,9 +1718,6 @@ void CreateDynamicPokemartMenu(const u16 category)
     else
     {
         u16 martType = MART_TYPE_NORMAL;
-
-        //AGB_ASSERT(sTempShopBuffer == NULL);
-        //sTempShopBuffer = AllocZeroed(2 * sizeof(u16));
 
         if(category == ROGUE_SHOP_CHARMS)
             martType = MART_TYPE_PURCHASE_ONLY;
@@ -1735,9 +1740,10 @@ void CreateDynamicPokemartMenu(const u16 category)
 
             RogueListQuery_Begin();
             SetShopItemsFromStaticList(RogueListQuery_CollapseItems(sortMode), ITEM_NONE);
-            RogueListQuery_End();
         }
-        Rogue_CloseMartQuery();
+        // End inner and outer query when we leave shop, as we might need some dynamic allocs
+        sFreeCallback = FreeShopQuery;
+
         ClearItemPurchases();
     }
     SetShopMenuCallback(EnableBothScriptContexts);

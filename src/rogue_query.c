@@ -24,7 +24,7 @@
 #define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_SPECIES           NUM_SPECIES
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
-#define QUERY_NUM_TRAINERS          128 // just a vague guess that needs to at least match gRogueTrainerCount
+#define QUERY_NUM_TRAINERS          256 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
 
 #define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_ITEMS, max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES)))))
@@ -704,6 +704,15 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     return species;
 }
 
+bool8 Query_IsSpeciesEnabledInternal(u16 species)
+{
+    if(Rogue_IsRunActive())
+        return RoguePokedex_IsSpeciesEnabled(species);
+
+    // Force species active in queries for hub activities
+    return TRUE;
+}
+
 bool8 Query_IsSpeciesEnabled(u16 species)
 {
     // Check if mon has valid data
@@ -715,53 +724,53 @@ bool8 Query_IsSpeciesEnabled(u16 species)
         {
             // Regional forms
             if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             // Alt forms
             // Gen4
             if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             // Gen5
             if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species >= SPECIES_DEERLING_SUMMER && species <= SPECIES_KYUREM_BLACK)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             // Gen6
             if(species == SPECIES_MEOWSTIC_FEMALE)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
     
             // Gen7
             if(species >= SPECIES_ORICORIO_POM_POM && species <= SPECIES_LYCANROC_DUSK)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             // Gen8
             if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species == SPECIES_INDEEDEE_FEMALE)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species >= SPECIES_ZACIAN_CROWNED_SWORD && species <= SPECIES_ZAMAZENTA_CROWNED_SHIELD)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
-                return RoguePokedex_IsSpeciesEnabled(species);
+                return Query_IsSpeciesEnabledInternal(species);
 
             // If we've gotten here then we're not interested in this form
             return FALSE;
         }
 #endif
 
-        return RoguePokedex_IsSpeciesEnabled(species);
+        return Query_IsSpeciesEnabledInternal(species);
     }
 
     return FALSE;
@@ -852,12 +861,21 @@ bool8 Query_IsItemEnabled(u16 itemId)
         case ITEM_MAGOST_BERRY:
 #ifdef ROGUE_EXPANSION
 
-        // Not implemented
+        // Not implemented/needed
         case ITEM_MAX_HONEY:
         case ITEM_LURE:
         case ITEM_SUPER_LURE:
         case ITEM_MAX_LURE:
         case ITEM_MAX_MUSHROOMS:
+        case ITEM_WISHING_PIECE:
+        case ITEM_ARMORITE_ORE:
+        case ITEM_DYNITE_ORE:
+        case ITEM_GALARICA_TWIG:
+        case ITEM_SWEET_HEART:
+        case ITEM_POKE_TOY:
+
+        // Link cable is Rogue's item
+        case ITEM_LINKING_CORD:
 
         // Not needed as is not a lvl up evo
         case ITEM_PRISM_SCALE:
@@ -908,42 +926,42 @@ bool8 Query_IsItemEnabled(u16 itemId)
         // Regional treat (Avoid spawning in multiple)
         if(itemId >= ITEM_PEWTER_CRUNCHIES && itemId <= ITEM_BIG_MALASADA)
         {
-            
-        switch(maxGen)
-        {
-            case 1:
-                if(itemId != ITEM_PEWTER_CRUNCHIES)
-                    return FALSE;
-                break;
-            case 2:
-                if(itemId != ITEM_RAGE_CANDY_BAR)
-                    return FALSE;
-                break;
-            case 3:
-                if(itemId != ITEM_LAVA_COOKIE)
-                    return FALSE;
-                break;
-            case 4:
-                if(itemId != ITEM_OLD_GATEAU)
-                    return FALSE;
-                break;
-            case 5:
-                if(itemId != ITEM_CASTELIACONE)
-                    return FALSE;
-                break;
-            case 6:
-                if(itemId != ITEM_LUMIOSE_GALETTE)
-                    return FALSE;
-                break;
-            case 7:
-                if(itemId != ITEM_SHALOUR_SABLE)
-                    return FALSE;
-                break;
-            //case 8:
-            default:
-                if(itemId != ITEM_BIG_MALASADA)
-                    return FALSE;
-                break;
+            switch(gen)
+            {
+                case 1:
+                    if(itemId != ITEM_PEWTER_CRUNCHIES)
+                        return FALSE;
+                    break;
+                case 2:
+                    if(itemId != ITEM_RAGE_CANDY_BAR)
+                        return FALSE;
+                    break;
+                case 3:
+                    if(itemId != ITEM_LAVA_COOKIE)
+                        return FALSE;
+                    break;
+                case 4:
+                    if(itemId != ITEM_OLD_GATEAU)
+                        return FALSE;
+                    break;
+                case 5:
+                    if(itemId != ITEM_CASTELIACONE)
+                        return FALSE;
+                    break;
+                case 6:
+                    if(itemId != ITEM_LUMIOSE_GALETTE)
+                        return FALSE;
+                    break;
+                case 7:
+                    if(itemId != ITEM_SHALOUR_SABLE)
+                        return FALSE;
+                    break;
+                //case 8:
+                default:
+                    if(itemId != ITEM_BIG_MALASADA)
+                        return FALSE;
+                    break;
+            }
         }
 
         // Ignore fossils for now
@@ -1121,27 +1139,30 @@ static bool8 Query_IsGeneralShopItem(u16 itemId)
 
     switch (itemId)
     {
-    case ITEM_GUARD_SPEC:
-    case ITEM_DIRE_HIT:
-    case ITEM_X_ATTACK:
-    case ITEM_X_DEFEND:
-    case ITEM_X_SPECIAL:
-    case ITEM_X_SPEED:
-    case ITEM_X_ACCURACY:
-    case ITEM_PP_UP:
-    case ITEM_MAX_ETHER:
-    case ITEM_MAX_ELIXIR:
-    case ITEM_ETHER:
-    case ITEM_ELIXIR:
     case ITEM_HP_UP:
-    case ITEM_PP_MAX:
     case ITEM_PROTEIN:
     case ITEM_IRON:
     case ITEM_CARBOS:
     case ITEM_CALCIUM:
     case ITEM_ZINC:
+#ifdef ROGUE_EXPANSION
+    case ITEM_ABILITY_CAPSULE:
+    case ITEM_ABILITY_PATCH:
+#endif
+
         return FALSE;
     }
+
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
+        return FALSE;
+
+    if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+        return FALSE;
+
+    if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER)
+        return FALSE;
+#endif
 
     return TRUE;
 }
@@ -1547,13 +1568,41 @@ u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updated
 void RogueListQuery_Begin()
 {
     ASSERT_ANY_QUERY;
-    sRogueQueryPtr->listArray = &gRogueQueryBuffer[0];
-    sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
+    AGB_ASSERT(sRogueQueryPtr->arrayCapacity == 0);
+
+    // Attempt to dynamically allocate memory for us to use, as we can't fit into the preallocation size
+    if(sRogueQueryPtr->bitCount + 1 >= ARRAY_COUNT(gRogueQueryBuffer))
+    {
+        sRogueQueryPtr->arrayCapacity = sRogueQueryPtr->bitCount + 1;
+        sRogueQueryPtr->listArray = Alloc(sizeof(u16) * sRogueQueryPtr->arrayCapacity);
+
+        if(sRogueQueryPtr->listArray == NULL)
+        {
+            // Failed to allocate, so fallback and just have a smaller list
+            AGB_ASSERT(FALSE);
+            sRogueQueryPtr->arrayCapacity = 0;
+        }
+    }
+
+    // Use the preallocated array
+    if(sRogueQueryPtr->arrayCapacity == 0)
+    {
+        sRogueQueryPtr->listArray = &gRogueQueryBuffer[0];
+        sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
+    }
 }
 
 void RogueListQuery_End()
 {
     ASSERT_LIST_QUERY;
+    AGB_ASSERT(sRogueQueryPtr->arrayCapacity != 0);
+
+    // Free dynamically alloced array
+    if(sRogueQueryPtr->arrayCapacity >= ARRAY_COUNT(gRogueQueryBuffer))
+    {
+        Free(sRogueQueryPtr->listArray);
+    }
+
     sRogueQueryPtr->listArray = NULL;
     sRogueQueryPtr->arrayCapacity = 0;
 }
@@ -1576,7 +1625,10 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode)
             sRogueQueryPtr->listArray[index++] = itemId;
     
             if(index >= sRogueQueryPtr->arrayCapacity - 1)
+            {
+                // Hit capacity (Probably means putting too much into 1 shop)
                 break;
+            }
         }
     }
 

@@ -1139,6 +1139,10 @@ u8 ItemToGen(u16 item)
 
 bool8 IsGenEnabled(u8 gen)
 {
+    // Keep all gens enabled whilst in hub
+    if(!Rogue_IsRunActive())
+        return TRUE;
+
 #ifdef ROGUE_EXPANSION
     if(gen >= 1 && gen <= 8)
 #else
@@ -4672,10 +4676,22 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         else
             *minSalePrice = 2000;
         applyRandomChance = TRUE;
+
+#ifdef ROGUE_EXPANSION
+        // Don't display plates in here? (Maybe we just use a different mechanism and hide any quest rewards?)
+        if(!Rogue_IsRunActive())
+        {
+            RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_FLAME_PLATE, ITEM_PIXIE_PLATE);
+        }
+#endif
         break;
 
     case ROGUE_SHOP_RARE_HELD_ITEMS:
+#ifdef ROGUE_EXPANSION
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_STONES);
+#else
         AGB_ASSERT(FALSE);
+#endif
         break;
 
     case ROGUE_SHOP_QUEST_REWARDS:
@@ -4701,6 +4717,12 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         break;
     }
 
+    // Run only items
+    if(!Rogue_IsRunActive())
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ESCAPE_ROPE);
+    }
+
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_TINY_MUSHROOM);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MUSHROOM);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PEARL);
@@ -4708,7 +4730,6 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_STARDUST);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_STAR_PIECE);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_NUGGET);
-    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ESCAPE_ROPE);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ENERGY_POWDER);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ENERGY_ROOT);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_HEAL_POWDER);
@@ -4717,6 +4738,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_MOOMOO_MILK);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_SODA_POP);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_FRESH_WATER);
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_LEMONADE);
 
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_LAVA_COOKIE);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PREMIER_BALL);
@@ -4731,6 +4753,25 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_SHALOUR_SABLE);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MALASADA);
 #endif
+
+    // Remove EV items
+    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_HP_UP);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PROTEIN);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_IRON);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_CALCIUM);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ZINC);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_CARBOS);
+#ifdef ROGUE_EXPANSION
+        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+#endif
+    }
+
+    // Remove EV held items
+    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+    {
+    }
 
     // Only show items with a valid price
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
