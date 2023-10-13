@@ -1727,6 +1727,7 @@ void CreateDynamicPokemartMenu(const u16 category)
         Rogue_OpenMartQuery(category, &sMartInfo.minPrice);
         {
             u8 sortMode = ITEM_SORT_MODE_TYPE;
+            bool8 flipSort = FALSE;
 
             switch (category)
             {
@@ -1736,10 +1737,15 @@ void CreateDynamicPokemartMenu(const u16 category)
             case ROGUE_SHOP_TMS:
                 sortMode = ITEM_SORT_MODE_NAME;
                 break;
+
+            case ROGUE_SHOP_BALLS:
+                sortMode = ITEM_SORT_MODE_VALUE;
+                flipSort = TRUE;
+                break;
             }
 
             RogueListQuery_Begin();
-            SetShopItemsFromStaticList(RogueListQuery_CollapseItems(sortMode), ITEM_NONE);
+            SetShopItemsFromStaticList(RogueListQuery_CollapseItems(sortMode, flipSort), ITEM_NONE);
         }
         // End inner and outer query when we leave shop, as we might need some dynamic allocs
         sFreeCallback = FreeShopQuery;

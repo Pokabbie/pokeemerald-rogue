@@ -86,7 +86,7 @@ u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updated
 // List selection
 void RogueListQuery_Begin();
 void RogueListQuery_End();
-u16 const* RogueListQuery_CollapseItems(u8 sortMode);
+u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort);
 
 
 // RogueQuery old API

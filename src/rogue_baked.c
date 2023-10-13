@@ -983,6 +983,29 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = 5000;
             outItem->pocket = POCKET_STONES;
             break;
+
+        case ITEM_DUSK_BALL:
+        case ITEM_TIMER_BALL:
+        case ITEM_QUICK_BALL:
+        case ITEM_BEAST_BALL:
+            outItem->price = 2500;
+            break;
+
+        case ITEM_REPEAT_BALL:
+        case ITEM_LEVEL_BALL:
+        case ITEM_CHERISH_BALL:
+            outItem->price = 2000;
+            break;
+
+        case ITEM_LURE_BALL:
+        case ITEM_MOON_BALL:
+        case ITEM_FRIEND_BALL:
+        case ITEM_LOVE_BALL:
+        case ITEM_FAST_BALL:
+        case ITEM_HEAVY_BALL:
+        case ITEM_DREAM_BALL:
+            outItem->price = 1500;
+            break;
 #endif
 
         case ITEM_RARE_CANDY:
