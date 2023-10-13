@@ -972,9 +972,9 @@
 #define ITEM_GRISEOUS_CORE 793
 #define ITEM_LUSTROUS_GLOBE 794
 
-#define ITEM_BLACK_AUGURITE 795         // not hooked up
-#define ITEM_LINKING_CORD 796           // not hooked up
-#define ITEM_PEAT_BLOCK 797             // not hooked up
+#define ITEM_BLACK_AUGURITE 795
+#define ITEM_LINKING_CORD 796
+#define ITEM_PEAT_BLOCK 797
 #define ITEM_BERSERK_GENE 798           // not hooked up
 
 #define ITEM_ROGUE_ITEM_FIRST   799 // TODO - Leave a big gap for future additions?
