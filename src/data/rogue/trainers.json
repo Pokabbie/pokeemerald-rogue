@@ -1680,6 +1680,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I'm but one Trainer who decided to walk proudly with Rock-type POKéMON!\\pI need to see your potential as a Trainer.",
+                        "PRE_BATTLE_TAUNT": "And I'll need to see the toughness of the POKéMON that battle with you!",
+                        "POST_BATTLE_TAUNT": "Wh-what? That can't be!\\nMy buffed-up POKéMON!",
+                        "POST_BATTLE_CLOSER": "This is embarrassing…\\pBut that's the story. You were strong, and I was weak. That's all there is.\\pI hope you go far, {PLAYER}!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1714,6 +1723,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You have a winning aura about you!\\pSo, anyway, this will be fun.",
+                        "PRE_BATTLE_TAUNT": "Let's have a great battle!",
+                        "POST_BATTLE_TAUNT": "Amazing! You're very good, aren't you?",
+                        "POST_BATTLE_CLOSER": "You're really tough!\\pWasn't it hard for you to raise your POKéMON to be so good?\\pAnyway, I won't keep you any longer.\\pGood luck, {PLAYER}!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1744,6 +1762,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hello, I'm pleased to meet you.\\pI don't really know what it means to be strong or how I got to be a Leader.\\pBut I will do the best I can!",
+                        "PRE_BATTLE_TAUNT": "I take battling very seriously.\\nWhenever you're ready!",
+                        "POST_BATTLE_TAUNT": "I shall admit defeat… You are much too strong.",
+                        "POST_BATTLE_CLOSER": "OK you win!\\pThat was a tough loss. I learned a lot from it.\\pStay strong!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1774,6 +1801,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I don't get challenged very often!\\pThe glory you are now beholding is I, {STR_VAR_1}!",
+                        "PRE_BATTLE_TAUNT": "Victory will be ours! Come on, let's get it done!",
+                        "POST_BATTLE_TAUNT": "How will I say this… I want more! I wanted to battle a lot more!",
+                        "POST_BATTLE_CLOSER": "It seems the undertow pulled me under… But I had a great time battling with you!\\pI look forward to seeing how far you can go!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1800,6 +1836,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ohohoho!\\pSince I came to this region, I always try to learn new things.\\pAnd, uh, so it shall be that you challenge me.",
+                        "PRE_BATTLE_TAUNT": "But I shall win. That is what a Leader does, non?",
+                        "POST_BATTLE_TAUNT": "You are so fantastically strong. I know now why I have lost.",
+                        "POST_BATTLE_CLOSER": "I am dumbfounded!\\pSo very, very strong! You, your POKéMON, so strong!\\pI'm sure you shall go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1837,6 +1882,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I {STR_VAR_1}, will accept your challenge.",
+                        "PRE_BATTLE_TAUNT": "I expect you to go all out!",
+                        "POST_BATTLE_TAUNT": "Hmm! My sturdy POKéMON, defeated!",
+                        "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of POKéMON.\\pHold your head up, as you go onward!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1871,6 +1925,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You want to challenge {STR_VAR_1}?\\pSure thing!",
+                        "PRE_BATTLE_TAUNT": "I was waiting for someone tough!",
+                        "POST_BATTLE_TAUNT": "I must say, I've warmed up to you! I might even admire you a little.",
+                        "POST_BATTLE_CLOSER": "Wow! You're great! You've earned my respect! I think your focus and will bowled us over totally.\\pI hope your Adventure goes well!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -1904,6 +1967,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: It's not often a Trainer manages to challenge me.\\pAnd when they do, they've all been boring battles. I didn't even break a sweat beating them.",
+                        "PRE_BATTLE_TAUNT": "I hope you're the Trainer who'll make me remember how fun it is to battle!",
+                        "POST_BATTLE_TAUNT": "You've got me beat. Your desire and the noble way you POKéMON battled for you…",
+                        "POST_BATTLE_CLOSER": "I even felt thrilled during our match.\\pThat was a very good battle.\\pI'm sure you're gonna go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1951,6 +2023,15 @@
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
                 "weather": "RAIN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Welcome! It's good to meet you.\\pOh, I should explain-I'm a huge fan of Bug POKéMON.",
+                        "PRE_BATTLE_TAUNT": "OK! Let me take you on!",
+                        "POST_BATTLE_TAUNT": "I will now concede defeat.",
+                        "POST_BATTLE_CLOSER": "I hope you came to see how great Bug-type POKéMON can be.\\pAlthough, battling is a deep and complex affair…\\pMake sure to battle carefully, as you move forward."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -1981,6 +2062,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Well, well.\\pYou're quite the adorable Trainer, but you've also got a spine.",
+                        "PRE_BATTLE_TAUNT": "Well, would you show this old lady how much you've learned?",
+                        "POST_BATTLE_TAUNT": "Well! Dear child, I must say, that was most impressive.",
+                        "POST_BATTLE_CLOSER": "Your POKéMON believed in you and did their best to earn you the win.\\pEven though I've lost, I find myself with this silly grin!\\pI wish you the best of luck, child."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2010,6 +2100,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Yo, Trainer!\\pYou had me counting the days on my fingers waiting for you to come.\\pI heard you've managed to light fires in Trainer's hearts!",
+                        "PRE_BATTLE_TAUNT": "How could you not expect me to look forward to seeing you in battle?",
+                        "POST_BATTLE_TAUNT": "Whoa!\\nI wasn't expecting this!",
+                        "POST_BATTLE_CLOSER": "I wasn't looking down on you, but I didn't think for a second that I'd lose!\\pThis is fantastic! You and your POKéMON are inspiring!\\pKeep up that energy in your upcoming battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2047,6 +2146,15 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ah, you timed your arrival well. I've just finished reading a book, you see.\\pI am {STR_VAR_1}. I am a user of Psychic types.",
+                        "PRE_BATTLE_TAUNT": "I'm afraid I will have to go all out against you to live up to my reputation.",
+                        "POST_BATTLE_TAUNT": "I see.\\nYour power is real.",
+                        "POST_BATTLE_CLOSER": "I should warn you that there are far stronger battles that await you than I.\\pRemain cautious."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2084,11 +2192,24 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_CHAMP" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Together, you and your POKéMON overcame all the challenges you faced, however difficult.\\pIt means you've triumphed over any personal weaknesses, too.\\pBut that's enough talk. Let's get on with why you're here.",
+                        "PRE_BATTLE_TAUNT": "I, {STR_VAR_1}, accept your challenge!",
+                        "POST_BATTLE_TAUNT": "Just a few minutes ago, you were the most powerful challenger.\\pNow you have proven yourself as a much more powerful trainer than I.",
+                        "POST_BATTLE_CLOSER": "That was excellent. Truly, an outstanding battle.\\pYou gave the support your POKéMON needed to maximize their power, and you guided them with certainty to secure victory.\\pI'm certain that your battle prowess will take you far in your Adventure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
                     "subsets":
                     [
+                        {
+                            "max_samples": 1,
+                            "exclude_types": [ "DRAGON" ]
+                        },
                         {
                             "max_samples": 1,
                             "include_types": [ "DRAGON" ]
