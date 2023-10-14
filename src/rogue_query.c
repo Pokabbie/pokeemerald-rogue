@@ -1609,7 +1609,7 @@ void RogueListQuery_End()
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
 
-u16 const* RogueListQuery_CollapseItems(u8 sortMode)
+u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
 {
     u16 itemId;
     u16 index;
@@ -1649,7 +1649,7 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode)
                 if(i == j)
                     continue;
 
-                if(SortItemPlaceBefore(sortMode, sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], 1, 1))
+                if(SortItemPlaceBefore(sortMode, sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], 1, 1) != flipSort)
                 {
                     SWAP(sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], temp);
                     anySorts = TRUE;
