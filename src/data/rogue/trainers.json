@@ -3101,18 +3101,15 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }
-            }
-        ],
+            },
 
-        "#ifdef ROGUE_EXPANSION // alola_totem":
-        [
             {
-                "name": "RATICATE",
-                "type_assignment": "DARK",
+                "name": "ILIMA",
+                "type_assignment": "NORMAL",
                 "gfx_suffix": "PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
+                "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3120,24 +3117,24 @@
                     [
                         {
                             "max_samples": 6,
-                            "include_types": [ "DARK" ]
+                            "include_types": [ "NORMAL" ]
                         }
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RATTATA_ALOLAN", "IMPOSSIBLE_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_YUNGOOS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }
             },
             {
-                "name": "VIKAVOLT",
-                "type_assignment": "ELECTRIC",
+                "name": "LANA",
+                "type_assignment": "WATER",
                 "gfx_suffix": "PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
+                "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3145,27 +3142,52 @@
                     [
                         {
                             "max_samples": 6,
-                            "include_types": [ "ELECTRIC", "BUG" ]
+                            "include_types": [ "WATER" ]
                         }
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GRUBBIN", "IMPOSSIBLE_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DEWPIDER", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }
             },
             {
-                "name": "LURANTIS",
-                "type_assignment": "GRASS",
+                "name": "KIAWE",
+                "type_assignment": "FIRE",
                 "gfx_suffix": "PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
+                "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CUBONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MALLOW",
+                "type_assignment": "GRASS",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "alola_boss",
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -3175,48 +3197,44 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FOMANTIS", "IMPOSSIBLE_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BOUNSWEET", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }
             },
             {
-                "name": "MIMIKYU",
-                "type_assignment": "GHOST",
+                "name": "SOPHOCLES",
+                "type_assignment": "ELECTRIC",
                 "gfx_suffix": "PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_TOTEM_LEADER",
+                "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
+                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
                             "max_samples": 6,
-                            "include_types": [ "GHOST", "FAIRY" ]
+                            "include_types": [ "ELECTRIC" ]
                         }
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MIMIKYU", "IMPOSSIBLE_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GEODUDE_ALOLAN", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }
-            }
-        ],
-        
-        "#ifdef ROGUE_EXPANSION // alola_elite":
-        [
+            },
             {
                 "name": "ACEROLA",
                 "type_assignment": "GHOST",
                 "gfx_suffix": "PLACEHOLDER_NPC",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3236,6 +3254,35 @@
                     ]
                 }
             },
+            {
+                "name": "MINA",
+                "type_assignment": "FAIRY",
+                "gfx_suffix": "PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "music_player": "alola_boss",
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CUTIEFLY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "#ifdef ROGUE_EXPANSION // alola_elite":
+        [
             {
                 "name": "KAHILI",
                 "type_assignment": "FLYING",
