@@ -132,9 +132,6 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 
 			Directory.CreateDirectory(outputDirectory);
 
-			codeExport.For("sprite_rules.mk").Body.AppendLine($"$(OBJEVENTGFXDIR)/rogue/npc/*.4bpp: %.4bpp: %.png");
-			codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
-
 			foreach (var file in Directory.EnumerateFiles(inputDirectory))
 			{
 				string fileName = Path.GetFileName(file);
@@ -190,9 +187,9 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				string instanceName = Path.GetFileNameWithoutExtension(fileName).Replace(" ", "_");
 				string npcName = FormatNpcName(groupName + "_" + instanceName);
 
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"//$(OBJEVENTGFXDIR)/rogue/npc/{groupName.ToLower()}/{instanceName}.4bpp: %.4bpp: %.png");
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"//	$(GFX) $< $@ -mwidth 2 -mheight 4");
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"//");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"$(OBJEVENTGFXDIR)/rogue/npc/{groupName.ToLower()}/{instanceName}.4bpp: %.4bpp: %.png");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"");
 
 				codeExport.For("event_objects.h").Header.AppendLine($"#define OBJ_EVENT_GFX_{npcName.ToUpper()}       __ABCDEF__");
 
