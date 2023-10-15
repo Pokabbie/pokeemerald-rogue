@@ -479,12 +479,31 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_SINNOH_CANDICE         0x113E
 #define OBJ_EVENT_PAL_TAG_SINNOH_MAYLENE         0x113F
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE         0x1140
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA         0x1140
+#define OBJ_EVENT_PAL_TAG_UNOVA_ALDER            0x1140
+#define OBJ_EVENT_PAL_TAG_UNOVA_BRYCEN           0x1141
+#define OBJ_EVENT_PAL_TAG_UNOVA_CAITLIN          0x1142
+#define OBJ_EVENT_PAL_TAG_UNOVA_CLAY             0x1143
+#define OBJ_EVENT_PAL_TAG_UNOVA_DRAYDEN          0x1144
+#define OBJ_EVENT_PAL_TAG_UNOVA_ELESA            0x1145
+#define OBJ_EVENT_PAL_TAG_UNOVA_GRIMSLY          0x1146
+#define OBJ_EVENT_PAL_TAG_UNOVA_IRIS             0x1147
+#define OBJ_EVENT_PAL_TAG_UNOVA_LENORA           0x1148
+#define OBJ_EVENT_PAL_TAG_UNOVA_MARLON           0x1149
+#define OBJ_EVENT_PAL_TAG_UNOVA_MARSHAL          0x114A
+#define OBJ_EVENT_PAL_TAG_UNOVA_CHILI            0x114B
+#define OBJ_EVENT_PAL_TAG_UNOVA_CILAN            0x114C
+#define OBJ_EVENT_PAL_TAG_UNOVA_CRESS            0x114D
+#define OBJ_EVENT_PAL_TAG_UNOVA_SHAUNTAL         0x114E
+#define OBJ_EVENT_PAL_TAG_UNOVA_SKYLA            0x114F
+#define OBJ_EVENT_PAL_TAG_UNOVA_BURGH            0x1150
+#define OBJ_EVENT_PAL_TAG_UNOVA_ROXIE            0x1151
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                  0x1141
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1152
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1153
 
-#define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x1154
+
+#define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -563,6 +582,25 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Sinnoh_Volkner, OBJ_EVENT_PAL_TAG_SINNOH_VOLKNER},
     {gObjectEventPal_Sinnoh_Candice, OBJ_EVENT_PAL_TAG_SINNOH_CANDICE},
     {gObjectEventPal_Sinnoh_Maylene, OBJ_EVENT_PAL_TAG_SINNOH_MAYLENE},
+
+    {gObjectEventPal_Unova_Alder, OBJ_EVENT_PAL_TAG_UNOVA_ALDER},
+    {gObjectEventPal_Unova_Brycen, OBJ_EVENT_PAL_TAG_UNOVA_BRYCEN},
+    {gObjectEventPal_Unova_Caitlin, OBJ_EVENT_PAL_TAG_UNOVA_CAITLIN},
+    {gObjectEventPal_Unova_Clay, OBJ_EVENT_PAL_TAG_UNOVA_CLAY},
+    {gObjectEventPal_Unova_Drayden, OBJ_EVENT_PAL_TAG_UNOVA_DRAYDEN},
+    {gObjectEventPal_Unova_Elesa, OBJ_EVENT_PAL_TAG_UNOVA_ELESA},
+    {gObjectEventPal_Unova_Grimsly, OBJ_EVENT_PAL_TAG_UNOVA_GRIMSLY},
+    {gObjectEventPal_Unova_Iris, OBJ_EVENT_PAL_TAG_UNOVA_IRIS},
+    {gObjectEventPal_Unova_Lenora, OBJ_EVENT_PAL_TAG_UNOVA_LENORA},
+    {gObjectEventPal_Unova_Marlon, OBJ_EVENT_PAL_TAG_UNOVA_MARLON},
+    {gObjectEventPal_Unova_Marshal, OBJ_EVENT_PAL_TAG_UNOVA_MARSHAL},
+    {gObjectEventPal_Unova_Chili, OBJ_EVENT_PAL_TAG_UNOVA_CHILI},
+    {gObjectEventPal_Unova_Cilan, OBJ_EVENT_PAL_TAG_UNOVA_CILAN},
+    {gObjectEventPal_Unova_Cress, OBJ_EVENT_PAL_TAG_UNOVA_CRESS},
+    {gObjectEventPal_Unova_Shauntal, OBJ_EVENT_PAL_TAG_UNOVA_SHAUNTAL},
+    {gObjectEventPal_Unova_Skyla, OBJ_EVENT_PAL_TAG_UNOVA_SKYLA},
+    {gObjectEventPal_Unova_Burgh, OBJ_EVENT_PAL_TAG_UNOVA_BURGH},
+    {gObjectEventPal_Unova_Roxie, OBJ_EVENT_PAL_TAG_UNOVA_ROXIE},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

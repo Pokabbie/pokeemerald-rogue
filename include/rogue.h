@@ -467,13 +467,13 @@ struct RoguePokedexRegion
 
 struct RogueDifficultyConfig
 {
-    u8 toggleBits[1 + (DIFFICULTY_TOGGLE_COUNT) / 8];
+    u8 toggleBits[DIFFICULTY_TOGGLE_BYTE_COUNT];
     u8 rangeValues[DIFFICULTY_RANGE_COUNT];
 };
 
 struct RogueDebugConfig
 {
-    u8 toggleBits[1 + (DEBUG_TOGGLE_COUNT) / 8];
+    u8 toggleBits[DEBUG_TOGGLE_BYTE_COUNT];
     u8 rangeValues[DEBUG_RANGE_COUNT];
 };
 

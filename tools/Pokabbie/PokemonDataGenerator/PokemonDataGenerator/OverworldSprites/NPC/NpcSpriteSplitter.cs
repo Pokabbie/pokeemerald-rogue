@@ -114,6 +114,9 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 		{
 			CodeHintExporter codeExport = new CodeHintExporter();
 
+			if(Directory.Exists(outputDirectory))
+				Directory.Delete(outputDirectory, true);
+
 			foreach (var subDirectory in Directory.EnumerateDirectories(inputDirectory))
 			{
 				string groupName = Path.GetFileName(subDirectory);
@@ -129,12 +132,36 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 
 			Directory.CreateDirectory(outputDirectory);
 
+			codeExport.For("sprite_rules.mk").Body.AppendLine($"$(OBJEVENTGFXDIR)/rogue/npc/*.4bpp: %.4bpp: %.png");
+			codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
+
 			foreach (var file in Directory.EnumerateFiles(inputDirectory))
 			{
 				string fileName = Path.GetFileName(file);
 
 				// Pretty up the file name
-				if (fileName.StartsWith("_sprite__"))
+				if (fileName.Contains("_highnoonmoon_"))
+				{
+					int index = fileName.IndexOf("_highnoonmoon_");
+					fileName = fileName.Substring(0, index).Trim().Substring("trainer_leader_".Length) + Path.GetExtension(fileName);
+				}
+				else if (fileName.Contains("_by_wjj36"))
+				{
+					if(fileName.StartsWith("npc_leader_"))
+					{
+						int index = fileName.IndexOf("_by_wjj36");
+						fileName = fileName.Substring(0, index).Trim() + Path.GetExtension(fileName);
+
+						index = fileName.LastIndexOf("_");
+						fileName = fileName.Substring(index + 1);
+					}
+					else
+					{
+						int index = fileName.IndexOf("_ow_");
+						fileName = fileName.Substring(0, index).Trim() + Path.GetExtension(fileName);
+					}
+				}
+				else if (fileName.StartsWith("_sprite__"))
 				{
 					fileName = fileName.Substring("_sprite__".Length);
 
@@ -163,18 +190,18 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				string instanceName = Path.GetFileNameWithoutExtension(fileName).Replace(" ", "_");
 				string npcName = FormatNpcName(groupName + "_" + instanceName);
 
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"$(OBJEVENTGFXDIR)/rogue/npc/{groupName.ToLower()}/{instanceName}.4bpp: %.4bpp: %.png");
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"	$(GFX) $< $@ -mwidth 2 -mheight 4");
-				codeExport.For("sprite_rules.mk").Body.AppendLine($"");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"//$(OBJEVENTGFXDIR)/rogue/npc/{groupName.ToLower()}/{instanceName}.4bpp: %.4bpp: %.png");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"//	$(GFX) $< $@ -mwidth 2 -mheight 4");
+				codeExport.For("sprite_rules.mk").Body.AppendLine($"//");
 
-				codeExport.For("event_objects.h").Header.AppendLine($"#define OBJ_EVENT_GFX_{npcName.ToUpper()} __ABCDEF__");
+				codeExport.For("event_objects.h").Header.AppendLine($"#define OBJ_EVENT_GFX_{npcName.ToUpper()}       __ABCDEF__");
 
 				codeExport.For("object_event_graphics_info_pointers.h").Header.AppendLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{npcName};");
 				codeExport.For("object_event_graphics_info_pointers.h").Body.AppendLine($"[OBJ_EVENT_GFX_{npcName.ToUpper()}] = &gObjectEventGraphicsInfo_{npcName},");
 
 				codeExport.For("object_event_graphics_info.h").Body.AppendLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{npcName} = {{TAG_NONE, OBJ_EVENT_PAL_TAG_{npcName.ToUpper()}, OBJ_EVENT_PAL_TAG_NONE, 256, 16, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_Standard, sPicTable_{npcName}, gDummySpriteAffineAnimTable}};");
 
-				codeExport.For("event_object_movement.c").Header.AppendLine($"#define PAL_TAG_{npcName.ToUpper()} __ABCDEF__");
+				codeExport.For("event_object_movement.c").Header.AppendLine($"#define OBJ_EVENT_PAL_TAG_{npcName.ToUpper()}      __ABCDEF__");
 				codeExport.For("event_object_movement.c").Body.AppendLine($"{{gObjectEventPal_{npcName}, OBJ_EVENT_PAL_TAG_{npcName.ToUpper()}}},");
 
 				codeExport.For("object_event_graphics.h").Header.AppendLine($"const u16 gObjectEventPal_{npcName}[] = INCBIN_U16(\"graphics/object_events/pics/rogue/npc/{groupName.ToLower()}/{instanceName}.gbapal\");");

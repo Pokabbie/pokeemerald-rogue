@@ -320,6 +320,25 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Volkner;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Candice;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sinnoh_Maylene;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Alder;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Brycen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Caitlin;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Clay;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Drayden;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Elesa;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Grimsly;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Iris;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Lenora;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Marlon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Marshal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Chili;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Cilan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Cress;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Shauntal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Skyla;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Burgh;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Roxie;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -706,6 +725,25 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SINNOH_VOLKNER] = &gObjectEventGraphicsInfo_Sinnoh_Volkner,
     [OBJ_EVENT_GFX_SINNOH_CANDICE] = &gObjectEventGraphicsInfo_Sinnoh_Candice,
     [OBJ_EVENT_GFX_SINNOH_MAYLENE] = &gObjectEventGraphicsInfo_Sinnoh_Maylene,
+    
+    [OBJ_EVENT_GFX_UNOVA_ALDER] = &gObjectEventGraphicsInfo_Unova_Alder,
+    [OBJ_EVENT_GFX_UNOVA_BRYCEN] = &gObjectEventGraphicsInfo_Unova_Brycen,
+    [OBJ_EVENT_GFX_UNOVA_CAITLIN] = &gObjectEventGraphicsInfo_Unova_Caitlin,
+    [OBJ_EVENT_GFX_UNOVA_CLAY] = &gObjectEventGraphicsInfo_Unova_Clay,
+    [OBJ_EVENT_GFX_UNOVA_DRAYDEN] = &gObjectEventGraphicsInfo_Unova_Drayden,
+    [OBJ_EVENT_GFX_UNOVA_ELESA] = &gObjectEventGraphicsInfo_Unova_Elesa,
+    [OBJ_EVENT_GFX_UNOVA_GRIMSLY] = &gObjectEventGraphicsInfo_Unova_Grimsly,
+    [OBJ_EVENT_GFX_UNOVA_IRIS] = &gObjectEventGraphicsInfo_Unova_Iris,
+    [OBJ_EVENT_GFX_UNOVA_LENORA] = &gObjectEventGraphicsInfo_Unova_Lenora,
+    [OBJ_EVENT_GFX_UNOVA_MARLON] = &gObjectEventGraphicsInfo_Unova_Marlon,
+    [OBJ_EVENT_GFX_UNOVA_MARSHAL] = &gObjectEventGraphicsInfo_Unova_Marshal,
+    [OBJ_EVENT_GFX_UNOVA_CHILI] = &gObjectEventGraphicsInfo_Unova_Chili,
+    [OBJ_EVENT_GFX_UNOVA_CILAN] = &gObjectEventGraphicsInfo_Unova_Cilan,
+    [OBJ_EVENT_GFX_UNOVA_CRESS] = &gObjectEventGraphicsInfo_Unova_Cress,
+    [OBJ_EVENT_GFX_UNOVA_SHAUNTAL] = &gObjectEventGraphicsInfo_Unova_Shauntal,
+    [OBJ_EVENT_GFX_UNOVA_SKYLA] = &gObjectEventGraphicsInfo_Unova_Skyla,
+    [OBJ_EVENT_GFX_UNOVA_BURGH] = &gObjectEventGraphicsInfo_Unova_Burgh,
+    [OBJ_EVENT_GFX_UNOVA_ROXIE] = &gObjectEventGraphicsInfo_Unova_Roxie,
 
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,
