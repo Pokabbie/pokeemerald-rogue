@@ -732,7 +732,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_UNOVA_CLAY] = &gObjectEventGraphicsInfo_Unova_Clay,
     [OBJ_EVENT_GFX_UNOVA_DRAYDEN] = &gObjectEventGraphicsInfo_Unova_Drayden,
     [OBJ_EVENT_GFX_UNOVA_ELESA] = &gObjectEventGraphicsInfo_Unova_Elesa,
-    [OBJ_EVENT_GFX_UNOVA_GRIMSLY] = &gObjectEventGraphicsInfo_Unova_Grimsly,
+    [OBJ_EVENT_GFX_UNOVA_GRIMSLEY] = &gObjectEventGraphicsInfo_Unova_Grimsly,
     [OBJ_EVENT_GFX_UNOVA_IRIS] = &gObjectEventGraphicsInfo_Unova_Iris,
     [OBJ_EVENT_GFX_UNOVA_LENORA] = &gObjectEventGraphicsInfo_Unova_Lenora,
     [OBJ_EVENT_GFX_UNOVA_MARLON] = &gObjectEventGraphicsInfo_Unova_Marlon,
