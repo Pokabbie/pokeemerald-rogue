@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,15 @@ namespace PokemonDataGenerator.Pokedex
 {
 	public static class PokemonProfileGenerator
 	{
+		private static readonly JsonSerializerSettings c_JsonSettings = new JsonSerializerSettings
+		{
+			Formatting = Formatting.Indented,
+			Converters = new List<JsonConverter>(new[] 
+			{
+				new StringEnumConverter()
+			})
+		};
+
 		private class MovesetSettings
 		{
 			private static MovesetSettings s_VanillaSettings;
@@ -214,13 +225,23 @@ namespace PokemonDataGenerator.Pokedex
 
 				Moves = newMoves;
 
+				FinaliseForExport();
+			}
+
+			public void CollapseFromImport()
+			{
+				FinaliseForExport();
+			}
+
+			private void FinaliseForExport()
+			{
 				// Now we've added the sets, add any moves that we can't currently learn as tutor moves
-				foreach(var set in CompetitiveSets)
+				foreach (var set in CompetitiveSets)
 				{
-					foreach(var move in set.Moves)
+					foreach (var move in set.Moves)
 					{
 						bool canLearnMove = Moves.Where(m => m.moveName == move).Any();
-						if(!canLearnMove)
+						if (!canLearnMove)
 						{
 							MoveInfo newMove = new MoveInfo();
 							newMove.moveName = move;
@@ -736,97 +757,126 @@ namespace PokemonDataGenerator.Pokedex
 
 		private static PokemonProfile GatherProfileFor(string speciesName)
 		{
-			Console.WriteLine($"Gathering '{speciesName}'");
+			string manualPath = ContentCache.GetWriteableCachePath($"res://PokemonProfiles//{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
+			string cachePath = ContentCache.GetWriteableCachePath($"pokemon_profiles/{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
+			PokemonProfile profile;
 
-
-			PokemonProfile profile = new PokemonProfile(speciesName);
-
-			JObject monEntry = PokeAPI.GetPokemonSpeciesEntry(speciesName);
-
-			foreach (var obj in monEntry["abilities"])
+			if (File.Exists(manualPath))
 			{
-				string abilityName = obj["ability"]["name"].ToString();
-				string rawSlot = obj["slot"].ToString();
+				Console.WriteLine($"Found '{speciesName}' profile manual override");
 
-				profile.Abilities[int.Parse(rawSlot) - 1] = abilityName;
+				string jsonProfile = File.ReadAllText(manualPath);
+				profile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
+				profile.CollapseFromImport();
 			}
-
-			foreach (var obj in monEntry["types"])
+			else if (File.Exists(cachePath))
 			{
-				string name = obj["type"]["name"].ToString();
-				string rawSlot = obj["slot"].ToString();
+				Console.WriteLine($"Found '{speciesName}' profile in cache");
 
-				profile.Types[int.Parse(rawSlot) - 1] = name;
+				string jsonProfile = File.ReadAllText(cachePath);
+				profile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
+				profile.CollapseFromImport();
 			}
-
-			foreach (var moveObj in monEntry["moves"])
+			else
 			{
-				foreach (var versionObj in moveObj["version_group_details"])
+				Console.WriteLine($"Gathering '{speciesName}' profile from source");
+
+				profile = new PokemonProfile(speciesName);
+
+				JObject monEntry = PokeAPI.GetPokemonSpeciesEntry(speciesName);
+
+				foreach (var obj in monEntry["abilities"])
 				{
-					MoveInfo moveInfo = new MoveInfo();
-					moveInfo.moveName = moveObj["move"]["name"].ToString();
-					moveInfo.versionName = versionObj["version_group"]["name"].ToString();
+					string abilityName = obj["ability"]["name"].ToString();
+					string rawSlot = obj["slot"].ToString();
 
-					string method = versionObj["move_learn_method"]["name"].ToString();
-					switch (method)
-					{
-						case "egg":
-							moveInfo.originMethod = MoveInfo.LearnMethod.Egg;
-							break;
-						case "machine":
-							moveInfo.originMethod = MoveInfo.LearnMethod.TM;
-							break;
-						case "tutor":
-							moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
-							break;
-						case "level-up":
-							moveInfo.originMethod = MoveInfo.LearnMethod.LevelUp;
-							moveInfo.learnLevel = int.Parse(versionObj["level_learned_at"].ToString());
-							break;
-
-						// Special cases
-						//case "stadium-surfing-pikachu":
-						//case "light-ball-egg":
-						default:
-							moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
-							break;
-
-							//default:
-							//	throw new NotImplementedException();
-					}
-
-					profile.Moves.Add(moveInfo);
+					profile.Abilities[int.Parse(rawSlot) - 1] = abilityName;
 				}
-			}
 
-			JObject competitiveSets = PokeAPI.GetPokemonSpeciesCompetitiveSets(speciesName);
-
-			foreach(var tierKvp in competitiveSets)
-			{
-				foreach(var currentSet in tierKvp.Value.Value<JArray>())
+				foreach (var obj in monEntry["types"])
 				{
-					string tierName = GameDataHelpers.FormatKeyword(tierKvp.Key);
-					PokemonCompetitiveSet compSet = PokemonCompetitiveSet.ParseFrom(tierName, currentSet.Value<JObject>());
+					string name = obj["type"]["name"].ToString();
+					string rawSlot = obj["slot"].ToString();
 
-					bool hasMerged = false;
+					profile.Types[int.Parse(rawSlot) - 1] = name;
+				}
 
-					foreach(var existingSet in profile.CompetitiveSets)
+				foreach (var moveObj in monEntry["moves"])
+				{
+					foreach (var versionObj in moveObj["version_group_details"])
 					{
-						// No need to contain duplicate sets
-						if(existingSet.IsCompatibleWith(compSet))
+						MoveInfo moveInfo = new MoveInfo();
+						moveInfo.moveName = moveObj["move"]["name"].ToString();
+						moveInfo.versionName = versionObj["version_group"]["name"].ToString();
+
+						string method = versionObj["move_learn_method"]["name"].ToString();
+						switch (method)
 						{
-							existingSet.SourceTiers.Add(tierName);
-							hasMerged = true;
-							break;
-						}
-					}
+							case "egg":
+								moveInfo.originMethod = MoveInfo.LearnMethod.Egg;
+								break;
+							case "machine":
+								moveInfo.originMethod = MoveInfo.LearnMethod.TM;
+								break;
+							case "tutor":
+								moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
+								break;
+							case "level-up":
+								moveInfo.originMethod = MoveInfo.LearnMethod.LevelUp;
+								moveInfo.learnLevel = int.Parse(versionObj["level_learned_at"].ToString());
+								break;
 
-					if (!hasMerged)
-						profile.CompetitiveSets.Add(compSet);
+							// Special cases
+							//case "stadium-surfing-pikachu":
+							//case "light-ball-egg":
+							default:
+								moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
+								break;
+
+								//default:
+								//	throw new NotImplementedException();
+						}
+
+						profile.Moves.Add(moveInfo);
+					}
 				}
+
+				JObject competitiveSets = PokeAPI.GetPokemonSpeciesCompetitiveSets(speciesName);
+
+				foreach (var tierKvp in competitiveSets)
+				{
+					foreach (var currentSet in tierKvp.Value.Value<JArray>())
+					{
+						string tierName = GameDataHelpers.FormatKeyword(tierKvp.Key);
+						PokemonCompetitiveSet compSet = PokemonCompetitiveSet.ParseFrom(tierName, currentSet.Value<JObject>());
+
+						bool hasMerged = false;
+
+						foreach (var existingSet in profile.CompetitiveSets)
+						{
+							// No need to contain duplicate sets
+							if (existingSet.IsCompatibleWith(compSet))
+							{
+								existingSet.SourceTiers.Add(tierName);
+								hasMerged = true;
+								break;
+							}
+						}
+
+						if (!hasMerged)
+							profile.CompetitiveSets.Add(compSet);
+					}
+				}
+
+				profile.CollapseForExport();
+
+				string cacheDir = Path.GetDirectoryName(cachePath);
+				Directory.CreateDirectory(cacheDir);
+
+				string profileJson = JsonConvert.SerializeObject(profile, c_JsonSettings);
+				File.WriteAllText(cachePath, profileJson);
 			}
 
-			profile.CollapseForExport();
 			return profile;
 		}
 
