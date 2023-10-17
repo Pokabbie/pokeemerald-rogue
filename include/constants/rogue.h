@@ -1,7 +1,7 @@
 #ifndef ROGUE_CONFIG_H
 #define ROGUE_CONFIG_H
 
-//#define ROGUE_EXPANSION
+#define ROGUE_EXPANSION
 
 #define ROGUE_VERSION_VANILLA       0
 #define ROGUE_VERSION_EXPANSION     1
