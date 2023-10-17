@@ -236,7 +236,6 @@ static bool8 IsSelectedMonNotEgg(u8*);
 static void PartyMenuRemoveWindow(u8*);
 static void CB2_SetUpExitToBattleScreen(void);
 static void Task_ClosePartyMenuAfterText(u8);
-static void TryTutorSelectedMon(u8);
 static void TryGiveMailToSelectedMon(u8);
 static void TryGiveItemOrMailToSelectedMon(u8);
 static void SwitchSelectedMons(u8);
@@ -261,8 +260,6 @@ static bool16 IsMonAllowedInPokemonJump(struct Pokemon*);
 static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon*);
 static void Task_CancelParticipationYesNo(u8);
 static void Task_HandleCancelParticipationYesNoInput(u8);
-static bool8 CanLearnTutorMove(u16, u8);
-static u16 GetTutorMove(u8);
 static bool8 ShouldUseChooseMonText(void);
 static void SetPartyMonFieldSelectionActions(struct Pokemon*, u8);
 static u8 GetPartyMenuActionsTypeInBattle(struct Pokemon*);
@@ -421,7 +418,6 @@ static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
 
 // static const data
-#include "data/pokemon/tutor_learnsets.h"
 #include "data/party_menu.h"
 
 // code
@@ -1270,7 +1266,8 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             {
                 PlaySE(SE_SELECT);
                 PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-                TryTutorSelectedMon(taskId);
+                //TryTutorSelectedMon(taskId);
+                AGB_ASSERT(FALSE);
             }
             break;
         case PARTY_ACTION_GIVE_MAILBOX_MAIL:
@@ -2000,10 +1997,11 @@ static u8 CanMonLearnTMTutor(struct Pokemon *mon, u16 item, u8 tutor)
     }
     else
     {
-        if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
-            return CANNOT_LEARN_MOVE;
-        else
-            move = GetTutorMove(tutor);
+        AGB_ASSERT(FALSE);
+        //if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
+        //    return CANNOT_LEARN_MOVE;
+        //else
+        //    move = GetTutorMove(tutor);
     }
 
     if (MonKnowsMove(mon, move) == TRUE)
@@ -2012,68 +2010,32 @@ static u8 CanMonLearnTMTutor(struct Pokemon *mon, u16 item, u8 tutor)
         return CAN_LEARN_MOVE;
 }
 
-static u16 GetTutorMove(u8 tutor)
+u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacity)
 {
-    return gTutorMoves[tutor];
+    return GetTutorMovesForSpecies(GetMonData(pokemon, MON_DATA_SPECIES), tutorMoves, tutorMovesCapacity);
 }
 
-static bool8 IsTutorMove(u16 move)
+u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity)
 {
-    u16 i;
+    u16 read = 0;
+    u16 write = 0;
 
-    for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
+    for(read = 0; gRoguePokemonProfiles[species].tutorMoves[read] != MOVE_NONE; ++read)
     {
-        if(gTutorMoves[i] == move)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 CanLearnTutorMove(u16 species, u8 tutor)
-{
-    if (sTutorLearnsets[species] & (1 << tutor))
-        return TRUE;
-    else
-        return FALSE;
-}
-
-u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves)
-{
-    return GetTutorMovesForSpecies(GetMonData(pokemon, MON_DATA_SPECIES), tutorMoves);
-}
-
-u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves)
-{
-    u16 tutorMoveIdx;
-    u16 numTutorMoves;
-    u16 move;
-    u16 i;
-
-    numTutorMoves = 0;
-    tutorMoveIdx = 0;
-
-    // Place out generated moves ahead of the default ones
-    for(i = 0; i < gPresetMonTable[species].movesCount; ++i)
-    {
-        move = gPresetMonTable[species].moves[i];
-
-        // If we can't learn this and there isn't a TM for it, allow teaching via tutor
-        if(!CanSpeciesLearnMoveByLevelup(species, move) && BattleMoveIdToItemId(move) == 0 && !IsTutorMove(move))
+        if(write >= tutorMovesCapacity)
         {
-            tutorMoves[numTutorMoves++] = move;
+            AGB_ASSERT(FALSE);
+            break;
         }
+
+        // If this move has a TM, ignore it
+        if(BattleMoveIdToItemId(gRoguePokemonProfiles[species].tutorMoves[read]) != ITEM_NONE)
+            continue;
+
+        tutorMoves[write++] = gRoguePokemonProfiles[species].tutorMoves[read];
     }
 
-    for(i = 0; i < TUTOR_MOVE_COUNT; ++i)
-    {
-        if(CanLearnTutorMove(species, i))
-        {
-            tutorMoves[numTutorMoves++] = GetTutorMove(i);
-        }
-    }
-
-    return numTutorMoves;
+    return write;
 }
 
 static void InitPartyMenuWindows(u8 layout)
@@ -5659,40 +5621,6 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_HEAL_PP;
     else
         return ITEM_EFFECT_NONE;
-}
-
-static void TryTutorSelectedMon(u8 taskId)
-{
-    struct Pokemon *mon;
-    s16 *move;
-
-    if (!gPaletteFade.active)
-    {
-        mon = &gPlayerParty[gPartyMenu.slotId];
-        move = &gPartyMenu.data1;
-        GetMonNickname(mon, gStringVar1);
-        gPartyMenu.data1 = GetTutorMove(gSpecialVar_0x8005);
-        StringCopy(gStringVar2, gMoveNames[gPartyMenu.data1]);
-        move[1] = 2;
-        switch (CanMonLearnTMTutor(mon, 0, gSpecialVar_0x8005))
-        {
-        case CANNOT_LEARN_MOVE:
-            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnCantLearnMove);
-            return;
-        case ALREADY_KNOWS_MOVE:
-            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
-            return;
-        default:
-            if (GiveMoveToMon(mon, gPartyMenu.data1) != MON_HAS_MAX_MOVES)
-            {
-                Task_LearnedMove(taskId);
-                return;
-            }
-            break;
-        }
-        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
-        gTasks[taskId].func = Task_ReplaceMoveYesNo;
-    }
 }
 
 void CB2_PartyMenuFromStartMenu(void)

@@ -69,6 +69,7 @@
     <Compile Include="ContentCache.cs" />
     <Compile Include="Utils\GameDataHelpers.cs" />
     <Compile Include="Utils\HSLColor.cs" />
+    <Compile Include="Utils\PokeAPI.cs" />
     <Compile Include="Utils\PokemonMoveHelpers.cs" />
   </ItemGroup>
   <ItemGroup>

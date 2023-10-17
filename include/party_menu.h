@@ -30,8 +30,6 @@ extern u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2];
 
 extern void (*gItemUseCB)(u8, TaskFunc);
 
-extern const u16 gTutorMoves[];
-
 void AnimatePartySlot(u8 slot, u8 animNum);
 bool8 IsMultiBattle(void);
 u8 GetCursorSelectionMonId(void);
@@ -94,7 +92,7 @@ void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 
-u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves);
-u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves);
+u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacity);
+u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity);
 
 #endif // GUARD_PARTY_MENU_H

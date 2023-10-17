@@ -3822,20 +3822,18 @@ static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
     }
 }
 
-extern const struct LevelUpMove *const gLevelUpLearnsets[];
-
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
 {
     u16 eggSpecies;
     s32 i;
 
-    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
     {
         u16 moveLevel;
 
-        if(move == gLevelUpLearnsets[species][i].move)
+        if(move == gRoguePokemonProfiles[species].levelUpMoves[i].move)
         {
-            moveLevel = gLevelUpLearnsets[species][i].level;
+            moveLevel = gRoguePokemonProfiles[species].levelUpMoves[i].level;
 
             if (moveLevel > level)
                 return FALSE;

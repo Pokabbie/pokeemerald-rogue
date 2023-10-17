@@ -58,6 +58,12 @@ namespace PokemonDataGenerator
 			return UriToCachePath(path);
 		}
 
+		public static bool ExistsInCache(string uri)
+		{
+			string cachePath = UriToCachePath(uri);
+			return File.Exists(cachePath);
+		}
+
 		public static string GetHttpContent(string uri)
 		{
 			string cachePath = UriToCachePath(uri);

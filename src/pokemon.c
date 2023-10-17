@@ -1390,14 +1390,11 @@ const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
     [NATURE_QUIRKY]  = {    0,  0,  0,     0,     0},
 };
 
-#include "data/pokemon/tmhm_learnsets.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/cry_ids.h"
 #include "data/pokemon/experience_tables.h"
 #include "data/pokemon/base_stats.h"
-#include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/evolution.h"
-#include "data/pokemon/level_up_learnset_pointers.h"
 
 // SPECIES_NONE are ignored in the following two tables, so decrement before accessing these arrays to get the right result
 
@@ -3072,20 +3069,21 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     s32 level = GetLevelFromBoxMonExp(boxMon);
     s32 i;
 
-    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
     {
-        if (gLevelUpLearnsets[species][i].level > level)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].level > level)
             break;
-        if (gLevelUpLearnsets[species][i].level == 0)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].level == 0)
             continue;
-        if (GiveMoveToBoxMon(boxMon, gLevelUpLearnsets[species][i].move) == MON_HAS_MAX_MOVES)
-            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, gLevelUpLearnsets[species][i].move);
+
+        if (GiveMoveToBoxMon(boxMon, gRoguePokemonProfiles[species].levelUpMoves[i].move) == MON_HAS_MAX_MOVES)
+            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, gRoguePokemonProfiles[species].levelUpMoves[i].move);
     }
 }
 
 bool8 IsCurrentMonLearnMoveValid(u16 species, u8 level, bool8 includeEvoMoves)
 {
-    return (gLevelUpLearnsets[species][sLearningMoveTableID].level == level) || (includeEvoMoves && gLevelUpLearnsets[species][sLearningMoveTableID].level == 0);
+    return (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == level) || (includeEvoMoves && gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == 0);
 }
 
 static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, bool8 includeEvoMoves)
@@ -3105,15 +3103,15 @@ static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, b
         while (!IsCurrentMonLearnMoveValid(species, level, includeEvoMoves))
         {
             sLearningMoveTableID++;
-            if (gLevelUpLearnsets[species][sLearningMoveTableID].move == LEVEL_UP_END)
+            if (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move == MOVE_NONE)
                 return MOVE_NONE;
         }
     }
 
     if (IsCurrentMonLearnMoveValid(species, level, includeEvoMoves))
     {
-        gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
-        if(gMoveToLearn != LEVEL_UP_END)
+        gMoveToLearn = gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move;
+        if(gMoveToLearn != MOVE_NONE)
         {
             sLearningMoveTableID++;
             retVal = GiveMoveToMon(mon, gMoveToLearn);
@@ -6424,50 +6422,47 @@ u8 CalcMonHiddenPowerType(struct Pokemon *mon)
 
 u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    if (species == SPECIES_EGG)
-    {
-        return 0;
-    }
-    else if (tm < 32)
-    {
-        u32 mask = 1 << tm;
-        return gTMHMLearnsets[species][0] & mask;
-    }
-    else
-    {
-        u32 mask = 1 << (tm - 32);
-        return gTMHMLearnsets[species][1] & mask;
-    }
+    return CanSpeciesLearnTMHM(GetMonData(mon, MON_DATA_SPECIES2, 0), tm);
 }
 
 u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
 {
     if (species == SPECIES_EGG)
     {
-        return 0;
-    }
-    else if (tm < 32)
-    {
-        u32 mask = 1 << tm;
-        return gTMHMLearnsets[species][0] & mask;
+        return FALSE;
     }
     else
     {
-        u32 mask = 1 << (tm - 32);
-        return gTMHMLearnsets[species][1] & mask;
+        u16 i;
+        u16 tmMove = ItemIdToBattleMoveId(ITEM_TM01 + tm);
+
+        // Check if we can learn it in tutor moves
+        for(i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; ++i)
+        {
+            if(gRoguePokemonProfiles[species].tutorMoves[i] == tmMove)
+                return TRUE;
+        }
+
+        // Check if we can learn it in level up moves
+        for(i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; ++i)
+        {
+            if(gRoguePokemonProfiles[species].levelUpMoves[i].move == tmMove)
+                return TRUE;
+        }
     }
+
+    return FALSE;
 }
 
 bool8 CanSpeciesLearnMoveByLevelup(u16 species, u16 move)
 {
     int i;
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    for (i = 0; TRUE; i++)
     {
-        u16 checkMove = gLevelUpLearnsets[species][i].move;
+        u16 checkMove = gRoguePokemonProfiles[species].levelUpMoves[i].move;
 
-        if (checkMove == LEVEL_UP_END)
+        if (checkMove == MOVE_NONE)
             break;
 
         if(checkMove == move)
@@ -6488,27 +6483,27 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    for (i = 0; TRUE; i++)
     {
         u16 moveLevel;
 
-        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
             break;
 
-        moveLevel = gLevelUpLearnsets[species][i].level;
+        moveLevel = gRoguePokemonProfiles[species].levelUpMoves[i].level;
 
         if (moveLevel <= level)
         {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
+            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gRoguePokemonProfiles[species].levelUpMoves[i].move; j++)
                 ;
 
             if (j == MAX_MON_MOVES)
             {
-                for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
+                for (k = 0; k < numMoves && moves[k] != gRoguePokemonProfiles[species].levelUpMoves[i].move; k++)
                     ;
 
                 if (k == numMoves)
-                    moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+                    moves[numMoves++] = gRoguePokemonProfiles[species].levelUpMoves[i].move;
             }
         }
     }
@@ -6521,8 +6516,9 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
     u8 numMoves = 0;
     int i;
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES && gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
-         moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+    // TODO - Remove this?
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+         moves[numMoves++] = gRoguePokemonProfiles[species].levelUpMoves[i].move;
 
      return numMoves;
 }

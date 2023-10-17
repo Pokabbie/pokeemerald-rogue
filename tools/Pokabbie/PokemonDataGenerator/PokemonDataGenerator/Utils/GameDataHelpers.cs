@@ -11,15 +11,13 @@ namespace PokemonDataGenerator.Utils
 	{
 		private static string s_RootDirectory = Path.GetFullPath(@"..\\..\\..\\..\\..\\..\\");
 
-		private static readonly string c_SpeciesDefinesPath = Path.Combine(RootDirectory, "include\\constants\\species.h");
-		private static readonly string c_ItemDefinesPath = Path.Combine(RootDirectory, "include\\constants\\items.h");
-		private static readonly string c_PartyMenuDefinesPath = Path.Combine(RootDirectory, "include\\constants\\party_menu.h");
-		private static readonly string c_MovesDefinesPath = Path.Combine(RootDirectory, "include\\constants\\moves.h");
-
 		private static Dictionary<string, string> s_SpeciesDefines = null;
 		private static Dictionary<string, string> s_ItemDefines = null;
 		private static Dictionary<string, string> s_TutorMoveDefines = null;
 		private static Dictionary<string, string> s_MoveDefines = null;
+		private static Dictionary<string, string> s_AbilitiesDefines = null;
+		private static Dictionary<string, string> s_NaturesDefines = null;
+		private static Dictionary<string, string> s_TypesDefines = null;
 
 
 		private static Dictionary<string, string> s_MoveToTMHMItem = null;
@@ -28,6 +26,36 @@ namespace PokemonDataGenerator.Utils
 		public static string RootDirectory
 		{
 			get => s_RootDirectory;
+		}
+
+		private static string PokemonDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\pokemon.h");
+		}
+
+		private static string SpeciesDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\species.h");
+		}
+
+		private static string ItemDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\items.h");
+		}
+
+		private static string PartyMenuDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\party_menu.h");
+		}
+
+		private static string MovesDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\moves.h");
+		}
+
+		private static string AbilitiesDefinesPath
+		{
+			get => Path.Combine(RootDirectory, "include\\constants\\abilities.h");
 		}
 
 		// hacky based on current file names
@@ -40,6 +68,7 @@ namespace PokemonDataGenerator.Utils
 				if (isVanilla != value)
 				{
 					s_RootDirectory = Path.Combine(s_RootDirectory, "..\\pokeemerald-rogue-ee\\");
+					s_RootDirectory = Path.GetFullPath(s_RootDirectory);
 				}
 			}
 		}
@@ -51,11 +80,25 @@ namespace PokemonDataGenerator.Utils
 				if (s_SpeciesDefines == null)
 				{
 					s_SpeciesDefines = new Dictionary<string, string>();
-					ParseFileDefines("#define SPECIES_", c_SpeciesDefinesPath, s_SpeciesDefines);
+					ParseFileDefines("#define SPECIES_", SpeciesDefinesPath, s_SpeciesDefines);
 				}
 
 				return s_SpeciesDefines;
 			}
+		}
+
+		public static bool IsUniqueSpeciesDefine(string define)
+		{
+			if (define == "SPECIES_NONE")
+				return false;
+			if (define == "SPECIES_COUNT")
+				return false;
+			if (define == "SPECIES_EGG")
+				return false;
+			if (define.StartsWith("SPECIES_OLD_"))
+				return false;
+
+			return true;
 		}
 
 		public static Dictionary<string, string> ItemDefines
@@ -65,7 +108,7 @@ namespace PokemonDataGenerator.Utils
 				if (s_ItemDefines == null)
 				{
 					s_ItemDefines = new Dictionary<string, string>();
-					ParseFileDefines("#define ITEM_", c_ItemDefinesPath, s_ItemDefines);
+					ParseFileDefines("#define ITEM_", ItemDefinesPath, s_ItemDefines);
 				}
 
 				return s_ItemDefines;
@@ -79,7 +122,7 @@ namespace PokemonDataGenerator.Utils
 				if (s_TutorMoveDefines == null)
 				{
 					s_TutorMoveDefines = new Dictionary<string, string>();
-					ParseFileDefines("#define TUTOR_MOVE_", c_PartyMenuDefinesPath, s_TutorMoveDefines);
+					ParseFileDefines("#define TUTOR_MOVE_", PartyMenuDefinesPath, s_TutorMoveDefines);
 				}
 
 				return s_TutorMoveDefines;
@@ -93,10 +136,52 @@ namespace PokemonDataGenerator.Utils
 				if (s_MoveDefines == null)
 				{
 					s_MoveDefines = new Dictionary<string, string>();
-					ParseFileDefines("#define MOVE_", c_MovesDefinesPath, s_MoveDefines);
+					ParseFileDefines("#define MOVE_", MovesDefinesPath, s_MoveDefines);
 				}
 
 				return s_MoveDefines;
+			}
+		}
+
+		public static Dictionary<string, string> AbilityDefines
+		{
+			get
+			{
+				if (s_AbilitiesDefines == null)
+				{
+					s_AbilitiesDefines = new Dictionary<string, string>();
+					ParseFileDefines("#define ABILITY_", AbilitiesDefinesPath, s_AbilitiesDefines);
+				}
+
+				return s_AbilitiesDefines;
+			}
+		}
+
+		public static Dictionary<string, string> NatureDefines
+		{
+			get
+			{
+				if (s_NaturesDefines == null)
+				{
+					s_NaturesDefines = new Dictionary<string, string>();
+					ParseFileDefines("#define NATURE_", PokemonDefinesPath, s_NaturesDefines);
+				}
+
+				return s_NaturesDefines;
+			}
+		}
+
+		public static Dictionary<string, string> TypesDefines
+		{
+			get
+			{
+				if (s_TypesDefines == null)
+				{
+					s_TypesDefines = new Dictionary<string, string>();
+					ParseFileDefines("#define TYPE_", PokemonDefinesPath, s_TypesDefines);
+				}
+
+				return s_TypesDefines;
 			}
 		}
 

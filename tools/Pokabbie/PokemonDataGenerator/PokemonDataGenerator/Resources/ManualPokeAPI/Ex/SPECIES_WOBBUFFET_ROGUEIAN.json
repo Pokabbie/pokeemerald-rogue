@@ -1,0 +1,1512 @@
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "pressure",
+                "url": "https://pokeapi.co/api/v2/ability/46/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        }
+    ],
+    "base_experience": 270,
+    "forms": [
+        {
+            "name": "deoxys-normal",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/386/"
+        }
+    ],
+    "game_indices": [
+        {
+            "game_index": 410,
+            "version": {
+                "name": "ruby",
+                "url": "https://pokeapi.co/api/v2/version/7/"
+            }
+        },
+        {
+            "game_index": 410,
+            "version": {
+                "name": "sapphire",
+                "url": "https://pokeapi.co/api/v2/version/8/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "diamond",
+                "url": "https://pokeapi.co/api/v2/version/12/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "pearl",
+                "url": "https://pokeapi.co/api/v2/version/13/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "platinum",
+                "url": "https://pokeapi.co/api/v2/version/14/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "heartgold",
+                "url": "https://pokeapi.co/api/v2/version/15/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "soulsilver",
+                "url": "https://pokeapi.co/api/v2/version/16/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "black",
+                "url": "https://pokeapi.co/api/v2/version/17/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "white",
+                "url": "https://pokeapi.co/api/v2/version/18/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "black-2",
+                "url": "https://pokeapi.co/api/v2/version/21/"
+            }
+        },
+        {
+            "game_index": 386,
+            "version": {
+                "name": "white-2",
+                "url": "https://pokeapi.co/api/v2/version/22/"
+            }
+        }
+    ],
+    "height": 17,
+    "held_items": [],
+    "id": 386,
+    "is_default": true,
+    "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/386/encounters",
+    "moves": [
+        {
+            "move": {
+                "name": "leer"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 1,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "wrap"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 1,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "night shade"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 5,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "double team"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 10,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "knock off"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 15,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "pursuit"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 20,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "psychic"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 20,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "swift"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 30,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "agility"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 35,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "recover"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 40,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "psycho boost"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 45,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "extremespeed"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "level-up",
+                        "level_learned_at": 50,
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "superpower"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "mega punch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "mega kick"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "body slam"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "double-edge"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "counter"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "seismic toss"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "mimic"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "dream eater"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "thunder wave"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "rock slide"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "substitute"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "dynamicpunch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "psych up"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "snore"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "icy wind"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "endure"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "mud-slap"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "ice punch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "swagger"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "sleep talk"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "swift"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "thunderpunch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "fire punch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "focus punch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "water pulse"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "calm mind"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "toxic"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "hidden power"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "sunny day"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "taunt"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "ice beam"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "hyper beam"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "light screen"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "protect"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "rain dance"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "safeguard"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "frustration"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "solarbeam"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "thunderbolt"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "thunder"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "return"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "psychic"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "shadow ball"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "brick break"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "double team"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "reflect"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "shock wave"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "rock tomb"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "aerial ace"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "torment"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "facade"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "secret power"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "rest"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "skill swap"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "snatch"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "cut"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "strength"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "flash"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+        {
+            "move": {
+                "name": "rock smash"
+            },
+            "version_group_details": [
+                {
+                    "level_learned_at": 0,
+                    "move_learn_method": {
+                        "name": "tutor"
+                    },
+                    "version_group": {
+                        "name": "rogue"
+                    }
+                },
+            ]
+        },
+    ],
+    "name": "deoxys-normal",
+    "order": 514,
+    "past_types": [],
+    "species": {
+        "name": "deoxys",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/386/"
+    },
+    "sprites": {
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/386.png",
+        "back_female": null,
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/386.png",
+        "back_shiny_female": null,
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/386.png",
+        "front_female": null,
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/386.png",
+        "front_shiny_female": null,
+        "other": {
+            "dream_world": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/386.svg",
+                "front_female": null
+            },
+            "home": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/386.png",
+                "front_female": null,
+                "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/386.png",
+                "front_shiny_female": null
+            },
+            "official-artwork": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png",
+                "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/386.png"
+            }
+        },
+        "versions": {
+            "generation-i": {
+                "red-blue": {
+                    "back_default": null,
+                    "back_gray": null,
+                    "back_transparent": null,
+                    "front_default": null,
+                    "front_gray": null,
+                    "front_transparent": null
+                },
+                "yellow": {
+                    "back_default": null,
+                    "back_gray": null,
+                    "back_transparent": null,
+                    "front_default": null,
+                    "front_gray": null,
+                    "front_transparent": null
+                }
+            },
+            "generation-ii": {
+                "crystal": {
+                    "back_default": null,
+                    "back_shiny": null,
+                    "back_shiny_transparent": null,
+                    "back_transparent": null,
+                    "front_default": null,
+                    "front_shiny": null,
+                    "front_shiny_transparent": null,
+                    "front_transparent": null
+                },
+                "gold": {
+                    "back_default": null,
+                    "back_shiny": null,
+                    "front_default": null,
+                    "front_shiny": null,
+                    "front_transparent": null
+                },
+                "silver": {
+                    "back_default": null,
+                    "back_shiny": null,
+                    "front_default": null,
+                    "front_shiny": null,
+                    "front_transparent": null
+                }
+            },
+            "generation-iii": {
+                "emerald": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/386.png",
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/386.png"
+                },
+                "firered-leafgreen": {
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/back/386.png",
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/back/shiny/386.png",
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/386.png",
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/shiny/386.png"
+                },
+                "ruby-sapphire": {
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/ruby-sapphire/back/386.png",
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/ruby-sapphire/back/shiny/386.png",
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/ruby-sapphire/386.png",
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/ruby-sapphire/shiny/386.png"
+                }
+            },
+            "generation-iv": {
+                "diamond-pearl": {
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/back/386.png",
+                    "back_female": null,
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/back/shiny/386.png",
+                    "back_shiny_female": null,
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/386.png",
+                    "front_shiny_female": null
+                },
+                "heartgold-soulsilver": {
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/heartgold-soulsilver/back/386.png",
+                    "back_female": null,
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/heartgold-soulsilver/back/shiny/386.png",
+                    "back_shiny_female": null,
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/heartgold-soulsilver/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/heartgold-soulsilver/shiny/386.png",
+                    "front_shiny_female": null
+                },
+                "platinum": {
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/back/386.png",
+                    "back_female": null,
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/back/shiny/386.png",
+                    "back_shiny_female": null,
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/shiny/386.png",
+                    "front_shiny_female": null
+                }
+            },
+            "generation-v": {
+                "black-white": {
+                    "animated": {
+                        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/386.gif",
+                        "back_female": null,
+                        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/386.gif",
+                        "back_shiny_female": null,
+                        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/386.gif",
+                        "front_female": null,
+                        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/386.gif",
+                        "front_shiny_female": null
+                    },
+                    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/386.png",
+                    "back_female": null,
+                    "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/386.png",
+                    "back_shiny_female": null,
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/386.png",
+                    "front_shiny_female": null
+                }
+            },
+            "generation-vi": {
+                "omegaruby-alphasapphire": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/386.png",
+                    "front_shiny_female": null
+                },
+                "x-y": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/x-y/shiny/386.png",
+                    "front_shiny_female": null
+                }
+            },
+            "generation-vii": {
+                "icons": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/386.png",
+                    "front_female": null
+                },
+                "ultra-sun-ultra-moon": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/386.png",
+                    "front_female": null,
+                    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/386.png",
+                    "front_shiny_female": null
+                }
+            },
+            "generation-viii": {
+                "icons": {
+                    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/386.png",
+                    "front_female": null
+                }
+            }
+        }
+    },
+    "stats": [
+        {
+            "base_stat": 50,
+            "effort": 0,
+            "stat": {
+                "name": "hp",
+                "url": "https://pokeapi.co/api/v2/stat/1/"
+            }
+        },
+        {
+            "base_stat": 150,
+            "effort": 1,
+            "stat": {
+                "name": "attack",
+                "url": "https://pokeapi.co/api/v2/stat/2/"
+            }
+        },
+        {
+            "base_stat": 50,
+            "effort": 0,
+            "stat": {
+                "name": "defense",
+                "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+        },
+        {
+            "base_stat": 150,
+            "effort": 1,
+            "stat": {
+                "name": "special-attack",
+                "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+        },
+        {
+            "base_stat": 50,
+            "effort": 0,
+            "stat": {
+                "name": "special-defense",
+                "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+        },
+        {
+            "base_stat": 150,
+            "effort": 1,
+            "stat": {
+                "name": "speed",
+                "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+        }
+    ],
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "psychic",
+                "url": "https://pokeapi.co/api/v2/type/14/"
+            }
+        }
+    ],
+    "weight": 608
+}
