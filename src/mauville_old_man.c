@@ -13,7 +13,6 @@
 #include "task.h"
 #include "menu.h"
 #include "m4a.h"
-#include "bard_music.h"
 #include "sound.h"
 #include "strings.h"
 #include "overworld.h"
