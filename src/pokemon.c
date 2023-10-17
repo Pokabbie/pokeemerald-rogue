@@ -4151,7 +4151,7 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
 
-        while (gLevelUpLearnsets[species][sLearningMoveTableID].level != level)
+        while (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level != level)
         {
             sLearningMoveTableID++;
             if (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move == MOVE_NONE)
@@ -8558,11 +8558,11 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
     }
-    while(gLevelUpLearnsets[species][sLearningMoveTableID].move != LEVEL_UP_END)
+    while(gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move != MOVE_NONE)
     {
-        while (gLevelUpLearnsets[species][sLearningMoveTableID].level == 0 || gLevelUpLearnsets[species][sLearningMoveTableID].level == level)
+        while (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == 0 || gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == level)
         {
-            gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
+            gMoveToLearn = gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move;
             sLearningMoveTableID++;
             return GiveMoveToMon(mon, gMoveToLearn);
         }
