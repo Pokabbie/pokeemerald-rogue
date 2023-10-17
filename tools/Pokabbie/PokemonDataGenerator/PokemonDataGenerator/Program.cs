@@ -23,30 +23,19 @@ namespace PokemonDataGenerator
 
 			GameDataHelpers.IsVanillaVersion = isVanillaVersion;
 
-			Console.WriteLine("1 - Generate Presets");
+			Console.WriteLine("1 - Gather Pokemon data profile");
 			Console.WriteLine("2 - Generate OW Sprites");
 			Console.WriteLine("3 - Generate OW Sprites (DEBUG FAST SET)");
 			Console.WriteLine("4 - OW Sprites Palette Generator");
 			Console.WriteLine("5 - Generate Pokedex Lists");
-			Console.WriteLine("6 - Gather Pokemon data profile");
-			Console.WriteLine("7 - Convert NPC sprites");
-			int action = ReadOption(1, 7);
+			Console.WriteLine("6 - Convert NPC sprites");
+			int action = ReadOption(1, 6);
 
 			switch(action)
 			{
 				case 1:
-					Console.WriteLine("==Generating Presets==");
-					if(isVanillaVersion)
-					{
-						MonPresetGenerator.GenerateFromURL(@"https://play.pokemonshowdown.com/data/sets/gen3.json", true);
-					}
-					else
-					{
-						MonPresetGenerator.GenerateFromURL(@"https://play.pokemonshowdown.com/data/sets/gen7.json", false);
-						MonPresetGenerator.GenerateFromURL(@"https://play.pokemonshowdown.com/data/sets/gen8.json", false);
-						MonPresetGenerator.GenerateFromURL(@"https://play.pokemonshowdown.com/data/sets/gen9.json", false);
-					}
-					MonPresetGenerator.ExportToHeader(c_PresetOutputPath);
+					Console.WriteLine("==Gathering Pokemon Data Profile==");
+					PokemonProfileGenerator.GatherProfiles();
 					break;
 
 				case 2:
@@ -90,11 +79,6 @@ namespace PokemonDataGenerator
 					break;
 
 				case 6:
-					Console.WriteLine("==Gathering Pokemon Data Profile==");
-					PokemonProfileGenerator.GatherProfiles();
-					break;
-
-				case 7:
 					Console.WriteLine("==Generating NPC sprites==");
 					NpcSpriteSplitter.ExportDirectory(Path.GetFullPath("npc_in"), Path.GetFullPath("npc_out"));
 					break;

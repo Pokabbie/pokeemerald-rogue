@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImagePalette.cs" />
-    <Compile Include="MonPresetGenerator.cs" />
     <Compile Include="OverworldSprites\NPC\NpcSpriteSplitter.cs" />
     <Compile Include="OverworldSprites\OverworldSpriteGenerator.cs" />
     <Compile Include="OverworldSprites\ShinySpriteGenerator.cs" />

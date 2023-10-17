@@ -1197,29 +1197,6 @@ bool8 IsDynamaxEnabled(void)
 #endif
 }
 
-static u32 GetPresetMonFlags(u16 species)
-{
-    u32 flags;
-#ifdef ROGUE_EXPANSION
-    u16 species2;;
-#endif
-    
-    flags = gPresetMonTable[species].flags;
-
-#ifdef ROGUE_EXPANSION
-    species2 = GET_BASE_SPECIES_ID(species);
-    if(species2 != species)
-        flags |= gPresetMonTable[species2].flags;
-#endif
-
-    return flags;
-}
-
-bool8 CheckPresetMonFlags(u16 species, u32 flag)
-{
-    return (GetPresetMonFlags(species) & flag) != 0;
-}
-
 #if defined(ROGUE_DEBUG)
 
 u16 Debug_MiniMenuHeight(void)
@@ -2161,7 +2138,7 @@ static u16 GetPartyStrongLegendary(void)
         
         if(species != SPECIES_NONE && RoguePokedex_IsSpeciesLegendary(species))
         {
-            if(CheckPresetMonFlags(species, MON_FLAG_STRONG_WILD))
+            if(Rogue_CheckMonFlags(species, MON_FLAG_STRONG_WILD))
             {
                 return species;
             }
@@ -3856,7 +3833,7 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
     }
 }
 
-void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset)
+void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePokemonCompetitiveSet const* preset, struct RoguePokemonCompetitiveSetRules const* rules)
 {
 #ifdef ROGUE_EXPANSION
     u16 const abilityCount = 3;
@@ -3871,83 +3848,94 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     bool8 useMaxHappiness = TRUE;
 
-    // We want to start writing the move from the first free slot and loop back around
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    if(!rules->skipMoves)
     {
-        initialMonMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
+        // We want to start writing the move from the first free slot and loop back around
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            initialMonMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
 
-        move = MOVE_NONE;
-        SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+            move = MOVE_NONE;
+            SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+        }
     }
 
-    // abilityNum is actually the abilityId
-    if(preset->abilityNum != ABILITY_NONE)
+    if(!rules->skipAbility)
     {
-        // We need to set the ability index
-        for(i = 0; i < abilityCount; ++i)
+        if(preset->ability != ABILITY_NONE)
         {
-            SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
-
-            if(GetMonAbility(mon) == preset->abilityNum)
+            // We need to set the ability index
+            for(i = 0; i < abilityCount; ++i)
             {
-                // Ability is set
-                break;
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+
+                if(GetMonAbility(mon) == preset->ability)
+                {
+                    // Ability is set
+                    break;
+                }
+            }
+
+            if(i >= abilityCount)
+            {
+                // We failed to set it, so fall back to default
+                i = 0;
+                SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
             }
         }
-
-        if(i >= abilityCount)
-        {
-            // We failed to set it, so fall back to default
-            i = 0;
-            SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
-        }
     }
 
-    if(preset->heldItem != ITEM_NONE)
+    if(!rules->skipHeldItem)
     {
-        SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+        if(preset->heldItem != ITEM_NONE)
+        {
+            SetMonData(mon, MON_DATA_HELD_ITEM, &preset->heldItem);
+        }
     }
 
     // Teach moves from set that we can learn at this lvl
     writeMoveIdx = 0;
 
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    if(!rules->skipMoves)
     {
-        move = preset->moves[i]; 
-
-        if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
+        for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if(move == MOVE_FRUSTRATION)
-                useMaxHappiness = FALSE;
+            move = preset->moves[i]; 
 
-            SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
-            SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
-            ++writeMoveIdx;
-        }
-    }
-
-    if(preset->allowMissingMoves)
-    {
-        // Fill the remainer slots with empty moves
-        for (i = writeMoveIdx; i < MAX_MON_MOVES; i++)
-        {
-            move = MOVE_NONE; 
-            SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-            SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
-        }
-    }
-    else
-    {
-        // Try to re-teach initial moves to fill out last slots
-        for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
-        {
-            move = initialMonMoves[i]; 
-
-            if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+            if(move != MOVE_NONE && CanLearnMoveByLvl(species, move, level))
             {
+                if(move == MOVE_FRUSTRATION)
+                    useMaxHappiness = FALSE;
+
                 SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
                 SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
                 ++writeMoveIdx;
+            }
+        }
+
+        if(rules->allowMissingMoves)
+        {
+            // Fill the remainer slots with empty moves
+            for (i = writeMoveIdx; i < MAX_MON_MOVES; i++)
+            {
+                move = MOVE_NONE; 
+                SetMonData(mon, MON_DATA_MOVE1 + i, &move);
+                SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+            }
+        }
+        else
+        {
+            // Try to re-teach initial moves to fill out last slots
+            for(i = 0; i < MAX_MON_MOVES && writeMoveIdx < MAX_MON_MOVES; ++i)
+            {
+                move = initialMonMoves[i]; 
+
+                if(move != MOVE_NONE && !MonKnowsMove(mon, move))
+                {
+                    SetMonData(mon, MON_DATA_MOVE1 + writeMoveIdx, &move);
+                    SetMonData(mon, MON_DATA_PP1 + writeMoveIdx, &gBattleMoves[move].pp);
+                    ++writeMoveIdx;
+                }
             }
         }
     }
@@ -3955,136 +3943,139 @@ void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPr
     move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
     SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
 
-    if(preset->hiddenPowerType != TYPE_NONE)
+    if(!rules->skipHiddenPowerType)
     {
-        u16 value;
-        bool8 ivStatsOdd[6];
-
-        #define oddHP ivStatsOdd[0]
-        #define oddAtk ivStatsOdd[1]
-        #define oddDef ivStatsOdd[2]
-        #define oddSpeed ivStatsOdd[3]
-        #define oddSpAtk ivStatsOdd[4]
-        #define oddSpDef ivStatsOdd[5]
-
-        oddHP = TRUE;
-        oddAtk = TRUE;
-        oddDef = TRUE;
-        oddSpeed = TRUE;
-        oddSpAtk = TRUE;
-        oddSpDef = TRUE;
-
-        switch(preset->hiddenPowerType)
+        if(preset->hiddenPowerType != TYPE_NONE)
         {
-            case TYPE_FIGHTING:
-                oddDef = FALSE;
-                oddSpeed = FALSE;
-                oddSpAtk = FALSE;
-                oddSpDef = FALSE;
-                break;
+            u16 value;
+            bool8 ivStatsOdd[6];
 
-            case TYPE_FLYING:
-                oddSpeed = FALSE;
-                oddSpAtk = FALSE;
-                oddSpDef = FALSE;
-                break;
+            #define oddHP ivStatsOdd[0]
+            #define oddAtk ivStatsOdd[1]
+            #define oddDef ivStatsOdd[2]
+            #define oddSpeed ivStatsOdd[3]
+            #define oddSpAtk ivStatsOdd[4]
+            #define oddSpDef ivStatsOdd[5]
 
-            case TYPE_POISON:
-                oddDef = FALSE;
-                oddSpAtk = FALSE;
-                oddSpDef = FALSE;
-                break;
+            oddHP = TRUE;
+            oddAtk = TRUE;
+            oddDef = TRUE;
+            oddSpeed = TRUE;
+            oddSpAtk = TRUE;
+            oddSpDef = TRUE;
 
-            case TYPE_GROUND:
-                oddSpAtk = FALSE;
-                oddSpDef = FALSE;
-                break;
-
-            case TYPE_ROCK:
-                oddDef = FALSE;
-                oddSpeed = FALSE;
-                oddSpDef = FALSE;
-                break;
-
-            case TYPE_BUG:
-                oddSpeed = FALSE;
-                oddSpDef = FALSE;
-                break;
-
-            case TYPE_GHOST:
-                oddAtk = FALSE;
-                oddSpDef = FALSE;
-                break;
-
-            case TYPE_STEEL:
-                oddSpDef = FALSE;
-                break;
-
-            case TYPE_FIRE:
-                oddAtk = FALSE;
-                oddSpeed = FALSE;
-                oddSpAtk = FALSE;
-                break;
-
-            case TYPE_WATER:
-                oddSpeed = FALSE;
-                oddSpAtk = FALSE;
-                break;
-
-            case TYPE_GRASS:
-                oddHP = FALSE;
-                oddSpAtk = FALSE;
-                break;
-
-            case TYPE_ELECTRIC:
-                oddSpAtk = FALSE;
-                break;
-
-            case TYPE_PSYCHIC:
-                oddHP = FALSE;
-                oddSpeed = FALSE;
-                break;
-
-            case TYPE_ICE:
-                oddSpeed = FALSE;
-                break;
-
-            case TYPE_DRAGON:
-                oddHP = FALSE;
-                break;
-
-            case TYPE_DARK:
-                break;
-        }
-
-        #undef oddHP
-        #undef oddAtk
-        #undef oddDef
-        #undef oddSpeed
-        #undef oddSpAtk
-        #undef oddSpDef
-
-        for(i = 0; i < 6; ++i)
-        {
-            value = GetMonData(mon, MON_DATA_HP_IV + i);
-
-            if((value % 2) == 0) // Current IV is even
+            switch(preset->hiddenPowerType)
             {
-                if(ivStatsOdd[i]) // Wants to be odd
+                case TYPE_FIGHTING:
+                    oddDef = FALSE;
+                    oddSpeed = FALSE;
+                    oddSpAtk = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_FLYING:
+                    oddSpeed = FALSE;
+                    oddSpAtk = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_POISON:
+                    oddDef = FALSE;
+                    oddSpAtk = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_GROUND:
+                    oddSpAtk = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_ROCK:
+                    oddDef = FALSE;
+                    oddSpeed = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_BUG:
+                    oddSpeed = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_GHOST:
+                    oddAtk = FALSE;
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_STEEL:
+                    oddSpDef = FALSE;
+                    break;
+
+                case TYPE_FIRE:
+                    oddAtk = FALSE;
+                    oddSpeed = FALSE;
+                    oddSpAtk = FALSE;
+                    break;
+
+                case TYPE_WATER:
+                    oddSpeed = FALSE;
+                    oddSpAtk = FALSE;
+                    break;
+
+                case TYPE_GRASS:
+                    oddHP = FALSE;
+                    oddSpAtk = FALSE;
+                    break;
+
+                case TYPE_ELECTRIC:
+                    oddSpAtk = FALSE;
+                    break;
+
+                case TYPE_PSYCHIC:
+                    oddHP = FALSE;
+                    oddSpeed = FALSE;
+                    break;
+
+                case TYPE_ICE:
+                    oddSpeed = FALSE;
+                    break;
+
+                case TYPE_DRAGON:
+                    oddHP = FALSE;
+                    break;
+
+                case TYPE_DARK:
+                    break;
+            }
+
+            #undef oddHP
+            #undef oddAtk
+            #undef oddDef
+            #undef oddSpeed
+            #undef oddSpAtk
+            #undef oddSpDef
+
+            for(i = 0; i < 6; ++i)
+            {
+                value = GetMonData(mon, MON_DATA_HP_IV + i);
+
+                if((value % 2) == 0) // Current IV is even
                 {
-                    if(value == 0)
-                        value = 1;
-                    else
+                    if(ivStatsOdd[i]) // Wants to be odd
+                    {
+                        if(value == 0)
+                            value = 1;
+                        else
+                            --value;
+                    }
+                }
+                else // Current IV is odd
+                {
+                    if(!ivStatsOdd[i]) // Wants to be even
                         --value;
                 }
-            }
-            else // Current IV is odd
-            {
-                if(!ivStatsOdd[i]) // Wants to be even
-                    --value;
-            }
 
-            SetMonData(mon, MON_DATA_HP_IV + i, &value);
+                SetMonData(mon, MON_DATA_HP_IV + i, &value);
+            }
         }
     }
 }
@@ -4420,15 +4411,17 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
         {
             u16 presetIndex;
             u16 species = GetMonData(mon, MON_DATA_SPECIES);
-            u8 presetCount = gPresetMonTable[species].presetCount;
+            u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
             u16 statA = (Random() % 6);
             u16 statB = (statA + 1 + (Random() % 5)) % 6;
             u16 temp = 31;
 
             if(presetCount != 0)
             {
+                struct RoguePokemonCompetitiveSetRules rules;
+
                 presetIndex = Random() % presetCount;
-                Rogue_ApplyMonPreset(mon, GetMonData(mon, MON_DATA_LEVEL), &gPresetMonTable[species].presets[presetIndex]);
+                Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
             }
 
             // Bump 2 of the IVs to max
@@ -4491,14 +4484,18 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
 
                 if(target != partySize)
                 {
-                    struct RogueMonPreset customPreset;
+                    struct RoguePokemonCompetitiveSetRules rules;
+                    struct RoguePokemonCompetitiveSet customPreset;
+
                     customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
-                    customPreset.abilityNum = GetMonAbility(&gEnemyParty[target]);
+                    customPreset.ability = GetMonAbility(&gEnemyParty[target]);
+                    customPreset.nature = GetNature(&gEnemyParty[target]);
+                    customPreset.hiddenPowerType = CalcMonHiddenPowerType(&gEnemyParty[target]);
 
                     for(i = 0; i < MAX_MON_MOVES; ++i)
                         customPreset.moves[i] = GetMonData(&gEnemyParty[target], MON_DATA_MOVE1 + i);
 
-                    Rogue_ApplyMonPreset(mon, Rogue_CalculatePlayerMonLvl(), &customPreset);
+                    Rogue_ApplyMonCompetitiveSet(mon, Rogue_CalculatePlayerMonLvl(), &customPreset, &rules);
                 }
             }
 
