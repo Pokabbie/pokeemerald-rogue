@@ -1,6 +1,5 @@
 #include "global.h"
 #include "malloc.h"
-#include "bard_music.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -5208,11 +5207,11 @@ bool8 IsBardWordInvalid(u16 easyChatWord)
     {
     case EC_GROUP_POKEMON:
     case EC_GROUP_POKEMON_NATIONAL:
-        numWordsInGroup = gNumBardWords_Species;
+        numWordsInGroup = NUM_SPECIES;
         break;
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
-        numWordsInGroup = gNumBardWords_Moves;
+        numWordsInGroup = MOVES_COUNT;
         break;
     default:
         numWordsInGroup = gEasyChatGroups[groupId].numWords;

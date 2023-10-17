@@ -268,7 +268,6 @@ SECTIONS {
         src/clear_save_data_screen.o(.text);
         src/intro_credits_graphics.o(.text);
         src/evolution_graphics.o(.text);
-        src/bard_music.o(.text);
         src/fldeff_teleport.o(.text);
         src/battle_tv.o(.text);
         src/pokemon_animation.o(.text);
@@ -657,7 +656,6 @@ SECTIONS {
         src/clear_save_data_screen.o(.rodata);
         src/intro_credits_graphics.o(.rodata);
         src/evolution_graphics.o(.rodata);
-        src/bard_music.o(.rodata);
         src/battle_tv.o(.rodata);
         src/pokemon_animation.o(.rodata);
         src/battle_controller_recorded_opponent.o(.rodata);
