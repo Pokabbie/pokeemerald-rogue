@@ -892,28 +892,22 @@ static u16 GetMaxMoveScrollOffset()
 {
     u8 i;
     u16 count = 0;
-    u16 moves[max(EGG_MOVES_ARRAY_COUNT, 128)]; // hardcoded max. Should probably change this to a define
     u16 species = sPokedexMenu->viewBaseSpecies;
     
     // Level up
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    for (i = 0; TRUE; i++)
     {
-        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
             break;
         ++count;
     }
 
-    // Egg moves
-    count += GetEggMovesForSpecies(species, &moves[0]);
-
-    // Tutor moves
-    count += GetTutorMovesForSpecies(species, &moves[0]);
-    
-    // TMS
-    for(i = 0; i < ITEM_HM08 - ITEM_TM01; ++i)
+    // Tutor/TM moves
+    for (i = 0; TRUE; i++)
     {
-        if(CanSpeciesLearnTMHM(species, i) != 0)
-            ++count;
+        if (gRoguePokemonProfiles[species].tutorMoves[i] == MOVE_NONE)
+            break;
+        ++count;
     }
 
     return count - min(count, MAX_LIST_DISPLAY_COUNT);
@@ -932,21 +926,21 @@ static void DisplayMonMovesText()
 
     // Level moves
     {
-        for (i = 0; i < MAX_LEVEL_UP_MOVES && displayCount < MAX_LIST_DISPLAY_COUNT; i++)
+        for (i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; i++)
         {
-            if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+            if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
                 break;
 
-            if(gLevelUpLearnsets[species][i].level == 0)
+            if(gRoguePokemonProfiles[species].levelUpMoves[i].level == 0)
             {
                 // Is evo move
-                StringCopy(gStringVar1, gMoveNames[gLevelUpLearnsets[species][i].move]);
+                StringCopy(gStringVar1, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesEvo);
             }
             else
             { 
-                ConvertUIntToDecimalStringN(gStringVar1, gLevelUpLearnsets[species][i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                StringCopy(gStringVar2, gMoveNames[gLevelUpLearnsets[species][i].move]);
+                ConvertUIntToDecimalStringN(gStringVar1, gRoguePokemonProfiles[species].levelUpMoves[i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
+                StringCopy(gStringVar2, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesLevel);
             }
             
@@ -959,16 +953,24 @@ static void DisplayMonMovesText()
         }
     }
 
-    // Egg moves
+    // TM moves
     if(displayCount < MAX_LIST_DISPLAY_COUNT)
     {
-        u16 moves[EGG_MOVES_ARRAY_COUNT];
-        u8 moveCount = GetEggMovesForSpecies(species, &moves[0]);
+        u16 moveId;
 
-        for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            StringCopy(gStringVar1, gMoveNames[moves[i]]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesEgg);
+            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+
+            if(moveId == MOVE_NONE)
+                break;
+
+            // This is not a TM
+            if(BattleMoveIdToItemId(moveId) == ITEM_NONE)
+                continue;
+
+            StringCopy(gStringVar1, gMoveNames[moveId]);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
@@ -982,12 +984,20 @@ static void DisplayMonMovesText()
     // Tutor moves
     if(displayCount < MAX_LIST_DISPLAY_COUNT)
     {
-        u16 moves[128]; // hardcoded max. Should probably change this to a define
-        u8 moveCount = GetTutorMovesForSpecies(species, &moves[0]);
+        u16 moveId;
 
-        for(i = 0; i < moveCount && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            StringCopy(gStringVar1, gMoveNames[moves[i]]);
+            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+
+            if(moveId == MOVE_NONE)
+                break;
+
+            // This is a TM
+            if(BattleMoveIdToItemId(moveId) != ITEM_NONE)
+                continue;
+
+            StringCopy(gStringVar1, gMoveNames[moveId]);
             StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTutor);
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -996,28 +1006,6 @@ static void DisplayMonMovesText()
                 ++displayCount;
             }
             ++listIndex;
-        }
-    }
-
-    // TMS
-    if(displayCount < MAX_LIST_DISPLAY_COUNT)
-    {
-        for(i = 0; i < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES && displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
-        {
-            if(CanSpeciesLearnTMHM(species, i) != 0)
-            {
-                u16 move = ItemIdToBattleMoveId(ITEM_TM01 + i);
-                
-                StringCopy(gStringVar1, gMoveNames[move]);
-                StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
-                
-                if(listIndex >= sPokedexMenu->listScrollAmount)
-                {
-                    AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
-                    ++displayCount;
-                }
-                ++listIndex;
-            }
         }
     }
 

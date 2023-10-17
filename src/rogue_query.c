@@ -469,7 +469,7 @@ void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
     {
         if(GetQueryBitFlag(species))
         {
-            speciesFlags = gPresetMonTable[species].flags;
+            speciesFlags = Rogue_GetMonFlags(species);
 
             if(func == QUERY_FUNC_INCLUDE)
             {
@@ -520,7 +520,7 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
     {
         if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
         {
-            speciesFlags = gPresetMonTable[species].flags;
+            speciesFlags = Rogue_GetMonFlags(species);
 
             if(func == QUERY_FUNC_INCLUDE)
             {

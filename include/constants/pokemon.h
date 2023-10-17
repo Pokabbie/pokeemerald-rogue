@@ -256,9 +256,7 @@
 
 #define LEVEL_UP_MOVE_ID   0x01FF
 #define LEVEL_UP_MOVE_LV   0xFE00
-#define LEVEL_UP_END       0xFFFF
-
-#define MAX_LEVEL_UP_MOVES       20
+//#define LEVEL_UP_END       0xFFFF
 
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE

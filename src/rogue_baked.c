@@ -1316,3 +1316,26 @@ u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count)
 
     return flags;
 }
+
+u32 Rogue_GetMonFlags(u16 species)
+{
+    u32 flags;
+#ifdef ROGUE_EXPANSION
+    //u16 species2;;
+#endif
+    
+    flags = gRoguePokemonProfiles[species].monFlags;
+
+#ifdef ROGUE_EXPANSION
+    //species2 = GET_BASE_SPECIES_ID(species);
+    //if(species2 != species)
+    //    flags |= gPresetMonTable[species2].flags;
+#endif
+
+    return flags;
+}
+
+bool8 Rogue_CheckMonFlags(u16 species, u32 flags) 
+{
+    return (Rogue_GetMonFlags(species) & flags) == flags;
+}

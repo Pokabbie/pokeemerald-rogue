@@ -429,7 +429,7 @@ static void GatherLearnableMoves(struct Pokemon* mon)
     }
     else if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_TUTOR_MOVES)
     {
-        sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn);
+        sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn, ARRAY_COUNT(sMoveRelearnerStruct->movesToLearn));
     }
     else // TEACH_STATE_RELEARN
     {
@@ -447,7 +447,7 @@ u8 GetNumberOfRelearnableMovesForContext(struct Pokemon* mon)
     }
     else if(sMoveRelearnerMenuSate.teachMoveState == TEACH_STATE_TUTOR_MOVES)
     {
-        return sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn);
+        return sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(mon, sMoveRelearnerStruct->movesToLearn, ARRAY_COUNT(sMoveRelearnerStruct->movesToLearn));
     }
     else // TEACH_STATE_RELEARN
     {

@@ -331,116 +331,7 @@ static void SetRandomQuestionData(void)
 // Unlike the first move choice, this can be either a level up move or a TM/HM move
 static u16 GetRandomAlternateMove(u8 monId)
 {
-    u8 i, j;
-    u8 id;
-    u8 numLearnsetMoves;
-    u16 species;
-    const struct LevelUpMove *learnset;
-    bool32 needTMs = FALSE;
-    u16 moveId = MOVE_NONE;
-    bool32 shouldUseMove;
-    u8 level;
-
-    id = APPRENTICE_SPECIES_ID(monId);
-    species = gApprentices[PLAYER_APPRENTICE.id].species[id];
-    learnset = gLevelUpLearnsets[species];
-    j = 0;
-
-    // Despite being open level, level up moves are only read up to level 60
-    if (PLAYER_APPRENTICE.lvlMode == APPRENTICE_LVL_MODE_50)
-        level = 50;
-    else // == APPRENTICE_LVL_MODE_OPEN
-        level = 60;
-
-    for (j = 0; learnset[j].move != LEVEL_UP_END; j++)
-    {
-        if (learnset[j].level > level)
-            break;
-    }
-
-    numLearnsetMoves = j;
-    i = 0;
-
-    // i < 5 here is arbitrary, i isnt used and is only incremented when the selected move isnt in sValidApprenticeMoves
-    // This while loop contains 3 potential infinite loops, though none of them would occur in the base game
-    while (i < 5)
-    {
-        if (Random() % 2 == 0 || needTMs == TRUE)
-        {
-            // Get TM move
-            // NOTE: Below is an infinite loop if a species that only learns TMs for moves
-            //       that are also in its level up learnset is assigned to an Apprentice
-            do
-            {
-                // NOTE: Below is an infinite loop if a species which cannot learn TMs is assigned to an Apprentice
-                do
-                {
-                    id = Random() % (NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES);
-                    shouldUseMove = CanSpeciesLearnTMHM(species, id);
-                }
-                while (!shouldUseMove);
-
-                moveId = ItemIdToBattleMoveId(ITEM_TM01 + id);
-                shouldUseMove = TRUE;
-
-                if (numLearnsetMoves <= MAX_MON_MOVES)
-                    j = 0;
-                else
-                    j = numLearnsetMoves - MAX_MON_MOVES;
-
-                for (; j < numLearnsetMoves; j++)
-                {
-                    // Keep looking for TMs until one not in the level up learnset is found
-                    if ((learnset[j].move) == moveId)
-                    {
-                        shouldUseMove = FALSE;
-                        break;
-                    }
-                }
-            } while (shouldUseMove != TRUE);
-        }
-        else
-        {
-            if (numLearnsetMoves <= MAX_MON_MOVES)
-            {
-                needTMs = TRUE;
-                continue;
-            }
-            else
-            {
-                // Get level up move
-                // NOTE: Below is an infinite loop if a mon whose last 4 moves contain
-                //       all the moves in the rest of its learnset is assigned to an Apprentice
-                do
-                {
-                    // Get a random move excluding the 4 it would know at max level
-                    u8 learnsetId = Random() % (numLearnsetMoves - MAX_MON_MOVES);
-                    moveId = learnset[learnsetId].move;
-                    shouldUseMove = TRUE;
-
-                    for (j = numLearnsetMoves - MAX_MON_MOVES; j < numLearnsetMoves; j++)
-                    {
-                        // Keep looking for moves until one not in the last 4 is found
-                        if ((learnset[j].move) == moveId)
-                        {
-                            shouldUseMove = FALSE;
-                            break;
-                        }
-                    }
-                } while (shouldUseMove != TRUE);
-            }
-        }
-
-        if (TrySetMove(monId, moveId))
-        {
-            if (sValidApprenticeMoves[moveId])
-                break;
-            i++;
-        }
-    }
-
-    gApprenticePartyMovesData->moveCounter++;
-    return moveId;
+    return 0;
 }
 
 static bool8 TrySetMove(u8 monId, u16 moveId)
@@ -459,28 +350,6 @@ static bool8 TrySetMove(u8 monId, u16 moveId)
 
 static void GetLatestLearnedMoves(u16 species, u16 *moves)
 {
-    u8 i, j;
-    u8 level, numLearnsetMoves;
-    const struct LevelUpMove *learnset;
-
-    if (PLAYER_APPRENTICE.lvlMode == APPRENTICE_LVL_MODE_50)
-        level = 50;
-    else // == APPRENTICE_LVL_MODE_OPEN
-        level = 60;
-
-    learnset = gLevelUpLearnsets[species];
-    for (i = 0; learnset[i].move != LEVEL_UP_END; i++)
-    {
-        if (learnset[i].level > level)
-            break;
-    }
-
-    numLearnsetMoves = i;
-    if (numLearnsetMoves > MAX_MON_MOVES)
-        numLearnsetMoves = MAX_MON_MOVES;
-
-    for (j = 0; j < numLearnsetMoves; j++)
-        moves[j] = learnset[(i - 1) - j].move;
 }
 
 // Get the level up move or previously suggested move to be the first move choice

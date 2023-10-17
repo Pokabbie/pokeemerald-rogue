@@ -348,25 +348,6 @@ struct SpeciesTable
     const u16* trainerSpecies;
 };
 
-struct RogueMonPreset
-{
-    bool8 allowMissingMoves;
-    u16 heldItem;
-    u16 abilityNum; // not actually abilityNum, should be the abilityId
-    u16 hiddenPowerType;
-    u16 flags;
-    u16 moves[MAX_MON_MOVES];
-};
-
-struct RogueMonPresetCollection
-{
-    u16 flags;
-    u16 presetCount;
-    u16 movesCount;
-    const struct RogueMonPreset* presets;
-    const u16* moves;
-};
-
 // Rogue Multiplayer
 //
 struct RogueNetHandshake
@@ -465,6 +446,34 @@ struct RoguePokedexRegion
     u16 variantCount;
 };
 
+struct RoguePokemonCompetitiveSet
+{
+    u16 moves[MAX_MON_MOVES];
+    u16 heldItem;
+    u16 ability;
+    u8 hiddenPowerType;
+    u8 nature;
+};
+
+struct RoguePokemonCompetitiveSetRules
+{
+    bool8 skipMoves : 1;
+    bool8 skipHeldItem : 1;
+    bool8 skipAbility : 1;
+    bool8 skipHiddenPowerType : 1;
+    bool8 skipNature : 1;
+    bool8 allowMissingMoves : 1;
+};
+
+struct RoguePokemonProfile
+{
+    struct RoguePokemonCompetitiveSet const* competitiveSets;
+    struct LevelUpMove const* levelUpMoves;
+    u16 const* tutorMoves;
+    u16 monFlags;
+    u16 competitiveSetCount;
+};
+
 struct RogueDifficultyConfig
 {
     u8 toggleBits[DIFFICULTY_TOGGLE_BYTE_COUNT];
@@ -510,8 +519,7 @@ extern const struct RogueTrainer gRogueTrainers[];
 extern const u16 gRogueTrainerCount;
 extern const struct RogueBattleMusic gRogueTrainerMusic[];
 
-extern const struct RogueMonPresetCollection gPresetMonTable[NUM_SPECIES];
-
+extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
 
 extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];

@@ -24,6 +24,7 @@ struct TrainerHeldItemScratch
 {
     bool8 hasLeftovers : 1;
     bool8 hasShellbell : 1;
+    bool8 hasChoiceItem : 1;
 #ifdef ROGUE_EXPANSION
     bool8 hasMegaStone : 1;
     bool8 hasZCrystal : 1;
@@ -54,9 +55,10 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCount, u8 monCapacity, bool8 firstTrainer, u8 startIndex);
 static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCapacity);
 static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount);
-static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RogueMonPreset* outPreset);
-static void ModifyTrainerMonPreset(struct RogueMonPreset* preset);
+static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset);
+static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules);
 static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
+static bool8 IsChoiceItem(u16 itemId);
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
@@ -985,7 +987,6 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     return fixedIV;
 }
 
-
 static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
 {
     switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
@@ -1122,6 +1123,33 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     return monCount;
 }
 
+static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
+{
+    if(!Rogue_IsKeyTrainer(trainerNum))
+        return FALSE;
+
+    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_MEDIUM:
+        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            return TRUE;
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            return TRUE;
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
 {
     u8 monCount;
@@ -1198,7 +1226,8 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
 
     // Generate team
     {
-        struct RogueMonPreset preset;
+        struct RoguePokemonCompetitiveSet preset;
+        struct RoguePokemonCompetitiveSetRules presetRules;
 
         RogueMonQuery_Begin();
 
@@ -1213,8 +1242,8 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
-                ModifyTrainerMonPreset(&preset);
-                Rogue_ApplyMonPreset(&party[i], level, &preset);
+                ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
+                Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
             }
 
             ++scratch.partyCount;
@@ -1273,7 +1302,8 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
         u8 i, j;
         u8 swapAmount;
         u16 species;
-        struct RogueMonPreset preset;
+        struct RoguePokemonCompetitiveSet preset;
+        struct RoguePokemonCompetitiveSetRules presetRules;
         u16 speciesBuffer[PARTY_SIZE];
 
         memcpy(speciesBuffer, gRogueRun.rivalSpecies, sizeof(speciesBuffer));
@@ -1360,8 +1390,8 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
-                ModifyTrainerMonPreset(&preset);
-                Rogue_ApplyMonPreset(&party[i], level, &preset);
+                ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
+                Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
             }
         }
     }
@@ -1932,10 +1962,10 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     return FALSE;
 }
 
-static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RogueMonPreset* outPreset)
+static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset)
 {
     u8 i;
-    u8 presetCount = gPresetMonTable[species].presetCount;
+    u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
 
     // Exact mirror copy trainer party
     //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
@@ -1945,7 +1975,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
     //    outPreset->abilityNum = GetMonAbility(&gPlayerParty[monIdx]);
     //    outPreset->hiddenPowerType = CalcMonHiddenPowerType(&gPlayerParty[monIdx]);
     //    outPreset->flags = 0;
-//
+//1
     //    for(i = 0; i < MAX_MON_MOVES; ++i)
     //        outPreset->moves[i] = GetMonData(&gPlayerParty[monIdx], MON_DATA_MOVE1 + i);
 //
@@ -1954,7 +1984,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
 
     if(presetCount != 0)
     {
-        const struct RogueMonPreset* currPreset;
+        const struct RoguePokemonCompetitiveSet* currPreset;
         bool8 isPresetValid;
         u8 randOffset = (presetCount == 1 ? 0 : RogueRandomRange(presetCount, FLAG_SET_SEED_TRAINERS));
         
@@ -1962,7 +1992,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
         // If none is found, we will use the last option and adjust below
         for(i = 0; i < presetCount; ++i)
         {
-            currPreset = &gPresetMonTable[species].presets[((randOffset + i) % presetCount)];
+            currPreset = &gRoguePokemonProfiles[species].competitiveSets[((randOffset + i) % presetCount)];
             isPresetValid = TRUE;
 
             if(currPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
@@ -1971,6 +2001,11 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             }
 
             if(currPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
+            {
+                isPresetValid = FALSE;
+            }
+
+            if(IsChoiceItem(currPreset->heldItem) && scratch->heldItems.hasChoiceItem)
             {
                 isPresetValid = FALSE;
             }
@@ -2008,7 +2043,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             }
         }
 
-        memcpy(outPreset, currPreset, sizeof(struct RogueMonPreset));
+        memcpy(outPreset, currPreset, sizeof(struct RoguePokemonCompetitiveSet));
 
         // Swap out limited count items, if they already exist
         if(!isPresetValid)
@@ -2023,6 +2058,31 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             {
                 // Swap shell bell to NONE (i.e. berry)
                 outPreset->heldItem = ITEM_NONE;
+            }
+            
+            if(IsChoiceItem(outPreset->heldItem) && scratch->heldItems.hasChoiceItem)
+            {
+                // Swap choice items for weaker versions
+                switch (outPreset->heldItem)
+                {
+#ifdef ROGUE_EXPANSION
+                case ITEM_CHOICE_BAND:
+                    outPreset->heldItem = ITEM_MUSCLE_BAND;
+                    break;
+                
+                case ITEM_CHOICE_SPECS:
+                    outPreset->heldItem = ITEM_WISE_GLASSES;
+                    break;
+
+                case ITEM_CHOICE_SCARF:
+                    outPreset->heldItem = ITEM_QUICK_CLAW;
+                    break;
+#endif
+
+                default:
+                    outPreset->heldItem = ITEM_NONE;
+                    break;
+                }
             }
 
 #ifdef ROGUE_EXPANSION
@@ -2066,6 +2126,10 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
         {
             scratch->heldItems.hasShellbell = TRUE;
         }
+        else if(IsChoiceItem(outPreset->heldItem))
+        {
+            scratch->heldItems.hasChoiceItem = TRUE;
+        }
 #ifdef ROGUE_EXPANSION
         else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
         {
@@ -2084,17 +2148,22 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
 }
 
 
-static bool8 MonPresetHasChoiceItem(struct RogueMonPreset* preset)
+static bool8 IsChoiceItem(u16 itemId)
 {
-    return preset->heldItem == ITEM_CHOICE_BAND
+    switch (itemId)
+    {
+    case ITEM_CHOICE_BAND:
 #ifdef ROGUE_EXPANSION
-        || preset->heldItem == ITEM_CHOICE_SPECS
-        || preset->heldItem == ITEM_CHOICE_SCARF
+    case ITEM_CHOICE_SPECS:
+    case ITEM_CHOICE_SCARF:
 #endif
-    ;
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
-static u8 MonPresetCountMoves(struct RogueMonPreset* preset)
+static u8 MonPresetCountMoves(struct RoguePokemonCompetitiveSet* preset)
 {
     u8 i;
     u8 count = 0;
@@ -2108,7 +2177,7 @@ static u8 MonPresetCountMoves(struct RogueMonPreset* preset)
     return count;
 }
 
-static bool8 MonPresetReplaceMove(struct RogueMonPreset* preset, u16 fromMove, u16 toMove)
+static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16 fromMove, u16 toMove)
 {
     u8 i;
 
@@ -2119,20 +2188,20 @@ static bool8 MonPresetReplaceMove(struct RogueMonPreset* preset, u16 fromMove, u
     }
 }
 
-static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
+static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
 {
 #ifndef ROGUE_EXPANSION
     // Vanilla only: AI can't use trick
     if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
-        preset->allowMissingMoves = TRUE;
+        presetRules->allowMissingMoves = TRUE;
 #endif
 
     // Edge case to handle scarfed ditto
-    if(MonPresetHasChoiceItem(preset) && (MonPresetCountMoves(preset) > 2))
+    if(IsChoiceItem(preset->heldItem) && (MonPresetCountMoves(preset) > 2))
     {
         // Need to make sure this mon only has attacking moves
         u8 i = 0;
-        preset->allowMissingMoves = TRUE;
+        presetRules->allowMissingMoves = TRUE;
 
         for(i = 0; i < MAX_MON_MOVES; ++i)
         {
@@ -2140,6 +2209,9 @@ static void ModifyTrainerMonPreset(struct RogueMonPreset* preset)
                 preset->moves[i] = MOVE_NONE;
         }
     }
+
+    if(!ShouldTrainerUseValidNatures(trainerNum))
+        presetRules->skipNature = TRUE;
 }
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)

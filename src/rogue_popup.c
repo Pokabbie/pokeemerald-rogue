@@ -715,11 +715,11 @@ static bool8 HasTeachableMoves(struct Pokemon* mon, u8 fromLevel, u8 toLevel)
 
     species = GetMonData(mon, MON_DATA_SPECIES);
 
-    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
     {
-        if(gLevelUpLearnsets[species][i].level > fromLevel && gLevelUpLearnsets[species][i].level <= toLevel)
+        if(gRoguePokemonProfiles[species].levelUpMoves[i].level > fromLevel && gRoguePokemonProfiles[species].levelUpMoves[i].level <= toLevel)
         {
-            if(!MonKnowsMove(mon, gLevelUpLearnsets[species][i].move))
+            if(!MonKnowsMove(mon, gRoguePokemonProfiles[species].levelUpMoves[i].move))
                 return TRUE;
         }
     }

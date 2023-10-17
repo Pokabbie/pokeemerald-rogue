@@ -62,8 +62,6 @@ bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);
 bool8 IsDynamaxEnabled(void);
 
-bool8 CheckPresetMonFlags(u16 species, u32 flag);
-
 void Rogue_ResetConfigHubSettings(void);
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);
@@ -122,7 +120,7 @@ u16 Rogue_GetBagPocketAmountPerItem(u8 pocket);
 void Rogue_PreBattleSetup(void);
 bool8 Rogue_OverrideTrainerItems(u16* items);
 
-void Rogue_ApplyMonPreset(struct Pokemon* mon, u8 level, const struct RogueMonPreset* preset);
+void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePokemonCompetitiveSet const* preset, struct RoguePokemonCompetitiveSetRules const* rules);
 
 void Rogue_ModifyWildMonHeldItem(u16* itemId);
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny);
