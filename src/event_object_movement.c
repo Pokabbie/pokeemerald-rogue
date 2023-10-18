@@ -527,10 +527,22 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA           0x116B
 #define OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES        0x116C
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x116D
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x116E
+#define OBJ_EVENT_PAL_TAG_GALAR_ALLISTER         0x116D
+#define OBJ_EVENT_PAL_TAG_GALAR_BEA              0x116E
+#define OBJ_EVENT_PAL_TAG_GALAR_GORDIE           0x116F
+#define OBJ_EVENT_PAL_TAG_GALAR_KABU             0x1170
+#define OBJ_EVENT_PAL_TAG_GALAR_LEON             0x1171
+#define OBJ_EVENT_PAL_TAG_GALAR_MELONY           0x1172
+#define OBJ_EVENT_PAL_TAG_GALAR_MILO             0x1173
+#define OBJ_EVENT_PAL_TAG_GALAR_NESSA            0x1174
+#define OBJ_EVENT_PAL_TAG_GALAR_OPAL             0x1175
+#define OBJ_EVENT_PAL_TAG_GALAR_PIERS            0x1176
+#define OBJ_EVENT_PAL_TAG_GALAR_RAIHAN           0x1177
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x116F
+
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1178
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1179
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x117A
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -659,6 +671,18 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Alola_Nanu, OBJ_EVENT_PAL_TAG_ALOLA_NANU},
     {gObjectEventPal_Alola_Olivia, OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA},
     {gObjectEventPal_Alola_Sophocles, OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES},
+
+    {gObjectEventPal_Galar_Allister, OBJ_EVENT_PAL_TAG_GALAR_ALLISTER},
+    {gObjectEventPal_Galar_Bea, OBJ_EVENT_PAL_TAG_GALAR_BEA},
+    {gObjectEventPal_Galar_Gordie, OBJ_EVENT_PAL_TAG_GALAR_GORDIE},
+    {gObjectEventPal_Galar_Kabu, OBJ_EVENT_PAL_TAG_GALAR_KABU},
+    {gObjectEventPal_Galar_Leon, OBJ_EVENT_PAL_TAG_GALAR_LEON},
+    {gObjectEventPal_Galar_Melony, OBJ_EVENT_PAL_TAG_GALAR_MELONY},
+    {gObjectEventPal_Galar_Milo, OBJ_EVENT_PAL_TAG_GALAR_MILO},
+    {gObjectEventPal_Galar_Nessa, OBJ_EVENT_PAL_TAG_GALAR_NESSA},
+    {gObjectEventPal_Galar_Opal, OBJ_EVENT_PAL_TAG_GALAR_OPAL},
+    {gObjectEventPal_Galar_Piers, OBJ_EVENT_PAL_TAG_GALAR_PIERS},
+    {gObjectEventPal_Galar_Raihan, OBJ_EVENT_PAL_TAG_GALAR_RAIHAN},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

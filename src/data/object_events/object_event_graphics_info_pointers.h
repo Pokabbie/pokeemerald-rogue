@@ -368,6 +368,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Nanu;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Olivia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Sophocles;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Allister;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Bea;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Gordie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Kabu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Leon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Melony;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Milo;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Nessa;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Opal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Piers;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Raihan;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -802,6 +814,18 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ALOLA_NANU] = &gObjectEventGraphicsInfo_Alola_Nanu,
     [OBJ_EVENT_GFX_ALOLA_OLIVIA] = &gObjectEventGraphicsInfo_Alola_Olivia,
     [OBJ_EVENT_GFX_ALOLA_SOPHOCLES] = &gObjectEventGraphicsInfo_Alola_Sophocles,
+
+    [OBJ_EVENT_GFX_GALAR_ALLISTER] = &gObjectEventGraphicsInfo_Galar_Allister,
+    [OBJ_EVENT_GFX_GALAR_BEA] = &gObjectEventGraphicsInfo_Galar_Bea,
+    [OBJ_EVENT_GFX_GALAR_GORDIE] = &gObjectEventGraphicsInfo_Galar_Gordie,
+    [OBJ_EVENT_GFX_GALAR_KABU] = &gObjectEventGraphicsInfo_Galar_Kabu,
+    [OBJ_EVENT_GFX_GALAR_LEON] = &gObjectEventGraphicsInfo_Galar_Leon,
+    [OBJ_EVENT_GFX_GALAR_MELONY] = &gObjectEventGraphicsInfo_Galar_Melony,
+    [OBJ_EVENT_GFX_GALAR_MILO] = &gObjectEventGraphicsInfo_Galar_Milo,
+    [OBJ_EVENT_GFX_GALAR_NESSA] = &gObjectEventGraphicsInfo_Galar_Nessa,
+    [OBJ_EVENT_GFX_GALAR_OPAL] = &gObjectEventGraphicsInfo_Galar_Opal,
+    [OBJ_EVENT_GFX_GALAR_PIERS] = &gObjectEventGraphicsInfo_Galar_Piers,
+    [OBJ_EVENT_GFX_GALAR_RAIHAN] = &gObjectEventGraphicsInfo_Galar_Raihan,
 
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,
