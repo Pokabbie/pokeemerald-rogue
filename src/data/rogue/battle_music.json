@@ -49,6 +49,10 @@
             "conditional_redirects":
             [
                 {
+                    "trainer_class": "RIVAL",
+                    "music_player": "johto_rival"
+                },
+                {
                     "trainer_class": "ELITE_FOUR",
                     "music_player": "johto_elite"
                 },
@@ -70,6 +74,12 @@
             "battle": "MUS_HG_VS_CHAMPION",
             "victory": "MUS_HG_VICTORY_GYM_LEADER"
         },
+        "johto_rival":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_RIVAL",
+            "battle": "MUS_HG_VS_RIVAL",
+            "victory": "MUS_HG_VS_TRAINER"
+        },
 
         "hoenn_boss":
         {
@@ -78,6 +88,10 @@
             "victory": "MUS_VICTORY_GYM_LEADER",
             "conditional_redirects":
             [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "hoenn_rival"
+                },
                 {
                     "trainer_class": "ELITE_FOUR",
                     "music_player": "hoenn_elite"
@@ -100,6 +114,12 @@
             "battle": "MUS_VS_CHAMPION",
             "victory": "MUS_VICTORY_LEAGUE"
         },
+        "hoenn_rival":
+        {
+            "encounter": "MUS_ENCOUNTER_BRENDAN",
+            "battle": "MUS_VS_RIVAL",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
 
         "sinnoh_boss":
         {
@@ -108,6 +128,10 @@
             "victory": "MUS_DP_VICTORY_GYM_LEADER",
             "conditional_redirects":
             [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "sinnoh_rival"
+                },
                 {
                     "trainer_class": "ELITE_FOUR",
                     "music_player": "sinnoh_elite"
@@ -129,6 +153,12 @@
             "encounter": "MUS_DP_ENCOUNTER_CHAMPION",
             "battle": "MUS_DP_VS_CHAMPION",
             "victory": "MUS_DP_VICTORY_CHAMPION"
+        },
+        "sinnoh_rival":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_ACE_TRAINER",
+            "battle": "MUS_DP_VS_RIVAL",
+            "victory": "MUS_DP_VICTORY_TRAINER"
         },
 
         "unova_boss":

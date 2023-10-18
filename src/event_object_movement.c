@@ -583,8 +583,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     //{gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
     //{gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
     //{gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
+    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN},
+    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
     {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
     {gObjectEventPal_PlayerUnderwater,      OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
     {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
@@ -592,8 +592,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
     {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
     {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
+    {gObjectEventPal_PlayerMayBase,         OBJ_EVENT_PAL_TAG_MAY},
+    {gObjectEventPal_PlayerMayBase,         OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
     {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
     {gObjectEventPal_CableCar,              OBJ_EVENT_PAL_TAG_CABLE_CAR},
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
