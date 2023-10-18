@@ -4428,6 +4428,7 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
             if(presetCount != 0)
             {
                 struct RoguePokemonCompetitiveSetRules rules;
+                memset(&rules, 0, sizeof(rules));
 
                 presetIndex = Random() % presetCount;
                 Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
@@ -4496,6 +4497,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
                     struct RoguePokemonCompetitiveSetRules rules;
                     struct RoguePokemonCompetitiveSet customPreset;
 
+                    memset(&rules, 0, sizeof(rules));
                     customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
                     customPreset.ability = GetMonAbility(&gEnemyParty[target]);
                     customPreset.nature = GetNature(&gEnemyParty[target]);
