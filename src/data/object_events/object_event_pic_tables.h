@@ -3346,6 +3346,150 @@ static const struct SpriteFrameImage sPicTable_Unova_Roxie[] = {
     overworld_frame(gObjectEventPic_Unova_Roxie, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Kalos_Clement[] = {
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Clement, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Diantha[] = {
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Diantha, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Drasna[] = {
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Drasna, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Grant[] = {
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Grant, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Korrina[] = {
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Korrina, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Malva[] = {
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Malva, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Olympia[] = {
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Olympia, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Ramos[] = {
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Ramos, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Siebold[] = {
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Siebold, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Valerie[] = {
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Valerie, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Viola[] = {
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Viola, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Wikstrom[] = {
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Wikstrom, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Kalos_Wulfric[] = {
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Kalos_Wulfric, 2, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_Misc_Aroma_Girl[] = {
     overworld_frame(gObjectEventPic_Misc_Aroma_Girl, 2, 4, 0),
     overworld_frame(gObjectEventPic_Misc_Aroma_Girl, 2, 4, 1),

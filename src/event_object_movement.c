@@ -498,10 +498,24 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_UNOVA_BURGH            0x1150
 #define OBJ_EVENT_PAL_TAG_UNOVA_ROXIE            0x1151
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1152
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1153
+#define OBJ_EVENT_PAL_TAG_KALOS_CLEMENT          0x1152
+#define OBJ_EVENT_PAL_TAG_KALOS_DIANTHA          0x1153
+#define OBJ_EVENT_PAL_TAG_KALOS_DRASNA           0x1154
+#define OBJ_EVENT_PAL_TAG_KALOS_GRANT            0x1155
+#define OBJ_EVENT_PAL_TAG_KALOS_KORRINA          0x1156
+#define OBJ_EVENT_PAL_TAG_KALOS_MALVA            0x1157
+#define OBJ_EVENT_PAL_TAG_KALOS_OLYMPIA          0x1158
+#define OBJ_EVENT_PAL_TAG_KALOS_RAMOS            0x1159
+#define OBJ_EVENT_PAL_TAG_KALOS_SIEBOLD          0x115A
+#define OBJ_EVENT_PAL_TAG_KALOS_VALERIE          0x115B
+#define OBJ_EVENT_PAL_TAG_KALOS_VIOLA            0x115C
+#define OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM         0x115D
+#define OBJ_EVENT_PAL_TAG_KALOS_WULFRIC          0x115E
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x1154
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x115F
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1160
+
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x1161
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -601,6 +615,20 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Unova_Skyla, OBJ_EVENT_PAL_TAG_UNOVA_SKYLA},
     {gObjectEventPal_Unova_Burgh, OBJ_EVENT_PAL_TAG_UNOVA_BURGH},
     {gObjectEventPal_Unova_Roxie, OBJ_EVENT_PAL_TAG_UNOVA_ROXIE},
+
+    {gObjectEventPal_Kalos_Clement, OBJ_EVENT_PAL_TAG_KALOS_CLEMENT},
+    {gObjectEventPal_Kalos_Diantha, OBJ_EVENT_PAL_TAG_KALOS_DIANTHA},
+    {gObjectEventPal_Kalos_Drasna, OBJ_EVENT_PAL_TAG_KALOS_DRASNA},
+    {gObjectEventPal_Kalos_Grant, OBJ_EVENT_PAL_TAG_KALOS_GRANT},
+    {gObjectEventPal_Kalos_Korrina, OBJ_EVENT_PAL_TAG_KALOS_KORRINA},
+    {gObjectEventPal_Kalos_Malva, OBJ_EVENT_PAL_TAG_KALOS_MALVA},
+    {gObjectEventPal_Kalos_Olympia, OBJ_EVENT_PAL_TAG_KALOS_OLYMPIA},
+    {gObjectEventPal_Kalos_Ramos, OBJ_EVENT_PAL_TAG_KALOS_RAMOS},
+    {gObjectEventPal_Kalos_Siebold, OBJ_EVENT_PAL_TAG_KALOS_SIEBOLD},
+    {gObjectEventPal_Kalos_Valerie, OBJ_EVENT_PAL_TAG_KALOS_VALERIE},
+    {gObjectEventPal_Kalos_Viola, OBJ_EVENT_PAL_TAG_KALOS_VIOLA},
+    {gObjectEventPal_Kalos_Wikstrom, OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM},
+    {gObjectEventPal_Kalos_Wulfric, OBJ_EVENT_PAL_TAG_KALOS_WULFRIC},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

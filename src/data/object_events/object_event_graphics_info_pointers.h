@@ -339,6 +339,20 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Skyla;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Burgh;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Roxie;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Clement;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Diantha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Drasna;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Grant;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Korrina;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Malva;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Olympia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Ramos;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Siebold;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Valerie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Viola;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wikstrom;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wulfric;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -744,6 +758,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_UNOVA_SKYLA] = &gObjectEventGraphicsInfo_Unova_Skyla,
     [OBJ_EVENT_GFX_UNOVA_BURGH] = &gObjectEventGraphicsInfo_Unova_Burgh,
     [OBJ_EVENT_GFX_UNOVA_ROXIE] = &gObjectEventGraphicsInfo_Unova_Roxie,
+
+    [OBJ_EVENT_GFX_KALOS_CLEMENT] = &gObjectEventGraphicsInfo_Kalos_Clement,
+    [OBJ_EVENT_GFX_KALOS_DIANTHA] = &gObjectEventGraphicsInfo_Kalos_Diantha,
+    [OBJ_EVENT_GFX_KALOS_DRASNA] = &gObjectEventGraphicsInfo_Kalos_Drasna,
+    [OBJ_EVENT_GFX_KALOS_GRANT] = &gObjectEventGraphicsInfo_Kalos_Grant,
+    [OBJ_EVENT_GFX_KALOS_KORRINA] = &gObjectEventGraphicsInfo_Kalos_Korrina,
+    [OBJ_EVENT_GFX_KALOS_MALVA] = &gObjectEventGraphicsInfo_Kalos_Malva,
+    [OBJ_EVENT_GFX_KALOS_OLYMPIA] = &gObjectEventGraphicsInfo_Kalos_Olympia,
+    [OBJ_EVENT_GFX_KALOS_RAMOS] = &gObjectEventGraphicsInfo_Kalos_Ramos,
+    [OBJ_EVENT_GFX_KALOS_SIEBOLD] = &gObjectEventGraphicsInfo_Kalos_Siebold,
+    [OBJ_EVENT_GFX_KALOS_VALERIE] = &gObjectEventGraphicsInfo_Kalos_Valerie,
+    [OBJ_EVENT_GFX_KALOS_VIOLA] = &gObjectEventGraphicsInfo_Kalos_Viola,
+    [OBJ_EVENT_GFX_KALOS_WIKSTROM] = &gObjectEventGraphicsInfo_Kalos_Wikstrom,
+    [OBJ_EVENT_GFX_KALOS_WULFRIC] = &gObjectEventGraphicsInfo_Kalos_Wulfric,
 
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,

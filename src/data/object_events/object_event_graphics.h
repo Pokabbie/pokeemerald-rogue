@@ -541,6 +541,34 @@ const u32 gObjectEventPic_Unova_Skyla[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Unova_Burgh[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/unova/burgh.4bpp");
 const u32 gObjectEventPic_Unova_Roxie[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/unova/roxie.4bpp");
 
+const u16 gObjectEventPal_Kalos_Clement[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/clement.gbapal");
+const u16 gObjectEventPal_Kalos_Diantha[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/diantha.gbapal");
+const u16 gObjectEventPal_Kalos_Drasna[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/drasna.gbapal");
+const u16 gObjectEventPal_Kalos_Grant[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/grant.gbapal");
+const u16 gObjectEventPal_Kalos_Korrina[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/korrina.gbapal");
+const u16 gObjectEventPal_Kalos_Malva[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/malva.gbapal");
+const u16 gObjectEventPal_Kalos_Olympia[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/olympia.gbapal");
+const u16 gObjectEventPal_Kalos_Ramos[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/ramos.gbapal");
+const u16 gObjectEventPal_Kalos_Siebold[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/siebold.gbapal");
+const u16 gObjectEventPal_Kalos_Valerie[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/valerie.gbapal");
+const u16 gObjectEventPal_Kalos_Viola[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/viola.gbapal");
+const u16 gObjectEventPal_Kalos_Wikstrom[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/wikstrom.gbapal");
+const u16 gObjectEventPal_Kalos_Wulfric[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/kalos/wulfric.gbapal");
+
+const u32 gObjectEventPic_Kalos_Clement[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/clement.4bpp");
+const u32 gObjectEventPic_Kalos_Diantha[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/diantha.4bpp");
+const u32 gObjectEventPic_Kalos_Drasna[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/drasna.4bpp");
+const u32 gObjectEventPic_Kalos_Grant[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/grant.4bpp");
+const u32 gObjectEventPic_Kalos_Korrina[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/korrina.4bpp");
+const u32 gObjectEventPic_Kalos_Malva[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/malva.4bpp");
+const u32 gObjectEventPic_Kalos_Olympia[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/olympia.4bpp");
+const u32 gObjectEventPic_Kalos_Ramos[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/ramos.4bpp");
+const u32 gObjectEventPic_Kalos_Siebold[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/siebold.4bpp");
+const u32 gObjectEventPic_Kalos_Valerie[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/valerie.4bpp");
+const u32 gObjectEventPic_Kalos_Viola[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/viola.4bpp");
+const u32 gObjectEventPic_Kalos_Wikstrom[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/wikstrom.4bpp");
+const u32 gObjectEventPic_Kalos_Wulfric[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/wulfric.4bpp");
+
 const u32 gObjectEventPic_Misc_Aroma_Girl[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/aroma_girl.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_f.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_m.4bpp");
