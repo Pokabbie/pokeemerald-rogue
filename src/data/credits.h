@@ -27,6 +27,10 @@
     method(14, "TailsMK4", 0) \
     method(15, "", CREDITS_FLAG_BREAK) \
     \
+    method(151, "Community Artists", CREDITS_FLAG_TITLE) \
+    method(152, "Zefa", 0) \
+    method(153, "", CREDITS_FLAG_BREAK) \
+    \
     method(16, "Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(17, "DizzyEggg", 0) \
     method(18, "ghoulslash", 0) \
@@ -48,6 +52,10 @@
     method(3201, "Key Items Menu", CREDITS_FLAG_TITLE) \
     method(3202, "Merrp", 0) \
     method(3203, "", CREDITS_FLAG_BREAK) \
+    \
+    method(61, "DS Songs", CREDITS_FLAG_TITLE) \
+    method(62, "CyanSMP64", 0) \
+    method(63, "", CREDITS_FLAG_BREAK) \
     \
     method(33, "Additional Sprites", CREDITS_FLAG_TITLE) \
     method(34, "AveonTrainer", 0) \
@@ -84,10 +92,6 @@
     method(5903, "Anarlaurendil", 0) \
     method(5904, "Lasse00", 0) \
     method(60, "", CREDITS_FLAG_BREAK) \
-    \
-    method(61, "Additional Songs", CREDITS_FLAG_TITLE) \
-    method(62, "CyanSMP64", 0) \
-    method(63, "", CREDITS_FLAG_BREAK) \
     \
     method(64, "Special Thanks to", CREDITS_FLAG_TITLE) \
     method(65, "Kate", 0) \
