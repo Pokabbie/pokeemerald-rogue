@@ -686,7 +686,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 static u16 SanitizeItemId(u16 itemId)
 {
 #ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
-    if(itemId >= ITEM_HM01 && itemId >= ITEM_HM08)
+    if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
         return ITEM_NONE;
 #endif
 
