@@ -404,6 +404,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Veteran;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_M;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Avery;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Barry;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Bede;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Bianca;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Cheren;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Gladion;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hau;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hop;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hugh;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Klara;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Marnie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_N;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Shauna;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Silver;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Tierno;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Trevor;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
@@ -850,6 +867,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_VETERAN] = &gObjectEventGraphicsInfo_Misc_Veteran,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F] = &gObjectEventGraphicsInfo_Misc_Young_Couple_F,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_Misc_Young_Couple_M,
+
+    [OBJ_EVENT_GFX_RIVAL_AVERY] = &gObjectEventGraphicsInfo_Rival_Avery,
+    [OBJ_EVENT_GFX_RIVAL_BARRY] = &gObjectEventGraphicsInfo_Rival_Barry,
+    [OBJ_EVENT_GFX_RIVAL_BEDE] = &gObjectEventGraphicsInfo_Rival_Bede,
+    [OBJ_EVENT_GFX_RIVAL_BIANCA] = &gObjectEventGraphicsInfo_Rival_Bianca,
+    [OBJ_EVENT_GFX_RIVAL_CHEREN] = &gObjectEventGraphicsInfo_Rival_Cheren,
+    [OBJ_EVENT_GFX_RIVAL_GLADION] = &gObjectEventGraphicsInfo_Rival_Gladion,
+    [OBJ_EVENT_GFX_RIVAL_HAU] = &gObjectEventGraphicsInfo_Rival_Hau,
+    [OBJ_EVENT_GFX_RIVAL_HOP] = &gObjectEventGraphicsInfo_Rival_Hop,
+    [OBJ_EVENT_GFX_RIVAL_HUGH] = &gObjectEventGraphicsInfo_Rival_Hugh,
+    [OBJ_EVENT_GFX_RIVAL_KLARA] = &gObjectEventGraphicsInfo_Rival_Klara,
+    [OBJ_EVENT_GFX_RIVAL_MARNIE] = &gObjectEventGraphicsInfo_Rival_Marnie,
+    [OBJ_EVENT_GFX_RIVAL_N] = &gObjectEventGraphicsInfo_Rival_N,
+    [OBJ_EVENT_GFX_RIVAL_SHAUNA] = &gObjectEventGraphicsInfo_Rival_Shauna,
+    [OBJ_EVENT_GFX_RIVAL_SILVER] = &gObjectEventGraphicsInfo_Rival_Silver,
+    [OBJ_EVENT_GFX_RIVAL_TIERNO] = &gObjectEventGraphicsInfo_Rival_Tierno,
+    [OBJ_EVENT_GFX_RIVAL_TREVOR] = &gObjectEventGraphicsInfo_Rival_Trevor,
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,

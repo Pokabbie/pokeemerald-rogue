@@ -539,10 +539,26 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_GALAR_PIERS            0x1176
 #define OBJ_EVENT_PAL_TAG_GALAR_RAIHAN           0x1177
 
+#define OBJ_EVENT_PAL_TAG_RIVAL_AVERY            0x1178
+#define OBJ_EVENT_PAL_TAG_RIVAL_BARRY            0x1179
+#define OBJ_EVENT_PAL_TAG_RIVAL_BEDE             0x117A
+#define OBJ_EVENT_PAL_TAG_RIVAL_BIANCA           0x117B
+#define OBJ_EVENT_PAL_TAG_RIVAL_CHEREN           0x117C
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLADION          0x117D
+#define OBJ_EVENT_PAL_TAG_RIVAL_HAU              0x117E
+#define OBJ_EVENT_PAL_TAG_RIVAL_HOP              0x117F
+#define OBJ_EVENT_PAL_TAG_RIVAL_HUGH             0x1180
+#define OBJ_EVENT_PAL_TAG_RIVAL_KLARA            0x1181
+#define OBJ_EVENT_PAL_TAG_RIVAL_MARNIE           0x1182
+#define OBJ_EVENT_PAL_TAG_RIVAL_N                0x1183
+#define OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA           0x1184
+#define OBJ_EVENT_PAL_TAG_RIVAL_SILVER           0x1185
+#define OBJ_EVENT_PAL_TAG_RIVAL_TIERNO           0x1186
+#define OBJ_EVENT_PAL_TAG_RIVAL_TREVOR           0x1187
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1178
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1179
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x117A
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1188
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1189
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x118A
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -683,6 +699,23 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Galar_Opal, OBJ_EVENT_PAL_TAG_GALAR_OPAL},
     {gObjectEventPal_Galar_Piers, OBJ_EVENT_PAL_TAG_GALAR_PIERS},
     {gObjectEventPal_Galar_Raihan, OBJ_EVENT_PAL_TAG_GALAR_RAIHAN},
+
+    {gObjectEventPal_Rival_Avery, OBJ_EVENT_PAL_TAG_RIVAL_AVERY},
+    {gObjectEventPal_Rival_Barry, OBJ_EVENT_PAL_TAG_RIVAL_BARRY},
+    {gObjectEventPal_Rival_Bede, OBJ_EVENT_PAL_TAG_RIVAL_BEDE},
+    {gObjectEventPal_Rival_Bianca, OBJ_EVENT_PAL_TAG_RIVAL_BIANCA},
+    {gObjectEventPal_Rival_Cheren, OBJ_EVENT_PAL_TAG_RIVAL_CHEREN},
+    {gObjectEventPal_Rival_Gladion, OBJ_EVENT_PAL_TAG_RIVAL_GLADION},
+    {gObjectEventPal_Rival_Hau, OBJ_EVENT_PAL_TAG_RIVAL_HAU},
+    {gObjectEventPal_Rival_Hop, OBJ_EVENT_PAL_TAG_RIVAL_HOP},
+    {gObjectEventPal_Rival_Hugh, OBJ_EVENT_PAL_TAG_RIVAL_HUGH},
+    {gObjectEventPal_Rival_Klara, OBJ_EVENT_PAL_TAG_RIVAL_KLARA},
+    {gObjectEventPal_Rival_Marnie, OBJ_EVENT_PAL_TAG_RIVAL_MARNIE},
+    {gObjectEventPal_Rival_N, OBJ_EVENT_PAL_TAG_RIVAL_N},
+    {gObjectEventPal_Rival_Shauna, OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA},
+    {gObjectEventPal_Rival_Silver, OBJ_EVENT_PAL_TAG_RIVAL_SILVER},
+    {gObjectEventPal_Rival_Tierno, OBJ_EVENT_PAL_TAG_RIVAL_TIERNO},
+    {gObjectEventPal_Rival_Trevor, OBJ_EVENT_PAL_TAG_RIVAL_TREVOR},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

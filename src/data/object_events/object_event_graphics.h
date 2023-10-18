@@ -647,6 +647,40 @@ const u32 gObjectEventPic_Misc_Veteran[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_Misc_Young_Couple_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_f.4bpp");
 const u32 gObjectEventPic_Misc_Young_Couple_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_m.4bpp");
 
+const u16 gObjectEventPal_Rival_Avery[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/avery.gbapal");
+const u16 gObjectEventPal_Rival_Barry[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/barry.gbapal");
+const u16 gObjectEventPal_Rival_Bede[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/bede.gbapal");
+const u16 gObjectEventPal_Rival_Bianca[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/bianca.gbapal");
+const u16 gObjectEventPal_Rival_Cheren[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/cheren.gbapal");
+const u16 gObjectEventPal_Rival_Gladion[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/gladion.gbapal");
+const u16 gObjectEventPal_Rival_Hau[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/hau.gbapal");
+const u16 gObjectEventPal_Rival_Hop[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/hop.gbapal");
+const u16 gObjectEventPal_Rival_Hugh[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/hugh.gbapal");
+const u16 gObjectEventPal_Rival_Klara[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/klara.gbapal");
+const u16 gObjectEventPal_Rival_Marnie[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/marnie.gbapal");
+const u16 gObjectEventPal_Rival_N[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/n.gbapal");
+const u16 gObjectEventPal_Rival_Shauna[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/shauna.gbapal");
+const u16 gObjectEventPal_Rival_Silver[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/silver.gbapal");
+const u16 gObjectEventPal_Rival_Tierno[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/tierno.gbapal");
+const u16 gObjectEventPal_Rival_Trevor[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/trevor.gbapal");
+
+const u32 gObjectEventPic_Rival_Avery[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/avery.4bpp");
+const u32 gObjectEventPic_Rival_Barry[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/barry.4bpp");
+const u32 gObjectEventPic_Rival_Bede[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/bede.4bpp");
+const u32 gObjectEventPic_Rival_Bianca[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/bianca.4bpp");
+const u32 gObjectEventPic_Rival_Cheren[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/cheren.4bpp");
+const u32 gObjectEventPic_Rival_Gladion[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/gladion.4bpp");
+const u32 gObjectEventPic_Rival_Hau[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/hau.4bpp");
+const u32 gObjectEventPic_Rival_Hop[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/hop.4bpp");
+const u32 gObjectEventPic_Rival_Hugh[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/hugh.4bpp");
+const u32 gObjectEventPic_Rival_Klara[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/klara.4bpp");
+const u32 gObjectEventPic_Rival_Marnie[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/marnie.4bpp");
+const u32 gObjectEventPic_Rival_N[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/n.4bpp");
+const u32 gObjectEventPic_Rival_Shauna[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/shauna.4bpp");
+const u32 gObjectEventPic_Rival_Silver[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/silver.4bpp");
+const u32 gObjectEventPic_Rival_Tierno[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/tierno.4bpp");
+const u32 gObjectEventPic_Rival_Trevor[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/trevor.4bpp");
+
 const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
 const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
 
