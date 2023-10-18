@@ -498,10 +498,67 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_UNOVA_BURGH            0x1150
 #define OBJ_EVENT_PAL_TAG_UNOVA_ROXIE            0x1151
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1152
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1153
+#define OBJ_EVENT_PAL_TAG_KALOS_CLEMENT          0x1152
+#define OBJ_EVENT_PAL_TAG_KALOS_DIANTHA          0x1153
+#define OBJ_EVENT_PAL_TAG_KALOS_DRASNA           0x1154
+#define OBJ_EVENT_PAL_TAG_KALOS_GRANT            0x1155
+#define OBJ_EVENT_PAL_TAG_KALOS_KORRINA          0x1156
+#define OBJ_EVENT_PAL_TAG_KALOS_MALVA            0x1157
+#define OBJ_EVENT_PAL_TAG_KALOS_OLYMPIA          0x1158
+#define OBJ_EVENT_PAL_TAG_KALOS_RAMOS            0x1159
+#define OBJ_EVENT_PAL_TAG_KALOS_SIEBOLD          0x115A
+#define OBJ_EVENT_PAL_TAG_KALOS_VALERIE          0x115B
+#define OBJ_EVENT_PAL_TAG_KALOS_VIOLA            0x115C
+#define OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM         0x115D
+#define OBJ_EVENT_PAL_TAG_KALOS_WULFRIC          0x115E
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x1154
+#define OBJ_EVENT_PAL_TAG_ALOLA_ACEROLA          0x115F
+#define OBJ_EVENT_PAL_TAG_ALOLA_HALA             0x1160
+#define OBJ_EVENT_PAL_TAG_ALOLA_HAPU             0x1161
+#define OBJ_EVENT_PAL_TAG_ALOLA_ILIMA            0x1162
+#define OBJ_EVENT_PAL_TAG_ALOLA_KAHILI           0x1163
+#define OBJ_EVENT_PAL_TAG_ALOLA_KIAWE            0x1164
+#define OBJ_EVENT_PAL_TAG_ALOLA_KUKUI            0x1165
+#define OBJ_EVENT_PAL_TAG_ALOLA_LANA             0x1166
+#define OBJ_EVENT_PAL_TAG_ALOLA_MALLOW           0x1167
+#define OBJ_EVENT_PAL_TAG_ALOLA_MINA             0x1168
+#define OBJ_EVENT_PAL_TAG_ALOLA_MOLAYNE          0x1169
+#define OBJ_EVENT_PAL_TAG_ALOLA_NANU             0x116A
+#define OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA           0x116B
+#define OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES        0x116C
+
+#define OBJ_EVENT_PAL_TAG_GALAR_ALLISTER         0x116D
+#define OBJ_EVENT_PAL_TAG_GALAR_BEA              0x116E
+#define OBJ_EVENT_PAL_TAG_GALAR_GORDIE           0x116F
+#define OBJ_EVENT_PAL_TAG_GALAR_KABU             0x1170
+#define OBJ_EVENT_PAL_TAG_GALAR_LEON             0x1171
+#define OBJ_EVENT_PAL_TAG_GALAR_MELONY           0x1172
+#define OBJ_EVENT_PAL_TAG_GALAR_MILO             0x1173
+#define OBJ_EVENT_PAL_TAG_GALAR_NESSA            0x1174
+#define OBJ_EVENT_PAL_TAG_GALAR_OPAL             0x1175
+#define OBJ_EVENT_PAL_TAG_GALAR_PIERS            0x1176
+#define OBJ_EVENT_PAL_TAG_GALAR_RAIHAN           0x1177
+
+#define OBJ_EVENT_PAL_TAG_RIVAL_AVERY            0x1178
+#define OBJ_EVENT_PAL_TAG_RIVAL_BARRY            0x1179
+#define OBJ_EVENT_PAL_TAG_RIVAL_BEDE             0x117A
+#define OBJ_EVENT_PAL_TAG_RIVAL_BIANCA           0x117B
+#define OBJ_EVENT_PAL_TAG_RIVAL_CHEREN           0x117C
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLADION          0x117D
+#define OBJ_EVENT_PAL_TAG_RIVAL_HAU              0x117E
+#define OBJ_EVENT_PAL_TAG_RIVAL_HOP              0x117F
+#define OBJ_EVENT_PAL_TAG_RIVAL_HUGH             0x1180
+#define OBJ_EVENT_PAL_TAG_RIVAL_KLARA            0x1181
+#define OBJ_EVENT_PAL_TAG_RIVAL_MARNIE           0x1182
+#define OBJ_EVENT_PAL_TAG_RIVAL_N                0x1183
+#define OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA           0x1184
+#define OBJ_EVENT_PAL_TAG_RIVAL_SILVER           0x1185
+#define OBJ_EVENT_PAL_TAG_RIVAL_TIERNO           0x1186
+#define OBJ_EVENT_PAL_TAG_RIVAL_TREVOR           0x1187
+
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1188
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1189
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x118A
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -526,8 +583,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     //{gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
     //{gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
     //{gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
+    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN},
+    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
     {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
     {gObjectEventPal_PlayerUnderwater,      OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
     {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
@@ -535,8 +592,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
     {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
     {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY},
-    {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
+    {gObjectEventPal_PlayerMayBase,         OBJ_EVENT_PAL_TAG_MAY},
+    {gObjectEventPal_PlayerMayBase,         OBJ_EVENT_PAL_TAG_MAY_REFLECTION}, //gObjectEventPal_MayReflection
     {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
     {gObjectEventPal_CableCar,              OBJ_EVENT_PAL_TAG_CABLE_CAR},
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
@@ -601,6 +658,64 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Unova_Skyla, OBJ_EVENT_PAL_TAG_UNOVA_SKYLA},
     {gObjectEventPal_Unova_Burgh, OBJ_EVENT_PAL_TAG_UNOVA_BURGH},
     {gObjectEventPal_Unova_Roxie, OBJ_EVENT_PAL_TAG_UNOVA_ROXIE},
+
+    {gObjectEventPal_Kalos_Clement, OBJ_EVENT_PAL_TAG_KALOS_CLEMENT},
+    {gObjectEventPal_Kalos_Diantha, OBJ_EVENT_PAL_TAG_KALOS_DIANTHA},
+    {gObjectEventPal_Kalos_Drasna, OBJ_EVENT_PAL_TAG_KALOS_DRASNA},
+    {gObjectEventPal_Kalos_Grant, OBJ_EVENT_PAL_TAG_KALOS_GRANT},
+    {gObjectEventPal_Kalos_Korrina, OBJ_EVENT_PAL_TAG_KALOS_KORRINA},
+    {gObjectEventPal_Kalos_Malva, OBJ_EVENT_PAL_TAG_KALOS_MALVA},
+    {gObjectEventPal_Kalos_Olympia, OBJ_EVENT_PAL_TAG_KALOS_OLYMPIA},
+    {gObjectEventPal_Kalos_Ramos, OBJ_EVENT_PAL_TAG_KALOS_RAMOS},
+    {gObjectEventPal_Kalos_Siebold, OBJ_EVENT_PAL_TAG_KALOS_SIEBOLD},
+    {gObjectEventPal_Kalos_Valerie, OBJ_EVENT_PAL_TAG_KALOS_VALERIE},
+    {gObjectEventPal_Kalos_Viola, OBJ_EVENT_PAL_TAG_KALOS_VIOLA},
+    {gObjectEventPal_Kalos_Wikstrom, OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM},
+    {gObjectEventPal_Kalos_Wulfric, OBJ_EVENT_PAL_TAG_KALOS_WULFRIC},
+
+    {gObjectEventPal_Alola_Acerola, OBJ_EVENT_PAL_TAG_ALOLA_ACEROLA},
+    {gObjectEventPal_Alola_Hala, OBJ_EVENT_PAL_TAG_ALOLA_HALA},
+    {gObjectEventPal_Alola_Hapu, OBJ_EVENT_PAL_TAG_ALOLA_HAPU},
+    {gObjectEventPal_Alola_Ilima, OBJ_EVENT_PAL_TAG_ALOLA_ILIMA},
+    {gObjectEventPal_Alola_Kahili, OBJ_EVENT_PAL_TAG_ALOLA_KAHILI},
+    {gObjectEventPal_Alola_Kiawe, OBJ_EVENT_PAL_TAG_ALOLA_KIAWE},
+    {gObjectEventPal_Alola_Kukui, OBJ_EVENT_PAL_TAG_ALOLA_KUKUI},
+    {gObjectEventPal_Alola_Lana, OBJ_EVENT_PAL_TAG_ALOLA_LANA},
+    {gObjectEventPal_Alola_Mallow, OBJ_EVENT_PAL_TAG_ALOLA_MALLOW},
+    {gObjectEventPal_Alola_Mina, OBJ_EVENT_PAL_TAG_ALOLA_MINA},
+    {gObjectEventPal_Alola_Molayne, OBJ_EVENT_PAL_TAG_ALOLA_MOLAYNE},
+    {gObjectEventPal_Alola_Nanu, OBJ_EVENT_PAL_TAG_ALOLA_NANU},
+    {gObjectEventPal_Alola_Olivia, OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA},
+    {gObjectEventPal_Alola_Sophocles, OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES},
+
+    {gObjectEventPal_Galar_Allister, OBJ_EVENT_PAL_TAG_GALAR_ALLISTER},
+    {gObjectEventPal_Galar_Bea, OBJ_EVENT_PAL_TAG_GALAR_BEA},
+    {gObjectEventPal_Galar_Gordie, OBJ_EVENT_PAL_TAG_GALAR_GORDIE},
+    {gObjectEventPal_Galar_Kabu, OBJ_EVENT_PAL_TAG_GALAR_KABU},
+    {gObjectEventPal_Galar_Leon, OBJ_EVENT_PAL_TAG_GALAR_LEON},
+    {gObjectEventPal_Galar_Melony, OBJ_EVENT_PAL_TAG_GALAR_MELONY},
+    {gObjectEventPal_Galar_Milo, OBJ_EVENT_PAL_TAG_GALAR_MILO},
+    {gObjectEventPal_Galar_Nessa, OBJ_EVENT_PAL_TAG_GALAR_NESSA},
+    {gObjectEventPal_Galar_Opal, OBJ_EVENT_PAL_TAG_GALAR_OPAL},
+    {gObjectEventPal_Galar_Piers, OBJ_EVENT_PAL_TAG_GALAR_PIERS},
+    {gObjectEventPal_Galar_Raihan, OBJ_EVENT_PAL_TAG_GALAR_RAIHAN},
+
+    {gObjectEventPal_Rival_Avery, OBJ_EVENT_PAL_TAG_RIVAL_AVERY},
+    {gObjectEventPal_Rival_Barry, OBJ_EVENT_PAL_TAG_RIVAL_BARRY},
+    {gObjectEventPal_Rival_Bede, OBJ_EVENT_PAL_TAG_RIVAL_BEDE},
+    {gObjectEventPal_Rival_Bianca, OBJ_EVENT_PAL_TAG_RIVAL_BIANCA},
+    {gObjectEventPal_Rival_Cheren, OBJ_EVENT_PAL_TAG_RIVAL_CHEREN},
+    {gObjectEventPal_Rival_Gladion, OBJ_EVENT_PAL_TAG_RIVAL_GLADION},
+    {gObjectEventPal_Rival_Hau, OBJ_EVENT_PAL_TAG_RIVAL_HAU},
+    {gObjectEventPal_Rival_Hop, OBJ_EVENT_PAL_TAG_RIVAL_HOP},
+    {gObjectEventPal_Rival_Hugh, OBJ_EVENT_PAL_TAG_RIVAL_HUGH},
+    {gObjectEventPal_Rival_Klara, OBJ_EVENT_PAL_TAG_RIVAL_KLARA},
+    {gObjectEventPal_Rival_Marnie, OBJ_EVENT_PAL_TAG_RIVAL_MARNIE},
+    {gObjectEventPal_Rival_N, OBJ_EVENT_PAL_TAG_RIVAL_N},
+    {gObjectEventPal_Rival_Shauna, OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA},
+    {gObjectEventPal_Rival_Silver, OBJ_EVENT_PAL_TAG_RIVAL_SILVER},
+    {gObjectEventPal_Rival_Tierno, OBJ_EVENT_PAL_TAG_RIVAL_TIERNO},
+    {gObjectEventPal_Rival_Trevor, OBJ_EVENT_PAL_TAG_RIVAL_TREVOR},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

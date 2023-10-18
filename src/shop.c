@@ -57,7 +57,7 @@ typedef void (*ShopCallback)();
 static EWRAM_DATA struct MartInfo sMartInfo = {0};
 static EWRAM_DATA struct ShopData *sShopData = NULL;
 static EWRAM_DATA struct ListMenuItem *sListMenuItems = NULL;
-static EWRAM_DATA u8 (*sItemNames)[16] = {0};
+static EWRAM_DATA u8 (*sItemNames)[ITEM_NAME_LENGTH + 4] = {0};
 static EWRAM_DATA u8 sPurchaseHistoryId = 0;
 EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
 static EWRAM_DATA ShopCallback sFreeCallback = NULL;

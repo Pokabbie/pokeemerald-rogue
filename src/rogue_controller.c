@@ -597,6 +597,13 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
                 amount = 3;
                 break;
 
+            case POCKET_TM_HM:
+                if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+                    amount = 3;
+                else
+                    amount = 1;
+                break;
+
             case POCKET_POKE_BALLS:
                 amount = 5;
                 break;
@@ -3099,8 +3106,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                                 break;
 
                             case POCKET_TM_HM:
-                                objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_SILVER_TM;
-                                // todo - hookup OBJ_EVENT_GFX_ITEM_GOLD_TM
+                                if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_SILVER_TM;
+                                else
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_GOLD_TM;
                                 break;
 #ifdef ROGUE_EXPANSION
                             case POCKET_STONES:
@@ -4419,6 +4428,7 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
             if(presetCount != 0)
             {
                 struct RoguePokemonCompetitiveSetRules rules;
+                memset(&rules, 0, sizeof(rules));
 
                 presetIndex = Random() % presetCount;
                 Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
@@ -4487,6 +4497,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
                     struct RoguePokemonCompetitiveSetRules rules;
                     struct RoguePokemonCompetitiveSet customPreset;
 
+                    memset(&rules, 0, sizeof(rules));
                     customPreset.heldItem = GetMonData(&gEnemyParty[target], MON_DATA_HELD_ITEM);
                     customPreset.ability = GetMonAbility(&gEnemyParty[target]);
                     customPreset.nature = GetNature(&gEnemyParty[target]);
@@ -5489,6 +5500,16 @@ static u8 CalculateWildLevel(u8 variation)
 u8 Rogue_GetEncounterDifficultyModifier()
 {
     return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : ADVPATH_SUBROOM_ROUTE_AVERAGE);
+}
+
+u16 Rogue_GetTRMove(u16 trNumber)
+{
+    //if(trNumber < NUM_TECHNICAL_RECORDS && Rogue_IsRunActive())
+    //    return gRogueRun.dynamicTRMoves[trNumber];
+
+    // Shouldn't get here
+    //AGB_ASSERT(FALSE);
+    return MOVE_SPLASH;
 }
 
 static bool8 RogueRandomChanceTrainer()

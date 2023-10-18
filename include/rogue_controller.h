@@ -134,6 +134,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon);
 void Rogue_ModifyGiveMon(struct Pokemon* mon);
 
 u8 Rogue_GetEncounterDifficultyModifier();
+u16 Rogue_GetTRMove(u16 trNumber);
 
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);

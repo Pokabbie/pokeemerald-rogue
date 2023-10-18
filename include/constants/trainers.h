@@ -190,6 +190,9 @@
 #define TRAINER_PIC_GLITCH_TAILS          157
 #define TRAINER_PIC_GLITCH_ERMA           158
 
+#define TRAINER_PIC_RIVAL_BRENDAN         159
+#define TRAINER_PIC_RIVAL_MAY             160
+
 
 // Special cases
 #define TRAINER_PIC_PLAYER_AVATAR           254

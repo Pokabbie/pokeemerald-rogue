@@ -152,6 +152,7 @@ extern const u8 gText_Berry[];
 extern const u8 gText_Plural[];
 extern const u8 gText_TMPrefix[];
 extern const u8 gText_HMPrefix[];
+extern const u8 gText_TRPrefix[];
 
 extern const u8 gText_Desk[];
 extern const u8 gText_Chair[];

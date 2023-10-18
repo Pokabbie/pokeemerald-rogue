@@ -978,7 +978,7 @@
 #define ITEM_BERSERK_GENE 798           // not hooked up
 
 #define ITEM_ROGUE_ITEM_FIRST   799 // TODO - Leave a big gap for future additions?
-#define ITEM_ROGUE_ITEM_LAST    (ITEM_ROGUE_ITEM_FIRST + 100)
+#define ITEM_ROGUE_ITEM_LAST    (ITEM_ROGUE_ITEM_FIRST + 200)
 #define ITEM_ROGUE_ITEM_COUNT   (ITEM_ROGUE_ITEM_LAST - ITEM_ROGUE_ITEM_FIRST + 1)
 
 #define ITEMS_COUNT             (ITEM_ROGUE_ITEM_LAST + 1)

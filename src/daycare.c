@@ -34,12 +34,14 @@ static u8 GetDaycareCompatibilityScore(struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 static u8 ModifyBreedingScoreForOvalCharm(u8 score);
 
+//RogueNote: Stole memory for Rogue dynamic TMs
+
 // RAM buffers used to assist with BuildEggMoveset()
-EWRAM_DATA static u16 sHatchedEggLevelUpMoves[EGG_LVL_UP_MOVES_ARRAY_COUNT] = {0};
-EWRAM_DATA static u16 sHatchedEggFatherMoves[MAX_MON_MOVES] = {0};
-EWRAM_DATA static u16 sHatchedEggFinalMoves[MAX_MON_MOVES] = {0};
-EWRAM_DATA static u16 sHatchedEggEggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
-EWRAM_DATA static u16 sHatchedEggMotherMoves[MAX_MON_MOVES] = {0};
+//EWRAM_DATA static u16 sHatchedEggLevelUpMoves[EGG_LVL_UP_MOVES_ARRAY_COUNT] = {0};
+//EWRAM_DATA static u16 sHatchedEggFatherMoves[MAX_MON_MOVES] = {0};
+//EWRAM_DATA static u16 sHatchedEggFinalMoves[MAX_MON_MOVES] = {0};
+//EWRAM_DATA static u16 sHatchedEggEggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
+//EWRAM_DATA static u16 sHatchedEggMotherMoves[MAX_MON_MOVES] = {0};
 
 static const struct WindowTemplate sDaycareLevelMenuWindowTemplate =
 {
@@ -625,90 +627,90 @@ u8 GetEggMovesForSpecies(u16 species, u16 *eggMoves)
 
 static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, struct BoxPokemon *mother)
 {
-    u16 numSharedParentMoves;
-    u32 numLevelUpMoves;
-    u16 numEggMoves;
-    u16 i, j;
-
-    numSharedParentMoves = 0;
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        sHatchedEggMotherMoves[i] = MOVE_NONE;
-        sHatchedEggFatherMoves[i] = MOVE_NONE;
-        sHatchedEggFinalMoves[i] = MOVE_NONE;
-    }
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
-        sHatchedEggEggMoves[i] = MOVE_NONE;
-    for (i = 0; i < EGG_LVL_UP_MOVES_ARRAY_COUNT; i++)
-        sHatchedEggLevelUpMoves[i] = MOVE_NONE;
-
-    numLevelUpMoves = GetLevelUpMovesBySpecies(GetMonData(egg, MON_DATA_SPECIES), sHatchedEggLevelUpMoves);
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        sHatchedEggFatherMoves[i] = GetBoxMonData(father, MON_DATA_MOVE1 + i);
-        sHatchedEggMotherMoves[i] = GetBoxMonData(mother, MON_DATA_MOVE1 + i);
-    }
-
-    numEggMoves = GetEggMoves(egg, sHatchedEggEggMoves);
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFatherMoves[i] != MOVE_NONE)
-        {
-            for (j = 0; j < numEggMoves; j++)
-            {
-                if (sHatchedEggFatherMoves[i] == sHatchedEggEggMoves[j])
-                {
-                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
-                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            break;
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFatherMoves[i] != MOVE_NONE)
-        {
-            for (j = 0; j < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES; j++)
-            {
-                if (sHatchedEggFatherMoves[i] == ItemIdToBattleMoveId(ITEM_TM01_FOCUS_PUNCH + j) && CanMonLearnTMHM(egg, j))
-                {
-                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
-                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
-                }
-            }
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFatherMoves[i] == MOVE_NONE)
-            break;
-        for (j = 0; j < MAX_MON_MOVES; j++)
-        {
-            if (sHatchedEggFatherMoves[i] == sHatchedEggMotherMoves[j] && sHatchedEggFatherMoves[i] != MOVE_NONE)
-                sHatchedEggFinalMoves[numSharedParentMoves++] = sHatchedEggFatherMoves[i];
-        }
-    }
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFinalMoves[i] == MOVE_NONE)
-            break;
-        for (j = 0; j < numLevelUpMoves; j++)
-        {
-            if (sHatchedEggLevelUpMoves[j] != MOVE_NONE && sHatchedEggFinalMoves[i] == sHatchedEggLevelUpMoves[j])
-            {
-                if (GiveMoveToMon(egg, sHatchedEggFinalMoves[i]) == MON_HAS_MAX_MOVES)
-                    DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFinalMoves[i]);
-                break;
-            }
-        }
-    }
+    //u16 numSharedParentMoves;
+    //u32 numLevelUpMoves;
+    //u16 numEggMoves;
+    //u16 i, j;
+//
+    //numSharedParentMoves = 0;
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    sHatchedEggMotherMoves[i] = MOVE_NONE;
+    //    sHatchedEggFatherMoves[i] = MOVE_NONE;
+    //    sHatchedEggFinalMoves[i] = MOVE_NONE;
+    //}
+    //for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    //    sHatchedEggEggMoves[i] = MOVE_NONE;
+    //for (i = 0; i < EGG_LVL_UP_MOVES_ARRAY_COUNT; i++)
+    //    sHatchedEggLevelUpMoves[i] = MOVE_NONE;
+//
+    //numLevelUpMoves = GetLevelUpMovesBySpecies(GetMonData(egg, MON_DATA_SPECIES), sHatchedEggLevelUpMoves);
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    sHatchedEggFatherMoves[i] = GetBoxMonData(father, MON_DATA_MOVE1 + i);
+    //    sHatchedEggMotherMoves[i] = GetBoxMonData(mother, MON_DATA_MOVE1 + i);
+    //}
+//
+    //numEggMoves = GetEggMoves(egg, sHatchedEggEggMoves);
+//
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    if (sHatchedEggFatherMoves[i] != MOVE_NONE)
+    //    {
+    //        for (j = 0; j < numEggMoves; j++)
+    //        {
+    //            if (sHatchedEggFatherMoves[i] == sHatchedEggEggMoves[j])
+    //            {
+    //                if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
+    //                    DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
+    //                break;
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        break;
+    //    }
+    //}
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    if (sHatchedEggFatherMoves[i] != MOVE_NONE)
+    //    {
+    //        for (j = 0; j < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES; j++)
+    //        {
+    //            if (sHatchedEggFatherMoves[i] == ItemIdToBattleMoveId(ITEM_TM01_FOCUS_PUNCH + j) && CanMonLearnTM(egg, j))
+    //            {
+    //                if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
+    //                    DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
+    //            }
+    //        }
+    //    }
+    //}
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    if (sHatchedEggFatherMoves[i] == MOVE_NONE)
+    //        break;
+    //    for (j = 0; j < MAX_MON_MOVES; j++)
+    //    {
+    //        if (sHatchedEggFatherMoves[i] == sHatchedEggMotherMoves[j] && sHatchedEggFatherMoves[i] != MOVE_NONE)
+    //            sHatchedEggFinalMoves[numSharedParentMoves++] = sHatchedEggFatherMoves[i];
+    //    }
+    //}
+//
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    if (sHatchedEggFinalMoves[i] == MOVE_NONE)
+    //        break;
+    //    for (j = 0; j < numLevelUpMoves; j++)
+    //    {
+    //        if (sHatchedEggLevelUpMoves[j] != MOVE_NONE && sHatchedEggFinalMoves[i] == sHatchedEggLevelUpMoves[j])
+    //        {
+    //            if (GiveMoveToMon(egg, sHatchedEggFinalMoves[i]) == MON_HAS_MAX_MOVES)
+    //                DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFinalMoves[i]);
+    //            break;
+    //        }
+    //    }
+    //}
 }
 
 static void RemoveEggFromDayCare(struct DayCare *daycare)

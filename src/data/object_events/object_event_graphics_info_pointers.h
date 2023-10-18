@@ -339,6 +339,47 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Skyla;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Burgh;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Unova_Roxie;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Clement;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Diantha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Drasna;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Grant;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Korrina;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Malva;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Olympia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Ramos;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Siebold;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Valerie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Viola;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wikstrom;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wulfric;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Acerola;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Hala;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Hapu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Ilima;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kahili;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kiawe;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kukui;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Lana;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Mallow;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Mina;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Molayne;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Nanu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Olivia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Sophocles;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Allister;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Bea;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Gordie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Kabu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Leon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Melony;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Milo;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Nessa;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Opal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Piers;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Raihan;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -362,6 +403,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Unova_Scienti
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Veteran;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_M;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Avery;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Barry;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Bede;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Bianca;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Cheren;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Gladion;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hau;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hop;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hugh;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Klara;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Marnie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_N;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Shauna;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Silver;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Tierno;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Trevor;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
@@ -745,6 +803,47 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_UNOVA_BURGH] = &gObjectEventGraphicsInfo_Unova_Burgh,
     [OBJ_EVENT_GFX_UNOVA_ROXIE] = &gObjectEventGraphicsInfo_Unova_Roxie,
 
+    [OBJ_EVENT_GFX_KALOS_CLEMENT] = &gObjectEventGraphicsInfo_Kalos_Clement,
+    [OBJ_EVENT_GFX_KALOS_DIANTHA] = &gObjectEventGraphicsInfo_Kalos_Diantha,
+    [OBJ_EVENT_GFX_KALOS_DRASNA] = &gObjectEventGraphicsInfo_Kalos_Drasna,
+    [OBJ_EVENT_GFX_KALOS_GRANT] = &gObjectEventGraphicsInfo_Kalos_Grant,
+    [OBJ_EVENT_GFX_KALOS_KORRINA] = &gObjectEventGraphicsInfo_Kalos_Korrina,
+    [OBJ_EVENT_GFX_KALOS_MALVA] = &gObjectEventGraphicsInfo_Kalos_Malva,
+    [OBJ_EVENT_GFX_KALOS_OLYMPIA] = &gObjectEventGraphicsInfo_Kalos_Olympia,
+    [OBJ_EVENT_GFX_KALOS_RAMOS] = &gObjectEventGraphicsInfo_Kalos_Ramos,
+    [OBJ_EVENT_GFX_KALOS_SIEBOLD] = &gObjectEventGraphicsInfo_Kalos_Siebold,
+    [OBJ_EVENT_GFX_KALOS_VALERIE] = &gObjectEventGraphicsInfo_Kalos_Valerie,
+    [OBJ_EVENT_GFX_KALOS_VIOLA] = &gObjectEventGraphicsInfo_Kalos_Viola,
+    [OBJ_EVENT_GFX_KALOS_WIKSTROM] = &gObjectEventGraphicsInfo_Kalos_Wikstrom,
+    [OBJ_EVENT_GFX_KALOS_WULFRIC] = &gObjectEventGraphicsInfo_Kalos_Wulfric,
+
+    [OBJ_EVENT_GFX_ALOLA_ACEROLA] = &gObjectEventGraphicsInfo_Alola_Acerola,
+    [OBJ_EVENT_GFX_ALOLA_HALA] = &gObjectEventGraphicsInfo_Alola_Hala,
+    [OBJ_EVENT_GFX_ALOLA_HAPU] = &gObjectEventGraphicsInfo_Alola_Hapu,
+    [OBJ_EVENT_GFX_ALOLA_ILIMA] = &gObjectEventGraphicsInfo_Alola_Ilima,
+    [OBJ_EVENT_GFX_ALOLA_KAHILI] = &gObjectEventGraphicsInfo_Alola_Kahili,
+    [OBJ_EVENT_GFX_ALOLA_KIAWE] = &gObjectEventGraphicsInfo_Alola_Kiawe,
+    [OBJ_EVENT_GFX_ALOLA_KUKUI] = &gObjectEventGraphicsInfo_Alola_Kukui,
+    [OBJ_EVENT_GFX_ALOLA_LANA] = &gObjectEventGraphicsInfo_Alola_Lana,
+    [OBJ_EVENT_GFX_ALOLA_MALLOW] = &gObjectEventGraphicsInfo_Alola_Mallow,
+    [OBJ_EVENT_GFX_ALOLA_MINA] = &gObjectEventGraphicsInfo_Alola_Mina,
+    [OBJ_EVENT_GFX_ALOLA_MOLAYNE] = &gObjectEventGraphicsInfo_Alola_Molayne,
+    [OBJ_EVENT_GFX_ALOLA_NANU] = &gObjectEventGraphicsInfo_Alola_Nanu,
+    [OBJ_EVENT_GFX_ALOLA_OLIVIA] = &gObjectEventGraphicsInfo_Alola_Olivia,
+    [OBJ_EVENT_GFX_ALOLA_SOPHOCLES] = &gObjectEventGraphicsInfo_Alola_Sophocles,
+
+    [OBJ_EVENT_GFX_GALAR_ALLISTER] = &gObjectEventGraphicsInfo_Galar_Allister,
+    [OBJ_EVENT_GFX_GALAR_BEA] = &gObjectEventGraphicsInfo_Galar_Bea,
+    [OBJ_EVENT_GFX_GALAR_GORDIE] = &gObjectEventGraphicsInfo_Galar_Gordie,
+    [OBJ_EVENT_GFX_GALAR_KABU] = &gObjectEventGraphicsInfo_Galar_Kabu,
+    [OBJ_EVENT_GFX_GALAR_LEON] = &gObjectEventGraphicsInfo_Galar_Leon,
+    [OBJ_EVENT_GFX_GALAR_MELONY] = &gObjectEventGraphicsInfo_Galar_Melony,
+    [OBJ_EVENT_GFX_GALAR_MILO] = &gObjectEventGraphicsInfo_Galar_Milo,
+    [OBJ_EVENT_GFX_GALAR_NESSA] = &gObjectEventGraphicsInfo_Galar_Nessa,
+    [OBJ_EVENT_GFX_GALAR_OPAL] = &gObjectEventGraphicsInfo_Galar_Opal,
+    [OBJ_EVENT_GFX_GALAR_PIERS] = &gObjectEventGraphicsInfo_Galar_Piers,
+    [OBJ_EVENT_GFX_GALAR_RAIHAN] = &gObjectEventGraphicsInfo_Galar_Raihan,
+
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_M] = &gObjectEventGraphicsInfo_Misc_Backpacker_M,
@@ -768,6 +867,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_VETERAN] = &gObjectEventGraphicsInfo_Misc_Veteran,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F] = &gObjectEventGraphicsInfo_Misc_Young_Couple_F,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_Misc_Young_Couple_M,
+
+    [OBJ_EVENT_GFX_RIVAL_AVERY] = &gObjectEventGraphicsInfo_Rival_Avery,
+    [OBJ_EVENT_GFX_RIVAL_BARRY] = &gObjectEventGraphicsInfo_Rival_Barry,
+    [OBJ_EVENT_GFX_RIVAL_BEDE] = &gObjectEventGraphicsInfo_Rival_Bede,
+    [OBJ_EVENT_GFX_RIVAL_BIANCA] = &gObjectEventGraphicsInfo_Rival_Bianca,
+    [OBJ_EVENT_GFX_RIVAL_CHEREN] = &gObjectEventGraphicsInfo_Rival_Cheren,
+    [OBJ_EVENT_GFX_RIVAL_GLADION] = &gObjectEventGraphicsInfo_Rival_Gladion,
+    [OBJ_EVENT_GFX_RIVAL_HAU] = &gObjectEventGraphicsInfo_Rival_Hau,
+    [OBJ_EVENT_GFX_RIVAL_HOP] = &gObjectEventGraphicsInfo_Rival_Hop,
+    [OBJ_EVENT_GFX_RIVAL_HUGH] = &gObjectEventGraphicsInfo_Rival_Hugh,
+    [OBJ_EVENT_GFX_RIVAL_KLARA] = &gObjectEventGraphicsInfo_Rival_Klara,
+    [OBJ_EVENT_GFX_RIVAL_MARNIE] = &gObjectEventGraphicsInfo_Rival_Marnie,
+    [OBJ_EVENT_GFX_RIVAL_N] = &gObjectEventGraphicsInfo_Rival_N,
+    [OBJ_EVENT_GFX_RIVAL_SHAUNA] = &gObjectEventGraphicsInfo_Rival_Shauna,
+    [OBJ_EVENT_GFX_RIVAL_SILVER] = &gObjectEventGraphicsInfo_Rival_Silver,
+    [OBJ_EVENT_GFX_RIVAL_TIERNO] = &gObjectEventGraphicsInfo_Rival_Tierno,
+    [OBJ_EVENT_GFX_RIVAL_TREVOR] = &gObjectEventGraphicsInfo_Rival_Trevor,
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,

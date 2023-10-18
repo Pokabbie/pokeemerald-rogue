@@ -1,6 +1,547 @@
 {
     "trainers":
     {
+        "rivals":
+        [
+            {
+                "name": "BLUE",
+                "type_assignment": "NONE",
+                "gfx_suffix": "KANTO_BLUE",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kanto_boss",
+                "trainer_flags": [ "REGION_KANTO", "CLASS_RIVAL" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What?\\pWho are you?\\pSo it's {PLAYER}?\\nAnd you're out Adventuring?\\pI bet you have some strong POKéMON!\\pCome on, I'll take you on!",
+                        "POST_BATTLE_TAUNT": "Awww!\\nYou just lucked out!",
+                        "POST_BATTLE_CLOSER": "Okay! I'll make my POKéMON battle to toughen them up!\\pSmell ya later, {PLAYER}!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Yo! {PLAYER}!\\pWhat are you doing here?\\pYou should quit following me!\\pI bet you can't even beat my POKéMON.",
+                        "POST_BATTLE_TAUNT": "Humph!\\pAt least you're raising your POKéMON!",
+                        "POST_BATTLE_CLOSER": "I heard a rumor about some pretty strong POKéMON.\\pYou better quit following me.\\pThere's no way you'd be able to deal with them anyway!\\nSmell ya later, {PLAYER}!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What kept you, {PLAYER}?\\pLast to the party as always!\\nHahaha!\\pHere, let me see what POKéMON you caught, {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "Oh, man!\\nYou just caught me off guard.",
+                        "POST_BATTLE_CLOSER": "I've got a lot to accomplish, unlike you.\\pSmell ya later!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pI was looking forward to seeing you, {PLAYER}.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any POKéMON type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful TRAINER in the world!",
+                        "POST_BATTLE_TAUNT": "NO!\\nThat can't be!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "SILVER",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_SILVER",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "johto_boss",
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZUBAT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "WALLY",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_WALLY",
+                "trainer_pic": "TRAINER_PIC_WALLY",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "weather": "PSYCHIC_FOG",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RALTS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRENDAN",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_LINK_RS_BRENDAN",
+                "trainer_pic": "TRAINER_PIC_RS_BRENDAN",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUDKIP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TREECKO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MAY",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_LINK_RS_MAY",
+                "trainer_pic": "TRAINER_PIC_RS_MAY",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TORCHIC", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        
+        "#ifdef ROGUE_EXPANSION // rivals":
+        [
+            {
+                "name": "BARRY",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_BARRY",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "sinnoh_boss",
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_STARLY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUNCHLAX", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            
+            {
+                "name": "CHEREN",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_CHEREN",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LILLIPUP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BIANCA",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_BIANCA",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUNNA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "N",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_N",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZORUA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "HUGH",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_HUGH",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "unova_boss",
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BOUFFALANT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "SHAUNA",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_SHAUNA",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GOOMY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "TIERNO",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_TIERNO",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CORPHISH", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "HAU",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_HAU",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "alola_boss",
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PICHU", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GLADION",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_GLADION",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "alola_boss",
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TYPE_NULL", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "HOP",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_HOP",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "galar_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_WOOLOO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BEDE",
+                "type_assignment": "FAIRY",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_BEDE",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "galar_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        },
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "FAIRY", "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HATENNA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MARNIE",
+                "type_assignment": "DARK",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_MARNIE",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "galar_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MORPEKO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_IMPIDIMP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KLARA",
+                "type_assignment": "POISON",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_KLARA",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "galar_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SLOWPOKE_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "AVERY",
+                "type_assignment": "PSYCHIC",
+                "object_event": "OBJ_EVENT_GFX_RIVAL_AVERY",
+                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "galar_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SLOWPOKE_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
         "kanto_gyms":
         [
             {
@@ -528,58 +1069,6 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SQUIRTLE", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
-                    ]
-                }
-            }
-        ],
-        
-        "kanto_rival":
-        [
-            {
-                "name": "BLUE",
-                "type_assignment": "NONE",
-                "gfx_suffix": "KANTO_BLUE",
-                "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_RIVAL" ],
-                "encounter_text":
-                [
-                    {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What?\\pWho are you?\\pSo it's {PLAYER}?\\nAnd you're out Adventuring?\\pI bet you have some strong POKéMON!\\pCome on, I'll take you on!",
-                        "POST_BATTLE_TAUNT": "Awww!\\nYou just lucked out!",
-                        "POST_BATTLE_CLOSER": "Okay! I'll make my POKéMON battle to toughen them up!\\pSmell ya later, {PLAYER}!"
-                    },
-                    {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Yo! {PLAYER}!\\pWhat are you doing here?\\pYou should quit following me!\\pI bet you can't even beat my POKéMON.",
-                        "POST_BATTLE_TAUNT": "Humph!\\pAt least you're raising your POKéMON!",
-                        "POST_BATTLE_CLOSER": "I heard a rumor about some pretty strong POKéMON.\\pYou better quit following me.\\pThere's no way you'd be able to deal with them anyway!\\nSmell ya later, {PLAYER}!"
-                    },
-                    {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What kept you, {PLAYER}?\\pLast to the party as always!\\nHahaha!\\pHere, let me see what POKéMON you caught, {PLAYER}!",
-                        "POST_BATTLE_TAUNT": "Oh, man!\\nYou just caught me off guard.",
-                        "POST_BATTLE_CLOSER": "I've got a lot to accomplish, unlike you.\\pSmell ya later!"
-                    },
-                    {
-                        "PRE_BATTLE_OPENNING": "… … …\\pI was looking forward to seeing you, {PLAYER}.",
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any POKéMON type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful TRAINER in the world!",
-                        "POST_BATTLE_TAUNT": "NO!\\nThat can't be!",
-                        "POST_BATTLE_CLOSER": "…"
-                    }
-                ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets":
-                    [
-                        {
-                            "max_samples": 12
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
                     ]
                 }
             }

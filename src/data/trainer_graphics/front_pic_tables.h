@@ -170,6 +170,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_GLITCH_KATE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_TAILS] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_ERMA] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_RIVAL_BRENDAN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_MAY] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE_CUSTOM(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -345,6 +348,9 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(GLITCH_KATE, gTrainerFrontPic_GlitchKate),
     TRAINER_SPRITE(GLITCH_TAILS, gTrainerFrontPic_GlitchTails),
     TRAINER_SPRITE(GLITCH_ERMA, gTrainerFrontPic_GlitchErma),
+
+    TRAINER_SPRITE(RIVAL_BRENDAN, gTrainerFrontPic_Brendan),
+    TRAINER_SPRITE(RIVAL_MAY, gTrainerFrontPic_May),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -519,4 +525,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GLITCH_KATE, gTrainerPalette_GlitchKate),
     TRAINER_PAL(GLITCH_TAILS, gTrainerPalette_GlitchTails),
     TRAINER_PAL(GLITCH_ERMA, gTrainerPalette_GlitchErma),
+    
+    TRAINER_PAL(RIVAL_BRENDAN, gTrainerPalette_PlayerBrendanBase),
+    TRAINER_PAL(RIVAL_MAY, gTrainerPalette_PlayerMayBase),
 };

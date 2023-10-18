@@ -1242,6 +1242,7 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
+                memset(&presetRules, 0, sizeof(presetRules));
                 ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
                 Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
             }
@@ -1390,6 +1391,7 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
+                memset(&presetRules, 0, sizeof(presetRules));
                 ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
                 Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
             }
@@ -1984,135 +1986,158 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
 
     if(presetCount != 0)
     {
-        const struct RoguePokemonCompetitiveSet* currPreset;
-        bool8 isPresetValid;
-        u8 randOffset = (presetCount == 1 ? 0 : RogueRandomRange(presetCount, FLAG_SET_SEED_TRAINERS));
-        
-        // Work from random offset and attempt to find the best preset which slots into this team
-        // If none is found, we will use the last option and adjust below
-        for(i = 0; i < presetCount; ++i)
         {
-            currPreset = &gRoguePokemonProfiles[species].competitiveSets[((randOffset + i) % presetCount)];
-            isPresetValid = TRUE;
-
-            if(currPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
+            u16 currentScore;
+            u16 bestScore = 0; // higher is better
+            const struct RoguePokemonCompetitiveSet* currPreset = NULL;
+            const struct RoguePokemonCompetitiveSet* bestPreset = NULL;
+            u8 randOffset = (presetCount == 1 ? 0 : RogueRandomRange(presetCount, FLAG_SET_SEED_TRAINERS));
+            
+            // Work from random offset and attempt to find the best preset which slots into this team
+            // If none is found, we will use the last option and adjust below
+            for(i = 0; i < presetCount; ++i)
             {
-                isPresetValid = FALSE;
-            }
+                currPreset = &gRoguePokemonProfiles[species].competitiveSets[((randOffset + i) % presetCount)];
+                currentScore = 1024;
 
-            if(currPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
-            {
-                isPresetValid = FALSE;
-            }
+                // Avoid duplicate items (If this preset is used, we'll just replace the item)
+                //
+                if(currPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
+                {
+                    currentScore /= 2;
+                }
 
-            if(IsChoiceItem(currPreset->heldItem) && scratch->heldItems.hasChoiceItem)
-            {
-                isPresetValid = FALSE;
-            }
+                if(currPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
+                {
+                    currentScore /= 2;
+                }
+
+                if(IsChoiceItem(currPreset->heldItem) && scratch->heldItems.hasChoiceItem)
+                {
+                    currentScore /= 2;
+                }
 
 #ifdef ROGUE_EXPANSION
-            if(!IsMegaEvolutionEnabled())
-            {
                 // Special case for primal reversion
-                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                if(!IsMegaEvolutionEnabled())
                 {
-                    isPresetValid = FALSE;
+                    if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
+                    {
+                        currentScore /= 4;
+                    }
+                }
+
+                if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+                {
+                    if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                    {
+                        currentScore /= 4;
+                    }
+                }
+
+                if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+                {
+                    if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                    {
+                        currentScore /= 4;
+                    }
+                }
+#endif
+                // Handle identical scores by adding on some random amount
+                // so we will essentially randomlly choose between the best sets and get more variety
+                currentScore += RogueRandom() % 64;
+
+                if(bestPreset == NULL)
+                {
+                    // This is first option
+                    bestScore = currentScore;
+                    bestPreset = currPreset;
+                }
+                else if(currentScore > bestScore)
+                {
+                    bestScore = currentScore;
+                    bestPreset = currPreset;
                 }
             }
 
-            if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+            if(bestPreset != NULL)
             {
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
-                {
-                    isPresetValid = FALSE;
-                }
+                memcpy(outPreset, bestPreset, sizeof(struct RoguePokemonCompetitiveSet));
             }
+            else
+            {
+                return FALSE;
+            }
+        }
 
-            if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+        // Swap out limited count items, if they already exist
+        //
+        if(outPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
+        {
+            // Swap left overs to shell bell
+            outPreset->heldItem = ITEM_SHELL_BELL;
+        }
+
+        if(outPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
+        {
+            // Swap shell bell to NONE (i.e. berry)
+            outPreset->heldItem = ITEM_NONE;
+        }
+        
+        if(IsChoiceItem(outPreset->heldItem) && scratch->heldItems.hasChoiceItem)
+        {
+            // Swap choice items for weaker versions
+            switch (outPreset->heldItem)
             {
-                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
-                {
-                    isPresetValid = FALSE;
-                }
-            }
+#ifdef ROGUE_EXPANSION
+            case ITEM_CHOICE_BAND:
+                outPreset->heldItem = ITEM_MUSCLE_BAND;
+                break;
+            
+            case ITEM_CHOICE_SPECS:
+                outPreset->heldItem = ITEM_WISE_GLASSES;
+                break;
+
+            case ITEM_CHOICE_SCARF:
+                outPreset->heldItem = ITEM_QUICK_CLAW;
+                break;
 #endif
 
-            if(isPresetValid)
-            {
+            default:
+                outPreset->heldItem = ITEM_NONE;
                 break;
             }
         }
 
-        memcpy(outPreset, currPreset, sizeof(struct RoguePokemonCompetitiveSet));
-
-        // Swap out limited count items, if they already exist
-        if(!isPresetValid)
+#ifdef ROGUE_EXPANSION
+        if(!IsMegaEvolutionEnabled())
         {
-            if(outPreset->heldItem == ITEM_LEFTOVERS && scratch->heldItems.hasLeftovers)
+            // Special case for primal reversion
+            if(outPreset->heldItem == ITEM_RED_ORB || outPreset->heldItem == ITEM_BLUE_ORB)
             {
-                // Swap left overs to shell bell
-                outPreset->heldItem = ITEM_SHELL_BELL;
-            }
-
-            if(outPreset->heldItem == ITEM_SHELL_BELL && scratch->heldItems.hasShellbell)
-            {
-                // Swap shell bell to NONE (i.e. berry)
                 outPreset->heldItem = ITEM_NONE;
             }
-            
-            if(IsChoiceItem(outPreset->heldItem) && scratch->heldItems.hasChoiceItem)
-            {
-                // Swap choice items for weaker versions
-                switch (outPreset->heldItem)
-                {
-#ifdef ROGUE_EXPANSION
-                case ITEM_CHOICE_BAND:
-                    outPreset->heldItem = ITEM_MUSCLE_BAND;
-                    break;
-                
-                case ITEM_CHOICE_SPECS:
-                    outPreset->heldItem = ITEM_WISE_GLASSES;
-                    break;
-
-                case ITEM_CHOICE_SCARF:
-                    outPreset->heldItem = ITEM_QUICK_CLAW;
-                    break;
-#endif
-
-                default:
-                    outPreset->heldItem = ITEM_NONE;
-                    break;
-                }
-            }
-
-#ifdef ROGUE_EXPANSION
-            if(!IsMegaEvolutionEnabled())
-            {
-                // Special case for primal reversion
-                if(currPreset->heldItem == ITEM_RED_ORB || currPreset->heldItem == ITEM_BLUE_ORB)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-
-            if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-
-            if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
-            {
-                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
-                {
-                    outPreset->heldItem = ITEM_NONE;
-                }
-            }
-#endif
         }
 
+        if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+        {
+            if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
+            {
+                outPreset->heldItem = ITEM_NONE;
+            }
+        }
+
+        if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+        {
+            if(outPreset->heldItem >= ITEM_NORMALIUM_Z && outPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+            {
+                outPreset->heldItem = ITEM_NONE;
+            }
+        }
+#endif
+
+        // Give an item if we're missing one
+        //
         if(outPreset->heldItem == ITEM_NONE)
         {
             // Swap empty item to a berry either lum or sitrus
@@ -2131,11 +2156,11 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             scratch->heldItems.hasChoiceItem = TRUE;
         }
 #ifdef ROGUE_EXPANSION
-        else if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+        else if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
         {
             scratch->heldItems.hasMegaStone = TRUE;
         }
-        else if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+        else if(outPreset->heldItem >= ITEM_NORMALIUM_Z && outPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
         {
             scratch->heldItems.hasZCrystal = TRUE;
         }

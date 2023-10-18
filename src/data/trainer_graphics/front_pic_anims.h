@@ -545,4 +545,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_GLITCH_KATE] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_TAILS] = sAnims_Kanto,
     [TRAINER_PIC_GLITCH_ERMA] = sAnims_Kanto,
+
+    [TRAINER_PIC_RIVAL_BRENDAN] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_MAY] = sAnims_Kanto,
 };

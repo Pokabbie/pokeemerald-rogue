@@ -1778,6 +1778,8 @@ const u16 gMenuInfoElements3_Pal[] = INCBIN_U16("graphics/interface/menu_info3.g
 const u8 gMenuInfoElements_Gfx[] = INCBIN_U8("graphics/interface/menu_info.4bpp");
 
 const u8 gBagMenuHMIcon_Gfx[] = INCBIN_U8("graphics/bag/hm.4bpp");
+const u8 gBagMenuTMIcon_Gfx[] = INCBIN_U8("graphics/bag/tm.4bpp");
+const u8 gBagMenuTRIcon_Gfx[] = INCBIN_U8("graphics/bag/tr.4bpp");
 
 // contest results screen
 

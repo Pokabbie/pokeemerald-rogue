@@ -1568,9 +1568,11 @@ u16 GetMysteryGiftCardStat(void)
 
 bool8 BufferTMHMMoveName(void)
 {
-    if (gSpecialVar_0x8004 >= ITEM_TM01 && gSpecialVar_0x8004 <= ITEM_HM08)
+    u16 moveId = ItemIdToBattleMoveId(gSpecialVar_0x8004);
+
+    if (moveId != MOVE_NONE)
     {
-        StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(gSpecialVar_0x8004)]);
+        StringCopy(gStringVar2, gMoveNames[moveId]);
         return TRUE;
     }
 

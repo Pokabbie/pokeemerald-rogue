@@ -12,6 +12,9 @@
 #define ROGUE_VERSION ROGUE_VERSION_VANILLA
 #endif
 
+#ifdef ROGUE_EXPANSION
+#define ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+#endif
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
 
@@ -96,6 +99,13 @@
 #define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
 
 #define LAST_ITEM_CURSE                 (ITEM_ENDURE_CURSE)
+
+#define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
+#define ITEM_TR50                       (LAST_ITEM_CURSE + 50)
+
+#define FIRST_ITEM_TR                   ITEM_TR01
+#define LAST_ITEM_TR                    ITEM_TR50
+#define NUM_TECHNICAL_RECORDS           50
 
 #define ITEM_SORT_MODE_TYPE         0
 #define ITEM_SORT_MODE_NAME         1

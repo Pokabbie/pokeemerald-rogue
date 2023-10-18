@@ -568,4 +568,18 @@ const struct RogueItem gRogueItems[] =
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
     },
+    
+    [ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("TR"),
+        .itemId = ITEM_TR01,
+        .price = 1000,
+        .description = gText_DexEmptyString,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .registrability = FALSE,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconImage = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
+    },
 };
