@@ -681,6 +681,11 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 
 static u16 SanitizeItemId(u16 itemId)
 {
+#ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+    if(itemId >= ITEM_HM01 && itemId >= ITEM_HM08)
+        return ITEM_NONE;
+#endif
+
     if (itemId >= ITEMS_COUNT)
         return ITEM_NONE;
     else
@@ -730,6 +735,15 @@ const u8* Rogue_GetItemDesc(u16 itemId)
 {
     itemId = SanitizeItemId(itemId);
 
+    // TODO - add default description for shops
+    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+
+    }
+    else if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+    {
+    }
+
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
     {
         return gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].description;
@@ -748,6 +762,22 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
 {
     itemId = SanitizeItemId(itemId);
 
+    // TMs are visually HMs to indicate infinite usage?
+    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+        if(which == 0)
+            return gItemIcon_HM;
+        else
+            return gItemIconTable[itemId][which];
+    }
+    else if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+    {
+        if(which == 0)
+            return gItemIcon_TM;
+        else
+            return gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST].iconPalette; // TODO - Hookup based on move type
+    }
+
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
     {
         return which == 0 ? gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].iconImage : gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].iconPalette;
@@ -765,10 +795,18 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
     {
         const struct RogueItem* rogueItem = &gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST];
+        bool8 isValidItem = rogueItem->itemId == itemId;
 
-        if(rogueItem->itemId == itemId)
+        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
         {
-            outItem->itemId = rogueItem->itemId;
+            // Copy from first entry, as these items are going to be dynamic anyway
+            rogueItem = &gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST];
+            isValidItem = TRUE;
+        }
+
+        if(isValidItem)
+        {
+            outItem->itemId = itemId;
             outItem->price = rogueItem->price;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;

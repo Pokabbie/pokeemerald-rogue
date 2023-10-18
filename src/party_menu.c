@@ -1990,7 +1990,7 @@ static u8 CanMonLearnTMTutor(struct Pokemon *mon, u16 item, u8 tutor)
 
     if (item >= ITEM_TM01)
     {
-        if (!CanMonLearnTMHM(mon, item - ITEM_TM01))
+        if (!CanMonLearnTM(mon, item))
             return CANNOT_LEARN_MOVE;
         else
             move = ItemIdToBattleMoveId(item);
@@ -4955,33 +4955,42 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc task)
 
 u16 ItemIdToBattleMoveId(u16 item)
 {
-    u16 tmNumber = item - ITEM_TM01;
-    return sTMHMMoves[tmNumber];
+    if(item >= ITEM_TR01 && item <= ITEM_TR50)
+    {
+        u16 trNumber = item - ITEM_TR01;
+        return Rogue_GetTRMove(trNumber);
+    }
+    else
+    {
+        u16 tmNumber = item - ITEM_TM01;
+        return sTMHMMoves[tmNumber];
+    }
 }
 
 u16 BattleMoveIdToItemId(u16 move)
 {
     u16 i;
 
+    if(move == MOVE_NONE)
+        return 0;
+
+#ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+    for (i = 0; i < NUM_TECHNICAL_MACHINES; i++)
+#else
     for (i = 0; i < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES; i++)
+#endif
     {
         if (sTMHMMoves[i] == move)
             return ITEM_TM01 + i;
     }
 
-    return 0;
-}
-
-bool8 IsMoveHm(u16 move)
-{
-    u8 i;
-
-    for (i = 0; i < NUM_HIDDEN_MACHINES; i++)
+    for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
     {
-        if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
-            return TRUE;
+        if(Rogue_GetTRMove(i) == move)
+            return ITEM_TR01 + i;
     }
-    return FALSE;
+
+    return 0;
 }
 
 bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
@@ -5056,7 +5065,7 @@ static void Task_LearnedMove(u8 taskId)
     if (move[1] == 0)
     {
         AdjustFriendship(mon, FRIENDSHIP_EVENT_LEARN_TMHM);
-        if (item < ITEM_HM01_CUT)
+        if (item >= ITEM_TR01 && item <= ITEM_TR50)
             RemoveBagItem(item, 1);
     }
     GetMonNickname(mon, gStringVar1);

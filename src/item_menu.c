@@ -1115,7 +1115,13 @@ static void GetItemName(s8 *dest, u16 itemId)
     {
     case TMHM_POCKET:
         StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
-        if (itemId >= ITEM_HM01)
+        if (itemId >= ITEM_TR01)
+        {
+            // Get TR number
+            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TR01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
+            StringExpandPlaceholders(dest, gText_NumberItem_HM);
+        }
+        else if (itemId >= ITEM_HM01)
         {
             // Get HM number
             ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_HM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
@@ -1125,7 +1131,7 @@ static void GetItemName(s8 *dest, u16 itemId)
         {
             // Get TM number
             ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
+            StringExpandPlaceholders(dest, gText_NumberItem_HM);
         }
         break;
     case BERRIES_POCKET:
@@ -1184,8 +1190,12 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
         itemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, itemIndex);
         itemQuantity = BagGetQuantityByPocketPosition(gBagPosition.pocket + 1, itemIndex);
 
-        // Draw HM icon
-        if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+        // Draw TM icon
+        if (itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+            BlitBitmapToWindow(windowId, gBagMenuTRIcon_Gfx, 8, y - 1, 16, 16);
+        if (itemId >= ITEM_TM01 && itemId <= ITEM_TM50)
+            BlitBitmapToWindow(windowId, gBagMenuTMIcon_Gfx, 8, y - 1, 16, 16);
+        else if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
             BlitBitmapToWindow(windowId, gBagMenuHMIcon_Gfx, 8, y - 1, 16, 16);
 
         if (gBagPosition.pocket == BERRIES_POCKET)
@@ -1196,10 +1206,21 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
         }
+        else if(gBagPosition.pocket == TMHM_POCKET)
+        {
+            // Prefer not to print item quantity for regular TMs/HMs as they are infinite use
+            if(itemQuantity > 1 || (itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
+            {
+                // Print item quantity
+                ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);
+                StringExpandPlaceholders(gStringVar4, gText_xVar1);
+                offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
+                BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
+            }
+        }
         else if (gBagPosition.pocket != KEYITEMS_POCKET && gBagPosition.pocket != CHARMS_POCKET)
         {
-            // RogueNote: Always print item count
-            // Print item quantity
+            // RogueNote: Always print item count, for these pockets
             ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, BAG_ITEM_CAPACITY_DIGITS);
             StringExpandPlaceholders(gStringVar4, gText_xVar1);
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);

@@ -6420,12 +6420,12 @@ u8 CalcMonHiddenPowerType(struct Pokemon *mon)
     return type;
 }
 
-u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
+u32 CanMonLearnTM(struct Pokemon *mon, u16 itemId)
 {
-    return CanSpeciesLearnTMHM(GetMonData(mon, MON_DATA_SPECIES2, 0), tm);
+    return CanSpeciesLearnTM(GetMonData(mon, MON_DATA_SPECIES2, 0), itemId);
 }
 
-u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
+u32 CanSpeciesLearnTM(u16 species, u16 itemId)
 {
     if (species == SPECIES_EGG)
     {
@@ -6434,7 +6434,7 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
     else
     {
         u16 i;
-        u16 tmMove = ItemIdToBattleMoveId(ITEM_TM01 + tm);
+        u16 tmMove = ItemIdToBattleMoveId(itemId);
 
         // Check if we can learn it in tutor moves
         for(i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; ++i)

@@ -249,11 +249,36 @@ void CopyItemName(u16 itemId, u8 *dst)
 {
     StringCopy(dst, ItemId_GetName(itemId));
 
-    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
     {
         u16 moveId = ItemIdToBattleMoveId(itemId);
 
-        if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+        {
+            StringCopy(dst, gText_TRPrefix);
+        }
+        else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
+        {
+            StringCopy(dst, gText_HMPrefix);
+        }
+        else
+        {
+            StringCopy(dst, gText_TMPrefix);
+        }
+
+        StringAppend(dst, gMoveNames[moveId]);
+    }
+
+    if((itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
+    {
+        u16 moveId = ItemIdToBattleMoveId(itemId);
+        AGB_ASSERT(moveId < MOVES_COUNT);
+
+        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+        {
+            StringCopy(dst, gText_TRPrefix);
+        }
+        else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
         {
             StringCopy(dst, gText_HMPrefix);
         }
