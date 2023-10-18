@@ -512,10 +512,25 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM         0x115D
 #define OBJ_EVENT_PAL_TAG_KALOS_WULFRIC          0x115E
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x115F
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1160
+#define OBJ_EVENT_PAL_TAG_ALOLA_ACEROLA          0x115F
+#define OBJ_EVENT_PAL_TAG_ALOLA_HALA             0x1160
+#define OBJ_EVENT_PAL_TAG_ALOLA_HAPU             0x1161
+#define OBJ_EVENT_PAL_TAG_ALOLA_ILIMA            0x1162
+#define OBJ_EVENT_PAL_TAG_ALOLA_KAHILI           0x1163
+#define OBJ_EVENT_PAL_TAG_ALOLA_KIAWE            0x1164
+#define OBJ_EVENT_PAL_TAG_ALOLA_KUKUI            0x1165
+#define OBJ_EVENT_PAL_TAG_ALOLA_LANA             0x1166
+#define OBJ_EVENT_PAL_TAG_ALOLA_MALLOW           0x1167
+#define OBJ_EVENT_PAL_TAG_ALOLA_MINA             0x1168
+#define OBJ_EVENT_PAL_TAG_ALOLA_MOLAYNE          0x1169
+#define OBJ_EVENT_PAL_TAG_ALOLA_NANU             0x116A
+#define OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA           0x116B
+#define OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES        0x116C
 
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x1161
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x116D
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x116E
+
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x116F
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -629,6 +644,21 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kalos_Viola, OBJ_EVENT_PAL_TAG_KALOS_VIOLA},
     {gObjectEventPal_Kalos_Wikstrom, OBJ_EVENT_PAL_TAG_KALOS_WIKSTROM},
     {gObjectEventPal_Kalos_Wulfric, OBJ_EVENT_PAL_TAG_KALOS_WULFRIC},
+
+    {gObjectEventPal_Alola_Acerola, OBJ_EVENT_PAL_TAG_ALOLA_ACEROLA},
+    {gObjectEventPal_Alola_Hala, OBJ_EVENT_PAL_TAG_ALOLA_HALA},
+    {gObjectEventPal_Alola_Hapu, OBJ_EVENT_PAL_TAG_ALOLA_HAPU},
+    {gObjectEventPal_Alola_Ilima, OBJ_EVENT_PAL_TAG_ALOLA_ILIMA},
+    {gObjectEventPal_Alola_Kahili, OBJ_EVENT_PAL_TAG_ALOLA_KAHILI},
+    {gObjectEventPal_Alola_Kiawe, OBJ_EVENT_PAL_TAG_ALOLA_KIAWE},
+    {gObjectEventPal_Alola_Kukui, OBJ_EVENT_PAL_TAG_ALOLA_KUKUI},
+    {gObjectEventPal_Alola_Lana, OBJ_EVENT_PAL_TAG_ALOLA_LANA},
+    {gObjectEventPal_Alola_Mallow, OBJ_EVENT_PAL_TAG_ALOLA_MALLOW},
+    {gObjectEventPal_Alola_Mina, OBJ_EVENT_PAL_TAG_ALOLA_MINA},
+    {gObjectEventPal_Alola_Molayne, OBJ_EVENT_PAL_TAG_ALOLA_MOLAYNE},
+    {gObjectEventPal_Alola_Nanu, OBJ_EVENT_PAL_TAG_ALOLA_NANU},
+    {gObjectEventPal_Alola_Olivia, OBJ_EVENT_PAL_TAG_ALOLA_OLIVIA},
+    {gObjectEventPal_Alola_Sophocles, OBJ_EVENT_PAL_TAG_ALOLA_SOPHOCLES},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},

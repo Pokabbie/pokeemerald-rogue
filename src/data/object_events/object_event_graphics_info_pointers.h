@@ -353,6 +353,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Viola;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wikstrom;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kalos_Wulfric;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Acerola;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Hala;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Hapu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Ilima;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kahili;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kiawe;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Kukui;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Lana;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Mallow;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Mina;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Molayne;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Nanu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Olivia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Alola_Sophocles;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -772,6 +787,21 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KALOS_VIOLA] = &gObjectEventGraphicsInfo_Kalos_Viola,
     [OBJ_EVENT_GFX_KALOS_WIKSTROM] = &gObjectEventGraphicsInfo_Kalos_Wikstrom,
     [OBJ_EVENT_GFX_KALOS_WULFRIC] = &gObjectEventGraphicsInfo_Kalos_Wulfric,
+
+    [OBJ_EVENT_GFX_ALOLA_ACEROLA] = &gObjectEventGraphicsInfo_Alola_Acerola,
+    [OBJ_EVENT_GFX_ALOLA_HALA] = &gObjectEventGraphicsInfo_Alola_Hala,
+    [OBJ_EVENT_GFX_ALOLA_HAPU] = &gObjectEventGraphicsInfo_Alola_Hapu,
+    [OBJ_EVENT_GFX_ALOLA_ILIMA] = &gObjectEventGraphicsInfo_Alola_Ilima,
+    [OBJ_EVENT_GFX_ALOLA_KAHILI] = &gObjectEventGraphicsInfo_Alola_Kahili,
+    [OBJ_EVENT_GFX_ALOLA_KIAWE] = &gObjectEventGraphicsInfo_Alola_Kiawe,
+    [OBJ_EVENT_GFX_ALOLA_KUKUI] = &gObjectEventGraphicsInfo_Alola_Kukui,
+    [OBJ_EVENT_GFX_ALOLA_LANA] = &gObjectEventGraphicsInfo_Alola_Lana,
+    [OBJ_EVENT_GFX_ALOLA_MALLOW] = &gObjectEventGraphicsInfo_Alola_Mallow,
+    [OBJ_EVENT_GFX_ALOLA_MINA] = &gObjectEventGraphicsInfo_Alola_Mina,
+    [OBJ_EVENT_GFX_ALOLA_MOLAYNE] = &gObjectEventGraphicsInfo_Alola_Molayne,
+    [OBJ_EVENT_GFX_ALOLA_NANU] = &gObjectEventGraphicsInfo_Alola_Nanu,
+    [OBJ_EVENT_GFX_ALOLA_OLIVIA] = &gObjectEventGraphicsInfo_Alola_Olivia,
+    [OBJ_EVENT_GFX_ALOLA_SOPHOCLES] = &gObjectEventGraphicsInfo_Alola_Sophocles,
 
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,

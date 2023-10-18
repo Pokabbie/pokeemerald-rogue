@@ -569,6 +569,36 @@ const u32 gObjectEventPic_Kalos_Viola[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Kalos_Wikstrom[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/wikstrom.4bpp");
 const u32 gObjectEventPic_Kalos_Wulfric[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/kalos/wulfric.4bpp");
 
+const u16 gObjectEventPal_Alola_Acerola[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/acerola.gbapal");
+const u16 gObjectEventPal_Alola_Hala[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/hala.gbapal");
+const u16 gObjectEventPal_Alola_Hapu[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/hapu.gbapal");
+const u16 gObjectEventPal_Alola_Ilima[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/ilima.gbapal");
+const u16 gObjectEventPal_Alola_Kahili[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/kahili.gbapal");
+const u16 gObjectEventPal_Alola_Kiawe[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/kiawe.gbapal");
+const u16 gObjectEventPal_Alola_Kukui[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/kukui.gbapal");
+const u16 gObjectEventPal_Alola_Lana[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/lana.gbapal");
+const u16 gObjectEventPal_Alola_Mallow[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/mallow.gbapal");
+const u16 gObjectEventPal_Alola_Mina[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/mina.gbapal");
+const u16 gObjectEventPal_Alola_Molayne[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/molayne.gbapal");
+const u16 gObjectEventPal_Alola_Nanu[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/nanu.gbapal");
+const u16 gObjectEventPal_Alola_Olivia[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/olivia.gbapal");
+const u16 gObjectEventPal_Alola_Sophocles[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/alola/sophocles.gbapal");
+
+const u32 gObjectEventPic_Alola_Acerola[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/acerola.4bpp");
+const u32 gObjectEventPic_Alola_Hala[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/hala.4bpp");
+const u32 gObjectEventPic_Alola_Hapu[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/hapu.4bpp");
+const u32 gObjectEventPic_Alola_Ilima[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/ilima.4bpp");
+const u32 gObjectEventPic_Alola_Kahili[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/kahili.4bpp");
+const u32 gObjectEventPic_Alola_Kiawe[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/kiawe.4bpp");
+const u32 gObjectEventPic_Alola_Kukui[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/kukui.4bpp");
+const u32 gObjectEventPic_Alola_Lana[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/lana.4bpp");
+const u32 gObjectEventPic_Alola_Mallow[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/mallow.4bpp");
+const u32 gObjectEventPic_Alola_Mina[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/mina.4bpp");
+const u32 gObjectEventPic_Alola_Molayne[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/molayne.4bpp");
+const u32 gObjectEventPic_Alola_Nanu[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/nanu.4bpp");
+const u32 gObjectEventPic_Alola_Olivia[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/olivia.4bpp");
+const u32 gObjectEventPic_Alola_Sophocles[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/alola/sophocles.4bpp");
+
 const u32 gObjectEventPic_Misc_Aroma_Girl[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/aroma_girl.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_f.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_m.4bpp");
