@@ -632,6 +632,7 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
                 break;
             }
 
+            gSprites[sVoltorbFlipState->pointerSprite].y2 = 12;
             DrawCardTiles(sVoltorbFlipState->cursorX, sVoltorbFlipState->cursorY);
         }
     }
@@ -869,6 +870,14 @@ static void UpdateVoltorbFlipSprites()
 
     gSprites[sVoltorbFlipState->pointerSprite].x = 24 + 12 + 24 * sVoltorbFlipState->cursorX;
     gSprites[sVoltorbFlipState->pointerSprite].y = 8 + 0 + 24 * sVoltorbFlipState->cursorY;
+
+    if(gSprites[sVoltorbFlipState->pointerSprite].y2 > 0)
+    {
+        if(gSprites[sVoltorbFlipState->pointerSprite].y2 < 2)
+            gSprites[sVoltorbFlipState->pointerSprite].y2 = 0;
+        else
+            gSprites[sVoltorbFlipState->pointerSprite].y2 -= 2;
+    }
 
     if(sVoltorbFlipState->cursorWriteValue == 0)
     {
