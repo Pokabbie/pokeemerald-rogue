@@ -169,3 +169,12 @@ script Rogue_Debug_DisplayPokedex
     waitstate
     release
 }
+
+script Rogue_Debug_DisplayVoltorbFlip
+{
+    lock
+    msgbox(format("Voltorb flip"))
+    special(Special_ViewVoltorbFlip)
+    waitstate
+    release
+}

@@ -357,6 +357,7 @@ SECTIONS {
         src/rogue_safari.o(.text);
         src/rogue_settings.o(.text);
         src/rogue_settings_ui.o(.text);
+        src/rogue_voltorbflip.o(.text);
     } =0
 
     script_data :
@@ -745,6 +746,7 @@ SECTIONS {
         src/rogue_safari.o(.rodata);
         src/rogue_settings.o(.rodata);
         src/rogue_settings_ui.o(.rodata);
+        src/rogue_voltorbflip.o(.rodata);
     } =0
 
     song_data :
