@@ -20,6 +20,7 @@ extern const struct BaseStats gBaseStats[];
 #include "graphics.h"
 #include "item.h"
 #include "item_use.h"
+#include "party_menu.h"
 #include "string_util.h"
 
 #include "rogue_automation.h"
@@ -717,6 +718,10 @@ bool8 Rogue_IsEvolutionItem(u16 itemIdx)
     return FALSE;
 }
 
+u16 Rogue_CalculateMovePrice(u16 move)
+{
+    return 0;
+}
 #else
 
 extern const u8 gText_EscapeRopeDesc[];
@@ -746,6 +751,7 @@ const u8* Rogue_GetItemDesc(u16 itemId)
     }
     else if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
     {
+        return gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST].description;
     }
 
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
@@ -779,7 +785,68 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
         if(which == 0)
             return gItemIcon_TM;
         else
-            return gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST].iconPalette; // TODO - Hookup based on move type
+        {
+            u16 move = ItemIdToBattleMoveId(itemId);
+            switch (gBattleMoves[move].type)
+            {
+            case TYPE_FIGHTING:
+                return gItemIconPalette_FightingTMHM;
+
+            case TYPE_FLYING:
+                return gItemIconPalette_FlyingTMHM;
+
+            case TYPE_POISON:
+                return gItemIconPalette_PoisonTMHM;
+
+            case TYPE_GROUND:
+                return gItemIconPalette_GroundTMHM;
+
+            case TYPE_ROCK:
+                return gItemIconPalette_RockTMHM;
+
+            case TYPE_BUG:
+                return gItemIconPalette_BugTMHM;
+
+            case TYPE_GHOST:
+                return gItemIconPalette_GhostTMHM;
+
+            case TYPE_STEEL:
+                return gItemIconPalette_SteelTMHM;
+
+            case TYPE_FIRE:
+                return gItemIconPalette_FireTMHM;
+
+            case TYPE_WATER:
+                return gItemIconPalette_WaterTMHM;
+
+            case TYPE_GRASS:
+                return gItemIconPalette_GrassTMHM;
+
+            case TYPE_ELECTRIC:
+                return gItemIconPalette_ElectricTMHM;
+
+            case TYPE_PSYCHIC:
+                return gItemIconPalette_PsychicTMHM;
+
+            case TYPE_ICE:
+                return gItemIconPalette_IceTMHM;
+
+            case TYPE_DRAGON:
+                return gItemIconPalette_DragonTMHM;
+
+            case TYPE_DARK:
+                return gItemIconPalette_DarkTMHM;
+
+#ifdef ROGUE_EXPANSION
+            case TYPE_FAIRY:
+                return gItemIconPalette_FairyTMHM;
+#endif
+            
+            default: // TYPE_NORMAL, TYPE_MYSTERY
+                return gItemIconPalette_NormalTMHM;
+            }
+
+        }
     }
 
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
@@ -851,6 +918,18 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->price = 4000;
         outItem->pocket = POCKET_MEDICINE;
+    }
+
+    if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+    {
+        u16 move = ItemIdToBattleMoveId(itemId);
+        outItem->price = Rogue_CalculateMovePrice(move);
+    }
+
+    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+        u16 move = ItemIdToBattleMoveId(itemId);
+        outItem->price = Rogue_CalculateMovePrice(move) * 4; // increase as these are re-usable
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1063,35 +1142,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->price = 0;
             break;
 
-        // TM Items
-        // 
-        case ITEM_TM01_FOCUS_PUNCH:
-        case ITEM_TM28_DIG:
-        case ITEM_TM39_ROCK_TOMB:
-            outItem->price = 1500;
-            break;
-
-        case ITEM_TM07_HAIL:
-        case ITEM_TM09_BULLET_SEED:
-        case ITEM_TM11_SUNNY_DAY:
-        case ITEM_TM18_RAIN_DANCE:
-        case ITEM_TM20_SAFEGUARD:
-        case ITEM_TM37_SANDSTORM:
-            outItem->price = 2000;
-            break;
-
-        case ITEM_TM14_BLIZZARD:
-        case ITEM_TM15_HYPER_BEAM:
-        case ITEM_TM25_THUNDER:
-        case ITEM_TM26_EARTHQUAKE:
-        case ITEM_TM38_FIRE_BLAST:
-            outItem->price = 6000;
-            break;
-
-        case ITEM_TM06_TOXIC:
-            outItem->price = 8000;
-            break;
-
         // Common Battle Items
         //
         case ITEM_METAL_POWDER:
@@ -1200,6 +1250,89 @@ bool8 Rogue_IsEvolutionItem(u16 itemIdx)
     }
 
     return FALSE;
+}
+
+u16 Rogue_CalculateMovePrice(u16 move)
+{
+    // Move cost takes into account high level stats and then modifies based on usage
+    u16 cost = 0;
+    u16 usageCount = gRoguePokemonMoveUsages[move];
+    u8 accuracy = gBattleMoves[move].accuracy;
+    u8 pp = gBattleMoves[move].pp;
+    u8 power = gBattleMoves[move].power;
+
+    switch (move)
+    {
+    case MOVE_RETURN:
+    case MOVE_FRUSTRATION:
+        power = 110;
+        break;
+    
+    case MOVE_HIDDEN_POWER:
+        power = 70;
+        break;
+
+    case MOVE_SPLASH:
+        power = 1;
+        break;
+    }
+
+    // accuracy cost
+    if(accuracy == 100)
+        cost += 1000;
+    else if(accuracy >= 90)
+        cost += 500;
+    else if(accuracy >= 75)
+        cost += 400;
+    else if(accuracy >= 50)
+        cost += 200;
+
+    // pp cost
+    if(pp <= 5)
+        cost += 2000;
+    else if(pp <= 10)
+        cost += 1000;
+    else if(pp <= 20)
+        cost += 500;
+    else if(pp <= 30)
+        cost += 200;
+
+    // power cost
+    if(power == 0) // is status move
+        cost += 2000;
+    else if(power >= 110)
+        cost += 4000;
+    else if(power >= 100)
+        cost += 3000;
+    else if(power >= 90)
+        cost += 2000;
+    else if(power >= 70)
+        cost += 1000;
+    else if(power >= 50)
+        cost += 500;
+    else
+        cost += 300;
+
+    // Modify based on usage
+    if(usageCount >= 300)
+        cost += 6000;
+    else if(usageCount >= 200)
+        cost += 5000;
+    else if(usageCount >= 100)
+        cost += 4000;
+    else if(usageCount >= 75)
+        cost += 4000;
+    else if(usageCount >= 50)
+        cost += 3000;
+    else if(usageCount >= 20)
+        cost += 2000;
+    else if(usageCount >= 100)
+        cost += 1000;
+
+    if(cost < 100)
+        cost = 100;
+
+    return cost;
 }
 #endif
 

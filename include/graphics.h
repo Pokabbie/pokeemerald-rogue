@@ -3964,6 +3964,7 @@ extern const u32 gItemIconPalette_FightingTMHM[];
 extern const u32 gItemIconPalette_DragonTMHM[];
 extern const u32 gItemIconPalette_WaterTMHM[];
 extern const u32 gItemIconPalette_PsychicTMHM[];
+extern const u32 gItemIconPalette_BugTMHM[];
 extern const u32 gItemIconPalette_NormalTMHM[];
 extern const u32 gItemIconPalette_PoisonTMHM[];
 extern const u32 gItemIconPalette_IceTMHM[];

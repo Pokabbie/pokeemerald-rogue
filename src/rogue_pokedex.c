@@ -953,10 +953,10 @@ static void DisplayMonMovesText()
         }
     }
 
-    // TM moves
+    // TR moves
     if(displayCount < MAX_LIST_DISPLAY_COUNT)
     {
-        u16 moveId;
+        u16 moveId, itemId;
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
@@ -965,8 +965,46 @@ static void DisplayMonMovesText()
             if(moveId == MOVE_NONE)
                 break;
 
-            // This is not a TM
-            if(BattleMoveIdToItemId(moveId) == ITEM_NONE)
+            itemId = BattleMoveIdToItemId(moveId);
+            
+            // This is not a TR
+            if(itemId == ITEM_NONE)
+                continue;
+
+            if(!(itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
+                continue;
+
+            StringCopy(gStringVar1, gMoveNames[moveId]);
+            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTR);
+            
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+
+    // TM moves
+    if(displayCount < MAX_LIST_DISPLAY_COUNT)
+    {
+        u16 moveId, itemId;
+
+        for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
+        {
+            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+
+            if(moveId == MOVE_NONE)
+                break;
+
+            itemId = BattleMoveIdToItemId(moveId);
+
+            // This is not a TM/HM
+            if(itemId == ITEM_NONE)
+                continue;
+
+            if(!(itemId >= ITEM_TM01 && itemId <= ITEM_HM08))
                 continue;
 
             StringCopy(gStringVar1, gMoveNames[moveId]);

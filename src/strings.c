@@ -720,7 +720,7 @@ const u8 gText_RegionGalar[] = _("GALAR");
 const u8 gText_PokedexMovesLevel[] = _("{COLOR RED}{SHADOW LIGHT_RED}{LV}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_2}");
 const u8 gText_PokedexMovesEvo[] = _("{COLOR LIGHT_GRAY}{SHADOW RED}Evo. {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 const u8 gText_PokedexMovesTM[] = _("{COLOR LIGHT_GREEN}{SHADOW LIGHT_GRAY}TM.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
-const u8 gText_PokedexMovesEgg[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Egg  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesTR[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}TR.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 const u8 gText_PokedexMovesTutor[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tutor {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 
 const u8 gText_PokedexEvoFriendship[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship");

@@ -166,6 +166,7 @@ static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
+static void RandomiseTRMoves();
 
 static void RandomiseCharmItems(void);
 
@@ -2286,6 +2287,7 @@ static void BeginRogueRun(void)
 
     ClearBerryTrees();
     RandomiseFishingEncounters();
+    RandomiseTRMoves();
     InitialiseFaintedLabMons();
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
@@ -2330,7 +2332,7 @@ static void BeginRogueRun(void)
 
     GiveMonPartnerRibbon();
 
-    // Chose bosses last
+    // Choose bosses last
     Rogue_ChooseRivalTrainerForNewAdventure();
     Rogue_ChooseBossTrainersForNewAdventure();
     EnableRivalEncounterIfRequired();
@@ -4593,7 +4595,7 @@ static void ApplyMartCapacity(u16 capacity)
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
-    u16 maxPriceRange = 10000;
+    u16 maxPriceRange = 65000;
 
     RogueItemQuery_Begin();
     RogueItemQuery_IsItemActive();
@@ -4649,7 +4651,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
     case ROGUE_SHOP_TMS:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_TM_HM);
-        *minSalePrice = 1500;
+        *minSalePrice = 0;
         applyRandomChance = TRUE;
         break;
 
@@ -5504,12 +5506,56 @@ u8 Rogue_GetEncounterDifficultyModifier()
 
 u16 Rogue_GetTRMove(u16 trNumber)
 {
-    //if(trNumber < NUM_TECHNICAL_RECORDS && Rogue_IsRunActive())
-    //    return gRogueRun.dynamicTRMoves[trNumber];
+    if(trNumber < NUM_TECHNICAL_RECORDS && Rogue_IsRunActive())
+        return gRogueRun.dynamicTRMoves[trNumber];
 
-    // Shouldn't get here
-    //AGB_ASSERT(FALSE);
+    // Return dud moves for item pricing calcs etc.
     return MOVE_SPLASH;
+}
+
+static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
+{
+    u16 usage = gRoguePokemonMoveUsages[move];
+
+    // If we don't have comp usage, the chance is 10 lower
+    // so it still could happen but it's really not very likely
+    if(usage == 0)
+        return 1;
+
+    if(usage >= 300)
+        return 50;
+    if(usage >= 200)
+        return 40;
+    if(usage >= 100)
+        return 30;
+    if(usage >= 50)
+        return 20;
+
+    return 10;
+}
+
+static void RandomiseTRMoves()
+{
+    RogueMoveQuery_Begin();
+    RogueMoveQuery_Reset(QUERY_FUNC_INCLUDE);
+
+    RogueMoveQuery_IsTM(QUERY_FUNC_EXCLUDE);
+    RogueMoveQuery_IsHM(QUERY_FUNC_EXCLUDE);
+
+    RogueWeightQuery_Begin();
+    {
+        u8 i;
+        RogueWeightQuery_CalculateWeights(TRMove_CalculateWeight, NULL);
+
+        for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
+        {
+            AGB_ASSERT(RogueWeightQuery_HasAnyWeights());
+            gRogueRun.dynamicTRMoves[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+        }
+    }
+    RogueWeightQuery_End();
+
+    RogueMoveQuery_End();
 }
 
 static bool8 RogueRandomChanceTrainer()

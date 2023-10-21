@@ -661,20 +661,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
     else
     {
-        struct AdvPathSettings* pathSettings;
-        struct AdvPathGenerator* generator;
+        struct AdvPathSettings pathSettings = {0};
+        struct AdvPathGenerator generator = {0};
 
         // If we have a valid room ID, then we're reloading a previous save
         bool8 isNewGeneration = gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID;
 
-        pathSettings = AllocZeroed(sizeof(struct AdvPathSettings));
-        generator = AllocZeroed(sizeof(struct AdvPathGenerator));
-
-        AGB_ASSERT(pathSettings != NULL);
-        AGB_ASSERT(generator != NULL);
-
-        pathSettings->generator = generator;
-        pathSettings->totalLength = 3 + 2; // +2 to account for final encounter and initial split
+        pathSettings.generator = &generator;
+        pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
 
         // Select the correct seed
         {
@@ -697,11 +691,11 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             u8 i;
 
             // Gym split
-            generator->connectionsSettingsPerColumn[0].minCount = 2;
-            generator->connectionsSettingsPerColumn[0].maxCount = 3;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_TOP] = 33;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_MID] = 33;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_BOT] = 33;
+            generator.connectionsSettingsPerColumn[0].minCount = 2;
+            generator.connectionsSettingsPerColumn[0].maxCount = 3;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_TOP] = 33;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_MID] = 33;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_BOT] = 33;
             
             for(i = 1; i < MAX_CONNECTION_GENERATOR_COLUMNS; ++i)
             {
@@ -710,38 +704,38 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
                 {
                 // Mixed/Standard
                 case 0:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 3;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
 
                 // Branches
                 case 1:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
 
                 // Lines
                 case 2:
-                    generator->connectionsSettingsPerColumn[i].minCount = 2;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
+                    generator.connectionsSettingsPerColumn[i].minCount = 2;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
                     break;
 
                 // Wiggling line
                 case 3:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 1;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 1;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
                 
                 default:
@@ -753,11 +747,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
         DebugPrintf("ADVPATH: Generating path for seed %d.", gRngRogueValue);
         Rogue_ResetAdventurePathBuffers();
-        GeneratePath(pathSettings);
+        GeneratePath(&pathSettings);
         DebugPrint("ADVPATH: Finished generating path.");
-
-        Free(pathSettings);
-        Free(generator);
 
         gRogueAdvPath.justGenerated = isNewGeneration;
 

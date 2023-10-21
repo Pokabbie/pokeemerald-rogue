@@ -71,6 +71,13 @@ void RoguePathsQuery_Reset(u8 func);
 void RoguePathsQuery_End();
 void RoguePathsQuery_IsOfType(u8 func, u8 roomType);
 
+// Move Query
+void RogueMoveQuery_Begin();
+void RogueMoveQuery_Reset(u8 func);
+void RogueMoveQuery_IsTM(u8 func);
+void RogueMoveQuery_IsHM(u8 func);
+void RogueMoveQuery_End();
+
 // Weight selection
 void RogueWeightQuery_Begin();
 void RogueWeightQuery_End();

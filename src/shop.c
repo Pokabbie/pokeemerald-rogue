@@ -364,6 +364,7 @@ static u16 StaticShopItemListCallback(u16 index)
 
 static void ResetMartInfo()
 {
+    sMartInfo.dynamicMartCategory = 0;
     sMartInfo.minPrice = 0;
     sMartInfo.anythingBought = FALSE;
     sMartInfo.listItemCallback = NULL;
@@ -374,8 +375,17 @@ static void ResetMartInfo()
 
 static void SetShopItemsFromStaticList(const u16 *items, u16 terminatorItem)
 {
+    sMartInfo.dynamicMartCategory = 0;
     sMartInfo.listItemCallback = StaticShopItemListCallback;
     sMartInfo.listItemData = (void*)items;
+    sMartInfo.listItemTerminator = terminatorItem;
+}
+
+static void SetShopItemsFromCallback(u16 (*listItemCallback)(u16), u16 terminatorItem, void* userData)
+{
+    sMartInfo.dynamicMartCategory = 0;
+    sMartInfo.listItemCallback = listItemCallback;
+    sMartInfo.listItemData = userData;
     sMartInfo.listItemTerminator = terminatorItem;
 }
 
@@ -1698,38 +1708,29 @@ static u16 HubUpgradeShopItemListCallback(u16 index)
     return HUB_UPGRADE_NONE;
 }
 
-static void FreeShopQuery()
+static void FreeQueryShopItemList()
 {
-    RogueListQuery_End();
-    Rogue_CloseMartQuery();
+    if(sMartInfo.listItemData != NULL)
+    {
+        RogueListQuery_End();
+        Rogue_CloseMartQuery();
+        sMartInfo.listItemData = NULL;
+    }
 }
 
-void CreateDynamicPokemartMenu(const u16 category)
+static u16 QueryShopItemListCallback(u16 index)
 {
-    CheckPokemartState();
-    ResetMartInfo();
+    u16 const* listPtr;
 
-    if(category == ROGUE_SHOP_HUB_UPGRADES)
+    // Run the query once and cache it for later
+    if(sMartInfo.listItemData == NULL)
     {
-        CreateShopMenu(MART_TYPE_HUB_UPGRADES);
-        sMartInfo.listItemCallback = HubUpgradeShopItemListCallback;
-        sMartInfo.listItemTerminator = HUB_UPGRADE_NONE;
-    }
-    else
-    {
-        u16 martType = MART_TYPE_NORMAL;
-
-        if(category == ROGUE_SHOP_CHARMS)
-            martType = MART_TYPE_PURCHASE_ONLY;
-
-        CreateShopMenu(martType);
-
-        Rogue_OpenMartQuery(category, &sMartInfo.minPrice);
+        Rogue_OpenMartQuery(sMartInfo.dynamicMartCategory, &sMartInfo.minPrice);
         {
             u8 sortMode = ITEM_SORT_MODE_TYPE;
             bool8 flipSort = FALSE;
 
-            switch (category)
+            switch (sMartInfo.dynamicMartCategory)
             {
             case ROGUE_SHOP_BERRIES:
             case ROGUE_SHOP_HELD_ITEMS:
@@ -1745,11 +1746,39 @@ void CreateDynamicPokemartMenu(const u16 category)
             }
 
             RogueListQuery_Begin();
-            SetShopItemsFromStaticList(RogueListQuery_CollapseItems(sortMode, flipSort), ITEM_NONE);
+            sMartInfo.listItemData = RogueListQuery_CollapseItems(sortMode, flipSort);
         }
-        // End inner and outer query when we leave shop, as we might need some dynamic allocs
-        sFreeCallback = FreeShopQuery;
 
+        // End inner and outer query when we leave shop, as we might need some dynamic allocs
+        sFreeCallback = FreeQueryShopItemList;
+    }
+
+    listPtr = (u16 const*)sMartInfo.listItemData;
+    return listPtr[index];
+}
+
+
+void CreateDynamicPokemartMenu(const u16 category)
+{
+    CheckPokemartState();
+    ResetMartInfo();
+
+    if(category == ROGUE_SHOP_HUB_UPGRADES)
+    {
+        CreateShopMenu(MART_TYPE_HUB_UPGRADES);
+        SetShopItemsFromCallback(HubUpgradeShopItemListCallback, HUB_UPGRADE_NONE, NULL);
+        sMartInfo.dynamicMartCategory = category;
+    }
+    else
+    {
+        u16 martType = MART_TYPE_NORMAL;
+
+        if(category == ROGUE_SHOP_CHARMS)
+            martType = MART_TYPE_PURCHASE_ONLY;
+
+        CreateShopMenu(martType);
+        SetShopItemsFromCallback(QueryShopItemListCallback, ITEM_NONE, NULL);
+        sMartInfo.dynamicMartCategory = category;
         ClearItemPurchases();
     }
     SetShopMenuCallback(EnableBothScriptContexts);

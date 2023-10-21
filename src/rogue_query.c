@@ -2,12 +2,14 @@
 #include "constants/abilities.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
+#include "constants/moves.h"
 #include "data.h"
 
 #include "event_data.h"
 #include "item.h"
 #include "item_use.h"
 #include "malloc.h"
+#include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "random.h"
@@ -26,8 +28,9 @@
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
 #define QUERY_NUM_TRAINERS          256 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
+#define QUERY_NUM_MOVES             MOVES_COUNT
 
-#define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_ITEMS, max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES)))))
+#define MAX_QUERY_BIT_COUNT (max(QUERY_NUM_MOVES, max(QUERY_NUM_ITEMS, max(QUERY_NUM_ADVENTURE_PATH, max(QUERY_NUM_TRAINERS, max(ITEMS_COUNT, QUERY_NUM_SPECIES))))))
 #define MAX_QUERY_BYTE_COUNT (1 + MAX_QUERY_BIT_COUNT / 8)
 
 // Old API
@@ -45,6 +48,7 @@ enum
     QUERY_TYPE_ITEM,
     QUERY_TYPE_TRAINER,
     QUERY_TYPE_ADVENTURE_PATHS,
+    QUERY_TYPE_MOVES,
     QUERY_TYPE_CUSTOM,
 };
 
@@ -59,17 +63,18 @@ struct RogueQueryData
     u8 queryType;
 };
 
-EWRAM_DATA static struct RogueQueryData* sRogueQueryPtr = 0;
+EWRAM_DATA static struct RogueQueryData sRogueQuery = {0};
 
-#define ASSERT_NO_QUERY         AGB_ASSERT(sRogueQueryPtr == NULL)
-#define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL)
-#define ASSERT_MON_QUERY        AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_MON)
-#define ASSERT_ITEM_QUERY       AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
-#define ASSERT_TRAINER_QUERY    AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
-#define ASSERT_PATHS_QUERY      AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
-#define ASSERT_CUSTOM_QUERY     AGB_ASSERT(sRogueQueryPtr != NULL && sRogueQueryPtr->queryType == QUERY_TYPE_CUSTOM)
-#define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray != NULL); AGB_ASSERT(sRogueQueryPtr->listArray == NULL)
-#define ASSERT_LIST_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQueryPtr->weightArray == NULL); AGB_ASSERT(sRogueQueryPtr->listArray != NULL)
+#define ASSERT_NO_QUERY         AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_NONE)
+#define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQuery.queryType != QUERY_TYPE_NONE)
+#define ASSERT_MON_QUERY        AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_MON)
+#define ASSERT_ITEM_QUERY       AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_ITEM)
+#define ASSERT_TRAINER_QUERY    AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_TRAINER)
+#define ASSERT_PATHS_QUERY      AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_ADVENTURE_PATHS)
+#define ASSERT_CUSTOM_QUERY     AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_CUSTOM)
+#define ASSERT_MOVES_QUERY      AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_MOVES)
+#define ASSERT_WEIGHT_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQuery.weightArray != NULL); AGB_ASSERT(sRogueQuery.listArray == NULL)
+#define ASSERT_LIST_QUERY     ASSERT_ANY_QUERY; AGB_ASSERT(sRogueQuery.weightArray == NULL); AGB_ASSERT(sRogueQuery.listArray != NULL)
 
 static void SetQueryBitFlag(u16 elem, bool8 state);
 static bool8 GetQueryBitFlag(u16 elem);
@@ -82,24 +87,22 @@ static u16 Query_GetWeightArrayCount();
 
 static void AllocQuery(u8 type)
 {
-    sRogueQueryPtr = malloc(sizeof(struct RogueQueryData));
-    sRogueQueryPtr->queryType = type;
-    sRogueQueryPtr->bitCount = 0;
-    sRogueQueryPtr->bitFlags = &gRogueQueryBits[0];
-    sRogueQueryPtr->weightArray = NULL;
-    sRogueQueryPtr->listArray = NULL;
-    sRogueQueryPtr->arrayCapacity = 0;
-    sRogueQueryPtr->totalWeight = 0;
+    memset(&sRogueQuery, 0, sizeof(sRogueQuery));
+    sRogueQuery.queryType = type;
+    sRogueQuery.bitCount = 0;
+    sRogueQuery.bitFlags = &gRogueQueryBits[0];
+    sRogueQuery.weightArray = NULL;
+    sRogueQuery.listArray = NULL;
+    sRogueQuery.arrayCapacity = 0;
+    sRogueQuery.totalWeight = 0;
 
-    memset(&sRogueQueryPtr->bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
+    memset(&sRogueQuery.bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
 }
 
 static void FreeQuery()
 {
-    AGB_ASSERT(sRogueQueryPtr->weightArray == NULL);
-
-    free(sRogueQueryPtr);
-    sRogueQueryPtr = NULL;
+    AGB_ASSERT(sRogueQuery.weightArray == NULL);
+    sRogueQuery.queryType = QUERY_TYPE_NONE;
 }
 
 static void SetQueryBitFlag(u16 elem, bool8 state)
@@ -115,17 +118,17 @@ static void SetQueryBitFlag(u16 elem, bool8 state)
 
         if(state)
         {
-            sRogueQueryPtr->bitFlags[idx] |= bitMask;
+            sRogueQuery.bitFlags[idx] |= bitMask;
             
-            ++sRogueQueryPtr->bitCount;
-            AGB_ASSERT(sRogueQueryPtr->bitCount < MAX_QUERY_BIT_COUNT);
+            ++sRogueQuery.bitCount;
+            AGB_ASSERT(sRogueQuery.bitCount < MAX_QUERY_BIT_COUNT);
         }
         else
         {
-            sRogueQueryPtr->bitFlags[idx] &= ~bitMask;
+            sRogueQuery.bitFlags[idx] &= ~bitMask;
 
-            AGB_ASSERT(sRogueQueryPtr->bitCount != 0);
-            --sRogueQueryPtr->bitCount;
+            AGB_ASSERT(sRogueQuery.bitCount != 0);
+            --sRogueQuery.bitCount;
         }
     }
 }
@@ -139,14 +142,14 @@ static bool8 GetQueryBitFlag(u16 elem)
     ASSERT_ANY_QUERY;
     AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
 
-    return (sRogueQueryPtr->bitFlags[idx] & bitMask) != 0;
+    return (sRogueQuery.bitFlags[idx] & bitMask) != 0;
 }
 
 // MISC QUERY
 //
 void RogueQuery_Init()
 {
-    sRogueQueryPtr = NULL;
+    memset(&sRogueQuery, 0, sizeof(sRogueQuery));
     AGB_ASSERT(QUERY_NUM_TRAINERS >= gRogueTrainerCount);
 }
 
@@ -820,79 +823,6 @@ bool8 Query_IsItemEnabled(u16 itemId)
         if(!IsGenEnabled(gen))
             return FALSE;
 
-        // Query excluded items
-        switch (itemId)
-        {
-        case ITEM_SACRED_ASH:
-        case ITEM_REVIVAL_HERB:
-        case ITEM_REVIVE:
-        case ITEM_MAX_REVIVE:
-        case ITEM_RARE_CANDY:
-        case ITEM_HEART_SCALE:
-        case ITEM_LUCKY_EGG:
-        case ITEM_EXP_SHARE:
-        case ITEM_SHOAL_SALT:
-        case ITEM_SHOAL_SHELL:
-        case ITEM_FLUFFY_TAIL:
-        case ITEM_SOOTHE_BELL:
-
-        case ITEM_DURIN_BERRY:
-        case ITEM_PAMTRE_BERRY:
-        case ITEM_NOMEL_BERRY:
-        case ITEM_PINAP_BERRY:
-        case ITEM_NANAB_BERRY:
-        case ITEM_RAZZ_BERRY:
-        case ITEM_ENIGMA_BERRY:
-        case ITEM_BELUE_BERRY:
-        case ITEM_WATMEL_BERRY:
-        case ITEM_SPELON_BERRY:
-        case ITEM_RABUTA_BERRY:
-        case ITEM_CORNN_BERRY:
-        case ITEM_WEPEAR_BERRY:
-        case ITEM_BLUK_BERRY:
-
-        // Berries that may confuse
-        case ITEM_AGUAV_BERRY:
-        case ITEM_WIKI_BERRY:
-        case ITEM_PERSIM_BERRY:
-        case ITEM_IAPAPA_BERRY:
-        case ITEM_MAGO_BERRY:
-        case ITEM_FIGY_BERRY:
-        case ITEM_MAGOST_BERRY:
-#ifdef ROGUE_EXPANSION
-
-        // Not implemented/needed
-        case ITEM_MAX_HONEY:
-        case ITEM_LURE:
-        case ITEM_SUPER_LURE:
-        case ITEM_MAX_LURE:
-        case ITEM_MAX_MUSHROOMS:
-        case ITEM_WISHING_PIECE:
-        case ITEM_ARMORITE_ORE:
-        case ITEM_DYNITE_ORE:
-        case ITEM_GALARICA_TWIG:
-        case ITEM_SWEET_HEART:
-        case ITEM_POKE_TOY:
-
-        // Link cable is Rogue's item
-        case ITEM_LINKING_CORD:
-
-        // Not needed as is not a lvl up evo
-        case ITEM_PRISM_SCALE:
-
-        // Exclude all treasures then turn on the ones we want to use
-        case ITEM_NUGGET:
-        case ITEM_PEARL:
-        case ITEM_BIG_PEARL:
-        case ITEM_STARDUST:
-        case ITEM_STAR_PIECE:
-
-        // Ignore these, as mons/form swaps currently not enabled
-        case ITEM_PIKASHUNIUM_Z:
-        case ITEM_ULTRANECROZIUM_Z:
-#endif
-            return FALSE;
-        }
 
         if(itemId >= FIRST_MAIL_INDEX && itemId <= LAST_MAIL_INDEX)
             return FALSE;
@@ -905,6 +835,10 @@ bool8 Query_IsItemEnabled(u16 itemId)
 
         if(itemId >= ITEM_BLUE_FLUTE && itemId <= ITEM_WHITE_FLUTE)
             return FALSE;
+
+        // TRs only active during runs
+        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+            return Rogue_IsRunActive();
 
 #if !defined(ROGUE_EXPANSION)
         if(((itemId >= ITEM_HP_UP && itemId <= ITEM_CALCIUM) || itemId == ITEM_ZINC) && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
@@ -998,6 +932,81 @@ bool8 Query_IsItemEnabled(u16 itemId)
             return FALSE;
 
 #endif
+
+        // Query excluded items
+        switch (itemId)
+        {
+        case ITEM_SACRED_ASH:
+        case ITEM_REVIVAL_HERB:
+        case ITEM_REVIVE:
+        case ITEM_MAX_REVIVE:
+        case ITEM_RARE_CANDY:
+        case ITEM_HEART_SCALE:
+        case ITEM_LUCKY_EGG:
+        case ITEM_EXP_SHARE:
+        case ITEM_SHOAL_SALT:
+        case ITEM_SHOAL_SHELL:
+        case ITEM_FLUFFY_TAIL:
+        case ITEM_SOOTHE_BELL:
+
+        case ITEM_DURIN_BERRY:
+        case ITEM_PAMTRE_BERRY:
+        case ITEM_NOMEL_BERRY:
+        case ITEM_PINAP_BERRY:
+        case ITEM_NANAB_BERRY:
+        case ITEM_RAZZ_BERRY:
+        case ITEM_ENIGMA_BERRY:
+        case ITEM_BELUE_BERRY:
+        case ITEM_WATMEL_BERRY:
+        case ITEM_SPELON_BERRY:
+        case ITEM_RABUTA_BERRY:
+        case ITEM_CORNN_BERRY:
+        case ITEM_WEPEAR_BERRY:
+        case ITEM_BLUK_BERRY:
+
+        // Berries that may confuse
+        case ITEM_AGUAV_BERRY:
+        case ITEM_WIKI_BERRY:
+        case ITEM_PERSIM_BERRY:
+        case ITEM_IAPAPA_BERRY:
+        case ITEM_MAGO_BERRY:
+        case ITEM_FIGY_BERRY:
+        case ITEM_MAGOST_BERRY:
+#ifdef ROGUE_EXPANSION
+
+        // Not implemented/needed
+        case ITEM_MAX_HONEY:
+        case ITEM_LURE:
+        case ITEM_SUPER_LURE:
+        case ITEM_MAX_LURE:
+        case ITEM_MAX_MUSHROOMS:
+        case ITEM_WISHING_PIECE:
+        case ITEM_ARMORITE_ORE:
+        case ITEM_DYNITE_ORE:
+        case ITEM_GALARICA_TWIG:
+        case ITEM_SWEET_HEART:
+        case ITEM_POKE_TOY:
+
+        // Link cable is Rogue's item
+        case ITEM_LINKING_CORD:
+
+        // Not needed as is not a lvl up evo
+        case ITEM_PRISM_SCALE:
+
+        // Exclude all treasures then turn on the ones we want to use
+        case ITEM_NUGGET:
+        case ITEM_PEARL:
+        case ITEM_BIG_PEARL:
+        case ITEM_STARDUST:
+        case ITEM_STAR_PIECE:
+
+        // Ignore these, as mons/form swaps currently not enabled
+        case ITEM_PIKASHUNIUM_Z:
+        case ITEM_ULTRANECROZIUM_Z:
+#endif
+            return FALSE;
+        }
+
         // If we managed to get here, we must be valid
         return TRUE;
     }
@@ -1357,7 +1366,89 @@ void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
 }
 
 
-//QUERY_NUM_ADVENTURE_PATH
+// MOVES QUERY
+//
+void RogueMoveQuery_Begin()
+{
+    ASSERT_NO_QUERY;
+    AllocQuery(QUERY_TYPE_MOVES);
+}
+
+void RogueMoveQuery_End()
+{
+    ASSERT_MOVES_QUERY;
+    FreeQuery();
+}
+
+void RogueMoveQuery_Reset(u8 func)
+{
+    u16 i;
+
+    ASSERT_MOVES_QUERY;
+
+    for(i = 0; i < QUERY_NUM_MOVES; ++i)
+    {
+        if(func == QUERY_FUNC_INCLUDE)
+        {
+            SetQueryBitFlag(i, TRUE);
+        }
+        else if(func == QUERY_FUNC_EXCLUDE)
+        {
+            SetQueryBitFlag(i, FALSE);
+        }
+    }
+}
+
+void RogueMoveQuery_IsTM(u8 func)
+{
+    u16 i, move;
+
+    ASSERT_MOVES_QUERY;
+
+    if(func == QUERY_FUNC_INCLUDE)
+    {
+        // TODO
+        AGB_ASSERT(FALSE);
+    }
+    else if(func == QUERY_FUNC_EXCLUDE)
+    {
+        for(i = 0; i < NUM_TECHNICAL_MACHINES; ++i)
+        {
+            move = ItemIdToBattleMoveId(ITEM_TM01 + i);
+            if(GetQueryBitFlag(move))
+            {
+                SetQueryBitFlag(move, FALSE);
+            }
+        }
+    }
+}
+
+void RogueMoveQuery_IsHM(u8 func)
+{
+    u16 i, move;
+
+    ASSERT_MOVES_QUERY;
+
+    if(func == QUERY_FUNC_INCLUDE)
+    {
+        // TODO
+        AGB_ASSERT(FALSE);
+    }
+    else if(func == QUERY_FUNC_EXCLUDE)
+    {
+#ifndef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+        for(i = 0; i < NUM_HIDDEN_MACHINES; ++i)
+        {
+            move = ItemIdToBattleMoveId(ITEM_HM01 + i);
+            if(GetQueryBitFlag(move))
+            {
+                SetQueryBitFlag(move, FALSE);
+            }
+        }
+#endif
+    }
+}
+
 
 
 // WEIGHT QUERY
@@ -1365,57 +1456,68 @@ void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
 static u16 Query_MaxBitCount()
 {
     ASSERT_ANY_QUERY;
-    if(sRogueQueryPtr->queryType == QUERY_TYPE_MON)
+
+    switch (sRogueQuery.queryType)
+    {
+    case QUERY_TYPE_MON:
         return QUERY_NUM_SPECIES;
-    else if(sRogueQueryPtr->queryType == QUERY_TYPE_ITEM)
+    
+    case QUERY_TYPE_ITEM:
         return QUERY_NUM_ITEMS;
-    else if(sRogueQueryPtr->queryType == QUERY_TYPE_TRAINER)
+    
+    case QUERY_TYPE_TRAINER:
         return gRogueTrainerCount;
-    else if(sRogueQueryPtr->queryType == QUERY_TYPE_ADVENTURE_PATHS)
+    
+    case QUERY_TYPE_ADVENTURE_PATHS:
         return QUERY_NUM_ADVENTURE_PATH;
-    else // QUERY_TYPE_CUSTOM
+    
+    case QUERY_TYPE_MOVES:
+        return QUERY_NUM_MOVES;
+    
+    default: // QUERY_TYPE_CUSTOM
         return MAX_QUERY_BIT_COUNT;
+    }
 }
 
 static u16 Query_GetWeightArrayCount()
 {
     ASSERT_WEIGHT_QUERY;
 
-    if(sRogueQueryPtr->bitCount <= sRogueQueryPtr->arrayCapacity)
+    if(sRogueQuery.bitCount <= sRogueQuery.arrayCapacity)
     {
-        return sRogueQueryPtr->bitCount;
+        return sRogueQuery.bitCount;
     }
     else
     {
-        DebugPrintf("QueryWeight: Clamping as active bits too large (active_bits:%d capacity:%d)", sRogueQueryPtr->bitCount, sRogueQueryPtr->arrayCapacity);
-        return sRogueQueryPtr->arrayCapacity;
+        DebugPrintf("QueryWeight: Clamping as active bits too large (active_bits:%d capacity:%d)", sRogueQuery.bitCount, sRogueQuery.arrayCapacity);
+        return sRogueQuery.arrayCapacity;
     }
 }
 
 void RogueWeightQuery_Begin()
 {
     ASSERT_ANY_QUERY;
-    sRogueQueryPtr->weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
-    sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
+    sRogueQuery.weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
+    sRogueQuery.arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
 }
 
 void RogueWeightQuery_End()
 {
     ASSERT_WEIGHT_QUERY;
-    sRogueQueryPtr->weightArray = NULL;
-    sRogueQueryPtr->arrayCapacity = 0;
+    sRogueQuery.weightArray = NULL;
+    sRogueQuery.arrayCapacity = 0;
 }
 
 bool8 RogueWeightQuery_HasAnyWeights()
 {
     ASSERT_WEIGHT_QUERY;
-    return sRogueQueryPtr->bitCount != 0 && sRogueQueryPtr->totalWeight != 0;
+    return sRogueQuery.bitCount != 0 && sRogueQuery.totalWeight != 0;
 }
 
 bool8 RogueWeightQuery_HasMultipleWeights()
 {
     ASSERT_WEIGHT_QUERY;
-    return RogueWeightQuery_HasAnyWeights() && sRogueQueryPtr->bitCount > 1;
+    return RogueWeightQuery_HasAnyWeights() && sRogueQuery.bitCount > 1;
 }
 
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
@@ -1429,7 +1531,7 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
 
     ASSERT_WEIGHT_QUERY;
 
-    sRogueQueryPtr->totalWeight = 0;
+    sRogueQuery.totalWeight = 0;
 
     for(elem = 0; elem < maxBitCount; ++elem)
     {
@@ -1441,8 +1543,8 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
             {
                 weight = callback(index, elem, data);
 
-                sRogueQueryPtr->weightArray[index] = weight;
-                sRogueQueryPtr->totalWeight += weight;
+                sRogueQuery.weightArray[index] = weight;
+                sRogueQuery.totalWeight += weight;
             }
         }
     }
@@ -1455,12 +1557,12 @@ void RogueWeightQuery_FillWeights(u8 weight)
 
     ASSERT_WEIGHT_QUERY;
 
-    sRogueQueryPtr->totalWeight = 0;
+    sRogueQuery.totalWeight = 0;
 
     for(i = 0; i < weightCount; ++i)
     {
-        sRogueQueryPtr->weightArray[i] = weight;
-        sRogueQueryPtr->totalWeight += weight;
+        sRogueQuery.weightArray[i] = weight;
+        sRogueQuery.totalWeight += weight;
     }
 }
 
@@ -1484,12 +1586,12 @@ void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
             {
                 if(elem == checkElem)
                 {
-                    AGB_ASSERT(sRogueQueryPtr->totalWeight > sRogueQueryPtr->weightArray[index]);
+                    AGB_ASSERT(sRogueQuery.totalWeight > sRogueQuery.weightArray[index]);
 
                     // Remove old weight and replace with new one
-                    sRogueQueryPtr->totalWeight -= sRogueQueryPtr->weightArray[index];
-                    sRogueQueryPtr->weightArray[index] = weight;
-                    sRogueQueryPtr->totalWeight += weight;
+                    sRogueQuery.totalWeight -= sRogueQuery.weightArray[index];
+                    sRogueQuery.weightArray[index] = weight;
+                    sRogueQuery.totalWeight += weight;
                     return;
                 }
             }
@@ -1508,10 +1610,10 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
     u16 counter = 0;
     u16 maxBitCount = Query_MaxBitCount();
     u16 weightCount = Query_GetWeightArrayCount();
-    u16 targetWeight = randValue % sRogueQueryPtr->totalWeight;
+    u16 targetWeight = randValue % sRogueQuery.totalWeight;
 
     ASSERT_WEIGHT_QUERY;
-    AGB_ASSERT(sRogueQueryPtr->totalWeight != 0);
+    AGB_ASSERT(sRogueQuery.totalWeight != 0);
 
     for(elem = 0; elem < maxBitCount; ++elem)
     {
@@ -1521,7 +1623,7 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
 
             if(index < weightCount)
             {
-                weight = sRogueQueryPtr->weightArray[index];
+                weight = sRogueQuery.weightArray[index];
 
                 if(weight != 0)
                 {
@@ -1531,9 +1633,9 @@ static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8
                         if(updateWeight)
                         {
                             // Remove old weight and replace with new one
-                            sRogueQueryPtr->totalWeight -= weight;
-                            sRogueQueryPtr->weightArray[index] = newWeight;
-                            sRogueQueryPtr->totalWeight += newWeight;
+                            sRogueQuery.totalWeight -= weight;
+                            sRogueQuery.weightArray[index] = newWeight;
+                            sRogueQuery.totalWeight += newWeight;
                         }
 
                         return elem;
@@ -1568,46 +1670,71 @@ u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updated
 void RogueListQuery_Begin()
 {
     ASSERT_ANY_QUERY;
-    AGB_ASSERT(sRogueQueryPtr->arrayCapacity == 0);
+    AGB_ASSERT(sRogueQuery.arrayCapacity == 0);
 
     // Attempt to dynamically allocate memory for us to use, as we can't fit into the preallocation size
-    if(sRogueQueryPtr->bitCount + 1 >= ARRAY_COUNT(gRogueQueryBuffer))
+    if(sRogueQuery.bitCount + 1 >= ARRAY_COUNT(gRogueQueryBuffer))
     {
-        sRogueQueryPtr->arrayCapacity = sRogueQueryPtr->bitCount + 1;
-        sRogueQueryPtr->listArray = Alloc(sizeof(u16) * sRogueQueryPtr->arrayCapacity);
+        sRogueQuery.arrayCapacity = sRogueQuery.bitCount + 1;
+        sRogueQuery.listArray = Alloc(sizeof(u16) * sRogueQuery.arrayCapacity);
 
-        if(sRogueQueryPtr->listArray == NULL)
+        if(sRogueQuery.listArray == NULL)
         {
             // Failed to allocate, so fallback and just have a smaller list
             AGB_ASSERT(FALSE);
-            sRogueQueryPtr->arrayCapacity = 0;
+            sRogueQuery.arrayCapacity = 0;
         }
     }
 
     // Use the preallocated array
-    if(sRogueQueryPtr->arrayCapacity == 0)
+    if(sRogueQuery.arrayCapacity == 0)
     {
-        sRogueQueryPtr->listArray = &gRogueQueryBuffer[0];
-        sRogueQueryPtr->arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
+        sRogueQuery.listArray = &gRogueQueryBuffer[0];
+        sRogueQuery.arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
     }
 }
 
 void RogueListQuery_End()
 {
     ASSERT_LIST_QUERY;
-    AGB_ASSERT(sRogueQueryPtr->arrayCapacity != 0);
+    AGB_ASSERT(sRogueQuery.arrayCapacity != 0);
 
     // Free dynamically alloced array
-    if(sRogueQueryPtr->arrayCapacity >= ARRAY_COUNT(gRogueQueryBuffer))
+    if(sRogueQuery.arrayCapacity >= ARRAY_COUNT(gRogueQueryBuffer))
     {
-        Free(sRogueQueryPtr->listArray);
+        Free(sRogueQuery.listArray);
     }
 
-    sRogueQueryPtr->listArray = NULL;
-    sRogueQueryPtr->arrayCapacity = 0;
+    sRogueQuery.listArray = NULL;
+    sRogueQuery.arrayCapacity = 0;
 }
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
+
+static void SortInsertItem(u16 itemId, u16* buffer, u16 oldSize, u8 sortMode, bool8 flipSort)
+{
+    if(oldSize == 0)
+    {
+        buffer[0] = itemId;
+    }
+    else
+    {
+        // Insert sort
+        if(sortMode < ITEM_SORT_MODE_COUNT)
+        {
+            u16 i, temp;
+
+            for(i = 0; i < oldSize; ++i)
+            {
+                if(SortItemPlaceBefore(sortMode, itemId, buffer[i], 1, 1) != flipSort)
+                    SWAP(itemId, buffer[i], temp);
+            }
+        }
+
+        // Insert remaining item at the end
+        buffer[oldSize] = itemId;
+    }
+}
 
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
 {
@@ -1622,9 +1749,9 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     {
         if(GetQueryBitFlag(itemId))
         {
-            sRogueQueryPtr->listArray[index++] = itemId;
+            SortInsertItem(itemId, sRogueQuery.listArray, index++, sortMode, flipSort);
     
-            if(index >= sRogueQueryPtr->arrayCapacity - 1)
+            if(index >= sRogueQuery.arrayCapacity - 1)
             {
                 // Hit capacity (Probably means putting too much into 1 shop)
                 break;
@@ -1633,35 +1760,9 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     }
 
     // Terminate
-    sRogueQueryPtr->listArray[index] = ITEM_NONE;
+    sRogueQuery.listArray[index] = ITEM_NONE;
 
-    if(sortMode < ITEM_SORT_MODE_COUNT)
-    {
-        u16 i, j, temp;
-        bool8 anySorts = FALSE;
-
-        for(j = 0; j < index; ++j)
-        {
-            anySorts = FALSE;
-
-            for(i = 1; i < index; ++i)
-            {
-                if(i == j)
-                    continue;
-
-                if(SortItemPlaceBefore(sortMode, sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], 1, 1) != flipSort)
-                {
-                    SWAP(sRogueQueryPtr->listArray[i], sRogueQueryPtr->listArray[i - 1], temp);
-                    anySorts = TRUE;
-                }
-            }
-
-            if(!anySorts)
-                break;
-        }
-    }
-
-    return sRogueQueryPtr->listArray;
+    return sRogueQuery.listArray;
 }
 
 // Old API
