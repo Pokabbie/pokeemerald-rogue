@@ -1,4 +1,6 @@
 #include "global.h"
+#include "constants/songs.h"
+
 #include "palette.h"
 #include "main.h"
 #include "gpu_regs.h"
@@ -8,6 +10,7 @@
 #include "decompress.h"
 #include "bg.h"
 #include "window.h"
+#include "sound.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
@@ -567,29 +570,42 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
     if (JOY_NEW(DPAD_LEFT))
     {
         if(sVoltorbFlipState->cursorX > 0)
+        {
+            PlaySE(SE_DEX_SCROLL);
             --sVoltorbFlipState->cursorX;
+        }
     }
     if (JOY_NEW(DPAD_RIGHT))
     {
         if(sVoltorbFlipState->cursorX < BOARD_WIDTH - 1)
+        {
+            PlaySE(SE_DEX_SCROLL);
             ++sVoltorbFlipState->cursorX;
+        }
     }
 
     if (JOY_NEW(DPAD_UP))
     {
         if(sVoltorbFlipState->cursorY > 0)
+        {
+            PlaySE(SE_DEX_SCROLL);
             --sVoltorbFlipState->cursorY;
+        }
     }
     if (JOY_NEW(DPAD_DOWN))
     {
         if(sVoltorbFlipState->cursorY < BOARD_HEIGHT - 1)
+        {
+            PlaySE(SE_DEX_SCROLL);
             ++sVoltorbFlipState->cursorY;
+        }
     }
 
     if (JOY_NEW(L_BUTTON))
     {
         if(sVoltorbFlipState->cursorWriteValue > 0)
         {
+            PlaySE(SE_SELECT);
             --sVoltorbFlipState->cursorWriteValue;
             DrawNoteTiles();
         }
@@ -598,6 +614,7 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
     {
         if(sVoltorbFlipState->cursorWriteValue < CARD_VALUE_COUNT)
         {
+            PlaySE(SE_SELECT);
             ++sVoltorbFlipState->cursorWriteValue;
             DrawNoteTiles();
         }
@@ -612,22 +629,31 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
             switch (sVoltorbFlipState->cursorWriteValue)
             {
             case 0:
+                if(sVoltorbFlipState->cardStates[cardIdx].value == CARD_VALUE_VOLTORB)
+                    PlaySE(SE_M_EXPLOSION);
+                else
+                    PlaySE(SE_PIN);
+
                 sVoltorbFlipState->cardStates[cardIdx].isShown = TRUE;
                 break;
 
             case 1 + CARD_VALUE_1:
+                PlaySE(SE_BALL);
                 sVoltorbFlipState->cardStates[cardIdx].note1 = !sVoltorbFlipState->cardStates[cardIdx].note1;
                 break;
 
             case 1 + CARD_VALUE_2:
+                PlaySE(SE_BALL);
                 sVoltorbFlipState->cardStates[cardIdx].note2 = !sVoltorbFlipState->cardStates[cardIdx].note2;
                 break;
 
             case 1 + CARD_VALUE_3:
+                PlaySE(SE_BALL);
                 sVoltorbFlipState->cardStates[cardIdx].note3 = !sVoltorbFlipState->cardStates[cardIdx].note3;
                 break;
 
             case 1 + CARD_VALUE_VOLTORB:
+                PlaySE(SE_BALL);
                 sVoltorbFlipState->cardStates[cardIdx].noteVoltorb = !sVoltorbFlipState->cardStates[cardIdx].noteVoltorb;
                 break;
             }
