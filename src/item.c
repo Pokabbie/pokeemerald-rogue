@@ -247,28 +247,11 @@ void ShrinkBagItems(void)
 
 void CopyItemName(u16 itemId, u8 *dst)
 {
-    StringCopy(dst, ItemId_GetName(itemId));
+    CopyItemNameN(itemId, dst, ITEM_NAME_LENGTH);
+}
 
-    if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
-    {
-        u16 moveId = ItemIdToBattleMoveId(itemId);
-
-        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
-        {
-            StringCopy(dst, gText_TRPrefix);
-        }
-        else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
-        {
-            StringCopy(dst, gText_HMPrefix);
-        }
-        else
-        {
-            StringCopy(dst, gText_TMPrefix);
-        }
-
-        StringAppend(dst, gMoveNames[moveId]);
-    }
-
+void CopyItemNameN(u16 itemId, u8 *dst, u16 length)
+{
     if((itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
     {
         u16 moveId = ItemIdToBattleMoveId(itemId);
@@ -276,18 +259,22 @@ void CopyItemName(u16 itemId, u8 *dst)
 
         if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
         {
-            StringCopy(dst, gText_TRPrefix);
+            StringCopyN(dst, gText_TRPrefix, length);
         }
         else if(itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
         {
-            StringCopy(dst, gText_HMPrefix);
+            StringCopyN(dst, gText_HMPrefix, length);
         }
         else
         {
-            StringCopy(dst, gText_TMPrefix);
+            StringCopyN(dst, gText_TMPrefix, length);
         }
 
-        StringAppend(dst, gMoveNames[moveId]);
+        StringAppendN(dst, gMoveNames[moveId], length);
+    }
+    else
+    {
+        StringCopyN(dst, ItemId_GetName(itemId), length);
     }
 }
 
@@ -470,9 +457,9 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     return FALSE;
 }
 
-static u16 GetPokeballSortScore(struct Item* item)
+static u16 GetPokeballSortScore(u16 itemId)
 {
-    switch (item->itemId)
+    switch (itemId)
     {
     case ITEM_POKE_BALL:
         return 0;
@@ -484,13 +471,13 @@ static u16 GetPokeballSortScore(struct Item* item)
         return 3;
 
     default:
-        return 10 + item->price;
+        return 10 + ItemId_GetPrice(itemId);
     }
 }
 
-static u16 GetBerrySortScore(struct Item* item)
+static u16 GetBerrySortScore(u16 itemId)
 {
-    return ItemIdToBerryType(item->itemId);
+    return ItemIdToBerryType(itemId);
 }
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB)
@@ -503,15 +490,13 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
     else
     {
         s32 sortScore;
-        struct Item itemA;
-        struct Item itemB;
-        Rogue_ModifyItem(itemIdA, &itemA);
-        Rogue_ModifyItem(itemIdB, &itemB);
+        u8 pocketA = ItemId_GetPocket(itemIdA);
+        u8 pocketB = ItemId_GetPocket(itemIdB);
 
-        if(itemA.pocket != itemB.pocket)
+        if(pocketA != pocketB)
         {
             // Always store items in pocket order, as we need this to calculate pointers/pocket size
-            return itemA.pocket < itemB.pocket;
+            return pocketA < pocketB;
         }
 
         // Apply sort mode
@@ -522,8 +507,14 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
             break;
 
         case ITEM_SORT_MODE_NAME:
-            if(itemA.pocket == POCKET_TM_HM)
-                sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(itemIdA)], gMoveNames[ItemIdToBattleMoveId(itemIdB)], MOVE_NAME_LENGTH);
+            if(pocketA == POCKET_TM_HM)
+            {
+                u16 moveA = ItemIdToBattleMoveId(itemIdA);
+                u16 moveB = ItemIdToBattleMoveId(itemIdB);
+                AGB_ASSERT(moveA != ITEM_NONE && moveA < MOVES_COUNT);
+                AGB_ASSERT(moveB != ITEM_NONE && moveB < MOVES_COUNT);
+                sortScore = StringCompareN(gMoveNames[moveA], gMoveNames[moveB], MOVE_NAME_LENGTH);
+            }
             else
                 sortScore = StringCompareN(ItemId_GetName(itemIdA), ItemId_GetName(itemIdB), ITEM_NAME_LENGTH);
 
@@ -532,8 +523,12 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
             break;
 
         case ITEM_SORT_MODE_VALUE:
-            if(itemA.price != itemB.price)
-                return itemA.price > itemB.price;
+            {
+                u8 priceA = ItemId_GetPrice(itemIdA);
+                u8 priceB = ItemId_GetPrice(itemIdB);
+                if(priceA != priceB)
+                    return priceA > priceB;
+            }
             break;
 
         case ITEM_SORT_MODE_AMOUNT:
@@ -547,20 +542,22 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
         }
 
         // For poke balls & berries pocket, custom sort
-        if(itemA.pocket == POCKET_POKE_BALLS)
+        if(pocketA == POCKET_POKE_BALLS)
         {
-            return GetPokeballSortScore(&itemA) < GetPokeballSortScore(&itemB);
+            return GetPokeballSortScore(itemIdA) < GetPokeballSortScore(itemIdB);
         }
-        if(itemA.pocket == POCKET_BERRIES)
+        if(pocketA == POCKET_BERRIES)
         {
-            return GetBerrySortScore(&itemA) < GetBerrySortScore(&itemB);
+            return GetBerrySortScore(itemIdA) < GetBerrySortScore(itemIdB);
         }
 
         // For TMs sort by move type, power, pp etc.
-        if(itemA.pocket == POCKET_TM_HM)
+        if(pocketA == POCKET_TM_HM)
         {
             u16 moveA = ItemIdToBattleMoveId(itemIdA);
             u16 moveB = ItemIdToBattleMoveId(itemIdB);
+            AGB_ASSERT(moveA != ITEM_NONE && moveA < MOVES_COUNT);
+            AGB_ASSERT(moveB != ITEM_NONE && moveB < MOVES_COUNT);
 
             // Sort by type
             if(gBattleMoves[moveA].type != gBattleMoves[moveB].type)
@@ -571,7 +568,7 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
                 return gBattleMoves[moveA].power > gBattleMoves[moveB].power;
 
             // Now fallback to alphabetical sort
-            sortScore = StringCompareN(gMoveNames[ItemIdToBattleMoveId(itemIdA)], gMoveNames[ItemIdToBattleMoveId(itemIdB)], MOVE_NAME_LENGTH);
+            sortScore = StringCompareN(gMoveNames[moveA], gMoveNames[moveB], MOVE_NAME_LENGTH);
 
             if(sortScore != 0)
                 return sortScore < 0;
@@ -594,30 +591,52 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
 
         // Within the pocket attempt to sort items
         {
-            if(itemA.fieldUseFunc != itemB.fieldUseFunc)
+            ItemUseFunc fieldUseFuncA = ItemId_GetFieldFunc(itemIdA);
+            ItemUseFunc fieldUseFuncB = ItemId_GetFieldFunc(itemIdB);
+
+            if(fieldUseFuncA != fieldUseFuncB)
             {
                 // Prefer showing items which have a field func first
-                return itemA.fieldUseFunc > itemB.fieldUseFunc;
+                return fieldUseFuncA > fieldUseFuncB;
             }
+        }
 
-            if(itemA.battleUsage != 0 || itemB.battleUsage != 0)
+        {
+            u8 battleUsageA = ItemId_GetBattleUsage(itemIdA);
+            u8 battleUsageB = ItemId_GetBattleUsage(itemIdB);
+            ItemUseFunc battleUseFuncA = ItemId_GetBattleFunc(itemIdA);
+            ItemUseFunc battleUseFuncB = ItemId_GetBattleFunc(itemIdB);
+
+            if(battleUsageA != 0 || battleUsageB != 0)
             {
-                if(itemA.battleUsage != itemB.battleUsage)
+                if(battleUsageA != battleUsageB)
                 {
-                    return itemA.battleUsage < itemB.battleUsage;
+                    return battleUsageA < battleUsageB;
                 }
 
-                if(itemA.battleUseFunc != itemB.battleUseFunc)
+                if(battleUseFuncA != battleUseFuncB)
                 {
                     // Prefer showing items which have a battle func first
-                    return itemA.battleUseFunc > itemB.battleUseFunc;
+                    return battleUseFuncA > battleUseFuncB;
                 }
             }
+        }
 
-            if(itemA.holdEffectParam != itemB.holdEffectParam)
+        {
+            u8 holdEffectA = ItemId_GetHoldEffect(itemIdA);
+            u8 holdEffectB = ItemId_GetHoldEffect(itemIdB);
+            u8 holdEffectParamA = ItemId_GetHoldEffectParam(itemIdA);
+            u8 holdEffectParamB = ItemId_GetHoldEffectParam(itemIdB);
+
+            // Show best item of this type first
+            if(holdEffectA != holdEffectB)
             {
-                // Show best item of this type first
-                return itemA.holdEffectParam > itemB.holdEffectParam;
+                return holdEffectA > holdEffectB;
+            }
+
+            if(holdEffectParamA != holdEffectParamB)
+            {
+                return holdEffectParamA > holdEffectParamB;
             }
 
             // Sort by ID if all else has failed
@@ -1318,9 +1337,7 @@ u16 ItemId_GetId(u16 itemId)
 
 u16 ItemId_GetPrice(u16 itemId)
 {
-    struct Item item;
-    Rogue_ModifyItem(itemId, &item);
-    return item.price;
+    return Rogue_GetPrice(itemId);
 }
 
 u8 ItemId_GetHoldEffect(u16 itemId)

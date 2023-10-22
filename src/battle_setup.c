@@ -836,7 +836,7 @@ static u8 GetTrainerBattleTransition(void)
 
     if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
-        switch(gRogueRun.currentDifficulty % 4)
+        switch(Rogue_GetCurrentDifficulty() % 4)
         {
             case 0:
                 return B_TRANSITION_SIDNEY;
@@ -852,7 +852,7 @@ static u8 GetTrainerBattleTransition(void)
 
     if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
     {
-        if (gRogueRun.currentDifficulty >= 13)
+        if (Rogue_GetCurrentDifficulty() >= 13)
             return B_TRANSITION_CHAMPION_STEVEN;
             
         return B_TRANSITION_CHAMPION;

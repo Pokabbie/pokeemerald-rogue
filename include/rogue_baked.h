@@ -23,6 +23,7 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 const u8* Rogue_GetItemName(u16 itemIdx);
 const u8* Rogue_GetItemDesc(u16 itemIdx);
 const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which);
+u16 Rogue_GetPrice(u16 itemId);
 void Rogue_ModifyItem(u16 itemIdx, struct Item* outItem);
 bool8 Rogue_IsEvolutionItem(u16 itemIdx);
 u16 Rogue_CalculateMovePrice(u16 move);

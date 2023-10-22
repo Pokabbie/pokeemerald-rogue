@@ -90,7 +90,7 @@ void Rogue_RandomisePartyMon(void)
 
     RogueMonQuery_Begin();
 
-    if(gRogueRun.currentDifficulty < 2)
+    if(Rogue_GetCurrentDifficulty() < 2)
         RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();

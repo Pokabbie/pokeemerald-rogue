@@ -208,16 +208,16 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 static u16 SerializeRogueBlock(bool8 inWriteMode)
 {
     u16 count, saveVersion;
-    struct RogueSaveBlock* blockCopy;
+    struct RogueSaveBlock blockCopy;
     struct SaveBlockStream stream;
 
-    blockCopy = Alloc(sizeof(struct RogueSaveBlock));
-    AGB_ASSERT(blockCopy != NULL);
+    //blockCopy = Alloc(sizeof(struct RogueSaveBlock));
+    //AGB_ASSERT(blockCopy != NULL);
 
     if(inWriteMode)
     {
         // Write directly from the copy into the save ptr
-        memcpy(blockCopy, gRogueSaveBlock, sizeof(struct RogueSaveBlock));
+        memcpy(&blockCopy, gRogueSaveBlock, sizeof(struct RogueSaveBlock));
 
         stream.data = gRogueSaveBlock;
         stream.size = ROGUE_SAVE_BLOCK_CAPACITY;
@@ -225,14 +225,14 @@ static u16 SerializeRogueBlock(bool8 inWriteMode)
         stream.offset = 0;
         stream.isWriteMode = TRUE; // write to above
 
-        saveVersion = SerializeRogueBlockInternal(&stream, blockCopy);
+        saveVersion = SerializeRogueBlockInternal(&stream, &blockCopy);
         DebugPrintf("RogueBlock WRITE (offset: %d, free: %d, size: %d)", stream.offset, (stream.size - stream.offset), stream.size);
     }
     else
     {
         // Write directly into the copy into from save ptr
         // then stomp back ontop of the save ptr to be safely used elsewhere
-        memset(blockCopy, 0, sizeof(struct RogueSaveBlock));
+        memset(&blockCopy, 0, sizeof(struct RogueSaveBlock));
 
         stream.data = gRogueSaveBlock;
         stream.size = ROGUE_SAVE_BLOCK_CAPACITY;
@@ -240,13 +240,13 @@ static u16 SerializeRogueBlock(bool8 inWriteMode)
         stream.offset = 0;
         stream.isWriteMode = FALSE; // read from above
 
-        saveVersion = SerializeRogueBlockInternal(&stream, blockCopy);
+        saveVersion = SerializeRogueBlockInternal(&stream, &blockCopy);
         DebugPrintf("RogueBlock READ (offset: %d, free: %d, size: %d)", stream.offset, (stream.size - stream.offset), stream.size);
 
-        memcpy(gRogueSaveBlock, blockCopy, sizeof(struct RogueSaveBlock));
+        memcpy(gRogueSaveBlock, &blockCopy, sizeof(struct RogueSaveBlock));
     }
 
-    Free(blockCopy);
+    //Free(blockCopy);
     return saveVersion;
 }
 
@@ -291,7 +291,7 @@ void RogueSave_OnSaveLoaded()
         Rogue_NotifySaveVersionUpdated(gRogueSaveBlock->saveVersion, ROGUE_SAVE_VERSION);
     }
 
-    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty < ROGUE_MAX_BOSS_COUNT)
+    if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
     {
         // We need to regenerate here, as we need to know which
         RogueAdv_GenerateAdventurePathsIfRequired();

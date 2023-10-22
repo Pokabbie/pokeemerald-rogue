@@ -2481,7 +2481,7 @@ static void MainMenu_FormatSavegamePokedex(void)
     if(Rogue_IsRunActive())
     {
         // Whilst in adventure display badges instead of pokedex
-        dexCount = gRogueRun.currentDifficulty;
+        dexCount = Rogue_GetCurrentDifficulty();
 
         StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
         AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);

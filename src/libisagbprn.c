@@ -301,6 +301,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
         DebugPrint("A - Skip");
         DebugPrint("B - Break Message");
         DebugPrint("START - Crash Out");
+        DebugPrint("SELECT - Quick Skip");
 
         PlaySE(SE_LOW_HEALTH);
 
@@ -313,11 +314,19 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
             }
             else if(JOY_NEW(B_BUTTON))
             {
+                m4aSongNumStop(SE_LOW_HEALTH);
                 MgbaPrintfBounded(MGBA_LOG_ERROR, "BREAK PRINT");
+                break;
             }
             else if(JOY_NEW(START_BUTTON))
             {
                 asm(".hword 0xEFFF");
+            }
+            else if(JOY_HELD(SELECT_BUTTON))
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                MgbaPrintfBounded(MGBA_LOG_ERROR, "QUICK SKIP");
+                break;
             }
 
             DebugForceReadKeys();
@@ -327,6 +336,8 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
     //{
     //    MgbaPrintfBounded(MGBA_LOG_WARN, "WARING FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
     //}
+
+    DebugForceReadKeys();
 }
 #endif
 #endif

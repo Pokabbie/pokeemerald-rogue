@@ -24,6 +24,8 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_InWildSafari(void);
+u8 Rogue_GetCurrentDifficulty(void);
+void Rogue_SetCurrentDifficulty(u8 difficulty);
 
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);

@@ -876,7 +876,7 @@ static void SetDataFromTrainerCard(void)
 
     for (i = 0; i < NUM_DISPLAY_BADGES; i++)
     {
-        u8 offset = gRogueRun.currentDifficulty > 8 ? (i + gRogueRun.currentDifficulty - 8) : i;
+        u8 offset = Rogue_GetCurrentDifficulty() > 8 ? (i + Rogue_GetCurrentDifficulty() - 8) : i;
         sData->badgeCount[i] = gRogueRun.completedBadges[offset];
     }
 }

@@ -531,18 +531,18 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
 #ifndef ROGUE_BAKING
     if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
-        if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }
-        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_ELITE_FOUR;
         }
     }
     else if(trainerClass == TRAINER_CLASS_RIVAL)
     {
-        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }
@@ -709,6 +709,11 @@ const u8* Rogue_GetItemDesc(u16 itemIdx)
     return NULL;
 }
 
+u16 Rogue_GetPrice(u16 itemId)
+{
+    return 0;
+}
+
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
@@ -857,16 +862,259 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     return gItemIconTable[itemId][which];
 }
 
+u16 Rogue_GetPrice(u16 itemId)
+{
+    u16 price = 0;
+    itemId = SanitizeItemId(itemId);
+    AGB_ASSERT(itemId < ITEMS_COUNT);
+
+    if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
+        price = gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].price;
+    else
+        price = gItems[itemId].price;
+
+
+    if(itemId == ITEM_NONE)
+        return;
+
+    // Range edits
+    if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
+    {
+        price = 4000;
+    }
+
+    if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+    {
+        u16 move = ItemIdToBattleMoveId(itemId);
+        price = Rogue_CalculateMovePrice(move);
+    }
+
+    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+        u16 move = ItemIdToBattleMoveId(itemId);
+        price = Rogue_CalculateMovePrice(move) * 4; // increase as these are re-usable
+    }
+
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_X_ATTACK && itemId <= ITEM_GUARD_SPEC)
+#else
+    if(itemId >= ITEM_GUARD_SPEC && itemId <= ITEM_X_SPECIAL)
+#endif
+    {
+        price = 1500;
+    }
+
+    if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
+    {
+        price = 50;
+    }
+
+
+    // Don't move evo items into held item pocket
+    if(Rogue_IsEvolutionItem(itemId))
+    {
+        price = 2100;
+    }
+
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_LEVEL_BALL && itemId <= ITEM_CHERISH_BALL)
+    {
+        price = 2500;
+    }
+
+    if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
+    {
+        price = 2100;
+    }
+
+    if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
+    {
+        price = 5000;
+    }
+
+    if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+    {
+        price = 5000;
+    }
+
+    if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
+    {
+        price = 5000;
+    }
+
+    if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+    {
+        price = 1500;
+    }
+
+    // Plates
+    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
+    {
+        price = 4000;
+    }
+
+    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
+    {
+        price = 1000;
+    }
+
+    if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+    {
+        price = 1000;
+    }
+
+    if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
+    {
+        price = 5000;
+    }
+
+#endif
+
+    // Individual items
+    switch(itemId)
+    {
+        case ITEM_PP_UP:
+            price = 2000;
+            break;
+
+        case ITEM_ESCAPE_ROPE:
+            price = 8000;
+            break;
+
+        case ITEM_NUGGET:
+            price = 1000;
+            break;
+
+        case ITEM_PEARL:
+            price = 1500;
+            break;
+
+        case ITEM_BIG_PEARL:
+            price = 2000;
+            break;
+
+        case ITEM_STARDUST:
+            price = 3000;
+            break;
+
+        case ITEM_STAR_PIECE:
+            price = 4000;
+            break;
+    
+        case ITEM_SOUL_DEW:
+            price = 5000;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_ABILITY_CAPSULE:
+            price = 3000;
+            break;
+
+        case ITEM_ABILITY_PATCH:
+            price = 6000;
+            break;
+
+        // Weaker versions
+        case ITEM_ADAMANT_ORB:
+        case ITEM_LUSTROUS_ORB:
+        case ITEM_GRISEOUS_ORB:
+            price = 2000;
+            break;
+
+        case ITEM_RUSTED_SWORD:
+        case ITEM_RUSTED_SHIELD:
+            price = 5000;
+            break;
+
+        case ITEM_DUSK_BALL:
+        case ITEM_TIMER_BALL:
+        case ITEM_QUICK_BALL:
+        case ITEM_BEAST_BALL:
+            price = 2500;
+            break;
+
+        case ITEM_REPEAT_BALL:
+        case ITEM_LEVEL_BALL:
+        case ITEM_CHERISH_BALL:
+            price = 2000;
+            break;
+
+        case ITEM_LURE_BALL:
+        case ITEM_MOON_BALL:
+        case ITEM_FRIEND_BALL:
+        case ITEM_LOVE_BALL:
+        case ITEM_FAST_BALL:
+        case ITEM_HEAVY_BALL:
+        case ITEM_DREAM_BALL:
+            price = 1500;
+            break;
+#endif
+
+        case ITEM_RARE_CANDY:
+            price = 1000;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_SPORT_BALL:
+        case ITEM_PARK_BALL:
+#endif
+        case ITEM_SAFARI_BALL:
+        case ITEM_MASTER_BALL:
+            price = 0;
+            break;
+
+        // Common Battle Items
+        //
+        case ITEM_METAL_POWDER:
+            price = 500;
+            break;
+
+        case ITEM_WHITE_HERB:
+        case ITEM_LEFTOVERS:
+            price = 8000;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_QUICK_POWDER:
+            price = 500;
+            break;
+
+        case ITEM_RING_TARGET:
+        case ITEM_BINDING_BAND:
+            price = 1000;
+            break;
+
+        case ITEM_RED_CARD:
+        case ITEM_AIR_BALLOON:
+        case ITEM_EJECT_BUTTON:
+            price = 2000;
+            break;
+
+        case ITEM_ASSAULT_VEST:
+            price = 4000;
+            break;
+
+        case ITEM_LIFE_ORB:
+            price = 8000;
+            break;
+#endif
+    }
+
+
+    return price;
+}
+
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
     itemId = SanitizeItemId(itemId);
+    AGB_ASSERT(itemId < ITEMS_COUNT);
 
     // Rogue items copy in parts
     //
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
     {
-        const struct RogueItem* rogueItem = &gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST];
-        bool8 isValidItem = rogueItem->itemId == itemId;
+        const struct RogueItem* rogueItem;
+        bool8 isValidItem;
 
         if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
         {
@@ -874,11 +1122,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             rogueItem = &gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST];
             isValidItem = TRUE;
         }
+        else
+        {
+            rogueItem = &gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST];
+            isValidItem = rogueItem->itemId == itemId;
+        }
 
         if(isValidItem)
         {
             outItem->itemId = itemId;
-            outItem->price = rogueItem->price;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;
             outItem->registrability = rogueItem->registrability;
@@ -901,7 +1153,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             }
         }
         else
+        {
+            itemId = ITEM_NONE;
             memcpy(outItem, &gItems[ITEM_NONE], sizeof(struct Item));
+        }
     }
     else
     {
@@ -911,25 +1166,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     if(itemId == ITEM_NONE)
         return;
 
-    // Price Edits
-    //
     // Range edits
     if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
     {
-        outItem->price = 4000;
         outItem->pocket = POCKET_MEDICINE;
-    }
-
-    if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
-    {
-        u16 move = ItemIdToBattleMoveId(itemId);
-        outItem->price = Rogue_CalculateMovePrice(move);
-    }
-
-    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
-    {
-        u16 move = ItemIdToBattleMoveId(itemId);
-        outItem->price = Rogue_CalculateMovePrice(move) * 4; // increase as these are re-usable
     }
 
 #ifdef ROGUE_EXPANSION
@@ -938,7 +1178,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     if(itemId >= ITEM_GUARD_SPEC && itemId <= ITEM_X_SPECIAL)
 #endif
     {
-        outItem->price = 1500;
         outItem->pocket = POCKET_MEDICINE;
     }
 
@@ -957,7 +1196,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
     if((itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX))
     {
-        outItem->price = 50;
         outItem->pocket = POCKET_BERRIES;
     }
 
@@ -965,33 +1203,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
     {
-        outItem->price = 2100;
         outItem->pocket = POCKET_ITEMS;
     }
     else if(outItem->holdEffect != 0 && outItem->pocket != POCKET_BERRIES)
     {
-        // Hold items set price based on usage in comp sets?
-
         // Don't move evo items into held item pocket
         outItem->pocket = POCKET_HELD_ITEMS;
     }
 
 #ifdef ROGUE_EXPANSION
-    if(itemId >= ITEM_LEVEL_BALL && itemId <= ITEM_CHERISH_BALL)
-    {
-        outItem->price = 2500;
-    }
-
-    if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
-    {
-        outItem->price = 2100;
-    }
-
-    if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
-    {
-        outItem->price = 5000;
-    }
-
     if(itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE)
     {
         outItem->pocket = POCKET_STONES;
@@ -999,39 +1219,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
-        outItem->price = 5000;
         outItem->pocket = POCKET_STONES;
-    }
-
-    if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
-    {
-        outItem->price = 5000;
-    }
-
-    if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
-    {
-        outItem->price = 1500;
-    }
-
-    // Plates
-    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
-    {
-        outItem->price = 4000;
-    }
-
-    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
-    {
-        outItem->price = 1000;
-    }
-
-    if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
-    {
-        outItem->price = 1000;
     }
 
     if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
     {
-        outItem->price = 5000;
         outItem->pocket = POCKET_STONES;
     }
 
@@ -1040,41 +1232,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Individual items
     switch(itemId)
     {
-        case ITEM_PP_UP:
-            outItem->price = 2000;
-            break;
-
-        case ITEM_ESCAPE_ROPE:
-            outItem->price = 8000;
-            break;
-
         case ITEM_NUGGET:
-            outItem->price = 1000;
-            outItem->holdEffect = 0;
-            break;
-
         case ITEM_PEARL:
-            outItem->price = 1500;
-            outItem->holdEffect = 0;
-            break;
-
         case ITEM_BIG_PEARL:
-            outItem->price = 2000;
-            outItem->holdEffect = 0;
-            break;
-
         case ITEM_STARDUST:
-            outItem->price = 3000;
-            outItem->holdEffect = 0;
-            break;
-
         case ITEM_STAR_PIECE:
-            outItem->price = 4000;
             outItem->holdEffect = 0;
             break;
     
         case ITEM_SOUL_DEW:
-            outItem->price = 5000;
 #ifdef ROGUE_EXPANSION
             outItem->pocket = POCKET_STONES;
 #endif
@@ -1082,12 +1248,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
 #ifdef ROGUE_EXPANSION
         case ITEM_ABILITY_CAPSULE:
-            outItem->price = 3000;
-            outItem->pocket = POCKET_MEDICINE;
-            break;
-
         case ITEM_ABILITY_PATCH:
-            outItem->price = 6000;
             outItem->pocket = POCKET_MEDICINE;
             break;
 
@@ -1095,86 +1256,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_ADAMANT_ORB:
         case ITEM_LUSTROUS_ORB:
         case ITEM_GRISEOUS_ORB:
-            outItem->price = 2000;
             outItem->pocket = POCKET_STONES;
             break;
 
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
-            outItem->price = 5000;
             outItem->pocket = POCKET_STONES;
-            break;
-
-        case ITEM_DUSK_BALL:
-        case ITEM_TIMER_BALL:
-        case ITEM_QUICK_BALL:
-        case ITEM_BEAST_BALL:
-            outItem->price = 2500;
-            break;
-
-        case ITEM_REPEAT_BALL:
-        case ITEM_LEVEL_BALL:
-        case ITEM_CHERISH_BALL:
-            outItem->price = 2000;
-            break;
-
-        case ITEM_LURE_BALL:
-        case ITEM_MOON_BALL:
-        case ITEM_FRIEND_BALL:
-        case ITEM_LOVE_BALL:
-        case ITEM_FAST_BALL:
-        case ITEM_HEAVY_BALL:
-        case ITEM_DREAM_BALL:
-            outItem->price = 1500;
-            break;
-#endif
-
-        case ITEM_RARE_CANDY:
-            outItem->price = 1000;
-            break;
-
-#ifdef ROGUE_EXPANSION
-        case ITEM_SPORT_BALL:
-        case ITEM_PARK_BALL:
-#endif
-        case ITEM_SAFARI_BALL:
-        case ITEM_MASTER_BALL:
-            outItem->price = 0;
-            break;
-
-        // Common Battle Items
-        //
-        case ITEM_METAL_POWDER:
-            outItem->price = 500;
-            break;
-
-        case ITEM_WHITE_HERB:
-        case ITEM_LEFTOVERS:
-            outItem->price = 8000;
-            break;
-
-#ifdef ROGUE_EXPANSION
-        case ITEM_QUICK_POWDER:
-            outItem->price = 500;
-            break;
-
-        case ITEM_RING_TARGET:
-        case ITEM_BINDING_BAND:
-            outItem->price = 1000;
-            break;
-
-        case ITEM_RED_CARD:
-        case ITEM_AIR_BALLOON:
-        case ITEM_EJECT_BUTTON:
-            outItem->price = 2000;
-            break;
-
-        case ITEM_ASSAULT_VEST:
-            outItem->price = 4000;
-            break;
-
-        case ITEM_LIFE_ORB:
-            outItem->price = 8000;
             break;
 #endif
     }
@@ -1261,6 +1348,8 @@ u16 Rogue_CalculateMovePrice(u16 move)
     u8 pp = gBattleMoves[move].pp;
     u8 power = gBattleMoves[move].power;
 
+    AGB_ASSERT(move < MOVES_COUNT);
+
     switch (move)
     {
     case MOVE_RETURN:
@@ -1278,7 +1367,7 @@ u16 Rogue_CalculateMovePrice(u16 move)
     }
 
     // accuracy cost
-    if(accuracy == 100)
+    if(accuracy == 100 || accuracy == 0)
         cost += 1000;
     else if(accuracy >= 90)
         cost += 500;

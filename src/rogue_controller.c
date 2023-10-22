@@ -225,6 +225,16 @@ bool8 Rogue_InWildSafari(void)
     return FlagGet(FLAG_ROGUE_WILD_SAFARI);
 }
 
+u8 Rogue_GetCurrentDifficulty(void)
+{
+    return gRogueRun.currentDifficulty;
+}
+
+void Rogue_SetCurrentDifficulty(u8 difficulty)
+{
+    gRogueRun.currentDifficulty = difficulty;
+}
+
 bool8 Rogue_ForceExpAll(void)
 {
     return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
@@ -421,7 +431,7 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
     else if(Rogue_IsRunActive())
     {
         u16 startMultiplier = *ballMultiplier;
-        u8 difficulty = gRogueRun.currentDifficulty;
+        u8 difficulty = Rogue_GetCurrentDifficulty();
         u8 wildEncounterIndex = GetWildEncounterIndexFor(species);
         u8 speciesCatchCount = 0;
 
@@ -763,14 +773,14 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
     if(Rogue_IsRunActive())
     {
         // Once we've gotten champion we want to give a bit more money 
-        u8 difficulty = gRogueRun.currentDifficulty;
+        u8 difficulty = Rogue_GetCurrentDifficulty();
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             if(Rogue_IsKeyTrainer(trainerNum))
             {
-                u8 difficulty = gRogueRun.currentDifficulty;
+                u8 difficulty = Rogue_GetCurrentDifficulty();
                 *money = (difficulty + 1) * 500;
             }
             else
@@ -781,7 +791,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
         {
-            u8 difficulty = gRogueRun.currentDifficulty;
+            u8 difficulty = Rogue_GetCurrentDifficulty();
             *money = (difficulty + 1) * 1000;
         }
         else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
@@ -824,7 +834,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
 {
-    u8 difficulty = Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0;
+    u8 difficulty = Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0;
 
     // We won't modify absolute wait flags
     if(*waitTime & B_WAIT_TIME_ABSOLUTE)
@@ -861,7 +871,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
 
 s16 Rogue_ModifyBattleSlideAnim(s16 rate)
 {
-    u8 difficulty = Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0;
+    u8 difficulty = Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0;
 
     if(Rogue_FastBattleAnims())
     {
@@ -1250,7 +1260,7 @@ u8* Debug_GetMiniMenuContent(void)
     //
     if(gDebug_CurrentTab == 0)
     {
-        u8 difficultyLevel = gRogueRun.currentDifficulty;
+        u8 difficultyLevel = Rogue_GetCurrentDifficulty();
         u8 playerLevel = Rogue_CalculatePlayerMonLvl();
         u8 wildLevel = CalculateWildLevel(0);
 
@@ -1393,7 +1403,7 @@ u8* Rogue_GetMiniMenuContent(void)
         strPointer = StringAppend(strPointer, gStringVar3);
 
         // Badges
-        ConvertIntToDecimalStringN(gStringVar1, gRogueRun.currentDifficulty, STR_CONV_MODE_RIGHT_ALIGN, 4);
+        ConvertIntToDecimalStringN(gStringVar1, Rogue_GetCurrentDifficulty(), STR_CONV_MODE_RIGHT_ALIGN, 4);
         StringExpandPlaceholders(gStringVar3, gText_StatusBadges);
         strPointer = StringAppend(strPointer, gStringVar3);
     }
@@ -2039,7 +2049,7 @@ u16 Rogue_PostRunRewardLvls()
         lvlCount = 1;
     }
 
-    lvlCount *= gRogueRun.currentDifficulty;
+    lvlCount *= Rogue_GetCurrentDifficulty();
 
     if(lvlCount != 0)
     {
@@ -2262,7 +2272,7 @@ static void BeginRogueRun(void)
     Rogue_PreActivateDesiredCampaign();
 
     gRogueRun.baseSeed = Random();
-    gRogueRun.currentDifficulty = GetStartDifficulty();
+    Rogue_SetCurrentDifficulty(GetStartDifficulty());
     gRogueRun.currentLevelOffset = 5;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
@@ -2276,7 +2286,7 @@ static void BeginRogueRun(void)
     
     memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
 
-    VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
+    VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -2478,7 +2488,7 @@ u8 Rogue_GetCurrentLegendaryEncounterId()
 
     for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
     {
-        if(gRogueRun.legendaryDifficulties[i] == gRogueRun.currentDifficulty)
+        if(gRogueRun.legendaryDifficulties[i] == Rogue_GetCurrentDifficulty())
             return i;
     }
 
@@ -2895,7 +2905,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     RandomiseEnabledItems();
                     RandomiseBerryTrees();
 
-                    if(gRogueRun.currentDifficulty != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
+                    if(Rogue_GetCurrentDifficulty() != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                     {
                         u8 randIdx = RogueRandomRange(ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable), OVERWORLD_FLAG);
                         u16 chosenType = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[randIdx];
@@ -3271,7 +3281,7 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
     bool8 hasMonFainted = FALSE;
 
     // If we're finished, we don't want to release any mons, just check if anything has fainted or not
-    if(Rogue_IsRunActive() && gRogueRun.currentDifficulty >= ROGUE_MAX_BOSS_COUNT)
+    if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
     {
         for(read = 0; read < PARTY_SIZE; ++read)
         {
@@ -3570,7 +3580,7 @@ static void EnableRivalEncounterIfRequired()
 
     for(i = 0; i < ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS; ++i)
     {
-        if(gRogueRun.rivalEncounterDifficulties[i] == gRogueRun.currentDifficulty)
+        if(gRogueRun.rivalEncounterDifficulties[i] == Rogue_GetCurrentDifficulty())
         {
             gRogueRun.hasPendingRivalBattle = TRUE;
             return;
@@ -3590,25 +3600,25 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             u8 prevLevel = Rogue_CalculateBossMonLvl();
 
             // Update badge for trainer card
-            gRogueRun.completedBadges[gRogueRun.currentDifficulty] = Rogue_GetTrainerTypeAssignment(trainerNum);
+            gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = Rogue_GetTrainerTypeAssignment(trainerNum);
 
-            if(gRogueRun.completedBadges[gRogueRun.currentDifficulty] == TYPE_NONE)
-                gRogueRun.completedBadges[gRogueRun.currentDifficulty] = TYPE_MYSTERY;
+            if(gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] == TYPE_NONE)
+                gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = TYPE_MYSTERY;
 
             // Increment difficulty
-            ++gRogueRun.currentDifficulty;
+            Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
             nextLevel = Rogue_CalculateBossMonLvl();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
 
-            if(gRogueRun.currentDifficulty >= ROGUE_MAX_BOSS_COUNT)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
             {
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
             }
 
-            VarSet(VAR_ROGUE_DIFFICULTY, gRogueRun.currentDifficulty);
-            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(gRogueRun.currentDifficulty, VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+            VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
+            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
 
             EnableRivalEncounterIfRequired();
         }
@@ -4626,7 +4636,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + gRogueRun.currentDifficulty * 400;
+            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
         }
         break;
 
@@ -4636,15 +4646,15 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + gRogueRun.currentDifficulty * 400;
+            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
 
-            if(gRogueRun.currentDifficulty <= 0)
+            if(Rogue_GetCurrentDifficulty() <= 0)
                 maxPriceRange = 200;
-            else if(gRogueRun.currentDifficulty <= 1)
+            else if(Rogue_GetCurrentDifficulty() <= 1)
                 maxPriceRange = 600;
-            else if(gRogueRun.currentDifficulty <= 2)
+            else if(Rogue_GetCurrentDifficulty() <= 2)
                 maxPriceRange = 1000;
-            else if(gRogueRun.currentDifficulty < 11)
+            else if(Rogue_GetCurrentDifficulty() < 11)
                 maxPriceRange = 2000;
         }
         break;
@@ -4794,13 +4804,13 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             u8 chance = 100;
 
-            if(gRogueRun.currentDifficulty < ROGUE_ELITE_START_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() < ROGUE_ELITE_START_DIFFICULTY)
             {
-                chance = 10 + 5 * gRogueRun.currentDifficulty;
+                chance = 10 + 5 * Rogue_GetCurrentDifficulty();
             }
-            else if(gRogueRun.currentDifficulty < ROGUE_CHAMP_START_DIFFICULTY)
+            else if(Rogue_GetCurrentDifficulty() < ROGUE_CHAMP_START_DIFFICULTY)
             {
-                chance = 60 + 10 * (gRogueRun.currentDifficulty - ROGUE_ELITE_START_DIFFICULTY);
+                chance = 60 + 10 * (Rogue_GetCurrentDifficulty() - ROGUE_ELITE_START_DIFFICULTY);
             }
 
             if(chance < 100)
@@ -4820,7 +4830,7 @@ const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
     u16 itemCapacity = 0; // MAX is 0
     
     if(Rogue_IsRunActive())
-        difficulty = gRogueRun.currentDifficulty;
+        difficulty = Rogue_GetCurrentDifficulty();
     else
         difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
 
@@ -5162,7 +5172,7 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
     
         if(Rogue_IsRunActive())
         {
-            difficulty = gRogueRun.currentDifficulty;
+            difficulty = Rogue_GetCurrentDifficulty();
 
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
                 difficulty = 13;
@@ -5560,7 +5570,7 @@ static void RandomiseTRMoves()
 
 static bool8 RogueRandomChanceTrainer()
 {
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8 difficultyLevel = Rogue_GetCurrentDifficulty();
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
@@ -5584,7 +5594,7 @@ static bool8 RogueRandomChanceItem()
     }
     else
     {
-        u8 difficultyLevel = gRogueRun.currentDifficulty;
+        u8 difficultyLevel = Rogue_GetCurrentDifficulty();
         
         if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
         {
@@ -5614,7 +5624,7 @@ static bool8 RogueRandomChanceItem()
 static bool8 RogueRandomChanceBerry()
 {
     u8 chance;
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8 difficultyLevel = Rogue_GetCurrentDifficulty();
 
     if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
     {
@@ -5737,7 +5747,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 static void RandomiseEnabledItems(void)
 {
     s32 i;
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8 difficultyLevel = Rogue_GetCurrentDifficulty();
 
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {

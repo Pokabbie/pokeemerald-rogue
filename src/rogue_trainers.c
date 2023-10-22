@@ -141,11 +141,11 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
         u8 i;
         u8 offset = 0;
 
-        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             offset = 3;
-        else if(gRogueRun.currentDifficulty <= gRogueRun.rivalEncounterDifficulties[0])
+        else if(Rogue_GetCurrentDifficulty() <= gRogueRun.rivalEncounterDifficulties[0])
             offset = 0;
-        else if(gRogueRun.currentDifficulty >= gRogueRun.rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS - 1])
+        else if(Rogue_GetCurrentDifficulty() >= gRogueRun.rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS - 1])
             offset = 2;
         else
             offset = 1; // Assume in middle of run
@@ -168,11 +168,11 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
     {
         u8 offset = 0;
 
-        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             offset = 3;
-        else if(gRogueRun.currentDifficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
             offset = 2;
-        else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
             offset = 1;
 
         offset = min(offset, trainer->encounterTextCount - 1);
@@ -252,12 +252,12 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
             break;
         
         case DIFFICULTY_LEVEL_MEDIUM:
-            if(gRogueRun.currentDifficulty > 2)
+            if(Rogue_GetCurrentDifficulty() > 2)
                 weatherType = trainer->preferredWeather;
             break;
         
         case DIFFICULTY_LEVEL_HARD:
-            if(gRogueRun.currentDifficulty > 0)
+            if(Rogue_GetCurrentDifficulty() > 0)
                 weatherType = trainer->preferredWeather;
             break;
         
@@ -306,14 +306,14 @@ u8 Rogue_CalculateTrainerMonLvl()
     u8 startLvl;
     u8 playerLvl;
 
-    if(gRogueRun.currentDifficulty == 0)
+    if(Rogue_GetCurrentDifficulty() == 0)
     {
         startLvl = 5;
         playerLvl = max(5, Rogue_CalculatePlayerMonLvl() / 2); // climb slowly for difficulty 1
     }
     else
     {
-        startLvl = CalculateLvlFor(gRogueRun.currentDifficulty - 1);
+        startLvl = CalculateLvlFor(Rogue_GetCurrentDifficulty() - 1);
         playerLvl = Rogue_CalculatePlayerMonLvl();
     }
 
@@ -349,7 +349,7 @@ u8 Rogue_CalculateRivalMonLvl()
 
 u8 Rogue_CalculateBossMonLvl()
 {
-    return CalculateLvlFor(gRogueRun.currentDifficulty);
+    return CalculateLvlFor(Rogue_GetCurrentDifficulty());
 }
 
 u8 Rogue_GetTrainerTypeAssignment(u16 trainerNum)
@@ -676,8 +676,8 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
         u32 savedRng = gRngRogueValue;
 
         // Fake the difficulty for the generator
-        u16 tempDifficulty = gRogueRun.currentDifficulty;
-        gRogueRun.currentDifficulty = ROGUE_ELITE_START_DIFFICULTY - 2; // Generate base party as if we're about midway through
+        u16 tempDifficulty = Rogue_GetCurrentDifficulty();
+        Rogue_SetCurrentDifficulty(ROGUE_ELITE_START_DIFFICULTY - 2); // Generate base party as if we're about midway through
 
         // Apply some base seed for anything which needs to be randomly setup
         SeedRogueRng(gRogueRun.baseSeed * 8071 + 6632);
@@ -699,7 +699,7 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
         }
 
         // Restore difficulty
-        gRogueRun.currentDifficulty = tempDifficulty;
+        Rogue_SetCurrentDifficulty(tempDifficulty);
         gRngRogueValue = savedRng;
 
         // For just the base species we're going to sort based on BST so weakest mons appear first
@@ -718,8 +718,8 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
         u32 savedRng = gRngRogueValue;
 
         // Fake the difficulty for the generator
-        u16 tempDifficulty = gRogueRun.currentDifficulty;
-        gRogueRun.currentDifficulty = ROGUE_ELITE_START_DIFFICULTY;
+        u16 tempDifficulty = Rogue_GetCurrentDifficulty();
+        Rogue_SetCurrentDifficulty(ROGUE_ELITE_START_DIFFICULTY);
 
         // Apply some base seed for anything which needs to be randomly setup
         SeedRogueRng(gRogueRun.baseSeed * 6632 + 8073);
@@ -761,7 +761,7 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
             AGB_ASSERT(replacingPartySize == CalculateEnemyPartyCount());
             
             // First swap mon is as if we're starting E4
-            gRogueRun.currentDifficulty = ROGUE_ELITE_START_DIFFICULTY;
+            Rogue_SetCurrentDifficulty(ROGUE_ELITE_START_DIFFICULTY);
             CreateTrainerPartyInternal(gRogueRun.rivalTrainerNum, &gEnemyParty[0], replacingPartySize + 1, PARTY_SIZE, FALSE, replacingPartySize);
 
             for(i = replacingPartySize; i < PARTY_SIZE; ++i)
@@ -773,7 +773,7 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
                 if(i == replacingPartySize + 1)
                 {
                     // Second swap mon is as if we're champ
-                    gRogueRun.currentDifficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+                    Rogue_SetCurrentDifficulty(ROGUE_FINAL_CHAMP_DIFFICULTY);
                     CreateTrainerPartyInternal(gRogueRun.rivalTrainerNum, &gEnemyParty[0], PARTY_SIZE, PARTY_SIZE, FALSE, replacingPartySize + 1);
                 }
 
@@ -785,7 +785,7 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
         }
 
         // Restore difficulty
-        gRogueRun.currentDifficulty = tempDifficulty;
+        Rogue_SetCurrentDifficulty(tempDifficulty);
         gRngRogueValue = savedRng;
 
         // Zero mons to avoid conflicts if called during team generation
@@ -849,7 +849,7 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
     switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        if(gRogueRun.currentDifficulty >= 8)
+        if(Rogue_GetCurrentDifficulty() >= 8)
         {
             scratch->allowItemEvos = TRUE;
             scratch->allowWeakLegends = TRUE;
@@ -857,28 +857,28 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_MEDIUM:
-        if(gRogueRun.currentDifficulty >= 8)
+        if(Rogue_GetCurrentDifficulty() >= 8)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(gRogueRun.currentDifficulty >= 7)
+        else if(Rogue_GetCurrentDifficulty() >= 7)
         {
             scratch->allowWeakLegends = TRUE;
         }
-        if(gRogueRun.currentDifficulty >= 4)
+        if(Rogue_GetCurrentDifficulty() >= 4)
         {
             scratch->allowItemEvos = TRUE;
         }
         break;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(gRogueRun.currentDifficulty >= 5)
+        if(Rogue_GetCurrentDifficulty() >= 5)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(gRogueRun.currentDifficulty >= 2)
+        else if(Rogue_GetCurrentDifficulty() >= 2)
         {
             scratch->allowWeakLegends = TRUE;
             scratch->allowItemEvos = TRUE;
@@ -886,12 +886,12 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
-        if(gRogueRun.currentDifficulty >= 2)
+        if(Rogue_GetCurrentDifficulty() >= 2)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(gRogueRun.currentDifficulty >= 1)
+        else if(Rogue_GetCurrentDifficulty() >= 1)
         {
             scratch->allowWeakLegends = TRUE;
             scratch->allowItemEvos = TRUE;
@@ -913,13 +913,13 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_MEDIUM:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(gRogueRun.currentDifficulty >= 6)
+            if(Rogue_GetCurrentDifficulty() >= 6)
                 fixedIV = 16;
-            else if(gRogueRun.currentDifficulty >= 5)
+            else if(Rogue_GetCurrentDifficulty() >= 5)
                 fixedIV = 10;
-            else if(gRogueRun.currentDifficulty >= 4)
+            else if(Rogue_GetCurrentDifficulty() >= 4)
                 fixedIV = 8;
-            else if(gRogueRun.currentDifficulty >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= 3)
                 fixedIV = 6;
             else
                 fixedIV = 0;
@@ -933,22 +933,22 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_HARD:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(gRogueRun.currentDifficulty >= 12)
+            if(Rogue_GetCurrentDifficulty() >= 12)
                 fixedIV = 31;
-            else if(gRogueRun.currentDifficulty >= 8)
+            else if(Rogue_GetCurrentDifficulty() >= 8)
                 fixedIV = 21;
-            else if(gRogueRun.currentDifficulty >= 6)
+            else if(Rogue_GetCurrentDifficulty() >= 6)
                 fixedIV = 19;
-            else if(gRogueRun.currentDifficulty >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= 3)
                 fixedIV = 15;
-            else if(gRogueRun.currentDifficulty >= 1)
+            else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 11;
             else
                 fixedIV = 5;
         }
         else
         {
-            fixedIV = (gRogueRun.currentDifficulty > 8) ? 13 : 5;
+            fixedIV = (Rogue_GetCurrentDifficulty() > 8) ? 13 : 5;
         }
         break;
 
@@ -956,11 +956,11 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         if(Rogue_IsKeyTrainer(trainerNum))
         {
             // Bosses are cracked a LOT sooner
-            if(gRogueRun.currentDifficulty >= 5)
+            if(Rogue_GetCurrentDifficulty() >= 5)
                 fixedIV = 31;
-            else if(gRogueRun.currentDifficulty >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= 3)
                 fixedIV = 21;
-            else if(gRogueRun.currentDifficulty >= 1)
+            else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 19;
             else
                 fixedIV = 15;
@@ -968,15 +968,15 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         else
         {
             // Regular trainers scale like hard mode bosses
-            if(gRogueRun.currentDifficulty >= 12)
+            if(Rogue_GetCurrentDifficulty() >= 12)
                 fixedIV = 31;
-            else if(gRogueRun.currentDifficulty >= 8)
+            else if(Rogue_GetCurrentDifficulty() >= 8)
                 fixedIV = 21;
-            else if(gRogueRun.currentDifficulty >= 6)
+            else if(Rogue_GetCurrentDifficulty() >= 6)
                 fixedIV = 19;
-            else if(gRogueRun.currentDifficulty >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= 3)
                 fixedIV = 15;
-            else if(gRogueRun.currentDifficulty >= 1)
+            else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 11;
             else
                 fixedIV = 5;
@@ -999,7 +999,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(gRogueRun.currentDifficulty >= 5)
+            if(Rogue_GetCurrentDifficulty() >= 5)
                 return TRUE;
             else
                 return FALSE;
@@ -1015,7 +1015,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(gRogueRun.currentDifficulty >= 3)
+            if(Rogue_GetCurrentDifficulty() >= 3)
                 return TRUE;
             else
                 return FALSE;
@@ -1023,7 +1023,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
         else
         {
             // Normal trainers start to optimize coverage from E4 onward
-            if(gRogueRun.currentDifficulty >= 8)
+            if(Rogue_GetCurrentDifficulty() >= 8)
                 return TRUE;
             else
                 return FALSE;
@@ -1056,27 +1056,27 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             {
             case DIFFICULTY_LEVEL_EASY:
             case DIFFICULTY_LEVEL_MEDIUM:
-                if(gRogueRun.currentDifficulty == 0)
+                if(Rogue_GetCurrentDifficulty() == 0)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
-                else if(gRogueRun.currentDifficulty <= 2)
+                else if(Rogue_GetCurrentDifficulty() <= 2)
                     monCount = 4;
-                else if(gRogueRun.currentDifficulty <= 5)
+                else if(Rogue_GetCurrentDifficulty() <= 5)
                     monCount = 5;
                 else
                     monCount = 6;
                 break;
             
             case DIFFICULTY_LEVEL_HARD:
-                if(gRogueRun.currentDifficulty == 0)
+                if(Rogue_GetCurrentDifficulty() == 0)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? 3 : 4;
-                else if(gRogueRun.currentDifficulty == 1)
+                else if(Rogue_GetCurrentDifficulty() == 1)
                     monCount = 5;
                 else
                     monCount = 6;
                 break;
             
             case DIFFICULTY_LEVEL_BRUTAL:
-                if(gRogueRun.currentDifficulty == 0)
+                if(Rogue_GetCurrentDifficulty() == 0)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? RIVAL_BASE_PARTY_SIZE : 6; // Haven't generate the rest of the party by this point
                 else
                     monCount = 6;
@@ -1090,17 +1090,17 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
         u8 maxMonCount;
         // TODO - Exp trainer support
 
-        if(gRogueRun.currentDifficulty <= 1)
+        if(Rogue_GetCurrentDifficulty() <= 1)
         {
             minMonCount = 1;
             maxMonCount = 2;
         }
-        else if(gRogueRun.currentDifficulty <= 2)
+        else if(Rogue_GetCurrentDifficulty() <= 2)
         {
             minMonCount = 1;
             maxMonCount = 3;
         }
-        else if(gRogueRun.currentDifficulty <= 11)
+        else if(Rogue_GetCurrentDifficulty() <= 11)
         {
             minMonCount = 2;
             maxMonCount = 4;
@@ -1134,12 +1134,12 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
         return FALSE;
 
     case DIFFICULTY_LEVEL_MEDIUM:
-        if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             return TRUE;
         return FALSE;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
             return TRUE;
         return FALSE;
 
@@ -1315,11 +1315,11 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
         // Only begin to swap if we're at max party size
         if(monCount == PARTY_SIZE)
         {
-            if(gRogueRun.currentDifficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
                 swapAmount = 3;
-            else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY - 1)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 1)
                 swapAmount = 2;
-            else if(gRogueRun.currentDifficulty >= ROGUE_ELITE_START_DIFFICULTY - 2)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
                 swapAmount = 1;
         }
 
@@ -1845,12 +1845,12 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
         // If we have valid subsets remaining and we're a boss, force the final mons to be legends
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount && (Rogue_IsBossTrainer(scratch->trainerNum) || Rogue_IsRivalTrainer(scratch->trainerNum)))
         {
-            if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 4)
+            if(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 4)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;
             }
-            else if(gRogueRun.currentDifficulty == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 5)
+            else if(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 5)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;
@@ -1908,7 +1908,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
 {
     bool8 preferCompetitive = FALSE;
     bool8 result = FALSE;
-    u8 difficultyLevel = gRogueRun.currentDifficulty;
+    u8 difficultyLevel = Rogue_GetCurrentDifficulty();
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     //if(sTrainerScratch->monGenerator.generatorFlags & TRAINER_GENERATOR_FLAG_MIRROR_EXACT)
@@ -2374,7 +2374,7 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
 
     if(Rogue_IsAnyBossTrainer(trainerNum))
     {
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && gRogueRun.currentDifficulty < 8)
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && Rogue_GetCurrentDifficulty() < 8)
         {
             // Prior to E4 we don't want to force forward the best lead mon
             // We just want to push final mons to the back

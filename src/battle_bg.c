@@ -833,7 +833,7 @@ void DrawMainBattleBackground(void)
             }
             else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
             {
-                if(gRogueRun.currentDifficulty >= 13)
+                if(Rogue_GetCurrentDifficulty() >= 13)
                 {
                     LZDecompressVram(gBattleTerrainTiles_StadiumInverted, (void*)(BG_CHAR_ADDR(2)));
                     LZDecompressVram(gBattleTerrainTilemap_StadiumInverted, (void*)(BG_SCREEN_ADDR(26)));
@@ -1436,7 +1436,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 }
                 else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
                 {
-                    if(gRogueRun.currentDifficulty >= 13)
+                    if(Rogue_GetCurrentDifficulty() >= 13)
                     {
                         LoadCompressedPalette(gBattleTerrainPalette_StadiumInverted, 0x20, 0x60);
                     }

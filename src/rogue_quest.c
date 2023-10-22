@@ -729,7 +729,7 @@ void QuestNotify_BeginAdventure(void)
     }
 
     // Handle skip difficulty
-    if(gRogueRun.currentDifficulty > 0)
+    if(Rogue_GetCurrentDifficulty() > 0)
     {
         u16 i;
 
@@ -764,12 +764,12 @@ void QuestNotify_BeginAdventure(void)
             TryDeactivateQuest(TypeToMonoQuest[i]);
     }
 
-    if(gRogueRun.currentDifficulty > 4)
+    if(Rogue_GetCurrentDifficulty() > 4)
     {
         TryDeactivateQuest(QUEST_NoFainting1);
     }
 
-    if(gRogueRun.currentDifficulty > 8)
+    if(Rogue_GetCurrentDifficulty() > 8)
     {
         // Can't technically happen atm
         TryDeactivateQuest(QUEST_EliteMaster);
@@ -1000,9 +1000,9 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
 
     if(isBossTrainer)
     {
-        u16 relativeDifficulty = gRogueRun.currentDifficulty - VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
+        u16 relativeDifficulty = Rogue_GetCurrentDifficulty() - VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY);
 
-        switch(gRogueRun.currentDifficulty)
+        switch(Rogue_GetCurrentDifficulty())
         {
             case 1:
                 TryMarkQuestAsComplete(QUEST_Gym1);
@@ -1077,13 +1077,13 @@ void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer)
                 break;
         }
 
-        if(gRogueRun.currentDifficulty >= 4)
+        if(Rogue_GetCurrentDifficulty() >= 4)
             TryMarkQuestAsComplete(QUEST_GymChallenge);
 
-        if(gRogueRun.currentDifficulty >= 8)
+        if(Rogue_GetCurrentDifficulty() >= 8)
             TryMarkQuestAsComplete(QUEST_GymMaster);
 
-        if(gRogueRun.currentDifficulty >= 12)
+        if(Rogue_GetCurrentDifficulty() >= 12)
             TryMarkQuestAsComplete(QUEST_EliteMaster);
 
         if(relativeDifficulty == 4)
@@ -1139,7 +1139,7 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                         SetQuestState(QUEST_Bike1, &state);
                     }
 
-                    if(gRogueRun.currentDifficulty >= 8)
+                    if(Rogue_GetCurrentDifficulty() >= 8)
                     {
                         if(IsQuestActive(QUEST_Bike2) && GetQuestState(QUEST_Bike2, &state))
                         {
@@ -1157,7 +1157,7 @@ void QuestNotify_OnWarp(struct WarpData* warp)
 
             case ADVPATH_ROOM_BOSS:
                 // About to face final champ
-                if(gRogueRun.currentDifficulty == 13)
+                if(Rogue_GetCurrentDifficulty() == 13)
                 {
                     if(IsQuestActive(QUEST_OrreMode) 
                     && PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, SPECIES_ESPEON)
@@ -1204,7 +1204,7 @@ void QuestNotify_OnWarp(struct WarpData* warp)
                             TryMarkQuestAsComplete(QUEST_Bike1);
                     }
 
-                    if(gRogueRun.currentDifficulty >= 8)
+                    if(Rogue_GetCurrentDifficulty() >= 8)
                     {
                         if(IsQuestActive(QUEST_Bike2) && GetQuestState(QUEST_Bike2, &state))
                         {
@@ -1307,7 +1307,7 @@ void QuestNotify_OnUseBattleItem(u16 itemId)
 void QuestNotify_OnMegaEvolve(u16 species)
 {
 #ifdef ROGUE_EXPANSION
-    if(gRogueRun.currentDifficulty >= 13)
+    if(Rogue_GetCurrentDifficulty() >= 13)
     {
         if(IsQuestActive(QUEST_MegaEvo))
             TryMarkQuestAsComplete(QUEST_MegaEvo);
@@ -1318,7 +1318,7 @@ void QuestNotify_OnMegaEvolve(u16 species)
 void QuestNotify_OnZMoveUsed(u16 move)
 {
 #ifdef ROGUE_EXPANSION
-    if(gRogueRun.currentDifficulty >= 13)
+    if(Rogue_GetCurrentDifficulty() >= 13)
     {
         if(IsQuestActive(QUEST_ZMove))
             TryMarkQuestAsComplete(QUEST_ZMove);

@@ -33,7 +33,7 @@ extern const u8 gItemDesc_BattleItemCurse[];
 extern const u8 gItemDesc_SpeciesClauseCurse[];
 extern const u8 gItemDesc_ItemShuffleCurse[];
 
-const struct RogueItem gRogueItems[] =
+const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 {
     [ITEM_LINK_CABLE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -573,6 +573,19 @@ const struct RogueItem gRogueItems[] =
     {
         .name = _("TR"),
         .itemId = ITEM_TR01,
+        .price = 1000,
+        .description = gText_DexEmptyString,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .registrability = FALSE,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconImage = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
+    },
+    [ITEM_TR50 - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("TR"),
+        .itemId = ITEM_TR50,
         .price = 1000,
         .description = gText_DexEmptyString,
         .pocket = POCKET_TM_HM,

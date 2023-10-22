@@ -61,6 +61,7 @@ struct RogueQueryData
     u16 totalWeight;
     u16 arrayCapacity;
     u8 queryType;
+    bool8 dynamicAllocListArray;
 };
 
 EWRAM_DATA static struct RogueQueryData sRogueQuery = {0};
@@ -93,6 +94,7 @@ static void AllocQuery(u8 type)
     sRogueQuery.bitFlags = &gRogueQueryBits[0];
     sRogueQuery.weightArray = NULL;
     sRogueQuery.listArray = NULL;
+    sRogueQuery.dynamicAllocListArray = FALSE;
     sRogueQuery.arrayCapacity = 0;
     sRogueQuery.totalWeight = 0;
 
@@ -1114,25 +1116,25 @@ void RogueItemQuery_IsEvolutionItem(u8 func)
 void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice)
 {
     u16 itemId;
-    struct Item item;
+    u16 price;
     ASSERT_ITEM_QUERY;
 
     for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
     {
         if(GetQueryBitFlag(itemId))
         {
-            Rogue_ModifyItem(itemId, &item);
+            price = ItemId_GetPrice(itemId);
 
             if(func == QUERY_FUNC_INCLUDE)
             {
-                if(!(item.price >= minPrice && item.price <= maxPrice))
+                if(!(price >= minPrice && price <= maxPrice))
                 {
                     SetQueryBitFlag(itemId, FALSE);
                 }
             }
             else if(func == QUERY_FUNC_EXCLUDE)
             {
-                if(item.price >= minPrice && item.price <= maxPrice)
+                if(price >= minPrice && price <= maxPrice)
                 {
                     SetQueryBitFlag(itemId, FALSE);
                 }
@@ -1677,6 +1679,7 @@ void RogueListQuery_Begin()
     {
         sRogueQuery.arrayCapacity = sRogueQuery.bitCount + 1;
         sRogueQuery.listArray = Alloc(sizeof(u16) * sRogueQuery.arrayCapacity);
+        sRogueQuery.dynamicAllocListArray = TRUE;
 
         if(sRogueQuery.listArray == NULL)
         {
@@ -1691,6 +1694,7 @@ void RogueListQuery_Begin()
     {
         sRogueQuery.listArray = &gRogueQueryBuffer[0];
         sRogueQuery.arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer);
+        sRogueQuery.dynamicAllocListArray = FALSE;
     }
 }
 
@@ -1700,40 +1704,38 @@ void RogueListQuery_End()
     AGB_ASSERT(sRogueQuery.arrayCapacity != 0);
 
     // Free dynamically alloced array
-    if(sRogueQuery.arrayCapacity >= ARRAY_COUNT(gRogueQueryBuffer))
+    if(sRogueQuery.dynamicAllocListArray)
     {
         Free(sRogueQuery.listArray);
     }
 
     sRogueQuery.listArray = NULL;
     sRogueQuery.arrayCapacity = 0;
+    sRogueQuery.dynamicAllocListArray = FALSE;
 }
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
 
-static void SortInsertItem(u16 itemId, u16* buffer, u16 oldSize, u8 sortMode, bool8 flipSort)
+static void SortInsertItem(u16 itemId, u16* buffer, u16 insertIndex, u8 sortMode, bool8 flipSort)
 {
-    if(oldSize == 0)
-    {
-        buffer[0] = itemId;
-    }
-    else
+    if(insertIndex != 0)
     {
         // Insert sort
         if(sortMode < ITEM_SORT_MODE_COUNT)
         {
             u16 i, temp;
-
-            for(i = 0; i < oldSize; ++i)
+            for(i = 0; i < insertIndex; ++i)
             {
                 if(SortItemPlaceBefore(sortMode, itemId, buffer[i], 1, 1) != flipSort)
+                {
                     SWAP(itemId, buffer[i], temp);
+                }
             }
         }
-
-        // Insert remaining item at the end
-        buffer[oldSize] = itemId;
     }
+
+    // Insert remaining item at the end
+    buffer[insertIndex] = itemId;
 }
 
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
@@ -1749,8 +1751,9 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     {
         if(GetQueryBitFlag(itemId))
         {
-            SortInsertItem(itemId, sRogueQuery.listArray, index++, sortMode, flipSort);
-    
+            SortInsertItem(itemId, sRogueQuery.listArray, index, sortMode, flipSort);
+            ++index;
+
             if(index >= sRogueQuery.arrayCapacity - 1)
             {
                 // Hit capacity (Probably means putting too much into 1 shop)
@@ -1761,6 +1764,32 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
 
     // Terminate
     sRogueQuery.listArray[index] = ITEM_NONE;
+
+    //if(sortMode < ITEM_SORT_MODE_COUNT)
+    //{
+    //    u16 i, j, temp;
+    //    bool8 anySorts = FALSE;
+    //
+    //    for(j = 0; j < index; ++j)
+    //    {
+    //        anySorts = FALSE;
+    //
+    //        for(i = 1; i < index; ++i)
+    //        {
+    //            if(i == j)
+    //                continue;
+    //
+    //            if(SortItemPlaceBefore(sortMode, sRogueQuery.listArray[i], sRogueQuery.listArray[i - 1], 1, 1) != flipSort)
+    //            {
+    //                SWAP(sRogueQuery.listArray[i], sRogueQuery.listArray[i - 1], temp);
+    //                anySorts = TRUE;
+    //            }
+    //        }
+    //
+    //        if(!anySorts)
+    //            break;
+    //    }
+    //}
 
     return sRogueQuery.listArray;
 }
@@ -2224,15 +2253,15 @@ void RogueQuery_ItemsNotInPocket(u8 pocket)
 void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice)
 {
     u16 itemId;
-    struct Item item;
+    u16 price;
 
     for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
     {
         if(GetQueryState(itemId))
         {
-            Rogue_ModifyItem(itemId, &item);
+            price = ItemId_GetPrice(itemId);
 
-            if(item.price < minPrice || item.price > maxPrice)
+            if(price < minPrice || price > maxPrice)
             {
                 SetQueryState(itemId, FALSE);
             }

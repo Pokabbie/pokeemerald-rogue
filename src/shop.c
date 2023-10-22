@@ -618,7 +618,7 @@ static void BuyMenuBuildListMenuTemplate(void)
     }
 
     // Append quit option
-    StringCopy(sItemNames[i], gText_Cancel2);
+    StringCopyN(sItemNames[i], gText_Cancel2, ITEM_NAME_LENGTH + 4);
     sListMenuItems[i].name = sItemNames[i];
     sListMenuItems[i].id = LIST_CANCEL;
 
@@ -1791,26 +1791,26 @@ static void CopyShopItemName(u16 item, u8* name)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
-        CopyItemName(item, name);
+        CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
         return;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)
     {
-        StringCopy(name, gRogueHubAreas[item].areaName);
+        StringCopyN(name, gRogueHubAreas[item].areaName, ITEM_NAME_LENGTH + 4);
         return;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        StringCopy(name, gRogueHubUpgrades[item].upgradeName);
+        StringCopyN(name, gRogueHubUpgrades[item].upgradeName, ITEM_NAME_LENGTH + 4);
         return;
     }
     else
     {
-        StringCopy(name, gDecorations[item].name);
+        StringCopyN(name, gDecorations[item].name, ITEM_NAME_LENGTH + 4);
         return;
     }
 
-    StringCopy(name, gText_EmptyString7);
+    StringCopyN(name, gText_EmptyString7, ITEM_NAME_LENGTH + 4);
 }
 
 static const u8* GetShopItemDescription(u16 item)
