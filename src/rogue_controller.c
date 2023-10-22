@@ -5561,6 +5561,7 @@ static void RandomiseTRMoves()
         {
             AGB_ASSERT(RogueWeightQuery_HasAnyWeights());
             gRogueRun.dynamicTRMoves[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+            AGB_ASSERT(gRogueRun.dynamicTRMoves[i] != MOVE_NONE);
         }
     }
     RogueWeightQuery_End();
