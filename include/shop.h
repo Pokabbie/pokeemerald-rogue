@@ -28,10 +28,11 @@ struct MartInfo
     void (*callback)(void);
     const struct MenuAction *menuActions;
     u16 (*listItemCallback)(u16);
-    void* listItemData;
+    void const* listItemData;
     u16 listItemTerminator;
     u16 itemCount;
     u16 minPrice;
+    u16 dynamicMartCategory;
     u8 windowId;
     u8 martType;
     bool8 anythingBought;

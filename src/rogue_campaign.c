@@ -246,7 +246,7 @@ u16 Rogue_DeactivateActiveCampaign(void)
 {
     if(Rogue_IsCampaignActive())
     {
-        if(gRogueRun.currentDifficulty >= 14)
+        if(Rogue_GetCurrentDifficulty() >= 14)
         {
             if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
                 IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);

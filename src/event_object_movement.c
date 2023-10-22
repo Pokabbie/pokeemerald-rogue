@@ -2379,7 +2379,7 @@ static u8 FindObjectEventPaletteIndexByTag(u16 tag)
 {
     u8 i;
 
-    for (i = 0; sObjectEventSpritePalettes[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
+    for (i = 0; i < ARRAY_COUNT(sObjectEventSpritePalettes) && sObjectEventSpritePalettes[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
     {
         if (sObjectEventSpritePalettes[i].tag == tag)
             return i;

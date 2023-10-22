@@ -893,6 +893,58 @@ namespace PokemonDataGenerator.Pokedex
 			upperBlock.AppendLine("//");
 			upperBlock.AppendLine();
 
+			// Move/Item usages
+			//
+			Dictionary<string, int> moveCount = new Dictionary<string, int>();
+			Dictionary<string, int> heldItemCount = new Dictionary<string, int>();
+
+			foreach (var profile in profiles)
+			{
+				HashSet<string> uniqueItems = new HashSet<string>();
+				HashSet<string> uniqueMoves = new HashSet<string>();
+
+				foreach (var compSet in profile.CompetitiveSets)
+				{
+					foreach (var move in compSet.Moves)
+						uniqueMoves.Add(move);
+
+					if (compSet.Item != null)
+						uniqueItems.Add(compSet.Item);
+				}
+
+				foreach (var move in uniqueMoves)
+				{
+					if (moveCount.ContainsKey(move))
+						++moveCount[move];
+					else
+						moveCount[move] = 1;
+				}
+
+				foreach (var item in uniqueItems)
+				{
+					if (heldItemCount.ContainsKey(item))
+						++heldItemCount[item];
+					else
+						heldItemCount[item] = 1;
+				}
+			}
+
+			upperBlock.AppendLine("u16 const gRoguePokemonMoveUsages[MOVES_COUNT] = \n{");
+
+			foreach (var kvp in moveCount)
+				upperBlock.AppendLine($"\t[{kvp.Key}] = {kvp.Value},");
+
+			upperBlock.AppendLine("};\n");
+
+			upperBlock.AppendLine("u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT] = \n{");
+
+			foreach (var kvp in heldItemCount)
+				upperBlock.AppendLine($"\t[{kvp.Key}] = {kvp.Value},");
+
+			upperBlock.AppendLine("};\n");
+
+			// Pokemon Profiles
+			//
 			lowerBlock.AppendLine("struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] = \n{");
 
 			foreach(var profile in profiles)

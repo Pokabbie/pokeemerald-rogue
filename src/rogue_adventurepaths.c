@@ -414,7 +414,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
         for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
         {
-            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == gRogueRun.currentDifficulty)
+            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == Rogue_GetCurrentDifficulty())
             {
                 ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LEGENDARY, amount);
                 break;
@@ -429,7 +429,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Lab
     amount = 0;
-    if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
+    if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
         amount = 1;
     ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LAB, amount);
 
@@ -443,12 +443,12 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         bool8 allowDarkDeal = FALSE;
         bool8 allowGameShow = FALSE;
 
-        if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY + 2)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
         {
             // Only dark deals
             allowDarkDeal = TRUE;
         }
-        else if(gRogueRun.currentDifficulty >= ROGUE_GYM_MID_DIFFICULTY - 2)
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
         {
             // Mix of both
             allowDarkDeal = TRUE;
@@ -465,7 +465,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             u8 chance = 5;
 
             // Every 3rd difficulty have a chance
-            if((gRogueRun.currentDifficulty % 3) == 0)
+            if((Rogue_GetCurrentDifficulty() % 3) == 0)
                 chance = 50;
 
             if(RogueRandomChance(chance, 0))
@@ -480,7 +480,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             u8 chance = 50;
 
             // Inverted chance of dark deal
-            if((gRogueRun.currentDifficulty % 3) == 0)
+            if((Rogue_GetCurrentDifficulty() % 3) == 0)
                 chance = 10;
 
             if(RogueRandomChance(chance, 0))
@@ -496,15 +496,15 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         u8 chance = 10;
 
         // If players get encounters they basically have to get lucky with wild den
-        if(gRogueRun.currentDifficulty >=  ROGUE_CHAMP_START_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
             chance = 90;
         }
-        else if(gRogueRun.currentDifficulty >=  ROGUE_ELITE_START_DIFFICULTY)
+        else if(Rogue_GetCurrentDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
             chance = 60;
         }
-        else if(gRogueRun.currentDifficulty >=  1)
+        else if(Rogue_GetCurrentDifficulty() >=  1)
         {
             chance = 5;
         }
@@ -533,8 +533,8 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
     switch(roomType)
     {
         case ADVPATH_ROOM_BOSS:
-            AGB_ASSERT(gRogueRun.currentDifficulty < ARRAY_COUNT(gRogueRun.bossTrainerNums));
-            gRogueAdvPath.rooms[roomId].roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[gRogueRun.currentDifficulty];
+            AGB_ASSERT(Rogue_GetCurrentDifficulty() < ARRAY_COUNT(gRogueRun.bossTrainerNums));
+            gRogueAdvPath.rooms[roomId].roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[Rogue_GetCurrentDifficulty()];
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
@@ -569,7 +569,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
         {
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            if(gRogueRun.currentDifficulty > ROGUE_ELITE_START_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() > ROGUE_ELITE_START_DIFFICULTY)
             {
                 weights[ADVPATH_SUBROOM_ROUTE_CALM] = 0;
                 weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 1;
@@ -661,20 +661,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
     else
     {
-        struct AdvPathSettings* pathSettings;
-        struct AdvPathGenerator* generator;
+        struct AdvPathSettings pathSettings = {0};
+        struct AdvPathGenerator generator = {0};
 
         // If we have a valid room ID, then we're reloading a previous save
         bool8 isNewGeneration = gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID;
 
-        pathSettings = AllocZeroed(sizeof(struct AdvPathSettings));
-        generator = AllocZeroed(sizeof(struct AdvPathGenerator));
-
-        AGB_ASSERT(pathSettings != NULL);
-        AGB_ASSERT(generator != NULL);
-
-        pathSettings->generator = generator;
-        pathSettings->totalLength = 3 + 2; // +2 to account for final encounter and initial split
+        pathSettings.generator = &generator;
+        pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
 
         // Select the correct seed
         {
@@ -683,7 +677,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             SeedRogueRng(gRogueRun.baseSeed * 235 + 31897);
 
             seed = RogueRandom();
-            for(i = 0; i < gRogueRun.currentDifficulty; ++i)
+            for(i = 0; i < Rogue_GetCurrentDifficulty(); ++i)
             {
                 seed = RogueRandom();
             }
@@ -697,11 +691,11 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             u8 i;
 
             // Gym split
-            generator->connectionsSettingsPerColumn[0].minCount = 2;
-            generator->connectionsSettingsPerColumn[0].maxCount = 3;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_TOP] = 33;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_MID] = 33;
-            generator->connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_BOT] = 33;
+            generator.connectionsSettingsPerColumn[0].minCount = 2;
+            generator.connectionsSettingsPerColumn[0].maxCount = 3;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_TOP] = 33;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_MID] = 33;
+            generator.connectionsSettingsPerColumn[0].branchingChance[ROOM_CONNECTION_BOT] = 33;
             
             for(i = 1; i < MAX_CONNECTION_GENERATOR_COLUMNS; ++i)
             {
@@ -710,38 +704,38 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
                 {
                 // Mixed/Standard
                 case 0:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 3;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
 
                 // Branches
                 case 1:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
 
                 // Lines
                 case 2:
-                    generator->connectionsSettingsPerColumn[i].minCount = 2;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
+                    generator.connectionsSettingsPerColumn[i].minCount = 2;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
                     break;
 
                 // Wiggling line
                 case 3:
-                    generator->connectionsSettingsPerColumn[i].minCount = 1;
-                    generator->connectionsSettingsPerColumn[i].maxCount = 1;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator->connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 1;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
                     break;
                 
                 default:
@@ -753,11 +747,8 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
         DebugPrintf("ADVPATH: Generating path for seed %d.", gRngRogueValue);
         Rogue_ResetAdventurePathBuffers();
-        GeneratePath(pathSettings);
+        GeneratePath(&pathSettings);
         DebugPrint("ADVPATH: Finished generating path.");
-
-        Free(pathSettings);
-        Free(generator);
 
         gRogueAdvPath.justGenerated = isNewGeneration;
 
@@ -910,21 +901,21 @@ void RogueAdv_ApplyAdventureMetatiles()
 
 static void SetBossRoomWarp(u16 trainerNum, struct WarpData* warp)
 {
-    if(gRogueRun.currentDifficulty < 8)
+    if(Rogue_GetCurrentDifficulty() < 8)
     {
         warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
         warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
     }
-    else if(gRogueRun.currentDifficulty < 12)
+    else if(Rogue_GetCurrentDifficulty() < 12)
     {
         Rogue_GetPreferredElite4Map(trainerNum, &warp->mapGroup, &warp->mapNum);
     }
-    else if(gRogueRun.currentDifficulty < 13)
+    else if(Rogue_GetCurrentDifficulty() < 13)
     {
         warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
         warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
     }
-    else if(gRogueRun.currentDifficulty < 14)
+    else if(Rogue_GetCurrentDifficulty() < 14)
     {
         warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
         warp->mapNum = MAP_NUM(ROGUE_BOSS_13);

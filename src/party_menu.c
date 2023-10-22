@@ -5310,8 +5310,15 @@ u16 ItemIdToBattleMoveId(u16 item)
     else
     {
         u16 tmNumber = item - ITEM_TM01;
-        return sTMHMMoves[tmNumber];
+#ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+        if(tmNumber < NUM_TECHNICAL_MACHINES)
+#else
+        if(tmNumber < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES)
+#endif
+            return sTMHMMoves[tmNumber];
     }
+
+    return MOVE_NONE;
 }
 
 u16 BattleMoveIdToItemId(u16 move)

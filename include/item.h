@@ -73,6 +73,7 @@ u16 GetBagReservedTotalSlots();
 void RemoveEmptyBagItems(void);
 void ShrinkBagItems(void);
 void CopyItemName(u16 itemId, u8 *dst);
+void CopyItemNameN(u16 itemId, u8 *dst, u16 length);
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity);
 void GetBerryCountString(u8 *dst, const u8 *berryName, u32 quantity);
 bool8 IsBagPocketNonEmpty(u8 pocket);

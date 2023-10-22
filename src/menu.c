@@ -2170,7 +2170,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
             break;
         case SAVE_MENU_BADGES:
-            string = ConvertIntToDecimalStringN(string, Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
+            string = ConvertIntToDecimalStringN(string, Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
             break;
         case SAVE_MENU_QUESTS:
             string = ConvertIntToDecimalStringN(string, GetCompletedQuestPerc(), STR_CONV_MODE_LEFT_ALIGN, 3);

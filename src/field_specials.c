@@ -70,6 +70,7 @@
 #include "rogue_pokedex.h"
 #include "rogue_player_customisation_ui.h"
 #include "rogue_settings.h"
+#include "rogue_voltorbflip.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -135,7 +136,7 @@ static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
 
 void Special_ShowDiploma(void)
 {
-    SetMainCallback2(CB2_ShowDiploma);
+    SetMainCallback2(CB2_ShowVoltorbFlip);
     ScriptContext2_Enable();
 }
 
@@ -163,6 +164,13 @@ void Special_ViewPlayerCustomisationMenu(void)
 void Special_ViewRoguePokedex(void)
 {
     Rogue_ShowPokedexFromScript();
+    ScriptContext2_Enable();
+}
+
+void Special_ViewVoltorbFlip(void)
+{
+    gMain.savedCallback = CB2_ReturnToField;
+    SetMainCallback2(CB2_ShowVoltorbFlip);
     ScriptContext2_Enable();
 }
 

@@ -521,6 +521,8 @@ extern const u16 gRogueTrainerCount;
 extern const struct RogueBattleMusic gRogueTrainerMusic[];
 
 extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
+extern u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT];
+extern u16 const gRoguePokemonMoveUsages[MOVES_COUNT];
 
 extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];

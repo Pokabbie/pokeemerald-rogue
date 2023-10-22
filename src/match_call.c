@@ -1779,7 +1779,7 @@ static void PopulateBattleFrontierStreak(int matchCallId, u8 *destStr)
 
 static int GetNumOwnedBadges(void)
 {
-    return Rogue_IsRunActive() ? gRogueRun.currentDifficulty : 0;
+    return Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0;
 }
 
 // Whether or not a trainer calling the player from a different route should request a battle
