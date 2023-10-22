@@ -34,21 +34,11 @@ EventScript_AccessPlayersPC::
 
 EventScript_AccessPokemonStorage::
 	playse SE_PC_LOGIN
-	call_if_unset FLAG_SYS_PC_LANETTE, EventScript_AccessSomeonesPC
-	call_if_set FLAG_SYS_PC_LANETTE, EventScript_AccessLanettesPC
 	msgbox gText_StorageSystemOpened, MSGBOX_DEFAULT
 	special ShowPokemonStorageSystemPC
 	waitstate
 	goto EventScript_PCMainMenu
 	end
-
-EventScript_AccessSomeonesPC::
-	msgbox gText_AccessedSomeonesPC, MSGBOX_DEFAULT
-	return
-
-EventScript_AccessLanettesPC::
-	msgbox gText_AccessedLanettesPC, MSGBOX_DEFAULT
-	return
 
 EventScript_TurnOffPC::
 	setvar VAR_0x8004, PC_LOCATION_OTHER

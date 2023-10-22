@@ -936,6 +936,10 @@ void FieldShowRegionMap(void)
 
 void DoPCTurnOnEffect(void)
 {
+    // Accesing PC via object event
+    if(gSpecialVar_LastTalked != 0)
+        return;
+
     if (FuncIsActiveTask(Task_PCTurnOnEffect) != TRUE)
     {
         u8 taskId = CreateTask(Task_PCTurnOnEffect, 8);
@@ -1013,6 +1017,10 @@ static void PCTurnOnEffect_1(s16 isPcTurnedOn, s8 dx, s8 dy)
 
 void DoPCTurnOffEffect(void)
 {
+    // Accesing PC via object event
+    if(gSpecialVar_LastTalked != 0)
+        return;
+
     PCTurnOffEffect();
 }
 

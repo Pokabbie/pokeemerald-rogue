@@ -4226,6 +4226,10 @@ static const struct SpriteFrameImage sPicTable_PC[] = {
     obj_frame_tiles(gObjectEventPic_PC),
 };
 
+static const struct SpriteFrameImage sPicTable_PCStand[] = {
+    obj_frame_tiles(gObjectEventPic_PCStand),
+};
+
 static const struct SpriteFrameImage sPicTable_DevilMan[] = {
     overworld_frame(gObjectEventPic_DevilMan, 2, 4, 0),
     overworld_frame(gObjectEventPic_DevilMan, 2, 4, 1),
