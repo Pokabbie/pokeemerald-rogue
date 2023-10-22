@@ -6,6 +6,7 @@ extern const u8 gItemDesc_HealingFlask[];
 extern const u8 gItemDesc_RidingWhistle[];
 extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
+extern const u8 gItemDesc_BuildingSupplies[];
 
 extern const u8 gItemDesc_ShopPriceCharm[];
 extern const u8 gItemDesc_ShopPriceCurse[];
@@ -141,6 +142,22 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .registrability = TRUE,
         .iconImage = gItemIcon_CGear,
         .iconPalette = gItemIconPalette_CGear,
+    },
+    
+    [ITEM_BUILDING_SUPPLIES - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Build Parts"),
+#else
+        .name = _("BUILD PARTS"),
+#endif
+        .itemId = ITEM_BUILDING_SUPPLIES,
+        .price = 0,
+        .description = gItemDesc_BuildingSupplies,
+        .pocket = POCKET_KEY_ITEMS,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_OaksParcel,
+        .iconPalette = gItemIconPalette_OaksParcel,
     },
 
     [ITEM_SHOP_PRICE_CHARM - ITEM_ROGUE_ITEM_FIRST] =

@@ -191,6 +191,20 @@
 
 #define TRAINER_PIC_RIVAL_BRENDAN         159
 #define TRAINER_PIC_RIVAL_MAY             160
+#define TRAINER_PIC_RIVAL_SILVER          161
+#define TRAINER_PIC_RIVAL_BARRY           162
+#define TRAINER_PIC_RIVAL_BIANCA          163
+#define TRAINER_PIC_RIVAL_CHEREN          164
+#define TRAINER_PIC_RIVAL_N               165
+#define TRAINER_PIC_RIVAL_HUGH            166
+#define TRAINER_PIC_RIVAL_SHAUNA          167
+#define TRAINER_PIC_RIVAL_TREVOR          168
+#define TRAINER_PIC_RIVAL_TIERNO          169
+#define TRAINER_PIC_RIVAL_HAU             170
+#define TRAINER_PIC_RIVAL_GLADION         171
+#define TRAINER_PIC_RIVAL_HOP             172
+#define TRAINER_PIC_RIVAL_MARNIE          173
+#define TRAINER_PIC_RIVAL_BEDE            174
 
 
 // Special cases

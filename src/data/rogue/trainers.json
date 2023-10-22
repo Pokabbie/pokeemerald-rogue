@@ -55,8 +55,7 @@
             {
                 "name": "SILVER",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_SILVER",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_SILVER",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_RIVAL" ],
@@ -81,8 +80,7 @@
             {
                 "name": "WALLY",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_WALLY",
-                "trainer_pic": "TRAINER_PIC_WALLY",
+                "gfx_suffix": "WALLY",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
@@ -163,8 +161,7 @@
             {
                 "name": "BARRY",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_BARRY",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_BARRY",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
@@ -190,8 +187,7 @@
             {
                 "name": "CHEREN",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_CHEREN",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_CHEREN",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
@@ -215,8 +211,7 @@
             {
                 "name": "BIANCA",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_BIANCA",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_BIANCA",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
@@ -240,8 +235,7 @@
             {
                 "name": "N",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_N",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_N",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
@@ -265,8 +259,7 @@
             {
                 "name": "HUGH",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_HUGH",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_HUGH",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
@@ -291,8 +284,7 @@
             {
                 "name": "SHAUNA",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_SHAUNA",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_SHAUNA",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
@@ -316,8 +308,7 @@
             {
                 "name": "TIERNO",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_TIERNO",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_TIERNO",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
@@ -338,12 +329,35 @@
                     ]
                 }
             },
+            {
+                "name": "TREVOR",
+                "type_assignment": "NONE",
+                "gfx_suffix": "RIVAL_TREVOR",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kalos_boss",
+                "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FLABEBE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
 
             {
                 "name": "HAU",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_HAU",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_HAU",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
@@ -367,8 +381,7 @@
             {
                 "name": "GLADION",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_GLADION",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_GLADION",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
@@ -393,8 +406,7 @@
             {
                 "name": "HOP",
                 "type_assignment": "NONE",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_HOP",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_HOP",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
@@ -418,8 +430,7 @@
             {
                 "name": "BEDE",
                 "type_assignment": "FAIRY",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_BEDE",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_BEDE",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
@@ -455,8 +466,7 @@
             {
                 "name": "MARNIE",
                 "type_assignment": "DARK",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_MARNIE",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
+                "gfx_suffix": "RIVAL_MARNIE",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
@@ -477,64 +487,6 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MORPEKO", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_IMPIDIMP", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
-            },
-            {
-                "name": "KLARA",
-                "type_assignment": "POISON",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_KLARA",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets":
-                    [
-                        {
-                            "max_samples": 12,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 12
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SLOWPOKE_GALARIAN", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
-            },
-            {
-                "name": "AVERY",
-                "type_assignment": "PSYCHIC",
-                "object_event": "OBJ_EVENT_GFX_RIVAL_AVERY",
-                "trainer_pic": "TRAINER_PIC_PLACEHOLDER_NPC",
-                "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets":
-                    [
-                        {
-                            "max_samples": 12,
-                            "include_types": [ "PSYCHIC" ]
-                        },
-                        {
-                            "max_samples": 12
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SLOWPOKE_GALARIAN", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
                     ]

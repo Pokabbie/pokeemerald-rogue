@@ -548,4 +548,19 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 
     [TRAINER_PIC_RIVAL_BRENDAN] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_MAY] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_SILVER] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_BARRY] = sAnims_Kanto,
+
+    [TRAINER_PIC_RIVAL_BIANCA] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_CHEREN] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_N] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_HUGH] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_SHAUNA] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_TREVOR] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_TIERNO] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_HAU] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_GLADION] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_HOP] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_MARNIE] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_BEDE] = sAnims_Kanto,
 };

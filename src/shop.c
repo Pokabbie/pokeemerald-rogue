@@ -1886,8 +1886,7 @@ static u16 GetShopCurrencyAmount()
 {
     if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        // temp just for testing
-        return GetItemCountInBag(ITEM_POKE_BALL);
+        return GetItemCountInBag(ITEM_BUILDING_SUPPLIES);
     }
 
     return GetMoney(&gSaveBlock1Ptr->money);
@@ -1897,8 +1896,7 @@ static void RemoveShopCurrencyAmount(u16 amount)
 {
     if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        // temp just for testing
-        RemoveBagItem(ITEM_POKE_BALL, amount);
+        RemoveBagItem(ITEM_BUILDING_SUPPLIES, amount);
     }
 
     RemoveMoney(&gSaveBlock1Ptr->money, amount);

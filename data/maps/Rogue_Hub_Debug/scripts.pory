@@ -126,9 +126,10 @@ script Rogue_Debug_AddMoney
         giveitem(ITEM_C_GEAR, 1)
     }
 
-    giveitem(ITEM_STAR_PIECE, 999)
-    giveitem(ITEM_RARE_CANDY, 999)
-    giveitem(ITEM_ESCAPE_ROPE, 999)
+    giveitem(ITEM_STAR_PIECE, 100)
+    giveitem(ITEM_RARE_CANDY, 100)
+    giveitem(ITEM_ESCAPE_ROPE, 100)
+    giveitem(ITEM_BUILDING_SUPPLIES, 100)
 
     release
 }
