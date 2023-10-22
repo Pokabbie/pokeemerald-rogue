@@ -4604,7 +4604,7 @@ u32 GetPokedexMonPersonality(u16 species)
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
 {
     nationalNum = NationalPokedexNumToSpecies(nationalNum);
-    return CreateMonPicSprite_Affine(nationalNum, NON_SHINY_PLACEHOLDER, GetPokedexMonPersonality(nationalNum), GetGenderForSpecies(nationalNum, 0), FALSE, 0, x, y, paletteSlot, TAG_NONE);
+    return CreateMonPicSprite_Affine(nationalNum, NON_SHINY_PLACEHOLDER, GetPokedexMonPersonality(nationalNum), GetGenderForSpecies(nationalNum, 0), FALSE, MON_PIC_AFFINE_FRONT, x, y, paletteSlot, TAG_NONE);
 }
 
 static u16 CreateSizeScreenTrainerPic(u16 species, s16 x, s16 y, s8 paletteSlot)
