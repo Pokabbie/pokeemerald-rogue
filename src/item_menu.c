@@ -1118,7 +1118,7 @@ static void GetItemName(s8 *dest, u16 itemId)
         if (itemId >= ITEM_TR01)
         {
             // Get TR number
-            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TR01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
+            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TR01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
             StringExpandPlaceholders(dest, gText_NumberItem_HM);
         }
         else if (itemId >= ITEM_HM01)
