@@ -63,6 +63,13 @@
     method(3501, "UlithiumDragon", 0) \
     method(36, "", CREDITS_FLAG_BREAK) \
     \
+    method(3601, "ZacWeavile", 0) \
+    method(3602, "Gnomowladny", 0) \
+    method(3603, "Beliot419", 0) \
+    method(3604, "Brumirage", 0) \
+    method(3605, "Kyledove", 0) \
+    method(3606, "", CREDITS_FLAG_BREAK) \
+    \
     method(37, "Kymotionian", 0) \
     method(38, "cSc-A7X", 0) \
     method(39, "2and2makes5", 0) \
