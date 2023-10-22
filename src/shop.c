@@ -114,9 +114,9 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y);
 static void CopyShopItemName(u16 item, u8* name);
 static const u8* GetShopItemDescription(u16 item);
 static bool8 BuyShopItem(u16 item, u16 count);
-static u16 GetShopItemPrice(u16 item);
+static u32 GetShopItemPrice(u16 item);
 
-static u16 GetShopCurrencyAmount();
+static u32 GetShopCurrencyAmount();
 static void RemoveShopCurrencyAmount(u16 amount);
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
@@ -702,7 +702,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
 
     if (itemId != LIST_CANCEL)
     {
-        u16 price = GetShopItemPrice(itemId);
+        u32 price = GetShopItemPrice(itemId);
 
         if(price == 0)
         {
@@ -1838,7 +1838,7 @@ static const u8* GetShopItemDescription(u16 item)
     return str;
 }
 
-static u16 GetShopItemPrice(u16 item)
+static u32 GetShopItemPrice(u16 item)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
@@ -1882,12 +1882,11 @@ static bool8 BuyShopItem(u16 item, u16 count)
     }
 }
 
-static u16 GetShopCurrencyAmount()
+static u32 GetShopCurrencyAmount()
 {
     if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        // temp just for testing
-        return GetItemCountInBag(ITEM_POKE_BALL);
+        return GetItemCountInBag(ITEM_BUILDING_SUPPLIES);
     }
 
     return GetMoney(&gSaveBlock1Ptr->money);
@@ -1897,8 +1896,7 @@ static void RemoveShopCurrencyAmount(u16 amount)
 {
     if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        // temp just for testing
-        RemoveBagItem(ITEM_POKE_BALL, amount);
+        RemoveBagItem(ITEM_BUILDING_SUPPLIES, amount);
     }
 
     RemoveMoney(&gSaveBlock1Ptr->money, amount);
