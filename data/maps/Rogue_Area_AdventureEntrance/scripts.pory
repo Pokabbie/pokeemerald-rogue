@@ -39,7 +39,7 @@ script Rogue_Area_AdventureEntrance_MapLoad
                 break
 
             case HUB_AREA_CONN_WEST:
-                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 11, 0)
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 0, 11)
                 setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_LEFT)
                 break
         }

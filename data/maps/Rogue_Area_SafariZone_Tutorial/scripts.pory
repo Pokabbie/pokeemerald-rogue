@@ -25,10 +25,6 @@ script Rogue_Area_SafariZone_Tutorial_OnMapLoad
 {
     if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
     {
-        setvar(VAR_FOLLOW_MON_0, SPECIES_CHARMANDER)
-        setvar(VAR_FOLLOW_MON_1, SPECIES_BULBASAUR)
-        setvar(VAR_FOLLOW_MON_2, SPECIES_SQUIRTLE)
-
         setvar(VAR_0x8004, HUB_AREA_ADVENTURE_ENTRANCE)
         special(Rogue_CheckHubConnectionDir)
 

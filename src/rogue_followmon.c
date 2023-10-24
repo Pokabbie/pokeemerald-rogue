@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "constants/layouts.h"
 #include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/songs.h"
@@ -743,12 +744,8 @@ static u8 FindObjectEventForGfx(u16 gfxId)
 
 static bool8 InShinyAnimationRange(u8 objectEventId)
 {
-    if(Rogue_AreWildMonEnabled())
-    {
-        // Wild spawns instantly play animation
-        return TRUE;
-    }
-    else
+    // Only play anims if within range
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL || !Rogue_AreWildMonEnabled())
     {
         // Static spawns only play anim when you're close enough to see it
         s16 x, y;
@@ -759,6 +756,9 @@ static bool8 InShinyAnimationRange(u8 objectEventId)
 
         return abs(x) <= 4 && abs(y) <= 4;
     }
+
+    // Wild spawns instantly play animation
+    return TRUE;
 }
 
 void FollowMon_OverworldCB()
