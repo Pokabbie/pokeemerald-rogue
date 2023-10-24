@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/abilities.h"
 #include "constants/battle.h"
+#include "constants/battle_string_ids.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/hold_effects.h"
@@ -21,6 +22,9 @@
 #include "field_effect.h"
 #include "graphics.h"
 #include "item.h"
+#include "event_object_movement.h"
+#include "fieldmap.h"
+#include "field_player_avatar.h"
 #include "load_save.h"
 #include "malloc.h"
 #include "main.h"
@@ -317,6 +321,34 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     return volume;
 }
 
+u16 Rogue_ModifyPlayBGM(u16 songNum)
+{
+    if(!Rogue_IsRunActive())
+    {
+        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+        {
+            switch (songNum)
+            {
+            case MUS_LITTLEROOT:
+            case MUS_BIRCH_LAB:
+                songNum = MUS_HELP;
+                break;
+            }
+        }
+    }
+
+    return songNum;
+}
+
+u16 Rogue_ModifyPlaySE(u16 songNum)
+{
+    return songNum;
+}
+
+u16 Rogue_ModifyPlayFanfare(u16 songNum)
+{
+    return songNum;
+}
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
@@ -763,6 +795,22 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
             u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
             overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
+    }
+
+    return overrideStr != NULL ? overrideStr : str;
+}
+
+extern const u8* const gBattleStringsTable[];
+
+const u8* Rogue_ModifyBattleMessage(const u8* str)
+{
+    const u8* overrideStr = NULL;
+
+    if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari())
+    {
+        // Don't display "Would you like to nickname" msg
+        if(str == gBattleStringsTable[STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START])
+            overrideStr = gText_EmptyString2;
     }
 
     return overrideStr != NULL ? overrideStr : str;
@@ -2789,7 +2837,7 @@ void Rogue_OnWarpIntoMap(void)
 
 
     // Set new safari flag on entering area
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE)
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
     {
         FlagSet(FLAG_ROGUE_WILD_SAFARI);
         RogueSafari_ResetSpawns();
@@ -3712,7 +3760,36 @@ void Rogue_Battle_EndWildBattle(void)
 
 void Rogue_Safari_EndWildBattle(void)
 {
-    if (gBattleOutcome == B_OUTCOME_CAUGHT)
+    if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        if(gBattleOutcome == B_OUTCOME_CAUGHT)
+        {
+            u8 i;
+
+            for(i = 0; i < gSaveBlock1Ptr->objectEventTemplatesCount; ++i)
+            {
+                // Hide all the mons and the NPC
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_MISC_RUIN_MANIAC || (gSaveBlock1Ptr->objectEventTemplates[i].graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && gSaveBlock1Ptr->objectEventTemplates[i].graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST))
+                {
+                    RemoveObjectEventByLocalIdAndMap(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+                    FlagSet(gSaveBlock1Ptr->objectEventTemplates[i].flagId);
+                }
+
+                // Move birch just above the player
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_PROF_BIRCH)
+                {
+                    SetObjEventTemplateCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
+                    TryMoveObjectEventToMapCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
+                }
+            }
+
+            // Birch may not have been in view, so force it to spawn
+            TrySpawnObjectEvents(gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
+
+            VarSet(VAR_ROGUE_INTRO_STATE, VarGet(VAR_ROGUE_INTRO_STATE) + 1);
+        }
+    }
+    else if (gBattleOutcome == B_OUTCOME_CAUGHT)
     {
         u8 safariIndex = RogueSafari_GetPendingBattleMonIdx();
         RogueSafari_ClearSafariMonAtIdx(safariIndex);
@@ -4398,32 +4475,47 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
     if(Rogue_InWildSafari())
     {
-        u32 value;
-        struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
-
-        AGB_ASSERT(safariMon != NULL);
-        if(safariMon != NULL)
+        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
         {
-            u8 text[POKEMON_NAME_LENGTH + 1];
-            u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+            // Do nothing in intro i.e. generate IVs moves etc normally
 
-            RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
-
-            // Make baby form
-            if(eggSpecies != safariMon->species)
+            // If player has tried to be smart and thrown away pokeball, silently give them another ;)
+            if(!CheckBagHasItem(ITEM_POKE_BALL, 1))
             {
-                SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
-                GetMonData(mon, MON_DATA_NICKNAME, text);
-
-                if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
-                {
-                    // Doesn't have a nickname so update to match species name
-                    StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
-                    SetMonData(mon, MON_DATA_NICKNAME, text);
-                }
+                AddBagItem(ITEM_POKE_BALL, 1);
+                Rogue_ClearPopupQueue();
             }
+            return;
+        }
+        else
+        {
+            u32 value;
+            struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
 
-            CalculateMonStats(mon);
+            AGB_ASSERT(safariMon != NULL);
+            if(safariMon != NULL)
+            {
+                u8 text[POKEMON_NAME_LENGTH + 1];
+                u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+
+                RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+
+                // Make baby form
+                if(eggSpecies != safariMon->species)
+                {
+                    SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
+                    GetMonData(mon, MON_DATA_NICKNAME, text);
+
+                    if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
+                    {
+                        // Doesn't have a nickname so update to match species name
+                        StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
+                        SetMonData(mon, MON_DATA_NICKNAME, text);
+                    }
+                }
+
+                CalculateMonStats(mon);
+            }
         }
     }
     else

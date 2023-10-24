@@ -1,6 +1,16 @@
+const FLAG_HIDE_BIRCH = FLAG_TEMP_1
+
+const VAR_RETURN_STATE = VAR_TEMP_0
+
+const OBJ_EVENT_BIRCH = 5
+
 mapscripts Rogue_Area_TownSquare_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Area_TownSquare_OnMapLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_RETURN_STATE, 0: Rogue_Area_TownSquare_WarpState0
+    ]
 }
 
 script Rogue_Area_TownSquare_OnMapLoad
@@ -9,6 +19,73 @@ script Rogue_Area_TownSquare_OnMapLoad
     {
         fillmetatile(10, 17, 11, 17, METATILE_GeneralHub_Grass, FALSE)
     }
+
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
+    {
+        clearflag(FLAG_HIDE_BIRCH)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BIRCH)
+    }
+}
+
+script Rogue_Area_TownSquare_WarpState0
+{
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
+    {
+        call(Rogue_Area_TownSquare_StartGame)
+    }
+    setvar(VAR_RETURN_STATE, 1)
+}
+
+script Rogue_Area_TownSquare_StartGame
+{
+    lock
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame0)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerStartGame0)
+    waitmovement(0)
+
+    msgbox(format("BIRCH: There you are!\nBack up on your feet now!\pYou seem fine, but perhaps it would be a good idea for you to have a wander around {POKEMON_HUB} to refresh your memory.\pOnce you're ready, come and find me in my lab."))
+    closemessage
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame1)
+    waitmovement(0)
+
+    opendoor(8, 8)
+    waitdooranim
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame2)
+    waitmovement(0)
+    hideobjectat(OBJ_EVENT_BIRCH, MAP_ROGUE_AREA_TOWN_SQUARE)
+
+    closedoor(8, 8)
+    waitdooranim
+
+    addvar(VAR_ROGUE_INTRO_STATE, 1)
+    release
+}
+
+movement BirchStartGame0 
+{
+    walk_in_place_right
+}
+
+movement PlayerStartGame0 
+{
+    face_left
+}
+
+movement BirchStartGame1
+{
+    walk_left
+    walk_up * 3
+}
+
+movement BirchStartGame2
+{
+    walk_up
 }
 
 script Rogue_Area_TownSquare_LabSign

@@ -243,13 +243,13 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
 void SetupFollowParterMonObjectEvent()
 {
-    bool8 shouldFollowMonBeVisible = TRUE;
+    bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER);
 
-    if(FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
+    if(shouldFollowMonBeVisible && FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
     // Don't show if on bike, surfing or riding mon
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING))
+    if(shouldFollowMonBeVisible && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING)))
         shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible)
@@ -426,6 +426,10 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
+    // Disable collision exemption for tutorial
+    //if(Rogue_InWildSafari() && VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    //    return FALSE;
+
     // If we're flying nothing can collide with the player
     if(Rogue_IsRideMonFlying())
         return obstacle == player || collider == player;

@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
   "name": "Rogue_Interior_PokeConnect",
   "layout": "LAYOUT_ROGUE_INTERIOR_POKE_CONNECT",
-  "music": "MUS_RG_UNION_ROOM",
+  "music": "MUS_RG_NET_CENTER",
   "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

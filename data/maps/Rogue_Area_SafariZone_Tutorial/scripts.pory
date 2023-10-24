@@ -1,0 +1,186 @@
+const FLAG_HIDE_MONS = FLAG_TEMP_1
+const FLAG_HAS_ENTERED = FLAG_TEMP_2
+
+const VAR_CONN_DIR = VAR_TEMP_0
+const VAR_RETURN_STATE = VAR_TEMP_1
+const VAR_FRAME_STATE = VAR_TEMP_2
+
+const OBJ_EVENT_BIRCH = 4
+const OBJ_EVENT_RUIN_MANIAC = 5
+
+mapscripts Rogue_Area_SafariZone_Tutorial_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_SafariZone_Tutorial_OnMapLoad
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_RETURN_STATE, 0: Rogue_Area_SafariZone_Tutorial_Enter
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_FRAME_STATE, 0: Rogue_Area_SafariZone_Tutorial_FrameEnter
+    ]
+}
+
+script Rogue_Area_SafariZone_Tutorial_OnMapLoad
+{
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        setvar(VAR_FOLLOW_MON_0, SPECIES_CHARMANDER)
+        setvar(VAR_FOLLOW_MON_1, SPECIES_BULBASAUR)
+        setvar(VAR_FOLLOW_MON_2, SPECIES_SQUIRTLE)
+
+        setvar(VAR_0x8004, HUB_AREA_ADVENTURE_ENTRANCE)
+        special(Rogue_CheckHubConnectionDir)
+
+        copyvar(VAR_CONN_DIR, VAR_RESULT)
+        switch(var(VAR_CONN_DIR))
+        {
+            case HUB_AREA_CONN_EAST:
+                setobjectxyperm(OBJ_EVENT_BIRCH, 34, 15)
+                break
+
+            case HUB_AREA_CONN_SOUTH:
+                setobjectxyperm(OBJ_EVENT_BIRCH, 17, 28)
+                break
+
+            case HUB_AREA_CONN_WEST:
+                setobjectxyperm(OBJ_EVENT_BIRCH, 3, 15)
+                break
+        }
+    }
+    else
+    {
+        turnobject(OBJ_EVENT_BIRCH, DIR_SOUTH)
+    }
+}
+
+script Rogue_Area_SafariZone_Tutorial_Enter
+{
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        switch(var(VAR_CONN_DIR))
+        {
+            case HUB_AREA_CONN_EAST:
+                turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+                turnobject(OBJ_EVENT_BIRCH, DIR_EAST)
+                break
+
+            case HUB_AREA_CONN_SOUTH:
+                turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+                turnobject(OBJ_EVENT_BIRCH, DIR_SOUTH)
+                break
+
+            case HUB_AREA_CONN_WEST:
+                turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+                turnobject(OBJ_EVENT_BIRCH, DIR_WEST)
+                break
+        }
+    }
+
+    addvar(VAR_RETURN_STATE, 1)
+}
+
+script Rogue_Area_SafariZone_Tutorial_FrameEnter
+{
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_REPORT_TO_PROF)
+    {
+        lock
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        msgbox(format("BIRCH: Good job {PLAYER}!\pThe POKéMON didn't seem too dangerous.\nThey actually seemed rather friendly to me!\pDefinitely not a POKéMON invasion fuhahaha.\pCome on now!\nLet's head back to the lab."))
+        warp(MAP_ROGUE_INTERIOR_PROF_LAB, 2)
+        release
+    }
+    elif(flag(FLAG_HAS_ENTERED) == FALSE)
+    {
+        lock
+        msgbox(format("BIRCH: OK {PLAYER}!\pI know this is your first time catching POKéMON… but I really need some help on this one!\pHere!\nTake this!"))
+        giveitem(ITEM_POKE_BALL)
+        msgbox(format("If you can capture one POKéMON, I'll handle the others!"))
+        setflag(FLAG_HAS_ENTERED)
+        release
+    }
+
+    addvar(VAR_FRAME_STATE, 1)
+}
+
+script Rogue_Area_SafariZone_Tutorial_InteractWildFollowMon
+{
+    lockall
+
+    setvar(VAR_FRAME_STATE, 0)
+    special(Rogue_GetFollowMonSpecies)
+    special(Rogue_TryEnqueueWildBattleMon)
+
+    seteventmon(VAR_0x800A, 1, ITEMS_COUNT, VAR_0x800B)
+    special(BattleSetup_StartWildBattle)
+    waitstate
+
+
+    releaseall
+}
+
+script Rogue_Area_SafariZone_TryExitEast
+{
+    lock
+    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerLeft)
+    waitmovement(0)
+
+    release
+}
+
+script Rogue_Area_SafariZone_TryExitSouth
+{
+    lock
+    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerUp)
+    waitmovement(0)
+
+    release
+}
+
+script Rogue_Area_SafariZone_TryExitWest
+{
+    lock
+    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerRight)
+    waitmovement(0)
+
+    release
+}
+
+script Rogue_Area_SafariZone_Tutorial_TalkBirch
+{
+    lock
+    faceplayer
+    msgbox(format("BIRCH: Go ahead, {PLAYER}!\pYou catch one of the POKéMON and I'll handle the others."))
+    release
+}
+
+script Rogue_Area_SafariZone_Tutorial_TalkRuinManiac
+{
+    lock
+    msgbox(format("Oh gosh!\nWhat are we gonna do!?"))
+    release
+}
+
+movement PlayerRight
+{
+    walk_right
+}
+
+movement PlayerLeft
+{
+    walk_left
+}
+
+movement PlayerUp
+{
+    walk_left
+}

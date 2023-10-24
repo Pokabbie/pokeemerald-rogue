@@ -15,14 +15,12 @@ void RogueHub_BuildAreaInConnDir(u8 area, u8 connDir);
 bool8 RogueHub_HasAreaBuildRequirements(u8 area);
 
 u8 RogueHub_FindAreaAtCoord(s8 x, s8 y);
+u8 RogueHub_FindAreaInDir(u8 area, u8 dir);
 bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir);
 u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir);
 bool8 RogueHub_CanBuildConnectionBetween(u8 fromArea, u8 toArea, u8 dir);
 
 u8 RogueHub_GetAreaFromCurrentMap();
-void RogueHub_GetAvaliableAreasToBuild(u8* outAreas, u8* outCount);
-void RogueHub_GetAvaliableDirectionsToBuild(u8 fromArea, u8 toArea, u8* outDirs, u8* outCount);
-void RogueHub_GetAvaliableUpgrades(u8 area, u16* outUpgrades, u16* outUpgradeCount);
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
 bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);

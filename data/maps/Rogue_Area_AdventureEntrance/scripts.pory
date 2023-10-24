@@ -1,24 +1,164 @@
+const FLAG_HIDE_RUIN_MANIAC = FLAG_TEMP_1
 
-const VAR_RETURN_STATE = VAR_TEMP_0
+const VAR_FRAME_STATE = VAR_TEMP_0
+const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
 
-const NPC_ADVENTURE_NURSE = 1
+const OBJ_EVENT_ADVENTURE_NURSE = 1
+const OBJ_EVENT_RUIN_MANIAC = 5
 
 mapscripts Rogue_Area_AdventureEntrance_MapScripts 
 {
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_AdventureEntrance_MapLoad
     MAP_SCRIPT_ON_FRAME_TABLE 
     [
-        VAR_RETURN_STATE, 0: Rogue_Area_AdventureEntrance_WarpState0
+        VAR_FRAME_STATE, 0: Rogue_Area_AdventureEntrance_WarpState0
     ]
+}
+
+script Rogue_Area_AdventureEntrance_MapLoad
+{
+    if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        clearflag(FLAG_HIDE_RUIN_MANIAC)
+
+        setvar(VAR_0x8004, HUB_AREA_SAFARI_ZONE)
+        special(Rogue_CheckHubConnectionDir)
+
+        copyvar(VAR_INTRO_SCRIPT_STATE, VAR_RESULT)
+
+        switch(var(VAR_RESULT))
+        {
+            case HUB_AREA_CONN_EAST:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 19, 11)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_RIGHT)
+                break
+
+            case HUB_AREA_CONN_SOUTH:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 9, 15)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_DOWN)
+                break
+
+            case HUB_AREA_CONN_WEST:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 11, 0)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_LEFT)
+                break
+        }
+    }
+    else
+    {
+        setflag(FLAG_HIDE_RUIN_MANIAC)
+        setvar(VAR_INTRO_SCRIPT_STATE, HUB_AREA_CONN_COUNT)
+    }
 }
 
 script Rogue_Area_AdventureEntrance_WarpState0
 {
+    //if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_CATCH_MON)
+    //{
+    //    setvar(VAR_0x8004, HUB_AREA_SAFARI_ZONE)
+    //    special(Rogue_CheckHubConnectionDir)
+//
+    //    switch(var(VAR_RESULT))
+    //    {
+    //        case HUB_AREA_CONN_EAST:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_EAST)
+    //            break
+//
+    //        case HUB_AREA_CONN_SOUTH:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_SOUTH)
+    //            break
+//
+    //        case HUB_AREA_CONN_WEST:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_WEST)
+    //            break
+    //    }
+    //}
+
     if(flag(FLAG_ROGUE_LEFT_ON_RUN))
     {
         call(Rogue_ReturnAdventureInternal)
     }
-    setvar(VAR_RETURN_STATE, 1)
+    setvar(VAR_FRAME_STATE, 1)
 }
+
+script Rogue_Area_AdventureEntrance_SpeakRuinManiac
+{
+    lock
+    msgbox(format("Hmm…\nThose noises don't sound very good to me…"))
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacEast
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceRight)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkLeft)
+    waitmovement(0)
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacSouth
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceDown)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkUp)
+    waitmovement(0)
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacWest
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceLeft)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkRight)
+    waitmovement(0)
+    release
+}
+movement FaceDown
+{
+    face_down
+}
+
+movement FaceLeft
+{
+    face_left
+}
+
+movement FaceRight
+{
+    face_right
+}
+
 
 script Rogue_Area_AdventureEntrance_SpeakNurse
 {
@@ -97,7 +237,7 @@ script Rogue_StartAdventureInternal
         msgbox(format("Good luck {PLAYER}!"))
         closemessage
 
-        applymovement(NPC_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
+        applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
         applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayer)
         waitmovement(0)
 

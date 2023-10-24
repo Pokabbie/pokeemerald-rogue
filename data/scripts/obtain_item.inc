@@ -4,7 +4,7 @@
 Std_ObtainItem::
 	additem ITEMID, AMOUNT
 	copyvar VAR_0x8007, VAR_RESULT
-	call EventScript_ObtainItemMessage
+	@ call EventScript_ObtainItemMessage @ todo need to force popup dialogue here?
 	return
 
 EventScript_ObtainItemMessage::
