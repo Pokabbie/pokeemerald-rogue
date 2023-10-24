@@ -53,7 +53,6 @@ void RogueItemQuery_End();
 void RogueItemQuery_Reset(u8 func);
 void RogueItemQuery_IsItemActive();
 void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket);
-void RogueItemQuery_IsMedicine(u8 func);
 void RogueItemQuery_IsEvolutionItem(u8 func);
 void RogueItemQuery_IsGeneralShopItem(u8 func);
 void RogueItemQuery_IsHeldItem(u8 func);
@@ -95,47 +94,5 @@ u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updated
 void RogueListQuery_Begin();
 void RogueListQuery_End();
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort);
-
-
-// RogueQuery old API
-void RogueQuery_Clear(void);
-void RogueQuery_CollapseSpeciesBuffer(void);
-void RogueQuery_CollapseItemBuffer(void);
-u16* RogueQuery_BufferPtr(void);
-u16 RogueQuery_BufferSize(void);
-bool8 RogueQuery_CheckIncluded(u16 id);
-
-struct RogueQueryDebug RogueQuery_GetDebugData(void);
-
-// Uncollapsed queries are slow but can be used to query the entire range
-u16 RogueQuery_UncollapsedSpeciesSize(void);
-u16 RogueQuery_UncollapsedItemSize(void);
-u16 RogueQuery_AtUncollapsedIndex(u16 idx);
-
-u16 RogueQuery_PopCollapsedIndex(u16 idx);
-u16 RogueQuery_PopUncollapsedIndex(u16 idx);
-
-void RogueQuery_Include(u16 idx);
-void RogueQuery_IncludeRange(u16 fromId, u16 toId);
-void RogueQuery_Exclude(u16 idx);
-void RogueQuery_ExcludeAll(void);
-void RogueQuery_CustomSpecies(QueryCallback query, u16 usrData);
-void RogueQuery_CustomItems(QueryCallback query, u16 usrData);
-
-// Items
-void RogueQuery_ItemsIsValid(void);
-void RogueQuery_ItemsExcludeCommon(void);
-void RogueQuery_ItemsInPocket(u8 pocket);
-void RogueQuery_ItemsNotInPocket(u8 pocket);
-void RogueQuery_ItemsHeldItem(void);
-void RogueQuery_ItemsNotHeldItem(void);
-void RogueQuery_ItemsRareHeldItem(void);
-void RogueQuery_ItemsNotRareHeldItem(void);
-void RogueQuery_ItemsMedicine(void);
-void RogueQuery_ItemsNotMedicine(void);
-void RogueQuery_ItemsBattleEnchancer(void);
-void RogueQuery_ItemsNotBattleEnchancer(void);
-void RogueQuery_ItemsExcludeRange(u16 fromId, u16 toId);
-void RogueQuery_ItemsInPriceRange(u16 minPrice, u16 maxPrice);
 
 #endif
