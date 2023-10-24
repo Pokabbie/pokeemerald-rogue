@@ -52,6 +52,7 @@
 #include "constants/battle_string_ids.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
+#include "constants/layouts.h"
 #include "constants/map_types.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
@@ -14740,8 +14741,8 @@ void BattleDestroyYesNoCursorAt(u8 cursorPosition)
 
 static void Cmd_trygivecaughtmonnick(void)
 {
-    // Never ask for nicknames in wild safari
-    if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari())
+    // Never ask for nicknames in wild safari (unless in tutorial)
+    if(gMapHeader.mapLayoutId != LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL && (gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari()))
     {
         if (CalculatePlayerPartyCount() == PARTY_SIZE)
             gBattlescriptCurrInstr += 5;
