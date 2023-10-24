@@ -2937,7 +2937,7 @@ void BufferStringBattle(u16 stringID)
 
 u32 BattleStringExpandPlaceholdersToDisplayedString(const u8* src)
 {
-    BattleStringExpandPlaceholders(src, gDisplayedStringBattle);
+    BattleStringExpandPlaceholders(Rogue_ModifyBattleMessage(src), gDisplayedStringBattle);
 }
 
 static const u8* TryGetStatusString(u8 *src)

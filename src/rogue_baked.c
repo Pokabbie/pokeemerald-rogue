@@ -730,6 +730,8 @@ u16 Rogue_CalculateMovePrice(u16 move)
 #else
 
 extern const u8 gText_EscapeRopeDesc[];
+extern const u8 gItemDesc_TM[];
+extern const u8 gItemDesc_TR[];
 
 extern const u32 *const gItemIconTable[][2];
 
@@ -749,14 +751,13 @@ const u8* Rogue_GetItemDesc(u16 itemId)
 {
     itemId = SanitizeItemId(itemId);
 
-    // TODO - add default description for shops
     if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
     {
-
+        return gItemDesc_TM;
     }
     else if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
     {
-        return gRogueItems[ITEM_TR01 - ITEM_ROGUE_ITEM_FIRST].description;
+        return gItemDesc_TR;
     }
 
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
@@ -892,7 +893,13 @@ u16 Rogue_GetPrice(u16 itemId)
     if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
     {
         u16 move = ItemIdToBattleMoveId(itemId);
-        price = Rogue_CalculateMovePrice(move) * 4; // increase as these are re-usable
+        price = Rogue_CalculateMovePrice(move);
+
+        // increase as these are re-usable
+        if(Rogue_IsRunActive())
+            price *= 5;
+        else
+            price *= 10;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1368,55 +1375,55 @@ u16 Rogue_CalculateMovePrice(u16 move)
 
     // accuracy cost
     if(accuracy == 100 || accuracy == 0)
-        cost += 1000;
-    else if(accuracy >= 90)
         cost += 500;
+    else if(accuracy >= 90)
+        cost += 250;
     else if(accuracy >= 75)
-        cost += 400;
-    else if(accuracy >= 50)
         cost += 200;
+    else if(accuracy >= 50)
+        cost += 100;
 
     // pp cost
     if(pp <= 5)
-        cost += 2000;
-    else if(pp <= 10)
         cost += 1000;
-    else if(pp <= 20)
+    else if(pp <= 10)
         cost += 500;
+    else if(pp <= 20)
+        cost += 250;
     else if(pp <= 30)
-        cost += 200;
+        cost += 100;
 
     // power cost
     if(power == 0) // is status move
-        cost += 2000;
-    else if(power >= 110)
-        cost += 4000;
-    else if(power >= 100)
-        cost += 3000;
-    else if(power >= 90)
-        cost += 2000;
-    else if(power >= 70)
         cost += 1000;
-    else if(power >= 50)
+    else if(power >= 110)
+        cost += 2000;
+    else if(power >= 100)
+        cost += 1500;
+    else if(power >= 90)
+        cost += 1000;
+    else if(power >= 70)
         cost += 500;
+    else if(power >= 50)
+        cost += 250;
     else
-        cost += 300;
+        cost += 150;
 
     // Modify based on usage
     if(usageCount >= 300)
-        cost += 6000;
-    else if(usageCount >= 200)
-        cost += 5000;
-    else if(usageCount >= 100)
-        cost += 4000;
-    else if(usageCount >= 75)
-        cost += 4000;
-    else if(usageCount >= 50)
         cost += 3000;
-    else if(usageCount >= 20)
-        cost += 2000;
+    else if(usageCount >= 200)
+        cost += 2500;
     else if(usageCount >= 100)
+        cost += 2000;
+    else if(usageCount >= 75)
+        cost += 2000;
+    else if(usageCount >= 50)
+        cost += 1500;
+    else if(usageCount >= 20)
         cost += 1000;
+    else if(usageCount >= 100)
+        cost += 500;
 
     if(cost < 100)
         cost = 100;

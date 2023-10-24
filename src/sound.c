@@ -184,6 +184,8 @@ void PlayFanfareByFanfareNum(u8 fanfareNum)
     m4aMPlayStop(&gMPlayInfo_BGM);
     songNum = sFanfares[fanfareNum].songNum;
     sFanfareCounter = sFanfares[fanfareNum].duration;
+
+    songNum = Rogue_ModifyPlayFanfare(songNum);
     m4aSongNumStart(songNum);
 }
 
@@ -214,6 +216,7 @@ void StopFanfareByFanfareNum(u8 fanfareNum)
 void PlayFanfare(u16 songNum)
 {
     s32 i;
+    songNum = Rogue_ModifyPlayFanfare(songNum);
     for (i = 0; (u32)i < ARRAY_COUNT(sFanfares); i++)
     {
         if (sFanfares[i].songNum == songNum)
@@ -533,6 +536,8 @@ static void RestoreBGMVolumeAfterPokemonCry(void)
 
 void PlayBGM(u16 songNum)
 {
+    songNum = Rogue_ModifyPlayBGM(songNum);
+
     if (gDisableMusic)
         songNum = 0;
     if (songNum == MUS_NONE)
@@ -542,11 +547,13 @@ void PlayBGM(u16 songNum)
 
 void PlaySE(u16 songNum)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
 }
 
 void PlaySE12WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
     m4aMPlayImmInit(&gMPlayInfo_SE2);
@@ -556,6 +563,7 @@ void PlaySE12WithPanning(u16 songNum, s8 pan)
 
 void PlaySE1WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
     m4aMPlayPanpotControl(&gMPlayInfo_SE1, TRACKS_ALL, pan);
@@ -563,6 +571,7 @@ void PlaySE1WithPanning(u16 songNum, s8 pan)
 
 void PlaySE2WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE2);
     m4aMPlayPanpotControl(&gMPlayInfo_SE2, TRACKS_ALL, pan);

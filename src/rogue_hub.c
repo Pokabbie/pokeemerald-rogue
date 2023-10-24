@@ -210,6 +210,21 @@ u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
     return HUB_AREA_NONE;
 }
 
+u8 RogueHub_FindAreaInDir(u8 area, u8 connDir)
+{
+    if(RogueHub_HasAreaBuilt(area))
+    {
+        struct Coords8 pos;
+        pos.x = gRogueSaveBlock->hubMap.areaCoords[area].x;
+        pos.y = gRogueSaveBlock->hubMap.areaCoords[area].y;
+        IncrementCoordsByDirection(&pos, connDir);
+
+        return RogueHub_FindAreaAtCoord(pos.x, pos.y);
+    }
+
+    return HUB_AREA_NONE;
+}
+
 static bool8 CanAreaConnect(u8 area, u8 dir)
 {
     // If both warps aren't set to 0, this is a valid warp
@@ -273,6 +288,13 @@ static u8 GetAreaForLayout(u16 layout)
 {
     u8 area;
 
+    switch (layout)
+    {
+    case LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL:
+        layout = LAYOUT_ROGUE_AREA_SAFARI_ZONE;
+        break;
+    }
+
     for(area = HUB_AREA_FIRST; area < HUB_AREA_COUNT; ++area)
     {
         if(gRogueHubAreas[area].primaryMapLayout == layout)
@@ -285,73 +307,6 @@ static u8 GetAreaForLayout(u16 layout)
 u8 RogueHub_GetAreaFromCurrentMap()
 {
     return GetAreaForLayout(gMapHeader.mapLayoutId);
-}
-
-void RogueHub_GetAvaliableAreasToBuild(u8* outAreas, u8* outCount)
-{
-    u8 i;
-    u8 count = 0;
-    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
-
-    for(i = 0; i < HUB_AREA_COUNT; ++i)
-    {
-        // Avoid any bugs with self referenced map loops
-        if(i == currentArea)
-            continue;
-
-        if(!RogueHub_HasAreaBuilt(i) && RogueHub_HasAreaBuildRequirements(i))
-        {
-            outAreas[count++] = i;
-        }
-    }
-
-    *outCount = count;
-}
-
-void RogueHub_GetAvaliableDirectionsToBuild(u8 fromArea, u8 toArea, u8* outDirs, u8* outCount)
-{
-    u8 i;
-    u8 dir, invDir;
-    u8 count = 0;
-    u8 orderedDirs[] = 
-    {
-        HUB_AREA_CONN_NORTH,
-        HUB_AREA_CONN_EAST,
-        HUB_AREA_CONN_SOUTH,
-        HUB_AREA_CONN_WEST,
-    };
-
-    if(fromArea != HUB_AREA_NONE && toArea != HUB_AREA_NONE && fromArea != toArea)
-    {
-        for(i = 0; i < ARRAY_COUNT(orderedDirs); ++i)
-        {
-            dir = orderedDirs[i];
-            invDir = InvertConnDirection(dir);
-
-            if(RogueHub_AreaHasFreeConnection(fromArea, dir) && CanAreaConnect(toArea, invDir))
-            {
-                outDirs[count++] = dir;
-            }
-        }
-    }
-    
-    *outCount = count;
-}
-
-void RogueHub_GetAvaliableUpgrades(u8 area, u16* outUpgrades, u16* outUpgradeCount)
-{
-    u16 i;
-    u16 count = 0;
-
-    for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
-    {
-        if(gRogueHubUpgrades[i].targetArea == area && !RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i))
-        {
-            outUpgrades[count++] = i;
-        }
-    }
-
-    *outUpgradeCount = count;
 }
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
@@ -386,6 +341,12 @@ void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct 
             warp->mapGroup = gRogueHubAreas[warpArea].primaryMapGroup;
             warp->mapNum = gRogueHubAreas[warpArea].primaryMapNum;
             warp->warpId = gRogueHubAreas[warpArea].connectionWarps[enterDir][0];
+
+            if(gRogueHubAreas[warpArea].primaryMapLayout == LAYOUT_ROGUE_AREA_SAFARI_ZONE && VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+            {
+                warp->mapGroup = MAP_GROUP(ROGUE_AREA_SAFARI_ZONE_TUTORIAL);
+                warp->mapNum = MAP_NUM(ROGUE_AREA_SAFARI_ZONE_TUTORIAL);
+            }
         }
         else
         {
@@ -433,6 +394,7 @@ void RogueHub_ApplyMapMetatiles()
         break;
 
     case LAYOUT_ROGUE_AREA_SAFARI_ZONE:
+    case LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL:
         RogueHub_UpdateSafariAreaMetatiles();
         break;
 

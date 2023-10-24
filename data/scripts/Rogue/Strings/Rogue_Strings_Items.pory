@@ -33,6 +33,16 @@ text gItemDesc_BuildingSupplies
     format("Supplies used to create and upgrade buildings.")
 }
 
+text gItemDesc_TM
+{
+    format("Reusable machine for teaching {PKMN} one specific move.")
+}
+
+text gItemDesc_TR
+{
+    format("Single use machine for teaching {PKMN} one specific move.")
+}
+
 
 text gItemDesc_ShopPriceCharm
 {

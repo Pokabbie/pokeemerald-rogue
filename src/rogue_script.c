@@ -27,6 +27,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
+#include "rogue_hub.h"
 #include "rogue_safari.h"
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
@@ -972,4 +973,22 @@ void Rogue_SeedRng()
 {
     SeedRng(gMain.vblankCounter1);
     SeedRng2(gMain.vblankCounter2);
+}
+
+void Rogue_CheckHubConnectionDir()
+{
+    u8 dir;
+    u8 checkArea = gSpecialVar_0x8004;
+    u8 currentArea = RogueHub_GetAreaFromCurrentMap();
+
+    for(dir = HUB_AREA_CONN_SOUTH; dir < HUB_AREA_CONN_COUNT; ++dir)
+    {
+        if(RogueHub_FindAreaInDir(currentArea, dir) == checkArea)
+        {
+            gSpecialVar_Result = dir;
+            return;
+        }
+    }
+
+    gSpecialVar_Result = HUB_AREA_CONN_COUNT;
 }

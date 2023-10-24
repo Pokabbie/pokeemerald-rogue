@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "constants/layouts.h"
 #include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/songs.h"
@@ -243,13 +244,13 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
 void SetupFollowParterMonObjectEvent()
 {
-    bool8 shouldFollowMonBeVisible = TRUE;
+    bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER);
 
-    if(FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
+    if(shouldFollowMonBeVisible && FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
 
     // Don't show if on bike, surfing or riding mon
-    if(gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING))
+    if(shouldFollowMonBeVisible && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING)))
         shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible)
@@ -426,6 +427,10 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
 {
     struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
     
+    // Disable collision exemption for tutorial
+    //if(Rogue_InWildSafari() && VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    //    return FALSE;
+
     // If we're flying nothing can collide with the player
     if(Rogue_IsRideMonFlying())
         return obstacle == player || collider == player;
@@ -739,12 +744,8 @@ static u8 FindObjectEventForGfx(u16 gfxId)
 
 static bool8 InShinyAnimationRange(u8 objectEventId)
 {
-    if(Rogue_AreWildMonEnabled())
-    {
-        // Wild spawns instantly play animation
-        return TRUE;
-    }
-    else
+    // Only play anims if within range
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL || !Rogue_AreWildMonEnabled())
     {
         // Static spawns only play anim when you're close enough to see it
         s16 x, y;
@@ -755,6 +756,9 @@ static bool8 InShinyAnimationRange(u8 objectEventId)
 
         return abs(x) <= 4 && abs(y) <= 4;
     }
+
+    // Wild spawns instantly play animation
+    return TRUE;
 }
 
 void FollowMon_OverworldCB()

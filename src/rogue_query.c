@@ -1388,7 +1388,7 @@ void RogueMoveQuery_Reset(u8 func)
 
     ASSERT_MOVES_QUERY;
 
-    for(i = 0; i < QUERY_NUM_MOVES; ++i)
+    for(i = MOVE_NONE + 1; i < QUERY_NUM_MOVES; ++i)
     {
         if(func == QUERY_FUNC_INCLUDE)
         {

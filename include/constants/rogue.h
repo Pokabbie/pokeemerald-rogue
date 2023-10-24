@@ -414,6 +414,16 @@
 #define BATTLE_MUSIC_LEGENDARY_BATTLE       2
 #define BATTLE_MUSIC_UNKNOWN_START          3
 
+// Intro states for VAR_ROGUE_INTRO_STATE
+//
+#define ROGUE_INTRO_STATE_SPAWN                 0
+#define ROGUE_INTRO_STATE_EXPLORE               1
+#define ROGUE_INTRO_STATE_CATCH_MON             2
+#define ROGUE_INTRO_STATE_REPORT_TO_PROF        3
+#define ROGUE_INTRO_STATE_GO_ON_ADVENTURE       4
+#define ROGUE_INTRO_STATE_LEARN_TO_BUILD        5
+#define ROGUE_INTRO_STATE_COMPLETE              6
+
 // Misc.
 //
 // Number of bytes needed to cover all species

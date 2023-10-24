@@ -1670,6 +1670,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Area_Marts/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_Marts/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
+      "name": "Rogue_Area_SafariZone_Tutorial_Layout",
+      "width": 38,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Rogue_Area_SafariZone_Tutorial/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_SafariZone_Tutorial/map.bin"
     }
   ]
 }

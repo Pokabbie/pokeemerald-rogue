@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/abilities.h"
 #include "constants/battle.h"
+#include "constants/battle_string_ids.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
 #include "constants/hold_effects.h"
@@ -15,12 +16,16 @@
 #include "gba/isagbprint.h"
 
 #include "battle.h"
+#include "battle_util.h"
 #include "battle_setup.h"
 #include "berry.h"
 #include "event_data.h"
 #include "field_effect.h"
 #include "graphics.h"
 #include "item.h"
+#include "event_object_movement.h"
+#include "fieldmap.h"
+#include "field_player_avatar.h"
 #include "load_save.h"
 #include "malloc.h"
 #include "main.h"
@@ -317,6 +322,34 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     return volume;
 }
 
+u16 Rogue_ModifyPlayBGM(u16 songNum)
+{
+    if(!Rogue_IsRunActive())
+    {
+        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+        {
+            switch (songNum)
+            {
+            case MUS_LITTLEROOT:
+            case MUS_BIRCH_LAB:
+                songNum = MUS_HELP;
+                break;
+            }
+        }
+    }
+
+    return songNum;
+}
+
+u16 Rogue_ModifyPlaySE(u16 songNum)
+{
+    return songNum;
+}
+
+u16 Rogue_ModifyPlayFanfare(u16 songNum)
+{
+    return songNum;
+}
 
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
@@ -763,6 +796,22 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
             u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
             overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
+    }
+
+    return overrideStr != NULL ? overrideStr : str;
+}
+
+extern const u8* const gBattleStringsTable[];
+
+const u8* Rogue_ModifyBattleMessage(const u8* str)
+{
+    const u8* overrideStr = NULL;
+
+    if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari())
+    {
+        // Don't display "Would you like to nickname" msg
+        if(str == gBattleStringsTable[STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START])
+            overrideStr = gText_EmptyString2;
     }
 
     return overrideStr != NULL ? overrideStr : str;
@@ -1514,15 +1563,96 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
 struct StarterSelectionData
 {
     u16 species[3];
+    bool8 shinyState[3];
     u8 count;
 };
 
+#define TYPE_x0     0
+#define TYPE_x0_25  5
+#define TYPE_x0_50  10
+#define TYPE_x1     20
+#define TYPE_x2     40
+#define TYPE_x4     80
+
 int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
 
-static u8 SelectStartMons_CalculateWeight(u16 index, u16 species, void* data)
+static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
+{
+    int effectA;
+    s8 delta = 0;
+
+    effectA = GetMovePower(
+        MOVE_HIDDEN_POWER, 
+        gBaseStats[atkSpecies].type1,
+        gBaseStats[defSpecies].type1,
+        gBaseStats[defSpecies].type2,
+        gBaseStats[defSpecies].abilities[0],
+        0
+    );
+
+    switch (effectA)
+    {
+    case TYPE_x0:
+        return FALSE;
+        
+    case TYPE_x0_25:
+        delta -= 2;
+        break;
+    case TYPE_x0_50:
+        delta -= 1;
+        break;
+
+    case TYPE_x2:
+        delta += 1;
+        break;
+    case TYPE_x4:
+        delta += 2;
+        break;
+    }
+    
+    if(gBaseStats[atkSpecies].type1 != gBaseStats[atkSpecies].type2)
+    {
+        int effectB = GetMovePower(
+            MOVE_HIDDEN_POWER, 
+            gBaseStats[atkSpecies].type1,
+            gBaseStats[defSpecies].type1,
+            gBaseStats[defSpecies].type2,
+            gBaseStats[defSpecies].abilities[0],
+            0
+        );
+
+        switch (effectB)
+        {
+        case TYPE_x0:
+            return FALSE;
+
+        case TYPE_x0_25:
+            delta -= 2;
+            break;
+        case TYPE_x0_50:
+            delta -= 1;
+            break;
+
+        case TYPE_x2:
+            delta += 1;
+            break;
+        case TYPE_x4:
+            delta += 2;
+            break;
+        }
+    }
+
+    return delta > 0;
+}
+
+static bool8 IsSpeciesGoodAgainst(u16 atkSpecies, u16 defSpecies)
+{
+    return IsSpeciesGoodAgainstInternal(atkSpecies, defSpecies) && !IsSpeciesGoodAgainstInternal(defSpecies, atkSpecies);
+}
+
+static u8 SelectStarterMons_CalculateWeight(u16 index, u16 species, void* data)
 {
     u8 i;
-    u16 starterSpecies;
     struct StarterSelectionData* starters = (struct StarterSelectionData*)data;
     //u8 weight = 1;
 
@@ -1531,25 +1661,50 @@ static u8 SelectStartMons_CalculateWeight(u16 index, u16 species, void* data)
         // Don't dupe starters
         if(starters->species[i] == species)
             return 0;
-
-        starterSpecies = starters->species[i];
-
-        if(gBaseStats[starterSpecies].type1 == gBaseStats[species].type1 || gBaseStats[starterSpecies].type2 == gBaseStats[species].type1)
-            return 0;
-
-        if(gBaseStats[species].type1 != gBaseStats[species].type2)
-        {
-            if(gBaseStats[starterSpecies].type1 == gBaseStats[species].type2 || gBaseStats[starterSpecies].type2 == gBaseStats[species].type2)
-                return 0;
-        }
     }
 
-    // Only have weight if types don't overlap
+    switch (starters->count)
+    {
+    case 0:
+        // Do nothing
+        break;
+    case 1:
+        if(
+            IsSpeciesGoodAgainst(species, starters->species[0]) || IsSpeciesGoodAgainst(starters->species[0], species) ||
+            IsSpeciesGoodAgainst(starters->species[0], species) || IsSpeciesGoodAgainst(species, starters->species[0])
+        )
+        {
+            // We fit a type triangle so really prefer this!
+            return 255;
+        }
+        break;
+    case 2:
+        // We want to be good against one and the other is good against us
+        if(IsSpeciesGoodAgainst(species, starters->species[0]) && IsSpeciesGoodAgainst(starters->species[1], species))
+        {
+            // We fit a type triangle so really prefer this!
+            return 255;
+        }
+        if(IsSpeciesGoodAgainst(species, starters->species[1]) && IsSpeciesGoodAgainst(starters->species[0], species))
+        {
+            // We fit a type triangle so really prefer this!
+            return 255;
+        }
+        break;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    // Mediocre, but still allow for safety
     return 1;
 }
 
-static void SelectStartMons(bool8 isSeeded)
+static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
 {
+    struct StarterSelectionData starters;
+
     RogueMonQuery_Begin();
 
     RogueMonQuery_IsSpeciesActive();
@@ -1560,7 +1715,6 @@ static void SelectStartMons(bool8 isSeeded)
 
     {
         u8 i;
-        struct StarterSelectionData starters;
         starters.count = 0;
 
         RogueWeightQuery_Begin();
@@ -1570,9 +1724,10 @@ static void SelectStartMons(bool8 isSeeded)
             if(i == 0)
                 RogueWeightQuery_FillWeights(1);
             else
-                RogueWeightQuery_CalculateWeights(SelectStartMons_CalculateWeight, &starters);
+                RogueWeightQuery_CalculateWeights(SelectStarterMons_CalculateWeight, &starters);
 
             starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
+            starters.shinyState[i] = (Random() % Rogue_GetShinyOdds()) == 0;
             starters.count = i + 1;
         }
 
@@ -1589,6 +1744,8 @@ static void SelectStartMons(bool8 isSeeded)
     }
 
     RogueMonQuery_End();
+
+    return starters;
 }
 
 static void ClearPokemonHeldItems(void)
@@ -1687,7 +1844,6 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
     ClearBerryTrees();
-    SelectStartMons(FALSE);
 
     ResetQuestStateAfter(0);
     Rogue_ResetCampaignAfter(0);
@@ -2789,7 +2945,7 @@ void Rogue_OnWarpIntoMap(void)
 
 
     // Set new safari flag on entering area
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE)
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
     {
         FlagSet(FLAG_ROGUE_WILD_SAFARI);
         RogueSafari_ResetSpawns();
@@ -2812,6 +2968,14 @@ void Rogue_OnWarpIntoMap(void)
     else if((gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_HUB_ADVENTURE_ENTERANCE) && Rogue_IsRunActive())
     {
         EndRogueRun();
+    }
+    else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
+    {
+        // Generate starters now (Do it now, so config/pokedex settings can be used to limit starters moreso)
+        struct StarterSelectionData starter = SelectStarterMons(FALSE);
+        FollowMon_SetGraphics(0, starter.species[0], starter.shinyState[0]);
+        FollowMon_SetGraphics(1, starter.species[1], starter.shinyState[1]);
+        FollowMon_SetGraphics(2, starter.species[2], starter.shinyState[2]);
     }
 
     if(Rogue_IsRunActive())
@@ -3712,7 +3876,36 @@ void Rogue_Battle_EndWildBattle(void)
 
 void Rogue_Safari_EndWildBattle(void)
 {
-    if (gBattleOutcome == B_OUTCOME_CAUGHT)
+    if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        if(gBattleOutcome == B_OUTCOME_CAUGHT)
+        {
+            u8 i;
+
+            for(i = 0; i < gSaveBlock1Ptr->objectEventTemplatesCount; ++i)
+            {
+                // Hide all the mons and the NPC
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_MISC_RUIN_MANIAC || (gSaveBlock1Ptr->objectEventTemplates[i].graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && gSaveBlock1Ptr->objectEventTemplates[i].graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST))
+                {
+                    RemoveObjectEventByLocalIdAndMap(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+                    FlagSet(gSaveBlock1Ptr->objectEventTemplates[i].flagId);
+                }
+
+                // Move birch just above the player
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_PROF_BIRCH)
+                {
+                    SetObjEventTemplateCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
+                    TryMoveObjectEventToMapCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
+                }
+            }
+
+            // Birch may not have been in view, so force it to spawn
+            TrySpawnObjectEvents(gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
+
+            VarSet(VAR_ROGUE_INTRO_STATE, VarGet(VAR_ROGUE_INTRO_STATE) + 1);
+        }
+    }
+    else if (gBattleOutcome == B_OUTCOME_CAUGHT)
     {
         u8 safariIndex = RogueSafari_GetPendingBattleMonIdx();
         RogueSafari_ClearSafariMonAtIdx(safariIndex);
@@ -4398,32 +4591,47 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
 {
     if(Rogue_InWildSafari())
     {
-        u32 value;
-        struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
-
-        AGB_ASSERT(safariMon != NULL);
-        if(safariMon != NULL)
+        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
         {
-            u8 text[POKEMON_NAME_LENGTH + 1];
-            u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+            // Do nothing in intro i.e. generate IVs moves etc normally
 
-            RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
-
-            // Make baby form
-            if(eggSpecies != safariMon->species)
+            // If player has tried to be smart and thrown away pokeball, silently give them another ;)
+            if(!CheckBagHasItem(ITEM_POKE_BALL, 1))
             {
-                SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
-                GetMonData(mon, MON_DATA_NICKNAME, text);
-
-                if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
-                {
-                    // Doesn't have a nickname so update to match species name
-                    StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
-                    SetMonData(mon, MON_DATA_NICKNAME, text);
-                }
+                AddBagItem(ITEM_POKE_BALL, 1);
+                Rogue_ClearPopupQueue();
             }
+            return;
+        }
+        else
+        {
+            u32 value;
+            struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
 
-            CalculateMonStats(mon);
+            AGB_ASSERT(safariMon != NULL);
+            if(safariMon != NULL)
+            {
+                u8 text[POKEMON_NAME_LENGTH + 1];
+                u16 eggSpecies = Rogue_GetEggSpecies(safariMon->species);
+
+                RogueSafari_CopyFromSafariMon(safariMon, &mon->box);
+
+                // Make baby form
+                if(eggSpecies != safariMon->species)
+                {
+                    SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
+                    GetMonData(mon, MON_DATA_NICKNAME, text);
+
+                    if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
+                    {
+                        // Doesn't have a nickname so update to match species name
+                        StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
+                        SetMonData(mon, MON_DATA_NICKNAME, text);
+                    }
+                }
+
+                CalculateMonStats(mon);
+            }
         }
     }
     else
@@ -5561,6 +5769,7 @@ static void RandomiseTRMoves()
         {
             AGB_ASSERT(RogueWeightQuery_HasAnyWeights());
             gRogueRun.dynamicTRMoves[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+            AGB_ASSERT(gRogueRun.dynamicTRMoves[i] != MOVE_NONE);
         }
     }
     RogueWeightQuery_End();

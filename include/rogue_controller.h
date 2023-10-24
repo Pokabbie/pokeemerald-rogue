@@ -33,6 +33,10 @@ bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
 
 u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType);
+u16 Rogue_ModifyPlayBGM(u16 songNum);
+u16 Rogue_ModifyPlaySE(u16 songNum);
+u16 Rogue_ModifyPlayFanfare(u16 songNum);
+
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage);
 s16 Rogue_ModifyBattleSlideAnim(s16 rate);
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money);
@@ -49,6 +53,7 @@ void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 void Rogue_ModifyBattlePalette(u16 offset, u16 count);
 
 const u8* Rogue_ModifyFieldMessage(const u8* str);
+const u8* Rogue_ModifyBattleMessage(const u8* str);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);

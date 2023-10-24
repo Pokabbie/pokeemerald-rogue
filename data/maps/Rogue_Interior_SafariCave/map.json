@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_INTERIOR_SAFARI_CAVE",
   "name": "Rogue_Interior_SafariCave",
   "layout": "LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE",
-  "music": "MUS_CAVE_OF_ORIGIN",
+  "music": "MUS_SEALED_CHAMBER",
   "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

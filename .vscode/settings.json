@@ -84,5 +84,9 @@
         "xstddef": "cpp",
         "csignal": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "languageServerPoryscript.commandIncludes": [
+        "asm/macros/event.inc",
+        "asm/macros/movement.inc"
+    ]
 }
