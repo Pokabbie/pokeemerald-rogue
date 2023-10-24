@@ -1205,6 +1205,33 @@ void RogueItemQuery_IsGeneralShopItem(u8 func)
     }
 }
 
+void RogueItemQuery_IsHeldItem(u8 func)
+{
+    u16 itemId;
+    ASSERT_ITEM_QUERY;
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(ItemId_GetHoldEffect(itemId) == HOLD_EFFECT_NONE)
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(ItemId_GetHoldEffect(itemId) != HOLD_EFFECT_NONE)
+                {
+                    SetQueryBitFlag(itemId, FALSE);
+                }
+            }
+        }
+    }
+}
+
 // TRAINER QUERY
 //
 
@@ -2095,6 +2122,7 @@ void RogueQuery_ItemsExcludeCommon(void)
     RogueQuery_Exclude(ITEM_RARE_CANDY);
     RogueQuery_Exclude(ITEM_HEART_SCALE);
     RogueQuery_Exclude(ITEM_LUCKY_EGG);
+    RogueQuery_Exclude(ITEM_EVERSTONE);
 
     RogueQuery_ItemsExcludeRange(FIRST_MAIL_INDEX, LAST_MAIL_INDEX);
     RogueQuery_ItemsExcludeRange(ITEM_RED_SCARF, ITEM_YELLOW_SCARF);

@@ -56,6 +56,7 @@ void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket);
 void RogueItemQuery_IsMedicine(u8 func);
 void RogueItemQuery_IsEvolutionItem(u8 func);
 void RogueItemQuery_IsGeneralShopItem(u8 func);
+void RogueItemQuery_IsHeldItem(u8 func);
 void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice);
 
 // Traine Query
