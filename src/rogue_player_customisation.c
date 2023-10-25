@@ -324,7 +324,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_HILBERT] =
     {
         .name = _("Hilbert"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_HILBERT,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
@@ -335,21 +335,22 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerHilbertBase,
         .objectEventLayerPal = gObjectEventPal_PlayerHilbertLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerHilbertFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerHilbertFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
             [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
+
     },
     [PLAYER_OUTFIT_HILDA] =
     {
         .name = _("Hilda"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_HILDA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
@@ -360,10 +361,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerHildaBase,
         .objectEventLayerPal = gObjectEventPal_PlayerHildaLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerHildaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerHildaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -375,7 +376,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_NATE] =
     {
         .name = _("Nate"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_NATE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
         .hasSpritingAnims = FALSE,
@@ -386,10 +387,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerNateBase,
         .objectEventLayerPal = gObjectEventPal_PlayerNateLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerNateFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerNateFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -400,7 +401,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_ROSA] =
     {
         .name = _("Rosa"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_ROSA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
@@ -411,10 +412,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerRosaBase,
         .objectEventLayerPal = gObjectEventPal_PlayerRosaLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerRosaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerRosaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -426,7 +427,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_CALEM] =
     {
         .name = _("Calem"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_CALEM,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
@@ -437,10 +438,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerCalemBase,
         .objectEventLayerPal = gObjectEventPal_PlayerCalemLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerCalemFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerCalemFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -451,7 +452,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_SERENA] =
     {
         .name = _("Serena"),
-        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerFrontPic = TRAINER_PIC_SERENA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
@@ -462,10 +463,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerSerenaBase,
         .objectEventLayerPal = gObjectEventPal_PlayerSerenaLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
-        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
-        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerSerenaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerSerenaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,

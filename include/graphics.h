@@ -2966,6 +2966,12 @@ extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
 extern const u32 gTrainerFrontPic_Lucas[];
 extern const u32 gTrainerFrontPic_Dawn[];
+extern const u32 gTrainerFrontPic_Hilbert[];
+extern const u32 gTrainerFrontPic_Hilda[];
+extern const u32 gTrainerFrontPic_Nate[];
+extern const u32 gTrainerFrontPic_Rosa[];
+extern const u32 gTrainerFrontPic_Calem[];
+extern const u32 gTrainerFrontPic_Serena[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -3198,6 +3204,21 @@ extern const u32 gTrainerPalette_PlayerDawnFrontBase[];
 extern const u32 gTrainerPalette_PlayerDawnFrontLayers[];
 extern const u32 gTrainerPalette_PlayerDawnBackBase[];
 extern const u32 gTrainerPalette_PlayerDawnBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerHilbertFrontBase[];
+extern const u32 gTrainerPalette_PlayerHilbertFrontLayers[];
+extern const u32 gTrainerPalette_PlayerHildaFrontBase[];
+extern const u32 gTrainerPalette_PlayerHildaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerNateFrontBase[];
+extern const u32 gTrainerPalette_PlayerNateFrontLayers[];
+extern const u32 gTrainerPalette_PlayerRosaFrontBase[];
+extern const u32 gTrainerPalette_PlayerRosaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
+extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];

@@ -181,30 +181,36 @@
 
 #define TRAINER_PIC_LUCAS                 151
 #define TRAINER_PIC_DAWN                  152
+#define TRAINER_PIC_HILBERT               153
+#define TRAINER_PIC_HILDA                 154
+#define TRAINER_PIC_NATE                  155
+#define TRAINER_PIC_ROSA                  156
+#define TRAINER_PIC_CALEM                 157
+#define TRAINER_PIC_SERENA                158
 
-#define TRAINER_PIC_POKABBIE              153
-#define TRAINER_PIC_POKABBIE_JUST_DITTO   154 // Just used for battle transition
-#define TRAINER_PIC_POKABBIE_AND_DITTO    155
-#define TRAINER_PIC_GLITCH_KATE           156
-#define TRAINER_PIC_GLITCH_TAILS          157
-#define TRAINER_PIC_GLITCH_ERMA           158
+#define TRAINER_PIC_POKABBIE              159
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   160 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    161
+#define TRAINER_PIC_GLITCH_KATE           162
+#define TRAINER_PIC_GLITCH_TAILS          163
+#define TRAINER_PIC_GLITCH_ERMA           164
 
-#define TRAINER_PIC_RIVAL_BRENDAN         159
-#define TRAINER_PIC_RIVAL_MAY             160
-#define TRAINER_PIC_RIVAL_SILVER          161
-#define TRAINER_PIC_RIVAL_BARRY           162
-#define TRAINER_PIC_RIVAL_BIANCA          163
-#define TRAINER_PIC_RIVAL_CHEREN          164
-#define TRAINER_PIC_RIVAL_N               165
-#define TRAINER_PIC_RIVAL_HUGH            166
-#define TRAINER_PIC_RIVAL_SHAUNA          167
-#define TRAINER_PIC_RIVAL_TREVOR          168
-#define TRAINER_PIC_RIVAL_TIERNO          169
-#define TRAINER_PIC_RIVAL_HAU             170
-#define TRAINER_PIC_RIVAL_GLADION         171
-#define TRAINER_PIC_RIVAL_HOP             172
-#define TRAINER_PIC_RIVAL_MARNIE          173
-#define TRAINER_PIC_RIVAL_BEDE            174
+#define TRAINER_PIC_RIVAL_BRENDAN         165
+#define TRAINER_PIC_RIVAL_MAY             166
+#define TRAINER_PIC_RIVAL_SILVER          167
+#define TRAINER_PIC_RIVAL_BARRY           168
+#define TRAINER_PIC_RIVAL_BIANCA          169
+#define TRAINER_PIC_RIVAL_CHEREN          170
+#define TRAINER_PIC_RIVAL_N               171
+#define TRAINER_PIC_RIVAL_HUGH            172
+#define TRAINER_PIC_RIVAL_SHAUNA          173
+#define TRAINER_PIC_RIVAL_TREVOR          174
+#define TRAINER_PIC_RIVAL_TIERNO          175
+#define TRAINER_PIC_RIVAL_HAU             176
+#define TRAINER_PIC_RIVAL_GLADION         177
+#define TRAINER_PIC_RIVAL_HOP             178
+#define TRAINER_PIC_RIVAL_MARNIE          179
+#define TRAINER_PIC_RIVAL_BEDE            180
 
 
 // Special cases
