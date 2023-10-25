@@ -5136,8 +5136,18 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     }
 #endif
 
-
     return 1;
+}
+
+static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species, void* data)
+{
+    // For the 1st encounter, we ensure we will have a mon of that typ
+    u8 typeHint = *((u8*)data);
+
+    if(gBaseStats[species].type1 == typeHint || gBaseStats[species].type1 == typeHint)
+        return RandomiseWildEncounters_CalculateWeight(index, species, NULL);
+    else
+        return 0;
 }
 
 static void RandomiseWildEncounters(void)
@@ -5166,12 +5176,34 @@ static void RandomiseWildEncounters(void)
 
     {
         u8 i;
+        u8 typeHint = Rogue_GetTypeForHintForRoom(&gRogueAdvPath.rooms[gRogueRun.adventureRoomId]);
         RogueWeightQuery_Begin();
 
-        RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+        // Initial query will only allow mons of type hint
+        RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateInitialWeight, &typeHint);
 
         for(i = 0; i < WILD_ENCOUNTER_GRASS_CAPACITY; ++i)
         {
+            if(i == 0)
+            {
+                if(RogueWeightQuery_HasAnyWeights())
+                {
+                    // We actually have a mon of this type
+                    gRogueRun.wildEncounters.species[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+
+                    // Reroll query to allow anything now
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.wildEncounters.species[i]);
+                    RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+                    continue;
+                }
+                else
+                {
+                    // Reroll query to allow anything and fallback to below (Can hit here if no mon of hint type e.g. gen 1 on dark hint route)
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.wildEncounters.species[i]);
+                    RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+                }
+            }
+
             if(RogueWeightQuery_HasAnyWeights())
                 gRogueRun.wildEncounters.species[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
             else

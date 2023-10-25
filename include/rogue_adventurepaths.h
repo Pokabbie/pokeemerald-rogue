@@ -15,6 +15,7 @@ void RogueAdv_GenerateNextPath();
 void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 bool8 RogueAdv_CanUseEscapeRope(void);
 
+u8 Rogue_GetTypeForHintForRoom(struct RogueAdvPathRoom const* room);
 void RogueAdv_GetLastInteractedRoomParams();
 void RogueAdv_WarpLastInteractedRoom();
 

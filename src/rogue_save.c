@@ -201,7 +201,6 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     SerializeData(stream, &gRogueRun, sizeof(gRogueRun));
 
     SerializeData(stream, &gRogueAdvPath.currentRoomParams, sizeof(gRogueAdvPath.currentRoomParams));
-    SerializeData(stream, &gRogueAdvPath.currentRoomId, sizeof(gRogueAdvPath.currentRoomId));
     SerializeData(stream, &gRogueAdvPath.currentRoomType, sizeof(gRogueAdvPath.currentRoomType));
 }
 
