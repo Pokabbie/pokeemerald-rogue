@@ -130,6 +130,23 @@ static const struct OamData sOamData_Icons =
     .affineParam = 0,
 };
 
+static const struct OamData sOamData_IconsNPC1 =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(16x16),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(16x16),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 2,
+    .affineParam = 0,
+};
+
 static const struct SpriteFrameImage sSpriteImageTable_ExclamationQuestionMark[] =
 {
     {
@@ -172,7 +189,7 @@ static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
 {
     .tileTag = TAG_NONE,
     .paletteTag = TAG_NONE,
-    .oam = &sOamData_Icons,
+    .oam = &sOamData_IconsNPC1,
     .anims = sSpriteAnimTable_Icons,
     .images = sSpriteImageTable_ExclamationQuestionMark,
     .affineAnims = gDummySpriteAffineAnimTable,

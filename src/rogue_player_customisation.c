@@ -275,7 +275,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Lucas"),
         .trainerFrontPic = TRAINER_PIC_LUCAS,
         .trainerBackPic = TRAINER_BACK_PIC_LUCAS,
-        .bagVariant = BAG_GFX_VARIANT_RED_SILVER,
+        .bagVariant = BAG_GFX_VARIANT_RED,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
