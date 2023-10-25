@@ -4100,6 +4100,10 @@ extern const u32 gBagKantoMaleTiles[];
 extern const u32 gBagKantoFemaleTiles[];
 extern const u32 gBagKantoPalette[];
 extern const u32 gBagJohtoPalette[];
+extern const u32 gBagKantoBlackPalette[];
+extern const u32 gBagKantoPinkPalette[];
+extern const u32 gBagHoennSilverPalette[];
+extern const u32 gBagHoennBlackPalette[];
 extern const u32 gBerryCheckCircle_Gfx[];
 
 //intro graphics

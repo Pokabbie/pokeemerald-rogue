@@ -224,7 +224,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Ethan"),
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
-        .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -249,7 +249,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Lyra"),
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -275,7 +275,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Lucas"),
         .trainerFrontPic = TRAINER_PIC_LUCAS,
         .trainerBackPic = TRAINER_BACK_PIC_LUCAS,
-        .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_RED_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -326,7 +326,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Hilbert"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -351,7 +351,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Hilda"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -377,7 +377,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Nate"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -402,7 +402,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Rosa"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -428,7 +428,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Calem"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -453,7 +453,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Serena"),
         .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -479,7 +479,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Pokabbie"),
         .trainerFrontPic = TRAINER_PIC_POKABBIE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -498,7 +498,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Kate"),
         .trainerFrontPic = TRAINER_PIC_GLITCH_KATE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
