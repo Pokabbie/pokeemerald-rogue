@@ -532,15 +532,15 @@ static const struct KnownColour sKnownColours_Appearance[] =
 
     {
         .name = _("A"),
-        .colour = RGB_255(254, 227, 212),
+        .colour = RGB_255(94, 55, 46),
     },
     {
         .name = _("B"),
-        .colour = RGB_255(255, 219, 172),
+        .colour = RGB_255(141, 85, 36),
     },
     {
         .name = _("C"),
-        .colour = RGB_255(241, 194, 125),
+        .colour = RGB_255(198, 134, 66),
     },
     {
         .name = _("D"),
@@ -548,15 +548,15 @@ static const struct KnownColour sKnownColours_Appearance[] =
     },
     {
         .name = _("E"),
-        .colour = RGB_255(198, 134, 66),
+        .colour = RGB_255(241, 194, 125),
     },
     {
         .name = _("F"),
-        .colour = RGB_255(141, 85, 36),
+        .colour = RGB_255(255, 219, 172),
     },
     {
         .name = _("G"),
-        .colour = RGB_255(94, 55, 46),
+        .colour = RGB_255(254, 227, 212),
     },
 };
 
@@ -728,19 +728,6 @@ const u8* RoguePlayer_GetOutfitName()
     return GetCurrentOutfit()->name;
 }
 
-static s8 WrapRange(s8 value, s8 minVal, s8 maxVal)
-{
-    s8 range = maxVal - minVal;
-
-    while(value < minVal)
-        value += range;
-
-    while(value > maxVal)
-        value -= range;
-
-    return value;
-}
-
 static s8 ClampRange(s8 value, s8 minVal, s8 maxVal)
 {
     return min(maxVal, max(minVal, value));
@@ -789,23 +776,25 @@ void RoguePlayer_IncrementOutfitStyleByName(u8 styleId, s8 delta)
 {
     const struct KnownColour* knownColours = GetKnownColourArray(styleId);
     u16 knownColourCount = GetKnownColourArrayCount(styleId);
-    s8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
+    u8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
 
-    while(TRUE)
+    do
     {
-        idx = WrapRange(idx + delta, 0, knownColourCount - 1);
-
-        // Update the style colour
-        if(knownColours[idx].isCustomColour)
+        if(delta == -1)
         {
-            // ignore this
+            if(idx == 0)
+                idx = knownColourCount - 1;
+            else
+                --idx;
         }
         else
         {
-            RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
-            break;
+            idx = (idx + 1) % knownColourCount;
         }
     }
+    while(knownColours[idx].isCustomColour);
+
+    RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
 }
 
 bool8 RoguePlayer_HasSpritingAnim()
