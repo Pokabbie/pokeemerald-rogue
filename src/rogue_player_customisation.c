@@ -53,7 +53,13 @@ enum
     PLAYER_OUTFIT_MAY,
     PLAYER_OUTFIT_LUCAS,
     PLAYER_OUTFIT_DAWN,
-    
+    PLAYER_OUTFIT_HILBERT,
+    PLAYER_OUTFIT_HILDA,
+    PLAYER_OUTFIT_NATE,
+    PLAYER_OUTFIT_ROSA,
+    PLAYER_OUTFIT_CALEM,
+    PLAYER_OUTFIT_SERENA,
+
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
     PLAYER_OUTFIT_KATE,
@@ -85,6 +91,22 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasNormal
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HilbertNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HilbertRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HildaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HildaRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NateNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NateRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RosaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RosaRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRiding;
+
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
@@ -296,6 +318,159 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
             [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+
+    [PLAYER_OUTFIT_HILBERT] =
+    {
+        .name = _("Hilbert"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_HilbertNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_HilbertRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerHilbertBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerHilbertLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_HILDA] =
+    {
+        .name = _("Hilda"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_HildaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_HildaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerHildaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerHildaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    
+    [PLAYER_OUTFIT_NATE] =
+    {
+        .name = _("Nate"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_NateNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_NateRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerNateBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerNateLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_ROSA] =
+    {
+        .name = _("Rosa"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_RosaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RosaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerRosaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerRosaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    
+    [PLAYER_OUTFIT_CALEM] =
+    {
+        .name = _("Calem"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_CalemNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_CalemRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerCalemBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerCalemLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_SERENA] =
+    {
+        .name = _("Serena"),
+        .trainerFrontPic = TRAINER_PIC_PLACEHOLDER_NPC,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_SerenaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_SerenaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerSerenaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerSerenaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerDawnFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerDawnFrontLayers,
+        .trainerBackBasePal = gTrainerPalette_PlayerDawnBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerDawnBackLayers,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
         }
     },
 

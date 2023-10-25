@@ -5258,15 +5258,28 @@ extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
 
 extern const u16 gObjectEventPal_PlayerEthanBase[];
 extern const u16 gObjectEventPal_PlayerEthanLayers[];
-
 extern const u16 gObjectEventPal_PlayerLyraBase[];
 extern const u16 gObjectEventPal_PlayerLyraLayers[];
 
 extern const u16 gObjectEventPal_PlayerLucasBase[];
 extern const u16 gObjectEventPal_PlayerLucasLayers[];
-
 extern const u16 gObjectEventPal_PlayerDawnBase[];
 extern const u16 gObjectEventPal_PlayerDawnLayers[];
+
+extern const u16 gObjectEventPal_PlayerHilbertBase[];
+extern const u16 gObjectEventPal_PlayerHilbertLayers[];
+extern const u16 gObjectEventPal_PlayerHildaBase[];
+extern const u16 gObjectEventPal_PlayerHildaLayers[];
+
+extern const u16 gObjectEventPal_PlayerNateBase[];
+extern const u16 gObjectEventPal_PlayerNateLayers[];
+extern const u16 gObjectEventPal_PlayerRosaBase[];
+extern const u16 gObjectEventPal_PlayerRosaLayers[];
+
+extern const u16 gObjectEventPal_PlayerCalemBase[];
+extern const u16 gObjectEventPal_PlayerCalemLayers[];
+extern const u16 gObjectEventPal_PlayerSerenaBase[];
+extern const u16 gObjectEventPal_PlayerSerenaLayers[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
