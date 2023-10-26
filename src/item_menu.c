@@ -2527,6 +2527,16 @@ bool8 UseRegisteredKeyItemOnField(void)
         func = Task_KeyItemWheel;
     // Use the only registered item
     }
+    else if(i == 1)
+    {
+        for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
+            if (gSaveBlock1Ptr->registeredItems[i] != ITEM_NONE)
+            {
+                func = ItemId_GetFieldFunc(gSaveBlock1Ptr->registeredItems[i]);
+                break;
+            }
+    }
+
     if (func) 
     {
         ScriptContext2_Enable();
