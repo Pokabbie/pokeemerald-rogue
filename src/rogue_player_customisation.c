@@ -70,6 +70,7 @@ enum
 static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfit, const u32* basePalSrc, const u32* layerPalSrc);
+static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer);
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerColour, u16 inputColour);
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanNormal;
@@ -292,7 +293,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
     [PLAYER_OUTFIT_DAWN] =
@@ -566,6 +567,10 @@ static const struct KnownColour sKnownColours_Clothes[] =
         .name = _("Custom"),
         .colour = RGB_255(0, 0, 0),
         .isCustomColour = TRUE,
+    },
+    {
+        .name = _("Official"),
+        .colour = RGB_255(0, 0, 0) | RGB_ALPHA,
     },
 
     {
@@ -924,7 +929,7 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
             {
                 layerMask = sLayerMaskColours[l];
 
-                if(layerCol == layerMask && outfit->supportedLayers[l] == TRUE)
+                if(layerCol == layerMask && ShouldModifyColourLayer(outfit, l) == TRUE)
                 {
                     // Expect the whitepoint to already be in greyscale
                     baseCol = ModifyColourLayer(outfit, l, layerWhitePoint[l], GreyScaleColour(baseCol));
@@ -961,11 +966,24 @@ static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfi
 
 #define COLOR_TRANSFORM_MULTIPLY_CHANNEL(value, whitePoint, target) min(31, ((((u16)value) * (u16)target) / (u16)whitePoint))
 
+static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer)
+{
+    if(outfit->supportedLayers[layer] == TRUE)
+    {
+        u16 targetColour = RoguePlayer_GetOutfitStyle(layer);
+
+        // If alpha, just use input colour
+        if((targetColour & RGB_ALPHA) != 0)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerWhitePoint, u16 inputColour)
 {
     u8 r, g, b;
     u16 targetColour = RoguePlayer_GetOutfitStyle(layer);
-
     r = GET_R(inputColour);
     g = GET_G(inputColour);
     b = GET_B(inputColour);
