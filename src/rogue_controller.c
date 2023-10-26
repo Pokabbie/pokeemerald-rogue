@@ -3494,7 +3494,12 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                 else
                     hasMonFainted = TRUE;
 
-                RogueSafari_PushMon(&gPlayerParty[read]);
+
+                // Only push mons if run is active
+                if(Rogue_IsRunActive())
+                {
+                    RogueSafari_PushMon(&gPlayerParty[read]);
+                }
 
                 if(canSendToLab)
                     PushFaintedMonToLab(&gPlayerParty[read]);

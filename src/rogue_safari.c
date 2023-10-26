@@ -37,26 +37,22 @@ void RogueSafari_PushMon(struct Pokemon* mon)
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    // Only push mons if run is active
-    if(Rogue_IsRunActive())
+    u8 index = AllocSafariMonSlot();
+    struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
+
+    ZeroSafariMon(writeMon);
+    RogueSafari_CopyToSafariMon(monToCopy, writeMon);
+
+    writeMon->priorityCounter = 1;
+
+    if(writeMon->shinyFlag)
     {
-        u8 index = AllocSafariMonSlot();
-        struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
-
-        ZeroSafariMon(writeMon);
-        RogueSafari_CopyToSafariMon(monToCopy, writeMon);
-
-        writeMon->priorityCounter = 1;
-
-        if(writeMon->shinyFlag)
-        {
-            // Shinies will last much longer than regular mons
-            writeMon->priorityCounter += 10;
-        }
-
-        // TODO - Handle legends?
-        // TODO - Track if mon used in major fights (or lots of fights)
+        // Shinies will last much longer than regular mons
+        writeMon->priorityCounter += 10;
     }
+
+    // TODO - Handle legends?
+    // TODO - Track if mon used in major fights (or lots of fights)
 }
 
 static void ZeroSafariMon(struct RogueSafariMon* mon)
