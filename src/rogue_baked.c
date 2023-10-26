@@ -778,18 +778,16 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
 {
     itemId = SanitizeItemId(itemId);
 
-    // TMs are visually HMs to indicate infinite usage?
-    if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    if((itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
     {
         if(which == 0)
-            return gItemIcon_HM;
-        else
-            return gItemIconTable[itemId][which];
-    }
-    else if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
-    {
-        if(which == 0)
-            return gItemIcon_TM;
+        {
+            // TMs are visually HMs to indicate infinite usage?
+            if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+                return gItemIcon_TM;
+            else
+                return gItemIcon_HM;
+        }
         else
         {
             u16 move = ItemIdToBattleMoveId(itemId);
