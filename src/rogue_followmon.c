@@ -573,6 +573,20 @@ static bool8 IsSpawningWaterMons()
     return Rogue_IsRideMonSwimming() || (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER));
 }
 
+static u8 CountActiveObjectEvents()
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < OBJECT_EVENTS_COUNT; ++i)
+    {
+        if(gObjectEvents[i].active)
+            ++count;
+    }
+
+    return count;
+}
+
 static u16 NextSpawnMonSlot()
 {
     u16 slot;
@@ -597,8 +611,21 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    // Remove any existing id by this slot
-    RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    // Allow spawns over existing mons, but attempt to cap new spawns
+    if (GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup) != OBJECT_EVENTS_COUNT)
+    {
+        // Remove any existing id by this slot
+        RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    }
+    else
+    {
+        // We'd be spawning into an unused slot, so check that we don't have too many sprites on screen before spawning
+        // (lag reduction)
+        if(CountActiveObjectEvents() >= FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT)
+        {
+            return INVALID_SPAWN_SLOT;
+        }
+    }
 
     if(Rogue_InWildSafari())
     {
