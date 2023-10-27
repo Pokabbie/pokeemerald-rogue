@@ -421,7 +421,6 @@ SECTIONS {
         *libgcc.a:_lshrdi3.o(.text);
         *libgcc.a:_negdi2.o(.text);
         *libc.a:memcpy.o(.text);
-        *libc.a:memcmp.o(.text);
         *libc.a:memset.o(.text);
         *libc.a:strcmp.o(.text);
         *libc.a:strcpy.o(.text);
