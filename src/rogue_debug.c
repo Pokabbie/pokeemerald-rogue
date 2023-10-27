@@ -32,19 +32,42 @@ void RogueDebug_MainCB(void)
 struct MemoryStompTracker
 {
     void const* watchPtr;
-    void* compareValue;
+    u8 compareValue[16];
     size_t watchSize;
 };
 
 static EWRAM_DATA struct MemoryStompTracker sMemoryStompTracker = {0};
 
+// memcpy was acting weirdly, so use this as an alternative
+
+static void ManualCopy(void* dst, void const* src, size_t size)
+{
+    size_t i;
+    u8* dst8 = (u8*)dst;
+    u8 const* src8 = (u8 const*)src;
+
+    for(i = 0; i < size; ++i)
+        dst8[i] = src8[i];
+}
+
+static bool8 ManualCompare(void const* dst, void const* src, size_t size)
+{
+    size_t i;
+    u8 const* dst8 = (u8*)dst;
+    u8 const* src8 = (u8 const*)src;
+
+    for(i = 0; i < size; ++i)
+    {
+        if(dst8[i] != src8[i])
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 void RogueMemStomp_SetTarget(void const* ptr, size_t size)
 {
-    if(sMemoryStompTracker.compareValue != NULL)
-    {
-        free(sMemoryStompTracker.compareValue);
-        sMemoryStompTracker.compareValue = NULL;
-    }
+    AGB_ASSERT(size < ARRAY_COUNT(sMemoryStompTracker.compareValue));
 
     if(ptr == NULL || size == 0)
     {
@@ -54,13 +77,11 @@ void RogueMemStomp_SetTarget(void const* ptr, size_t size)
     }
     else
     {
-        DebugPrintf("MemStomp: Tracking %p (size: %d)", ptr, size);
+        DebugPrintf("MemStomp: Tracking %x (size: %d)", ptr, size);
         sMemoryStompTracker.watchPtr = ptr;
         sMemoryStompTracker.watchSize = size;
 
-        sMemoryStompTracker.compareValue = malloc(size);
-
-        memcpy(sMemoryStompTracker.compareValue, ptr, size);
+        ManualCopy(sMemoryStompTracker.compareValue, ptr, size);
     }
 
     // Poll on initial set
@@ -71,7 +92,7 @@ void RogueMemStomp_Poll()
 {
     if(sMemoryStompTracker.watchPtr != NULL)
     {
-        AGB_ASSERT(memcmp(sMemoryStompTracker.compareValue, sMemoryStompTracker.watchPtr, sMemoryStompTracker.watchSize) == 0);
+        AGB_ASSERT(ManualCompare(sMemoryStompTracker.compareValue, sMemoryStompTracker.watchPtr, sMemoryStompTracker.watchSize) == TRUE);
     }
 }
 
