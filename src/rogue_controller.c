@@ -56,6 +56,7 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
 #include "rogue_player_customisation.h"
@@ -2002,6 +2003,8 @@ void Rogue_MainInit(void)
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationInit();
 #endif
+
+    RogueDebug_MainInit();
 }
 
 void Rogue_MainCB(void)
@@ -2018,6 +2021,7 @@ void Rogue_MainCB(void)
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
 #endif
+    RogueDebug_MainCB();
 }
 
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
