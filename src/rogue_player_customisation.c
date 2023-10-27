@@ -29,6 +29,7 @@ struct PlayerOutfit
     const u32* trainerBackBasePal;
     const u32* trainerBackLayerPal;
     const u8 name[12];
+    u32 relatedTrainerFlags;
     bool8 supportedLayers[PLAYER_OUTFIT_STYLE_COUNT];
     u16 trainerFrontPic;
     u16 trainerBackPic;
@@ -121,6 +122,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_BRENDAN] =
     {
         .name = _("Brendan"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_HOENN,
         .trainerFrontPic = TRAINER_PIC_BRENDAN,
         .trainerBackPic = TRAINER_BACK_PIC_BRENDAN,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN,
@@ -146,6 +148,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_MAY] =
     {
         .name = _("May"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_HOENN,
         .trainerFrontPic = TRAINER_PIC_MAY,
         .trainerBackPic = TRAINER_BACK_PIC_MAY,
         .bagVariant = BAG_GFX_VARIANT_MAY,
@@ -172,6 +175,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_RED] =
     {
         .name = _("Red"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_KANTO,
         .trainerFrontPic = TRAINER_PIC_RED,
         .trainerBackPic = TRAINER_BACK_PIC_RED,
         .bagVariant = BAG_GFX_VARIANT_RED,
@@ -197,6 +201,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_LEAF] =
     {
         .name = _("Leaf"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_KANTO,
         .trainerFrontPic = TRAINER_PIC_LEAF,
         .trainerBackPic = TRAINER_BACK_PIC_LEAF,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
@@ -223,6 +228,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_ETHAN] =
     {
         .name = _("Ethan"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_JOHTO,
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
@@ -248,6 +254,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_LYRA] =
     {
         .name = _("Lyra"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_JOHTO,
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
         .bagVariant = BAG_GFX_VARIANT_LEAF_SILVER,
@@ -274,6 +281,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_LUCAS] =
     {
         .name = _("Lucas"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_SINNOH,
         .trainerFrontPic = TRAINER_PIC_LUCAS,
         .trainerBackPic = TRAINER_BACK_PIC_LUCAS,
         .bagVariant = BAG_GFX_VARIANT_RED,
@@ -299,6 +307,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_DAWN] =
     {
         .name = _("Dawn"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_SINNOH,
         .trainerFrontPic = TRAINER_PIC_DAWN,
         .trainerBackPic = TRAINER_BACK_PIC_DAWN,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
@@ -325,6 +334,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_HILBERT] =
     {
         .name = _("Hilbert"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_HILBERT,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
@@ -351,6 +361,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_HILDA] =
     {
         .name = _("Hilda"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_HILDA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
@@ -377,6 +388,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_NATE] =
     {
         .name = _("Nate"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_NATE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
@@ -402,6 +414,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_ROSA] =
     {
         .name = _("Rosa"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_ROSA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
@@ -428,6 +441,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_CALEM] =
     {
         .name = _("Calem"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_KALOS,
         .trainerFrontPic = TRAINER_PIC_CALEM,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
@@ -453,6 +467,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_SERENA] =
     {
         .name = _("Serena"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_KALOS,
         .trainerFrontPic = TRAINER_PIC_SERENA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
@@ -721,6 +736,11 @@ void RoguePlayer_SetOutfitId(u16 outfit)
 u16 RoguePlayer_GetOutfitId()
 {
     return gSaveBlock2Ptr->playerGender;
+}
+
+u32 RoguePlayer_GetOutfitTrainerFlags()
+{
+    return GetCurrentOutfit()->relatedTrainerFlags;
 }
 
 u16 RoguePlayer_GetOutfitCount()

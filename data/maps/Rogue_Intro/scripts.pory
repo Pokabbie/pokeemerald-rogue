@@ -119,6 +119,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
         "Come on now, let's try and get you standing up."
     ))
 
+    special(Rogue_AssignDefaultRegion)
     warpsilent(MAP_ROGUE_AREA_TOWN_SQUARE, 11)
 
     release

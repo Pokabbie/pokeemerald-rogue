@@ -33,6 +33,7 @@
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 #include "rogue_multiplayer.h"
+#include "rogue_player_customisation.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -991,4 +992,67 @@ void Rogue_CheckHubConnectionDir()
     }
 
     gSpecialVar_Result = HUB_AREA_CONN_COUNT;
+}
+
+void Rogue_AssignDefaultRegion()
+{
+    u32 flags = RoguePlayer_GetOutfitTrainerFlags();
+    bool8 anySet = FALSE;
+
+    if(flags & TRAINER_FLAG_REGION_KANTO)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_JOHTO)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_HOENN)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN, TRUE);
+        anySet = TRUE;
+    }
+
+#ifdef ROGUE_EXPANSION
+    if(flags & TRAINER_FLAG_REGION_SINNOH)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_UNOVA)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_KALOS)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_ALOLA)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA, TRUE);
+        anySet = TRUE;
+    }
+
+    if(flags & TRAINER_FLAG_REGION_GALAR)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR, TRUE);
+        anySet = TRUE;
+    }
+#endif
+
+    // Fallback to Kanto for "nostalgia" I guess?
+    // (It doesn't matter too much, just need it to not break)
+    if(!anySet)
+    {
+        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO, TRUE);
+    }
 }
