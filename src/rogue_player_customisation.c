@@ -53,7 +53,13 @@ enum
     PLAYER_OUTFIT_MAY,
     PLAYER_OUTFIT_LUCAS,
     PLAYER_OUTFIT_DAWN,
-    
+    PLAYER_OUTFIT_HILBERT,
+    PLAYER_OUTFIT_HILDA,
+    PLAYER_OUTFIT_NATE,
+    PLAYER_OUTFIT_ROSA,
+    PLAYER_OUTFIT_CALEM,
+    PLAYER_OUTFIT_SERENA,
+
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
     PLAYER_OUTFIT_KATE,
@@ -64,6 +70,7 @@ enum
 static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfit, const u32* basePalSrc, const u32* layerPalSrc);
+static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer);
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerColour, u16 inputColour);
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerBrendanNormal;
@@ -85,6 +92,22 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasNormal
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LucasRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HilbertNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HilbertRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HildaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HildaRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NateNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NateRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RosaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RosaRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRiding;
+
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
@@ -202,7 +225,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Ethan"),
         .trainerFrontPic = TRAINER_PIC_ETHAN,
         .trainerBackPic = TRAINER_BACK_PIC_ETHAN,
-        .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -227,7 +250,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Lyra"),
         .trainerFrontPic = TRAINER_PIC_LYRA,
         .trainerBackPic = TRAINER_BACK_PIC_LYRA,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_SILVER,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -253,7 +276,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Lucas"),
         .trainerFrontPic = TRAINER_PIC_LUCAS,
         .trainerBackPic = TRAINER_BACK_PIC_LUCAS,
-        .bagVariant = BAG_GFX_VARIANT_ETHAN,
+        .bagVariant = BAG_GFX_VARIANT_RED,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -270,7 +293,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
     [PLAYER_OUTFIT_DAWN] =
@@ -299,12 +322,166 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         }
     },
 
+    [PLAYER_OUTFIT_HILBERT] =
+    {
+        .name = _("Hilbert"),
+        .trainerFrontPic = TRAINER_PIC_HILBERT,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_HilbertNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_HilbertRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerHilbertBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerHilbertLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerHilbertFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerHilbertFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+
+    },
+    [PLAYER_OUTFIT_HILDA] =
+    {
+        .name = _("Hilda"),
+        .trainerFrontPic = TRAINER_PIC_HILDA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_HildaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_HildaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerHildaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerHildaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerHildaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerHildaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    
+    [PLAYER_OUTFIT_NATE] =
+    {
+        .name = _("Nate"),
+        .trainerFrontPic = TRAINER_PIC_NATE,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_NateNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_NateRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerNateBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerNateLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerNateFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerNateFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_ROSA] =
+    {
+        .name = _("Rosa"),
+        .trainerFrontPic = TRAINER_PIC_ROSA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_RosaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RosaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerRosaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerRosaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerRosaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerRosaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    
+    [PLAYER_OUTFIT_CALEM] =
+    {
+        .name = _("Calem"),
+        .trainerFrontPic = TRAINER_PIC_CALEM,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_CalemNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_CalemRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerCalemBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerCalemLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerCalemFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerCalemFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    [PLAYER_OUTFIT_SERENA] =
+    {
+        .name = _("Serena"),
+        .trainerFrontPic = TRAINER_PIC_SERENA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_SerenaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_SerenaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerSerenaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerSerenaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerSerenaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerSerenaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+        }
+    },
+
     [PLAYER_OUTFIT_POKABBIE] =
     {
         .name = _("Pokabbie"),
         .trainerFrontPic = TRAINER_PIC_POKABBIE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -323,7 +500,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Kate"),
         .trainerFrontPic = TRAINER_PIC_GLITCH_KATE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_LYRA,
+        .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -356,15 +533,15 @@ static const struct KnownColour sKnownColours_Appearance[] =
 
     {
         .name = _("A"),
-        .colour = RGB_255(254, 227, 212),
+        .colour = RGB_255(94, 55, 46),
     },
     {
         .name = _("B"),
-        .colour = RGB_255(255, 219, 172),
+        .colour = RGB_255(141, 85, 36),
     },
     {
         .name = _("C"),
-        .colour = RGB_255(241, 194, 125),
+        .colour = RGB_255(198, 134, 66),
     },
     {
         .name = _("D"),
@@ -372,15 +549,15 @@ static const struct KnownColour sKnownColours_Appearance[] =
     },
     {
         .name = _("E"),
-        .colour = RGB_255(198, 134, 66),
+        .colour = RGB_255(241, 194, 125),
     },
     {
         .name = _("F"),
-        .colour = RGB_255(141, 85, 36),
+        .colour = RGB_255(255, 219, 172),
     },
     {
         .name = _("G"),
-        .colour = RGB_255(94, 55, 46),
+        .colour = RGB_255(254, 227, 212),
     },
 };
 
@@ -390,6 +567,10 @@ static const struct KnownColour sKnownColours_Clothes[] =
         .name = _("Custom"),
         .colour = RGB_255(0, 0, 0),
         .isCustomColour = TRUE,
+    },
+    {
+        .name = _("Official"),
+        .colour = RGB_255(0, 0, 0) | RGB_ALPHA,
     },
 
     {
@@ -552,19 +733,6 @@ const u8* RoguePlayer_GetOutfitName()
     return GetCurrentOutfit()->name;
 }
 
-static s8 WrapRange(s8 value, s8 minVal, s8 maxVal)
-{
-    s8 range = maxVal - minVal;
-
-    while(value < minVal)
-        value += range;
-
-    while(value > maxVal)
-        value -= range;
-
-    return value;
-}
-
 static s8 ClampRange(s8 value, s8 minVal, s8 maxVal)
 {
     return min(maxVal, max(minVal, value));
@@ -613,23 +781,25 @@ void RoguePlayer_IncrementOutfitStyleByName(u8 styleId, s8 delta)
 {
     const struct KnownColour* knownColours = GetKnownColourArray(styleId);
     u16 knownColourCount = GetKnownColourArrayCount(styleId);
-    s8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
+    u8 idx = GetKnownColourIndex(GetCurrentOutfit(), styleId, RoguePlayer_GetOutfitStyle(styleId));
 
-    while(TRUE)
+    do
     {
-        idx = WrapRange(idx + delta, 0, knownColourCount - 1);
-
-        // Update the style colour
-        if(knownColours[idx].isCustomColour)
+        if(delta == -1)
         {
-            // ignore this
+            if(idx == 0)
+                idx = knownColourCount - 1;
+            else
+                --idx;
         }
         else
         {
-            RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
-            break;
+            idx = (idx + 1) % knownColourCount;
         }
     }
+    while(knownColours[idx].isCustomColour);
+
+    RoguePlayer_SetOutfitStyle(styleId, knownColours[idx].colour);
 }
 
 bool8 RoguePlayer_HasSpritingAnim()
@@ -759,7 +929,7 @@ static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u
             {
                 layerMask = sLayerMaskColours[l];
 
-                if(layerCol == layerMask && outfit->supportedLayers[l] == TRUE)
+                if(layerCol == layerMask && ShouldModifyColourLayer(outfit, l) == TRUE)
                 {
                     // Expect the whitepoint to already be in greyscale
                     baseCol = ModifyColourLayer(outfit, l, layerWhitePoint[l], GreyScaleColour(baseCol));
@@ -796,11 +966,24 @@ static const u16* ModifyOutfitCompressedPalette(const struct PlayerOutfit* outfi
 
 #define COLOR_TRANSFORM_MULTIPLY_CHANNEL(value, whitePoint, target) min(31, ((((u16)value) * (u16)target) / (u16)whitePoint))
 
+static bool8 ShouldModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer)
+{
+    if(outfit->supportedLayers[layer] == TRUE)
+    {
+        u16 targetColour = RoguePlayer_GetOutfitStyle(layer);
+
+        // If alpha, just use input colour
+        if((targetColour & RGB_ALPHA) != 0)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 static u16 ModifyColourLayer(const struct PlayerOutfit* outfit, u8 layer, u16 layerWhitePoint, u16 inputColour)
 {
     u8 r, g, b;
     u16 targetColour = RoguePlayer_GetOutfitStyle(layer);
-
     r = GET_R(inputColour);
     g = GET_G(inputColour);
     b = GET_B(inputColour);

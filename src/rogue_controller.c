@@ -642,10 +642,11 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
                 break;
 
             case POCKET_TM_HM:
-                if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
-                    amount = 3;
-                else
-                    amount = 1;
+                //if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+                //    amount = 3;
+                //else
+                //    amount = 1;
+                amount = 1;
                 break;
 
             case POCKET_POKE_BALLS:
@@ -3493,7 +3494,12 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                 else
                     hasMonFainted = TRUE;
 
-                RogueSafari_PushMon(&gPlayerParty[read]);
+
+                // Only push mons if run is active
+                if(Rogue_IsRunActive())
+                {
+                    RogueSafari_PushMon(&gPlayerParty[read]);
+                }
 
                 if(canSendToLab)
                     PushFaintedMonToLab(&gPlayerParty[read]);
@@ -4776,40 +4782,6 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
     }
 }
 
-static bool8 ApplyRandomMartChanceCallback(u16 itemId, u16 chance)
-{
-    // Always use rogue random so this is seeded correctly
-    u16 res = 1 + (RogueRandom() % 100);
-
-    return res <= chance;
-}
-
-static void ApplyRandomMartChanceQuery(u16 chance)
-{
-    u32 startSeed = gRngRogueValue;
-
-    if(chance >= 100)
-        return;
-
-    RogueQuery_CustomItems(ApplyRandomMartChanceCallback, chance);
-
-    gRngRogueValue = startSeed;
-}
-
-static void ApplyMartCapacity(u16 capacity)
-{
-    u16 randIdx;
-    u32 startSeed = gRngRogueValue;
-
-    while(RogueQuery_BufferSize() > capacity)
-    {
-        randIdx = RogueRandom() % RogueQuery_BufferSize();
-        RogueQuery_PopCollapsedIndex(randIdx);
-    }
-
-    gRngRogueValue = startSeed;
-}
-
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
@@ -5032,319 +5004,6 @@ void Rogue_CloseMartQuery()
     RogueItemQuery_End();
 }
 
-const u16* Rogue_CreateMartContents(u16 itemCategory, u16* minSalePrice)
-{
-    u16 difficulty;
-    u16 itemCapacity = 0; // MAX is 0
-    
-    if(Rogue_IsRunActive())
-        difficulty = Rogue_GetCurrentDifficulty();
-    else
-        difficulty = VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY);
-
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        difficulty = 13;
-
-    RogueQuery_Clear();
-    RogueQuery_ItemsIsValid();
-    RogueQuery_ItemsExcludeCommon();
-
-    RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
-    RogueQuery_ItemsNotInPocket(POCKET_CHARMS);
-
-    if(itemCategory != ROGUE_SHOP_BERRIES)
-    {
-        RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
-    }
-
-    // Just sell PP max rather than be fiddly with price
-    RogueQuery_Exclude(ITEM_PP_UP);
-
-#ifdef ROGUE_EXPANSION
-    RogueQuery_ItemsExcludeRange(ITEM_SEA_INCENSE, ITEM_PURE_INCENSE);
-
-    // Merchants can't sell plates
-    RogueQuery_ItemsExcludeRange(ITEM_FLAME_PLATE, ITEM_FAIRY_MEMORY);
-
-    // Not allowed to buy these items in the hub
-    if(!Rogue_IsRunActive())
-    {
-        RogueQuery_ItemsExcludeRange(ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
-        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CARBOS);
-    }
-#else
-    // Not allowed to buy these items in the hub
-    if(!Rogue_IsRunActive())
-    {
-        // These items aren't next to each other in vanilla
-        RogueQuery_ItemsExcludeRange(ITEM_HP_UP, ITEM_CALCIUM);
-        RogueQuery_Exclude(ITEM_ZINC);
-    }
-#endif
-
-    switch(itemCategory)
-    {
-        case ROGUE_SHOP_GENERAL:
-            RogueQuery_ItemsMedicine();
-
-            RogueQuery_Include(ITEM_REPEL);
-            RogueQuery_Include(ITEM_SUPER_REPEL);
-            RogueQuery_Include(ITEM_MAX_REPEL);
-
-            RogueQuery_ItemsInPriceRange(10, 300 + difficulty * 400);
-
-            if(difficulty < 4)
-            {
-                RogueQuery_Exclude(ITEM_FULL_HEAL);
-            }
-            else if(Rogue_IsRunActive())
-            {
-                RogueQuery_Include(ITEM_ESCAPE_ROPE);
-            }
-
-            RogueQuery_Exclude(ITEM_FRESH_WATER);
-            RogueQuery_Exclude(ITEM_SODA_POP);
-            RogueQuery_Exclude(ITEM_LEMONADE);
-            RogueQuery_Exclude(ITEM_MOOMOO_MILK);
-            RogueQuery_Exclude(ITEM_ENERGY_POWDER);
-            RogueQuery_Exclude(ITEM_ENERGY_ROOT);
-            RogueQuery_Exclude(ITEM_HEAL_POWDER);
-            RogueQuery_Exclude(ITEM_LAVA_COOKIE);
-            RogueQuery_Exclude(ITEM_BERRY_JUICE);
-#ifdef ROGUE_EXPANSION
-            RogueQuery_ItemsExcludeRange(ITEM_PEWTER_CRUNCHIES, ITEM_BIG_MALASADA);
-#endif
-            break;
-
-        case ROGUE_SHOP_BALLS:
-            RogueQuery_ItemsInPocket(POCKET_POKE_BALLS);
-
-            if(difficulty <= 0)
-            {
-                RogueQuery_ItemsInPriceRange(10, 200);
-            }
-            else if(difficulty <= 1)
-            {
-                RogueQuery_ItemsInPriceRange(10, 600);
-            }
-            else if(difficulty <= 2)
-            {
-                RogueQuery_ItemsInPriceRange(10, 1000);
-            }
-            else if(difficulty >= 11)
-            {
-                RogueQuery_ItemsInPriceRange(10, 60000);
-            }
-            else //if(difficulty <= 3)
-            {
-                RogueQuery_ItemsInPriceRange(10, 2000);
-            }
-
-            RogueQuery_Exclude(ITEM_PREMIER_BALL);
-            break;
-
-        case ROGUE_SHOP_TMS:
-            RogueQuery_ItemsInPocket(POCKET_TM_HM);
-            RogueQuery_ItemsExcludeRange(ITEM_HM01, ITEM_HM08);
-
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                // Do nothing
-            }
-            else if(Rogue_IsRunActive())
-            {
-                if(difficulty <= 7)
-                    itemCapacity = 5 + difficulty * 2;
-            }
-            else
-            {
-                RogueQuery_ItemsInPriceRange(10, 1000 + difficulty * 810);
-            }
-
-            break;
-
-        case ROGUE_SHOP_BATTLE_ENHANCERS:
-            RogueQuery_ItemsBattleEnchancer();
-            RogueQuery_ItemsNotRareHeldItem();
-            RogueQuery_ItemsInPriceRange(10, 60000);
-            
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                // Do nothing
-            }
-            else if(Rogue_IsRunActive())
-            {
-                if(difficulty <= 7)
-                    itemCapacity = 10 + 4 * difficulty;
-            }
-
-            if(Rogue_IsRunActive())
-                *minSalePrice = 1500;
-            else
-                *minSalePrice = 1500;
-
-            break;
-
-        case ROGUE_SHOP_HELD_ITEMS:
-            RogueQuery_ItemsHeldItem();
-            RogueQuery_ItemsNotRareHeldItem();
-            RogueQuery_ItemsInPriceRange(10, 60000);
-
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                // Do nothing
-            }
-            else if(Rogue_IsRunActive())
-            {
-                if(difficulty <= 7)
-                    itemCapacity = 4 + 4 * difficulty;
-            }
-            else if(difficulty <= 5)
-            {
-                // Remove contents 
-                RogueQuery_ItemsInPriceRange(10, 11);
-            }
-
-            if(Rogue_IsRunActive())
-                *minSalePrice = 1500;
-            else
-                *minSalePrice = 2000;
-            break;
-
-        case ROGUE_SHOP_RARE_HELD_ITEMS:
-            RogueQuery_ItemsRareHeldItem();
-            RogueQuery_ItemsInPriceRange(10, 60000);
-
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-            {
-                // Do nothing
-            }
-            else if(Rogue_IsRunActive())
-            {
-                if(difficulty <= 7)
-                    itemCapacity = 4 + 1 * difficulty;
-            }
-            else
-            {
-#ifdef ROGUE_EXPANSION
-                if(!IsQuestCollected(QUEST_MegaEvo))
-                    RogueQuery_ItemsExcludeRange(ITEM_VENUSAURITE, ITEM_DIANCITE);
-
-                if(!IsQuestCollected(QUEST_ZMove))
-                    RogueQuery_ItemsExcludeRange(ITEM_NORMALIUM_Z, ITEM_ULTRANECROZIUM_Z);
-#endif
-            }
-
-            if(Rogue_IsRunActive())
-                *minSalePrice = 1500;
-            else
-                *minSalePrice = 3000;
-            break;
-
-        case ROGUE_SHOP_QUEST_REWARDS:
-            RogueQuery_ExcludeAll();
-
-            // Will include below
-
-            *minSalePrice = 2000;
-            break;
-
-        case ROGUE_SHOP_BERRIES:
-            {
-                // Include berries from collected quests
-                u16 i, j;
-                RogueQuery_ExcludeAll();
-
-                for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
-                {
-                    if(IsQuestCollected(i))
-                    {
-                        for(j = 0; j < QUEST_MAX_REWARD_COUNT; ++j)
-                        {
-                            if(gRogueQuests[i].rewards[j].type == QUEST_REWARD_NONE)
-                            {
-                                break;
-                            }
-                            else if(gRogueQuests[i].rewards[j].type == QUEST_REWARD_GIVE_ITEM)
-                            {
-                                u16 itemId = gRogueQuests[i].rewards[j].params[0];
-                                if(itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
-                                {
-                                    RogueQuery_Include(itemId);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                *minSalePrice = 2000;
-            }
-            break;
-
-            
-        case ROGUE_SHOP_CHARMS:
-            {
-                RogueQuery_ExcludeAll();
-
-                #ifdef ROGUE_DEBUG
-                // Normally we only can buy curse items
-                RogueQuery_IncludeRange(FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
-                #endif
-
-                RogueQuery_IncludeRange(FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
-            }
-            *minSalePrice = 0;
-            break;
-    };
-
-    // Apply shop reward items (Only applicable in hb)
-    if(!Rogue_IsRunActive())
-    {
-        u16 i, j;
-        u16 itemId;
-
-        for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
-        {
-            for(j = 0; j < QUEST_MAX_ITEM_SHOP_REWARD_COUNT; ++j)
-            {
-                itemId = gRogueQuests[i].unlockedShopRewards[j];
-                if(itemId == ITEM_NONE)
-                    break;
-
-                // Always put reward items in the reward shop (Not allowed in other shops)
-                if(itemCategory == ROGUE_SHOP_QUEST_REWARDS && IsQuestCollected(i))
-                    RogueQuery_Include(itemId);
-                else
-                    RogueQuery_Exclude(itemId);
-            }
-        }
-    }
-
-    RogueQuery_CollapseItemBuffer();
-
-    if(itemCapacity != 0)
-    {
-        //u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
-
-        //if(maxGen > 3)
-        //{
-        //    // Increase capacity by a little bit to accomadate for extra items when in higher gens
-        //    itemCapacity += (maxGen - 3) * 2;
-        //}
-
-        ApplyMartCapacity(itemCapacity);
-    }
-
-    if(RogueQuery_BufferSize() == 0)
-    {
-        // If we don't have anything then just use this (Really unlucky to happen)
-        RogueQuery_Include(ITEM_TINY_MUSHROOM);
-        RogueQuery_CollapseItemBuffer();
-    }
-
-    return RogueQuery_BufferPtr();
-}
-
 static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
 {
     u16 i;
@@ -5423,44 +5082,6 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
     }
 }
 
-static bool8 ContainsSpecies(u16 *party, u8 partyCount, u16 species)
-{
-    u8 i;
-    u16 s;
-    for(i = 0; i < partyCount; ++i)
-    {
-        s = party[i];
-
-        if(s == species)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static u16 NextWildSpecies(u16 * party, u8 monIdx)
-{
-    u16 species;
-    u16 randIdx;
-    u16 queryCount = RogueQuery_BufferSize();
-
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LATERMANNER)
-    {
-        return SPECIES_FARFETCHD;
-    }
-
-    // Prevent duplicates, if possible
-    do
-    {
-        randIdx = RogueRandomRange(queryCount, FLAG_SET_SEED_WILDMONS);
-        species = RogueQuery_BufferPtr()[randIdx];
-    }
-    while(ContainsSpecies(party, monIdx, species) && monIdx < queryCount);
-
-    return species;
-}
-
-
 static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* data)
 {
 #ifdef ROGUE_EXPANSION
@@ -5520,8 +5141,18 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     }
 #endif
 
-
     return 1;
+}
+
+static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species, void* data)
+{
+    // For the 1st encounter, we ensure we will have a mon of that typ
+    u8 typeHint = *((u8*)data);
+
+    if(gBaseStats[species].type1 == typeHint || gBaseStats[species].type1 == typeHint)
+        return RandomiseWildEncounters_CalculateWeight(index, species, NULL);
+    else
+        return 0;
 }
 
 static void RandomiseWildEncounters(void)
@@ -5550,12 +5181,34 @@ static void RandomiseWildEncounters(void)
 
     {
         u8 i;
+        u8 typeHint = Rogue_GetTypeForHintForRoom(&gRogueAdvPath.rooms[gRogueRun.adventureRoomId]);
         RogueWeightQuery_Begin();
 
-        RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+        // Initial query will only allow mons of type hint
+        RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateInitialWeight, &typeHint);
 
         for(i = 0; i < WILD_ENCOUNTER_GRASS_CAPACITY; ++i)
         {
+            if(i == 0)
+            {
+                if(RogueWeightQuery_HasAnyWeights())
+                {
+                    // We actually have a mon of this type
+                    gRogueRun.wildEncounters.species[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
+
+                    // Reroll query to allow anything now
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.wildEncounters.species[i]);
+                    RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+                    continue;
+                }
+                else
+                {
+                    // Reroll query to allow anything and fallback to below (Can hit here if no mon of hint type e.g. gen 1 on dark hint route)
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.wildEncounters.species[i]);
+                    RogueWeightQuery_CalculateWeights(RandomiseWildEncounters_CalculateWeight, NULL);
+                }
+            }
+
             if(RogueWeightQuery_HasAnyWeights())
                 gRogueRun.wildEncounters.species[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 0);
             else
@@ -5851,6 +5504,38 @@ static bool8 RogueRandomChanceBerry()
     return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
+static u8 RouteItems_CalculateWeight(u16 index, u16 itemId, void* data)
+{
+    u8 pocket = ItemId_GetPocket(itemId);
+    u8 weight;
+
+    switch (pocket)
+    {
+    case POCKET_TM_HM:
+        weight = 3;
+        break;
+
+    case POCKET_HELD_ITEMS:
+        weight = 3;
+        break;
+
+    case POCKET_STONES:
+        weight = 6;
+        break;
+
+    case POCKET_MEDICINE:
+    case POCKET_ITEMS:
+        weight = 20;
+        break;
+    
+    default:
+        weight = 10;
+        break;
+    }
+
+    return weight;
+}
+
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u16 queryCount;
@@ -5879,78 +5564,47 @@ static void RandomiseItemContent(u8 difficultyLevel)
         }
     }
 
-    // Queue up random items
-    RogueQuery_Clear();
-
-    RogueQuery_ItemsIsValid();
-    RogueQuery_ItemsNotInPocket(POCKET_KEY_ITEMS);
-    RogueQuery_ItemsNotInPocket(POCKET_CHARMS);
-    RogueQuery_ItemsNotInPocket(POCKET_BERRIES);
-
-    RogueQuery_ItemsExcludeCommon();
-
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
+    RogueItemQuery_Begin();
     {
-        RogueQuery_ItemsInPriceRange(1000 + 500 * difficultyLevel, 2000 + 1600 * difficultyLevel);
-#ifdef ROGUE_EXPANSION
-        RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_STRANGE_SOUVENIR);
-#else
-        RogueQuery_ItemsExcludeRange(ITEM_TINY_MUSHROOM, ITEM_HEART_SCALE);
-#endif
-        RogueQuery_Include(ITEM_MASTER_BALL);
-        RogueQuery_Include(ITEM_ESCAPE_ROPE);
-        RogueQuery_Include(ITEM_RARE_CANDY);
-    }
-    else
-    {
-        RogueQuery_ItemsInPriceRange(50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
+        RogueItemQuery_IsItemActive();
 
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_CHARMS);
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+
+        RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
+        
         if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
         {
             if(difficultyLevel <= 1)
             {
-                RogueQuery_ItemsNotInPocket(POCKET_TM_HM);
+                //RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
             }
 
             if(difficultyLevel <= 3)
             {
-                RogueQuery_ItemsNotHeldItem();
-                RogueQuery_ItemsNotRareHeldItem();
+                RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
             }
         }
-    }
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
-    {
-        RogueQuery_ItemsMedicine();
-    }
-
-    RogueQuery_CollapseItemBuffer();
-    queryCount = RogueQuery_BufferSize();
-
-#ifdef ROGUE_DEBUG
-    gDebug_ItemOptionCount = queryCount;
-#endif
-
-    
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
-    {
-        // Only need to set 2, but try to make them unique
-        VarSet(VAR_ROGUE_ITEM0, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        do
+        RogueWeightQuery_Begin();
         {
-            VarSet(VAR_ROGUE_ITEM1, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
+            u8 i;
+            u16 itemId;
+
+            RogueWeightQuery_CalculateWeights(RouteItems_CalculateWeight, NULL);
+
+            for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
+            {
+                // Make unlikely to get this item again, but not impossible
+                itemId = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 1);
+                VarSet(VAR_ROGUE_ITEM_START + i, itemId);
+            }
         }
-        while(queryCount >= 2 && VarGet(VAR_ROGUE_ITEM0) == VarGet(VAR_ROGUE_ITEM1));
+        RogueWeightQuery_End();
+
     }
-    else
-    {
-        u8 i;
-        for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
-        {
-            VarSet(VAR_ROGUE_ITEM_START + i, RogueQuery_BufferPtr()[RogueRandomRange(queryCount, FLAG_SET_SEED_ITEMS)]);
-        }
-    }
+    RogueItemQuery_End();
 }
 
 static void RandomiseEnabledItems(void)
@@ -5999,27 +5653,37 @@ static void RandomiseCharmItems(void)
 
 static void RandomiseBerryTrees(void)
 {
-    s32 i;
-
-    for (i = 0; i < BERRY_TREES_COUNT; i++)
+    RogueItemQuery_Begin();
     {
-        if(RogueRandomChanceBerry())
-        {
-            u16 berryItem;
-            u16 berry;
+        RogueItemQuery_IsItemActive();
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_BERRIES);
 
-            do
+        RogueWeightQuery_Begin();
+        {
+            u8 i, berryNum;
+            u16 itemId;
+
+            // The higher this number the less likely a berry repeats
+            RogueWeightQuery_FillWeights(4);
+
+            for(i = 0; i < BERRY_TREES_COUNT; ++i)
             {
-                berryItem = FIRST_BERRY_INDEX + RogueRandomRange(BERRY_COUNT, FLAG_SET_SEED_ITEMS);
-            }
-            while(berryItem >= FIRST_USELESS_BERRY_INDEX && berryItem <= LAST_USELESS_BERRY_INDEX);
+                if(RogueRandomChanceBerry())
+                {
+                    // Make unlikely to get this item again, but not impossible
+                    itemId = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(RogueRandom(), 1);
+                    berryNum = ItemIdToBerryType(itemId);
 
-            berry = ItemIdToBerryType(berryItem);
-            PlantBerryTree(i, berry, BERRY_STAGE_BERRIES, FALSE);
+                    PlantBerryTree(i, berryNum, BERRY_STAGE_BERRIES, FALSE);
+                }
+                else
+                {
+                    RemoveBerryTree(i);
+                }
+            }
         }
-        else
-        {
-            RemoveBerryTree(i);
-        }
+        RogueWeightQuery_End();
+
     }
+    RogueItemQuery_End();
 }

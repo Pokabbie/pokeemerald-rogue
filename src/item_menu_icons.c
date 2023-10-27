@@ -143,8 +143,16 @@ const struct CompressedSpriteSheet gBagSpriteSheet[BAG_GFX_VARIANT_COUNT] =
     [BAG_GFX_VARIANT_MAY] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
     [BAG_GFX_VARIANT_RED] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
     [BAG_GFX_VARIANT_LEAF] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
-    [BAG_GFX_VARIANT_ETHAN] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
-    [BAG_GFX_VARIANT_LYRA] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_SILVER] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_SILVER] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_BLACK] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_BLACK] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_SILVER] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_SILVER] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_BLACK] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_BLACK] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_PINK] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_PINK] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
 };
 
 const struct CompressedSpritePalette gBagPaletteTable[BAG_GFX_VARIANT_COUNT] =
@@ -153,8 +161,16 @@ const struct CompressedSpritePalette gBagPaletteTable[BAG_GFX_VARIANT_COUNT] =
     [BAG_GFX_VARIANT_MAY] = { gBagPalette, TAG_BAG_GFX },
     [BAG_GFX_VARIANT_RED] = { gBagKantoPalette, TAG_BAG_GFX },
     [BAG_GFX_VARIANT_LEAF] = { gBagKantoPalette, TAG_BAG_GFX },
-    [BAG_GFX_VARIANT_ETHAN] = { gBagJohtoPalette, TAG_BAG_GFX },
-    [BAG_GFX_VARIANT_LYRA] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_SILVER] = { gBagHoennSilverPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_SILVER] = { gBagHoennSilverPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_BLACK] = { gBagHoennBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_BLACK] = { gBagHoennBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_SILVER] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_SILVER] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_BLACK] = { gBagKantoBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_BLACK] = { gBagKantoBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_PINK] = { gBagKantoPinkPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_PINK] = { gBagKantoPinkPalette, TAG_BAG_GFX },
 };
 
 static const struct SpriteTemplate sBagSpriteTemplate =

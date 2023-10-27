@@ -395,15 +395,28 @@ const u16 gObjectEventPal_PlayerRedLeafLayers[] = INCBIN_U16("graphics/rogue_pal
 
 const u16 gObjectEventPal_PlayerEthanBase[] = INCBIN_U16("graphics/rogue_palettes/ethan/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerEthanLayers[] = INCBIN_U16("graphics/rogue_palettes/ethan/object_event_layers.gbapal");
-
 const u16 gObjectEventPal_PlayerLyraBase[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerLyraLayers[] = INCBIN_U16("graphics/rogue_palettes/lyra/object_event_layers.gbapal");
 
 const u16 gObjectEventPal_PlayerLucasBase[] = INCBIN_U16("graphics/rogue_palettes/lucas/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerLucasLayers[] = INCBIN_U16("graphics/rogue_palettes/lucas/object_event_layers.gbapal");
-
 const u16 gObjectEventPal_PlayerDawnBase[] = INCBIN_U16("graphics/rogue_palettes/dawn/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerDawnLayers[] = INCBIN_U16("graphics/rogue_palettes/dawn/object_event_layers.gbapal");
+
+const u16 gObjectEventPal_PlayerHilbertBase[] = INCBIN_U16("graphics/rogue_palettes/hilbert/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerHilbertLayers[] = INCBIN_U16("graphics/rogue_palettes/hilbert/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerHildaBase[] = INCBIN_U16("graphics/rogue_palettes/hilda/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerHildaLayers[] = INCBIN_U16("graphics/rogue_palettes/hilda/object_event_layers.gbapal");
+
+const u16 gObjectEventPal_PlayerNateBase[] = INCBIN_U16("graphics/rogue_palettes/nate/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerNateLayers[] = INCBIN_U16("graphics/rogue_palettes/nate/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerRosaBase[] = INCBIN_U16("graphics/rogue_palettes/rosa/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerRosaLayers[] = INCBIN_U16("graphics/rogue_palettes/rosa/object_event_layers.gbapal");
+
+const u16 gObjectEventPal_PlayerCalemBase[] = INCBIN_U16("graphics/rogue_palettes/calem/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerCalemLayers[] = INCBIN_U16("graphics/rogue_palettes/calem/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerSerenaBase[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerSerenaLayers[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_layers.gbapal");
 
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
@@ -425,9 +438,23 @@ const u32 gObjectEventPic_EthanRiding[] = INCBIN_U32("graphics/object_events/pic
 
 const u32 gObjectEventPic_LucasNormal[] = INCBIN_U32("graphics/object_events/pics/people/lucas/walking.4bpp");
 const u32 gObjectEventPic_LucasRiding[] = INCBIN_U32("graphics/object_events/pics/people/lucas/riding.4bpp");
-
 const u32 gObjectEventPic_DawnNormal[] = INCBIN_U32("graphics/object_events/pics/people/dawn/walking.4bpp");
 const u32 gObjectEventPic_DawnRiding[] = INCBIN_U32("graphics/object_events/pics/people/dawn/riding.4bpp");
+
+const u32 gObjectEventPic_HilbertNormal[] = INCBIN_U32("graphics/object_events/pics/people/hilbert/walking.4bpp");
+const u32 gObjectEventPic_HilbertRiding[] = INCBIN_U32("graphics/object_events/pics/people/hilbert/riding.4bpp");
+const u32 gObjectEventPic_HildaNormal[] = INCBIN_U32("graphics/object_events/pics/people/hilda/walking.4bpp");
+const u32 gObjectEventPic_HildaRiding[] = INCBIN_U32("graphics/object_events/pics/people/hilda/riding.4bpp");
+
+const u32 gObjectEventPic_NateNormal[] = INCBIN_U32("graphics/object_events/pics/people/nate/walking.4bpp");
+const u32 gObjectEventPic_NateRiding[] = INCBIN_U32("graphics/object_events/pics/people/nate/riding.4bpp");
+const u32 gObjectEventPic_RosaNormal[] = INCBIN_U32("graphics/object_events/pics/people/rosa/walking.4bpp");
+const u32 gObjectEventPic_RosaRiding[] = INCBIN_U32("graphics/object_events/pics/people/rosa/riding.4bpp");
+
+const u32 gObjectEventPic_CalemNormal[] = INCBIN_U32("graphics/object_events/pics/people/calem/walking.4bpp");
+const u32 gObjectEventPic_CalemRiding[] = INCBIN_U32("graphics/object_events/pics/people/calem/riding.4bpp");
+const u32 gObjectEventPic_SerenaNormal[] = INCBIN_U32("graphics/object_events/pics/people/serena/walking.4bpp");
+const u32 gObjectEventPic_SerenaRiding[] = INCBIN_U32("graphics/object_events/pics/people/serena/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");

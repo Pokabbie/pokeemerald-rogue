@@ -4207,6 +4207,7 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
     u32 index, bit, mask;
     u8 dexState;
     s8 retVal = 0;
+    u16 dexNum = SpeciesToNationalPokedexNum(species);
 
     index = species / 8;
     bit = species % 8;

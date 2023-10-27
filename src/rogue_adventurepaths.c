@@ -1098,7 +1098,7 @@ bool8 RogueAdv_CanUseEscapeRope(void)
     return FALSE;
 }
 
-static u16 GetTypeForHint(struct RogueAdvPathRoom* room)
+u8 Rogue_GetTypeForHintForRoom(struct RogueAdvPathRoom const* room)
 {
     return gRogueRouteTable.routes[room->roomParams.roomIdx].wildTypeTable[(room->coords.x + room->coords.y) % ARRAY_COUNT(gRogueRouteTable.routes[0].wildTypeTable)];
 }
@@ -1112,7 +1112,7 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             
         case ADVPATH_ROOM_ROUTE:
         {
-            switch(GetTypeForHint(room))
+            switch(Rogue_GetTypeForHintForRoom(room))
             {
                 case TYPE_BUG:
                     return OBJ_EVENT_GFX_ROUTE_BUG;
@@ -1367,7 +1367,7 @@ void RogueAdv_GetLastInteractedRoomParams()
     {
         case ADVPATH_ROOM_ROUTE:
             gSpecialVar_ScriptNodeParam1 = gRogueAdvPath.rooms[roomIdx].roomParams.perType.route.difficulty;
-            BufferTypeAdjective(GetTypeForHint(&gRogueAdvPath.rooms[roomIdx]));
+            BufferTypeAdjective(Rogue_GetTypeForHintForRoom(&gRogueAdvPath.rooms[roomIdx]));
             break;
     }
 }

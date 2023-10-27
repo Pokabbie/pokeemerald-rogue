@@ -989,6 +989,7 @@ static void AddMenuValueText(u8 menuOffset, s8 offset, const char* text)
 static const u8 sText_RoguePlayerUIEditFast[] = _("Fast");
 static const u8 sText_RoguePlayerUIEditAccurate[] = _("Accurate");
 static const u8 sText_RoguePlayerUIEditPrompt[] = _("{R_BUTTON} Mode: {STR_VAR_1}");
+static const u8 sText_RoguePlayerMissingBacksprites[] = _("{COLOR LIGHT_BLUE}{SHADOW LIGHT_GRAY}(Missing back sprites)");
 
 static void RoguePlayerUI_PrintMenuText()
 {
@@ -1030,6 +1031,21 @@ static void RoguePlayerUI_PrintMenuText()
             TEXT_SKIP_DRAW, 
             gStringVar2
         );
+        break;
+
+    case UI_PAGE_MAIN:
+        if(RoguePlayer_GetTrainerBackPic() == TRAINER_BACK_PIC_NONE)
+        {
+            AddTextPrinterParameterized4(
+                WIN_INFO_PANEL, 
+                FONT_NARROW, 
+                0, YPOS_SPACING * (TOTAL_UI_PAGE_ENTRIES - 1), 
+                0, 0, 
+                sRoguePlayerUIWindowFontColors[FONT_BLACK], 
+                TEXT_SKIP_DRAW, 
+                sText_RoguePlayerMissingBacksprites
+            );
+        }
         break;
     }
 

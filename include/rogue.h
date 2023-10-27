@@ -98,7 +98,6 @@ struct RogueAdvPath
     u16 routeHistoryBuffer[12]; // TODO - Remove these
     u16 legendaryHistoryBuffer[6];
     u16 miniBossHistoryBuffer[6];
-    u8 currentRoomId;
     u8 currentRoomType;
     u8 roomCount;
     u8 pathLength;

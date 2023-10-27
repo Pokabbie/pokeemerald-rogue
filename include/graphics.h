@@ -7042,6 +7042,12 @@ extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
 extern const u32 gTrainerFrontPic_Lucas[];
 extern const u32 gTrainerFrontPic_Dawn[];
+extern const u32 gTrainerFrontPic_Hilbert[];
+extern const u32 gTrainerFrontPic_Hilda[];
+extern const u32 gTrainerFrontPic_Nate[];
+extern const u32 gTrainerFrontPic_Rosa[];
+extern const u32 gTrainerFrontPic_Calem[];
+extern const u32 gTrainerFrontPic_Serena[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -7274,6 +7280,21 @@ extern const u32 gTrainerPalette_PlayerDawnFrontBase[];
 extern const u32 gTrainerPalette_PlayerDawnFrontLayers[];
 extern const u32 gTrainerPalette_PlayerDawnBackBase[];
 extern const u32 gTrainerPalette_PlayerDawnBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerHilbertFrontBase[];
+extern const u32 gTrainerPalette_PlayerHilbertFrontLayers[];
+extern const u32 gTrainerPalette_PlayerHildaFrontBase[];
+extern const u32 gTrainerPalette_PlayerHildaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerNateFrontBase[];
+extern const u32 gTrainerPalette_PlayerNateFrontLayers[];
+extern const u32 gTrainerPalette_PlayerRosaFrontBase[];
+extern const u32 gTrainerPalette_PlayerRosaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
+extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
@@ -8943,6 +8964,10 @@ extern const u32 gBagKantoMaleTiles[];
 extern const u32 gBagKantoFemaleTiles[];
 extern const u32 gBagKantoPalette[];
 extern const u32 gBagJohtoPalette[];
+extern const u32 gBagKantoBlackPalette[];
+extern const u32 gBagKantoPinkPalette[];
+extern const u32 gBagHoennSilverPalette[];
+extern const u32 gBagHoennBlackPalette[];
 extern const u32 gBerryCheckCircle_Gfx[];
 
 //intro graphics
@@ -10491,15 +10516,28 @@ extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
 
 extern const u16 gObjectEventPal_PlayerEthanBase[];
 extern const u16 gObjectEventPal_PlayerEthanLayers[];
-
 extern const u16 gObjectEventPal_PlayerLyraBase[];
 extern const u16 gObjectEventPal_PlayerLyraLayers[];
 
 extern const u16 gObjectEventPal_PlayerLucasBase[];
 extern const u16 gObjectEventPal_PlayerLucasLayers[];
-
 extern const u16 gObjectEventPal_PlayerDawnBase[];
 extern const u16 gObjectEventPal_PlayerDawnLayers[];
+
+extern const u16 gObjectEventPal_PlayerHilbertBase[];
+extern const u16 gObjectEventPal_PlayerHilbertLayers[];
+extern const u16 gObjectEventPal_PlayerHildaBase[];
+extern const u16 gObjectEventPal_PlayerHildaLayers[];
+
+extern const u16 gObjectEventPal_PlayerNateBase[];
+extern const u16 gObjectEventPal_PlayerNateLayers[];
+extern const u16 gObjectEventPal_PlayerRosaBase[];
+extern const u16 gObjectEventPal_PlayerRosaLayers[];
+
+extern const u16 gObjectEventPal_PlayerCalemBase[];
+extern const u16 gObjectEventPal_PlayerCalemLayers[];
+extern const u16 gObjectEventPal_PlayerSerenaBase[];
+extern const u16 gObjectEventPal_PlayerSerenaLayers[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

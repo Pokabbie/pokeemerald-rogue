@@ -1642,6 +1642,10 @@ const u32 gBagKantoMaleTiles[] = INCBIN_U32("graphics/bag/bag_male_kanto.4bpp.lz
 const u32 gBagKantoFemaleTiles[] = INCBIN_U32("graphics/bag/bag_female_kanto.4bpp.lz");
 const u32 gBagKantoPalette[] = INCBIN_U32("graphics/bag/bag_kanto.gbapal.lz");
 const u32 gBagJohtoPalette[] = INCBIN_U32("graphics/bag/bag_johto.gbapal.lz");
+const u32 gBagKantoBlackPalette[] = INCBIN_U32("graphics/bag/bag_kanto_black.gbapal.lz");
+const u32 gBagKantoPinkPalette[] = INCBIN_U32("graphics/bag/bag_kanto_pink.gbapal.lz");
+const u32 gBagHoennSilverPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_silver.gbapal.lz");
+const u32 gBagHoennBlackPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_black.gbapal.lz");
 
 const u32 gBagScreenMale_Pal[] = INCBIN_U32("graphics/bag/menu_male.gbapal.lz");
 const u32 gBagScreenFemale_Pal[] = INCBIN_U32("graphics/bag/menu_female.gbapal.lz");

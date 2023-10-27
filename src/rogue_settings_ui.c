@@ -207,7 +207,7 @@ enum
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
 
 #ifdef ROGUE_DEBUG
-    MENUITEM_MENU_DEBUG,
+    MENUITEM_MENU_DEBUG_SUBMENU,
 
     MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL,
     MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM,
@@ -473,7 +473,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     },
 
 #ifdef ROGUE_DEBUG
-    [MENUITEM_MENU_DEBUG] = 
+    [MENUITEM_MENU_DEBUG_SUBMENU] = 
     {
         .itemName = sMenuName_Debug,
         .itemDesc = gText_EmptyString2,
@@ -567,7 +567,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_ADVENTURE_SUBMENU,
             MENUITEM_MENU_TRAINERS_SUBMENU,
 #ifdef ROGUE_DEBUG
-            MENUITEM_MENU_DEBUG,
+            MENUITEM_MENU_DEBUG_SUBMENU,
 #endif
             MENUITEM_CANCEL
         }
@@ -861,7 +861,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             break;
 
 #ifdef ROGUE_DEBUG
-        case MENUITEM_MENU_DEBUG:
+        case MENUITEM_MENU_DEBUG_SUBMENU:
             submenuSelection = SUBMENUITEM_DEBUG;
             submenuChanged = TRUE;
             break;
@@ -943,6 +943,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION] = menuSelection;
             gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION_TOP] = menuSelectionTop;
             menuSelection = 0;
+            menuSelectionTop = 0;
         }
         
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
