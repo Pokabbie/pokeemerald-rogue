@@ -422,9 +422,9 @@ void Rogue_ResetSettingsToDefaults()
 {
     Rogue_ResetToDefaults(FALSE);
     Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
-    
-    // TODO - Should decide default trainers based on trainer num
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO,  TRUE);
+
+    // Clear all here (Expect to be set later, if not will assert)
+    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO,  FALSE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO,  FALSE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN,  FALSE);
     Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE,  FALSE);
