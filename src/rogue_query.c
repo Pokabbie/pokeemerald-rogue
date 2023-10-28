@@ -843,7 +843,7 @@ bool8 Query_IsItemEnabled(u16 itemId)
             return Rogue_IsRunActive();
 
 #if !defined(ROGUE_EXPANSION)
-        if(((itemId >= ITEM_HP_UP && itemId <= ITEM_CALCIUM) || itemId == ITEM_ZINC) && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+        if(((itemId >= ITEM_HP_UP && itemId <= ITEM_CALCIUM) || itemId == ITEM_ZINC) && !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             return FALSE;
 #endif
     
@@ -924,13 +924,13 @@ bool8 Query_IsItemEnabled(u16 itemId)
             return FALSE;
 
         // Disable EV items when setting not active
-        if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+        if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER && !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             return FALSE;
     
-        if(itemId >= ITEM_HP_UP && itemId <= ITEM_CARBOS && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+        if(itemId >= ITEM_HP_UP && itemId <= ITEM_CARBOS && !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             return FALSE;
     
-        if(itemId >= ITEM_MACHO_BRACE && itemId <= ITEM_POWER_ANKLET && !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+        if(itemId >= ITEM_MACHO_BRACE && itemId <= ITEM_POWER_ANKLET && !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             return FALSE;
 
 #endif

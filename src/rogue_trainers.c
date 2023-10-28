@@ -245,7 +245,7 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
 
     if(Rogue_IsAnyBossTrainer(trainerNum) && trainer != NULL)
     {
-        switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+        switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
         {
         case DIFFICULTY_LEVEL_EASY:
             weatherType = WEATHER_NONE;
@@ -407,32 +407,32 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
     *includeFlags = TRAINER_FLAG_NONE;
     *excludeFlags = TRAINER_FLAG_NONE;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE))
         *includeFlags |= TRAINER_FLAG_REGION_ROGUE;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO))
         *includeFlags |= TRAINER_FLAG_REGION_KANTO;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO))
         *includeFlags |= TRAINER_FLAG_REGION_JOHTO;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN))
         *includeFlags |= TRAINER_FLAG_REGION_HOENN;
 
 #ifdef ROGUE_EXPANSION
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
         *includeFlags |= TRAINER_FLAG_REGION_SINNOH;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
         *includeFlags |= TRAINER_FLAG_REGION_UNOVA;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
         *includeFlags |= TRAINER_FLAG_REGION_KALOS;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA))
         *includeFlags |= TRAINER_FLAG_REGION_ALOLA;
 
-    if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR))
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
         *includeFlags |= TRAINER_FLAG_REGION_GALAR;
 #endif
 
@@ -846,7 +846,7 @@ void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScratch* scratch)
 {
     // Configure evos, strong presets and legend settings
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         if(Rogue_GetCurrentDifficulty() >= 8)
@@ -904,7 +904,7 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
 {
     u8 fixedIV;
 
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         fixedIV = 0;
@@ -989,7 +989,7 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
 
 static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
 {
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
@@ -1052,7 +1052,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             monCount = 6;
         else
         {
-            switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+            switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
             {
             case DIFFICULTY_LEVEL_EASY:
             case DIFFICULTY_LEVEL_MEDIUM:
@@ -1129,7 +1129,7 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
     if(!Rogue_IsKeyTrainer(trainerNum))
         return FALSE;
 
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
@@ -1938,7 +1938,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
         return Rogue_IsAnyBossTrainer(scratch->trainerNum);
     }
 
-    switch (Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER))
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
@@ -2377,7 +2377,7 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
 
     if(Rogue_IsAnyBossTrainer(trainerNum))
     {
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && Rogue_GetCurrentDifficulty() < 8)
+        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && Rogue_GetCurrentDifficulty() < 8)
         {
             // Prior to E4 we don't want to force forward the best lead mon
             // We just want to push final mons to the back

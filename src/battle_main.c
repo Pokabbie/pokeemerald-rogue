@@ -3124,7 +3124,7 @@ static void BattleStartClearSetData(void)
     else if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)) && GetBattleSceneInRecordedBattle())
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
 
-    gBattleScripting.battleStyle = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
+    gBattleScripting.battleStyle = Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
 
     gMultiHitCounter = 0;
     gBattleOutcome = 0;

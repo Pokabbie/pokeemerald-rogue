@@ -243,7 +243,7 @@ void Rogue_SetCurrentDifficulty(u8 difficulty)
 
 bool8 Rogue_ForceExpAll(void)
 {
-    return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
+    return Rogue_GetConfigToggle(CONFIG_TOGGLE_EXP_ALL);
 }
 
 bool8 Rogue_FastBattleAnims(void)
@@ -383,7 +383,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
             }
             else
             {
-                if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL))
+                if(Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL))
                 {
                     desiredExpPerc = 34;
                 }
@@ -2376,7 +2376,7 @@ static void SetupRogueRunBag()
     u16 i;
     u16 itemId;
     u16 quantity;
-    bool8 isBasicBagEnabled = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE);
+    bool8 isBasicBagEnabled = Rogue_GetConfigToggle(CONFIG_TOGGLE_BAG_WIPE);
 
     SetMoney(&gSaveBlock1Ptr->money, 0);
     ClearBag();
@@ -3525,7 +3525,7 @@ void Rogue_Battle_StartTrainerBattle(void)
 {
     bool8 shouldDoubleBattle = FALSE;
 
-    switch(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT))
+    switch(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT))
     {
         case BATTLE_FORMAT_SINGLES:
             shouldDoubleBattle = FALSE;
@@ -3819,7 +3819,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
-            if(Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+            if(Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             {
                 u16 i;
 
@@ -4558,7 +4558,7 @@ bool8 Rogue_PreferTraditionalWildMons(void)
 {
     if(Rogue_IsRunActive())
     {
-        return !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+        return !Rogue_GetConfigToggle(CONFIG_TOGGLE_OVERWORLD_MONS);
     }
 
     return FALSE;
@@ -4957,7 +4957,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 #endif
 
     // Remove EV items
-    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
     {
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_HP_UP);
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PROTEIN);
@@ -4971,7 +4971,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     }
 
     // Remove EV held items
-    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN))
+    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
     {
     }
 

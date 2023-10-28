@@ -2725,7 +2725,7 @@ void RoguePokedex_SetDexRegion(u8 region)
 
 u8 RoguePokedex_GetDexVariant()
 {
-    u8 dexVariant = Rogue_GetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT);
+    u8 dexVariant = Rogue_GetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT);
 
     if(dexVariant < POKEDEX_VARIANT_COUNT)
         return dexVariant;
@@ -2738,20 +2738,20 @@ void RoguePokedex_SetDexVariant(u8 variant)
 {
     if(variant < POKEDEX_VARIANT_COUNT)
     {
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT, variant);
+        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, variant);
         RoguePokedex_SetDexGenLimit(gPokedexVariants[variant].genLimit);
     }
     else
     {
         // Likely wanting to enter national dex mode
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_NATIONAL);
+        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_NATIONAL);
         RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
     }
 }
 
 u8 RoguePokedex_GetDexGenLimit()
 {
-    u8 genLimit = Rogue_GetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN);
+    u8 genLimit = Rogue_GetConfigRange(CONFIG_RANGE_POKEDEX_GEN);
 
     if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
         return genLimit;
@@ -2762,9 +2762,9 @@ u8 RoguePokedex_GetDexGenLimit()
 void RoguePokedex_SetDexGenLimit(u8 genLimit)
 {
     if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN, genLimit);
+        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_GEN, genLimit);
     else
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN, DEX_GEN_LIMIT);
+        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_GEN, DEX_GEN_LIMIT);
 }
 
 bool8 RoguePokedex_IsNationalDexActive()
