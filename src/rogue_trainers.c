@@ -1414,6 +1414,8 @@ static u16 GetSimilarCheckSpecies(u16 species)
     case SPECIES_SHELLOS:
     case SPECIES_GASTRODON:
     case SPECIES_ROTOM:
+    case SPECIES_DIALGA:
+    case SPECIES_PALKIA:
     case SPECIES_GIRATINA:
     case SPECIES_SHAYMIN:
     case SPECIES_ARCEUS:
