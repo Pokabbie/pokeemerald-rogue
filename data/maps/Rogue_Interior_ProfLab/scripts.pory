@@ -70,7 +70,15 @@ script Rogue_Interior_ProfLab_FrameState0
     giveitem(ITEM_POTION, 5)
 
     msgbox(format("And finally, your very own Pokédex!"))
-    setflag(FLAG_SYS_POKEDEX_GET)
+    
+    if(flag(FLAG_SYS_POKEDEX_GET))
+    {
+        msgbox(format("Oh, it looks like you already got a Pokédex from Pokabbie!\pI guess you don't need this one then!\nFuhahaha!"))
+    }
+    else
+    {
+        setflag(FLAG_SYS_POKEDEX_GET)
+    }
     setflag(FLAG_SYS_POKEMON_GET)
 
     msgbox(format("That Pokédex has been recently upgraded too!\pIt can show you Pokemon's stats, moves, evolutions and more!"))

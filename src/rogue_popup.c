@@ -881,7 +881,9 @@ void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
 
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
-    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    // TODO - Only play if popup forced in script
+    //popup->fanfare = MUS_OBTAIN_ITEM;
 
     if(amount == 1)
     {
@@ -907,7 +909,9 @@ void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
 
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
-    popup->fanfare = MUS_OBTAIN_BERRY;
+
+    // TODO - Only play if popup forced in script
+    //popup->fanfare = MUS_OBTAIN_BERRY;
 
     if(amount == 1)
     {
@@ -933,7 +937,7 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
-    popup->fanfare = SE_NOT_EFFECTIVE;
+    popup->soundEffect = SE_NOT_EFFECTIVE;
 
     if(amount == 1)
     {
