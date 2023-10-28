@@ -913,13 +913,13 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_MEDIUM:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= 6)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 16;
-            else if(Rogue_GetCurrentDifficulty() >= 5)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 10;
-            else if(Rogue_GetCurrentDifficulty() >= 4)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
                 fixedIV = 8;
-            else if(Rogue_GetCurrentDifficulty() >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 fixedIV = 6;
             else
                 fixedIV = 0;
@@ -933,13 +933,13 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     case DIFFICULTY_LEVEL_HARD:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= 12)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 31;
-            else if(Rogue_GetCurrentDifficulty() >= 8)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 21;
-            else if(Rogue_GetCurrentDifficulty() >= 6)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
                 fixedIV = 19;
-            else if(Rogue_GetCurrentDifficulty() >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 fixedIV = 15;
             else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 11;
@@ -956,9 +956,9 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         if(Rogue_IsKeyTrainer(trainerNum))
         {
             // Bosses are cracked a LOT sooner
-            if(Rogue_GetCurrentDifficulty() >= 5)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1)
                 fixedIV = 31;
-            else if(Rogue_GetCurrentDifficulty() >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 fixedIV = 21;
             else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 19;
@@ -968,13 +968,13 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         else
         {
             // Regular trainers scale like hard mode bosses
-            if(Rogue_GetCurrentDifficulty() >= 12)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
                 fixedIV = 31;
-            else if(Rogue_GetCurrentDifficulty() >= 8)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 fixedIV = 21;
-            else if(Rogue_GetCurrentDifficulty() >= 6)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
                 fixedIV = 19;
-            else if(Rogue_GetCurrentDifficulty() >= 3)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 fixedIV = 15;
             else if(Rogue_GetCurrentDifficulty() >= 1)
                 fixedIV = 11;
@@ -999,7 +999,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= 5)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
                 return TRUE;
             else
                 return FALSE;
@@ -1015,7 +1015,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= 3)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
                 return TRUE;
             else
                 return FALSE;
@@ -1023,7 +1023,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
         else
         {
             // Normal trainers start to optimize coverage from E4 onward
-            if(Rogue_GetCurrentDifficulty() >= 8)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
                 return TRUE;
             else
                 return FALSE;
@@ -1058,9 +1058,11 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             case DIFFICULTY_LEVEL_MEDIUM:
                 if(Rogue_GetCurrentDifficulty() == 0)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
-                else if(Rogue_GetCurrentDifficulty() <= 2)
+                else if(Rogue_GetCurrentDifficulty() <= 1)
+                    monCount = 3;
+                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY)
                     monCount = 4;
-                else if(Rogue_GetCurrentDifficulty() <= 5)
+                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY + 2)
                     monCount = 5;
                 else
                     monCount = 6;
@@ -1088,7 +1090,6 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     {
         u8 minMonCount;
         u8 maxMonCount;
-        // TODO - Exp trainer support
 
         if(Rogue_GetCurrentDifficulty() <= 1)
         {
@@ -1100,7 +1101,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             minMonCount = 1;
             maxMonCount = 3;
         }
-        else if(Rogue_GetCurrentDifficulty() <= 11)
+        else if(Rogue_GetCurrentDifficulty() <= ROGUE_CHAMP_START_DIFFICULTY - 1)
         {
             minMonCount = 2;
             maxMonCount = 4;
