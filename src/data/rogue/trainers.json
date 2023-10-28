@@ -1,6 +1,28 @@
 {
     "trainers":
     {
+        "#ifdef ROGUE_DEBUG //debug":
+        [
+            {
+                "name": "DEBUG",
+                "type_assignment": "NONE",
+                "gfx_suffix": "DEBUG_NPC",
+                "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+                "music_player": "kanto_boss",
+                "trainer_flags": [],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ]
+                }
+            }
+        ],
+
         "rivals":
         [
             {
