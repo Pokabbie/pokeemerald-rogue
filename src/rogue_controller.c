@@ -1800,7 +1800,6 @@ void Rogue_OnNewGame(void)
 
     gSaveBlock1Ptr->bagSortMode = ITEM_SORT_MODE_TYPE;
     gSaveBlock1Ptr->bagCapacityUpgrades = 0;
-    gSaveBlock1Ptr->bagAmountUpgrades = 0;
 
     RoguePlayer_SetNewGameOutfit();
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
@@ -3945,33 +3944,34 @@ u16 Rogue_GetBagCapacity()
         return BAG_ITEM_CAPACITY;
     else
     {
-        u16 slotCount = BAG_ITEM_RESERVED_SLOTS + 50 + gSaveBlock1Ptr->bagCapacityUpgrades * 15;
+        // Takes into account BAG_ITEM_RESERVED_SLOTS
+        u16 startingSlots = BAG_ITEM_CAPACITY - ITEM_BAG_MAX_CAPACITY_UPGRADE * 10;
+        u16 slotCount = startingSlots + gSaveBlock1Ptr->bagCapacityUpgrades * 10;
         return min(slotCount, BAG_ITEM_CAPACITY);
     }
 }
 
 u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
 {
-    if(gSaveBlock1Ptr->bagAmountUpgrades >= ITEM_BAG_MAX_AMOUNT_UPGRADE)
-        return MAX_BAG_ITEM_CAPACITY;
+    return MAX_BAG_ITEM_CAPACITY;
+}
 
-    switch(pocket)
+u32 Rogue_CalcBagUpgradeCost()
+{
+    // First few are hard coded jumps then always jump by 1000
+    switch (gSaveBlock1Ptr->bagCapacityUpgrades)
     {
-        case KEYITEMS_POCKET:
-        case CHARMS_POCKET:
-            return MAX_BAG_ITEM_CAPACITY;
+    case 0:
+        return 100;
 
-        case TMHM_POCKET:
-        case HELD_ITEMS_POCKET:
-        case STONES_POCKET:
-            return 1 + gSaveBlock1Ptr->bagAmountUpgrades;
+    case 1:
+        return 200;
 
-        case BERRIES_POCKET:
-        case BALLS_POCKET:
-            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 10;
-
-        default:
-            return (1 + gSaveBlock1Ptr->bagAmountUpgrades) * 5;
+    case 2:
+        return 500;
+    
+    default:
+        return 1000 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 2);
     }
 }
 

@@ -84,7 +84,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
         "The world has changed quite a lot recently…\p"
         "Routes within the world seem to be connecting up at random. Making exploring even more difficult.\p"
         "Though there is one thing for sure, trainers are still out their and itching for battles!\p"
-        "So, in order to explore the world, you need to be a master at catching and training POKéMON!\p"
+        "So, only skilled POKéMON trainers can thrive!\p"
 
         "Now…\nLet me put your memory to the test…"
     ))
@@ -98,6 +98,27 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     waitmovement(OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0)
     waitmovement(OBJ_LOCAL_ID_FOLLOWMON_ROAMER)
 
+    setvar(VAR_RESULT, NO)
+
+    while(var(VAR_RESULT) == NO)
+    {
+        call(Rogue_Intro_CustomisePlayer)
+    }
+
+    msgbox(format(
+        "Phew…\pYou had me worried for a second then {PLAYER}!\p"
+        "It looks like your memory is working fine to me!\p"
+        "Come on now, let's try and get you standing up."
+    ))
+
+    special(Rogue_AssignDefaultRegion)
+    warpsilent(MAP_ROGUE_AREA_TOWN_SQUARE, 11)
+
+    release
+}
+
+script Rogue_Intro_CustomisePlayer
+{
     msgbox(format("Do you remember what you look like?"))
     fadescreen(FADE_TO_BLACK)
     special(Special_ViewPlayerCustomisationMenu)
@@ -113,16 +134,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     special(ChangePokemonHubName)
     waitstate
 
-    msgbox(format(
-        "That's right!\pIt's called {POKEMON_HUB}!\p"
-        "Phew…\pYou had me worried for a second then {PLAYER}!\p"
-        "Come on now, let's try and get you standing up."
-    ))
-
-    special(Rogue_AssignDefaultRegion)
-    warpsilent(MAP_ROGUE_AREA_TOWN_SQUARE, 11)
-
-    release
+    msgbox(format("So you're {PLAYER} living in {POKEMON_HUB}?"), MSGBOX_YESNO)
 }
 
 script Rogue_Intro_PlayAnim_ParentChildMon

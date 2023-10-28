@@ -45,12 +45,12 @@
 #define DAYCARE_MON_COUNT 2
 #define OBJECT_EVENTS_COUNT 16
 #define MAIL_COUNT (10 + PARTY_SIZE)
-#define SECRET_BASES_COUNT 20
+#define SECRET_BASES_COUNT 5 // Originally 20 (5 is likely more than enough for rogue)
 #define TV_SHOWS_COUNT 25
 #define POKE_NEWS_COUNT 16
 
 #define PC_ITEMS_COUNT 50
-#define BAG_ITEM_CAPACITY (320) //236 from old slots + 40 * 2 from pokeblock
+#define BAG_ITEM_CAPACITY (400) //236 from old slots + 40 * 2 from pokeblock + 158 * 15 from secret bases
 
 // These slots will be shared between charms & key items
 #define BAG_ITEM_RESERVED_SLOTS 50

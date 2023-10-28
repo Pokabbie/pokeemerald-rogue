@@ -108,7 +108,7 @@ enum {
     WIN_TMHM_INFO,
     WIN_MESSAGE, // Identical to ITEMWIN_MESSAGE. Unused?
     WIN_BAG_CAPACITY,
-    WIN_BAG_STACK_AMOUNT,
+    //WIN_BAG_STACK_AMOUNT,
 };
 
 // Item list ID for toSwapPos to indicate an item is not currently being swapped
@@ -636,15 +636,15 @@ static const struct WindowTemplate sDefaultBagWindows[] =
         .paletteNum = 1,
         .baseBlock = 541,
     },
-    [WIN_BAG_STACK_AMOUNT] = {
-        .bg = 0,
-        .tilemapLeft = 26,
-        .tilemapTop = 18,
-        .width = 4,
-        .height = 2,
-        .paletteNum = 1,
-        .baseBlock = 551,
-    },
+    //[WIN_BAG_STACK_AMOUNT] = {
+    //    .bg = 0,
+    //    .tilemapLeft = 26,
+    //    .tilemapTop = 18,
+    //    .width = 4,
+    //    .height = 2,
+    //    .paletteNum = 1,
+    //    .baseBlock = 551,
+    //},
     DUMMY_WIN_TEMPLATE,
 };
 
@@ -1286,16 +1286,25 @@ static void PrintBagCapacity()
     const u8 *str = gText_Var1SlashVar2;
     u16 freeSlots = GetBagUnreservedFreeSlots();
     u16 totalSlots = GetBagUnreservedTotalSlots();
-    u16 stackSize = Rogue_GetBagPocketAmountPerItem(gBagPosition.pocket);
+    //u16 stackSize = Rogue_GetBagPocketAmountPerItem(gBagPosition.pocket);
 
 #ifdef ROGUE_DEBUG
-    // If we're in the key items pocket in debug display the reservered slot info
+    // Debug: show the reserverd pocket capacity in key items pocket
     if(gBagPosition.pocket == KEYITEMS_POCKET)
     {
         freeSlots = GetBagReservedFreeSlots();
         totalSlots = GetBagReservedTotalSlots();
     }
+    else
 #endif
+    // Display unlimited to make it clear that this pocket doesn't take up space
+    if(ItemPocketUsesReservedSlots(gBagPosition.pocket))
+    {
+        
+        FillWindowPixelBuffer(WIN_BAG_CAPACITY, PIXEL_FILL(0));
+        BagMenu_Print(WIN_BAG_CAPACITY, FONT_NARROW, gText_Unlimited, 2, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
+        return;
+    }
 
     usedSlots = totalSlots - freeSlots;
 
@@ -1310,11 +1319,11 @@ static void PrintBagCapacity()
     BagMenu_Print(WIN_BAG_CAPACITY, FONT_NARROW, str, 2, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
 
     // Print slot size
-    ConvertIntToDecimalStringN(gStringVar1, stackSize, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    StringExpandPlaceholders(gStringVar4, gText_xVar1);
+    //ConvertIntToDecimalStringN(gStringVar1, stackSize, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    //StringExpandPlaceholders(gStringVar4, gText_xVar1);
 
-    FillWindowPixelBuffer(WIN_BAG_STACK_AMOUNT, PIXEL_FILL(0));
-    BagMenu_Print(WIN_BAG_STACK_AMOUNT, FONT_NARROW, str, 0, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
+    //FillWindowPixelBuffer(WIN_BAG_STACK_AMOUNT, PIXEL_FILL(0));
+    //BagMenu_Print(WIN_BAG_STACK_AMOUNT, FONT_NARROW, str, 0, 0, 0, 0, 0, COLORID_BAG_CAPACITY);
 }
 
 static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)
@@ -1598,7 +1607,7 @@ static void ReturnToItemList(u8 taskId)
     }
 
     PutWindowTilemap(WIN_BAG_CAPACITY);
-    PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
+    //PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_BagMenu_HandleInput;
 }
@@ -1732,7 +1741,7 @@ static void Task_SwitchBagPocket(u8 taskId)
         LoadBagItemListBuffers(gBagPosition.pocket);
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, gBagPosition.scrollPosition[gBagPosition.pocket], gBagPosition.cursorPosition[gBagPosition.pocket]);
         PutWindowTilemap(WIN_BAG_CAPACITY);
-        PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
+        //PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
         PutWindowTilemap(WIN_POCKET_NAME);
 
         if(gBagPosition.pocket == TMHM_POCKET)
@@ -3152,7 +3161,7 @@ static void LoadBagMenuTextWindows(void)
         PutWindowTilemap(i);
     }
     PutWindowTilemap(WIN_BAG_CAPACITY);
-    PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
+    //PutWindowTilemap(WIN_BAG_STACK_AMOUNT);
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
 }

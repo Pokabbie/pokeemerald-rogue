@@ -311,6 +311,10 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
         if(existingRoom->coords.x <= 2)
             weight += 80;
 
+        // Don't want to place in first column
+        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+            weight -= 40;
+
         // Don't place after or before or other rest stop
         if(IsPrecededByRoomType(existingRoom, ADVPATH_ROOM_RESTSTOP) || IsProceededByRoomType(existingRoom, ADVPATH_ROOM_RESTSTOP))
             weight = 0;
@@ -493,7 +497,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Wild dens
     {
-        u8 chance = 10;
+        u8 chance = 5;
 
         // If players get encounters they basically have to get lucky with wild den
         if(Rogue_GetCurrentDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
@@ -506,7 +510,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
         else if(Rogue_GetCurrentDifficulty() >=  1)
         {
-            chance = 5;
+            chance = 10;
         }
 
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
@@ -577,8 +581,8 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             }
             else
             {
-                weights[ADVPATH_SUBROOM_ROUTE_CALM] = 2;
-                weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 2;
+                weights[ADVPATH_SUBROOM_ROUTE_CALM] = 3;
+                weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 4;
                 weights[ADVPATH_SUBROOM_ROUTE_TOUGH] = 1;
             }
 
@@ -700,7 +704,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             for(i = 1; i < MAX_CONNECTION_GENERATOR_COLUMNS; ++i)
             {
                 // Random column variant switches
-                switch (RogueRandom() % 4)
+                switch (RogueRandom() % 6)
                 {
                 // Mixed/Standard
                 case 0:
@@ -736,6 +740,24 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                    break;
+
+                // Fork
+                case 4:
+                    generator.connectionsSettingsPerColumn[i].minCount = 3;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 100;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 100;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 100;
+                    break;
+
+                // Mixed/Standard Alt
+                case 5:
+                    generator.connectionsSettingsPerColumn[i].minCount = 1;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 50;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 10;
+                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 50;
                     break;
                 
                 default:

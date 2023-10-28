@@ -964,8 +964,6 @@ struct SaveBlock1
     /*0x490*/ u32 money;
     /*0x494*/ u8 bagSortMode;
               u8 bagCapacityUpgrades;
-              u8 bagAmountUpgrades;
-              u8 unusedItem0;
     /*0x498*/ struct ItemSlot pcItems[PC_ITEMS_COUNT];
     /*0x560*/ struct ItemSlot bagPockets[BAG_ITEM_CAPACITY];
     /*0x9BC*/ u16 berryBlenderRecords[3];
@@ -994,8 +992,6 @@ struct SaveBlock1
     /*0x2B92*/ u8 outbreakLocationMapNum;
     /*0x2B93*/ u8 outbreakLocationMapGroup;
     /*0x2B94*/ u8 outbreakPokemonLevel;
-    /*0x2B95*/ u8 outbreakUnused1;
-    /*0x2B96*/ u16 outbreakUnused2;
     /*0x2B98*/ u16 outbreakPokemonMoves[MAX_MON_MOVES];
     /*0x2BA0*/ u8 outbreakUnused3;
     /*0x2BA1*/ u8 outbreakPokemonProbability;

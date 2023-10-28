@@ -9,6 +9,7 @@
 #include "field_screen_effect.h"
 #include "item_menu.h"
 #include "main.h"
+#include "money.h"
 #include "overworld.h"
 #include "pokedex.h"
 #include "pokemon.h"
@@ -948,26 +949,25 @@ void Rogue_IncreaseBagCapacityUpgradeLevel()
     }
 }
 
-u16 Rogue_GetBagAmountUpgradeLevel()
+void Rogue_BufferBagUpgradeCost()
 {
-    return gSaveBlock1Ptr->bagAmountUpgrades;
+    u32 cost = Rogue_CalcBagUpgradeCost();
+    ConvertUIntToDecimalStringN(gStringVar2, cost, STR_CONV_MODE_LEFT_ALIGN, 7);
 }
 
-void Rogue_IncreaseBagAmountUpgradeLevel()
+void Rogue_CheckBagUpgradeCost()
 {
-    gSpecialVar_Result = FALSE;
-
-    if(gSaveBlock1Ptr->bagAmountUpgrades < ITEM_BAG_MAX_AMOUNT_UPGRADE)
-    {
-        ++gSaveBlock1Ptr->bagAmountUpgrades;
+    u32 cost = Rogue_CalcBagUpgradeCost();
+    if(IsEnoughMoney(&gSaveBlock1Ptr->money, cost))
         gSpecialVar_Result = TRUE;
-        ShrinkBagItems();
-    }
+    else
+        gSpecialVar_Result = FALSE;
 }
 
-u16 Rogue_GetBagUpgradeCost()
+void Rogue_RemoveBagUpgradeCost()
 {
-    return min(gSaveBlock1Ptr->bagAmountUpgrades, gSaveBlock1Ptr->bagCapacityUpgrades);
+    u32 cost = Rogue_CalcBagUpgradeCost();
+    RemoveMoney(&gSaveBlock1Ptr->money, cost);
 }
 
 void Rogue_SeedRng()

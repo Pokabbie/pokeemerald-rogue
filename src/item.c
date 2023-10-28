@@ -29,7 +29,6 @@ extern u16 gUnknown_0203CF30[];
 // this file's functions
 static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count);
 static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
-static bool8 ItemPocketUsesReservedSlots(u8 pocket);
 static bool8 BagPocketUsesReservedSlots(u8 pocket);
 
 // EWRAM variables
@@ -116,7 +115,7 @@ void UpdateBagItemsPointers(void)
     }
 }
 
-static bool8 ItemPocketUsesReservedSlots(u8 pocket)
+bool8 ItemPocketUsesReservedSlots(u8 pocket)
 {
     return BagPocketUsesReservedSlots(pocket - 1);
 }
