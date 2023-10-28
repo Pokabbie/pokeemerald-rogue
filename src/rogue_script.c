@@ -952,7 +952,7 @@ void Rogue_IncreaseBagCapacityUpgradeLevel()
 void Rogue_BufferBagUpgradeCost()
 {
     u32 cost = Rogue_CalcBagUpgradeCost();
-    ConvertUIntToDecimalStringN(gStringVar2, cost, STR_CONV_MODE_RIGHT_ALIGN, 7);
+    ConvertUIntToDecimalStringN(gStringVar2, cost, STR_CONV_MODE_LEFT_ALIGN, 7);
 }
 
 void Rogue_CheckBagUpgradeCost()
