@@ -35,6 +35,7 @@
 #include "rogue_trainers.h"
 #include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
+#include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
@@ -1055,4 +1056,6 @@ void Rogue_AssignDefaultRegion()
     {
         Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO, TRUE);
     }
+
+    RoguePokedex_SetDexVariant(POKEDEX_VARIANT_DEFAULT);
 }

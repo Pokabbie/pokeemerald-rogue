@@ -90,12 +90,12 @@ movement BirchStartGame2
 
 script Rogue_Area_TownSquare_LabSign
 {
-    msgbox(format("PROF. BIRCH's LAB"), MSGBOX_SIGN)
+    msgbox(format("PROF. BIRCH's Lab"), MSGBOX_SIGN)
 }
 
 script Rogue_Area_TownSquare_ConfigSign
 {
-    msgbox(format("CONFIG LAB"), MSGBOX_SIGN)
+    msgbox(format("Config Lab"), MSGBOX_SIGN)
 }
 
 script Rogue_Area_TownSquare_TalkBackpacker

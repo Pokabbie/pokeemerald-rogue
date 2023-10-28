@@ -30,6 +30,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_pokedex.h"
+#include "rogue_settings.h"
 
 #ifdef ROGUE_EXPANSION
 #define DEX_GEN_LIMIT 8
@@ -2719,12 +2720,12 @@ void RoguePokedex_SetDexRegion(u8 region)
     if(region < POKEDEX_REGION_COUNT)
         RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[0]);
     else
-        RoguePokedex_SetDexVariant(POKEDEX_REGION_NONE);
+        RoguePokedex_SetDexVariant(POKEDEX_VARIANT_NONE);
 }
 
 u8 RoguePokedex_GetDexVariant()
 {
-    u8 dexVariant = VarGet(VAR_ROGUE_DEX_VARIANT);
+    u8 dexVariant = Rogue_GetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT);
 
     if(dexVariant < POKEDEX_VARIANT_COUNT)
         return dexVariant;
@@ -2737,20 +2738,20 @@ void RoguePokedex_SetDexVariant(u8 variant)
 {
     if(variant < POKEDEX_VARIANT_COUNT)
     {
-        VarSet(VAR_ROGUE_DEX_VARIANT, variant);
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT, variant);
         RoguePokedex_SetDexGenLimit(gPokedexVariants[variant].genLimit);
     }
     else
     {
         // Likely wanting to enter national dex mode
-        VarSet(VAR_ROGUE_DEX_VARIANT, POKEDEX_VARIANT_NONE);
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_NATIONAL);
         RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
     }
 }
 
 u8 RoguePokedex_GetDexGenLimit()
 {
-    u8 genLimit = VarGet(VAR_ROGUE_DEX_GEN_LIMIT);
+    u8 genLimit = Rogue_GetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN);
 
     if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
         return genLimit;
@@ -2761,16 +2762,15 @@ u8 RoguePokedex_GetDexGenLimit()
 void RoguePokedex_SetDexGenLimit(u8 genLimit)
 {
     if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
-        VarSet(VAR_ROGUE_DEX_GEN_LIMIT, genLimit);
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN, genLimit);
     else
-        VarSet(VAR_ROGUE_DEX_GEN_LIMIT, DEX_GEN_LIMIT);
-
+        Rogue_SetConfigRange(DIFFICULTY_RANGE_POKEDEX_GEN, DEX_GEN_LIMIT);
 }
 
 bool8 RoguePokedex_IsNationalDexActive()
 {
     // Variant none is treated national dex mode
-    return RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_NONE;
+    return RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_NATIONAL;
 }
 
 u16 RoguePokedex_GetNationalDexLimit()
