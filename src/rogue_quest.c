@@ -775,26 +775,26 @@ void QuestNotify_BeginAdventure(void)
         TryDeactivateQuest(QUEST_EliteMaster);
     }
 
-    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD)
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD)
     {
         TryDeactivateQuest(QUEST_Hardcore2);
         TryDeactivateQuest(QUEST_Hardcore3);
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE))
+    if(!Rogue_GetConfigToggle(CONFIG_TOGGLE_BAG_WIPE))
     {
         TryDeactivateQuest(QUEST_Nuzlocke);
         TryDeactivateQuest(QUEST_IronMono2);
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(!FlagGet(FLAG_ROGUE_HARD_ITEMS) || Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN) || Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL))
+    if(!FlagGet(FLAG_ROGUE_HARD_ITEMS) || Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN) || Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL))
     {
         TryDeactivateQuest(QUEST_Hardcore4);
     }
 
-    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT) != BATTLE_FORMAT_DOUBLES)
+    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) != BATTLE_FORMAT_DOUBLES)
     {
         TryDeactivateQuest(QUEST_OrreMode);
     }

@@ -1328,66 +1328,66 @@ static u8 GetMenuItemValue(u8 menuItem)
         return Rogue_GetDifficultyPreset();
 
     case MENUITEM_MENU_TOGGLE_EXP_ALL:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_EXP_ALL);
 
     case MENUITEM_MENU_TOGGLE_OVER_LVL:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
 
     case MENUITEM_MENU_TOGGLE_EV_GAIN:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN);
 
     case MENUITEM_MENU_TOGGLE_OVERWORLD_MONS:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_OVERWORLD_MONS);
 
     case MENUITEM_MENU_TOGGLE_BAG_WIPE:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_BAG_WIPE);
 
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE);
 
     // Trainers
     //
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN);
 
 #ifdef ROGUE_EXPANSION
     case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA);
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
-        return Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR);
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR);
 #endif
 
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        return Rogue_GetConfigRange(DIFFICULTY_RANGE_TRAINER);
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER);
 
     case MENUITEM_MENU_SLIDER_ITEM:
-        return Rogue_GetConfigRange(DIFFICULTY_RANGE_ITEM);
+        return Rogue_GetConfigRange(CONFIG_RANGE_ITEM);
 
     case MENUITEM_MENU_SLIDER_LEGENDARY:
-        return Rogue_GetConfigRange(DIFFICULTY_RANGE_LEGENDARY);
+        return Rogue_GetConfigRange(CONFIG_RANGE_LEGENDARY);
 
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
-        return Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT);
+        return Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT);
 
 #ifdef ROGUE_DEBUG
     case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
@@ -1432,83 +1432,83 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         break;
 
     case MENUITEM_MENU_TOGGLE_EXP_ALL:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_EXP_ALL, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_OVER_LVL:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_OVER_LVL, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_EV_GAIN:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_EV_GAIN, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_OVERWORLD_MONS:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_OVERWORLD_MONS, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_BAG_WIPE:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_BAG_WIPE, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE, value);
         break;
 
     // Trainers
     //
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN, value);
         break;
 
 #ifdef ROGUE_EXPANSION
     case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR, value);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR, value);
         break;
 #endif
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_TRAINER, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER, value);
         break;
 
     case MENUITEM_MENU_SLIDER_ITEM:
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_ITEM, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_ITEM, value);
         break;
 
     case MENUITEM_MENU_SLIDER_LEGENDARY:
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_LEGENDARY, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_LEGENDARY, value);
         break;
 
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, value);
         break;
 
 #ifdef ROGUE_DEBUG

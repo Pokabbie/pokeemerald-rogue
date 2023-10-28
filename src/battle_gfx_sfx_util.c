@@ -90,6 +90,8 @@ static const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
     {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
 };
 
+#include "rogue_debug.h"
+
 // code
 void AllocateBattleSpritesData(void)
 {
@@ -98,6 +100,7 @@ void AllocateBattleSpritesData(void)
     gBattleSpritesDataPtr->healthBoxesData = AllocZeroed(sizeof(struct BattleHealthboxInfo) * MAX_BATTLERS_COUNT);
     gBattleSpritesDataPtr->animationData = AllocZeroed(sizeof(struct BattleAnimationInfo));
     gBattleSpritesDataPtr->battleBars = AllocZeroed(sizeof(struct BattleBarInfo) * MAX_BATTLERS_COUNT);
+    MEMORY_STOMP_TRACKING_SET_TARGET(&gBattleSpritesDataPtr, sizeof(&gBattleSpritesDataPtr));
 }
 
 void FreeBattleSpritesData(void)
@@ -110,6 +113,7 @@ void FreeBattleSpritesData(void)
     FREE_AND_SET_NULL(gBattleSpritesDataPtr->healthBoxesData);
     FREE_AND_SET_NULL(gBattleSpritesDataPtr->battlerData);
     FREE_AND_SET_NULL(gBattleSpritesDataPtr);
+    MEMORY_STOMP_TRACKING_SET_TARGET(&gBattleSpritesDataPtr, sizeof(&gBattleSpritesDataPtr));
 }
 
 // Pokemon chooses move to use in Battle Palace rather than player

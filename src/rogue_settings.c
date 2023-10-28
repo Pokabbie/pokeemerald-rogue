@@ -37,8 +37,8 @@ struct RogueDifficultyPresetRange
 
 struct RogueDifficultyPreset
 {
-    struct RogueDifficultyPresetToggle toggles[DIFFICULTY_TOGGLE_COUNT + 1];
-    struct RogueDifficultyPresetRange ranges[DIFFICULTY_RANGE_COUNT + 1];
+    struct RogueDifficultyPresetToggle toggles[CONFIG_TOGGLE_COUNT + 1];
+    struct RogueDifficultyPresetRange ranges[CONFIG_RANGE_COUNT + 1];
 };
 
 EWRAM_DATA struct RogueDifficultyLocal gRogueDifficultyLocal;
@@ -56,64 +56,64 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         .toggles = 
         {
             // no required toggles
-            { .id=DIFFICULTY_TOGGLE_COUNT },
+            { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
         {
-            { .id=DIFFICULTY_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_EASY },
-            { .id=DIFFICULTY_RANGE_ITEM, .value=DIFFICULTY_LEVEL_EASY },
-            { .id=DIFFICULTY_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_EASY },
-            { .id=DIFFICULTY_RANGE_COUNT },
+            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_EASY },
+            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_EASY },
+            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_EASY },
+            { .id=CONFIG_RANGE_COUNT },
         }
     },
     [DIFFICULTY_LEVEL_MEDIUM] = 
     {
         .toggles = 
         {
-            { .id=DIFFICULTY_TOGGLE_SWITCH_MODE, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_COUNT },
+            { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
+            { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
         {
-            { .id=DIFFICULTY_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_MEDIUM },
-            { .id=DIFFICULTY_RANGE_ITEM, .value=DIFFICULTY_LEVEL_MEDIUM },
-            { .id=DIFFICULTY_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_MEDIUM },
-            { .id=DIFFICULTY_RANGE_COUNT },
+            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_MEDIUM },
+            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_MEDIUM },
+            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_MEDIUM },
+            { .id=CONFIG_RANGE_COUNT },
         }
     },
     [DIFFICULTY_LEVEL_HARD] = 
     {
         .toggles = 
         {
-            { .id=DIFFICULTY_TOGGLE_OVER_LVL, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_EV_GAIN, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_SWITCH_MODE, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_COUNT },
+            { .id=CONFIG_TOGGLE_OVER_LVL, .value=FALSE },
+            { .id=CONFIG_TOGGLE_EV_GAIN, .value=FALSE },
+            { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
+            { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
         {
-            { .id=DIFFICULTY_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_HARD },
-            { .id=DIFFICULTY_RANGE_ITEM, .value=DIFFICULTY_LEVEL_HARD },
-            { .id=DIFFICULTY_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_HARD },
-            { .id=DIFFICULTY_RANGE_COUNT },
+            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_HARD },
+            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_HARD },
+            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_HARD },
+            { .id=CONFIG_RANGE_COUNT },
         }
     },
     [DIFFICULTY_LEVEL_BRUTAL] = 
     {
         .toggles = 
         {
-            { .id=DIFFICULTY_TOGGLE_OVER_LVL, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_EV_GAIN, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_SWITCH_MODE, .value=FALSE },
-            { .id=DIFFICULTY_TOGGLE_BAG_WIPE, .value=TRUE },
-            { .id=DIFFICULTY_TOGGLE_COUNT },
+            { .id=CONFIG_TOGGLE_OVER_LVL, .value=FALSE },
+            { .id=CONFIG_TOGGLE_EV_GAIN, .value=FALSE },
+            { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
+            { .id=CONFIG_TOGGLE_BAG_WIPE, .value=TRUE },
+            { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
         {
-            { .id=DIFFICULTY_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_BRUTAL },
-            { .id=DIFFICULTY_RANGE_ITEM, .value=DIFFICULTY_LEVEL_BRUTAL },
-            { .id=DIFFICULTY_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_BRUTAL },
-            { .id=DIFFICULTY_RANGE_COUNT },
+            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_BRUTAL },
+            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_BRUTAL },
+            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_BRUTAL },
+            { .id=CONFIG_RANGE_COUNT },
         }
     }
 };
@@ -124,7 +124,7 @@ void Rogue_SetConfigToggle(u16 elem, bool8 state)
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
 
-    AGB_ASSERT(elem < DIFFICULTY_TOGGLE_COUNT);
+    AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
     if(state)
     {
@@ -144,21 +144,21 @@ bool8 Rogue_GetConfigToggle(u16 elem)
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
 
-    AGB_ASSERT(elem < DIFFICULTY_TOGGLE_COUNT);
+    AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
     return (gRogueSaveBlock->difficultyConfig.toggleBits[idx] & bitMask) != 0;
 }
 
 void Rogue_SetConfigRange(u16 elem, u8 value)
 {
-    AGB_ASSERT(elem < DIFFICULTY_RANGE_COUNT);
+    AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
     gRogueSaveBlock->difficultyConfig.rangeValues[elem] = value;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 }
 
 u8 Rogue_GetConfigRange(u16 elem)
 {
-    AGB_ASSERT(elem < DIFFICULTY_RANGE_COUNT);
+    AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
     return gRogueSaveBlock->difficultyConfig.rangeValues[elem];
 }
 
@@ -248,21 +248,21 @@ static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
     gRogueDifficultyLocal.rewardLevel = DIFFICULTY_LEVEL_EASY;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVER_LVL, FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EV_GAIN, TRUE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_BAG_WIPE, FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE, TRUE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_OVER_LVL, FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_EV_GAIN, TRUE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_BAG_WIPE, FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE, TRUE);
 
     // Set these all to the lowest
-    Rogue_SetConfigRange(DIFFICULTY_RANGE_TRAINER, DIFFICULTY_LEVEL_EASY);
-    Rogue_SetConfigRange(DIFFICULTY_RANGE_ITEM, DIFFICULTY_LEVEL_EASY);
-    Rogue_SetConfigRange(DIFFICULTY_RANGE_LEGENDARY, DIFFICULTY_LEVEL_EASY);
+    Rogue_SetConfigRange(CONFIG_RANGE_TRAINER, DIFFICULTY_LEVEL_EASY);
+    Rogue_SetConfigRange(CONFIG_RANGE_ITEM, DIFFICULTY_LEVEL_EASY);
+    Rogue_SetConfigRange(CONFIG_RANGE_LEGENDARY, DIFFICULTY_LEVEL_EASY);
 
     if(!difficultySettingsOnly)
     {
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_OVERWORLD_MONS, TRUE);
-        Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_EXP_ALL, TRUE);
-        Rogue_SetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT, BATTLE_FORMAT_SINGLES);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_OVERWORLD_MONS, TRUE);
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_EXP_ALL, TRUE);
+        Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, BATTLE_FORMAT_SINGLES);
     }
 }
 
@@ -280,7 +280,7 @@ static void Rogue_SetDifficultyPresetInternal(u8 preset)
         {
             toggle = &gRogueDifficultyPresets[i].toggles[j];
 
-            if(toggle->id == DIFFICULTY_TOGGLE_COUNT)
+            if(toggle->id == CONFIG_TOGGLE_COUNT)
                 break;
 
             Rogue_SetConfigToggle(toggle->id, toggle->value);
@@ -290,7 +290,7 @@ static void Rogue_SetDifficultyPresetInternal(u8 preset)
         {
             range = &gRogueDifficultyPresets[i].ranges[j];
 
-            if(range->id == DIFFICULTY_RANGE_COUNT)
+            if(range->id == CONFIG_RANGE_COUNT)
                 break;
 
             Rogue_SetConfigRange(range->id, range->value);
@@ -318,12 +318,12 @@ static u8 Rogue_CalcDifficultyPreset()
         if(isValid)
         {
             // Check if all toggles match
-            for(i = 0; i < DIFFICULTY_TOGGLE_COUNT; ++i)
+            for(i = 0; i < CONFIG_TOGGLE_COUNT; ++i)
             {
                 u8 id = gRogueDifficultyPresets[p].toggles[i].id;
                 bool8 expectedValue = gRogueDifficultyPresets[p].toggles[i].value;
 
-                if(id == DIFFICULTY_TOGGLE_COUNT)
+                if(id == CONFIG_TOGGLE_COUNT)
                     break;
 
                 if(Rogue_GetConfigToggle(id) != expectedValue)
@@ -337,12 +337,12 @@ static u8 Rogue_CalcDifficultyPreset()
         if(isValid)
         {
             // Check if all ranges match
-            for(i = 0; i < DIFFICULTY_RANGE_COUNT; ++i)
+            for(i = 0; i < CONFIG_RANGE_COUNT; ++i)
             {
                 u8 id = gRogueDifficultyPresets[p].ranges[i].id;
                 u8 expectedValue = gRogueDifficultyPresets[p].ranges[i].value;
 
-                if(id == DIFFICULTY_RANGE_COUNT)
+                if(id == CONFIG_RANGE_COUNT)
                     break;
 
                 if(Rogue_GetConfigRange(id) != expectedValue)
@@ -379,7 +379,7 @@ static u8 Rogue_CalcRewardDifficultyPreset()
         {
             toggle = &gRogueDifficultyPresets[i].toggles[j];
 
-            if(toggle->id == DIFFICULTY_TOGGLE_COUNT)
+            if(toggle->id == CONFIG_TOGGLE_COUNT)
                 break;
 
             // We don't match
@@ -396,7 +396,7 @@ static u8 Rogue_CalcRewardDifficultyPreset()
             {
                 range = &gRogueDifficultyPresets[i].ranges[j];
 
-                if(range->id == DIFFICULTY_RANGE_COUNT)
+                if(range->id == CONFIG_RANGE_COUNT)
                     break;
 
                 // We don't AT LEAST match
@@ -424,16 +424,16 @@ void Rogue_ResetSettingsToDefaults()
     Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
 
     // Clear all here (Expect to be set later, if not will assert)
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KANTO,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_JOHTO,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_HOENN,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ROGUE,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE,  FALSE);
 #ifdef ROGUE_EXPANSION
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_SINNOH, FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_UNOVA,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_KALOS,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_ALOLA,  FALSE);
-    Rogue_SetConfigToggle(DIFFICULTY_TOGGLE_TRAINER_GALAR,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH, FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA,  FALSE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR,  FALSE);
 #endif
 }
 
@@ -473,7 +473,7 @@ u8 Rogue_GetDifficultyRewardLevel()
 
 u8 Rogue_GetStartingMonCapacity()
 {
-    if(Rogue_GetConfigRange(DIFFICULTY_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
+    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
         return 2;
     else
         return 1;

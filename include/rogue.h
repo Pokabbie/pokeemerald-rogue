@@ -476,8 +476,8 @@ struct RoguePokemonProfile
 
 struct RogueDifficultyConfig
 {
-    u8 toggleBits[DIFFICULTY_TOGGLE_BYTE_COUNT];
-    u8 rangeValues[DIFFICULTY_RANGE_COUNT];
+    u8 toggleBits[CONFIG_TOGGLE_BYTE_COUNT];
+    u8 rangeValues[CONFIG_RANGE_COUNT];
 };
 
 struct RogueDebugConfig

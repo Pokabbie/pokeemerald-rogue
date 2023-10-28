@@ -2990,7 +2990,7 @@ static void BattleStartClearSetData(void)
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
     }
 
-    gBattleScripting.battleStyle = Rogue_GetConfigToggle(DIFFICULTY_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
+    gBattleScripting.battleStyle = Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
 	gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
 	gBattleScripting.monCaught = FALSE;
 
