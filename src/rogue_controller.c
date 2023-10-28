@@ -986,7 +986,7 @@ u8 SpeciesToGen(u16 species)
             return 4;
 
         case SPECIES_PALKIA_ORIGIN:
-        case SPECIES_GIRATINA_ORIGIN:
+        case SPECIES_DIALGA_ORIGIN:
             return 8;
 
         case SPECIES_KYUREM_WHITE:
