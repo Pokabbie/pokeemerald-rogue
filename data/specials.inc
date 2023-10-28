@@ -227,9 +227,9 @@ gSpecials::
 	def_special Popup_CannotTakeItem
 	def_special Rogue_GetBagCapacityUpgradeLevel
 	def_special Rogue_IncreaseBagCapacityUpgradeLevel
-	def_special Rogue_GetBagAmountUpgradeLevel
-	def_special Rogue_IncreaseBagAmountUpgradeLevel
-	def_special Rogue_GetBagUpgradeCost
+	def_special Rogue_BufferBagUpgradeCost
+	def_special Rogue_CheckBagUpgradeCost
+	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
 	def_special Rogue_AssignDefaultRegion
 	def_special RogueHub_SetRandomFollowMonsFromPC

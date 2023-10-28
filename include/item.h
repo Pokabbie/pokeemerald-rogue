@@ -67,6 +67,7 @@ u16 GetBagUnreservedFreeSlots();
 u16 GetBagUnreservedTotalSlots();
 u16 GetBagReservedFreeSlots();
 u16 GetBagReservedTotalSlots();
+bool8 ItemPocketUsesReservedSlots(u8 pocket);
 
 void RemoveEmptyBagItems(void);
 void ShrinkBagItems(void);

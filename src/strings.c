@@ -593,6 +593,7 @@ const u8 gText_NoRegistry[] = _("There is no REGISTRY.{PAUSE_UNTIL_PRESS}");
 const u8 gText_DelRegist[] = _("DEL REGIST.");
 const u8 gText_Var3Var1SlashVar2[] = _("{STR_VAR_3}{STR_VAR_1}/{STR_VAR_2}");
 const u8 gText_Var1SlashVar2[] = _("{STR_VAR_1}/{STR_VAR_2}");
+const u8 gText_Unlimited[] = _("UNLIMITED");
 const u8 gText_Decorate[] = _("DECORATE");
 const u8 gText_PutAway[] = _("PUT AWAY");
 const u8 gText_Toss2[] = _("TOSS");

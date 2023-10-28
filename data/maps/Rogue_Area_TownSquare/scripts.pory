@@ -106,117 +106,35 @@ script Rogue_Area_TownSquare_TalkBackpacker
     msgbox(format("Hi there {PLAYER}!"))
 
     specialvar(VAR_0x8004, Rogue_GetBagCapacityUpgradeLevel)
-    specialvar(VAR_0x8005, Rogue_GetBagAmountUpgradeLevel)
 
-    if(var(VAR_0x8004) == ITEM_BAG_MAX_CAPACITY_UPGRADE && var(VAR_0x8005) == ITEM_BAG_MAX_AMOUNT_UPGRADE)
+    if(var(VAR_0x8004) == ITEM_BAG_MAX_CAPACITY_UPGRADE)
     {
         msgbox(format("I hope that bag's working out well for you!"))
     }
     else
     {
-        specialvar(VAR_0x8006, Rogue_GetBagUpgradeCost)
-
-        switch(var(VAR_0x8006))
-        {
-            case 0:
-                bufferconstantnumberstring(STR_VAR_2, 1000)
-            case 1:
-                bufferconstantnumberstring(STR_VAR_2, 2000)
-            case 2:
-                bufferconstantnumberstring(STR_VAR_2, 3000)
-            case 3:
-                bufferconstantnumberstring(STR_VAR_2, 4000)
-            case 4:
-                bufferconstantnumberstring(STR_VAR_2, 5000)
-            case 5:
-                bufferconstantnumberstring(STR_VAR_2, 6000)
-            case 6:
-                bufferconstantnumberstring(STR_VAR_2, 7000)
-            case 7:
-                bufferconstantnumberstring(STR_VAR_2, 8000)
-            case 8:
-                bufferconstantnumberstring(STR_VAR_2, 9000)
-            case 9:
-                bufferconstantnumberstring(STR_VAR_2, 10000)
-        }
+        special(Rogue_BufferBagUpgradeCost)
 
         showmoneybox(0, 0)
         msgbox(format("I can upgrade your bag for ¥{STR_VAR_2}, if you'd like?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {
-            switch(var(VAR_0x8006))
-            {
-                case 0:
-                    checkconstantmoney(1000)
-                case 1:
-                    checkconstantmoney(2000)
-                case 2:
-                    checkconstantmoney(3000)
-                case 3:
-                    checkconstantmoney(4000)
-                case 4:
-                    checkconstantmoney(5000)
-                case 5:
-                    checkconstantmoney(6000)
-                case 6:
-                    checkconstantmoney(7000)
-                case 7:
-                    checkconstantmoney(8000)
-                case 8:
-                    checkconstantmoney(9000)
-                case 9:
-                    checkconstantmoney(10000)
-            }
+            special(Rogue_CheckBagUpgradeCost)
 
             if(var(VAR_RESULT) == YES)
             {
-                switch(var(VAR_0x8006))
-                {
-                    case 0:
-                        removeconstantmoney(1000)
-                    case 1:
-                        removeconstantmoney(2000)
-                    case 2:
-                        removeconstantmoney(3000)
-                    case 3:
-                        removeconstantmoney(4000)
-                    case 4:
-                        removeconstantmoney(5000)
-                    case 5:
-                        removeconstantmoney(6000)
-                    case 6:
-                        removeconstantmoney(7000)
-                    case 7:
-                        removeconstantmoney(8000)
-                    case 8:
-                        removeconstantmoney(9000)
-                    case 9:
-                        removeconstantmoney(10000)
-                }
+                special(Rogue_RemoveBagUpgradeCost)
                 updatemoneybox
 
                 playse(SE_SHOP)
                 waitse
-                
-                // Upgrade amount
-                if(var(VAR_0x8005) < VAR_0x8004)
-                {
-                    special(Rogue_IncreaseBagAmountUpgradeLevel)
-                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}Upgraded bag stack size!"))
-                    waitmessage
-                    playfanfare(MUS_LEVEL_UP)
-                    waitfanfare
-                }
-                // Upgrade capacity (Always upgrade this first)
-                else
-                {
-                    special(Rogue_IncreaseBagCapacityUpgradeLevel)
-                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}Upgraded bag carry capacity!"))
-                    waitmessage
-                    playfanfare(MUS_LEVEL_UP)
-                    waitfanfare
-                }
+            
+                special(Rogue_IncreaseBagCapacityUpgradeLevel)
+                message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}Upgraded bag size!"))
+                waitmessage
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
             }
             else
             {

@@ -122,6 +122,7 @@ bool8 Rogue_AllowItemUse(u16 itemId);
 void Rogue_OnItemUse(u16 itemId);
 u16 Rogue_GetBagCapacity();
 u16 Rogue_GetBagPocketAmountPerItem(u8 pocket);
+u32 Rogue_CalcBagUpgradeCost();
 
 
 void Rogue_PreBattleSetup(void);
