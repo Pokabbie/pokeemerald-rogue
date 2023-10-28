@@ -90,5 +90,8 @@ script Rogue_Interior_ConfigLab_TalkPokabbie
 
     msgbox(format("DEBUG - MET POKABBIE"))
     setflag(FLAG_ROGUE_MET_POKABBIE)
+
+    // give dex here
+    setflag(FLAG_SYS_POKEDEX_GET)
     release
 }

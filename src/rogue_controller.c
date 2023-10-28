@@ -651,7 +651,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
                 break;
 
             case POCKET_POKE_BALLS:
-                amount = 5;
+                amount = 3;
                 break;
             }
 
