@@ -4188,7 +4188,8 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
             HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
                                      gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                                      summary->species2,
-                                     summary->pid);
+                                     summary->pid,
+                                     GetGenderForSpecies(summary->species2, summary->genderFlag));
         }
         else
         {
@@ -4197,14 +4198,16 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
                 HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
                                          gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                                          summary->species2,
-                                         summary->pid);
+                                         summary->pid,
+                                         GetGenderForSpecies(summary->species2, summary->genderFlag));
             }
             else
             {
                 HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
                                          MonSpritesGfxManager_GetSpritePtr(MON_SPR_GFX_MANAGER_A, B_POSITION_OPPONENT_LEFT),
                                          summary->species2,
-                                         summary->pid);
+                                         summary->pid,
+                                         GetGenderForSpecies(summary->species2, summary->genderFlag));
             }
         }
         (*state)++;

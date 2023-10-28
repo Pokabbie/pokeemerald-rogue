@@ -82,10 +82,9 @@ void DecompressPicFromTableGender(void* buffer, s32 species, u8 gender)
         DecompressPicFromTable(&gMonFrontPicTable[species], buffer, species);
 }
 
-void HandleLoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality)
+void HandleLoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality, u8 gender)
 {
     bool8 isFrontPic;
-    u8 gender = GetGenderForSpecies(species, 0);
 
     if (src == &gMonFrontPicTable[species])
         isFrontPic = TRUE; // frontPic

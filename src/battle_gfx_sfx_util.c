@@ -576,12 +576,15 @@ bool8 IsBattleSEPlaying(u8 battlerId)
 static void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battlerId, bool32 opponent)
 {
     u32 monsPersonality, currentPersonality, otId, species, paletteOffset, position;
+    u8 gender;
     const void *lzPaletteData;
     struct Pokemon *illusionMon = GetIllusionMonPtr(battlerId);
     if (illusionMon != NULL)
         mon = illusionMon;
 
     monsPersonality = GetMonData(mon, MON_DATA_PERSONALITY);
+    gender = GetMonGender(mon);
+
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies == SPECIES_NONE)
     {
         species = GetMonData(mon, MON_DATA_SPECIES);
@@ -599,13 +602,13 @@ static void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battlerId, bool32 op
     {
         HandleLoadSpecialPokePic(&gMonFrontPicTable[species],
                                  gMonSpritesGfxPtr->sprites.ptr[position],
-                                 species, currentPersonality);
+                                 species, currentPersonality, gender);
     }
     else
     {
         HandleLoadSpecialPokePic(&gMonBackPicTable[species],
                                  gMonSpritesGfxPtr->sprites.ptr[position],
-                                 species, currentPersonality);
+                                 species, currentPersonality, gender);
     }
 
     paletteOffset = 0x100 + battlerId * 16;
@@ -881,11 +884,12 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 castform, bo
         targetSpecies = gContestResources->moveAnim->targetSpecies;
         personalityValue = gContestResources->moveAnim->personality;
         otId = gContestResources->moveAnim->otId;
+        gender = 0; // TODO - Fix
 
         HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
                                  gMonSpritesGfxPtr->sprites.ptr[position],
                                  targetSpecies,
-                                 gContestResources->moveAnim->targetPersonality);
+                                 gContestResources->moveAnim->targetPersonality, gender);
     }
     else
     {
@@ -912,7 +916,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 castform, bo
             HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
                                      gMonSpritesGfxPtr->sprites.ptr[position],
                                      targetSpecies,
-                                     gTransformedPersonalities[battlerAtk]);
+                                     gTransformedPersonalities[battlerAtk], gender);
         }
         else
         {
@@ -922,7 +926,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 castform, bo
             HandleLoadSpecialPokePic(&gMonFrontPicTable[targetSpecies],
                                      gMonSpritesGfxPtr->sprites.ptr[position],
                                      targetSpecies,
-                                     gTransformedPersonalities[battlerAtk]);
+                                     gTransformedPersonalities[battlerAtk], gender);
         }
     }
 
