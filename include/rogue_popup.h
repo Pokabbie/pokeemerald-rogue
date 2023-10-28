@@ -4,7 +4,7 @@
 void Rogue_ClearPopupQueue(void);
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled);
 
-void Rogue_PushPopup_PartyNotifications();
+void Rogue_PushPopup_NextPartyNotification();
 void Rogue_PushPopup_NewMoves(u8 slotId);
 void Rogue_PushPopup_NewEvos(u8 slotId);
 void Rogue_PushPopup_UnableToEvolve(u8 slotId);

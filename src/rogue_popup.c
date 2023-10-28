@@ -92,6 +92,7 @@ struct PopupManager
     u8 taskId;
     u8 lastShownId;
     u8 queuedId;
+    u8 partyNotificationCounter;
     bool8 wasEnabled;
 };
 
@@ -317,14 +318,19 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 
     if(enabled)
     {
-        // Just re-enabled so push party notifications
+        // Just re-enabled so reset party notifications
         if(!sRoguePopups.wasEnabled)
-            Rogue_PushPopup_PartyNotifications();
+            sRoguePopups.partyNotificationCounter = 0;
 
         if(sRoguePopups.queuedId != sRoguePopups.lastShownId)
         {
             if (!FuncIsActiveTask(Task_QuestPopUpWindow))
                 ShowQuestPopup();
+        }
+        else
+        {
+            // Push next party notification, if
+            Rogue_PushPopup_NextPartyNotification();
         }
     }
     else
@@ -727,32 +733,48 @@ static bool8 HasTeachableMoves(struct Pokemon* mon, u8 fromLevel, u8 toLevel)
     return FALSE;
 }
 
-void Rogue_PushPopup_PartyNotifications()
+void Rogue_PushPopup_NextPartyNotification()
 {
-    u8 i;
-    u8 fromLvl, toLvl;
+    // Push one notification at a time
+    // to avoid all the notifications clogging up the queue
 
-    for(i = 0; i < gPlayerPartyCount; ++i)
+    // Evo notifications
+    if(sRoguePopups.partyNotificationCounter < PARTY_SIZE)
     {
-        fromLvl = gPlayerParty[i].rogueExtraData.lastPopupLevel;
-        toLvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+        u8 i = sRoguePopups.partyNotificationCounter++;
 
-        // Check for evolutions
-        if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
+        if(i < gPlayerPartyCount)
         {
-            u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE);
-            if(targetSpecies != SPECIES_NONE)
+            // Check for evolutions
+            if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
             {
-                Rogue_PushPopup_NewEvos(i);
-                gPlayerParty[i].rogueExtraData.hasPendingEvo = TRUE;
+                u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE);
+                if(targetSpecies != SPECIES_NONE)
+                {
+                    Rogue_PushPopup_NewEvos(i);
+                    gPlayerParty[i].rogueExtraData.hasPendingEvo = TRUE;
+                }
             }
         }
-        
-        // Check for new moves to learn
-        if(HasTeachableMoves(&gPlayerParty[i], fromLvl, toLvl))
-            Rogue_PushPopup_NewMoves(i);
+    }
+    // New move notifications
+    else if(sRoguePopups.partyNotificationCounter < PARTY_SIZE * 2)
+    {
+        u8 i = sRoguePopups.partyNotificationCounter++ - PARTY_SIZE;
 
-        gPlayerParty[i].rogueExtraData.lastPopupLevel = toLvl;
+        if(i < gPlayerPartyCount)
+        {
+            u8 fromLvl, toLvl;
+
+            fromLvl = gPlayerParty[i].rogueExtraData.lastPopupLevel;
+            toLvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+
+            // Check for new moves to learn
+            if(HasTeachableMoves(&gPlayerParty[i], fromLvl, toLvl))
+                Rogue_PushPopup_NewMoves(i);
+
+            gPlayerParty[i].rogueExtraData.lastPopupLevel = toLvl;
+        }
     }
 }
 

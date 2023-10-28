@@ -206,18 +206,18 @@ static u16 GetEncounterChainShinyOdds(u8 count)
 {
     u16 baseOdds = Rogue_GetShinyOdds();
 
-    // By the time we reach 32 encounters, we want to be at max odds
-    // Don't start increasing shiny rate until we pass 8 encounters
-    if(count <= 8)
+    // By the time we reach 24 encounters, we want to be at max odds
+    // Don't start increasing shiny rate until we pass 4 encounters
+    if(count <= 4)
     {
         return baseOdds;
     }
     else
     {
-        u16 range = 32 - 8;
-        count = min(count - 8, range);
+        u16 range = 24 - 4;
+        count = min(count - 4, range);
 
-        return max(32, baseOdds - ((baseOdds * count) / range));
+        return max(24, baseOdds - ((baseOdds * count) / range));
     }
 }
 
