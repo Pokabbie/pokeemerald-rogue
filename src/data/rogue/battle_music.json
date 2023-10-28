@@ -78,7 +78,7 @@
         {
             "encounter": "MUS_HG_ENCOUNTER_RIVAL",
             "battle": "MUS_HG_VS_RIVAL",
-            "victory": "MUS_HG_VS_TRAINER"
+            "victory": "MUS_HG_VICTORY_TRAINER"
         },
 
         "hoenn_boss":

@@ -611,20 +611,14 @@ static u16 NextSpawnMonSlot()
         slot = sFollowMonData.spawnSlot;
     }
 
-    // Allow spawns over existing mons, but attempt to cap new spawns
-    if (GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup) != OBJECT_EVENTS_COUNT)
+    // Remove any existing id by this slot
+    RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    
+    // Check that we don't have too many sprites on screen before spawning
+    // (lag reduction)
+    if(sFollowMonData.activeCount != 0 && CountActiveObjectEvents() >= FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT)
     {
-        // Remove any existing id by this slot
-        RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-    }
-    else
-    {
-        // We'd be spawning into an unused slot, so check that we don't have too many sprites on screen before spawning
-        // (lag reduction)
-        if(CountActiveObjectEvents() >= FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT)
-        {
-            return INVALID_SPAWN_SLOT;
-        }
+        return INVALID_SPAWN_SLOT;
     }
 
     if(Rogue_InWildSafari())
