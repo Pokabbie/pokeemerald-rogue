@@ -1734,15 +1734,16 @@ static u16 QueryShopItemListCallback(u16 index)
             {
             case ROGUE_SHOP_BERRIES:
             case ROGUE_SHOP_HELD_ITEMS:
+            case ROGUE_SHOP_BATTLE_ENHANCERS:
             case ROGUE_SHOP_CHARMS:
             case ROGUE_SHOP_TMS:
                 sortMode = ITEM_SORT_MODE_NAME;
                 break;
 
-            case ROGUE_SHOP_BALLS:
-                sortMode = ITEM_SORT_MODE_VALUE;
-                flipSort = TRUE;
-                break;
+            //case ROGUE_SHOP_BALLS:
+            //    sortMode = ITEM_SORT_MODE_VALUE;
+            //    flipSort = TRUE;
+            //    break;
             }
 
             RogueListQuery_Begin();

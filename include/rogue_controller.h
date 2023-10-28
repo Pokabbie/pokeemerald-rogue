@@ -62,8 +62,7 @@ void Rogue_CreateMiniMenuExtraGFX(void);
 void Rogue_RemoveMiniMenuExtraGFX(void);
 
 u8 SpeciesToGen(u16 species);
-u8 ItemToGen(u16 item);
-bool8 IsGenEnabled(u8 gen);
+bool8 Rogue_IsItemEnabled(u16 item);
 
 bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);

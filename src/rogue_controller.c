@@ -982,6 +982,13 @@ u8 SpeciesToGen(u16 species)
     
     switch(species)
     {
+        case SPECIES_GIRATINA_ORIGIN:
+            return 4;
+
+        case SPECIES_PALKIA_ORIGIN:
+        case SPECIES_GIRATINA_ORIGIN:
+            return 8;
+
         case SPECIES_KYUREM_WHITE:
         case SPECIES_KYUREM_BLACK:
             return 5;
@@ -1024,7 +1031,7 @@ u8 SpeciesToGen(u16 species)
     return 0;
 }
 
-u8 ItemToGen(u16 item)
+static u8 ItemToGen(u16 item)
 {
     if(!Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_MET_POKABBIE))
     {
@@ -1206,30 +1213,218 @@ u8 ItemToGen(u16 item)
     return 1;
 }
 
-bool8 IsGenEnabled(u8 gen)
+bool8 Rogue_IsItemEnabled(u16 itemId)
 {
-    // Keep all gens enabled whilst in hub
-    if(!Rogue_IsRunActive())
-        return TRUE;
+    // Handle perma banned entries
+    // (There is no scenario in which we will allow these)
+    {
+        if(itemId >= FIRST_MAIL_INDEX && itemId <= LAST_MAIL_INDEX)
+            return FALSE;
+
+        if(itemId >= ITEM_RED_SCARF && itemId <= ITEM_YELLOW_SCARF)
+            return FALSE;
+
+        if(itemId >= ITEM_RED_SHARD && itemId <= ITEM_GREEN_SHARD)
+            return FALSE;
+
+        if(itemId >= ITEM_BLUE_FLUTE && itemId <= ITEM_WHITE_FLUTE)
+            return FALSE;
 
 #ifdef ROGUE_EXPANSION
-    if(gen >= 1 && gen <= 8)
-#else
-    if(gen >= 1 && gen <= 3)
+        if(itemId >= ITEM_GROWTH_MULCH && itemId <= ITEM_BLACK_APRICORN)
+            return FALSE;
+
+        // Exclude all treasures then turn on the ones we want to use
+        if(itemId >= ITEM_BOTTLE_CAP && itemId <= ITEM_STRANGE_SOUVENIR)
+            return FALSE;
+
+        // These TMs aren't setup
+        if(itemId >= ITEM_TM51 && itemId <= ITEM_TM100)
+            return FALSE;
+
+        // Ignore fossils for now
+        if(itemId >= ITEM_HELIX_FOSSIL && itemId <= ITEM_FOSSILIZED_DINO)
+            return FALSE;
+
+        // Ignore sweets, as they are not used
+        if(itemId >= ITEM_STRAWBERRY_SWEET && itemId <= ITEM_RIBBON_SWEET)
+            return FALSE;
+
+        // No dynamax
+        if(itemId >= ITEM_EXP_CANDY_XS && itemId <= ITEM_DYNAMAX_CANDY)
+            return FALSE;
 #endif
-    {
-        u16 maxGen = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
-        if(maxGen == 0)
+        switch (itemId)
         {
-            // Fallback for broken var
-            return TRUE;
-        }
+        case ITEM_SACRED_ASH:
+        case ITEM_REVIVAL_HERB:
+        case ITEM_REVIVE:
+        case ITEM_MAX_REVIVE:
+        case ITEM_RARE_CANDY:
+        case ITEM_HEART_SCALE:
+        case ITEM_LUCKY_EGG:
+        case ITEM_EXP_SHARE:
+        case ITEM_SHOAL_SALT:
+        case ITEM_SHOAL_SHELL:
+        case ITEM_FLUFFY_TAIL:
+        case ITEM_SOOTHE_BELL:
 
-        return gen <= maxGen;
+        case ITEM_DURIN_BERRY:
+        case ITEM_PAMTRE_BERRY:
+        case ITEM_NOMEL_BERRY:
+        case ITEM_PINAP_BERRY:
+        case ITEM_NANAB_BERRY:
+        case ITEM_RAZZ_BERRY:
+        case ITEM_ENIGMA_BERRY:
+        case ITEM_BELUE_BERRY:
+        case ITEM_WATMEL_BERRY:
+        case ITEM_SPELON_BERRY:
+        case ITEM_RABUTA_BERRY:
+        case ITEM_CORNN_BERRY:
+        case ITEM_WEPEAR_BERRY:
+        case ITEM_BLUK_BERRY:
+
+        // Berries that may confuse
+        case ITEM_AGUAV_BERRY:
+        case ITEM_WIKI_BERRY:
+        case ITEM_PERSIM_BERRY:
+        case ITEM_IAPAPA_BERRY:
+        case ITEM_MAGO_BERRY:
+        case ITEM_FIGY_BERRY:
+        case ITEM_MAGOST_BERRY:
+#ifdef ROGUE_EXPANSION
+
+        // Not implemented/needed
+        case ITEM_MAX_HONEY:
+        case ITEM_LURE:
+        case ITEM_SUPER_LURE:
+        case ITEM_MAX_LURE:
+        case ITEM_MAX_MUSHROOMS:
+        case ITEM_WISHING_PIECE:
+        case ITEM_ARMORITE_ORE:
+        case ITEM_DYNITE_ORE:
+        case ITEM_GALARICA_TWIG:
+        case ITEM_SWEET_HEART:
+        case ITEM_POKE_TOY:
+
+        // Link cable is Rogue's item
+        case ITEM_LINKING_CORD:
+
+        // Not needed as is not a lvl up evo
+        case ITEM_PRISM_SCALE:
+
+        // Exclude all treasures then turn on the ones we want to use
+        //case ITEM_NUGGET:
+        //case ITEM_PEARL:
+        //case ITEM_BIG_PEARL:
+        //case ITEM_STARDUST:
+        //case ITEM_STAR_PIECE:
+
+        // Ignore these, as mons/form swaps currently not enabled
+        case ITEM_PIKASHUNIUM_Z:
+        case ITEM_ULTRANECROZIUM_Z:
+#endif
+            return FALSE;
+        }
     }
 
-    return FALSE;
+    // Run only excludes
+    if(Rogue_IsRunActive())
+    {
+        u8 genLimit = RoguePokedex_GetDexGenLimit();
+
+        if(!Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
+        {
+#if defined(ROGUE_EXPANSION)
+            if(itemId >= ITEM_HP_UP && itemId <= ITEM_CARBOS)
+                return FALSE;
+
+            if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER)
+                return FALSE;
+
+            if(itemId >= ITEM_MACHO_BRACE && itemId <= ITEM_POWER_ANKLET)
+                return FALSE;
+#else
+            if((itemId >= ITEM_HP_UP && itemId <= ITEM_CALCIUM) || itemId == ITEM_ZINC)
+                return FALSE;
+#endif
+        }
+
+#ifdef ROGUE_EXPANSION
+        // Mass exclude mega and Z moves
+        if(!IsMegaEvolutionEnabled())
+        {
+            if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
+                return FALSE;
+        }
+
+        if(!IsZMovesEnabled())
+        {
+            if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+                return FALSE;
+        }
+
+        // Regional treat (Avoid spawning in multiple)
+        if(itemId >= ITEM_PEWTER_CRUNCHIES && itemId <= ITEM_BIG_MALASADA)
+        {
+            switch(genLimit)
+            {
+                case 1:
+                    if(itemId != ITEM_PEWTER_CRUNCHIES)
+                        return FALSE;
+                    break;
+                case 2:
+                    if(itemId != ITEM_RAGE_CANDY_BAR)
+                        return FALSE;
+                    break;
+                case 3:
+                    if(itemId != ITEM_LAVA_COOKIE)
+                        return FALSE;
+                    break;
+                case 4:
+                    if(itemId != ITEM_OLD_GATEAU)
+                        return FALSE;
+                    break;
+                case 5:
+                    if(itemId != ITEM_CASTELIACONE)
+                        return FALSE;
+                    break;
+                case 6:
+                    if(itemId != ITEM_LUMIOSE_GALETTE)
+                        return FALSE;
+                    break;
+                case 7:
+                    if(itemId != ITEM_SHALOUR_SABLE)
+                        return FALSE;
+                    break;
+                //case 8:
+                default:
+                    if(itemId != ITEM_BIG_MALASADA)
+                        return FALSE;
+                    break;
+            }
+        }
+#endif
+        
+        // TODO - Should probably just remove ItemToGen eventually and link it to species specific held items
+        if(ItemToGen(itemId) > genLimit)
+            return FALSE;
+    }
+    // Hub only excludes
+    else
+    {
+        if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+            return FALSE;
+    }
+
+    // Only return true if the actual item is valid
+    {
+        struct Item item;
+        Rogue_ModifyItem(itemId, &item);
+
+        return (item.itemId == itemId);
+    }
 }
 
 bool8 IsMegaEvolutionEnabled(void)
@@ -4414,25 +4609,9 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
             return;
         }
 
-        if(!IsGenEnabled(ItemToGen(*itemId)))
+        if(!Rogue_IsItemEnabled(*itemId))
         {
             *itemId = 0;
-        }
-        else
-        {
-            // Banned Items
-            switch (*itemId)
-            {
-            case ITEM_SACRED_ASH:
-            case ITEM_REVIVAL_HERB:
-            case ITEM_REVIVE:
-            case ITEM_MAX_REVIVE:
-            case ITEM_RARE_CANDY:
-            case ITEM_HEART_SCALE:
-            case ITEM_LUCKY_EGG:
-                *itemId = 0;
-                break;
-            }
         }
 
     }
