@@ -9896,7 +9896,11 @@ bool32 CanBattlerGetOrLoseItem(u8 battlerId, u16 itemId)
     // Mega stone cannot be lost if pokemon's base species can mega evolve with it.
     else if (holdEffect == HOLD_EFFECT_MEGA_STONE && (GetMegaEvolutionSpecies(GET_BASE_SPECIES_ID(species), itemId) != SPECIES_NONE))
         return FALSE;
-    else if (GET_BASE_SPECIES_ID(species) == SPECIES_GIRATINA && itemId == ITEM_GRISEOUS_ORB)
+    else if (GET_BASE_SPECIES_ID(species) == SPECIES_DIALGA && itemId == ITEM_GRISEOUS_CORE)
+        return FALSE;
+    else if (GET_BASE_SPECIES_ID(species) == SPECIES_PALKIA && itemId == ITEM_LUSTROUS_GLOBE)
+        return FALSE;
+    else if (GET_BASE_SPECIES_ID(species) == SPECIES_GIRATINA && itemId == ITEM_GRISEOUS_CORE)
         return FALSE;
     else if (GET_BASE_SPECIES_ID(species) == SPECIES_GENESECT && holdEffect == HOLD_EFFECT_DRIVE)
         return FALSE;
