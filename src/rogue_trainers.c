@@ -116,7 +116,6 @@ static u8 GetTrainerLevel(u16 trainerNum)
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
 {
-    // TODO - TRAINER_ROGUE_DYNAMIC
     AGB_ASSERT(trainerNum < gRogueTrainerCount);
     return &gRogueTrainers[trainerNum];
 }
