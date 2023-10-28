@@ -14083,6 +14083,7 @@ SetSteelBeamBackground:
 	goto SetHighSpeedBgFade
 SetSteelBeamBgPlayer:
 	fadetobg BG_STEEL_BEAM_PLAYER
+	return
 
 Move_EXPANDING_FORCE::
 	end @to do:
