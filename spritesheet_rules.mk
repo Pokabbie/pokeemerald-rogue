@@ -1087,43 +1087,43 @@ $(OBJEVENTGFXDIR)/rogue/npc/misc/young_couple_f.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/npc/misc/young_couple_m.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/aaron.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/aaron.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/bertha.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/bertha.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/byron.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/byron.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/candice.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/candice.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/crasher_wake.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/crasher_wake.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/cynthia.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/cynthia.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/fantina.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/fantina.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/flint.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/flint.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/gardenia.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/gardenia.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/lucian.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/lucian.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/maylene.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/maylene.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/roark.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/roark.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/npc/unova/volkner.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/rogue/npc/sinnoh/volkner.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/npc/unova/alder.4bpp: %.4bpp: %.png
