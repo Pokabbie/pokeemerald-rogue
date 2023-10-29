@@ -2,6 +2,7 @@
 #include "battle_pyramid.h"
 #include "bg.h"
 #include "event_data.h"
+#include "graphics.h"
 #include "data.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
@@ -44,6 +45,7 @@ enum
     POPUP_ICON_MODE_NONE,
     POPUP_ICON_MODE_ITEM,
     POPUP_ICON_MODE_POKEMON,
+    POPUP_ICON_MODE_CUSTOM,
 };
 
 enum
@@ -53,6 +55,12 @@ enum
     TEXT_EXPAND_PARTY_NICKNAME,
     TEXT_EXPAND_ITEM_NAME,
     TEXT_EXPAND_UNSIGNED_NUMBER,
+};
+
+enum
+{
+    POPUP_CUSTOM_ICON_POKEDEX,
+    POPUP_CUSTOM_ICON_COUNT,
 };
 
 struct PopupRequestTemplate
@@ -99,6 +107,21 @@ struct PopupManager
     bool8 scriptEnabled : 1;
 };
 
+struct CustomIcon
+{
+    u32 const* icon;
+    u32 const* palette;
+};
+
+static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] = 
+{
+    [POPUP_CUSTOM_ICON_POKEDEX] = 
+    {
+        .icon = gItemIcon_Pokedex,
+        .palette = gItemIconPalette_Pokedex
+    }
+};
+
 static EWRAM_DATA struct PopupManager sRoguePopups = { 0 };
 
 extern const u8 gText_Space[];
@@ -131,12 +154,16 @@ extern const u8 gPopupText_StarterWarning[];
 extern const u8 gPopupText_EncounterChain[];
 extern const u8 gPopupText_EncounterChainEnd[];
 
+extern const u8 gText_Popup_PokedexUnlock[];
+extern const u8 gText_Popup_PokedexUpgrade[];
+
 enum
 {
     POPUP_COMMON_CLASSIC,
     POPUP_COMMON_ITEM_TEXT,
     POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
+    POPUP_COMMON_CUSTOM_ICON_TEXT,
 };
 
 static const struct PopupRequestTemplate sPopupRequestTemplates[] =
@@ -202,6 +229,23 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
         .iconDown = 0,
         .iconWidth = 4,
         .iconHeight = 4,
+    },
+    [POPUP_COMMON_CUSTOM_ICON_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_NONE,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+        
+        .iconMode = POPUP_ICON_MODE_CUSTOM,
+        .iconLeft = 7,
+        .iconDown = 0,
+        .iconWidth = 3,
+        .iconHeight = 3,
     },
 };
 
@@ -717,6 +761,11 @@ static void ShowQuestPopUpWindow(void)
             CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
             break;
 
+        case POPUP_ICON_MODE_CUSTOM:
+            BlitCustomItemIconToWindow(GetIconWindowId(), 0, 0, NULL, sRoguePopupCustomIcons[popupRequest->iconId].icon, sRoguePopupCustomIcons[popupRequest->iconId].palette);
+            CopyWindowToVram(GetIconWindowId(), COPYWIN_FULL);
+            break;
+
         default:
             AGB_ASSERT(FALSE);
             break;
@@ -1010,4 +1059,26 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
     popup->expandTextData[1] = amount;
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_UnlockPokedex()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
+    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+
+    popup->titleText = gText_Popup_PokedexUnlock;
+}
+
+void Rogue_PushPopup_UpgradePokedex()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
+    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+
+    popup->titleText = gText_Popup_PokedexUpgrade;
 }

@@ -4060,6 +4060,8 @@ extern const u32 gItemIcon_FameChecker[];
 extern const u32 gItemIconPalette_FameChecker[];
 extern const u32 gItemIcon_CGear[];
 extern const u32 gItemIconPalette_CGear[];
+extern const u32 gItemIcon_Pokedex[];
+extern const u32 gItemIconPalette_Pokedex[];
 extern const u32 gItemIcon_PokeWhistle[];
 extern const u32 gItemIconPalette_PokeWhistleBasic[];
 extern const u32 gItemIconPalette_PokeWhistleGold[];

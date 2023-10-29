@@ -22,4 +22,7 @@ void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount);
 void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount);
 
+void Rogue_PushPopup_UnlockPokedex();
+void Rogue_PushPopup_UpgradePokedex();
+
 #endif //QUEST_POPUP_H
