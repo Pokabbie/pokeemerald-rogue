@@ -91,6 +91,7 @@ script Rogue_Area_SafariZone_Tutorial_FrameEnter
         lock
         msgbox(format("BIRCH: OK {PLAYER}!\pI know this is your first time catching POKéMON… but I really need some help on this one!\pHere!\nTake this!"))
         giveitem(ITEM_POKE_BALL)
+
         msgbox(format("If you can capture one POKéMON, I'll handle the others!"))
         setflag(FLAG_HAS_ENTERED)
         release

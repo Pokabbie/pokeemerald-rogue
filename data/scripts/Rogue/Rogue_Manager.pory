@@ -13,6 +13,14 @@ script Rogue_GiveItem_Internal
     finditem(VAR_ITEM_ID_VAL, VAR_ITEM_AMOUNT)
 }
 
+script Rogue_Common_DisplayPopups
+{
+    closemessage
+    special(Rogue_DisplayPopupsFromScript)
+    waitstate
+    return
+}
+
 script Rogue_QuickSaveRun
 {
     lockall

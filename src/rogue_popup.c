@@ -11,6 +11,7 @@
 #include "menu.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "script.h"
 #include "start_menu.h"
 #include "string_util.h"
 #include "sound.h"
@@ -75,13 +76,14 @@ struct PopupRequest
 {
     const u8* titleText;
     const u8* subtitleText;
+    u16 expandTextData[3];
+    u16 expandTextType[3];
     u8 titleTextCapacity;
     u8 templateId;
     u16 iconId;
     u16 soundEffect;
     u16 fanfare;
-    u16 expandTextData[3];
-    u16 expandTextType[3];
+    bool8 scriptAudioOnly : 1;
 };
 
 struct PopupManager
@@ -93,7 +95,8 @@ struct PopupManager
     u8 lastShownId;
     u8 queuedId;
     u8 partyNotificationCounter;
-    bool8 wasEnabled;
+    bool8 wasEnabled : 1;
+    bool8 scriptEnabled : 1;
 };
 
 static EWRAM_DATA struct PopupManager sRoguePopups = { 0 };
@@ -316,6 +319,11 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
+    if(sRoguePopups.scriptEnabled)
+    {
+        enabled = TRUE;
+    }
+
     if(enabled)
     {
         // Just re-enabled so reset party notifications
@@ -327,10 +335,26 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
             if (!FuncIsActiveTask(Task_QuestPopUpWindow))
                 ShowQuestPopup();
         }
+        else if(sRoguePopups.scriptEnabled)
+        {
+            // Disable script enabled mode now, as we've reached end of queue
+            sRoguePopups.scriptEnabled = FALSE;
+            EnableBothScriptContexts();
+        }
         else
         {
             // Push next party notification, if
             Rogue_PushPopup_NextPartyNotification();
+        }
+        
+        // If you press a button during a script, it will skip this notification
+        if(sRoguePopups.scriptEnabled)
+        {
+            if(JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON))
+            {
+                if (FuncIsActiveTask(Task_QuestPopUpWindow))
+                    HideQuestPopUpWindow();
+            }
         }
     }
     else
@@ -340,6 +364,12 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     }
 
     sRoguePopups.wasEnabled = enabled;
+}
+
+void Rogue_DisplayPopupsFromScript()
+{
+    ScriptContext1_Stop();
+    sRoguePopups.scriptEnabled = TRUE;
 }
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
@@ -695,10 +725,13 @@ static void ShowQuestPopUpWindow(void)
 
     if(!gSaveBlock2Ptr->optionsPopupSoundOff)
     {
-        if(popupRequest->soundEffect)
-            PlaySE(popupRequest->soundEffect);
-        else if(popupRequest->fanfare)
-            PlayFanfare(popupRequest->fanfare);
+        if(!popupRequest->scriptAudioOnly || sRoguePopups.scriptEnabled)
+        {
+            if(popupRequest->soundEffect)
+                PlaySE(popupRequest->soundEffect);
+            else if(popupRequest->fanfare)
+                PlayFanfare(popupRequest->fanfare);
+        }
     }
 }
 
@@ -904,8 +937,8 @@ void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
 
-    // TODO - Only play if popup forced in script
-    //popup->fanfare = MUS_OBTAIN_ITEM;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+    popup->scriptAudioOnly = TRUE;
 
     if(amount == 1)
     {
@@ -932,8 +965,8 @@ void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
 
-    // TODO - Only play if popup forced in script
-    //popup->fanfare = MUS_OBTAIN_BERRY;
+    popup->fanfare = MUS_OBTAIN_BERRY;
+    popup->scriptAudioOnly = TRUE;
 
     if(amount == 1)
     {

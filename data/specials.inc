@@ -232,6 +232,7 @@ gSpecials::
 	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
 	def_special Rogue_AssignDefaultRegion
+	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
