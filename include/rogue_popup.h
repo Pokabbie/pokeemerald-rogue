@@ -25,4 +25,7 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_UnlockPokedex();
 void Rogue_PushPopup_UpgradePokedex();
 
+void Rogue_PushPopup_AssistantConnected();
+void Rogue_PushPopup_AssistantDisconnected();
+
 #endif //QUEST_POPUP_H

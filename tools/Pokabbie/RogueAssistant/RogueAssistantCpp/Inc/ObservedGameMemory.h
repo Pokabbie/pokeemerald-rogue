@@ -71,7 +71,7 @@ public:
 	void OnRecieveMessage(GameMessageID messageId, u8 const* data, size_t size);
 
 	bool AreHeadersValid() const;
-	bool IsMuliplayerStateValid() const;
+	bool IsMultiplayerStateValid() const;
 
 	GameStructures::GFRomHeader const& GetGFRomHeader() const { return m_GFRomHeader.Get(); }
 	GameStructures::RogueAssistantHeader const& GetRogueHeader() const { return m_RogueHeader.Get(); }

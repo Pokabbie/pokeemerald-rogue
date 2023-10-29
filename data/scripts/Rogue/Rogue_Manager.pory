@@ -21,6 +21,23 @@ script Rogue_Common_DisplayPopups
     return
 }
 
+script Rogue_Common_WaitForRogueAssistant
+{
+    special(Rogue_IsRogueAssistantConnected)
+    if(var(VAR_RESULT) == NO)
+    {
+        message(format("Please connect Rogue Assistant.\n… … B Button: Cancel"))
+        waitmessage
+
+        callnative(Rogue_WaitForRogueAssistant)
+        waitstate
+
+        call(Rogue_Common_DisplayPopups)
+    }
+
+    return
+}
+
 script Rogue_QuickSaveRun
 {
     lockall

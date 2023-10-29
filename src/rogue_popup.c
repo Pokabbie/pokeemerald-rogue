@@ -157,6 +157,10 @@ extern const u8 gPopupText_EncounterChainEnd[];
 extern const u8 gText_Popup_PokedexUnlock[];
 extern const u8 gText_Popup_PokedexUpgrade[];
 
+extern const u8 gText_Popup_RogueAssistant[];
+extern const u8 gText_Popup_Connected[];
+extern const u8 gText_Popup_Disconnected[];
+
 enum
 {
     POPUP_COMMON_CLASSIC,
@@ -1081,4 +1085,27 @@ void Rogue_PushPopup_UpgradePokedex()
     popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
 
     popup->titleText = gText_Popup_PokedexUpgrade;
+}
+
+void Rogue_PushPopup_AssistantConnected()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
+
+    popup->titleText = gText_Popup_RogueAssistant;
+    popup->subtitleText = gText_Popup_Connected;
+}
+
+void Rogue_PushPopup_AssistantDisconnected()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
+
+
+    popup->titleText = gText_Popup_RogueAssistant;
+    popup->subtitleText = gText_Popup_Disconnected;
 }

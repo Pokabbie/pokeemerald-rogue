@@ -877,6 +877,17 @@ void Rogue_JoinMultiplayer()
     RogueMP_WaitForConnection();
 }
 
+void Rogue_CloseMultiplayer()
+{
+    RogueMP_Close();
+    //RogueMP_WaitForConnection();
+}
+
+void Rogue_IsRogueAssistantConnected()
+{
+    gSpecialVar_Result = Rogue_IsAssistantConnected();
+}
+
 void Rogue_SetupFollowParterMonObjectEvent()
 {
     SetupFollowParterMonObjectEvent();

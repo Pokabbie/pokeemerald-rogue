@@ -166,6 +166,7 @@
     <ClCompile Include="External\imgui\imgui_impl_opengl2.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Behaviours\CommonBehaviour.cpp" />
     <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp" />
     <ClCompile Include="Src\GameConnection.cpp" />
     <ClCompile Include="Src\GameConnectionManager.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="Inc\Behaviours\CommonBehaviour.h" />
     <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h" />
     <ClInclude Include="Inc\Defines.h" />
     <ClInclude Include="Inc\GameConnection.h" />

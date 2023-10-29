@@ -1,7 +1,7 @@
 #include "GameConnection.h"
 #include "GameData.h"
 #include "Log.h"
-#include "Behaviours/MultiplayerBehaviour.h"
+#include "Behaviours/CommonBehaviour.h"
 
 std::string const GameConnection::c_FirstHandshake = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g";
 std::string const GameConnection::c_SecondHandshake = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY";
@@ -10,7 +10,7 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_UpdateTimer(UpdateTimer::c_60UPS)
+	, m_UpdateTimer(UpdateTimer::c_10UPS)
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
@@ -37,11 +37,22 @@ void GameConnection::Update()
 			//m_GameRPCs.Update();
 		}
 
-		// Make a copy, so behaviours can remove themselves?
+		// Make a copy, so behaviours can add new ones for next frame
 		std::vector<GameConnectionBehaviourRef> behavioursToUpdate = m_Behaviours;
 
 		for (auto behaviour : behavioursToUpdate)
-			behaviour->OnUpdate(*this);
+		{
+			// Only update, if not in the remove queue 
+			auto findIt = std::find(m_BehavioursToRemove.begin(), m_BehavioursToRemove.end(), behaviour->shared_from_this());
+
+			if(findIt == m_BehavioursToRemove.end())
+				behaviour->OnUpdate(*this);
+		}
+
+		for (auto behaviour : m_BehavioursToRemove)
+			RemoveBehaviourInternal(behaviour.get());
+
+		m_BehavioursToRemove.clear();
 	}
 
 	FlushCommands();
@@ -55,7 +66,7 @@ void GameConnection::Disconnect()
 
 void GameConnection::AddDefaultBehaviours()
 {
-	AddBehaviour<MultiplayerBehaviour>();
+	AddBehaviour<CommonBehaviour>();
 }
 
 void GameConnection::AddBehaviour(IGameConnectionBehaviour* behaviour)
@@ -68,7 +79,12 @@ void GameConnection::AddBehaviour(IGameConnectionBehaviour* behaviour)
 	behaviour->OnAttach(*this);
 }
 
-bool GameConnection::RemoveBehaviour(IGameConnectionBehaviour* behaviour)
+void GameConnection::RemoveBehaviour(IGameConnectionBehaviour* behaviour)
+{
+	m_BehavioursToRemove.push_back(behaviour->shared_from_this());
+}
+
+bool GameConnection::RemoveBehaviourInternal(IGameConnectionBehaviour* behaviour)
 {
 	auto findIt = std::find(m_Behaviours.begin(), m_Behaviours.end(), behaviour->shared_from_this());
 

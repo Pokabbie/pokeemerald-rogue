@@ -392,6 +392,8 @@ struct RogueAssistantHeader
 {
     u8 rogueVersion;
     u8 rogueDebug;
+    u32 assistantConfirmSize;
+    u32 assistantConfirmOffset;
     u32 netMultiplayerSize;
     u32 netHandshakeOffset;
     u32 netHandshakeSize;
