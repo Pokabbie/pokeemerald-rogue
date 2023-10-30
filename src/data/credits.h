@@ -29,7 +29,9 @@
     \
     method(151, "Community Artists", CREDITS_FLAG_TITLE) \
     method(152, "Zefa", 0) \
-    method(153, "", CREDITS_FLAG_BREAK) \
+    method(153, "SuperBren614", 0) \
+    method(154, "LightningStrike7", 0) \
+    method(155, "", CREDITS_FLAG_BREAK) \
     \
     method(16, "Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(17, "DizzyEggg", 0) \
