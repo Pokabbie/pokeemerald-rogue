@@ -7,6 +7,7 @@ class UpdateTimer
 {
 public:
 	static TimeDurationNS const c_1UPS;
+	static TimeDurationNS const c_5UPS;
 	static TimeDurationNS const c_10UPS;
 	static TimeDurationNS const c_20UPS;
 	static TimeDurationNS const c_25UPS;

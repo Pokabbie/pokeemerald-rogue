@@ -44,23 +44,36 @@ void GameConnectionManager::UpdateConnections()
 	if (m_Listener->accept(m_AcceptingConnection->m_Socket) == sf::Socket::Done)
 	{
 		LOG_INFO("Game: Incoming connection...");
-		m_ActiveConnections.push_back(m_AcceptingConnection);
-		m_AcceptingConnection = nullptr;
-	}
 
-	// Update active connections
-	for (auto conn : m_ActiveConnections)
-		conn->Update();
+		GameConnectionRef gameConn = m_AcceptingConnection;
+		m_AcceptingConnection = nullptr;
+
+		ActiveGameConnection newConnection;
+		newConnection.m_Game = gameConn;
+		newConnection.m_UpdateThread = std::thread([this, gameConn]() { BackgroundUpdate(gameConn); });
+		m_ActiveConnections.push_back(std::move(newConnection));
+	}
 
 	// Handle disconnections
 	for (int i = 0; i < (int)m_ActiveConnections.size();)
 	{
-		if (m_ActiveConnections[i]->HasDisconnected())
+		if (m_ActiveConnections[i].m_Game->HasDisconnected())
 		{
 			LOG_INFO("Game: Connection disconnected");
+			m_ActiveConnections[i].m_UpdateThread.join();
 			m_ActiveConnections.erase(m_ActiveConnections.begin() + i);
 		}
 		else
 			++i;
+	}
+}
+
+void GameConnectionManager::BackgroundUpdate(GameConnectionRef game)
+{
+	// At max run at 30UPS for now
+	while (!game->HasDisconnected())
+	{
+		game->Update();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000 / 30));
 	}
 }

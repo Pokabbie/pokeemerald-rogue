@@ -112,10 +112,15 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
 #endif
     .multiplayerPtr = &gRogueMultiplayer,
     .netMultiplayerSize = sizeof(struct RogueNetMultiplayer),
+
     .netHandshakeOffset = offsetof(struct RogueNetMultiplayer, pendingHandshake),
     .netHandshakeSize = sizeof(struct RogueNetHandshake),
+    .netHandshakeStateOffset = offsetof(struct RogueNetHandshake, state),
+
     .netGameStateOffset = offsetof(struct RogueNetMultiplayer, gameState),
     .netGameStateSize = sizeof(struct RogueNetGameState),
+    .netPlayerProfileOffset  = offsetof(struct RogueNetMultiplayer, playerProfiles),
+    .netPlayerProfileSize = sizeof(struct RogueNetPlayerProfile),
     .netPlayerOffset  = offsetof(struct RogueNetMultiplayer, players),
     .netPlayerSize = sizeof(struct RogueNetPlayer),
     .netRequestStateOffset = offsetof(struct RogueNetMultiplayer, netRequestState),
@@ -258,6 +263,9 @@ void Rogue_AssistantMainCB()
     {
         //CommCmd_ProcessNext();
     }
+
+    if(RogueMP_IsActiveOrConnecting())
+        RogueMP_MainCB();
 }
 
 static void Task_WaitForConnection(u8 taskId)
@@ -303,8 +311,8 @@ static bool8 IsNetPlayerActive(u8 id)
 
 void Rogue_AssistantOverworldCB()
 {
-    if(RogueMP_IsActive())
-        RogueMP_Update();
+    if(RogueMP_IsActiveOrConnecting())
+        RogueMP_OverworldCB();
 
     //if(Rogue_IsNetMultiplayerActive())
     //{

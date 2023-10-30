@@ -100,8 +100,11 @@ namespace GameStructures
 		u32 netMultiplayerSize;
 		u32 netHandshakeOffset;
 		u32 netHandshakeSize;
+		u32 netHandshakeStateOffset;
 		u32 netGameStateOffset;
 		u32 netGameStateSize;
+		u32 netPlayerProfileOffset;
+		u32 netPlayerProfileSize;
 		u32 netPlayerOffset;
 		u32 netPlayerSize;
 		u32 netPlayerCount;

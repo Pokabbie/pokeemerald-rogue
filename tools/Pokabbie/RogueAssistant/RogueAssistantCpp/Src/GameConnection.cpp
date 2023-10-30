@@ -10,7 +10,7 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_UpdateTimer(UpdateTimer::c_10UPS)
+	, m_UpdateTimer(UpdateTimer::c_5UPS)
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
@@ -60,6 +60,9 @@ void GameConnection::Update()
 
 void GameConnection::Disconnect()
 {
+	for (auto behaviour : m_Behaviours)
+		behaviour->OnDetach(*this);
+
 	m_Socket.disconnect();
 	m_State = GameConnectionState::Disconnected;
 }
@@ -90,8 +93,8 @@ bool GameConnection::RemoveBehaviourInternal(IGameConnectionBehaviour* behaviour
 
 	if (findIt != m_Behaviours.end())
 	{
-		m_Behaviours.erase(findIt);
 		behaviour->OnDetach(*this);
+		m_Behaviours.erase(findIt);
 		return true;
 	}
 

@@ -350,24 +350,26 @@ struct SpeciesTable
 
 // Rogue Multiplayer
 //
-struct RogueNetHandshake
-{
-    u32 token;
-    u8 request;
-};
-
 struct RogueNetGameState
 {
     u8 temp1;
     u8 temp2;
+    //struct RogueHubMap hubMap;
+};
+
+struct RogueNetPlayerProfile
+{
+    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    u16 preferredOutfitStyle[3]; // PLAYER_OUTFIT_STYLE_COUNT
+    u8 networkId; // assigned by host
+    u8 preferredOutfit;
+    u8 fallbackOutfit;
 };
 
 struct RogueNetPlayer
 {
-    u8 trainerName[PLAYER_NAME_LENGTH + 1];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
-    u16 networkId;
     u16 partnerMon;
     u8 facingDirection;
     u8 partnerFacingDirection;
@@ -376,8 +378,19 @@ struct RogueNetPlayer
     s8 mapNum;
 };
 
+struct RogueNetHandshake
+{
+    struct RogueNetPlayerProfile profile;
+    u8 state;
+    u8 accepted : 1;
+
+    u32 token;
+    u8 request;
+};
+
 struct RogueNetMultiplayer
 {
+    struct RogueNetPlayerProfile playerProfiles[NET_PLAYER_CAPACITY];
     struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
     struct RogueNetGameState gameState;
     struct RogueNetHandshake pendingHandshake;
@@ -397,8 +410,11 @@ struct RogueAssistantHeader
     u32 netMultiplayerSize;
     u32 netHandshakeOffset;
     u32 netHandshakeSize;
+    u32 netHandshakeStateOffset;
     u32 netGameStateOffset;
     u32 netGameStateSize;
+    u32 netPlayerProfileOffset;
+    u32 netPlayerProfileSize;
     u32 netPlayerOffset;
     u32 netPlayerSize;
     u32 netPlayerCount;
