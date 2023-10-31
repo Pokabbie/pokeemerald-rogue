@@ -6,8 +6,10 @@
 #include "string_util.h"
 #include "task.h"
 
+#include "rogue_controller.h"
 #include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
+#include "rogue_save.h"
 
 #define NET_STATE_NONE              0
 #define NET_STATE_ACTIVE            (1 << 0)
@@ -21,9 +23,15 @@
 EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
 
+static void Host_HandleHandshakeRequest();
+static void Host_UpdateGameState();
+static void Client_SetupHandshakeRequest();
+static void Client_HandleHandshakeResponse();
+static void UpdateLocalPlayerState();
 static void Task_WaitForConnection(u8 taskId);
 
 STATIC_ASSERT(ARRAY_COUNT(gRogueMultiplayer->playerProfiles[0].preferredOutfitStyle) == PLAYER_OUTFIT_STYLE_COUNT, NetPlayerProfileOutfitStyleCount);
+
 
 bool8 RogueMP_Init()
 {
@@ -37,12 +45,12 @@ bool8 RogueMP_IsActive()
 
 bool8 RogueMP_IsActiveOrConnecting()
 {
-    return gRogueMultiplayer != NULL && (gRogueMultiplayer->netRequestState & NET_STATE_ACTIVE) != 0;
+    return RogueMP_IsActive() || RogueMP_IsConnecting();
 }
 
 bool8 RogueMP_IsConnecting()
 {
-    return !RogueMP_IsActive() && RogueMP_IsActiveOrConnecting();
+    return gRogueMultiplayer != NULL && !RogueMP_IsHost() && gRogueMultiplayer->localPlayerId == 0;
 }
 
 bool8 RogueMP_IsHost()
@@ -55,27 +63,16 @@ bool8 RogueMP_IsClient()
     return RogueMP_IsActive() && (gRogueMultiplayer->netCurrentState & NET_STATE_HOST) == 0;
 }
 
-static void CreatePlayerProfile(bool8 isHost)
+static void CreatePlayerProfile(struct RogueNetPlayerProfile* profile)
 {
     u8 i;
-    AGB_ASSERT(gRogueMultiplayer != NULL);
-    memset(&gRogueMultiplayer->playerProfiles[0], 0, sizeof(gRogueMultiplayer->playerProfiles[0]));
-    memset(&gRogueMultiplayer->players[0], 0, sizeof(gRogueMultiplayer->players[0]));
 
-    StringCopy_PlayerName(gRogueMultiplayer->playerProfiles[0].trainerName, gSaveBlock2Ptr->playerName);
-    gRogueMultiplayer->playerProfiles[0].preferredOutfit = RoguePlayer_GetOutfitId();
+    // Setup profile that we want to connect using
+    StringCopy_PlayerName(profile->trainerName, gSaveBlock2Ptr->playerName);
+    profile->preferredOutfit = RoguePlayer_GetOutfitId();
 
     for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
-        gRogueMultiplayer->playerProfiles[0].preferredOutfitStyle[i] = RoguePlayer_GetOutfitStyle(i);
-
-
-    // Initialise handshake
-    if(!isHost)
-    {
-        memset(&gRogueMultiplayer->pendingHandshake, 0, sizeof(gRogueMultiplayer->pendingHandshake));
-        memcpy(&gRogueMultiplayer->pendingHandshake.profile, &gRogueMultiplayer->players[0], sizeof(&gRogueMultiplayer->players[0]));
-        gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_HOST;
-    }
+        profile->preferredOutfitStyle[i] = RoguePlayer_GetOutfitStyle(i);
 }
 
 void RogueMP_OpenHost()
@@ -84,7 +81,10 @@ void RogueMP_OpenHost()
     memset(&gTEMPNetMultiplayer, 0, sizeof(gTEMPNetMultiplayer));
 
     gRogueMultiplayer = &gTEMPNetMultiplayer;
-    CreatePlayerProfile(TRUE);
+
+    gRogueMultiplayer->localPlayerId = 0;
+    CreatePlayerProfile(&gRogueMultiplayer->playerProfiles[gRogueMultiplayer->localPlayerId]);
+
     gRogueMultiplayer->netRequestState = NET_STATE_ACTIVE | NET_STATE_HOST;
 }
 
@@ -94,7 +94,8 @@ void RogueMP_OpenClient()
     memset(&gTEMPNetMultiplayer, 0, sizeof(gTEMPNetMultiplayer));
 
     gRogueMultiplayer = &gTEMPNetMultiplayer;
-    CreatePlayerProfile(FALSE);
+
+    Client_SetupHandshakeRequest();
     gRogueMultiplayer->netRequestState = NET_STATE_ACTIVE;
 }
 
@@ -112,8 +113,11 @@ void RogueMP_MainCB()
         {
             // Incoming new connection request
             DebugPrint("Incoming client request...");
-            gRogueMultiplayer->pendingHandshake.accepted = TRUE;
-            gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
+            Host_HandleHandshakeRequest();
+        }
+        else
+        {
+            Host_UpdateGameState();
         }
     }
     else
@@ -122,24 +126,114 @@ void RogueMP_MainCB()
         {
             if(gRogueMultiplayer->pendingHandshake.state == NET_HANDSHAKE_STATE_SEND_TO_CLIENT)
             {
-                DebugPrint("Incoming handshake response...");
-
                 // Incoming response from host
-                if(!gRogueMultiplayer->pendingHandshake.accepted)
-                {
-                    RogueMP_Close();
-                    return;
-                }
-
-                gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_NONE;
+                DebugPrint("Incoming handshake response...");
+                Client_HandleHandshakeResponse();
             }
         }
+    }
+
+    if(RogueMP_IsActive())
+    {
+        UpdateLocalPlayerState();
     }
 }
 
 void RogueMP_OverworldCB()
 {
     
+}
+
+static bool8 IsExVersion()
+{
+#ifdef ROGUE_EXPANSION
+    return TRUE;
+#else
+    return FALSE;
+#endif
+}
+
+static void Host_HandleHandshakeRequest()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    if(gRogueMultiplayer->pendingHandshake.isVersionEx != IsExVersion())
+    {
+        // Flavour doesn't match
+        gRogueMultiplayer->pendingHandshake.isVersionEx = IsExVersion();
+        gRogueMultiplayer->pendingHandshake.accepted = FALSE;
+        gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
+        return;
+    }
+
+    if(gRogueMultiplayer->pendingHandshake.saveVersionId != RogueSave_GetVersionId())
+    {
+        // Save version doesn't match
+        gRogueMultiplayer->pendingHandshake.saveVersionId = RogueSave_GetVersionId();
+        gRogueMultiplayer->pendingHandshake.accepted = FALSE;
+        gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
+        return;
+    }
+
+    // Is valid so accept
+    gRogueMultiplayer->pendingHandshake.accepted = TRUE;
+    gRogueMultiplayer->pendingHandshake.playerId = 1; // TODO - Assign to free slot
+    memcpy(&gRogueMultiplayer->playerProfiles[gRogueMultiplayer->pendingHandshake.playerId], &gRogueMultiplayer->pendingHandshake.profile, sizeof(gRogueMultiplayer->pendingHandshake.profile));
+
+
+    gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
+}
+
+static void Client_SetupHandshakeRequest()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    CreatePlayerProfile(&gRogueMultiplayer->pendingHandshake.profile);
+
+    // TODO - Setup versioning vars
+    gRogueMultiplayer->pendingHandshake.saveVersionId = RogueSave_GetVersionId();
+    gRogueMultiplayer->pendingHandshake.isVersionEx = IsExVersion();
+
+    gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_HOST;
+}
+
+static void Client_HandleHandshakeResponse()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    if(!gRogueMultiplayer->pendingHandshake.accepted)
+    {
+        DebugPrint("Handshake wasn't accepted.");
+        RogueMP_Close();
+        return;
+    }
+
+    gRogueMultiplayer->localPlayerId = gRogueMultiplayer->pendingHandshake.playerId;
+    gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_NONE;
+}
+
+static void Host_UpdateGameState()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    if(!Rogue_IsRunActive())
+    {
+        // TODO - Only need to do this if there is a change really
+        memcpy(&gRogueMultiplayer->gameState.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+    }
+    else
+    {
+
+    }
+}
+
+static void UpdateLocalPlayerState()
+{
+    struct RogueNetPlayer* player = &gRogueMultiplayer->players[gRogueMultiplayer->localPlayerId];
+
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    // TEMP
+    player->playerFlags = gRogueMultiplayer->localPlayerId;
 }
 
 //#define tConnectAsHost data[1]
@@ -182,7 +276,7 @@ static void Task_WaitForConnection(u8 taskId)
             EnableBothScriptContexts();
             DestroyTask(taskId);
         }
-        else
+        else if(!RogueMP_IsConnecting())
         {
             DebugPrint("Client connected successfully");
             // Has connected
@@ -191,4 +285,13 @@ static void Task_WaitForConnection(u8 taskId)
             DestroyTask(taskId);
         }
     }
+    // TODO - Error handling for if handshake wasn't accepted
+    //else if(!RogueMP_IsConnecting())
+    //{
+    //    DebugPrint("Connection aborted...");
+    //    // TODO - store some infor
+    //    gSpecialVar_Result = FALSE;
+    //    EnableBothScriptContexts();
+    //    DestroyTask(taskId);
+    //}
 }

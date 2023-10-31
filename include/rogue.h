@@ -352,9 +352,7 @@ struct SpeciesTable
 //
 struct RogueNetGameState
 {
-    u8 temp1;
-    u8 temp2;
-    //struct RogueHubMap hubMap;
+    struct RogueHubMap hubMap;
 };
 
 struct RogueNetPlayerProfile
@@ -381,11 +379,11 @@ struct RogueNetPlayer
 struct RogueNetHandshake
 {
     struct RogueNetPlayerProfile profile;
+    u16 saveVersionId;
     u8 state;
+    u8 playerId;
     u8 accepted : 1;
-
-    u32 token;
-    u8 request;
+    u8 isVersionEx : 1;
 };
 
 struct RogueNetMultiplayer
@@ -396,6 +394,7 @@ struct RogueNetMultiplayer
     struct RogueNetHandshake pendingHandshake;
     u8 netRequestState;
     u8 netCurrentState;
+    u8 localPlayerId;
 };
 
 // Rogue Assistant
@@ -411,6 +410,7 @@ struct RogueAssistantHeader
     u32 netHandshakeOffset;
     u32 netHandshakeSize;
     u32 netHandshakeStateOffset;
+    u32 netHandshakePlayerIdOffset;
     u32 netGameStateOffset;
     u32 netGameStateSize;
     u32 netPlayerProfileOffset;

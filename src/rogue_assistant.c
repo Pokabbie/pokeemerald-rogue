@@ -116,6 +116,7 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
     .netHandshakeOffset = offsetof(struct RogueNetMultiplayer, pendingHandshake),
     .netHandshakeSize = sizeof(struct RogueNetHandshake),
     .netHandshakeStateOffset = offsetof(struct RogueNetHandshake, state),
+    .netHandshakePlayerIdOffset = offsetof(struct RogueNetHandshake, playerId),
 
     .netGameStateOffset = offsetof(struct RogueNetMultiplayer, gameState),
     .netGameStateSize = sizeof(struct RogueNetGameState),

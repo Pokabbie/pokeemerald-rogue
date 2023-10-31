@@ -6,6 +6,9 @@
 enum RogueNetChannel
 {
 	Handshake,
+	GameState,
+	PlayerState,
+	PlayerProfiles,
 	Num,
 };
 
@@ -22,11 +25,11 @@ enum RogueNetChannel
 MultiplayerBehaviour::MultiplayerBehaviour()
 	: m_Port(20125)
 	, m_RequestFlags(0)
+	, m_PlayerId(0)
 	, m_NetServer(nullptr)
 	, m_NetClient(nullptr)
 	, m_NetPeer(nullptr)
 	, m_ConnState(ConnectionState::Default)
-	, m_PendingHandshake(nullptr)
 {
 }
 
@@ -76,7 +79,7 @@ void MultiplayerBehaviour::OnUpdate(GameConnection& game)
 		return;
 	}
 
-	if (m_PendingHandshake)
+	if (m_ServerState.m_PendingHandshake)
 	{
 		// Temporarily pause incoming requests if we're processing a handshake
 		ASSERT_MSG(IsHost(), "Can only process handshakes if as host");
@@ -84,13 +87,23 @@ void MultiplayerBehaviour::OnUpdate(GameConnection& game)
 		u8 handshakeState = multiplayerBlob[rogueHeader.netHandshakeOffset + rogueHeader.netHandshakeStateOffset];
 		if (handshakeState == NET_HANDSHAKE_STATE_SEND_TO_CLIENT)
 		{
+			u8 playerId = multiplayerBlob[rogueHeader.netHandshakeOffset + rogueHeader.netHandshakePlayerIdOffset];
+			ASSERT_MSG(playerId != 0, "Was expecting non-zero player ID");
+
+			size_t value = playerId;
+			m_ServerState.m_PendingHandshake->data = reinterpret_cast<void*>(value);
+
 			ENetPacket* packet = enet_packet_create(
 				&multiplayerBlob[rogueHeader.netHandshakeOffset],
 				rogueHeader.netHandshakeSize,
 				ENET_PACKET_FLAG_RELIABLE
 			);
-			enet_peer_send(m_PendingHandshake, RogueNetChannel::Handshake, packet);
-			m_PendingHandshake = nullptr;
+			enet_peer_send(m_ServerState.m_PendingHandshake, RogueNetChannel::Handshake, packet);
+			m_ServerState.m_PendingHandshake = nullptr;
+
+			// Force sending out player profiles to all clients
+			m_ServerState.m_PlayerProfiles.clear();
+			return;
 		}
 	}
 	else
@@ -128,6 +141,7 @@ void MultiplayerBehaviour::OnUpdate(GameConnection& game)
 		break;
 
 	case MultiplayerBehaviour::ConnectionState::Connected:
+		ConnectedUpdate(game);
 		break;
 	}
 }
@@ -279,11 +293,104 @@ void MultiplayerBehaviour::PollConnection(GameConnection& game)
 	}
 }
 
+static bool UpdateBinaryBlob(std::vector<u8>& copy, u8 const* rawBuffer, size_t rawSize)
+{
+	bool hasChanged = false;
+
+	if (copy.size() != rawSize)
+	{
+		hasChanged = true;
+	}
+	else
+	{
+		if (memcmp(copy.data(), rawBuffer, rawSize) != 0)
+		{
+			hasChanged = true;
+		}
+	}
+
+	if (hasChanged)
+	{
+		copy.resize(rawSize);
+		memcpy_s(copy.data(), copy.size(), rawBuffer, rawSize);
+	}
+
+	return hasChanged;
+}
+
+void MultiplayerBehaviour::ConnectedUpdate(GameConnection& game)
+{
+	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
+	u8 const* multiplayerBlob = game.GetObservedGameMemory().GetMultiplayerStateBlob();
+
+	if (IsHost())
+	{
+		// If player profiles have change, broadcast them out to other players
+		if (UpdateBinaryBlob(m_ServerState.m_PlayerProfiles, &multiplayerBlob[rogueHeader.netPlayerProfileOffset], rogueHeader.netPlayerProfileSize * rogueHeader.netPlayerCount))
+		{
+			ENetPacket* packet = enet_packet_create(
+				m_ServerState.m_PlayerProfiles.data(),
+				m_ServerState.m_PlayerProfiles.size(),
+				ENET_PACKET_FLAG_RELIABLE
+			);
+			enet_host_broadcast(m_NetServer, RogueNetChannel::PlayerProfiles, packet);
+		}
+
+		// Broadcast out the game state every now and then
+		if (m_ServerState.m_GameStateTimer.Update())
+		{
+			ENetPacket* packet = enet_packet_create(
+				&multiplayerBlob[rogueHeader.netGameStateOffset],
+				rogueHeader.netGameStateSize,
+				ENET_PACKET_FLAG_UNSEQUENCED
+			);
+			enet_host_broadcast(m_NetServer, RogueNetChannel::GameState, packet);
+		}
+
+		// Broadcast out the player states every now and then
+		if (m_ServerState.m_PlayerStateTimer.Update())
+		{
+			ENetPacket* packet = enet_packet_create(
+				&multiplayerBlob[rogueHeader.netPlayerOffset],
+				rogueHeader.netPlayerSize * rogueHeader.netPlayerCount,
+				ENET_PACKET_FLAG_UNSEQUENCED
+			);
+			enet_host_broadcast(m_NetServer, RogueNetChannel::PlayerState, packet);
+		}
+	}
+	else
+	{
+		// Send the local player state to the server every now and then
+		if (m_ClientState.m_PlayerStateTimer.Update())
+		{
+			ENetPacket* packet = enet_packet_create(
+				&multiplayerBlob[rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * m_PlayerId],
+				rogueHeader.netPlayerSize,
+				ENET_PACKET_FLAG_UNSEQUENCED
+			);
+			enet_peer_send(m_NetPeer, RogueNetChannel::PlayerState, packet);
+		}
+	}
+}
+
+static void WriteBlobIfDifferent(GameConnection& game, u32 gameOffset, u8 const* data, size_t size)
+{
+	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
+	GameAddress multiplayerAddress = game.GetObservedGameMemory().GetMultiplayerStatePtr();
+	u8 const* multiplayerBlob = game.GetObservedGameMemory().GetMultiplayerStateBlob();
+
+	if (memcmp(&multiplayerBlob[gameOffset], data, size) != 0)
+	{
+		game.WriteRequest(CreateAnonymousMessageId(), multiplayerAddress + gameOffset, data, size);
+	}
+}
+
 void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent& netEvent)
 {
 	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
 	ASSERT_MSG(game.GetObservedGameMemory().IsMultiplayerStateValid(), "Multiplayer state invalid");
 
+	u8 const* multiplayerBlob = game.GetObservedGameMemory().GetMultiplayerStateBlob();
 	GameAddress multiplayerAddress = game.GetObservedGameMemory().GetMultiplayerStatePtr();
 
 	switch (netEvent.channelID)
@@ -296,13 +403,19 @@ void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent
 			// If we're the host wait until we get a response
 			if (IsHost())
 			{
-				ASSERT_MSG(m_PendingHandshake == nullptr, "Host cannot handle multiple handshakes at once");
-				m_PendingHandshake = netEvent.peer;
+				ASSERT_MSG(m_ServerState.m_PendingHandshake == nullptr, "Host cannot handle multiple handshakes at once");
+				m_ServerState.m_PendingHandshake = netEvent.peer;
 			}
 			else
 			{
 				if (m_ConnState == ConnectionState::AwaitingResponse)
 				{
+					m_PlayerId = netEvent.packet->data[rogueHeader.netHandshakePlayerIdOffset];
+					ASSERT_MSG(m_PlayerId != 0, "Was expecting non-zero player ID");
+
+					size_t value = m_PlayerId;
+					netEvent.peer->data = reinterpret_cast<void*>(value);
+
 					// Client recieved handshake response so confirm connection
 					m_ConnState = ConnectionState::ConnectionConfirmed;
 				}
@@ -311,6 +424,85 @@ void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent
 		else
 		{
 			ASSERT_FAIL("Handshake data size missmatch (Attempting to connect with out of date version?)");
+		}
+		break;
+
+
+	case RogueNetChannel::PlayerProfiles:
+		if (netEvent.packet->dataLength == rogueHeader.netPlayerProfileSize * rogueHeader.netPlayerCount)
+		{
+			if (IsHost())
+			{
+				ASSERT_FAIL("Client has attempted to send player profile");
+			}
+			else
+			{
+				game.WriteRequest(CreateAnonymousMessageId(), multiplayerAddress + rogueHeader.netPlayerProfileOffset, netEvent.packet->data, netEvent.packet->dataLength);
+			}
+		}
+		else
+		{
+			ASSERT_FAIL("PlayerProfile data size missmatch (Attempting to connect with out of date version?)");
+		}
+		break;
+
+
+	case RogueNetChannel::GameState:
+		if (netEvent.packet->dataLength == rogueHeader.netGameStateSize)
+		{
+			if (IsHost())
+			{
+				ASSERT_FAIL("Client has attempted to game state");
+			}
+			else
+			{
+				WriteBlobIfDifferent(game, rogueHeader.netGameStateOffset, netEvent.packet->data, netEvent.packet->dataLength);
+			}
+		}
+		else
+		{
+			ASSERT_FAIL("PlayerProfile data size missmatch (Attempting to connect with out of date version?)");
+		}
+		break;
+
+
+	case RogueNetChannel::PlayerState:
+		if (IsHost())
+		{
+			// Expect clients to only send their state
+			if (netEvent.packet->dataLength == rogueHeader.netPlayerSize)
+			{
+				size_t value = reinterpret_cast<size_t>(netEvent.peer->data);
+				u8 playerId = static_cast<u8>(value);
+				if (playerId != 0 && playerId < rogueHeader.netPlayerSize)
+				{
+					WriteBlobIfDifferent(game, rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * playerId, netEvent.packet->data, netEvent.packet->dataLength);
+				}
+				else
+				{
+					ASSERT_FAIL("Unexpected Player ID");
+				}
+			}
+			else
+			{
+				ASSERT_FAIL("PlayerState data size missmatch");
+			}
+		}
+		else
+		{
+			// Expect host to send all player states (including ours that we are just going to ignore)
+			if (netEvent.packet->dataLength == rogueHeader.netPlayerSize * rogueHeader.netPlayerCount)
+			{
+				for (u8 playerId = 0; playerId < rogueHeader.netPlayerCount; ++playerId)
+				{
+					if(playerId != m_PlayerId)
+						WriteBlobIfDifferent(game, rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * playerId, netEvent.packet->data, netEvent.packet->dataLength);
+				}
+			}
+			else
+			{
+				ASSERT_FAIL("PlayerState data size missmatch");
+			}
 		}
 		break;
 	}

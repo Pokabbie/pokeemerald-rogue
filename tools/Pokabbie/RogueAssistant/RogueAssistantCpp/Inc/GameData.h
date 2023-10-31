@@ -101,6 +101,7 @@ namespace GameStructures
 		u32 netHandshakeOffset;
 		u32 netHandshakeSize;
 		u32 netHandshakeStateOffset;
+		u32 netHandshakePlayerIdOffset;
 		u32 netGameStateOffset;
 		u32 netGameStateSize;
 		u32 netPlayerProfileOffset;
