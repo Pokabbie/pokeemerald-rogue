@@ -106,8 +106,8 @@ namespace GameStructures
 		u32 netGameStateSize;
 		u32 netPlayerProfileOffset;
 		u32 netPlayerProfileSize;
-		u32 netPlayerOffset;
-		u32 netPlayerSize;
+		u32 netPlayerStateOffset;
+		u32 netPlayerStateSize;
 		u32 netPlayerCount;
 		u32 netRequestStateOffset;
 		u32 netCurrentStateOffset;

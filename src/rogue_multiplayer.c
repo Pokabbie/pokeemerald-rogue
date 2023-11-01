@@ -1,6 +1,10 @@
 #include "global.h"
+#include "constants/event_objects.h"
+#include "constants/event_object_movement.h"
 #include "event_data.h"
 #include "main.h"
+#include "event_object_movement.h"
+#include "field_player_avatar.h"
 #include "script.h"
 #include "string.h"
 #include "string_util.h"
@@ -20,6 +24,19 @@
 #define NET_PLAYER_FLAGS_ACTIVE     (1 << 0)
 #define NET_PLAYER_FLAGS_HOST       (2 << 0)
 
+struct SyncedObjectEventInfo
+{
+    struct RogueNetPlayerMovement* movementBuffer;
+    struct Coords16 pos;
+    u16 gfxId;
+    s8 mapNum;
+    s8 mapGroup;
+    u8 localId;
+    u8 movementBufferHead;
+    u8 facingDirection : 4;
+    u8 elevation : 4;
+};
+
 EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
 
@@ -27,8 +44,11 @@ static void Host_HandleHandshakeRequest();
 static void Host_UpdateGameState();
 static void Client_SetupHandshakeRequest();
 static void Client_HandleHandshakeResponse();
-static void UpdateLocalPlayerState();
+static void UpdateLocalPlayerState(u8 playerId);
 static void Task_WaitForConnection(u8 taskId);
+
+static void ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo);
+static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, struct ObjectEvent* objectEvent);
 
 STATIC_ASSERT(ARRAY_COUNT(gRogueMultiplayer->playerProfiles[0].preferredOutfitStyle) == PLAYER_OUTFIT_STYLE_COUNT, NetPlayerProfileOutfitStyleCount);
 
@@ -69,6 +89,7 @@ static void CreatePlayerProfile(struct RogueNetPlayerProfile* profile)
 
     // Setup profile that we want to connect using
     StringCopy_PlayerName(profile->trainerName, gSaveBlock2Ptr->playerName);
+    profile->isActive = TRUE;
     profile->preferredOutfit = RoguePlayer_GetOutfitId();
 
     for(i = 0; i < PLAYER_OUTFIT_STYLE_COUNT; ++i)
@@ -132,16 +153,21 @@ void RogueMP_MainCB()
             }
         }
     }
-
-    if(RogueMP_IsActive())
-    {
-        UpdateLocalPlayerState();
-    }
 }
 
 void RogueMP_OverworldCB()
 {
-    
+    if(RogueMP_IsActive())
+    {
+        //++gRogueMultiplayer->localCounter;
+        //// To split up the processing, only process 1 player per frame
+        //u8 playerId = gRogueMultiplayer->localCounter % NET_PLAYER_CAPACITY;
+        
+        u8 i;
+
+        for(i = 0; i < NET_PLAYER_CAPACITY; ++i)
+            UpdateLocalPlayerState(i);
+    }
 }
 
 static bool8 IsExVersion()
@@ -178,8 +204,8 @@ static void Host_HandleHandshakeRequest()
     // Is valid so accept
     gRogueMultiplayer->pendingHandshake.accepted = TRUE;
     gRogueMultiplayer->pendingHandshake.playerId = 1; // TODO - Assign to free slot
+    gRogueMultiplayer->pendingHandshake.profile.isActive = TRUE;
     memcpy(&gRogueMultiplayer->playerProfiles[gRogueMultiplayer->pendingHandshake.playerId], &gRogueMultiplayer->pendingHandshake.profile, sizeof(gRogueMultiplayer->pendingHandshake.profile));
-
 
     gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
 }
@@ -226,14 +252,93 @@ static void Host_UpdateGameState()
     }
 }
 
-static void UpdateLocalPlayerState()
+static bool8 IsObjectCurrentlyMoving(struct ObjectEvent* objectEvent)
 {
-    struct RogueNetPlayer* player = &gRogueMultiplayer->players[gRogueMultiplayer->localPlayerId];
+    // Require coords to change
+    if(objectEvent->currentCoords.x == objectEvent->previousCoords.x && objectEvent->currentCoords.y == objectEvent->previousCoords.y)
+        return FALSE;
 
+    // Certain actions are illegal as they will cause the position to get lost be observing client
+    if(objectEvent->movementActionId <= MOVEMENT_ACTION_FACE_RIGHT) // objectEvent->movementActionId >= MOVEMENT_ACTION_FACE_DOWN implied
+        return FALSE;
+
+    if(objectEvent->movementActionId >= MOVEMENT_ACTION_WALK_IN_PLACE_SLOW_DOWN && objectEvent->movementActionId <= MOVEMENT_ACTION_WALK_IN_PLACE_FASTER_RIGHT)
+        return FALSE;
+
+    if(objectEvent->movementActionId >= MOVEMENT_ACTION_DELAY_1 && objectEvent->movementActionId <= MOVEMENT_ACTION_DELAY_16)
+        return FALSE;
+
+    if(objectEvent->movementActionId >= MOVEMENT_ACTION_WALK_IN_PLACE_SLOW_DOWN && objectEvent->movementActionId <= MOVEMENT_ACTION_WALK_IN_PLACE_FASTER_RIGHT)
+        return FALSE;
+
+    return TRUE;
+}
+
+static bool8 HasMovementUpdated(struct RogueNetPlayerMovement* oldMovement, struct RogueNetPlayerMovement* newMovement)
+{
+    return oldMovement->pos.x != newMovement->pos.x || oldMovement->pos.y != newMovement->pos.y;
+}
+
+static void WritePlayerState(struct RogueNetPlayer* player)
+{
+    if(gPlayerAvatar.objectEventId != OBJECT_EVENTS_COUNT)
+    {
+        if(IsObjectCurrentlyMoving(&gObjectEvents[gPlayerAvatar.objectEventId]))
+        {
+            struct RogueNetPlayerMovement newMovement;
+            newMovement.pos.x = gObjectEvents[gPlayerAvatar.objectEventId].previousCoords.x;
+            newMovement.pos.y = gObjectEvents[gPlayerAvatar.objectEventId].previousCoords.y;
+            newMovement.movementAction = gObjectEvents[gPlayerAvatar.objectEventId].movementActionId;
+
+            if(HasMovementUpdated(&player->movementBuffer[player->movementBufferHead], &newMovement))
+            {
+                u8 newHead = (player->movementBufferHead + 1) % ARRAY_COUNT(player->movementBuffer);
+
+                memcpy(&player->movementBuffer[newHead], &newMovement, sizeof(newMovement));
+                player->movementBufferHead = newHead;
+            }
+        }
+
+        player->playerPos.x = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.x;
+        player->playerPos.y = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y;
+        player->currentElevation = gObjectEvents[gPlayerAvatar.objectEventId].currentElevation;
+        player->facingDirection = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
+        player->mapGroup = gSaveBlock1Ptr->location.mapGroup;
+        player->mapNum = gSaveBlock1Ptr->location.mapNum;
+    }
+}
+
+static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
+{
+    u8 playerObjectId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 0;
+    u8 followerObjectId = OBJ_EVENT_ID_MULTIPLAYER_FIRST + playerId * 2 + 1;
+
+    {
+        struct SyncedObjectEventInfo syncInfo = {0};
+
+        syncInfo.localId = playerObjectId;
+        syncInfo.pos.x = player->playerPos.x;
+        syncInfo.pos.y = player->playerPos.y;
+        syncInfo.elevation = player->currentElevation;
+        syncInfo.facingDirection = player->facingDirection;
+        syncInfo.gfxId = OBJ_EVENT_GFX_ANABEL;
+        syncInfo.mapGroup = player->mapGroup;
+        syncInfo.mapNum = player->mapNum;
+        syncInfo.movementBuffer = player->movementBuffer;
+        syncInfo.movementBufferHead = player->movementBufferHead;
+
+        ProcessSyncedObjectEvent(&syncInfo);
+    }
+}
+
+static void UpdateLocalPlayerState(u8 playerId)
+{
     AGB_ASSERT(gRogueMultiplayer != NULL);
 
-    // TEMP
-    player->playerFlags = gRogueMultiplayer->localPlayerId;
+    if(playerId == gRogueMultiplayer->localPlayerId)
+        WritePlayerState(&gRogueMultiplayer->playerState[playerId]);
+    else if(gRogueMultiplayer->playerProfiles[playerId].isActive)
+        ObservePlayerState(playerId, &gRogueMultiplayer->playerState[playerId]);
 }
 
 //#define tConnectAsHost data[1]
@@ -294,4 +399,89 @@ static void Task_WaitForConnection(u8 taskId)
     //    EnableBothScriptContexts();
     //    DestroyTask(taskId);
     //}
+}
+
+static bool8 ShouldSyncObjectBeVisible(struct SyncedObjectEventInfo* syncInfo)
+{
+    if(syncInfo->gfxId == 0)
+        return FALSE;
+
+    if(syncInfo->mapGroup == gSaveBlock1Ptr->location.mapGroup && syncInfo->mapNum == gSaveBlock1Ptr->location.mapNum)
+    {
+        s16 playerX, playerY, xDist, yDist;
+        PlayerGetDestCoords(&playerX, &playerY);
+
+        xDist = abs(syncInfo->pos.x - playerX);
+        yDist = abs(syncInfo->pos.y - playerY);
+
+        if(xDist <= 10 && yDist <= 7)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo)
+{
+    u8 objectEventId = GetSpecialObjectEventIdByLocalId(syncInfo->localId);
+
+    if(ShouldSyncObjectBeVisible(syncInfo))
+    {
+        if(objectEventId == OBJECT_EVENTS_COUNT)
+        {
+            objectEventId = SpawnSpecialObjectEventParameterized(
+                syncInfo->gfxId,
+                MOVEMENT_TYPE_NONE,
+                syncInfo->localId,
+                syncInfo->pos.x,
+                syncInfo->pos.y,
+                syncInfo->elevation
+            );
+        }
+
+        ProcessSyncedObjectMovement(syncInfo, &gObjectEvents[objectEventId]);
+    }
+    else
+    {
+        if(objectEventId != OBJECT_EVENTS_COUNT)
+            RemoveObjectEvent(&gObjectEvents[objectEventId]);
+    }
+}
+
+static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, struct ObjectEvent* objectEvent)
+{
+    // Wait for current movement to finish
+    if(ObjectEventCheckHeldMovementStatus(objectEvent))
+    {
+        if(objectEvent->currentCoords.x == syncInfo->pos.x && objectEvent->currentCoords.y == syncInfo->pos.y)
+        {
+            if(objectEvent->facingDirection != syncInfo->facingDirection)
+                ObjectEventTurnByLocalIdAndMap(syncInfo->localId, syncInfo->mapNum, syncInfo->mapGroup, syncInfo->facingDirection);
+        }
+        else
+        {
+            u8 i, currentIdx;
+            ObjectEventClearHeldMovement(objectEvent);
+
+            // Iterate backwards
+            for(i = 0; i < NET_PLAYER_MOVEMENT_BUFFER_SIZE; ++i)
+            {
+                // Count backward from the head until we find the correct index
+                currentIdx = (NET_PLAYER_MOVEMENT_BUFFER_SIZE + syncInfo->movementBufferHead - i) % NET_PLAYER_MOVEMENT_BUFFER_SIZE;
+
+                if(syncInfo->movementBuffer[currentIdx].pos.x == objectEvent->currentCoords.x && syncInfo->movementBuffer[currentIdx].pos.y == objectEvent->currentCoords.y)
+                {
+                    ObjectEventSetHeldMovement(objectEvent, syncInfo->movementBuffer[currentIdx].movementAction);
+                    return;
+                }
+            }
+
+            // If we got here, it means our position lies outside of the movement buffer, so TP to the correct location
+            MoveObjectEventToMapCoords(
+                objectEvent, 
+                syncInfo->movementBuffer[syncInfo->movementBufferHead].pos.x, 
+                syncInfo->movementBuffer[syncInfo->movementBufferHead].pos.y
+            );
+        }
+    }
 }

@@ -342,7 +342,7 @@ void MultiplayerBehaviour::ConnectedUpdate(GameConnection& game)
 			ENetPacket* packet = enet_packet_create(
 				&multiplayerBlob[rogueHeader.netGameStateOffset],
 				rogueHeader.netGameStateSize,
-				ENET_PACKET_FLAG_UNSEQUENCED
+				ENET_PACKET_FLAG_RELIABLE
 			);
 			enet_host_broadcast(m_NetServer, RogueNetChannel::GameState, packet);
 		}
@@ -351,9 +351,9 @@ void MultiplayerBehaviour::ConnectedUpdate(GameConnection& game)
 		if (m_ServerState.m_PlayerStateTimer.Update())
 		{
 			ENetPacket* packet = enet_packet_create(
-				&multiplayerBlob[rogueHeader.netPlayerOffset],
-				rogueHeader.netPlayerSize * rogueHeader.netPlayerCount,
-				ENET_PACKET_FLAG_UNSEQUENCED
+				&multiplayerBlob[rogueHeader.netPlayerStateOffset],
+				rogueHeader.netPlayerStateSize * rogueHeader.netPlayerCount,
+				ENET_PACKET_FLAG_UNRELIABLE_FRAGMENT
 			);
 			enet_host_broadcast(m_NetServer, RogueNetChannel::PlayerState, packet);
 		}
@@ -364,9 +364,9 @@ void MultiplayerBehaviour::ConnectedUpdate(GameConnection& game)
 		if (m_ClientState.m_PlayerStateTimer.Update())
 		{
 			ENetPacket* packet = enet_packet_create(
-				&multiplayerBlob[rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * m_PlayerId],
-				rogueHeader.netPlayerSize,
-				ENET_PACKET_FLAG_UNSEQUENCED
+				&multiplayerBlob[rogueHeader.netPlayerStateOffset + rogueHeader.netPlayerStateSize * m_PlayerId],
+				rogueHeader.netPlayerStateSize,
+				ENET_PACKET_FLAG_UNRELIABLE_FRAGMENT
 			);
 			enet_peer_send(m_NetPeer, RogueNetChannel::PlayerState, packet);
 		}
@@ -456,7 +456,7 @@ void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent
 			}
 			else
 			{
-				WriteBlobIfDifferent(game, rogueHeader.netGameStateOffset, netEvent.packet->data, netEvent.packet->dataLength);
+				game.WriteRequest(CreateAnonymousMessageId(), multiplayerAddress + rogueHeader.netGameStateOffset, netEvent.packet->data, netEvent.packet->dataLength);
 			}
 		}
 		else
@@ -470,13 +470,18 @@ void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent
 		if (IsHost())
 		{
 			// Expect clients to only send their state
-			if (netEvent.packet->dataLength == rogueHeader.netPlayerSize)
+			if (netEvent.packet->dataLength == rogueHeader.netPlayerStateSize)
 			{
 				size_t value = reinterpret_cast<size_t>(netEvent.peer->data);
 				u8 playerId = static_cast<u8>(value);
-				if (playerId != 0 && playerId < rogueHeader.netPlayerSize)
+				if (playerId != 0 && playerId < rogueHeader.netPlayerCount)
 				{
-					WriteBlobIfDifferent(game, rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * playerId, netEvent.packet->data, netEvent.packet->dataLength);
+					game.WriteRequest(
+						CreateAnonymousMessageId(), 
+						multiplayerAddress + rogueHeader.netPlayerStateOffset + rogueHeader.netPlayerStateSize * playerId,
+						netEvent.packet->data, 
+						rogueHeader.netPlayerStateSize
+					);
 				}
 				else
 				{
@@ -491,12 +496,19 @@ void MultiplayerBehaviour::HandleIncomingMessage(GameConnection& game, ENetEvent
 		else
 		{
 			// Expect host to send all player states (including ours that we are just going to ignore)
-			if (netEvent.packet->dataLength == rogueHeader.netPlayerSize * rogueHeader.netPlayerCount)
+			if (netEvent.packet->dataLength == rogueHeader.netPlayerStateSize * rogueHeader.netPlayerCount)
 			{
 				for (u8 playerId = 0; playerId < rogueHeader.netPlayerCount; ++playerId)
 				{
-					if(playerId != m_PlayerId)
-						WriteBlobIfDifferent(game, rogueHeader.netPlayerOffset + rogueHeader.netPlayerSize * playerId, netEvent.packet->data, netEvent.packet->dataLength);
+					if (playerId != m_PlayerId)
+					{
+						game.WriteRequest(
+							CreateAnonymousMessageId(), 
+							multiplayerAddress + rogueHeader.netPlayerStateOffset + rogueHeader.netPlayerStateSize * playerId,
+							&netEvent.packet->data[rogueHeader.netPlayerStateSize * playerId],
+							rogueHeader.netPlayerStateSize
+						);
+					}
 				}
 			}
 			else

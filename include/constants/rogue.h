@@ -398,6 +398,7 @@
 // Rogue Assistant
 //
 #define NET_PLAYER_CAPACITY 4
+#define NET_PLAYER_MOVEMENT_BUFFER_SIZE         8
 
 #define NET_HANDSHAKE_STATE_NONE                0
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1

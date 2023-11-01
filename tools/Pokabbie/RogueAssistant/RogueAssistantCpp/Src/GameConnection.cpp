@@ -10,7 +10,7 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_UpdateTimer(UpdateTimer::c_5UPS)
+	, m_UpdateTimer(UpdateTimer::c_10UPS)
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
@@ -184,7 +184,7 @@ void GameConnection::OnRecieveData(u8* data, size_t size)
 					}
 					else
 					{
-						ASSERT_FAIL("Failed to parse incoming recv");
+						LOG_WARN("Failed to parse incoming recv");
 					}
 
 					offset += blockSize;

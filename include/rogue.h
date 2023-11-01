@@ -362,18 +362,28 @@ struct RogueNetPlayerProfile
     u8 networkId; // assigned by host
     u8 preferredOutfit;
     u8 fallbackOutfit;
+    u8 isActive : 1;
+};
+
+struct RogueNetPlayerMovement
+{
+    struct Coords16 pos;
+    u8 movementAction;
 };
 
 struct RogueNetPlayer
 {
+    struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
     u16 partnerMon;
-    u8 facingDirection;
-    u8 partnerFacingDirection;
-    u8 playerFlags;
     s8 mapGroup;
     s8 mapNum;
+    u8 playerFlags;
+    u8 movementBufferHead;
+    u8 currentElevation : 4;
+    u8 facingDirection : 4;
+    u8 partnerFacingDirection : 4;
 };
 
 struct RogueNetHandshake
@@ -389,12 +399,13 @@ struct RogueNetHandshake
 struct RogueNetMultiplayer
 {
     struct RogueNetPlayerProfile playerProfiles[NET_PLAYER_CAPACITY];
-    struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
+    struct RogueNetPlayer playerState[NET_PLAYER_CAPACITY];
     struct RogueNetGameState gameState;
     struct RogueNetHandshake pendingHandshake;
     u8 netRequestState;
     u8 netCurrentState;
     u8 localPlayerId;
+    u8 localCounter;
 };
 
 // Rogue Assistant
@@ -415,8 +426,8 @@ struct RogueAssistantHeader
     u32 netGameStateSize;
     u32 netPlayerProfileOffset;
     u32 netPlayerProfileSize;
-    u32 netPlayerOffset;
-    u32 netPlayerSize;
+    u32 netPlayerStateOffset;
+    u32 netPlayerStateSize;
     u32 netPlayerCount;
     u32 netRequestStateOffset;
     u32 netCurrentStateOffset;
