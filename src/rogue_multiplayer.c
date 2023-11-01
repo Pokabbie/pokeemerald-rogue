@@ -5,12 +5,14 @@
 #include "main.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
+#include "follow_me.h"
 #include "script.h"
 #include "string.h"
 #include "string_util.h"
 #include "task.h"
 
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
 #include "rogue_save.h"
@@ -33,6 +35,7 @@ struct SyncedObjectEventInfo
     s8 mapGroup;
     u8 localId;
     u8 movementBufferHead;
+    u8 movementBufferReadOffset;
     u8 facingDirection : 4;
     u8 elevation : 4;
 };
@@ -124,6 +127,18 @@ void RogueMP_Close()
 {
     AGB_ASSERT(gRogueMultiplayer != NULL);
     gRogueMultiplayer = NULL;
+}
+
+u8 RogueMP_GetPlayerOutfitId(u8 playerId)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerProfiles[playerId].preferredOutfit;
+}
+
+u16 RogueMP_GetPlayerOutfitStyle(u8 playerId, u8 outfitStyle)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerProfiles[playerId].preferredOutfitStyle[outfitStyle];
 }
 
 void RogueMP_MainCB()
@@ -305,7 +320,30 @@ static void WritePlayerState(struct RogueNetPlayer* player)
         player->facingDirection = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
         player->mapGroup = gSaveBlock1Ptr->location.mapGroup;
         player->mapNum = gSaveBlock1Ptr->location.mapNum;
+
+        if(FollowMon_IsPartnerMonActive())
+        {
+            u8 followerObjectEventId = GetFollowerObjectId();
+            player->partnerMon = FollowMon_GetPartnerFollowSpecies(TRUE);
+            player->partnerPos.x = gObjectEvents[followerObjectEventId].currentCoords.x;
+            player->partnerPos.y = gObjectEvents[followerObjectEventId].currentCoords.y;
+            player->partnerFacingDirection = gObjectEvents[followerObjectEventId].facingDirection;
+        }
+        else
+        {
+            player->partnerMon = SPECIES_NONE;
+        }
     }
+}
+
+static bool8 ArePlayerFollowMonsAllowed()
+{
+    if(Rogue_AreWildMonEnabled())
+    {
+        return FALSE;
+    }
+
+    return TRUE;
 }
 
 static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
@@ -321,11 +359,36 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.pos.y = player->playerPos.y;
         syncInfo.elevation = player->currentElevation;
         syncInfo.facingDirection = player->facingDirection;
-        syncInfo.gfxId = OBJ_EVENT_GFX_ANABEL;
+        syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER; // TODO - need to have net outfits that have riding gfx too
         syncInfo.mapGroup = player->mapGroup;
         syncInfo.mapNum = player->mapNum;
         syncInfo.movementBuffer = player->movementBuffer;
         syncInfo.movementBufferHead = player->movementBufferHead;
+        syncInfo.movementBufferReadOffset = 0;
+
+        ProcessSyncedObjectEvent(&syncInfo);
+    }
+
+    if(player->partnerMon != SPECIES_NONE && ArePlayerFollowMonsAllowed())
+    {
+        struct SyncedObjectEventInfo syncInfo = {0};
+
+        syncInfo.localId = followerObjectId;
+        syncInfo.pos.x = player->partnerPos.x;
+        syncInfo.pos.y = player->partnerPos.y;
+        syncInfo.elevation = player->currentElevation;
+        syncInfo.facingDirection = player->partnerFacingDirection;
+        syncInfo.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_A + playerId;
+        syncInfo.mapGroup = player->mapGroup;
+        syncInfo.mapNum = player->mapNum;
+        syncInfo.movementBuffer = player->movementBuffer;
+        syncInfo.movementBufferHead = player->movementBufferHead;
+        syncInfo.movementBufferReadOffset = 1; // skip the most recent movement, as that's where the player is
+
+        if(player->partnerMon >= FOLLOWMON_SHINY_OFFSET)
+            FollowMon_SetGraphics(0xA + playerId, player->partnerMon - FOLLOWMON_SHINY_OFFSET, TRUE);
+        else
+            FollowMon_SetGraphics(0xA + playerId, player->partnerMon, FALSE);
 
         ProcessSyncedObjectEvent(&syncInfo);
     }
@@ -450,6 +513,9 @@ static void ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo)
 
 static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, struct ObjectEvent* objectEvent)
 {
+    if(syncInfo->gfxId !=  objectEvent->graphicsId)
+        ObjectEventSetGraphicsId(objectEvent, syncInfo->gfxId);
+
     // Wait for current movement to finish
     if(ObjectEventCheckHeldMovementStatus(objectEvent))
     {
@@ -464,7 +530,7 @@ static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, 
             ObjectEventClearHeldMovement(objectEvent);
 
             // Iterate backwards
-            for(i = 0; i < NET_PLAYER_MOVEMENT_BUFFER_SIZE; ++i)
+            for(i = syncInfo->movementBufferReadOffset; i < NET_PLAYER_MOVEMENT_BUFFER_SIZE; ++i)
             {
                 // Count backward from the head until we find the correct index
                 currentIdx = (NET_PLAYER_MOVEMENT_BUFFER_SIZE + syncInfo->movementBufferHead - i) % NET_PLAYER_MOVEMENT_BUFFER_SIZE;

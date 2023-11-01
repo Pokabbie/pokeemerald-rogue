@@ -11,6 +11,9 @@ bool8 RogueMP_IsConnecting();
 bool8 RogueMP_IsHost();
 bool8 RogueMP_IsClient();
 
+u8 RogueMP_GetPlayerOutfitId(u8 playerId);
+u16 RogueMP_GetPlayerOutfitStyle(u8 playerId, u8 outfitStyle);
+
 void RogueMP_OpenHost();
 void RogueMP_OpenClient();
 void RogueMP_Close();
