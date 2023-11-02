@@ -275,12 +275,12 @@ static bool8 (*const sPlayerAvatarSecretBaseMatSpin[])(struct Task *, struct Obj
 
 void MovementType_Player(struct Sprite *sprite)
 {
-    // RogueNote: default here so can shift around in movement below
-    sprite->x2 = 0;
-    sprite->y2 = 0;
+    //// RogueNote: default here so can shift around in movement below
+    //sprite->x2 = 0;
+    //sprite->y2 = 0;
 
     UpdateObjectEventCurrentMovement(&gObjectEvents[sprite->data[0]], sprite, ObjectEventCB2_NoMovement2);
-    Rogue_OnMovementType_Player(sprite);
+    //Rogue_OnMovementType_Player(sprite);
 }
 
 static u8 ObjectEventCB2_NoMovement2(void)

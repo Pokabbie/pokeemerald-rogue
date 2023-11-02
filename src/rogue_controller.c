@@ -2258,7 +2258,12 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
 
 void Rogue_OnMovementType_Player(struct Sprite *sprite)
 {
-    Rogue_UpdateRideMons();
+    //Rogue_UpdateRideMons();
+}
+
+void Rogue_OnObjectEventMovement(u8 objectEventId)
+{
+    Rogue_HandleRideMonMovementIfNeeded(objectEventId);
 }
 
 void Rogue_OnResumeMap()
@@ -2272,7 +2277,7 @@ void Rogue_OnObjectEventsInit()
 
 void Rogue_OnResetAllSprites()
 {
-    Rogue_DestroyRideMonSprites();
+    Rogue_OnResetRideMonSprites();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)

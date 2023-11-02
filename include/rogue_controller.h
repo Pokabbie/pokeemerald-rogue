@@ -88,6 +88,7 @@ bool8 Rogue_IsRunningToggledOn();
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnMovementType_Player(struct Sprite *sprite);
+void Rogue_OnObjectEventMovement(u8 objectEventId);
 void Rogue_OnResumeMap();
 void Rogue_OnObjectEventsInit();
 void Rogue_OnResetAllSprites();
