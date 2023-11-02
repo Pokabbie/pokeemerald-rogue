@@ -2,11 +2,18 @@
 #include "Defines.h"
 #include "SFML/Network.hpp"
 #include <memory>
+#include <thread>
 
 class GameConnection;
 class GameConnectionManager;
 
 typedef std::shared_ptr<GameConnection> GameConnectionRef;
+
+struct ActiveGameConnection
+{
+	GameConnectionRef m_Game;
+	std::thread m_UpdateThread;
+};
 
 class GameConnectionManager
 {
@@ -22,9 +29,10 @@ public:
 
 private:
 	GameConnectionManager() = default;
+	void BackgroundUpdate(GameConnectionRef game);
 
 	std::unique_ptr<sf::TcpListener> m_Listener;
 
-	std::vector<GameConnectionRef> m_ActiveConnections;
+	std::vector<ActiveGameConnection> m_ActiveConnections;
 	GameConnectionRef m_AcceptingConnection;
 };

@@ -3,6 +3,7 @@
 #define NANOSECONDS_PER_SECOND (1000000000)
 
 TimeDurationNS const UpdateTimer::c_1UPS = NANOSECONDS_PER_SECOND;
+TimeDurationNS const UpdateTimer::c_5UPS = NANOSECONDS_PER_SECOND / 5;
 TimeDurationNS const UpdateTimer::c_10UPS = NANOSECONDS_PER_SECOND / 10;
 TimeDurationNS const UpdateTimer::c_20UPS = NANOSECONDS_PER_SECOND / 20;
 TimeDurationNS const UpdateTimer::c_25UPS = NANOSECONDS_PER_SECOND / 25;

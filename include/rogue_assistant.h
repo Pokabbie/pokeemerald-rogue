@@ -38,6 +38,8 @@ enum REQUEST_STATE_NUM
 
 void Rogue_AssistantInit();
 
+bool8 Rogue_IsAssistantConnected();
+
 void Rogue_UpdateAssistantState(u16 state, u16 substate);
 void Rogue_UpdateAssistantRequestState(u16 state);
 

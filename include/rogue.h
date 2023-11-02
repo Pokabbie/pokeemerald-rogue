@@ -350,39 +350,62 @@ struct SpeciesTable
 
 // Rogue Multiplayer
 //
-struct RogueNetHandshake
-{
-    u32 token;
-    u8 request;
-};
-
 struct RogueNetGameState
 {
-    u8 temp1;
-    u8 temp2;
+    struct RogueHubMap hubMap;
+};
+
+struct RogueNetPlayerProfile
+{
+    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    u16 preferredOutfitStyle[3]; // PLAYER_OUTFIT_STYLE_COUNT
+    u8 networkId; // assigned by host
+    u8 preferredOutfit;
+    u8 fallbackOutfit;
+    u8 isActive : 1;
+};
+
+struct RogueNetPlayerMovement
+{
+    struct Coords16 pos;
+    u8 movementAction;
 };
 
 struct RogueNetPlayer
 {
-    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
-    u16 networkId;
     u16 partnerMon;
-    u8 facingDirection;
-    u8 partnerFacingDirection;
-    u8 playerFlags;
     s8 mapGroup;
     s8 mapNum;
+    u8 playerFlags;
+    u8 movementBufferHead;
+    u8 currentElevation : 4;
+    u8 facingDirection : 4;
+    u8 partnerFacingDirection : 4;
+};
+
+struct RogueNetHandshake
+{
+    struct RogueNetPlayerProfile profile;
+    u16 saveVersionId;
+    u8 state;
+    u8 playerId;
+    u8 accepted : 1;
+    u8 isVersionEx : 1;
 };
 
 struct RogueNetMultiplayer
 {
-    struct RogueNetPlayer players[NET_PLAYER_CAPACITY];
+    struct RogueNetPlayerProfile playerProfiles[NET_PLAYER_CAPACITY];
+    struct RogueNetPlayer playerState[NET_PLAYER_CAPACITY];
     struct RogueNetGameState gameState;
     struct RogueNetHandshake pendingHandshake;
     u8 netRequestState;
     u8 netCurrentState;
+    u8 localPlayerId;
+    u8 localCounter;
 };
 
 // Rogue Assistant
@@ -392,13 +415,19 @@ struct RogueAssistantHeader
 {
     u8 rogueVersion;
     u8 rogueDebug;
+    u32 assistantConfirmSize;
+    u32 assistantConfirmOffset;
     u32 netMultiplayerSize;
     u32 netHandshakeOffset;
     u32 netHandshakeSize;
+    u32 netHandshakeStateOffset;
+    u32 netHandshakePlayerIdOffset;
     u32 netGameStateOffset;
     u32 netGameStateSize;
-    u32 netPlayerOffset;
-    u32 netPlayerSize;
+    u32 netPlayerProfileOffset;
+    u32 netPlayerProfileSize;
+    u32 netPlayerStateOffset;
+    u32 netPlayerStateSize;
     u32 netPlayerCount;
     u32 netRequestStateOffset;
     u32 netCurrentStateOffset;

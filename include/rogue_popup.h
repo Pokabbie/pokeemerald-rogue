@@ -4,7 +4,7 @@
 void Rogue_ClearPopupQueue(void);
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled);
 
-void Rogue_PushPopup_PartyNotifications();
+void Rogue_PushPopup_NextPartyNotification();
 void Rogue_PushPopup_NewMoves(u8 slotId);
 void Rogue_PushPopup_NewEvos(u8 slotId);
 void Rogue_PushPopup_UnableToEvolve(u8 slotId);
@@ -21,5 +21,11 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species);
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount);
 void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount);
+
+void Rogue_PushPopup_UnlockPokedex();
+void Rogue_PushPopup_UpgradePokedex();
+
+void Rogue_PushPopup_AssistantConnected();
+void Rogue_PushPopup_AssistantDisconnected();
 
 #endif //QUEST_POPUP_H

@@ -52,6 +52,9 @@
     <ClCompile Include="Src\Timer.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Behaviours\CommonBehaviour.cpp">
+      <Filter>Src\Behaviours</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\Window.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="Inc\Timer.h">
       <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Behaviours\CommonBehaviour.h">
+      <Filter>Inc\Behaviours</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

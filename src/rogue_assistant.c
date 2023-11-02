@@ -33,6 +33,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
+#include "rogue_popup.h"
 #include "rogue_query.h"
 
 enum 
@@ -60,6 +61,8 @@ enum
 #define NETPLAYER_FLAGS_ACTIVE      (1 << 0)
 #define NETPLAYER_FLAGS_HOST        (2 << 0)
 
+#define ASSISTANT_CONFIRM_THRESHOLD  (10 * 60) // 10 seconds at 60fps
+
 // Global states
 //
 
@@ -86,6 +89,8 @@ struct RogueAssistantState
     u16 assistantState;
     u16 assistantSubstate;
     u16 requestState;
+    u16 externalConfirmCounter;
+    u8 isAssistantConnected : 1;
 };
 
 // TODO - Should really just use gBlockRecvBuffer and other similar vars for communication
@@ -105,21 +110,31 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
 #else
     .rogueDebug = 0,
 #endif
+    .multiplayerPtr = &gRogueMultiplayer,
     .netMultiplayerSize = sizeof(struct RogueNetMultiplayer),
+
     .netHandshakeOffset = offsetof(struct RogueNetMultiplayer, pendingHandshake),
     .netHandshakeSize = sizeof(struct RogueNetHandshake),
+    .netHandshakeStateOffset = offsetof(struct RogueNetHandshake, state),
+    .netHandshakePlayerIdOffset = offsetof(struct RogueNetHandshake, playerId),
+
     .netGameStateOffset = offsetof(struct RogueNetMultiplayer, gameState),
     .netGameStateSize = sizeof(struct RogueNetGameState),
-    .netPlayerOffset  = offsetof(struct RogueNetMultiplayer, players),
-    .netPlayerSize = sizeof(struct RogueNetPlayer),
+    .netPlayerProfileOffset  = offsetof(struct RogueNetMultiplayer, playerProfiles),
+    .netPlayerProfileSize = sizeof(struct RogueNetPlayerProfile),
+    .netPlayerStateOffset  = offsetof(struct RogueNetMultiplayer, playerState),
+    .netPlayerStateSize = sizeof(struct RogueNetPlayer),
     .netRequestStateOffset = offsetof(struct RogueNetMultiplayer, netRequestState),
     .netCurrentStateOffset = offsetof(struct RogueNetMultiplayer, netCurrentState),
     .netPlayerCount = NET_PLAYER_CAPACITY,
+
     .saveBlock1Ptr = &gSaveBlock1Ptr,
     .saveBlock2Ptr = &gSaveBlock2Ptr,
     .rogueBlockPtr = &gRogueSaveBlock,
+
     .assistantState = &gRogueAssistantState,
-    .multiplayerPtr = &gRogueMultiplayer,
+    .assistantConfirmSize = sizeof(gRogueAssistantState.externalConfirmCounter),
+    .assistantConfirmOffset = offsetof(struct RogueAssistantState, externalConfirmCounter),
 
     //.inCommCapacity = sizeof(gRogueAssistantState.inCommBuffer),
     //.outCommCapacity = sizeof(gRogueAssistantState.outCommBuffer),
@@ -191,8 +206,16 @@ static const CommandCallback sCommCommands[] =
 void Rogue_AssistantInit()
 {
     PUSH_ASSISTANT_STATE(NONE);
+    gRogueAssistantState.isAssistantConnected = FALSE;
+    gRogueAssistantState.externalConfirmCounter = ASSISTANT_CONFIRM_THRESHOLD;
+
     Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
     RogueMP_Init();
+}
+
+bool8 Rogue_IsAssistantConnected()
+{
+    return gRogueAssistantState.isAssistantConnected;
 }
 
 void Rogue_UpdateAssistantState(u16 state, u16 substate)
@@ -206,9 +229,80 @@ void Rogue_UpdateAssistantRequestState(u16 state)
     gRogueAssistantState.requestState = state;
 }
 
+static void OnAssistantConnect()
+{
+    Rogue_PushPopup_AssistantConnected();
+}
+
+static void OnAssistantDisconnect()
+{
+    Rogue_PushPopup_AssistantDisconnected();
+
+    // Close multiplayer if active
+    if(RogueMP_IsActive())
+        RogueMP_Close();
+}
+
 void Rogue_AssistantMainCB()
 {
-    CommCmd_ProcessNext();
+    // Expect the external sevice to keep stomping this counter to 0, so if it goes over threshold, we've lost connection
+    if(gRogueAssistantState.isAssistantConnected)
+    {
+        if(++gRogueAssistantState.externalConfirmCounter >= ASSISTANT_CONFIRM_THRESHOLD)
+        {
+            gRogueAssistantState.isAssistantConnected = FALSE;
+            OnAssistantDisconnect();
+        }
+    }
+    else if(gRogueAssistantState.externalConfirmCounter == 0)
+    {
+        gRogueAssistantState.isAssistantConnected = TRUE;
+        OnAssistantConnect();
+    }
+
+    if(gRogueAssistantState.isAssistantConnected)
+    {
+        //CommCmd_ProcessNext();
+    }
+
+    if(RogueMP_IsActiveOrConnecting())
+        RogueMP_MainCB();
+}
+
+static void Task_WaitForConnection(u8 taskId)
+{
+    // Wait for connections
+    if (JOY_NEW(B_BUTTON))
+    {
+        // Cancelled
+        gSpecialVar_Result = FALSE;
+        EnableBothScriptContexts();
+        DestroyTask(taskId);
+    }
+    else if(Rogue_IsAssistantConnected())
+    {
+        // Has connected
+        gSpecialVar_Result = TRUE;
+        EnableBothScriptContexts();
+        DestroyTask(taskId);
+    }
+}
+
+u8 Rogue_WaitForRogueAssistant()
+{
+    u8 taskId = FindTaskIdByFunc(Task_WaitForConnection);
+    if (taskId == TASK_NONE)
+    {
+        taskId = CreateTask(Task_WaitForConnection, 80);
+
+        //gTasks[taskId1].tConnectAsHost = asHost;
+        //if(asHost)
+        //    Rogue_UpdateAssistantRequestState(REQUEST_STATE_MULTIPLAYER_HOST);
+        //else
+        //    Rogue_UpdateAssistantRequestState(REQUEST_STATE_MULTIPLAYER_JOIN);
+    }
+
+    return taskId;
 }
 
 static bool8 IsNetPlayerActive(u8 id)
@@ -218,8 +312,8 @@ static bool8 IsNetPlayerActive(u8 id)
 
 void Rogue_AssistantOverworldCB()
 {
-    if(RogueMP_IsActive())
-        RogueMP_Update();
+    if(RogueMP_IsActiveOrConnecting())
+        RogueMP_OverworldCB();
 
     //if(Rogue_IsNetMultiplayerActive())
     //{

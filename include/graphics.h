@@ -4057,6 +4057,8 @@ extern const u32 gMonShinyPalette_Shinx[];
 extern const u32 gMonShinyPalette_Luxio[];
 extern const u32 gMonShinyPalette_Luxray[];
 extern const u32 gMonShinyPalette_Budew[];
+extern const u32 gItemIcon_Pokedex[];
+extern const u32 gItemIconPalette_Pokedex[];
 extern const u32 gMonShinyPalette_Roserade[];
 extern const u32 gMonShinyPalette_Cranidos[];
 extern const u32 gMonShinyPalette_Rampardos[];

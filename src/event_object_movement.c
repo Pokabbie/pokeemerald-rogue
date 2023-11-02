@@ -2183,7 +2183,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
 
     // Handle mon gfx
-    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+    if((graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST) || (graphicsId >= OBJ_EVENT_GFX_RIDE_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_RIDE_MON_LAST))
     {
         const struct ObjectEventGraphicsInfo* info = GetFollowMonObjectEventInfo(graphicsId);
 
@@ -5268,6 +5268,10 @@ u8 ObjectEventGetHeldMovementActionId(struct ObjectEvent *objectEvent)
 
 void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 (*callback)(struct ObjectEvent *, struct Sprite *))
 {
+    // RogueNote: default here so can shift around in movement below
+    sprite->x2 = 0;
+    sprite->y2 = 0;
+
     DoGroundEffects_OnSpawn(objectEvent, sprite);
     TryEnableObjectEventAnim(objectEvent, sprite);
 
@@ -5281,6 +5285,8 @@ void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sp
     UpdateObjectEventSpriteAnimPause(objectEvent, sprite);
     UpdateObjectEventVisibility(objectEvent, sprite);
     ObjectEventUpdateSubpriority(objectEvent, sprite);
+
+    Rogue_OnObjectEventMovement(sprite->sObjEventId);
 }
 
 #define dirn_to_anim(name, table)\

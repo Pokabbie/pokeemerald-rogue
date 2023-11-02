@@ -35,13 +35,18 @@ public:
 	void Disconnect();
 
 	void AddBehaviour(IGameConnectionBehaviour* behaviour);
-	bool RemoveBehaviour(IGameConnectionBehaviour* behaviour);
+	void RemoveBehaviour(IGameConnectionBehaviour* behaviour);
 
 	template<typename T>
-	void AddBehaviour();
+	std::shared_ptr<T> AddBehaviour();
+
+	template<typename T>
+	T* FindBehaviour();
 
 	inline bool IsReady() const { return m_State == GameConnectionState::Connected; }
 	inline bool HasDisconnected() const { return m_State == GameConnectionState::Disconnected; }
+
+	inline bool IsMemoryReadable() const { return IsReady() && GetObservedGameMemory().AreHeadersValid(); }
 
 	void WriteRequest(GameMessageID messageId, size_t addr, void const* data, size_t size);
 	void ReadRequest(GameMessageID messageId, size_t addr, size_t size);
@@ -56,6 +61,7 @@ public:
 
 private:
 	void AddDefaultBehaviours();
+	bool RemoveBehaviourInternal(IGameConnectionBehaviour* behaviour);
 
 	void SendCommand(std::string const& command);
 	void FlushCommands();
@@ -80,13 +86,28 @@ private:
 	std::unique_ptr<ObservedGameMemory> m_ObservedGameMemory;
 
 	std::vector<GameConnectionBehaviourRef> m_Behaviours;
+	std::vector<GameConnectionBehaviourRef> m_BehavioursToRemove;
 };
 
 // Templates
 //
 template<typename T>
-void GameConnection::AddBehaviour()
+std::shared_ptr<T> GameConnection::AddBehaviour()
 {
 	std::shared_ptr<T> ptr = std::make_shared<T>();
 	AddBehaviour(ptr.get());
+	return ptr;
+}
+
+template<typename T>
+T* GameConnection::FindBehaviour()
+{
+	for (auto& ref : m_Behaviours)
+	{
+		T* result = dynamic_cast<T*>(ref.get());
+		if (result != nullptr)
+			return result;
+	}
+
+	return nullptr;
 }

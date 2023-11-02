@@ -95,13 +95,19 @@ namespace GameStructures
 	{
 		u8 rogueVersion;
 		u8 rogueDebug;
+		u32 assistantConfirmSize;
+		u32 assistantConfirmOffset;
 		u32 netMultiplayerSize;
 		u32 netHandshakeOffset;
 		u32 netHandshakeSize;
+		u32 netHandshakeStateOffset;
+		u32 netHandshakePlayerIdOffset;
 		u32 netGameStateOffset;
 		u32 netGameStateSize;
-		u32 netPlayerOffset;
-		u32 netPlayerSize;
+		u32 netPlayerProfileOffset;
+		u32 netPlayerProfileSize;
+		u32 netPlayerStateOffset;
+		u32 netPlayerStateSize;
 		u32 netPlayerCount;
 		u32 netRequestStateOffset;
 		u32 netCurrentStateOffset;

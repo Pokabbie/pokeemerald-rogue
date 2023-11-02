@@ -161,7 +161,7 @@ bool ObservedGameMemory::AreHeadersValid() const
 	return m_GFRomHeader.IsValid() && m_RogueHeader.IsValid();
 }
 
-bool ObservedGameMemory::IsMuliplayerStateValid() const
+bool ObservedGameMemory::IsMultiplayerStateValid() const
 {
 	return m_MultiplayerStatePtr.IsValid() && m_MultiplayerStatePtr.Get() != 0 && m_MultiplayerState.IsValid();
 }

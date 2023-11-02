@@ -188,6 +188,30 @@ u8 BlitPokemonIconToWindow(u16 species, u8 windowId, u16 x, u16 y, void * palett
     return 0;
 }
 
+u8 BlitCustomItemIconToWindow(u8 windowId, u16 x, u16 y, void * paletteDest, u32 const* icon, u32 const* palette) 
+{
+    if (!AllocItemIconTemporaryBuffers())
+        return 16;
+
+    LZDecompressWram(icon, gItemIconDecompressionBuffer);
+    CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
+    BlitBitmapToWindow(windowId, gItemIcon4x4Buffer, x, y, 32, 32);
+
+    // if paletteDest is nonzero, copies the decompressed palette directly into it
+    // otherwise, loads the compressed palette into the windowId's BG palette ID
+    if (paletteDest) 
+    {
+        LZDecompressWram(palette, gPaletteDecompressionBuffer);
+        CpuFastCopy(gPaletteDecompressionBuffer, paletteDest, PLTT_SIZE_4BPP);
+    } 
+    else 
+    {
+        LoadCompressedPalette(palette, BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+    }
+    FreeItemIconTemporaryBuffers();
+    return 0;
+}
+
 u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u16 tilesTag, u16 paletteTag, u16 itemId)
 {
     if (!AllocItemIconTemporaryBuffers())

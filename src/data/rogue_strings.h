@@ -252,6 +252,14 @@ const u8 gPopupText_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Dis
 const u8 gPopupText_EncounterChain[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Encounter Chain");
 const u8 gPopupText_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
 
+const u8 gText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
+const u8 gText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
+
+
+const u8 gText_Popup_RogueAssistant[] = _("Rogue Assistant");
+const u8 gText_Popup_Connected[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Connected!");
+const u8 gText_Popup_Disconnected[] = _("{COLOR RED}{SHADOW LIGHT_RED}Disconnected.");
+
 // Debug
 //
 #ifdef ROGUE_DEBUG

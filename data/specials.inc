@@ -219,6 +219,8 @@ gSpecials::
 	def_special Rogue_IsMultiplayerHost
 	def_special Rogue_HostMultiplayer
 	def_special Rogue_JoinMultiplayer
+	def_special Rogue_CloseMultiplayer
+	def_special Rogue_IsRogueAssistantConnected
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls
@@ -232,6 +234,7 @@ gSpecials::
 	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
 	def_special Rogue_AssignDefaultRegion
+	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams

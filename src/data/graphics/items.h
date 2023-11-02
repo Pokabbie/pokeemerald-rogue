@@ -1958,6 +1958,9 @@ const u32 gItemIconPalette_RogueCurse[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.4bpp.lz");
 const u32 gItemIconPalette_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.gbapal.lz");
 
+const u32 gItemIcon_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.4bpp.lz");
+const u32 gItemIconPalette_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.gbapal.lz");
+
 const u32 gItemIcon_PokeWhistle[] = INCBIN_U32("graphics/items/icons/poke_whistle.4bpp.lz");
 const u32 gItemIconPalette_PokeWhistleBasic[] = INCBIN_U32("graphics/items/icon_palettes/poke_whistle_basic.gbapal.lz");
 const u32 gItemIconPalette_PokeWhistleGold[] = INCBIN_U32("graphics/items/icon_palettes/poke_whistle_gold.gbapal.lz");

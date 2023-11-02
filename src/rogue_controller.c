@@ -206,18 +206,18 @@ static u16 GetEncounterChainShinyOdds(u8 count)
 {
     u16 baseOdds = Rogue_GetShinyOdds();
 
-    // By the time we reach 32 encounters, we want to be at max odds
-    // Don't start increasing shiny rate until we pass 8 encounters
-    if(count <= 8)
+    // By the time we reach 24 encounters, we want to be at max odds
+    // Don't start increasing shiny rate until we pass 4 encounters
+    if(count <= 4)
     {
         return baseOdds;
     }
     else
     {
-        u16 range = 32 - 8;
-        count = min(count - 8, range);
+        u16 range = 24 - 4;
+        count = min(count - 4, range);
 
-        return max(32, baseOdds - ((baseOdds * count) / range));
+        return max(24, baseOdds - ((baseOdds * count) / range));
     }
 }
 
@@ -986,7 +986,7 @@ u8 SpeciesToGen(u16 species)
             return 4;
 
         case SPECIES_PALKIA_ORIGIN:
-        case SPECIES_GIRATINA_ORIGIN:
+        case SPECIES_DIALGA_ORIGIN:
             return 8;
 
         case SPECIES_KYUREM_WHITE:
@@ -2258,7 +2258,12 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
 
 void Rogue_OnMovementType_Player(struct Sprite *sprite)
 {
-    Rogue_UpdateRideMons();
+    //Rogue_UpdateRideMons();
+}
+
+void Rogue_OnObjectEventMovement(u8 objectEventId)
+{
+    Rogue_HandleRideMonMovementIfNeeded(objectEventId);
 }
 
 void Rogue_OnResumeMap()
@@ -2272,7 +2277,7 @@ void Rogue_OnObjectEventsInit()
 
 void Rogue_OnResetAllSprites()
 {
-    Rogue_DestroyRideMonSprites();
+    Rogue_OnResetRideMonSprites();
 }
 
 u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)

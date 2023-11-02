@@ -93,6 +93,8 @@ void Rogue_RandomisePartyMon(void)
     u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
 
     RogueMonQuery_Begin();
+    RogueMonQuery_Reset(QUERY_FUNC_INCLUDE);
+    RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 20); // filter down
 
     if(Rogue_GetCurrentDifficulty() < 2)
         RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
@@ -873,6 +875,17 @@ void Rogue_JoinMultiplayer()
 {
     RogueMP_OpenClient();
     RogueMP_WaitForConnection();
+}
+
+void Rogue_CloseMultiplayer()
+{
+    RogueMP_Close();
+    //RogueMP_WaitForConnection();
+}
+
+void Rogue_IsRogueAssistantConnected()
+{
+    gSpecialVar_Result = Rogue_IsAssistantConnected();
 }
 
 void Rogue_SetupFollowParterMonObjectEvent()

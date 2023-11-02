@@ -4,6 +4,7 @@
 Std_ObtainItem::
 	additem ITEMID, AMOUNT
 	copyvar VAR_0x8007, VAR_RESULT
+	call Rogue_Common_DisplayPopups
 	@ call EventScript_ObtainItemMessage @ todo need to force popup dialogue here?
 	return
 

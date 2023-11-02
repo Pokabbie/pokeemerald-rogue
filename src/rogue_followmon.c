@@ -220,6 +220,11 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
         species = VarGet(VAR_FOLLOW_MON_0 + varNo);
     }
+    else if(graphicsId >= OBJ_EVENT_GFX_RIDE_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_RIDE_MON_LAST)
+    {
+        u16 varNo = graphicsId - OBJ_EVENT_GFX_RIDE_MON_FIRST;
+        species = Rogue_GetRideMonSpeciesGfx(varNo);
+    }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
         species = FollowMon_GetPartnerFollowSpecies(TRUE);
@@ -320,6 +325,11 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
 }
 
+u16 FollowMon_GetGraphics(u16 id)
+{
+    return VarGet(VAR_FOLLOW_MON_0 + id);
+}
+
 bool8 FollowMon_IsPartnerMonActive()
 {
     // TODO - If we use other partners, gonna have to check object too
@@ -328,12 +338,7 @@ bool8 FollowMon_IsPartnerMonActive()
 
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
-    u16 species;
-
-    if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
-        species = Rogue_GetRideMonSpeciesGfx();
-    else
-        species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
+    u16 species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
 
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
