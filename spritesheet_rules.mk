@@ -409,6 +409,9 @@ $(OBJEVENTGFXDIR)/people/ethan/surfing.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/ethan/riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/riding/bug_catcher.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/lucas/walking.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 

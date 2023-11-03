@@ -10,7 +10,7 @@ void Rogue_UpdateRideMons();
 void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId);
 void Rogue_OnResetRideMonSprites();
 
-void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies);
+void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies, bool8 isFlying);
 void Rogue_ClearRideObject(u8 rideObjectId);
 
 void Rogue_OnRideMonWarp();

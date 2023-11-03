@@ -20,11 +20,12 @@
 
 #define NET_STATE_NONE              0
 #define NET_STATE_ACTIVE            (1 << 0)
-#define NET_STATE_HOST              (2 << 0)
+#define NET_STATE_HOST              (1 << 1)
 
 
 #define NET_PLAYER_STATE_FLAG_NONE      0
 #define NET_PLAYER_STATE_FLAG_RIDING    (1 << 0)
+#define NET_PLAYER_STATE_FLAG_FLYING    (1 << 1)
 
 
 struct SyncedObjectEventInfo
@@ -327,6 +328,9 @@ static void WritePlayerState(struct RogueNetPlayer* player)
         {
             player->playerFlags |= NET_PLAYER_STATE_FLAG_RIDING;
             player->partnerMon = Rogue_GetRideMonSpeciesGfx(0); // 0 is always local player
+
+            if(Rogue_IsRideMonFlying())
+                player->playerFlags |= NET_PLAYER_STATE_FLAG_FLYING;
         }
         else if(FollowMon_IsPartnerMonActive())
         {
@@ -373,7 +377,8 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
 
         if(player->partnerMon != SPECIES_NONE && !(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING) && ArePlayerFollowMonsAllowed())
         {
-            isFollowerActive = TRUE;
+            // Only display follower if not sat on top of it
+            isFollowerActive = !(player->playerPos.x == player->partnerPos.x && player->playerPos.y == player->partnerPos.y);
         }
     }
 
@@ -394,18 +399,15 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.movementBufferReadOffset = 0;
 
         if(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING)
-            syncInfo.gfxId = OBJ_EVENT_GFX_MAY_RIDING; // TODO - need to have net outfits that have riding gfx too
+            syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER_RIDING; // TODO - need to have net outfits that have riding gfx too
         else
             syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER;
 
         objectEventId = ProcessSyncedObjectEvent(&syncInfo);
 
-        if(objectEventId != OBJECT_EVENTS_COUNT)
+        if(objectEventId != OBJECT_EVENTS_COUNT && (player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING))
         {
-            if(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING)
-            {
-                Rogue_SetupRideObject(1 + playerId, objectEventId, player->partnerMon);
-            }
+            Rogue_SetupRideObject(1 + playerId, objectEventId, player->partnerMon, (player->playerFlags & NET_PLAYER_STATE_FLAG_FLYING) != 0);
         }
         else
         {
@@ -415,6 +417,7 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
     else
     {
         EnsureObjectIsRemoved(playerObjectId);
+        Rogue_ClearRideObject(1 + playerId);
     }
 
     if(isFollowerActive)

@@ -237,7 +237,6 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive = FALSE;
     }
     else
     {
@@ -251,8 +250,6 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
         {
             PlaySE(SE_FAILURE);
         }
-
-        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive = TRUE;
     }
 
     // Delete existing sprite
@@ -314,6 +311,8 @@ static bool8 ShouldRideMonBeVisible()
 
 static void UpdatePlayerRideState()
 {
+    bool8 wasActive = sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive;
+
     // Update player ride state now
     sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].riderObjectEventId = gPlayerAvatar.objectEventId;
     sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].riderSpriteId = gPlayerAvatar.spriteId;
@@ -338,17 +337,28 @@ static void UpdatePlayerRideState()
     {
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies = SPECIES_NONE;
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx = SPECIES_NONE;
+
+        if(wasActive)
+        {
+            // Final update to ensure this sprite is destroyed
+            UpdateRideMonSprites(RIDE_OBJECT_PLAYER, &sRideMonData.rideObjects[RIDE_OBJECT_PLAYER]);
+        }
     }
 }
 
 void Rogue_UpdateRideMons()
 {
-    //u8 i;
-//
-    //UpdatePlayerRideState();
-//
-    //for(i = 0; i < RIDE_OBJECT_COUNT; ++i)
-    //    UpdateRideMonSprites(i, &sRideMonData.rideObjects[i]);
+    u8 i;
+
+    // Remove other object ride mons (Player is handled separately to this)
+    for(i = 1; i < RIDE_OBJECT_COUNT; ++i)
+    {
+        if(!sRideMonData.rideObjects[i].isActive && sRideMonData.rideObjects[i].riderObjectEventId != OBJECT_EVENTS_COUNT)
+        {
+            UpdateRideMonSprites(i, &sRideMonData.rideObjects[i]);
+            sRideMonData.rideObjects[i].riderObjectEventId = OBJECT_EVENTS_COUNT;
+        }
+    }
 }
 
 void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId)
@@ -356,11 +366,14 @@ void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId)
     u8 i;
 
     if(gPlayerAvatar.objectEventId == objectEventId)
+    {
         UpdatePlayerRideState();
+        Rogue_UpdateRideMons(); // do global update based on player
+    }
 
     for(i = 0; i < RIDE_OBJECT_COUNT; ++i)
     {
-        if(sRideMonData.rideObjects[i].riderObjectEventId == objectEventId)
+        if(sRideMonData.rideObjects[i].isActive && sRideMonData.rideObjects[i].riderObjectEventId == objectEventId)
         {
             UpdateRideMonSprites(i, &sRideMonData.rideObjects[i]);
             break;
@@ -368,13 +381,14 @@ void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId)
     }
 }
 
-void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies)
+void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies, bool8 isFlying)
 {
     AGB_ASSERT(rideObjectId < RIDE_OBJECT_COUNT);
     sRideMonData.rideObjects[rideObjectId].isActive = TRUE;
     sRideMonData.rideObjects[rideObjectId].desiredRideSpecies = rideSpecies;
     sRideMonData.rideObjects[rideObjectId].riderSpriteId = gObjectEvents[objectEventId].spriteId;
     sRideMonData.rideObjects[rideObjectId].riderObjectEventId = objectEventId;
+    sRideMonData.rideObjects[rideObjectId].state.flyingState = isFlying;
 }
 
 void Rogue_ClearRideObject(u8 rideObjectId)
@@ -384,7 +398,7 @@ void Rogue_ClearRideObject(u8 rideObjectId)
     sRideMonData.rideObjects[rideObjectId].desiredRideSpecies = SPECIES_NONE;
     sRideMonData.rideObjects[rideObjectId].riderSpriteId = SPRITE_NONE;
 
-    // Don't clear here
+    // Don't clear here, clear above when sprite is removed
     //sRideMonData.rideObjects[rideObjectId].riderObjectEventId = OBJECT_EVENTS_COUNT;
 }
 
@@ -510,6 +524,12 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
     {
         AGB_ASSERT(rideObject->desiredRideSpecies != SPECIES_NONE);
 
+        if(rideObjectId != RIDE_OBJECT_PLAYER)
+        {
+            // Non-player riders have their reflection hidden always
+            gObjectEvents[rideObject->riderObjectEventId].hideReflection = TRUE;
+        }
+
         if(rideObject->monSpriteId != SPRITE_NONE && rideObject->state.monGfx != rideObject->desiredRideSpecies)
         {
             // Species changed so dealloc sprite ready to make new sprite
@@ -566,6 +586,11 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
 
             if(rideInfo != NULL)
             {
+                // Execute fly animation here, for non-player 
+                // (Player runs code below in movement actions)
+                if(rideObjectId != RIDE_OBJECT_PLAYER)
+                    AdjustFlyingAnimation(rideObject);
+
                 UpdateRideSpriteInternal(rideObject, rideInfo);
             }
         }
@@ -576,6 +601,13 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
         if(rideObject->monSpriteId != SPRITE_NONE)
         {
             DestroySprite(&gSprites[rideObject->monSpriteId]);
+
+            if(rideObjectId != RIDE_OBJECT_PLAYER)
+            {
+                // Restore non-player riders reflections
+                gObjectEvents[rideObject->riderObjectEventId].hideReflection = FALSE;
+            }
+
             rideObject->monSpriteId = SPRITE_NONE;
             rideObject->riderObjectEventId = OBJECT_EVENTS_COUNT;
         }
