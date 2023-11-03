@@ -17,6 +17,7 @@
 #include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
+#include "rogue_timeofday.h"
 
 #define NET_STATE_NONE              0
 #define NET_STATE_ACTIVE            (1 << 0)
@@ -145,6 +146,9 @@ u16 RogueMP_GetPlayerOutfitStyle(u8 playerId, u8 outfitStyle)
 
 void RogueMP_MainCB()
 {
+    // Bump counter each frame so we can divide up MP ops
+    ++gRogueMultiplayer->localCounter;
+
     if(RogueMP_IsHost())
     {
         if(gRogueMultiplayer->pendingHandshake.state == NET_HANDSHAKE_STATE_SEND_TO_HOST)
@@ -177,7 +181,7 @@ void RogueMP_OverworldCB()
     if(RogueMP_IsActive())
     {
         // To split up the processing, only process 1 player per frame
-        u8 playerId = gRogueMultiplayer->localCounter++ % NET_PLAYER_CAPACITY;
+        u8 playerId = gRogueMultiplayer->localCounter % NET_PLAYER_CAPACITY;
         UpdateLocalPlayerState(playerId);
         
         //u8 i;
@@ -261,7 +265,10 @@ static void Host_UpdateGameState()
     if(!Rogue_IsRunActive())
     {
         // TODO - Only need to do this if there is a change really
-        memcpy(&gRogueMultiplayer->gameState.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+        memcpy(&gRogueMultiplayer->gameState.hub.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+
+        gRogueMultiplayer->gameState.hub.timeOfDay = RogueToD_GetTime();
+        gRogueMultiplayer->gameState.hub.season = RogueToD_GetSeason();
     }
     else
     {
@@ -563,7 +570,10 @@ static u8 ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo)
             );
         }
 
-        ProcessSyncedObjectMovement(syncInfo, &gObjectEvents[objectEventId]);
+        if(objectEventId != OBJECT_EVENTS_COUNT)
+        {
+            ProcessSyncedObjectMovement(syncInfo, &gObjectEvents[objectEventId]);
+        }
     }
     else
     {

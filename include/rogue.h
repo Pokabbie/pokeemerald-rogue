@@ -350,9 +350,22 @@ struct SpeciesTable
 
 // Rogue Multiplayer
 //
-struct RogueNetGameState
+struct RogueNetHubState
 {
     struct RogueHubMap hubMap;
+    u16 timeOfDay;
+    u8 season;
+};
+
+struct RogueNetAdventureState
+{
+
+};
+
+struct RogueNetGameState
+{
+    struct RogueNetHubState hub;
+    struct RogueNetAdventureState adventure;
 };
 
 struct RogueNetPlayerProfile

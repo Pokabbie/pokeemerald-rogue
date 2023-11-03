@@ -59,6 +59,7 @@
 #include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
+#include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
@@ -3188,7 +3189,15 @@ void Rogue_OnWarpIntoMap(void)
     }
     else
     {
-        RogueToD_AddMinutes(15);
+        // In the hub, clients just copy host state
+        if(RogueMP_IsActive() && RogueMP_IsClient())
+        {
+            AGB_ASSERT(gRogueMultiplayer != NULL);
+            RogueToD_SetTime(gRogueMultiplayer->gameState.hub.timeOfDay);
+            RogueToD_SetSeason(gRogueMultiplayer->gameState.hub.season);
+        }
+        else
+            RogueToD_AddMinutes(15);
     }
 }
 

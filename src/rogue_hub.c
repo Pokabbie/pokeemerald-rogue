@@ -60,7 +60,7 @@ static struct RogueHubMap* GetActiveHubMap()
     if(RogueMP_IsActive() && !RogueMP_IsHost())
     {
         AGB_ASSERT(gRogueMultiplayer != NULL);
-        return &gRogueMultiplayer->gameState.hubMap;
+        return &gRogueMultiplayer->gameState.hub.hubMap;
     }
 
     return &gRogueSaveBlock->hubMap;
