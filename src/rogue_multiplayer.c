@@ -47,9 +47,10 @@ EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
 
 static void Host_HandleHandshakeRequest();
-static void Host_UpdateGameState();
 static void Client_SetupHandshakeRequest();
 static void Client_HandleHandshakeResponse();
+static void Host_UpdateGameState();
+static void Client_UpdateGameState();
 static void UpdateLocalPlayerState(u8 playerId);
 static void Task_WaitForConnection(u8 taskId);
 
@@ -173,6 +174,10 @@ void RogueMP_MainCB()
                 Client_HandleHandshakeResponse();
             }
         }
+        else
+        {
+            Client_UpdateGameState();
+        }
     }
 }
 
@@ -264,8 +269,17 @@ static void Host_UpdateGameState()
 
     if(!Rogue_IsRunActive())
     {
-        // TODO - Only need to do this if there is a change really
-        memcpy(&gRogueMultiplayer->gameState.hub.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+        // Only do 1 large copy per frame
+        switch (gRogueMultiplayer->localCounter % 2)
+        {
+        case 0:
+            memcpy(&gRogueMultiplayer->gameState.hub.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+            break;
+        
+        case 1:
+            memcpy(&gRogueMultiplayer->gameState.hub.difficultyConfig, &gRogueSaveBlock->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
+            break;
+        }
 
         gRogueMultiplayer->gameState.hub.timeOfDay = RogueToD_GetTime();
         gRogueMultiplayer->gameState.hub.season = RogueToD_GetSeason();
@@ -273,6 +287,15 @@ static void Host_UpdateGameState()
     else
     {
 
+    }
+}
+
+static void Client_UpdateGameState()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    if(!Rogue_IsRunActive())
+    {
     }
 }
 

@@ -13,6 +13,8 @@
 //#include "data.h"
 #include "gba/isagbprint.h"
 
+#include "rogue_controller.h"
+#include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
 
@@ -118,21 +120,38 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
     }
 };
 
+static struct RogueDifficultyConfig* GetWritableDifficultyConfig()
+{
+    return &gRogueSaveBlock->difficultyConfig;
+}
+
+static struct RogueDifficultyConfig const* GetReadableDifficultyConfig()
+{
+    if(RogueMP_IsActive() && RogueMP_IsClient())
+    {
+        AGB_ASSERT(gRogueMultiplayer != NULL);
+        return &gRogueMultiplayer->gameState.hub.difficultyConfig;
+    }
+
+    return &gRogueSaveBlock->difficultyConfig;
+}
+
 void Rogue_SetConfigToggle(u16 elem, bool8 state)
 {
     u16 idx = elem / 8;
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
+    struct RogueDifficultyConfig* config = GetWritableDifficultyConfig();
 
     AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
+    AGB_ASSERT(idx < ARRAY_COUNT(config->toggleBits));
     if(state)
     {
-        gRogueSaveBlock->difficultyConfig.toggleBits[idx] |= bitMask;
+        config->toggleBits[idx] |= bitMask;
     }
     else
     {
-        gRogueSaveBlock->difficultyConfig.toggleBits[idx] &= ~bitMask;
+        config->toggleBits[idx] &= ~bitMask;
     }
 
     gRogueDifficultyLocal.areLevelsValid = FALSE;
@@ -143,23 +162,36 @@ bool8 Rogue_GetConfigToggle(u16 elem)
     u16 idx = elem / 8;
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
+    struct RogueDifficultyConfig const* config = GetReadableDifficultyConfig();
 
     AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
-    AGB_ASSERT(idx < ARRAY_COUNT(gRogueSaveBlock->difficultyConfig.toggleBits));
-    return (gRogueSaveBlock->difficultyConfig.toggleBits[idx] & bitMask) != 0;
+    AGB_ASSERT(idx < ARRAY_COUNT(config->toggleBits));
+    return (config->toggleBits[idx] & bitMask) != 0;
 }
 
 void Rogue_SetConfigRange(u16 elem, u8 value)
 {
+    struct RogueDifficultyConfig* config = GetWritableDifficultyConfig();
     AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
-    gRogueSaveBlock->difficultyConfig.rangeValues[elem] = value;
+
+    config->rangeValues[elem] = value;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 }
 
 u8 Rogue_GetConfigRange(u16 elem)
 {
+    struct RogueDifficultyConfig const* config = GetReadableDifficultyConfig();
     AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
-    return gRogueSaveBlock->difficultyConfig.rangeValues[elem];
+    return config->rangeValues[elem];
+}
+
+bool8 Rogue_CanEditConfig()
+{
+    // Client can never change config
+    if(RogueMP_IsActive() && RogueMP_IsClient())
+        return FALSE;
+
+    return !Rogue_IsRunActive();
 }
 
 #ifdef ROGUE_DEBUG
@@ -444,6 +476,12 @@ void Rogue_SetDifficultyPreset(u8 preset)
 
 static void EnsureLevelsAreValid()
 {
+    if(RogueMP_IsActive() && RogueMP_IsClient())
+    {
+        // Always assume we're invalid for now, as we don't have a nice way to tell when host changed the settings :/
+        gRogueDifficultyLocal.areLevelsValid = FALSE;
+    }
+
     if(!gRogueDifficultyLocal.areLevelsValid)
     {
         gRogueDifficultyLocal.presetLevel = Rogue_CalcDifficultyPreset();

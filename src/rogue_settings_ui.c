@@ -1014,7 +1014,7 @@ static void ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
 
 static bool8 ShouldSkipInput()
 {
-    if(JOY_NEW((DPAD_RIGHT | DPAD_LEFT)) && Rogue_IsRunActive())
+    if(JOY_NEW((DPAD_RIGHT | DPAD_LEFT)) && !Rogue_CanEditConfig())
     {
         PlaySE(SE_FAILURE);
         return TRUE;
