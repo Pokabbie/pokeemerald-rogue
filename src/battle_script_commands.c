@@ -1683,7 +1683,7 @@ static void Unused_ApplyRandomDmgMultiplier(void)
 
 static bool8 ActiveAlphaMonEndure(u8 battler)
 {
-    if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
+    if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0 && GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
         // Activate endure is the alpha mon is about to faint
         return TRUE;
