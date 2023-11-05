@@ -1289,6 +1289,8 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
     switch (*state)
     {
     case 0:
+        ChooseAmbientCrySpecies();
+
         if (sAmbientCrySpecies == SPECIES_NONE)
             *state = 4;
         else

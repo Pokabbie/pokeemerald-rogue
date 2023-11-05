@@ -166,7 +166,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item, bool8 isShiny)
         SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
     }
 
-    Rogue_ModifyEventMon(&gEnemyParty[0]);
+    Rogue_ModifyWildMon(&gEnemyParty[0]);
 }
 
 void ScriptSetMonMoveSlot(u8 monIndex, u16 move, u8 slot)

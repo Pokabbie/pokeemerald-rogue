@@ -318,16 +318,25 @@ void BattleSetup_StartBattlePikeWildBattle(void)
 
 static void DoStandardWildBattle(void)
 {
+    u16 species;
+
     ScriptContext2_Enable();
     FreezeObjectEvents();
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = 0;
+
+    species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+
     if (InBattlePyramid())
     {
         VarSet(VAR_TEMP_E, 0);
         gBattleTypeFlags |= BATTLE_TYPE_PYRAMID;
     }
+
+    if(Rogue_IsBattleRoamerMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
+
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -438,6 +447,9 @@ void BattleSetup_StartLegendaryBattle(void)
 
     if(Rogue_IsBattleAlphaMon(species))
         gBattleTypeFlags |= BATTLE_TYPE_ALPHA_MON;
+
+    if(Rogue_IsBattleRoamerMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
 
     switch (species)
     {

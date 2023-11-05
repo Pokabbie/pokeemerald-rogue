@@ -662,6 +662,16 @@ void Rogue_ClearCharmsAndCurses(void)
     Rogue_RemoveCursesFromBag();
 }
 
+void Rogue_IsRoamerActive(void)
+{
+    gSpecialVar_Result = gRogueRun.wildEncounters.roamer.species != SPECIES_NONE;
+}
+
+void Rogue_BufferRoamerName(void)
+{
+    GetSpeciesName(gStringVar1, gRogueRun.wildEncounters.roamer.species);
+}
+
 void Rogue_GetUnlockedCampaignCount(void)
 {
     u16 i;

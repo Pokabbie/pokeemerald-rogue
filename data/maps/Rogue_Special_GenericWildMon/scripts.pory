@@ -3,7 +3,3 @@ mapscripts Rogue_Special_GenericWildMon_MapScripts
 
 }
 
-script Rogue_Special_TalkGenericWildMon
-{
-    call(Rogue_InteractWithWildFollowMon)
-}

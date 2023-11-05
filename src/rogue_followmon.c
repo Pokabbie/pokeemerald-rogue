@@ -646,6 +646,10 @@ static u16 NextSpawnMonSlot()
             Rogue_CreateWildMon(1, &species, &level, &isShiny); // WILD_AREA_WATER
         else
             Rogue_CreateWildMon(0, &species, &level, &isShiny);
+
+        // Player roamer cry to indicate that it has spawned
+        if(species != SPECIES_NONE && gRogueRun.wildEncounters.roamer.species == species)
+            PlayCry_Normal(species, 25);
     }
 
     if(species == SPECIES_NONE)

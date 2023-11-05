@@ -109,6 +109,7 @@ u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_GetCurrentLegendaryEncounterId(void);
 u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
 bool8 Rogue_IsBattleAlphaMon(u16 species);
+bool8 Rogue_IsBattleRoamerMon(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();
@@ -138,7 +139,7 @@ bool8 Rogue_PreferTraditionalWildMons(void);
 bool8 Rogue_AreWildMonEnabled(void);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
-void Rogue_ModifyEventMon(struct Pokemon* mon);
+void Rogue_ModifyWildMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
 void Rogue_ModifyGiveMon(struct Pokemon* mon);
 

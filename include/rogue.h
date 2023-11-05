@@ -43,6 +43,26 @@ struct RogueSafariMon
 //STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
 STATIC_ASSERT(sizeof(struct RogueSafariMon) == 20, SizeOfRogueSafariMon);
 
+struct RogueRoamerMon
+{
+    u32 species     : 16;
+    u32 hpIV        : 5;
+    u32 attackIV    : 5;
+    u32 defenseIV   : 5;
+    u32 shinyFlag   : 1;
+
+    u32 speedIV     : 5;
+    u32 spAttackIV  : 5;
+    u32 spDefenseIV : 5;
+
+    u32 abilityNum  : 2; // technically only needs to be 1 for Vanilla
+    u32 genderFlag  : 1;
+    u32 hpPerc       : 7; // stored as a percentage
+    u32 unused      : 7; 
+};
+
+STATIC_ASSERT(sizeof(struct RogueRoamerMon) == 8, SizeOfRogueRoamerMon);
+
 // Adventure Path settings
 //
 struct RogueAdvPathRoomParams
@@ -196,8 +216,10 @@ struct RogueCampaignData_Generic
 
 struct RogueWildEncounters
 {
+    struct RogueRoamerMon roamer;
     u16 species[WILD_ENCOUNTER_TOTAL_CAPACITY];
     u8 catchCounts[WILD_ENCOUNTER_TOTAL_CAPACITY];
+    u8 roamerActiveThisPath : 1;
 };
 
 struct RogueRunData

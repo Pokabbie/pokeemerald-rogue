@@ -472,11 +472,23 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 
         if(wildEncounterIndex != WILD_ENCOUNTER_TOTAL_CAPACITY)
             speciesCatchCount = gRogueRun.wildEncounters.catchCounts[wildEncounterIndex];
-        
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
+
+        if(gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
         {
             // Want to make legendaries hard to catch than other mons in the area
             difficulty += 1;
+        }
+
+        if(gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+        {
+            // Roamers hard to make early captures possible but not impossible
+            difficulty = ROGUE_GYM_MID_DIFFICULTY;
+
+#ifdef ROGUE_EXPANSION
+            // Quick ball is specifically nerfed for roamers
+            if(gLastUsedItem == ITEM_QUICK_BALL)
+                difficulty = ROGUE_ELITE_START_DIFFICULTY;
+#endif
         }
 
         if(difficulty <= 1) // First 2 badges
@@ -487,15 +499,11 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
         {
             *ballMultiplier = *ballMultiplier * 4;
         }
-        else if(difficulty <= 3)
+        else if(difficulty <= ROGUE_GYM_MID_DIFFICULTY - 1)
         {
             *ballMultiplier = *ballMultiplier * 3;
         }
-        else if(difficulty <= 4)
-        {
-            *ballMultiplier = *ballMultiplier * 2;
-        }
-        else if(difficulty <= 7)
+        else if(difficulty <= ROGUE_ELITE_START_DIFFICULTY - 1)
         {
             // Minimum of 2x multiplier whilst doing gyms?
             *ballMultiplier = *ballMultiplier * 2;
@@ -2824,6 +2832,13 @@ static bool8 ChooseLegendarysForNewAdventure()
             spawnMinor = TRUE;
     }
 
+    // DEBUG - Force all legends to spawn
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS))
+    {
+        spawnRoamer = TRUE;
+        spawnMinor = TRUE;
+    }
+
     // Reset
     memset(&gRogueRun.legendarySpecies, 0, sizeof(gRogueRun.legendarySpecies));
     memset(&gRogueRun.legendaryDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.legendaryDifficulties));
@@ -2844,6 +2859,7 @@ static bool8 ChooseLegendarysForNewAdventure()
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
+    // DEBUG - Force all legends to spawn at specific difficulties
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS))
     {
         gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = 0;
@@ -2897,6 +2913,14 @@ bool8 Rogue_IsBattleAlphaMon(u16 species)
         return TRUE;
 
     if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] == species && gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] == Rogue_GetCurrentDifficulty())
+        return TRUE;
+
+    return FALSE;
+}
+
+bool8 Rogue_IsBattleRoamerMon(u16 species)
+{
+    if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] == species)
         return TRUE;
 
     return FALSE;
@@ -4023,6 +4047,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             nextLevel = Rogue_CalculateBossMonLvl();
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
+            gRogueRun.wildEncounters.roamerActiveThisPath = TRUE;
 
             if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
             {
@@ -4108,6 +4133,33 @@ void Rogue_Battle_EndWildBattle(void)
                     gRogueRun.currentLevelOffset = 0;
                 else
                     gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            }
+        }
+
+        if(Rogue_IsBattleRoamerMon(wildSpecies))
+        {
+            if(gBattleOutcome == B_OUTCOME_CAUGHT || gBattleOutcome == B_OUTCOME_WON)
+            {
+                // Roamer is gone
+                gRogueRun.wildEncounters.roamer.species = SPECIES_NONE;
+            }
+            else
+            {
+                if(gRogueRun.wildEncounters.roamer.species != wildSpecies)
+                    Rogue_PushPopup_RoamerPokemonActivated(wildSpecies);
+
+                // Keep track of roamer
+                gRogueRun.wildEncounters.roamer.species = wildSpecies;
+                gRogueRun.wildEncounters.roamer.hpIV = GetMonData(&gEnemyParty[0], MON_DATA_HP_IV);
+                gRogueRun.wildEncounters.roamer.attackIV = GetMonData(&gEnemyParty[0], MON_DATA_ATK_IV);
+                gRogueRun.wildEncounters.roamer.defenseIV = GetMonData(&gEnemyParty[0], MON_DATA_DEF_IV);
+                gRogueRun.wildEncounters.roamer.shinyFlag = GetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY);
+                gRogueRun.wildEncounters.roamer.speedIV = GetMonData(&gEnemyParty[0], MON_DATA_SPEED_IV);
+                gRogueRun.wildEncounters.roamer.spAttackIV = GetMonData(&gEnemyParty[0], MON_DATA_SPATK_IV);
+                gRogueRun.wildEncounters.roamer.spDefenseIV = GetMonData(&gEnemyParty[0], MON_DATA_SPDEF_IV);
+                gRogueRun.wildEncounters.roamer.abilityNum = GetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM);
+                gRogueRun.wildEncounters.roamer.genderFlag = GetMonData(&gEnemyParty[0], MON_DATA_GENDER_FLAG);
+                gRogueRun.wildEncounters.roamer.hpPerc = (GetMonData(&gEnemyParty[0], MON_DATA_HP) * 100) / GetMonData(&gEnemyParty[0], MON_DATA_MAX_HP);
             }
         }
 
@@ -4658,7 +4710,6 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
         {
             *itemId = 0;
         }
-
     }
     else if(GetSafariZoneFlag() || Rogue_InWildSafari())
     {
@@ -4712,6 +4763,18 @@ static bool8 ForceChainSpeciesSpawn(u8 area)
     return FALSE;
 }
 
+static bool8 ForceRoamerMonSpawn()
+{
+    if(gRogueRun.wildEncounters.roamer.species != SPECIES_NONE && gRogueRun.wildEncounters.roamerActiveThisPath)
+    {
+        // % chance to force roamer to spawn, but it's only once per path at most
+        if(Random() % 100 < 7)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 {
     if(Rogue_InWildSafari())
@@ -4749,6 +4812,14 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
             u16 historyBufferCount = ARRAY_COUNT(gRogueLocal.wildEncounterHistoryBuffer);
             u16 randIdx;
             
+            if(ForceRoamerMonSpawn())
+            {
+                *species = gRogueRun.wildEncounters.roamer.species;
+                *forceShiny = gRogueRun.wildEncounters.roamer.shinyFlag;
+                gRogueRun.wildEncounters.roamerActiveThisPath = FALSE;
+                return;
+            }
+
             do
             {
                 // Prevent recent duplicates when on a run (Don't use this in safari mode though)
@@ -4821,7 +4892,47 @@ void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId)
     }
 }
 
-void Rogue_ModifyEventMon(struct Pokemon* mon)
+static void FillWithRoamerState(struct Pokemon* mon, u8 level)
+{
+    u32 temp;
+
+    ZeroMonData(mon);
+    CreateMon(mon, gRogueRun.wildEncounters.roamer.species, level, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+    temp = gRogueRun.wildEncounters.roamer.hpIV;
+    SetMonData(mon, MON_DATA_HP_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.attackIV;
+    SetMonData(mon, MON_DATA_ATK_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.defenseIV;
+    SetMonData(mon, MON_DATA_DEF_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.shinyFlag;
+    SetMonData(mon, MON_DATA_IS_SHINY, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.speedIV;
+    SetMonData(mon, MON_DATA_SPEED_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.spAttackIV;
+    SetMonData(mon, MON_DATA_SPATK_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.spDefenseIV;
+    SetMonData(mon, MON_DATA_SPDEF_IV, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.abilityNum;
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.genderFlag;
+    SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
+
+    temp = (((u32)gRogueRun.wildEncounters.roamer.hpPerc) * GetMonData(mon, MON_DATA_MAX_HP)) / 100;
+    if(temp <= 0)
+        temp = 1;
+    SetMonData(mon, MON_DATA_HP, &temp);
+}
+
+void Rogue_ModifyWildMon(struct Pokemon* mon)
 {
     if(Rogue_InWildSafari())
     {
@@ -4868,12 +4979,17 @@ void Rogue_ModifyEventMon(struct Pokemon* mon)
             }
         }
     }
-    else
+    else if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+        if(species == gRogueRun.wildEncounters.roamer.species)
+        {
+            FillWithRoamerState(mon, GetMonData(mon, MON_DATA_LEVEL));
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
             u16 presetIndex;
-            u16 species = GetMonData(mon, MON_DATA_SPECIES);
             u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
             u16 statA = (Random() % 6);
             u16 statB = (statA + 1 + (Random() % 5)) % 6;
