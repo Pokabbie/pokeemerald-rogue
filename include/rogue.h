@@ -405,6 +405,8 @@ struct RogueNetPlayer
     u16 partnerMon;
     s8 mapGroup;
     s8 mapNum;
+    u8 adventureTileNum;
+    u8 adventureDifficulty;
     u8 playerFlags;
     u8 movementBufferHead;
     u8 currentElevation : 4;

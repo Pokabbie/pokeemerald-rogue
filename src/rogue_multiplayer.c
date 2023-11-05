@@ -11,6 +11,7 @@
 #include "string_util.h"
 #include "task.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
@@ -36,6 +37,8 @@ struct SyncedObjectEventInfo
     u16 gfxId;
     s8 mapNum;
     s8 mapGroup;
+    u8 adventureTileNum;
+    u8 adventureDifficulty;
     u8 localId;
     u8 movementBufferHead;
     u8 movementBufferReadOffset;
@@ -326,6 +329,26 @@ static bool8 HasMovementUpdated(struct RogueNetPlayerMovement* oldMovement, stru
     return oldMovement->pos.x != newMovement->pos.x || oldMovement->pos.y != newMovement->pos.y;
 }
 
+static u8 GetLocalAdventureTileNum()
+{
+    if(Rogue_IsRunActive())
+    {
+        return RogueAdv_GetTileNum();
+    }
+
+    return 0;
+}
+
+static u8 GetLocalAdventureDifficulty()
+{
+    if(Rogue_IsRunActive())
+    {
+        return Rogue_GetCurrentDifficulty();
+    }
+
+    return 255;
+}
+
 static void WritePlayerState(struct RogueNetPlayer* player)
 {
     if(gPlayerAvatar.objectEventId != OBJECT_EVENTS_COUNT)
@@ -352,6 +375,8 @@ static void WritePlayerState(struct RogueNetPlayer* player)
         player->facingDirection = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
         player->mapGroup = gSaveBlock1Ptr->location.mapGroup;
         player->mapNum = gSaveBlock1Ptr->location.mapNum;
+        player->adventureTileNum = GetLocalAdventureTileNum();
+        player->adventureDifficulty = GetLocalAdventureDifficulty();
 
         player->playerFlags = NET_PLAYER_STATE_FLAG_NONE;
         if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
@@ -412,6 +437,16 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         }
     }
 
+    // Don't display followers on adventure paths screetn
+    if(isFollowerActive && Rogue_IsRunActive())
+    {
+        // Don't display followers on adventure paths screen or on screen with wild mons
+        if(RogueAdv_IsViewingPath() || Rogue_AreWildMonEnabled())
+        {
+            isFollowerActive = FALSE;
+        }
+    }
+
     if(isPlayerActive)
     {
         u8 objectEventId;
@@ -424,6 +459,8 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.facingDirection = player->facingDirection;
         syncInfo.mapGroup = player->mapGroup;
         syncInfo.mapNum = player->mapNum;
+        syncInfo.adventureTileNum = player->adventureTileNum;
+        syncInfo.adventureDifficulty = player->adventureDifficulty;
         syncInfo.movementBuffer = player->movementBuffer;
         syncInfo.movementBufferHead = player->movementBufferHead;
         syncInfo.movementBufferReadOffset = 0;
@@ -462,6 +499,8 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_A + playerId;
         syncInfo.mapGroup = player->mapGroup;
         syncInfo.mapNum = player->mapNum;
+        syncInfo.adventureTileNum = player->adventureTileNum;
+        syncInfo.adventureDifficulty = player->adventureDifficulty;
         syncInfo.movementBuffer = player->movementBuffer;
         syncInfo.movementBufferHead = player->movementBufferHead;
         syncInfo.movementBufferReadOffset = 1; // skip the most recent movement, as that's where the player is
@@ -560,7 +599,12 @@ static bool8 ShouldSyncObjectBeVisible(struct SyncedObjectEventInfo* syncInfo)
     if(syncInfo->gfxId == 0)
         return FALSE;
 
-    if(syncInfo->mapGroup == gSaveBlock1Ptr->location.mapGroup && syncInfo->mapNum == gSaveBlock1Ptr->location.mapNum)
+    if(
+        syncInfo->mapGroup == gSaveBlock1Ptr->location.mapGroup && 
+        syncInfo->mapNum == gSaveBlock1Ptr->location.mapNum &&
+        syncInfo->adventureTileNum == GetLocalAdventureTileNum() &&
+        syncInfo->adventureDifficulty == GetLocalAdventureDifficulty()
+    )
     {
         s16 playerX, playerY, xDist, yDist;
         PlayerGetDestCoords(&playerX, &playerY);

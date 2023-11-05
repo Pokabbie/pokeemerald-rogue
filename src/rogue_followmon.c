@@ -21,6 +21,7 @@
 #include "script.h"
 
 #include "rogue.h"
+#include "rogue_adventurepaths.h"
 #include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
@@ -252,6 +253,9 @@ void SetupFollowParterMonObjectEvent()
     bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER);
 
     if(shouldFollowMonBeVisible && FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
+        shouldFollowMonBeVisible = FALSE;
+
+    if(shouldFollowMonBeVisible && RogueAdv_IsViewingPath())
         shouldFollowMonBeVisible = FALSE;
 
     // Don't show if on bike, surfing or riding mon

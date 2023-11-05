@@ -785,6 +785,21 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
 }
 
+u8 RogueAdv_GetTileNum()
+{
+    if(!gRogueAdvPath.isOverviewActive && gRogueRun.adventureRoomId < gRogueAdvPath.roomCount)
+    {
+        return gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x;
+    }
+
+    return 255;
+}
+
+bool8 RogueAdv_IsViewingPath()
+{
+    return gRogueAdvPath.isOverviewActive != 0;
+}
+
 void RogueAdv_ApplyAdventureMetatiles()
 {
     struct Coords16 treesCoords[24];
