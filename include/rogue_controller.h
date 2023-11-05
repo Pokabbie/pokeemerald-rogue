@@ -108,6 +108,7 @@ void Rogue_ResetAdventurePathBuffers();
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_GetCurrentLegendaryEncounterId(void);
 u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
+bool8 Rogue_IsBattleAlphaMon(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();

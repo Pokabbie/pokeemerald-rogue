@@ -2844,6 +2844,13 @@ static bool8 ChooseLegendarysForNewAdventure()
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS))
+    {
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = 0;
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = 1;
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = 2;
+    }
+
     if(gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR])
         ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR];
 
@@ -2880,6 +2887,19 @@ u16 Rogue_GetLegendaryRoomForSpecies(u16 species)
 
     AGB_ASSERT(FALSE);
     return 0;
+}
+
+bool8 Rogue_IsBattleAlphaMon(u16 species)
+{
+    // Roamer legend fight is not an alpha fight
+
+    if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] == species && gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] == Rogue_GetCurrentDifficulty())
+        return TRUE;
+
+    if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] == species && gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] == Rogue_GetCurrentDifficulty())
+        return TRUE;
+
+    return FALSE;
 }
 
 void Rogue_SelectMiniBossRewardMons()

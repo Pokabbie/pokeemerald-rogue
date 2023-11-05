@@ -56,7 +56,7 @@
 #define BATTLE_TYPE_WALLY_TUTORIAL     (1 << 9)
 #define BATTLE_TYPE_ROAMER             (1 << 10)
 #define BATTLE_TYPE_EREADER_TRAINER    (1 << 11)
-#define BATTLE_TYPE_KYOGRE_GROUDON     (1 << 12)
+#define BATTLE_TYPE_ALPHA_MON          (1 << 12) // previous BATTLE_TYPE_KYOGRE_GROUDON
 #define BATTLE_TYPE_LEGENDARY          (1 << 13)
 #define BATTLE_TYPE_REGI               (1 << 14)
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 15)

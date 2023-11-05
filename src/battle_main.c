@@ -3898,7 +3898,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     }
 
     // RogueNote: Activate alpha battle for legendaries
-    if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0 && gBattleStruct->rogueAlphaMonActive == 0)
+    if((gBattleTypeFlags & BATTLE_TYPE_ALPHA_MON) != 0 && gBattleStruct->rogueAlphaMonActive == 0)
     {
         gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         BattleScriptPushCursorAndCallback(BattleScript_AlphaMonActivates);
