@@ -2632,7 +2632,18 @@ static void BeginRogueRun(void)
 
     Rogue_PreActivateDesiredCampaign();
 
-    gRogueRun.baseSeed = Random();
+    if(RogueMP_IsActive() && RogueMP_IsClient())
+    {
+        AGB_ASSERT(gRogueMultiplayer != NULL);
+        AGB_ASSERT(gRogueMultiplayer->gameState.adventure.isRunActive);
+        
+        gRogueRun.baseSeed = gRogueMultiplayer->gameState.adventure.baseSeed;
+    }
+    else
+    {
+        gRogueRun.baseSeed = Random();
+    }
+
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
     gRogueRun.currentLevelOffset = 5;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;

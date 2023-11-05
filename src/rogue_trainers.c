@@ -14,6 +14,7 @@
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_multiplayer.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
 #include "rogue_query_script.h"
@@ -294,6 +295,37 @@ static u8 CalculateLvlFor(u8 difficulty)
     }
 }
 
+static u8 Rogue_CalculateTrainerLvlCap(bool8 keyBattle)
+{
+    // We need trainer battles to be consistent
+    if(RogueMP_IsActive())
+    {
+        u8 levelOffset = 0;
+
+        if(!keyBattle)
+        {
+            // Offset levels based on column rather than player level
+            switch (RogueAdv_GetTileNum())
+            {
+            case 0:
+                levelOffset = 10;
+                break;
+            
+            case 1:
+                levelOffset = 5;
+                break;
+            }
+        }
+
+        return Rogue_CalculateBossMonLvl() - levelOffset;
+    }
+    else
+    {
+        // In single player scale battles based on the current player soft level cap
+        return Rogue_CalculatePlayerMonLvl();
+    }
+}
+
 u8 Rogue_CalculatePlayerMonLvl()
 {
     return Rogue_CalculateBossMonLvl() - gRogueRun.currentLevelOffset;
@@ -308,12 +340,12 @@ u8 Rogue_CalculateTrainerMonLvl()
     if(Rogue_GetCurrentDifficulty() == 0)
     {
         startLvl = 5;
-        playerLvl = max(5, Rogue_CalculatePlayerMonLvl() / 2); // climb slowly for difficulty 1
+        playerLvl = max(5, Rogue_CalculateTrainerLvlCap(FALSE) / 2); // climb slowly for difficulty 1
     }
     else
     {
         startLvl = CalculateLvlFor(Rogue_GetCurrentDifficulty() - 1);
-        playerLvl = Rogue_CalculatePlayerMonLvl();
+        playerLvl = Rogue_CalculateTrainerLvlCap(FALSE);
     }
 
     switch (difficultyModifier)
@@ -338,12 +370,12 @@ u8 Rogue_CalculateTrainerMonLvl()
 
 u8 Rogue_CalculateMiniBossMonLvl()
 {
-    return Rogue_CalculatePlayerMonLvl() - 5;
+    return Rogue_CalculateTrainerLvlCap(TRUE) - 5;
 }
 
 u8 Rogue_CalculateRivalMonLvl()
 {
-    return Rogue_CalculatePlayerMonLvl();
+    return Rogue_CalculateTrainerLvlCap(TRUE);
 }
 
 u8 Rogue_CalculateBossMonLvl()

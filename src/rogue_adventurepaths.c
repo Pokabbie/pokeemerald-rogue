@@ -789,7 +789,7 @@ u8 RogueAdv_GetTileNum()
 {
     if(!gRogueAdvPath.isOverviewActive && gRogueRun.adventureRoomId < gRogueAdvPath.roomCount)
     {
-        return gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x;
+        return gRogueAdvPath.pathLength - gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x - 1;
     }
 
     return 255;

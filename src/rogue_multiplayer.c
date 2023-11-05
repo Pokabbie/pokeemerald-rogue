@@ -286,10 +286,12 @@ static void Host_UpdateGameState()
 
         gRogueMultiplayer->gameState.hub.timeOfDay = RogueToD_GetTime();
         gRogueMultiplayer->gameState.hub.season = RogueToD_GetSeason();
+        gRogueMultiplayer->gameState.adventure.isRunActive = FALSE;
     }
     else
     {
-
+        gRogueMultiplayer->gameState.adventure.baseSeed = gRogueRun.baseSeed;
+        gRogueMultiplayer->gameState.adventure.isRunActive = TRUE;
     }
 }
 

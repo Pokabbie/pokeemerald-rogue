@@ -372,7 +372,8 @@ struct RogueNetHubState
 
 struct RogueNetAdventureState
 {
-
+    u16 baseSeed;
+    u8 isRunActive : 1;
 };
 
 struct RogueNetGameState
