@@ -905,13 +905,13 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
         {
             // Still run faster and default game because it's way too slow :(
             if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
-                *waitTime = *waitTime / 3;
+                *waitTime = *waitTime / 4;
             else
                 *waitTime = *waitTime / 2;
         }
         else
             // Go faster, but not quite gym leader slow
-            *waitTime = *waitTime / 4;
+            *waitTime = *waitTime / 6;
     }
 
     if(!Rogue_GetBattleAnimsEnabled())
