@@ -17,14 +17,16 @@
 #include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
+#include "rogue_timeofday.h"
 
 #define NET_STATE_NONE              0
 #define NET_STATE_ACTIVE            (1 << 0)
-#define NET_STATE_HOST              (2 << 0)
+#define NET_STATE_HOST              (1 << 1)
 
 
 #define NET_PLAYER_STATE_FLAG_NONE      0
 #define NET_PLAYER_STATE_FLAG_RIDING    (1 << 0)
+#define NET_PLAYER_STATE_FLAG_FLYING    (1 << 1)
 
 
 struct SyncedObjectEventInfo
@@ -45,9 +47,10 @@ EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
 
 static void Host_HandleHandshakeRequest();
-static void Host_UpdateGameState();
 static void Client_SetupHandshakeRequest();
 static void Client_HandleHandshakeResponse();
+static void Host_UpdateGameState();
+static void Client_UpdateGameState();
 static void UpdateLocalPlayerState(u8 playerId);
 static void Task_WaitForConnection(u8 taskId);
 
@@ -144,6 +147,9 @@ u16 RogueMP_GetPlayerOutfitStyle(u8 playerId, u8 outfitStyle)
 
 void RogueMP_MainCB()
 {
+    // Bump counter each frame so we can divide up MP ops
+    ++gRogueMultiplayer->localCounter;
+
     if(RogueMP_IsHost())
     {
         if(gRogueMultiplayer->pendingHandshake.state == NET_HANDSHAKE_STATE_SEND_TO_HOST)
@@ -168,6 +174,10 @@ void RogueMP_MainCB()
                 Client_HandleHandshakeResponse();
             }
         }
+        else
+        {
+            Client_UpdateGameState();
+        }
     }
 }
 
@@ -176,7 +186,7 @@ void RogueMP_OverworldCB()
     if(RogueMP_IsActive())
     {
         // To split up the processing, only process 1 player per frame
-        u8 playerId = gRogueMultiplayer->localCounter++ % NET_PLAYER_CAPACITY;
+        u8 playerId = gRogueMultiplayer->localCounter % NET_PLAYER_CAPACITY;
         UpdateLocalPlayerState(playerId);
         
         //u8 i;
@@ -259,12 +269,33 @@ static void Host_UpdateGameState()
 
     if(!Rogue_IsRunActive())
     {
-        // TODO - Only need to do this if there is a change really
-        memcpy(&gRogueMultiplayer->gameState.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+        // Only do 1 large copy per frame
+        switch (gRogueMultiplayer->localCounter % 2)
+        {
+        case 0:
+            memcpy(&gRogueMultiplayer->gameState.hub.hubMap, &gRogueSaveBlock->hubMap, sizeof(gRogueSaveBlock->hubMap));
+            break;
+        
+        case 1:
+            memcpy(&gRogueMultiplayer->gameState.hub.difficultyConfig, &gRogueSaveBlock->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
+            break;
+        }
+
+        gRogueMultiplayer->gameState.hub.timeOfDay = RogueToD_GetTime();
+        gRogueMultiplayer->gameState.hub.season = RogueToD_GetSeason();
     }
     else
     {
 
+    }
+}
+
+static void Client_UpdateGameState()
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    if(!Rogue_IsRunActive())
+    {
     }
 }
 
@@ -327,6 +358,9 @@ static void WritePlayerState(struct RogueNetPlayer* player)
         {
             player->playerFlags |= NET_PLAYER_STATE_FLAG_RIDING;
             player->partnerMon = Rogue_GetRideMonSpeciesGfx(0); // 0 is always local player
+
+            if(Rogue_IsRideMonFlying())
+                player->playerFlags |= NET_PLAYER_STATE_FLAG_FLYING;
         }
         else if(FollowMon_IsPartnerMonActive())
         {
@@ -373,7 +407,8 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
 
         if(player->partnerMon != SPECIES_NONE && !(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING) && ArePlayerFollowMonsAllowed())
         {
-            isFollowerActive = TRUE;
+            // Only display follower if not sat on top of it
+            isFollowerActive = !(player->playerPos.x == player->partnerPos.x && player->playerPos.y == player->partnerPos.y);
         }
     }
 
@@ -394,18 +429,15 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.movementBufferReadOffset = 0;
 
         if(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING)
-            syncInfo.gfxId = OBJ_EVENT_GFX_MAY_RIDING; // TODO - need to have net outfits that have riding gfx too
+            syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER_RIDING; // TODO - need to have net outfits that have riding gfx too
         else
             syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER;
 
         objectEventId = ProcessSyncedObjectEvent(&syncInfo);
 
-        if(objectEventId != OBJECT_EVENTS_COUNT)
+        if(objectEventId != OBJECT_EVENTS_COUNT && (player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING))
         {
-            if(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING)
-            {
-                Rogue_SetupRideObject(1 + playerId, objectEventId, player->partnerMon);
-            }
+            Rogue_SetupRideObject(1 + playerId, objectEventId, player->partnerMon, (player->playerFlags & NET_PLAYER_STATE_FLAG_FLYING) != 0);
         }
         else
         {
@@ -415,6 +447,7 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
     else
     {
         EnsureObjectIsRemoved(playerObjectId);
+        Rogue_ClearRideObject(1 + playerId);
     }
 
     if(isFollowerActive)
@@ -560,7 +593,10 @@ static u8 ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo)
             );
         }
 
-        ProcessSyncedObjectMovement(syncInfo, &gObjectEvents[objectEventId]);
+        if(objectEventId != OBJECT_EVENTS_COUNT)
+        {
+            ProcessSyncedObjectMovement(syncInfo, &gObjectEvents[objectEventId]);
+        }
     }
     else
     {

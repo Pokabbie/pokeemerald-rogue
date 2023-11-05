@@ -279,6 +279,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanFieldMove;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanFishing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanRiding;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BugCatcherRiding;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Agatha;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blaine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kanto_Blue;
@@ -743,6 +745,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_BRENDAN_RIDING] =           &gObjectEventGraphicsInfo_BrendanRiding,
     [OBJ_EVENT_GFX_MAY_RIDING] =               &gObjectEventGraphicsInfo_MayRiding,
+
+    [OBJ_EVENT_GFX_BUG_CATCHER_RIDING] =       &gObjectEventGraphicsInfo_BugCatcherRiding,
 
     [OBJ_EVENT_GFX_KANTO_AGATHA] =             &gObjectEventGraphicsInfo_Kanto_Agatha,
     [OBJ_EVENT_GFX_KANTO_BLAINE] =             &gObjectEventGraphicsInfo_Kanto_Blaine,

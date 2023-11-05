@@ -348,11 +348,37 @@ struct SpeciesTable
     const u16* trainerSpecies;
 };
 
+struct RogueDifficultyConfig
+{
+    u8 toggleBits[CONFIG_TOGGLE_BYTE_COUNT];
+    u8 rangeValues[CONFIG_RANGE_COUNT];
+};
+
+struct RogueDebugConfig
+{
+    u8 toggleBits[DEBUG_TOGGLE_BYTE_COUNT];
+    u8 rangeValues[DEBUG_RANGE_COUNT];
+};
+
 // Rogue Multiplayer
 //
-struct RogueNetGameState
+struct RogueNetHubState
 {
     struct RogueHubMap hubMap;
+    struct RogueDifficultyConfig difficultyConfig;
+    u16 timeOfDay;
+    u8 season;
+};
+
+struct RogueNetAdventureState
+{
+
+};
+
+struct RogueNetGameState
+{
+    struct RogueNetHubState hub;
+    struct RogueNetAdventureState adventure;
 };
 
 struct RogueNetPlayerProfile
@@ -501,18 +527,6 @@ struct RoguePokemonProfile
     u16 const* tutorMoves;
     u16 monFlags;
     u16 competitiveSetCount;
-};
-
-struct RogueDifficultyConfig
-{
-    u8 toggleBits[CONFIG_TOGGLE_BYTE_COUNT];
-    u8 rangeValues[CONFIG_RANGE_COUNT];
-};
-
-struct RogueDebugConfig
-{
-    u8 toggleBits[DEBUG_TOGGLE_BYTE_COUNT];
-    u8 rangeValues[DEBUG_RANGE_COUNT];
 };
 
 struct RogueRideMonState

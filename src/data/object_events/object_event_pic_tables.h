@@ -2364,6 +2364,18 @@ static const struct SpriteFrameImage sPicTable_EthanRiding[] = {
     overworld_frame(gObjectEventPic_EthanRiding, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_BugCatcherRiding[] = {
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BugCatcherRiding, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_LucasNormal[] = {
     overworld_frame(gObjectEventPic_LucasNormal, 2, 4, 0),
     overworld_frame(gObjectEventPic_LucasNormal, 2, 4, 1),

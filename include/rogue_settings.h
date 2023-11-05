@@ -9,6 +9,8 @@ bool8 Rogue_GetConfigToggle(u16 elem);
 void Rogue_SetConfigRange(u16 elem, u8 value);
 u8 Rogue_GetConfigRange(u16 elem);
 
+bool8 Rogue_CanEditConfig();
+
 void RogueDebug_SetConfigToggle(u16 elem, bool8 state);
 bool8 RogueDebug_GetConfigToggle(u16 elem);
 

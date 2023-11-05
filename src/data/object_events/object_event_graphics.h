@@ -436,6 +436,8 @@ const u32 gObjectEventPic_EthanFieldMove[] = INCBIN_U32("graphics/object_events/
 const u32 gObjectEventPic_EthanFishing[] = INCBIN_U32("graphics/object_events/pics/people/ethan/fishing.4bpp");
 const u32 gObjectEventPic_EthanRiding[] = INCBIN_U32("graphics/object_events/pics/people/ethan/riding.4bpp");
 
+const u32 gObjectEventPic_BugCatcherRiding[] = INCBIN_U32("graphics/object_events/pics/rogue/riding/bug_catcher.4bpp");
+
 const u32 gObjectEventPic_LucasNormal[] = INCBIN_U32("graphics/object_events/pics/people/lucas/walking.4bpp");
 const u32 gObjectEventPic_LucasRiding[] = INCBIN_U32("graphics/object_events/pics/people/lucas/riding.4bpp");
 const u32 gObjectEventPic_DawnNormal[] = INCBIN_U32("graphics/object_events/pics/people/dawn/walking.4bpp");

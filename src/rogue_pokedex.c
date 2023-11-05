@@ -2825,7 +2825,7 @@ bool8 RoguePokedex_IsVariantEditUnlocked()
 
 bool8 RoguePokedex_IsVariantEditEnabled()
 {
-    return RoguePokedex_IsVariantEditUnlocked();
+    return RoguePokedex_IsVariantEditUnlocked() && Rogue_CanEditConfig();
 }
 
 u8 SpeciesToGen(u16 species);
