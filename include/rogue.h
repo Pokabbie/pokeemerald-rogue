@@ -57,8 +57,9 @@ struct RogueRoamerMon
 
     u32 abilityNum  : 2; // technically only needs to be 1 for Vanilla
     u32 genderFlag  : 1;
-    u32 hpPerc       : 7; // stored as a percentage
-    u32 unused      : 7; 
+    u32 hpPerc      : 7; // stored as a percentage
+    u32 encounerCount : 4;
+    u32 unused      : 3; 
 };
 
 STATIC_ASSERT(sizeof(struct RogueRoamerMon) == 8, SizeOfRogueRoamerMon);

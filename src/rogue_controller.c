@@ -484,10 +484,16 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
             // Roamers hard to make early captures possible but not impossible
             difficulty = ROGUE_GYM_MID_DIFFICULTY;
 
+            // If you've have a lot of encounters with the roamer, drop the difficulty
+            if(gRogueRun.wildEncounters.roamer.encounerCount >= 4)
+                difficulty = ROGUE_GYM_MID_DIFFICULTY - 1;
+            else if(gRogueRun.wildEncounters.roamer.encounerCount >= 6)
+                difficulty = ROGUE_GYM_MID_DIFFICULTY - 2;
+
 #ifdef ROGUE_EXPANSION
             // Quick ball is specifically nerfed for roamers
             if(gLastUsedItem == ITEM_QUICK_BALL)
-                difficulty = ROGUE_ELITE_START_DIFFICULTY;
+                difficulty += 2;
 #endif
         }
 
@@ -2742,6 +2748,7 @@ static void EndRogueRun(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
 
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
+    gRogueRun.wildEncounters.roamer.species = SPECIES_NONE;
 
 
     // We're back from adventure, so any mon we finished or retired with add to the safari
@@ -4146,7 +4153,12 @@ void Rogue_Battle_EndWildBattle(void)
             else
             {
                 if(gRogueRun.wildEncounters.roamer.species != wildSpecies)
+                {
+                    gRogueRun.wildEncounters.roamer.encounerCount = 0;
                     Rogue_PushPopup_RoamerPokemonActivated(wildSpecies);
+                }
+                else if(gRogueRun.wildEncounters.roamer.encounerCount < 10)
+                    ++gRogueRun.wildEncounters.roamer.encounerCount;
 
                 // Keep track of roamer
                 gRogueRun.wildEncounters.roamer.species = wildSpecies;
