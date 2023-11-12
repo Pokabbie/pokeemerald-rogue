@@ -4062,6 +4062,8 @@ extern const u32 gItemIcon_CGear[];
 extern const u32 gItemIconPalette_CGear[];
 extern const u32 gItemIcon_Pokedex[];
 extern const u32 gItemIconPalette_Pokedex[];
+extern const u32 gItemIcon_QuestBook[];
+extern const u32 gItemIconPalette_QuestBook[];
 extern const u32 gItemIcon_PokeWhistle[];
 extern const u32 gItemIconPalette_PokeWhistleBasic[];
 extern const u32 gItemIconPalette_PokeWhistleGold[];

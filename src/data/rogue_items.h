@@ -54,9 +54,9 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
     [ITEM_QUEST_LOG - ITEM_ROGUE_ITEM_FIRST] =
     {
 #ifdef ROGUE_EXPANSION
-        .name = _("Quest Log"),
+        .name = _("Quest Book"),
 #else
-        .name = _("QUEST LOG"),
+        .name = _("QUEST BOOK"),
 #endif
         .itemId = ITEM_QUEST_LOG,
         .price = 0,
@@ -65,8 +65,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
         .fieldUseFunc = ItemUseOutOfBattle_QuestLog,
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_FameChecker,
+        .iconImage = gItemIcon_QuestBook,
+        .iconPalette = gItemIconPalette_QuestBook,
     },
 
     [ITEM_HEALING_FLASK - ITEM_ROGUE_ITEM_FIRST] =
