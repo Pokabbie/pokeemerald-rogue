@@ -545,6 +545,70 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
     }
 }
 
+void RogueMonQuery_IsBoxLegendary(u8 func)
+{
+    u8 i;
+    bool8 valid;
+    u16 species;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        {
+            valid = RoguePokedex_IsSpeciesValidBoxLegendary(species);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!valid)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(valid)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
+void RogueMonQuery_IsRoamerLegendary(u8 func)
+{
+    u8 i;
+    bool8 valid;
+    u16 species;
+
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        {
+            valid = RoguePokedex_IsSpeciesValidRoamerLegendary(species);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!valid)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(valid)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
 {
     bool8 hasValidEvo;

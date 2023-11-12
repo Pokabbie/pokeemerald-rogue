@@ -2793,11 +2793,24 @@ static u16 SelectLegendarySpecies(u8 legendId)
             RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.legendarySpecies[i]);
     }
 
-    if(legendId == ADVPATH_LEGEND_BOX)
-        RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG_WILD);
-    else
-        RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_EXCLUDE, MON_FLAG_STRONG_WILD);
+    switch (legendId)
+    {
+    case ADVPATH_LEGEND_BOX:
+        RogueMonQuery_IsBoxLegendary(QUERY_FUNC_INCLUDE);
+        break;
 
+    case ADVPATH_LEGEND_MINOR:
+        RogueMonQuery_IsBoxLegendary(QUERY_FUNC_EXCLUDE);
+        break;
+
+    case ADVPATH_LEGEND_ROAMER:
+        RogueMonQuery_IsRoamerLegendary(QUERY_FUNC_INCLUDE);
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
 
     RogueWeightQuery_Begin();
     {
@@ -2850,6 +2863,8 @@ static bool8 ChooseLegendarysForNewAdventure()
     memset(&gRogueRun.legendarySpecies, 0, sizeof(gRogueRun.legendarySpecies));
     memset(&gRogueRun.legendaryDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.legendaryDifficulties));
 
+
+    // Prioritise box legend first, then roamer, then finally minor
 
     gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
     gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);

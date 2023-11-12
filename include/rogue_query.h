@@ -42,6 +42,8 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags);
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsLegendary(u8 func);
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 flags);
+void RogueMonQuery_IsBoxLegendary(u8 func);
+void RogueMonQuery_IsRoamerLegendary(u8 func);
 void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
