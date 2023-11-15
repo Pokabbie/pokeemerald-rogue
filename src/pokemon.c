@@ -3920,7 +3920,7 @@ void CreateEventLegalEnemyMon(void)
         SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
     }
 
-    Rogue_ModifyEventMon(&gEnemyParty[0]);
+    Rogue_ModifyWildMon(&gEnemyParty[0]);
 }
 
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)

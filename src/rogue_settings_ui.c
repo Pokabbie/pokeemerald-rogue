@@ -168,6 +168,7 @@ static u8 const sMenuName_DebugToggleAllowSaveScum[] = _("ALLOW SAVE SCUM");
 static u8 const sMenuName_DebugToggleInstantCapture[] = _("INSTANT CATCH");
 static u8 const sMenuName_DebugToggleTodTintUsePlayerColour[] = _("PLAYER TOD TINT");
 static u8 const sMenuName_DebugToggleDebugShops[] = _("DEBUG SHOPS");
+static u8 const sMenuName_DebugToggleDebugLegends[] = _("DEBUG LEGENDS");
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedWeather[] = _("FORCED WEATHER");
@@ -216,6 +217,7 @@ enum
     MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE,
     MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
     MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS,
+    MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS,
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
@@ -530,6 +532,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
+    [MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS] = 
+    {
+        .itemName = sMenuName_DebugToggleDebugLegends,
+        .itemDesc = gText_EmptyString2,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
 
     [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
     {
@@ -629,6 +638,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE,
             MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
             MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS,
+            MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS,
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
@@ -1411,6 +1421,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS:
         return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS);
 
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS);
+
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         return RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
@@ -1538,6 +1551,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS:
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS, value);
         break;
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:

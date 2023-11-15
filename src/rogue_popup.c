@@ -129,6 +129,7 @@ extern const u8 gText_Space[];
 extern const u8 gText_Popup_QuestComplete[];
 extern const u8 gText_Popup_QuestFail[];
 extern const u8 gText_Popup_LegendaryClause[];
+extern const u8 gText_Popup_RoamerLegendary[];
 extern const u8 gText_Popup_None[];
 
 extern const u8 gText_Popup_NewMoves[];
@@ -981,6 +982,18 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species)
     
     popup->titleText = gPopupText_StrongLegendaryClause;
     popup->subtitleText = gText_Popup_LegendaryClause;
+}
+
+void Rogue_PushPopup_RoamerPokemonActivated(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->soundEffect = SE_BALL_OPEN;
+    
+    popup->titleText = gSpeciesNames[species];
+    popup->subtitleText = gText_Popup_RoamerLegendary;
 }
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)

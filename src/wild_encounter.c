@@ -347,12 +347,14 @@ static void CreateWildMon(u16 species, u8 level, bool8 isShiny)
                 gender = MON_FEMALE;
 
             CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
+            SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &isShiny);
+            Rogue_ModifyWildMon(&gEnemyParty[0]);
             return;
         }
 
         CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
-
         SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &isShiny);
+        Rogue_ModifyWildMon(&gEnemyParty[0]);
     }
 }
 
@@ -514,7 +516,6 @@ static bool8 AreLegendariesInSootopolisPreventingEncounters(void)
 bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavior)
 {
     u16 headerId;
-    struct Roamer *roamer;
 
     if (sWildEncountersDisabled == TRUE)
         return FALSE;

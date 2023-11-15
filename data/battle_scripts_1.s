@@ -4218,9 +4218,9 @@ BattleScript_AlphaMonActivates::
 	call BattleScript_EffectStatUpAlpha
 	setstatchanger STAT_SPATK, 1, FALSE
 	call BattleScript_EffectStatUpAlpha
-	setstatchanger STAT_DEF, 3, FALSE
+	setstatchanger STAT_DEF, 1, FALSE
 	call BattleScript_EffectStatUpAlpha
-	setstatchanger STAT_SPDEF, 3, FALSE
+	setstatchanger STAT_SPDEF, 1, FALSE
 	call BattleScript_EffectStatUpAlpha
 	end3
 

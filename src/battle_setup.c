@@ -321,11 +321,16 @@ void BattleSetup_StartBattlePikeWildBattle(void)
 
 static void DoStandardWildBattle(bool32 isDouble)
 {
+    u16 species;
+
     ScriptContext2_Enable();
     FreezeObjectEvents();
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = 0;
+
+    species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+
     if (isDouble)
         gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
     if (InBattlePyramid())
@@ -333,6 +338,10 @@ static void DoStandardWildBattle(bool32 isDouble)
         VarSet(VAR_TEMP_E, 0);
         gBattleTypeFlags |= BATTLE_TYPE_PYRAMID;
     }
+
+    if(Rogue_IsBattleRoamerMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
+
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -453,6 +462,12 @@ void BattleSetup_StartLegendaryBattle(void)
 
     species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
 
+    if(Rogue_IsBattleAlphaMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ALPHA_MON;
+
+    if(Rogue_IsBattleRoamerMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
+
     switch (species)
     {
     case SPECIES_GROUDON:
@@ -556,28 +571,12 @@ void BattleSetup_StartLegendaryBattle(void)
             CreateBattleStartTask(B_TRANSITION_BLUR, GetBattleBGM());
         else
         {
+            // This is not actually a legendary we're just reuisng this code path
             gBattleTypeFlags &= ~BATTLE_TYPE_LEGENDARY;
             CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, GetBattleBGM()); // RogueNote: todo - change music dynamically
         }
         break;
     }
-
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
-    IncrementDailyWildBattles();
-    TryUpdateGymLeaderRematchFromWild();
-}
-
-void StartGroudonKyogreBattle(void)
-{
-    ScriptContext2_Enable();
-    gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_KYOGRE_GROUDON;
-
-    if (gGameVersion == VERSION_RUBY)
-        CreateBattleStartTask(B_TRANSITION_ANGLED_WIPES, GetBattleBGM()); // GROUDON
-    else
-        CreateBattleStartTask(B_TRANSITION_RIPPLE, GetBattleBGM()); // KYOGRE
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -592,7 +591,7 @@ void StartRegiBattle(void)
 
     ScriptContext2_Enable();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_REGI;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_REGI | BATTLE_TYPE_ALPHA_MON;
 
     species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
     switch (species)

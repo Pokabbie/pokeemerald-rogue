@@ -498,6 +498,34 @@ const u32 gTrainerPalette_Unova_Roxie[] = INCBIN_U32("graphics/trainers/front_pi
 const u32 gTrainerPalette_Unova_Shauntal[] = INCBIN_U32("graphics/trainers/front_pics/unova/shauntal.gbapal.lz");
 const u32 gTrainerPalette_Unova_Skyla[] = INCBIN_U32("graphics/trainers/front_pics/unova/skyla.gbapal.lz");
 
+const u32 gTrainerFrontPic_Kalos_Clemont[] = INCBIN_U32("graphics/trainers/front_pics/kalos/clemont.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Diantha[] = INCBIN_U32("graphics/trainers/front_pics/kalos/diantha.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Drasna[] = INCBIN_U32("graphics/trainers/front_pics/kalos/drasna.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Grant[] = INCBIN_U32("graphics/trainers/front_pics/kalos/grant.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Korrina[] = INCBIN_U32("graphics/trainers/front_pics/kalos/korrina.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Malva[] = INCBIN_U32("graphics/trainers/front_pics/kalos/malva.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Olympia[] = INCBIN_U32("graphics/trainers/front_pics/kalos/olympia.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Ramos[] = INCBIN_U32("graphics/trainers/front_pics/kalos/ramos.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Siebold[] = INCBIN_U32("graphics/trainers/front_pics/kalos/siebold.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Valerie[] = INCBIN_U32("graphics/trainers/front_pics/kalos/valerie.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Viola[] = INCBIN_U32("graphics/trainers/front_pics/kalos/viola.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Wikstrom[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wikstrom.4bpp.lz");
+const u32 gTrainerFrontPic_Kalos_Wulfric[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wulfric.4bpp.lz");
+
+const u32 gTrainerPalette_Kalos_Clemont[] = INCBIN_U32("graphics/trainers/front_pics/kalos/clemont.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Diantha[] = INCBIN_U32("graphics/trainers/front_pics/kalos/diantha.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Drasna[] = INCBIN_U32("graphics/trainers/front_pics/kalos/drasna.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Grant[] = INCBIN_U32("graphics/trainers/front_pics/kalos/grant.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Korrina[] = INCBIN_U32("graphics/trainers/front_pics/kalos/korrina.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Malva[] = INCBIN_U32("graphics/trainers/front_pics/kalos/malva.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Olympia[] = INCBIN_U32("graphics/trainers/front_pics/kalos/olympia.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Ramos[] = INCBIN_U32("graphics/trainers/front_pics/kalos/ramos.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Siebold[] = INCBIN_U32("graphics/trainers/front_pics/kalos/siebold.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Valerie[] = INCBIN_U32("graphics/trainers/front_pics/kalos/valerie.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Viola[] = INCBIN_U32("graphics/trainers/front_pics/kalos/viola.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Wikstrom[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wikstrom.gbapal.lz");
+const u32 gTrainerPalette_Kalos_Wulfric[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wulfric.gbapal.lz");
+
 
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
 const u32 gTrainerFrontPic_PokabbieAndDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_and_ditto_front_pic.4bpp.lz");

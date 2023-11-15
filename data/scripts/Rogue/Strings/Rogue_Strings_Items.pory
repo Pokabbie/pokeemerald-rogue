@@ -5,7 +5,7 @@ text gItemDesc_LinkCable
 
 text gItemDesc_QuestLog
 {
-    format("A digital log for tracking Quests and their rewards.")
+    format("A diary log for tracking Quests and Challenges.")
 }
 
 text gItemDesc_HealingFlask

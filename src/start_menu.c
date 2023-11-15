@@ -275,7 +275,7 @@ void SetDexPokemonPokenavFlags(void) // unused
 {
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
-    FlagSet(FLAG_SYS_QUEST_LOG_GET);
+    //FlagSet(FLAG_SYS_QUEST_LOG_GET);
 }
 
 static void BuildStartMenuActions(void)

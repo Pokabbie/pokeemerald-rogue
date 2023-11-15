@@ -226,6 +226,7 @@ const u8 gText_Campaign_OneHp[] = _("One Hit Mode");
 const u8 gText_Popup_QuestComplete[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Completed!");
 const u8 gText_Popup_QuestFail[] = _("{COLOR LIGHT_RED}{SHADOW RED}Quest Failed");
 const u8 gText_Popup_LegendaryClause[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Clause Activated!");
+const u8 gText_Popup_RoamerLegendary[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Started Roaming!");
 const u8 gText_Popup_None[] = _("");
 
 const u8 gText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");

@@ -177,7 +177,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item, bool8 isShiny)
         SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
     }
 
-    Rogue_ModifyEventMon(&gEnemyParty[0]);
+    Rogue_ModifyWildMon(&gEnemyParty[0]);
 }
 void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, bool8 isShiny1, u16 species2, u8 level2, u16 item2, bool8 isShiny2)
 {

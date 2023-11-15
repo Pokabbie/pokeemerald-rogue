@@ -202,6 +202,8 @@ gSpecials::
 	def_special Rogue_GiveLabMon
 	def_special Rogue_ChooseMiniBossRewardMons
 	def_special Rogue_ClearCharmsAndCurses
+	def_special Rogue_IsRoamerActive
+	def_special Rogue_BufferRoamerName
 	def_special Rogue_GetActiveCampaign
 	def_special Rogue_GetUnlockedCampaignCount
 	def_special Rogue_GetNextUnlockedCampaign
@@ -402,7 +404,6 @@ gSpecials::
 	def_special IsPokerusInParty
 	def_special SetSootopolisGymCrackedIceMetatiles
 	def_special ShakeCamera
-	def_special StartGroudonKyogreBattle
 	def_special BattleSetup_StartWildBattle
 	def_special BattleSetup_StartLegendaryBattle
 	def_special StartRegiBattle

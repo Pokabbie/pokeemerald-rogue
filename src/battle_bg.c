@@ -1359,13 +1359,6 @@ bool8 LoadChosenBattleElement(u8 caseId)
         {
             LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
         }
-        else if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
-        {
-            if (gGameVersion == VERSION_RUBY)
-                LZDecompressVram(gBattleTerrainTilemap_Cave, (void*)(BG_SCREEN_ADDR(26)));
-            else
-                LZDecompressVram(gBattleTerrainTilemap_Water, (void*)(BG_SCREEN_ADDR(26)));
-        }
         else
         {
             if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -1425,13 +1418,6 @@ bool8 LoadChosenBattleElement(u8 caseId)
         if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_EREADER_TRAINER))
         {
             LoadCompressedPalette(gBattleTerrainPalette_Frontier, 0x20, 0x60);
-        }
-        else if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
-        {
-            if (gGameVersion == VERSION_RUBY)
-                LoadCompressedPalette(gBattleTerrainPalette_Groudon, 0x20, 0x60);
-            else
-                LoadCompressedPalette(gBattleTerrainPalette_Kyogre, 0x20, 0x60);
         }
         else
         {

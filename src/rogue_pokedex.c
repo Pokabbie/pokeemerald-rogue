@@ -3044,6 +3044,147 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
     return FALSE;
 }
 
+bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    switch(species)
+    {
+        case SPECIES_MEWTWO:
+        case SPECIES_MEW:
+
+        case SPECIES_LUGIA:
+        case SPECIES_HO_OH:
+        case SPECIES_CELEBI:
+
+        case SPECIES_KYOGRE:
+        case SPECIES_GROUDON:
+        case SPECIES_RAYQUAZA:
+#ifdef ROGUE_EXPANSION
+
+        case SPECIES_DIALGA:
+        case SPECIES_PALKIA:
+        case SPECIES_REGIGIGAS:
+        case SPECIES_GIRATINA:
+        case SPECIES_ARCEUS:
+
+        case SPECIES_RESHIRAM:
+        case SPECIES_ZEKROM:
+        case SPECIES_KYUREM:
+
+        case SPECIES_XERNEAS:
+        case SPECIES_YVELTAL:
+        case SPECIES_ZYGARDE:
+
+        case SPECIES_COSMOG:
+        case SPECIES_COSMOEM:
+        case SPECIES_SOLGALEO:
+        case SPECIES_LUNALA:
+        case SPECIES_NIHILEGO:
+
+        case SPECIES_ZACIAN:
+        case SPECIES_ZAMAZENTA:
+        case SPECIES_ETERNATUS:
+        case SPECIES_CALYREX:
+
+        // Forms
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+        
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
+#endif
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
+bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+
+    switch(species)
+    {
+        case SPECIES_ARTICUNO:
+        case SPECIES_ZAPDOS:
+        case SPECIES_MOLTRES:
+        case SPECIES_MEW:
+
+        case SPECIES_RAIKOU:
+        case SPECIES_ENTEI:
+        case SPECIES_SUICUNE:
+        case SPECIES_CELEBI:
+
+        case SPECIES_LATIAS:
+        case SPECIES_LATIOS:
+        case SPECIES_JIRACHI:
+#ifdef ROGUE_EXPANSION
+
+        case SPECIES_UXIE:
+        case SPECIES_MESPRIT:
+        case SPECIES_AZELF:
+        case SPECIES_CRESSELIA:
+        case SPECIES_PHIONE:
+        case SPECIES_MANAPHY:
+        case SPECIES_DARKRAI:
+        case SPECIES_SHAYMIN:
+
+        case SPECIES_VICTINI:
+        case SPECIES_COBALION:
+        case SPECIES_TERRAKION:
+        case SPECIES_VIRIZION:
+        case SPECIES_TORNADUS:
+        case SPECIES_THUNDURUS:
+        case SPECIES_LANDORUS:
+
+        case SPECIES_DIANCIE:
+        case SPECIES_HOOPA:
+        
+        case SPECIES_NIHILEGO:
+        case SPECIES_BUZZWOLE:
+        case SPECIES_PHEROMOSA:
+        case SPECIES_XURKITREE:
+        case SPECIES_CELESTEELA:
+        case SPECIES_KARTANA:
+        case SPECIES_GUZZLORD:
+        case SPECIES_NECROZMA:
+        case SPECIES_MAGEARNA:
+        case SPECIES_MARSHADOW:
+        case SPECIES_POIPOLE:
+        case SPECIES_NAGANADEL:
+        case SPECIES_STAKATAKA:
+        case SPECIES_BLACEPHALON:
+        case SPECIES_ZERAORA:
+
+        case SPECIES_KUBFU:
+        case SPECIES_URSHIFU:
+        case SPECIES_ZARUDE:
+
+        // Forms
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+
+        case SPECIES_ARTICUNO_GALARIAN:
+        case SPECIES_ZAPDOS_GALARIAN:
+        case SPECIES_MOLTRES_GALARIAN:
+#endif
+            return TRUE;
+    };
+
+    return FALSE;
+}
+
 u16 RoguePokedex_GetSpeciesBST(u16 species)
 {
     u16 statTotal =

@@ -177,41 +177,57 @@
 #define TRAINER_PIC_UNOVA_SHAUNTAL        147
 #define TRAINER_PIC_UNOVA_SKYLA           148
 
-#define TRAINER_PIC_ETHAN                 149
-#define TRAINER_PIC_LYRA                  150
+#define TRAINER_PIC_KALOS_CLEMONT         149
+#define TRAINER_PIC_KALOS_DIANTHA         150
+#define TRAINER_PIC_KALOS_DRASNA          151
+#define TRAINER_PIC_KALOS_GRANT           152
+#define TRAINER_PIC_KALOS_KORRINA         153
+#define TRAINER_PIC_KALOS_MALVA           154
+#define TRAINER_PIC_KALOS_OLYMPIA         155
+#define TRAINER_PIC_KALOS_RAMOS           156
+#define TRAINER_PIC_KALOS_SIEBOLD         157
+#define TRAINER_PIC_KALOS_VALERIE         158
+#define TRAINER_PIC_KALOS_VIOLA           159
+#define TRAINER_PIC_KALOS_WIKSTROM        160
+#define TRAINER_PIC_KALOS_WULFRIC         161
 
-#define TRAINER_PIC_LUCAS                 151
-#define TRAINER_PIC_DAWN                  152
-#define TRAINER_PIC_HILBERT               153
-#define TRAINER_PIC_HILDA                 154
-#define TRAINER_PIC_NATE                  155
-#define TRAINER_PIC_ROSA                  156
-#define TRAINER_PIC_CALEM                 157
-#define TRAINER_PIC_SERENA                158
+// gap for now as there are some more gens on the way
 
-#define TRAINER_PIC_POKABBIE              159
-#define TRAINER_PIC_POKABBIE_JUST_DITTO   160 // Just used for battle transition
-#define TRAINER_PIC_POKABBIE_AND_DITTO    161
-#define TRAINER_PIC_GLITCH_KATE           162
-#define TRAINER_PIC_GLITCH_TAILS          163
-#define TRAINER_PIC_GLITCH_ERMA           164
+#define TRAINER_PIC_ETHAN                 200
+#define TRAINER_PIC_LYRA                  201
 
-#define TRAINER_PIC_RIVAL_BRENDAN         165
-#define TRAINER_PIC_RIVAL_MAY             166
-#define TRAINER_PIC_RIVAL_SILVER          167
-#define TRAINER_PIC_RIVAL_BARRY           168
-#define TRAINER_PIC_RIVAL_BIANCA          169
-#define TRAINER_PIC_RIVAL_CHEREN          170
-#define TRAINER_PIC_RIVAL_N               171
-#define TRAINER_PIC_RIVAL_HUGH            172
-#define TRAINER_PIC_RIVAL_SHAUNA          173
-#define TRAINER_PIC_RIVAL_TREVOR          174
-#define TRAINER_PIC_RIVAL_TIERNO          175
-#define TRAINER_PIC_RIVAL_HAU             176
-#define TRAINER_PIC_RIVAL_GLADION         177
-#define TRAINER_PIC_RIVAL_HOP             178
-#define TRAINER_PIC_RIVAL_MARNIE          179
-#define TRAINER_PIC_RIVAL_BEDE            180
+#define TRAINER_PIC_LUCAS                 202
+#define TRAINER_PIC_DAWN                  203
+#define TRAINER_PIC_HILBERT               204
+#define TRAINER_PIC_HILDA                 205
+#define TRAINER_PIC_NATE                  206
+#define TRAINER_PIC_ROSA                  207
+#define TRAINER_PIC_CALEM                 208
+#define TRAINER_PIC_SERENA                209
+
+#define TRAINER_PIC_POKABBIE              210
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   211 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    212
+#define TRAINER_PIC_GLITCH_KATE           213
+#define TRAINER_PIC_GLITCH_TAILS          214
+#define TRAINER_PIC_GLITCH_ERMA           215
+
+#define TRAINER_PIC_RIVAL_BRENDAN         216
+#define TRAINER_PIC_RIVAL_MAY             217
+#define TRAINER_PIC_RIVAL_SILVER          218
+#define TRAINER_PIC_RIVAL_BARRY           219
+#define TRAINER_PIC_RIVAL_BIANCA          220
+#define TRAINER_PIC_RIVAL_CHEREN          221
+#define TRAINER_PIC_RIVAL_N               222
+#define TRAINER_PIC_RIVAL_HUGH            223
+#define TRAINER_PIC_RIVAL_SHAUNA          224
+#define TRAINER_PIC_RIVAL_TREVOR          225
+#define TRAINER_PIC_RIVAL_TIERNO          226
+#define TRAINER_PIC_RIVAL_HAU             227
+#define TRAINER_PIC_RIVAL_GLADION         228
+#define TRAINER_PIC_RIVAL_HOP             229
+#define TRAINER_PIC_RIVAL_MARNIE          230
+#define TRAINER_PIC_RIVAL_BEDE            231
 
 
 // Special cases

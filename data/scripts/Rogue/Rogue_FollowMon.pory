@@ -62,3 +62,26 @@ script Rogue_InteractWithDynamicWildFollowMon
 
     releaseall
 }
+
+script Rogue_InteractWithWildDenMon
+{
+    call(Rogue_InteractWithWildFollowMon)
+}
+
+script Rogue_InteractWithWildLegendMon
+{
+    //special(Rogue_IsRoamerActive)
+    //copyvar(VAR_TEMP_A, VAR_RESULT)
+
+    call(Rogue_InteractWithWildFollowMon)
+
+
+    //special(Rogue_IsRoamerActive)
+    //if(var(VAR_RESULT) != VAR_TEMP_A)
+    //{
+    //    lock
+    //    special(Rogue_BufferRoamerName)
+    //    msgbox(format("{STR_VAR_1} has started to roam!"))
+    //    release
+    //}
+}
