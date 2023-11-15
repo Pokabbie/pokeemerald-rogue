@@ -633,7 +633,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 
 
     // Execute through redirection chain
-    for(i = 0; i < currMusic->redirectCount; ++i)
+    for(i = 0; i < currMusic->redirectCount;)
     {
         shouldRedirect = FALSE;
 
@@ -660,9 +660,14 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 
         if(shouldRedirect)
         {
+            // Restart redirect checks for new player
             currMusic = &gRogueTrainerMusic[currMusic->redirects[i].musicPlayer];
             i = 0;
+            continue;
         }
+        
+        // Only increment if we reach the end
+        ++i;
     }
 
     // Copy to output so we can modify it
