@@ -43,6 +43,10 @@ const u32 gBattleTerrainTiles_StadiumInverted[] = INCBIN_U32("graphics/battle_te
 const u32 gBattleTerrainPalette_StadiumInverted[] = INCBIN_U32("graphics/battle_terrain/stadium_inverted/palette.gbapal.lz");
 const u32 gBattleTerrainTilemap_StadiumInverted[] = INCBIN_U32("graphics/battle_terrain/stadium_inverted/map.bin.lz");
 
+const u32 gBattleTerrainTiles_StadiumSpace[] = INCBIN_U32("graphics/battle_terrain/stadium/space/tiles.4bpp.lz");
+const u32 gBattleTerrainPalette_StadiumSpace[] = INCBIN_U32("graphics/battle_terrain/stadium/space/tiles.gbapal.lz");
+const u32 gBattleTerrainTilemap_StadiumSpace[] = INCBIN_U32("graphics/battle_terrain/stadium/space/tiles.bin.lz");
+
 const u32 gBattleTerrainPalette_Building[] = INCBIN_U32("graphics/battle_terrain/building/palette.gbapal.lz");
 
 const u32 gBattleTerrainPalette_Kyogre[] = INCBIN_U32("graphics/battle_terrain/water/kyogre.gbapal.lz");
