@@ -411,6 +411,14 @@
                     "base_species": "REGIGIGAS",
                     "music_player": "legendary_regi"
                 },
+                {
+                    "base_species": "REGIELEKI",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGIDRAGO",
+                    "music_player": "legendary_regi"
+                },
 
                 {
                     "base_species": "UXIE",
