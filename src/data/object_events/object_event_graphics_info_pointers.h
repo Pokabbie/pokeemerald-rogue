@@ -808,7 +808,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_UNOVA_BURGH] = &gObjectEventGraphicsInfo_Unova_Burgh,
     [OBJ_EVENT_GFX_UNOVA_ROXIE] = &gObjectEventGraphicsInfo_Unova_Roxie,
 
-    [OBJ_EVENT_GFX_KALOS_CLEMENT] = &gObjectEventGraphicsInfo_Kalos_Clement,
+    [OBJ_EVENT_GFX_KALOS_CLEMONT] = &gObjectEventGraphicsInfo_Kalos_Clement,
     [OBJ_EVENT_GFX_KALOS_DIANTHA] = &gObjectEventGraphicsInfo_Kalos_Diantha,
     [OBJ_EVENT_GFX_KALOS_DRASNA] = &gObjectEventGraphicsInfo_Kalos_Drasna,
     [OBJ_EVENT_GFX_KALOS_GRANT] = &gObjectEventGraphicsInfo_Kalos_Grant,

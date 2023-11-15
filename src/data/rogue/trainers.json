@@ -3218,7 +3218,7 @@
             {
                 "name": "VIOLA",
                 "type_assignment": "BUG",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_VIOLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3243,7 +3243,7 @@
             {
                 "name": "GRANT",
                 "type_assignment": "ROCK",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_GRANT",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3269,7 +3269,7 @@
             {
                 "name": "KORRINA",
                 "type_assignment": "FIGHTING",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_KORRINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3293,7 +3293,7 @@
             {
                 "name": "RAMOS",
                 "type_assignment": "GRASS",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_RAMOS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3323,7 +3323,7 @@
             {
                 "name": "CLEMONT",
                 "type_assignment": "ELECTRIC",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_CLEMONT",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3348,7 +3348,7 @@
             {
                 "name": "VALERIE",
                 "type_assignment": "FAIRY",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_VALERIE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3373,7 +3373,7 @@
             {
                 "name": "OLYMPIA",
                 "type_assignment": "PSYCHIC",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_OLYMPIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3398,7 +3398,7 @@
             {
                 "name": "WULFRIC",
                 "type_assignment": "ICE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_WULFRIC",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
@@ -3432,7 +3432,7 @@
             {
                 "name": "MALVA",
                 "type_assignment": "FIRE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_MALVA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
@@ -3457,7 +3457,7 @@
             {
                 "name": "SIEBOLD",
                 "type_assignment": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_SIEBOLD",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
@@ -3483,7 +3483,7 @@
             {
                 "name": "WIKSTROM",
                 "type_assignment": "STEEL",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_WIKSTROM",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
@@ -3508,7 +3508,7 @@
             {
                 "name": "DRASNA",
                 "type_assignment": "DRAGON",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_DRASNA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
@@ -3543,7 +3543,7 @@
             {
                 "name": "DIANTHA",
                 "type_assignment": "NONE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "KALOS_DIANTHA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_CHAMP" ],
