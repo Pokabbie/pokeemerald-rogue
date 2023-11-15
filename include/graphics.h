@@ -3070,6 +3070,34 @@ extern const u32 gTrainerPalette_Unova_Roxie[];
 extern const u32 gTrainerPalette_Unova_Shauntal[];
 extern const u32 gTrainerPalette_Unova_Skyla[];
 
+extern const u32 gTrainerFrontPic_Kalos_Clemont[];
+extern const u32 gTrainerFrontPic_Kalos_Diantha[];
+extern const u32 gTrainerFrontPic_Kalos_Drasna[];
+extern const u32 gTrainerFrontPic_Kalos_Grant[];
+extern const u32 gTrainerFrontPic_Kalos_Korrina[];
+extern const u32 gTrainerFrontPic_Kalos_Malva[];
+extern const u32 gTrainerFrontPic_Kalos_Olympia[];
+extern const u32 gTrainerFrontPic_Kalos_Ramos[];
+extern const u32 gTrainerFrontPic_Kalos_Siebold[];
+extern const u32 gTrainerFrontPic_Kalos_Valerie[];
+extern const u32 gTrainerFrontPic_Kalos_Viola[];
+extern const u32 gTrainerFrontPic_Kalos_Wikstrom[];
+extern const u32 gTrainerFrontPic_Kalos_Wulfric[];
+
+extern const u32 gTrainerPalette_Kalos_Clemont[];
+extern const u32 gTrainerPalette_Kalos_Diantha[];
+extern const u32 gTrainerPalette_Kalos_Drasna[];
+extern const u32 gTrainerPalette_Kalos_Grant[];
+extern const u32 gTrainerPalette_Kalos_Korrina[];
+extern const u32 gTrainerPalette_Kalos_Malva[] ;
+extern const u32 gTrainerPalette_Kalos_Olympia[];
+extern const u32 gTrainerPalette_Kalos_Ramos[];
+extern const u32 gTrainerPalette_Kalos_Siebold[];
+extern const u32 gTrainerPalette_Kalos_Valerie[];
+extern const u32 gTrainerPalette_Kalos_Viola[];
+extern const u32 gTrainerPalette_Kalos_Wikstrom[];
+extern const u32 gTrainerPalette_Kalos_Wulfric[];
+
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
 extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
