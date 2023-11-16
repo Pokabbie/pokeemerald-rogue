@@ -846,6 +846,11 @@ void DrawMainBattleBackground(void)
                     LZDecompressVram(gBattleTerrainTiles_StadiumInverted, (void*)(BG_CHAR_ADDR(2)));
                     LZDecompressVram(gBattleTerrainTilemap_StadiumInverted, (void*)(BG_SCREEN_ADDR(26)));
                     LoadCompressedPalette(gBattleTerrainPalette_StadiumInverted, 0x20, 0x60);
+
+                    // TODO - Hookup space background for final final champ
+                    //LZDecompressVram(gBattleTerrainTiles_StadiumSpace, (void*)(BG_CHAR_ADDR(2)));
+                    //LZDecompressVram(gBattleTerrainTilemap_StadiumSpace, (void*)(BG_SCREEN_ADDR(26)));
+                    //LoadCompressedPalette(gBattleTerrainPalette_StadiumSpace, 0x20, 0x60);
                 }
                 else
                 {

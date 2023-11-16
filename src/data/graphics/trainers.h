@@ -526,6 +526,36 @@ const u32 gTrainerPalette_Kalos_Viola[] = INCBIN_U32("graphics/trainers/front_pi
 const u32 gTrainerPalette_Kalos_Wikstrom[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wikstrom.gbapal.lz");
 const u32 gTrainerPalette_Kalos_Wulfric[] = INCBIN_U32("graphics/trainers/front_pics/kalos/wulfric.gbapal.lz");
 
+const u32 gTrainerFrontPic_Alola_Acerola[] = INCBIN_U32("graphics/trainers/front_pics/alola/acerola.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Hala[] = INCBIN_U32("graphics/trainers/front_pics/alola/hala.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Hapu[] = INCBIN_U32("graphics/trainers/front_pics/alola/hapu.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Ilima[] = INCBIN_U32("graphics/trainers/front_pics/alola/ilima.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Kahili[] = INCBIN_U32("graphics/trainers/front_pics/alola/kahili.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Kiawe[] = INCBIN_U32("graphics/trainers/front_pics/alola/kiawe.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Kukui[] = INCBIN_U32("graphics/trainers/front_pics/alola/kukui.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Lana[] = INCBIN_U32("graphics/trainers/front_pics/alola/lana.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Mallow[] = INCBIN_U32("graphics/trainers/front_pics/alola/mallow.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Mina[] = INCBIN_U32("graphics/trainers/front_pics/alola/mina.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Molayne[] = INCBIN_U32("graphics/trainers/front_pics/alola/molayne.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Nanu[] = INCBIN_U32("graphics/trainers/front_pics/alola/nanu.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Olivia[] = INCBIN_U32("graphics/trainers/front_pics/alola/olivia.4bpp.lz");
+const u32 gTrainerFrontPic_Alola_Sophocles[] = INCBIN_U32("graphics/trainers/front_pics/alola/sophocles.4bpp.lz");
+
+const u32 gTrainerPalette_Alola_Acerola[] = INCBIN_U32("graphics/trainers/front_pics/alola/acerola.gbapal.lz");
+const u32 gTrainerPalette_Alola_Hala[] = INCBIN_U32("graphics/trainers/front_pics/alola/hala.gbapal.lz");
+const u32 gTrainerPalette_Alola_Hapu[] = INCBIN_U32("graphics/trainers/front_pics/alola/hapu.gbapal.lz");
+const u32 gTrainerPalette_Alola_Ilima[] = INCBIN_U32("graphics/trainers/front_pics/alola/ilima.gbapal.lz");
+const u32 gTrainerPalette_Alola_Kahili[] = INCBIN_U32("graphics/trainers/front_pics/alola/kahili.gbapal.lz");
+const u32 gTrainerPalette_Alola_Kiawe[] = INCBIN_U32("graphics/trainers/front_pics/alola/kiawe.gbapal.lz");
+const u32 gTrainerPalette_Alola_Kukui[] = INCBIN_U32("graphics/trainers/front_pics/alola/kukui.gbapal.lz");
+const u32 gTrainerPalette_Alola_Lana[] = INCBIN_U32("graphics/trainers/front_pics/alola/lana.gbapal.lz");
+const u32 gTrainerPalette_Alola_Mallow[] = INCBIN_U32("graphics/trainers/front_pics/alola/mallow.gbapal.lz");
+const u32 gTrainerPalette_Alola_Mina[] = INCBIN_U32("graphics/trainers/front_pics/alola/mina.gbapal.lz");
+const u32 gTrainerPalette_Alola_Molayne[] = INCBIN_U32("graphics/trainers/front_pics/alola/molayne.gbapal.lz");
+const u32 gTrainerPalette_Alola_Nanu[] = INCBIN_U32("graphics/trainers/front_pics/alola/nanu.gbapal.lz");
+const u32 gTrainerPalette_Alola_Olivia[] = INCBIN_U32("graphics/trainers/front_pics/alola/olivia.gbapal.lz");
+const u32 gTrainerPalette_Alola_Sophocles[] = INCBIN_U32("graphics/trainers/front_pics/alola/sophocles.gbapal.lz");
+
 
 const u32 gTrainerFrontPic_Pokabbie[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_front_pic.4bpp.lz");
 const u32 gTrainerFrontPic_PokabbieAndDitto[] = INCBIN_U32("graphics/trainers/front_pics/pokabbie_and_ditto_front_pic.4bpp.lz");
