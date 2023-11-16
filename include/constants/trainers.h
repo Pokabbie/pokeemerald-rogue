@@ -190,6 +190,21 @@
 #define TRAINER_PIC_KALOS_WIKSTROM        160
 #define TRAINER_PIC_KALOS_WULFRIC         161
 
+#define TRAINER_PIC_ALOLA_ACEROLA         162
+#define TRAINER_PIC_ALOLA_HALA            163
+#define TRAINER_PIC_ALOLA_HAPU            164
+#define TRAINER_PIC_ALOLA_ILIMA           165
+#define TRAINER_PIC_ALOLA_KAHILI          166
+#define TRAINER_PIC_ALOLA_KIAWE           167
+#define TRAINER_PIC_ALOLA_KUKUI           168
+#define TRAINER_PIC_ALOLA_LANA            169
+#define TRAINER_PIC_ALOLA_MALLOW          170
+#define TRAINER_PIC_ALOLA_MINA            171
+#define TRAINER_PIC_ALOLA_MOLAYNE         172
+#define TRAINER_PIC_ALOLA_NANU            173
+#define TRAINER_PIC_ALOLA_OLIVIA          174
+#define TRAINER_PIC_ALOLA_SOPHOCLES       175
+
 // gap for now as there are some more gens on the way
 
 #define TRAINER_PIC_ETHAN                 200

@@ -3571,7 +3571,7 @@
             {
                 "name": "HALA",
                 "type_assignment": "FIGHTING",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_HALA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
@@ -3596,7 +3596,7 @@
             {
                 "name": "OLIVA",
                 "type_assignment": "ROCK",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_OLIVA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
@@ -3621,7 +3621,7 @@
             {
                 "name": "NANU",
                 "type_assignment": "DARK",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_NANU",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3646,7 +3646,7 @@
             {
                 "name": "HAPU",
                 "type_assignment": "GROUND",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_HAPU",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3672,7 +3672,7 @@
             {
                 "name": "ILIMA",
                 "type_assignment": "NORMAL",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_ILIMA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3697,7 +3697,7 @@
             {
                 "name": "LANA",
                 "type_assignment": "WATER",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_LANA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3722,7 +3722,7 @@
             {
                 "name": "KIAWE",
                 "type_assignment": "FIRE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_KIAWE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3747,7 +3747,7 @@
             {
                 "name": "MALLOW",
                 "type_assignment": "GRASS",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_MALLOW",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3772,7 +3772,7 @@
             {
                 "name": "SOPHOCLES",
                 "type_assignment": "ELECTRIC",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_SOPHOCLES",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
@@ -3797,7 +3797,7 @@
             {
                 "name": "ACEROLA",
                 "type_assignment": "GHOST",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_ACEROLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
@@ -3823,7 +3823,7 @@
             {
                 "name": "MINA",
                 "type_assignment": "FAIRY",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_MINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
@@ -3852,7 +3852,7 @@
             {
                 "name": "KAHILI",
                 "type_assignment": "FLYING",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_KAHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_ELITE" ],
@@ -3878,7 +3878,7 @@
             {
                 "name": "MOLAYNE",
                 "type_assignment": "STEEL",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_MOLAYNE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_ELITE" ],
@@ -3907,7 +3907,7 @@
             {
                 "name": "PROF. KUKUI",
                 "type_assignment": "NONE",
-                "gfx_suffix": "PLACEHOLDER_NPC",
+                "gfx_suffix": "ALOLA_KUKUI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_CHAMP" ],
