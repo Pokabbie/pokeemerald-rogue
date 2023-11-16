@@ -211,7 +211,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_CHEREN",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "unova_boss",
+                "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -235,7 +235,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_BIANCA",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "unova_boss",
+                "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -259,7 +259,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_N",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "unova_boss",
+                "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -283,7 +283,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_HUGH",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "unova_boss",
+                "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -308,7 +308,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_SHAUNA",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "kalos_boss",
+                "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -332,7 +332,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_TIERNO",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "kalos_boss",
+                "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -356,7 +356,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_TREVOR",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "kalos_boss",
+                "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -381,7 +381,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_HAU",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "alola_boss",
+                "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -405,7 +405,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_GLADION",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "alola_boss",
+                "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -430,7 +430,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_HOP",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "galar_boss",
+                "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -454,7 +454,7 @@
                 "type_assignment": "FAIRY",
                 "gfx_suffix": "RIVAL_BEDE",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "galar_boss",
+                "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -490,7 +490,7 @@
                 "type_assignment": "DARK",
                 "gfx_suffix": "RIVAL_MARNIE",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "galar_boss",
+                "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "team_generator":
                 {
@@ -3594,7 +3594,7 @@
                 }
             },
             {
-                "name": "OLIVA",
+                "name": "OLIVIA",
                 "type_assignment": "ROCK",
                 "gfx_suffix": "ALOLA_OLIVIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
