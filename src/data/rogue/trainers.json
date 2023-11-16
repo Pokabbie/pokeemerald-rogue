@@ -3596,7 +3596,7 @@
             {
                 "name": "OLIVA",
                 "type_assignment": "ROCK",
-                "gfx_suffix": "ALOLA_OLIVA",
+                "gfx_suffix": "ALOLA_OLIVIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
