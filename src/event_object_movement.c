@@ -5391,6 +5391,40 @@ static void ObjectEventSetSingleMovement(struct ObjectEvent *objectEvent, struct
     sprite->sActionFuncId = 0;
 }
 
+
+union PackedBobbingAnimData
+{
+    s16 packed;
+    struct
+    {
+        s16 timer : 15;
+        s16 state : 1;
+    } unpacked;
+};
+
+static void ApplyBobbingAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    union PackedBobbingAnimData data = { sprite->data[7] };
+
+    if(data.unpacked.timer > 0)
+    {
+        --data.unpacked.timer;
+    }
+    else
+    {
+        data.unpacked.timer = 8;
+        data.unpacked.state = (data.unpacked.state == 0) ? 1 : 0;
+    }
+
+    // Bobbing animation
+    if(data.unpacked.state)
+        sprite->y2 += 1;
+    //else
+    //    sprite->y2 -= 1;
+
+    sprite->data[7] = data.packed;
+}
+
 static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
 {
     SetObjectEventDirection(objectEvent, direction);
@@ -5400,8 +5434,12 @@ static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite
     if(FollowMon_IsMonObject(objectEvent, FALSE) && FollowMon_ShouldAlwaysAnimation(objectEvent))
     {
         SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+
         sprite->animPaused = FALSE;
         sprite->sActionFuncId = 1;
+
+        if(FollowMon_ShouldApplyBobbingAnimation(objectEvent))
+            ApplyBobbingAnim(objectEvent, sprite);
     }
     else
     {
@@ -5479,6 +5517,11 @@ static bool8 UpdateMovementNormal(struct ObjectEvent *objectEvent, struct Sprite
         sprite->animPaused = TRUE;
         return TRUE;
     }
+    
+    // Special case for follower mons who we want to animator always
+    if(FollowMon_ShouldApplyBobbingAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+        ApplyBobbingAnim(objectEvent, sprite);
+
     return FALSE;
 }
 
