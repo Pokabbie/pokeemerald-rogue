@@ -81,6 +81,9 @@ enum
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
     PLAYER_OUTFIT_KATE,
+    PLAYER_OUTFIT_ERMA,
+    PLAYER_OUTFIT_RAVEN,
+    PLAYER_OUTFIT_TAILS,
 
     PLAYER_OUTFIT_COUNT,
 };
@@ -148,6 +151,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRidin
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
+
 
 // We should always load something to as other object animation/effects rely on this palette slot
 #define DEFAULT_PAL_TO_LOAD gObjectEventPal_PlayerBrendanBase
@@ -566,7 +573,67 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontLayerPal = NULL,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
-    }
+    },
+    [PLAYER_OUTFIT_ERMA] =
+    {
+        .name = _("Erma"),
+        .trainerFrontPic = TRAINER_PIC_GLITCH_ERMA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_ERMA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Erma,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Erma,
+        },
+        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
+    [PLAYER_OUTFIT_RAVEN] =
+    {
+        .name = _("Raven"),
+        .trainerFrontPic = TRAINER_PIC_GLITCH_RAVEN,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .outfitUnlockId = OUTFIT_UNLOCK_RAVEN,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Raven,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Raven,
+        },
+        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
+    [PLAYER_OUTFIT_TAILS] =
+    {
+        .name = _("TMK4"),
+        .trainerFrontPic = TRAINER_PIC_GLITCH_TAILS,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .outfitUnlockId = OUTFIT_UNLOCK_TAILS,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Tails,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Tails,
+        },
+        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
@@ -578,7 +645,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
         {
             .easterEgg = 
             {
-                .name = _("POKABBI"),
+                .name = _("ABBIE"),
                 .eggSpecies = SPECIES_MAREEP,
             }
         }
@@ -634,7 +701,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
         {
             .easterEgg = 
             {
-                .name = _("TAILS"),
+                .name = _("TMK4"),
                 .eggSpecies = SPECIES_AZURILL,
             }
         }
@@ -906,7 +973,7 @@ bool8 RoguePlayer_HandleEasterEggOutfitUnlocks()
 
             if(
                 // Check species matches
-                species == sOutfitUnlocks[unlockId].params.easterEgg.eggSpecies &&
+                (species == sOutfitUnlocks[unlockId].params.easterEgg.eggSpecies || sOutfitUnlocks[unlockId].params.easterEgg.eggSpecies == SPECIES_NONE) &&
                 // Check player name matches
                 StringCompareCaseInsensitiveN(gSaveBlock2Ptr->playerName, sOutfitUnlocks[unlockId].params.easterEgg.name, PLAYER_NAME_LENGTH) == 0
             )
