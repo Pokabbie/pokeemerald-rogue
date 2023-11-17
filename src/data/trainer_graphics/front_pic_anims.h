@@ -573,6 +573,18 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_ALOLA_NANU] = sAnims_Kanto,
     [TRAINER_PIC_ALOLA_OLIVIA] = sAnims_Kanto,
     [TRAINER_PIC_ALOLA_SOPHOCLES] = sAnims_Kanto,
+    
+    [TRAINER_PIC_GALAR_ALLISTER] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_BEA] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_GORDIE] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_KABU] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_LEON] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_MELONY] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_MILO] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_NESSA] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_OPAL] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_PIERS] = sAnims_Kanto,
+    [TRAINER_PIC_GALAR_RAIHAN] = sAnims_Kanto,
 
     [TRAINER_PIC_POKABBIE] = sAnims_Kanto,
     [TRAINER_PIC_POKABBIE_JUST_DITTO] = sAnims_Kanto,

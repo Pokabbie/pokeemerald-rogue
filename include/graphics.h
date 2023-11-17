@@ -3128,6 +3128,30 @@ extern const u32 gTrainerPalette_Alola_Nanu[];
 extern const u32 gTrainerPalette_Alola_Olivia[];
 extern const u32 gTrainerPalette_Alola_Sophocles[];
 
+extern const u32 gTrainerFrontPic_Galar_Allister[];
+extern const u32 gTrainerFrontPic_Galar_Bea[];
+extern const u32 gTrainerFrontPic_Galar_Gordie[];
+extern const u32 gTrainerFrontPic_Galar_Kabu[];
+extern const u32 gTrainerFrontPic_Galar_Leon[];
+extern const u32 gTrainerFrontPic_Galar_Melony[];
+extern const u32 gTrainerFrontPic_Galar_Milo[];
+extern const u32 gTrainerFrontPic_Galar_Nessa[];
+extern const u32 gTrainerFrontPic_Galar_Opal[];
+extern const u32 gTrainerFrontPic_Galar_Piers[];
+extern const u32 gTrainerFrontPic_Galar_Raihan[];
+
+extern const u32 gTrainerPalette_Galar_Allister[];
+extern const u32 gTrainerPalette_Galar_Bea[];
+extern const u32 gTrainerPalette_Galar_Gordie[];
+extern const u32 gTrainerPalette_Galar_Kabu[];
+extern const u32 gTrainerPalette_Galar_Leon[];
+extern const u32 gTrainerPalette_Galar_Melony[];
+extern const u32 gTrainerPalette_Galar_Milo[];
+extern const u32 gTrainerPalette_Galar_Nessa[];
+extern const u32 gTrainerPalette_Galar_Opal[];
+extern const u32 gTrainerPalette_Galar_Piers[];
+extern const u32 gTrainerPalette_Galar_Raihan[];
+
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
 extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
