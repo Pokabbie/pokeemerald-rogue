@@ -727,9 +727,11 @@ const u32 gObjectEventPic_Rival_Trevor[] = INCBIN_U32("graphics/object_events/pi
 
 const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
 const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
+const u32 gObjectEventPic_Glitch_Raven[] = INCBIN_U32("graphics/object_events/pics/people/glitch/raven.4bpp");
 
 const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/pics/people/glitch/kate.gbapal");
-const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/palettes/glitch/npc_erma.gbapal");
+const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/pics/people/glitch/erma.gbapal");
+//const u16 gObjectEventPal_Glitch_NPC_Raven[] = INCBIN_U16("graphics/object_events/pics/people/glitch/raven.gbapal");
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/rogue/pc_stand.4bpp");

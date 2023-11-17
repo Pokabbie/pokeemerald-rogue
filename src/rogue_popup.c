@@ -162,6 +162,9 @@ extern const u8 gText_Popup_RogueAssistant[];
 extern const u8 gText_Popup_Connected[];
 extern const u8 gText_Popup_Disconnected[];
 
+extern const u8 gText_Popup_OutfitUnlocked[];
+extern const u8 gText_Popup_ItsASecret[];
+
 enum
 {
     POPUP_COMMON_CLASSIC,
@@ -1121,4 +1124,16 @@ void Rogue_PushPopup_AssistantDisconnected()
 
     popup->titleText = gText_Popup_RogueAssistant;
     popup->subtitleText = gText_Popup_Disconnected;
+}
+
+void Rogue_PushPopup_OutfitUnlocked()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_GREEN_SCARF;
+    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+
+    popup->titleText = gText_Popup_OutfitUnlocked;
+    popup->subtitleText = gText_Popup_ItsASecret;
 }

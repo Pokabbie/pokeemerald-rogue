@@ -59,6 +59,13 @@ script Rogue_Interior_Home_ChangeClothes
 {
     lockall
 
+    specialvar(VAR_RESULT, RoguePlayer_HandleEasterEggOutfitUnlocks)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_Common_DisplayPopups)
+    }
+
     message(format("What would you like to do?"))
     waitmessage
 

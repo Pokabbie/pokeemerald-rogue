@@ -85,13 +85,6 @@ void TrySetMapSaveWarpStatus(void)
 // These flags are read by Pokemon Colosseum/XD for linking. XD Additionally requires FLAG_SYS_GAME_CLEAR
 void SetUnlockedPokedexFlags(void)
 {
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 15);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 0);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 1);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 2);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 4);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 5);
-    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 3);
 }
 
 void SetChampionSaveWarp(void)

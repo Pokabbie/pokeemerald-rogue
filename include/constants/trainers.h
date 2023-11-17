@@ -206,6 +206,18 @@
 #define TRAINER_PIC_ALOLA_OLIVIA          174
 #define TRAINER_PIC_ALOLA_SOPHOCLES       175
 
+#define TRAINER_PIC_GALAR_ALLISTER        176
+#define TRAINER_PIC_GALAR_BEA             177
+#define TRAINER_PIC_GALAR_GORDIE          178
+#define TRAINER_PIC_GALAR_KABU            179
+#define TRAINER_PIC_GALAR_LEON            180
+#define TRAINER_PIC_GALAR_MELONY          181
+#define TRAINER_PIC_GALAR_MILO            182
+#define TRAINER_PIC_GALAR_NESSA           183
+#define TRAINER_PIC_GALAR_OPAL            184
+#define TRAINER_PIC_GALAR_PIERS           185
+#define TRAINER_PIC_GALAR_RAIHAN          186
+
 // gap for now as there are some more gens on the way
 
 #define TRAINER_PIC_ETHAN                 200
@@ -226,6 +238,7 @@
 #define TRAINER_PIC_GLITCH_KATE           213
 #define TRAINER_PIC_GLITCH_TAILS          214
 #define TRAINER_PIC_GLITCH_ERMA           215
+#define TRAINER_PIC_GLITCH_RAVEN          TRAINER_PIC_POKEMON_BREEDER_F
 
 #define TRAINER_PIC_RIVAL_BRENDAN         216
 #define TRAINER_PIC_RIVAL_MAY             217

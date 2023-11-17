@@ -241,6 +241,7 @@ gSpecials::
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom
+	def_special RoguePlayer_HandleEasterEggOutfitUnlocks
 	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending

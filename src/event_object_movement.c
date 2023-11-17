@@ -558,7 +558,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1188
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1189
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x118A
+//#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN       0x118A
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x118B
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -719,6 +720,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
+    //{gObjectEventPal_Glitch_NPC_Raven,      OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
     {},
 };
