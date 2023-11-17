@@ -29,6 +29,10 @@ void RoguePlayer_SetOutfitId(u16 outfit);
 u16 RoguePlayer_GetOutfitId();
 u32 RoguePlayer_GetOutfitTrainerFlags();
 
+bool8 RoguePlayer_HasUnlockedOutfitId(u16 outfit);
+void RoguePlayer_EnsureUnlockedOutfitId(u16 outfit);
+bool8 RoguePlayer_HandleEasterEggOutfitUnlocks();
+
 u16 RoguePlayer_GetOutfitCount();
 const u8* RoguePlayer_GetOutfitName();
 

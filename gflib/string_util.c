@@ -149,6 +149,31 @@ s32 StringCompareN(const u8 *str1, const u8 *str2, u32 n)
     return *str1 - *str2;
 }
 
+static u8 CharToLower(u8 c)
+{
+    if(c >= CHAR_A && c <= CHAR_Z)
+    {
+        return c  + CHAR_a - CHAR_A;
+    }
+
+    return c;
+}
+
+s32 StringCompareCaseInsensitiveN(const u8 *str1, const u8 *str2, u32 n)
+{
+    while (CharToLower(*str1) == CharToLower(*str2))
+    {
+        if (*str1 == EOS)
+            return 0;
+        str1++;
+        str2++;
+        if (--n == 0)
+            return 0;
+    }
+
+    return CharToLower(*str1) - CharToLower(*str2);
+}
+
 bool8 IsStringLengthAtLeast(const u8 *str, s32 n)
 {
     u8 i;

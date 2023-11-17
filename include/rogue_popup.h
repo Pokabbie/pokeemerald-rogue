@@ -29,4 +29,6 @@ void Rogue_PushPopup_UpgradePokedex();
 void Rogue_PushPopup_AssistantConnected();
 void Rogue_PushPopup_AssistantDisconnected();
 
+void Rogue_PushPopup_OutfitUnlocked();
+
 #endif //QUEST_POPUP_H

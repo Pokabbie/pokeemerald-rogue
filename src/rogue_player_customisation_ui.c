@@ -1219,10 +1219,14 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
 
     if(JOY_NEW(DPAD_LEFT))
     {
-        if(outfitId == 0)
-            outfitId = outfitCount - 1;
-        else
-            --outfitId;
+        do
+        {
+            if(outfitId == 0)
+                outfitId = outfitCount - 1;
+            else
+                --outfitId;
+        }
+        while(!RoguePlayer_HasUnlockedOutfitId(outfitId));
 
         RoguePlayer_SetOutfitId(outfitId);
         RoguePlayerUI_RefreshPageEntries();
@@ -1230,7 +1234,11 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
     }
     else if(JOY_NEW(DPAD_RIGHT))
     {
-        outfitId = (outfitId + 1) % outfitCount;
+        do
+        {
+            outfitId = (outfitId + 1) % outfitCount;
+        }
+        while(!RoguePlayer_HasUnlockedOutfitId(outfitId));
 
         RoguePlayer_SetOutfitId(outfitId);
         RoguePlayerUI_RefreshPageEntries();

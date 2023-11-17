@@ -261,6 +261,9 @@ const u8 gText_Popup_RogueAssistant[] = _("Rogue Assistant");
 const u8 gText_Popup_Connected[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Connected!");
 const u8 gText_Popup_Disconnected[] = _("{COLOR RED}{SHADOW LIGHT_RED}Disconnected.");
 
+const u8 gText_Popup_OutfitUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Outfit Unlocked!");
+const u8 gText_Popup_ItsASecret[] = _("Shh… its a secret");
+
 // Debug
 //
 #ifdef ROGUE_DEBUG
