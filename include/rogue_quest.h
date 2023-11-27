@@ -1,6 +1,83 @@
 #ifndef ROGUE_QUEST_H
 #define ROGUE_QUEST_H
 
+#include "constants/generated/quests.h"
+
+typedef u8 (*QuestFunc)(u16 questId, u16 trigger);
+
+enum
+{
+    QUEST_REWARD_POKEMON,
+    QUEST_REWARD_ITEM,
+    QUEST_REWARD_SHOP_ITEM,
+    QUEST_REWARD_MONEY,
+    QUEST_REWARD_QUEST_UNLOCK,
+};
+
+struct RogueQuestRewardNEW
+{
+    u8 type;
+    union
+    {
+        struct
+        {
+            u16 species;
+            u8 isShiny : 1;
+        } pokemon;
+        struct
+        {
+            u16 item;
+            u16 count;
+        } item;
+        struct
+        {
+            u16 item;
+        } shopItem;
+        struct
+        {
+            u32 amount;
+        } money;
+        struct
+        {
+            u16 questId;
+        } questUnlock;
+    } perType;
+};
+
+struct RogueQuestEntry
+{
+    u8 const* title;
+    u8 const* desc;
+    u16 const* triggerParams;
+    struct RogueQuestRewardNEW const* rewards;
+    QuestFunc triggerFunc;
+    u32 flags;
+    u32 triggerFlags;
+    u16 triggerParamCount;
+    u16 stateOffset;
+    u16 stateSize;
+    u16 rewardCount;
+};
+
+u8 const* RogueQuest_GetTitle(u16 questId);
+u8 const* RogueQuest_GetDesc(u16 questId);
+bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag);
+
+bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
+void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
+
+bool8 RogueQuest_IsQuestUnlocked(u16 questId);
+bool8 RogueQuest_TryUnlockQuest(u16 questId);
+void RogueQuest_ClearNewUnlockQuests();
+
+void RogueQuest_ActivateQuestsFor(u32 flags);
+
+void RogueQuest_OnNewGame();
+void RogueQuest_OnLoadGame();
+void RogueQuest_OnTrigger(u16 trigger);
+
+
+// old
 void ResetQuestStateAfter(u16 loadedQuestCapacity);
 bool8 AnyNewQuests(void);
 bool8 AnyQuestRewardsPending(void);
@@ -10,8 +87,8 @@ u16 GetCompletedQuestCount(void);
 u16 GetUnlockedQuestCount(void);
 u8 GetCompletedQuestPerc(void);
 
-bool8 GetQuestState(u16 questId, struct RogueQuestState* outState);
-void SetQuestState(u16 questId, struct RogueQuestState* state);
+bool8 GetQuestState(u16 questId, struct OLDRogueQuestState* outState);
+void SetQuestState(u16 questId, struct OLDRogueQuestState* state);
 
 bool8 IsQuestRepeatable(u16 questId);
 bool8 IsQuestCollected(u16 questId);

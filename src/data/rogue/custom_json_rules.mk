@@ -6,5 +6,14 @@ $(DATA_SRC_SUBDIR)/rogue/battle_music.h: $(DATA_SRC_SUBDIR)/rogue/battle_music.j
 $(DATA_SRC_SUBDIR)/rogue/trainers.h: $(DATA_SRC_SUBDIR)/rogue/trainers.json
 	$(CUSTOMJSON) trainers_c $^ $@
 
+$(DATA_SRC_SUBDIR)/rogue/quests.h: $(DATA_SRC_SUBDIR)/rogue/quests.json
+	$(CUSTOMJSON) quests_c $^ $@
+
+include/constants/generated/quests.h: $(DATA_SRC_SUBDIR)/rogue/quests.json
+	$(CUSTOMJSON) quests_h $^ $@
+
 $(ROGUEPORYSCRIPTSDIR)/Generated/trainers.pory: $(DATA_SRC_SUBDIR)/rogue/trainers.json
 	$(CUSTOMJSON) trainers_pory $^ $@
+
+$(ROGUEPORYSCRIPTSDIR)/Generated/quests.pory: $(DATA_SRC_SUBDIR)/rogue/quests.json
+	$(CUSTOMJSON) quests_pory $^ $@

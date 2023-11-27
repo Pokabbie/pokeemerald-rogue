@@ -1,0 +1,96 @@
+{
+    "quest_groups":
+    {
+        "default_quests":
+        {
+            "sort_order": 1,
+            "group_flags": 
+            [
+                "MAIN_QUEST_DEFAULT",
+                "ACTIVE_IN_RUN"
+            ],
+            "quests":
+            [
+                {
+                    "#if": "1",
+                    "sort_order": -100,
+                    "name": "To Adventure!",
+                    "description": "Embark on your first Adventure!",
+                    "state_bytes": 4,
+                    "flags": 
+                    [
+                        "ALWAYS_ACTIVE"
+                    ],
+                    "callback":
+                    {
+                        "method": "QuestFunc_AutoSuccess",
+                        "triggers": [ "RUN_START" ],
+                        "params": [ 0 ]
+                    },
+                    "rewards":
+                    [
+                        { "species": "SPECIES_WOBBUFFET" },
+                        { "quest": "Challenger Approaches!" }
+                    ]
+                }
+            ]
+        },
+        "default_challenges":
+        {
+            "sort_order": 1,
+            "group_flags": 
+            [
+                "CHALLENGE_DEFAULT",
+                "ACTIVE_IN_RUN"
+            ],
+            "quests":
+            [
+                {
+                    "name": "Challenger Approaches!",
+                    "description": "Complete any Challenge Quest!",
+                    "flags": 
+                    [
+                        "ALWAYS_ACTIVE"
+                    ],
+                    "callback":
+                    {
+                        "method": "NULL",
+                        "triggers": [ "RUN_START" ]
+                    },
+                    "rewards":
+                    [
+                        { "species": "SPECIES_WOBBUFFET", "shiny": true }
+                    ]
+                }
+            ]
+        },
+        "type_challenges":
+        {
+            "sort_order": 2,
+            "group_flags": 
+            [
+                "CHALLENGE_DEFAULT",
+                "ACTIVE_IN_RUN"
+            ],
+            "quests":
+            [
+                {
+                    "name": "Normal Master",
+                    "description": "Win a full Run, only ever entering Trainer battles with Normal type Pokémon in your party.",
+                    "callback":
+                    {
+                        "method": "QuestFunc_HasOnlyType",
+                        "params": [ "TYPE_NORMAL" ],
+                        "triggers": [ "TRAINER_BATTLE_START" ]
+                    },
+                    "rewards":
+                    [
+                        { "money": 5000 },
+                        { "item": "ITEM_SILK_SCARF" },
+                        { "#if": "defined(ROGUE_EXPANSION)", "item": "ITEM_CHILAN_BERRY" }
+                    ]
+                }
+            ]
+        }
+    }
+}
