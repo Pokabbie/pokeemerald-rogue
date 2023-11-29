@@ -411,7 +411,7 @@ void RogueDebug_CompleteAvaliableQuests(void)
 #ifdef ROGUE_DEBUG
     u16 i;
     u16 questId;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
@@ -436,7 +436,7 @@ void RogueDebug_CollectAllQuests(void)
     bool8 shouldLoop;
     u16 i;
     u16 questId;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     shouldLoop = TRUE;
 

@@ -11,6 +11,8 @@ using json = nlohmann::json;
 #include "StringUtils.h"
 
 std::string const c_TabSpacing = "    ";
+std::string const c_TabSpacing2 = "        ";
+std::string const c_TabSpacing3 = "            ";
 
 void FatalExit();
 

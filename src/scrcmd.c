@@ -2503,7 +2503,7 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
 
 bool8 ScrCmd_questcompleted(struct ScriptContext *ctx)
 {
-    struct RogueQuestState state;
+    struct OLDRogueQuestState state;
     u16 index = ScriptReadHalfword(ctx);
 
     gSpecialVar_Result = FALSE;

@@ -18,6 +18,181 @@
 #include "rogue_settings.h"
 #include "rogue_popup.h"
 
+// new quests
+
+static u8* RogueQuest_GetExtraState(size_t size);
+static u8 QuestFunc_AutoSuccess(u16 questId, u16 trigger);
+static u8 QuestFunc_HasOnlyType(u16 questId, u16 trigger);
+
+#include "data/rogue/quests.h"
+
+STATIC_ASSERT(QUEST_SAVE_COUNT == QUEST_ID_COUNT, saveQuestCountMissmatch);
+
+static u8* RogueQuest_GetExtraState(size_t size)
+{
+    // todo
+    AGB_ASSERT(FALSE);
+    return NULL;
+}
+
+static struct RogueQuestEntry const* RogueQuest_GetEntry(u16 questId)
+{
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return &sQuestEntries[questId];
+}
+
+static struct RogueQuestStateNEW* RogueQuest_GetState(u16 questId)
+{
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return &gRogueSaveBlock->questStatesNEW[questId];
+}
+
+u8 const* RogueQuest_GetTitle(u16 questId)
+{
+    struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return entry->title;
+}
+
+u8 const* RogueQuest_GetDesc(u16 questId)
+{
+    struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return entry->desc;
+}
+
+bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag)
+{
+    struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return (entry->flags & flag) != 0;
+}
+
+bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)
+{
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+    return (questState->stateFlags & flag) != 0;
+}
+
+void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state)
+{
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+
+    if(state)
+        questState->stateFlags |= flag;
+    else
+        questState->stateFlags &= ~flag;
+}
+
+static bool8 CanActivateQuest(u16 questId)
+{
+    if(RogueQuest_IsQuestUnlocked(questId))
+        return FALSE;
+
+    if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+        return FALSE;
+
+    // TODO - Check if complete and is repeatable + check completion state for current difficulty
+    return TRUE;
+}
+
+bool8 RogueQuest_IsQuestUnlocked(u16 questId)
+{
+    return RogueQuest_GetStateFlag(questId, QUEST_STATE_UNLOCKED);
+}
+
+bool8 RogueQuest_TryUnlockQuest(u16 questId)
+{
+    if(!RogueQuest_IsQuestUnlocked(questId))
+    {
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_UNLOCKED, TRUE);
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_NEW_UNLOCK, TRUE);
+    }
+}
+
+void RogueQuest_ClearNewUnlockQuests()
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_IsQuestUnlocked(i))
+            RogueQuest_SetStateFlag(i, QUEST_STATE_NEW_UNLOCK, FALSE);
+    }
+}
+
+void RogueQuest_ActivateQuestsFor(u32 flags)
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if((sQuestEntries[i].flags & flags) != 0 && CanActivateQuest(i))
+        {
+            RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, TRUE);
+            // TODO - Reset tracking
+        }
+        else
+        {
+            RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, FALSE);
+        }
+    }
+}
+
+static void EnsureUnlockedDefaultQuests()
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT))
+            RogueQuest_TryUnlockQuest(i);
+    }
+}
+
+void RogueQuest_OnNewGame()
+{
+    memset(gRogueSaveBlock->questStatesNEW, 0, sizeof(gRogueSaveBlock->questStatesNEW));
+    EnsureUnlockedDefaultQuests();
+}
+
+void RogueQuest_OnLoadGame()
+{
+    EnsureUnlockedDefaultQuests();
+}
+
+void RogueQuest_OnTrigger(u16 trigger)
+{
+    u16 i;
+    struct RogueQuestStateNEW* state;
+
+    // Execute quest callback for any active quests which are listening for this trigger
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if((sQuestEntries[i].triggerFlags & trigger) != 0)
+        {
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE))
+            {
+                sQuestEntries[i].triggerFunc(i, trigger);
+            }
+        }
+    }
+}
+
+static u8 QuestFunc_AutoSuccess(u16 questId, u16 trigger)
+{
+    return QUEST_STATE_SUCCESS;
+}
+
+static u8 QuestFunc_HasOnlyType(u16 questId, u16 trigger)
+{
+    //
+    AGB_ASSERT(FALSE); // todo fix up
+    return QUEST_STATE_SUCCESS;
+}
+
+
+// old
 extern const u8 gText_QuestRewardGive[];
 extern const u8 gText_QuestRewardGiveMoney[];
 extern const u8 gText_QuestRewardGiveMon[];
@@ -28,7 +203,7 @@ static EWRAM_DATA u8 sRewardQuest = 0;
 static EWRAM_DATA u8 sRewardParam = 0;
 static EWRAM_DATA u8 sPreviousRouteType = 0;
 
-typedef void (*QuestCallback)(u16 questId, struct RogueQuestState* state);
+typedef void (*QuestCallbackOLD)(u16 questId, struct OLDRogueQuestState* state);
 
 static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 {
@@ -58,9 +233,9 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void);
-static void ForEachUnlockedQuest(QuestCallback callback);
-static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state);
-static void ActivateHubQuests(u16 questId, struct RogueQuestState* state);
+static void ForEachUnlockedQuest(QuestCallbackOLD callback);
+static void ActivateAdventureQuests(u16 questId, struct OLDRogueQuestState* state);
+static void ActivateHubQuests(u16 questId, struct OLDRogueQuestState* state);
 
 static void UnlockDefaultQuests()
 {
@@ -106,7 +281,7 @@ void ResetQuestStateAfter(u16 loadedQuestCapacity)
         // Reset the state for any new quests
         for(i = loadedQuestCapacity; i < QUEST_CAPACITY; ++i)
         {
-            memset(&gRogueSaveBlock->questStates[i], 0, sizeof(struct RogueQuestState));
+            memset(&gRogueSaveBlock->questStates[i], 0, sizeof(struct OLDRogueQuestState));
         }
 
         // Always make sure default quests are unlocked
@@ -119,7 +294,7 @@ void ResetQuestStateAfter(u16 loadedQuestCapacity)
 bool8 AnyNewQuests(void)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
@@ -136,7 +311,7 @@ bool8 AnyNewQuests(void)
 bool8 AnyQuestRewardsPending(void)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
@@ -153,7 +328,7 @@ bool8 AnyQuestRewardsPending(void)
 bool8 AnyNewQuestsPending(void)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
@@ -170,7 +345,7 @@ bool8 AnyNewQuestsPending(void)
 u16 GetCompletedQuestCount(void)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
     u16 count = 0;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
@@ -186,7 +361,7 @@ u16 GetCompletedQuestCount(void)
 u16 GetUnlockedQuestCount(void)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
     u16 count = 0;
 
     for(i = 0; i < QUEST_CAPACITY; ++i)
@@ -204,22 +379,22 @@ u8 GetCompletedQuestPerc(void)
     return (GetCompletedQuestCount() * 100) / (QUEST_CAPACITY - 1);
 }
 
-bool8 GetQuestState(u16 questId, struct RogueQuestState* outState)
+bool8 GetQuestState(u16 questId, struct OLDRogueQuestState* outState)
 {
     if(questId < QUEST_CAPACITY)
     {
-        memcpy(outState, &gRogueSaveBlock->questStates[questId], sizeof(struct RogueQuestState));
+        memcpy(outState, &gRogueSaveBlock->questStates[questId], sizeof(struct OLDRogueQuestState));
         return outState->isUnlocked;
     }
 
     return FALSE;
 }
 
-void SetQuestState(u16 questId, struct RogueQuestState* state)
+void SetQuestState(u16 questId, struct OLDRogueQuestState* state)
 {
     if(questId < QUEST_CAPACITY)
     {
-        memcpy(&gRogueSaveBlock->questStates[questId], state, sizeof(struct RogueQuestState));
+        memcpy(&gRogueSaveBlock->questStates[questId], state, sizeof(struct OLDRogueQuestState));
     }
 }
 
@@ -230,7 +405,7 @@ bool8 IsQuestRepeatable(u16 questId)
 
 bool8 IsQuestCollected(u16 questId)
 {
-    struct RogueQuestState state;
+    struct OLDRogueQuestState state;
     if (GetQuestState(questId, &state))
     {
         return state.isCompleted && !state.hasPendingRewards;
@@ -246,7 +421,7 @@ bool8 IsQuestGloballyTracked(u16 questId)
 
 bool8 IsQuestActive(u16 questId)
 {
-    struct RogueQuestState state;
+    struct OLDRogueQuestState state;
     if (GetQuestState(questId, &state))
     {
         return state.isValid;
@@ -269,7 +444,7 @@ static struct RogueQuestReward const* GetCurrentRewardTarget()
 static bool8 QueueTargetRewardQuest()
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
     for(i = 0; i < QUEST_CAPACITY; ++i)
     {
         state = &gRogueSaveBlock->questStates[i];
@@ -423,7 +598,7 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type)
 
 bool8 TryUnlockQuest(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueSaveBlock->questStates[questId];
+    struct OLDRogueQuestState* state = &gRogueSaveBlock->questStates[questId];
 
     if(!state->isUnlocked)
     {
@@ -462,7 +637,7 @@ bool8 TryUnlockQuest(u16 questId)
 
 bool8 TryMarkQuestAsComplete(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueSaveBlock->questStates[questId];
+    struct OLDRogueQuestState* state = &gRogueSaveBlock->questStates[questId];
 
     if(state->isValid)
     {
@@ -491,7 +666,7 @@ bool8 TryMarkQuestAsComplete(u16 questId)
 
 bool8 TryDeactivateQuest(u16 questId)
 {
-    struct RogueQuestState* state = &gRogueSaveBlock->questStates[questId];
+    struct OLDRogueQuestState* state = &gRogueSaveBlock->questStates[questId];
 
     if(state->isValid)
     {
@@ -519,10 +694,10 @@ void UnlockFollowingQuests(u16 questId)
     }
 }
 
-static void ForEachUnlockedQuest(QuestCallback callback)
+static void ForEachUnlockedQuest(QuestCallbackOLD callback)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
@@ -534,10 +709,10 @@ static void ForEachUnlockedQuest(QuestCallback callback)
     }
 }
 
-static void ForEachActiveQuest(QuestCallback callback)
+static void ForEachActiveQuest(QuestCallbackOLD callback)
 {
     u16 i;
-    struct RogueQuestState* state;
+    struct OLDRogueQuestState* state;
 
     for(i = QUEST_NONE + 1; i < QUEST_CAPACITY; ++i)
     {
@@ -549,7 +724,7 @@ static void ForEachActiveQuest(QuestCallback callback)
     }
 }
 
-static void TryActivateQuestInternal(u16 questId, struct RogueQuestState* state)
+static void TryActivateQuestInternal(u16 questId, struct OLDRogueQuestState* state)
 {
     if(state->isUnlocked)
     {
@@ -567,7 +742,7 @@ static void TryActivateQuestInternal(u16 questId, struct RogueQuestState* state)
 }
 
 
-static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
+static void ActivateAdventureQuests(u16 questId, struct OLDRogueQuestState* state)
 {
     bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
 
@@ -581,7 +756,7 @@ static void ActivateAdventureQuests(u16 questId, struct RogueQuestState* state)
     }
 }
 
-static void ActivateGauntletAdventureQuests(u16 questId, struct RogueQuestState* state)
+static void ActivateGauntletAdventureQuests(u16 questId, struct OLDRogueQuestState* state)
 {
     // The quests we allow for gauntlet mode
     switch(questId)
@@ -601,7 +776,7 @@ static void ActivateGauntletAdventureQuests(u16 questId, struct RogueQuestState*
     }
 }
 
-static void ActivateHubQuests(u16 questId, struct RogueQuestState* state)
+static void ActivateHubQuests(u16 questId, struct OLDRogueQuestState* state)
 {
     bool8 activeInHub = (gRogueQuests[questId].flags & QUEST_FLAGS_ACTIVE_IN_HUB) != 0;
 
@@ -620,7 +795,7 @@ static void ActivateHubQuests(u16 questId, struct RogueQuestState* state)
 
 static void UpdateChaosChampion(bool8 enteringPotentialEncounter)
 {
-    struct RogueQuestState state;
+    struct OLDRogueQuestState state;
 
     if(IsQuestActive(QUEST_ChaosChampion) && GetQuestState(QUEST_ChaosChampion, &state))
     {
@@ -906,7 +1081,7 @@ static void OnStartBattle(void)
 
 static void OnEndBattle(void)
 {
-    struct RogueQuestState state;
+    struct OLDRogueQuestState state;
 
     if(IsQuestActive(QUEST_Collector1))
     {
@@ -1124,7 +1299,7 @@ void QuestNotify_OnWarp(struct WarpData* warp)
 {
     if(Rogue_IsRunActive())
     {
-        struct RogueQuestState state;
+        struct OLDRogueQuestState state;
 
         // Warped into
         switch(gRogueAdvPath.currentRoomType)
@@ -1242,7 +1417,7 @@ void QuestNotify_OnRemoveMoney(u32 amount)
 {
     if(Rogue_IsRunActive())
     {
-        struct RogueQuestState state;
+        struct OLDRogueQuestState state;
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP)
         {

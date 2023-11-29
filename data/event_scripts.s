@@ -597,6 +597,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/scripts/Rogue/Strings/Rogue_Strings_Common.inc"
 	.include "data/scripts/Rogue/Strings/Rogue_Strings_Items.inc"
 	.include "data/scripts/Rogue/Generated/trainers.inc"
+	.include "data/scripts/Rogue/Generated/quests.inc"
 
 	.include "data/maps/Rogue_Hub/scripts.inc"
 

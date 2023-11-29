@@ -150,7 +150,6 @@ static void DisplayMonEvosText(void);
 static void InitOverviewBg(void);
 static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
-static void PrintDiplomaText(u8 *, u8, u8);
 static void InitPageResources(u8 fromPage, u8 toPage);
 static void DestroyPageResources(u8 fromPage, u8 toPage);
 
@@ -1324,13 +1323,6 @@ static void DestroyMonEntryWindows(void)
     }
 
     FreeAllWindowBuffers();
-}
-
-static void PrintDiplomaText(u8 *text, u8 var1, u8 var2)
-{
-    u8 color[3] = {0, 2, 3};
-
-    AddTextPrinterParameterized4(0, FONT_NORMAL, var1, var2, 0, 0, color, TEXT_SKIP_DRAW, text);
 }
 
 // Title screen

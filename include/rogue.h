@@ -176,7 +176,7 @@ struct RogueQuestConstants
     const u16 unlockedShopRewards[QUEST_MAX_ITEM_SHOP_REWARD_COUNT]; // Specifically into the ROGUE_SHOP_QUEST_REWARDS shop
 };
 
-struct RogueQuestState
+struct OLDRogueQuestState
 {
     union
     {
@@ -189,6 +189,11 @@ struct RogueQuestState
     u8 isPinned : 1;
     u8 hasPendingRewards : 1;
     u8 hasNewMarker : 1;
+};
+
+struct RogueQuestStateNEW
+{
+    u16 stateFlags;
 };
 
 struct RogueCampaignState
@@ -570,7 +575,8 @@ struct RogueSaveBlock
 
     // Everything past this point is not safe to read until the block format
     // has been adjusted
-    struct RogueQuestState questStates[QUEST_CAPACITY];
+    struct OLDRogueQuestState questStates[QUEST_CAPACITY];
+    struct RogueQuestStateNEW questStatesNEW[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[45];
     struct RogueSafariMon safariLegends[15];

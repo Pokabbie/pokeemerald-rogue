@@ -1093,7 +1093,7 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
 {
     s32 x;
     const struct RogueQuestConstants* quest;
-    struct RogueQuestState questState;
+    struct OLDRogueQuestState questState;
     u8 buffer[32];
     const u8 *str;
 
@@ -1143,7 +1143,7 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
     s32 x, y;
     u8 i;
     const struct RogueQuestConstants* quest;
-    struct RogueQuestState questState;
+    struct OLDRogueQuestState questState;
     u8 buffer[32];
     const u8 *str;
 
@@ -1242,16 +1242,19 @@ static void QuestMenuCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if(Rogue_IsQuestMenuOverviewActive())
-    {
-        QuestMenuOverview(0);
-        QuestMenuOverview(1);
-    }
-    else
-    {
-        QuestMenuPreviewDescription(itemIndex);
-        QuestMenuRewardDescription(itemIndex);
-    }
+    // REMOVE
+    AGB_ASSERT(FALSE);
+
+    //if(Rogue_IsQuestMenuOverviewActive())
+    //{
+    //    QuestMenuOverview(0);
+    //    QuestMenuOverview(1);
+    //}
+    //else
+    //{
+    //    QuestMenuPreviewDescription(itemIndex);
+    //    QuestMenuRewardDescription(itemIndex);
+    //}
 }
 
 void QuestMenuPrintText(u8 *str)

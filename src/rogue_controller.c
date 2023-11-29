@@ -2012,8 +2012,9 @@ void Rogue_OnNewGame(void)
     gSaveBlock1Ptr->bagCapacityUpgrades = 0;
 
     RoguePlayer_SetNewGameOutfit();
-    StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
+    RogueQuest_OnNewGame();
 
+    StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
     StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
     
     SetMoney(&gSaveBlock1Ptr->money, 0);
@@ -2104,6 +2105,8 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 
 void Rogue_NotifySaveLoaded(void)
 {
+    RogueQuest_OnLoadGame();
+
     gRogueLocal.hasQuickLoadPending = FALSE;
 
     if(Rogue_IsRunActive() && !FlagGet(FLAG_ROGUE_RUN_COMPLETED))
