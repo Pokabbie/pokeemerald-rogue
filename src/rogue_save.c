@@ -143,7 +143,7 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     //
 
     // Quests
-    SerializeArray(stream, saveBlock->questStates, sizeof(saveBlock->questStates[0]), ARRAY_COUNT(saveBlock->questStates));
+    SerializeArray(stream, saveBlock->questStatesNEW, sizeof(saveBlock->questStatesNEW[0]), ARRAY_COUNT(saveBlock->questStatesNEW));
 
     // Campaigns
     SerializeArray(stream, saveBlock->campaignData, sizeof(saveBlock->campaignData[0]), ARRAY_COUNT(saveBlock->campaignData));

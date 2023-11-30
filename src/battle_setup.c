@@ -347,6 +347,8 @@ static void DoStandardWildBattle(bool32 isDouble)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+
+    Rogue_Battle_StartWildBattle();
 }
 
 void BattleSetup_StartRoamerBattle(void)
@@ -582,6 +584,8 @@ void BattleSetup_StartLegendaryBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
+
+    Rogue_Battle_StartWildBattle();
 }
 
 void StartRegiBattle(void)

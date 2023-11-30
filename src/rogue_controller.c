@@ -2739,6 +2739,11 @@ static void BeginRogueRun(void)
     ChooseLegendarysForNewAdventure();
 
     QuestNotify_BeginAdventure();
+
+    // Trigger before and after as we may have hub/run only quests which are interested in this trigger
+    RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
+    RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_RUN);
+    RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
 }
 
 static void EndRogueRun(void)
@@ -2772,6 +2777,11 @@ static void EndRogueRun(void)
 
     // Grow berries based on progress in runs
     BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
+
+    // Trigger before and after as we may have hub/run only quests which are interested in this trigger
+    RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
+    RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_HUB);
+    RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
 }
 
 static u16 SelectLegendarySpecies(u8 legendId)
@@ -3842,6 +3852,8 @@ void Rogue_Battle_StartTrainerBattle(void)
             gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
         }
     }
+
+    RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
@@ -4052,6 +4064,8 @@ static void EnableRivalEncounterIfRequired()
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
+    RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END);
+
     if(Rogue_IsRunActive())
     {
         bool8 isBossTrainer = Rogue_IsBossTrainer(trainerNum);
@@ -4078,6 +4092,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             {
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
+                RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
             }
 
             VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
@@ -4129,10 +4144,16 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         }
     }
 }
+void Rogue_Battle_StartWildBattle(void)
+{
+    RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);
+}
 
 void Rogue_Battle_EndWildBattle(void)
 {
     u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+
+    RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END);
 
     if(DidCompleteWildChain(gBattleOutcome))
         UpdateWildEncounterChain(wildSpecies);

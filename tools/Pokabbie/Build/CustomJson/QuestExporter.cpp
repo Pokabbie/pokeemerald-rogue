@@ -46,6 +46,15 @@ struct QuestReward
 	questUnlockParams;
 };
 
+struct QuestTrigger
+{
+	std::string callback;
+	std::string passState;
+	std::string failState;
+	std::vector<std::string> flags;
+	std::vector<std::string> params;
+};
+
 struct QuestInfo
 {
 	json groupObj;
@@ -55,9 +64,8 @@ struct QuestInfo
 	int sortOrder;
 	bool isUnlockedViaReward;
 	std::vector<std::string> flags;
-	std::string triggerFunc;
-	std::vector<std::string> triggerFlags;
-	std::vector<std::string> triggerParams;
+	std::vector<QuestTrigger> triggers;
+	std::vector<std::string> collatedTriggerFlags;
 	std::vector<QuestReward> rewards;
 };
 
@@ -94,15 +102,6 @@ void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
 
 		fileStream << "static u8 const sTitle_" << quest.questId << "[] = _(\"" << quest.questObj["name"].get<std::string>() << "\");\n";
 		fileStream << "extern const u8 gQuestDescText_" << quest.questId << "[];\n";
-
-		// Triggers
-		fileStream << "static u16 const sTriggerParams_" << quest.questId << "[] = \n";
-		fileStream << "{\n";
-
-		for(auto const& triggerParam : quest.triggerParams)
-			fileStream << c_TabSpacing << triggerParam << ",\n";
-
-		fileStream << "};\n";
 
 		// Rewards
 		fileStream << "static struct RogueQuestRewardNEW const sRewards_" << quest.questId << "[] = \n";
@@ -179,6 +178,42 @@ void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
 
 		fileStream << "};\n";
 
+		// Triggers
+		// 
+		// Params
+		for (size_t i = 0; i < quest.triggers.size(); ++i)
+		{
+			auto const& trigger = quest.triggers[i];
+
+			fileStream << "static u16 const sTriggerParams_" << quest.questId << "_" << i << "[] = \n";
+			fileStream << "{\n";
+
+			for (auto const& triggerParam : trigger.params)
+				fileStream << c_TabSpacing << triggerParam << ",\n";
+
+			fileStream << "};\n";
+		}
+
+		// Trigger array
+		fileStream << "static struct RogueQuestTrigger const sTriggers_" << quest.questId << "[] = \n";
+		fileStream << "{\n";
+		for (size_t i = 0; i < quest.triggers.size(); ++i)
+		{
+			auto const& trigger = quest.triggers[i];
+
+			fileStream << c_TabSpacing << "{\n";
+
+			fileStream << c_TabSpacing2 << ".callback = QuestCondition_" << trigger.callback << ",\n";
+			fileStream << c_TabSpacing2 << ".passState = QUEST_STATUS_" << trigger.passState << ",\n";
+			fileStream << c_TabSpacing2 << ".failState = QUEST_STATUS_" << trigger.failState << ",\n";
+			fileStream << c_TabSpacing2 << ".flags = " << FlagsToString("QUEST_TRIGGER_", trigger.flags) << ",\n";
+			fileStream << c_TabSpacing2 << ".params = sTriggerParams_" << quest.questId << "_" << i << ",\n";
+			fileStream << c_TabSpacing2 << ".paramCount = ARRAY_COUNT(sTriggerParams_" << quest.questId << "_" << i << "),\n";
+
+			fileStream << c_TabSpacing << "},\n";
+		}
+		fileStream << "};\n";
+
 		if (!quest.preprocessorCondition.empty())
 			fileStream << "#endif\n";
 
@@ -202,10 +237,12 @@ void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
 		fileStream << c_TabSpacing2 << ".desc = gQuestDescText_" << quest.questId << ",\n";
 		fileStream << c_TabSpacing2 << ".flags = " << FlagsToString("QUEST_CONST_", quest.flags) << ",\n";
 
-		fileStream << c_TabSpacing2 << ".triggerFunc = " << quest.triggerFunc << ",\n";
-		fileStream << c_TabSpacing2 << ".triggerFlags = " << FlagsToString("QUEST_TRIGGER_", quest.triggerFlags) << ",\n";
-		fileStream << c_TabSpacing2 << ".triggerParams = " << "sTriggerParams_" << quest.questId << ",\n";
-		fileStream << c_TabSpacing2 << ".triggerParamCount = " << "ARRAY_COUNT(sTriggerParams_" << quest.questId << "),\n";
+		fileStream << c_TabSpacing2 << ".triggers = sTriggers_" << quest.questId << ",\n";
+		fileStream << c_TabSpacing2 << ".triggerCount = ARRAY_COUNT(sTriggers_" << quest.questId << "),\n";
+		fileStream << c_TabSpacing2 << ".triggerFlags = " << FlagsToString("QUEST_TRIGGER_", quest.collatedTriggerFlags) << ",\n";
+
+		fileStream << c_TabSpacing2 << ".rewards = sRewards_" << quest.questId << ",\n";
+		fileStream << c_TabSpacing2 << ".rewardCount = ARRAY_COUNT(sRewards_" << quest.questId << "),\n";
 
 		fileStream << c_TabSpacing << "},\n";
 
@@ -307,7 +344,7 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	{
 		reward.type = QuestRewardType::ShopItem;
 
-		reward.itemParams.item = jsonData["shop_item"].get<std::string>();
+		reward.shopItemParams.item = jsonData["shop_item"].get<std::string>();
 
 		return reward;
 	}
@@ -392,28 +429,48 @@ static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestI
 			}
 
 			// Triggers
-			if (quest.questObj.contains("callback"))
+			// (Json params are made to be more UX friendly)
+			if (quest.questObj.contains("triggers"))
 			{
-				auto const& callbackInfo = quest.questObj["callback"];
-
-				quest.triggerFunc = callbackInfo["method"].get<std::string>();
-
-				for (auto triggerFlag : callbackInfo["triggers"])
+				for (auto triggerInfo : quest.questObj["triggers"])
 				{
-					quest.triggerFlags.push_back(triggerFlag.get<std::string>());
-				}
+					QuestTrigger trigger;
 
-				if (callbackInfo.contains("params"))
-				{
-					for (auto param : callbackInfo["params"])
+					trigger.callback = triggerInfo["condition"].get<std::string>();
+
+					if (triggerInfo.contains("pass"))
+						trigger.passState = triggerInfo["pass"].get<std::string>();
+					else
+						trigger.passState = "PENDING";
+
+					if (triggerInfo.contains("fail"))
+						trigger.failState = triggerInfo["fail"].get<std::string>();
+					else
+						trigger.failState = "PENDING";
+
+					for (auto triggerFlag : triggerInfo["on"])
 					{
-						if (param.is_number_integer())
-							quest.triggerParams.push_back(std::to_string(param.get<int>()));
-						else if (param.is_number_float())
-							quest.triggerParams.push_back(std::to_string(param.get<double>()));
-						else
-							quest.triggerParams.push_back(param.get<std::string>());
+						std::string flag = triggerFlag.get<std::string>();
+						trigger.flags.push_back(flag);
+
+						if(std::find(quest.collatedTriggerFlags.begin(), quest.collatedTriggerFlags.end(), flag) == quest.collatedTriggerFlags.end())
+							quest.collatedTriggerFlags.push_back(flag);
 					}
+
+					if (triggerInfo.contains("params"))
+					{
+						for (auto param : triggerInfo["params"])
+						{
+							if (param.is_number_integer())
+								trigger.params.push_back(std::to_string(param.get<int>()));
+							else if (param.is_number_float())
+								trigger.params.push_back(std::to_string(param.get<double>()));
+							else
+								trigger.params.push_back(param.get<std::string>());
+						}
+					}
+
+					quest.triggers.push_back(std::move(trigger));
 				}
 			}
 

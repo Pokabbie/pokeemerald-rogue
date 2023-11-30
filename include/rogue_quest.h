@@ -3,7 +3,9 @@
 
 #include "constants/generated/quests.h"
 
-typedef u8 (*QuestFunc)(u16 questId, u16 trigger);
+struct RogueQuestTrigger;
+
+typedef bool8 (*QuestFunc)(u16 questId, struct RogueQuestTrigger const* trigger);
 
 enum
 {
@@ -44,19 +46,28 @@ struct RogueQuestRewardNEW
     } perType;
 };
 
+struct RogueQuestTrigger
+{
+    u16 const* params;
+    QuestFunc callback;
+    u32 flags;
+    u16 paramCount;
+    u8 passState;
+    u8 failState;
+};
+
 struct RogueQuestEntry
 {
     u8 const* title;
     u8 const* desc;
-    u16 const* triggerParams;
     struct RogueQuestRewardNEW const* rewards;
-    QuestFunc triggerFunc;
+    struct RogueQuestTrigger const* triggers;
     u32 flags;
     u32 triggerFlags;
-    u16 triggerParamCount;
     u16 stateOffset;
     u16 stateSize;
     u16 rewardCount;
+    u16 triggerCount;
 };
 
 u8 const* RogueQuest_GetTitle(u16 questId);
@@ -65,6 +76,9 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag);
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
+
+struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i);
+u16 RogueQuest_GetRewardCount(u16 questId);
 
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
