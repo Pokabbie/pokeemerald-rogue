@@ -116,7 +116,7 @@ void Rogue_SelectMiniBossRewardMons();
 
 void Rogue_Battle_StartTrainerBattle(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);
-//void Rogue_Battle_StartWildBattle(void);
+void Rogue_Battle_StartWildBattle(void);
 void Rogue_Battle_EndWildBattle(void);
 void Rogue_Safari_EndWildBattle(void);
 

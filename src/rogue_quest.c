@@ -21,12 +21,14 @@
 // new quests
 
 static u8* RogueQuest_GetExtraState(size_t size);
-static u8 QuestFunc_AutoSuccess(u16 questId, u16 trigger);
-static u8 QuestFunc_HasOnlyType(u16 questId, u16 trigger);
+static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 
 #include "data/rogue/quests.h"
 
-STATIC_ASSERT(QUEST_SAVE_COUNT == QUEST_ID_COUNT, saveQuestCountMissmatch);
+// ensure we are serializing the correct amount
+STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
 
 static u8* RogueQuest_GetExtraState(size_t size)
 {
@@ -86,7 +88,7 @@ void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state)
 
 static bool8 CanActivateQuest(u16 questId)
 {
-    if(RogueQuest_IsQuestUnlocked(questId))
+    if(!RogueQuest_IsQuestUnlocked(questId))
         return FALSE;
 
     if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
@@ -127,14 +129,16 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        if((sQuestEntries[i].flags & flags) != 0 && CanActivateQuest(i))
+        bool8 desiredState = RogueQuest_GetConstFlag(i, flags) && CanActivateQuest(i);
+
+        if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE) != desiredState)
         {
-            RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, TRUE);
-            // TODO - Reset tracking
-        }
-        else
-        {
-            RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, FALSE);
+            RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, desiredState);
+
+            if(desiredState)
+            {
+                // TODO - Reset tracking
+            }
         }
     }
 }
@@ -161,35 +165,136 @@ void RogueQuest_OnLoadGame()
     EnsureUnlockedDefaultQuests();
 }
 
-void RogueQuest_OnTrigger(u16 trigger)
+static u16 GetCurrentCompletionDifficultyFlag()
+{
+    // TODO
+    return QUEST_STATE_COMPLETE_AVERAGE;
+}
+
+static void CompleteQuest(u16 questId)
+{
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
+    RogueQuest_SetStateFlag(questId, GetCurrentCompletionDifficultyFlag(), TRUE);
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+
+    Rogue_PushPopup_QuestComplete(questId);
+}
+
+static void FailQuest(u16 questId)
+{
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
+
+    if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PINNED))
+        Rogue_PushPopup_QuestFail(questId);
+}
+
+static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
 {
     u16 i;
-    struct RogueQuestStateNEW* state;
+    struct RogueQuestTrigger const* trigger;
 
-    // Execute quest callback for any active quests which are listening for this trigger
-    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    for(i = 0; i < sQuestEntries[questId].triggerCount; ++i)
     {
-        if((sQuestEntries[i].triggerFlags & trigger) != 0)
+        trigger = &sQuestEntries[questId].triggers[i];
+
+        AGB_ASSERT(trigger->callback != NULL);
+
+        if(((trigger->flags & triggerFlag) != 0) && trigger->callback != NULL)
         {
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE))
+            bool8 condition = trigger->callback(questId, trigger);
+            u8 status = condition != FALSE ? trigger->passState : trigger->failState;
+
+            switch (status)
             {
-                sQuestEntries[i].triggerFunc(i, trigger);
+            case QUEST_STATUS_PENDING:
+                // Do nothing
+                break;
+
+            case QUEST_STATUS_SUCCESS:
+                CompleteQuest(questId);
+                return;
+                break;
+
+            case QUEST_STATUS_FAIL:
+                FailQuest(questId);
+                return;
+                break;
+            
+            default:
+                AGB_ASSERT(FALSE);
+                break;
             }
         }
     }
 }
 
-static u8 QuestFunc_AutoSuccess(u16 questId, u16 trigger)
+void RogueQuest_OnTrigger(u16 triggerFlag)
 {
-    return QUEST_STATE_SUCCESS;
+    u16 i, j;
+    struct RogueQuestStateNEW* state;
+
+    // Execute quest callback for any active quests which are listening for this trigger
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if((sQuestEntries[i].triggerFlags & triggerFlag) != 0)
+        {
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE))
+                ExecuteQuestTriggers(i, triggerFlag);
+        }
+    }
 }
 
-static u8 QuestFunc_HasOnlyType(u16 questId, u16 trigger)
+static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger)
 {
-    //
-    AGB_ASSERT(FALSE); // todo fix up
-    return QUEST_STATE_SUCCESS;
+    return TRUE;
 }
+
+static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species, targetType;
+
+    AGB_ASSERT(trigger->paramCount == 1);
+    targetType = trigger->params[0];
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(gBaseStats[species].type1 == targetType || gBaseStats[species].type2 == targetType)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species, targetType;
+
+    AGB_ASSERT(trigger->paramCount == 1);
+    targetType = trigger->params[0];
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(gBaseStats[species].type1 != targetType && gBaseStats[species].type2 != targetType)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+
+
+
+
 
 
 // old
@@ -657,7 +762,7 @@ bool8 TryMarkQuestAsComplete(u16 questId)
             state->hasPendingRewards = TRUE;
         }
 
-        Rogue_PushPopup_QuestComplete(questId);
+        //Rogue_PushPopup_QuestComplete(questId);
         return TRUE;
     }
 
@@ -672,8 +777,8 @@ bool8 TryDeactivateQuest(u16 questId)
     {
         state->isValid = FALSE;
 
-        if(state->isPinned)
-            Rogue_PushPopup_QuestFail(questId);
+        //if(state->isPinned)
+        //    Rogue_PushPopup_QuestFail(questId);
 
         return TRUE;
     }

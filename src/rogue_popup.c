@@ -30,6 +30,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_popup.h"
+#include "rogue_quest.h"
 
 #define POPUP_QUEUE_CAPACITY 8
 
@@ -797,6 +798,10 @@ static struct PopupRequest* CreateNewPopup()
     u8 popupId = sRoguePopups.queuedId;
     sRoguePopups.queuedId = (sRoguePopups.queuedId + 1) % POPUP_QUEUE_CAPACITY;
 
+    // We've queued sooo many popups that we need to push the lastShownId up by one so we see most of the popups
+    if(sRoguePopups.lastShownId == sRoguePopups.queuedId)
+        sRoguePopups.lastShownId = (sRoguePopups.lastShownId + 1) % POPUP_QUEUE_CAPACITY;
+
     memset(&sRoguePopups.requestQueue[popupId], 0, sizeof(sRoguePopups.requestQueue[popupId]));
     return &sRoguePopups.requestQueue[popupId];
 }
@@ -919,7 +924,7 @@ void Rogue_PushPopup_QuestComplete(u16 questId)
     popup->iconId = ITEM_QUEST_LOG;
     popup->soundEffect = SE_EXP_MAX;
     
-    popup->titleText = gRogueQuests[questId].title;
+    popup->titleText = RogueQuest_GetTitle(questId);
     popup->subtitleText = gText_Popup_QuestComplete;
 }
 
@@ -931,7 +936,7 @@ void Rogue_PushPopup_QuestFail(u16 questId)
     popup->iconId = ITEM_QUEST_LOG;
     popup->soundEffect = SE_NOT_EFFECTIVE;
     
-    popup->titleText = gRogueQuests[questId].title;
+    popup->titleText = RogueQuest_GetTitle(questId);
     popup->subtitleText = gText_Popup_QuestFail;
 }
 
