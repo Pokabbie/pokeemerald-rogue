@@ -86,6 +86,21 @@ void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state)
         questState->stateFlags &= ~flag;
 }
 
+struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i)
+{
+    struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    AGB_ASSERT(i < entry->rewardCount);
+    return &entry->rewards[i];
+}
+
+u16 RogueQuest_GetRewardCount(u16 questId)
+{
+    struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
+    AGB_ASSERT(questId < QUEST_ID_COUNT);
+    return entry->rewardCount;
+}
+
 static bool8 CanActivateQuest(u16 questId)
 {
     if(!RogueQuest_IsQuestUnlocked(questId))

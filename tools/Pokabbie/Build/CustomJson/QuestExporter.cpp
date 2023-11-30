@@ -241,6 +241,9 @@ void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
 		fileStream << c_TabSpacing2 << ".triggerCount = ARRAY_COUNT(sTriggers_" << quest.questId << "),\n";
 		fileStream << c_TabSpacing2 << ".triggerFlags = " << FlagsToString("QUEST_TRIGGER_", quest.collatedTriggerFlags) << ",\n";
 
+		fileStream << c_TabSpacing2 << ".rewards = sRewards_" << quest.questId << ",\n";
+		fileStream << c_TabSpacing2 << ".rewardCount = ARRAY_COUNT(sRewards_" << quest.questId << "),\n";
+
 		fileStream << c_TabSpacing << "},\n";
 
 		if (!quest.preprocessorCondition.empty())

@@ -77,6 +77,9 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag);
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
 
+struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i);
+u16 RogueQuest_GetRewardCount(u16 questId);
+
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
 void RogueQuest_ClearNewUnlockQuests();

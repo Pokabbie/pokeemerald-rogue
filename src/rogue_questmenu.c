@@ -16,9 +16,11 @@
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
+#include "item_icon.h"
 #include "overworld.h"
 #include "menu.h"
 #include "pokedex.h"
+#include "pokemon_icon.h"
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
@@ -26,6 +28,12 @@
 #include "rogue_questmenu.h"
 
 #define SCROLL_ITEMS_IN_VIEW 8
+#define QUEST_SPRITE_CAPACITY 8
+
+enum {
+    TAG_REWARD_ICON = 100,
+    TAG_REWARD_ICON_ALT,
+};
 
 typedef void (*QuestMenuCallback)();
 typedef void (*QuestMenuCallbackParam)(u8);
@@ -91,6 +99,7 @@ struct QuestMenuData
 {
     u8 backgroundTilemapBuffer[BG_SCREEN_SIZE];
     //u8 textTilemapBuffer[BG_SCREEN_SIZE];
+    u8 sprites[QUEST_SPRITE_CAPACITY];
     u32 questListConstIncludeFlags;
     u32 questListStateIncludeFlags;
     u32 questListConstExcludeFlags;
@@ -381,6 +390,17 @@ static void SetupPage(u8 page)
 
     //FreeAllWindowBuffers();
     ClearQuestWindows();
+
+    // Free sprites
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+    {
+        u8 i;
+
+        for(i = 0; i < QUEST_SPRITE_CAPACITY; ++i)
+            sQuestMenuData->sprites[i] = SPRITE_NONE;
+    }
+    
 
     if(sPageData[page].setupCallback != NULL)
         sPageData[page].setupCallback();
@@ -958,14 +978,20 @@ static void HandleInput_QuestPage(u8 taskId)
 
 static void Draw_QuestPage()
 {
+    u8 i;
     u8 const color[3] = {0, 2, 3};
     u16 questId = GetCurrentListQuestId();
 
     // Draw current quest info
     FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
 
+    // Remove previous sprites if we have any
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+
     if(questId != QUEST_ID_COUNT)
     {
+        // Place desc/tracking text
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetDesc(questId));
 
@@ -992,6 +1018,74 @@ static void Draw_QuestPage()
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerInactive);
 
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 10, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerRewards);
+
+        // Place sprites
+        {
+            u8 spriteIdx, count;
+            struct RogueQuestRewardNEW const* reward;
+            u16 const rewardCount = RogueQuest_GetRewardCount(questId);
+
+            spriteIdx = 0;
+
+            // Setup reward sprites
+            for(i = 0; i < rewardCount; ++i)
+            {
+                if(spriteIdx >= QUEST_SPRITE_CAPACITY)
+                    break;
+
+                reward = RogueQuest_GetReward(questId, i);
+
+                switch (reward->type)
+                {
+                case QUEST_REWARD_ITEM:
+                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, reward->perType.item.item);
+                    break;
+
+                case QUEST_REWARD_SHOP_ITEM:
+                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, reward->perType.shopItem.item);
+                    break;
+
+                case QUEST_REWARD_MONEY:
+                    // TODO - Actual icon for money
+                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, ITEM_COIN_CASE);
+                    break;
+
+                case QUEST_REWARD_POKEMON:
+                    LoadMonIconPalette(reward->perType.pokemon.species);
+                    sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
+                        reward->perType.pokemon.species,
+                        SpriteCallbackDummy,
+                        0, 0,
+                        0,
+                        0,
+                        FALSE
+                    );
+
+                    gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 0;
+                    gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+                    ++spriteIdx;
+                    break;
+                }
+            }
+
+            count = spriteIdx;
+
+            if(count != 0)
+            {
+                for(i = 0; i < QUEST_SPRITE_CAPACITY; ++i)
+                {
+                    spriteIdx = sQuestMenuData->sprites[i];
+                    if(spriteIdx != SPRITE_NONE)
+                    {
+                        u16 const boxWidth = 74;
+
+                        gSprites[spriteIdx].x = 24 + 4 + (i * boxWidth) / count + boxWidth / (2 * count);
+                        gSprites[spriteIdx].y = 8 * 17;
+                        gSprites[spriteIdx].subpriority = i;
+                    }
+                }
+            }
+        }
     }
 
     PutWindowTilemap(WIN_LEFT_PAGE);
