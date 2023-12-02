@@ -4184,6 +4184,32 @@ extern const u32 gItemIconPalette_RogueCharm[];
 extern const u32 gItemIcon_RogueCurse[];
 extern const u32 gItemIconPalette_RogueCurse[];
 
+
+extern const u32 gItemIcon_Pokeblock[];
+extern const u32 gItemIcon_PokeblockShiny[];
+
+extern const u32 gItemIconPalette_PokeblockNormal[];
+extern const u32 gItemIconPalette_PokeblockFighting[];
+extern const u32 gItemIconPalette_PokeblockFlying[];
+extern const u32 gItemIconPalette_PokeblockPoison[];
+extern const u32 gItemIconPalette_PokeblockGround[];
+extern const u32 gItemIconPalette_PokeblockRock[];
+extern const u32 gItemIconPalette_PokeblockBug[];
+extern const u32 gItemIconPalette_PokeblockGhost[];
+extern const u32 gItemIconPalette_PokeblockSteel[];
+extern const u32 gItemIconPalette_PokeblockFire[];
+extern const u32 gItemIconPalette_PokeblockWater[];
+extern const u32 gItemIconPalette_PokeblockGrass[];
+extern const u32 gItemIconPalette_PokeblockElectric[];
+extern const u32 gItemIconPalette_PokeblockPsychic[];
+extern const u32 gItemIconPalette_PokeblockIce[];
+extern const u32 gItemIconPalette_PokeblockDragon[];
+extern const u32 gItemIconPalette_PokeblockDark[];
+extern const u32 gItemIconPalette_PokeblockFairy[];
+extern const u32 gItemIconPalette_PokeblockShiny[];
+extern const u32 gItemIconPalette_PokeblockStat[];
+extern const u32 gItemIconPalette_PokeblockStatAlt[];
+
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
 

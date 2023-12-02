@@ -44,6 +44,107 @@ text gItemDesc_TR
 }
 
 
+text gItemDesc_PokeblockDispenser
+{
+    format("Device that uses {POKEBLOCK} to attract wild {PKMN}.")
+}
+
+text gItemDesc_NormalPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")
+}
+
+text gItemDesc_FightingPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fighting type {PKMN}.")
+}
+
+text gItemDesc_FlyingPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Flying type {PKMN}.")
+}
+
+text gItemDesc_PoisonPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Poison type {PKMN}.")
+}
+
+text gItemDesc_GroundPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ground type {PKMN}.")
+}
+
+text gItemDesc_RockPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Rock type {PKMN}.")
+}
+
+text gItemDesc_BugPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Bug type {PKMN}.")
+}
+
+text gItemDesc_GhostPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ghost type {PKMN}.")
+}
+
+text gItemDesc_SteelPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Steel type {PKMN}.")
+}
+
+text gItemDesc_FirePokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fire type {PKMN}.")
+}
+
+text gItemDesc_WaterPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Water type {PKMN}.")
+}
+
+text gItemDesc_GrassPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Grass type {PKMN}.")
+}
+
+text gItemDesc_ElectricPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Electric type {PKMN}.")
+}
+
+text gItemDesc_PsychicPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Psychic type {PKMN}.")
+}
+
+text gItemDesc_IcePokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ice type {PKMN}.")
+}
+
+text gItemDesc_DragonPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Dragon type {PKMN}.")
+}
+
+text gItemDesc_DarkPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Dark type {PKMN}.")
+}
+
+text gItemDesc_FairyPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fairy type {PKMN}.")
+}
+
+text gItemDesc_StatPokeblock
+{
+    format("{POKEBLOCK} used to bake treats for {PKMN}.")
+}
+
+
 text gItemDesc_ShopPriceCharm
 {
     format("Shop prices are reduced by 40%")

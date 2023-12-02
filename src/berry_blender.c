@@ -152,7 +152,8 @@ struct BerryBlender
     u16 canceledPlayerId;
     u16 playAgainState;
     u8 slowdownTimer;
-    u16 chosenItemId[BLENDER_MAX_PLAYERS];
+    u16 chosenItemId;
+    u16 chosenItemCount;
     u8 numPlayers;
     u8 unused2[16];
     u16 arrowIdToPlayerId[BLENDER_MAX_PLAYERS];
@@ -163,7 +164,7 @@ struct BerryBlender
     s32 framesToWait;
     u32 unk1; // never read
     u8 unused3[4];
-    u8 playerToThrowBerry;
+    u8 currentThrowBerryId;
     u16 progressBarValue;
     u16 maxProgressBarValue;
     u16 centerScale;
@@ -175,7 +176,6 @@ struct BerryBlender
     u8 playerPlaces[BLENDER_MAX_PLAYERS];
     struct BgAffineSrcData bgAffineSrc;
     u16 savedMusic;
-    struct BlenderBerry blendedBerries[BLENDER_MAX_PLAYERS];
     struct TimeAndRPM smallBlock;
     u32 linkPlayAgainState;
     u8 ownRanking;
@@ -1188,15 +1188,18 @@ static void SetBerrySpriteData(struct Sprite* sprite, s16 x, s16 y, s16 bounceSp
 #undef sXSpeed
 #undef sYDownSpeed
 
-static void CreateBerrySprite(u16 itemId, u8 playerId)
+static void CreateBerrySprite(u16 itemId, u8 thrownBerryId)
 {
-    u8 spriteId = CreateSpinningBerrySprite(ITEM_TO_BERRY(itemId) - 1, 0, 80, playerId & 1);
+    u8 spriteId;
+    
+    thrownBerryId %= ARRAY_COUNT(sBerrySpriteData);
+    spriteId = CreateSpinningBerrySprite(ITEM_TO_BERRY(itemId) - 1, 0, 80, thrownBerryId & 1);
     SetBerrySpriteData(&gSprites[spriteId],
-                        sBerrySpriteData[playerId][0],
-                        sBerrySpriteData[playerId][1],
-                        sBerrySpriteData[playerId][2],
-                        sBerrySpriteData[playerId][3],
-                        sBerrySpriteData[playerId][4]);
+                        sBerrySpriteData[thrownBerryId][0],
+                        sBerrySpriteData[thrownBerryId][1],
+                        sBerrySpriteData[thrownBerryId][2],
+                        sBerrySpriteData[thrownBerryId][3],
+                        sBerrySpriteData[thrownBerryId][4]);
 }
 
 static void ConvertItemToBlenderBerry(struct BlenderBerry* berry, u16 itemId)
@@ -1271,8 +1274,8 @@ static void StartBlender(void)
     sBerryBlender->mainState = 0;
     sBerryBlender->unk1 = 0;
 
-    for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
-        sBerryBlender->chosenItemId[i] = ITEM_NONE;
+    sBerryBlender->chosenItemId = ITEM_NONE;
+    sBerryBlender->chosenItemCount = 0;
 
     InitLocalPlayers(gSpecialVar_0x8004);
 
@@ -1344,9 +1347,12 @@ static void CB2_StartBlenderLink(void)
     case 8:
         // Send berry choice to link partners
         sBerryBlender->mainState++;
-        sBerryBlender->playerToThrowBerry = 0;
-        ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[0], gSpecialVar_ItemId);
-        memcpy(gBlockSendBuffer, &sBerryBlender->blendedBerries[0], sizeof(struct BlenderBerry));
+        sBerryBlender->currentThrowBerryId = 0;
+
+        // Send berries
+        AGB_ASSERT(FALSE);
+        //ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[0], gSpecialVar_ItemId);
+        //memcpy(gBlockSendBuffer, &sBerryBlender->blendedBerries[0], sizeof(struct BlenderBerry));
         SetLinkStandbyCallback();
         sBerryBlender->framesToWait = 0;
         break;
@@ -1366,11 +1372,14 @@ static void CB2_StartBlenderLink(void)
             ClearDialogWindowAndFrameToTransparent(4, TRUE);
             if (GetBlockReceivedStatus() == GetLinkPlayerCountAsBitFlags())
             {
-                for (i = 0; i < GetLinkPlayerCount(); i++)
-                {
-                    memcpy(&sBerryBlender->blendedBerries[i], &gBlockRecvBuffer[i][0], sizeof(struct BlenderBerry));
-                    sBerryBlender->chosenItemId[i] = sBerryBlender->blendedBerries[i].itemId;
-                }
+                // TODO - Fixup if needed
+                AGB_ASSERT(FALSE);
+
+                //for (i = 0; i < GetLinkPlayerCount(); i++)
+                //{
+                //    memcpy(&sBerryBlender->blendedBerries[i], &gBlockRecvBuffer[i][0], sizeof(struct BlenderBerry));
+                //    //sBerryBlender->chosenItemId[i] = sBerryBlender->blendedBerries[i].itemId;
+                //}
 
                 ResetBlockReceivedFlags();
                 sBerryBlender->mainState++;
@@ -1381,23 +1390,16 @@ static void CB2_StartBlenderLink(void)
         sBerryBlender->numPlayers = GetLinkPlayerCount();
 
         // Throw 1 player's berry in
-        for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
-        {
-            if (sBerryBlender->playerToThrowBerry == sPlayerIdMap[sBerryBlender->numPlayers - 2][i])
-            {
-                CreateBerrySprite(sBerryBlender->chosenItemId[sBerryBlender->playerToThrowBerry], i);
-                break;
-            }
-        }
+        CreateBerrySprite(sBerryBlender->chosenItemId, sBerryBlender->currentThrowBerryId);
 
         sBerryBlender->framesToWait = 0;
         sBerryBlender->mainState++;
-        sBerryBlender->playerToThrowBerry++;
+        sBerryBlender->currentThrowBerryId++;
         break;
     case 12:
         if (++sBerryBlender->framesToWait > 60)
         {
-            if (sBerryBlender->playerToThrowBerry >= sBerryBlender->numPlayers)
+            if (sBerryBlender->currentThrowBerryId >= sBerryBlender->chosenItemCount)
             {
                 // Finished throwing berries in
                 sBerryBlender->mainState++;
@@ -1538,6 +1540,9 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
     u16 berryMasterDiff;
     u16 i;
 
+    // Don't want to enter this code path anymore
+    AGB_ASSERT(FALSE);
+
     if (playerBerryItemId == ITEM_ENIGMA_BERRY)
     {
         for (i = 0; i < FLAVOR_COUNT; i++)
@@ -1631,8 +1636,8 @@ static void CB2_StartBlenderLocal(void)
         SetWirelessCommType0();
         InitBlenderBgs();
         SetPlayerBerryData(0, gSpecialVar_ItemId);
-        ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[0], gSpecialVar_ItemId);
-        SetOpponentsBerryData(gSpecialVar_ItemId, sBerryBlender->numPlayers, &sBerryBlender->blendedBerries[0]);
+        //ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[0], gSpecialVar_ItemId);
+        //SetOpponentsBerryData(gSpecialVar_ItemId, sBerryBlender->numPlayers, &sBerryBlender->blendedBerries[0]);
 
         for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
         {
@@ -1676,27 +1681,18 @@ static void CB2_StartBlenderLocal(void)
         break;
     case 8:
         sBerryBlender->mainState = 11;
-        sBerryBlender->playerToThrowBerry = 0;
+        sBerryBlender->currentThrowBerryId = 0;
         break;
     case 11:
-        for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
-        {
-            // Throw 1 player's berry in
-            u32 playerId = sPlayerIdMap[sBerryBlender->numPlayers - 2][i];
-            if (sBerryBlender->playerToThrowBerry == playerId)
-            {
-                CreateBerrySprite(sBerryBlender->chosenItemId[sBerryBlender->playerToThrowBerry], i);
-                break;
-            }
-        }
+        CreateBerrySprite(sBerryBlender->chosenItemId, sBerryBlender->currentThrowBerryId);
         sBerryBlender->framesToWait = 0;
         sBerryBlender->mainState++;
-        sBerryBlender->playerToThrowBerry++;
+        sBerryBlender->currentThrowBerryId++;
         break;
     case 12:
         if (++sBerryBlender->framesToWait > 60)
         {
-            if (sBerryBlender->playerToThrowBerry >= sBerryBlender->numPlayers)
+            if (sBerryBlender->currentThrowBerryId >= sBerryBlender->chosenItemCount)
             {
                 // Finished throwing berries in
                 sBerryBlender->arrowPos = sArrowStartPos[sArrowStartPosIds[sBerryBlender->numPlayers - 2]] - ARROW_FALL_ROTATION;
@@ -2243,125 +2239,10 @@ static void Blender_DummiedOutFunc(s16 bgX, s16 bgY)
 
 }
 
-static bool8 AreBlenderBerriesSame(struct BlenderBerry* berries, u8 a, u8 b)
-{
-    // First check to itemId is pointless (and wrong anyway?), always false when this is called
-    // Only used to determine if two enigma berries are equivalent
-    if (berries[a].itemId != berries[b].itemId
-     || (StringCompare(berries[a].name, berries[b].name) == 0
-      && (berries[a].flavors[FLAVOR_SPICY] == berries[b].flavors[FLAVOR_SPICY]
-       && berries[a].flavors[FLAVOR_DRY] == berries[b].flavors[FLAVOR_DRY]
-       && berries[a].flavors[FLAVOR_SWEET] == berries[b].flavors[FLAVOR_SWEET]
-       && berries[a].flavors[FLAVOR_BITTER] == berries[b].flavors[FLAVOR_BITTER]
-       && berries[a].flavors[FLAVOR_SOUR] == berries[b].flavors[FLAVOR_SOUR]
-       && berries[a].flavors[FLAVOR_COUNT] == berries[b].flavors[FLAVOR_COUNT])))
-        return TRUE;
-    else
-        return FALSE;
-}
-
 static u32 CalculatePokeblockColor(struct BlenderBerry* berries, s16* _flavors, u8 numPlayers, u8 negativeFlavors)
 {
-    s16 flavors[FLAVOR_COUNT + 1];
-    s32 i, j;
-    u8 numFlavors;
-
-    for (i = 0; i < FLAVOR_COUNT + 1; i++)
-        flavors[i] = _flavors[i];
-
-    j = 0;
-    for (i = 0; i < FLAVOR_COUNT; i++)
-    {
-        if (flavors[i] == 0)
-            j++;
-    }
-
-    // If all flavors are 0, or at least 3 were negative/0
-    // or if players used the same berry, color is black
-    if (j == 5 || negativeFlavors > 3)
-        return PBLOCK_CLR_BLACK;
-
-    for (i = 0; i < numPlayers; i++)
-    {
-        for (j = 0; j < numPlayers; j++)
-        {
-            if (berries[i].itemId == berries[j].itemId && i != j
-                && (berries[i].itemId != ITEM_ENIGMA_BERRY || AreBlenderBerriesSame(berries, i, j)))
-                    return PBLOCK_CLR_BLACK;
-        }
-    }
-
-    numFlavors = 0;
-    for (numFlavors = 0, i = 0; i < FLAVOR_COUNT; i++)
-    {
-        if (flavors[i] > 0)
-            numFlavors++;
-    }
-
-    // Check for special colors (White/Gray/Gold)
-    if (numFlavors > 3)
-        return PBLOCK_CLR_WHITE;
-
-    if (numFlavors == 3)
-        return PBLOCK_CLR_GRAY;
-
-    for (i = 0; i < FLAVOR_COUNT; i++)
-    {
-        if (flavors[i] > 50)
-            return PBLOCK_CLR_GOLD;
-    }
-
-    // Only 1 flavor present, return corresponding color
-    if (numFlavors == 1 && flavors[FLAVOR_SPICY] > 0)
-        return PBLOCK_CLR_RED;
-    if (numFlavors == 1 && flavors[FLAVOR_DRY] > 0)
-        return PBLOCK_CLR_BLUE;
-    if (numFlavors == 1 && flavors[FLAVOR_SWEET] > 0)
-        return PBLOCK_CLR_PINK;
-    if (numFlavors == 1 && flavors[FLAVOR_BITTER] > 0)
-        return PBLOCK_CLR_GREEN;
-    if (numFlavors == 1 && flavors[FLAVOR_SOUR] > 0)
-        return PBLOCK_CLR_YELLOW;
-
-    if (numFlavors == 2)
-    {
-        // Determine which 2 flavors are present
-        s32 idx = 0;
-        for (i = 0; i < FLAVOR_COUNT; i++)
-        {
-            if (flavors[i] > 0)
-                sPokeblockPresentFlavors[idx++] = i;
-        }
-        // Use the stronger flavor to determine color
-        // The weaker flavor is returned in the upper 16 bits, but this is ignored in the color assignment
-        if (flavors[sPokeblockPresentFlavors[0]] >= flavors[sPokeblockPresentFlavors[1]])
-        {
-            if (sPokeblockPresentFlavors[0] == FLAVOR_SPICY)
-                return (sPokeblockPresentFlavors[1] << 16) | PBLOCK_CLR_PURPLE;
-            if (sPokeblockPresentFlavors[0] == FLAVOR_DRY)
-                return (sPokeblockPresentFlavors[1] << 16) | PBLOCK_CLR_INDIGO;
-            if (sPokeblockPresentFlavors[0] == FLAVOR_SWEET)
-                return (sPokeblockPresentFlavors[1] << 16) | PBLOCK_CLR_BROWN;
-            if (sPokeblockPresentFlavors[0] == FLAVOR_BITTER)
-                return (sPokeblockPresentFlavors[1] << 16) | PBLOCK_CLR_LITE_BLUE;
-            if (sPokeblockPresentFlavors[0] == FLAVOR_SOUR)
-                return (sPokeblockPresentFlavors[1] << 16) | PBLOCK_CLR_OLIVE;
-        }
-        else
-        {
-            if (sPokeblockPresentFlavors[1] == FLAVOR_SPICY)
-                return (sPokeblockPresentFlavors[0] << 16) | PBLOCK_CLR_PURPLE;
-            if (sPokeblockPresentFlavors[1] == FLAVOR_DRY)
-                return (sPokeblockPresentFlavors[0] << 16) | PBLOCK_CLR_INDIGO;
-            if (sPokeblockPresentFlavors[1] == FLAVOR_SWEET)
-                return (sPokeblockPresentFlavors[0] << 16) | PBLOCK_CLR_BROWN;
-            if (sPokeblockPresentFlavors[1] == FLAVOR_BITTER)
-                return (sPokeblockPresentFlavors[0] << 16) | PBLOCK_CLR_LITE_BLUE;
-            if (sPokeblockPresentFlavors[1] == FLAVOR_SOUR)
-                return (sPokeblockPresentFlavors[0] << 16) | PBLOCK_CLR_OLIVE;
-        }
-    }
-    return PBLOCK_CLR_NONE;
+    // TODO 
+    return PBLOCK_CLR_LITE_BLUE;
 }
 
 static void Debug_SetMaxRPMStage(s16 value)
@@ -2399,7 +2280,7 @@ static void CalculatePokeblock(struct BlenderBerry *berries, struct Pokeblock *p
     for (i = 0; i < numPlayers; i++)
     {
         for (j = 0; j < FLAVOR_COUNT + 1; j++)
-            sPokeblockFlavors[j] += berries[i].flavors[j];
+            sPokeblockFlavors[j] += berries[0].flavors[j];
     }
 
     // Subtract each flavor total from the prev one
@@ -3216,8 +3097,9 @@ static void SpriteCB_ScoreSymbolBest(struct Sprite* sprite)
 
 static void SetPlayerBerryData(u8 playerId, u16 itemId)
 {
-    sBerryBlender->chosenItemId[playerId] = itemId;
-    ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[playerId], itemId);
+    sBerryBlender->chosenItemId = itemId;
+    sBerryBlender->chosenItemCount = 8; // todo
+    //ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[playerId], itemId);
 }
 
 #define sState  data[0]
@@ -3463,7 +3345,6 @@ static bool8 PrintBlendingResults(void)
     struct Pokeblock pokeblock;
     u8 flavors[FLAVOR_COUNT + 1];
     u8 text[40];
-    u16 berryIds[4]; // unused
 
     switch (sBerryBlender->mainState)
     {
@@ -3491,11 +3372,14 @@ static bool8 PrintBlendingResults(void)
         break;
     case 3:
         {
+            struct BlenderBerry blendedBerry;
             u16 minutes, seconds;
             u8 *txtPtr;
 
             xPos = GetStringCenterAlignXOffset(FONT_NORMAL, sText_BlendingResults, 0xA8);
             Blender_AddTextPrinter(5, sText_BlendingResults, xPos, 1, TEXT_SKIP_DRAW, 0);
+
+            ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
 
             if (sBerryBlender->numPlayers == BLENDER_MAX_PLAYERS)
                 yPos = 17;
@@ -3512,7 +3396,7 @@ static bool8 PrintBlendingResults(void)
                 StringAppend(sBerryBlender->stringVar, gLinkPlayers[place].name);
                 Blender_AddTextPrinter(5, sBerryBlender->stringVar, 8, yPos, TEXT_SKIP_DRAW, 3);
 
-                StringCopy(sBerryBlender->stringVar, sBerryBlender->blendedBerries[place].name);
+                StringCopy(sBerryBlender->stringVar, blendedBerry.name);
                 ConvertInternationalString(sBerryBlender->stringVar, gLinkPlayers[place].language);
                 StringAppend(sBerryBlender->stringVar, sText_SpaceBerry);
                 Blender_AddTextPrinter(5, sBerryBlender->stringVar, 0x54, yPos, TEXT_SKIP_DRAW, 3);
@@ -3557,25 +3441,57 @@ static bool8 PrintBlendingResults(void)
 
         for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
         {
-            if (sBerryBlender->chosenItemId[i] != 0)
-                berryIds[i] = sBerryBlender->chosenItemId[i] - FIRST_BERRY_INDEX;
             if (sBerryBlender->arrowIdToPlayerId[i] != NO_PLAYER)
             {
                 PutWindowTilemap(i);
                 CopyWindowToVram(i, COPYWIN_FULL);
             }
         }
+    
+        {
+            struct BlenderBerry blendedBerry;
+            ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
 
-        Debug_SetStageVars();
-        CalculatePokeblock(sBerryBlender->blendedBerries, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
-        PrintMadePokeblockString(&pokeblock, sBerryBlender->stringVar);
-        TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
+            Debug_SetStageVars();
+            CalculatePokeblock(&blendedBerry, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
+            PrintMadePokeblockString(&pokeblock, sBerryBlender->stringVar);
+            TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
+        }
 
         CreateTask(Task_PlayPokeblockFanfare, 6);
         IncrementDailyBerryBlender();
 
-        RemoveBagItem(gSpecialVar_ItemId, 1);
-        AddPokeblock(&pokeblock);
+        RemoveBagItem(sBerryBlender->chosenItemId, sBerryBlender->chosenItemCount);
+        // Add Pokeblock Item
+
+        AddBagItem(ITEM_POKEBLOCK_NORMAL, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_FIGHTING, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_FLYING, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_POISON, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_GROUND, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_ROCK, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_BUG, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_GHOST, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_STEEL, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_FIRE, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_WATER, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_GRASS, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_ELECTRIC, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_PSYCHIC, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_ICE, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_DRAGON, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_DARK, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_SHINY, sBerryBlender->chosenItemCount);
+        
+        AddBagItem(ITEM_POKEBLOCK_HP, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_ATK, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_DEF, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_SPEED, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_SPATK, sBerryBlender->chosenItemCount);
+        AddBagItem(ITEM_POKEBLOCK_SPDEF, sBerryBlender->chosenItemCount);
+
+        // TODO - Add pokeblock
+        //AddPokeblock(&pokeblock);
 
         sBerryBlender->textState = 0;
         sBerryBlender->mainState++;

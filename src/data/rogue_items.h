@@ -7,6 +7,27 @@ extern const u8 gItemDesc_RidingWhistle[];
 extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
 extern const u8 gItemDesc_BuildingSupplies[];
+extern const u8 gItemDesc_PokeblockDispenser[];
+
+extern const u8 gItemDesc_NormalPokeblock[];
+extern const u8 gItemDesc_FightingPokeblock[];
+extern const u8 gItemDesc_FlyingPokeblock[];
+extern const u8 gItemDesc_PoisonPokeblock[];
+extern const u8 gItemDesc_GroundPokeblock[];
+extern const u8 gItemDesc_RockPokeblock[];
+extern const u8 gItemDesc_BugPokeblock[];
+extern const u8 gItemDesc_GhostPokeblock[];
+extern const u8 gItemDesc_SteelPokeblock[];
+extern const u8 gItemDesc_FirePokeblock[];
+extern const u8 gItemDesc_WaterPokeblock[];
+extern const u8 gItemDesc_GrassPokeblock[];
+extern const u8 gItemDesc_ElectricPokeblock[];
+extern const u8 gItemDesc_PsychicPokeblock[];
+extern const u8 gItemDesc_IcePokeblock[];
+extern const u8 gItemDesc_DragonPokeblock[];
+extern const u8 gItemDesc_DarkPokeblock[];
+extern const u8 gItemDesc_FairyPokeblock[];
+extern const u8 gItemDesc_StatPokeblock[];
 
 extern const u8 gItemDesc_ShopPriceCharm[];
 extern const u8 gItemDesc_ShopPriceCurse[];
@@ -159,7 +180,423 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconImage = gItemIcon_OaksParcel,
         .iconPalette = gItemIconPalette_OaksParcel,
     },
+    [ITEM_POKEBLOCK_DISPENSER - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("{POKEBLOCK} Spray"),
+#else
+        .name = _("{POKEBLOCK} SPRAY"),
+#endif
+        .itemId = ITEM_POKEBLOCK_DISPENSER,
+        .price = 0,
+        .description = gItemDesc_PokeblockDispenser,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .registrability = TRUE,
+        .iconImage = gItemIcon_PokeblockCase,
+        .iconPalette = gItemIconPalette_PokeblockCase,
+    },
 
+    // Pokeblock
+    //
+    [ITEM_POKEBLOCK_NORMAL - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Normal {POKEBLOCK}"),
+#else
+        .name = _("NORMAL {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_NORMAL,
+        .price = 0,
+        .description = gItemDesc_NormalPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockNormal,
+    },
+    [ITEM_POKEBLOCK_FIGHTING - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Fight. {POKEBLOCK}"),
+#else
+        .name = _("FIGHT. {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_FIGHTING,
+        .price = 0,
+        .description = gItemDesc_FightingPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockFighting,
+    },
+    [ITEM_POKEBLOCK_FLYING - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Flying {POKEBLOCK}"),
+#else
+        .name = _("FLYING {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_FLYING,
+        .price = 0,
+        .description = gItemDesc_FlyingPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockFlying,
+    },
+    [ITEM_POKEBLOCK_POISON - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Poison {POKEBLOCK}"),
+#else
+        .name = _("POISON {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_POISON,
+        .price = 0,
+        .description = gItemDesc_PoisonPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockPoison,
+    },
+    [ITEM_POKEBLOCK_GROUND - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Ground {POKEBLOCK}"),
+#else
+        .name = _("GROUND {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_GROUND,
+        .price = 0,
+        .description = gItemDesc_GroundPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockGround,
+    },
+    [ITEM_POKEBLOCK_ROCK - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Rock {POKEBLOCK}"),
+#else
+        .name = _("ROCK {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_ROCK,
+        .price = 0,
+        .description = gItemDesc_RockPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockRock,
+    },
+    [ITEM_POKEBLOCK_BUG - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Bug {POKEBLOCK}"),
+#else
+        .name = _("BUG {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_BUG,
+        .price = 0,
+        .description = gItemDesc_BugPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockBug,
+    },
+    [ITEM_POKEBLOCK_GHOST - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Ghost {POKEBLOCK}"),
+#else
+        .name = _("GHOST {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_GHOST,
+        .price = 0,
+        .description = gItemDesc_GhostPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockGhost,
+    },
+    [ITEM_POKEBLOCK_STEEL - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Steel {POKEBLOCK}"),
+#else
+        .name = _("STEEL {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_STEEL,
+        .price = 0,
+        .description = gItemDesc_SteelPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockSteel,
+    },
+    [ITEM_POKEBLOCK_FIRE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Fire {POKEBLOCK}"),
+#else
+        .name = _("FIRE {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_FIRE,
+        .price = 0,
+        .description = gItemDesc_FirePokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockFire,
+    },
+    [ITEM_POKEBLOCK_WATER - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Water {POKEBLOCK}"),
+#else
+        .name = _("WATER {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_WATER,
+        .price = 0,
+        .description = gItemDesc_WaterPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockWater,
+    },
+    [ITEM_POKEBLOCK_GRASS - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Grass {POKEBLOCK}"),
+#else
+        .name = _("GRASS {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_GRASS,
+        .price = 0,
+        .description = gItemDesc_GrassPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockGrass,
+    },
+    [ITEM_POKEBLOCK_ELECTRIC - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Elec. {POKEBLOCK}"),
+#else
+        .name = _("ELEC. {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_ELECTRIC,
+        .price = 0,
+        .description = gItemDesc_ElectricPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockElectric,
+    },
+    [ITEM_POKEBLOCK_PSYCHIC - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Psychic {POKEBLOCK}"),
+#else
+        .name = _("PSYCHIC {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_PSYCHIC,
+        .price = 0,
+        .description = gItemDesc_PsychicPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockPsychic,
+    },
+    [ITEM_POKEBLOCK_ICE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Ice {POKEBLOCK}"),
+#else
+        .name = _("ICE {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_ICE,
+        .price = 0,
+        .description = gItemDesc_IcePokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockIce,
+    },
+    [ITEM_POKEBLOCK_DRAGON - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Dragon {POKEBLOCK}"),
+#else
+        .name = _("DRAGON {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_DRAGON,
+        .price = 0,
+        .description = gItemDesc_DragonPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockDragon,
+    },
+    [ITEM_POKEBLOCK_DARK - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Dark {POKEBLOCK}"),
+#else
+        .name = _("DARK {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_DARK,
+        .price = 0,
+        .description = gItemDesc_DarkPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockDark,
+    },
+#ifdef ROGUE_EXPANSION
+    [ITEM_POKEBLOCK_FAIRY - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("Fairy {POKEBLOCK}"),
+        .itemId = ITEM_POKEBLOCK_FAIRY,
+        .price = 0,
+        .description = gItemDesc_FairyPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockFairy,
+    },
+#endif
+    [ITEM_POKEBLOCK_SHINY - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Shiny {POKEBLOCK}"),
+#else
+        .name = _("SHINY {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_SHINY,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_PokeblockShiny,
+        .iconPalette = gItemIconPalette_PokeblockShiny,
+    },
+    [ITEM_POKEBLOCK_HP - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("HP {POKEBLOCK}"),
+        .itemId = ITEM_POKEBLOCK_HP,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStat,
+    },
+    [ITEM_POKEBLOCK_ATK - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Atk {POKEBLOCK}"),
+#else
+        .name = _("ATK {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_ATK,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStat,
+    },
+    [ITEM_POKEBLOCK_DEF - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Def {POKEBLOCK}"),
+#else
+        .name = _("DEF {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_DEF,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStatAlt,
+    },
+    [ITEM_POKEBLOCK_SPEED - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Speed {POKEBLOCK}"),
+#else
+        .name = _("SPEED {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_SPEED,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStatAlt,
+    },
+    [ITEM_POKEBLOCK_SPATK - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Sp.Atk {POKEBLOCK}"),
+#else
+        .name = _("SP.ATK {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_SPATK,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStat,
+    },
+    [ITEM_POKEBLOCK_SPDEF - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Sp.Def {POKEBLOCK}"),
+#else
+        .name = _("SP.DEF {POKEBLOCK}"),
+#endif
+        .itemId = ITEM_POKEBLOCK_SPDEF,
+        .price = 0,
+        .description = gItemDesc_StatPokeblock,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_Pokeblock,
+        .iconPalette = gItemIconPalette_PokeblockStatAlt,
+    },
+
+
+    // Charms
+    //
     [ITEM_SHOP_PRICE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
     {
 #ifdef ROGUE_EXPANSION

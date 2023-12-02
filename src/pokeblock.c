@@ -1199,7 +1199,9 @@ u8 GetPokeblocksFeel(const struct Pokeblock *pokeblock)
 
 s8 GetFirstFreePokeblockSlot(void)
 {
-    return -1;
+    // TEMP HACK
+    return 0;
+    //return -1;
 }
 
 bool32 AddPokeblock(const struct Pokeblock *pokeblock)
