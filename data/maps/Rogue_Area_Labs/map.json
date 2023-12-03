@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ROGUE_AREA_TOWN_SQUARE",
-  "name": "Rogue_Area_TownSquare",
-  "layout": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
+  "id": "MAP_ROGUE_AREA_LABS",
+  "name": "Rogue_Area_Labs",
+  "layout": "LAYOUT_ROGUE_AREA_LABS",
   "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
@@ -84,7 +84,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_TownSquare_TalkBackpacker",
+      "script": "Rogue_Area_Labs_TalkBackpacker",
       "flag": "0"
     },
     {
@@ -106,56 +106,56 @@
       "x": 19,
       "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 20,
       "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 29,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 29,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 19,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 20,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 0,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
       "x": 0,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
@@ -183,7 +183,7 @@
       "x": 10,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 0
     },
     {
@@ -211,7 +211,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Area_TownSquare_LabSign"
+      "script": "Rogue_Area_Labs_LabSign"
     },
     {
       "type": "sign",
@@ -219,7 +219,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Area_TownSquare_ConfigSign"
+      "script": "Rogue_Area_Labs_ConfigSign"
     }
   ]
 }

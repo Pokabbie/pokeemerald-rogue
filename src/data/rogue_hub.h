@@ -26,10 +26,10 @@ extern const u8 gHubUpgradeDesc_BerryField_HigherYeild[];
 
 const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] = 
 {
-    [HUB_AREA_TOWN_SQUARE] = 
+    [HUB_AREA_LABS] = 
     {
-        SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
-        .areaName = _("Town Square"),
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_LABS),
+        .areaName = _("Labs"),
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -137,12 +137,12 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
-    // HUB_AREA_TOWN_SQUARE
+    // HUB_AREA_LABS
     //
-    [HUB_UPGRADE_TOWN_SQUARE_POKE_CONNECT] = 
+    [HUB_UPGRADE_LABS_POKE_CONNECT] = 
     {
         .upgradeName = _("Poké Connect"),
-        .targetArea = HUB_AREA_TOWN_SQUARE,
+        .targetArea = HUB_AREA_LABS,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },

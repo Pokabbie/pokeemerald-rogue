@@ -32,7 +32,7 @@
 // gMapGroup_RogueHubAreas
 #define MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL (0 | (2 << 8))
 #define MAP_ROGUE_HALLWAY_FACADE_VERTICAL   (1 | (2 << 8))
-#define MAP_ROGUE_AREA_TOWN_SQUARE          (2 | (2 << 8))
+#define MAP_ROGUE_AREA_LABS                 (2 | (2 << 8))
 #define MAP_ROGUE_AREA_HOME                 (3 | (2 << 8))
 #define MAP_ROGUE_AREA_FARMING_FIELD        (4 | (2 << 8))
 #define MAP_ROGUE_AREA_ADVENTURE_ENTRANCE   (5 | (2 << 8))

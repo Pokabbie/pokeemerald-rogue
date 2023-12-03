@@ -4,16 +4,16 @@ const VAR_RETURN_STATE = VAR_TEMP_0
 
 const OBJ_EVENT_BIRCH = 5
 
-mapscripts Rogue_Area_TownSquare_MapScripts 
+mapscripts Rogue_Area_Labs_MapScripts 
 {
-    MAP_SCRIPT_ON_LOAD: Rogue_Area_TownSquare_OnMapLoad
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Labs_OnMapLoad
     MAP_SCRIPT_ON_FRAME_TABLE 
     [
-        VAR_RETURN_STATE, 0: Rogue_Area_TownSquare_WarpState0
+        VAR_RETURN_STATE, 0: Rogue_Area_Labs_WarpState0
     ]
 }
 
-script Rogue_Area_TownSquare_OnMapLoad
+script Rogue_Area_Labs_OnMapLoad
 {
     if(flag(FLAG_ROGUE_DEBUG_DISABLED))
     {
@@ -30,16 +30,16 @@ script Rogue_Area_TownSquare_OnMapLoad
     }
 }
 
-script Rogue_Area_TownSquare_WarpState0
+script Rogue_Area_Labs_WarpState0
 {
     if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
     {
-        call(Rogue_Area_TownSquare_StartGame)
+        call(Rogue_Area_Labs_StartGame)
     }
     setvar(VAR_RETURN_STATE, 1)
 }
 
-script Rogue_Area_TownSquare_StartGame
+script Rogue_Area_Labs_StartGame
 {
     lock
 
@@ -58,7 +58,7 @@ script Rogue_Area_TownSquare_StartGame
 
     applymovement(OBJ_EVENT_BIRCH, BirchStartGame2)
     waitmovement(0)
-    hideobjectat(OBJ_EVENT_BIRCH, MAP_ROGUE_AREA_TOWN_SQUARE)
+    hideobjectat(OBJ_EVENT_BIRCH, MAP_ROGUE_AREA_LABS)
 
     closedoor(8, 8)
     waitdooranim
@@ -88,17 +88,17 @@ movement BirchStartGame2
     walk_up
 }
 
-script Rogue_Area_TownSquare_LabSign
+script Rogue_Area_Labs_LabSign
 {
-    msgbox(format("PROF. BIRCH's Lab"), MSGBOX_SIGN)
+    msgbox(format("Prof. Birch's Lab"), MSGBOX_SIGN)
 }
 
-script Rogue_Area_TownSquare_ConfigSign
+script Rogue_Area_Labs_ConfigSign
 {
     msgbox(format("Config Lab"), MSGBOX_SIGN)
 }
 
-script Rogue_Area_TownSquare_TalkBackpacker
+script Rogue_Area_Labs_TalkBackpacker
 {
     lock
     faceplayer

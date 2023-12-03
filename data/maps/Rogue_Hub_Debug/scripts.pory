@@ -181,8 +181,6 @@ script Rogue_Debug_BlendPokeblock
         giveitem(ITEM_CHESTO_BERRY, 40)
     }
 
-    clearflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
-
     //goto(BerryBlender_EventScript_BerryBlender1)
     
     lockall
@@ -225,4 +223,16 @@ script Rogue_Debug_BlendPokeblock
     }
 
     releaseall
+}
+
+script Rogue_Debug_BlendPokeblockNovice
+{
+    setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Debug_BlendPokeblock)
+}
+
+script Rogue_Debug_BlendPokeblockMaster
+{
+    clearflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Debug_BlendPokeblock)
 }
