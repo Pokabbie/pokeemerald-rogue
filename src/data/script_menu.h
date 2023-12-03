@@ -1060,6 +1060,7 @@ const u8 *const gStdStrings[] =
     [STDSTRING_MEDICINE] = gText_Medicine,
     [STDSTRING_CHARMS] = gText_Charms,
     [STDSTRING_STONES] = gText_Stones,
+    [STDSTRING_POKEBLOCK] = gText_Pokeblock,
     [STDSTRING_HELD_ITEMS] = gText_HeldItems,
 };
 
