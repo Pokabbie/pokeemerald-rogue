@@ -2,7 +2,7 @@ const FLAG_HIDE_BIRCH = FLAG_TEMP_1
 
 const VAR_RETURN_STATE = VAR_TEMP_0
 
-const OBJ_EVENT_BIRCH = 5
+const OBJ_EVENT_BIRCH = 4
 
 mapscripts Rogue_Area_Labs_MapScripts 
 {
