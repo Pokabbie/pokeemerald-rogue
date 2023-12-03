@@ -180,5 +180,6 @@
 #define STDSTRING_CHARMS           31
 #define STDSTRING_STONES           32
 #define STDSTRING_HELD_ITEMS       33
+#define STDSTRING_POKEBLOCK        34
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H
