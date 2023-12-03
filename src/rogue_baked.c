@@ -1232,6 +1232,21 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->pocket = POCKET_STONES;
     }
 
+    if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
+    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
+    if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
     if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
     {
         outItem->pocket = POCKET_STONES;
@@ -1260,6 +1275,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_ABILITY_CAPSULE:
         case ITEM_ABILITY_PATCH:
             outItem->pocket = POCKET_MEDICINE;
+            break;
+
+        case ITEM_RED_ORB:
+        case ITEM_BLUE_ORB:
+            outItem->pocket = POCKET_STONES;
             break;
 
         // Weaker versions
